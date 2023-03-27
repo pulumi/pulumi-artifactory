@@ -311,6 +311,7 @@ func Provider() tfbridge.ProviderInfo {
 
 	// The provider doesn't have docs for the following data sources, so we exclude them.
 	docLessDataSources := []string{
+		"artifactory_federated_docker_repository",
 		"artifactory_local_alpine_repository",
 		"artifactory_local_bower_repository",
 		"artifactory_local_cargo_repository",

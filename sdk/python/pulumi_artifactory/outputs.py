@@ -119,6 +119,38 @@ __all__ = [
     'RemoteTerraformRepositoryContentSynchronisation',
     'RemoteVcsRepositoryContentSynchronisation',
     'ReplicationConfigReplication',
+    'GetFederatedAlpineRepositoryMemberResult',
+    'GetFederatedBowerRepositoryMemberResult',
+    'GetFederatedCargoRepositoryMemberResult',
+    'GetFederatedChefRepositoryMemberResult',
+    'GetFederatedCocoapodsRepositoryMemberResult',
+    'GetFederatedComposerRepositoryMemberResult',
+    'GetFederatedConanRepositoryMemberResult',
+    'GetFederatedCondaRepositoryMemberResult',
+    'GetFederatedCranRepositoryMemberResult',
+    'GetFederatedDebianRepositoryMemberResult',
+    'GetFederatedDockerRepositoryMemberResult',
+    'GetFederatedDockerV1RepositoryMemberResult',
+    'GetFederatedDockerV2RepositoryMemberResult',
+    'GetFederatedGemsRepositoryMemberResult',
+    'GetFederatedGenericRepositoryMemberResult',
+    'GetFederatedGitlfsRepositoryMemberResult',
+    'GetFederatedGoRepositoryMemberResult',
+    'GetFederatedGradleRepositoryMemberResult',
+    'GetFederatedHelmRepositoryMemberResult',
+    'GetFederatedIvyRepositoryMemberResult',
+    'GetFederatedMavenRepositoryMemberResult',
+    'GetFederatedNpmRepositoryMemberResult',
+    'GetFederatedNugetRepositoryMemberResult',
+    'GetFederatedOpkgRepositoryMemberResult',
+    'GetFederatedPuppetRepositoryMemberResult',
+    'GetFederatedPypiRepositoryMemberResult',
+    'GetFederatedRpmRepositoryMemberResult',
+    'GetFederatedSbtRepositoryMemberResult',
+    'GetFederatedSwiftRepositoryMemberResult',
+    'GetFederatedTerraformModuleRepositoryMemberResult',
+    'GetFederatedTerraformProviderRepositoryMemberResult',
+    'GetFederatedVagrantRepositoryMemberResult',
     'GetPermissionTargetBuildResult',
     'GetPermissionTargetBuildActionsResult',
     'GetPermissionTargetBuildActionsGroupResult',
@@ -5669,6 +5701,986 @@ class ReplicationConfigReplication(dict):
     @pulumi.getter
     def username(self) -> Optional[str]:
         return pulumi.get(self, "username")
+
+
+@pulumi.output_type
+class GetFederatedAlpineRepositoryMemberResult(dict):
+    def __init__(__self__, *,
+                 enabled: bool,
+                 url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
+               status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        Full URL to ending with the repository name.
+        """
+        return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class GetFederatedBowerRepositoryMemberResult(dict):
+    def __init__(__self__, *,
+                 enabled: bool,
+                 url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
+               status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        Full URL to ending with the repository name.
+        """
+        return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class GetFederatedCargoRepositoryMemberResult(dict):
+    def __init__(__self__, *,
+                 enabled: bool,
+                 url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
+               status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        Full URL to ending with the repository name.
+        """
+        return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class GetFederatedChefRepositoryMemberResult(dict):
+    def __init__(__self__, *,
+                 enabled: bool,
+                 url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
+               status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        Full URL to ending with the repository name.
+        """
+        return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class GetFederatedCocoapodsRepositoryMemberResult(dict):
+    def __init__(__self__, *,
+                 enabled: bool,
+                 url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
+               status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        Full URL to ending with the repository name.
+        """
+        return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class GetFederatedComposerRepositoryMemberResult(dict):
+    def __init__(__self__, *,
+                 enabled: bool,
+                 url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
+               status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        Full URL to ending with the repository name.
+        """
+        return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class GetFederatedConanRepositoryMemberResult(dict):
+    def __init__(__self__, *,
+                 enabled: bool,
+                 url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
+               status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        Full URL to ending with the repository name.
+        """
+        return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class GetFederatedCondaRepositoryMemberResult(dict):
+    def __init__(__self__, *,
+                 enabled: bool,
+                 url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
+               status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        Full URL to ending with the repository name.
+        """
+        return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class GetFederatedCranRepositoryMemberResult(dict):
+    def __init__(__self__, *,
+                 enabled: bool,
+                 url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
+               status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        Full URL to ending with the repository name.
+        """
+        return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class GetFederatedDebianRepositoryMemberResult(dict):
+    def __init__(__self__, *,
+                 enabled: bool,
+                 url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
+               status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        Full URL to ending with the repository name.
+        """
+        return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class GetFederatedDockerRepositoryMemberResult(dict):
+    def __init__(__self__, *,
+                 enabled: bool,
+                 url: str):
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class GetFederatedDockerV1RepositoryMemberResult(dict):
+    def __init__(__self__, *,
+                 enabled: bool,
+                 url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
+               status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        Full URL to ending with the repository name.
+        """
+        return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class GetFederatedDockerV2RepositoryMemberResult(dict):
+    def __init__(__self__, *,
+                 enabled: bool,
+                 url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
+               status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        Full URL to ending with the repository name.
+        """
+        return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class GetFederatedGemsRepositoryMemberResult(dict):
+    def __init__(__self__, *,
+                 enabled: bool,
+                 url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
+               status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        Full URL to ending with the repository name.
+        """
+        return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class GetFederatedGenericRepositoryMemberResult(dict):
+    def __init__(__self__, *,
+                 enabled: bool,
+                 url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
+               status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        Full URL to ending with the repository name.
+        """
+        return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class GetFederatedGitlfsRepositoryMemberResult(dict):
+    def __init__(__self__, *,
+                 enabled: bool,
+                 url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
+               status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        Full URL to ending with the repository name.
+        """
+        return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class GetFederatedGoRepositoryMemberResult(dict):
+    def __init__(__self__, *,
+                 enabled: bool,
+                 url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
+               status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        Full URL to ending with the repository name.
+        """
+        return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class GetFederatedGradleRepositoryMemberResult(dict):
+    def __init__(__self__, *,
+                 enabled: bool,
+                 url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
+               status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        Full URL to ending with the repository name.
+        """
+        return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class GetFederatedHelmRepositoryMemberResult(dict):
+    def __init__(__self__, *,
+                 enabled: bool,
+                 url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
+               status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        Full URL to ending with the repository name.
+        """
+        return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class GetFederatedIvyRepositoryMemberResult(dict):
+    def __init__(__self__, *,
+                 enabled: bool,
+                 url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
+               status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        Full URL to ending with the repository name.
+        """
+        return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class GetFederatedMavenRepositoryMemberResult(dict):
+    def __init__(__self__, *,
+                 enabled: bool,
+                 url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
+               status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        Full URL to ending with the repository name.
+        """
+        return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class GetFederatedNpmRepositoryMemberResult(dict):
+    def __init__(__self__, *,
+                 enabled: bool,
+                 url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
+               status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        Full URL to ending with the repository name.
+        """
+        return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class GetFederatedNugetRepositoryMemberResult(dict):
+    def __init__(__self__, *,
+                 enabled: bool,
+                 url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
+               status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        Full URL to ending with the repository name.
+        """
+        return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class GetFederatedOpkgRepositoryMemberResult(dict):
+    def __init__(__self__, *,
+                 enabled: bool,
+                 url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
+               status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        Full URL to ending with the repository name.
+        """
+        return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class GetFederatedPuppetRepositoryMemberResult(dict):
+    def __init__(__self__, *,
+                 enabled: bool,
+                 url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
+               status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        Full URL to ending with the repository name.
+        """
+        return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class GetFederatedPypiRepositoryMemberResult(dict):
+    def __init__(__self__, *,
+                 enabled: bool,
+                 url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
+               status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        Full URL to ending with the repository name.
+        """
+        return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class GetFederatedRpmRepositoryMemberResult(dict):
+    def __init__(__self__, *,
+                 enabled: bool,
+                 url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
+               status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        Full URL to ending with the repository name.
+        """
+        return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class GetFederatedSbtRepositoryMemberResult(dict):
+    def __init__(__self__, *,
+                 enabled: bool,
+                 url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
+               status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        Full URL to ending with the repository name.
+        """
+        return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class GetFederatedSwiftRepositoryMemberResult(dict):
+    def __init__(__self__, *,
+                 enabled: bool,
+                 url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
+               status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        Full URL to ending with the repository name.
+        """
+        return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class GetFederatedTerraformModuleRepositoryMemberResult(dict):
+    def __init__(__self__, *,
+                 enabled: bool,
+                 url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
+               status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        Full URL to ending with the repository name.
+        """
+        return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class GetFederatedTerraformProviderRepositoryMemberResult(dict):
+    def __init__(__self__, *,
+                 enabled: bool,
+                 url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
+               status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        Full URL to ending with the repository name.
+        """
+        return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class GetFederatedVagrantRepositoryMemberResult(dict):
+    def __init__(__self__, *,
+                 enabled: bool,
+                 url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
+               status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        Full URL to ending with the repository name.
+        """
+        return pulumi.get(self, "url")
 
 
 @pulumi.output_type

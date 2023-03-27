@@ -15694,6 +15694,3485 @@ func (o ReplicationConfigReplicationArrayOutput) Index(i pulumi.IntInput) Replic
 	}).(ReplicationConfigReplicationOutput)
 }
 
+type GetFederatedAlpineRepositoryMember struct {
+	// Represents the active state of the federated member. It is supported to change the enabled
+	// status of my own member. The config will be updated on the other federated members automatically.
+	Enabled bool `pulumi:"enabled"`
+	// Full URL to ending with the repository name.
+	Url string `pulumi:"url"`
+}
+
+// GetFederatedAlpineRepositoryMemberInput is an input type that accepts GetFederatedAlpineRepositoryMemberArgs and GetFederatedAlpineRepositoryMemberOutput values.
+// You can construct a concrete instance of `GetFederatedAlpineRepositoryMemberInput` via:
+//
+//	GetFederatedAlpineRepositoryMemberArgs{...}
+type GetFederatedAlpineRepositoryMemberInput interface {
+	pulumi.Input
+
+	ToGetFederatedAlpineRepositoryMemberOutput() GetFederatedAlpineRepositoryMemberOutput
+	ToGetFederatedAlpineRepositoryMemberOutputWithContext(context.Context) GetFederatedAlpineRepositoryMemberOutput
+}
+
+type GetFederatedAlpineRepositoryMemberArgs struct {
+	// Represents the active state of the federated member. It is supported to change the enabled
+	// status of my own member. The config will be updated on the other federated members automatically.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// Full URL to ending with the repository name.
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (GetFederatedAlpineRepositoryMemberArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFederatedAlpineRepositoryMember)(nil)).Elem()
+}
+
+func (i GetFederatedAlpineRepositoryMemberArgs) ToGetFederatedAlpineRepositoryMemberOutput() GetFederatedAlpineRepositoryMemberOutput {
+	return i.ToGetFederatedAlpineRepositoryMemberOutputWithContext(context.Background())
+}
+
+func (i GetFederatedAlpineRepositoryMemberArgs) ToGetFederatedAlpineRepositoryMemberOutputWithContext(ctx context.Context) GetFederatedAlpineRepositoryMemberOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFederatedAlpineRepositoryMemberOutput)
+}
+
+// GetFederatedAlpineRepositoryMemberArrayInput is an input type that accepts GetFederatedAlpineRepositoryMemberArray and GetFederatedAlpineRepositoryMemberArrayOutput values.
+// You can construct a concrete instance of `GetFederatedAlpineRepositoryMemberArrayInput` via:
+//
+//	GetFederatedAlpineRepositoryMemberArray{ GetFederatedAlpineRepositoryMemberArgs{...} }
+type GetFederatedAlpineRepositoryMemberArrayInput interface {
+	pulumi.Input
+
+	ToGetFederatedAlpineRepositoryMemberArrayOutput() GetFederatedAlpineRepositoryMemberArrayOutput
+	ToGetFederatedAlpineRepositoryMemberArrayOutputWithContext(context.Context) GetFederatedAlpineRepositoryMemberArrayOutput
+}
+
+type GetFederatedAlpineRepositoryMemberArray []GetFederatedAlpineRepositoryMemberInput
+
+func (GetFederatedAlpineRepositoryMemberArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFederatedAlpineRepositoryMember)(nil)).Elem()
+}
+
+func (i GetFederatedAlpineRepositoryMemberArray) ToGetFederatedAlpineRepositoryMemberArrayOutput() GetFederatedAlpineRepositoryMemberArrayOutput {
+	return i.ToGetFederatedAlpineRepositoryMemberArrayOutputWithContext(context.Background())
+}
+
+func (i GetFederatedAlpineRepositoryMemberArray) ToGetFederatedAlpineRepositoryMemberArrayOutputWithContext(ctx context.Context) GetFederatedAlpineRepositoryMemberArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFederatedAlpineRepositoryMemberArrayOutput)
+}
+
+type GetFederatedAlpineRepositoryMemberOutput struct{ *pulumi.OutputState }
+
+func (GetFederatedAlpineRepositoryMemberOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFederatedAlpineRepositoryMember)(nil)).Elem()
+}
+
+func (o GetFederatedAlpineRepositoryMemberOutput) ToGetFederatedAlpineRepositoryMemberOutput() GetFederatedAlpineRepositoryMemberOutput {
+	return o
+}
+
+func (o GetFederatedAlpineRepositoryMemberOutput) ToGetFederatedAlpineRepositoryMemberOutputWithContext(ctx context.Context) GetFederatedAlpineRepositoryMemberOutput {
+	return o
+}
+
+// Represents the active state of the federated member. It is supported to change the enabled
+// status of my own member. The config will be updated on the other federated members automatically.
+func (o GetFederatedAlpineRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetFederatedAlpineRepositoryMember) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// Full URL to ending with the repository name.
+func (o GetFederatedAlpineRepositoryMemberOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFederatedAlpineRepositoryMember) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type GetFederatedAlpineRepositoryMemberArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFederatedAlpineRepositoryMemberArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFederatedAlpineRepositoryMember)(nil)).Elem()
+}
+
+func (o GetFederatedAlpineRepositoryMemberArrayOutput) ToGetFederatedAlpineRepositoryMemberArrayOutput() GetFederatedAlpineRepositoryMemberArrayOutput {
+	return o
+}
+
+func (o GetFederatedAlpineRepositoryMemberArrayOutput) ToGetFederatedAlpineRepositoryMemberArrayOutputWithContext(ctx context.Context) GetFederatedAlpineRepositoryMemberArrayOutput {
+	return o
+}
+
+func (o GetFederatedAlpineRepositoryMemberArrayOutput) Index(i pulumi.IntInput) GetFederatedAlpineRepositoryMemberOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFederatedAlpineRepositoryMember {
+		return vs[0].([]GetFederatedAlpineRepositoryMember)[vs[1].(int)]
+	}).(GetFederatedAlpineRepositoryMemberOutput)
+}
+
+type GetFederatedBowerRepositoryMember struct {
+	// Represents the active state of the federated member. It is supported to change the enabled
+	// status of my own member. The config will be updated on the other federated members automatically.
+	Enabled bool `pulumi:"enabled"`
+	// Full URL to ending with the repository name.
+	Url string `pulumi:"url"`
+}
+
+// GetFederatedBowerRepositoryMemberInput is an input type that accepts GetFederatedBowerRepositoryMemberArgs and GetFederatedBowerRepositoryMemberOutput values.
+// You can construct a concrete instance of `GetFederatedBowerRepositoryMemberInput` via:
+//
+//	GetFederatedBowerRepositoryMemberArgs{...}
+type GetFederatedBowerRepositoryMemberInput interface {
+	pulumi.Input
+
+	ToGetFederatedBowerRepositoryMemberOutput() GetFederatedBowerRepositoryMemberOutput
+	ToGetFederatedBowerRepositoryMemberOutputWithContext(context.Context) GetFederatedBowerRepositoryMemberOutput
+}
+
+type GetFederatedBowerRepositoryMemberArgs struct {
+	// Represents the active state of the federated member. It is supported to change the enabled
+	// status of my own member. The config will be updated on the other federated members automatically.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// Full URL to ending with the repository name.
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (GetFederatedBowerRepositoryMemberArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFederatedBowerRepositoryMember)(nil)).Elem()
+}
+
+func (i GetFederatedBowerRepositoryMemberArgs) ToGetFederatedBowerRepositoryMemberOutput() GetFederatedBowerRepositoryMemberOutput {
+	return i.ToGetFederatedBowerRepositoryMemberOutputWithContext(context.Background())
+}
+
+func (i GetFederatedBowerRepositoryMemberArgs) ToGetFederatedBowerRepositoryMemberOutputWithContext(ctx context.Context) GetFederatedBowerRepositoryMemberOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFederatedBowerRepositoryMemberOutput)
+}
+
+// GetFederatedBowerRepositoryMemberArrayInput is an input type that accepts GetFederatedBowerRepositoryMemberArray and GetFederatedBowerRepositoryMemberArrayOutput values.
+// You can construct a concrete instance of `GetFederatedBowerRepositoryMemberArrayInput` via:
+//
+//	GetFederatedBowerRepositoryMemberArray{ GetFederatedBowerRepositoryMemberArgs{...} }
+type GetFederatedBowerRepositoryMemberArrayInput interface {
+	pulumi.Input
+
+	ToGetFederatedBowerRepositoryMemberArrayOutput() GetFederatedBowerRepositoryMemberArrayOutput
+	ToGetFederatedBowerRepositoryMemberArrayOutputWithContext(context.Context) GetFederatedBowerRepositoryMemberArrayOutput
+}
+
+type GetFederatedBowerRepositoryMemberArray []GetFederatedBowerRepositoryMemberInput
+
+func (GetFederatedBowerRepositoryMemberArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFederatedBowerRepositoryMember)(nil)).Elem()
+}
+
+func (i GetFederatedBowerRepositoryMemberArray) ToGetFederatedBowerRepositoryMemberArrayOutput() GetFederatedBowerRepositoryMemberArrayOutput {
+	return i.ToGetFederatedBowerRepositoryMemberArrayOutputWithContext(context.Background())
+}
+
+func (i GetFederatedBowerRepositoryMemberArray) ToGetFederatedBowerRepositoryMemberArrayOutputWithContext(ctx context.Context) GetFederatedBowerRepositoryMemberArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFederatedBowerRepositoryMemberArrayOutput)
+}
+
+type GetFederatedBowerRepositoryMemberOutput struct{ *pulumi.OutputState }
+
+func (GetFederatedBowerRepositoryMemberOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFederatedBowerRepositoryMember)(nil)).Elem()
+}
+
+func (o GetFederatedBowerRepositoryMemberOutput) ToGetFederatedBowerRepositoryMemberOutput() GetFederatedBowerRepositoryMemberOutput {
+	return o
+}
+
+func (o GetFederatedBowerRepositoryMemberOutput) ToGetFederatedBowerRepositoryMemberOutputWithContext(ctx context.Context) GetFederatedBowerRepositoryMemberOutput {
+	return o
+}
+
+// Represents the active state of the federated member. It is supported to change the enabled
+// status of my own member. The config will be updated on the other federated members automatically.
+func (o GetFederatedBowerRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetFederatedBowerRepositoryMember) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// Full URL to ending with the repository name.
+func (o GetFederatedBowerRepositoryMemberOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFederatedBowerRepositoryMember) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type GetFederatedBowerRepositoryMemberArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFederatedBowerRepositoryMemberArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFederatedBowerRepositoryMember)(nil)).Elem()
+}
+
+func (o GetFederatedBowerRepositoryMemberArrayOutput) ToGetFederatedBowerRepositoryMemberArrayOutput() GetFederatedBowerRepositoryMemberArrayOutput {
+	return o
+}
+
+func (o GetFederatedBowerRepositoryMemberArrayOutput) ToGetFederatedBowerRepositoryMemberArrayOutputWithContext(ctx context.Context) GetFederatedBowerRepositoryMemberArrayOutput {
+	return o
+}
+
+func (o GetFederatedBowerRepositoryMemberArrayOutput) Index(i pulumi.IntInput) GetFederatedBowerRepositoryMemberOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFederatedBowerRepositoryMember {
+		return vs[0].([]GetFederatedBowerRepositoryMember)[vs[1].(int)]
+	}).(GetFederatedBowerRepositoryMemberOutput)
+}
+
+type GetFederatedCargoRepositoryMember struct {
+	// Represents the active state of the federated member. It is supported to change the enabled
+	// status of my own member. The config will be updated on the other federated members automatically.
+	Enabled bool `pulumi:"enabled"`
+	// Full URL to ending with the repository name.
+	Url string `pulumi:"url"`
+}
+
+// GetFederatedCargoRepositoryMemberInput is an input type that accepts GetFederatedCargoRepositoryMemberArgs and GetFederatedCargoRepositoryMemberOutput values.
+// You can construct a concrete instance of `GetFederatedCargoRepositoryMemberInput` via:
+//
+//	GetFederatedCargoRepositoryMemberArgs{...}
+type GetFederatedCargoRepositoryMemberInput interface {
+	pulumi.Input
+
+	ToGetFederatedCargoRepositoryMemberOutput() GetFederatedCargoRepositoryMemberOutput
+	ToGetFederatedCargoRepositoryMemberOutputWithContext(context.Context) GetFederatedCargoRepositoryMemberOutput
+}
+
+type GetFederatedCargoRepositoryMemberArgs struct {
+	// Represents the active state of the federated member. It is supported to change the enabled
+	// status of my own member. The config will be updated on the other federated members automatically.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// Full URL to ending with the repository name.
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (GetFederatedCargoRepositoryMemberArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFederatedCargoRepositoryMember)(nil)).Elem()
+}
+
+func (i GetFederatedCargoRepositoryMemberArgs) ToGetFederatedCargoRepositoryMemberOutput() GetFederatedCargoRepositoryMemberOutput {
+	return i.ToGetFederatedCargoRepositoryMemberOutputWithContext(context.Background())
+}
+
+func (i GetFederatedCargoRepositoryMemberArgs) ToGetFederatedCargoRepositoryMemberOutputWithContext(ctx context.Context) GetFederatedCargoRepositoryMemberOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFederatedCargoRepositoryMemberOutput)
+}
+
+// GetFederatedCargoRepositoryMemberArrayInput is an input type that accepts GetFederatedCargoRepositoryMemberArray and GetFederatedCargoRepositoryMemberArrayOutput values.
+// You can construct a concrete instance of `GetFederatedCargoRepositoryMemberArrayInput` via:
+//
+//	GetFederatedCargoRepositoryMemberArray{ GetFederatedCargoRepositoryMemberArgs{...} }
+type GetFederatedCargoRepositoryMemberArrayInput interface {
+	pulumi.Input
+
+	ToGetFederatedCargoRepositoryMemberArrayOutput() GetFederatedCargoRepositoryMemberArrayOutput
+	ToGetFederatedCargoRepositoryMemberArrayOutputWithContext(context.Context) GetFederatedCargoRepositoryMemberArrayOutput
+}
+
+type GetFederatedCargoRepositoryMemberArray []GetFederatedCargoRepositoryMemberInput
+
+func (GetFederatedCargoRepositoryMemberArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFederatedCargoRepositoryMember)(nil)).Elem()
+}
+
+func (i GetFederatedCargoRepositoryMemberArray) ToGetFederatedCargoRepositoryMemberArrayOutput() GetFederatedCargoRepositoryMemberArrayOutput {
+	return i.ToGetFederatedCargoRepositoryMemberArrayOutputWithContext(context.Background())
+}
+
+func (i GetFederatedCargoRepositoryMemberArray) ToGetFederatedCargoRepositoryMemberArrayOutputWithContext(ctx context.Context) GetFederatedCargoRepositoryMemberArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFederatedCargoRepositoryMemberArrayOutput)
+}
+
+type GetFederatedCargoRepositoryMemberOutput struct{ *pulumi.OutputState }
+
+func (GetFederatedCargoRepositoryMemberOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFederatedCargoRepositoryMember)(nil)).Elem()
+}
+
+func (o GetFederatedCargoRepositoryMemberOutput) ToGetFederatedCargoRepositoryMemberOutput() GetFederatedCargoRepositoryMemberOutput {
+	return o
+}
+
+func (o GetFederatedCargoRepositoryMemberOutput) ToGetFederatedCargoRepositoryMemberOutputWithContext(ctx context.Context) GetFederatedCargoRepositoryMemberOutput {
+	return o
+}
+
+// Represents the active state of the federated member. It is supported to change the enabled
+// status of my own member. The config will be updated on the other federated members automatically.
+func (o GetFederatedCargoRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetFederatedCargoRepositoryMember) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// Full URL to ending with the repository name.
+func (o GetFederatedCargoRepositoryMemberOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFederatedCargoRepositoryMember) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type GetFederatedCargoRepositoryMemberArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFederatedCargoRepositoryMemberArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFederatedCargoRepositoryMember)(nil)).Elem()
+}
+
+func (o GetFederatedCargoRepositoryMemberArrayOutput) ToGetFederatedCargoRepositoryMemberArrayOutput() GetFederatedCargoRepositoryMemberArrayOutput {
+	return o
+}
+
+func (o GetFederatedCargoRepositoryMemberArrayOutput) ToGetFederatedCargoRepositoryMemberArrayOutputWithContext(ctx context.Context) GetFederatedCargoRepositoryMemberArrayOutput {
+	return o
+}
+
+func (o GetFederatedCargoRepositoryMemberArrayOutput) Index(i pulumi.IntInput) GetFederatedCargoRepositoryMemberOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFederatedCargoRepositoryMember {
+		return vs[0].([]GetFederatedCargoRepositoryMember)[vs[1].(int)]
+	}).(GetFederatedCargoRepositoryMemberOutput)
+}
+
+type GetFederatedChefRepositoryMember struct {
+	// Represents the active state of the federated member. It is supported to change the enabled
+	// status of my own member. The config will be updated on the other federated members automatically.
+	Enabled bool `pulumi:"enabled"`
+	// Full URL to ending with the repository name.
+	Url string `pulumi:"url"`
+}
+
+// GetFederatedChefRepositoryMemberInput is an input type that accepts GetFederatedChefRepositoryMemberArgs and GetFederatedChefRepositoryMemberOutput values.
+// You can construct a concrete instance of `GetFederatedChefRepositoryMemberInput` via:
+//
+//	GetFederatedChefRepositoryMemberArgs{...}
+type GetFederatedChefRepositoryMemberInput interface {
+	pulumi.Input
+
+	ToGetFederatedChefRepositoryMemberOutput() GetFederatedChefRepositoryMemberOutput
+	ToGetFederatedChefRepositoryMemberOutputWithContext(context.Context) GetFederatedChefRepositoryMemberOutput
+}
+
+type GetFederatedChefRepositoryMemberArgs struct {
+	// Represents the active state of the federated member. It is supported to change the enabled
+	// status of my own member. The config will be updated on the other federated members automatically.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// Full URL to ending with the repository name.
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (GetFederatedChefRepositoryMemberArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFederatedChefRepositoryMember)(nil)).Elem()
+}
+
+func (i GetFederatedChefRepositoryMemberArgs) ToGetFederatedChefRepositoryMemberOutput() GetFederatedChefRepositoryMemberOutput {
+	return i.ToGetFederatedChefRepositoryMemberOutputWithContext(context.Background())
+}
+
+func (i GetFederatedChefRepositoryMemberArgs) ToGetFederatedChefRepositoryMemberOutputWithContext(ctx context.Context) GetFederatedChefRepositoryMemberOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFederatedChefRepositoryMemberOutput)
+}
+
+// GetFederatedChefRepositoryMemberArrayInput is an input type that accepts GetFederatedChefRepositoryMemberArray and GetFederatedChefRepositoryMemberArrayOutput values.
+// You can construct a concrete instance of `GetFederatedChefRepositoryMemberArrayInput` via:
+//
+//	GetFederatedChefRepositoryMemberArray{ GetFederatedChefRepositoryMemberArgs{...} }
+type GetFederatedChefRepositoryMemberArrayInput interface {
+	pulumi.Input
+
+	ToGetFederatedChefRepositoryMemberArrayOutput() GetFederatedChefRepositoryMemberArrayOutput
+	ToGetFederatedChefRepositoryMemberArrayOutputWithContext(context.Context) GetFederatedChefRepositoryMemberArrayOutput
+}
+
+type GetFederatedChefRepositoryMemberArray []GetFederatedChefRepositoryMemberInput
+
+func (GetFederatedChefRepositoryMemberArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFederatedChefRepositoryMember)(nil)).Elem()
+}
+
+func (i GetFederatedChefRepositoryMemberArray) ToGetFederatedChefRepositoryMemberArrayOutput() GetFederatedChefRepositoryMemberArrayOutput {
+	return i.ToGetFederatedChefRepositoryMemberArrayOutputWithContext(context.Background())
+}
+
+func (i GetFederatedChefRepositoryMemberArray) ToGetFederatedChefRepositoryMemberArrayOutputWithContext(ctx context.Context) GetFederatedChefRepositoryMemberArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFederatedChefRepositoryMemberArrayOutput)
+}
+
+type GetFederatedChefRepositoryMemberOutput struct{ *pulumi.OutputState }
+
+func (GetFederatedChefRepositoryMemberOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFederatedChefRepositoryMember)(nil)).Elem()
+}
+
+func (o GetFederatedChefRepositoryMemberOutput) ToGetFederatedChefRepositoryMemberOutput() GetFederatedChefRepositoryMemberOutput {
+	return o
+}
+
+func (o GetFederatedChefRepositoryMemberOutput) ToGetFederatedChefRepositoryMemberOutputWithContext(ctx context.Context) GetFederatedChefRepositoryMemberOutput {
+	return o
+}
+
+// Represents the active state of the federated member. It is supported to change the enabled
+// status of my own member. The config will be updated on the other federated members automatically.
+func (o GetFederatedChefRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetFederatedChefRepositoryMember) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// Full URL to ending with the repository name.
+func (o GetFederatedChefRepositoryMemberOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFederatedChefRepositoryMember) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type GetFederatedChefRepositoryMemberArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFederatedChefRepositoryMemberArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFederatedChefRepositoryMember)(nil)).Elem()
+}
+
+func (o GetFederatedChefRepositoryMemberArrayOutput) ToGetFederatedChefRepositoryMemberArrayOutput() GetFederatedChefRepositoryMemberArrayOutput {
+	return o
+}
+
+func (o GetFederatedChefRepositoryMemberArrayOutput) ToGetFederatedChefRepositoryMemberArrayOutputWithContext(ctx context.Context) GetFederatedChefRepositoryMemberArrayOutput {
+	return o
+}
+
+func (o GetFederatedChefRepositoryMemberArrayOutput) Index(i pulumi.IntInput) GetFederatedChefRepositoryMemberOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFederatedChefRepositoryMember {
+		return vs[0].([]GetFederatedChefRepositoryMember)[vs[1].(int)]
+	}).(GetFederatedChefRepositoryMemberOutput)
+}
+
+type GetFederatedCocoapodsRepositoryMember struct {
+	// Represents the active state of the federated member. It is supported to change the enabled
+	// status of my own member. The config will be updated on the other federated members automatically.
+	Enabled bool `pulumi:"enabled"`
+	// Full URL to ending with the repository name.
+	Url string `pulumi:"url"`
+}
+
+// GetFederatedCocoapodsRepositoryMemberInput is an input type that accepts GetFederatedCocoapodsRepositoryMemberArgs and GetFederatedCocoapodsRepositoryMemberOutput values.
+// You can construct a concrete instance of `GetFederatedCocoapodsRepositoryMemberInput` via:
+//
+//	GetFederatedCocoapodsRepositoryMemberArgs{...}
+type GetFederatedCocoapodsRepositoryMemberInput interface {
+	pulumi.Input
+
+	ToGetFederatedCocoapodsRepositoryMemberOutput() GetFederatedCocoapodsRepositoryMemberOutput
+	ToGetFederatedCocoapodsRepositoryMemberOutputWithContext(context.Context) GetFederatedCocoapodsRepositoryMemberOutput
+}
+
+type GetFederatedCocoapodsRepositoryMemberArgs struct {
+	// Represents the active state of the federated member. It is supported to change the enabled
+	// status of my own member. The config will be updated on the other federated members automatically.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// Full URL to ending with the repository name.
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (GetFederatedCocoapodsRepositoryMemberArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFederatedCocoapodsRepositoryMember)(nil)).Elem()
+}
+
+func (i GetFederatedCocoapodsRepositoryMemberArgs) ToGetFederatedCocoapodsRepositoryMemberOutput() GetFederatedCocoapodsRepositoryMemberOutput {
+	return i.ToGetFederatedCocoapodsRepositoryMemberOutputWithContext(context.Background())
+}
+
+func (i GetFederatedCocoapodsRepositoryMemberArgs) ToGetFederatedCocoapodsRepositoryMemberOutputWithContext(ctx context.Context) GetFederatedCocoapodsRepositoryMemberOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFederatedCocoapodsRepositoryMemberOutput)
+}
+
+// GetFederatedCocoapodsRepositoryMemberArrayInput is an input type that accepts GetFederatedCocoapodsRepositoryMemberArray and GetFederatedCocoapodsRepositoryMemberArrayOutput values.
+// You can construct a concrete instance of `GetFederatedCocoapodsRepositoryMemberArrayInput` via:
+//
+//	GetFederatedCocoapodsRepositoryMemberArray{ GetFederatedCocoapodsRepositoryMemberArgs{...} }
+type GetFederatedCocoapodsRepositoryMemberArrayInput interface {
+	pulumi.Input
+
+	ToGetFederatedCocoapodsRepositoryMemberArrayOutput() GetFederatedCocoapodsRepositoryMemberArrayOutput
+	ToGetFederatedCocoapodsRepositoryMemberArrayOutputWithContext(context.Context) GetFederatedCocoapodsRepositoryMemberArrayOutput
+}
+
+type GetFederatedCocoapodsRepositoryMemberArray []GetFederatedCocoapodsRepositoryMemberInput
+
+func (GetFederatedCocoapodsRepositoryMemberArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFederatedCocoapodsRepositoryMember)(nil)).Elem()
+}
+
+func (i GetFederatedCocoapodsRepositoryMemberArray) ToGetFederatedCocoapodsRepositoryMemberArrayOutput() GetFederatedCocoapodsRepositoryMemberArrayOutput {
+	return i.ToGetFederatedCocoapodsRepositoryMemberArrayOutputWithContext(context.Background())
+}
+
+func (i GetFederatedCocoapodsRepositoryMemberArray) ToGetFederatedCocoapodsRepositoryMemberArrayOutputWithContext(ctx context.Context) GetFederatedCocoapodsRepositoryMemberArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFederatedCocoapodsRepositoryMemberArrayOutput)
+}
+
+type GetFederatedCocoapodsRepositoryMemberOutput struct{ *pulumi.OutputState }
+
+func (GetFederatedCocoapodsRepositoryMemberOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFederatedCocoapodsRepositoryMember)(nil)).Elem()
+}
+
+func (o GetFederatedCocoapodsRepositoryMemberOutput) ToGetFederatedCocoapodsRepositoryMemberOutput() GetFederatedCocoapodsRepositoryMemberOutput {
+	return o
+}
+
+func (o GetFederatedCocoapodsRepositoryMemberOutput) ToGetFederatedCocoapodsRepositoryMemberOutputWithContext(ctx context.Context) GetFederatedCocoapodsRepositoryMemberOutput {
+	return o
+}
+
+// Represents the active state of the federated member. It is supported to change the enabled
+// status of my own member. The config will be updated on the other federated members automatically.
+func (o GetFederatedCocoapodsRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetFederatedCocoapodsRepositoryMember) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// Full URL to ending with the repository name.
+func (o GetFederatedCocoapodsRepositoryMemberOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFederatedCocoapodsRepositoryMember) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type GetFederatedCocoapodsRepositoryMemberArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFederatedCocoapodsRepositoryMemberArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFederatedCocoapodsRepositoryMember)(nil)).Elem()
+}
+
+func (o GetFederatedCocoapodsRepositoryMemberArrayOutput) ToGetFederatedCocoapodsRepositoryMemberArrayOutput() GetFederatedCocoapodsRepositoryMemberArrayOutput {
+	return o
+}
+
+func (o GetFederatedCocoapodsRepositoryMemberArrayOutput) ToGetFederatedCocoapodsRepositoryMemberArrayOutputWithContext(ctx context.Context) GetFederatedCocoapodsRepositoryMemberArrayOutput {
+	return o
+}
+
+func (o GetFederatedCocoapodsRepositoryMemberArrayOutput) Index(i pulumi.IntInput) GetFederatedCocoapodsRepositoryMemberOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFederatedCocoapodsRepositoryMember {
+		return vs[0].([]GetFederatedCocoapodsRepositoryMember)[vs[1].(int)]
+	}).(GetFederatedCocoapodsRepositoryMemberOutput)
+}
+
+type GetFederatedComposerRepositoryMember struct {
+	// Represents the active state of the federated member. It is supported to change the enabled
+	// status of my own member. The config will be updated on the other federated members automatically.
+	Enabled bool `pulumi:"enabled"`
+	// Full URL to ending with the repository name.
+	Url string `pulumi:"url"`
+}
+
+// GetFederatedComposerRepositoryMemberInput is an input type that accepts GetFederatedComposerRepositoryMemberArgs and GetFederatedComposerRepositoryMemberOutput values.
+// You can construct a concrete instance of `GetFederatedComposerRepositoryMemberInput` via:
+//
+//	GetFederatedComposerRepositoryMemberArgs{...}
+type GetFederatedComposerRepositoryMemberInput interface {
+	pulumi.Input
+
+	ToGetFederatedComposerRepositoryMemberOutput() GetFederatedComposerRepositoryMemberOutput
+	ToGetFederatedComposerRepositoryMemberOutputWithContext(context.Context) GetFederatedComposerRepositoryMemberOutput
+}
+
+type GetFederatedComposerRepositoryMemberArgs struct {
+	// Represents the active state of the federated member. It is supported to change the enabled
+	// status of my own member. The config will be updated on the other federated members automatically.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// Full URL to ending with the repository name.
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (GetFederatedComposerRepositoryMemberArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFederatedComposerRepositoryMember)(nil)).Elem()
+}
+
+func (i GetFederatedComposerRepositoryMemberArgs) ToGetFederatedComposerRepositoryMemberOutput() GetFederatedComposerRepositoryMemberOutput {
+	return i.ToGetFederatedComposerRepositoryMemberOutputWithContext(context.Background())
+}
+
+func (i GetFederatedComposerRepositoryMemberArgs) ToGetFederatedComposerRepositoryMemberOutputWithContext(ctx context.Context) GetFederatedComposerRepositoryMemberOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFederatedComposerRepositoryMemberOutput)
+}
+
+// GetFederatedComposerRepositoryMemberArrayInput is an input type that accepts GetFederatedComposerRepositoryMemberArray and GetFederatedComposerRepositoryMemberArrayOutput values.
+// You can construct a concrete instance of `GetFederatedComposerRepositoryMemberArrayInput` via:
+//
+//	GetFederatedComposerRepositoryMemberArray{ GetFederatedComposerRepositoryMemberArgs{...} }
+type GetFederatedComposerRepositoryMemberArrayInput interface {
+	pulumi.Input
+
+	ToGetFederatedComposerRepositoryMemberArrayOutput() GetFederatedComposerRepositoryMemberArrayOutput
+	ToGetFederatedComposerRepositoryMemberArrayOutputWithContext(context.Context) GetFederatedComposerRepositoryMemberArrayOutput
+}
+
+type GetFederatedComposerRepositoryMemberArray []GetFederatedComposerRepositoryMemberInput
+
+func (GetFederatedComposerRepositoryMemberArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFederatedComposerRepositoryMember)(nil)).Elem()
+}
+
+func (i GetFederatedComposerRepositoryMemberArray) ToGetFederatedComposerRepositoryMemberArrayOutput() GetFederatedComposerRepositoryMemberArrayOutput {
+	return i.ToGetFederatedComposerRepositoryMemberArrayOutputWithContext(context.Background())
+}
+
+func (i GetFederatedComposerRepositoryMemberArray) ToGetFederatedComposerRepositoryMemberArrayOutputWithContext(ctx context.Context) GetFederatedComposerRepositoryMemberArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFederatedComposerRepositoryMemberArrayOutput)
+}
+
+type GetFederatedComposerRepositoryMemberOutput struct{ *pulumi.OutputState }
+
+func (GetFederatedComposerRepositoryMemberOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFederatedComposerRepositoryMember)(nil)).Elem()
+}
+
+func (o GetFederatedComposerRepositoryMemberOutput) ToGetFederatedComposerRepositoryMemberOutput() GetFederatedComposerRepositoryMemberOutput {
+	return o
+}
+
+func (o GetFederatedComposerRepositoryMemberOutput) ToGetFederatedComposerRepositoryMemberOutputWithContext(ctx context.Context) GetFederatedComposerRepositoryMemberOutput {
+	return o
+}
+
+// Represents the active state of the federated member. It is supported to change the enabled
+// status of my own member. The config will be updated on the other federated members automatically.
+func (o GetFederatedComposerRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetFederatedComposerRepositoryMember) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// Full URL to ending with the repository name.
+func (o GetFederatedComposerRepositoryMemberOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFederatedComposerRepositoryMember) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type GetFederatedComposerRepositoryMemberArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFederatedComposerRepositoryMemberArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFederatedComposerRepositoryMember)(nil)).Elem()
+}
+
+func (o GetFederatedComposerRepositoryMemberArrayOutput) ToGetFederatedComposerRepositoryMemberArrayOutput() GetFederatedComposerRepositoryMemberArrayOutput {
+	return o
+}
+
+func (o GetFederatedComposerRepositoryMemberArrayOutput) ToGetFederatedComposerRepositoryMemberArrayOutputWithContext(ctx context.Context) GetFederatedComposerRepositoryMemberArrayOutput {
+	return o
+}
+
+func (o GetFederatedComposerRepositoryMemberArrayOutput) Index(i pulumi.IntInput) GetFederatedComposerRepositoryMemberOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFederatedComposerRepositoryMember {
+		return vs[0].([]GetFederatedComposerRepositoryMember)[vs[1].(int)]
+	}).(GetFederatedComposerRepositoryMemberOutput)
+}
+
+type GetFederatedConanRepositoryMember struct {
+	// Represents the active state of the federated member. It is supported to change the enabled
+	// status of my own member. The config will be updated on the other federated members automatically.
+	Enabled bool `pulumi:"enabled"`
+	// Full URL to ending with the repository name.
+	Url string `pulumi:"url"`
+}
+
+// GetFederatedConanRepositoryMemberInput is an input type that accepts GetFederatedConanRepositoryMemberArgs and GetFederatedConanRepositoryMemberOutput values.
+// You can construct a concrete instance of `GetFederatedConanRepositoryMemberInput` via:
+//
+//	GetFederatedConanRepositoryMemberArgs{...}
+type GetFederatedConanRepositoryMemberInput interface {
+	pulumi.Input
+
+	ToGetFederatedConanRepositoryMemberOutput() GetFederatedConanRepositoryMemberOutput
+	ToGetFederatedConanRepositoryMemberOutputWithContext(context.Context) GetFederatedConanRepositoryMemberOutput
+}
+
+type GetFederatedConanRepositoryMemberArgs struct {
+	// Represents the active state of the federated member. It is supported to change the enabled
+	// status of my own member. The config will be updated on the other federated members automatically.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// Full URL to ending with the repository name.
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (GetFederatedConanRepositoryMemberArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFederatedConanRepositoryMember)(nil)).Elem()
+}
+
+func (i GetFederatedConanRepositoryMemberArgs) ToGetFederatedConanRepositoryMemberOutput() GetFederatedConanRepositoryMemberOutput {
+	return i.ToGetFederatedConanRepositoryMemberOutputWithContext(context.Background())
+}
+
+func (i GetFederatedConanRepositoryMemberArgs) ToGetFederatedConanRepositoryMemberOutputWithContext(ctx context.Context) GetFederatedConanRepositoryMemberOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFederatedConanRepositoryMemberOutput)
+}
+
+// GetFederatedConanRepositoryMemberArrayInput is an input type that accepts GetFederatedConanRepositoryMemberArray and GetFederatedConanRepositoryMemberArrayOutput values.
+// You can construct a concrete instance of `GetFederatedConanRepositoryMemberArrayInput` via:
+//
+//	GetFederatedConanRepositoryMemberArray{ GetFederatedConanRepositoryMemberArgs{...} }
+type GetFederatedConanRepositoryMemberArrayInput interface {
+	pulumi.Input
+
+	ToGetFederatedConanRepositoryMemberArrayOutput() GetFederatedConanRepositoryMemberArrayOutput
+	ToGetFederatedConanRepositoryMemberArrayOutputWithContext(context.Context) GetFederatedConanRepositoryMemberArrayOutput
+}
+
+type GetFederatedConanRepositoryMemberArray []GetFederatedConanRepositoryMemberInput
+
+func (GetFederatedConanRepositoryMemberArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFederatedConanRepositoryMember)(nil)).Elem()
+}
+
+func (i GetFederatedConanRepositoryMemberArray) ToGetFederatedConanRepositoryMemberArrayOutput() GetFederatedConanRepositoryMemberArrayOutput {
+	return i.ToGetFederatedConanRepositoryMemberArrayOutputWithContext(context.Background())
+}
+
+func (i GetFederatedConanRepositoryMemberArray) ToGetFederatedConanRepositoryMemberArrayOutputWithContext(ctx context.Context) GetFederatedConanRepositoryMemberArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFederatedConanRepositoryMemberArrayOutput)
+}
+
+type GetFederatedConanRepositoryMemberOutput struct{ *pulumi.OutputState }
+
+func (GetFederatedConanRepositoryMemberOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFederatedConanRepositoryMember)(nil)).Elem()
+}
+
+func (o GetFederatedConanRepositoryMemberOutput) ToGetFederatedConanRepositoryMemberOutput() GetFederatedConanRepositoryMemberOutput {
+	return o
+}
+
+func (o GetFederatedConanRepositoryMemberOutput) ToGetFederatedConanRepositoryMemberOutputWithContext(ctx context.Context) GetFederatedConanRepositoryMemberOutput {
+	return o
+}
+
+// Represents the active state of the federated member. It is supported to change the enabled
+// status of my own member. The config will be updated on the other federated members automatically.
+func (o GetFederatedConanRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetFederatedConanRepositoryMember) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// Full URL to ending with the repository name.
+func (o GetFederatedConanRepositoryMemberOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFederatedConanRepositoryMember) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type GetFederatedConanRepositoryMemberArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFederatedConanRepositoryMemberArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFederatedConanRepositoryMember)(nil)).Elem()
+}
+
+func (o GetFederatedConanRepositoryMemberArrayOutput) ToGetFederatedConanRepositoryMemberArrayOutput() GetFederatedConanRepositoryMemberArrayOutput {
+	return o
+}
+
+func (o GetFederatedConanRepositoryMemberArrayOutput) ToGetFederatedConanRepositoryMemberArrayOutputWithContext(ctx context.Context) GetFederatedConanRepositoryMemberArrayOutput {
+	return o
+}
+
+func (o GetFederatedConanRepositoryMemberArrayOutput) Index(i pulumi.IntInput) GetFederatedConanRepositoryMemberOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFederatedConanRepositoryMember {
+		return vs[0].([]GetFederatedConanRepositoryMember)[vs[1].(int)]
+	}).(GetFederatedConanRepositoryMemberOutput)
+}
+
+type GetFederatedCondaRepositoryMember struct {
+	// Represents the active state of the federated member. It is supported to change the enabled
+	// status of my own member. The config will be updated on the other federated members automatically.
+	Enabled bool `pulumi:"enabled"`
+	// Full URL to ending with the repository name.
+	Url string `pulumi:"url"`
+}
+
+// GetFederatedCondaRepositoryMemberInput is an input type that accepts GetFederatedCondaRepositoryMemberArgs and GetFederatedCondaRepositoryMemberOutput values.
+// You can construct a concrete instance of `GetFederatedCondaRepositoryMemberInput` via:
+//
+//	GetFederatedCondaRepositoryMemberArgs{...}
+type GetFederatedCondaRepositoryMemberInput interface {
+	pulumi.Input
+
+	ToGetFederatedCondaRepositoryMemberOutput() GetFederatedCondaRepositoryMemberOutput
+	ToGetFederatedCondaRepositoryMemberOutputWithContext(context.Context) GetFederatedCondaRepositoryMemberOutput
+}
+
+type GetFederatedCondaRepositoryMemberArgs struct {
+	// Represents the active state of the federated member. It is supported to change the enabled
+	// status of my own member. The config will be updated on the other federated members automatically.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// Full URL to ending with the repository name.
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (GetFederatedCondaRepositoryMemberArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFederatedCondaRepositoryMember)(nil)).Elem()
+}
+
+func (i GetFederatedCondaRepositoryMemberArgs) ToGetFederatedCondaRepositoryMemberOutput() GetFederatedCondaRepositoryMemberOutput {
+	return i.ToGetFederatedCondaRepositoryMemberOutputWithContext(context.Background())
+}
+
+func (i GetFederatedCondaRepositoryMemberArgs) ToGetFederatedCondaRepositoryMemberOutputWithContext(ctx context.Context) GetFederatedCondaRepositoryMemberOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFederatedCondaRepositoryMemberOutput)
+}
+
+// GetFederatedCondaRepositoryMemberArrayInput is an input type that accepts GetFederatedCondaRepositoryMemberArray and GetFederatedCondaRepositoryMemberArrayOutput values.
+// You can construct a concrete instance of `GetFederatedCondaRepositoryMemberArrayInput` via:
+//
+//	GetFederatedCondaRepositoryMemberArray{ GetFederatedCondaRepositoryMemberArgs{...} }
+type GetFederatedCondaRepositoryMemberArrayInput interface {
+	pulumi.Input
+
+	ToGetFederatedCondaRepositoryMemberArrayOutput() GetFederatedCondaRepositoryMemberArrayOutput
+	ToGetFederatedCondaRepositoryMemberArrayOutputWithContext(context.Context) GetFederatedCondaRepositoryMemberArrayOutput
+}
+
+type GetFederatedCondaRepositoryMemberArray []GetFederatedCondaRepositoryMemberInput
+
+func (GetFederatedCondaRepositoryMemberArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFederatedCondaRepositoryMember)(nil)).Elem()
+}
+
+func (i GetFederatedCondaRepositoryMemberArray) ToGetFederatedCondaRepositoryMemberArrayOutput() GetFederatedCondaRepositoryMemberArrayOutput {
+	return i.ToGetFederatedCondaRepositoryMemberArrayOutputWithContext(context.Background())
+}
+
+func (i GetFederatedCondaRepositoryMemberArray) ToGetFederatedCondaRepositoryMemberArrayOutputWithContext(ctx context.Context) GetFederatedCondaRepositoryMemberArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFederatedCondaRepositoryMemberArrayOutput)
+}
+
+type GetFederatedCondaRepositoryMemberOutput struct{ *pulumi.OutputState }
+
+func (GetFederatedCondaRepositoryMemberOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFederatedCondaRepositoryMember)(nil)).Elem()
+}
+
+func (o GetFederatedCondaRepositoryMemberOutput) ToGetFederatedCondaRepositoryMemberOutput() GetFederatedCondaRepositoryMemberOutput {
+	return o
+}
+
+func (o GetFederatedCondaRepositoryMemberOutput) ToGetFederatedCondaRepositoryMemberOutputWithContext(ctx context.Context) GetFederatedCondaRepositoryMemberOutput {
+	return o
+}
+
+// Represents the active state of the federated member. It is supported to change the enabled
+// status of my own member. The config will be updated on the other federated members automatically.
+func (o GetFederatedCondaRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetFederatedCondaRepositoryMember) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// Full URL to ending with the repository name.
+func (o GetFederatedCondaRepositoryMemberOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFederatedCondaRepositoryMember) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type GetFederatedCondaRepositoryMemberArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFederatedCondaRepositoryMemberArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFederatedCondaRepositoryMember)(nil)).Elem()
+}
+
+func (o GetFederatedCondaRepositoryMemberArrayOutput) ToGetFederatedCondaRepositoryMemberArrayOutput() GetFederatedCondaRepositoryMemberArrayOutput {
+	return o
+}
+
+func (o GetFederatedCondaRepositoryMemberArrayOutput) ToGetFederatedCondaRepositoryMemberArrayOutputWithContext(ctx context.Context) GetFederatedCondaRepositoryMemberArrayOutput {
+	return o
+}
+
+func (o GetFederatedCondaRepositoryMemberArrayOutput) Index(i pulumi.IntInput) GetFederatedCondaRepositoryMemberOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFederatedCondaRepositoryMember {
+		return vs[0].([]GetFederatedCondaRepositoryMember)[vs[1].(int)]
+	}).(GetFederatedCondaRepositoryMemberOutput)
+}
+
+type GetFederatedCranRepositoryMember struct {
+	// Represents the active state of the federated member. It is supported to change the enabled
+	// status of my own member. The config will be updated on the other federated members automatically.
+	Enabled bool `pulumi:"enabled"`
+	// Full URL to ending with the repository name.
+	Url string `pulumi:"url"`
+}
+
+// GetFederatedCranRepositoryMemberInput is an input type that accepts GetFederatedCranRepositoryMemberArgs and GetFederatedCranRepositoryMemberOutput values.
+// You can construct a concrete instance of `GetFederatedCranRepositoryMemberInput` via:
+//
+//	GetFederatedCranRepositoryMemberArgs{...}
+type GetFederatedCranRepositoryMemberInput interface {
+	pulumi.Input
+
+	ToGetFederatedCranRepositoryMemberOutput() GetFederatedCranRepositoryMemberOutput
+	ToGetFederatedCranRepositoryMemberOutputWithContext(context.Context) GetFederatedCranRepositoryMemberOutput
+}
+
+type GetFederatedCranRepositoryMemberArgs struct {
+	// Represents the active state of the federated member. It is supported to change the enabled
+	// status of my own member. The config will be updated on the other federated members automatically.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// Full URL to ending with the repository name.
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (GetFederatedCranRepositoryMemberArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFederatedCranRepositoryMember)(nil)).Elem()
+}
+
+func (i GetFederatedCranRepositoryMemberArgs) ToGetFederatedCranRepositoryMemberOutput() GetFederatedCranRepositoryMemberOutput {
+	return i.ToGetFederatedCranRepositoryMemberOutputWithContext(context.Background())
+}
+
+func (i GetFederatedCranRepositoryMemberArgs) ToGetFederatedCranRepositoryMemberOutputWithContext(ctx context.Context) GetFederatedCranRepositoryMemberOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFederatedCranRepositoryMemberOutput)
+}
+
+// GetFederatedCranRepositoryMemberArrayInput is an input type that accepts GetFederatedCranRepositoryMemberArray and GetFederatedCranRepositoryMemberArrayOutput values.
+// You can construct a concrete instance of `GetFederatedCranRepositoryMemberArrayInput` via:
+//
+//	GetFederatedCranRepositoryMemberArray{ GetFederatedCranRepositoryMemberArgs{...} }
+type GetFederatedCranRepositoryMemberArrayInput interface {
+	pulumi.Input
+
+	ToGetFederatedCranRepositoryMemberArrayOutput() GetFederatedCranRepositoryMemberArrayOutput
+	ToGetFederatedCranRepositoryMemberArrayOutputWithContext(context.Context) GetFederatedCranRepositoryMemberArrayOutput
+}
+
+type GetFederatedCranRepositoryMemberArray []GetFederatedCranRepositoryMemberInput
+
+func (GetFederatedCranRepositoryMemberArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFederatedCranRepositoryMember)(nil)).Elem()
+}
+
+func (i GetFederatedCranRepositoryMemberArray) ToGetFederatedCranRepositoryMemberArrayOutput() GetFederatedCranRepositoryMemberArrayOutput {
+	return i.ToGetFederatedCranRepositoryMemberArrayOutputWithContext(context.Background())
+}
+
+func (i GetFederatedCranRepositoryMemberArray) ToGetFederatedCranRepositoryMemberArrayOutputWithContext(ctx context.Context) GetFederatedCranRepositoryMemberArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFederatedCranRepositoryMemberArrayOutput)
+}
+
+type GetFederatedCranRepositoryMemberOutput struct{ *pulumi.OutputState }
+
+func (GetFederatedCranRepositoryMemberOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFederatedCranRepositoryMember)(nil)).Elem()
+}
+
+func (o GetFederatedCranRepositoryMemberOutput) ToGetFederatedCranRepositoryMemberOutput() GetFederatedCranRepositoryMemberOutput {
+	return o
+}
+
+func (o GetFederatedCranRepositoryMemberOutput) ToGetFederatedCranRepositoryMemberOutputWithContext(ctx context.Context) GetFederatedCranRepositoryMemberOutput {
+	return o
+}
+
+// Represents the active state of the federated member. It is supported to change the enabled
+// status of my own member. The config will be updated on the other federated members automatically.
+func (o GetFederatedCranRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetFederatedCranRepositoryMember) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// Full URL to ending with the repository name.
+func (o GetFederatedCranRepositoryMemberOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFederatedCranRepositoryMember) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type GetFederatedCranRepositoryMemberArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFederatedCranRepositoryMemberArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFederatedCranRepositoryMember)(nil)).Elem()
+}
+
+func (o GetFederatedCranRepositoryMemberArrayOutput) ToGetFederatedCranRepositoryMemberArrayOutput() GetFederatedCranRepositoryMemberArrayOutput {
+	return o
+}
+
+func (o GetFederatedCranRepositoryMemberArrayOutput) ToGetFederatedCranRepositoryMemberArrayOutputWithContext(ctx context.Context) GetFederatedCranRepositoryMemberArrayOutput {
+	return o
+}
+
+func (o GetFederatedCranRepositoryMemberArrayOutput) Index(i pulumi.IntInput) GetFederatedCranRepositoryMemberOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFederatedCranRepositoryMember {
+		return vs[0].([]GetFederatedCranRepositoryMember)[vs[1].(int)]
+	}).(GetFederatedCranRepositoryMemberOutput)
+}
+
+type GetFederatedDebianRepositoryMember struct {
+	// Represents the active state of the federated member. It is supported to change the enabled
+	// status of my own member. The config will be updated on the other federated members automatically.
+	Enabled bool `pulumi:"enabled"`
+	// Full URL to ending with the repository name.
+	Url string `pulumi:"url"`
+}
+
+// GetFederatedDebianRepositoryMemberInput is an input type that accepts GetFederatedDebianRepositoryMemberArgs and GetFederatedDebianRepositoryMemberOutput values.
+// You can construct a concrete instance of `GetFederatedDebianRepositoryMemberInput` via:
+//
+//	GetFederatedDebianRepositoryMemberArgs{...}
+type GetFederatedDebianRepositoryMemberInput interface {
+	pulumi.Input
+
+	ToGetFederatedDebianRepositoryMemberOutput() GetFederatedDebianRepositoryMemberOutput
+	ToGetFederatedDebianRepositoryMemberOutputWithContext(context.Context) GetFederatedDebianRepositoryMemberOutput
+}
+
+type GetFederatedDebianRepositoryMemberArgs struct {
+	// Represents the active state of the federated member. It is supported to change the enabled
+	// status of my own member. The config will be updated on the other federated members automatically.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// Full URL to ending with the repository name.
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (GetFederatedDebianRepositoryMemberArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFederatedDebianRepositoryMember)(nil)).Elem()
+}
+
+func (i GetFederatedDebianRepositoryMemberArgs) ToGetFederatedDebianRepositoryMemberOutput() GetFederatedDebianRepositoryMemberOutput {
+	return i.ToGetFederatedDebianRepositoryMemberOutputWithContext(context.Background())
+}
+
+func (i GetFederatedDebianRepositoryMemberArgs) ToGetFederatedDebianRepositoryMemberOutputWithContext(ctx context.Context) GetFederatedDebianRepositoryMemberOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFederatedDebianRepositoryMemberOutput)
+}
+
+// GetFederatedDebianRepositoryMemberArrayInput is an input type that accepts GetFederatedDebianRepositoryMemberArray and GetFederatedDebianRepositoryMemberArrayOutput values.
+// You can construct a concrete instance of `GetFederatedDebianRepositoryMemberArrayInput` via:
+//
+//	GetFederatedDebianRepositoryMemberArray{ GetFederatedDebianRepositoryMemberArgs{...} }
+type GetFederatedDebianRepositoryMemberArrayInput interface {
+	pulumi.Input
+
+	ToGetFederatedDebianRepositoryMemberArrayOutput() GetFederatedDebianRepositoryMemberArrayOutput
+	ToGetFederatedDebianRepositoryMemberArrayOutputWithContext(context.Context) GetFederatedDebianRepositoryMemberArrayOutput
+}
+
+type GetFederatedDebianRepositoryMemberArray []GetFederatedDebianRepositoryMemberInput
+
+func (GetFederatedDebianRepositoryMemberArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFederatedDebianRepositoryMember)(nil)).Elem()
+}
+
+func (i GetFederatedDebianRepositoryMemberArray) ToGetFederatedDebianRepositoryMemberArrayOutput() GetFederatedDebianRepositoryMemberArrayOutput {
+	return i.ToGetFederatedDebianRepositoryMemberArrayOutputWithContext(context.Background())
+}
+
+func (i GetFederatedDebianRepositoryMemberArray) ToGetFederatedDebianRepositoryMemberArrayOutputWithContext(ctx context.Context) GetFederatedDebianRepositoryMemberArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFederatedDebianRepositoryMemberArrayOutput)
+}
+
+type GetFederatedDebianRepositoryMemberOutput struct{ *pulumi.OutputState }
+
+func (GetFederatedDebianRepositoryMemberOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFederatedDebianRepositoryMember)(nil)).Elem()
+}
+
+func (o GetFederatedDebianRepositoryMemberOutput) ToGetFederatedDebianRepositoryMemberOutput() GetFederatedDebianRepositoryMemberOutput {
+	return o
+}
+
+func (o GetFederatedDebianRepositoryMemberOutput) ToGetFederatedDebianRepositoryMemberOutputWithContext(ctx context.Context) GetFederatedDebianRepositoryMemberOutput {
+	return o
+}
+
+// Represents the active state of the federated member. It is supported to change the enabled
+// status of my own member. The config will be updated on the other federated members automatically.
+func (o GetFederatedDebianRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetFederatedDebianRepositoryMember) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// Full URL to ending with the repository name.
+func (o GetFederatedDebianRepositoryMemberOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFederatedDebianRepositoryMember) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type GetFederatedDebianRepositoryMemberArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFederatedDebianRepositoryMemberArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFederatedDebianRepositoryMember)(nil)).Elem()
+}
+
+func (o GetFederatedDebianRepositoryMemberArrayOutput) ToGetFederatedDebianRepositoryMemberArrayOutput() GetFederatedDebianRepositoryMemberArrayOutput {
+	return o
+}
+
+func (o GetFederatedDebianRepositoryMemberArrayOutput) ToGetFederatedDebianRepositoryMemberArrayOutputWithContext(ctx context.Context) GetFederatedDebianRepositoryMemberArrayOutput {
+	return o
+}
+
+func (o GetFederatedDebianRepositoryMemberArrayOutput) Index(i pulumi.IntInput) GetFederatedDebianRepositoryMemberOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFederatedDebianRepositoryMember {
+		return vs[0].([]GetFederatedDebianRepositoryMember)[vs[1].(int)]
+	}).(GetFederatedDebianRepositoryMemberOutput)
+}
+
+type GetFederatedDockerRepositoryMember struct {
+	Enabled bool   `pulumi:"enabled"`
+	Url     string `pulumi:"url"`
+}
+
+// GetFederatedDockerRepositoryMemberInput is an input type that accepts GetFederatedDockerRepositoryMemberArgs and GetFederatedDockerRepositoryMemberOutput values.
+// You can construct a concrete instance of `GetFederatedDockerRepositoryMemberInput` via:
+//
+//	GetFederatedDockerRepositoryMemberArgs{...}
+type GetFederatedDockerRepositoryMemberInput interface {
+	pulumi.Input
+
+	ToGetFederatedDockerRepositoryMemberOutput() GetFederatedDockerRepositoryMemberOutput
+	ToGetFederatedDockerRepositoryMemberOutputWithContext(context.Context) GetFederatedDockerRepositoryMemberOutput
+}
+
+type GetFederatedDockerRepositoryMemberArgs struct {
+	Enabled pulumi.BoolInput   `pulumi:"enabled"`
+	Url     pulumi.StringInput `pulumi:"url"`
+}
+
+func (GetFederatedDockerRepositoryMemberArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFederatedDockerRepositoryMember)(nil)).Elem()
+}
+
+func (i GetFederatedDockerRepositoryMemberArgs) ToGetFederatedDockerRepositoryMemberOutput() GetFederatedDockerRepositoryMemberOutput {
+	return i.ToGetFederatedDockerRepositoryMemberOutputWithContext(context.Background())
+}
+
+func (i GetFederatedDockerRepositoryMemberArgs) ToGetFederatedDockerRepositoryMemberOutputWithContext(ctx context.Context) GetFederatedDockerRepositoryMemberOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFederatedDockerRepositoryMemberOutput)
+}
+
+// GetFederatedDockerRepositoryMemberArrayInput is an input type that accepts GetFederatedDockerRepositoryMemberArray and GetFederatedDockerRepositoryMemberArrayOutput values.
+// You can construct a concrete instance of `GetFederatedDockerRepositoryMemberArrayInput` via:
+//
+//	GetFederatedDockerRepositoryMemberArray{ GetFederatedDockerRepositoryMemberArgs{...} }
+type GetFederatedDockerRepositoryMemberArrayInput interface {
+	pulumi.Input
+
+	ToGetFederatedDockerRepositoryMemberArrayOutput() GetFederatedDockerRepositoryMemberArrayOutput
+	ToGetFederatedDockerRepositoryMemberArrayOutputWithContext(context.Context) GetFederatedDockerRepositoryMemberArrayOutput
+}
+
+type GetFederatedDockerRepositoryMemberArray []GetFederatedDockerRepositoryMemberInput
+
+func (GetFederatedDockerRepositoryMemberArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFederatedDockerRepositoryMember)(nil)).Elem()
+}
+
+func (i GetFederatedDockerRepositoryMemberArray) ToGetFederatedDockerRepositoryMemberArrayOutput() GetFederatedDockerRepositoryMemberArrayOutput {
+	return i.ToGetFederatedDockerRepositoryMemberArrayOutputWithContext(context.Background())
+}
+
+func (i GetFederatedDockerRepositoryMemberArray) ToGetFederatedDockerRepositoryMemberArrayOutputWithContext(ctx context.Context) GetFederatedDockerRepositoryMemberArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFederatedDockerRepositoryMemberArrayOutput)
+}
+
+type GetFederatedDockerRepositoryMemberOutput struct{ *pulumi.OutputState }
+
+func (GetFederatedDockerRepositoryMemberOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFederatedDockerRepositoryMember)(nil)).Elem()
+}
+
+func (o GetFederatedDockerRepositoryMemberOutput) ToGetFederatedDockerRepositoryMemberOutput() GetFederatedDockerRepositoryMemberOutput {
+	return o
+}
+
+func (o GetFederatedDockerRepositoryMemberOutput) ToGetFederatedDockerRepositoryMemberOutputWithContext(ctx context.Context) GetFederatedDockerRepositoryMemberOutput {
+	return o
+}
+
+func (o GetFederatedDockerRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetFederatedDockerRepositoryMember) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+func (o GetFederatedDockerRepositoryMemberOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFederatedDockerRepositoryMember) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type GetFederatedDockerRepositoryMemberArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFederatedDockerRepositoryMemberArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFederatedDockerRepositoryMember)(nil)).Elem()
+}
+
+func (o GetFederatedDockerRepositoryMemberArrayOutput) ToGetFederatedDockerRepositoryMemberArrayOutput() GetFederatedDockerRepositoryMemberArrayOutput {
+	return o
+}
+
+func (o GetFederatedDockerRepositoryMemberArrayOutput) ToGetFederatedDockerRepositoryMemberArrayOutputWithContext(ctx context.Context) GetFederatedDockerRepositoryMemberArrayOutput {
+	return o
+}
+
+func (o GetFederatedDockerRepositoryMemberArrayOutput) Index(i pulumi.IntInput) GetFederatedDockerRepositoryMemberOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFederatedDockerRepositoryMember {
+		return vs[0].([]GetFederatedDockerRepositoryMember)[vs[1].(int)]
+	}).(GetFederatedDockerRepositoryMemberOutput)
+}
+
+type GetFederatedDockerV1RepositoryMember struct {
+	// Represents the active state of the federated member. It is supported to change the enabled
+	// status of my own member. The config will be updated on the other federated members automatically.
+	Enabled bool `pulumi:"enabled"`
+	// Full URL to ending with the repository name.
+	Url string `pulumi:"url"`
+}
+
+// GetFederatedDockerV1RepositoryMemberInput is an input type that accepts GetFederatedDockerV1RepositoryMemberArgs and GetFederatedDockerV1RepositoryMemberOutput values.
+// You can construct a concrete instance of `GetFederatedDockerV1RepositoryMemberInput` via:
+//
+//	GetFederatedDockerV1RepositoryMemberArgs{...}
+type GetFederatedDockerV1RepositoryMemberInput interface {
+	pulumi.Input
+
+	ToGetFederatedDockerV1RepositoryMemberOutput() GetFederatedDockerV1RepositoryMemberOutput
+	ToGetFederatedDockerV1RepositoryMemberOutputWithContext(context.Context) GetFederatedDockerV1RepositoryMemberOutput
+}
+
+type GetFederatedDockerV1RepositoryMemberArgs struct {
+	// Represents the active state of the federated member. It is supported to change the enabled
+	// status of my own member. The config will be updated on the other federated members automatically.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// Full URL to ending with the repository name.
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (GetFederatedDockerV1RepositoryMemberArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFederatedDockerV1RepositoryMember)(nil)).Elem()
+}
+
+func (i GetFederatedDockerV1RepositoryMemberArgs) ToGetFederatedDockerV1RepositoryMemberOutput() GetFederatedDockerV1RepositoryMemberOutput {
+	return i.ToGetFederatedDockerV1RepositoryMemberOutputWithContext(context.Background())
+}
+
+func (i GetFederatedDockerV1RepositoryMemberArgs) ToGetFederatedDockerV1RepositoryMemberOutputWithContext(ctx context.Context) GetFederatedDockerV1RepositoryMemberOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFederatedDockerV1RepositoryMemberOutput)
+}
+
+// GetFederatedDockerV1RepositoryMemberArrayInput is an input type that accepts GetFederatedDockerV1RepositoryMemberArray and GetFederatedDockerV1RepositoryMemberArrayOutput values.
+// You can construct a concrete instance of `GetFederatedDockerV1RepositoryMemberArrayInput` via:
+//
+//	GetFederatedDockerV1RepositoryMemberArray{ GetFederatedDockerV1RepositoryMemberArgs{...} }
+type GetFederatedDockerV1RepositoryMemberArrayInput interface {
+	pulumi.Input
+
+	ToGetFederatedDockerV1RepositoryMemberArrayOutput() GetFederatedDockerV1RepositoryMemberArrayOutput
+	ToGetFederatedDockerV1RepositoryMemberArrayOutputWithContext(context.Context) GetFederatedDockerV1RepositoryMemberArrayOutput
+}
+
+type GetFederatedDockerV1RepositoryMemberArray []GetFederatedDockerV1RepositoryMemberInput
+
+func (GetFederatedDockerV1RepositoryMemberArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFederatedDockerV1RepositoryMember)(nil)).Elem()
+}
+
+func (i GetFederatedDockerV1RepositoryMemberArray) ToGetFederatedDockerV1RepositoryMemberArrayOutput() GetFederatedDockerV1RepositoryMemberArrayOutput {
+	return i.ToGetFederatedDockerV1RepositoryMemberArrayOutputWithContext(context.Background())
+}
+
+func (i GetFederatedDockerV1RepositoryMemberArray) ToGetFederatedDockerV1RepositoryMemberArrayOutputWithContext(ctx context.Context) GetFederatedDockerV1RepositoryMemberArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFederatedDockerV1RepositoryMemberArrayOutput)
+}
+
+type GetFederatedDockerV1RepositoryMemberOutput struct{ *pulumi.OutputState }
+
+func (GetFederatedDockerV1RepositoryMemberOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFederatedDockerV1RepositoryMember)(nil)).Elem()
+}
+
+func (o GetFederatedDockerV1RepositoryMemberOutput) ToGetFederatedDockerV1RepositoryMemberOutput() GetFederatedDockerV1RepositoryMemberOutput {
+	return o
+}
+
+func (o GetFederatedDockerV1RepositoryMemberOutput) ToGetFederatedDockerV1RepositoryMemberOutputWithContext(ctx context.Context) GetFederatedDockerV1RepositoryMemberOutput {
+	return o
+}
+
+// Represents the active state of the federated member. It is supported to change the enabled
+// status of my own member. The config will be updated on the other federated members automatically.
+func (o GetFederatedDockerV1RepositoryMemberOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetFederatedDockerV1RepositoryMember) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// Full URL to ending with the repository name.
+func (o GetFederatedDockerV1RepositoryMemberOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFederatedDockerV1RepositoryMember) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type GetFederatedDockerV1RepositoryMemberArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFederatedDockerV1RepositoryMemberArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFederatedDockerV1RepositoryMember)(nil)).Elem()
+}
+
+func (o GetFederatedDockerV1RepositoryMemberArrayOutput) ToGetFederatedDockerV1RepositoryMemberArrayOutput() GetFederatedDockerV1RepositoryMemberArrayOutput {
+	return o
+}
+
+func (o GetFederatedDockerV1RepositoryMemberArrayOutput) ToGetFederatedDockerV1RepositoryMemberArrayOutputWithContext(ctx context.Context) GetFederatedDockerV1RepositoryMemberArrayOutput {
+	return o
+}
+
+func (o GetFederatedDockerV1RepositoryMemberArrayOutput) Index(i pulumi.IntInput) GetFederatedDockerV1RepositoryMemberOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFederatedDockerV1RepositoryMember {
+		return vs[0].([]GetFederatedDockerV1RepositoryMember)[vs[1].(int)]
+	}).(GetFederatedDockerV1RepositoryMemberOutput)
+}
+
+type GetFederatedDockerV2RepositoryMember struct {
+	// Represents the active state of the federated member. It is supported to change the enabled
+	// status of my own member. The config will be updated on the other federated members automatically.
+	Enabled bool `pulumi:"enabled"`
+	// Full URL to ending with the repository name.
+	Url string `pulumi:"url"`
+}
+
+// GetFederatedDockerV2RepositoryMemberInput is an input type that accepts GetFederatedDockerV2RepositoryMemberArgs and GetFederatedDockerV2RepositoryMemberOutput values.
+// You can construct a concrete instance of `GetFederatedDockerV2RepositoryMemberInput` via:
+//
+//	GetFederatedDockerV2RepositoryMemberArgs{...}
+type GetFederatedDockerV2RepositoryMemberInput interface {
+	pulumi.Input
+
+	ToGetFederatedDockerV2RepositoryMemberOutput() GetFederatedDockerV2RepositoryMemberOutput
+	ToGetFederatedDockerV2RepositoryMemberOutputWithContext(context.Context) GetFederatedDockerV2RepositoryMemberOutput
+}
+
+type GetFederatedDockerV2RepositoryMemberArgs struct {
+	// Represents the active state of the federated member. It is supported to change the enabled
+	// status of my own member. The config will be updated on the other federated members automatically.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// Full URL to ending with the repository name.
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (GetFederatedDockerV2RepositoryMemberArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFederatedDockerV2RepositoryMember)(nil)).Elem()
+}
+
+func (i GetFederatedDockerV2RepositoryMemberArgs) ToGetFederatedDockerV2RepositoryMemberOutput() GetFederatedDockerV2RepositoryMemberOutput {
+	return i.ToGetFederatedDockerV2RepositoryMemberOutputWithContext(context.Background())
+}
+
+func (i GetFederatedDockerV2RepositoryMemberArgs) ToGetFederatedDockerV2RepositoryMemberOutputWithContext(ctx context.Context) GetFederatedDockerV2RepositoryMemberOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFederatedDockerV2RepositoryMemberOutput)
+}
+
+// GetFederatedDockerV2RepositoryMemberArrayInput is an input type that accepts GetFederatedDockerV2RepositoryMemberArray and GetFederatedDockerV2RepositoryMemberArrayOutput values.
+// You can construct a concrete instance of `GetFederatedDockerV2RepositoryMemberArrayInput` via:
+//
+//	GetFederatedDockerV2RepositoryMemberArray{ GetFederatedDockerV2RepositoryMemberArgs{...} }
+type GetFederatedDockerV2RepositoryMemberArrayInput interface {
+	pulumi.Input
+
+	ToGetFederatedDockerV2RepositoryMemberArrayOutput() GetFederatedDockerV2RepositoryMemberArrayOutput
+	ToGetFederatedDockerV2RepositoryMemberArrayOutputWithContext(context.Context) GetFederatedDockerV2RepositoryMemberArrayOutput
+}
+
+type GetFederatedDockerV2RepositoryMemberArray []GetFederatedDockerV2RepositoryMemberInput
+
+func (GetFederatedDockerV2RepositoryMemberArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFederatedDockerV2RepositoryMember)(nil)).Elem()
+}
+
+func (i GetFederatedDockerV2RepositoryMemberArray) ToGetFederatedDockerV2RepositoryMemberArrayOutput() GetFederatedDockerV2RepositoryMemberArrayOutput {
+	return i.ToGetFederatedDockerV2RepositoryMemberArrayOutputWithContext(context.Background())
+}
+
+func (i GetFederatedDockerV2RepositoryMemberArray) ToGetFederatedDockerV2RepositoryMemberArrayOutputWithContext(ctx context.Context) GetFederatedDockerV2RepositoryMemberArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFederatedDockerV2RepositoryMemberArrayOutput)
+}
+
+type GetFederatedDockerV2RepositoryMemberOutput struct{ *pulumi.OutputState }
+
+func (GetFederatedDockerV2RepositoryMemberOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFederatedDockerV2RepositoryMember)(nil)).Elem()
+}
+
+func (o GetFederatedDockerV2RepositoryMemberOutput) ToGetFederatedDockerV2RepositoryMemberOutput() GetFederatedDockerV2RepositoryMemberOutput {
+	return o
+}
+
+func (o GetFederatedDockerV2RepositoryMemberOutput) ToGetFederatedDockerV2RepositoryMemberOutputWithContext(ctx context.Context) GetFederatedDockerV2RepositoryMemberOutput {
+	return o
+}
+
+// Represents the active state of the federated member. It is supported to change the enabled
+// status of my own member. The config will be updated on the other federated members automatically.
+func (o GetFederatedDockerV2RepositoryMemberOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetFederatedDockerV2RepositoryMember) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// Full URL to ending with the repository name.
+func (o GetFederatedDockerV2RepositoryMemberOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFederatedDockerV2RepositoryMember) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type GetFederatedDockerV2RepositoryMemberArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFederatedDockerV2RepositoryMemberArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFederatedDockerV2RepositoryMember)(nil)).Elem()
+}
+
+func (o GetFederatedDockerV2RepositoryMemberArrayOutput) ToGetFederatedDockerV2RepositoryMemberArrayOutput() GetFederatedDockerV2RepositoryMemberArrayOutput {
+	return o
+}
+
+func (o GetFederatedDockerV2RepositoryMemberArrayOutput) ToGetFederatedDockerV2RepositoryMemberArrayOutputWithContext(ctx context.Context) GetFederatedDockerV2RepositoryMemberArrayOutput {
+	return o
+}
+
+func (o GetFederatedDockerV2RepositoryMemberArrayOutput) Index(i pulumi.IntInput) GetFederatedDockerV2RepositoryMemberOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFederatedDockerV2RepositoryMember {
+		return vs[0].([]GetFederatedDockerV2RepositoryMember)[vs[1].(int)]
+	}).(GetFederatedDockerV2RepositoryMemberOutput)
+}
+
+type GetFederatedGemsRepositoryMember struct {
+	// Represents the active state of the federated member. It is supported to change the enabled
+	// status of my own member. The config will be updated on the other federated members automatically.
+	Enabled bool `pulumi:"enabled"`
+	// Full URL to ending with the repository name.
+	Url string `pulumi:"url"`
+}
+
+// GetFederatedGemsRepositoryMemberInput is an input type that accepts GetFederatedGemsRepositoryMemberArgs and GetFederatedGemsRepositoryMemberOutput values.
+// You can construct a concrete instance of `GetFederatedGemsRepositoryMemberInput` via:
+//
+//	GetFederatedGemsRepositoryMemberArgs{...}
+type GetFederatedGemsRepositoryMemberInput interface {
+	pulumi.Input
+
+	ToGetFederatedGemsRepositoryMemberOutput() GetFederatedGemsRepositoryMemberOutput
+	ToGetFederatedGemsRepositoryMemberOutputWithContext(context.Context) GetFederatedGemsRepositoryMemberOutput
+}
+
+type GetFederatedGemsRepositoryMemberArgs struct {
+	// Represents the active state of the federated member. It is supported to change the enabled
+	// status of my own member. The config will be updated on the other federated members automatically.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// Full URL to ending with the repository name.
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (GetFederatedGemsRepositoryMemberArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFederatedGemsRepositoryMember)(nil)).Elem()
+}
+
+func (i GetFederatedGemsRepositoryMemberArgs) ToGetFederatedGemsRepositoryMemberOutput() GetFederatedGemsRepositoryMemberOutput {
+	return i.ToGetFederatedGemsRepositoryMemberOutputWithContext(context.Background())
+}
+
+func (i GetFederatedGemsRepositoryMemberArgs) ToGetFederatedGemsRepositoryMemberOutputWithContext(ctx context.Context) GetFederatedGemsRepositoryMemberOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFederatedGemsRepositoryMemberOutput)
+}
+
+// GetFederatedGemsRepositoryMemberArrayInput is an input type that accepts GetFederatedGemsRepositoryMemberArray and GetFederatedGemsRepositoryMemberArrayOutput values.
+// You can construct a concrete instance of `GetFederatedGemsRepositoryMemberArrayInput` via:
+//
+//	GetFederatedGemsRepositoryMemberArray{ GetFederatedGemsRepositoryMemberArgs{...} }
+type GetFederatedGemsRepositoryMemberArrayInput interface {
+	pulumi.Input
+
+	ToGetFederatedGemsRepositoryMemberArrayOutput() GetFederatedGemsRepositoryMemberArrayOutput
+	ToGetFederatedGemsRepositoryMemberArrayOutputWithContext(context.Context) GetFederatedGemsRepositoryMemberArrayOutput
+}
+
+type GetFederatedGemsRepositoryMemberArray []GetFederatedGemsRepositoryMemberInput
+
+func (GetFederatedGemsRepositoryMemberArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFederatedGemsRepositoryMember)(nil)).Elem()
+}
+
+func (i GetFederatedGemsRepositoryMemberArray) ToGetFederatedGemsRepositoryMemberArrayOutput() GetFederatedGemsRepositoryMemberArrayOutput {
+	return i.ToGetFederatedGemsRepositoryMemberArrayOutputWithContext(context.Background())
+}
+
+func (i GetFederatedGemsRepositoryMemberArray) ToGetFederatedGemsRepositoryMemberArrayOutputWithContext(ctx context.Context) GetFederatedGemsRepositoryMemberArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFederatedGemsRepositoryMemberArrayOutput)
+}
+
+type GetFederatedGemsRepositoryMemberOutput struct{ *pulumi.OutputState }
+
+func (GetFederatedGemsRepositoryMemberOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFederatedGemsRepositoryMember)(nil)).Elem()
+}
+
+func (o GetFederatedGemsRepositoryMemberOutput) ToGetFederatedGemsRepositoryMemberOutput() GetFederatedGemsRepositoryMemberOutput {
+	return o
+}
+
+func (o GetFederatedGemsRepositoryMemberOutput) ToGetFederatedGemsRepositoryMemberOutputWithContext(ctx context.Context) GetFederatedGemsRepositoryMemberOutput {
+	return o
+}
+
+// Represents the active state of the federated member. It is supported to change the enabled
+// status of my own member. The config will be updated on the other federated members automatically.
+func (o GetFederatedGemsRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetFederatedGemsRepositoryMember) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// Full URL to ending with the repository name.
+func (o GetFederatedGemsRepositoryMemberOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFederatedGemsRepositoryMember) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type GetFederatedGemsRepositoryMemberArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFederatedGemsRepositoryMemberArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFederatedGemsRepositoryMember)(nil)).Elem()
+}
+
+func (o GetFederatedGemsRepositoryMemberArrayOutput) ToGetFederatedGemsRepositoryMemberArrayOutput() GetFederatedGemsRepositoryMemberArrayOutput {
+	return o
+}
+
+func (o GetFederatedGemsRepositoryMemberArrayOutput) ToGetFederatedGemsRepositoryMemberArrayOutputWithContext(ctx context.Context) GetFederatedGemsRepositoryMemberArrayOutput {
+	return o
+}
+
+func (o GetFederatedGemsRepositoryMemberArrayOutput) Index(i pulumi.IntInput) GetFederatedGemsRepositoryMemberOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFederatedGemsRepositoryMember {
+		return vs[0].([]GetFederatedGemsRepositoryMember)[vs[1].(int)]
+	}).(GetFederatedGemsRepositoryMemberOutput)
+}
+
+type GetFederatedGenericRepositoryMember struct {
+	// Represents the active state of the federated member. It is supported to change the enabled
+	// status of my own member. The config will be updated on the other federated members automatically.
+	Enabled bool `pulumi:"enabled"`
+	// Full URL to ending with the repository name.
+	Url string `pulumi:"url"`
+}
+
+// GetFederatedGenericRepositoryMemberInput is an input type that accepts GetFederatedGenericRepositoryMemberArgs and GetFederatedGenericRepositoryMemberOutput values.
+// You can construct a concrete instance of `GetFederatedGenericRepositoryMemberInput` via:
+//
+//	GetFederatedGenericRepositoryMemberArgs{...}
+type GetFederatedGenericRepositoryMemberInput interface {
+	pulumi.Input
+
+	ToGetFederatedGenericRepositoryMemberOutput() GetFederatedGenericRepositoryMemberOutput
+	ToGetFederatedGenericRepositoryMemberOutputWithContext(context.Context) GetFederatedGenericRepositoryMemberOutput
+}
+
+type GetFederatedGenericRepositoryMemberArgs struct {
+	// Represents the active state of the federated member. It is supported to change the enabled
+	// status of my own member. The config will be updated on the other federated members automatically.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// Full URL to ending with the repository name.
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (GetFederatedGenericRepositoryMemberArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFederatedGenericRepositoryMember)(nil)).Elem()
+}
+
+func (i GetFederatedGenericRepositoryMemberArgs) ToGetFederatedGenericRepositoryMemberOutput() GetFederatedGenericRepositoryMemberOutput {
+	return i.ToGetFederatedGenericRepositoryMemberOutputWithContext(context.Background())
+}
+
+func (i GetFederatedGenericRepositoryMemberArgs) ToGetFederatedGenericRepositoryMemberOutputWithContext(ctx context.Context) GetFederatedGenericRepositoryMemberOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFederatedGenericRepositoryMemberOutput)
+}
+
+// GetFederatedGenericRepositoryMemberArrayInput is an input type that accepts GetFederatedGenericRepositoryMemberArray and GetFederatedGenericRepositoryMemberArrayOutput values.
+// You can construct a concrete instance of `GetFederatedGenericRepositoryMemberArrayInput` via:
+//
+//	GetFederatedGenericRepositoryMemberArray{ GetFederatedGenericRepositoryMemberArgs{...} }
+type GetFederatedGenericRepositoryMemberArrayInput interface {
+	pulumi.Input
+
+	ToGetFederatedGenericRepositoryMemberArrayOutput() GetFederatedGenericRepositoryMemberArrayOutput
+	ToGetFederatedGenericRepositoryMemberArrayOutputWithContext(context.Context) GetFederatedGenericRepositoryMemberArrayOutput
+}
+
+type GetFederatedGenericRepositoryMemberArray []GetFederatedGenericRepositoryMemberInput
+
+func (GetFederatedGenericRepositoryMemberArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFederatedGenericRepositoryMember)(nil)).Elem()
+}
+
+func (i GetFederatedGenericRepositoryMemberArray) ToGetFederatedGenericRepositoryMemberArrayOutput() GetFederatedGenericRepositoryMemberArrayOutput {
+	return i.ToGetFederatedGenericRepositoryMemberArrayOutputWithContext(context.Background())
+}
+
+func (i GetFederatedGenericRepositoryMemberArray) ToGetFederatedGenericRepositoryMemberArrayOutputWithContext(ctx context.Context) GetFederatedGenericRepositoryMemberArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFederatedGenericRepositoryMemberArrayOutput)
+}
+
+type GetFederatedGenericRepositoryMemberOutput struct{ *pulumi.OutputState }
+
+func (GetFederatedGenericRepositoryMemberOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFederatedGenericRepositoryMember)(nil)).Elem()
+}
+
+func (o GetFederatedGenericRepositoryMemberOutput) ToGetFederatedGenericRepositoryMemberOutput() GetFederatedGenericRepositoryMemberOutput {
+	return o
+}
+
+func (o GetFederatedGenericRepositoryMemberOutput) ToGetFederatedGenericRepositoryMemberOutputWithContext(ctx context.Context) GetFederatedGenericRepositoryMemberOutput {
+	return o
+}
+
+// Represents the active state of the federated member. It is supported to change the enabled
+// status of my own member. The config will be updated on the other federated members automatically.
+func (o GetFederatedGenericRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetFederatedGenericRepositoryMember) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// Full URL to ending with the repository name.
+func (o GetFederatedGenericRepositoryMemberOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFederatedGenericRepositoryMember) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type GetFederatedGenericRepositoryMemberArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFederatedGenericRepositoryMemberArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFederatedGenericRepositoryMember)(nil)).Elem()
+}
+
+func (o GetFederatedGenericRepositoryMemberArrayOutput) ToGetFederatedGenericRepositoryMemberArrayOutput() GetFederatedGenericRepositoryMemberArrayOutput {
+	return o
+}
+
+func (o GetFederatedGenericRepositoryMemberArrayOutput) ToGetFederatedGenericRepositoryMemberArrayOutputWithContext(ctx context.Context) GetFederatedGenericRepositoryMemberArrayOutput {
+	return o
+}
+
+func (o GetFederatedGenericRepositoryMemberArrayOutput) Index(i pulumi.IntInput) GetFederatedGenericRepositoryMemberOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFederatedGenericRepositoryMember {
+		return vs[0].([]GetFederatedGenericRepositoryMember)[vs[1].(int)]
+	}).(GetFederatedGenericRepositoryMemberOutput)
+}
+
+type GetFederatedGitlfsRepositoryMember struct {
+	// Represents the active state of the federated member. It is supported to change the enabled
+	// status of my own member. The config will be updated on the other federated members automatically.
+	Enabled bool `pulumi:"enabled"`
+	// Full URL to ending with the repository name.
+	Url string `pulumi:"url"`
+}
+
+// GetFederatedGitlfsRepositoryMemberInput is an input type that accepts GetFederatedGitlfsRepositoryMemberArgs and GetFederatedGitlfsRepositoryMemberOutput values.
+// You can construct a concrete instance of `GetFederatedGitlfsRepositoryMemberInput` via:
+//
+//	GetFederatedGitlfsRepositoryMemberArgs{...}
+type GetFederatedGitlfsRepositoryMemberInput interface {
+	pulumi.Input
+
+	ToGetFederatedGitlfsRepositoryMemberOutput() GetFederatedGitlfsRepositoryMemberOutput
+	ToGetFederatedGitlfsRepositoryMemberOutputWithContext(context.Context) GetFederatedGitlfsRepositoryMemberOutput
+}
+
+type GetFederatedGitlfsRepositoryMemberArgs struct {
+	// Represents the active state of the federated member. It is supported to change the enabled
+	// status of my own member. The config will be updated on the other federated members automatically.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// Full URL to ending with the repository name.
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (GetFederatedGitlfsRepositoryMemberArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFederatedGitlfsRepositoryMember)(nil)).Elem()
+}
+
+func (i GetFederatedGitlfsRepositoryMemberArgs) ToGetFederatedGitlfsRepositoryMemberOutput() GetFederatedGitlfsRepositoryMemberOutput {
+	return i.ToGetFederatedGitlfsRepositoryMemberOutputWithContext(context.Background())
+}
+
+func (i GetFederatedGitlfsRepositoryMemberArgs) ToGetFederatedGitlfsRepositoryMemberOutputWithContext(ctx context.Context) GetFederatedGitlfsRepositoryMemberOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFederatedGitlfsRepositoryMemberOutput)
+}
+
+// GetFederatedGitlfsRepositoryMemberArrayInput is an input type that accepts GetFederatedGitlfsRepositoryMemberArray and GetFederatedGitlfsRepositoryMemberArrayOutput values.
+// You can construct a concrete instance of `GetFederatedGitlfsRepositoryMemberArrayInput` via:
+//
+//	GetFederatedGitlfsRepositoryMemberArray{ GetFederatedGitlfsRepositoryMemberArgs{...} }
+type GetFederatedGitlfsRepositoryMemberArrayInput interface {
+	pulumi.Input
+
+	ToGetFederatedGitlfsRepositoryMemberArrayOutput() GetFederatedGitlfsRepositoryMemberArrayOutput
+	ToGetFederatedGitlfsRepositoryMemberArrayOutputWithContext(context.Context) GetFederatedGitlfsRepositoryMemberArrayOutput
+}
+
+type GetFederatedGitlfsRepositoryMemberArray []GetFederatedGitlfsRepositoryMemberInput
+
+func (GetFederatedGitlfsRepositoryMemberArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFederatedGitlfsRepositoryMember)(nil)).Elem()
+}
+
+func (i GetFederatedGitlfsRepositoryMemberArray) ToGetFederatedGitlfsRepositoryMemberArrayOutput() GetFederatedGitlfsRepositoryMemberArrayOutput {
+	return i.ToGetFederatedGitlfsRepositoryMemberArrayOutputWithContext(context.Background())
+}
+
+func (i GetFederatedGitlfsRepositoryMemberArray) ToGetFederatedGitlfsRepositoryMemberArrayOutputWithContext(ctx context.Context) GetFederatedGitlfsRepositoryMemberArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFederatedGitlfsRepositoryMemberArrayOutput)
+}
+
+type GetFederatedGitlfsRepositoryMemberOutput struct{ *pulumi.OutputState }
+
+func (GetFederatedGitlfsRepositoryMemberOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFederatedGitlfsRepositoryMember)(nil)).Elem()
+}
+
+func (o GetFederatedGitlfsRepositoryMemberOutput) ToGetFederatedGitlfsRepositoryMemberOutput() GetFederatedGitlfsRepositoryMemberOutput {
+	return o
+}
+
+func (o GetFederatedGitlfsRepositoryMemberOutput) ToGetFederatedGitlfsRepositoryMemberOutputWithContext(ctx context.Context) GetFederatedGitlfsRepositoryMemberOutput {
+	return o
+}
+
+// Represents the active state of the federated member. It is supported to change the enabled
+// status of my own member. The config will be updated on the other federated members automatically.
+func (o GetFederatedGitlfsRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetFederatedGitlfsRepositoryMember) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// Full URL to ending with the repository name.
+func (o GetFederatedGitlfsRepositoryMemberOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFederatedGitlfsRepositoryMember) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type GetFederatedGitlfsRepositoryMemberArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFederatedGitlfsRepositoryMemberArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFederatedGitlfsRepositoryMember)(nil)).Elem()
+}
+
+func (o GetFederatedGitlfsRepositoryMemberArrayOutput) ToGetFederatedGitlfsRepositoryMemberArrayOutput() GetFederatedGitlfsRepositoryMemberArrayOutput {
+	return o
+}
+
+func (o GetFederatedGitlfsRepositoryMemberArrayOutput) ToGetFederatedGitlfsRepositoryMemberArrayOutputWithContext(ctx context.Context) GetFederatedGitlfsRepositoryMemberArrayOutput {
+	return o
+}
+
+func (o GetFederatedGitlfsRepositoryMemberArrayOutput) Index(i pulumi.IntInput) GetFederatedGitlfsRepositoryMemberOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFederatedGitlfsRepositoryMember {
+		return vs[0].([]GetFederatedGitlfsRepositoryMember)[vs[1].(int)]
+	}).(GetFederatedGitlfsRepositoryMemberOutput)
+}
+
+type GetFederatedGoRepositoryMember struct {
+	// Represents the active state of the federated member. It is supported to change the enabled
+	// status of my own member. The config will be updated on the other federated members automatically.
+	Enabled bool `pulumi:"enabled"`
+	// Full URL to ending with the repository name.
+	Url string `pulumi:"url"`
+}
+
+// GetFederatedGoRepositoryMemberInput is an input type that accepts GetFederatedGoRepositoryMemberArgs and GetFederatedGoRepositoryMemberOutput values.
+// You can construct a concrete instance of `GetFederatedGoRepositoryMemberInput` via:
+//
+//	GetFederatedGoRepositoryMemberArgs{...}
+type GetFederatedGoRepositoryMemberInput interface {
+	pulumi.Input
+
+	ToGetFederatedGoRepositoryMemberOutput() GetFederatedGoRepositoryMemberOutput
+	ToGetFederatedGoRepositoryMemberOutputWithContext(context.Context) GetFederatedGoRepositoryMemberOutput
+}
+
+type GetFederatedGoRepositoryMemberArgs struct {
+	// Represents the active state of the federated member. It is supported to change the enabled
+	// status of my own member. The config will be updated on the other federated members automatically.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// Full URL to ending with the repository name.
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (GetFederatedGoRepositoryMemberArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFederatedGoRepositoryMember)(nil)).Elem()
+}
+
+func (i GetFederatedGoRepositoryMemberArgs) ToGetFederatedGoRepositoryMemberOutput() GetFederatedGoRepositoryMemberOutput {
+	return i.ToGetFederatedGoRepositoryMemberOutputWithContext(context.Background())
+}
+
+func (i GetFederatedGoRepositoryMemberArgs) ToGetFederatedGoRepositoryMemberOutputWithContext(ctx context.Context) GetFederatedGoRepositoryMemberOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFederatedGoRepositoryMemberOutput)
+}
+
+// GetFederatedGoRepositoryMemberArrayInput is an input type that accepts GetFederatedGoRepositoryMemberArray and GetFederatedGoRepositoryMemberArrayOutput values.
+// You can construct a concrete instance of `GetFederatedGoRepositoryMemberArrayInput` via:
+//
+//	GetFederatedGoRepositoryMemberArray{ GetFederatedGoRepositoryMemberArgs{...} }
+type GetFederatedGoRepositoryMemberArrayInput interface {
+	pulumi.Input
+
+	ToGetFederatedGoRepositoryMemberArrayOutput() GetFederatedGoRepositoryMemberArrayOutput
+	ToGetFederatedGoRepositoryMemberArrayOutputWithContext(context.Context) GetFederatedGoRepositoryMemberArrayOutput
+}
+
+type GetFederatedGoRepositoryMemberArray []GetFederatedGoRepositoryMemberInput
+
+func (GetFederatedGoRepositoryMemberArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFederatedGoRepositoryMember)(nil)).Elem()
+}
+
+func (i GetFederatedGoRepositoryMemberArray) ToGetFederatedGoRepositoryMemberArrayOutput() GetFederatedGoRepositoryMemberArrayOutput {
+	return i.ToGetFederatedGoRepositoryMemberArrayOutputWithContext(context.Background())
+}
+
+func (i GetFederatedGoRepositoryMemberArray) ToGetFederatedGoRepositoryMemberArrayOutputWithContext(ctx context.Context) GetFederatedGoRepositoryMemberArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFederatedGoRepositoryMemberArrayOutput)
+}
+
+type GetFederatedGoRepositoryMemberOutput struct{ *pulumi.OutputState }
+
+func (GetFederatedGoRepositoryMemberOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFederatedGoRepositoryMember)(nil)).Elem()
+}
+
+func (o GetFederatedGoRepositoryMemberOutput) ToGetFederatedGoRepositoryMemberOutput() GetFederatedGoRepositoryMemberOutput {
+	return o
+}
+
+func (o GetFederatedGoRepositoryMemberOutput) ToGetFederatedGoRepositoryMemberOutputWithContext(ctx context.Context) GetFederatedGoRepositoryMemberOutput {
+	return o
+}
+
+// Represents the active state of the federated member. It is supported to change the enabled
+// status of my own member. The config will be updated on the other federated members automatically.
+func (o GetFederatedGoRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetFederatedGoRepositoryMember) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// Full URL to ending with the repository name.
+func (o GetFederatedGoRepositoryMemberOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFederatedGoRepositoryMember) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type GetFederatedGoRepositoryMemberArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFederatedGoRepositoryMemberArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFederatedGoRepositoryMember)(nil)).Elem()
+}
+
+func (o GetFederatedGoRepositoryMemberArrayOutput) ToGetFederatedGoRepositoryMemberArrayOutput() GetFederatedGoRepositoryMemberArrayOutput {
+	return o
+}
+
+func (o GetFederatedGoRepositoryMemberArrayOutput) ToGetFederatedGoRepositoryMemberArrayOutputWithContext(ctx context.Context) GetFederatedGoRepositoryMemberArrayOutput {
+	return o
+}
+
+func (o GetFederatedGoRepositoryMemberArrayOutput) Index(i pulumi.IntInput) GetFederatedGoRepositoryMemberOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFederatedGoRepositoryMember {
+		return vs[0].([]GetFederatedGoRepositoryMember)[vs[1].(int)]
+	}).(GetFederatedGoRepositoryMemberOutput)
+}
+
+type GetFederatedGradleRepositoryMember struct {
+	// Represents the active state of the federated member. It is supported to change the enabled
+	// status of my own member. The config will be updated on the other federated members automatically.
+	Enabled bool `pulumi:"enabled"`
+	// Full URL to ending with the repository name.
+	Url string `pulumi:"url"`
+}
+
+// GetFederatedGradleRepositoryMemberInput is an input type that accepts GetFederatedGradleRepositoryMemberArgs and GetFederatedGradleRepositoryMemberOutput values.
+// You can construct a concrete instance of `GetFederatedGradleRepositoryMemberInput` via:
+//
+//	GetFederatedGradleRepositoryMemberArgs{...}
+type GetFederatedGradleRepositoryMemberInput interface {
+	pulumi.Input
+
+	ToGetFederatedGradleRepositoryMemberOutput() GetFederatedGradleRepositoryMemberOutput
+	ToGetFederatedGradleRepositoryMemberOutputWithContext(context.Context) GetFederatedGradleRepositoryMemberOutput
+}
+
+type GetFederatedGradleRepositoryMemberArgs struct {
+	// Represents the active state of the federated member. It is supported to change the enabled
+	// status of my own member. The config will be updated on the other federated members automatically.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// Full URL to ending with the repository name.
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (GetFederatedGradleRepositoryMemberArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFederatedGradleRepositoryMember)(nil)).Elem()
+}
+
+func (i GetFederatedGradleRepositoryMemberArgs) ToGetFederatedGradleRepositoryMemberOutput() GetFederatedGradleRepositoryMemberOutput {
+	return i.ToGetFederatedGradleRepositoryMemberOutputWithContext(context.Background())
+}
+
+func (i GetFederatedGradleRepositoryMemberArgs) ToGetFederatedGradleRepositoryMemberOutputWithContext(ctx context.Context) GetFederatedGradleRepositoryMemberOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFederatedGradleRepositoryMemberOutput)
+}
+
+// GetFederatedGradleRepositoryMemberArrayInput is an input type that accepts GetFederatedGradleRepositoryMemberArray and GetFederatedGradleRepositoryMemberArrayOutput values.
+// You can construct a concrete instance of `GetFederatedGradleRepositoryMemberArrayInput` via:
+//
+//	GetFederatedGradleRepositoryMemberArray{ GetFederatedGradleRepositoryMemberArgs{...} }
+type GetFederatedGradleRepositoryMemberArrayInput interface {
+	pulumi.Input
+
+	ToGetFederatedGradleRepositoryMemberArrayOutput() GetFederatedGradleRepositoryMemberArrayOutput
+	ToGetFederatedGradleRepositoryMemberArrayOutputWithContext(context.Context) GetFederatedGradleRepositoryMemberArrayOutput
+}
+
+type GetFederatedGradleRepositoryMemberArray []GetFederatedGradleRepositoryMemberInput
+
+func (GetFederatedGradleRepositoryMemberArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFederatedGradleRepositoryMember)(nil)).Elem()
+}
+
+func (i GetFederatedGradleRepositoryMemberArray) ToGetFederatedGradleRepositoryMemberArrayOutput() GetFederatedGradleRepositoryMemberArrayOutput {
+	return i.ToGetFederatedGradleRepositoryMemberArrayOutputWithContext(context.Background())
+}
+
+func (i GetFederatedGradleRepositoryMemberArray) ToGetFederatedGradleRepositoryMemberArrayOutputWithContext(ctx context.Context) GetFederatedGradleRepositoryMemberArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFederatedGradleRepositoryMemberArrayOutput)
+}
+
+type GetFederatedGradleRepositoryMemberOutput struct{ *pulumi.OutputState }
+
+func (GetFederatedGradleRepositoryMemberOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFederatedGradleRepositoryMember)(nil)).Elem()
+}
+
+func (o GetFederatedGradleRepositoryMemberOutput) ToGetFederatedGradleRepositoryMemberOutput() GetFederatedGradleRepositoryMemberOutput {
+	return o
+}
+
+func (o GetFederatedGradleRepositoryMemberOutput) ToGetFederatedGradleRepositoryMemberOutputWithContext(ctx context.Context) GetFederatedGradleRepositoryMemberOutput {
+	return o
+}
+
+// Represents the active state of the federated member. It is supported to change the enabled
+// status of my own member. The config will be updated on the other federated members automatically.
+func (o GetFederatedGradleRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetFederatedGradleRepositoryMember) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// Full URL to ending with the repository name.
+func (o GetFederatedGradleRepositoryMemberOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFederatedGradleRepositoryMember) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type GetFederatedGradleRepositoryMemberArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFederatedGradleRepositoryMemberArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFederatedGradleRepositoryMember)(nil)).Elem()
+}
+
+func (o GetFederatedGradleRepositoryMemberArrayOutput) ToGetFederatedGradleRepositoryMemberArrayOutput() GetFederatedGradleRepositoryMemberArrayOutput {
+	return o
+}
+
+func (o GetFederatedGradleRepositoryMemberArrayOutput) ToGetFederatedGradleRepositoryMemberArrayOutputWithContext(ctx context.Context) GetFederatedGradleRepositoryMemberArrayOutput {
+	return o
+}
+
+func (o GetFederatedGradleRepositoryMemberArrayOutput) Index(i pulumi.IntInput) GetFederatedGradleRepositoryMemberOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFederatedGradleRepositoryMember {
+		return vs[0].([]GetFederatedGradleRepositoryMember)[vs[1].(int)]
+	}).(GetFederatedGradleRepositoryMemberOutput)
+}
+
+type GetFederatedHelmRepositoryMember struct {
+	// Represents the active state of the federated member. It is supported to change the enabled
+	// status of my own member. The config will be updated on the other federated members automatically.
+	Enabled bool `pulumi:"enabled"`
+	// Full URL to ending with the repository name.
+	Url string `pulumi:"url"`
+}
+
+// GetFederatedHelmRepositoryMemberInput is an input type that accepts GetFederatedHelmRepositoryMemberArgs and GetFederatedHelmRepositoryMemberOutput values.
+// You can construct a concrete instance of `GetFederatedHelmRepositoryMemberInput` via:
+//
+//	GetFederatedHelmRepositoryMemberArgs{...}
+type GetFederatedHelmRepositoryMemberInput interface {
+	pulumi.Input
+
+	ToGetFederatedHelmRepositoryMemberOutput() GetFederatedHelmRepositoryMemberOutput
+	ToGetFederatedHelmRepositoryMemberOutputWithContext(context.Context) GetFederatedHelmRepositoryMemberOutput
+}
+
+type GetFederatedHelmRepositoryMemberArgs struct {
+	// Represents the active state of the federated member. It is supported to change the enabled
+	// status of my own member. The config will be updated on the other federated members automatically.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// Full URL to ending with the repository name.
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (GetFederatedHelmRepositoryMemberArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFederatedHelmRepositoryMember)(nil)).Elem()
+}
+
+func (i GetFederatedHelmRepositoryMemberArgs) ToGetFederatedHelmRepositoryMemberOutput() GetFederatedHelmRepositoryMemberOutput {
+	return i.ToGetFederatedHelmRepositoryMemberOutputWithContext(context.Background())
+}
+
+func (i GetFederatedHelmRepositoryMemberArgs) ToGetFederatedHelmRepositoryMemberOutputWithContext(ctx context.Context) GetFederatedHelmRepositoryMemberOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFederatedHelmRepositoryMemberOutput)
+}
+
+// GetFederatedHelmRepositoryMemberArrayInput is an input type that accepts GetFederatedHelmRepositoryMemberArray and GetFederatedHelmRepositoryMemberArrayOutput values.
+// You can construct a concrete instance of `GetFederatedHelmRepositoryMemberArrayInput` via:
+//
+//	GetFederatedHelmRepositoryMemberArray{ GetFederatedHelmRepositoryMemberArgs{...} }
+type GetFederatedHelmRepositoryMemberArrayInput interface {
+	pulumi.Input
+
+	ToGetFederatedHelmRepositoryMemberArrayOutput() GetFederatedHelmRepositoryMemberArrayOutput
+	ToGetFederatedHelmRepositoryMemberArrayOutputWithContext(context.Context) GetFederatedHelmRepositoryMemberArrayOutput
+}
+
+type GetFederatedHelmRepositoryMemberArray []GetFederatedHelmRepositoryMemberInput
+
+func (GetFederatedHelmRepositoryMemberArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFederatedHelmRepositoryMember)(nil)).Elem()
+}
+
+func (i GetFederatedHelmRepositoryMemberArray) ToGetFederatedHelmRepositoryMemberArrayOutput() GetFederatedHelmRepositoryMemberArrayOutput {
+	return i.ToGetFederatedHelmRepositoryMemberArrayOutputWithContext(context.Background())
+}
+
+func (i GetFederatedHelmRepositoryMemberArray) ToGetFederatedHelmRepositoryMemberArrayOutputWithContext(ctx context.Context) GetFederatedHelmRepositoryMemberArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFederatedHelmRepositoryMemberArrayOutput)
+}
+
+type GetFederatedHelmRepositoryMemberOutput struct{ *pulumi.OutputState }
+
+func (GetFederatedHelmRepositoryMemberOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFederatedHelmRepositoryMember)(nil)).Elem()
+}
+
+func (o GetFederatedHelmRepositoryMemberOutput) ToGetFederatedHelmRepositoryMemberOutput() GetFederatedHelmRepositoryMemberOutput {
+	return o
+}
+
+func (o GetFederatedHelmRepositoryMemberOutput) ToGetFederatedHelmRepositoryMemberOutputWithContext(ctx context.Context) GetFederatedHelmRepositoryMemberOutput {
+	return o
+}
+
+// Represents the active state of the federated member. It is supported to change the enabled
+// status of my own member. The config will be updated on the other federated members automatically.
+func (o GetFederatedHelmRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetFederatedHelmRepositoryMember) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// Full URL to ending with the repository name.
+func (o GetFederatedHelmRepositoryMemberOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFederatedHelmRepositoryMember) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type GetFederatedHelmRepositoryMemberArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFederatedHelmRepositoryMemberArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFederatedHelmRepositoryMember)(nil)).Elem()
+}
+
+func (o GetFederatedHelmRepositoryMemberArrayOutput) ToGetFederatedHelmRepositoryMemberArrayOutput() GetFederatedHelmRepositoryMemberArrayOutput {
+	return o
+}
+
+func (o GetFederatedHelmRepositoryMemberArrayOutput) ToGetFederatedHelmRepositoryMemberArrayOutputWithContext(ctx context.Context) GetFederatedHelmRepositoryMemberArrayOutput {
+	return o
+}
+
+func (o GetFederatedHelmRepositoryMemberArrayOutput) Index(i pulumi.IntInput) GetFederatedHelmRepositoryMemberOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFederatedHelmRepositoryMember {
+		return vs[0].([]GetFederatedHelmRepositoryMember)[vs[1].(int)]
+	}).(GetFederatedHelmRepositoryMemberOutput)
+}
+
+type GetFederatedIvyRepositoryMember struct {
+	// Represents the active state of the federated member. It is supported to change the enabled
+	// status of my own member. The config will be updated on the other federated members automatically.
+	Enabled bool `pulumi:"enabled"`
+	// Full URL to ending with the repository name.
+	Url string `pulumi:"url"`
+}
+
+// GetFederatedIvyRepositoryMemberInput is an input type that accepts GetFederatedIvyRepositoryMemberArgs and GetFederatedIvyRepositoryMemberOutput values.
+// You can construct a concrete instance of `GetFederatedIvyRepositoryMemberInput` via:
+//
+//	GetFederatedIvyRepositoryMemberArgs{...}
+type GetFederatedIvyRepositoryMemberInput interface {
+	pulumi.Input
+
+	ToGetFederatedIvyRepositoryMemberOutput() GetFederatedIvyRepositoryMemberOutput
+	ToGetFederatedIvyRepositoryMemberOutputWithContext(context.Context) GetFederatedIvyRepositoryMemberOutput
+}
+
+type GetFederatedIvyRepositoryMemberArgs struct {
+	// Represents the active state of the federated member. It is supported to change the enabled
+	// status of my own member. The config will be updated on the other federated members automatically.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// Full URL to ending with the repository name.
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (GetFederatedIvyRepositoryMemberArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFederatedIvyRepositoryMember)(nil)).Elem()
+}
+
+func (i GetFederatedIvyRepositoryMemberArgs) ToGetFederatedIvyRepositoryMemberOutput() GetFederatedIvyRepositoryMemberOutput {
+	return i.ToGetFederatedIvyRepositoryMemberOutputWithContext(context.Background())
+}
+
+func (i GetFederatedIvyRepositoryMemberArgs) ToGetFederatedIvyRepositoryMemberOutputWithContext(ctx context.Context) GetFederatedIvyRepositoryMemberOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFederatedIvyRepositoryMemberOutput)
+}
+
+// GetFederatedIvyRepositoryMemberArrayInput is an input type that accepts GetFederatedIvyRepositoryMemberArray and GetFederatedIvyRepositoryMemberArrayOutput values.
+// You can construct a concrete instance of `GetFederatedIvyRepositoryMemberArrayInput` via:
+//
+//	GetFederatedIvyRepositoryMemberArray{ GetFederatedIvyRepositoryMemberArgs{...} }
+type GetFederatedIvyRepositoryMemberArrayInput interface {
+	pulumi.Input
+
+	ToGetFederatedIvyRepositoryMemberArrayOutput() GetFederatedIvyRepositoryMemberArrayOutput
+	ToGetFederatedIvyRepositoryMemberArrayOutputWithContext(context.Context) GetFederatedIvyRepositoryMemberArrayOutput
+}
+
+type GetFederatedIvyRepositoryMemberArray []GetFederatedIvyRepositoryMemberInput
+
+func (GetFederatedIvyRepositoryMemberArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFederatedIvyRepositoryMember)(nil)).Elem()
+}
+
+func (i GetFederatedIvyRepositoryMemberArray) ToGetFederatedIvyRepositoryMemberArrayOutput() GetFederatedIvyRepositoryMemberArrayOutput {
+	return i.ToGetFederatedIvyRepositoryMemberArrayOutputWithContext(context.Background())
+}
+
+func (i GetFederatedIvyRepositoryMemberArray) ToGetFederatedIvyRepositoryMemberArrayOutputWithContext(ctx context.Context) GetFederatedIvyRepositoryMemberArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFederatedIvyRepositoryMemberArrayOutput)
+}
+
+type GetFederatedIvyRepositoryMemberOutput struct{ *pulumi.OutputState }
+
+func (GetFederatedIvyRepositoryMemberOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFederatedIvyRepositoryMember)(nil)).Elem()
+}
+
+func (o GetFederatedIvyRepositoryMemberOutput) ToGetFederatedIvyRepositoryMemberOutput() GetFederatedIvyRepositoryMemberOutput {
+	return o
+}
+
+func (o GetFederatedIvyRepositoryMemberOutput) ToGetFederatedIvyRepositoryMemberOutputWithContext(ctx context.Context) GetFederatedIvyRepositoryMemberOutput {
+	return o
+}
+
+// Represents the active state of the federated member. It is supported to change the enabled
+// status of my own member. The config will be updated on the other federated members automatically.
+func (o GetFederatedIvyRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetFederatedIvyRepositoryMember) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// Full URL to ending with the repository name.
+func (o GetFederatedIvyRepositoryMemberOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFederatedIvyRepositoryMember) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type GetFederatedIvyRepositoryMemberArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFederatedIvyRepositoryMemberArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFederatedIvyRepositoryMember)(nil)).Elem()
+}
+
+func (o GetFederatedIvyRepositoryMemberArrayOutput) ToGetFederatedIvyRepositoryMemberArrayOutput() GetFederatedIvyRepositoryMemberArrayOutput {
+	return o
+}
+
+func (o GetFederatedIvyRepositoryMemberArrayOutput) ToGetFederatedIvyRepositoryMemberArrayOutputWithContext(ctx context.Context) GetFederatedIvyRepositoryMemberArrayOutput {
+	return o
+}
+
+func (o GetFederatedIvyRepositoryMemberArrayOutput) Index(i pulumi.IntInput) GetFederatedIvyRepositoryMemberOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFederatedIvyRepositoryMember {
+		return vs[0].([]GetFederatedIvyRepositoryMember)[vs[1].(int)]
+	}).(GetFederatedIvyRepositoryMemberOutput)
+}
+
+type GetFederatedMavenRepositoryMember struct {
+	// Represents the active state of the federated member. It is supported to change the enabled
+	// status of my own member. The config will be updated on the other federated members automatically.
+	Enabled bool `pulumi:"enabled"`
+	// Full URL to ending with the repository name.
+	Url string `pulumi:"url"`
+}
+
+// GetFederatedMavenRepositoryMemberInput is an input type that accepts GetFederatedMavenRepositoryMemberArgs and GetFederatedMavenRepositoryMemberOutput values.
+// You can construct a concrete instance of `GetFederatedMavenRepositoryMemberInput` via:
+//
+//	GetFederatedMavenRepositoryMemberArgs{...}
+type GetFederatedMavenRepositoryMemberInput interface {
+	pulumi.Input
+
+	ToGetFederatedMavenRepositoryMemberOutput() GetFederatedMavenRepositoryMemberOutput
+	ToGetFederatedMavenRepositoryMemberOutputWithContext(context.Context) GetFederatedMavenRepositoryMemberOutput
+}
+
+type GetFederatedMavenRepositoryMemberArgs struct {
+	// Represents the active state of the federated member. It is supported to change the enabled
+	// status of my own member. The config will be updated on the other federated members automatically.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// Full URL to ending with the repository name.
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (GetFederatedMavenRepositoryMemberArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFederatedMavenRepositoryMember)(nil)).Elem()
+}
+
+func (i GetFederatedMavenRepositoryMemberArgs) ToGetFederatedMavenRepositoryMemberOutput() GetFederatedMavenRepositoryMemberOutput {
+	return i.ToGetFederatedMavenRepositoryMemberOutputWithContext(context.Background())
+}
+
+func (i GetFederatedMavenRepositoryMemberArgs) ToGetFederatedMavenRepositoryMemberOutputWithContext(ctx context.Context) GetFederatedMavenRepositoryMemberOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFederatedMavenRepositoryMemberOutput)
+}
+
+// GetFederatedMavenRepositoryMemberArrayInput is an input type that accepts GetFederatedMavenRepositoryMemberArray and GetFederatedMavenRepositoryMemberArrayOutput values.
+// You can construct a concrete instance of `GetFederatedMavenRepositoryMemberArrayInput` via:
+//
+//	GetFederatedMavenRepositoryMemberArray{ GetFederatedMavenRepositoryMemberArgs{...} }
+type GetFederatedMavenRepositoryMemberArrayInput interface {
+	pulumi.Input
+
+	ToGetFederatedMavenRepositoryMemberArrayOutput() GetFederatedMavenRepositoryMemberArrayOutput
+	ToGetFederatedMavenRepositoryMemberArrayOutputWithContext(context.Context) GetFederatedMavenRepositoryMemberArrayOutput
+}
+
+type GetFederatedMavenRepositoryMemberArray []GetFederatedMavenRepositoryMemberInput
+
+func (GetFederatedMavenRepositoryMemberArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFederatedMavenRepositoryMember)(nil)).Elem()
+}
+
+func (i GetFederatedMavenRepositoryMemberArray) ToGetFederatedMavenRepositoryMemberArrayOutput() GetFederatedMavenRepositoryMemberArrayOutput {
+	return i.ToGetFederatedMavenRepositoryMemberArrayOutputWithContext(context.Background())
+}
+
+func (i GetFederatedMavenRepositoryMemberArray) ToGetFederatedMavenRepositoryMemberArrayOutputWithContext(ctx context.Context) GetFederatedMavenRepositoryMemberArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFederatedMavenRepositoryMemberArrayOutput)
+}
+
+type GetFederatedMavenRepositoryMemberOutput struct{ *pulumi.OutputState }
+
+func (GetFederatedMavenRepositoryMemberOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFederatedMavenRepositoryMember)(nil)).Elem()
+}
+
+func (o GetFederatedMavenRepositoryMemberOutput) ToGetFederatedMavenRepositoryMemberOutput() GetFederatedMavenRepositoryMemberOutput {
+	return o
+}
+
+func (o GetFederatedMavenRepositoryMemberOutput) ToGetFederatedMavenRepositoryMemberOutputWithContext(ctx context.Context) GetFederatedMavenRepositoryMemberOutput {
+	return o
+}
+
+// Represents the active state of the federated member. It is supported to change the enabled
+// status of my own member. The config will be updated on the other federated members automatically.
+func (o GetFederatedMavenRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetFederatedMavenRepositoryMember) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// Full URL to ending with the repository name.
+func (o GetFederatedMavenRepositoryMemberOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFederatedMavenRepositoryMember) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type GetFederatedMavenRepositoryMemberArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFederatedMavenRepositoryMemberArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFederatedMavenRepositoryMember)(nil)).Elem()
+}
+
+func (o GetFederatedMavenRepositoryMemberArrayOutput) ToGetFederatedMavenRepositoryMemberArrayOutput() GetFederatedMavenRepositoryMemberArrayOutput {
+	return o
+}
+
+func (o GetFederatedMavenRepositoryMemberArrayOutput) ToGetFederatedMavenRepositoryMemberArrayOutputWithContext(ctx context.Context) GetFederatedMavenRepositoryMemberArrayOutput {
+	return o
+}
+
+func (o GetFederatedMavenRepositoryMemberArrayOutput) Index(i pulumi.IntInput) GetFederatedMavenRepositoryMemberOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFederatedMavenRepositoryMember {
+		return vs[0].([]GetFederatedMavenRepositoryMember)[vs[1].(int)]
+	}).(GetFederatedMavenRepositoryMemberOutput)
+}
+
+type GetFederatedNpmRepositoryMember struct {
+	// Represents the active state of the federated member. It is supported to change the enabled
+	// status of my own member. The config will be updated on the other federated members automatically.
+	Enabled bool `pulumi:"enabled"`
+	// Full URL to ending with the repository name.
+	Url string `pulumi:"url"`
+}
+
+// GetFederatedNpmRepositoryMemberInput is an input type that accepts GetFederatedNpmRepositoryMemberArgs and GetFederatedNpmRepositoryMemberOutput values.
+// You can construct a concrete instance of `GetFederatedNpmRepositoryMemberInput` via:
+//
+//	GetFederatedNpmRepositoryMemberArgs{...}
+type GetFederatedNpmRepositoryMemberInput interface {
+	pulumi.Input
+
+	ToGetFederatedNpmRepositoryMemberOutput() GetFederatedNpmRepositoryMemberOutput
+	ToGetFederatedNpmRepositoryMemberOutputWithContext(context.Context) GetFederatedNpmRepositoryMemberOutput
+}
+
+type GetFederatedNpmRepositoryMemberArgs struct {
+	// Represents the active state of the federated member. It is supported to change the enabled
+	// status of my own member. The config will be updated on the other federated members automatically.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// Full URL to ending with the repository name.
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (GetFederatedNpmRepositoryMemberArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFederatedNpmRepositoryMember)(nil)).Elem()
+}
+
+func (i GetFederatedNpmRepositoryMemberArgs) ToGetFederatedNpmRepositoryMemberOutput() GetFederatedNpmRepositoryMemberOutput {
+	return i.ToGetFederatedNpmRepositoryMemberOutputWithContext(context.Background())
+}
+
+func (i GetFederatedNpmRepositoryMemberArgs) ToGetFederatedNpmRepositoryMemberOutputWithContext(ctx context.Context) GetFederatedNpmRepositoryMemberOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFederatedNpmRepositoryMemberOutput)
+}
+
+// GetFederatedNpmRepositoryMemberArrayInput is an input type that accepts GetFederatedNpmRepositoryMemberArray and GetFederatedNpmRepositoryMemberArrayOutput values.
+// You can construct a concrete instance of `GetFederatedNpmRepositoryMemberArrayInput` via:
+//
+//	GetFederatedNpmRepositoryMemberArray{ GetFederatedNpmRepositoryMemberArgs{...} }
+type GetFederatedNpmRepositoryMemberArrayInput interface {
+	pulumi.Input
+
+	ToGetFederatedNpmRepositoryMemberArrayOutput() GetFederatedNpmRepositoryMemberArrayOutput
+	ToGetFederatedNpmRepositoryMemberArrayOutputWithContext(context.Context) GetFederatedNpmRepositoryMemberArrayOutput
+}
+
+type GetFederatedNpmRepositoryMemberArray []GetFederatedNpmRepositoryMemberInput
+
+func (GetFederatedNpmRepositoryMemberArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFederatedNpmRepositoryMember)(nil)).Elem()
+}
+
+func (i GetFederatedNpmRepositoryMemberArray) ToGetFederatedNpmRepositoryMemberArrayOutput() GetFederatedNpmRepositoryMemberArrayOutput {
+	return i.ToGetFederatedNpmRepositoryMemberArrayOutputWithContext(context.Background())
+}
+
+func (i GetFederatedNpmRepositoryMemberArray) ToGetFederatedNpmRepositoryMemberArrayOutputWithContext(ctx context.Context) GetFederatedNpmRepositoryMemberArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFederatedNpmRepositoryMemberArrayOutput)
+}
+
+type GetFederatedNpmRepositoryMemberOutput struct{ *pulumi.OutputState }
+
+func (GetFederatedNpmRepositoryMemberOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFederatedNpmRepositoryMember)(nil)).Elem()
+}
+
+func (o GetFederatedNpmRepositoryMemberOutput) ToGetFederatedNpmRepositoryMemberOutput() GetFederatedNpmRepositoryMemberOutput {
+	return o
+}
+
+func (o GetFederatedNpmRepositoryMemberOutput) ToGetFederatedNpmRepositoryMemberOutputWithContext(ctx context.Context) GetFederatedNpmRepositoryMemberOutput {
+	return o
+}
+
+// Represents the active state of the federated member. It is supported to change the enabled
+// status of my own member. The config will be updated on the other federated members automatically.
+func (o GetFederatedNpmRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetFederatedNpmRepositoryMember) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// Full URL to ending with the repository name.
+func (o GetFederatedNpmRepositoryMemberOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFederatedNpmRepositoryMember) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type GetFederatedNpmRepositoryMemberArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFederatedNpmRepositoryMemberArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFederatedNpmRepositoryMember)(nil)).Elem()
+}
+
+func (o GetFederatedNpmRepositoryMemberArrayOutput) ToGetFederatedNpmRepositoryMemberArrayOutput() GetFederatedNpmRepositoryMemberArrayOutput {
+	return o
+}
+
+func (o GetFederatedNpmRepositoryMemberArrayOutput) ToGetFederatedNpmRepositoryMemberArrayOutputWithContext(ctx context.Context) GetFederatedNpmRepositoryMemberArrayOutput {
+	return o
+}
+
+func (o GetFederatedNpmRepositoryMemberArrayOutput) Index(i pulumi.IntInput) GetFederatedNpmRepositoryMemberOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFederatedNpmRepositoryMember {
+		return vs[0].([]GetFederatedNpmRepositoryMember)[vs[1].(int)]
+	}).(GetFederatedNpmRepositoryMemberOutput)
+}
+
+type GetFederatedNugetRepositoryMember struct {
+	// Represents the active state of the federated member. It is supported to change the enabled
+	// status of my own member. The config will be updated on the other federated members automatically.
+	Enabled bool `pulumi:"enabled"`
+	// Full URL to ending with the repository name.
+	Url string `pulumi:"url"`
+}
+
+// GetFederatedNugetRepositoryMemberInput is an input type that accepts GetFederatedNugetRepositoryMemberArgs and GetFederatedNugetRepositoryMemberOutput values.
+// You can construct a concrete instance of `GetFederatedNugetRepositoryMemberInput` via:
+//
+//	GetFederatedNugetRepositoryMemberArgs{...}
+type GetFederatedNugetRepositoryMemberInput interface {
+	pulumi.Input
+
+	ToGetFederatedNugetRepositoryMemberOutput() GetFederatedNugetRepositoryMemberOutput
+	ToGetFederatedNugetRepositoryMemberOutputWithContext(context.Context) GetFederatedNugetRepositoryMemberOutput
+}
+
+type GetFederatedNugetRepositoryMemberArgs struct {
+	// Represents the active state of the federated member. It is supported to change the enabled
+	// status of my own member. The config will be updated on the other federated members automatically.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// Full URL to ending with the repository name.
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (GetFederatedNugetRepositoryMemberArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFederatedNugetRepositoryMember)(nil)).Elem()
+}
+
+func (i GetFederatedNugetRepositoryMemberArgs) ToGetFederatedNugetRepositoryMemberOutput() GetFederatedNugetRepositoryMemberOutput {
+	return i.ToGetFederatedNugetRepositoryMemberOutputWithContext(context.Background())
+}
+
+func (i GetFederatedNugetRepositoryMemberArgs) ToGetFederatedNugetRepositoryMemberOutputWithContext(ctx context.Context) GetFederatedNugetRepositoryMemberOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFederatedNugetRepositoryMemberOutput)
+}
+
+// GetFederatedNugetRepositoryMemberArrayInput is an input type that accepts GetFederatedNugetRepositoryMemberArray and GetFederatedNugetRepositoryMemberArrayOutput values.
+// You can construct a concrete instance of `GetFederatedNugetRepositoryMemberArrayInput` via:
+//
+//	GetFederatedNugetRepositoryMemberArray{ GetFederatedNugetRepositoryMemberArgs{...} }
+type GetFederatedNugetRepositoryMemberArrayInput interface {
+	pulumi.Input
+
+	ToGetFederatedNugetRepositoryMemberArrayOutput() GetFederatedNugetRepositoryMemberArrayOutput
+	ToGetFederatedNugetRepositoryMemberArrayOutputWithContext(context.Context) GetFederatedNugetRepositoryMemberArrayOutput
+}
+
+type GetFederatedNugetRepositoryMemberArray []GetFederatedNugetRepositoryMemberInput
+
+func (GetFederatedNugetRepositoryMemberArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFederatedNugetRepositoryMember)(nil)).Elem()
+}
+
+func (i GetFederatedNugetRepositoryMemberArray) ToGetFederatedNugetRepositoryMemberArrayOutput() GetFederatedNugetRepositoryMemberArrayOutput {
+	return i.ToGetFederatedNugetRepositoryMemberArrayOutputWithContext(context.Background())
+}
+
+func (i GetFederatedNugetRepositoryMemberArray) ToGetFederatedNugetRepositoryMemberArrayOutputWithContext(ctx context.Context) GetFederatedNugetRepositoryMemberArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFederatedNugetRepositoryMemberArrayOutput)
+}
+
+type GetFederatedNugetRepositoryMemberOutput struct{ *pulumi.OutputState }
+
+func (GetFederatedNugetRepositoryMemberOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFederatedNugetRepositoryMember)(nil)).Elem()
+}
+
+func (o GetFederatedNugetRepositoryMemberOutput) ToGetFederatedNugetRepositoryMemberOutput() GetFederatedNugetRepositoryMemberOutput {
+	return o
+}
+
+func (o GetFederatedNugetRepositoryMemberOutput) ToGetFederatedNugetRepositoryMemberOutputWithContext(ctx context.Context) GetFederatedNugetRepositoryMemberOutput {
+	return o
+}
+
+// Represents the active state of the federated member. It is supported to change the enabled
+// status of my own member. The config will be updated on the other federated members automatically.
+func (o GetFederatedNugetRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetFederatedNugetRepositoryMember) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// Full URL to ending with the repository name.
+func (o GetFederatedNugetRepositoryMemberOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFederatedNugetRepositoryMember) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type GetFederatedNugetRepositoryMemberArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFederatedNugetRepositoryMemberArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFederatedNugetRepositoryMember)(nil)).Elem()
+}
+
+func (o GetFederatedNugetRepositoryMemberArrayOutput) ToGetFederatedNugetRepositoryMemberArrayOutput() GetFederatedNugetRepositoryMemberArrayOutput {
+	return o
+}
+
+func (o GetFederatedNugetRepositoryMemberArrayOutput) ToGetFederatedNugetRepositoryMemberArrayOutputWithContext(ctx context.Context) GetFederatedNugetRepositoryMemberArrayOutput {
+	return o
+}
+
+func (o GetFederatedNugetRepositoryMemberArrayOutput) Index(i pulumi.IntInput) GetFederatedNugetRepositoryMemberOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFederatedNugetRepositoryMember {
+		return vs[0].([]GetFederatedNugetRepositoryMember)[vs[1].(int)]
+	}).(GetFederatedNugetRepositoryMemberOutput)
+}
+
+type GetFederatedOpkgRepositoryMember struct {
+	// Represents the active state of the federated member. It is supported to change the enabled
+	// status of my own member. The config will be updated on the other federated members automatically.
+	Enabled bool `pulumi:"enabled"`
+	// Full URL to ending with the repository name.
+	Url string `pulumi:"url"`
+}
+
+// GetFederatedOpkgRepositoryMemberInput is an input type that accepts GetFederatedOpkgRepositoryMemberArgs and GetFederatedOpkgRepositoryMemberOutput values.
+// You can construct a concrete instance of `GetFederatedOpkgRepositoryMemberInput` via:
+//
+//	GetFederatedOpkgRepositoryMemberArgs{...}
+type GetFederatedOpkgRepositoryMemberInput interface {
+	pulumi.Input
+
+	ToGetFederatedOpkgRepositoryMemberOutput() GetFederatedOpkgRepositoryMemberOutput
+	ToGetFederatedOpkgRepositoryMemberOutputWithContext(context.Context) GetFederatedOpkgRepositoryMemberOutput
+}
+
+type GetFederatedOpkgRepositoryMemberArgs struct {
+	// Represents the active state of the federated member. It is supported to change the enabled
+	// status of my own member. The config will be updated on the other federated members automatically.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// Full URL to ending with the repository name.
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (GetFederatedOpkgRepositoryMemberArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFederatedOpkgRepositoryMember)(nil)).Elem()
+}
+
+func (i GetFederatedOpkgRepositoryMemberArgs) ToGetFederatedOpkgRepositoryMemberOutput() GetFederatedOpkgRepositoryMemberOutput {
+	return i.ToGetFederatedOpkgRepositoryMemberOutputWithContext(context.Background())
+}
+
+func (i GetFederatedOpkgRepositoryMemberArgs) ToGetFederatedOpkgRepositoryMemberOutputWithContext(ctx context.Context) GetFederatedOpkgRepositoryMemberOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFederatedOpkgRepositoryMemberOutput)
+}
+
+// GetFederatedOpkgRepositoryMemberArrayInput is an input type that accepts GetFederatedOpkgRepositoryMemberArray and GetFederatedOpkgRepositoryMemberArrayOutput values.
+// You can construct a concrete instance of `GetFederatedOpkgRepositoryMemberArrayInput` via:
+//
+//	GetFederatedOpkgRepositoryMemberArray{ GetFederatedOpkgRepositoryMemberArgs{...} }
+type GetFederatedOpkgRepositoryMemberArrayInput interface {
+	pulumi.Input
+
+	ToGetFederatedOpkgRepositoryMemberArrayOutput() GetFederatedOpkgRepositoryMemberArrayOutput
+	ToGetFederatedOpkgRepositoryMemberArrayOutputWithContext(context.Context) GetFederatedOpkgRepositoryMemberArrayOutput
+}
+
+type GetFederatedOpkgRepositoryMemberArray []GetFederatedOpkgRepositoryMemberInput
+
+func (GetFederatedOpkgRepositoryMemberArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFederatedOpkgRepositoryMember)(nil)).Elem()
+}
+
+func (i GetFederatedOpkgRepositoryMemberArray) ToGetFederatedOpkgRepositoryMemberArrayOutput() GetFederatedOpkgRepositoryMemberArrayOutput {
+	return i.ToGetFederatedOpkgRepositoryMemberArrayOutputWithContext(context.Background())
+}
+
+func (i GetFederatedOpkgRepositoryMemberArray) ToGetFederatedOpkgRepositoryMemberArrayOutputWithContext(ctx context.Context) GetFederatedOpkgRepositoryMemberArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFederatedOpkgRepositoryMemberArrayOutput)
+}
+
+type GetFederatedOpkgRepositoryMemberOutput struct{ *pulumi.OutputState }
+
+func (GetFederatedOpkgRepositoryMemberOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFederatedOpkgRepositoryMember)(nil)).Elem()
+}
+
+func (o GetFederatedOpkgRepositoryMemberOutput) ToGetFederatedOpkgRepositoryMemberOutput() GetFederatedOpkgRepositoryMemberOutput {
+	return o
+}
+
+func (o GetFederatedOpkgRepositoryMemberOutput) ToGetFederatedOpkgRepositoryMemberOutputWithContext(ctx context.Context) GetFederatedOpkgRepositoryMemberOutput {
+	return o
+}
+
+// Represents the active state of the federated member. It is supported to change the enabled
+// status of my own member. The config will be updated on the other federated members automatically.
+func (o GetFederatedOpkgRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetFederatedOpkgRepositoryMember) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// Full URL to ending with the repository name.
+func (o GetFederatedOpkgRepositoryMemberOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFederatedOpkgRepositoryMember) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type GetFederatedOpkgRepositoryMemberArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFederatedOpkgRepositoryMemberArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFederatedOpkgRepositoryMember)(nil)).Elem()
+}
+
+func (o GetFederatedOpkgRepositoryMemberArrayOutput) ToGetFederatedOpkgRepositoryMemberArrayOutput() GetFederatedOpkgRepositoryMemberArrayOutput {
+	return o
+}
+
+func (o GetFederatedOpkgRepositoryMemberArrayOutput) ToGetFederatedOpkgRepositoryMemberArrayOutputWithContext(ctx context.Context) GetFederatedOpkgRepositoryMemberArrayOutput {
+	return o
+}
+
+func (o GetFederatedOpkgRepositoryMemberArrayOutput) Index(i pulumi.IntInput) GetFederatedOpkgRepositoryMemberOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFederatedOpkgRepositoryMember {
+		return vs[0].([]GetFederatedOpkgRepositoryMember)[vs[1].(int)]
+	}).(GetFederatedOpkgRepositoryMemberOutput)
+}
+
+type GetFederatedPuppetRepositoryMember struct {
+	// Represents the active state of the federated member. It is supported to change the enabled
+	// status of my own member. The config will be updated on the other federated members automatically.
+	Enabled bool `pulumi:"enabled"`
+	// Full URL to ending with the repository name.
+	Url string `pulumi:"url"`
+}
+
+// GetFederatedPuppetRepositoryMemberInput is an input type that accepts GetFederatedPuppetRepositoryMemberArgs and GetFederatedPuppetRepositoryMemberOutput values.
+// You can construct a concrete instance of `GetFederatedPuppetRepositoryMemberInput` via:
+//
+//	GetFederatedPuppetRepositoryMemberArgs{...}
+type GetFederatedPuppetRepositoryMemberInput interface {
+	pulumi.Input
+
+	ToGetFederatedPuppetRepositoryMemberOutput() GetFederatedPuppetRepositoryMemberOutput
+	ToGetFederatedPuppetRepositoryMemberOutputWithContext(context.Context) GetFederatedPuppetRepositoryMemberOutput
+}
+
+type GetFederatedPuppetRepositoryMemberArgs struct {
+	// Represents the active state of the federated member. It is supported to change the enabled
+	// status of my own member. The config will be updated on the other federated members automatically.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// Full URL to ending with the repository name.
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (GetFederatedPuppetRepositoryMemberArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFederatedPuppetRepositoryMember)(nil)).Elem()
+}
+
+func (i GetFederatedPuppetRepositoryMemberArgs) ToGetFederatedPuppetRepositoryMemberOutput() GetFederatedPuppetRepositoryMemberOutput {
+	return i.ToGetFederatedPuppetRepositoryMemberOutputWithContext(context.Background())
+}
+
+func (i GetFederatedPuppetRepositoryMemberArgs) ToGetFederatedPuppetRepositoryMemberOutputWithContext(ctx context.Context) GetFederatedPuppetRepositoryMemberOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFederatedPuppetRepositoryMemberOutput)
+}
+
+// GetFederatedPuppetRepositoryMemberArrayInput is an input type that accepts GetFederatedPuppetRepositoryMemberArray and GetFederatedPuppetRepositoryMemberArrayOutput values.
+// You can construct a concrete instance of `GetFederatedPuppetRepositoryMemberArrayInput` via:
+//
+//	GetFederatedPuppetRepositoryMemberArray{ GetFederatedPuppetRepositoryMemberArgs{...} }
+type GetFederatedPuppetRepositoryMemberArrayInput interface {
+	pulumi.Input
+
+	ToGetFederatedPuppetRepositoryMemberArrayOutput() GetFederatedPuppetRepositoryMemberArrayOutput
+	ToGetFederatedPuppetRepositoryMemberArrayOutputWithContext(context.Context) GetFederatedPuppetRepositoryMemberArrayOutput
+}
+
+type GetFederatedPuppetRepositoryMemberArray []GetFederatedPuppetRepositoryMemberInput
+
+func (GetFederatedPuppetRepositoryMemberArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFederatedPuppetRepositoryMember)(nil)).Elem()
+}
+
+func (i GetFederatedPuppetRepositoryMemberArray) ToGetFederatedPuppetRepositoryMemberArrayOutput() GetFederatedPuppetRepositoryMemberArrayOutput {
+	return i.ToGetFederatedPuppetRepositoryMemberArrayOutputWithContext(context.Background())
+}
+
+func (i GetFederatedPuppetRepositoryMemberArray) ToGetFederatedPuppetRepositoryMemberArrayOutputWithContext(ctx context.Context) GetFederatedPuppetRepositoryMemberArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFederatedPuppetRepositoryMemberArrayOutput)
+}
+
+type GetFederatedPuppetRepositoryMemberOutput struct{ *pulumi.OutputState }
+
+func (GetFederatedPuppetRepositoryMemberOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFederatedPuppetRepositoryMember)(nil)).Elem()
+}
+
+func (o GetFederatedPuppetRepositoryMemberOutput) ToGetFederatedPuppetRepositoryMemberOutput() GetFederatedPuppetRepositoryMemberOutput {
+	return o
+}
+
+func (o GetFederatedPuppetRepositoryMemberOutput) ToGetFederatedPuppetRepositoryMemberOutputWithContext(ctx context.Context) GetFederatedPuppetRepositoryMemberOutput {
+	return o
+}
+
+// Represents the active state of the federated member. It is supported to change the enabled
+// status of my own member. The config will be updated on the other federated members automatically.
+func (o GetFederatedPuppetRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetFederatedPuppetRepositoryMember) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// Full URL to ending with the repository name.
+func (o GetFederatedPuppetRepositoryMemberOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFederatedPuppetRepositoryMember) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type GetFederatedPuppetRepositoryMemberArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFederatedPuppetRepositoryMemberArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFederatedPuppetRepositoryMember)(nil)).Elem()
+}
+
+func (o GetFederatedPuppetRepositoryMemberArrayOutput) ToGetFederatedPuppetRepositoryMemberArrayOutput() GetFederatedPuppetRepositoryMemberArrayOutput {
+	return o
+}
+
+func (o GetFederatedPuppetRepositoryMemberArrayOutput) ToGetFederatedPuppetRepositoryMemberArrayOutputWithContext(ctx context.Context) GetFederatedPuppetRepositoryMemberArrayOutput {
+	return o
+}
+
+func (o GetFederatedPuppetRepositoryMemberArrayOutput) Index(i pulumi.IntInput) GetFederatedPuppetRepositoryMemberOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFederatedPuppetRepositoryMember {
+		return vs[0].([]GetFederatedPuppetRepositoryMember)[vs[1].(int)]
+	}).(GetFederatedPuppetRepositoryMemberOutput)
+}
+
+type GetFederatedPypiRepositoryMember struct {
+	// Represents the active state of the federated member. It is supported to change the enabled
+	// status of my own member. The config will be updated on the other federated members automatically.
+	Enabled bool `pulumi:"enabled"`
+	// Full URL to ending with the repository name.
+	Url string `pulumi:"url"`
+}
+
+// GetFederatedPypiRepositoryMemberInput is an input type that accepts GetFederatedPypiRepositoryMemberArgs and GetFederatedPypiRepositoryMemberOutput values.
+// You can construct a concrete instance of `GetFederatedPypiRepositoryMemberInput` via:
+//
+//	GetFederatedPypiRepositoryMemberArgs{...}
+type GetFederatedPypiRepositoryMemberInput interface {
+	pulumi.Input
+
+	ToGetFederatedPypiRepositoryMemberOutput() GetFederatedPypiRepositoryMemberOutput
+	ToGetFederatedPypiRepositoryMemberOutputWithContext(context.Context) GetFederatedPypiRepositoryMemberOutput
+}
+
+type GetFederatedPypiRepositoryMemberArgs struct {
+	// Represents the active state of the federated member. It is supported to change the enabled
+	// status of my own member. The config will be updated on the other federated members automatically.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// Full URL to ending with the repository name.
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (GetFederatedPypiRepositoryMemberArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFederatedPypiRepositoryMember)(nil)).Elem()
+}
+
+func (i GetFederatedPypiRepositoryMemberArgs) ToGetFederatedPypiRepositoryMemberOutput() GetFederatedPypiRepositoryMemberOutput {
+	return i.ToGetFederatedPypiRepositoryMemberOutputWithContext(context.Background())
+}
+
+func (i GetFederatedPypiRepositoryMemberArgs) ToGetFederatedPypiRepositoryMemberOutputWithContext(ctx context.Context) GetFederatedPypiRepositoryMemberOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFederatedPypiRepositoryMemberOutput)
+}
+
+// GetFederatedPypiRepositoryMemberArrayInput is an input type that accepts GetFederatedPypiRepositoryMemberArray and GetFederatedPypiRepositoryMemberArrayOutput values.
+// You can construct a concrete instance of `GetFederatedPypiRepositoryMemberArrayInput` via:
+//
+//	GetFederatedPypiRepositoryMemberArray{ GetFederatedPypiRepositoryMemberArgs{...} }
+type GetFederatedPypiRepositoryMemberArrayInput interface {
+	pulumi.Input
+
+	ToGetFederatedPypiRepositoryMemberArrayOutput() GetFederatedPypiRepositoryMemberArrayOutput
+	ToGetFederatedPypiRepositoryMemberArrayOutputWithContext(context.Context) GetFederatedPypiRepositoryMemberArrayOutput
+}
+
+type GetFederatedPypiRepositoryMemberArray []GetFederatedPypiRepositoryMemberInput
+
+func (GetFederatedPypiRepositoryMemberArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFederatedPypiRepositoryMember)(nil)).Elem()
+}
+
+func (i GetFederatedPypiRepositoryMemberArray) ToGetFederatedPypiRepositoryMemberArrayOutput() GetFederatedPypiRepositoryMemberArrayOutput {
+	return i.ToGetFederatedPypiRepositoryMemberArrayOutputWithContext(context.Background())
+}
+
+func (i GetFederatedPypiRepositoryMemberArray) ToGetFederatedPypiRepositoryMemberArrayOutputWithContext(ctx context.Context) GetFederatedPypiRepositoryMemberArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFederatedPypiRepositoryMemberArrayOutput)
+}
+
+type GetFederatedPypiRepositoryMemberOutput struct{ *pulumi.OutputState }
+
+func (GetFederatedPypiRepositoryMemberOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFederatedPypiRepositoryMember)(nil)).Elem()
+}
+
+func (o GetFederatedPypiRepositoryMemberOutput) ToGetFederatedPypiRepositoryMemberOutput() GetFederatedPypiRepositoryMemberOutput {
+	return o
+}
+
+func (o GetFederatedPypiRepositoryMemberOutput) ToGetFederatedPypiRepositoryMemberOutputWithContext(ctx context.Context) GetFederatedPypiRepositoryMemberOutput {
+	return o
+}
+
+// Represents the active state of the federated member. It is supported to change the enabled
+// status of my own member. The config will be updated on the other federated members automatically.
+func (o GetFederatedPypiRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetFederatedPypiRepositoryMember) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// Full URL to ending with the repository name.
+func (o GetFederatedPypiRepositoryMemberOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFederatedPypiRepositoryMember) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type GetFederatedPypiRepositoryMemberArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFederatedPypiRepositoryMemberArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFederatedPypiRepositoryMember)(nil)).Elem()
+}
+
+func (o GetFederatedPypiRepositoryMemberArrayOutput) ToGetFederatedPypiRepositoryMemberArrayOutput() GetFederatedPypiRepositoryMemberArrayOutput {
+	return o
+}
+
+func (o GetFederatedPypiRepositoryMemberArrayOutput) ToGetFederatedPypiRepositoryMemberArrayOutputWithContext(ctx context.Context) GetFederatedPypiRepositoryMemberArrayOutput {
+	return o
+}
+
+func (o GetFederatedPypiRepositoryMemberArrayOutput) Index(i pulumi.IntInput) GetFederatedPypiRepositoryMemberOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFederatedPypiRepositoryMember {
+		return vs[0].([]GetFederatedPypiRepositoryMember)[vs[1].(int)]
+	}).(GetFederatedPypiRepositoryMemberOutput)
+}
+
+type GetFederatedRpmRepositoryMember struct {
+	// Represents the active state of the federated member. It is supported to change the enabled
+	// status of my own member. The config will be updated on the other federated members automatically.
+	Enabled bool `pulumi:"enabled"`
+	// Full URL to ending with the repository name.
+	Url string `pulumi:"url"`
+}
+
+// GetFederatedRpmRepositoryMemberInput is an input type that accepts GetFederatedRpmRepositoryMemberArgs and GetFederatedRpmRepositoryMemberOutput values.
+// You can construct a concrete instance of `GetFederatedRpmRepositoryMemberInput` via:
+//
+//	GetFederatedRpmRepositoryMemberArgs{...}
+type GetFederatedRpmRepositoryMemberInput interface {
+	pulumi.Input
+
+	ToGetFederatedRpmRepositoryMemberOutput() GetFederatedRpmRepositoryMemberOutput
+	ToGetFederatedRpmRepositoryMemberOutputWithContext(context.Context) GetFederatedRpmRepositoryMemberOutput
+}
+
+type GetFederatedRpmRepositoryMemberArgs struct {
+	// Represents the active state of the federated member. It is supported to change the enabled
+	// status of my own member. The config will be updated on the other federated members automatically.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// Full URL to ending with the repository name.
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (GetFederatedRpmRepositoryMemberArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFederatedRpmRepositoryMember)(nil)).Elem()
+}
+
+func (i GetFederatedRpmRepositoryMemberArgs) ToGetFederatedRpmRepositoryMemberOutput() GetFederatedRpmRepositoryMemberOutput {
+	return i.ToGetFederatedRpmRepositoryMemberOutputWithContext(context.Background())
+}
+
+func (i GetFederatedRpmRepositoryMemberArgs) ToGetFederatedRpmRepositoryMemberOutputWithContext(ctx context.Context) GetFederatedRpmRepositoryMemberOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFederatedRpmRepositoryMemberOutput)
+}
+
+// GetFederatedRpmRepositoryMemberArrayInput is an input type that accepts GetFederatedRpmRepositoryMemberArray and GetFederatedRpmRepositoryMemberArrayOutput values.
+// You can construct a concrete instance of `GetFederatedRpmRepositoryMemberArrayInput` via:
+//
+//	GetFederatedRpmRepositoryMemberArray{ GetFederatedRpmRepositoryMemberArgs{...} }
+type GetFederatedRpmRepositoryMemberArrayInput interface {
+	pulumi.Input
+
+	ToGetFederatedRpmRepositoryMemberArrayOutput() GetFederatedRpmRepositoryMemberArrayOutput
+	ToGetFederatedRpmRepositoryMemberArrayOutputWithContext(context.Context) GetFederatedRpmRepositoryMemberArrayOutput
+}
+
+type GetFederatedRpmRepositoryMemberArray []GetFederatedRpmRepositoryMemberInput
+
+func (GetFederatedRpmRepositoryMemberArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFederatedRpmRepositoryMember)(nil)).Elem()
+}
+
+func (i GetFederatedRpmRepositoryMemberArray) ToGetFederatedRpmRepositoryMemberArrayOutput() GetFederatedRpmRepositoryMemberArrayOutput {
+	return i.ToGetFederatedRpmRepositoryMemberArrayOutputWithContext(context.Background())
+}
+
+func (i GetFederatedRpmRepositoryMemberArray) ToGetFederatedRpmRepositoryMemberArrayOutputWithContext(ctx context.Context) GetFederatedRpmRepositoryMemberArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFederatedRpmRepositoryMemberArrayOutput)
+}
+
+type GetFederatedRpmRepositoryMemberOutput struct{ *pulumi.OutputState }
+
+func (GetFederatedRpmRepositoryMemberOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFederatedRpmRepositoryMember)(nil)).Elem()
+}
+
+func (o GetFederatedRpmRepositoryMemberOutput) ToGetFederatedRpmRepositoryMemberOutput() GetFederatedRpmRepositoryMemberOutput {
+	return o
+}
+
+func (o GetFederatedRpmRepositoryMemberOutput) ToGetFederatedRpmRepositoryMemberOutputWithContext(ctx context.Context) GetFederatedRpmRepositoryMemberOutput {
+	return o
+}
+
+// Represents the active state of the federated member. It is supported to change the enabled
+// status of my own member. The config will be updated on the other federated members automatically.
+func (o GetFederatedRpmRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetFederatedRpmRepositoryMember) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// Full URL to ending with the repository name.
+func (o GetFederatedRpmRepositoryMemberOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFederatedRpmRepositoryMember) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type GetFederatedRpmRepositoryMemberArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFederatedRpmRepositoryMemberArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFederatedRpmRepositoryMember)(nil)).Elem()
+}
+
+func (o GetFederatedRpmRepositoryMemberArrayOutput) ToGetFederatedRpmRepositoryMemberArrayOutput() GetFederatedRpmRepositoryMemberArrayOutput {
+	return o
+}
+
+func (o GetFederatedRpmRepositoryMemberArrayOutput) ToGetFederatedRpmRepositoryMemberArrayOutputWithContext(ctx context.Context) GetFederatedRpmRepositoryMemberArrayOutput {
+	return o
+}
+
+func (o GetFederatedRpmRepositoryMemberArrayOutput) Index(i pulumi.IntInput) GetFederatedRpmRepositoryMemberOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFederatedRpmRepositoryMember {
+		return vs[0].([]GetFederatedRpmRepositoryMember)[vs[1].(int)]
+	}).(GetFederatedRpmRepositoryMemberOutput)
+}
+
+type GetFederatedSbtRepositoryMember struct {
+	// Represents the active state of the federated member. It is supported to change the enabled
+	// status of my own member. The config will be updated on the other federated members automatically.
+	Enabled bool `pulumi:"enabled"`
+	// Full URL to ending with the repository name.
+	Url string `pulumi:"url"`
+}
+
+// GetFederatedSbtRepositoryMemberInput is an input type that accepts GetFederatedSbtRepositoryMemberArgs and GetFederatedSbtRepositoryMemberOutput values.
+// You can construct a concrete instance of `GetFederatedSbtRepositoryMemberInput` via:
+//
+//	GetFederatedSbtRepositoryMemberArgs{...}
+type GetFederatedSbtRepositoryMemberInput interface {
+	pulumi.Input
+
+	ToGetFederatedSbtRepositoryMemberOutput() GetFederatedSbtRepositoryMemberOutput
+	ToGetFederatedSbtRepositoryMemberOutputWithContext(context.Context) GetFederatedSbtRepositoryMemberOutput
+}
+
+type GetFederatedSbtRepositoryMemberArgs struct {
+	// Represents the active state of the federated member. It is supported to change the enabled
+	// status of my own member. The config will be updated on the other federated members automatically.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// Full URL to ending with the repository name.
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (GetFederatedSbtRepositoryMemberArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFederatedSbtRepositoryMember)(nil)).Elem()
+}
+
+func (i GetFederatedSbtRepositoryMemberArgs) ToGetFederatedSbtRepositoryMemberOutput() GetFederatedSbtRepositoryMemberOutput {
+	return i.ToGetFederatedSbtRepositoryMemberOutputWithContext(context.Background())
+}
+
+func (i GetFederatedSbtRepositoryMemberArgs) ToGetFederatedSbtRepositoryMemberOutputWithContext(ctx context.Context) GetFederatedSbtRepositoryMemberOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFederatedSbtRepositoryMemberOutput)
+}
+
+// GetFederatedSbtRepositoryMemberArrayInput is an input type that accepts GetFederatedSbtRepositoryMemberArray and GetFederatedSbtRepositoryMemberArrayOutput values.
+// You can construct a concrete instance of `GetFederatedSbtRepositoryMemberArrayInput` via:
+//
+//	GetFederatedSbtRepositoryMemberArray{ GetFederatedSbtRepositoryMemberArgs{...} }
+type GetFederatedSbtRepositoryMemberArrayInput interface {
+	pulumi.Input
+
+	ToGetFederatedSbtRepositoryMemberArrayOutput() GetFederatedSbtRepositoryMemberArrayOutput
+	ToGetFederatedSbtRepositoryMemberArrayOutputWithContext(context.Context) GetFederatedSbtRepositoryMemberArrayOutput
+}
+
+type GetFederatedSbtRepositoryMemberArray []GetFederatedSbtRepositoryMemberInput
+
+func (GetFederatedSbtRepositoryMemberArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFederatedSbtRepositoryMember)(nil)).Elem()
+}
+
+func (i GetFederatedSbtRepositoryMemberArray) ToGetFederatedSbtRepositoryMemberArrayOutput() GetFederatedSbtRepositoryMemberArrayOutput {
+	return i.ToGetFederatedSbtRepositoryMemberArrayOutputWithContext(context.Background())
+}
+
+func (i GetFederatedSbtRepositoryMemberArray) ToGetFederatedSbtRepositoryMemberArrayOutputWithContext(ctx context.Context) GetFederatedSbtRepositoryMemberArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFederatedSbtRepositoryMemberArrayOutput)
+}
+
+type GetFederatedSbtRepositoryMemberOutput struct{ *pulumi.OutputState }
+
+func (GetFederatedSbtRepositoryMemberOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFederatedSbtRepositoryMember)(nil)).Elem()
+}
+
+func (o GetFederatedSbtRepositoryMemberOutput) ToGetFederatedSbtRepositoryMemberOutput() GetFederatedSbtRepositoryMemberOutput {
+	return o
+}
+
+func (o GetFederatedSbtRepositoryMemberOutput) ToGetFederatedSbtRepositoryMemberOutputWithContext(ctx context.Context) GetFederatedSbtRepositoryMemberOutput {
+	return o
+}
+
+// Represents the active state of the federated member. It is supported to change the enabled
+// status of my own member. The config will be updated on the other federated members automatically.
+func (o GetFederatedSbtRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetFederatedSbtRepositoryMember) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// Full URL to ending with the repository name.
+func (o GetFederatedSbtRepositoryMemberOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFederatedSbtRepositoryMember) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type GetFederatedSbtRepositoryMemberArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFederatedSbtRepositoryMemberArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFederatedSbtRepositoryMember)(nil)).Elem()
+}
+
+func (o GetFederatedSbtRepositoryMemberArrayOutput) ToGetFederatedSbtRepositoryMemberArrayOutput() GetFederatedSbtRepositoryMemberArrayOutput {
+	return o
+}
+
+func (o GetFederatedSbtRepositoryMemberArrayOutput) ToGetFederatedSbtRepositoryMemberArrayOutputWithContext(ctx context.Context) GetFederatedSbtRepositoryMemberArrayOutput {
+	return o
+}
+
+func (o GetFederatedSbtRepositoryMemberArrayOutput) Index(i pulumi.IntInput) GetFederatedSbtRepositoryMemberOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFederatedSbtRepositoryMember {
+		return vs[0].([]GetFederatedSbtRepositoryMember)[vs[1].(int)]
+	}).(GetFederatedSbtRepositoryMemberOutput)
+}
+
+type GetFederatedSwiftRepositoryMember struct {
+	// Represents the active state of the federated member. It is supported to change the enabled
+	// status of my own member. The config will be updated on the other federated members automatically.
+	Enabled bool `pulumi:"enabled"`
+	// Full URL to ending with the repository name.
+	Url string `pulumi:"url"`
+}
+
+// GetFederatedSwiftRepositoryMemberInput is an input type that accepts GetFederatedSwiftRepositoryMemberArgs and GetFederatedSwiftRepositoryMemberOutput values.
+// You can construct a concrete instance of `GetFederatedSwiftRepositoryMemberInput` via:
+//
+//	GetFederatedSwiftRepositoryMemberArgs{...}
+type GetFederatedSwiftRepositoryMemberInput interface {
+	pulumi.Input
+
+	ToGetFederatedSwiftRepositoryMemberOutput() GetFederatedSwiftRepositoryMemberOutput
+	ToGetFederatedSwiftRepositoryMemberOutputWithContext(context.Context) GetFederatedSwiftRepositoryMemberOutput
+}
+
+type GetFederatedSwiftRepositoryMemberArgs struct {
+	// Represents the active state of the federated member. It is supported to change the enabled
+	// status of my own member. The config will be updated on the other federated members automatically.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// Full URL to ending with the repository name.
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (GetFederatedSwiftRepositoryMemberArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFederatedSwiftRepositoryMember)(nil)).Elem()
+}
+
+func (i GetFederatedSwiftRepositoryMemberArgs) ToGetFederatedSwiftRepositoryMemberOutput() GetFederatedSwiftRepositoryMemberOutput {
+	return i.ToGetFederatedSwiftRepositoryMemberOutputWithContext(context.Background())
+}
+
+func (i GetFederatedSwiftRepositoryMemberArgs) ToGetFederatedSwiftRepositoryMemberOutputWithContext(ctx context.Context) GetFederatedSwiftRepositoryMemberOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFederatedSwiftRepositoryMemberOutput)
+}
+
+// GetFederatedSwiftRepositoryMemberArrayInput is an input type that accepts GetFederatedSwiftRepositoryMemberArray and GetFederatedSwiftRepositoryMemberArrayOutput values.
+// You can construct a concrete instance of `GetFederatedSwiftRepositoryMemberArrayInput` via:
+//
+//	GetFederatedSwiftRepositoryMemberArray{ GetFederatedSwiftRepositoryMemberArgs{...} }
+type GetFederatedSwiftRepositoryMemberArrayInput interface {
+	pulumi.Input
+
+	ToGetFederatedSwiftRepositoryMemberArrayOutput() GetFederatedSwiftRepositoryMemberArrayOutput
+	ToGetFederatedSwiftRepositoryMemberArrayOutputWithContext(context.Context) GetFederatedSwiftRepositoryMemberArrayOutput
+}
+
+type GetFederatedSwiftRepositoryMemberArray []GetFederatedSwiftRepositoryMemberInput
+
+func (GetFederatedSwiftRepositoryMemberArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFederatedSwiftRepositoryMember)(nil)).Elem()
+}
+
+func (i GetFederatedSwiftRepositoryMemberArray) ToGetFederatedSwiftRepositoryMemberArrayOutput() GetFederatedSwiftRepositoryMemberArrayOutput {
+	return i.ToGetFederatedSwiftRepositoryMemberArrayOutputWithContext(context.Background())
+}
+
+func (i GetFederatedSwiftRepositoryMemberArray) ToGetFederatedSwiftRepositoryMemberArrayOutputWithContext(ctx context.Context) GetFederatedSwiftRepositoryMemberArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFederatedSwiftRepositoryMemberArrayOutput)
+}
+
+type GetFederatedSwiftRepositoryMemberOutput struct{ *pulumi.OutputState }
+
+func (GetFederatedSwiftRepositoryMemberOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFederatedSwiftRepositoryMember)(nil)).Elem()
+}
+
+func (o GetFederatedSwiftRepositoryMemberOutput) ToGetFederatedSwiftRepositoryMemberOutput() GetFederatedSwiftRepositoryMemberOutput {
+	return o
+}
+
+func (o GetFederatedSwiftRepositoryMemberOutput) ToGetFederatedSwiftRepositoryMemberOutputWithContext(ctx context.Context) GetFederatedSwiftRepositoryMemberOutput {
+	return o
+}
+
+// Represents the active state of the federated member. It is supported to change the enabled
+// status of my own member. The config will be updated on the other federated members automatically.
+func (o GetFederatedSwiftRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetFederatedSwiftRepositoryMember) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// Full URL to ending with the repository name.
+func (o GetFederatedSwiftRepositoryMemberOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFederatedSwiftRepositoryMember) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type GetFederatedSwiftRepositoryMemberArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFederatedSwiftRepositoryMemberArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFederatedSwiftRepositoryMember)(nil)).Elem()
+}
+
+func (o GetFederatedSwiftRepositoryMemberArrayOutput) ToGetFederatedSwiftRepositoryMemberArrayOutput() GetFederatedSwiftRepositoryMemberArrayOutput {
+	return o
+}
+
+func (o GetFederatedSwiftRepositoryMemberArrayOutput) ToGetFederatedSwiftRepositoryMemberArrayOutputWithContext(ctx context.Context) GetFederatedSwiftRepositoryMemberArrayOutput {
+	return o
+}
+
+func (o GetFederatedSwiftRepositoryMemberArrayOutput) Index(i pulumi.IntInput) GetFederatedSwiftRepositoryMemberOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFederatedSwiftRepositoryMember {
+		return vs[0].([]GetFederatedSwiftRepositoryMember)[vs[1].(int)]
+	}).(GetFederatedSwiftRepositoryMemberOutput)
+}
+
+type GetFederatedTerraformModuleRepositoryMember struct {
+	// Represents the active state of the federated member. It is supported to change the enabled
+	// status of my own member. The config will be updated on the other federated members automatically.
+	Enabled bool `pulumi:"enabled"`
+	// Full URL to ending with the repository name.
+	Url string `pulumi:"url"`
+}
+
+// GetFederatedTerraformModuleRepositoryMemberInput is an input type that accepts GetFederatedTerraformModuleRepositoryMemberArgs and GetFederatedTerraformModuleRepositoryMemberOutput values.
+// You can construct a concrete instance of `GetFederatedTerraformModuleRepositoryMemberInput` via:
+//
+//	GetFederatedTerraformModuleRepositoryMemberArgs{...}
+type GetFederatedTerraformModuleRepositoryMemberInput interface {
+	pulumi.Input
+
+	ToGetFederatedTerraformModuleRepositoryMemberOutput() GetFederatedTerraformModuleRepositoryMemberOutput
+	ToGetFederatedTerraformModuleRepositoryMemberOutputWithContext(context.Context) GetFederatedTerraformModuleRepositoryMemberOutput
+}
+
+type GetFederatedTerraformModuleRepositoryMemberArgs struct {
+	// Represents the active state of the federated member. It is supported to change the enabled
+	// status of my own member. The config will be updated on the other federated members automatically.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// Full URL to ending with the repository name.
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (GetFederatedTerraformModuleRepositoryMemberArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFederatedTerraformModuleRepositoryMember)(nil)).Elem()
+}
+
+func (i GetFederatedTerraformModuleRepositoryMemberArgs) ToGetFederatedTerraformModuleRepositoryMemberOutput() GetFederatedTerraformModuleRepositoryMemberOutput {
+	return i.ToGetFederatedTerraformModuleRepositoryMemberOutputWithContext(context.Background())
+}
+
+func (i GetFederatedTerraformModuleRepositoryMemberArgs) ToGetFederatedTerraformModuleRepositoryMemberOutputWithContext(ctx context.Context) GetFederatedTerraformModuleRepositoryMemberOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFederatedTerraformModuleRepositoryMemberOutput)
+}
+
+// GetFederatedTerraformModuleRepositoryMemberArrayInput is an input type that accepts GetFederatedTerraformModuleRepositoryMemberArray and GetFederatedTerraformModuleRepositoryMemberArrayOutput values.
+// You can construct a concrete instance of `GetFederatedTerraformModuleRepositoryMemberArrayInput` via:
+//
+//	GetFederatedTerraformModuleRepositoryMemberArray{ GetFederatedTerraformModuleRepositoryMemberArgs{...} }
+type GetFederatedTerraformModuleRepositoryMemberArrayInput interface {
+	pulumi.Input
+
+	ToGetFederatedTerraformModuleRepositoryMemberArrayOutput() GetFederatedTerraformModuleRepositoryMemberArrayOutput
+	ToGetFederatedTerraformModuleRepositoryMemberArrayOutputWithContext(context.Context) GetFederatedTerraformModuleRepositoryMemberArrayOutput
+}
+
+type GetFederatedTerraformModuleRepositoryMemberArray []GetFederatedTerraformModuleRepositoryMemberInput
+
+func (GetFederatedTerraformModuleRepositoryMemberArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFederatedTerraformModuleRepositoryMember)(nil)).Elem()
+}
+
+func (i GetFederatedTerraformModuleRepositoryMemberArray) ToGetFederatedTerraformModuleRepositoryMemberArrayOutput() GetFederatedTerraformModuleRepositoryMemberArrayOutput {
+	return i.ToGetFederatedTerraformModuleRepositoryMemberArrayOutputWithContext(context.Background())
+}
+
+func (i GetFederatedTerraformModuleRepositoryMemberArray) ToGetFederatedTerraformModuleRepositoryMemberArrayOutputWithContext(ctx context.Context) GetFederatedTerraformModuleRepositoryMemberArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFederatedTerraformModuleRepositoryMemberArrayOutput)
+}
+
+type GetFederatedTerraformModuleRepositoryMemberOutput struct{ *pulumi.OutputState }
+
+func (GetFederatedTerraformModuleRepositoryMemberOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFederatedTerraformModuleRepositoryMember)(nil)).Elem()
+}
+
+func (o GetFederatedTerraformModuleRepositoryMemberOutput) ToGetFederatedTerraformModuleRepositoryMemberOutput() GetFederatedTerraformModuleRepositoryMemberOutput {
+	return o
+}
+
+func (o GetFederatedTerraformModuleRepositoryMemberOutput) ToGetFederatedTerraformModuleRepositoryMemberOutputWithContext(ctx context.Context) GetFederatedTerraformModuleRepositoryMemberOutput {
+	return o
+}
+
+// Represents the active state of the federated member. It is supported to change the enabled
+// status of my own member. The config will be updated on the other federated members automatically.
+func (o GetFederatedTerraformModuleRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetFederatedTerraformModuleRepositoryMember) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// Full URL to ending with the repository name.
+func (o GetFederatedTerraformModuleRepositoryMemberOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFederatedTerraformModuleRepositoryMember) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type GetFederatedTerraformModuleRepositoryMemberArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFederatedTerraformModuleRepositoryMemberArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFederatedTerraformModuleRepositoryMember)(nil)).Elem()
+}
+
+func (o GetFederatedTerraformModuleRepositoryMemberArrayOutput) ToGetFederatedTerraformModuleRepositoryMemberArrayOutput() GetFederatedTerraformModuleRepositoryMemberArrayOutput {
+	return o
+}
+
+func (o GetFederatedTerraformModuleRepositoryMemberArrayOutput) ToGetFederatedTerraformModuleRepositoryMemberArrayOutputWithContext(ctx context.Context) GetFederatedTerraformModuleRepositoryMemberArrayOutput {
+	return o
+}
+
+func (o GetFederatedTerraformModuleRepositoryMemberArrayOutput) Index(i pulumi.IntInput) GetFederatedTerraformModuleRepositoryMemberOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFederatedTerraformModuleRepositoryMember {
+		return vs[0].([]GetFederatedTerraformModuleRepositoryMember)[vs[1].(int)]
+	}).(GetFederatedTerraformModuleRepositoryMemberOutput)
+}
+
+type GetFederatedTerraformProviderRepositoryMember struct {
+	// Represents the active state of the federated member. It is supported to change the enabled
+	// status of my own member. The config will be updated on the other federated members automatically.
+	Enabled bool `pulumi:"enabled"`
+	// Full URL to ending with the repository name.
+	Url string `pulumi:"url"`
+}
+
+// GetFederatedTerraformProviderRepositoryMemberInput is an input type that accepts GetFederatedTerraformProviderRepositoryMemberArgs and GetFederatedTerraformProviderRepositoryMemberOutput values.
+// You can construct a concrete instance of `GetFederatedTerraformProviderRepositoryMemberInput` via:
+//
+//	GetFederatedTerraformProviderRepositoryMemberArgs{...}
+type GetFederatedTerraformProviderRepositoryMemberInput interface {
+	pulumi.Input
+
+	ToGetFederatedTerraformProviderRepositoryMemberOutput() GetFederatedTerraformProviderRepositoryMemberOutput
+	ToGetFederatedTerraformProviderRepositoryMemberOutputWithContext(context.Context) GetFederatedTerraformProviderRepositoryMemberOutput
+}
+
+type GetFederatedTerraformProviderRepositoryMemberArgs struct {
+	// Represents the active state of the federated member. It is supported to change the enabled
+	// status of my own member. The config will be updated on the other federated members automatically.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// Full URL to ending with the repository name.
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (GetFederatedTerraformProviderRepositoryMemberArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFederatedTerraformProviderRepositoryMember)(nil)).Elem()
+}
+
+func (i GetFederatedTerraformProviderRepositoryMemberArgs) ToGetFederatedTerraformProviderRepositoryMemberOutput() GetFederatedTerraformProviderRepositoryMemberOutput {
+	return i.ToGetFederatedTerraformProviderRepositoryMemberOutputWithContext(context.Background())
+}
+
+func (i GetFederatedTerraformProviderRepositoryMemberArgs) ToGetFederatedTerraformProviderRepositoryMemberOutputWithContext(ctx context.Context) GetFederatedTerraformProviderRepositoryMemberOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFederatedTerraformProviderRepositoryMemberOutput)
+}
+
+// GetFederatedTerraformProviderRepositoryMemberArrayInput is an input type that accepts GetFederatedTerraformProviderRepositoryMemberArray and GetFederatedTerraformProviderRepositoryMemberArrayOutput values.
+// You can construct a concrete instance of `GetFederatedTerraformProviderRepositoryMemberArrayInput` via:
+//
+//	GetFederatedTerraformProviderRepositoryMemberArray{ GetFederatedTerraformProviderRepositoryMemberArgs{...} }
+type GetFederatedTerraformProviderRepositoryMemberArrayInput interface {
+	pulumi.Input
+
+	ToGetFederatedTerraformProviderRepositoryMemberArrayOutput() GetFederatedTerraformProviderRepositoryMemberArrayOutput
+	ToGetFederatedTerraformProviderRepositoryMemberArrayOutputWithContext(context.Context) GetFederatedTerraformProviderRepositoryMemberArrayOutput
+}
+
+type GetFederatedTerraformProviderRepositoryMemberArray []GetFederatedTerraformProviderRepositoryMemberInput
+
+func (GetFederatedTerraformProviderRepositoryMemberArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFederatedTerraformProviderRepositoryMember)(nil)).Elem()
+}
+
+func (i GetFederatedTerraformProviderRepositoryMemberArray) ToGetFederatedTerraformProviderRepositoryMemberArrayOutput() GetFederatedTerraformProviderRepositoryMemberArrayOutput {
+	return i.ToGetFederatedTerraformProviderRepositoryMemberArrayOutputWithContext(context.Background())
+}
+
+func (i GetFederatedTerraformProviderRepositoryMemberArray) ToGetFederatedTerraformProviderRepositoryMemberArrayOutputWithContext(ctx context.Context) GetFederatedTerraformProviderRepositoryMemberArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFederatedTerraformProviderRepositoryMemberArrayOutput)
+}
+
+type GetFederatedTerraformProviderRepositoryMemberOutput struct{ *pulumi.OutputState }
+
+func (GetFederatedTerraformProviderRepositoryMemberOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFederatedTerraformProviderRepositoryMember)(nil)).Elem()
+}
+
+func (o GetFederatedTerraformProviderRepositoryMemberOutput) ToGetFederatedTerraformProviderRepositoryMemberOutput() GetFederatedTerraformProviderRepositoryMemberOutput {
+	return o
+}
+
+func (o GetFederatedTerraformProviderRepositoryMemberOutput) ToGetFederatedTerraformProviderRepositoryMemberOutputWithContext(ctx context.Context) GetFederatedTerraformProviderRepositoryMemberOutput {
+	return o
+}
+
+// Represents the active state of the federated member. It is supported to change the enabled
+// status of my own member. The config will be updated on the other federated members automatically.
+func (o GetFederatedTerraformProviderRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetFederatedTerraformProviderRepositoryMember) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// Full URL to ending with the repository name.
+func (o GetFederatedTerraformProviderRepositoryMemberOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFederatedTerraformProviderRepositoryMember) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type GetFederatedTerraformProviderRepositoryMemberArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFederatedTerraformProviderRepositoryMemberArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFederatedTerraformProviderRepositoryMember)(nil)).Elem()
+}
+
+func (o GetFederatedTerraformProviderRepositoryMemberArrayOutput) ToGetFederatedTerraformProviderRepositoryMemberArrayOutput() GetFederatedTerraformProviderRepositoryMemberArrayOutput {
+	return o
+}
+
+func (o GetFederatedTerraformProviderRepositoryMemberArrayOutput) ToGetFederatedTerraformProviderRepositoryMemberArrayOutputWithContext(ctx context.Context) GetFederatedTerraformProviderRepositoryMemberArrayOutput {
+	return o
+}
+
+func (o GetFederatedTerraformProviderRepositoryMemberArrayOutput) Index(i pulumi.IntInput) GetFederatedTerraformProviderRepositoryMemberOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFederatedTerraformProviderRepositoryMember {
+		return vs[0].([]GetFederatedTerraformProviderRepositoryMember)[vs[1].(int)]
+	}).(GetFederatedTerraformProviderRepositoryMemberOutput)
+}
+
+type GetFederatedVagrantRepositoryMember struct {
+	// Represents the active state of the federated member. It is supported to change the enabled
+	// status of my own member. The config will be updated on the other federated members automatically.
+	Enabled bool `pulumi:"enabled"`
+	// Full URL to ending with the repository name.
+	Url string `pulumi:"url"`
+}
+
+// GetFederatedVagrantRepositoryMemberInput is an input type that accepts GetFederatedVagrantRepositoryMemberArgs and GetFederatedVagrantRepositoryMemberOutput values.
+// You can construct a concrete instance of `GetFederatedVagrantRepositoryMemberInput` via:
+//
+//	GetFederatedVagrantRepositoryMemberArgs{...}
+type GetFederatedVagrantRepositoryMemberInput interface {
+	pulumi.Input
+
+	ToGetFederatedVagrantRepositoryMemberOutput() GetFederatedVagrantRepositoryMemberOutput
+	ToGetFederatedVagrantRepositoryMemberOutputWithContext(context.Context) GetFederatedVagrantRepositoryMemberOutput
+}
+
+type GetFederatedVagrantRepositoryMemberArgs struct {
+	// Represents the active state of the federated member. It is supported to change the enabled
+	// status of my own member. The config will be updated on the other federated members automatically.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// Full URL to ending with the repository name.
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (GetFederatedVagrantRepositoryMemberArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFederatedVagrantRepositoryMember)(nil)).Elem()
+}
+
+func (i GetFederatedVagrantRepositoryMemberArgs) ToGetFederatedVagrantRepositoryMemberOutput() GetFederatedVagrantRepositoryMemberOutput {
+	return i.ToGetFederatedVagrantRepositoryMemberOutputWithContext(context.Background())
+}
+
+func (i GetFederatedVagrantRepositoryMemberArgs) ToGetFederatedVagrantRepositoryMemberOutputWithContext(ctx context.Context) GetFederatedVagrantRepositoryMemberOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFederatedVagrantRepositoryMemberOutput)
+}
+
+// GetFederatedVagrantRepositoryMemberArrayInput is an input type that accepts GetFederatedVagrantRepositoryMemberArray and GetFederatedVagrantRepositoryMemberArrayOutput values.
+// You can construct a concrete instance of `GetFederatedVagrantRepositoryMemberArrayInput` via:
+//
+//	GetFederatedVagrantRepositoryMemberArray{ GetFederatedVagrantRepositoryMemberArgs{...} }
+type GetFederatedVagrantRepositoryMemberArrayInput interface {
+	pulumi.Input
+
+	ToGetFederatedVagrantRepositoryMemberArrayOutput() GetFederatedVagrantRepositoryMemberArrayOutput
+	ToGetFederatedVagrantRepositoryMemberArrayOutputWithContext(context.Context) GetFederatedVagrantRepositoryMemberArrayOutput
+}
+
+type GetFederatedVagrantRepositoryMemberArray []GetFederatedVagrantRepositoryMemberInput
+
+func (GetFederatedVagrantRepositoryMemberArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFederatedVagrantRepositoryMember)(nil)).Elem()
+}
+
+func (i GetFederatedVagrantRepositoryMemberArray) ToGetFederatedVagrantRepositoryMemberArrayOutput() GetFederatedVagrantRepositoryMemberArrayOutput {
+	return i.ToGetFederatedVagrantRepositoryMemberArrayOutputWithContext(context.Background())
+}
+
+func (i GetFederatedVagrantRepositoryMemberArray) ToGetFederatedVagrantRepositoryMemberArrayOutputWithContext(ctx context.Context) GetFederatedVagrantRepositoryMemberArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFederatedVagrantRepositoryMemberArrayOutput)
+}
+
+type GetFederatedVagrantRepositoryMemberOutput struct{ *pulumi.OutputState }
+
+func (GetFederatedVagrantRepositoryMemberOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFederatedVagrantRepositoryMember)(nil)).Elem()
+}
+
+func (o GetFederatedVagrantRepositoryMemberOutput) ToGetFederatedVagrantRepositoryMemberOutput() GetFederatedVagrantRepositoryMemberOutput {
+	return o
+}
+
+func (o GetFederatedVagrantRepositoryMemberOutput) ToGetFederatedVagrantRepositoryMemberOutputWithContext(ctx context.Context) GetFederatedVagrantRepositoryMemberOutput {
+	return o
+}
+
+// Represents the active state of the federated member. It is supported to change the enabled
+// status of my own member. The config will be updated on the other federated members automatically.
+func (o GetFederatedVagrantRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetFederatedVagrantRepositoryMember) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// Full URL to ending with the repository name.
+func (o GetFederatedVagrantRepositoryMemberOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFederatedVagrantRepositoryMember) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type GetFederatedVagrantRepositoryMemberArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFederatedVagrantRepositoryMemberArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFederatedVagrantRepositoryMember)(nil)).Elem()
+}
+
+func (o GetFederatedVagrantRepositoryMemberArrayOutput) ToGetFederatedVagrantRepositoryMemberArrayOutput() GetFederatedVagrantRepositoryMemberArrayOutput {
+	return o
+}
+
+func (o GetFederatedVagrantRepositoryMemberArrayOutput) ToGetFederatedVagrantRepositoryMemberArrayOutputWithContext(ctx context.Context) GetFederatedVagrantRepositoryMemberArrayOutput {
+	return o
+}
+
+func (o GetFederatedVagrantRepositoryMemberArrayOutput) Index(i pulumi.IntInput) GetFederatedVagrantRepositoryMemberOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFederatedVagrantRepositoryMember {
+		return vs[0].([]GetFederatedVagrantRepositoryMember)[vs[1].(int)]
+	}).(GetFederatedVagrantRepositoryMemberOutput)
+}
+
 type GetPermissionTargetBuild struct {
 	Actions *GetPermissionTargetBuildActions `pulumi:"actions"`
 	// Pattern of artifacts to exclude.
@@ -23117,6 +26596,70 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteVcsRepositoryContentSynchronisationPtrInput)(nil)).Elem(), RemoteVcsRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigReplicationInput)(nil)).Elem(), ReplicationConfigReplicationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigReplicationArrayInput)(nil)).Elem(), ReplicationConfigReplicationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedAlpineRepositoryMemberInput)(nil)).Elem(), GetFederatedAlpineRepositoryMemberArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedAlpineRepositoryMemberArrayInput)(nil)).Elem(), GetFederatedAlpineRepositoryMemberArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedBowerRepositoryMemberInput)(nil)).Elem(), GetFederatedBowerRepositoryMemberArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedBowerRepositoryMemberArrayInput)(nil)).Elem(), GetFederatedBowerRepositoryMemberArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedCargoRepositoryMemberInput)(nil)).Elem(), GetFederatedCargoRepositoryMemberArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedCargoRepositoryMemberArrayInput)(nil)).Elem(), GetFederatedCargoRepositoryMemberArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedChefRepositoryMemberInput)(nil)).Elem(), GetFederatedChefRepositoryMemberArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedChefRepositoryMemberArrayInput)(nil)).Elem(), GetFederatedChefRepositoryMemberArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedCocoapodsRepositoryMemberInput)(nil)).Elem(), GetFederatedCocoapodsRepositoryMemberArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedCocoapodsRepositoryMemberArrayInput)(nil)).Elem(), GetFederatedCocoapodsRepositoryMemberArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedComposerRepositoryMemberInput)(nil)).Elem(), GetFederatedComposerRepositoryMemberArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedComposerRepositoryMemberArrayInput)(nil)).Elem(), GetFederatedComposerRepositoryMemberArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedConanRepositoryMemberInput)(nil)).Elem(), GetFederatedConanRepositoryMemberArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedConanRepositoryMemberArrayInput)(nil)).Elem(), GetFederatedConanRepositoryMemberArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedCondaRepositoryMemberInput)(nil)).Elem(), GetFederatedCondaRepositoryMemberArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedCondaRepositoryMemberArrayInput)(nil)).Elem(), GetFederatedCondaRepositoryMemberArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedCranRepositoryMemberInput)(nil)).Elem(), GetFederatedCranRepositoryMemberArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedCranRepositoryMemberArrayInput)(nil)).Elem(), GetFederatedCranRepositoryMemberArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedDebianRepositoryMemberInput)(nil)).Elem(), GetFederatedDebianRepositoryMemberArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedDebianRepositoryMemberArrayInput)(nil)).Elem(), GetFederatedDebianRepositoryMemberArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedDockerRepositoryMemberInput)(nil)).Elem(), GetFederatedDockerRepositoryMemberArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedDockerRepositoryMemberArrayInput)(nil)).Elem(), GetFederatedDockerRepositoryMemberArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedDockerV1RepositoryMemberInput)(nil)).Elem(), GetFederatedDockerV1RepositoryMemberArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedDockerV1RepositoryMemberArrayInput)(nil)).Elem(), GetFederatedDockerV1RepositoryMemberArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedDockerV2RepositoryMemberInput)(nil)).Elem(), GetFederatedDockerV2RepositoryMemberArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedDockerV2RepositoryMemberArrayInput)(nil)).Elem(), GetFederatedDockerV2RepositoryMemberArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedGemsRepositoryMemberInput)(nil)).Elem(), GetFederatedGemsRepositoryMemberArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedGemsRepositoryMemberArrayInput)(nil)).Elem(), GetFederatedGemsRepositoryMemberArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedGenericRepositoryMemberInput)(nil)).Elem(), GetFederatedGenericRepositoryMemberArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedGenericRepositoryMemberArrayInput)(nil)).Elem(), GetFederatedGenericRepositoryMemberArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedGitlfsRepositoryMemberInput)(nil)).Elem(), GetFederatedGitlfsRepositoryMemberArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedGitlfsRepositoryMemberArrayInput)(nil)).Elem(), GetFederatedGitlfsRepositoryMemberArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedGoRepositoryMemberInput)(nil)).Elem(), GetFederatedGoRepositoryMemberArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedGoRepositoryMemberArrayInput)(nil)).Elem(), GetFederatedGoRepositoryMemberArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedGradleRepositoryMemberInput)(nil)).Elem(), GetFederatedGradleRepositoryMemberArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedGradleRepositoryMemberArrayInput)(nil)).Elem(), GetFederatedGradleRepositoryMemberArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedHelmRepositoryMemberInput)(nil)).Elem(), GetFederatedHelmRepositoryMemberArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedHelmRepositoryMemberArrayInput)(nil)).Elem(), GetFederatedHelmRepositoryMemberArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedIvyRepositoryMemberInput)(nil)).Elem(), GetFederatedIvyRepositoryMemberArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedIvyRepositoryMemberArrayInput)(nil)).Elem(), GetFederatedIvyRepositoryMemberArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedMavenRepositoryMemberInput)(nil)).Elem(), GetFederatedMavenRepositoryMemberArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedMavenRepositoryMemberArrayInput)(nil)).Elem(), GetFederatedMavenRepositoryMemberArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedNpmRepositoryMemberInput)(nil)).Elem(), GetFederatedNpmRepositoryMemberArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedNpmRepositoryMemberArrayInput)(nil)).Elem(), GetFederatedNpmRepositoryMemberArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedNugetRepositoryMemberInput)(nil)).Elem(), GetFederatedNugetRepositoryMemberArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedNugetRepositoryMemberArrayInput)(nil)).Elem(), GetFederatedNugetRepositoryMemberArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedOpkgRepositoryMemberInput)(nil)).Elem(), GetFederatedOpkgRepositoryMemberArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedOpkgRepositoryMemberArrayInput)(nil)).Elem(), GetFederatedOpkgRepositoryMemberArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedPuppetRepositoryMemberInput)(nil)).Elem(), GetFederatedPuppetRepositoryMemberArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedPuppetRepositoryMemberArrayInput)(nil)).Elem(), GetFederatedPuppetRepositoryMemberArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedPypiRepositoryMemberInput)(nil)).Elem(), GetFederatedPypiRepositoryMemberArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedPypiRepositoryMemberArrayInput)(nil)).Elem(), GetFederatedPypiRepositoryMemberArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedRpmRepositoryMemberInput)(nil)).Elem(), GetFederatedRpmRepositoryMemberArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedRpmRepositoryMemberArrayInput)(nil)).Elem(), GetFederatedRpmRepositoryMemberArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedSbtRepositoryMemberInput)(nil)).Elem(), GetFederatedSbtRepositoryMemberArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedSbtRepositoryMemberArrayInput)(nil)).Elem(), GetFederatedSbtRepositoryMemberArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedSwiftRepositoryMemberInput)(nil)).Elem(), GetFederatedSwiftRepositoryMemberArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedSwiftRepositoryMemberArrayInput)(nil)).Elem(), GetFederatedSwiftRepositoryMemberArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedTerraformModuleRepositoryMemberInput)(nil)).Elem(), GetFederatedTerraformModuleRepositoryMemberArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedTerraformModuleRepositoryMemberArrayInput)(nil)).Elem(), GetFederatedTerraformModuleRepositoryMemberArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedTerraformProviderRepositoryMemberInput)(nil)).Elem(), GetFederatedTerraformProviderRepositoryMemberArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedTerraformProviderRepositoryMemberArrayInput)(nil)).Elem(), GetFederatedTerraformProviderRepositoryMemberArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedVagrantRepositoryMemberInput)(nil)).Elem(), GetFederatedVagrantRepositoryMemberArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedVagrantRepositoryMemberArrayInput)(nil)).Elem(), GetFederatedVagrantRepositoryMemberArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPermissionTargetBuildInput)(nil)).Elem(), GetPermissionTargetBuildArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPermissionTargetBuildPtrInput)(nil)).Elem(), GetPermissionTargetBuildArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPermissionTargetBuildActionsInput)(nil)).Elem(), GetPermissionTargetBuildActionsArgs{})
@@ -23419,6 +26962,70 @@ func init() {
 	pulumi.RegisterOutputType(RemoteVcsRepositoryContentSynchronisationPtrOutput{})
 	pulumi.RegisterOutputType(ReplicationConfigReplicationOutput{})
 	pulumi.RegisterOutputType(ReplicationConfigReplicationArrayOutput{})
+	pulumi.RegisterOutputType(GetFederatedAlpineRepositoryMemberOutput{})
+	pulumi.RegisterOutputType(GetFederatedAlpineRepositoryMemberArrayOutput{})
+	pulumi.RegisterOutputType(GetFederatedBowerRepositoryMemberOutput{})
+	pulumi.RegisterOutputType(GetFederatedBowerRepositoryMemberArrayOutput{})
+	pulumi.RegisterOutputType(GetFederatedCargoRepositoryMemberOutput{})
+	pulumi.RegisterOutputType(GetFederatedCargoRepositoryMemberArrayOutput{})
+	pulumi.RegisterOutputType(GetFederatedChefRepositoryMemberOutput{})
+	pulumi.RegisterOutputType(GetFederatedChefRepositoryMemberArrayOutput{})
+	pulumi.RegisterOutputType(GetFederatedCocoapodsRepositoryMemberOutput{})
+	pulumi.RegisterOutputType(GetFederatedCocoapodsRepositoryMemberArrayOutput{})
+	pulumi.RegisterOutputType(GetFederatedComposerRepositoryMemberOutput{})
+	pulumi.RegisterOutputType(GetFederatedComposerRepositoryMemberArrayOutput{})
+	pulumi.RegisterOutputType(GetFederatedConanRepositoryMemberOutput{})
+	pulumi.RegisterOutputType(GetFederatedConanRepositoryMemberArrayOutput{})
+	pulumi.RegisterOutputType(GetFederatedCondaRepositoryMemberOutput{})
+	pulumi.RegisterOutputType(GetFederatedCondaRepositoryMemberArrayOutput{})
+	pulumi.RegisterOutputType(GetFederatedCranRepositoryMemberOutput{})
+	pulumi.RegisterOutputType(GetFederatedCranRepositoryMemberArrayOutput{})
+	pulumi.RegisterOutputType(GetFederatedDebianRepositoryMemberOutput{})
+	pulumi.RegisterOutputType(GetFederatedDebianRepositoryMemberArrayOutput{})
+	pulumi.RegisterOutputType(GetFederatedDockerRepositoryMemberOutput{})
+	pulumi.RegisterOutputType(GetFederatedDockerRepositoryMemberArrayOutput{})
+	pulumi.RegisterOutputType(GetFederatedDockerV1RepositoryMemberOutput{})
+	pulumi.RegisterOutputType(GetFederatedDockerV1RepositoryMemberArrayOutput{})
+	pulumi.RegisterOutputType(GetFederatedDockerV2RepositoryMemberOutput{})
+	pulumi.RegisterOutputType(GetFederatedDockerV2RepositoryMemberArrayOutput{})
+	pulumi.RegisterOutputType(GetFederatedGemsRepositoryMemberOutput{})
+	pulumi.RegisterOutputType(GetFederatedGemsRepositoryMemberArrayOutput{})
+	pulumi.RegisterOutputType(GetFederatedGenericRepositoryMemberOutput{})
+	pulumi.RegisterOutputType(GetFederatedGenericRepositoryMemberArrayOutput{})
+	pulumi.RegisterOutputType(GetFederatedGitlfsRepositoryMemberOutput{})
+	pulumi.RegisterOutputType(GetFederatedGitlfsRepositoryMemberArrayOutput{})
+	pulumi.RegisterOutputType(GetFederatedGoRepositoryMemberOutput{})
+	pulumi.RegisterOutputType(GetFederatedGoRepositoryMemberArrayOutput{})
+	pulumi.RegisterOutputType(GetFederatedGradleRepositoryMemberOutput{})
+	pulumi.RegisterOutputType(GetFederatedGradleRepositoryMemberArrayOutput{})
+	pulumi.RegisterOutputType(GetFederatedHelmRepositoryMemberOutput{})
+	pulumi.RegisterOutputType(GetFederatedHelmRepositoryMemberArrayOutput{})
+	pulumi.RegisterOutputType(GetFederatedIvyRepositoryMemberOutput{})
+	pulumi.RegisterOutputType(GetFederatedIvyRepositoryMemberArrayOutput{})
+	pulumi.RegisterOutputType(GetFederatedMavenRepositoryMemberOutput{})
+	pulumi.RegisterOutputType(GetFederatedMavenRepositoryMemberArrayOutput{})
+	pulumi.RegisterOutputType(GetFederatedNpmRepositoryMemberOutput{})
+	pulumi.RegisterOutputType(GetFederatedNpmRepositoryMemberArrayOutput{})
+	pulumi.RegisterOutputType(GetFederatedNugetRepositoryMemberOutput{})
+	pulumi.RegisterOutputType(GetFederatedNugetRepositoryMemberArrayOutput{})
+	pulumi.RegisterOutputType(GetFederatedOpkgRepositoryMemberOutput{})
+	pulumi.RegisterOutputType(GetFederatedOpkgRepositoryMemberArrayOutput{})
+	pulumi.RegisterOutputType(GetFederatedPuppetRepositoryMemberOutput{})
+	pulumi.RegisterOutputType(GetFederatedPuppetRepositoryMemberArrayOutput{})
+	pulumi.RegisterOutputType(GetFederatedPypiRepositoryMemberOutput{})
+	pulumi.RegisterOutputType(GetFederatedPypiRepositoryMemberArrayOutput{})
+	pulumi.RegisterOutputType(GetFederatedRpmRepositoryMemberOutput{})
+	pulumi.RegisterOutputType(GetFederatedRpmRepositoryMemberArrayOutput{})
+	pulumi.RegisterOutputType(GetFederatedSbtRepositoryMemberOutput{})
+	pulumi.RegisterOutputType(GetFederatedSbtRepositoryMemberArrayOutput{})
+	pulumi.RegisterOutputType(GetFederatedSwiftRepositoryMemberOutput{})
+	pulumi.RegisterOutputType(GetFederatedSwiftRepositoryMemberArrayOutput{})
+	pulumi.RegisterOutputType(GetFederatedTerraformModuleRepositoryMemberOutput{})
+	pulumi.RegisterOutputType(GetFederatedTerraformModuleRepositoryMemberArrayOutput{})
+	pulumi.RegisterOutputType(GetFederatedTerraformProviderRepositoryMemberOutput{})
+	pulumi.RegisterOutputType(GetFederatedTerraformProviderRepositoryMemberArrayOutput{})
+	pulumi.RegisterOutputType(GetFederatedVagrantRepositoryMemberOutput{})
+	pulumi.RegisterOutputType(GetFederatedVagrantRepositoryMemberArrayOutput{})
 	pulumi.RegisterOutputType(GetPermissionTargetBuildOutput{})
 	pulumi.RegisterOutputType(GetPermissionTargetBuildPtrOutput{})
 	pulumi.RegisterOutputType(GetPermissionTargetBuildActionsOutput{})

@@ -633,6 +633,383 @@ export interface FederatedVagrantRepositoryMember {
     url: string;
 }
 
+export interface GetFederatedAlpineRepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
+    enabled: boolean;
+    /**
+     * Full URL to ending with the repository name.
+     */
+    url: string;
+}
+
+export interface GetFederatedBowerRepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
+    enabled: boolean;
+    /**
+     * Full URL to ending with the repository name.
+     */
+    url: string;
+}
+
+export interface GetFederatedCargoRepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
+    enabled: boolean;
+    /**
+     * Full URL to ending with the repository name.
+     */
+    url: string;
+}
+
+export interface GetFederatedChefRepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
+    enabled: boolean;
+    /**
+     * Full URL to ending with the repository name.
+     */
+    url: string;
+}
+
+export interface GetFederatedCocoapodsRepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
+    enabled: boolean;
+    /**
+     * Full URL to ending with the repository name.
+     */
+    url: string;
+}
+
+export interface GetFederatedComposerRepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
+    enabled: boolean;
+    /**
+     * Full URL to ending with the repository name.
+     */
+    url: string;
+}
+
+export interface GetFederatedConanRepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
+    enabled: boolean;
+    /**
+     * Full URL to ending with the repository name.
+     */
+    url: string;
+}
+
+export interface GetFederatedCondaRepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
+    enabled: boolean;
+    /**
+     * Full URL to ending with the repository name.
+     */
+    url: string;
+}
+
+export interface GetFederatedCranRepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
+    enabled: boolean;
+    /**
+     * Full URL to ending with the repository name.
+     */
+    url: string;
+}
+
+export interface GetFederatedDebianRepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
+    enabled: boolean;
+    /**
+     * Full URL to ending with the repository name.
+     */
+    url: string;
+}
+
+export interface GetFederatedDockerRepositoryMember {
+    enabled: boolean;
+    url: string;
+}
+
+export interface GetFederatedDockerV1RepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
+    enabled: boolean;
+    /**
+     * Full URL to ending with the repository name.
+     */
+    url: string;
+}
+
+export interface GetFederatedDockerV2RepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
+    enabled: boolean;
+    /**
+     * Full URL to ending with the repository name.
+     */
+    url: string;
+}
+
+export interface GetFederatedGemsRepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
+    enabled: boolean;
+    /**
+     * Full URL to ending with the repository name.
+     */
+    url: string;
+}
+
+export interface GetFederatedGenericRepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
+    enabled: boolean;
+    /**
+     * Full URL to ending with the repository name.
+     */
+    url: string;
+}
+
+export interface GetFederatedGitlfsRepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
+    enabled: boolean;
+    /**
+     * Full URL to ending with the repository name.
+     */
+    url: string;
+}
+
+export interface GetFederatedGoRepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
+    enabled: boolean;
+    /**
+     * Full URL to ending with the repository name.
+     */
+    url: string;
+}
+
+export interface GetFederatedGradleRepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
+    enabled: boolean;
+    /**
+     * Full URL to ending with the repository name.
+     */
+    url: string;
+}
+
+export interface GetFederatedHelmRepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
+    enabled: boolean;
+    /**
+     * Full URL to ending with the repository name.
+     */
+    url: string;
+}
+
+export interface GetFederatedIvyRepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
+    enabled: boolean;
+    /**
+     * Full URL to ending with the repository name.
+     */
+    url: string;
+}
+
+export interface GetFederatedMavenRepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
+    enabled: boolean;
+    /**
+     * Full URL to ending with the repository name.
+     */
+    url: string;
+}
+
+export interface GetFederatedNpmRepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
+    enabled: boolean;
+    /**
+     * Full URL to ending with the repository name.
+     */
+    url: string;
+}
+
+export interface GetFederatedNugetRepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
+    enabled: boolean;
+    /**
+     * Full URL to ending with the repository name.
+     */
+    url: string;
+}
+
+export interface GetFederatedOpkgRepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
+    enabled: boolean;
+    /**
+     * Full URL to ending with the repository name.
+     */
+    url: string;
+}
+
+export interface GetFederatedPuppetRepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
+    enabled: boolean;
+    /**
+     * Full URL to ending with the repository name.
+     */
+    url: string;
+}
+
+export interface GetFederatedPypiRepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
+    enabled: boolean;
+    /**
+     * Full URL to ending with the repository name.
+     */
+    url: string;
+}
+
+export interface GetFederatedRpmRepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
+    enabled: boolean;
+    /**
+     * Full URL to ending with the repository name.
+     */
+    url: string;
+}
+
+export interface GetFederatedSbtRepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
+    enabled: boolean;
+    /**
+     * Full URL to ending with the repository name.
+     */
+    url: string;
+}
+
+export interface GetFederatedSwiftRepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
+    enabled: boolean;
+    /**
+     * Full URL to ending with the repository name.
+     */
+    url: string;
+}
+
+export interface GetFederatedTerraformModuleRepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
+    enabled: boolean;
+    /**
+     * Full URL to ending with the repository name.
+     */
+    url: string;
+}
+
+export interface GetFederatedTerraformProviderRepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
+    enabled: boolean;
+    /**
+     * Full URL to ending with the repository name.
+     */
+    url: string;
+}
+
+export interface GetFederatedVagrantRepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
+    enabled: boolean;
+    /**
+     * Full URL to ending with the repository name.
+     */
+    url: string;
+}
+
 export interface GetPermissionTargetBuild {
     actions?: outputs.GetPermissionTargetBuildActions;
     /**
