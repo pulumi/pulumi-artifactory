@@ -95,8 +95,8 @@ type RemoteCargoRepository struct {
 	EnableCookieManagement pulumi.BoolPtrOutput `pulumi:"enableCookieManagement"`
 	// Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
 	EnableSparseIndex pulumi.BoolPtrOutput `pulumi:"enableSparseIndex"`
-	// List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By
-	// default no artifacts are excluded.
+	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
+	// artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrOutput `pulumi:"excludesPattern"`
 	// This is the index url, expected to be a git repository. Default value is `https://github.com/rust-lang/crates.io-index`.
 	GitRegistryUrl pulumi.StringOutput `pulumi:"gitRegistryUrl"`
@@ -134,9 +134,10 @@ type RemoteCargoRepository struct {
 	// repositories with priority will cause metadata to be merged only from repositories set with a priority. If a package is
 	// not found in those repositories, Artifactory will merge from repositories marked as non-priority.
 	PriorityResolution pulumi.BoolPtrOutput `pulumi:"priorityResolution"`
-	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
-	// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
-	// will remain in the Terraform state, which will create state drift during the update.
+	// Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
+	// Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
+	// attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
+	// be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments pulumi.StringArrayOutput `pulumi:"projectEnvironments"`
 	// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
@@ -257,8 +258,8 @@ type remoteCargoRepositoryState struct {
 	EnableCookieManagement *bool `pulumi:"enableCookieManagement"`
 	// Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
 	EnableSparseIndex *bool `pulumi:"enableSparseIndex"`
-	// List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By
-	// default no artifacts are excluded.
+	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
+	// artifacts are excluded.
 	ExcludesPattern *string `pulumi:"excludesPattern"`
 	// This is the index url, expected to be a git repository. Default value is `https://github.com/rust-lang/crates.io-index`.
 	GitRegistryUrl *string `pulumi:"gitRegistryUrl"`
@@ -296,9 +297,10 @@ type remoteCargoRepositoryState struct {
 	// repositories with priority will cause metadata to be merged only from repositories set with a priority. If a package is
 	// not found in those repositories, Artifactory will merge from repositories marked as non-priority.
 	PriorityResolution *bool `pulumi:"priorityResolution"`
-	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
-	// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
-	// will remain in the Terraform state, which will create state drift during the update.
+	// Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
+	// Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
+	// attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
+	// be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments []string `pulumi:"projectEnvironments"`
 	// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
@@ -375,8 +377,8 @@ type RemoteCargoRepositoryState struct {
 	EnableCookieManagement pulumi.BoolPtrInput
 	// Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
 	EnableSparseIndex pulumi.BoolPtrInput
-	// List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By
-	// default no artifacts are excluded.
+	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
+	// artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrInput
 	// This is the index url, expected to be a git repository. Default value is `https://github.com/rust-lang/crates.io-index`.
 	GitRegistryUrl pulumi.StringPtrInput
@@ -414,9 +416,10 @@ type RemoteCargoRepositoryState struct {
 	// repositories with priority will cause metadata to be merged only from repositories set with a priority. If a package is
 	// not found in those repositories, Artifactory will merge from repositories marked as non-priority.
 	PriorityResolution pulumi.BoolPtrInput
-	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
-	// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
-	// will remain in the Terraform state, which will create state drift during the update.
+	// Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
+	// Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
+	// attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
+	// be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments pulumi.StringArrayInput
 	// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
@@ -497,8 +500,8 @@ type remoteCargoRepositoryArgs struct {
 	EnableCookieManagement *bool `pulumi:"enableCookieManagement"`
 	// Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
 	EnableSparseIndex *bool `pulumi:"enableSparseIndex"`
-	// List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By
-	// default no artifacts are excluded.
+	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
+	// artifacts are excluded.
 	ExcludesPattern *string `pulumi:"excludesPattern"`
 	// This is the index url, expected to be a git repository. Default value is `https://github.com/rust-lang/crates.io-index`.
 	GitRegistryUrl string `pulumi:"gitRegistryUrl"`
@@ -535,9 +538,10 @@ type remoteCargoRepositoryArgs struct {
 	// repositories with priority will cause metadata to be merged only from repositories set with a priority. If a package is
 	// not found in those repositories, Artifactory will merge from repositories marked as non-priority.
 	PriorityResolution *bool `pulumi:"priorityResolution"`
-	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
-	// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
-	// will remain in the Terraform state, which will create state drift during the update.
+	// Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
+	// Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
+	// attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
+	// be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments []string `pulumi:"projectEnvironments"`
 	// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
@@ -615,8 +619,8 @@ type RemoteCargoRepositoryArgs struct {
 	EnableCookieManagement pulumi.BoolPtrInput
 	// Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
 	EnableSparseIndex pulumi.BoolPtrInput
-	// List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By
-	// default no artifacts are excluded.
+	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
+	// artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrInput
 	// This is the index url, expected to be a git repository. Default value is `https://github.com/rust-lang/crates.io-index`.
 	GitRegistryUrl pulumi.StringInput
@@ -653,9 +657,10 @@ type RemoteCargoRepositoryArgs struct {
 	// repositories with priority will cause metadata to be merged only from repositories set with a priority. If a package is
 	// not found in those repositories, Artifactory will merge from repositories marked as non-priority.
 	PriorityResolution pulumi.BoolPtrInput
-	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
-	// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
-	// will remain in the Terraform state, which will create state drift during the update.
+	// Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
+	// Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
+	// attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
+	// be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments pulumi.StringArrayInput
 	// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
@@ -859,8 +864,8 @@ func (o RemoteCargoRepositoryOutput) EnableSparseIndex() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteCargoRepository) pulumi.BoolPtrOutput { return v.EnableSparseIndex }).(pulumi.BoolPtrOutput)
 }
 
-// List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By
-// default no artifacts are excluded.
+// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
+// artifacts are excluded.
 func (o RemoteCargoRepositoryOutput) ExcludesPattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RemoteCargoRepository) pulumi.StringPtrOutput { return v.ExcludesPattern }).(pulumi.StringPtrOutput)
 }
@@ -943,9 +948,10 @@ func (o RemoteCargoRepositoryOutput) PriorityResolution() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteCargoRepository) pulumi.BoolPtrOutput { return v.PriorityResolution }).(pulumi.BoolPtrOutput)
 }
 
-// Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
-// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
-// will remain in the Terraform state, which will create state drift during the update.
+// Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
+// Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
+// attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
+// be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
 func (o RemoteCargoRepositoryOutput) ProjectEnvironments() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RemoteCargoRepository) pulumi.StringArrayOutput { return v.ProjectEnvironments }).(pulumi.StringArrayOutput)
 }

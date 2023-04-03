@@ -50,16 +50,14 @@ public final class VirtualNugetRepositoryArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * A free text field that describes the content and purpose of the repository. If you choose to insert a link into this
-     * field, clicking the link will prompt the user to confirm that they might be redirected to a new domain.
+     * Public description.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return A free text field that describes the content and purpose of the repository. If you choose to insert a link into this
-     * field, clicking the link will prompt the user to confirm that they might be redirected to a new domain.
+     * @return Public description.
      * 
      */
     public Optional<Output<String>> description() {
@@ -133,14 +131,14 @@ public final class VirtualNugetRepositoryArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * A free text field to add additional notes about the repository. These are only visible to the administrator.
+     * Internal description.
      * 
      */
     @Import(name="notes")
     private @Nullable Output<String> notes;
 
     /**
-     * @return A free text field to add additional notes about the repository. These are only visible to the administrator.
+     * @return Internal description.
      * 
      */
     public Optional<Output<String>> notes() {
@@ -148,18 +146,20 @@ public final class VirtualNugetRepositoryArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Project environment for assigning this repository to. Allow values: &#34;DEV&#34; or &#34;PROD&#34;. The attribute should only be used
-     * if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
-     * will remain in the Terraform state, which will create state drift during the update.
+     * Project environment for assigning this repository to. Allow values: &#34;DEV&#34;, &#34;PROD&#34;, or one of custom environment. Before
+     * Artifactory 7.53.1, up to 2 values (&#34;DEV&#34; and &#34;PROD&#34;) are allowed. From 7.53.1 onward, only one value is allowed. The
+     * attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
+     * be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
      * 
      */
     @Import(name="projectEnvironments")
     private @Nullable Output<List<String>> projectEnvironments;
 
     /**
-     * @return Project environment for assigning this repository to. Allow values: &#34;DEV&#34; or &#34;PROD&#34;. The attribute should only be used
-     * if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
-     * will remain in the Terraform state, which will create state drift during the update.
+     * @return Project environment for assigning this repository to. Allow values: &#34;DEV&#34;, &#34;PROD&#34;, or one of custom environment. Before
+     * Artifactory 7.53.1, up to 2 values (&#34;DEV&#34; and &#34;PROD&#34;) are allowed. From 7.53.1 onward, only one value is allowed. The
+     * attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
+     * be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
      * 
      */
     public Optional<Output<List<String>>> projectEnvironments() {
@@ -293,8 +293,7 @@ public final class VirtualNugetRepositoryArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param description A free text field that describes the content and purpose of the repository. If you choose to insert a link into this
-         * field, clicking the link will prompt the user to confirm that they might be redirected to a new domain.
+         * @param description Public description.
          * 
          * @return builder
          * 
@@ -305,8 +304,7 @@ public final class VirtualNugetRepositoryArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param description A free text field that describes the content and purpose of the repository. If you choose to insert a link into this
-         * field, clicking the link will prompt the user to confirm that they might be redirected to a new domain.
+         * @param description Public description.
          * 
          * @return builder
          * 
@@ -406,7 +404,7 @@ public final class VirtualNugetRepositoryArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param notes A free text field to add additional notes about the repository. These are only visible to the administrator.
+         * @param notes Internal description.
          * 
          * @return builder
          * 
@@ -417,7 +415,7 @@ public final class VirtualNugetRepositoryArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param notes A free text field to add additional notes about the repository. These are only visible to the administrator.
+         * @param notes Internal description.
          * 
          * @return builder
          * 
@@ -427,9 +425,10 @@ public final class VirtualNugetRepositoryArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param projectEnvironments Project environment for assigning this repository to. Allow values: &#34;DEV&#34; or &#34;PROD&#34;. The attribute should only be used
-         * if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
-         * will remain in the Terraform state, which will create state drift during the update.
+         * @param projectEnvironments Project environment for assigning this repository to. Allow values: &#34;DEV&#34;, &#34;PROD&#34;, or one of custom environment. Before
+         * Artifactory 7.53.1, up to 2 values (&#34;DEV&#34; and &#34;PROD&#34;) are allowed. From 7.53.1 onward, only one value is allowed. The
+         * attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
+         * be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
          * 
          * @return builder
          * 
@@ -440,9 +439,10 @@ public final class VirtualNugetRepositoryArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param projectEnvironments Project environment for assigning this repository to. Allow values: &#34;DEV&#34; or &#34;PROD&#34;. The attribute should only be used
-         * if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
-         * will remain in the Terraform state, which will create state drift during the update.
+         * @param projectEnvironments Project environment for assigning this repository to. Allow values: &#34;DEV&#34;, &#34;PROD&#34;, or one of custom environment. Before
+         * Artifactory 7.53.1, up to 2 values (&#34;DEV&#34; and &#34;PROD&#34;) are allowed. From 7.53.1 onward, only one value is allowed. The
+         * attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
+         * be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
          * 
          * @return builder
          * 
@@ -452,9 +452,10 @@ public final class VirtualNugetRepositoryArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param projectEnvironments Project environment for assigning this repository to. Allow values: &#34;DEV&#34; or &#34;PROD&#34;. The attribute should only be used
-         * if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
-         * will remain in the Terraform state, which will create state drift during the update.
+         * @param projectEnvironments Project environment for assigning this repository to. Allow values: &#34;DEV&#34;, &#34;PROD&#34;, or one of custom environment. Before
+         * Artifactory 7.53.1, up to 2 values (&#34;DEV&#34; and &#34;PROD&#34;) are allowed. From 7.53.1 onward, only one value is allowed. The
+         * attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
+         * be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
          * 
          * @return builder
          * 

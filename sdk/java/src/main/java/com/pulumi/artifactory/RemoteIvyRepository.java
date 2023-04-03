@@ -235,16 +235,16 @@ public class RemoteIvyRepository extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.enableCookieManagement);
     }
     /**
-     * List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**{@literal /}z/*. By
-     * default no artifacts are excluded.
+     * List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**{@literal /}z/*.By default no
+     * artifacts are excluded.
      * 
      */
     @Export(name="excludesPattern", type=String.class, parameters={})
     private Output</* @Nullable */ String> excludesPattern;
 
     /**
-     * @return List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**{@literal /}z/*. By
-     * default no artifacts are excluded.
+     * @return List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**{@literal /}z/*.By default no
+     * artifacts are excluded.
      * 
      */
     public Output<Optional<String>> excludesPattern() {
@@ -493,18 +493,20 @@ public class RemoteIvyRepository extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.priorityResolution);
     }
     /**
-     * Project environment for assigning this repository to. Allow values: &#34;DEV&#34; or &#34;PROD&#34;. The attribute should only be used
-     * if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
-     * will remain in the Terraform state, which will create state drift during the update.
+     * Project environment for assigning this repository to. Allow values: &#34;DEV&#34;, &#34;PROD&#34;, or one of custom environment. Before
+     * Artifactory 7.53.1, up to 2 values (&#34;DEV&#34; and &#34;PROD&#34;) are allowed. From 7.53.1 onward, only one value is allowed. The
+     * attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
+     * be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
      * 
      */
     @Export(name="projectEnvironments", type=List.class, parameters={String.class})
     private Output<List<String>> projectEnvironments;
 
     /**
-     * @return Project environment for assigning this repository to. Allow values: &#34;DEV&#34; or &#34;PROD&#34;. The attribute should only be used
-     * if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
-     * will remain in the Terraform state, which will create state drift during the update.
+     * @return Project environment for assigning this repository to. Allow values: &#34;DEV&#34;, &#34;PROD&#34;, or one of custom environment. Before
+     * Artifactory 7.53.1, up to 2 values (&#34;DEV&#34; and &#34;PROD&#34;) are allowed. From 7.53.1 onward, only one value is allowed. The
+     * attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
+     * be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
      * 
      */
     public Output<List<String>> projectEnvironments() {

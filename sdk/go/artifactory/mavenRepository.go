@@ -83,8 +83,7 @@ type MavenRepository struct {
 	ArtifactoryRequestsCanRetrieveRemoteArtifacts pulumi.BoolPtrOutput `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`
 	// Default repository to deploy artifacts.
 	DefaultDeploymentRepo pulumi.StringPtrOutput `pulumi:"defaultDeploymentRepo"`
-	// A free text field that describes the content and purpose of the repository. If you choose to insert a link into this
-	// field, clicking the link will prompt the user to confirm that they might be redirected to a new domain.
+	// Public description.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 	// artifacts are excluded.
@@ -99,15 +98,15 @@ type MavenRepository struct {
 	Key pulumi.StringOutput `pulumi:"key"`
 	// The keypair used to sign artifacts
 	KeyPair pulumi.StringPtrOutput `pulumi:"keyPair"`
-	// A free text field to add additional notes about the repository. These are only visible to the administrator.
-	Notes pulumi.StringPtrOutput `pulumi:"notes"`
-	// The Package Type. This must be specified when the repository is created, and once set, cannot be changed.
-	PackageType pulumi.StringOutput `pulumi:"packageType"`
+	// Internal description.
+	Notes       pulumi.StringPtrOutput `pulumi:"notes"`
+	PackageType pulumi.StringOutput    `pulumi:"packageType"`
 	// One of: `"discardActiveReference", "discardAnyReference", "nothing"`
 	PomRepositoryReferencesCleanupPolicy pulumi.StringOutput `pulumi:"pomRepositoryReferencesCleanupPolicy"`
-	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
-	// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
-	// will remain in the Terraform state, which will create state drift during the update.
+	// Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
+	// Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
+	// attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
+	// be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments pulumi.StringArrayOutput `pulumi:"projectEnvironments"`
 	// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
@@ -155,8 +154,7 @@ type mavenRepositoryState struct {
 	ArtifactoryRequestsCanRetrieveRemoteArtifacts *bool `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`
 	// Default repository to deploy artifacts.
 	DefaultDeploymentRepo *string `pulumi:"defaultDeploymentRepo"`
-	// A free text field that describes the content and purpose of the repository. If you choose to insert a link into this
-	// field, clicking the link will prompt the user to confirm that they might be redirected to a new domain.
+	// Public description.
 	Description *string `pulumi:"description"`
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 	// artifacts are excluded.
@@ -171,15 +169,15 @@ type mavenRepositoryState struct {
 	Key *string `pulumi:"key"`
 	// The keypair used to sign artifacts
 	KeyPair *string `pulumi:"keyPair"`
-	// A free text field to add additional notes about the repository. These are only visible to the administrator.
-	Notes *string `pulumi:"notes"`
-	// The Package Type. This must be specified when the repository is created, and once set, cannot be changed.
+	// Internal description.
+	Notes       *string `pulumi:"notes"`
 	PackageType *string `pulumi:"packageType"`
 	// One of: `"discardActiveReference", "discardAnyReference", "nothing"`
 	PomRepositoryReferencesCleanupPolicy *string `pulumi:"pomRepositoryReferencesCleanupPolicy"`
-	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
-	// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
-	// will remain in the Terraform state, which will create state drift during the update.
+	// Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
+	// Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
+	// attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
+	// be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments []string `pulumi:"projectEnvironments"`
 	// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
@@ -196,8 +194,7 @@ type MavenRepositoryState struct {
 	ArtifactoryRequestsCanRetrieveRemoteArtifacts pulumi.BoolPtrInput
 	// Default repository to deploy artifacts.
 	DefaultDeploymentRepo pulumi.StringPtrInput
-	// A free text field that describes the content and purpose of the repository. If you choose to insert a link into this
-	// field, clicking the link will prompt the user to confirm that they might be redirected to a new domain.
+	// Public description.
 	Description pulumi.StringPtrInput
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 	// artifacts are excluded.
@@ -212,15 +209,15 @@ type MavenRepositoryState struct {
 	Key pulumi.StringPtrInput
 	// The keypair used to sign artifacts
 	KeyPair pulumi.StringPtrInput
-	// A free text field to add additional notes about the repository. These are only visible to the administrator.
-	Notes pulumi.StringPtrInput
-	// The Package Type. This must be specified when the repository is created, and once set, cannot be changed.
+	// Internal description.
+	Notes       pulumi.StringPtrInput
 	PackageType pulumi.StringPtrInput
 	// One of: `"discardActiveReference", "discardAnyReference", "nothing"`
 	PomRepositoryReferencesCleanupPolicy pulumi.StringPtrInput
-	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
-	// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
-	// will remain in the Terraform state, which will create state drift during the update.
+	// Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
+	// Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
+	// attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
+	// be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments pulumi.StringArrayInput
 	// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
@@ -241,8 +238,7 @@ type mavenRepositoryArgs struct {
 	ArtifactoryRequestsCanRetrieveRemoteArtifacts *bool `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`
 	// Default repository to deploy artifacts.
 	DefaultDeploymentRepo *string `pulumi:"defaultDeploymentRepo"`
-	// A free text field that describes the content and purpose of the repository. If you choose to insert a link into this
-	// field, clicking the link will prompt the user to confirm that they might be redirected to a new domain.
+	// Public description.
 	Description *string `pulumi:"description"`
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 	// artifacts are excluded.
@@ -257,13 +253,14 @@ type mavenRepositoryArgs struct {
 	Key string `pulumi:"key"`
 	// The keypair used to sign artifacts
 	KeyPair *string `pulumi:"keyPair"`
-	// A free text field to add additional notes about the repository. These are only visible to the administrator.
+	// Internal description.
 	Notes *string `pulumi:"notes"`
 	// One of: `"discardActiveReference", "discardAnyReference", "nothing"`
 	PomRepositoryReferencesCleanupPolicy *string `pulumi:"pomRepositoryReferencesCleanupPolicy"`
-	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
-	// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
-	// will remain in the Terraform state, which will create state drift during the update.
+	// Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
+	// Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
+	// attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
+	// be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments []string `pulumi:"projectEnvironments"`
 	// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
@@ -281,8 +278,7 @@ type MavenRepositoryArgs struct {
 	ArtifactoryRequestsCanRetrieveRemoteArtifacts pulumi.BoolPtrInput
 	// Default repository to deploy artifacts.
 	DefaultDeploymentRepo pulumi.StringPtrInput
-	// A free text field that describes the content and purpose of the repository. If you choose to insert a link into this
-	// field, clicking the link will prompt the user to confirm that they might be redirected to a new domain.
+	// Public description.
 	Description pulumi.StringPtrInput
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 	// artifacts are excluded.
@@ -297,13 +293,14 @@ type MavenRepositoryArgs struct {
 	Key pulumi.StringInput
 	// The keypair used to sign artifacts
 	KeyPair pulumi.StringPtrInput
-	// A free text field to add additional notes about the repository. These are only visible to the administrator.
+	// Internal description.
 	Notes pulumi.StringPtrInput
 	// One of: `"discardActiveReference", "discardAnyReference", "nothing"`
 	PomRepositoryReferencesCleanupPolicy pulumi.StringPtrInput
-	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
-	// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
-	// will remain in the Terraform state, which will create state drift during the update.
+	// Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
+	// Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
+	// attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
+	// be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments pulumi.StringArrayInput
 	// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
@@ -412,8 +409,7 @@ func (o MavenRepositoryOutput) DefaultDeploymentRepo() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MavenRepository) pulumi.StringPtrOutput { return v.DefaultDeploymentRepo }).(pulumi.StringPtrOutput)
 }
 
-// A free text field that describes the content and purpose of the repository. If you choose to insert a link into this
-// field, clicking the link will prompt the user to confirm that they might be redirected to a new domain.
+// Public description.
 func (o MavenRepositoryOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MavenRepository) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -446,12 +442,11 @@ func (o MavenRepositoryOutput) KeyPair() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MavenRepository) pulumi.StringPtrOutput { return v.KeyPair }).(pulumi.StringPtrOutput)
 }
 
-// A free text field to add additional notes about the repository. These are only visible to the administrator.
+// Internal description.
 func (o MavenRepositoryOutput) Notes() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MavenRepository) pulumi.StringPtrOutput { return v.Notes }).(pulumi.StringPtrOutput)
 }
 
-// The Package Type. This must be specified when the repository is created, and once set, cannot be changed.
 func (o MavenRepositoryOutput) PackageType() pulumi.StringOutput {
 	return o.ApplyT(func(v *MavenRepository) pulumi.StringOutput { return v.PackageType }).(pulumi.StringOutput)
 }
@@ -461,9 +456,10 @@ func (o MavenRepositoryOutput) PomRepositoryReferencesCleanupPolicy() pulumi.Str
 	return o.ApplyT(func(v *MavenRepository) pulumi.StringOutput { return v.PomRepositoryReferencesCleanupPolicy }).(pulumi.StringOutput)
 }
 
-// Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
-// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
-// will remain in the Terraform state, which will create state drift during the update.
+// Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
+// Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
+// attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
+// be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
 func (o MavenRepositoryOutput) ProjectEnvironments() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *MavenRepository) pulumi.StringArrayOutput { return v.ProjectEnvironments }).(pulumi.StringArrayOutput)
 }

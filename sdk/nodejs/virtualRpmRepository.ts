@@ -87,8 +87,7 @@ export class VirtualRpmRepository extends pulumi.CustomResource {
      */
     public readonly defaultDeploymentRepo!: pulumi.Output<string | undefined>;
     /**
-     * A free text field that describes the content and purpose of the repository. If you choose to insert a link into this
-     * field, clicking the link will prompt the user to confirm that they might be redirected to a new domain.
+     * Public description.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
@@ -107,21 +106,19 @@ export class VirtualRpmRepository extends pulumi.CustomResource {
      */
     public readonly key!: pulumi.Output<string>;
     /**
-     * A free text field to add additional notes about the repository. These are only visible to the administrator.
+     * Internal description.
      */
     public readonly notes!: pulumi.Output<string | undefined>;
-    /**
-     * The Package Type. This must be specified when the repository is created, and once set, cannot be changed.
-     */
     public /*out*/ readonly packageType!: pulumi.Output<string>;
     /**
      * The primary GPG key to be used to sign packages.
      */
     public readonly primaryKeypairRef!: pulumi.Output<string | undefined>;
     /**
-     * Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
-     * if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
-     * will remain in the Terraform state, which will create state drift during the update.
+     * Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
+     * Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
+     * attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
+     * be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
      */
     public readonly projectEnvironments!: pulumi.Output<string[]>;
     /**
@@ -208,8 +205,7 @@ export interface VirtualRpmRepositoryState {
      */
     defaultDeploymentRepo?: pulumi.Input<string>;
     /**
-     * A free text field that describes the content and purpose of the repository. If you choose to insert a link into this
-     * field, clicking the link will prompt the user to confirm that they might be redirected to a new domain.
+     * Public description.
      */
     description?: pulumi.Input<string>;
     /**
@@ -228,21 +224,19 @@ export interface VirtualRpmRepositoryState {
      */
     key?: pulumi.Input<string>;
     /**
-     * A free text field to add additional notes about the repository. These are only visible to the administrator.
+     * Internal description.
      */
     notes?: pulumi.Input<string>;
-    /**
-     * The Package Type. This must be specified when the repository is created, and once set, cannot be changed.
-     */
     packageType?: pulumi.Input<string>;
     /**
      * The primary GPG key to be used to sign packages.
      */
     primaryKeypairRef?: pulumi.Input<string>;
     /**
-     * Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
-     * if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
-     * will remain in the Terraform state, which will create state drift during the update.
+     * Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
+     * Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
+     * attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
+     * be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
      */
     projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -278,8 +272,7 @@ export interface VirtualRpmRepositoryArgs {
      */
     defaultDeploymentRepo?: pulumi.Input<string>;
     /**
-     * A free text field that describes the content and purpose of the repository. If you choose to insert a link into this
-     * field, clicking the link will prompt the user to confirm that they might be redirected to a new domain.
+     * Public description.
      */
     description?: pulumi.Input<string>;
     /**
@@ -298,7 +291,7 @@ export interface VirtualRpmRepositoryArgs {
      */
     key: pulumi.Input<string>;
     /**
-     * A free text field to add additional notes about the repository. These are only visible to the administrator.
+     * Internal description.
      */
     notes?: pulumi.Input<string>;
     /**
@@ -306,9 +299,10 @@ export interface VirtualRpmRepositoryArgs {
      */
     primaryKeypairRef?: pulumi.Input<string>;
     /**
-     * Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
-     * if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
-     * will remain in the Terraform state, which will create state drift during the update.
+     * Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
+     * Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
+     * attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
+     * be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
      */
     projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
     /**

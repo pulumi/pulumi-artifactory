@@ -33,17 +33,17 @@ class VirtualNugetRepositoryArgs:
         :param pulumi.Input[bool] artifactory_requests_can_retrieve_remote_artifacts: Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
                another Artifactory instance.
         :param pulumi.Input[str] default_deployment_repo: Default repository to deploy artifacts.
-        :param pulumi.Input[str] description: A free text field that describes the content and purpose of the repository. If you choose to insert a link into this
-               field, clicking the link will prompt the user to confirm that they might be redirected to a new domain.
+        :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
                artifacts are excluded.
         :param pulumi.Input[bool] force_nuget_authentication: If set, user authentication is required when accessing the repository. An anonymous request will display an HTTP 401 error. This is also enforced when aggregated repositories support anonymous requests. Default is `false`.
         :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
                used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] notes: A free text field to add additional notes about the repository. These are only visible to the administrator.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
-               if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
-               will remain in the Terraform state, which will create state drift during the update.
+        :param pulumi.Input[str] notes: Internal description.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
+               Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
+               attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
+               be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
@@ -115,8 +115,7 @@ class VirtualNugetRepositoryArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        A free text field that describes the content and purpose of the repository. If you choose to insert a link into this
-        field, clicking the link will prompt the user to confirm that they might be redirected to a new domain.
+        Public description.
         """
         return pulumi.get(self, "description")
 
@@ -166,7 +165,7 @@ class VirtualNugetRepositoryArgs:
     @pulumi.getter
     def notes(self) -> Optional[pulumi.Input[str]]:
         """
-        A free text field to add additional notes about the repository. These are only visible to the administrator.
+        Internal description.
         """
         return pulumi.get(self, "notes")
 
@@ -178,9 +177,10 @@ class VirtualNugetRepositoryArgs:
     @pulumi.getter(name="projectEnvironments")
     def project_environments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
-        if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
-        will remain in the Terraform state, which will create state drift during the update.
+        Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
+        Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
+        attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
+        be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
         """
         return pulumi.get(self, "project_environments")
 
@@ -247,8 +247,7 @@ class _VirtualNugetRepositoryState:
         :param pulumi.Input[bool] artifactory_requests_can_retrieve_remote_artifacts: Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
                another Artifactory instance.
         :param pulumi.Input[str] default_deployment_repo: Default repository to deploy artifacts.
-        :param pulumi.Input[str] description: A free text field that describes the content and purpose of the repository. If you choose to insert a link into this
-               field, clicking the link will prompt the user to confirm that they might be redirected to a new domain.
+        :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
                artifacts are excluded.
         :param pulumi.Input[bool] force_nuget_authentication: If set, user authentication is required when accessing the repository. An anonymous request will display an HTTP 401 error. This is also enforced when aggregated repositories support anonymous requests. Default is `false`.
@@ -256,11 +255,11 @@ class _VirtualNugetRepositoryState:
                used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
                contain spaces or special characters.
-        :param pulumi.Input[str] notes: A free text field to add additional notes about the repository. These are only visible to the administrator.
-        :param pulumi.Input[str] package_type: The Package Type. This must be specified when the repository is created, and once set, cannot be changed.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
-               if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
-               will remain in the Terraform state, which will create state drift during the update.
+        :param pulumi.Input[str] notes: Internal description.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
+               Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
+               attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
+               be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
@@ -322,8 +321,7 @@ class _VirtualNugetRepositoryState:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        A free text field that describes the content and purpose of the repository. If you choose to insert a link into this
-        field, clicking the link will prompt the user to confirm that they might be redirected to a new domain.
+        Public description.
         """
         return pulumi.get(self, "description")
 
@@ -386,7 +384,7 @@ class _VirtualNugetRepositoryState:
     @pulumi.getter
     def notes(self) -> Optional[pulumi.Input[str]]:
         """
-        A free text field to add additional notes about the repository. These are only visible to the administrator.
+        Internal description.
         """
         return pulumi.get(self, "notes")
 
@@ -397,9 +395,6 @@ class _VirtualNugetRepositoryState:
     @property
     @pulumi.getter(name="packageType")
     def package_type(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Package Type. This must be specified when the repository is created, and once set, cannot be changed.
-        """
         return pulumi.get(self, "package_type")
 
     @package_type.setter
@@ -410,9 +405,10 @@ class _VirtualNugetRepositoryState:
     @pulumi.getter(name="projectEnvironments")
     def project_environments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
-        if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
-        will remain in the Terraform state, which will create state drift during the update.
+        Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
+        Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
+        attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
+        be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
         """
         return pulumi.get(self, "project_environments")
 
@@ -509,8 +505,7 @@ class VirtualNugetRepository(pulumi.CustomResource):
         :param pulumi.Input[bool] artifactory_requests_can_retrieve_remote_artifacts: Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
                another Artifactory instance.
         :param pulumi.Input[str] default_deployment_repo: Default repository to deploy artifacts.
-        :param pulumi.Input[str] description: A free text field that describes the content and purpose of the repository. If you choose to insert a link into this
-               field, clicking the link will prompt the user to confirm that they might be redirected to a new domain.
+        :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
                artifacts are excluded.
         :param pulumi.Input[bool] force_nuget_authentication: If set, user authentication is required when accessing the repository. An anonymous request will display an HTTP 401 error. This is also enforced when aggregated repositories support anonymous requests. Default is `false`.
@@ -518,10 +513,11 @@ class VirtualNugetRepository(pulumi.CustomResource):
                used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
                contain spaces or special characters.
-        :param pulumi.Input[str] notes: A free text field to add additional notes about the repository. These are only visible to the administrator.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
-               if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
-               will remain in the Terraform state, which will create state drift during the update.
+        :param pulumi.Input[str] notes: Internal description.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
+               Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
+               attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
+               be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
@@ -645,8 +641,7 @@ class VirtualNugetRepository(pulumi.CustomResource):
         :param pulumi.Input[bool] artifactory_requests_can_retrieve_remote_artifacts: Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
                another Artifactory instance.
         :param pulumi.Input[str] default_deployment_repo: Default repository to deploy artifacts.
-        :param pulumi.Input[str] description: A free text field that describes the content and purpose of the repository. If you choose to insert a link into this
-               field, clicking the link will prompt the user to confirm that they might be redirected to a new domain.
+        :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
                artifacts are excluded.
         :param pulumi.Input[bool] force_nuget_authentication: If set, user authentication is required when accessing the repository. An anonymous request will display an HTTP 401 error. This is also enforced when aggregated repositories support anonymous requests. Default is `false`.
@@ -654,11 +649,11 @@ class VirtualNugetRepository(pulumi.CustomResource):
                used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
                contain spaces or special characters.
-        :param pulumi.Input[str] notes: A free text field to add additional notes about the repository. These are only visible to the administrator.
-        :param pulumi.Input[str] package_type: The Package Type. This must be specified when the repository is created, and once set, cannot be changed.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
-               if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
-               will remain in the Terraform state, which will create state drift during the update.
+        :param pulumi.Input[str] notes: Internal description.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
+               Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
+               attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
+               be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
@@ -704,8 +699,7 @@ class VirtualNugetRepository(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        A free text field that describes the content and purpose of the repository. If you choose to insert a link into this
-        field, clicking the link will prompt the user to confirm that they might be redirected to a new domain.
+        Public description.
         """
         return pulumi.get(self, "description")
 
@@ -748,25 +742,23 @@ class VirtualNugetRepository(pulumi.CustomResource):
     @pulumi.getter
     def notes(self) -> pulumi.Output[Optional[str]]:
         """
-        A free text field to add additional notes about the repository. These are only visible to the administrator.
+        Internal description.
         """
         return pulumi.get(self, "notes")
 
     @property
     @pulumi.getter(name="packageType")
     def package_type(self) -> pulumi.Output[str]:
-        """
-        The Package Type. This must be specified when the repository is created, and once set, cannot be changed.
-        """
         return pulumi.get(self, "package_type")
 
     @property
     @pulumi.getter(name="projectEnvironments")
     def project_environments(self) -> pulumi.Output[Sequence[str]]:
         """
-        Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
-        if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
-        will remain in the Terraform state, which will create state drift during the update.
+        Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
+        Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
+        attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
+        be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
         """
         return pulumi.get(self, "project_environments")
 

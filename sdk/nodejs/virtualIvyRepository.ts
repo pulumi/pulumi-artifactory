@@ -71,8 +71,7 @@ export class VirtualIvyRepository extends pulumi.CustomResource {
      */
     public readonly defaultDeploymentRepo!: pulumi.Output<string | undefined>;
     /**
-     * A free text field that describes the content and purpose of the repository. If you choose to insert a link into this
-     * field, clicking the link will prompt the user to confirm that they might be redirected to a new domain.
+     * Public description.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
@@ -100,12 +99,9 @@ export class VirtualIvyRepository extends pulumi.CustomResource {
      */
     public readonly keyPair!: pulumi.Output<string | undefined>;
     /**
-     * A free text field to add additional notes about the repository. These are only visible to the administrator.
+     * Internal description.
      */
     public readonly notes!: pulumi.Output<string | undefined>;
-    /**
-     * The Package Type. This must be specified when the repository is created, and once set, cannot be changed.
-     */
     public /*out*/ readonly packageType!: pulumi.Output<string>;
     /**
      * - (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
@@ -114,9 +110,10 @@ export class VirtualIvyRepository extends pulumi.CustomResource {
      */
     public readonly pomRepositoryReferencesCleanupPolicy!: pulumi.Output<string>;
     /**
-     * Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
-     * if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
-     * will remain in the Terraform state, which will create state drift during the update.
+     * Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
+     * Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
+     * attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
+     * be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
      */
     public readonly projectEnvironments!: pulumi.Output<string[]>;
     /**
@@ -201,8 +198,7 @@ export interface VirtualIvyRepositoryState {
      */
     defaultDeploymentRepo?: pulumi.Input<string>;
     /**
-     * A free text field that describes the content and purpose of the repository. If you choose to insert a link into this
-     * field, clicking the link will prompt the user to confirm that they might be redirected to a new domain.
+     * Public description.
      */
     description?: pulumi.Input<string>;
     /**
@@ -230,12 +226,9 @@ export interface VirtualIvyRepositoryState {
      */
     keyPair?: pulumi.Input<string>;
     /**
-     * A free text field to add additional notes about the repository. These are only visible to the administrator.
+     * Internal description.
      */
     notes?: pulumi.Input<string>;
-    /**
-     * The Package Type. This must be specified when the repository is created, and once set, cannot be changed.
-     */
     packageType?: pulumi.Input<string>;
     /**
      * - (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
@@ -244,9 +237,10 @@ export interface VirtualIvyRepositoryState {
      */
     pomRepositoryReferencesCleanupPolicy?: pulumi.Input<string>;
     /**
-     * Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
-     * if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
-     * will remain in the Terraform state, which will create state drift during the update.
+     * Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
+     * Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
+     * attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
+     * be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
      */
     projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -278,8 +272,7 @@ export interface VirtualIvyRepositoryArgs {
      */
     defaultDeploymentRepo?: pulumi.Input<string>;
     /**
-     * A free text field that describes the content and purpose of the repository. If you choose to insert a link into this
-     * field, clicking the link will prompt the user to confirm that they might be redirected to a new domain.
+     * Public description.
      */
     description?: pulumi.Input<string>;
     /**
@@ -307,7 +300,7 @@ export interface VirtualIvyRepositoryArgs {
      */
     keyPair?: pulumi.Input<string>;
     /**
-     * A free text field to add additional notes about the repository. These are only visible to the administrator.
+     * Internal description.
      */
     notes?: pulumi.Input<string>;
     /**
@@ -317,9 +310,10 @@ export interface VirtualIvyRepositoryArgs {
      */
     pomRepositoryReferencesCleanupPolicy?: pulumi.Input<string>;
     /**
-     * Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
-     * if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
-     * will remain in the Terraform state, which will create state drift during the update.
+     * Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
+     * Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
+     * attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
+     * be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
      */
     projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
     /**

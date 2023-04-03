@@ -99,6 +99,9 @@ export class LocalRpmRepository extends pulumi.CustomResource {
      * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
      */
     public readonly cdnRedirect!: pulumi.Output<boolean | undefined>;
+    /**
+     * Public description.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
      * When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
@@ -123,6 +126,9 @@ export class LocalRpmRepository extends pulumi.CustomResource {
      * the identity key of the repo.
      */
     public readonly key!: pulumi.Output<string>;
+    /**
+     * Internal description.
+     */
     public readonly notes!: pulumi.Output<string | undefined>;
     public /*out*/ readonly packageType!: pulumi.Output<string>;
     /**
@@ -134,9 +140,10 @@ export class LocalRpmRepository extends pulumi.CustomResource {
      */
     public readonly priorityResolution!: pulumi.Output<boolean | undefined>;
     /**
-     * Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
-     * if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
-     * will remain in the Terraform state, which will create state drift during the update.
+     * Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
+     * Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
+     * attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
+     * be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
      */
     public readonly projectEnvironments!: pulumi.Output<string[]>;
     /**
@@ -267,6 +274,9 @@ export interface LocalRpmRepositoryState {
      * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
      */
     cdnRedirect?: pulumi.Input<boolean>;
+    /**
+     * Public description.
+     */
     description?: pulumi.Input<string>;
     /**
      * When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
@@ -291,6 +301,9 @@ export interface LocalRpmRepositoryState {
      * the identity key of the repo.
      */
     key?: pulumi.Input<string>;
+    /**
+     * Internal description.
+     */
     notes?: pulumi.Input<string>;
     packageType?: pulumi.Input<string>;
     /**
@@ -302,9 +315,10 @@ export interface LocalRpmRepositoryState {
      */
     priorityResolution?: pulumi.Input<boolean>;
     /**
-     * Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
-     * if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
-     * will remain in the Terraform state, which will create state drift during the update.
+     * Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
+     * Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
+     * attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
+     * be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
      */
     projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -368,6 +382,9 @@ export interface LocalRpmRepositoryArgs {
      * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
      */
     cdnRedirect?: pulumi.Input<boolean>;
+    /**
+     * Public description.
+     */
     description?: pulumi.Input<string>;
     /**
      * When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
@@ -392,6 +409,9 @@ export interface LocalRpmRepositoryArgs {
      * the identity key of the repo.
      */
     key: pulumi.Input<string>;
+    /**
+     * Internal description.
+     */
     notes?: pulumi.Input<string>;
     /**
      * The primary GPG key to be used to sign packages.
@@ -402,9 +422,10 @@ export interface LocalRpmRepositoryArgs {
      */
     priorityResolution?: pulumi.Input<boolean>;
     /**
-     * Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
-     * if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
-     * will remain in the Terraform state, which will create state drift during the update.
+     * Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
+     * Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
+     * attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
+     * be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
      */
     projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
     /**

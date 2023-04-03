@@ -119,8 +119,8 @@ namespace Pulumi.Artifactory
         public Output<bool?> EnableCookieManagement { get; private set; } = null!;
 
         /// <summary>
-        /// List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By
-        /// default no artifacts are excluded.
+        /// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
+        /// artifacts are excluded.
         /// </summary>
         [Output("excludesPattern")]
         public Output<string?> ExcludesPattern { get; private set; } = null!;
@@ -216,9 +216,10 @@ namespace Pulumi.Artifactory
         public Output<bool?> PriorityResolution { get; private set; } = null!;
 
         /// <summary>
-        /// Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
-        /// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
-        /// will remain in the Terraform state, which will create state drift during the update.
+        /// Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
+        /// Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
+        /// attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
+        /// be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
         /// </summary>
         [Output("projectEnvironments")]
         public Output<ImmutableArray<string>> ProjectEnvironments { get; private set; } = null!;
@@ -454,8 +455,8 @@ namespace Pulumi.Artifactory
         public Input<bool>? EnableCookieManagement { get; set; }
 
         /// <summary>
-        /// List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By
-        /// default no artifacts are excluded.
+        /// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
+        /// artifacts are excluded.
         /// </summary>
         [Input("excludesPattern")]
         public Input<string>? ExcludesPattern { get; set; }
@@ -560,9 +561,10 @@ namespace Pulumi.Artifactory
         private InputList<string>? _projectEnvironments;
 
         /// <summary>
-        /// Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
-        /// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
-        /// will remain in the Terraform state, which will create state drift during the update.
+        /// Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
+        /// Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
+        /// attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
+        /// be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
         /// </summary>
         public InputList<string> ProjectEnvironments
         {
@@ -765,8 +767,8 @@ namespace Pulumi.Artifactory
         public Input<bool>? EnableCookieManagement { get; set; }
 
         /// <summary>
-        /// List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By
-        /// default no artifacts are excluded.
+        /// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
+        /// artifacts are excluded.
         /// </summary>
         [Input("excludesPattern")]
         public Input<string>? ExcludesPattern { get; set; }
@@ -874,9 +876,10 @@ namespace Pulumi.Artifactory
         private InputList<string>? _projectEnvironments;
 
         /// <summary>
-        /// Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
-        /// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
-        /// will remain in the Terraform state, which will create state drift during the update.
+        /// Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
+        /// Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
+        /// attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
+        /// be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
         /// </summary>
         public InputList<string> ProjectEnvironments
         {

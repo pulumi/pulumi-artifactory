@@ -61,6 +61,9 @@ namespace Pulumi.Artifactory
         [Output("cdnRedirect")]
         public Output<bool?> CdnRedirect { get; private set; } = null!;
 
+        /// <summary>
+        /// Public description.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
@@ -91,6 +94,9 @@ namespace Pulumi.Artifactory
         [Output("key")]
         public Output<string> Key { get; private set; } = null!;
 
+        /// <summary>
+        /// Internal description.
+        /// </summary>
         [Output("notes")]
         public Output<string?> Notes { get; private set; } = null!;
 
@@ -104,9 +110,10 @@ namespace Pulumi.Artifactory
         public Output<bool?> PriorityResolution { get; private set; } = null!;
 
         /// <summary>
-        /// Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
-        /// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
-        /// will remain in the Terraform state, which will create state drift during the update.
+        /// Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
+        /// Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
+        /// attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
+        /// be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
         /// </summary>
         [Output("projectEnvironments")]
         public Output<ImmutableArray<string>> ProjectEnvironments { get; private set; } = null!;
@@ -204,6 +211,9 @@ namespace Pulumi.Artifactory
         [Input("cdnRedirect")]
         public Input<bool>? CdnRedirect { get; set; }
 
+        /// <summary>
+        /// Public description.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
@@ -234,6 +244,9 @@ namespace Pulumi.Artifactory
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
+        /// <summary>
+        /// Internal description.
+        /// </summary>
         [Input("notes")]
         public Input<string>? Notes { get; set; }
 
@@ -247,9 +260,10 @@ namespace Pulumi.Artifactory
         private InputList<string>? _projectEnvironments;
 
         /// <summary>
-        /// Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
-        /// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
-        /// will remain in the Terraform state, which will create state drift during the update.
+        /// Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
+        /// Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
+        /// attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
+        /// be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
         /// </summary>
         public InputList<string> ProjectEnvironments
         {
@@ -318,6 +332,9 @@ namespace Pulumi.Artifactory
         [Input("cdnRedirect")]
         public Input<bool>? CdnRedirect { get; set; }
 
+        /// <summary>
+        /// Public description.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
@@ -348,6 +365,9 @@ namespace Pulumi.Artifactory
         [Input("key")]
         public Input<string>? Key { get; set; }
 
+        /// <summary>
+        /// Internal description.
+        /// </summary>
         [Input("notes")]
         public Input<string>? Notes { get; set; }
 
@@ -364,9 +384,10 @@ namespace Pulumi.Artifactory
         private InputList<string>? _projectEnvironments;
 
         /// <summary>
-        /// Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
-        /// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
-        /// will remain in the Terraform state, which will create state drift during the update.
+        /// Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
+        /// Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
+        /// attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
+        /// be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
         /// </summary>
         public InputList<string> ProjectEnvironments
         {
