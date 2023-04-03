@@ -114,8 +114,8 @@ export class RemoteSbtRepository extends pulumi.CustomResource {
      */
     public readonly enableCookieManagement!: pulumi.Output<boolean | undefined>;
     /**
-     * List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*. By
-     * default no artifacts are excluded.
+     * List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*.By default no
+     * artifacts are excluded.
      */
     public readonly excludesPattern!: pulumi.Output<string | undefined>;
     /**
@@ -191,9 +191,10 @@ export class RemoteSbtRepository extends pulumi.CustomResource {
      */
     public readonly priorityResolution!: pulumi.Output<boolean | undefined>;
     /**
-     * Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
-     * if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
-     * will remain in the Terraform state, which will create state drift during the update.
+     * Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
+     * Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
+     * attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
+     * be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
      */
     public readonly projectEnvironments!: pulumi.Output<string[]>;
     /**
@@ -453,8 +454,8 @@ export interface RemoteSbtRepositoryState {
      */
     enableCookieManagement?: pulumi.Input<boolean>;
     /**
-     * List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*. By
-     * default no artifacts are excluded.
+     * List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*.By default no
+     * artifacts are excluded.
      */
     excludesPattern?: pulumi.Input<string>;
     /**
@@ -530,9 +531,10 @@ export interface RemoteSbtRepositoryState {
      */
     priorityResolution?: pulumi.Input<boolean>;
     /**
-     * Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
-     * if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
-     * will remain in the Terraform state, which will create state drift during the update.
+     * Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
+     * Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
+     * attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
+     * be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
      */
     projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -668,8 +670,8 @@ export interface RemoteSbtRepositoryArgs {
      */
     enableCookieManagement?: pulumi.Input<boolean>;
     /**
-     * List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*. By
-     * default no artifacts are excluded.
+     * List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*.By default no
+     * artifacts are excluded.
      */
     excludesPattern?: pulumi.Input<string>;
     /**
@@ -744,9 +746,10 @@ export interface RemoteSbtRepositoryArgs {
      */
     priorityResolution?: pulumi.Input<boolean>;
     /**
-     * Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
-     * if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
-     * will remain in the Terraform state, which will create state drift during the update.
+     * Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
+     * Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
+     * attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
+     * be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
      */
     projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
     /**

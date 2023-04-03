@@ -69,8 +69,7 @@ type VirtualDebianRepository struct {
 	DebianDefaultArchitectures pulumi.StringPtrOutput `pulumi:"debianDefaultArchitectures"`
 	// Default repository to deploy artifacts.
 	DefaultDeploymentRepo pulumi.StringPtrOutput `pulumi:"defaultDeploymentRepo"`
-	// A free text field that describes the content and purpose of the repository. If you choose to insert a link into this
-	// field, clicking the link will prompt the user to confirm that they might be redirected to a new domain.
+	// Public description.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 	// artifacts are excluded.
@@ -81,17 +80,17 @@ type VirtualDebianRepository struct {
 	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
 	// contain spaces or special characters.
 	Key pulumi.StringOutput `pulumi:"key"`
-	// A free text field to add additional notes about the repository. These are only visible to the administrator.
+	// Internal description.
 	Notes pulumi.StringPtrOutput `pulumi:"notes"`
 	// Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are `bz2`,`lzma` and `xz`. Default value is `bz2`.
 	OptionalIndexCompressionFormats pulumi.StringArrayOutput `pulumi:"optionalIndexCompressionFormats"`
-	// The Package Type. This must be specified when the repository is created, and once set, cannot be changed.
-	PackageType pulumi.StringOutput `pulumi:"packageType"`
+	PackageType                     pulumi.StringOutput      `pulumi:"packageType"`
 	// Primary keypair used to sign artifacts. Default is empty.
 	PrimaryKeypairRef pulumi.StringPtrOutput `pulumi:"primaryKeypairRef"`
-	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
-	// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
-	// will remain in the Terraform state, which will create state drift during the update.
+	// Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
+	// Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
+	// attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
+	// be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments pulumi.StringArrayOutput `pulumi:"projectEnvironments"`
 	// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
@@ -145,8 +144,7 @@ type virtualDebianRepositoryState struct {
 	DebianDefaultArchitectures *string `pulumi:"debianDefaultArchitectures"`
 	// Default repository to deploy artifacts.
 	DefaultDeploymentRepo *string `pulumi:"defaultDeploymentRepo"`
-	// A free text field that describes the content and purpose of the repository. If you choose to insert a link into this
-	// field, clicking the link will prompt the user to confirm that they might be redirected to a new domain.
+	// Public description.
 	Description *string `pulumi:"description"`
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 	// artifacts are excluded.
@@ -157,17 +155,17 @@ type virtualDebianRepositoryState struct {
 	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
 	// contain spaces or special characters.
 	Key *string `pulumi:"key"`
-	// A free text field to add additional notes about the repository. These are only visible to the administrator.
+	// Internal description.
 	Notes *string `pulumi:"notes"`
 	// Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are `bz2`,`lzma` and `xz`. Default value is `bz2`.
 	OptionalIndexCompressionFormats []string `pulumi:"optionalIndexCompressionFormats"`
-	// The Package Type. This must be specified when the repository is created, and once set, cannot be changed.
-	PackageType *string `pulumi:"packageType"`
+	PackageType                     *string  `pulumi:"packageType"`
 	// Primary keypair used to sign artifacts. Default is empty.
 	PrimaryKeypairRef *string `pulumi:"primaryKeypairRef"`
-	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
-	// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
-	// will remain in the Terraform state, which will create state drift during the update.
+	// Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
+	// Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
+	// attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
+	// be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments []string `pulumi:"projectEnvironments"`
 	// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
@@ -190,8 +188,7 @@ type VirtualDebianRepositoryState struct {
 	DebianDefaultArchitectures pulumi.StringPtrInput
 	// Default repository to deploy artifacts.
 	DefaultDeploymentRepo pulumi.StringPtrInput
-	// A free text field that describes the content and purpose of the repository. If you choose to insert a link into this
-	// field, clicking the link will prompt the user to confirm that they might be redirected to a new domain.
+	// Public description.
 	Description pulumi.StringPtrInput
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 	// artifacts are excluded.
@@ -202,17 +199,17 @@ type VirtualDebianRepositoryState struct {
 	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
 	// contain spaces or special characters.
 	Key pulumi.StringPtrInput
-	// A free text field to add additional notes about the repository. These are only visible to the administrator.
+	// Internal description.
 	Notes pulumi.StringPtrInput
 	// Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are `bz2`,`lzma` and `xz`. Default value is `bz2`.
 	OptionalIndexCompressionFormats pulumi.StringArrayInput
-	// The Package Type. This must be specified when the repository is created, and once set, cannot be changed.
-	PackageType pulumi.StringPtrInput
+	PackageType                     pulumi.StringPtrInput
 	// Primary keypair used to sign artifacts. Default is empty.
 	PrimaryKeypairRef pulumi.StringPtrInput
-	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
-	// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
-	// will remain in the Terraform state, which will create state drift during the update.
+	// Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
+	// Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
+	// attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
+	// be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments pulumi.StringArrayInput
 	// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
@@ -239,8 +236,7 @@ type virtualDebianRepositoryArgs struct {
 	DebianDefaultArchitectures *string `pulumi:"debianDefaultArchitectures"`
 	// Default repository to deploy artifacts.
 	DefaultDeploymentRepo *string `pulumi:"defaultDeploymentRepo"`
-	// A free text field that describes the content and purpose of the repository. If you choose to insert a link into this
-	// field, clicking the link will prompt the user to confirm that they might be redirected to a new domain.
+	// Public description.
 	Description *string `pulumi:"description"`
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 	// artifacts are excluded.
@@ -251,15 +247,16 @@ type virtualDebianRepositoryArgs struct {
 	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
 	// contain spaces or special characters.
 	Key string `pulumi:"key"`
-	// A free text field to add additional notes about the repository. These are only visible to the administrator.
+	// Internal description.
 	Notes *string `pulumi:"notes"`
 	// Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are `bz2`,`lzma` and `xz`. Default value is `bz2`.
 	OptionalIndexCompressionFormats []string `pulumi:"optionalIndexCompressionFormats"`
 	// Primary keypair used to sign artifacts. Default is empty.
 	PrimaryKeypairRef *string `pulumi:"primaryKeypairRef"`
-	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
-	// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
-	// will remain in the Terraform state, which will create state drift during the update.
+	// Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
+	// Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
+	// attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
+	// be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments []string `pulumi:"projectEnvironments"`
 	// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
@@ -283,8 +280,7 @@ type VirtualDebianRepositoryArgs struct {
 	DebianDefaultArchitectures pulumi.StringPtrInput
 	// Default repository to deploy artifacts.
 	DefaultDeploymentRepo pulumi.StringPtrInput
-	// A free text field that describes the content and purpose of the repository. If you choose to insert a link into this
-	// field, clicking the link will prompt the user to confirm that they might be redirected to a new domain.
+	// Public description.
 	Description pulumi.StringPtrInput
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 	// artifacts are excluded.
@@ -295,15 +291,16 @@ type VirtualDebianRepositoryArgs struct {
 	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
 	// contain spaces or special characters.
 	Key pulumi.StringInput
-	// A free text field to add additional notes about the repository. These are only visible to the administrator.
+	// Internal description.
 	Notes pulumi.StringPtrInput
 	// Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are `bz2`,`lzma` and `xz`. Default value is `bz2`.
 	OptionalIndexCompressionFormats pulumi.StringArrayInput
 	// Primary keypair used to sign artifacts. Default is empty.
 	PrimaryKeypairRef pulumi.StringPtrInput
-	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
-	// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
-	// will remain in the Terraform state, which will create state drift during the update.
+	// Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
+	// Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
+	// attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
+	// be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments pulumi.StringArrayInput
 	// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
@@ -423,8 +420,7 @@ func (o VirtualDebianRepositoryOutput) DefaultDeploymentRepo() pulumi.StringPtrO
 	return o.ApplyT(func(v *VirtualDebianRepository) pulumi.StringPtrOutput { return v.DefaultDeploymentRepo }).(pulumi.StringPtrOutput)
 }
 
-// A free text field that describes the content and purpose of the repository. If you choose to insert a link into this
-// field, clicking the link will prompt the user to confirm that they might be redirected to a new domain.
+// Public description.
 func (o VirtualDebianRepositoryOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualDebianRepository) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -447,7 +443,7 @@ func (o VirtualDebianRepositoryOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualDebianRepository) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
 }
 
-// A free text field to add additional notes about the repository. These are only visible to the administrator.
+// Internal description.
 func (o VirtualDebianRepositoryOutput) Notes() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualDebianRepository) pulumi.StringPtrOutput { return v.Notes }).(pulumi.StringPtrOutput)
 }
@@ -457,7 +453,6 @@ func (o VirtualDebianRepositoryOutput) OptionalIndexCompressionFormats() pulumi.
 	return o.ApplyT(func(v *VirtualDebianRepository) pulumi.StringArrayOutput { return v.OptionalIndexCompressionFormats }).(pulumi.StringArrayOutput)
 }
 
-// The Package Type. This must be specified when the repository is created, and once set, cannot be changed.
 func (o VirtualDebianRepositoryOutput) PackageType() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualDebianRepository) pulumi.StringOutput { return v.PackageType }).(pulumi.StringOutput)
 }
@@ -467,9 +462,10 @@ func (o VirtualDebianRepositoryOutput) PrimaryKeypairRef() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v *VirtualDebianRepository) pulumi.StringPtrOutput { return v.PrimaryKeypairRef }).(pulumi.StringPtrOutput)
 }
 
-// Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
-// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
-// will remain in the Terraform state, which will create state drift during the update.
+// Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
+// Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
+// attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
+// be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
 func (o VirtualDebianRepositoryOutput) ProjectEnvironments() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VirtualDebianRepository) pulumi.StringArrayOutput { return v.ProjectEnvironments }).(pulumi.StringArrayOutput)
 }

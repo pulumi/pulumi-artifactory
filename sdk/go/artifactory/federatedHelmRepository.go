@@ -69,7 +69,8 @@ type FederatedHelmRepository struct {
 	BlackedOut pulumi.BoolPtrOutput `pulumi:"blackedOut"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
 	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
-	CdnRedirect pulumi.BoolPtrOutput   `pulumi:"cdnRedirect"`
+	CdnRedirect pulumi.BoolPtrOutput `pulumi:"cdnRedirect"`
+	// Public description.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
 	// storage provider. Available in Enterprise+ and Edge licenses only.
@@ -86,14 +87,16 @@ type FederatedHelmRepository struct {
 	// `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
 	// Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
 	// to set up Federated repositories correctly.
-	Members     FederatedHelmRepositoryMemberArrayOutput `pulumi:"members"`
-	Notes       pulumi.StringPtrOutput                   `pulumi:"notes"`
-	PackageType pulumi.StringOutput                      `pulumi:"packageType"`
+	Members FederatedHelmRepositoryMemberArrayOutput `pulumi:"members"`
+	// Internal description.
+	Notes       pulumi.StringPtrOutput `pulumi:"notes"`
+	PackageType pulumi.StringOutput    `pulumi:"packageType"`
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution pulumi.BoolPtrOutput `pulumi:"priorityResolution"`
-	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
-	// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
-	// will remain in the Terraform state, which will create state drift during the update.
+	// Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
+	// Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
+	// attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
+	// be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments pulumi.StringArrayOutput `pulumi:"projectEnvironments"`
 	// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
@@ -150,7 +153,8 @@ type federatedHelmRepositoryState struct {
 	BlackedOut *bool `pulumi:"blackedOut"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
 	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
-	CdnRedirect *bool   `pulumi:"cdnRedirect"`
+	CdnRedirect *bool `pulumi:"cdnRedirect"`
+	// Public description.
 	Description *string `pulumi:"description"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
 	// storage provider. Available in Enterprise+ and Edge licenses only.
@@ -167,14 +171,16 @@ type federatedHelmRepositoryState struct {
 	// `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
 	// Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
 	// to set up Federated repositories correctly.
-	Members     []FederatedHelmRepositoryMember `pulumi:"members"`
-	Notes       *string                         `pulumi:"notes"`
-	PackageType *string                         `pulumi:"packageType"`
+	Members []FederatedHelmRepositoryMember `pulumi:"members"`
+	// Internal description.
+	Notes       *string `pulumi:"notes"`
+	PackageType *string `pulumi:"packageType"`
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution *bool `pulumi:"priorityResolution"`
-	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
-	// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
-	// will remain in the Terraform state, which will create state drift during the update.
+	// Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
+	// Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
+	// attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
+	// be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments []string `pulumi:"projectEnvironments"`
 	// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
@@ -198,6 +204,7 @@ type FederatedHelmRepositoryState struct {
 	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
 	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
 	CdnRedirect pulumi.BoolPtrInput
+	// Public description.
 	Description pulumi.StringPtrInput
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
 	// storage provider. Available in Enterprise+ and Edge licenses only.
@@ -214,14 +221,16 @@ type FederatedHelmRepositoryState struct {
 	// `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
 	// Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
 	// to set up Federated repositories correctly.
-	Members     FederatedHelmRepositoryMemberArrayInput
+	Members FederatedHelmRepositoryMemberArrayInput
+	// Internal description.
 	Notes       pulumi.StringPtrInput
 	PackageType pulumi.StringPtrInput
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution pulumi.BoolPtrInput
-	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
-	// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
-	// will remain in the Terraform state, which will create state drift during the update.
+	// Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
+	// Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
+	// attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
+	// be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments pulumi.StringArrayInput
 	// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
@@ -248,7 +257,8 @@ type federatedHelmRepositoryArgs struct {
 	BlackedOut *bool `pulumi:"blackedOut"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
 	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
-	CdnRedirect *bool   `pulumi:"cdnRedirect"`
+	CdnRedirect *bool `pulumi:"cdnRedirect"`
+	// Public description.
 	Description *string `pulumi:"description"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
 	// storage provider. Available in Enterprise+ and Edge licenses only.
@@ -266,12 +276,14 @@ type federatedHelmRepositoryArgs struct {
 	// Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
 	// to set up Federated repositories correctly.
 	Members []FederatedHelmRepositoryMember `pulumi:"members"`
-	Notes   *string                         `pulumi:"notes"`
+	// Internal description.
+	Notes *string `pulumi:"notes"`
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution *bool `pulumi:"priorityResolution"`
-	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
-	// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
-	// will remain in the Terraform state, which will create state drift during the update.
+	// Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
+	// Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
+	// attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
+	// be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments []string `pulumi:"projectEnvironments"`
 	// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
@@ -296,6 +308,7 @@ type FederatedHelmRepositoryArgs struct {
 	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
 	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
 	CdnRedirect pulumi.BoolPtrInput
+	// Public description.
 	Description pulumi.StringPtrInput
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
 	// storage provider. Available in Enterprise+ and Edge licenses only.
@@ -313,12 +326,14 @@ type FederatedHelmRepositoryArgs struct {
 	// Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
 	// to set up Federated repositories correctly.
 	Members FederatedHelmRepositoryMemberArrayInput
-	Notes   pulumi.StringPtrInput
+	// Internal description.
+	Notes pulumi.StringPtrInput
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution pulumi.BoolPtrInput
-	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
-	// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
-	// will remain in the Terraform state, which will create state drift during the update.
+	// Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
+	// Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
+	// attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
+	// be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments pulumi.StringArrayInput
 	// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
@@ -437,6 +452,7 @@ func (o FederatedHelmRepositoryOutput) CdnRedirect() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FederatedHelmRepository) pulumi.BoolPtrOutput { return v.CdnRedirect }).(pulumi.BoolPtrOutput)
 }
 
+// Public description.
 func (o FederatedHelmRepositoryOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FederatedHelmRepository) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -472,6 +488,7 @@ func (o FederatedHelmRepositoryOutput) Members() FederatedHelmRepositoryMemberAr
 	return o.ApplyT(func(v *FederatedHelmRepository) FederatedHelmRepositoryMemberArrayOutput { return v.Members }).(FederatedHelmRepositoryMemberArrayOutput)
 }
 
+// Internal description.
 func (o FederatedHelmRepositoryOutput) Notes() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FederatedHelmRepository) pulumi.StringPtrOutput { return v.Notes }).(pulumi.StringPtrOutput)
 }
@@ -485,9 +502,10 @@ func (o FederatedHelmRepositoryOutput) PriorityResolution() pulumi.BoolPtrOutput
 	return o.ApplyT(func(v *FederatedHelmRepository) pulumi.BoolPtrOutput { return v.PriorityResolution }).(pulumi.BoolPtrOutput)
 }
 
-// Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
-// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
-// will remain in the Terraform state, which will create state drift during the update.
+// Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
+// Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
+// attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
+// be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
 func (o FederatedHelmRepositoryOutput) ProjectEnvironments() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FederatedHelmRepository) pulumi.StringArrayOutput { return v.ProjectEnvironments }).(pulumi.StringArrayOutput)
 }

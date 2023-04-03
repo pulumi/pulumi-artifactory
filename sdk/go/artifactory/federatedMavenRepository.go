@@ -75,7 +75,8 @@ type FederatedMavenRepository struct {
 	// "server-generated-checksums". Default: "client-checksums"\n For more details, please refer to Checksum Policy -
 	// https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy
 	ChecksumPolicyType pulumi.StringPtrOutput `pulumi:"checksumPolicyType"`
-	Description        pulumi.StringPtrOutput `pulumi:"description"`
+	// Public description.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
 	// storage provider. Available in Enterprise+ and Edge licenses only.
 	DownloadDirect pulumi.BoolPtrOutput `pulumi:"downloadDirect"`
@@ -98,14 +99,16 @@ type FederatedMavenRepository struct {
 	// `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
 	// Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
 	// to set up Federated repositories correctly.
-	Members     FederatedMavenRepositoryMemberArrayOutput `pulumi:"members"`
-	Notes       pulumi.StringPtrOutput                    `pulumi:"notes"`
-	PackageType pulumi.StringOutput                       `pulumi:"packageType"`
+	Members FederatedMavenRepositoryMemberArrayOutput `pulumi:"members"`
+	// Internal description.
+	Notes       pulumi.StringPtrOutput `pulumi:"notes"`
+	PackageType pulumi.StringOutput    `pulumi:"packageType"`
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution pulumi.BoolPtrOutput `pulumi:"priorityResolution"`
-	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
-	// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
-	// will remain in the Terraform state, which will create state drift during the update.
+	// Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
+	// Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
+	// attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
+	// be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments pulumi.StringArrayOutput `pulumi:"projectEnvironments"`
 	// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
@@ -177,7 +180,8 @@ type federatedMavenRepositoryState struct {
 	// "server-generated-checksums". Default: "client-checksums"\n For more details, please refer to Checksum Policy -
 	// https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy
 	ChecksumPolicyType *string `pulumi:"checksumPolicyType"`
-	Description        *string `pulumi:"description"`
+	// Public description.
+	Description *string `pulumi:"description"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
 	// storage provider. Available in Enterprise+ and Edge licenses only.
 	DownloadDirect *bool `pulumi:"downloadDirect"`
@@ -200,14 +204,16 @@ type federatedMavenRepositoryState struct {
 	// `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
 	// Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
 	// to set up Federated repositories correctly.
-	Members     []FederatedMavenRepositoryMember `pulumi:"members"`
-	Notes       *string                          `pulumi:"notes"`
-	PackageType *string                          `pulumi:"packageType"`
+	Members []FederatedMavenRepositoryMember `pulumi:"members"`
+	// Internal description.
+	Notes       *string `pulumi:"notes"`
+	PackageType *string `pulumi:"packageType"`
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution *bool `pulumi:"priorityResolution"`
-	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
-	// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
-	// will remain in the Terraform state, which will create state drift during the update.
+	// Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
+	// Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
+	// attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
+	// be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments []string `pulumi:"projectEnvironments"`
 	// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
@@ -245,7 +251,8 @@ type FederatedMavenRepositoryState struct {
 	// "server-generated-checksums". Default: "client-checksums"\n For more details, please refer to Checksum Policy -
 	// https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy
 	ChecksumPolicyType pulumi.StringPtrInput
-	Description        pulumi.StringPtrInput
+	// Public description.
+	Description pulumi.StringPtrInput
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
 	// storage provider. Available in Enterprise+ and Edge licenses only.
 	DownloadDirect pulumi.BoolPtrInput
@@ -268,14 +275,16 @@ type FederatedMavenRepositoryState struct {
 	// `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
 	// Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
 	// to set up Federated repositories correctly.
-	Members     FederatedMavenRepositoryMemberArrayInput
+	Members FederatedMavenRepositoryMemberArrayInput
+	// Internal description.
 	Notes       pulumi.StringPtrInput
 	PackageType pulumi.StringPtrInput
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution pulumi.BoolPtrInput
-	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
-	// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
-	// will remain in the Terraform state, which will create state drift during the update.
+	// Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
+	// Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
+	// attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
+	// be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments pulumi.StringArrayInput
 	// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
@@ -317,7 +326,8 @@ type federatedMavenRepositoryArgs struct {
 	// "server-generated-checksums". Default: "client-checksums"\n For more details, please refer to Checksum Policy -
 	// https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy
 	ChecksumPolicyType *string `pulumi:"checksumPolicyType"`
-	Description        *string `pulumi:"description"`
+	// Public description.
+	Description *string `pulumi:"description"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
 	// storage provider. Available in Enterprise+ and Edge licenses only.
 	DownloadDirect *bool `pulumi:"downloadDirect"`
@@ -341,12 +351,14 @@ type federatedMavenRepositoryArgs struct {
 	// Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
 	// to set up Federated repositories correctly.
 	Members []FederatedMavenRepositoryMember `pulumi:"members"`
-	Notes   *string                          `pulumi:"notes"`
+	// Internal description.
+	Notes *string `pulumi:"notes"`
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution *bool `pulumi:"priorityResolution"`
-	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
-	// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
-	// will remain in the Terraform state, which will create state drift during the update.
+	// Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
+	// Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
+	// attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
+	// be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments []string `pulumi:"projectEnvironments"`
 	// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
@@ -385,7 +397,8 @@ type FederatedMavenRepositoryArgs struct {
 	// "server-generated-checksums". Default: "client-checksums"\n For more details, please refer to Checksum Policy -
 	// https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy
 	ChecksumPolicyType pulumi.StringPtrInput
-	Description        pulumi.StringPtrInput
+	// Public description.
+	Description pulumi.StringPtrInput
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
 	// storage provider. Available in Enterprise+ and Edge licenses only.
 	DownloadDirect pulumi.BoolPtrInput
@@ -409,12 +422,14 @@ type FederatedMavenRepositoryArgs struct {
 	// Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
 	// to set up Federated repositories correctly.
 	Members FederatedMavenRepositoryMemberArrayInput
-	Notes   pulumi.StringPtrInput
+	// Internal description.
+	Notes pulumi.StringPtrInput
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution pulumi.BoolPtrInput
-	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
-	// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
-	// will remain in the Terraform state, which will create state drift during the update.
+	// Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
+	// Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
+	// attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
+	// be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments pulumi.StringArrayInput
 	// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
@@ -550,6 +565,7 @@ func (o FederatedMavenRepositoryOutput) ChecksumPolicyType() pulumi.StringPtrOut
 	return o.ApplyT(func(v *FederatedMavenRepository) pulumi.StringPtrOutput { return v.ChecksumPolicyType }).(pulumi.StringPtrOutput)
 }
 
+// Public description.
 func (o FederatedMavenRepositoryOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FederatedMavenRepository) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -601,6 +617,7 @@ func (o FederatedMavenRepositoryOutput) Members() FederatedMavenRepositoryMember
 	return o.ApplyT(func(v *FederatedMavenRepository) FederatedMavenRepositoryMemberArrayOutput { return v.Members }).(FederatedMavenRepositoryMemberArrayOutput)
 }
 
+// Internal description.
 func (o FederatedMavenRepositoryOutput) Notes() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FederatedMavenRepository) pulumi.StringPtrOutput { return v.Notes }).(pulumi.StringPtrOutput)
 }
@@ -614,9 +631,10 @@ func (o FederatedMavenRepositoryOutput) PriorityResolution() pulumi.BoolPtrOutpu
 	return o.ApplyT(func(v *FederatedMavenRepository) pulumi.BoolPtrOutput { return v.PriorityResolution }).(pulumi.BoolPtrOutput)
 }
 
-// Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
-// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
-// will remain in the Terraform state, which will create state drift during the update.
+// Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
+// Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
+// attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
+// be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
 func (o FederatedMavenRepositoryOutput) ProjectEnvironments() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FederatedMavenRepository) pulumi.StringArrayOutput { return v.ProjectEnvironments }).(pulumi.StringArrayOutput)
 }

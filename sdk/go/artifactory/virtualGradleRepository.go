@@ -63,8 +63,7 @@ type VirtualGradleRepository struct {
 	ArtifactoryRequestsCanRetrieveRemoteArtifacts pulumi.BoolPtrOutput `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`
 	// Default repository to deploy artifacts.
 	DefaultDeploymentRepo pulumi.StringPtrOutput `pulumi:"defaultDeploymentRepo"`
-	// A free text field that describes the content and purpose of the repository. If you choose to insert a link into this
-	// field, clicking the link will prompt the user to confirm that they might be redirected to a new domain.
+	// Public description.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 	// artifacts are excluded.
@@ -80,17 +79,17 @@ type VirtualGradleRepository struct {
 	Key pulumi.StringOutput `pulumi:"key"`
 	// The keypair used to sign artifacts.
 	KeyPair pulumi.StringPtrOutput `pulumi:"keyPair"`
-	// A free text field to add additional notes about the repository. These are only visible to the administrator.
-	Notes pulumi.StringPtrOutput `pulumi:"notes"`
-	// The Package Type. This must be specified when the repository is created, and once set, cannot be changed.
-	PackageType pulumi.StringOutput `pulumi:"packageType"`
+	// Internal description.
+	Notes       pulumi.StringPtrOutput `pulumi:"notes"`
+	PackageType pulumi.StringOutput    `pulumi:"packageType"`
 	// - (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
 	// - (2: discard_any_reference) Discard Any References - Removes all repository elements regardless of whether they are included in an active profile or not.
 	// - (3: nothing) Nothing - Does not remove any repository elements declared in the POM.
 	PomRepositoryReferencesCleanupPolicy pulumi.StringOutput `pulumi:"pomRepositoryReferencesCleanupPolicy"`
-	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
-	// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
-	// will remain in the Terraform state, which will create state drift during the update.
+	// Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
+	// Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
+	// attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
+	// be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments pulumi.StringArrayOutput `pulumi:"projectEnvironments"`
 	// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
@@ -138,8 +137,7 @@ type virtualGradleRepositoryState struct {
 	ArtifactoryRequestsCanRetrieveRemoteArtifacts *bool `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`
 	// Default repository to deploy artifacts.
 	DefaultDeploymentRepo *string `pulumi:"defaultDeploymentRepo"`
-	// A free text field that describes the content and purpose of the repository. If you choose to insert a link into this
-	// field, clicking the link will prompt the user to confirm that they might be redirected to a new domain.
+	// Public description.
 	Description *string `pulumi:"description"`
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 	// artifacts are excluded.
@@ -155,17 +153,17 @@ type virtualGradleRepositoryState struct {
 	Key *string `pulumi:"key"`
 	// The keypair used to sign artifacts.
 	KeyPair *string `pulumi:"keyPair"`
-	// A free text field to add additional notes about the repository. These are only visible to the administrator.
-	Notes *string `pulumi:"notes"`
-	// The Package Type. This must be specified when the repository is created, and once set, cannot be changed.
+	// Internal description.
+	Notes       *string `pulumi:"notes"`
 	PackageType *string `pulumi:"packageType"`
 	// - (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
 	// - (2: discard_any_reference) Discard Any References - Removes all repository elements regardless of whether they are included in an active profile or not.
 	// - (3: nothing) Nothing - Does not remove any repository elements declared in the POM.
 	PomRepositoryReferencesCleanupPolicy *string `pulumi:"pomRepositoryReferencesCleanupPolicy"`
-	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
-	// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
-	// will remain in the Terraform state, which will create state drift during the update.
+	// Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
+	// Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
+	// attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
+	// be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments []string `pulumi:"projectEnvironments"`
 	// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
@@ -182,8 +180,7 @@ type VirtualGradleRepositoryState struct {
 	ArtifactoryRequestsCanRetrieveRemoteArtifacts pulumi.BoolPtrInput
 	// Default repository to deploy artifacts.
 	DefaultDeploymentRepo pulumi.StringPtrInput
-	// A free text field that describes the content and purpose of the repository. If you choose to insert a link into this
-	// field, clicking the link will prompt the user to confirm that they might be redirected to a new domain.
+	// Public description.
 	Description pulumi.StringPtrInput
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 	// artifacts are excluded.
@@ -199,17 +196,17 @@ type VirtualGradleRepositoryState struct {
 	Key pulumi.StringPtrInput
 	// The keypair used to sign artifacts.
 	KeyPair pulumi.StringPtrInput
-	// A free text field to add additional notes about the repository. These are only visible to the administrator.
-	Notes pulumi.StringPtrInput
-	// The Package Type. This must be specified when the repository is created, and once set, cannot be changed.
+	// Internal description.
+	Notes       pulumi.StringPtrInput
 	PackageType pulumi.StringPtrInput
 	// - (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
 	// - (2: discard_any_reference) Discard Any References - Removes all repository elements regardless of whether they are included in an active profile or not.
 	// - (3: nothing) Nothing - Does not remove any repository elements declared in the POM.
 	PomRepositoryReferencesCleanupPolicy pulumi.StringPtrInput
-	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
-	// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
-	// will remain in the Terraform state, which will create state drift during the update.
+	// Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
+	// Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
+	// attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
+	// be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments pulumi.StringArrayInput
 	// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
@@ -230,8 +227,7 @@ type virtualGradleRepositoryArgs struct {
 	ArtifactoryRequestsCanRetrieveRemoteArtifacts *bool `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`
 	// Default repository to deploy artifacts.
 	DefaultDeploymentRepo *string `pulumi:"defaultDeploymentRepo"`
-	// A free text field that describes the content and purpose of the repository. If you choose to insert a link into this
-	// field, clicking the link will prompt the user to confirm that they might be redirected to a new domain.
+	// Public description.
 	Description *string `pulumi:"description"`
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 	// artifacts are excluded.
@@ -247,15 +243,16 @@ type virtualGradleRepositoryArgs struct {
 	Key string `pulumi:"key"`
 	// The keypair used to sign artifacts.
 	KeyPair *string `pulumi:"keyPair"`
-	// A free text field to add additional notes about the repository. These are only visible to the administrator.
+	// Internal description.
 	Notes *string `pulumi:"notes"`
 	// - (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
 	// - (2: discard_any_reference) Discard Any References - Removes all repository elements regardless of whether they are included in an active profile or not.
 	// - (3: nothing) Nothing - Does not remove any repository elements declared in the POM.
 	PomRepositoryReferencesCleanupPolicy *string `pulumi:"pomRepositoryReferencesCleanupPolicy"`
-	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
-	// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
-	// will remain in the Terraform state, which will create state drift during the update.
+	// Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
+	// Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
+	// attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
+	// be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments []string `pulumi:"projectEnvironments"`
 	// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
@@ -273,8 +270,7 @@ type VirtualGradleRepositoryArgs struct {
 	ArtifactoryRequestsCanRetrieveRemoteArtifacts pulumi.BoolPtrInput
 	// Default repository to deploy artifacts.
 	DefaultDeploymentRepo pulumi.StringPtrInput
-	// A free text field that describes the content and purpose of the repository. If you choose to insert a link into this
-	// field, clicking the link will prompt the user to confirm that they might be redirected to a new domain.
+	// Public description.
 	Description pulumi.StringPtrInput
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 	// artifacts are excluded.
@@ -290,15 +286,16 @@ type VirtualGradleRepositoryArgs struct {
 	Key pulumi.StringInput
 	// The keypair used to sign artifacts.
 	KeyPair pulumi.StringPtrInput
-	// A free text field to add additional notes about the repository. These are only visible to the administrator.
+	// Internal description.
 	Notes pulumi.StringPtrInput
 	// - (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
 	// - (2: discard_any_reference) Discard Any References - Removes all repository elements regardless of whether they are included in an active profile or not.
 	// - (3: nothing) Nothing - Does not remove any repository elements declared in the POM.
 	PomRepositoryReferencesCleanupPolicy pulumi.StringPtrInput
-	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
-	// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
-	// will remain in the Terraform state, which will create state drift during the update.
+	// Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
+	// Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
+	// attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
+	// be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments pulumi.StringArrayInput
 	// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
@@ -409,8 +406,7 @@ func (o VirtualGradleRepositoryOutput) DefaultDeploymentRepo() pulumi.StringPtrO
 	return o.ApplyT(func(v *VirtualGradleRepository) pulumi.StringPtrOutput { return v.DefaultDeploymentRepo }).(pulumi.StringPtrOutput)
 }
 
-// A free text field that describes the content and purpose of the repository. If you choose to insert a link into this
-// field, clicking the link will prompt the user to confirm that they might be redirected to a new domain.
+// Public description.
 func (o VirtualGradleRepositoryOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualGradleRepository) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -444,12 +440,11 @@ func (o VirtualGradleRepositoryOutput) KeyPair() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualGradleRepository) pulumi.StringPtrOutput { return v.KeyPair }).(pulumi.StringPtrOutput)
 }
 
-// A free text field to add additional notes about the repository. These are only visible to the administrator.
+// Internal description.
 func (o VirtualGradleRepositoryOutput) Notes() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualGradleRepository) pulumi.StringPtrOutput { return v.Notes }).(pulumi.StringPtrOutput)
 }
 
-// The Package Type. This must be specified when the repository is created, and once set, cannot be changed.
 func (o VirtualGradleRepositoryOutput) PackageType() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualGradleRepository) pulumi.StringOutput { return v.PackageType }).(pulumi.StringOutput)
 }
@@ -461,9 +456,10 @@ func (o VirtualGradleRepositoryOutput) PomRepositoryReferencesCleanupPolicy() pu
 	return o.ApplyT(func(v *VirtualGradleRepository) pulumi.StringOutput { return v.PomRepositoryReferencesCleanupPolicy }).(pulumi.StringOutput)
 }
 
-// Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
-// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
-// will remain in the Terraform state, which will create state drift during the update.
+// Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
+// Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
+// attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
+// be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
 func (o VirtualGradleRepositoryOutput) ProjectEnvironments() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VirtualGradleRepository) pulumi.StringArrayOutput { return v.ProjectEnvironments }).(pulumi.StringArrayOutput)
 }

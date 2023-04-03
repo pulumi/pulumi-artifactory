@@ -48,6 +48,7 @@ class LocalMavenRepositoryArgs:
                - `client-checksums`
                - `server-generated-checksums`.
                For more details, please refer to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy).
+        :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
@@ -59,10 +60,12 @@ class LocalMavenRepositoryArgs:
         :param pulumi.Input[int] max_unique_snapshots: The maximum number of unique snapshots of a single artifact to store.
                Once the number of snapshots exceeds this setting, older versions are removed.
                A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+        :param pulumi.Input[str] notes: Internal description.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
-               if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
-               will remain in the Terraform state, which will create state drift during the update.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
+               Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
+               attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
+               be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
@@ -186,6 +189,9 @@ class LocalMavenRepositoryArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Public description.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -272,6 +278,9 @@ class LocalMavenRepositoryArgs:
     @property
     @pulumi.getter
     def notes(self) -> Optional[pulumi.Input[str]]:
+        """
+        Internal description.
+        """
         return pulumi.get(self, "notes")
 
     @notes.setter
@@ -294,9 +303,10 @@ class LocalMavenRepositoryArgs:
     @pulumi.getter(name="projectEnvironments")
     def project_environments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
-        if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
-        will remain in the Terraform state, which will create state drift during the update.
+        Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
+        Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
+        attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
+        be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
         """
         return pulumi.get(self, "project_environments")
 
@@ -419,6 +429,7 @@ class _LocalMavenRepositoryState:
                - `client-checksums`
                - `server-generated-checksums`.
                For more details, please refer to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy).
+        :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
@@ -431,10 +442,12 @@ class _LocalMavenRepositoryState:
         :param pulumi.Input[int] max_unique_snapshots: The maximum number of unique snapshots of a single artifact to store.
                Once the number of snapshots exceeds this setting, older versions are removed.
                A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+        :param pulumi.Input[str] notes: Internal description.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
-               if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
-               will remain in the Terraform state, which will create state drift during the update.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
+               Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
+               attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
+               be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
@@ -549,6 +562,9 @@ class _LocalMavenRepositoryState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Public description.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -647,6 +663,9 @@ class _LocalMavenRepositoryState:
     @property
     @pulumi.getter
     def notes(self) -> Optional[pulumi.Input[str]]:
+        """
+        Internal description.
+        """
         return pulumi.get(self, "notes")
 
     @notes.setter
@@ -678,9 +697,10 @@ class _LocalMavenRepositoryState:
     @pulumi.getter(name="projectEnvironments")
     def project_environments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
-        if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
-        will remain in the Terraform state, which will create state drift during the update.
+        Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
+        Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
+        attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
+        be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
         """
         return pulumi.get(self, "project_environments")
 
@@ -832,6 +852,7 @@ class LocalMavenRepository(pulumi.CustomResource):
                - `client-checksums`
                - `server-generated-checksums`.
                For more details, please refer to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy).
+        :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
@@ -844,10 +865,12 @@ class LocalMavenRepository(pulumi.CustomResource):
         :param pulumi.Input[int] max_unique_snapshots: The maximum number of unique snapshots of a single artifact to store.
                Once the number of snapshots exceeds this setting, older versions are removed.
                A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+        :param pulumi.Input[str] notes: Internal description.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
-               if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
-               will remain in the Terraform state, which will create state drift during the update.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
+               Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
+               attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
+               be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
@@ -1011,6 +1034,7 @@ class LocalMavenRepository(pulumi.CustomResource):
                - `client-checksums`
                - `server-generated-checksums`.
                For more details, please refer to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy).
+        :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
@@ -1023,10 +1047,12 @@ class LocalMavenRepository(pulumi.CustomResource):
         :param pulumi.Input[int] max_unique_snapshots: The maximum number of unique snapshots of a single artifact to store.
                Once the number of snapshots exceeds this setting, older versions are removed.
                A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+        :param pulumi.Input[str] notes: Internal description.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
-               if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
-               will remain in the Terraform state, which will create state drift during the update.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
+               Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
+               attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
+               be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
@@ -1108,6 +1134,9 @@ class LocalMavenRepository(pulumi.CustomResource):
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        Public description.
+        """
         return pulumi.get(self, "description")
 
     @property
@@ -1174,6 +1203,9 @@ class LocalMavenRepository(pulumi.CustomResource):
     @property
     @pulumi.getter
     def notes(self) -> pulumi.Output[Optional[str]]:
+        """
+        Internal description.
+        """
         return pulumi.get(self, "notes")
 
     @property
@@ -1193,9 +1225,10 @@ class LocalMavenRepository(pulumi.CustomResource):
     @pulumi.getter(name="projectEnvironments")
     def project_environments(self) -> pulumi.Output[Sequence[str]]:
         """
-        Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
-        if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
-        will remain in the Terraform state, which will create state drift during the update.
+        Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
+        Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
+        attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
+        be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
         """
         return pulumi.get(self, "project_environments")
 

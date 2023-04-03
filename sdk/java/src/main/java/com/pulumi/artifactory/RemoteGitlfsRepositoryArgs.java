@@ -197,16 +197,16 @@ public final class RemoteGitlfsRepositoryArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**{@literal /}z/*. By
-     * default no artifacts are excluded.
+     * List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**{@literal /}z/*.By default no
+     * artifacts are excluded.
      * 
      */
     @Import(name="excludesPattern")
     private @Nullable Output<String> excludesPattern;
 
     /**
-     * @return List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**{@literal /}z/*. By
-     * default no artifacts are excluded.
+     * @return List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**{@literal /}z/*.By default no
+     * artifacts are excluded.
      * 
      */
     public Optional<Output<String>> excludesPattern() {
@@ -406,18 +406,20 @@ public final class RemoteGitlfsRepositoryArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Project environment for assigning this repository to. Allow values: &#34;DEV&#34; or &#34;PROD&#34;. The attribute should only be used
-     * if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
-     * will remain in the Terraform state, which will create state drift during the update.
+     * Project environment for assigning this repository to. Allow values: &#34;DEV&#34;, &#34;PROD&#34;, or one of custom environment. Before
+     * Artifactory 7.53.1, up to 2 values (&#34;DEV&#34; and &#34;PROD&#34;) are allowed. From 7.53.1 onward, only one value is allowed. The
+     * attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
+     * be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
      * 
      */
     @Import(name="projectEnvironments")
     private @Nullable Output<List<String>> projectEnvironments;
 
     /**
-     * @return Project environment for assigning this repository to. Allow values: &#34;DEV&#34; or &#34;PROD&#34;. The attribute should only be used
-     * if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
-     * will remain in the Terraform state, which will create state drift during the update.
+     * @return Project environment for assigning this repository to. Allow values: &#34;DEV&#34;, &#34;PROD&#34;, or one of custom environment. Before
+     * Artifactory 7.53.1, up to 2 values (&#34;DEV&#34; and &#34;PROD&#34;) are allowed. From 7.53.1 onward, only one value is allowed. The
+     * attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
+     * be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
      * 
      */
     public Optional<Output<List<String>>> projectEnvironments() {
@@ -954,8 +956,8 @@ public final class RemoteGitlfsRepositoryArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param excludesPattern List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**{@literal /}z/*. By
-         * default no artifacts are excluded.
+         * @param excludesPattern List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**{@literal /}z/*.By default no
+         * artifacts are excluded.
          * 
          * @return builder
          * 
@@ -966,8 +968,8 @@ public final class RemoteGitlfsRepositoryArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param excludesPattern List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**{@literal /}z/*. By
-         * default no artifacts are excluded.
+         * @param excludesPattern List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**{@literal /}z/*.By default no
+         * artifacts are excluded.
          * 
          * @return builder
          * 
@@ -1237,9 +1239,10 @@ public final class RemoteGitlfsRepositoryArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param projectEnvironments Project environment for assigning this repository to. Allow values: &#34;DEV&#34; or &#34;PROD&#34;. The attribute should only be used
-         * if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
-         * will remain in the Terraform state, which will create state drift during the update.
+         * @param projectEnvironments Project environment for assigning this repository to. Allow values: &#34;DEV&#34;, &#34;PROD&#34;, or one of custom environment. Before
+         * Artifactory 7.53.1, up to 2 values (&#34;DEV&#34; and &#34;PROD&#34;) are allowed. From 7.53.1 onward, only one value is allowed. The
+         * attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
+         * be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
          * 
          * @return builder
          * 
@@ -1250,9 +1253,10 @@ public final class RemoteGitlfsRepositoryArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param projectEnvironments Project environment for assigning this repository to. Allow values: &#34;DEV&#34; or &#34;PROD&#34;. The attribute should only be used
-         * if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
-         * will remain in the Terraform state, which will create state drift during the update.
+         * @param projectEnvironments Project environment for assigning this repository to. Allow values: &#34;DEV&#34;, &#34;PROD&#34;, or one of custom environment. Before
+         * Artifactory 7.53.1, up to 2 values (&#34;DEV&#34; and &#34;PROD&#34;) are allowed. From 7.53.1 onward, only one value is allowed. The
+         * attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
+         * be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
          * 
          * @return builder
          * 
@@ -1262,9 +1266,10 @@ public final class RemoteGitlfsRepositoryArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param projectEnvironments Project environment for assigning this repository to. Allow values: &#34;DEV&#34; or &#34;PROD&#34;. The attribute should only be used
-         * if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
-         * will remain in the Terraform state, which will create state drift during the update.
+         * @param projectEnvironments Project environment for assigning this repository to. Allow values: &#34;DEV&#34;, &#34;PROD&#34;, or one of custom environment. Before
+         * Artifactory 7.53.1, up to 2 values (&#34;DEV&#34; and &#34;PROD&#34;) are allowed. From 7.53.1 onward, only one value is allowed. The
+         * attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
+         * be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
          * 
          * @return builder
          * 
