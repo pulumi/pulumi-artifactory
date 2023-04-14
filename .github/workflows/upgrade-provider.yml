@@ -17,12 +17,12 @@ jobs:
         repo: pulumi/pulumictl
     - name: Install Pulumi CLI
       uses: pulumi/action-install-pulumi-cli@v2
-    - env:
-        GOPROXY: https://proxy.golang.org
     - name: Checkout repo
       uses: actions/checkout@v3
       with:
         repository: pulumi/upgrade-provider
+    - env:
+        GOPROXY: https://proxy.golang.org
       name: Download module dependencies
       run: go mod download
     - name: Setup Gradle
@@ -32,9 +32,7 @@ jobs:
     - name: Set up git identity
       run: git config --global user.name "Pulumi Bot" && git config --global
         user.email "bot@pulumi.com"
-    - env:
-        GOPROXY: https://proxy.golang.org
-      name: Make build
+    - name: Make build
       run: make build
     - name: Run upgrade-provider
       run: ./upgrade-provider pulumi-artifactory --kind=all
@@ -66,4 +64,4 @@ on:
   pull_request:
     types:
     - opened
-  workflow_dispatch:
+  workflow_dispatch: {}
