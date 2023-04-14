@@ -20,9 +20,11 @@ jobs:
     - name: Checkout repo
       uses: actions/checkout@v3
       with:
-        path: upgrade-provider
+        path: ./upgrade-provider
         repository: pulumi/upgrade-provider
         token: ${{ secrets.PULUMI_BOT_TOKEN }}
+    - name: cd into `upgrade-provider`
+      run: cd upgrade-provider
 #     - env:
 #         GOPROXY: https://proxy.golang.org
 #       name: Download module dependencies
