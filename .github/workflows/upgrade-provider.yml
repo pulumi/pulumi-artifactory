@@ -23,8 +23,6 @@ jobs:
         path: ./upgrade-provider
         repository: pulumi/upgrade-provider
         token: ${{ secrets.PULUMI_BOT_TOKEN }}
-    - name: cd into `upgrade-provider`
-      run: ls && cd upgrade-provider && ls
 #     - env:
 #         GOPROXY: https://proxy.golang.org
 #       name: Download module dependencies
@@ -37,7 +35,7 @@ jobs:
       run: git config --global user.name "Pulumi Bot" && git config --global
         user.email "bot@pulumi.com"
     - name: Make build
-      run: make build
+      run: cd upgrade-provider && make build
     - name: Run upgrade-provider
       run: ./upgrade-provider pulumi-artifactory --kind=all
     - env:
