@@ -19,16 +19,16 @@ jobs:
       uses: pulumi/action-install-pulumi-cli@v2
     - env:
         GOPROXY: https://proxy.golang.org
+    - name: Checkout repo
+      uses: actions/checkout@v3
+      with:
+        repository: pulumi/upgrade-provider
       name: Download module dependencies
       run: go mod download
     - name: Setup Gradle
       uses: gradle/gradle-build-action@v2
       with:
         gradle-version: "7.6"
-    - name: Checkout repo
-      uses: actions/checkout@v3
-      with:
-        repository: pulumi/upgrade-provider
     - name: Set up git identity
       run: git config --global user.name "Pulumi Bot" && git config --global
         user.email "bot@pulumi.com"
@@ -57,7 +57,7 @@ jobs:
           PR opened at pulumi/${{ inputs.provider-name }}
         SLACK_TITLE: ${{ inputs.provider-name }} upgrade result
         SLACK_USERNAME: provider-bot
-        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
       if: ${{ failure() }}
       name: Notify success
       uses: rtCamp/action-slack-notify@v2
