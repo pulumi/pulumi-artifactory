@@ -22,6 +22,7 @@ jobs:
       with:
         path: upgrade-provider
         repository: pulumi/upgrade-provider
+        token: ${{ secrets.PULUMI_BOT_TOKEN }}
     - env:
         GOPROXY: https://proxy.golang.org
       name: Download module dependencies
