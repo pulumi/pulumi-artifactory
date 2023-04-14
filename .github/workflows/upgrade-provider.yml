@@ -37,7 +37,7 @@ jobs:
     - name: Make build
       run: cd upgrade-provider && make build
     - name: Run upgrade-provider
-      run: ./upgrade-provider pulumi-artifactory --kind=all
+      run: cd upgrade-provider && ./upgrade-provider pulumi-artifactory --kind=all
     - env:
         SLACK_CHANNEL: provider-upgrade-status
         SLACK_COLOR: ${{ job.status }}
