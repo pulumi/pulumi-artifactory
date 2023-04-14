@@ -20,6 +20,7 @@ jobs:
     - name: Checkout repo
       uses: actions/checkout@v3
       with:
+        path: upgrade-provider
         repository: pulumi/upgrade-provider
     - env:
         GOPROXY: https://proxy.golang.org
@@ -51,13 +52,13 @@ jobs:
         SLACK_CHANNEL: provider-upgrade-status
         SLACK_COLOR: ${{ job.status }}
         SLACK_MESSAGE: |-
-          Upgrade succeeded :heart_decoration: 
+          Upgrade failed :sweat: 
           PR opened at pulumi/${{ inputs.provider-name }}
         SLACK_TITLE: ${{ inputs.provider-name }} upgrade result
         SLACK_USERNAME: provider-bot
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
       if: ${{ failure() }}
-      name: Notify success
+      name: Notify failure
       uses: rtCamp/action-slack-notify@v2
 name: Upgrade provider
 on:
