@@ -25,3 +25,4 @@ on:
   pull_request:
     types:
     - opened
+  workflow_dispatch: {}
