@@ -309,7 +309,7 @@ func Provider() tfbridge.ProviderInfo {
 
 	err := x.ComputeDefaults(&prov, x.TokensSingleModule("artifactory_", mainMod,
 		x.MakeStandardToken(mainPkg)))
-	contract.AssertNoError(err)
+	contract.AssertNoErrorf(err, "ComputeDefaults may have failed")
 
 	// The provider doesn't have docs for the following data sources, so we exclude them.
 	docLessDataSources := []string{
