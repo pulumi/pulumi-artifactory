@@ -75,6 +75,9 @@ type FederatedSbtRepository struct {
 	// "server-generated-checksums". Default: "client-checksums"\n For more details, please refer to Checksum Policy -
 	// https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy
 	ChecksumPolicyType pulumi.StringPtrOutput `pulumi:"checksumPolicyType"`
+	// Delete all federated members on `terraform destroy` if set to `true`. Caution: it will delete all the repositories in
+	// the federation on other Artifactory instances.
+	CleanupOnDelete pulumi.BoolPtrOutput `pulumi:"cleanupOnDelete"`
 	// Public description.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
@@ -180,6 +183,9 @@ type federatedSbtRepositoryState struct {
 	// "server-generated-checksums". Default: "client-checksums"\n For more details, please refer to Checksum Policy -
 	// https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy
 	ChecksumPolicyType *string `pulumi:"checksumPolicyType"`
+	// Delete all federated members on `terraform destroy` if set to `true`. Caution: it will delete all the repositories in
+	// the federation on other Artifactory instances.
+	CleanupOnDelete *bool `pulumi:"cleanupOnDelete"`
 	// Public description.
 	Description *string `pulumi:"description"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
@@ -251,6 +257,9 @@ type FederatedSbtRepositoryState struct {
 	// "server-generated-checksums". Default: "client-checksums"\n For more details, please refer to Checksum Policy -
 	// https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy
 	ChecksumPolicyType pulumi.StringPtrInput
+	// Delete all federated members on `terraform destroy` if set to `true`. Caution: it will delete all the repositories in
+	// the federation on other Artifactory instances.
+	CleanupOnDelete pulumi.BoolPtrInput
 	// Public description.
 	Description pulumi.StringPtrInput
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
@@ -326,6 +335,9 @@ type federatedSbtRepositoryArgs struct {
 	// "server-generated-checksums". Default: "client-checksums"\n For more details, please refer to Checksum Policy -
 	// https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy
 	ChecksumPolicyType *string `pulumi:"checksumPolicyType"`
+	// Delete all federated members on `terraform destroy` if set to `true`. Caution: it will delete all the repositories in
+	// the federation on other Artifactory instances.
+	CleanupOnDelete *bool `pulumi:"cleanupOnDelete"`
 	// Public description.
 	Description *string `pulumi:"description"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
@@ -397,6 +409,9 @@ type FederatedSbtRepositoryArgs struct {
 	// "server-generated-checksums". Default: "client-checksums"\n For more details, please refer to Checksum Policy -
 	// https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy
 	ChecksumPolicyType pulumi.StringPtrInput
+	// Delete all federated members on `terraform destroy` if set to `true`. Caution: it will delete all the repositories in
+	// the federation on other Artifactory instances.
+	CleanupOnDelete pulumi.BoolPtrInput
 	// Public description.
 	Description pulumi.StringPtrInput
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
@@ -563,6 +578,12 @@ func (o FederatedSbtRepositoryOutput) CdnRedirect() pulumi.BoolPtrOutput {
 // https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy
 func (o FederatedSbtRepositoryOutput) ChecksumPolicyType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FederatedSbtRepository) pulumi.StringPtrOutput { return v.ChecksumPolicyType }).(pulumi.StringPtrOutput)
+}
+
+// Delete all federated members on `terraform destroy` if set to `true`. Caution: it will delete all the repositories in
+// the federation on other Artifactory instances.
+func (o FederatedSbtRepositoryOutput) CleanupOnDelete() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FederatedSbtRepository) pulumi.BoolPtrOutput { return v.CleanupOnDelete }).(pulumi.BoolPtrOutput)
 }
 
 // Public description.

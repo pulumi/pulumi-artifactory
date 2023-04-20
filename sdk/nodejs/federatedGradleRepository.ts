@@ -89,6 +89,11 @@ export class FederatedGradleRepository extends pulumi.CustomResource {
      */
     public readonly checksumPolicyType!: pulumi.Output<string | undefined>;
     /**
+     * Delete all federated members on `terraform destroy` if set to `true`. Caution: it will delete all the repositories in
+     * the federation on other Artifactory instances.
+     */
+    public readonly cleanupOnDelete!: pulumi.Output<boolean | undefined>;
+    /**
      * Public description.
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -196,6 +201,7 @@ export class FederatedGradleRepository extends pulumi.CustomResource {
             resourceInputs["blackedOut"] = state ? state.blackedOut : undefined;
             resourceInputs["cdnRedirect"] = state ? state.cdnRedirect : undefined;
             resourceInputs["checksumPolicyType"] = state ? state.checksumPolicyType : undefined;
+            resourceInputs["cleanupOnDelete"] = state ? state.cleanupOnDelete : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["downloadDirect"] = state ? state.downloadDirect : undefined;
             resourceInputs["excludesPattern"] = state ? state.excludesPattern : undefined;
@@ -227,6 +233,7 @@ export class FederatedGradleRepository extends pulumi.CustomResource {
             resourceInputs["blackedOut"] = args ? args.blackedOut : undefined;
             resourceInputs["cdnRedirect"] = args ? args.cdnRedirect : undefined;
             resourceInputs["checksumPolicyType"] = args ? args.checksumPolicyType : undefined;
+            resourceInputs["cleanupOnDelete"] = args ? args.cleanupOnDelete : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["downloadDirect"] = args ? args.downloadDirect : undefined;
             resourceInputs["excludesPattern"] = args ? args.excludesPattern : undefined;
@@ -278,6 +285,11 @@ export interface FederatedGradleRepositoryState {
      * https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy
      */
     checksumPolicyType?: pulumi.Input<string>;
+    /**
+     * Delete all federated members on `terraform destroy` if set to `true`. Caution: it will delete all the repositories in
+     * the federation on other Artifactory instances.
+     */
+    cleanupOnDelete?: pulumi.Input<boolean>;
     /**
      * Public description.
      */
@@ -396,6 +408,11 @@ export interface FederatedGradleRepositoryArgs {
      * https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy
      */
     checksumPolicyType?: pulumi.Input<string>;
+    /**
+     * Delete all federated members on `terraform destroy` if set to `true`. Caution: it will delete all the repositories in
+     * the federation on other Artifactory instances.
+     */
+    cleanupOnDelete?: pulumi.Input<boolean>;
     /**
      * Public description.
      */

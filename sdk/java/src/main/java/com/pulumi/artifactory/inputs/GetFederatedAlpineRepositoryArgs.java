@@ -39,6 +39,13 @@ public final class GetFederatedAlpineRepositoryArgs extends com.pulumi.resources
         return Optional.ofNullable(this.cdnRedirect);
     }
 
+    @Import(name="cleanupOnDelete")
+    private @Nullable Output<Boolean> cleanupOnDelete;
+
+    public Optional<Output<Boolean>> cleanupOnDelete() {
+        return Optional.ofNullable(this.cleanupOnDelete);
+    }
+
     @Import(name="description")
     private @Nullable Output<String> description;
 
@@ -172,6 +179,7 @@ public final class GetFederatedAlpineRepositoryArgs extends com.pulumi.resources
         this.archiveBrowsingEnabled = $.archiveBrowsingEnabled;
         this.blackedOut = $.blackedOut;
         this.cdnRedirect = $.cdnRedirect;
+        this.cleanupOnDelete = $.cleanupOnDelete;
         this.description = $.description;
         this.downloadDirect = $.downloadDirect;
         this.excludesPattern = $.excludesPattern;
@@ -232,6 +240,15 @@ public final class GetFederatedAlpineRepositoryArgs extends com.pulumi.resources
 
         public Builder cdnRedirect(Boolean cdnRedirect) {
             return cdnRedirect(Output.of(cdnRedirect));
+        }
+
+        public Builder cleanupOnDelete(@Nullable Output<Boolean> cleanupOnDelete) {
+            $.cleanupOnDelete = cleanupOnDelete;
+            return this;
+        }
+
+        public Builder cleanupOnDelete(Boolean cleanupOnDelete) {
+            return cleanupOnDelete(Output.of(cleanupOnDelete));
         }
 
         public Builder description(@Nullable Output<String> description) {

@@ -750,6 +750,136 @@ export const getUser: typeof import("./getUser").getUser = null as any;
 export const getUserOutput: typeof import("./getUser").getUserOutput = null as any;
 utilities.lazyLoad(exports, ["getUser","getUserOutput"], () => require("./getUser"));
 
+export { GetVirtualAlpineRepositoryArgs, GetVirtualAlpineRepositoryResult, GetVirtualAlpineRepositoryOutputArgs } from "./getVirtualAlpineRepository";
+export const getVirtualAlpineRepository: typeof import("./getVirtualAlpineRepository").getVirtualAlpineRepository = null as any;
+export const getVirtualAlpineRepositoryOutput: typeof import("./getVirtualAlpineRepository").getVirtualAlpineRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getVirtualAlpineRepository","getVirtualAlpineRepositoryOutput"], () => require("./getVirtualAlpineRepository"));
+
+export { GetVirtualBowerRepositoryArgs, GetVirtualBowerRepositoryResult, GetVirtualBowerRepositoryOutputArgs } from "./getVirtualBowerRepository";
+export const getVirtualBowerRepository: typeof import("./getVirtualBowerRepository").getVirtualBowerRepository = null as any;
+export const getVirtualBowerRepositoryOutput: typeof import("./getVirtualBowerRepository").getVirtualBowerRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getVirtualBowerRepository","getVirtualBowerRepositoryOutput"], () => require("./getVirtualBowerRepository"));
+
+export { GetVirtualChefRepositoryArgs, GetVirtualChefRepositoryResult, GetVirtualChefRepositoryOutputArgs } from "./getVirtualChefRepository";
+export const getVirtualChefRepository: typeof import("./getVirtualChefRepository").getVirtualChefRepository = null as any;
+export const getVirtualChefRepositoryOutput: typeof import("./getVirtualChefRepository").getVirtualChefRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getVirtualChefRepository","getVirtualChefRepositoryOutput"], () => require("./getVirtualChefRepository"));
+
+export { GetVirtualComposerRepositoryArgs, GetVirtualComposerRepositoryResult, GetVirtualComposerRepositoryOutputArgs } from "./getVirtualComposerRepository";
+export const getVirtualComposerRepository: typeof import("./getVirtualComposerRepository").getVirtualComposerRepository = null as any;
+export const getVirtualComposerRepositoryOutput: typeof import("./getVirtualComposerRepository").getVirtualComposerRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getVirtualComposerRepository","getVirtualComposerRepositoryOutput"], () => require("./getVirtualComposerRepository"));
+
+export { GetVirtualConanRepositoryArgs, GetVirtualConanRepositoryResult, GetVirtualConanRepositoryOutputArgs } from "./getVirtualConanRepository";
+export const getVirtualConanRepository: typeof import("./getVirtualConanRepository").getVirtualConanRepository = null as any;
+export const getVirtualConanRepositoryOutput: typeof import("./getVirtualConanRepository").getVirtualConanRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getVirtualConanRepository","getVirtualConanRepositoryOutput"], () => require("./getVirtualConanRepository"));
+
+export { GetVirtualCondaRepositoryArgs, GetVirtualCondaRepositoryResult, GetVirtualCondaRepositoryOutputArgs } from "./getVirtualCondaRepository";
+export const getVirtualCondaRepository: typeof import("./getVirtualCondaRepository").getVirtualCondaRepository = null as any;
+export const getVirtualCondaRepositoryOutput: typeof import("./getVirtualCondaRepository").getVirtualCondaRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getVirtualCondaRepository","getVirtualCondaRepositoryOutput"], () => require("./getVirtualCondaRepository"));
+
+export { GetVirtualCranRepositoryArgs, GetVirtualCranRepositoryResult, GetVirtualCranRepositoryOutputArgs } from "./getVirtualCranRepository";
+export const getVirtualCranRepository: typeof import("./getVirtualCranRepository").getVirtualCranRepository = null as any;
+export const getVirtualCranRepositoryOutput: typeof import("./getVirtualCranRepository").getVirtualCranRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getVirtualCranRepository","getVirtualCranRepositoryOutput"], () => require("./getVirtualCranRepository"));
+
+export { GetVirtualDebianRepositoryArgs, GetVirtualDebianRepositoryResult, GetVirtualDebianRepositoryOutputArgs } from "./getVirtualDebianRepository";
+export const getVirtualDebianRepository: typeof import("./getVirtualDebianRepository").getVirtualDebianRepository = null as any;
+export const getVirtualDebianRepositoryOutput: typeof import("./getVirtualDebianRepository").getVirtualDebianRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getVirtualDebianRepository","getVirtualDebianRepositoryOutput"], () => require("./getVirtualDebianRepository"));
+
+export { GetVirtualDockerRepositoryArgs, GetVirtualDockerRepositoryResult, GetVirtualDockerRepositoryOutputArgs } from "./getVirtualDockerRepository";
+export const getVirtualDockerRepository: typeof import("./getVirtualDockerRepository").getVirtualDockerRepository = null as any;
+export const getVirtualDockerRepositoryOutput: typeof import("./getVirtualDockerRepository").getVirtualDockerRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getVirtualDockerRepository","getVirtualDockerRepositoryOutput"], () => require("./getVirtualDockerRepository"));
+
+export { GetVirtualGemsRepositoryArgs, GetVirtualGemsRepositoryResult, GetVirtualGemsRepositoryOutputArgs } from "./getVirtualGemsRepository";
+export const getVirtualGemsRepository: typeof import("./getVirtualGemsRepository").getVirtualGemsRepository = null as any;
+export const getVirtualGemsRepositoryOutput: typeof import("./getVirtualGemsRepository").getVirtualGemsRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getVirtualGemsRepository","getVirtualGemsRepositoryOutput"], () => require("./getVirtualGemsRepository"));
+
+export { GetVirtualGenericRepositoryArgs, GetVirtualGenericRepositoryResult, GetVirtualGenericRepositoryOutputArgs } from "./getVirtualGenericRepository";
+export const getVirtualGenericRepository: typeof import("./getVirtualGenericRepository").getVirtualGenericRepository = null as any;
+export const getVirtualGenericRepositoryOutput: typeof import("./getVirtualGenericRepository").getVirtualGenericRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getVirtualGenericRepository","getVirtualGenericRepositoryOutput"], () => require("./getVirtualGenericRepository"));
+
+export { GetVirtualGitlfsRepositoryArgs, GetVirtualGitlfsRepositoryResult, GetVirtualGitlfsRepositoryOutputArgs } from "./getVirtualGitlfsRepository";
+export const getVirtualGitlfsRepository: typeof import("./getVirtualGitlfsRepository").getVirtualGitlfsRepository = null as any;
+export const getVirtualGitlfsRepositoryOutput: typeof import("./getVirtualGitlfsRepository").getVirtualGitlfsRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getVirtualGitlfsRepository","getVirtualGitlfsRepositoryOutput"], () => require("./getVirtualGitlfsRepository"));
+
+export { GetVirtualGoRepositoryArgs, GetVirtualGoRepositoryResult, GetVirtualGoRepositoryOutputArgs } from "./getVirtualGoRepository";
+export const getVirtualGoRepository: typeof import("./getVirtualGoRepository").getVirtualGoRepository = null as any;
+export const getVirtualGoRepositoryOutput: typeof import("./getVirtualGoRepository").getVirtualGoRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getVirtualGoRepository","getVirtualGoRepositoryOutput"], () => require("./getVirtualGoRepository"));
+
+export { GetVirtualGradleRepositoryArgs, GetVirtualGradleRepositoryResult, GetVirtualGradleRepositoryOutputArgs } from "./getVirtualGradleRepository";
+export const getVirtualGradleRepository: typeof import("./getVirtualGradleRepository").getVirtualGradleRepository = null as any;
+export const getVirtualGradleRepositoryOutput: typeof import("./getVirtualGradleRepository").getVirtualGradleRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getVirtualGradleRepository","getVirtualGradleRepositoryOutput"], () => require("./getVirtualGradleRepository"));
+
+export { GetVirtualHelmRepositoryArgs, GetVirtualHelmRepositoryResult, GetVirtualHelmRepositoryOutputArgs } from "./getVirtualHelmRepository";
+export const getVirtualHelmRepository: typeof import("./getVirtualHelmRepository").getVirtualHelmRepository = null as any;
+export const getVirtualHelmRepositoryOutput: typeof import("./getVirtualHelmRepository").getVirtualHelmRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getVirtualHelmRepository","getVirtualHelmRepositoryOutput"], () => require("./getVirtualHelmRepository"));
+
+export { GetVirtualIvyRepositoryArgs, GetVirtualIvyRepositoryResult, GetVirtualIvyRepositoryOutputArgs } from "./getVirtualIvyRepository";
+export const getVirtualIvyRepository: typeof import("./getVirtualIvyRepository").getVirtualIvyRepository = null as any;
+export const getVirtualIvyRepositoryOutput: typeof import("./getVirtualIvyRepository").getVirtualIvyRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getVirtualIvyRepository","getVirtualIvyRepositoryOutput"], () => require("./getVirtualIvyRepository"));
+
+export { GetVirtualNpmRepositoryArgs, GetVirtualNpmRepositoryResult, GetVirtualNpmRepositoryOutputArgs } from "./getVirtualNpmRepository";
+export const getVirtualNpmRepository: typeof import("./getVirtualNpmRepository").getVirtualNpmRepository = null as any;
+export const getVirtualNpmRepositoryOutput: typeof import("./getVirtualNpmRepository").getVirtualNpmRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getVirtualNpmRepository","getVirtualNpmRepositoryOutput"], () => require("./getVirtualNpmRepository"));
+
+export { GetVirtualNugetRepositoryArgs, GetVirtualNugetRepositoryResult, GetVirtualNugetRepositoryOutputArgs } from "./getVirtualNugetRepository";
+export const getVirtualNugetRepository: typeof import("./getVirtualNugetRepository").getVirtualNugetRepository = null as any;
+export const getVirtualNugetRepositoryOutput: typeof import("./getVirtualNugetRepository").getVirtualNugetRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getVirtualNugetRepository","getVirtualNugetRepositoryOutput"], () => require("./getVirtualNugetRepository"));
+
+export { GetVirtualP2RepositoryArgs, GetVirtualP2RepositoryResult, GetVirtualP2RepositoryOutputArgs } from "./getVirtualP2Repository";
+export const getVirtualP2Repository: typeof import("./getVirtualP2Repository").getVirtualP2Repository = null as any;
+export const getVirtualP2RepositoryOutput: typeof import("./getVirtualP2Repository").getVirtualP2RepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getVirtualP2Repository","getVirtualP2RepositoryOutput"], () => require("./getVirtualP2Repository"));
+
+export { GetVirtualPubRepositoryArgs, GetVirtualPubRepositoryResult, GetVirtualPubRepositoryOutputArgs } from "./getVirtualPubRepository";
+export const getVirtualPubRepository: typeof import("./getVirtualPubRepository").getVirtualPubRepository = null as any;
+export const getVirtualPubRepositoryOutput: typeof import("./getVirtualPubRepository").getVirtualPubRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getVirtualPubRepository","getVirtualPubRepositoryOutput"], () => require("./getVirtualPubRepository"));
+
+export { GetVirtualPuppetRepositoryArgs, GetVirtualPuppetRepositoryResult, GetVirtualPuppetRepositoryOutputArgs } from "./getVirtualPuppetRepository";
+export const getVirtualPuppetRepository: typeof import("./getVirtualPuppetRepository").getVirtualPuppetRepository = null as any;
+export const getVirtualPuppetRepositoryOutput: typeof import("./getVirtualPuppetRepository").getVirtualPuppetRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getVirtualPuppetRepository","getVirtualPuppetRepositoryOutput"], () => require("./getVirtualPuppetRepository"));
+
+export { GetVirtualPypiRepositoryArgs, GetVirtualPypiRepositoryResult, GetVirtualPypiRepositoryOutputArgs } from "./getVirtualPypiRepository";
+export const getVirtualPypiRepository: typeof import("./getVirtualPypiRepository").getVirtualPypiRepository = null as any;
+export const getVirtualPypiRepositoryOutput: typeof import("./getVirtualPypiRepository").getVirtualPypiRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getVirtualPypiRepository","getVirtualPypiRepositoryOutput"], () => require("./getVirtualPypiRepository"));
+
+export { GetVirtualRpmRepositoryArgs, GetVirtualRpmRepositoryResult, GetVirtualRpmRepositoryOutputArgs } from "./getVirtualRpmRepository";
+export const getVirtualRpmRepository: typeof import("./getVirtualRpmRepository").getVirtualRpmRepository = null as any;
+export const getVirtualRpmRepositoryOutput: typeof import("./getVirtualRpmRepository").getVirtualRpmRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getVirtualRpmRepository","getVirtualRpmRepositoryOutput"], () => require("./getVirtualRpmRepository"));
+
+export { GetVirtualSbtRepositoryArgs, GetVirtualSbtRepositoryResult, GetVirtualSbtRepositoryOutputArgs } from "./getVirtualSbtRepository";
+export const getVirtualSbtRepository: typeof import("./getVirtualSbtRepository").getVirtualSbtRepository = null as any;
+export const getVirtualSbtRepositoryOutput: typeof import("./getVirtualSbtRepository").getVirtualSbtRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getVirtualSbtRepository","getVirtualSbtRepositoryOutput"], () => require("./getVirtualSbtRepository"));
+
+export { GetVirtualSwiftRepositoryArgs, GetVirtualSwiftRepositoryResult, GetVirtualSwiftRepositoryOutputArgs } from "./getVirtualSwiftRepository";
+export const getVirtualSwiftRepository: typeof import("./getVirtualSwiftRepository").getVirtualSwiftRepository = null as any;
+export const getVirtualSwiftRepositoryOutput: typeof import("./getVirtualSwiftRepository").getVirtualSwiftRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getVirtualSwiftRepository","getVirtualSwiftRepositoryOutput"], () => require("./getVirtualSwiftRepository"));
+
+export { GetVirtualTerraformRepositoryArgs, GetVirtualTerraformRepositoryResult, GetVirtualTerraformRepositoryOutputArgs } from "./getVirtualTerraformRepository";
+export const getVirtualTerraformRepository: typeof import("./getVirtualTerraformRepository").getVirtualTerraformRepository = null as any;
+export const getVirtualTerraformRepositoryOutput: typeof import("./getVirtualTerraformRepository").getVirtualTerraformRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getVirtualTerraformRepository","getVirtualTerraformRepositoryOutput"], () => require("./getVirtualTerraformRepository"));
+
 export { GoRepositoryArgs, GoRepositoryState } from "./goRepository";
 export type GoRepository = import("./goRepository").GoRepository;
 export const GoRepository: typeof import("./goRepository").GoRepository = null as any;

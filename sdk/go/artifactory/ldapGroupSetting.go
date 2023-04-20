@@ -18,6 +18,41 @@ import (
 //
 // ~>The `LdapGroupSetting` resource utilizes endpoints which are blocked/removed in SaaS environments (i.e. in Artifactory online), rendering this resource incompatible with Artifactory SaaS environments.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewLdapGroupSetting(ctx, "ldapGroupName", &artifactory.LdapGroupSettingArgs{
+//				DescriptionAttribute: pulumi.String("description"),
+//				Filter:               pulumi.String("(objectClass=groupOfNames)"),
+//				GroupBaseDn:          pulumi.String(""),
+//				GroupMemberAttribute: pulumi.String("uniqueMember"),
+//				GroupNameAttribute:   pulumi.String("cn"),
+//				LdapSettingKey:       pulumi.String("ldap_name"),
+//				Strategy:             pulumi.String("STATIC"),
+//				SubTree:              pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// Note: `Name` argument has to match to the resource name.\
+// Reference Link: [JFrog LDAP](https://www.jfrog.com/confluence/display/JFROG/LDAP)
+//
 // ## Import
 //
 // LDAP Group setting can be imported using the key, e.g.
@@ -40,8 +75,7 @@ type LdapGroupSetting struct {
 	GroupMemberAttribute pulumi.StringOutput `pulumi:"groupMemberAttribute"`
 	// Attribute on the group entry denoting the group name. Used when importing groups.
 	GroupNameAttribute pulumi.StringOutput `pulumi:"groupNameAttribute"`
-	// The LDAP setting key you want to use for group retrieval. The value for this field corresponds to 'enabledLdap' field of
-	// the ldap group setting XML block of system configuration.
+	// The LDAP setting key you want to use for group retrieval. The value for this field corresponds to 'enabledLdap' field of the ldap group setting XML block of system configuration.
 	LdapSettingKey pulumi.StringOutput `pulumi:"ldapSettingKey"`
 	// Ldap group setting name.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -111,8 +145,7 @@ type ldapGroupSettingState struct {
 	GroupMemberAttribute *string `pulumi:"groupMemberAttribute"`
 	// Attribute on the group entry denoting the group name. Used when importing groups.
 	GroupNameAttribute *string `pulumi:"groupNameAttribute"`
-	// The LDAP setting key you want to use for group retrieval. The value for this field corresponds to 'enabledLdap' field of
-	// the ldap group setting XML block of system configuration.
+	// The LDAP setting key you want to use for group retrieval. The value for this field corresponds to 'enabledLdap' field of the ldap group setting XML block of system configuration.
 	LdapSettingKey *string `pulumi:"ldapSettingKey"`
 	// Ldap group setting name.
 	Name *string `pulumi:"name"`
@@ -136,8 +169,7 @@ type LdapGroupSettingState struct {
 	GroupMemberAttribute pulumi.StringPtrInput
 	// Attribute on the group entry denoting the group name. Used when importing groups.
 	GroupNameAttribute pulumi.StringPtrInput
-	// The LDAP setting key you want to use for group retrieval. The value for this field corresponds to 'enabledLdap' field of
-	// the ldap group setting XML block of system configuration.
+	// The LDAP setting key you want to use for group retrieval. The value for this field corresponds to 'enabledLdap' field of the ldap group setting XML block of system configuration.
 	LdapSettingKey pulumi.StringPtrInput
 	// Ldap group setting name.
 	Name pulumi.StringPtrInput
@@ -165,8 +197,7 @@ type ldapGroupSettingArgs struct {
 	GroupMemberAttribute string `pulumi:"groupMemberAttribute"`
 	// Attribute on the group entry denoting the group name. Used when importing groups.
 	GroupNameAttribute string `pulumi:"groupNameAttribute"`
-	// The LDAP setting key you want to use for group retrieval. The value for this field corresponds to 'enabledLdap' field of
-	// the ldap group setting XML block of system configuration.
+	// The LDAP setting key you want to use for group retrieval. The value for this field corresponds to 'enabledLdap' field of the ldap group setting XML block of system configuration.
 	LdapSettingKey string `pulumi:"ldapSettingKey"`
 	// Ldap group setting name.
 	Name *string `pulumi:"name"`
@@ -191,8 +222,7 @@ type LdapGroupSettingArgs struct {
 	GroupMemberAttribute pulumi.StringInput
 	// Attribute on the group entry denoting the group name. Used when importing groups.
 	GroupNameAttribute pulumi.StringInput
-	// The LDAP setting key you want to use for group retrieval. The value for this field corresponds to 'enabledLdap' field of
-	// the ldap group setting XML block of system configuration.
+	// The LDAP setting key you want to use for group retrieval. The value for this field corresponds to 'enabledLdap' field of the ldap group setting XML block of system configuration.
 	LdapSettingKey pulumi.StringInput
 	// Ldap group setting name.
 	Name pulumi.StringPtrInput
@@ -317,8 +347,7 @@ func (o LdapGroupSettingOutput) GroupNameAttribute() pulumi.StringOutput {
 	return o.ApplyT(func(v *LdapGroupSetting) pulumi.StringOutput { return v.GroupNameAttribute }).(pulumi.StringOutput)
 }
 
-// The LDAP setting key you want to use for group retrieval. The value for this field corresponds to 'enabledLdap' field of
-// the ldap group setting XML block of system configuration.
+// The LDAP setting key you want to use for group retrieval. The value for this field corresponds to 'enabledLdap' field of the ldap group setting XML block of system configuration.
 func (o LdapGroupSettingOutput) LdapSettingKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *LdapGroupSetting) pulumi.StringOutput { return v.LdapSettingKey }).(pulumi.StringOutput)
 }

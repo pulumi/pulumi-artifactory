@@ -28,6 +28,7 @@ export function getFederatedIvyRepository(args: GetFederatedIvyRepositoryArgs, o
         "blackedOut": args.blackedOut,
         "cdnRedirect": args.cdnRedirect,
         "checksumPolicyType": args.checksumPolicyType,
+        "cleanupOnDelete": args.cleanupOnDelete,
         "description": args.description,
         "downloadDirect": args.downloadDirect,
         "excludesPattern": args.excludesPattern,
@@ -57,6 +58,7 @@ export interface GetFederatedIvyRepositoryArgs {
     blackedOut?: boolean;
     cdnRedirect?: boolean;
     checksumPolicyType?: string;
+    cleanupOnDelete?: boolean;
     description?: string;
     downloadDirect?: boolean;
     excludesPattern?: string;
@@ -94,6 +96,7 @@ export interface GetFederatedIvyRepositoryResult {
     readonly blackedOut?: boolean;
     readonly cdnRedirect?: boolean;
     readonly checksumPolicyType?: string;
+    readonly cleanupOnDelete?: boolean;
     readonly description?: string;
     readonly downloadDirect?: boolean;
     readonly excludesPattern: string;
@@ -150,6 +153,7 @@ export interface GetFederatedIvyRepositoryOutputArgs {
     blackedOut?: pulumi.Input<boolean>;
     cdnRedirect?: pulumi.Input<boolean>;
     checksumPolicyType?: pulumi.Input<string>;
+    cleanupOnDelete?: pulumi.Input<boolean>;
     description?: pulumi.Input<string>;
     downloadDirect?: pulumi.Input<boolean>;
     excludesPattern?: pulumi.Input<string>;

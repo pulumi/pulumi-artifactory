@@ -29,8 +29,7 @@ class LdapGroupSettingArgs:
         :param pulumi.Input[str] filter: The LDAP filter used to search for group entries. Used for importing groups.
         :param pulumi.Input[str] group_member_attribute: A multi-value attribute on the group entry containing user DNs or IDs of the group members (e.g., uniqueMember,member).
         :param pulumi.Input[str] group_name_attribute: Attribute on the group entry denoting the group name. Used when importing groups.
-        :param pulumi.Input[str] ldap_setting_key: The LDAP setting key you want to use for group retrieval. The value for this field corresponds to 'enabledLdap' field of
-               the ldap group setting XML block of system configuration.
+        :param pulumi.Input[str] ldap_setting_key: The LDAP setting key you want to use for group retrieval. The value for this field corresponds to 'enabledLdap' field of the ldap group setting XML block of system configuration.
         :param pulumi.Input[str] strategy: The JFrog Platform Deployment (JPD) supports three ways of mapping groups to LDAP schemas:
                - STATIC: Group objects are aware of their members, however, the users are not aware of the groups they belong to. Each group object such as groupOfNames or groupOfUniqueNames holds its respective member attributes, typically member or uniqueMember, which is a user DN.
                - DYNAMIC: User objects are aware of what groups they belong to, but the group objects are not aware of their members. Each user object contains a custom attribute, such as group, that holds the group DNs or group names of which the user is a member.
@@ -104,8 +103,7 @@ class LdapGroupSettingArgs:
     @pulumi.getter(name="ldapSettingKey")
     def ldap_setting_key(self) -> pulumi.Input[str]:
         """
-        The LDAP setting key you want to use for group retrieval. The value for this field corresponds to 'enabledLdap' field of
-        the ldap group setting XML block of system configuration.
+        The LDAP setting key you want to use for group retrieval. The value for this field corresponds to 'enabledLdap' field of the ldap group setting XML block of system configuration.
         """
         return pulumi.get(self, "ldap_setting_key")
 
@@ -184,8 +182,7 @@ class _LdapGroupSettingState:
         :param pulumi.Input[str] group_base_dn: A search base for group entry DNs, relative to the DN on the LDAP server’s URL (and not relative to the LDAP Setting’s “Search Base”). Used when importing groups.
         :param pulumi.Input[str] group_member_attribute: A multi-value attribute on the group entry containing user DNs or IDs of the group members (e.g., uniqueMember,member).
         :param pulumi.Input[str] group_name_attribute: Attribute on the group entry denoting the group name. Used when importing groups.
-        :param pulumi.Input[str] ldap_setting_key: The LDAP setting key you want to use for group retrieval. The value for this field corresponds to 'enabledLdap' field of
-               the ldap group setting XML block of system configuration.
+        :param pulumi.Input[str] ldap_setting_key: The LDAP setting key you want to use for group retrieval. The value for this field corresponds to 'enabledLdap' field of the ldap group setting XML block of system configuration.
         :param pulumi.Input[str] name: Ldap group setting name.
         :param pulumi.Input[str] strategy: The JFrog Platform Deployment (JPD) supports three ways of mapping groups to LDAP schemas:
                - STATIC: Group objects are aware of their members, however, the users are not aware of the groups they belong to. Each group object such as groupOfNames or groupOfUniqueNames holds its respective member attributes, typically member or uniqueMember, which is a user DN.
@@ -276,8 +273,7 @@ class _LdapGroupSettingState:
     @pulumi.getter(name="ldapSettingKey")
     def ldap_setting_key(self) -> Optional[pulumi.Input[str]]:
         """
-        The LDAP setting key you want to use for group retrieval. The value for this field corresponds to 'enabledLdap' field of
-        the ldap group setting XML block of system configuration.
+        The LDAP setting key you want to use for group retrieval. The value for this field corresponds to 'enabledLdap' field of the ldap group setting XML block of system configuration.
         """
         return pulumi.get(self, "ldap_setting_key")
 
@@ -348,6 +344,26 @@ class LdapGroupSetting(pulumi.CustomResource):
 
         ~>The `LdapGroupSetting` resource utilizes endpoints which are blocked/removed in SaaS environments (i.e. in Artifactory online), rendering this resource incompatible with Artifactory SaaS environments.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        # Configure Artifactory LDAP setting
+        ldap_group_name = artifactory.LdapGroupSetting("ldapGroupName",
+            description_attribute="description",
+            filter="(objectClass=groupOfNames)",
+            group_base_dn="",
+            group_member_attribute="uniqueMember",
+            group_name_attribute="cn",
+            ldap_setting_key="ldap_name",
+            strategy="STATIC",
+            sub_tree=True)
+        ```
+        Note: `Name` argument has to match to the resource name.\\
+        Reference Link: [JFrog LDAP](https://www.jfrog.com/confluence/display/JFROG/LDAP)
+
         ## Import
 
         LDAP Group setting can be imported using the key, e.g.
@@ -363,8 +379,7 @@ class LdapGroupSetting(pulumi.CustomResource):
         :param pulumi.Input[str] group_base_dn: A search base for group entry DNs, relative to the DN on the LDAP server’s URL (and not relative to the LDAP Setting’s “Search Base”). Used when importing groups.
         :param pulumi.Input[str] group_member_attribute: A multi-value attribute on the group entry containing user DNs or IDs of the group members (e.g., uniqueMember,member).
         :param pulumi.Input[str] group_name_attribute: Attribute on the group entry denoting the group name. Used when importing groups.
-        :param pulumi.Input[str] ldap_setting_key: The LDAP setting key you want to use for group retrieval. The value for this field corresponds to 'enabledLdap' field of
-               the ldap group setting XML block of system configuration.
+        :param pulumi.Input[str] ldap_setting_key: The LDAP setting key you want to use for group retrieval. The value for this field corresponds to 'enabledLdap' field of the ldap group setting XML block of system configuration.
         :param pulumi.Input[str] name: Ldap group setting name.
         :param pulumi.Input[str] strategy: The JFrog Platform Deployment (JPD) supports three ways of mapping groups to LDAP schemas:
                - STATIC: Group objects are aware of their members, however, the users are not aware of the groups they belong to. Each group object such as groupOfNames or groupOfUniqueNames holds its respective member attributes, typically member or uniqueMember, which is a user DN.
@@ -385,6 +400,26 @@ class LdapGroupSetting(pulumi.CustomResource):
         structure for managing group-based permissions.
 
         ~>The `LdapGroupSetting` resource utilizes endpoints which are blocked/removed in SaaS environments (i.e. in Artifactory online), rendering this resource incompatible with Artifactory SaaS environments.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        # Configure Artifactory LDAP setting
+        ldap_group_name = artifactory.LdapGroupSetting("ldapGroupName",
+            description_attribute="description",
+            filter="(objectClass=groupOfNames)",
+            group_base_dn="",
+            group_member_attribute="uniqueMember",
+            group_name_attribute="cn",
+            ldap_setting_key="ldap_name",
+            strategy="STATIC",
+            sub_tree=True)
+        ```
+        Note: `Name` argument has to match to the resource name.\\
+        Reference Link: [JFrog LDAP](https://www.jfrog.com/confluence/display/JFROG/LDAP)
 
         ## Import
 
@@ -479,8 +514,7 @@ class LdapGroupSetting(pulumi.CustomResource):
         :param pulumi.Input[str] group_base_dn: A search base for group entry DNs, relative to the DN on the LDAP server’s URL (and not relative to the LDAP Setting’s “Search Base”). Used when importing groups.
         :param pulumi.Input[str] group_member_attribute: A multi-value attribute on the group entry containing user DNs or IDs of the group members (e.g., uniqueMember,member).
         :param pulumi.Input[str] group_name_attribute: Attribute on the group entry denoting the group name. Used when importing groups.
-        :param pulumi.Input[str] ldap_setting_key: The LDAP setting key you want to use for group retrieval. The value for this field corresponds to 'enabledLdap' field of
-               the ldap group setting XML block of system configuration.
+        :param pulumi.Input[str] ldap_setting_key: The LDAP setting key you want to use for group retrieval. The value for this field corresponds to 'enabledLdap' field of the ldap group setting XML block of system configuration.
         :param pulumi.Input[str] name: Ldap group setting name.
         :param pulumi.Input[str] strategy: The JFrog Platform Deployment (JPD) supports three ways of mapping groups to LDAP schemas:
                - STATIC: Group objects are aware of their members, however, the users are not aware of the groups they belong to. Each group object such as groupOfNames or groupOfUniqueNames holds its respective member attributes, typically member or uniqueMember, which is a user DN.
@@ -547,8 +581,7 @@ class LdapGroupSetting(pulumi.CustomResource):
     @pulumi.getter(name="ldapSettingKey")
     def ldap_setting_key(self) -> pulumi.Output[str]:
         """
-        The LDAP setting key you want to use for group retrieval. The value for this field corresponds to 'enabledLdap' field of
-        the ldap group setting XML block of system configuration.
+        The LDAP setting key you want to use for group retrieval. The value for this field corresponds to 'enabledLdap' field of the ldap group setting XML block of system configuration.
         """
         return pulumi.get(self, "ldap_setting_key")
 

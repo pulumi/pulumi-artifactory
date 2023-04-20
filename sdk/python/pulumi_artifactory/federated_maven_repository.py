@@ -22,6 +22,7 @@ class FederatedMavenRepositoryArgs:
                  blacked_out: Optional[pulumi.Input[bool]] = None,
                  cdn_redirect: Optional[pulumi.Input[bool]] = None,
                  checksum_policy_type: Optional[pulumi.Input[str]] = None,
+                 cleanup_on_delete: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  download_direct: Optional[pulumi.Input[bool]] = None,
                  excludes_pattern: Optional[pulumi.Input[str]] = None,
@@ -55,6 +56,8 @@ class FederatedMavenRepositoryArgs:
                conflicts with the locally calculated checksum (bad checksum). Options are: "client-checksums", or
                "server-generated-checksums". Default: "client-checksums"\\n For more details, please refer to Checksum Policy -
                https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy
+        :param pulumi.Input[bool] cleanup_on_delete: Delete all federated members on `terraform destroy` if set to `true`. Caution: it will delete all the repositories in
+               the federation on other Artifactory instances.
         :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only.
@@ -96,6 +99,8 @@ class FederatedMavenRepositoryArgs:
             pulumi.set(__self__, "cdn_redirect", cdn_redirect)
         if checksum_policy_type is not None:
             pulumi.set(__self__, "checksum_policy_type", checksum_policy_type)
+        if cleanup_on_delete is not None:
+            pulumi.set(__self__, "cleanup_on_delete", cleanup_on_delete)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if download_direct is not None:
@@ -209,6 +214,19 @@ class FederatedMavenRepositoryArgs:
     @checksum_policy_type.setter
     def checksum_policy_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "checksum_policy_type", value)
+
+    @property
+    @pulumi.getter(name="cleanupOnDelete")
+    def cleanup_on_delete(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Delete all federated members on `terraform destroy` if set to `true`. Caution: it will delete all the repositories in
+        the federation on other Artifactory instances.
+        """
+        return pulumi.get(self, "cleanup_on_delete")
+
+    @cleanup_on_delete.setter
+    def cleanup_on_delete(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "cleanup_on_delete", value)
 
     @property
     @pulumi.getter
@@ -424,6 +442,7 @@ class _FederatedMavenRepositoryState:
                  blacked_out: Optional[pulumi.Input[bool]] = None,
                  cdn_redirect: Optional[pulumi.Input[bool]] = None,
                  checksum_policy_type: Optional[pulumi.Input[str]] = None,
+                 cleanup_on_delete: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  download_direct: Optional[pulumi.Input[bool]] = None,
                  excludes_pattern: Optional[pulumi.Input[str]] = None,
@@ -455,6 +474,8 @@ class _FederatedMavenRepositoryState:
                conflicts with the locally calculated checksum (bad checksum). Options are: "client-checksums", or
                "server-generated-checksums". Default: "client-checksums"\\n For more details, please refer to Checksum Policy -
                https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy
+        :param pulumi.Input[bool] cleanup_on_delete: Delete all federated members on `terraform destroy` if set to `true`. Caution: it will delete all the repositories in
+               the federation on other Artifactory instances.
         :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only.
@@ -499,6 +520,8 @@ class _FederatedMavenRepositoryState:
             pulumi.set(__self__, "cdn_redirect", cdn_redirect)
         if checksum_policy_type is not None:
             pulumi.set(__self__, "checksum_policy_type", checksum_policy_type)
+        if cleanup_on_delete is not None:
+            pulumi.set(__self__, "cleanup_on_delete", cleanup_on_delete)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if download_direct is not None:
@@ -591,6 +614,19 @@ class _FederatedMavenRepositoryState:
     @checksum_policy_type.setter
     def checksum_policy_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "checksum_policy_type", value)
+
+    @property
+    @pulumi.getter(name="cleanupOnDelete")
+    def cleanup_on_delete(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Delete all federated members on `terraform destroy` if set to `true`. Caution: it will delete all the repositories in
+        the federation on other Artifactory instances.
+        """
+        return pulumi.get(self, "cleanup_on_delete")
+
+    @cleanup_on_delete.setter
+    def cleanup_on_delete(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "cleanup_on_delete", value)
 
     @property
     @pulumi.getter
@@ -844,6 +880,7 @@ class FederatedMavenRepository(pulumi.CustomResource):
                  blacked_out: Optional[pulumi.Input[bool]] = None,
                  cdn_redirect: Optional[pulumi.Input[bool]] = None,
                  checksum_policy_type: Optional[pulumi.Input[str]] = None,
+                 cleanup_on_delete: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  download_direct: Optional[pulumi.Input[bool]] = None,
                  excludes_pattern: Optional[pulumi.Input[str]] = None,
@@ -906,6 +943,8 @@ class FederatedMavenRepository(pulumi.CustomResource):
                conflicts with the locally calculated checksum (bad checksum). Options are: "client-checksums", or
                "server-generated-checksums". Default: "client-checksums"\\n For more details, please refer to Checksum Policy -
                https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy
+        :param pulumi.Input[bool] cleanup_on_delete: Delete all federated members on `terraform destroy` if set to `true`. Caution: it will delete all the repositories in
+               the federation on other Artifactory instances.
         :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only.
@@ -998,6 +1037,7 @@ class FederatedMavenRepository(pulumi.CustomResource):
                  blacked_out: Optional[pulumi.Input[bool]] = None,
                  cdn_redirect: Optional[pulumi.Input[bool]] = None,
                  checksum_policy_type: Optional[pulumi.Input[str]] = None,
+                 cleanup_on_delete: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  download_direct: Optional[pulumi.Input[bool]] = None,
                  excludes_pattern: Optional[pulumi.Input[str]] = None,
@@ -1029,6 +1069,7 @@ class FederatedMavenRepository(pulumi.CustomResource):
             __props__.__dict__["blacked_out"] = blacked_out
             __props__.__dict__["cdn_redirect"] = cdn_redirect
             __props__.__dict__["checksum_policy_type"] = checksum_policy_type
+            __props__.__dict__["cleanup_on_delete"] = cleanup_on_delete
             __props__.__dict__["description"] = description
             __props__.__dict__["download_direct"] = download_direct
             __props__.__dict__["excludes_pattern"] = excludes_pattern
@@ -1066,6 +1107,7 @@ class FederatedMavenRepository(pulumi.CustomResource):
             blacked_out: Optional[pulumi.Input[bool]] = None,
             cdn_redirect: Optional[pulumi.Input[bool]] = None,
             checksum_policy_type: Optional[pulumi.Input[str]] = None,
+            cleanup_on_delete: Optional[pulumi.Input[bool]] = None,
             description: Optional[pulumi.Input[str]] = None,
             download_direct: Optional[pulumi.Input[bool]] = None,
             excludes_pattern: Optional[pulumi.Input[str]] = None,
@@ -1102,6 +1144,8 @@ class FederatedMavenRepository(pulumi.CustomResource):
                conflicts with the locally calculated checksum (bad checksum). Options are: "client-checksums", or
                "server-generated-checksums". Default: "client-checksums"\\n For more details, please refer to Checksum Policy -
                https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy
+        :param pulumi.Input[bool] cleanup_on_delete: Delete all federated members on `terraform destroy` if set to `true`. Caution: it will delete all the repositories in
+               the federation on other Artifactory instances.
         :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only.
@@ -1146,6 +1190,7 @@ class FederatedMavenRepository(pulumi.CustomResource):
         __props__.__dict__["blacked_out"] = blacked_out
         __props__.__dict__["cdn_redirect"] = cdn_redirect
         __props__.__dict__["checksum_policy_type"] = checksum_policy_type
+        __props__.__dict__["cleanup_on_delete"] = cleanup_on_delete
         __props__.__dict__["description"] = description
         __props__.__dict__["download_direct"] = download_direct
         __props__.__dict__["excludes_pattern"] = excludes_pattern
@@ -1204,6 +1249,15 @@ class FederatedMavenRepository(pulumi.CustomResource):
         https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy
         """
         return pulumi.get(self, "checksum_policy_type")
+
+    @property
+    @pulumi.getter(name="cleanupOnDelete")
+    def cleanup_on_delete(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Delete all federated members on `terraform destroy` if set to `true`. Caution: it will delete all the repositories in
+        the federation on other Artifactory instances.
+        """
+        return pulumi.get(self, "cleanup_on_delete")
 
     @property
     @pulumi.getter

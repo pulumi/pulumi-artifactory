@@ -46,6 +46,13 @@ public final class GetFederatedDockerV2RepositoryPlainArgs extends com.pulumi.re
         return Optional.ofNullable(this.cdnRedirect);
     }
 
+    @Import(name="cleanupOnDelete")
+    private @Nullable Boolean cleanupOnDelete;
+
+    public Optional<Boolean> cleanupOnDelete() {
+        return Optional.ofNullable(this.cleanupOnDelete);
+    }
+
     @Import(name="description")
     private @Nullable String description;
 
@@ -180,6 +187,7 @@ public final class GetFederatedDockerV2RepositoryPlainArgs extends com.pulumi.re
         this.blackedOut = $.blackedOut;
         this.blockPushingSchema1 = $.blockPushingSchema1;
         this.cdnRedirect = $.cdnRedirect;
+        this.cleanupOnDelete = $.cleanupOnDelete;
         this.description = $.description;
         this.downloadDirect = $.downloadDirect;
         this.excludesPattern = $.excludesPattern;
@@ -232,6 +240,11 @@ public final class GetFederatedDockerV2RepositoryPlainArgs extends com.pulumi.re
 
         public Builder cdnRedirect(@Nullable Boolean cdnRedirect) {
             $.cdnRedirect = cdnRedirect;
+            return this;
+        }
+
+        public Builder cleanupOnDelete(@Nullable Boolean cleanupOnDelete) {
+            $.cleanupOnDelete = cleanupOnDelete;
             return this;
         }
 

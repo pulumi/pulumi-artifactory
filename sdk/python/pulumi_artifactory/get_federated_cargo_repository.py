@@ -23,7 +23,7 @@ class GetFederatedCargoRepositoryResult:
     """
     A collection of values returned by getFederatedCargoRepository.
     """
-    def __init__(__self__, anonymous_access=None, archive_browsing_enabled=None, blacked_out=None, cdn_redirect=None, description=None, download_direct=None, enable_sparse_index=None, excludes_pattern=None, id=None, includes_pattern=None, index_compression_formats=None, key=None, members=None, notes=None, package_type=None, priority_resolution=None, project_environments=None, project_key=None, property_sets=None, repo_layout_ref=None, xray_index=None):
+    def __init__(__self__, anonymous_access=None, archive_browsing_enabled=None, blacked_out=None, cdn_redirect=None, cleanup_on_delete=None, description=None, download_direct=None, enable_sparse_index=None, excludes_pattern=None, id=None, includes_pattern=None, index_compression_formats=None, key=None, members=None, notes=None, package_type=None, priority_resolution=None, project_environments=None, project_key=None, property_sets=None, repo_layout_ref=None, xray_index=None):
         if anonymous_access and not isinstance(anonymous_access, bool):
             raise TypeError("Expected argument 'anonymous_access' to be a bool")
         pulumi.set(__self__, "anonymous_access", anonymous_access)
@@ -36,6 +36,9 @@ class GetFederatedCargoRepositoryResult:
         if cdn_redirect and not isinstance(cdn_redirect, bool):
             raise TypeError("Expected argument 'cdn_redirect' to be a bool")
         pulumi.set(__self__, "cdn_redirect", cdn_redirect)
+        if cleanup_on_delete and not isinstance(cleanup_on_delete, bool):
+            raise TypeError("Expected argument 'cleanup_on_delete' to be a bool")
+        pulumi.set(__self__, "cleanup_on_delete", cleanup_on_delete)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -107,6 +110,11 @@ class GetFederatedCargoRepositoryResult:
     @pulumi.getter(name="cdnRedirect")
     def cdn_redirect(self) -> Optional[bool]:
         return pulumi.get(self, "cdn_redirect")
+
+    @property
+    @pulumi.getter(name="cleanupOnDelete")
+    def cleanup_on_delete(self) -> Optional[bool]:
+        return pulumi.get(self, "cleanup_on_delete")
 
     @property
     @pulumi.getter
@@ -213,6 +221,7 @@ class AwaitableGetFederatedCargoRepositoryResult(GetFederatedCargoRepositoryResu
             archive_browsing_enabled=self.archive_browsing_enabled,
             blacked_out=self.blacked_out,
             cdn_redirect=self.cdn_redirect,
+            cleanup_on_delete=self.cleanup_on_delete,
             description=self.description,
             download_direct=self.download_direct,
             enable_sparse_index=self.enable_sparse_index,
@@ -236,6 +245,7 @@ def get_federated_cargo_repository(anonymous_access: Optional[bool] = None,
                                    archive_browsing_enabled: Optional[bool] = None,
                                    blacked_out: Optional[bool] = None,
                                    cdn_redirect: Optional[bool] = None,
+                                   cleanup_on_delete: Optional[bool] = None,
                                    description: Optional[str] = None,
                                    download_direct: Optional[bool] = None,
                                    enable_sparse_index: Optional[bool] = None,
@@ -276,6 +286,7 @@ def get_federated_cargo_repository(anonymous_access: Optional[bool] = None,
     __args__['archiveBrowsingEnabled'] = archive_browsing_enabled
     __args__['blackedOut'] = blacked_out
     __args__['cdnRedirect'] = cdn_redirect
+    __args__['cleanupOnDelete'] = cleanup_on_delete
     __args__['description'] = description
     __args__['downloadDirect'] = download_direct
     __args__['enableSparseIndex'] = enable_sparse_index
@@ -299,6 +310,7 @@ def get_federated_cargo_repository(anonymous_access: Optional[bool] = None,
         archive_browsing_enabled=__ret__.archive_browsing_enabled,
         blacked_out=__ret__.blacked_out,
         cdn_redirect=__ret__.cdn_redirect,
+        cleanup_on_delete=__ret__.cleanup_on_delete,
         description=__ret__.description,
         download_direct=__ret__.download_direct,
         enable_sparse_index=__ret__.enable_sparse_index,
@@ -323,6 +335,7 @@ def get_federated_cargo_repository_output(anonymous_access: Optional[pulumi.Inpu
                                           archive_browsing_enabled: Optional[pulumi.Input[Optional[bool]]] = None,
                                           blacked_out: Optional[pulumi.Input[Optional[bool]]] = None,
                                           cdn_redirect: Optional[pulumi.Input[Optional[bool]]] = None,
+                                          cleanup_on_delete: Optional[pulumi.Input[Optional[bool]]] = None,
                                           description: Optional[pulumi.Input[Optional[str]]] = None,
                                           download_direct: Optional[pulumi.Input[Optional[bool]]] = None,
                                           enable_sparse_index: Optional[pulumi.Input[Optional[bool]]] = None,

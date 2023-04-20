@@ -20,6 +20,7 @@ namespace Pulumi.Artifactory
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
+        /// using System.Linq;
         /// using Pulumi;
         /// using Artifactory = Pulumi.Artifactory;
         /// 
@@ -47,6 +48,7 @@ namespace Pulumi.Artifactory
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
+        /// using System.Linq;
         /// using Pulumi;
         /// using Artifactory = Pulumi.Artifactory;
         /// 
@@ -80,6 +82,9 @@ namespace Pulumi.Artifactory
 
         [Input("cdnRedirect")]
         public bool? CdnRedirect { get; set; }
+
+        [Input("cleanupOnDelete")]
+        public bool? CleanupOnDelete { get; set; }
 
         [Input("description")]
         public string? Description { get; set; }
@@ -180,6 +185,9 @@ namespace Pulumi.Artifactory
         [Input("cdnRedirect")]
         public Input<bool>? CdnRedirect { get; set; }
 
+        [Input("cleanupOnDelete")]
+        public Input<bool>? CleanupOnDelete { get; set; }
+
         [Input("description")]
         public Input<string>? Description { get; set; }
 
@@ -273,6 +281,7 @@ namespace Pulumi.Artifactory
         public readonly bool? BlackedOut;
         public readonly bool? CalculateYumMetadata;
         public readonly bool? CdnRedirect;
+        public readonly bool? CleanupOnDelete;
         public readonly string? Description;
         public readonly bool? DownloadDirect;
         public readonly bool? EnableFileListsIndexing;
@@ -312,6 +321,8 @@ namespace Pulumi.Artifactory
             bool? calculateYumMetadata,
 
             bool? cdnRedirect,
+
+            bool? cleanupOnDelete,
 
             string? description,
 
@@ -357,6 +368,7 @@ namespace Pulumi.Artifactory
             BlackedOut = blackedOut;
             CalculateYumMetadata = calculateYumMetadata;
             CdnRedirect = cdnRedirect;
+            CleanupOnDelete = cleanupOnDelete;
             Description = description;
             DownloadDirect = downloadDirect;
             EnableFileListsIndexing = enableFileListsIndexing;

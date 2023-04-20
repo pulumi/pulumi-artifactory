@@ -25,6 +25,7 @@ export function getFederatedTerraformProviderRepository(args: GetFederatedTerraf
         "archiveBrowsingEnabled": args.archiveBrowsingEnabled,
         "blackedOut": args.blackedOut,
         "cdnRedirect": args.cdnRedirect,
+        "cleanupOnDelete": args.cleanupOnDelete,
         "description": args.description,
         "downloadDirect": args.downloadDirect,
         "excludesPattern": args.excludesPattern,
@@ -48,6 +49,7 @@ export interface GetFederatedTerraformProviderRepositoryArgs {
     archiveBrowsingEnabled?: boolean;
     blackedOut?: boolean;
     cdnRedirect?: boolean;
+    cleanupOnDelete?: boolean;
     description?: string;
     downloadDirect?: boolean;
     excludesPattern?: string;
@@ -79,6 +81,7 @@ export interface GetFederatedTerraformProviderRepositoryResult {
     readonly archiveBrowsingEnabled?: boolean;
     readonly blackedOut?: boolean;
     readonly cdnRedirect?: boolean;
+    readonly cleanupOnDelete?: boolean;
     readonly description?: string;
     readonly downloadDirect?: boolean;
     readonly excludesPattern: string;
@@ -127,6 +130,7 @@ export interface GetFederatedTerraformProviderRepositoryOutputArgs {
     archiveBrowsingEnabled?: pulumi.Input<boolean>;
     blackedOut?: pulumi.Input<boolean>;
     cdnRedirect?: pulumi.Input<boolean>;
+    cleanupOnDelete?: pulumi.Input<boolean>;
     description?: pulumi.Input<string>;
     downloadDirect?: pulumi.Input<boolean>;
     excludesPattern?: pulumi.Input<string>;

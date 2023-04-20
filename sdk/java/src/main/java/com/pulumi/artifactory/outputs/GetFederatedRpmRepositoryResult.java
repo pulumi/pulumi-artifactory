@@ -19,6 +19,7 @@ public final class GetFederatedRpmRepositoryResult {
     private @Nullable Boolean blackedOut;
     private @Nullable Boolean calculateYumMetadata;
     private @Nullable Boolean cdnRedirect;
+    private @Nullable Boolean cleanupOnDelete;
     private @Nullable String description;
     private @Nullable Boolean downloadDirect;
     private @Nullable Boolean enableFileListsIndexing;
@@ -63,6 +64,9 @@ public final class GetFederatedRpmRepositoryResult {
     }
     public Optional<Boolean> cdnRedirect() {
         return Optional.ofNullable(this.cdnRedirect);
+    }
+    public Optional<Boolean> cleanupOnDelete() {
+        return Optional.ofNullable(this.cleanupOnDelete);
     }
     public Optional<String> description() {
         return Optional.ofNullable(this.description);
@@ -149,6 +153,7 @@ public final class GetFederatedRpmRepositoryResult {
         private @Nullable Boolean blackedOut;
         private @Nullable Boolean calculateYumMetadata;
         private @Nullable Boolean cdnRedirect;
+        private @Nullable Boolean cleanupOnDelete;
         private @Nullable String description;
         private @Nullable Boolean downloadDirect;
         private @Nullable Boolean enableFileListsIndexing;
@@ -176,6 +181,7 @@ public final class GetFederatedRpmRepositoryResult {
     	      this.blackedOut = defaults.blackedOut;
     	      this.calculateYumMetadata = defaults.calculateYumMetadata;
     	      this.cdnRedirect = defaults.cdnRedirect;
+    	      this.cleanupOnDelete = defaults.cleanupOnDelete;
     	      this.description = defaults.description;
     	      this.downloadDirect = defaults.downloadDirect;
     	      this.enableFileListsIndexing = defaults.enableFileListsIndexing;
@@ -216,6 +222,11 @@ public final class GetFederatedRpmRepositoryResult {
         @CustomType.Setter
         public Builder cdnRedirect(@Nullable Boolean cdnRedirect) {
             this.cdnRedirect = cdnRedirect;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder cleanupOnDelete(@Nullable Boolean cleanupOnDelete) {
+            this.cleanupOnDelete = cleanupOnDelete;
             return this;
         }
         @CustomType.Setter
@@ -333,6 +344,7 @@ public final class GetFederatedRpmRepositoryResult {
             o.blackedOut = blackedOut;
             o.calculateYumMetadata = calculateYumMetadata;
             o.cdnRedirect = cdnRedirect;
+            o.cleanupOnDelete = cleanupOnDelete;
             o.description = description;
             o.downloadDirect = downloadDirect;
             o.enableFileListsIndexing = enableFileListsIndexing;

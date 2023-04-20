@@ -92,16 +92,14 @@ public final class LdapGroupSettingArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The LDAP setting key you want to use for group retrieval. The value for this field corresponds to &#39;enabledLdap&#39; field of
-     * the ldap group setting XML block of system configuration.
+     * The LDAP setting key you want to use for group retrieval. The value for this field corresponds to &#39;enabledLdap&#39; field of the ldap group setting XML block of system configuration.
      * 
      */
     @Import(name="ldapSettingKey", required=true)
     private Output<String> ldapSettingKey;
 
     /**
-     * @return The LDAP setting key you want to use for group retrieval. The value for this field corresponds to &#39;enabledLdap&#39; field of
-     * the ldap group setting XML block of system configuration.
+     * @return The LDAP setting key you want to use for group retrieval. The value for this field corresponds to &#39;enabledLdap&#39; field of the ldap group setting XML block of system configuration.
      * 
      */
     public Output<String> ldapSettingKey() {
@@ -297,8 +295,7 @@ public final class LdapGroupSettingArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param ldapSettingKey The LDAP setting key you want to use for group retrieval. The value for this field corresponds to &#39;enabledLdap&#39; field of
-         * the ldap group setting XML block of system configuration.
+         * @param ldapSettingKey The LDAP setting key you want to use for group retrieval. The value for this field corresponds to &#39;enabledLdap&#39; field of the ldap group setting XML block of system configuration.
          * 
          * @return builder
          * 
@@ -309,8 +306,7 @@ public final class LdapGroupSettingArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param ldapSettingKey The LDAP setting key you want to use for group retrieval. The value for this field corresponds to &#39;enabledLdap&#39; field of
-         * the ldap group setting XML block of system configuration.
+         * @param ldapSettingKey The LDAP setting key you want to use for group retrieval. The value for this field corresponds to &#39;enabledLdap&#39; field of the ldap group setting XML block of system configuration.
          * 
          * @return builder
          * 

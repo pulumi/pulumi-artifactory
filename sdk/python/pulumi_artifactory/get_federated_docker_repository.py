@@ -23,7 +23,7 @@ class GetFederatedDockerRepositoryResult:
     """
     A collection of values returned by getFederatedDockerRepository.
     """
-    def __init__(__self__, api_version=None, archive_browsing_enabled=None, blacked_out=None, block_pushing_schema1=None, cdn_redirect=None, description=None, download_direct=None, excludes_pattern=None, id=None, includes_pattern=None, key=None, max_unique_tags=None, members=None, notes=None, package_type=None, priority_resolution=None, project_environments=None, project_key=None, property_sets=None, repo_layout_ref=None, tag_retention=None, xray_index=None):
+    def __init__(__self__, api_version=None, archive_browsing_enabled=None, blacked_out=None, block_pushing_schema1=None, cdn_redirect=None, cleanup_on_delete=None, description=None, download_direct=None, excludes_pattern=None, id=None, includes_pattern=None, key=None, max_unique_tags=None, members=None, notes=None, package_type=None, priority_resolution=None, project_environments=None, project_key=None, property_sets=None, repo_layout_ref=None, tag_retention=None, xray_index=None):
         if api_version and not isinstance(api_version, str):
             raise TypeError("Expected argument 'api_version' to be a str")
         pulumi.set(__self__, "api_version", api_version)
@@ -39,6 +39,9 @@ class GetFederatedDockerRepositoryResult:
         if cdn_redirect and not isinstance(cdn_redirect, bool):
             raise TypeError("Expected argument 'cdn_redirect' to be a bool")
         pulumi.set(__self__, "cdn_redirect", cdn_redirect)
+        if cleanup_on_delete and not isinstance(cleanup_on_delete, bool):
+            raise TypeError("Expected argument 'cleanup_on_delete' to be a bool")
+        pulumi.set(__self__, "cleanup_on_delete", cleanup_on_delete)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -115,6 +118,11 @@ class GetFederatedDockerRepositoryResult:
     @pulumi.getter(name="cdnRedirect")
     def cdn_redirect(self) -> Optional[bool]:
         return pulumi.get(self, "cdn_redirect")
+
+    @property
+    @pulumi.getter(name="cleanupOnDelete")
+    def cleanup_on_delete(self) -> Optional[bool]:
+        return pulumi.get(self, "cleanup_on_delete")
 
     @property
     @pulumi.getter
@@ -216,6 +224,7 @@ class AwaitableGetFederatedDockerRepositoryResult(GetFederatedDockerRepositoryRe
             blacked_out=self.blacked_out,
             block_pushing_schema1=self.block_pushing_schema1,
             cdn_redirect=self.cdn_redirect,
+            cleanup_on_delete=self.cleanup_on_delete,
             description=self.description,
             download_direct=self.download_direct,
             excludes_pattern=self.excludes_pattern,
@@ -239,6 +248,7 @@ def get_federated_docker_repository(archive_browsing_enabled: Optional[bool] = N
                                     blacked_out: Optional[bool] = None,
                                     block_pushing_schema1: Optional[bool] = None,
                                     cdn_redirect: Optional[bool] = None,
+                                    cleanup_on_delete: Optional[bool] = None,
                                     description: Optional[str] = None,
                                     download_direct: Optional[bool] = None,
                                     excludes_pattern: Optional[str] = None,
@@ -263,6 +273,7 @@ def get_federated_docker_repository(archive_browsing_enabled: Optional[bool] = N
     __args__['blackedOut'] = blacked_out
     __args__['blockPushingSchema1'] = block_pushing_schema1
     __args__['cdnRedirect'] = cdn_redirect
+    __args__['cleanupOnDelete'] = cleanup_on_delete
     __args__['description'] = description
     __args__['downloadDirect'] = download_direct
     __args__['excludesPattern'] = excludes_pattern
@@ -287,6 +298,7 @@ def get_federated_docker_repository(archive_browsing_enabled: Optional[bool] = N
         blacked_out=__ret__.blacked_out,
         block_pushing_schema1=__ret__.block_pushing_schema1,
         cdn_redirect=__ret__.cdn_redirect,
+        cleanup_on_delete=__ret__.cleanup_on_delete,
         description=__ret__.description,
         download_direct=__ret__.download_direct,
         excludes_pattern=__ret__.excludes_pattern,
@@ -311,6 +323,7 @@ def get_federated_docker_repository_output(archive_browsing_enabled: Optional[pu
                                            blacked_out: Optional[pulumi.Input[Optional[bool]]] = None,
                                            block_pushing_schema1: Optional[pulumi.Input[Optional[bool]]] = None,
                                            cdn_redirect: Optional[pulumi.Input[Optional[bool]]] = None,
+                                           cleanup_on_delete: Optional[pulumi.Input[Optional[bool]]] = None,
                                            description: Optional[pulumi.Input[Optional[str]]] = None,
                                            download_direct: Optional[pulumi.Input[Optional[bool]]] = None,
                                            excludes_pattern: Optional[pulumi.Input[Optional[str]]] = None,

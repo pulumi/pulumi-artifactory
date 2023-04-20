@@ -20,6 +20,7 @@ public final class GetFederatedDockerRepositoryResult {
     private @Nullable Boolean blackedOut;
     private Boolean blockPushingSchema1;
     private @Nullable Boolean cdnRedirect;
+    private @Nullable Boolean cleanupOnDelete;
     private @Nullable String description;
     private @Nullable Boolean downloadDirect;
     private String excludesPattern;
@@ -57,6 +58,9 @@ public final class GetFederatedDockerRepositoryResult {
     }
     public Optional<Boolean> cdnRedirect() {
         return Optional.ofNullable(this.cdnRedirect);
+    }
+    public Optional<Boolean> cleanupOnDelete() {
+        return Optional.ofNullable(this.cleanupOnDelete);
     }
     public Optional<String> description() {
         return Optional.ofNullable(this.description);
@@ -128,6 +132,7 @@ public final class GetFederatedDockerRepositoryResult {
         private @Nullable Boolean blackedOut;
         private Boolean blockPushingSchema1;
         private @Nullable Boolean cdnRedirect;
+        private @Nullable Boolean cleanupOnDelete;
         private @Nullable String description;
         private @Nullable Boolean downloadDirect;
         private String excludesPattern;
@@ -153,6 +158,7 @@ public final class GetFederatedDockerRepositoryResult {
     	      this.blackedOut = defaults.blackedOut;
     	      this.blockPushingSchema1 = defaults.blockPushingSchema1;
     	      this.cdnRedirect = defaults.cdnRedirect;
+    	      this.cleanupOnDelete = defaults.cleanupOnDelete;
     	      this.description = defaults.description;
     	      this.downloadDirect = defaults.downloadDirect;
     	      this.excludesPattern = defaults.excludesPattern;
@@ -195,6 +201,11 @@ public final class GetFederatedDockerRepositoryResult {
         @CustomType.Setter
         public Builder cdnRedirect(@Nullable Boolean cdnRedirect) {
             this.cdnRedirect = cdnRedirect;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder cleanupOnDelete(@Nullable Boolean cleanupOnDelete) {
+            this.cleanupOnDelete = cleanupOnDelete;
             return this;
         }
         @CustomType.Setter
@@ -298,6 +309,7 @@ public final class GetFederatedDockerRepositoryResult {
             o.blackedOut = blackedOut;
             o.blockPushingSchema1 = blockPushingSchema1;
             o.cdnRedirect = cdnRedirect;
+            o.cleanupOnDelete = cleanupOnDelete;
             o.description = description;
             o.downloadDirect = downloadDirect;
             o.excludesPattern = excludesPattern;

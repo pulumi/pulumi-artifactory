@@ -18,6 +18,7 @@ public final class GetFederatedNugetRepositoryResult {
     private @Nullable Boolean archiveBrowsingEnabled;
     private @Nullable Boolean blackedOut;
     private @Nullable Boolean cdnRedirect;
+    private @Nullable Boolean cleanupOnDelete;
     private @Nullable String description;
     private @Nullable Boolean downloadDirect;
     private String excludesPattern;
@@ -56,6 +57,9 @@ public final class GetFederatedNugetRepositoryResult {
     }
     public Optional<Boolean> cdnRedirect() {
         return Optional.ofNullable(this.cdnRedirect);
+    }
+    public Optional<Boolean> cleanupOnDelete() {
+        return Optional.ofNullable(this.cleanupOnDelete);
     }
     public Optional<String> description() {
         return Optional.ofNullable(this.description);
@@ -132,6 +136,7 @@ public final class GetFederatedNugetRepositoryResult {
         private @Nullable Boolean archiveBrowsingEnabled;
         private @Nullable Boolean blackedOut;
         private @Nullable Boolean cdnRedirect;
+        private @Nullable Boolean cleanupOnDelete;
         private @Nullable String description;
         private @Nullable Boolean downloadDirect;
         private String excludesPattern;
@@ -155,6 +160,7 @@ public final class GetFederatedNugetRepositoryResult {
     	      this.archiveBrowsingEnabled = defaults.archiveBrowsingEnabled;
     	      this.blackedOut = defaults.blackedOut;
     	      this.cdnRedirect = defaults.cdnRedirect;
+    	      this.cleanupOnDelete = defaults.cleanupOnDelete;
     	      this.description = defaults.description;
     	      this.downloadDirect = defaults.downloadDirect;
     	      this.excludesPattern = defaults.excludesPattern;
@@ -187,6 +193,11 @@ public final class GetFederatedNugetRepositoryResult {
         @CustomType.Setter
         public Builder cdnRedirect(@Nullable Boolean cdnRedirect) {
             this.cdnRedirect = cdnRedirect;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder cleanupOnDelete(@Nullable Boolean cleanupOnDelete) {
+            this.cleanupOnDelete = cleanupOnDelete;
             return this;
         }
         @CustomType.Setter
@@ -288,6 +299,7 @@ public final class GetFederatedNugetRepositoryResult {
             o.archiveBrowsingEnabled = archiveBrowsingEnabled;
             o.blackedOut = blackedOut;
             o.cdnRedirect = cdnRedirect;
+            o.cleanupOnDelete = cleanupOnDelete;
             o.description = description;
             o.downloadDirect = downloadDirect;
             o.excludesPattern = excludesPattern;

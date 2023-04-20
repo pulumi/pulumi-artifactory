@@ -52,6 +52,7 @@ type LookupFederatedIvyRepositoryArgs struct {
 	BlackedOut             *bool   `pulumi:"blackedOut"`
 	CdnRedirect            *bool   `pulumi:"cdnRedirect"`
 	ChecksumPolicyType     *string `pulumi:"checksumPolicyType"`
+	CleanupOnDelete        *bool   `pulumi:"cleanupOnDelete"`
 	Description            *string `pulumi:"description"`
 	DownloadDirect         *bool   `pulumi:"downloadDirect"`
 	ExcludesPattern        *string `pulumi:"excludesPattern"`
@@ -83,6 +84,7 @@ type LookupFederatedIvyRepositoryResult struct {
 	BlackedOut             *bool   `pulumi:"blackedOut"`
 	CdnRedirect            *bool   `pulumi:"cdnRedirect"`
 	ChecksumPolicyType     *string `pulumi:"checksumPolicyType"`
+	CleanupOnDelete        *bool   `pulumi:"cleanupOnDelete"`
 	Description            *string `pulumi:"description"`
 	DownloadDirect         *bool   `pulumi:"downloadDirect"`
 	ExcludesPattern        string  `pulumi:"excludesPattern"`
@@ -129,6 +131,7 @@ type LookupFederatedIvyRepositoryOutputArgs struct {
 	BlackedOut             pulumi.BoolPtrInput   `pulumi:"blackedOut"`
 	CdnRedirect            pulumi.BoolPtrInput   `pulumi:"cdnRedirect"`
 	ChecksumPolicyType     pulumi.StringPtrInput `pulumi:"checksumPolicyType"`
+	CleanupOnDelete        pulumi.BoolPtrInput   `pulumi:"cleanupOnDelete"`
 	Description            pulumi.StringPtrInput `pulumi:"description"`
 	DownloadDirect         pulumi.BoolPtrInput   `pulumi:"downloadDirect"`
 	ExcludesPattern        pulumi.StringPtrInput `pulumi:"excludesPattern"`
@@ -187,6 +190,10 @@ func (o LookupFederatedIvyRepositoryResultOutput) CdnRedirect() pulumi.BoolPtrOu
 
 func (o LookupFederatedIvyRepositoryResultOutput) ChecksumPolicyType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFederatedIvyRepositoryResult) *string { return v.ChecksumPolicyType }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupFederatedIvyRepositoryResultOutput) CleanupOnDelete() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupFederatedIvyRepositoryResult) *bool { return v.CleanupOnDelete }).(pulumi.BoolPtrOutput)
 }
 
 func (o LookupFederatedIvyRepositoryResultOutput) Description() pulumi.StringPtrOutput {

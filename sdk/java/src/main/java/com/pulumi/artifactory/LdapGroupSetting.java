@@ -24,7 +24,6 @@ import javax.annotation.Nullable;
  * ~&gt;The `artifactory.LdapGroupSetting` resource utilizes endpoints which are blocked/removed in SaaS environments (i.e. in Artifactory online), rendering this resource incompatible with Artifactory SaaS environments.
  * 
  * ## Example Usage
- * 
  * ```java
  * package generated_program;
  * 
@@ -48,11 +47,11 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var ldapGroupName = new LdapGroupSetting(&#34;ldapGroupName&#34;, LdapGroupSettingArgs.builder()        
  *             .descriptionAttribute(&#34;description&#34;)
- *             .enabledLdap(&#34;ldap_name&#34;)
  *             .filter(&#34;(objectClass=groupOfNames)&#34;)
  *             .groupBaseDn(&#34;&#34;)
  *             .groupMemberAttribute(&#34;uniqueMember&#34;)
  *             .groupNameAttribute(&#34;cn&#34;)
+ *             .ldapSettingKey(&#34;ldap_name&#34;)
  *             .strategy(&#34;STATIC&#34;)
  *             .subTree(true)
  *             .build());
@@ -145,16 +144,14 @@ public class LdapGroupSetting extends com.pulumi.resources.CustomResource {
         return this.groupNameAttribute;
     }
     /**
-     * The LDAP setting key you want to use for group retrieval. The value for this field corresponds to &#39;enabledLdap&#39; field of
-     * the ldap group setting XML block of system configuration.
+     * The LDAP setting key you want to use for group retrieval. The value for this field corresponds to &#39;enabledLdap&#39; field of the ldap group setting XML block of system configuration.
      * 
      */
     @Export(name="ldapSettingKey", type=String.class, parameters={})
     private Output<String> ldapSettingKey;
 
     /**
-     * @return The LDAP setting key you want to use for group retrieval. The value for this field corresponds to &#39;enabledLdap&#39; field of
-     * the ldap group setting XML block of system configuration.
+     * @return The LDAP setting key you want to use for group retrieval. The value for this field corresponds to &#39;enabledLdap&#39; field of the ldap group setting XML block of system configuration.
      * 
      */
     public Output<String> ldapSettingKey() {

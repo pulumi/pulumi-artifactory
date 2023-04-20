@@ -83,6 +83,11 @@ export class FederatedRpmRepository extends pulumi.CustomResource {
      */
     public readonly cdnRedirect!: pulumi.Output<boolean | undefined>;
     /**
+     * Delete all federated members on `terraform destroy` if set to `true`. Caution: it will delete all the repositories in
+     * the federation on other Artifactory instances.
+     */
+    public readonly cleanupOnDelete!: pulumi.Output<boolean | undefined>;
+    /**
      * Public description.
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -185,6 +190,7 @@ export class FederatedRpmRepository extends pulumi.CustomResource {
             resourceInputs["blackedOut"] = state ? state.blackedOut : undefined;
             resourceInputs["calculateYumMetadata"] = state ? state.calculateYumMetadata : undefined;
             resourceInputs["cdnRedirect"] = state ? state.cdnRedirect : undefined;
+            resourceInputs["cleanupOnDelete"] = state ? state.cleanupOnDelete : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["downloadDirect"] = state ? state.downloadDirect : undefined;
             resourceInputs["enableFileListsIndexing"] = state ? state.enableFileListsIndexing : undefined;
@@ -216,6 +222,7 @@ export class FederatedRpmRepository extends pulumi.CustomResource {
             resourceInputs["blackedOut"] = args ? args.blackedOut : undefined;
             resourceInputs["calculateYumMetadata"] = args ? args.calculateYumMetadata : undefined;
             resourceInputs["cdnRedirect"] = args ? args.cdnRedirect : undefined;
+            resourceInputs["cleanupOnDelete"] = args ? args.cleanupOnDelete : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["downloadDirect"] = args ? args.downloadDirect : undefined;
             resourceInputs["enableFileListsIndexing"] = args ? args.enableFileListsIndexing : undefined;
@@ -261,6 +268,11 @@ export interface FederatedRpmRepositoryState {
      * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
      */
     cdnRedirect?: pulumi.Input<boolean>;
+    /**
+     * Delete all federated members on `terraform destroy` if set to `true`. Caution: it will delete all the repositories in
+     * the federation on other Artifactory instances.
+     */
+    cleanupOnDelete?: pulumi.Input<boolean>;
     /**
      * Public description.
      */
@@ -368,6 +380,11 @@ export interface FederatedRpmRepositoryArgs {
      * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
      */
     cdnRedirect?: pulumi.Input<boolean>;
+    /**
+     * Delete all federated members on `terraform destroy` if set to `true`. Caution: it will delete all the repositories in
+     * the federation on other Artifactory instances.
+     */
+    cleanupOnDelete?: pulumi.Input<boolean>;
     /**
      * Public description.
      */

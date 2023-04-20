@@ -22,6 +22,7 @@ namespace Pulumi.Artifactory
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
+        /// using System.Linq;
         /// using Pulumi;
         /// using Artifactory = Pulumi.Artifactory;
         /// 
@@ -53,6 +54,7 @@ namespace Pulumi.Artifactory
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
+        /// using System.Linq;
         /// using Pulumi;
         /// using Artifactory = Pulumi.Artifactory;
         /// 
