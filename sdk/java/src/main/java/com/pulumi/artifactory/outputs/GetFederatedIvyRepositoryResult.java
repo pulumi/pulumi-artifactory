@@ -19,6 +19,7 @@ public final class GetFederatedIvyRepositoryResult {
     private @Nullable Boolean blackedOut;
     private @Nullable Boolean cdnRedirect;
     private @Nullable String checksumPolicyType;
+    private @Nullable Boolean cleanupOnDelete;
     private @Nullable String description;
     private @Nullable Boolean downloadDirect;
     private String excludesPattern;
@@ -63,6 +64,9 @@ public final class GetFederatedIvyRepositoryResult {
     }
     public Optional<String> checksumPolicyType() {
         return Optional.ofNullable(this.checksumPolicyType);
+    }
+    public Optional<Boolean> cleanupOnDelete() {
+        return Optional.ofNullable(this.cleanupOnDelete);
     }
     public Optional<String> description() {
         return Optional.ofNullable(this.description);
@@ -149,6 +153,7 @@ public final class GetFederatedIvyRepositoryResult {
         private @Nullable Boolean blackedOut;
         private @Nullable Boolean cdnRedirect;
         private @Nullable String checksumPolicyType;
+        private @Nullable Boolean cleanupOnDelete;
         private @Nullable String description;
         private @Nullable Boolean downloadDirect;
         private String excludesPattern;
@@ -176,6 +181,7 @@ public final class GetFederatedIvyRepositoryResult {
     	      this.blackedOut = defaults.blackedOut;
     	      this.cdnRedirect = defaults.cdnRedirect;
     	      this.checksumPolicyType = defaults.checksumPolicyType;
+    	      this.cleanupOnDelete = defaults.cleanupOnDelete;
     	      this.description = defaults.description;
     	      this.downloadDirect = defaults.downloadDirect;
     	      this.excludesPattern = defaults.excludesPattern;
@@ -216,6 +222,11 @@ public final class GetFederatedIvyRepositoryResult {
         @CustomType.Setter
         public Builder checksumPolicyType(@Nullable String checksumPolicyType) {
             this.checksumPolicyType = checksumPolicyType;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder cleanupOnDelete(@Nullable Boolean cleanupOnDelete) {
+            this.cleanupOnDelete = cleanupOnDelete;
             return this;
         }
         @CustomType.Setter
@@ -333,6 +344,7 @@ public final class GetFederatedIvyRepositoryResult {
             o.blackedOut = blackedOut;
             o.cdnRedirect = cdnRedirect;
             o.checksumPolicyType = checksumPolicyType;
+            o.cleanupOnDelete = cleanupOnDelete;
             o.description = description;
             o.downloadDirect = downloadDirect;
             o.excludesPattern = excludesPattern;

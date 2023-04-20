@@ -51,6 +51,7 @@ type LookupFederatedAlpineRepositoryArgs struct {
 	ArchiveBrowsingEnabled  *bool    `pulumi:"archiveBrowsingEnabled"`
 	BlackedOut              *bool    `pulumi:"blackedOut"`
 	CdnRedirect             *bool    `pulumi:"cdnRedirect"`
+	CleanupOnDelete         *bool    `pulumi:"cleanupOnDelete"`
 	Description             *string  `pulumi:"description"`
 	DownloadDirect          *bool    `pulumi:"downloadDirect"`
 	ExcludesPattern         *string  `pulumi:"excludesPattern"`
@@ -78,6 +79,7 @@ type LookupFederatedAlpineRepositoryResult struct {
 	ArchiveBrowsingEnabled *bool   `pulumi:"archiveBrowsingEnabled"`
 	BlackedOut             *bool   `pulumi:"blackedOut"`
 	CdnRedirect            *bool   `pulumi:"cdnRedirect"`
+	CleanupOnDelete        *bool   `pulumi:"cleanupOnDelete"`
 	Description            *string `pulumi:"description"`
 	DownloadDirect         *bool   `pulumi:"downloadDirect"`
 	ExcludesPattern        string  `pulumi:"excludesPattern"`
@@ -120,6 +122,7 @@ type LookupFederatedAlpineRepositoryOutputArgs struct {
 	ArchiveBrowsingEnabled  pulumi.BoolPtrInput     `pulumi:"archiveBrowsingEnabled"`
 	BlackedOut              pulumi.BoolPtrInput     `pulumi:"blackedOut"`
 	CdnRedirect             pulumi.BoolPtrInput     `pulumi:"cdnRedirect"`
+	CleanupOnDelete         pulumi.BoolPtrInput     `pulumi:"cleanupOnDelete"`
 	Description             pulumi.StringPtrInput   `pulumi:"description"`
 	DownloadDirect          pulumi.BoolPtrInput     `pulumi:"downloadDirect"`
 	ExcludesPattern         pulumi.StringPtrInput   `pulumi:"excludesPattern"`
@@ -171,6 +174,10 @@ func (o LookupFederatedAlpineRepositoryResultOutput) BlackedOut() pulumi.BoolPtr
 
 func (o LookupFederatedAlpineRepositoryResultOutput) CdnRedirect() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupFederatedAlpineRepositoryResult) *bool { return v.CdnRedirect }).(pulumi.BoolPtrOutput)
+}
+
+func (o LookupFederatedAlpineRepositoryResultOutput) CleanupOnDelete() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupFederatedAlpineRepositoryResult) *bool { return v.CleanupOnDelete }).(pulumi.BoolPtrOutput)
 }
 
 func (o LookupFederatedAlpineRepositoryResultOutput) Description() pulumi.StringPtrOutput {

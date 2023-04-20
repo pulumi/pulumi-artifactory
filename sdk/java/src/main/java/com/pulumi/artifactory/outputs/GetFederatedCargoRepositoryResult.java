@@ -18,6 +18,7 @@ public final class GetFederatedCargoRepositoryResult {
     private @Nullable Boolean archiveBrowsingEnabled;
     private @Nullable Boolean blackedOut;
     private @Nullable Boolean cdnRedirect;
+    private @Nullable Boolean cleanupOnDelete;
     private @Nullable String description;
     private @Nullable Boolean downloadDirect;
     private @Nullable Boolean enableSparseIndex;
@@ -59,6 +60,9 @@ public final class GetFederatedCargoRepositoryResult {
     }
     public Optional<Boolean> cdnRedirect() {
         return Optional.ofNullable(this.cdnRedirect);
+    }
+    public Optional<Boolean> cleanupOnDelete() {
+        return Optional.ofNullable(this.cleanupOnDelete);
     }
     public Optional<String> description() {
         return Optional.ofNullable(this.description);
@@ -136,6 +140,7 @@ public final class GetFederatedCargoRepositoryResult {
         private @Nullable Boolean archiveBrowsingEnabled;
         private @Nullable Boolean blackedOut;
         private @Nullable Boolean cdnRedirect;
+        private @Nullable Boolean cleanupOnDelete;
         private @Nullable String description;
         private @Nullable Boolean downloadDirect;
         private @Nullable Boolean enableSparseIndex;
@@ -160,6 +165,7 @@ public final class GetFederatedCargoRepositoryResult {
     	      this.archiveBrowsingEnabled = defaults.archiveBrowsingEnabled;
     	      this.blackedOut = defaults.blackedOut;
     	      this.cdnRedirect = defaults.cdnRedirect;
+    	      this.cleanupOnDelete = defaults.cleanupOnDelete;
     	      this.description = defaults.description;
     	      this.downloadDirect = defaults.downloadDirect;
     	      this.enableSparseIndex = defaults.enableSparseIndex;
@@ -197,6 +203,11 @@ public final class GetFederatedCargoRepositoryResult {
         @CustomType.Setter
         public Builder cdnRedirect(@Nullable Boolean cdnRedirect) {
             this.cdnRedirect = cdnRedirect;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder cleanupOnDelete(@Nullable Boolean cleanupOnDelete) {
+            this.cleanupOnDelete = cleanupOnDelete;
             return this;
         }
         @CustomType.Setter
@@ -302,6 +313,7 @@ public final class GetFederatedCargoRepositoryResult {
             o.archiveBrowsingEnabled = archiveBrowsingEnabled;
             o.blackedOut = blackedOut;
             o.cdnRedirect = cdnRedirect;
+            o.cleanupOnDelete = cleanupOnDelete;
             o.description = description;
             o.downloadDirect = downloadDirect;
             o.enableSparseIndex = enableSparseIndex;

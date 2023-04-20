@@ -28,6 +28,7 @@ export function getFederatedDockerV2Repository(args: GetFederatedDockerV2Reposit
         "blackedOut": args.blackedOut,
         "blockPushingSchema1": args.blockPushingSchema1,
         "cdnRedirect": args.cdnRedirect,
+        "cleanupOnDelete": args.cleanupOnDelete,
         "description": args.description,
         "downloadDirect": args.downloadDirect,
         "excludesPattern": args.excludesPattern,
@@ -54,6 +55,7 @@ export interface GetFederatedDockerV2RepositoryArgs {
     blackedOut?: boolean;
     blockPushingSchema1?: boolean;
     cdnRedirect?: boolean;
+    cleanupOnDelete?: boolean;
     description?: string;
     downloadDirect?: boolean;
     excludesPattern?: string;
@@ -89,6 +91,7 @@ export interface GetFederatedDockerV2RepositoryResult {
     readonly blackedOut?: boolean;
     readonly blockPushingSchema1: boolean;
     readonly cdnRedirect?: boolean;
+    readonly cleanupOnDelete?: boolean;
     readonly description?: string;
     readonly downloadDirect?: boolean;
     readonly excludesPattern: string;
@@ -142,6 +145,7 @@ export interface GetFederatedDockerV2RepositoryOutputArgs {
     blackedOut?: pulumi.Input<boolean>;
     blockPushingSchema1?: pulumi.Input<boolean>;
     cdnRedirect?: pulumi.Input<boolean>;
+    cleanupOnDelete?: pulumi.Input<boolean>;
     description?: pulumi.Input<string>;
     downloadDirect?: pulumi.Input<boolean>;
     excludesPattern?: pulumi.Input<string>;

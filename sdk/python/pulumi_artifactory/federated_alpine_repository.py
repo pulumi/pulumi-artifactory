@@ -21,6 +21,7 @@ class FederatedAlpineRepositoryArgs:
                  archive_browsing_enabled: Optional[pulumi.Input[bool]] = None,
                  blacked_out: Optional[pulumi.Input[bool]] = None,
                  cdn_redirect: Optional[pulumi.Input[bool]] = None,
+                 cleanup_on_delete: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  download_direct: Optional[pulumi.Input[bool]] = None,
                  excludes_pattern: Optional[pulumi.Input[str]] = None,
@@ -47,6 +48,8 @@ class FederatedAlpineRepositoryArgs:
         :param pulumi.Input[bool] blacked_out: When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
         :param pulumi.Input[bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS
                CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+        :param pulumi.Input[bool] cleanup_on_delete: Delete all federated members on `terraform destroy` if set to `true`. Caution: it will delete all the repositories in
+               the federation on other Artifactory instances.
         :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only.
@@ -77,6 +80,8 @@ class FederatedAlpineRepositoryArgs:
             pulumi.set(__self__, "blacked_out", blacked_out)
         if cdn_redirect is not None:
             pulumi.set(__self__, "cdn_redirect", cdn_redirect)
+        if cleanup_on_delete is not None:
+            pulumi.set(__self__, "cleanup_on_delete", cleanup_on_delete)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if download_direct is not None:
@@ -169,6 +174,19 @@ class FederatedAlpineRepositoryArgs:
     @cdn_redirect.setter
     def cdn_redirect(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "cdn_redirect", value)
+
+    @property
+    @pulumi.getter(name="cleanupOnDelete")
+    def cleanup_on_delete(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Delete all federated members on `terraform destroy` if set to `true`. Caution: it will delete all the repositories in
+        the federation on other Artifactory instances.
+        """
+        return pulumi.get(self, "cleanup_on_delete")
+
+    @cleanup_on_delete.setter
+    def cleanup_on_delete(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "cleanup_on_delete", value)
 
     @property
     @pulumi.getter
@@ -339,6 +357,7 @@ class _FederatedAlpineRepositoryState:
                  archive_browsing_enabled: Optional[pulumi.Input[bool]] = None,
                  blacked_out: Optional[pulumi.Input[bool]] = None,
                  cdn_redirect: Optional[pulumi.Input[bool]] = None,
+                 cleanup_on_delete: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  download_direct: Optional[pulumi.Input[bool]] = None,
                  excludes_pattern: Optional[pulumi.Input[str]] = None,
@@ -363,6 +382,8 @@ class _FederatedAlpineRepositoryState:
         :param pulumi.Input[bool] blacked_out: When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
         :param pulumi.Input[bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS
                CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+        :param pulumi.Input[bool] cleanup_on_delete: Delete all federated members on `terraform destroy` if set to `true`. Caution: it will delete all the repositories in
+               the federation on other Artifactory instances.
         :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only.
@@ -396,6 +417,8 @@ class _FederatedAlpineRepositoryState:
             pulumi.set(__self__, "blacked_out", blacked_out)
         if cdn_redirect is not None:
             pulumi.set(__self__, "cdn_redirect", cdn_redirect)
+        if cleanup_on_delete is not None:
+            pulumi.set(__self__, "cleanup_on_delete", cleanup_on_delete)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if download_direct is not None:
@@ -467,6 +490,19 @@ class _FederatedAlpineRepositoryState:
     @cdn_redirect.setter
     def cdn_redirect(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "cdn_redirect", value)
+
+    @property
+    @pulumi.getter(name="cleanupOnDelete")
+    def cleanup_on_delete(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Delete all federated members on `terraform destroy` if set to `true`. Caution: it will delete all the repositories in
+        the federation on other Artifactory instances.
+        """
+        return pulumi.get(self, "cleanup_on_delete")
+
+    @cleanup_on_delete.setter
+    def cleanup_on_delete(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "cleanup_on_delete", value)
 
     @property
     @pulumi.getter
@@ -675,6 +711,7 @@ class FederatedAlpineRepository(pulumi.CustomResource):
                  archive_browsing_enabled: Optional[pulumi.Input[bool]] = None,
                  blacked_out: Optional[pulumi.Input[bool]] = None,
                  cdn_redirect: Optional[pulumi.Input[bool]] = None,
+                 cleanup_on_delete: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  download_direct: Optional[pulumi.Input[bool]] = None,
                  excludes_pattern: Optional[pulumi.Input[str]] = None,
@@ -730,6 +767,8 @@ class FederatedAlpineRepository(pulumi.CustomResource):
         :param pulumi.Input[bool] blacked_out: When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
         :param pulumi.Input[bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS
                CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+        :param pulumi.Input[bool] cleanup_on_delete: Delete all federated members on `terraform destroy` if set to `true`. Caution: it will delete all the repositories in
+               the federation on other Artifactory instances.
         :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only.
@@ -812,6 +851,7 @@ class FederatedAlpineRepository(pulumi.CustomResource):
                  archive_browsing_enabled: Optional[pulumi.Input[bool]] = None,
                  blacked_out: Optional[pulumi.Input[bool]] = None,
                  cdn_redirect: Optional[pulumi.Input[bool]] = None,
+                 cleanup_on_delete: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  download_direct: Optional[pulumi.Input[bool]] = None,
                  excludes_pattern: Optional[pulumi.Input[str]] = None,
@@ -839,6 +879,7 @@ class FederatedAlpineRepository(pulumi.CustomResource):
             __props__.__dict__["archive_browsing_enabled"] = archive_browsing_enabled
             __props__.__dict__["blacked_out"] = blacked_out
             __props__.__dict__["cdn_redirect"] = cdn_redirect
+            __props__.__dict__["cleanup_on_delete"] = cleanup_on_delete
             __props__.__dict__["description"] = description
             __props__.__dict__["download_direct"] = download_direct
             __props__.__dict__["excludes_pattern"] = excludes_pattern
@@ -872,6 +913,7 @@ class FederatedAlpineRepository(pulumi.CustomResource):
             archive_browsing_enabled: Optional[pulumi.Input[bool]] = None,
             blacked_out: Optional[pulumi.Input[bool]] = None,
             cdn_redirect: Optional[pulumi.Input[bool]] = None,
+            cleanup_on_delete: Optional[pulumi.Input[bool]] = None,
             description: Optional[pulumi.Input[str]] = None,
             download_direct: Optional[pulumi.Input[bool]] = None,
             excludes_pattern: Optional[pulumi.Input[str]] = None,
@@ -901,6 +943,8 @@ class FederatedAlpineRepository(pulumi.CustomResource):
         :param pulumi.Input[bool] blacked_out: When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
         :param pulumi.Input[bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS
                CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+        :param pulumi.Input[bool] cleanup_on_delete: Delete all federated members on `terraform destroy` if set to `true`. Caution: it will delete all the repositories in
+               the federation on other Artifactory instances.
         :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only.
@@ -935,6 +979,7 @@ class FederatedAlpineRepository(pulumi.CustomResource):
         __props__.__dict__["archive_browsing_enabled"] = archive_browsing_enabled
         __props__.__dict__["blacked_out"] = blacked_out
         __props__.__dict__["cdn_redirect"] = cdn_redirect
+        __props__.__dict__["cleanup_on_delete"] = cleanup_on_delete
         __props__.__dict__["description"] = description
         __props__.__dict__["download_direct"] = download_direct
         __props__.__dict__["excludes_pattern"] = excludes_pattern
@@ -979,6 +1024,15 @@ class FederatedAlpineRepository(pulumi.CustomResource):
         CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         """
         return pulumi.get(self, "cdn_redirect")
+
+    @property
+    @pulumi.getter(name="cleanupOnDelete")
+    def cleanup_on_delete(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Delete all federated members on `terraform destroy` if set to `true`. Caution: it will delete all the repositories in
+        the federation on other Artifactory instances.
+        """
+        return pulumi.get(self, "cleanup_on_delete")
 
     @property
     @pulumi.getter

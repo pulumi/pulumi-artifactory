@@ -71,6 +71,23 @@ public final class FederatedNugetRepositoryState extends com.pulumi.resources.Re
     }
 
     /**
+     * Delete all federated members on `terraform destroy` if set to `true`. Caution: it will delete all the repositories in
+     * the federation on other Artifactory instances.
+     * 
+     */
+    @Import(name="cleanupOnDelete")
+    private @Nullable Output<Boolean> cleanupOnDelete;
+
+    /**
+     * @return Delete all federated members on `terraform destroy` if set to `true`. Caution: it will delete all the repositories in
+     * the federation on other Artifactory instances.
+     * 
+     */
+    public Optional<Output<Boolean>> cleanupOnDelete() {
+        return Optional.ofNullable(this.cleanupOnDelete);
+    }
+
+    /**
      * Public description.
      * 
      */
@@ -332,6 +349,7 @@ public final class FederatedNugetRepositoryState extends com.pulumi.resources.Re
         this.archiveBrowsingEnabled = $.archiveBrowsingEnabled;
         this.blackedOut = $.blackedOut;
         this.cdnRedirect = $.cdnRedirect;
+        this.cleanupOnDelete = $.cleanupOnDelete;
         this.description = $.description;
         this.downloadDirect = $.downloadDirect;
         this.excludesPattern = $.excludesPattern;
@@ -435,6 +453,29 @@ public final class FederatedNugetRepositoryState extends com.pulumi.resources.Re
          */
         public Builder cdnRedirect(Boolean cdnRedirect) {
             return cdnRedirect(Output.of(cdnRedirect));
+        }
+
+        /**
+         * @param cleanupOnDelete Delete all federated members on `terraform destroy` if set to `true`. Caution: it will delete all the repositories in
+         * the federation on other Artifactory instances.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cleanupOnDelete(@Nullable Output<Boolean> cleanupOnDelete) {
+            $.cleanupOnDelete = cleanupOnDelete;
+            return this;
+        }
+
+        /**
+         * @param cleanupOnDelete Delete all federated members on `terraform destroy` if set to `true`. Caution: it will delete all the repositories in
+         * the federation on other Artifactory instances.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cleanupOnDelete(Boolean cleanupOnDelete) {
+            return cleanupOnDelete(Output.of(cleanupOnDelete));
         }
 
         /**

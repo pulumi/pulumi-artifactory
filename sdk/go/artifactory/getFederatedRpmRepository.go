@@ -52,6 +52,7 @@ type LookupFederatedRpmRepositoryArgs struct {
 	BlackedOut              *bool   `pulumi:"blackedOut"`
 	CalculateYumMetadata    *bool   `pulumi:"calculateYumMetadata"`
 	CdnRedirect             *bool   `pulumi:"cdnRedirect"`
+	CleanupOnDelete         *bool   `pulumi:"cleanupOnDelete"`
 	Description             *string `pulumi:"description"`
 	DownloadDirect          *bool   `pulumi:"downloadDirect"`
 	EnableFileListsIndexing *bool   `pulumi:"enableFileListsIndexing"`
@@ -83,6 +84,7 @@ type LookupFederatedRpmRepositoryResult struct {
 	BlackedOut              *bool   `pulumi:"blackedOut"`
 	CalculateYumMetadata    *bool   `pulumi:"calculateYumMetadata"`
 	CdnRedirect             *bool   `pulumi:"cdnRedirect"`
+	CleanupOnDelete         *bool   `pulumi:"cleanupOnDelete"`
 	Description             *string `pulumi:"description"`
 	DownloadDirect          *bool   `pulumi:"downloadDirect"`
 	EnableFileListsIndexing *bool   `pulumi:"enableFileListsIndexing"`
@@ -129,6 +131,7 @@ type LookupFederatedRpmRepositoryOutputArgs struct {
 	BlackedOut              pulumi.BoolPtrInput   `pulumi:"blackedOut"`
 	CalculateYumMetadata    pulumi.BoolPtrInput   `pulumi:"calculateYumMetadata"`
 	CdnRedirect             pulumi.BoolPtrInput   `pulumi:"cdnRedirect"`
+	CleanupOnDelete         pulumi.BoolPtrInput   `pulumi:"cleanupOnDelete"`
 	Description             pulumi.StringPtrInput `pulumi:"description"`
 	DownloadDirect          pulumi.BoolPtrInput   `pulumi:"downloadDirect"`
 	EnableFileListsIndexing pulumi.BoolPtrInput   `pulumi:"enableFileListsIndexing"`
@@ -187,6 +190,10 @@ func (o LookupFederatedRpmRepositoryResultOutput) CalculateYumMetadata() pulumi.
 
 func (o LookupFederatedRpmRepositoryResultOutput) CdnRedirect() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupFederatedRpmRepositoryResult) *bool { return v.CdnRedirect }).(pulumi.BoolPtrOutput)
+}
+
+func (o LookupFederatedRpmRepositoryResultOutput) CleanupOnDelete() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupFederatedRpmRepositoryResult) *bool { return v.CleanupOnDelete }).(pulumi.BoolPtrOutput)
 }
 
 func (o LookupFederatedRpmRepositoryResultOutput) Description() pulumi.StringPtrOutput {

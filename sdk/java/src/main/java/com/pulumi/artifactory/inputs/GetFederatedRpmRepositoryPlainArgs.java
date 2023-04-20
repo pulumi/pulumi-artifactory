@@ -46,6 +46,13 @@ public final class GetFederatedRpmRepositoryPlainArgs extends com.pulumi.resourc
         return Optional.ofNullable(this.cdnRedirect);
     }
 
+    @Import(name="cleanupOnDelete")
+    private @Nullable Boolean cleanupOnDelete;
+
+    public Optional<Boolean> cleanupOnDelete() {
+        return Optional.ofNullable(this.cleanupOnDelete);
+    }
+
     @Import(name="description")
     private @Nullable String description;
 
@@ -201,6 +208,7 @@ public final class GetFederatedRpmRepositoryPlainArgs extends com.pulumi.resourc
         this.blackedOut = $.blackedOut;
         this.calculateYumMetadata = $.calculateYumMetadata;
         this.cdnRedirect = $.cdnRedirect;
+        this.cleanupOnDelete = $.cleanupOnDelete;
         this.description = $.description;
         this.downloadDirect = $.downloadDirect;
         this.enableFileListsIndexing = $.enableFileListsIndexing;
@@ -256,6 +264,11 @@ public final class GetFederatedRpmRepositoryPlainArgs extends com.pulumi.resourc
 
         public Builder cdnRedirect(@Nullable Boolean cdnRedirect) {
             $.cdnRedirect = cdnRedirect;
+            return this;
+        }
+
+        public Builder cleanupOnDelete(@Nullable Boolean cleanupOnDelete) {
+            $.cleanupOnDelete = cleanupOnDelete;
             return this;
         }
 

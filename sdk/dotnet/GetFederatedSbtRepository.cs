@@ -20,6 +20,7 @@ namespace Pulumi.Artifactory
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
+        /// using System.Linq;
         /// using Pulumi;
         /// using Artifactory = Pulumi.Artifactory;
         /// 
@@ -47,6 +48,7 @@ namespace Pulumi.Artifactory
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
+        /// using System.Linq;
         /// using Pulumi;
         /// using Artifactory = Pulumi.Artifactory;
         /// 
@@ -80,6 +82,9 @@ namespace Pulumi.Artifactory
 
         [Input("checksumPolicyType")]
         public string? ChecksumPolicyType { get; set; }
+
+        [Input("cleanupOnDelete")]
+        public bool? CleanupOnDelete { get; set; }
 
         [Input("description")]
         public string? Description { get; set; }
@@ -180,6 +185,9 @@ namespace Pulumi.Artifactory
         [Input("checksumPolicyType")]
         public Input<string>? ChecksumPolicyType { get; set; }
 
+        [Input("cleanupOnDelete")]
+        public Input<bool>? CleanupOnDelete { get; set; }
+
         [Input("description")]
         public Input<string>? Description { get; set; }
 
@@ -273,6 +281,7 @@ namespace Pulumi.Artifactory
         public readonly bool? BlackedOut;
         public readonly bool? CdnRedirect;
         public readonly string? ChecksumPolicyType;
+        public readonly bool? CleanupOnDelete;
         public readonly string? Description;
         public readonly bool? DownloadDirect;
         public readonly string ExcludesPattern;
@@ -312,6 +321,8 @@ namespace Pulumi.Artifactory
             bool? cdnRedirect,
 
             string? checksumPolicyType,
+
+            bool? cleanupOnDelete,
 
             string? description,
 
@@ -357,6 +368,7 @@ namespace Pulumi.Artifactory
             BlackedOut = blackedOut;
             CdnRedirect = cdnRedirect;
             ChecksumPolicyType = checksumPolicyType;
+            CleanupOnDelete = cleanupOnDelete;
             Description = description;
             DownloadDirect = downloadDirect;
             ExcludesPattern = excludesPattern;

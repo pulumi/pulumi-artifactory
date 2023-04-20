@@ -39,6 +39,13 @@ public final class GetFederatedNugetRepositoryPlainArgs extends com.pulumi.resou
         return Optional.ofNullable(this.cdnRedirect);
     }
 
+    @Import(name="cleanupOnDelete")
+    private @Nullable Boolean cleanupOnDelete;
+
+    public Optional<Boolean> cleanupOnDelete() {
+        return Optional.ofNullable(this.cleanupOnDelete);
+    }
+
     @Import(name="description")
     private @Nullable String description;
 
@@ -172,6 +179,7 @@ public final class GetFederatedNugetRepositoryPlainArgs extends com.pulumi.resou
         this.archiveBrowsingEnabled = $.archiveBrowsingEnabled;
         this.blackedOut = $.blackedOut;
         this.cdnRedirect = $.cdnRedirect;
+        this.cleanupOnDelete = $.cleanupOnDelete;
         this.description = $.description;
         this.downloadDirect = $.downloadDirect;
         this.excludesPattern = $.excludesPattern;
@@ -219,6 +227,11 @@ public final class GetFederatedNugetRepositoryPlainArgs extends com.pulumi.resou
 
         public Builder cdnRedirect(@Nullable Boolean cdnRedirect) {
             $.cdnRedirect = cdnRedirect;
+            return this;
+        }
+
+        public Builder cleanupOnDelete(@Nullable Boolean cleanupOnDelete) {
+            $.cleanupOnDelete = cleanupOnDelete;
             return this;
         }
 

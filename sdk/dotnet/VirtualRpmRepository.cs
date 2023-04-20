@@ -18,6 +18,7 @@ namespace Pulumi.Artifactory
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.IO;
+    /// using System.Linq;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 

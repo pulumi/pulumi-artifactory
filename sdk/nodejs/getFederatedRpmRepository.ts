@@ -28,6 +28,7 @@ export function getFederatedRpmRepository(args: GetFederatedRpmRepositoryArgs, o
         "blackedOut": args.blackedOut,
         "calculateYumMetadata": args.calculateYumMetadata,
         "cdnRedirect": args.cdnRedirect,
+        "cleanupOnDelete": args.cleanupOnDelete,
         "description": args.description,
         "downloadDirect": args.downloadDirect,
         "enableFileListsIndexing": args.enableFileListsIndexing,
@@ -57,6 +58,7 @@ export interface GetFederatedRpmRepositoryArgs {
     blackedOut?: boolean;
     calculateYumMetadata?: boolean;
     cdnRedirect?: boolean;
+    cleanupOnDelete?: boolean;
     description?: string;
     downloadDirect?: boolean;
     enableFileListsIndexing?: boolean;
@@ -94,6 +96,7 @@ export interface GetFederatedRpmRepositoryResult {
     readonly blackedOut?: boolean;
     readonly calculateYumMetadata?: boolean;
     readonly cdnRedirect?: boolean;
+    readonly cleanupOnDelete?: boolean;
     readonly description?: string;
     readonly downloadDirect?: boolean;
     readonly enableFileListsIndexing?: boolean;
@@ -150,6 +153,7 @@ export interface GetFederatedRpmRepositoryOutputArgs {
     blackedOut?: pulumi.Input<boolean>;
     calculateYumMetadata?: pulumi.Input<boolean>;
     cdnRedirect?: pulumi.Input<boolean>;
+    cleanupOnDelete?: pulumi.Input<boolean>;
     description?: pulumi.Input<string>;
     downloadDirect?: pulumi.Input<boolean>;
     enableFileListsIndexing?: pulumi.Input<boolean>;

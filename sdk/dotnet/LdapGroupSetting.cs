@@ -17,6 +17,34 @@ namespace Pulumi.Artifactory
     /// 
     /// ~&gt;The `artifactory.LdapGroupSetting` resource utilizes endpoints which are blocked/removed in SaaS environments (i.e. in Artifactory online), rendering this resource incompatible with Artifactory SaaS environments.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Artifactory = Pulumi.Artifactory;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     // Configure Artifactory LDAP setting
+    ///     var ldapGroupName = new Artifactory.LdapGroupSetting("ldapGroupName", new()
+    ///     {
+    ///         DescriptionAttribute = "description",
+    ///         Filter = "(objectClass=groupOfNames)",
+    ///         GroupBaseDn = "",
+    ///         GroupMemberAttribute = "uniqueMember",
+    ///         GroupNameAttribute = "cn",
+    ///         LdapSettingKey = "ldap_name",
+    ///         Strategy = "STATIC",
+    ///         SubTree = true,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// Note: `Name` argument has to match to the resource name.\
+    /// Reference Link: [JFrog LDAP](https://www.jfrog.com/confluence/display/JFROG/LDAP)
+    /// 
     /// ## Import
     /// 
     /// LDAP Group setting can be imported using the key, e.g.
@@ -59,8 +87,7 @@ namespace Pulumi.Artifactory
         public Output<string> GroupNameAttribute { get; private set; } = null!;
 
         /// <summary>
-        /// The LDAP setting key you want to use for group retrieval. The value for this field corresponds to 'enabledLdap' field of
-        /// the ldap group setting XML block of system configuration.
+        /// The LDAP setting key you want to use for group retrieval. The value for this field corresponds to 'enabledLdap' field of the ldap group setting XML block of system configuration.
         /// </summary>
         [Output("ldapSettingKey")]
         public Output<string> LdapSettingKey { get; private set; } = null!;
@@ -163,8 +190,7 @@ namespace Pulumi.Artifactory
         public Input<string> GroupNameAttribute { get; set; } = null!;
 
         /// <summary>
-        /// The LDAP setting key you want to use for group retrieval. The value for this field corresponds to 'enabledLdap' field of
-        /// the ldap group setting XML block of system configuration.
+        /// The LDAP setting key you want to use for group retrieval. The value for this field corresponds to 'enabledLdap' field of the ldap group setting XML block of system configuration.
         /// </summary>
         [Input("ldapSettingKey", required: true)]
         public Input<string> LdapSettingKey { get; set; } = null!;
@@ -229,8 +255,7 @@ namespace Pulumi.Artifactory
         public Input<string>? GroupNameAttribute { get; set; }
 
         /// <summary>
-        /// The LDAP setting key you want to use for group retrieval. The value for this field corresponds to 'enabledLdap' field of
-        /// the ldap group setting XML block of system configuration.
+        /// The LDAP setting key you want to use for group retrieval. The value for this field corresponds to 'enabledLdap' field of the ldap group setting XML block of system configuration.
         /// </summary>
         [Input("ldapSettingKey")]
         public Input<string>? LdapSettingKey { get; set; }

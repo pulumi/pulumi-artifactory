@@ -70,6 +70,9 @@ type FederatedGoRepository struct {
 	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
 	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
 	CdnRedirect pulumi.BoolPtrOutput `pulumi:"cdnRedirect"`
+	// Delete all federated members on `terraform destroy` if set to `true`. Caution: it will delete all the repositories in
+	// the federation on other Artifactory instances.
+	CleanupOnDelete pulumi.BoolPtrOutput `pulumi:"cleanupOnDelete"`
 	// Public description.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
@@ -154,6 +157,9 @@ type federatedGoRepositoryState struct {
 	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
 	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
 	CdnRedirect *bool `pulumi:"cdnRedirect"`
+	// Delete all federated members on `terraform destroy` if set to `true`. Caution: it will delete all the repositories in
+	// the federation on other Artifactory instances.
+	CleanupOnDelete *bool `pulumi:"cleanupOnDelete"`
 	// Public description.
 	Description *string `pulumi:"description"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
@@ -204,6 +210,9 @@ type FederatedGoRepositoryState struct {
 	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
 	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
 	CdnRedirect pulumi.BoolPtrInput
+	// Delete all federated members on `terraform destroy` if set to `true`. Caution: it will delete all the repositories in
+	// the federation on other Artifactory instances.
+	CleanupOnDelete pulumi.BoolPtrInput
 	// Public description.
 	Description pulumi.StringPtrInput
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
@@ -258,6 +267,9 @@ type federatedGoRepositoryArgs struct {
 	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
 	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
 	CdnRedirect *bool `pulumi:"cdnRedirect"`
+	// Delete all federated members on `terraform destroy` if set to `true`. Caution: it will delete all the repositories in
+	// the federation on other Artifactory instances.
+	CleanupOnDelete *bool `pulumi:"cleanupOnDelete"`
 	// Public description.
 	Description *string `pulumi:"description"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
@@ -308,6 +320,9 @@ type FederatedGoRepositoryArgs struct {
 	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
 	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
 	CdnRedirect pulumi.BoolPtrInput
+	// Delete all federated members on `terraform destroy` if set to `true`. Caution: it will delete all the repositories in
+	// the federation on other Artifactory instances.
+	CleanupOnDelete pulumi.BoolPtrInput
 	// Public description.
 	Description pulumi.StringPtrInput
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
@@ -450,6 +465,12 @@ func (o FederatedGoRepositoryOutput) BlackedOut() pulumi.BoolPtrOutput {
 // CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
 func (o FederatedGoRepositoryOutput) CdnRedirect() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FederatedGoRepository) pulumi.BoolPtrOutput { return v.CdnRedirect }).(pulumi.BoolPtrOutput)
+}
+
+// Delete all federated members on `terraform destroy` if set to `true`. Caution: it will delete all the repositories in
+// the federation on other Artifactory instances.
+func (o FederatedGoRepositoryOutput) CleanupOnDelete() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FederatedGoRepository) pulumi.BoolPtrOutput { return v.CleanupOnDelete }).(pulumi.BoolPtrOutput)
 }
 
 // Public description.

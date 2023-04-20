@@ -52,6 +52,7 @@ type LookupFederatedGradleRepositoryArgs struct {
 	BlackedOut             *bool   `pulumi:"blackedOut"`
 	CdnRedirect            *bool   `pulumi:"cdnRedirect"`
 	ChecksumPolicyType     *string `pulumi:"checksumPolicyType"`
+	CleanupOnDelete        *bool   `pulumi:"cleanupOnDelete"`
 	Description            *string `pulumi:"description"`
 	DownloadDirect         *bool   `pulumi:"downloadDirect"`
 	ExcludesPattern        *string `pulumi:"excludesPattern"`
@@ -83,6 +84,7 @@ type LookupFederatedGradleRepositoryResult struct {
 	BlackedOut             *bool   `pulumi:"blackedOut"`
 	CdnRedirect            *bool   `pulumi:"cdnRedirect"`
 	ChecksumPolicyType     *string `pulumi:"checksumPolicyType"`
+	CleanupOnDelete        *bool   `pulumi:"cleanupOnDelete"`
 	Description            *string `pulumi:"description"`
 	DownloadDirect         *bool   `pulumi:"downloadDirect"`
 	ExcludesPattern        string  `pulumi:"excludesPattern"`
@@ -129,6 +131,7 @@ type LookupFederatedGradleRepositoryOutputArgs struct {
 	BlackedOut             pulumi.BoolPtrInput   `pulumi:"blackedOut"`
 	CdnRedirect            pulumi.BoolPtrInput   `pulumi:"cdnRedirect"`
 	ChecksumPolicyType     pulumi.StringPtrInput `pulumi:"checksumPolicyType"`
+	CleanupOnDelete        pulumi.BoolPtrInput   `pulumi:"cleanupOnDelete"`
 	Description            pulumi.StringPtrInput `pulumi:"description"`
 	DownloadDirect         pulumi.BoolPtrInput   `pulumi:"downloadDirect"`
 	ExcludesPattern        pulumi.StringPtrInput `pulumi:"excludesPattern"`
@@ -187,6 +190,10 @@ func (o LookupFederatedGradleRepositoryResultOutput) CdnRedirect() pulumi.BoolPt
 
 func (o LookupFederatedGradleRepositoryResultOutput) ChecksumPolicyType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFederatedGradleRepositoryResult) *string { return v.ChecksumPolicyType }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupFederatedGradleRepositoryResultOutput) CleanupOnDelete() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupFederatedGradleRepositoryResult) *bool { return v.CleanupOnDelete }).(pulumi.BoolPtrOutput)
 }
 
 func (o LookupFederatedGradleRepositoryResultOutput) Description() pulumi.StringPtrOutput {

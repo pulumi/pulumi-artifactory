@@ -46,6 +46,13 @@ public final class GetFederatedIvyRepositoryPlainArgs extends com.pulumi.resourc
         return Optional.ofNullable(this.checksumPolicyType);
     }
 
+    @Import(name="cleanupOnDelete")
+    private @Nullable Boolean cleanupOnDelete;
+
+    public Optional<Boolean> cleanupOnDelete() {
+        return Optional.ofNullable(this.cleanupOnDelete);
+    }
+
     @Import(name="description")
     private @Nullable String description;
 
@@ -201,6 +208,7 @@ public final class GetFederatedIvyRepositoryPlainArgs extends com.pulumi.resourc
         this.blackedOut = $.blackedOut;
         this.cdnRedirect = $.cdnRedirect;
         this.checksumPolicyType = $.checksumPolicyType;
+        this.cleanupOnDelete = $.cleanupOnDelete;
         this.description = $.description;
         this.downloadDirect = $.downloadDirect;
         this.excludesPattern = $.excludesPattern;
@@ -256,6 +264,11 @@ public final class GetFederatedIvyRepositoryPlainArgs extends com.pulumi.resourc
 
         public Builder checksumPolicyType(@Nullable String checksumPolicyType) {
             $.checksumPolicyType = checksumPolicyType;
+            return this;
+        }
+
+        public Builder cleanupOnDelete(@Nullable Boolean cleanupOnDelete) {
+            $.cleanupOnDelete = cleanupOnDelete;
             return this;
         }
 

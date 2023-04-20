@@ -38,6 +38,13 @@ public final class GetFederatedDebianRepositoryPlainArgs extends com.pulumi.reso
         return Optional.ofNullable(this.cdnRedirect);
     }
 
+    @Import(name="cleanupOnDelete")
+    private @Nullable Boolean cleanupOnDelete;
+
+    public Optional<Boolean> cleanupOnDelete() {
+        return Optional.ofNullable(this.cleanupOnDelete);
+    }
+
     @Import(name="description")
     private @Nullable String description;
 
@@ -197,6 +204,7 @@ public final class GetFederatedDebianRepositoryPlainArgs extends com.pulumi.reso
         this.archiveBrowsingEnabled = $.archiveBrowsingEnabled;
         this.blackedOut = $.blackedOut;
         this.cdnRedirect = $.cdnRedirect;
+        this.cleanupOnDelete = $.cleanupOnDelete;
         this.description = $.description;
         this.downloadDirect = $.downloadDirect;
         this.excludesPattern = $.excludesPattern;
@@ -246,6 +254,11 @@ public final class GetFederatedDebianRepositoryPlainArgs extends com.pulumi.reso
 
         public Builder cdnRedirect(@Nullable Boolean cdnRedirect) {
             $.cdnRedirect = cdnRedirect;
+            return this;
+        }
+
+        public Builder cleanupOnDelete(@Nullable Boolean cleanupOnDelete) {
+            $.cleanupOnDelete = cleanupOnDelete;
             return this;
         }
 

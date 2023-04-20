@@ -16,6 +16,7 @@ namespace Pulumi.Artifactory
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Linq;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
@@ -82,6 +83,13 @@ namespace Pulumi.Artifactory
         /// </summary>
         [Output("checksumPolicyType")]
         public Output<string?> ChecksumPolicyType { get; private set; } = null!;
+
+        /// <summary>
+        /// Delete all federated members on `terraform destroy` if set to `true`. Caution: it will delete all the repositories in
+        /// the federation on other Artifactory instances.
+        /// </summary>
+        [Output("cleanupOnDelete")]
+        public Output<bool?> CleanupOnDelete { get; private set; } = null!;
 
         /// <summary>
         /// Public description.
@@ -288,6 +296,13 @@ namespace Pulumi.Artifactory
         public Input<string>? ChecksumPolicyType { get; set; }
 
         /// <summary>
+        /// Delete all federated members on `terraform destroy` if set to `true`. Caution: it will delete all the repositories in
+        /// the federation on other Artifactory instances.
+        /// </summary>
+        [Input("cleanupOnDelete")]
+        public Input<bool>? CleanupOnDelete { get; set; }
+
+        /// <summary>
         /// Public description.
         /// </summary>
         [Input("description")]
@@ -467,6 +482,13 @@ namespace Pulumi.Artifactory
         /// </summary>
         [Input("checksumPolicyType")]
         public Input<string>? ChecksumPolicyType { get; set; }
+
+        /// <summary>
+        /// Delete all federated members on `terraform destroy` if set to `true`. Caution: it will delete all the repositories in
+        /// the federation on other Artifactory instances.
+        /// </summary>
+        [Input("cleanupOnDelete")]
+        public Input<bool>? CleanupOnDelete { get; set; }
 
         /// <summary>
         /// Public description.

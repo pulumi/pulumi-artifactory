@@ -52,6 +52,7 @@ type LookupFederatedDockerV2RepositoryArgs struct {
 	BlackedOut             *bool   `pulumi:"blackedOut"`
 	BlockPushingSchema1    *bool   `pulumi:"blockPushingSchema1"`
 	CdnRedirect            *bool   `pulumi:"cdnRedirect"`
+	CleanupOnDelete        *bool   `pulumi:"cleanupOnDelete"`
 	Description            *string `pulumi:"description"`
 	DownloadDirect         *bool   `pulumi:"downloadDirect"`
 	ExcludesPattern        *string `pulumi:"excludesPattern"`
@@ -81,6 +82,7 @@ type LookupFederatedDockerV2RepositoryResult struct {
 	BlackedOut             *bool   `pulumi:"blackedOut"`
 	BlockPushingSchema1    bool    `pulumi:"blockPushingSchema1"`
 	CdnRedirect            *bool   `pulumi:"cdnRedirect"`
+	CleanupOnDelete        *bool   `pulumi:"cleanupOnDelete"`
 	Description            *string `pulumi:"description"`
 	DownloadDirect         *bool   `pulumi:"downloadDirect"`
 	ExcludesPattern        string  `pulumi:"excludesPattern"`
@@ -124,6 +126,7 @@ type LookupFederatedDockerV2RepositoryOutputArgs struct {
 	BlackedOut             pulumi.BoolPtrInput   `pulumi:"blackedOut"`
 	BlockPushingSchema1    pulumi.BoolPtrInput   `pulumi:"blockPushingSchema1"`
 	CdnRedirect            pulumi.BoolPtrInput   `pulumi:"cdnRedirect"`
+	CleanupOnDelete        pulumi.BoolPtrInput   `pulumi:"cleanupOnDelete"`
 	Description            pulumi.StringPtrInput `pulumi:"description"`
 	DownloadDirect         pulumi.BoolPtrInput   `pulumi:"downloadDirect"`
 	ExcludesPattern        pulumi.StringPtrInput `pulumi:"excludesPattern"`
@@ -183,6 +186,10 @@ func (o LookupFederatedDockerV2RepositoryResultOutput) BlockPushingSchema1() pul
 
 func (o LookupFederatedDockerV2RepositoryResultOutput) CdnRedirect() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupFederatedDockerV2RepositoryResult) *bool { return v.CdnRedirect }).(pulumi.BoolPtrOutput)
+}
+
+func (o LookupFederatedDockerV2RepositoryResultOutput) CleanupOnDelete() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupFederatedDockerV2RepositoryResult) *bool { return v.CleanupOnDelete }).(pulumi.BoolPtrOutput)
 }
 
 func (o LookupFederatedDockerV2RepositoryResultOutput) Description() pulumi.StringPtrOutput {

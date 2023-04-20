@@ -120,6 +120,22 @@ public class FederatedChefRepository extends com.pulumi.resources.CustomResource
         return Codegen.optional(this.cdnRedirect);
     }
     /**
+     * Delete all federated members on `terraform destroy` if set to `true`. Caution: it will delete all the repositories in
+     * the federation on other Artifactory instances.
+     * 
+     */
+    @Export(name="cleanupOnDelete", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> cleanupOnDelete;
+
+    /**
+     * @return Delete all federated members on `terraform destroy` if set to `true`. Caution: it will delete all the repositories in
+     * the federation on other Artifactory instances.
+     * 
+     */
+    public Output<Optional<Boolean>> cleanupOnDelete() {
+        return Codegen.optional(this.cleanupOnDelete);
+    }
+    /**
      * Public description.
      * 
      */

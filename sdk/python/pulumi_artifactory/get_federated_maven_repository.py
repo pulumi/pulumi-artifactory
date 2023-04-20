@@ -23,7 +23,7 @@ class GetFederatedMavenRepositoryResult:
     """
     A collection of values returned by getFederatedMavenRepository.
     """
-    def __init__(__self__, archive_browsing_enabled=None, blacked_out=None, cdn_redirect=None, checksum_policy_type=None, description=None, download_direct=None, excludes_pattern=None, handle_releases=None, handle_snapshots=None, id=None, includes_pattern=None, key=None, max_unique_snapshots=None, members=None, notes=None, package_type=None, priority_resolution=None, project_environments=None, project_key=None, property_sets=None, repo_layout_ref=None, snapshot_version_behavior=None, suppress_pom_consistency_checks=None, xray_index=None):
+    def __init__(__self__, archive_browsing_enabled=None, blacked_out=None, cdn_redirect=None, checksum_policy_type=None, cleanup_on_delete=None, description=None, download_direct=None, excludes_pattern=None, handle_releases=None, handle_snapshots=None, id=None, includes_pattern=None, key=None, max_unique_snapshots=None, members=None, notes=None, package_type=None, priority_resolution=None, project_environments=None, project_key=None, property_sets=None, repo_layout_ref=None, snapshot_version_behavior=None, suppress_pom_consistency_checks=None, xray_index=None):
         if archive_browsing_enabled and not isinstance(archive_browsing_enabled, bool):
             raise TypeError("Expected argument 'archive_browsing_enabled' to be a bool")
         pulumi.set(__self__, "archive_browsing_enabled", archive_browsing_enabled)
@@ -36,6 +36,9 @@ class GetFederatedMavenRepositoryResult:
         if checksum_policy_type and not isinstance(checksum_policy_type, str):
             raise TypeError("Expected argument 'checksum_policy_type' to be a str")
         pulumi.set(__self__, "checksum_policy_type", checksum_policy_type)
+        if cleanup_on_delete and not isinstance(cleanup_on_delete, bool):
+            raise TypeError("Expected argument 'cleanup_on_delete' to be a bool")
+        pulumi.set(__self__, "cleanup_on_delete", cleanup_on_delete)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -116,6 +119,11 @@ class GetFederatedMavenRepositoryResult:
     @pulumi.getter(name="checksumPolicyType")
     def checksum_policy_type(self) -> Optional[str]:
         return pulumi.get(self, "checksum_policy_type")
+
+    @property
+    @pulumi.getter(name="cleanupOnDelete")
+    def cleanup_on_delete(self) -> Optional[bool]:
+        return pulumi.get(self, "cleanup_on_delete")
 
     @property
     @pulumi.getter
@@ -237,6 +245,7 @@ class AwaitableGetFederatedMavenRepositoryResult(GetFederatedMavenRepositoryResu
             blacked_out=self.blacked_out,
             cdn_redirect=self.cdn_redirect,
             checksum_policy_type=self.checksum_policy_type,
+            cleanup_on_delete=self.cleanup_on_delete,
             description=self.description,
             download_direct=self.download_direct,
             excludes_pattern=self.excludes_pattern,
@@ -263,6 +272,7 @@ def get_federated_maven_repository(archive_browsing_enabled: Optional[bool] = No
                                    blacked_out: Optional[bool] = None,
                                    cdn_redirect: Optional[bool] = None,
                                    checksum_policy_type: Optional[str] = None,
+                                   cleanup_on_delete: Optional[bool] = None,
                                    description: Optional[str] = None,
                                    download_direct: Optional[bool] = None,
                                    excludes_pattern: Optional[str] = None,
@@ -306,6 +316,7 @@ def get_federated_maven_repository(archive_browsing_enabled: Optional[bool] = No
     __args__['blackedOut'] = blacked_out
     __args__['cdnRedirect'] = cdn_redirect
     __args__['checksumPolicyType'] = checksum_policy_type
+    __args__['cleanupOnDelete'] = cleanup_on_delete
     __args__['description'] = description
     __args__['downloadDirect'] = download_direct
     __args__['excludesPattern'] = excludes_pattern
@@ -332,6 +343,7 @@ def get_federated_maven_repository(archive_browsing_enabled: Optional[bool] = No
         blacked_out=__ret__.blacked_out,
         cdn_redirect=__ret__.cdn_redirect,
         checksum_policy_type=__ret__.checksum_policy_type,
+        cleanup_on_delete=__ret__.cleanup_on_delete,
         description=__ret__.description,
         download_direct=__ret__.download_direct,
         excludes_pattern=__ret__.excludes_pattern,
@@ -359,6 +371,7 @@ def get_federated_maven_repository_output(archive_browsing_enabled: Optional[pul
                                           blacked_out: Optional[pulumi.Input[Optional[bool]]] = None,
                                           cdn_redirect: Optional[pulumi.Input[Optional[bool]]] = None,
                                           checksum_policy_type: Optional[pulumi.Input[Optional[str]]] = None,
+                                          cleanup_on_delete: Optional[pulumi.Input[Optional[bool]]] = None,
                                           description: Optional[pulumi.Input[Optional[str]]] = None,
                                           download_direct: Optional[pulumi.Input[Optional[bool]]] = None,
                                           excludes_pattern: Optional[pulumi.Input[Optional[str]]] = None,
