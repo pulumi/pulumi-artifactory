@@ -1281,8 +1281,8 @@ github.com/jbenet/go-context v0.0.0-20150711004518-d14ea06fba99 h1:BQSFePA1RWJOl
 github.com/jbenet/go-context v0.0.0-20150711004518-d14ea06fba99/go.mod h1:1lJo3i6rXxKeerYnT8Nvf0QmHCRC1n8sfWVwXF2Frvo=
 github.com/jessevdk/go-flags v1.4.0/go.mod h1:4FA24M0QyGHXBuZZK/XkWh8h0e1EYbRYJSGM75WSRxI=
 github.com/jessevdk/go-flags v1.5.0/go.mod h1:Fw0T6WPc1dYxT4mKEZRfG5kJhaTDP9pj1c2EWnYs/m4=
-github.com/jfrog/terraform-provider-artifactory/v7 v7.6.0 h1:JUK+QoglidRMzUMsyUlNS3VhIesTDpYNyHa2GHtDxpA=
-github.com/jfrog/terraform-provider-artifactory/v7 v7.6.0/go.mod h1:/M7TDPQ5g3POQkQa7Tkgtaqru/v4Ui3+3BxWmDfBn7A=
+github.com/jfrog/terraform-provider-artifactory/v7 v7.7.0 h1:JUK+QoglidRMzUMsyUlNS3VhIesTDpYNyHa2GHtDxpA=
+github.com/jfrog/terraform-provider-artifactory/v7 v7.7.0/go.mod h1:/M7TDPQ5g3POQkQa7Tkgtaqru/v4Ui3+3BxWmDfBn7A=
 github.com/jfrog/terraform-provider-shared v1.14.0 h1:C9EGwZKLAtzts543zpXANjYYwM3/pX64H7oMbhimA8g=
 github.com/jfrog/terraform-provider-shared v1.14.0/go.mod h1:n6855hIUDhypnXsJl8UrstVFkcnL2uW4FLLr3cKGXjU=
 github.com/jhump/protoreflect v1.6.0 h1:h5jfMVslIg6l29nsMs0D8Wj17RDVdNYti0vDN/PZZoE=
