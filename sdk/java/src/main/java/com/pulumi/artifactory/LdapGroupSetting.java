@@ -52,6 +52,7 @@ import javax.annotation.Nullable;
  *             .groupMemberAttribute(&#34;uniqueMember&#34;)
  *             .groupNameAttribute(&#34;cn&#34;)
  *             .ldapSettingKey(&#34;ldap_name&#34;)
+ *             .name(&#34;ldap_group_name&#34;)
  *             .strategy(&#34;STATIC&#34;)
  *             .subTree(true)
  *             .build());

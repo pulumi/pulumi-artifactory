@@ -98,7 +98,7 @@ namespace Pulumi.Artifactory
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Group(string name, GroupArgs? args = null, CustomResourceOptions? options = null)
+        public Group(string name, GroupArgs args, CustomResourceOptions? options = null)
             : base("artifactory:index/group:Group", name, args ?? new GroupArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -169,8 +169,8 @@ namespace Pulumi.Artifactory
         /// <summary>
         /// Name of the group
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// When this override is set, User in the group can set Xray security and compliance policies. Default value is `false`.

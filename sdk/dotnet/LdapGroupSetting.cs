@@ -36,6 +36,7 @@ namespace Pulumi.Artifactory
     ///         GroupMemberAttribute = "uniqueMember",
     ///         GroupNameAttribute = "cn",
     ///         LdapSettingKey = "ldap_name",
+    ///         Name = "ldap_group_name",
     ///         Strategy = "STATIC",
     ///         SubTree = true,
     ///     });
@@ -198,8 +199,8 @@ namespace Pulumi.Artifactory
         /// <summary>
         /// Ldap group setting name.
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The JFrog Platform Deployment (JPD) supports three ways of mapping groups to LDAP schemas:

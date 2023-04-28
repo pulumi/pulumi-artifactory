@@ -17,6 +17,7 @@ class ScopedTokenArgs:
                  audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  expires_in: Optional[pulumi.Input[int]] = None,
+                 include_reference_token: Optional[pulumi.Input[bool]] = None,
                  refreshable: Optional[pulumi.Input[bool]] = None,
                  scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  username: Optional[pulumi.Input[str]] = None):
@@ -25,6 +26,7 @@ class ScopedTokenArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] audiences: (Optional) A list of the other instances or services that should accept this token identified by their Service-IDs. Limited to total 255 characters. Default to `*@*` if not set. Service ID must begin with `jfrt@`. For instructions to retrieve the Artifactory Service ID see this [documentation](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-GetServiceID).
         :param pulumi.Input[str] description: (Optional) Free text token description. Useful for filtering and managing tokens. Limited to 1024 characters.
         :param pulumi.Input[int] expires_in: (Optional) The amount of time, in seconds, it would take for the token to expire. An admin shall be able to set whether expiry is mandatory, what is the default expiry, and what is the maximum expiry allowed. Must be non-negative. Default value is based on configuration in `access.config.yaml`. See [API documentation](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-RevokeTokenbyIDrevoketokenbyid) for details.
+        :param pulumi.Input[bool] include_reference_token: (Optional) Should a reference token also be created? Defaults to `false`
         :param pulumi.Input[bool] refreshable: (Optional) Is this token refreshable? Defaults to `false`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: (Optional) The scope of access that the token provides. Access to the REST API is always provided by default. Administrators can set any scope, while non-admin users can only set the scope to a subset of the groups to which they belong.
         :param pulumi.Input[str] username: (Optional) The user name for which this token is created. The username is based on the authenticated user - either from the user of the authenticated token or based on the username (if basic auth was used). The username is then used to set the subject of the token: `<service-id>/users/<username>`. Limited to 255 characters.
@@ -35,6 +37,8 @@ class ScopedTokenArgs:
             pulumi.set(__self__, "description", description)
         if expires_in is not None:
             pulumi.set(__self__, "expires_in", expires_in)
+        if include_reference_token is not None:
+            pulumi.set(__self__, "include_reference_token", include_reference_token)
         if refreshable is not None:
             pulumi.set(__self__, "refreshable", refreshable)
         if scopes is not None:
@@ -77,6 +81,18 @@ class ScopedTokenArgs:
     @expires_in.setter
     def expires_in(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "expires_in", value)
+
+    @property
+    @pulumi.getter(name="includeReferenceToken")
+    def include_reference_token(self) -> Optional[pulumi.Input[bool]]:
+        """
+        (Optional) Should a reference token also be created? Defaults to `false`
+        """
+        return pulumi.get(self, "include_reference_token")
+
+    @include_reference_token.setter
+    def include_reference_token(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "include_reference_token", value)
 
     @property
     @pulumi.getter
@@ -123,8 +139,10 @@ class _ScopedTokenState:
                  description: Optional[pulumi.Input[str]] = None,
                  expires_in: Optional[pulumi.Input[int]] = None,
                  expiry: Optional[pulumi.Input[int]] = None,
+                 include_reference_token: Optional[pulumi.Input[bool]] = None,
                  issued_at: Optional[pulumi.Input[int]] = None,
                  issuer: Optional[pulumi.Input[str]] = None,
+                 reference_token: Optional[pulumi.Input[str]] = None,
                  refresh_token: Optional[pulumi.Input[str]] = None,
                  refreshable: Optional[pulumi.Input[bool]] = None,
                  scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -138,8 +156,10 @@ class _ScopedTokenState:
         :param pulumi.Input[str] description: (Optional) Free text token description. Useful for filtering and managing tokens. Limited to 1024 characters.
         :param pulumi.Input[int] expires_in: (Optional) The amount of time, in seconds, it would take for the token to expire. An admin shall be able to set whether expiry is mandatory, what is the default expiry, and what is the maximum expiry allowed. Must be non-negative. Default value is based on configuration in `access.config.yaml`. See [API documentation](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-RevokeTokenbyIDrevoketokenbyid) for details.
         :param pulumi.Input[int] expiry: Returns the token expiry
+        :param pulumi.Input[bool] include_reference_token: (Optional) Should a reference token also be created? Defaults to `false`
         :param pulumi.Input[int] issued_at: Returns the token issued at date/time
         :param pulumi.Input[str] issuer: Returns the token issuer
+        :param pulumi.Input[str] reference_token: Returns the reference token to authenticate to Artifactory
         :param pulumi.Input[bool] refreshable: (Optional) Is this token refreshable? Defaults to `false`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: (Optional) The scope of access that the token provides. Access to the REST API is always provided by default. Administrators can set any scope, while non-admin users can only set the scope to a subset of the groups to which they belong.
         :param pulumi.Input[str] subject: Returns the token type
@@ -156,10 +176,14 @@ class _ScopedTokenState:
             pulumi.set(__self__, "expires_in", expires_in)
         if expiry is not None:
             pulumi.set(__self__, "expiry", expiry)
+        if include_reference_token is not None:
+            pulumi.set(__self__, "include_reference_token", include_reference_token)
         if issued_at is not None:
             pulumi.set(__self__, "issued_at", issued_at)
         if issuer is not None:
             pulumi.set(__self__, "issuer", issuer)
+        if reference_token is not None:
+            pulumi.set(__self__, "reference_token", reference_token)
         if refresh_token is not None:
             pulumi.set(__self__, "refresh_token", refresh_token)
         if refreshable is not None:
@@ -234,6 +258,18 @@ class _ScopedTokenState:
         pulumi.set(self, "expiry", value)
 
     @property
+    @pulumi.getter(name="includeReferenceToken")
+    def include_reference_token(self) -> Optional[pulumi.Input[bool]]:
+        """
+        (Optional) Should a reference token also be created? Defaults to `false`
+        """
+        return pulumi.get(self, "include_reference_token")
+
+    @include_reference_token.setter
+    def include_reference_token(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "include_reference_token", value)
+
+    @property
     @pulumi.getter(name="issuedAt")
     def issued_at(self) -> Optional[pulumi.Input[int]]:
         """
@@ -256,6 +292,18 @@ class _ScopedTokenState:
     @issuer.setter
     def issuer(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "issuer", value)
+
+    @property
+    @pulumi.getter(name="referenceToken")
+    def reference_token(self) -> Optional[pulumi.Input[str]]:
+        """
+        Returns the reference token to authenticate to Artifactory
+        """
+        return pulumi.get(self, "reference_token")
+
+    @reference_token.setter
+    def reference_token(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "reference_token", value)
 
     @property
     @pulumi.getter(name="refreshToken")
@@ -335,6 +383,7 @@ class ScopedToken(pulumi.CustomResource):
                  audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  expires_in: Optional[pulumi.Input[int]] = None,
+                 include_reference_token: Optional[pulumi.Input[bool]] = None,
                  refreshable: Optional[pulumi.Input[bool]] = None,
                  scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  username: Optional[pulumi.Input[str]] = None,
@@ -349,6 +398,7 @@ class ScopedToken(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] audiences: (Optional) A list of the other instances or services that should accept this token identified by their Service-IDs. Limited to total 255 characters. Default to `*@*` if not set. Service ID must begin with `jfrt@`. For instructions to retrieve the Artifactory Service ID see this [documentation](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-GetServiceID).
         :param pulumi.Input[str] description: (Optional) Free text token description. Useful for filtering and managing tokens. Limited to 1024 characters.
         :param pulumi.Input[int] expires_in: (Optional) The amount of time, in seconds, it would take for the token to expire. An admin shall be able to set whether expiry is mandatory, what is the default expiry, and what is the maximum expiry allowed. Must be non-negative. Default value is based on configuration in `access.config.yaml`. See [API documentation](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-RevokeTokenbyIDrevoketokenbyid) for details.
+        :param pulumi.Input[bool] include_reference_token: (Optional) Should a reference token also be created? Defaults to `false`
         :param pulumi.Input[bool] refreshable: (Optional) Is this token refreshable? Defaults to `false`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: (Optional) The scope of access that the token provides. Access to the REST API is always provided by default. Administrators can set any scope, while non-admin users can only set the scope to a subset of the groups to which they belong.
         :param pulumi.Input[str] username: (Optional) The user name for which this token is created. The username is based on the authenticated user - either from the user of the authenticated token or based on the username (if basic auth was used). The username is then used to set the subject of the token: `<service-id>/users/<username>`. Limited to 255 characters.
@@ -382,6 +432,7 @@ class ScopedToken(pulumi.CustomResource):
                  audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  expires_in: Optional[pulumi.Input[int]] = None,
+                 include_reference_token: Optional[pulumi.Input[bool]] = None,
                  refreshable: Optional[pulumi.Input[bool]] = None,
                  scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  username: Optional[pulumi.Input[str]] = None,
@@ -397,6 +448,7 @@ class ScopedToken(pulumi.CustomResource):
             __props__.__dict__["audiences"] = audiences
             __props__.__dict__["description"] = description
             __props__.__dict__["expires_in"] = expires_in
+            __props__.__dict__["include_reference_token"] = include_reference_token
             __props__.__dict__["refreshable"] = refreshable
             __props__.__dict__["scopes"] = scopes
             __props__.__dict__["username"] = username
@@ -404,10 +456,11 @@ class ScopedToken(pulumi.CustomResource):
             __props__.__dict__["expiry"] = None
             __props__.__dict__["issued_at"] = None
             __props__.__dict__["issuer"] = None
+            __props__.__dict__["reference_token"] = None
             __props__.__dict__["refresh_token"] = None
             __props__.__dict__["subject"] = None
             __props__.__dict__["token_type"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["accessToken", "refreshToken"])
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["accessToken", "referenceToken", "refreshToken"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ScopedToken, __self__).__init__(
             'artifactory:index/scopedToken:ScopedToken',
@@ -424,8 +477,10 @@ class ScopedToken(pulumi.CustomResource):
             description: Optional[pulumi.Input[str]] = None,
             expires_in: Optional[pulumi.Input[int]] = None,
             expiry: Optional[pulumi.Input[int]] = None,
+            include_reference_token: Optional[pulumi.Input[bool]] = None,
             issued_at: Optional[pulumi.Input[int]] = None,
             issuer: Optional[pulumi.Input[str]] = None,
+            reference_token: Optional[pulumi.Input[str]] = None,
             refresh_token: Optional[pulumi.Input[str]] = None,
             refreshable: Optional[pulumi.Input[bool]] = None,
             scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -444,8 +499,10 @@ class ScopedToken(pulumi.CustomResource):
         :param pulumi.Input[str] description: (Optional) Free text token description. Useful for filtering and managing tokens. Limited to 1024 characters.
         :param pulumi.Input[int] expires_in: (Optional) The amount of time, in seconds, it would take for the token to expire. An admin shall be able to set whether expiry is mandatory, what is the default expiry, and what is the maximum expiry allowed. Must be non-negative. Default value is based on configuration in `access.config.yaml`. See [API documentation](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-RevokeTokenbyIDrevoketokenbyid) for details.
         :param pulumi.Input[int] expiry: Returns the token expiry
+        :param pulumi.Input[bool] include_reference_token: (Optional) Should a reference token also be created? Defaults to `false`
         :param pulumi.Input[int] issued_at: Returns the token issued at date/time
         :param pulumi.Input[str] issuer: Returns the token issuer
+        :param pulumi.Input[str] reference_token: Returns the reference token to authenticate to Artifactory
         :param pulumi.Input[bool] refreshable: (Optional) Is this token refreshable? Defaults to `false`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: (Optional) The scope of access that the token provides. Access to the REST API is always provided by default. Administrators can set any scope, while non-admin users can only set the scope to a subset of the groups to which they belong.
         :param pulumi.Input[str] subject: Returns the token type
@@ -461,8 +518,10 @@ class ScopedToken(pulumi.CustomResource):
         __props__.__dict__["description"] = description
         __props__.__dict__["expires_in"] = expires_in
         __props__.__dict__["expiry"] = expiry
+        __props__.__dict__["include_reference_token"] = include_reference_token
         __props__.__dict__["issued_at"] = issued_at
         __props__.__dict__["issuer"] = issuer
+        __props__.__dict__["reference_token"] = reference_token
         __props__.__dict__["refresh_token"] = refresh_token
         __props__.__dict__["refreshable"] = refreshable
         __props__.__dict__["scopes"] = scopes
@@ -512,6 +571,14 @@ class ScopedToken(pulumi.CustomResource):
         return pulumi.get(self, "expiry")
 
     @property
+    @pulumi.getter(name="includeReferenceToken")
+    def include_reference_token(self) -> pulumi.Output[Optional[bool]]:
+        """
+        (Optional) Should a reference token also be created? Defaults to `false`
+        """
+        return pulumi.get(self, "include_reference_token")
+
+    @property
     @pulumi.getter(name="issuedAt")
     def issued_at(self) -> pulumi.Output[int]:
         """
@@ -526,6 +593,14 @@ class ScopedToken(pulumi.CustomResource):
         Returns the token issuer
         """
         return pulumi.get(self, "issuer")
+
+    @property
+    @pulumi.getter(name="referenceToken")
+    def reference_token(self) -> pulumi.Output[str]:
+        """
+        Returns the reference token to authenticate to Artifactory
+        """
+        return pulumi.get(self, "reference_token")
 
     @property
     @pulumi.getter(name="refreshToken")

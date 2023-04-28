@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -51,9 +52,12 @@ type Group struct {
 func NewGroup(ctx *pulumi.Context,
 	name string, args *GroupArgs, opts ...pulumi.ResourceOption) (*Group, error) {
 	if args == nil {
-		args = &GroupArgs{}
+		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.Name == nil {
+		return nil, errors.New("invalid value for required argument 'Name'")
+	}
 	var resource Group
 	err := ctx.RegisterResource("artifactory:index/group:Group", name, args, &resource, opts...)
 	if err != nil {
@@ -143,7 +147,7 @@ type groupArgs struct {
 	// New external group ID used to configure the corresponding group in Azure AD.
 	ExternalId *string `pulumi:"externalId"`
 	// Name of the group
-	Name *string `pulumi:"name"`
+	Name string `pulumi:"name"`
 	// When this override is set, User in the group can set Xray security and compliance policies. Default value is `false`.
 	PolicyManager *bool `pulumi:"policyManager"`
 	// The realm for the group.
@@ -170,7 +174,7 @@ type GroupArgs struct {
 	// New external group ID used to configure the corresponding group in Azure AD.
 	ExternalId pulumi.StringPtrInput
 	// Name of the group
-	Name pulumi.StringPtrInput
+	Name pulumi.StringInput
 	// When this override is set, User in the group can set Xray security and compliance policies. Default value is `false`.
 	PolicyManager pulumi.BoolPtrInput
 	// The realm for the group.

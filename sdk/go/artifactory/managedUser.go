@@ -31,6 +31,7 @@ import (
 //					pulumi.String("logged-in-users"),
 //					pulumi.String("readers"),
 //				},
+//				Name:     pulumi.String("terraform"),
 //				Password: pulumi.String("my super secret password"),
 //			})
 //			if err != nil {
@@ -81,6 +82,9 @@ func NewManagedUser(ctx *pulumi.Context,
 
 	if args.Email == nil {
 		return nil, errors.New("invalid value for required argument 'Email'")
+	}
+	if args.Name == nil {
+		return nil, errors.New("invalid value for required argument 'Name'")
 	}
 	if args.Password == nil {
 		return nil, errors.New("invalid value for required argument 'Password'")
@@ -167,7 +171,7 @@ type managedUserArgs struct {
 	// When set, disables the fallback of using an internal password when external authentication (such as LDAP) is enabled.
 	InternalPasswordDisabled *bool `pulumi:"internalPasswordDisabled"`
 	// Username for user.
-	Name *string `pulumi:"name"`
+	Name string `pulumi:"name"`
 	// Password for the user.
 	Password string `pulumi:"password"`
 	// When set, this user can update his profile details (except for the password. Only an administrator can update the password). Default value is `true`.
@@ -187,7 +191,7 @@ type ManagedUserArgs struct {
 	// When set, disables the fallback of using an internal password when external authentication (such as LDAP) is enabled.
 	InternalPasswordDisabled pulumi.BoolPtrInput
 	// Username for user.
-	Name pulumi.StringPtrInput
+	Name pulumi.StringInput
 	// Password for the user.
 	Password pulumi.StringInput
 	// When set, this user can update his profile details (except for the password. Only an administrator can update the password). Default value is `true`.

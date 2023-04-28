@@ -18,6 +18,7 @@ import * as utilities from "./utilities";
  *         "logged-in-users",
  *         "readers",
  *     ],
+ *     name: "terraform",
  *     password: "my super secret password",
  * });
  * ```
@@ -117,6 +118,9 @@ export class ManagedUser extends pulumi.CustomResource {
             if ((!args || args.email === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'email'");
             }
+            if ((!args || args.name === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'name'");
+            }
             if ((!args || args.password === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'password'");
             }
@@ -201,7 +205,7 @@ export interface ManagedUserArgs {
     /**
      * Username for user.
      */
-    name?: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     /**
      * Password for the user.
      */

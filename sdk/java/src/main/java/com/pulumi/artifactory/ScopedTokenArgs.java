@@ -64,6 +64,21 @@ public final class ScopedTokenArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * (Optional) Should a reference token also be created? Defaults to `false`
+     * 
+     */
+    @Import(name="includeReferenceToken")
+    private @Nullable Output<Boolean> includeReferenceToken;
+
+    /**
+     * @return (Optional) Should a reference token also be created? Defaults to `false`
+     * 
+     */
+    public Optional<Output<Boolean>> includeReferenceToken() {
+        return Optional.ofNullable(this.includeReferenceToken);
+    }
+
+    /**
      * (Optional) Is this token refreshable? Defaults to `false`
      * 
      */
@@ -114,6 +129,7 @@ public final class ScopedTokenArgs extends com.pulumi.resources.ResourceArgs {
         this.audiences = $.audiences;
         this.description = $.description;
         this.expiresIn = $.expiresIn;
+        this.includeReferenceToken = $.includeReferenceToken;
         this.refreshable = $.refreshable;
         this.scopes = $.scopes;
         this.username = $.username;
@@ -208,6 +224,27 @@ public final class ScopedTokenArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder expiresIn(Integer expiresIn) {
             return expiresIn(Output.of(expiresIn));
+        }
+
+        /**
+         * @param includeReferenceToken (Optional) Should a reference token also be created? Defaults to `false`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder includeReferenceToken(@Nullable Output<Boolean> includeReferenceToken) {
+            $.includeReferenceToken = includeReferenceToken;
+            return this;
+        }
+
+        /**
+         * @param includeReferenceToken (Optional) Should a reference token also be created? Defaults to `false`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder includeReferenceToken(Boolean includeReferenceToken) {
+            return includeReferenceToken(Output.of(includeReferenceToken));
         }
 
         /**

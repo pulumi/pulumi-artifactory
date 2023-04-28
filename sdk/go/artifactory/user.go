@@ -37,6 +37,7 @@ import (
 //					pulumi.String("logged-in-users"),
 //					pulumi.String("readers"),
 //				},
+//				Name:     pulumi.String("terraform"),
 //				Password: pulumi.String("my super secret password"),
 //			})
 //			if err != nil {
@@ -90,6 +91,9 @@ func NewUser(ctx *pulumi.Context,
 
 	if args.Email == nil {
 		return nil, errors.New("invalid value for required argument 'Email'")
+	}
+	if args.Name == nil {
+		return nil, errors.New("invalid value for required argument 'Name'")
 	}
 	if args.Password != nil {
 		args.Password = pulumi.ToSecret(args.Password).(pulumi.StringPtrInput)
@@ -173,7 +177,7 @@ type userArgs struct {
 	// When set, disables the fallback of using an internal password when external authentication (such as LDAP) is enabled.
 	InternalPasswordDisabled *bool `pulumi:"internalPasswordDisabled"`
 	// Username for user.
-	Name *string `pulumi:"name"`
+	Name string `pulumi:"name"`
 	// Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters.
 	Password *string `pulumi:"password"`
 	// When set, this user can update his profile details (except for the password. Only an administrator can update the password). Default value is `true`.
@@ -193,7 +197,7 @@ type UserArgs struct {
 	// When set, disables the fallback of using an internal password when external authentication (such as LDAP) is enabled.
 	InternalPasswordDisabled pulumi.BoolPtrInput
 	// Username for user.
-	Name pulumi.StringPtrInput
+	Name pulumi.StringInput
 	// Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters.
 	Password pulumi.StringPtrInput
 	// When set, this user can update his profile details (except for the password. Only an administrator can update the password). Default value is `true`.

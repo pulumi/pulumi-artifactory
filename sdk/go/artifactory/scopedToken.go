@@ -26,11 +26,15 @@ type ScopedToken struct {
 	ExpiresIn pulumi.IntOutput `pulumi:"expiresIn"`
 	// Returns the token expiry
 	Expiry pulumi.IntOutput `pulumi:"expiry"`
+	// (Optional) Should a reference token also be created? Defaults to `false`
+	IncludeReferenceToken pulumi.BoolPtrOutput `pulumi:"includeReferenceToken"`
 	// Returns the token issued at date/time
 	IssuedAt pulumi.IntOutput `pulumi:"issuedAt"`
 	// Returns the token issuer
-	Issuer       pulumi.StringOutput `pulumi:"issuer"`
-	RefreshToken pulumi.StringOutput `pulumi:"refreshToken"`
+	Issuer pulumi.StringOutput `pulumi:"issuer"`
+	// Returns the reference token to authenticate to Artifactory
+	ReferenceToken pulumi.StringOutput `pulumi:"referenceToken"`
+	RefreshToken   pulumi.StringOutput `pulumi:"refreshToken"`
 	// (Optional) Is this token refreshable? Defaults to `false`
 	Refreshable pulumi.BoolPtrOutput `pulumi:"refreshable"`
 	// (Optional) The scope of access that the token provides. Access to the REST API is always provided by default. Administrators can set any scope, while non-admin users can only set the scope to a subset of the groups to which they belong.
@@ -52,6 +56,7 @@ func NewScopedToken(ctx *pulumi.Context,
 
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"accessToken",
+		"referenceToken",
 		"refreshToken",
 	})
 	opts = append(opts, secrets)
@@ -87,11 +92,15 @@ type scopedTokenState struct {
 	ExpiresIn *int `pulumi:"expiresIn"`
 	// Returns the token expiry
 	Expiry *int `pulumi:"expiry"`
+	// (Optional) Should a reference token also be created? Defaults to `false`
+	IncludeReferenceToken *bool `pulumi:"includeReferenceToken"`
 	// Returns the token issued at date/time
 	IssuedAt *int `pulumi:"issuedAt"`
 	// Returns the token issuer
-	Issuer       *string `pulumi:"issuer"`
-	RefreshToken *string `pulumi:"refreshToken"`
+	Issuer *string `pulumi:"issuer"`
+	// Returns the reference token to authenticate to Artifactory
+	ReferenceToken *string `pulumi:"referenceToken"`
+	RefreshToken   *string `pulumi:"refreshToken"`
 	// (Optional) Is this token refreshable? Defaults to `false`
 	Refreshable *bool `pulumi:"refreshable"`
 	// (Optional) The scope of access that the token provides. Access to the REST API is always provided by default. Administrators can set any scope, while non-admin users can only set the scope to a subset of the groups to which they belong.
@@ -115,11 +124,15 @@ type ScopedTokenState struct {
 	ExpiresIn pulumi.IntPtrInput
 	// Returns the token expiry
 	Expiry pulumi.IntPtrInput
+	// (Optional) Should a reference token also be created? Defaults to `false`
+	IncludeReferenceToken pulumi.BoolPtrInput
 	// Returns the token issued at date/time
 	IssuedAt pulumi.IntPtrInput
 	// Returns the token issuer
-	Issuer       pulumi.StringPtrInput
-	RefreshToken pulumi.StringPtrInput
+	Issuer pulumi.StringPtrInput
+	// Returns the reference token to authenticate to Artifactory
+	ReferenceToken pulumi.StringPtrInput
+	RefreshToken   pulumi.StringPtrInput
 	// (Optional) Is this token refreshable? Defaults to `false`
 	Refreshable pulumi.BoolPtrInput
 	// (Optional) The scope of access that the token provides. Access to the REST API is always provided by default. Administrators can set any scope, while non-admin users can only set the scope to a subset of the groups to which they belong.
@@ -143,6 +156,8 @@ type scopedTokenArgs struct {
 	Description *string `pulumi:"description"`
 	// (Optional) The amount of time, in seconds, it would take for the token to expire. An admin shall be able to set whether expiry is mandatory, what is the default expiry, and what is the maximum expiry allowed. Must be non-negative. Default value is based on configuration in `access.config.yaml`. See [API documentation](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-RevokeTokenbyIDrevoketokenbyid) for details.
 	ExpiresIn *int `pulumi:"expiresIn"`
+	// (Optional) Should a reference token also be created? Defaults to `false`
+	IncludeReferenceToken *bool `pulumi:"includeReferenceToken"`
 	// (Optional) Is this token refreshable? Defaults to `false`
 	Refreshable *bool `pulumi:"refreshable"`
 	// (Optional) The scope of access that the token provides. Access to the REST API is always provided by default. Administrators can set any scope, while non-admin users can only set the scope to a subset of the groups to which they belong.
@@ -159,6 +174,8 @@ type ScopedTokenArgs struct {
 	Description pulumi.StringPtrInput
 	// (Optional) The amount of time, in seconds, it would take for the token to expire. An admin shall be able to set whether expiry is mandatory, what is the default expiry, and what is the maximum expiry allowed. Must be non-negative. Default value is based on configuration in `access.config.yaml`. See [API documentation](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-RevokeTokenbyIDrevoketokenbyid) for details.
 	ExpiresIn pulumi.IntPtrInput
+	// (Optional) Should a reference token also be created? Defaults to `false`
+	IncludeReferenceToken pulumi.BoolPtrInput
 	// (Optional) Is this token refreshable? Defaults to `false`
 	Refreshable pulumi.BoolPtrInput
 	// (Optional) The scope of access that the token provides. Access to the REST API is always provided by default. Administrators can set any scope, while non-admin users can only set the scope to a subset of the groups to which they belong.
@@ -279,6 +296,11 @@ func (o ScopedTokenOutput) Expiry() pulumi.IntOutput {
 	return o.ApplyT(func(v *ScopedToken) pulumi.IntOutput { return v.Expiry }).(pulumi.IntOutput)
 }
 
+// (Optional) Should a reference token also be created? Defaults to `false`
+func (o ScopedTokenOutput) IncludeReferenceToken() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ScopedToken) pulumi.BoolPtrOutput { return v.IncludeReferenceToken }).(pulumi.BoolPtrOutput)
+}
+
 // Returns the token issued at date/time
 func (o ScopedTokenOutput) IssuedAt() pulumi.IntOutput {
 	return o.ApplyT(func(v *ScopedToken) pulumi.IntOutput { return v.IssuedAt }).(pulumi.IntOutput)
@@ -287,6 +309,11 @@ func (o ScopedTokenOutput) IssuedAt() pulumi.IntOutput {
 // Returns the token issuer
 func (o ScopedTokenOutput) Issuer() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScopedToken) pulumi.StringOutput { return v.Issuer }).(pulumi.StringOutput)
+}
+
+// Returns the reference token to authenticate to Artifactory
+func (o ScopedTokenOutput) ReferenceToken() pulumi.StringOutput {
+	return o.ApplyT(func(v *ScopedToken) pulumi.StringOutput { return v.ReferenceToken }).(pulumi.StringOutput)
 }
 
 func (o ScopedTokenOutput) RefreshToken() pulumi.StringOutput {

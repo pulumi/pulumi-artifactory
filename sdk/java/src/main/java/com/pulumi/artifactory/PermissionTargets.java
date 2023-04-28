@@ -61,6 +61,7 @@ import javax.annotation.Nullable;
  *                 .includesPatterns(&#34;**&#34;)
  *                 .repositories(&#34;artifactory-build-info&#34;)
  *                 .build())
+ *             .name(&#34;test-perm&#34;)
  *             .releaseBundle(PermissionTargetReleaseBundleArgs.builder()
  *                 .actions(PermissionTargetReleaseBundleActionsArgs.builder()
  *                     .users(PermissionTargetReleaseBundleActionsUserArgs.builder()
@@ -195,7 +196,7 @@ public class PermissionTargets extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public PermissionTargets(String name, @Nullable PermissionTargetsArgs args) {
+    public PermissionTargets(String name, PermissionTargetsArgs args) {
         this(name, args, null);
     }
     /**
@@ -204,7 +205,7 @@ public class PermissionTargets extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public PermissionTargets(String name, @Nullable PermissionTargetsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public PermissionTargets(String name, PermissionTargetsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("artifactory:index/permissionTargets:PermissionTargets", name, args == null ? PermissionTargetsArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
     }
 

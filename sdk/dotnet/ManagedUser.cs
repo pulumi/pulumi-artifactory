@@ -29,6 +29,7 @@ namespace Pulumi.Artifactory
     ///             "logged-in-users",
     ///             "readers",
     ///         },
+    ///         Name = "terraform",
     ///         Password = "my super secret password",
     ///     });
     /// 
@@ -183,8 +184,8 @@ namespace Pulumi.Artifactory
         /// <summary>
         /// Username for user.
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         [Input("password", required: true)]
         private Input<string>? _password;

@@ -39,6 +39,7 @@ import (
 //				GroupMemberAttribute: pulumi.String("uniqueMember"),
 //				GroupNameAttribute:   pulumi.String("cn"),
 //				LdapSettingKey:       pulumi.String("ldap_name"),
+//				Name:                 pulumi.String("ldap_group_name"),
 //				Strategy:             pulumi.String("STATIC"),
 //				SubTree:              pulumi.Bool(true),
 //			})
@@ -109,6 +110,9 @@ func NewLdapGroupSetting(ctx *pulumi.Context,
 	}
 	if args.LdapSettingKey == nil {
 		return nil, errors.New("invalid value for required argument 'LdapSettingKey'")
+	}
+	if args.Name == nil {
+		return nil, errors.New("invalid value for required argument 'Name'")
 	}
 	if args.Strategy == nil {
 		return nil, errors.New("invalid value for required argument 'Strategy'")
@@ -200,7 +204,7 @@ type ldapGroupSettingArgs struct {
 	// The LDAP setting key you want to use for group retrieval. The value for this field corresponds to 'enabledLdap' field of the ldap group setting XML block of system configuration.
 	LdapSettingKey string `pulumi:"ldapSettingKey"`
 	// Ldap group setting name.
-	Name *string `pulumi:"name"`
+	Name string `pulumi:"name"`
 	// The JFrog Platform Deployment (JPD) supports three ways of mapping groups to LDAP schemas:
 	// - STATIC: Group objects are aware of their members, however, the users are not aware of the groups they belong to. Each group object such as groupOfNames or groupOfUniqueNames holds its respective member attributes, typically member or uniqueMember, which is a user DN.
 	// - DYNAMIC: User objects are aware of what groups they belong to, but the group objects are not aware of their members. Each user object contains a custom attribute, such as group, that holds the group DNs or group names of which the user is a member.
@@ -225,7 +229,7 @@ type LdapGroupSettingArgs struct {
 	// The LDAP setting key you want to use for group retrieval. The value for this field corresponds to 'enabledLdap' field of the ldap group setting XML block of system configuration.
 	LdapSettingKey pulumi.StringInput
 	// Ldap group setting name.
-	Name pulumi.StringPtrInput
+	Name pulumi.StringInput
 	// The JFrog Platform Deployment (JPD) supports three ways of mapping groups to LDAP schemas:
 	// - STATIC: Group objects are aware of their members, however, the users are not aware of the groups they belong to. Each group object such as groupOfNames or groupOfUniqueNames holds its respective member attributes, typically member or uniqueMember, which is a user DN.
 	// - DYNAMIC: User objects are aware of what groups they belong to, but the group objects are not aware of their members. Each user object contains a custom attribute, such as group, that holds the group DNs or group names of which the user is a member.

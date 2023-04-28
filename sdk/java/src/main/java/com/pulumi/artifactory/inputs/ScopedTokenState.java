@@ -94,6 +94,21 @@ public final class ScopedTokenState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * (Optional) Should a reference token also be created? Defaults to `false`
+     * 
+     */
+    @Import(name="includeReferenceToken")
+    private @Nullable Output<Boolean> includeReferenceToken;
+
+    /**
+     * @return (Optional) Should a reference token also be created? Defaults to `false`
+     * 
+     */
+    public Optional<Output<Boolean>> includeReferenceToken() {
+        return Optional.ofNullable(this.includeReferenceToken);
+    }
+
+    /**
      * Returns the token issued at date/time
      * 
      */
@@ -121,6 +136,21 @@ public final class ScopedTokenState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> issuer() {
         return Optional.ofNullable(this.issuer);
+    }
+
+    /**
+     * Returns the reference token to authenticate to Artifactory
+     * 
+     */
+    @Import(name="referenceToken")
+    private @Nullable Output<String> referenceToken;
+
+    /**
+     * @return Returns the reference token to authenticate to Artifactory
+     * 
+     */
+    public Optional<Output<String>> referenceToken() {
+        return Optional.ofNullable(this.referenceToken);
     }
 
     @Import(name="refreshToken")
@@ -213,8 +243,10 @@ public final class ScopedTokenState extends com.pulumi.resources.ResourceArgs {
         this.description = $.description;
         this.expiresIn = $.expiresIn;
         this.expiry = $.expiry;
+        this.includeReferenceToken = $.includeReferenceToken;
         this.issuedAt = $.issuedAt;
         this.issuer = $.issuer;
+        this.referenceToken = $.referenceToken;
         this.refreshToken = $.refreshToken;
         this.refreshable = $.refreshable;
         this.scopes = $.scopes;
@@ -357,6 +389,27 @@ public final class ScopedTokenState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param includeReferenceToken (Optional) Should a reference token also be created? Defaults to `false`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder includeReferenceToken(@Nullable Output<Boolean> includeReferenceToken) {
+            $.includeReferenceToken = includeReferenceToken;
+            return this;
+        }
+
+        /**
+         * @param includeReferenceToken (Optional) Should a reference token also be created? Defaults to `false`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder includeReferenceToken(Boolean includeReferenceToken) {
+            return includeReferenceToken(Output.of(includeReferenceToken));
+        }
+
+        /**
          * @param issuedAt Returns the token issued at date/time
          * 
          * @return builder
@@ -396,6 +449,27 @@ public final class ScopedTokenState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder issuer(String issuer) {
             return issuer(Output.of(issuer));
+        }
+
+        /**
+         * @param referenceToken Returns the reference token to authenticate to Artifactory
+         * 
+         * @return builder
+         * 
+         */
+        public Builder referenceToken(@Nullable Output<String> referenceToken) {
+            $.referenceToken = referenceToken;
+            return this;
+        }
+
+        /**
+         * @param referenceToken Returns the reference token to authenticate to Artifactory
+         * 
+         * @return builder
+         * 
+         */
+        public Builder referenceToken(String referenceToken) {
+            return referenceToken(Output.of(referenceToken));
         }
 
         public Builder refreshToken(@Nullable Output<String> refreshToken) {

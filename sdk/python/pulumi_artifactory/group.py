@@ -14,12 +14,12 @@ __all__ = ['GroupArgs', 'Group']
 @pulumi.input_type
 class GroupArgs:
     def __init__(__self__, *,
+                 name: pulumi.Input[str],
                  admin_privileges: Optional[pulumi.Input[bool]] = None,
                  auto_join: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  detach_all_users: Optional[pulumi.Input[bool]] = None,
                  external_id: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  policy_manager: Optional[pulumi.Input[bool]] = None,
                  realm: Optional[pulumi.Input[str]] = None,
                  realm_attributes: Optional[pulumi.Input[str]] = None,
@@ -28,18 +28,19 @@ class GroupArgs:
                  watch_manager: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a Group resource.
+        :param pulumi.Input[str] name: Name of the group
         :param pulumi.Input[bool] admin_privileges: Any users added to this group will automatically be assigned with admin privileges in the system.
         :param pulumi.Input[bool] auto_join: When this parameter is set, any new users defined in the system are automatically assigned to this group.
         :param pulumi.Input[str] description: A description for the group
         :param pulumi.Input[bool] detach_all_users: When this is set to `true`, an empty or missing usernames array will detach all users from the group
         :param pulumi.Input[str] external_id: New external group ID used to configure the corresponding group in Azure AD.
-        :param pulumi.Input[str] name: Name of the group
         :param pulumi.Input[bool] policy_manager: When this override is set, User in the group can set Xray security and compliance policies. Default value is `false`.
         :param pulumi.Input[str] realm: The realm for the group.
         :param pulumi.Input[str] realm_attributes: The realm attributes for the group.
         :param pulumi.Input[bool] reports_manager: When this override is set, User in the group can manage Xray Reports on any resource type. Default value is `false`.
         :param pulumi.Input[bool] watch_manager: When this override is set, User in the group can manage Xray Watches on any resource type. Default value is `false`.
         """
+        pulumi.set(__self__, "name", name)
         if admin_privileges is not None:
             pulumi.set(__self__, "admin_privileges", admin_privileges)
         if auto_join is not None:
@@ -50,8 +51,6 @@ class GroupArgs:
             pulumi.set(__self__, "detach_all_users", detach_all_users)
         if external_id is not None:
             pulumi.set(__self__, "external_id", external_id)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
         if policy_manager is not None:
             pulumi.set(__self__, "policy_manager", policy_manager)
         if realm is not None:
@@ -64,6 +63,18 @@ class GroupArgs:
             pulumi.set(__self__, "users_names", users_names)
         if watch_manager is not None:
             pulumi.set(__self__, "watch_manager", watch_manager)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Name of the group
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="adminPrivileges")
@@ -124,18 +135,6 @@ class GroupArgs:
     @external_id.setter
     def external_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "external_id", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the group
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="policyManager")
@@ -448,7 +447,7 @@ class Group(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[GroupArgs] = None,
+                 args: GroupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ## Import
@@ -500,6 +499,8 @@ class Group(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["detach_all_users"] = detach_all_users
             __props__.__dict__["external_id"] = external_id
+            if name is None and not opts.urn:
+                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["policy_manager"] = policy_manager
             __props__.__dict__["realm"] = realm

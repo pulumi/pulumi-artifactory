@@ -44,6 +44,7 @@ import javax.annotation.Nullable;
  *             .groups(            
  *                 &#34;logged-in-users&#34;,
  *                 &#34;readers&#34;)
+ *             .name(&#34;terraform&#34;)
  *             .password(&#34;my super secret password&#34;)
  *             .build());
  * 
