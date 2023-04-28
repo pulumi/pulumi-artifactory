@@ -143,8 +143,8 @@ namespace Pulumi.Artifactory
         /// <summary>
         /// Layout name
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         public RepositoryLayoutArgs()
         {

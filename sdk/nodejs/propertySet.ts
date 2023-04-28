@@ -20,6 +20,7 @@ import * as utilities from "./utilities";
  * import * as artifactory from "@pulumi/artifactory";
  *
  * const foo = new artifactory.PropertySet("foo", {
+ *     name: "property-set1",
  *     properties: [
  *         {
  *             closedPredefinedValues: true,
@@ -123,6 +124,9 @@ export class PropertySet extends pulumi.CustomResource {
             resourceInputs["visible"] = state ? state.visible : undefined;
         } else {
             const args = argsOrState as PropertySetArgs | undefined;
+            if ((!args || args.name === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'name'");
+            }
             if ((!args || args.properties === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'properties'");
             }
@@ -160,7 +164,7 @@ export interface PropertySetArgs {
     /**
      * Predefined property name.
      */
-    name?: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     /**
      * A list of properties that will be part of the property set.
      */

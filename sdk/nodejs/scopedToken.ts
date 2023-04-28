@@ -58,6 +58,10 @@ export class ScopedToken extends pulumi.CustomResource {
      */
     public /*out*/ readonly expiry!: pulumi.Output<number>;
     /**
+     * (Optional) Should a reference token also be created? Defaults to `false`
+     */
+    public readonly includeReferenceToken!: pulumi.Output<boolean | undefined>;
+    /**
      * Returns the token issued at date/time
      */
     public /*out*/ readonly issuedAt!: pulumi.Output<number>;
@@ -65,6 +69,10 @@ export class ScopedToken extends pulumi.CustomResource {
      * Returns the token issuer
      */
     public /*out*/ readonly issuer!: pulumi.Output<string>;
+    /**
+     * Returns the reference token to authenticate to Artifactory
+     */
+    public /*out*/ readonly referenceToken!: pulumi.Output<string>;
     public /*out*/ readonly refreshToken!: pulumi.Output<string>;
     /**
      * (Optional) Is this token refreshable? Defaults to `false`
@@ -105,8 +113,10 @@ export class ScopedToken extends pulumi.CustomResource {
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["expiresIn"] = state ? state.expiresIn : undefined;
             resourceInputs["expiry"] = state ? state.expiry : undefined;
+            resourceInputs["includeReferenceToken"] = state ? state.includeReferenceToken : undefined;
             resourceInputs["issuedAt"] = state ? state.issuedAt : undefined;
             resourceInputs["issuer"] = state ? state.issuer : undefined;
+            resourceInputs["referenceToken"] = state ? state.referenceToken : undefined;
             resourceInputs["refreshToken"] = state ? state.refreshToken : undefined;
             resourceInputs["refreshable"] = state ? state.refreshable : undefined;
             resourceInputs["scopes"] = state ? state.scopes : undefined;
@@ -118,6 +128,7 @@ export class ScopedToken extends pulumi.CustomResource {
             resourceInputs["audiences"] = args ? args.audiences : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["expiresIn"] = args ? args.expiresIn : undefined;
+            resourceInputs["includeReferenceToken"] = args ? args.includeReferenceToken : undefined;
             resourceInputs["refreshable"] = args ? args.refreshable : undefined;
             resourceInputs["scopes"] = args ? args.scopes : undefined;
             resourceInputs["username"] = args ? args.username : undefined;
@@ -125,12 +136,13 @@ export class ScopedToken extends pulumi.CustomResource {
             resourceInputs["expiry"] = undefined /*out*/;
             resourceInputs["issuedAt"] = undefined /*out*/;
             resourceInputs["issuer"] = undefined /*out*/;
+            resourceInputs["referenceToken"] = undefined /*out*/;
             resourceInputs["refreshToken"] = undefined /*out*/;
             resourceInputs["subject"] = undefined /*out*/;
             resourceInputs["tokenType"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["accessToken", "refreshToken"] };
+        const secretOpts = { additionalSecretOutputs: ["accessToken", "referenceToken", "refreshToken"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(ScopedToken.__pulumiType, name, resourceInputs, opts);
     }
@@ -161,6 +173,10 @@ export interface ScopedTokenState {
      */
     expiry?: pulumi.Input<number>;
     /**
+     * (Optional) Should a reference token also be created? Defaults to `false`
+     */
+    includeReferenceToken?: pulumi.Input<boolean>;
+    /**
      * Returns the token issued at date/time
      */
     issuedAt?: pulumi.Input<number>;
@@ -168,6 +184,10 @@ export interface ScopedTokenState {
      * Returns the token issuer
      */
     issuer?: pulumi.Input<string>;
+    /**
+     * Returns the reference token to authenticate to Artifactory
+     */
+    referenceToken?: pulumi.Input<string>;
     refreshToken?: pulumi.Input<string>;
     /**
      * (Optional) Is this token refreshable? Defaults to `false`
@@ -207,6 +227,10 @@ export interface ScopedTokenArgs {
      * (Optional) The amount of time, in seconds, it would take for the token to expire. An admin shall be able to set whether expiry is mandatory, what is the default expiry, and what is the maximum expiry allowed. Must be non-negative. Default value is based on configuration in `access.config.yaml`. See [API documentation](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-RevokeTokenbyIDrevoketokenbyid) for details.
      */
     expiresIn?: pulumi.Input<number>;
+    /**
+     * (Optional) Should a reference token also be created? Defaults to `false`
+     */
+    includeReferenceToken?: pulumi.Input<boolean>;
     /**
      * (Optional) Is this token refreshable? Defaults to `false`
      */

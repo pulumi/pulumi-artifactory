@@ -96,6 +96,20 @@ public class ScopedToken extends com.pulumi.resources.CustomResource {
         return this.expiry;
     }
     /**
+     * (Optional) Should a reference token also be created? Defaults to `false`
+     * 
+     */
+    @Export(name="includeReferenceToken", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> includeReferenceToken;
+
+    /**
+     * @return (Optional) Should a reference token also be created? Defaults to `false`
+     * 
+     */
+    public Output<Optional<Boolean>> includeReferenceToken() {
+        return Codegen.optional(this.includeReferenceToken);
+    }
+    /**
      * Returns the token issued at date/time
      * 
      */
@@ -122,6 +136,20 @@ public class ScopedToken extends com.pulumi.resources.CustomResource {
      */
     public Output<String> issuer() {
         return this.issuer;
+    }
+    /**
+     * Returns the reference token to authenticate to Artifactory
+     * 
+     */
+    @Export(name="referenceToken", type=String.class, parameters={})
+    private Output<String> referenceToken;
+
+    /**
+     * @return Returns the reference token to authenticate to Artifactory
+     * 
+     */
+    public Output<String> referenceToken() {
+        return this.referenceToken;
     }
     @Export(name="refreshToken", type=String.class, parameters={})
     private Output<String> refreshToken;
@@ -234,6 +262,7 @@ public class ScopedToken extends com.pulumi.resources.CustomResource {
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
                 "accessToken",
+                "referenceToken",
                 "refreshToken"
             ))
             .build();

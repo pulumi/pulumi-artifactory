@@ -48,6 +48,12 @@ namespace Pulumi.Artifactory
         public Output<int> Expiry { get; private set; } = null!;
 
         /// <summary>
+        /// (Optional) Should a reference token also be created? Defaults to `false`
+        /// </summary>
+        [Output("includeReferenceToken")]
+        public Output<bool?> IncludeReferenceToken { get; private set; } = null!;
+
+        /// <summary>
         /// Returns the token issued at date/time
         /// </summary>
         [Output("issuedAt")]
@@ -58,6 +64,12 @@ namespace Pulumi.Artifactory
         /// </summary>
         [Output("issuer")]
         public Output<string> Issuer { get; private set; } = null!;
+
+        /// <summary>
+        /// Returns the reference token to authenticate to Artifactory
+        /// </summary>
+        [Output("referenceToken")]
+        public Output<string> ReferenceToken { get; private set; } = null!;
 
         [Output("refreshToken")]
         public Output<string> RefreshToken { get; private set; } = null!;
@@ -118,6 +130,7 @@ namespace Pulumi.Artifactory
                 AdditionalSecretOutputs =
                 {
                     "accessToken",
+                    "referenceToken",
                     "refreshToken",
                 },
             };
@@ -166,6 +179,12 @@ namespace Pulumi.Artifactory
         /// </summary>
         [Input("expiresIn")]
         public Input<int>? ExpiresIn { get; set; }
+
+        /// <summary>
+        /// (Optional) Should a reference token also be created? Defaults to `false`
+        /// </summary>
+        [Input("includeReferenceToken")]
+        public Input<bool>? IncludeReferenceToken { get; set; }
 
         /// <summary>
         /// (Optional) Is this token refreshable? Defaults to `false`
@@ -246,6 +265,12 @@ namespace Pulumi.Artifactory
         public Input<int>? Expiry { get; set; }
 
         /// <summary>
+        /// (Optional) Should a reference token also be created? Defaults to `false`
+        /// </summary>
+        [Input("includeReferenceToken")]
+        public Input<bool>? IncludeReferenceToken { get; set; }
+
+        /// <summary>
         /// Returns the token issued at date/time
         /// </summary>
         [Input("issuedAt")]
@@ -256,6 +281,22 @@ namespace Pulumi.Artifactory
         /// </summary>
         [Input("issuer")]
         public Input<string>? Issuer { get; set; }
+
+        [Input("referenceToken")]
+        private Input<string>? _referenceToken;
+
+        /// <summary>
+        /// Returns the reference token to authenticate to Artifactory
+        /// </summary>
+        public Input<string>? ReferenceToken
+        {
+            get => _referenceToken;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _referenceToken = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("refreshToken")]
         private Input<string>? _refreshToken;

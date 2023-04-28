@@ -24,6 +24,7 @@ import * as utilities from "./utilities";
  *         "logged-in-users",
  *         "readers",
  *     ],
+ *     name: "terraform",
  *     password: "my super secret password",
  * });
  * ```
@@ -126,6 +127,9 @@ export class User extends pulumi.CustomResource {
             if ((!args || args.email === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'email'");
             }
+            if ((!args || args.name === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'name'");
+            }
             resourceInputs["admin"] = args ? args.admin : undefined;
             resourceInputs["disableUiAccess"] = args ? args.disableUiAccess : undefined;
             resourceInputs["email"] = args ? args.email : undefined;
@@ -207,7 +211,7 @@ export interface UserArgs {
     /**
      * Username for user.
      */
-    name?: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     /**
      * Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters.
      */

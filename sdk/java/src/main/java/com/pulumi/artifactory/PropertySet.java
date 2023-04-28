@@ -48,6 +48,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var foo = new PropertySet(&#34;foo&#34;, PropertySetArgs.builder()        
+ *             .name(&#34;property-set1&#34;)
  *             .properties(            
  *                 PropertySetPropertyArgs.builder()
  *                     .closedPredefinedValues(true)

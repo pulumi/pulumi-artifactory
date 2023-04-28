@@ -22,15 +22,15 @@ public final class PropertySetArgs extends com.pulumi.resources.ResourceArgs {
      * Predefined property name.
      * 
      */
-    @Import(name="name")
-    private @Nullable Output<String> name;
+    @Import(name="name", required=true)
+    private Output<String> name;
 
     /**
      * @return Predefined property name.
      * 
      */
-    public Optional<Output<String>> name() {
-        return Optional.ofNullable(this.name);
+    public Output<String> name() {
+        return this.name;
     }
 
     /**
@@ -95,7 +95,7 @@ public final class PropertySetArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder name(@Nullable Output<String> name) {
+        public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
@@ -163,6 +163,7 @@ public final class PropertySetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public PropertySetArgs build() {
+            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
             $.properties = Objects.requireNonNull($.properties, "expected parameter 'properties' to be non-null");
             return $;
         }

@@ -16,25 +16,36 @@ __all__ = ['PermissionTargetArgs', 'PermissionTarget']
 @pulumi.input_type
 class PermissionTargetArgs:
     def __init__(__self__, *,
+                 name: pulumi.Input[str],
                  build: Optional[pulumi.Input['PermissionTargetBuildArgs']] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  release_bundle: Optional[pulumi.Input['PermissionTargetReleaseBundleArgs']] = None,
                  repo: Optional[pulumi.Input['PermissionTargetRepoArgs']] = None):
         """
         The set of arguments for constructing a PermissionTarget resource.
-        :param pulumi.Input['PermissionTargetBuildArgs'] build: As for repo but for artifactory-build-info permissions.
         :param pulumi.Input[str] name: Name of permission.
+        :param pulumi.Input['PermissionTargetBuildArgs'] build: As for repo but for artifactory-build-info permissions.
         :param pulumi.Input['PermissionTargetReleaseBundleArgs'] release_bundle: As for repo for for release-bundles permissions.
         :param pulumi.Input['PermissionTargetRepoArgs'] repo: Repository permission configuration.
         """
+        pulumi.set(__self__, "name", name)
         if build is not None:
             pulumi.set(__self__, "build", build)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
         if release_bundle is not None:
             pulumi.set(__self__, "release_bundle", release_bundle)
         if repo is not None:
             pulumi.set(__self__, "repo", repo)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Name of permission.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -47,18 +58,6 @@ class PermissionTargetArgs:
     @build.setter
     def build(self, value: Optional[pulumi.Input['PermissionTargetBuildArgs']]):
         pulumi.set(self, "build", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of permission.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="releaseBundle")
@@ -191,6 +190,7 @@ class PermissionTarget(pulumi.CustomResource):
                 includes_patterns=["**"],
                 repositories=["artifactory-build-info"],
             ),
+            name="test-perm",
             release_bundle=artifactory.PermissionTargetReleaseBundleArgs(
                 actions=artifactory.PermissionTargetReleaseBundleActionsArgs(
                     users=[artifactory.PermissionTargetReleaseBundleActionsUserArgs(
@@ -261,7 +261,7 @@ class PermissionTarget(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[PermissionTargetArgs] = None,
+                 args: PermissionTargetArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an Artifactory permission target resource. This can be used to create and manage Artifactory permission targets.
@@ -287,6 +287,7 @@ class PermissionTarget(pulumi.CustomResource):
                 includes_patterns=["**"],
                 repositories=["artifactory-build-info"],
             ),
+            name="test-perm",
             release_bundle=artifactory.PermissionTargetReleaseBundleArgs(
                 actions=artifactory.PermissionTargetReleaseBundleActionsArgs(
                     users=[artifactory.PermissionTargetReleaseBundleActionsUserArgs(
@@ -375,6 +376,8 @@ class PermissionTarget(pulumi.CustomResource):
             __props__ = PermissionTargetArgs.__new__(PermissionTargetArgs)
 
             __props__.__dict__["build"] = build
+            if name is None and not opts.urn:
+                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["release_bundle"] = release_bundle
             __props__.__dict__["repo"] = repo
