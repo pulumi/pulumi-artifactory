@@ -16,11 +16,10 @@ package main
 
 import (
 	artifactory "github.com/pulumi/pulumi-artifactory/provider/v3"
-	"github.com/pulumi/pulumi-artifactory/provider/v3/pkg/version"
-	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfgen"
+	"github.com/pulumi/pulumi-terraform-bridge/pf/tfgen"
 )
 
 func main() {
 	// Modify the path to point to the new provider
-	tfgen.Main("artifactory", version.Version, artifactory.Provider())
+	tfgen.MainWithMuxer("artifactory", artifactory.Provider())
 }
