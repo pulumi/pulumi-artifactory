@@ -89,6 +89,8 @@ namespace Pulumi.Artifactory
 
         /// <summary>
         /// Unknown usage. Returned in the json payload and cannot be set.
+        /// 
+        /// Artifactory REST API call Get Key Pair doesn't return keys `private_key` and `passphrase`, but consumes these keys in the POST call.
         /// </summary>
         [Output("unavailable")]
         public Output<bool> Unavailable { get; private set; } = null!;
@@ -266,6 +268,8 @@ namespace Pulumi.Artifactory
 
         /// <summary>
         /// Unknown usage. Returned in the json payload and cannot be set.
+        /// 
+        /// Artifactory REST API call Get Key Pair doesn't return keys `private_key` and `passphrase`, but consumes these keys in the POST call.
         /// </summary>
         [Input("unavailable")]
         public Input<bool>? Unavailable { get; set; }

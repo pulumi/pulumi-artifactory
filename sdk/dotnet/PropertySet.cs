@@ -28,7 +28,6 @@ namespace Pulumi.Artifactory
     /// {
     ///     var foo = new Artifactory.PropertySet("foo", new()
     ///     {
-    ///         Name = "property-set1",
     ///         Properties = new[]
     ///         {
     ///             new Artifactory.Inputs.PropertySetPropertyArgs
@@ -154,8 +153,8 @@ namespace Pulumi.Artifactory
         /// <summary>
         /// Predefined property name.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         [Input("properties", required: true)]
         private InputList<Inputs.PropertySetPropertyArgs>? _properties;

@@ -33,6 +33,10 @@ public final class Config {
     public Optional<Boolean> checkLicense() {
         return Codegen.booleanProp("checkLicense").config(config).def(false).get();
     }
+/**
+ * Artifactory URL.
+ * 
+ */
     public Optional<String> url() {
         return Codegen.stringProp("url").config(config).get();
     }

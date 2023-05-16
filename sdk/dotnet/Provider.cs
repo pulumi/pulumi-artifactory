@@ -31,6 +31,9 @@ namespace Pulumi.Artifactory
         [Output("apiKey")]
         public Output<string?> ApiKey { get; private set; } = null!;
 
+        /// <summary>
+        /// Artifactory URL.
+        /// </summary>
         [Output("url")]
         public Output<string?> Url { get; private set; } = null!;
 
@@ -109,6 +112,9 @@ In January 2023, API Keys will be deprecated all together and the option to use 
         [Input("checkLicense", json: true)]
         public Input<bool>? CheckLicense { get; set; }
 
+        /// <summary>
+        /// Artifactory URL.
+        /// </summary>
         [Input("url")]
         public Input<string>? Url { get; set; }
 

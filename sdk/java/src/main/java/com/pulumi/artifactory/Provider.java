@@ -61,9 +61,17 @@ In January 2023, API Keys will be deprecated all together and the option to use 
     public Output<Optional<String>> apiKey() {
         return Codegen.optional(this.apiKey);
     }
+    /**
+     * Artifactory URL.
+     * 
+     */
     @Export(name="url", type=String.class, parameters={})
     private Output</* @Nullable */ String> url;
 
+    /**
+     * @return Artifactory URL.
+     * 
+     */
     public Output<Optional<String>> url() {
         return Codegen.optional(this.url);
     }

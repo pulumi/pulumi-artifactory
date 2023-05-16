@@ -389,6 +389,85 @@ class ScopedToken(pulumi.CustomResource):
                  username: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        Provides an Artifactory Scoped Token resource. This can be used to create and manage Artifactory Scoped Tokens.
+
+        !>Scoped Tokens will be stored in the raw state as plain-text. Read more about sensitive data in
+        state.
+
+        ~>Token would not be saved by Artifactory if `expires_in` is less than the persistency threshold value (default to 10800 seconds) set in Access configuration. See [Persistency Threshold](https://www.jfrog.com/confluence/display/JFROG/Access+Tokens#AccessTokens-PersistencyThreshold) for details.
+
+        ## Example Usage
+
+        ### S
+        ### Create a new Artifactory scoped token for an existing user
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        scoped_token = artifactory.ScopedToken("scopedToken", username="existing-user")
+        ```
+
+        **Note:** This assumes that the user `existing-user` has already been created in Artifactory by different means, i.e. manually or in a separate pulumi up.
+        ### Create a new Artifactory user and scoped token
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        new_user = artifactory.User("newUser",
+            email="new_user@somewhere.com",
+            groups=["readers"])
+        scoped_token_user = artifactory.ScopedToken("scopedTokenUser", username=new_user.name)
+        ```
+        ### Creates a new token for groups
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        scoped_token_group = artifactory.ScopedToken("scopedTokenGroup", scopes=["applied-permissions/groups:readers"])
+        ```
+        ### Create token with expiry
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        scoped_token_no_expiry = artifactory.ScopedToken("scopedTokenNoExpiry",
+            expires_in=7200,
+            username="existing-user")
+        ```
+        ### Creates a refreshable token
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        scoped_token_refreshable = artifactory.ScopedToken("scopedTokenRefreshable",
+            refreshable=True,
+            username="existing-user")
+        ```
+        ### Creates an administrator token
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        admin = artifactory.ScopedToken("admin",
+            scopes=["applied-permissions/admin"],
+            username="admin-user")
+        ```
+        ### Creates a token with an audience
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        audience = artifactory.ScopedToken("audience",
+            audiences=["jfrt@*"],
+            scopes=["applied-permissions/admin"],
+            username="admin-user")
+        ```
+        ## References
+
+        - https://www.jfrog.com/confluence/display/JFROG/Access+Tokens
+        - https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-AccessTokens
+
         ## Import
 
         Artifactory **does not** retain scoped tokens and cannot be imported into state.
@@ -410,6 +489,85 @@ class ScopedToken(pulumi.CustomResource):
                  args: Optional[ScopedTokenArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Provides an Artifactory Scoped Token resource. This can be used to create and manage Artifactory Scoped Tokens.
+
+        !>Scoped Tokens will be stored in the raw state as plain-text. Read more about sensitive data in
+        state.
+
+        ~>Token would not be saved by Artifactory if `expires_in` is less than the persistency threshold value (default to 10800 seconds) set in Access configuration. See [Persistency Threshold](https://www.jfrog.com/confluence/display/JFROG/Access+Tokens#AccessTokens-PersistencyThreshold) for details.
+
+        ## Example Usage
+
+        ### S
+        ### Create a new Artifactory scoped token for an existing user
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        scoped_token = artifactory.ScopedToken("scopedToken", username="existing-user")
+        ```
+
+        **Note:** This assumes that the user `existing-user` has already been created in Artifactory by different means, i.e. manually or in a separate pulumi up.
+        ### Create a new Artifactory user and scoped token
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        new_user = artifactory.User("newUser",
+            email="new_user@somewhere.com",
+            groups=["readers"])
+        scoped_token_user = artifactory.ScopedToken("scopedTokenUser", username=new_user.name)
+        ```
+        ### Creates a new token for groups
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        scoped_token_group = artifactory.ScopedToken("scopedTokenGroup", scopes=["applied-permissions/groups:readers"])
+        ```
+        ### Create token with expiry
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        scoped_token_no_expiry = artifactory.ScopedToken("scopedTokenNoExpiry",
+            expires_in=7200,
+            username="existing-user")
+        ```
+        ### Creates a refreshable token
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        scoped_token_refreshable = artifactory.ScopedToken("scopedTokenRefreshable",
+            refreshable=True,
+            username="existing-user")
+        ```
+        ### Creates an administrator token
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        admin = artifactory.ScopedToken("admin",
+            scopes=["applied-permissions/admin"],
+            username="admin-user")
+        ```
+        ### Creates a token with an audience
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        audience = artifactory.ScopedToken("audience",
+            audiences=["jfrt@*"],
+            scopes=["applied-permissions/admin"],
+            username="admin-user")
+        ```
+        ## References
+
+        - https://www.jfrog.com/confluence/display/JFROG/Access+Tokens
+        - https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-AccessTokens
+
         ## Import
 
         Artifactory **does not** retain scoped tokens and cannot be imported into state.

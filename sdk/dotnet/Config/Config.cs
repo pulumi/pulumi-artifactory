@@ -64,6 +64,9 @@ namespace Pulumi.Artifactory
         }
 
         private static readonly __Value<string?> _url = new __Value<string?>(() => __config.Get("url"));
+        /// <summary>
+        /// Artifactory URL.
+        /// </summary>
         public static string? Url
         {
             get => _url.Get();

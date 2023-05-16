@@ -38,6 +38,9 @@ In September 2022, the option to block the usage/creation of API Keys will be en
 In January 2023, API Keys will be deprecated all together and the option to use them will no longer be available.
      */
     public readonly apiKey!: pulumi.Output<string | undefined>;
+    /**
+     * Artifactory URL.
+     */
     public readonly url!: pulumi.Output<string | undefined>;
 
     /**
@@ -84,5 +87,8 @@ In January 2023, API Keys will be deprecated all together and the option to use 
      * Toggle for pre-flight checking of Artifactory Pro and Enterprise license. Default to `true`.
      */
     checkLicense?: pulumi.Input<boolean>;
+    /**
+     * Artifactory URL.
+     */
     url?: pulumi.Input<string>;
 }

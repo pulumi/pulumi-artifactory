@@ -110,7 +110,8 @@ export class AlpineRepository extends pulumi.CustomResource {
     public readonly notes!: pulumi.Output<string | undefined>;
     public /*out*/ readonly packageType!: pulumi.Output<string>;
     /**
-     * The RSA key to be used to sign alpine indices.
+     * Used to sign index files in Alpine Linux repositories. See:
+     * https://www.jfrog.com/confluence/display/JFROG/Alpine+Linux+Repositories#AlpineLinuxRepositories-SigningAlpineLinuxIndex
      */
     public readonly primaryKeypairRef!: pulumi.Output<string | undefined>;
     /**
@@ -252,7 +253,8 @@ export interface AlpineRepositoryState {
     notes?: pulumi.Input<string>;
     packageType?: pulumi.Input<string>;
     /**
-     * The RSA key to be used to sign alpine indices.
+     * Used to sign index files in Alpine Linux repositories. See:
+     * https://www.jfrog.com/confluence/display/JFROG/Alpine+Linux+Repositories#AlpineLinuxRepositories-SigningAlpineLinuxIndex
      */
     primaryKeypairRef?: pulumi.Input<string>;
     /**
@@ -334,7 +336,8 @@ export interface AlpineRepositoryArgs {
      */
     notes?: pulumi.Input<string>;
     /**
-     * The RSA key to be used to sign alpine indices.
+     * Used to sign index files in Alpine Linux repositories. See:
+     * https://www.jfrog.com/confluence/display/JFROG/Alpine+Linux+Repositories#AlpineLinuxRepositories-SigningAlpineLinuxIndex
      */
     primaryKeypairRef?: pulumi.Input<string>;
     /**

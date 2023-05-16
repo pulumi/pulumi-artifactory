@@ -10,6 +10,162 @@ using Pulumi.Serialization;
 namespace Pulumi.Artifactory
 {
     /// <summary>
+    /// Provides an Artifactory Scoped Token resource. This can be used to create and manage Artifactory Scoped Tokens.
+    /// 
+    /// !&gt;Scoped Tokens will be stored in the raw state as plain-text. Read more about sensitive data in
+    /// state.
+    /// 
+    /// ~&gt;Token would not be saved by Artifactory if `expires_in` is less than the persistency threshold value (default to 10800 seconds) set in Access configuration. See [Persistency Threshold](https://www.jfrog.com/confluence/display/JFROG/Access+Tokens#AccessTokens-PersistencyThreshold) for details.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ### S
+    /// ### Create a new Artifactory scoped token for an existing user
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Artifactory = Pulumi.Artifactory;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var scopedToken = new Artifactory.ScopedToken("scopedToken", new()
+    ///     {
+    ///         Username = "existing-user",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// **Note:** This assumes that the user `existing-user` has already been created in Artifactory by different means, i.e. manually or in a separate pulumi up.
+    /// ### Create a new Artifactory user and scoped token
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Artifactory = Pulumi.Artifactory;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var newUser = new Artifactory.User("newUser", new()
+    ///     {
+    ///         Email = "new_user@somewhere.com",
+    ///         Groups = new[]
+    ///         {
+    ///             "readers",
+    ///         },
+    ///     });
+    /// 
+    ///     var scopedTokenUser = new Artifactory.ScopedToken("scopedTokenUser", new()
+    ///     {
+    ///         Username = newUser.Name,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Creates a new token for groups
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Artifactory = Pulumi.Artifactory;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var scopedTokenGroup = new Artifactory.ScopedToken("scopedTokenGroup", new()
+    ///     {
+    ///         Scopes = new[]
+    ///         {
+    ///             "applied-permissions/groups:readers",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Create token with expiry
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Artifactory = Pulumi.Artifactory;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var scopedTokenNoExpiry = new Artifactory.ScopedToken("scopedTokenNoExpiry", new()
+    ///     {
+    ///         ExpiresIn = 7200,
+    ///         Username = "existing-user",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Creates a refreshable token
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Artifactory = Pulumi.Artifactory;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var scopedTokenRefreshable = new Artifactory.ScopedToken("scopedTokenRefreshable", new()
+    ///     {
+    ///         Refreshable = true,
+    ///         Username = "existing-user",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Creates an administrator token
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Artifactory = Pulumi.Artifactory;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var admin = new Artifactory.ScopedToken("admin", new()
+    ///     {
+    ///         Scopes = new[]
+    ///         {
+    ///             "applied-permissions/admin",
+    ///         },
+    ///         Username = "admin-user",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Creates a token with an audience
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Artifactory = Pulumi.Artifactory;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var audience = new Artifactory.ScopedToken("audience", new()
+    ///     {
+    ///         Audiences = new[]
+    ///         {
+    ///             "jfrt@*",
+    ///         },
+    ///         Scopes = new[]
+    ///         {
+    ///             "applied-permissions/admin",
+    ///         },
+    ///         Username = "admin-user",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ## References
+    /// 
+    /// - https://www.jfrog.com/confluence/display/JFROG/Access+Tokens
+    /// - https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-AccessTokens
+    /// 
     /// ## Import
     /// 
     /// Artifactory **does not** retain scoped tokens and cannot be imported into state.

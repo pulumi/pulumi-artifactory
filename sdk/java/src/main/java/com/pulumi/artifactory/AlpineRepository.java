@@ -225,14 +225,16 @@ public class AlpineRepository extends com.pulumi.resources.CustomResource {
         return this.packageType;
     }
     /**
-     * The RSA key to be used to sign alpine indices.
+     * Used to sign index files in Alpine Linux repositories. See:
+     * https://www.jfrog.com/confluence/display/JFROG/Alpine+Linux+Repositories#AlpineLinuxRepositories-SigningAlpineLinuxIndex
      * 
      */
     @Export(name="primaryKeypairRef", type=String.class, parameters={})
     private Output</* @Nullable */ String> primaryKeypairRef;
 
     /**
-     * @return The RSA key to be used to sign alpine indices.
+     * @return Used to sign index files in Alpine Linux repositories. See:
+     * https://www.jfrog.com/confluence/display/JFROG/Alpine+Linux+Repositories#AlpineLinuxRepositories-SigningAlpineLinuxIndex
      * 
      */
     public Output<Optional<String>> primaryKeypairRef() {

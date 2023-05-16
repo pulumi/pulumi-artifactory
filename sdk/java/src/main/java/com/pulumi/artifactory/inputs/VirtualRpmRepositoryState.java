@@ -221,14 +221,14 @@ public final class VirtualRpmRepositoryState extends com.pulumi.resources.Resour
     }
 
     /**
-     * The secondary GPG key to be used to sign packages.
+     * Secondary keypair used to sign artifacts.
      * 
      */
     @Import(name="secondaryKeypairRef")
     private @Nullable Output<String> secondaryKeypairRef;
 
     /**
-     * @return The secondary GPG key to be used to sign packages.
+     * @return Secondary keypair used to sign artifacts.
      * 
      */
     public Optional<Output<String>> secondaryKeypairRef() {
@@ -573,7 +573,7 @@ public final class VirtualRpmRepositoryState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param secondaryKeypairRef The secondary GPG key to be used to sign packages.
+         * @param secondaryKeypairRef Secondary keypair used to sign artifacts.
          * 
          * @return builder
          * 
@@ -584,7 +584,7 @@ public final class VirtualRpmRepositoryState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param secondaryKeypairRef The secondary GPG key to be used to sign packages.
+         * @param secondaryKeypairRef Secondary keypair used to sign artifacts.
          * 
          * @return builder
          * 

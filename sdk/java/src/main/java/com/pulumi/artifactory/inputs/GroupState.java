@@ -48,14 +48,14 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A description for the group
+     * A description for the group.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return A description for the group
+     * @return A description for the group.
      * 
      */
     public Optional<Output<String>> description() {
@@ -63,14 +63,14 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * When this is set to `true`, an empty or missing usernames array will detach all users from the group
+     * When this is set to `true`, an empty or missing usernames array will detach all users from the group.
      * 
      */
     @Import(name="detachAllUsers")
     private @Nullable Output<Boolean> detachAllUsers;
 
     /**
-     * @return When this is set to `true`, an empty or missing usernames array will detach all users from the group
+     * @return When this is set to `true`, an empty or missing usernames array will detach all users from the group.
      * 
      */
     public Optional<Output<Boolean>> detachAllUsers() {
@@ -93,14 +93,14 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the group
+     * Name of the group.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Name of the group
+     * @return Name of the group.
      * 
      */
     public Optional<Output<String>> name() {
@@ -167,9 +167,17 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.reportsManager);
     }
 
+    /**
+     * List of users assigned to the group. If not set or empty, Terraform will not manage group membership.
+     * 
+     */
     @Import(name="usersNames")
     private @Nullable Output<List<String>> usersNames;
 
+    /**
+     * @return List of users assigned to the group. If not set or empty, Terraform will not manage group membership.
+     * 
+     */
     public Optional<Output<List<String>>> usersNames() {
         return Optional.ofNullable(this.usersNames);
     }
@@ -267,7 +275,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description A description for the group
+         * @param description A description for the group.
          * 
          * @return builder
          * 
@@ -278,7 +286,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description A description for the group
+         * @param description A description for the group.
          * 
          * @return builder
          * 
@@ -288,7 +296,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param detachAllUsers When this is set to `true`, an empty or missing usernames array will detach all users from the group
+         * @param detachAllUsers When this is set to `true`, an empty or missing usernames array will detach all users from the group.
          * 
          * @return builder
          * 
@@ -299,7 +307,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param detachAllUsers When this is set to `true`, an empty or missing usernames array will detach all users from the group
+         * @param detachAllUsers When this is set to `true`, an empty or missing usernames array will detach all users from the group.
          * 
          * @return builder
          * 
@@ -330,7 +338,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of the group
+         * @param name Name of the group.
          * 
          * @return builder
          * 
@@ -341,7 +349,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of the group
+         * @param name Name of the group.
          * 
          * @return builder
          * 
@@ -434,15 +442,33 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
             return reportsManager(Output.of(reportsManager));
         }
 
+        /**
+         * @param usersNames List of users assigned to the group. If not set or empty, Terraform will not manage group membership.
+         * 
+         * @return builder
+         * 
+         */
         public Builder usersNames(@Nullable Output<List<String>> usersNames) {
             $.usersNames = usersNames;
             return this;
         }
 
+        /**
+         * @param usersNames List of users assigned to the group. If not set or empty, Terraform will not manage group membership.
+         * 
+         * @return builder
+         * 
+         */
         public Builder usersNames(List<String> usersNames) {
             return usersNames(Output.of(usersNames));
         }
 
+        /**
+         * @param usersNames List of users assigned to the group. If not set or empty, Terraform will not manage group membership.
+         * 
+         * @return builder
+         * 
+         */
         public Builder usersNames(String... usersNames) {
             return usersNames(List.of(usersNames));
         }

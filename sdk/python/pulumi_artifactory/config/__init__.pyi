@@ -26,4 +26,7 @@ Toggle for pre-flight checking of Artifactory Pro and Enterprise license. Defaul
 """
 
 url: Optional[str]
+"""
+Artifactory URL.
+"""
 

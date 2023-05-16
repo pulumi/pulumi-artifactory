@@ -110,15 +110,15 @@ public final class LdapGroupSettingArgs extends com.pulumi.resources.ResourceArg
      * Ldap group setting name.
      * 
      */
-    @Import(name="name", required=true)
-    private Output<String> name;
+    @Import(name="name")
+    private @Nullable Output<String> name;
 
     /**
      * @return Ldap group setting name.
      * 
      */
-    public Output<String> name() {
-        return this.name;
+    public Optional<Output<String>> name() {
+        return Optional.ofNullable(this.name);
     }
 
     /**
@@ -321,7 +321,7 @@ public final class LdapGroupSettingArgs extends com.pulumi.resources.ResourceArg
          * @return builder
          * 
          */
-        public Builder name(Output<String> name) {
+        public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
@@ -390,7 +390,6 @@ public final class LdapGroupSettingArgs extends com.pulumi.resources.ResourceArg
             $.groupMemberAttribute = Objects.requireNonNull($.groupMemberAttribute, "expected parameter 'groupMemberAttribute' to be non-null");
             $.groupNameAttribute = Objects.requireNonNull($.groupNameAttribute, "expected parameter 'groupNameAttribute' to be non-null");
             $.ldapSettingKey = Objects.requireNonNull($.ldapSettingKey, "expected parameter 'ldapSettingKey' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
             $.strategy = Objects.requireNonNull($.strategy, "expected parameter 'strategy' to be non-null");
             return $;
         }

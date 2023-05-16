@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -47,7 +46,6 @@ import (
 //						pulumi.String("artifactory-build-info"),
 //					},
 //				},
-//				Name: pulumi.String("test-perm"),
 //				ReleaseBundle: &artifactory.PermissionTargetReleaseBundleArgs{
 //					Actions: &artifactory.PermissionTargetReleaseBundleActionsArgs{
 //						Users: artifactory.PermissionTargetReleaseBundleActionsUserArray{
@@ -153,12 +151,9 @@ type PermissionTargets struct {
 func NewPermissionTargets(ctx *pulumi.Context,
 	name string, args *PermissionTargetsArgs, opts ...pulumi.ResourceOption) (*PermissionTargets, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &PermissionTargetsArgs{}
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	var resource PermissionTargets
 	err := ctx.RegisterResource("artifactory:index/permissionTargets:PermissionTargets", name, args, &resource, opts...)
 	if err != nil {
@@ -210,7 +205,7 @@ type permissionTargetsArgs struct {
 	// As for repo but for artifactory-build-info permissions.
 	Build *PermissionTargetsBuild `pulumi:"build"`
 	// Name of permission.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// As for repo for for release-bundles permissions.
 	ReleaseBundle *PermissionTargetsReleaseBundle `pulumi:"releaseBundle"`
 	// Repository permission configuration.
@@ -222,7 +217,7 @@ type PermissionTargetsArgs struct {
 	// As for repo but for artifactory-build-info permissions.
 	Build PermissionTargetsBuildPtrInput
 	// Name of permission.
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// As for repo for for release-bundles permissions.
 	ReleaseBundle PermissionTargetsReleaseBundlePtrInput
 	// Repository permission configuration.

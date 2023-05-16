@@ -70,7 +70,7 @@ import javax.annotation.Nullable;
  * 
  * Current OAuth SSO settings can be imported using `oauth_settings` as the `ID`. If the resource is being imported, there will be a state drift, because `client_secret` can&#39;t be known. There are two options on how to approach this:
  * 
- * 1) Don&#39;t set `client_secret` initially, import, then update the config with actual secret; 2) Accept that there is a drift initially and run `terraform apply` twice;
+ * 1) Don&#39;t set `client_secret` initially, import, then update the config with actual secret; 2) Accept that there is a drift initially and run `pulumi up` twice;
  * 
  * ```sh
  *  $ pulumi import artifactory:index/oauthSettings:OauthSettings oauth oauth_settings

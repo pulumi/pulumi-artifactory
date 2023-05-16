@@ -277,14 +277,14 @@ public class VirtualRpmRepository extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.repositories);
     }
     /**
-     * The secondary GPG key to be used to sign packages.
+     * Secondary keypair used to sign artifacts.
      * 
      */
     @Export(name="secondaryKeypairRef", type=String.class, parameters={})
     private Output</* @Nullable */ String> secondaryKeypairRef;
 
     /**
-     * @return The secondary GPG key to be used to sign packages.
+     * @return Secondary keypair used to sign artifacts.
      * 
      */
     public Output<Optional<String>> secondaryKeypairRef() {

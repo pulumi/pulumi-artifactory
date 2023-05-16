@@ -11,6 +11,247 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides an Artifactory Access Token resource. This can be used to create and manage Artifactory Access Tokens.
+//
+// > **Note:** Access Tokens will be stored in the raw state as plain-text. Read more about sensitive data in
+// state.
+//
+// ## Example Usage
+//
+// ### S
+// ### Create a new Artifactory Access Token for an existing user
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewAccessToken(ctx, "exisingUser", &artifactory.AccessTokenArgs{
+//				EndDateRelative: pulumi.String("5m"),
+//				Username:        pulumi.String("existing-user"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// Note: This assumes that the user `existing-user` has already been created in Artifactory by different means, i.e. manually or in a separate pulumi up.
+// ### Create a new Artifactory User and Access token
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			newUserUser, err := artifactory.NewUser(ctx, "newUserUser", &artifactory.UserArgs{
+//				Email: pulumi.String("new_user@somewhere.com"),
+//				Groups: pulumi.StringArray{
+//					pulumi.String("readers"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = artifactory.NewAccessToken(ctx, "newUserAccessToken", &artifactory.AccessTokenArgs{
+//				Username:        newUserUser.Name,
+//				EndDateRelative: pulumi.String("5m"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Creates a new token for groups
+// This creates a transient user called `temporary-user`.
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewAccessToken(ctx, "temporaryUser", &artifactory.AccessTokenArgs{
+//				EndDateRelative: pulumi.String("1h"),
+//				Groups: pulumi.StringArray{
+//					pulumi.String("readers"),
+//				},
+//				Username: pulumi.String("temporary-user"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Create token with no expiry
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewAccessToken(ctx, "noExpiry", &artifactory.AccessTokenArgs{
+//				EndDateRelative: pulumi.String("0s"),
+//				Username:        pulumi.String("existing-user"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Creates a refreshable token
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewAccessToken(ctx, "refreshable", &artifactory.AccessTokenArgs{
+//				EndDateRelative: pulumi.String("1m"),
+//				Groups: pulumi.StringArray{
+//					pulumi.String("readers"),
+//				},
+//				Refreshable: pulumi.Bool(true),
+//				Username:    pulumi.String("refreshable"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Creates an administrator token
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewAccessToken(ctx, "admin", &artifactory.AccessTokenArgs{
+//				AdminToken: &artifactory.AccessTokenAdminTokenArgs{
+//					InstanceId: pulumi.String("<instance id>"),
+//				},
+//				EndDateRelative: pulumi.String("1m"),
+//				Username:        pulumi.String("admin"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Creates a token with an audience
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewAccessToken(ctx, "audience", &artifactory.AccessTokenArgs{
+//				Audience:        pulumi.String("jfrt@*"),
+//				EndDateRelative: pulumi.String("1m"),
+//				Refreshable:     pulumi.Bool(true),
+//				Username:        pulumi.String("audience"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Creates a token with a fixed end date
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewAccessToken(ctx, "fixeddate", &artifactory.AccessTokenArgs{
+//				EndDate: pulumi.String("2018-01-01T01:02:03Z"),
+//				Groups: pulumi.StringArray{
+//					pulumi.String("readers"),
+//				},
+//				Username: pulumi.String("fixeddate"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ## References
+//
+// - https://www.jfrog.com/confluence/display/ACC1X/Access+Tokens
+// - https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-CreateToken
+//
 // ## Import
 //
 // Artifactory **does not** retain access tokens and cannot be imported into state.

@@ -129,6 +129,8 @@ class _KeypairState:
         :param pulumi.Input[str] private_key: Private key. PEM format will be validated.
         :param pulumi.Input[str] public_key: Public key. PEM format will be validated.
         :param pulumi.Input[bool] unavailable: Unknown usage. Returned in the json payload and cannot be set.
+               
+               Artifactory REST API call Get Key Pair doesn't return keys `private_key` and `passphrase`, but consumes these keys in the POST call.
         """
         if alias is not None:
             pulumi.set(__self__, "alias", alias)
@@ -222,6 +224,8 @@ class _KeypairState:
     def unavailable(self) -> Optional[pulumi.Input[bool]]:
         """
         Unknown usage. Returned in the json payload and cannot be set.
+
+        Artifactory REST API call Get Key Pair doesn't return keys `private_key` and `passphrase`, but consumes these keys in the POST call.
         """
         return pulumi.get(self, "unavailable")
 
@@ -397,6 +401,8 @@ class Keypair(pulumi.CustomResource):
         :param pulumi.Input[str] private_key: Private key. PEM format will be validated.
         :param pulumi.Input[str] public_key: Public key. PEM format will be validated.
         :param pulumi.Input[bool] unavailable: Unknown usage. Returned in the json payload and cannot be set.
+               
+               Artifactory REST API call Get Key Pair doesn't return keys `private_key` and `passphrase`, but consumes these keys in the POST call.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -464,6 +470,8 @@ class Keypair(pulumi.CustomResource):
     def unavailable(self) -> pulumi.Output[bool]:
         """
         Unknown usage. Returned in the json payload and cannot be set.
+
+        Artifactory REST API call Get Key Pair doesn't return keys `private_key` and `passphrase`, but consumes these keys in the POST call.
         """
         return pulumi.get(self, "unavailable")
 

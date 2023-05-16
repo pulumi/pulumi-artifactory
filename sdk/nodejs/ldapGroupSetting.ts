@@ -26,7 +26,6 @@ import * as utilities from "./utilities";
  *     groupMemberAttribute: "uniqueMember",
  *     groupNameAttribute: "cn",
  *     ldapSettingKey: "ldap_name",
- *     name: "ldap_group_name",
  *     strategy: "STATIC",
  *     subTree: true,
  * });
@@ -149,9 +148,6 @@ export class LdapGroupSetting extends pulumi.CustomResource {
             if ((!args || args.ldapSettingKey === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'ldapSettingKey'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             if ((!args || args.strategy === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'strategy'");
             }
@@ -246,7 +242,7 @@ export interface LdapGroupSettingArgs {
     /**
      * Ldap group setting name.
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The JFrog Platform Deployment (JPD) supports three ways of mapping groups to LDAP schemas:
      * - STATIC: Group objects are aware of their members, however, the users are not aware of the groups they belong to. Each group object such as groupOfNames or groupOfUniqueNames holds its respective member attributes, typically member or uniqueMember, which is a user DN.

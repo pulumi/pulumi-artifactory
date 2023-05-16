@@ -49,7 +49,7 @@ class VirtualRpmRepositoryArgs:
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
         :param pulumi.Input[Sequence[pulumi.Input[str]]] repositories: The effective list of actual repositories included in this virtual repository.
-        :param pulumi.Input[str] secondary_keypair_ref: The secondary GPG key to be used to sign packages.
+        :param pulumi.Input[str] secondary_keypair_ref: Secondary keypair used to sign artifacts.
         """
         pulumi.set(__self__, "key", key)
         if artifactory_requests_can_retrieve_remote_artifacts is not None:
@@ -233,7 +233,7 @@ class VirtualRpmRepositoryArgs:
     @pulumi.getter(name="secondaryKeypairRef")
     def secondary_keypair_ref(self) -> Optional[pulumi.Input[str]]:
         """
-        The secondary GPG key to be used to sign packages.
+        Secondary keypair used to sign artifacts.
         """
         return pulumi.get(self, "secondary_keypair_ref")
 
@@ -281,7 +281,7 @@ class _VirtualRpmRepositoryState:
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
         :param pulumi.Input[Sequence[pulumi.Input[str]]] repositories: The effective list of actual repositories included in this virtual repository.
-        :param pulumi.Input[str] secondary_keypair_ref: The secondary GPG key to be used to sign packages.
+        :param pulumi.Input[str] secondary_keypair_ref: Secondary keypair used to sign artifacts.
         """
         if artifactory_requests_can_retrieve_remote_artifacts is not None:
             pulumi.set(__self__, "artifactory_requests_can_retrieve_remote_artifacts", artifactory_requests_can_retrieve_remote_artifacts)
@@ -477,7 +477,7 @@ class _VirtualRpmRepositoryState:
     @pulumi.getter(name="secondaryKeypairRef")
     def secondary_keypair_ref(self) -> Optional[pulumi.Input[str]]:
         """
-        The secondary GPG key to be used to sign packages.
+        Secondary keypair used to sign artifacts.
         """
         return pulumi.get(self, "secondary_keypair_ref")
 
@@ -567,7 +567,7 @@ class VirtualRpmRepository(pulumi.CustomResource):
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
         :param pulumi.Input[Sequence[pulumi.Input[str]]] repositories: The effective list of actual repositories included in this virtual repository.
-        :param pulumi.Input[str] secondary_keypair_ref: The secondary GPG key to be used to sign packages.
+        :param pulumi.Input[str] secondary_keypair_ref: Secondary keypair used to sign artifacts.
         """
         ...
     @overload
@@ -719,7 +719,7 @@ class VirtualRpmRepository(pulumi.CustomResource):
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
         :param pulumi.Input[Sequence[pulumi.Input[str]]] repositories: The effective list of actual repositories included in this virtual repository.
-        :param pulumi.Input[str] secondary_keypair_ref: The secondary GPG key to be used to sign packages.
+        :param pulumi.Input[str] secondary_keypair_ref: Secondary keypair used to sign artifacts.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -854,7 +854,7 @@ class VirtualRpmRepository(pulumi.CustomResource):
     @pulumi.getter(name="secondaryKeypairRef")
     def secondary_keypair_ref(self) -> pulumi.Output[Optional[str]]:
         """
-        The secondary GPG key to be used to sign packages.
+        Secondary keypair used to sign artifacts.
         """
         return pulumi.get(self, "secondary_keypair_ref")
 

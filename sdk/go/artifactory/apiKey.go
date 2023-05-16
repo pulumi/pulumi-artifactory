@@ -10,6 +10,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides an Artifactory API key resource. This can be used to create and manage Artifactory API keys.
+//
+// > **Note:** API keys will be stored in the raw state as plain-text. Read more about sensitive data in state.
+//
 // ## Example Usage
 //
 // ```go

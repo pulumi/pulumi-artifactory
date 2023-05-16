@@ -24,6 +24,7 @@ class ProviderArgs:
                attribute value will be used.
         :param pulumi.Input[str] api_key: API token. Projects functionality will not work with any auth method other than access tokens
         :param pulumi.Input[bool] check_license: Toggle for pre-flight checking of Artifactory Pro and Enterprise license. Default to `true`.
+        :param pulumi.Input[str] url: Artifactory URL.
         """
         if access_token is not None:
             pulumi.set(__self__, "access_token", access_token)
@@ -83,6 +84,9 @@ In January 2023, API Keys will be deprecated all together and the option to use 
     @property
     @pulumi.getter
     def url(self) -> Optional[pulumi.Input[str]]:
+        """
+        Artifactory URL.
+        """
         return pulumi.get(self, "url")
 
     @url.setter
@@ -112,6 +116,7 @@ class Provider(pulumi.ProviderResource):
                attribute value will be used.
         :param pulumi.Input[str] api_key: API token. Projects functionality will not work with any auth method other than access tokens
         :param pulumi.Input[bool] check_license: Toggle for pre-flight checking of Artifactory Pro and Enterprise license. Default to `true`.
+        :param pulumi.Input[str] url: Artifactory URL.
         """
         ...
     @overload
@@ -194,5 +199,8 @@ In January 2023, API Keys will be deprecated all together and the option to use 
     @property
     @pulumi.getter
     def url(self) -> pulumi.Output[Optional[str]]:
+        """
+        Artifactory URL.
+        """
         return pulumi.get(self, "url")
 

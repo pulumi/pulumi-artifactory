@@ -42,6 +42,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Certificate{}
 	case "artifactory:index/debianRepository:DebianRepository":
 		r = &DebianRepository{}
+	case "artifactory:index/distributionPublicKey:DistributionPublicKey":
+		r = &DistributionPublicKey{}
 	case "artifactory:index/distributionWebhook:DistributionWebhook":
 		r = &DistributionWebhook{}
 	case "artifactory:index/dockerV1Repository:DockerV1Repository":
@@ -417,6 +419,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"artifactory",
 		"index/debianRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/distributionPublicKey",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

@@ -18,6 +18,238 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Provides an Artifactory Scoped Token resource. This can be used to create and manage Artifactory Scoped Tokens.
+ * 
+ * !&gt;Scoped Tokens will be stored in the raw state as plain-text. Read more about sensitive data in
+ * state.
+ * 
+ * ~&gt;Token would not be saved by Artifactory if `expires_in` is less than the persistency threshold value (default to 10800 seconds) set in Access configuration. See [Persistency Threshold](https://www.jfrog.com/confluence/display/JFROG/Access+Tokens#AccessTokens-PersistencyThreshold) for details.
+ * 
+ * ## Example Usage
+ * 
+ * ### S
+ * ### Create a new Artifactory scoped token for an existing user
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.artifactory.ScopedToken;
+ * import com.pulumi.artifactory.ScopedTokenArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var scopedToken = new ScopedToken(&#34;scopedToken&#34;, ScopedTokenArgs.builder()        
+ *             .username(&#34;existing-user&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * **Note:** This assumes that the user `existing-user` has already been created in Artifactory by different means, i.e. manually or in a separate pulumi up.
+ * ### Create a new Artifactory user and scoped token
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.artifactory.User;
+ * import com.pulumi.artifactory.UserArgs;
+ * import com.pulumi.artifactory.ScopedToken;
+ * import com.pulumi.artifactory.ScopedTokenArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var newUser = new User(&#34;newUser&#34;, UserArgs.builder()        
+ *             .email(&#34;new_user@somewhere.com&#34;)
+ *             .groups(&#34;readers&#34;)
+ *             .build());
+ * 
+ *         var scopedTokenUser = new ScopedToken(&#34;scopedTokenUser&#34;, ScopedTokenArgs.builder()        
+ *             .username(newUser.name())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Creates a new token for groups
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.artifactory.ScopedToken;
+ * import com.pulumi.artifactory.ScopedTokenArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var scopedTokenGroup = new ScopedToken(&#34;scopedTokenGroup&#34;, ScopedTokenArgs.builder()        
+ *             .scopes(&#34;applied-permissions/groups:readers&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Create token with expiry
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.artifactory.ScopedToken;
+ * import com.pulumi.artifactory.ScopedTokenArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var scopedTokenNoExpiry = new ScopedToken(&#34;scopedTokenNoExpiry&#34;, ScopedTokenArgs.builder()        
+ *             .expiresIn(7200)
+ *             .username(&#34;existing-user&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Creates a refreshable token
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.artifactory.ScopedToken;
+ * import com.pulumi.artifactory.ScopedTokenArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var scopedTokenRefreshable = new ScopedToken(&#34;scopedTokenRefreshable&#34;, ScopedTokenArgs.builder()        
+ *             .refreshable(true)
+ *             .username(&#34;existing-user&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Creates an administrator token
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.artifactory.ScopedToken;
+ * import com.pulumi.artifactory.ScopedTokenArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var admin = new ScopedToken(&#34;admin&#34;, ScopedTokenArgs.builder()        
+ *             .scopes(&#34;applied-permissions/admin&#34;)
+ *             .username(&#34;admin-user&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Creates a token with an audience
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.artifactory.ScopedToken;
+ * import com.pulumi.artifactory.ScopedTokenArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var audience = new ScopedToken(&#34;audience&#34;, ScopedTokenArgs.builder()        
+ *             .audiences(&#34;jfrt@*&#34;)
+ *             .scopes(&#34;applied-permissions/admin&#34;)
+ *             .username(&#34;admin-user&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ## References
+ * 
+ * - https://www.jfrog.com/confluence/display/JFROG/Access+Tokens
+ * - https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-AccessTokens
+ * 
  * ## Import
  * 
  * Artifactory **does not** retain scoped tokens and cannot be imported into state.

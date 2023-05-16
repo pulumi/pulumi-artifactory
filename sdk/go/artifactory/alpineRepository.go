@@ -100,7 +100,8 @@ type AlpineRepository struct {
 	// Internal description.
 	Notes       pulumi.StringPtrOutput `pulumi:"notes"`
 	PackageType pulumi.StringOutput    `pulumi:"packageType"`
-	// The RSA key to be used to sign alpine indices.
+	// Used to sign index files in Alpine Linux repositories. See:
+	// https://www.jfrog.com/confluence/display/JFROG/Alpine+Linux+Repositories#AlpineLinuxRepositories-SigningAlpineLinuxIndex
 	PrimaryKeypairRef pulumi.StringPtrOutput `pulumi:"primaryKeypairRef"`
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution pulumi.BoolPtrOutput `pulumi:"priorityResolution"`
@@ -179,7 +180,8 @@ type alpineRepositoryState struct {
 	// Internal description.
 	Notes       *string `pulumi:"notes"`
 	PackageType *string `pulumi:"packageType"`
-	// The RSA key to be used to sign alpine indices.
+	// Used to sign index files in Alpine Linux repositories. See:
+	// https://www.jfrog.com/confluence/display/JFROG/Alpine+Linux+Repositories#AlpineLinuxRepositories-SigningAlpineLinuxIndex
 	PrimaryKeypairRef *string `pulumi:"primaryKeypairRef"`
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution *bool `pulumi:"priorityResolution"`
@@ -227,7 +229,8 @@ type AlpineRepositoryState struct {
 	// Internal description.
 	Notes       pulumi.StringPtrInput
 	PackageType pulumi.StringPtrInput
-	// The RSA key to be used to sign alpine indices.
+	// Used to sign index files in Alpine Linux repositories. See:
+	// https://www.jfrog.com/confluence/display/JFROG/Alpine+Linux+Repositories#AlpineLinuxRepositories-SigningAlpineLinuxIndex
 	PrimaryKeypairRef pulumi.StringPtrInput
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution pulumi.BoolPtrInput
@@ -278,7 +281,8 @@ type alpineRepositoryArgs struct {
 	Key string `pulumi:"key"`
 	// Internal description.
 	Notes *string `pulumi:"notes"`
-	// The RSA key to be used to sign alpine indices.
+	// Used to sign index files in Alpine Linux repositories. See:
+	// https://www.jfrog.com/confluence/display/JFROG/Alpine+Linux+Repositories#AlpineLinuxRepositories-SigningAlpineLinuxIndex
 	PrimaryKeypairRef *string `pulumi:"primaryKeypairRef"`
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution *bool `pulumi:"priorityResolution"`
@@ -326,7 +330,8 @@ type AlpineRepositoryArgs struct {
 	Key pulumi.StringInput
 	// Internal description.
 	Notes pulumi.StringPtrInput
-	// The RSA key to be used to sign alpine indices.
+	// Used to sign index files in Alpine Linux repositories. See:
+	// https://www.jfrog.com/confluence/display/JFROG/Alpine+Linux+Repositories#AlpineLinuxRepositories-SigningAlpineLinuxIndex
 	PrimaryKeypairRef pulumi.StringPtrInput
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution pulumi.BoolPtrInput
@@ -493,7 +498,8 @@ func (o AlpineRepositoryOutput) PackageType() pulumi.StringOutput {
 	return o.ApplyT(func(v *AlpineRepository) pulumi.StringOutput { return v.PackageType }).(pulumi.StringOutput)
 }
 
-// The RSA key to be used to sign alpine indices.
+// Used to sign index files in Alpine Linux repositories. See:
+// https://www.jfrog.com/confluence/display/JFROG/Alpine+Linux+Repositories#AlpineLinuxRepositories-SigningAlpineLinuxIndex
 func (o AlpineRepositoryOutput) PrimaryKeypairRef() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlpineRepository) pulumi.StringPtrOutput { return v.PrimaryKeypairRef }).(pulumi.StringPtrOutput)
 }

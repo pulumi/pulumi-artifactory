@@ -111,15 +111,15 @@ public final class RepositoryLayoutArgs extends com.pulumi.resources.ResourceArg
      * Layout name
      * 
      */
-    @Import(name="name", required=true)
-    private Output<String> name;
+    @Import(name="name")
+    private @Nullable Output<String> name;
 
     /**
      * @return Layout name
      * 
      */
-    public Output<String> name() {
-        return this.name;
+    public Optional<Output<String>> name() {
+        return Optional.ofNullable(this.name);
     }
 
     private RepositoryLayoutArgs() {}
@@ -278,7 +278,7 @@ public final class RepositoryLayoutArgs extends com.pulumi.resources.ResourceArg
          * @return builder
          * 
          */
-        public Builder name(Output<String> name) {
+        public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
@@ -297,7 +297,6 @@ public final class RepositoryLayoutArgs extends com.pulumi.resources.ResourceArg
             $.artifactPathPattern = Objects.requireNonNull($.artifactPathPattern, "expected parameter 'artifactPathPattern' to be non-null");
             $.fileIntegrationRevisionRegexp = Objects.requireNonNull($.fileIntegrationRevisionRegexp, "expected parameter 'fileIntegrationRevisionRegexp' to be non-null");
             $.folderIntegrationRevisionRegexp = Objects.requireNonNull($.folderIntegrationRevisionRegexp, "expected parameter 'folderIntegrationRevisionRegexp' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
             return $;
         }
     }

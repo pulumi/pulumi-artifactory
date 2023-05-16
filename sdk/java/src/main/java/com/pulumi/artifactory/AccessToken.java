@@ -18,6 +18,279 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Provides an Artifactory Access Token resource. This can be used to create and manage Artifactory Access Tokens.
+ * 
+ * &gt; **Note:** Access Tokens will be stored in the raw state as plain-text. Read more about sensitive data in
+ * state.
+ * 
+ * ## Example Usage
+ * 
+ * ### S
+ * ### Create a new Artifactory Access Token for an existing user
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.artifactory.AccessToken;
+ * import com.pulumi.artifactory.AccessTokenArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exisingUser = new AccessToken(&#34;exisingUser&#34;, AccessTokenArgs.builder()        
+ *             .endDateRelative(&#34;5m&#34;)
+ *             .username(&#34;existing-user&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * Note: This assumes that the user `existing-user` has already been created in Artifactory by different means, i.e. manually or in a separate pulumi up.
+ * ### Create a new Artifactory User and Access token
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.artifactory.User;
+ * import com.pulumi.artifactory.UserArgs;
+ * import com.pulumi.artifactory.AccessToken;
+ * import com.pulumi.artifactory.AccessTokenArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var newUserUser = new User(&#34;newUserUser&#34;, UserArgs.builder()        
+ *             .email(&#34;new_user@somewhere.com&#34;)
+ *             .groups(&#34;readers&#34;)
+ *             .build());
+ * 
+ *         var newUserAccessToken = new AccessToken(&#34;newUserAccessToken&#34;, AccessTokenArgs.builder()        
+ *             .username(newUserUser.name())
+ *             .endDateRelative(&#34;5m&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Creates a new token for groups
+ * This creates a transient user called `temporary-user`.
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.artifactory.AccessToken;
+ * import com.pulumi.artifactory.AccessTokenArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var temporaryUser = new AccessToken(&#34;temporaryUser&#34;, AccessTokenArgs.builder()        
+ *             .endDateRelative(&#34;1h&#34;)
+ *             .groups(&#34;readers&#34;)
+ *             .username(&#34;temporary-user&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Create token with no expiry
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.artifactory.AccessToken;
+ * import com.pulumi.artifactory.AccessTokenArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var noExpiry = new AccessToken(&#34;noExpiry&#34;, AccessTokenArgs.builder()        
+ *             .endDateRelative(&#34;0s&#34;)
+ *             .username(&#34;existing-user&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Creates a refreshable token
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.artifactory.AccessToken;
+ * import com.pulumi.artifactory.AccessTokenArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var refreshable = new AccessToken(&#34;refreshable&#34;, AccessTokenArgs.builder()        
+ *             .endDateRelative(&#34;1m&#34;)
+ *             .groups(&#34;readers&#34;)
+ *             .refreshable(true)
+ *             .username(&#34;refreshable&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Creates an administrator token
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.artifactory.AccessToken;
+ * import com.pulumi.artifactory.AccessTokenArgs;
+ * import com.pulumi.artifactory.inputs.AccessTokenAdminTokenArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var admin = new AccessToken(&#34;admin&#34;, AccessTokenArgs.builder()        
+ *             .adminToken(AccessTokenAdminTokenArgs.builder()
+ *                 .instanceId(&#34;&lt;instance id&gt;&#34;)
+ *                 .build())
+ *             .endDateRelative(&#34;1m&#34;)
+ *             .username(&#34;admin&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Creates a token with an audience
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.artifactory.AccessToken;
+ * import com.pulumi.artifactory.AccessTokenArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var audience = new AccessToken(&#34;audience&#34;, AccessTokenArgs.builder()        
+ *             .audience(&#34;jfrt@*&#34;)
+ *             .endDateRelative(&#34;1m&#34;)
+ *             .refreshable(true)
+ *             .username(&#34;audience&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Creates a token with a fixed end date
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.artifactory.AccessToken;
+ * import com.pulumi.artifactory.AccessTokenArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var fixeddate = new AccessToken(&#34;fixeddate&#34;, AccessTokenArgs.builder()        
+ *             .endDate(&#34;2018-01-01T01:02:03Z&#34;)
+ *             .groups(&#34;readers&#34;)
+ *             .username(&#34;fixeddate&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ## References
+ * 
+ * - https://www.jfrog.com/confluence/display/ACC1X/Access+Tokens
+ * - https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-CreateToken
+ * 
  * ## Import
  * 
  * Artifactory **does not** retain access tokens and cannot be imported into state.

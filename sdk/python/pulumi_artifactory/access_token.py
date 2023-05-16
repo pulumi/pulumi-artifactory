@@ -298,6 +298,107 @@ class AccessToken(pulumi.CustomResource):
                  username: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        Provides an Artifactory Access Token resource. This can be used to create and manage Artifactory Access Tokens.
+
+        > **Note:** Access Tokens will be stored in the raw state as plain-text. Read more about sensitive data in
+        state.
+
+        ## Example Usage
+
+        ### S
+        ### Create a new Artifactory Access Token for an existing user
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        exising_user = artifactory.AccessToken("exisingUser",
+            end_date_relative="5m",
+            username="existing-user")
+        ```
+
+        Note: This assumes that the user `existing-user` has already been created in Artifactory by different means, i.e. manually or in a separate pulumi up.
+        ### Create a new Artifactory User and Access token
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        new_user_user = artifactory.User("newUserUser",
+            email="new_user@somewhere.com",
+            groups=["readers"])
+        new_user_access_token = artifactory.AccessToken("newUserAccessToken",
+            username=new_user_user.name,
+            end_date_relative="5m")
+        ```
+        ### Creates a new token for groups
+        This creates a transient user called `temporary-user`.
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        temporary_user = artifactory.AccessToken("temporaryUser",
+            end_date_relative="1h",
+            groups=["readers"],
+            username="temporary-user")
+        ```
+        ### Create token with no expiry
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        no_expiry = artifactory.AccessToken("noExpiry",
+            end_date_relative="0s",
+            username="existing-user")
+        ```
+        ### Creates a refreshable token
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        refreshable = artifactory.AccessToken("refreshable",
+            end_date_relative="1m",
+            groups=["readers"],
+            refreshable=True,
+            username="refreshable")
+        ```
+        ### Creates an administrator token
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        admin = artifactory.AccessToken("admin",
+            admin_token=artifactory.AccessTokenAdminTokenArgs(
+                instance_id="<instance id>",
+            ),
+            end_date_relative="1m",
+            username="admin")
+        ```
+        ### Creates a token with an audience
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        audience = artifactory.AccessToken("audience",
+            audience="jfrt@*",
+            end_date_relative="1m",
+            refreshable=True,
+            username="audience")
+        ```
+        ### Creates a token with a fixed end date
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        fixeddate = artifactory.AccessToken("fixeddate",
+            end_date="2018-01-01T01:02:03Z",
+            groups=["readers"],
+            username="fixeddate")
+        ```
+        ## References
+
+        - https://www.jfrog.com/confluence/display/ACC1X/Access+Tokens
+        - https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-CreateToken
+
         ## Import
 
         Artifactory **does not** retain access tokens and cannot be imported into state.
@@ -319,6 +420,107 @@ class AccessToken(pulumi.CustomResource):
                  args: AccessTokenArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Provides an Artifactory Access Token resource. This can be used to create and manage Artifactory Access Tokens.
+
+        > **Note:** Access Tokens will be stored in the raw state as plain-text. Read more about sensitive data in
+        state.
+
+        ## Example Usage
+
+        ### S
+        ### Create a new Artifactory Access Token for an existing user
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        exising_user = artifactory.AccessToken("exisingUser",
+            end_date_relative="5m",
+            username="existing-user")
+        ```
+
+        Note: This assumes that the user `existing-user` has already been created in Artifactory by different means, i.e. manually or in a separate pulumi up.
+        ### Create a new Artifactory User and Access token
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        new_user_user = artifactory.User("newUserUser",
+            email="new_user@somewhere.com",
+            groups=["readers"])
+        new_user_access_token = artifactory.AccessToken("newUserAccessToken",
+            username=new_user_user.name,
+            end_date_relative="5m")
+        ```
+        ### Creates a new token for groups
+        This creates a transient user called `temporary-user`.
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        temporary_user = artifactory.AccessToken("temporaryUser",
+            end_date_relative="1h",
+            groups=["readers"],
+            username="temporary-user")
+        ```
+        ### Create token with no expiry
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        no_expiry = artifactory.AccessToken("noExpiry",
+            end_date_relative="0s",
+            username="existing-user")
+        ```
+        ### Creates a refreshable token
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        refreshable = artifactory.AccessToken("refreshable",
+            end_date_relative="1m",
+            groups=["readers"],
+            refreshable=True,
+            username="refreshable")
+        ```
+        ### Creates an administrator token
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        admin = artifactory.AccessToken("admin",
+            admin_token=artifactory.AccessTokenAdminTokenArgs(
+                instance_id="<instance id>",
+            ),
+            end_date_relative="1m",
+            username="admin")
+        ```
+        ### Creates a token with an audience
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        audience = artifactory.AccessToken("audience",
+            audience="jfrt@*",
+            end_date_relative="1m",
+            refreshable=True,
+            username="audience")
+        ```
+        ### Creates a token with a fixed end date
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        fixeddate = artifactory.AccessToken("fixeddate",
+            end_date="2018-01-01T01:02:03Z",
+            groups=["readers"],
+            username="fixeddate")
+        ```
+        ## References
+
+        - https://www.jfrog.com/confluence/display/ACC1X/Access+Tokens
+        - https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-CreateToken
+
         ## Import
 
         Artifactory **does not** retain access tokens and cannot be imported into state.

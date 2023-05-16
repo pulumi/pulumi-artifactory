@@ -83,6 +83,8 @@ type Keypair struct {
 	// Public key. PEM format will be validated.
 	PublicKey pulumi.StringOutput `pulumi:"publicKey"`
 	// Unknown usage. Returned in the json payload and cannot be set.
+	//
+	// Artifactory REST API call Get Key Pair doesn't return keys `privateKey` and `passphrase`, but consumes these keys in the POST call.
 	Unavailable pulumi.BoolOutput `pulumi:"unavailable"`
 }
 
@@ -154,6 +156,8 @@ type keypairState struct {
 	// Public key. PEM format will be validated.
 	PublicKey *string `pulumi:"publicKey"`
 	// Unknown usage. Returned in the json payload and cannot be set.
+	//
+	// Artifactory REST API call Get Key Pair doesn't return keys `privateKey` and `passphrase`, but consumes these keys in the POST call.
 	Unavailable *bool `pulumi:"unavailable"`
 }
 
@@ -171,6 +175,8 @@ type KeypairState struct {
 	// Public key. PEM format will be validated.
 	PublicKey pulumi.StringPtrInput
 	// Unknown usage. Returned in the json payload and cannot be set.
+	//
+	// Artifactory REST API call Get Key Pair doesn't return keys `privateKey` and `passphrase`, but consumes these keys in the POST call.
 	Unavailable pulumi.BoolPtrInput
 }
 
@@ -327,6 +333,8 @@ func (o KeypairOutput) PublicKey() pulumi.StringOutput {
 }
 
 // Unknown usage. Returned in the json payload and cannot be set.
+//
+// Artifactory REST API call Get Key Pair doesn't return keys `privateKey` and `passphrase`, but consumes these keys in the POST call.
 func (o KeypairOutput) Unavailable() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Keypair) pulumi.BoolOutput { return v.Unavailable }).(pulumi.BoolOutput)
 }

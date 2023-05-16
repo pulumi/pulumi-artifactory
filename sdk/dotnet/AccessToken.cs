@@ -10,6 +10,187 @@ using Pulumi.Serialization;
 namespace Pulumi.Artifactory
 {
     /// <summary>
+    /// Provides an Artifactory Access Token resource. This can be used to create and manage Artifactory Access Tokens.
+    /// 
+    /// &gt; **Note:** Access Tokens will be stored in the raw state as plain-text. Read more about sensitive data in
+    /// state.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ### S
+    /// ### Create a new Artifactory Access Token for an existing user
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Artifactory = Pulumi.Artifactory;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exisingUser = new Artifactory.AccessToken("exisingUser", new()
+    ///     {
+    ///         EndDateRelative = "5m",
+    ///         Username = "existing-user",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// Note: This assumes that the user `existing-user` has already been created in Artifactory by different means, i.e. manually or in a separate pulumi up.
+    /// ### Create a new Artifactory User and Access token
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Artifactory = Pulumi.Artifactory;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var newUserUser = new Artifactory.User("newUserUser", new()
+    ///     {
+    ///         Email = "new_user@somewhere.com",
+    ///         Groups = new[]
+    ///         {
+    ///             "readers",
+    ///         },
+    ///     });
+    /// 
+    ///     var newUserAccessToken = new Artifactory.AccessToken("newUserAccessToken", new()
+    ///     {
+    ///         Username = newUserUser.Name,
+    ///         EndDateRelative = "5m",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Creates a new token for groups
+    /// This creates a transient user called `temporary-user`.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Artifactory = Pulumi.Artifactory;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var temporaryUser = new Artifactory.AccessToken("temporaryUser", new()
+    ///     {
+    ///         EndDateRelative = "1h",
+    ///         Groups = new[]
+    ///         {
+    ///             "readers",
+    ///         },
+    ///         Username = "temporary-user",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Create token with no expiry
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Artifactory = Pulumi.Artifactory;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var noExpiry = new Artifactory.AccessToken("noExpiry", new()
+    ///     {
+    ///         EndDateRelative = "0s",
+    ///         Username = "existing-user",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Creates a refreshable token
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Artifactory = Pulumi.Artifactory;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var refreshable = new Artifactory.AccessToken("refreshable", new()
+    ///     {
+    ///         EndDateRelative = "1m",
+    ///         Groups = new[]
+    ///         {
+    ///             "readers",
+    ///         },
+    ///         Refreshable = true,
+    ///         Username = "refreshable",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Creates an administrator token
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Artifactory = Pulumi.Artifactory;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var admin = new Artifactory.AccessToken("admin", new()
+    ///     {
+    ///         AdminToken = new Artifactory.Inputs.AccessTokenAdminTokenArgs
+    ///         {
+    ///             InstanceId = "&lt;instance id&gt;",
+    ///         },
+    ///         EndDateRelative = "1m",
+    ///         Username = "admin",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Creates a token with an audience
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Artifactory = Pulumi.Artifactory;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var audience = new Artifactory.AccessToken("audience", new()
+    ///     {
+    ///         Audience = "jfrt@*",
+    ///         EndDateRelative = "1m",
+    ///         Refreshable = true,
+    ///         Username = "audience",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Creates a token with a fixed end date
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Artifactory = Pulumi.Artifactory;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var fixeddate = new Artifactory.AccessToken("fixeddate", new()
+    ///     {
+    ///         EndDate = "2018-01-01T01:02:03Z",
+    ///         Groups = new[]
+    ///         {
+    ///             "readers",
+    ///         },
+    ///         Username = "fixeddate",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ## References
+    /// 
+    /// - https://www.jfrog.com/confluence/display/ACC1X/Access+Tokens
+    /// - https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-CreateToken
+    /// 
     /// ## Import
     /// 
     /// Artifactory **does not** retain access tokens and cannot be imported into state.
