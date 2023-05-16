@@ -29,6 +29,5 @@ var pulumiSchema []byte
 
 func main() {
 	// Modify the path to point to the new provider
-	meta := tfbridge.ProviderMetadata{PackageSchema: pulumiSchema}
 	tfbridge.MainWithMuxer(context.Background(), "artifactory", artifactory.Provider(), pulumiSchema)
 }
