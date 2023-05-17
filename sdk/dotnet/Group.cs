@@ -12,11 +12,11 @@ namespace Pulumi.Artifactory
     /// <summary>
     /// ## Import
     /// 
-    /// Groups can be imported using their name, e.g.
-    /// 
     /// ```sh
     ///  $ pulumi import artifactory:index/group:Group terraform-group mygroup
     /// ```
+    /// 
+    ///  ~&gt; `users_names` can't be imported due to API limitations.
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/group:Group")]
     public partial class Group : global::Pulumi.CustomResource
@@ -34,16 +34,16 @@ namespace Pulumi.Artifactory
         public Output<bool> AutoJoin { get; private set; } = null!;
 
         /// <summary>
-        /// A description for the group
+        /// A description for the group.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// When this is set to `true`, an empty or missing usernames array will detach all users from the group
+        /// When this is set to `true`, an empty or missing usernames array will detach all users from the group.
         /// </summary>
         [Output("detachAllUsers")]
-        public Output<bool?> DetachAllUsers { get; private set; } = null!;
+        public Output<bool> DetachAllUsers { get; private set; } = null!;
 
         /// <summary>
         /// New external group ID used to configure the corresponding group in Azure AD.
@@ -52,7 +52,7 @@ namespace Pulumi.Artifactory
         public Output<string?> ExternalId { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the group
+        /// Name of the group.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -61,7 +61,7 @@ namespace Pulumi.Artifactory
         /// When this override is set, User in the group can set Xray security and compliance policies. Default value is `false`.
         /// </summary>
         [Output("policyManager")]
-        public Output<bool?> PolicyManager { get; private set; } = null!;
+        public Output<bool> PolicyManager { get; private set; } = null!;
 
         /// <summary>
         /// The realm for the group.
@@ -79,8 +79,11 @@ namespace Pulumi.Artifactory
         /// When this override is set, User in the group can manage Xray Reports on any resource type. Default value is `false`.
         /// </summary>
         [Output("reportsManager")]
-        public Output<bool?> ReportsManager { get; private set; } = null!;
+        public Output<bool> ReportsManager { get; private set; } = null!;
 
+        /// <summary>
+        /// List of users assigned to the group. If not set or empty, Terraform will not manage group membership.
+        /// </summary>
         [Output("usersNames")]
         public Output<ImmutableArray<string>> UsersNames { get; private set; } = null!;
 
@@ -88,7 +91,7 @@ namespace Pulumi.Artifactory
         /// When this override is set, User in the group can manage Xray Watches on any resource type. Default value is `false`.
         /// </summary>
         [Output("watchManager")]
-        public Output<bool?> WatchManager { get; private set; } = null!;
+        public Output<bool> WatchManager { get; private set; } = null!;
 
 
         /// <summary>
@@ -98,7 +101,7 @@ namespace Pulumi.Artifactory
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Group(string name, GroupArgs args, CustomResourceOptions? options = null)
+        public Group(string name, GroupArgs? args = null, CustomResourceOptions? options = null)
             : base("artifactory:index/group:Group", name, args ?? new GroupArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -149,13 +152,13 @@ namespace Pulumi.Artifactory
         public Input<bool>? AutoJoin { get; set; }
 
         /// <summary>
-        /// A description for the group
+        /// A description for the group.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// When this is set to `true`, an empty or missing usernames array will detach all users from the group
+        /// When this is set to `true`, an empty or missing usernames array will detach all users from the group.
         /// </summary>
         [Input("detachAllUsers")]
         public Input<bool>? DetachAllUsers { get; set; }
@@ -167,10 +170,10 @@ namespace Pulumi.Artifactory
         public Input<string>? ExternalId { get; set; }
 
         /// <summary>
-        /// Name of the group
+        /// Name of the group.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// When this override is set, User in the group can set Xray security and compliance policies. Default value is `false`.
@@ -198,6 +201,10 @@ namespace Pulumi.Artifactory
 
         [Input("usersNames")]
         private InputList<string>? _usersNames;
+
+        /// <summary>
+        /// List of users assigned to the group. If not set or empty, Terraform will not manage group membership.
+        /// </summary>
         public InputList<string> UsersNames
         {
             get => _usersNames ?? (_usersNames = new InputList<string>());
@@ -231,13 +238,13 @@ namespace Pulumi.Artifactory
         public Input<bool>? AutoJoin { get; set; }
 
         /// <summary>
-        /// A description for the group
+        /// A description for the group.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// When this is set to `true`, an empty or missing usernames array will detach all users from the group
+        /// When this is set to `true`, an empty or missing usernames array will detach all users from the group.
         /// </summary>
         [Input("detachAllUsers")]
         public Input<bool>? DetachAllUsers { get; set; }
@@ -249,7 +256,7 @@ namespace Pulumi.Artifactory
         public Input<string>? ExternalId { get; set; }
 
         /// <summary>
-        /// Name of the group
+        /// Name of the group.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -280,6 +287,10 @@ namespace Pulumi.Artifactory
 
         [Input("usersNames")]
         private InputList<string>? _usersNames;
+
+        /// <summary>
+        /// List of users assigned to the group. If not set or empty, Terraform will not manage group membership.
+        /// </summary>
         public InputList<string> UsersNames
         {
             get => _usersNames ?? (_usersNames = new InputList<string>());

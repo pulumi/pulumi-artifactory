@@ -18,14 +18,14 @@ public final class ManagedUserArgs extends com.pulumi.resources.ResourceArgs {
     public static final ManagedUserArgs Empty = new ManagedUserArgs();
 
     /**
-     * When enabled, this user is an administrator with all the ensuing privileges. Default value is `false`.
+     * (Optional, Default: false) When enabled, this user is an administrator with all the ensuing privileges.
      * 
      */
     @Import(name="admin")
     private @Nullable Output<Boolean> admin;
 
     /**
-     * @return When enabled, this user is an administrator with all the ensuing privileges. Default value is `false`.
+     * @return (Optional, Default: false) When enabled, this user is an administrator with all the ensuing privileges.
      * 
      */
     public Optional<Output<Boolean>> admin() {
@@ -33,14 +33,14 @@ public final class ManagedUserArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * When set, this user can only access Artifactory through the REST API. This option cannot be set if the user has Admin privileges. Default value is `true`.
+     * (Optional, Default: true) When enabled, this user can only access the system through the REST API. This option cannot be set if the user has Admin privileges.
      * 
      */
     @Import(name="disableUiAccess")
     private @Nullable Output<Boolean> disableUiAccess;
 
     /**
-     * @return When set, this user can only access Artifactory through the REST API. This option cannot be set if the user has Admin privileges. Default value is `true`.
+     * @return (Optional, Default: true) When enabled, this user can only access the system through the REST API. This option cannot be set if the user has Admin privileges.
      * 
      */
     public Optional<Output<Boolean>> disableUiAccess() {
@@ -63,14 +63,14 @@ public final class ManagedUserArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * List of groups this user is a part of. **Notes:** If this attribute is not specified then user&#39;s group membership is set to empty. User will not be part of default &#34;readers&#34; group automatically.
+     * List of groups this user is a part of. If no groups set, `readers` group will be added by default. If other groups are assigned, `readers` must be added to the list manually to avoid state drift.
      * 
      */
     @Import(name="groups")
     private @Nullable Output<List<String>> groups;
 
     /**
-     * @return List of groups this user is a part of. **Notes:** If this attribute is not specified then user&#39;s group membership is set to empty. User will not be part of default &#34;readers&#34; group automatically.
+     * @return List of groups this user is a part of. If no groups set, `readers` group will be added by default. If other groups are assigned, `readers` must be added to the list manually to avoid state drift.
      * 
      */
     public Optional<Output<List<String>>> groups() {
@@ -78,14 +78,14 @@ public final class ManagedUserArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * When set, disables the fallback of using an internal password when external authentication (such as LDAP) is enabled.
+     * (Optional, Default: false) When enabled, disables the fallback mechanism for using an internal password when external authentication (such as LDAP) is enabled.
      * 
      */
     @Import(name="internalPasswordDisabled")
     private @Nullable Output<Boolean> internalPasswordDisabled;
 
     /**
-     * @return When set, disables the fallback of using an internal password when external authentication (such as LDAP) is enabled.
+     * @return (Optional, Default: false) When enabled, disables the fallback mechanism for using an internal password when external authentication (such as LDAP) is enabled.
      * 
      */
     public Optional<Output<Boolean>> internalPasswordDisabled() {
@@ -96,41 +96,41 @@ public final class ManagedUserArgs extends com.pulumi.resources.ResourceArgs {
      * Username for user.
      * 
      */
-    @Import(name="name", required=true)
-    private Output<String> name;
+    @Import(name="name")
+    private @Nullable Output<String> name;
 
     /**
      * @return Username for user.
      * 
      */
-    public Output<String> name() {
-        return this.name;
+    public Optional<Output<String>> name() {
+        return Optional.ofNullable(this.name);
     }
 
     /**
-     * Password for the user.
+     * (Optional, Sensitive) Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters
      * 
      */
-    @Import(name="password", required=true)
-    private Output<String> password;
+    @Import(name="password")
+    private @Nullable Output<String> password;
 
     /**
-     * @return Password for the user.
+     * @return (Optional, Sensitive) Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters
      * 
      */
-    public Output<String> password() {
-        return this.password;
+    public Optional<Output<String>> password() {
+        return Optional.ofNullable(this.password);
     }
 
     /**
-     * When set, this user can update his profile details (except for the password. Only an administrator can update the password). Default value is `true`.
+     * (Optional, Default: true) When enabled, this user can update their profile details (except for the password. Only an administrator can update the password). There may be cases in which you want to leave this unset to prevent users from updating their profile. For example, a departmental user with a single password shared between all department members.
      * 
      */
     @Import(name="profileUpdatable")
     private @Nullable Output<Boolean> profileUpdatable;
 
     /**
-     * @return When set, this user can update his profile details (except for the password. Only an administrator can update the password). Default value is `true`.
+     * @return (Optional, Default: true) When enabled, this user can update their profile details (except for the password. Only an administrator can update the password). There may be cases in which you want to leave this unset to prevent users from updating their profile. For example, a departmental user with a single password shared between all department members.
      * 
      */
     public Optional<Output<Boolean>> profileUpdatable() {
@@ -169,7 +169,7 @@ public final class ManagedUserArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param admin When enabled, this user is an administrator with all the ensuing privileges. Default value is `false`.
+         * @param admin (Optional, Default: false) When enabled, this user is an administrator with all the ensuing privileges.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class ManagedUserArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param admin When enabled, this user is an administrator with all the ensuing privileges. Default value is `false`.
+         * @param admin (Optional, Default: false) When enabled, this user is an administrator with all the ensuing privileges.
          * 
          * @return builder
          * 
@@ -190,7 +190,7 @@ public final class ManagedUserArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param disableUiAccess When set, this user can only access Artifactory through the REST API. This option cannot be set if the user has Admin privileges. Default value is `true`.
+         * @param disableUiAccess (Optional, Default: true) When enabled, this user can only access the system through the REST API. This option cannot be set if the user has Admin privileges.
          * 
          * @return builder
          * 
@@ -201,7 +201,7 @@ public final class ManagedUserArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param disableUiAccess When set, this user can only access Artifactory through the REST API. This option cannot be set if the user has Admin privileges. Default value is `true`.
+         * @param disableUiAccess (Optional, Default: true) When enabled, this user can only access the system through the REST API. This option cannot be set if the user has Admin privileges.
          * 
          * @return builder
          * 
@@ -232,7 +232,7 @@ public final class ManagedUserArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param groups List of groups this user is a part of. **Notes:** If this attribute is not specified then user&#39;s group membership is set to empty. User will not be part of default &#34;readers&#34; group automatically.
+         * @param groups List of groups this user is a part of. If no groups set, `readers` group will be added by default. If other groups are assigned, `readers` must be added to the list manually to avoid state drift.
          * 
          * @return builder
          * 
@@ -243,7 +243,7 @@ public final class ManagedUserArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param groups List of groups this user is a part of. **Notes:** If this attribute is not specified then user&#39;s group membership is set to empty. User will not be part of default &#34;readers&#34; group automatically.
+         * @param groups List of groups this user is a part of. If no groups set, `readers` group will be added by default. If other groups are assigned, `readers` must be added to the list manually to avoid state drift.
          * 
          * @return builder
          * 
@@ -253,7 +253,7 @@ public final class ManagedUserArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param groups List of groups this user is a part of. **Notes:** If this attribute is not specified then user&#39;s group membership is set to empty. User will not be part of default &#34;readers&#34; group automatically.
+         * @param groups List of groups this user is a part of. If no groups set, `readers` group will be added by default. If other groups are assigned, `readers` must be added to the list manually to avoid state drift.
          * 
          * @return builder
          * 
@@ -263,7 +263,7 @@ public final class ManagedUserArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param internalPasswordDisabled When set, disables the fallback of using an internal password when external authentication (such as LDAP) is enabled.
+         * @param internalPasswordDisabled (Optional, Default: false) When enabled, disables the fallback mechanism for using an internal password when external authentication (such as LDAP) is enabled.
          * 
          * @return builder
          * 
@@ -274,7 +274,7 @@ public final class ManagedUserArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param internalPasswordDisabled When set, disables the fallback of using an internal password when external authentication (such as LDAP) is enabled.
+         * @param internalPasswordDisabled (Optional, Default: false) When enabled, disables the fallback mechanism for using an internal password when external authentication (such as LDAP) is enabled.
          * 
          * @return builder
          * 
@@ -289,7 +289,7 @@ public final class ManagedUserArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder name(Output<String> name) {
+        public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
@@ -305,18 +305,18 @@ public final class ManagedUserArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param password Password for the user.
+         * @param password (Optional, Sensitive) Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters
          * 
          * @return builder
          * 
          */
-        public Builder password(Output<String> password) {
+        public Builder password(@Nullable Output<String> password) {
             $.password = password;
             return this;
         }
 
         /**
-         * @param password Password for the user.
+         * @param password (Optional, Sensitive) Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters
          * 
          * @return builder
          * 
@@ -326,7 +326,7 @@ public final class ManagedUserArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param profileUpdatable When set, this user can update his profile details (except for the password. Only an administrator can update the password). Default value is `true`.
+         * @param profileUpdatable (Optional, Default: true) When enabled, this user can update their profile details (except for the password. Only an administrator can update the password). There may be cases in which you want to leave this unset to prevent users from updating their profile. For example, a departmental user with a single password shared between all department members.
          * 
          * @return builder
          * 
@@ -337,7 +337,7 @@ public final class ManagedUserArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param profileUpdatable When set, this user can update his profile details (except for the password. Only an administrator can update the password). Default value is `true`.
+         * @param profileUpdatable (Optional, Default: true) When enabled, this user can update their profile details (except for the password. Only an administrator can update the password). There may be cases in which you want to leave this unset to prevent users from updating their profile. For example, a departmental user with a single password shared between all department members.
          * 
          * @return builder
          * 
@@ -348,8 +348,6 @@ public final class ManagedUserArgs extends com.pulumi.resources.ResourceArgs {
 
         public ManagedUserArgs build() {
             $.email = Objects.requireNonNull($.email, "expected parameter 'email' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.password = Objects.requireNonNull($.password, "expected parameter 'password' to be non-null");
             return $;
         }
     }

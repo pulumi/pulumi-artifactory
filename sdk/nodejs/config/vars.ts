@@ -41,6 +41,9 @@ Object.defineProperty(exports, "checkLicense", {
     enumerable: true,
 });
 
+/**
+ * Artifactory URL.
+ */
 export declare const url: string | undefined;
 Object.defineProperty(exports, "url", {
     get() {

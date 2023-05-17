@@ -135,7 +135,7 @@ export class VirtualRpmRepository extends pulumi.CustomResource {
      */
     public readonly repositories!: pulumi.Output<string[] | undefined>;
     /**
-     * The secondary GPG key to be used to sign packages.
+     * Secondary keypair used to sign artifacts.
      */
     public readonly secondaryKeypairRef!: pulumi.Output<string | undefined>;
 
@@ -253,7 +253,7 @@ export interface VirtualRpmRepositoryState {
      */
     repositories?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The secondary GPG key to be used to sign packages.
+     * Secondary keypair used to sign artifacts.
      */
     secondaryKeypairRef?: pulumi.Input<string>;
 }
@@ -319,7 +319,7 @@ export interface VirtualRpmRepositoryArgs {
      */
     repositories?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The secondary GPG key to be used to sign packages.
+     * Secondary keypair used to sign artifacts.
      */
     secondaryKeypairRef?: pulumi.Input<string>;
 }

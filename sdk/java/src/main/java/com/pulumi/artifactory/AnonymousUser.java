@@ -43,8 +43,6 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Anonymous user can be imported using their name, e.g.
- * 
  * ```sh
  *  $ pulumi import artifactory:index/anonymousUser:AnonymousUser anonymous-user anonymous
  * ```
@@ -53,14 +51,16 @@ import javax.annotation.Nullable;
 @ResourceType(type="artifactory:index/anonymousUser:AnonymousUser")
 public class AnonymousUser extends com.pulumi.resources.CustomResource {
     /**
-     * Username for anonymous user. This should not be set in the HCL, or change after importing into Terraform state.
+     * Username for anonymous user. This is only for ensuring resource schema is valid for Terraform. This is not meant to be
+     * set or updated in the HCL.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return Username for anonymous user. This should not be set in the HCL, or change after importing into Terraform state.
+     * @return Username for anonymous user. This is only for ensuring resource schema is valid for Terraform. This is not meant to be
+     * set or updated in the HCL.
      * 
      */
     public Output<String> name() {

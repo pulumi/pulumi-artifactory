@@ -19,9 +19,9 @@ class LdapGroupSettingArgs:
                  group_member_attribute: pulumi.Input[str],
                  group_name_attribute: pulumi.Input[str],
                  ldap_setting_key: pulumi.Input[str],
-                 name: pulumi.Input[str],
                  strategy: pulumi.Input[str],
                  group_base_dn: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  sub_tree: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a LdapGroupSetting resource.
@@ -30,12 +30,12 @@ class LdapGroupSettingArgs:
         :param pulumi.Input[str] group_member_attribute: A multi-value attribute on the group entry containing user DNs or IDs of the group members (e.g., uniqueMember,member).
         :param pulumi.Input[str] group_name_attribute: Attribute on the group entry denoting the group name. Used when importing groups.
         :param pulumi.Input[str] ldap_setting_key: The LDAP setting key you want to use for group retrieval. The value for this field corresponds to 'enabledLdap' field of the ldap group setting XML block of system configuration.
-        :param pulumi.Input[str] name: Ldap group setting name.
         :param pulumi.Input[str] strategy: The JFrog Platform Deployment (JPD) supports three ways of mapping groups to LDAP schemas:
                - STATIC: Group objects are aware of their members, however, the users are not aware of the groups they belong to. Each group object such as groupOfNames or groupOfUniqueNames holds its respective member attributes, typically member or uniqueMember, which is a user DN.
                - DYNAMIC: User objects are aware of what groups they belong to, but the group objects are not aware of their members. Each user object contains a custom attribute, such as group, that holds the group DNs or group names of which the user is a member.
                - HIERARCHICAL: The user's DN is indicative of the groups the user belongs to by using group names as part of user DN hierarchy. Each user DN contains a list of ou's or custom attributes that make up the group association. For example, uid=user1,ou=developers,ou=uk,dc=jfrog,dc=org indicates that user1 belongs to two groups: uk and developers.
         :param pulumi.Input[str] group_base_dn: A search base for group entry DNs, relative to the DN on the LDAP server’s URL (and not relative to the LDAP Setting’s “Search Base”). Used when importing groups.
+        :param pulumi.Input[str] name: Ldap group setting name.
         :param pulumi.Input[bool] sub_tree: When set, enables deep search through the sub-tree of the LDAP URL + Search Base. True by default.
         """
         pulumi.set(__self__, "description_attribute", description_attribute)
@@ -43,10 +43,11 @@ class LdapGroupSettingArgs:
         pulumi.set(__self__, "group_member_attribute", group_member_attribute)
         pulumi.set(__self__, "group_name_attribute", group_name_attribute)
         pulumi.set(__self__, "ldap_setting_key", ldap_setting_key)
-        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "strategy", strategy)
         if group_base_dn is not None:
             pulumi.set(__self__, "group_base_dn", group_base_dn)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if sub_tree is not None:
             pulumi.set(__self__, "sub_tree", sub_tree)
 
@@ -112,18 +113,6 @@ class LdapGroupSettingArgs:
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        Ldap group setting name.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
     def strategy(self) -> pulumi.Input[str]:
         """
         The JFrog Platform Deployment (JPD) supports three ways of mapping groups to LDAP schemas:
@@ -148,6 +137,18 @@ class LdapGroupSettingArgs:
     @group_base_dn.setter
     def group_base_dn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "group_base_dn", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Ldap group setting name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="subTree")
@@ -357,7 +358,6 @@ class LdapGroupSetting(pulumi.CustomResource):
             group_member_attribute="uniqueMember",
             group_name_attribute="cn",
             ldap_setting_key="ldap_name",
-            name="ldap_group_name",
             strategy="STATIC",
             sub_tree=True)
         ```
@@ -415,7 +415,6 @@ class LdapGroupSetting(pulumi.CustomResource):
             group_member_attribute="uniqueMember",
             group_name_attribute="cn",
             ldap_setting_key="ldap_name",
-            name="ldap_group_name",
             strategy="STATIC",
             sub_tree=True)
         ```
@@ -479,8 +478,6 @@ class LdapGroupSetting(pulumi.CustomResource):
             if ldap_setting_key is None and not opts.urn:
                 raise TypeError("Missing required property 'ldap_setting_key'")
             __props__.__dict__["ldap_setting_key"] = ldap_setting_key
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             if strategy is None and not opts.urn:
                 raise TypeError("Missing required property 'strategy'")

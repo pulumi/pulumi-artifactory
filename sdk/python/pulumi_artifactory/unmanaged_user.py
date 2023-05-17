@@ -15,26 +15,25 @@ __all__ = ['UnmanagedUserArgs', 'UnmanagedUser']
 class UnmanagedUserArgs:
     def __init__(__self__, *,
                  email: pulumi.Input[str],
-                 name: pulumi.Input[str],
                  admin: Optional[pulumi.Input[bool]] = None,
                  disable_ui_access: Optional[pulumi.Input[bool]] = None,
                  groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  internal_password_disabled: Optional[pulumi.Input[bool]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  profile_updatable: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a UnmanagedUser resource.
         :param pulumi.Input[str] email: Email for user.
-        :param pulumi.Input[str] name: Username for user.
         :param pulumi.Input[bool] admin: When enabled, this user is an administrator with all the ensuing privileges. Default value is `false`.
         :param pulumi.Input[bool] disable_ui_access: When set, this user can only access Artifactory through the REST API. This option cannot be set if the user has Admin privileges. Default value is `true`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: List of groups this user is a part of. **Notes:** If this attribute is not specified then user's group membership is set to empty. User will not be part of default "readers" group automatically.
         :param pulumi.Input[bool] internal_password_disabled: When set, disables the fallback of using an internal password when external authentication (such as LDAP) is enabled.
+        :param pulumi.Input[str] name: Username for user.
         :param pulumi.Input[str] password: Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters.
         :param pulumi.Input[bool] profile_updatable: When set, this user can update his profile details (except for the password. Only an administrator can update the password). Default value is `true`.
         """
         pulumi.set(__self__, "email", email)
-        pulumi.set(__self__, "name", name)
         if admin is not None:
             pulumi.set(__self__, "admin", admin)
         if disable_ui_access is not None:
@@ -43,6 +42,8 @@ class UnmanagedUserArgs:
             pulumi.set(__self__, "groups", groups)
         if internal_password_disabled is not None:
             pulumi.set(__self__, "internal_password_disabled", internal_password_disabled)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if password is not None:
             pulumi.set(__self__, "password", password)
         if profile_updatable is not None:
@@ -59,18 +60,6 @@ class UnmanagedUserArgs:
     @email.setter
     def email(self, value: pulumi.Input[str]):
         pulumi.set(self, "email", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        Username for user.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -119,6 +108,18 @@ class UnmanagedUserArgs:
     @internal_password_disabled.setter
     def internal_password_disabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "internal_password_disabled", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Username for user.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -296,6 +297,14 @@ class UnmanagedUser(pulumi.CustomResource):
                  profile_updatable: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
+        Provides an Artifactory unmanaged user resource. This can be used to create and manage Artifactory users.
+        The password is a required field by the [Artifactory API](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-CreateorReplaceUser), but we made it optional in this resource to accommodate the scenario where the password is not needed and will be reset by the actual user later.\\
+        When the optional attribute `password` is omitted, a random password is generated according to current Artifactory password policy.
+
+        > The generated password won't be stored in the TF state and can not be recovered. The user must reset the password to be able to log in. An admin can always generate the access key for the user as well. The password change won't trigger state drift.
+
+        > This resource is an alias for `User` resource, it is identical and was added for clarity and compatibility purposes. We don't recommend to use this resource unless there is a specific use case for it. Recommended resource is `ManagedUser`.
+
         ## Example Usage
 
         ```python
@@ -309,7 +318,6 @@ class UnmanagedUser(pulumi.CustomResource):
                 "logged-in-users",
                 "readers",
             ],
-            name="terraform",
             password="my super secret password")
         ```
         ## Managing groups relationship
@@ -342,6 +350,14 @@ class UnmanagedUser(pulumi.CustomResource):
                  args: UnmanagedUserArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Provides an Artifactory unmanaged user resource. This can be used to create and manage Artifactory users.
+        The password is a required field by the [Artifactory API](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-CreateorReplaceUser), but we made it optional in this resource to accommodate the scenario where the password is not needed and will be reset by the actual user later.\\
+        When the optional attribute `password` is omitted, a random password is generated according to current Artifactory password policy.
+
+        > The generated password won't be stored in the TF state and can not be recovered. The user must reset the password to be able to log in. An admin can always generate the access key for the user as well. The password change won't trigger state drift.
+
+        > This resource is an alias for `User` resource, it is identical and was added for clarity and compatibility purposes. We don't recommend to use this resource unless there is a specific use case for it. Recommended resource is `ManagedUser`.
+
         ## Example Usage
 
         ```python
@@ -355,7 +371,6 @@ class UnmanagedUser(pulumi.CustomResource):
                 "logged-in-users",
                 "readers",
             ],
-            name="terraform",
             password="my super secret password")
         ```
         ## Managing groups relationship
@@ -409,8 +424,6 @@ class UnmanagedUser(pulumi.CustomResource):
             __props__.__dict__["email"] = email
             __props__.__dict__["groups"] = groups
             __props__.__dict__["internal_password_disabled"] = internal_password_disabled
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["password"] = None if password is None else pulumi.Output.secret(password)
             __props__.__dict__["profile_updatable"] = profile_updatable

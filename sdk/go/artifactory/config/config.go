@@ -31,6 +31,8 @@ func GetCheckLicense(ctx *pulumi.Context) bool {
 	}
 	return false
 }
+
+// Artifactory URL.
 func GetUrl(ctx *pulumi.Context) string {
 	return config.Get(ctx, "artifactory:url")
 }

@@ -16,6 +16,7 @@ from .backup import *
 from .build_webhook import *
 from .certificate import *
 from .debian_repository import *
+from .distribution_public_key import *
 from .distribution_webhook import *
 from .docker_v1_repository import *
 from .docker_v2_repository import *
@@ -390,6 +391,14 @@ _utilities.register(
   "fqn": "pulumi_artifactory",
   "classes": {
    "artifactory:index/debianRepository:DebianRepository": "DebianRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/distributionPublicKey",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/distributionPublicKey:DistributionPublicKey": "DistributionPublicKey"
   }
  },
  {

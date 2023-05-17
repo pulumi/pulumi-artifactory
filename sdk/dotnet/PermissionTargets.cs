@@ -51,7 +51,6 @@ namespace Pulumi.Artifactory
     ///                 "artifactory-build-info",
     ///             },
     ///         },
-    ///         Name = "test-perm",
     ///         ReleaseBundle = new Artifactory.Inputs.PermissionTargetReleaseBundleArgs
     ///         {
     ///             Actions = new Artifactory.Inputs.PermissionTargetReleaseBundleActionsArgs
@@ -187,7 +186,7 @@ namespace Pulumi.Artifactory
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public PermissionTargets(string name, PermissionTargetsArgs args, CustomResourceOptions? options = null)
+        public PermissionTargets(string name, PermissionTargetsArgs? args = null, CustomResourceOptions? options = null)
             : base("artifactory:index/permissionTargets:PermissionTargets", name, args ?? new PermissionTargetsArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -234,8 +233,8 @@ namespace Pulumi.Artifactory
         /// <summary>
         /// Name of permission.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// As for repo for for release-bundles permissions.

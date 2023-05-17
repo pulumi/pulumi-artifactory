@@ -39,5 +39,8 @@ class _ExportableConfig(types.ModuleType):
 
     @property
     def url(self) -> Optional[str]:
+        """
+        Artifactory URL.
+        """
         return __config__.get('url')
 

@@ -80,9 +80,17 @@ In January 2023, API Keys will be deprecated all together and the option to use 
         return Optional.ofNullable(this.checkLicense);
     }
 
+    /**
+     * Artifactory URL.
+     * 
+     */
     @Import(name="url")
     private @Nullable Output<String> url;
 
+    /**
+     * @return Artifactory URL.
+     * 
+     */
     public Optional<Output<String>> url() {
         return Optional.ofNullable(this.url);
     }
@@ -195,11 +203,23 @@ In January 2023, API Keys will be deprecated all together and the option to use 
             return checkLicense(Output.of(checkLicense));
         }
 
+        /**
+         * @param url Artifactory URL.
+         * 
+         * @return builder
+         * 
+         */
         public Builder url(@Nullable Output<String> url) {
             $.url = url;
             return this;
         }
 
+        /**
+         * @param url Artifactory URL.
+         * 
+         * @return builder
+         * 
+         */
         public Builder url(String url) {
             return url(Output.of(url));
         }

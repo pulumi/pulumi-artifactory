@@ -10,6 +10,214 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides an Artifactory Scoped Token resource. This can be used to create and manage Artifactory Scoped Tokens.
+//
+// !>Scoped Tokens will be stored in the raw state as plain-text. Read more about sensitive data in
+// state.
+//
+// ~>Token would not be saved by Artifactory if `expiresIn` is less than the persistency threshold value (default to 10800 seconds) set in Access configuration. See [Persistency Threshold](https://www.jfrog.com/confluence/display/JFROG/Access+Tokens#AccessTokens-PersistencyThreshold) for details.
+//
+// ## Example Usage
+//
+// ### S
+// ### Create a new Artifactory scoped token for an existing user
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewScopedToken(ctx, "scopedToken", &artifactory.ScopedTokenArgs{
+//				Username: pulumi.String("existing-user"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// **Note:** This assumes that the user `existing-user` has already been created in Artifactory by different means, i.e. manually or in a separate pulumi up.
+// ### Create a new Artifactory user and scoped token
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			newUser, err := artifactory.NewUser(ctx, "newUser", &artifactory.UserArgs{
+//				Email: pulumi.String("new_user@somewhere.com"),
+//				Groups: pulumi.StringArray{
+//					pulumi.String("readers"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = artifactory.NewScopedToken(ctx, "scopedTokenUser", &artifactory.ScopedTokenArgs{
+//				Username: newUser.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Creates a new token for groups
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewScopedToken(ctx, "scopedTokenGroup", &artifactory.ScopedTokenArgs{
+//				Scopes: pulumi.StringArray{
+//					pulumi.String("applied-permissions/groups:readers"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Create token with expiry
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewScopedToken(ctx, "scopedTokenNoExpiry", &artifactory.ScopedTokenArgs{
+//				ExpiresIn: pulumi.Int(7200),
+//				Username:  pulumi.String("existing-user"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Creates a refreshable token
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewScopedToken(ctx, "scopedTokenRefreshable", &artifactory.ScopedTokenArgs{
+//				Refreshable: pulumi.Bool(true),
+//				Username:    pulumi.String("existing-user"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Creates an administrator token
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewScopedToken(ctx, "admin", &artifactory.ScopedTokenArgs{
+//				Scopes: pulumi.StringArray{
+//					pulumi.String("applied-permissions/admin"),
+//				},
+//				Username: pulumi.String("admin-user"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Creates a token with an audience
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewScopedToken(ctx, "audience", &artifactory.ScopedTokenArgs{
+//				Audiences: pulumi.StringArray{
+//					pulumi.String("jfrt@*"),
+//				},
+//				Scopes: pulumi.StringArray{
+//					pulumi.String("applied-permissions/admin"),
+//				},
+//				Username: pulumi.String("admin-user"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ## References
+//
+// - https://www.jfrog.com/confluence/display/JFROG/Access+Tokens
+// - https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-AccessTokens
+//
 // ## Import
 //
 // Artifactory **does not** retain scoped tokens and cannot be imported into state.

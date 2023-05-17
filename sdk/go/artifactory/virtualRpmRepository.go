@@ -120,7 +120,7 @@ type VirtualRpmRepository struct {
 	RepoLayoutRef pulumi.StringPtrOutput `pulumi:"repoLayoutRef"`
 	// The effective list of actual repositories included in this virtual repository.
 	Repositories pulumi.StringArrayOutput `pulumi:"repositories"`
-	// The secondary GPG key to be used to sign packages.
+	// Secondary keypair used to sign artifacts.
 	SecondaryKeypairRef pulumi.StringPtrOutput `pulumi:"secondaryKeypairRef"`
 }
 
@@ -189,7 +189,7 @@ type virtualRpmRepositoryState struct {
 	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
 	// The effective list of actual repositories included in this virtual repository.
 	Repositories []string `pulumi:"repositories"`
-	// The secondary GPG key to be used to sign packages.
+	// Secondary keypair used to sign artifacts.
 	SecondaryKeypairRef *string `pulumi:"secondaryKeypairRef"`
 }
 
@@ -227,7 +227,7 @@ type VirtualRpmRepositoryState struct {
 	RepoLayoutRef pulumi.StringPtrInput
 	// The effective list of actual repositories included in this virtual repository.
 	Repositories pulumi.StringArrayInput
-	// The secondary GPG key to be used to sign packages.
+	// Secondary keypair used to sign artifacts.
 	SecondaryKeypairRef pulumi.StringPtrInput
 }
 
@@ -268,7 +268,7 @@ type virtualRpmRepositoryArgs struct {
 	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
 	// The effective list of actual repositories included in this virtual repository.
 	Repositories []string `pulumi:"repositories"`
-	// The secondary GPG key to be used to sign packages.
+	// Secondary keypair used to sign artifacts.
 	SecondaryKeypairRef *string `pulumi:"secondaryKeypairRef"`
 }
 
@@ -306,7 +306,7 @@ type VirtualRpmRepositoryArgs struct {
 	RepoLayoutRef pulumi.StringPtrInput
 	// The effective list of actual repositories included in this virtual repository.
 	Repositories pulumi.StringArrayInput
-	// The secondary GPG key to be used to sign packages.
+	// Secondary keypair used to sign artifacts.
 	SecondaryKeypairRef pulumi.StringPtrInput
 }
 
@@ -471,7 +471,7 @@ func (o VirtualRpmRepositoryOutput) Repositories() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VirtualRpmRepository) pulumi.StringArrayOutput { return v.Repositories }).(pulumi.StringArrayOutput)
 }
 
-// The secondary GPG key to be used to sign packages.
+// Secondary keypair used to sign artifacts.
 func (o VirtualRpmRepositoryOutput) SecondaryKeypairRef() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualRpmRepository) pulumi.StringPtrOutput { return v.SecondaryKeypairRef }).(pulumi.StringPtrOutput)
 }

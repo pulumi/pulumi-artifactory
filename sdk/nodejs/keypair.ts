@@ -90,6 +90,8 @@ export class Keypair extends pulumi.CustomResource {
     public readonly publicKey!: pulumi.Output<string>;
     /**
      * Unknown usage. Returned in the json payload and cannot be set.
+     *
+     * Artifactory REST API call Get Key Pair doesn't return keys `privateKey` and `passphrase`, but consumes these keys in the POST call.
      */
     public /*out*/ readonly unavailable!: pulumi.Output<boolean>;
 
@@ -175,6 +177,8 @@ export interface KeypairState {
     publicKey?: pulumi.Input<string>;
     /**
      * Unknown usage. Returned in the json payload and cannot be set.
+     *
+     * Artifactory REST API call Get Key Pair doesn't return keys `privateKey` and `passphrase`, but consumes these keys in the POST call.
      */
     unavailable?: pulumi.Input<boolean>;
 }

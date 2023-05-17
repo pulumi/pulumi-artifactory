@@ -59,6 +59,10 @@ class ApiKey(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  __props__=None):
         """
+        Provides an Artifactory API key resource. This can be used to create and manage Artifactory API keys.
+
+        > **Note:** API keys will be stored in the raw state as plain-text. Read more about sensitive data in state.
+
         ## Example Usage
 
         ```python
@@ -87,6 +91,10 @@ class ApiKey(pulumi.CustomResource):
                  args: Optional[ApiKeyArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Provides an Artifactory API key resource. This can be used to create and manage Artifactory API keys.
+
+        > **Note:** API keys will be stored in the raw state as plain-text. Read more about sensitive data in state.
+
         ## Example Usage
 
         ```python

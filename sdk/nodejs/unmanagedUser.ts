@@ -5,6 +5,14 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
+ * Provides an Artifactory unmanaged user resource. This can be used to create and manage Artifactory users.
+ * The password is a required field by the [Artifactory API](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-CreateorReplaceUser), but we made it optional in this resource to accommodate the scenario where the password is not needed and will be reset by the actual user later.\
+ * When the optional attribute `password` is omitted, a random password is generated according to current Artifactory password policy.
+ *
+ * > The generated password won't be stored in the TF state and can not be recovered. The user must reset the password to be able to log in. An admin can always generate the access key for the user as well. The password change won't trigger state drift.
+ *
+ * > This resource is an alias for `artifactory.User` resource, it is identical and was added for clarity and compatibility purposes. We don't recommend to use this resource unless there is a specific use case for it. Recommended resource is `artifactory.ManagedUser`.
+ *
  * ## Example Usage
  *
  * ```typescript
@@ -18,7 +26,6 @@ import * as utilities from "./utilities";
  *         "logged-in-users",
  *         "readers",
  *     ],
- *     name: "terraform",
  *     password: "my super secret password",
  * });
  * ```
@@ -121,9 +128,6 @@ export class UnmanagedUser extends pulumi.CustomResource {
             if ((!args || args.email === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'email'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             resourceInputs["admin"] = args ? args.admin : undefined;
             resourceInputs["disableUiAccess"] = args ? args.disableUiAccess : undefined;
             resourceInputs["email"] = args ? args.email : undefined;
@@ -205,7 +209,7 @@ export interface UnmanagedUserArgs {
     /**
      * Username for user.
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters.
      */

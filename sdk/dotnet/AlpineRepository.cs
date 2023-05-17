@@ -125,7 +125,8 @@ namespace Pulumi.Artifactory
         public Output<string> PackageType { get; private set; } = null!;
 
         /// <summary>
-        /// The RSA key to be used to sign alpine indices.
+        /// Used to sign index files in Alpine Linux repositories. See:
+        /// https://www.jfrog.com/confluence/display/JFROG/Alpine+Linux+Repositories#AlpineLinuxRepositories-SigningAlpineLinuxIndex
         /// </summary>
         [Output("primaryKeypairRef")]
         public Output<string?> PrimaryKeypairRef { get; private set; } = null!;
@@ -286,7 +287,8 @@ namespace Pulumi.Artifactory
         public Input<string>? Notes { get; set; }
 
         /// <summary>
-        /// The RSA key to be used to sign alpine indices.
+        /// Used to sign index files in Alpine Linux repositories. See:
+        /// https://www.jfrog.com/confluence/display/JFROG/Alpine+Linux+Repositories#AlpineLinuxRepositories-SigningAlpineLinuxIndex
         /// </summary>
         [Input("primaryKeypairRef")]
         public Input<string>? PrimaryKeypairRef { get; set; }
@@ -424,7 +426,8 @@ namespace Pulumi.Artifactory
         public Input<string>? PackageType { get; set; }
 
         /// <summary>
-        /// The RSA key to be used to sign alpine indices.
+        /// Used to sign index files in Alpine Linux repositories. See:
+        /// https://www.jfrog.com/confluence/display/JFROG/Alpine+Linux+Repositories#AlpineLinuxRepositories-SigningAlpineLinuxIndex
         /// </summary>
         [Input("primaryKeypairRef")]
         public Input<string>? PrimaryKeypairRef { get; set; }

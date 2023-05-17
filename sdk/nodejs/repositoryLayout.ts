@@ -95,9 +95,6 @@ export class RepositoryLayout extends pulumi.CustomResource {
             if ((!args || args.folderIntegrationRevisionRegexp === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'folderIntegrationRevisionRegexp'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             resourceInputs["artifactPathPattern"] = args ? args.artifactPathPattern : undefined;
             resourceInputs["descriptorPathPattern"] = args ? args.descriptorPathPattern : undefined;
             resourceInputs["distinctiveDescriptorPathPattern"] = args ? args.distinctiveDescriptorPathPattern : undefined;
@@ -183,5 +180,5 @@ export interface RepositoryLayoutArgs {
     /**
      * Layout name
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
 }

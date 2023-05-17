@@ -60,6 +60,11 @@ export type DebianRepository = import("./debianRepository").DebianRepository;
 export const DebianRepository: typeof import("./debianRepository").DebianRepository = null as any;
 utilities.lazyLoad(exports, ["DebianRepository"], () => require("./debianRepository"));
 
+export { DistributionPublicKeyArgs, DistributionPublicKeyState } from "./distributionPublicKey";
+export type DistributionPublicKey = import("./distributionPublicKey").DistributionPublicKey;
+export const DistributionPublicKey: typeof import("./distributionPublicKey").DistributionPublicKey = null as any;
+utilities.lazyLoad(exports, ["DistributionPublicKey"], () => require("./distributionPublicKey"));
+
 export { DistributionWebhookArgs, DistributionWebhookState } from "./distributionWebhook";
 export type DistributionWebhook = import("./distributionWebhook").DistributionWebhook;
 export const DistributionWebhook: typeof import("./distributionWebhook").DistributionWebhook = null as any;
@@ -1471,6 +1476,8 @@ const _module = {
                 return new Certificate(name, <any>undefined, { urn })
             case "artifactory:index/debianRepository:DebianRepository":
                 return new DebianRepository(name, <any>undefined, { urn })
+            case "artifactory:index/distributionPublicKey:DistributionPublicKey":
+                return new DistributionPublicKey(name, <any>undefined, { urn })
             case "artifactory:index/distributionWebhook:DistributionWebhook":
                 return new DistributionWebhook(name, <any>undefined, { urn })
             case "artifactory:index/dockerV1Repository:DockerV1Repository":
@@ -1781,6 +1788,7 @@ pulumi.runtime.registerResourceModule("artifactory", "index/backup", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/buildWebhook", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/certificate", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/debianRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/distributionPublicKey", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/distributionWebhook", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/dockerV1Repository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/dockerV2Repository", _module)

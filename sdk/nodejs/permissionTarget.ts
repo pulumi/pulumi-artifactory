@@ -30,7 +30,6 @@ import * as utilities from "./utilities";
  *         includesPatterns: ["**"],
  *         repositories: ["artifactory-build-info"],
  *     },
- *     name: "test-perm",
  *     releaseBundle: {
  *         actions: {
  *             users: [{
@@ -143,7 +142,7 @@ export class PermissionTarget extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: PermissionTargetArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args?: PermissionTargetArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PermissionTargetArgs | PermissionTargetState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
@@ -155,9 +154,6 @@ export class PermissionTarget extends pulumi.CustomResource {
             resourceInputs["repo"] = state ? state.repo : undefined;
         } else {
             const args = argsOrState as PermissionTargetArgs | undefined;
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             resourceInputs["build"] = args ? args.build : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["releaseBundle"] = args ? args.releaseBundle : undefined;
@@ -201,7 +197,7 @@ export interface PermissionTargetArgs {
     /**
      * Name of permission.
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * As for repo for for release-bundles permissions.
      */

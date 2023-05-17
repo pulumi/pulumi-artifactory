@@ -17,8 +17,6 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * Anonymous user can be imported using their name, e.g.
- *
  * ```sh
  *  $ pulumi import artifactory:index/anonymousUser:AnonymousUser anonymous-user anonymous
  * ```
@@ -52,7 +50,8 @@ export class AnonymousUser extends pulumi.CustomResource {
     }
 
     /**
-     * Username for anonymous user. This should not be set in the HCL, or change after importing into Terraform state.
+     * Username for anonymous user. This is only for ensuring resource schema is valid for Terraform. This is not meant to be
+     * set or updated in the HCL.
      */
     public readonly name!: pulumi.Output<string>;
 
@@ -84,7 +83,8 @@ export class AnonymousUser extends pulumi.CustomResource {
  */
 export interface AnonymousUserState {
     /**
-     * Username for anonymous user. This should not be set in the HCL, or change after importing into Terraform state.
+     * Username for anonymous user. This is only for ensuring resource schema is valid for Terraform. This is not meant to be
+     * set or updated in the HCL.
      */
     name?: pulumi.Input<string>;
 }
@@ -94,7 +94,8 @@ export interface AnonymousUserState {
  */
 export interface AnonymousUserArgs {
     /**
-     * Username for anonymous user. This should not be set in the HCL, or change after importing into Terraform state.
+     * Username for anonymous user. This is only for ensuring resource schema is valid for Terraform. This is not meant to be
+     * set or updated in the HCL.
      */
     name?: pulumi.Input<string>;
 }

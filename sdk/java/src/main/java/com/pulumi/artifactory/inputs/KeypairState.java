@@ -109,12 +109,16 @@ public final class KeypairState extends com.pulumi.resources.ResourceArgs {
     /**
      * Unknown usage. Returned in the json payload and cannot be set.
      * 
+     * Artifactory REST API call Get Key Pair doesn&#39;t return keys `private_key` and `passphrase`, but consumes these keys in the POST call.
+     * 
      */
     @Import(name="unavailable")
     private @Nullable Output<Boolean> unavailable;
 
     /**
      * @return Unknown usage. Returned in the json payload and cannot be set.
+     * 
+     * Artifactory REST API call Get Key Pair doesn&#39;t return keys `private_key` and `passphrase`, but consumes these keys in the POST call.
      * 
      */
     public Optional<Output<Boolean>> unavailable() {
@@ -280,6 +284,8 @@ public final class KeypairState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param unavailable Unknown usage. Returned in the json payload and cannot be set.
          * 
+         * Artifactory REST API call Get Key Pair doesn&#39;t return keys `private_key` and `passphrase`, but consumes these keys in the POST call.
+         * 
          * @return builder
          * 
          */
@@ -290,6 +296,8 @@ public final class KeypairState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param unavailable Unknown usage. Returned in the json payload and cannot be set.
+         * 
+         * Artifactory REST API call Get Key Pair doesn&#39;t return keys `private_key` and `passphrase`, but consumes these keys in the POST call.
          * 
          * @return builder
          * 

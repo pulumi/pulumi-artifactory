@@ -26,7 +26,8 @@ type Provider struct {
 	// In September 2022, the option to block the usage/creation of API Keys will be enabled by default, with the option for admins to change it back to enable API Keys.
 	// In January 2023, API Keys will be deprecated all together and the option to use them will no longer be available.
 	ApiKey pulumi.StringPtrOutput `pulumi:"apiKey"`
-	Url    pulumi.StringPtrOutput `pulumi:"url"`
+	// Artifactory URL.
+	Url pulumi.StringPtrOutput `pulumi:"url"`
 }
 
 // NewProvider registers a new resource with the given unique name, arguments, and options.
@@ -69,8 +70,9 @@ type providerArgs struct {
 	// In January 2023, API Keys will be deprecated all together and the option to use them will no longer be available.
 	ApiKey *string `pulumi:"apiKey"`
 	// Toggle for pre-flight checking of Artifactory Pro and Enterprise license. Default to `true`.
-	CheckLicense *bool   `pulumi:"checkLicense"`
-	Url          *string `pulumi:"url"`
+	CheckLicense *bool `pulumi:"checkLicense"`
+	// Artifactory URL.
+	Url *string `pulumi:"url"`
 }
 
 // The set of arguments for constructing a Provider resource.
@@ -86,7 +88,8 @@ type ProviderArgs struct {
 	ApiKey pulumi.StringPtrInput
 	// Toggle for pre-flight checking of Artifactory Pro and Enterprise license. Default to `true`.
 	CheckLicense pulumi.BoolPtrInput
-	Url          pulumi.StringPtrInput
+	// Artifactory URL.
+	Url pulumi.StringPtrInput
 }
 
 func (ProviderArgs) ElementType() reflect.Type {
@@ -141,6 +144,7 @@ func (o ProviderOutput) ApiKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.ApiKey }).(pulumi.StringPtrOutput)
 }
 
+// Artifactory URL.
 func (o ProviderOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.Url }).(pulumi.StringPtrOutput)
 }

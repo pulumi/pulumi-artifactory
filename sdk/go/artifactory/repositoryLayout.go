@@ -52,9 +52,6 @@ func NewRepositoryLayout(ctx *pulumi.Context,
 	if args.FolderIntegrationRevisionRegexp == nil {
 		return nil, errors.New("invalid value for required argument 'FolderIntegrationRevisionRegexp'")
 	}
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	var resource RepositoryLayout
 	err := ctx.RegisterResource("artifactory:index/repositoryLayout:RepositoryLayout", name, args, &resource, opts...)
 	if err != nil {
@@ -146,7 +143,7 @@ type repositoryLayoutArgs struct {
 	// If not applicable use '.*'
 	FolderIntegrationRevisionRegexp string `pulumi:"folderIntegrationRevisionRegexp"`
 	// Layout name
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 }
 
 // The set of arguments for constructing a RepositoryLayout resource.
@@ -170,7 +167,7 @@ type RepositoryLayoutArgs struct {
 	// If not applicable use '.*'
 	FolderIntegrationRevisionRegexp pulumi.StringInput
 	// Layout name
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 }
 
 func (RepositoryLayoutArgs) ElementType() reflect.Type {

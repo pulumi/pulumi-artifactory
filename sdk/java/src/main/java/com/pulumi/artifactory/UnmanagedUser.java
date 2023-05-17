@@ -17,6 +17,14 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Provides an Artifactory unmanaged user resource. This can be used to create and manage Artifactory users.
+ * The password is a required field by the [Artifactory API](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-CreateorReplaceUser), but we made it optional in this resource to accommodate the scenario where the password is not needed and will be reset by the actual user later.\
+ * When the optional attribute `password` is omitted, a random password is generated according to current Artifactory password policy.
+ * 
+ * &gt; The generated password won&#39;t be stored in the TF state and can not be recovered. The user must reset the password to be able to log in. An admin can always generate the access key for the user as well. The password change won&#39;t trigger state drift.
+ * 
+ * &gt; This resource is an alias for `artifactory.User` resource, it is identical and was added for clarity and compatibility purposes. We don&#39;t recommend to use this resource unless there is a specific use case for it. Recommended resource is `artifactory.ManagedUser`.
+ * 
  * ## Example Usage
  * ```java
  * package generated_program;
@@ -44,7 +52,6 @@ import javax.annotation.Nullable;
  *             .groups(            
  *                 &#34;logged-in-users&#34;,
  *                 &#34;readers&#34;)
- *             .name(&#34;terraform&#34;)
  *             .password(&#34;my super secret password&#34;)
  *             .build());
  * 

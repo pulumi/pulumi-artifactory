@@ -156,12 +156,16 @@ public class Keypair extends com.pulumi.resources.CustomResource {
     /**
      * Unknown usage. Returned in the json payload and cannot be set.
      * 
+     * Artifactory REST API call Get Key Pair doesn&#39;t return keys `private_key` and `passphrase`, but consumes these keys in the POST call.
+     * 
      */
     @Export(name="unavailable", type=Boolean.class, parameters={})
     private Output<Boolean> unavailable;
 
     /**
      * @return Unknown usage. Returned in the json payload and cannot be set.
+     * 
+     * Artifactory REST API call Get Key Pair doesn&#39;t return keys `private_key` and `passphrase`, but consumes these keys in the POST call.
      * 
      */
     public Output<Boolean> unavailable() {

@@ -17,9 +17,9 @@ class RepositoryLayoutArgs:
                  artifact_path_pattern: pulumi.Input[str],
                  file_integration_revision_regexp: pulumi.Input[str],
                  folder_integration_revision_regexp: pulumi.Input[str],
-                 name: pulumi.Input[str],
                  descriptor_path_pattern: Optional[pulumi.Input[str]] = None,
-                 distinctive_descriptor_path_pattern: Optional[pulumi.Input[bool]] = None):
+                 distinctive_descriptor_path_pattern: Optional[pulumi.Input[bool]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a RepositoryLayout resource.
         :param pulumi.Input[str] artifact_path_pattern: Please refer to: [Path
@@ -31,20 +31,21 @@ class RepositoryLayoutArgs:
         :param pulumi.Input[str] folder_integration_revision_regexp: A regular expression matching the integration revision string appearing in a folder name as part of the artifact's path.
                For example, 'SNAPSHOT', in Maven. Note! Take care not to introduce any regexp capturing groups within this expression.
                If not applicable use '.*'
-        :param pulumi.Input[str] name: Layout name
         :param pulumi.Input[str] descriptor_path_pattern: Please refer to: [Descriptor Path
                Patterns](https://www.jfrog.com/confluence/display/JFROG/Repository+Layouts#RepositoryLayouts-DescriptorPathPatterns) in
                the Artifactory Wiki documentation.
         :param pulumi.Input[bool] distinctive_descriptor_path_pattern: When set, 'descriptor_path_pattern' will be used. Default to 'false'.
+        :param pulumi.Input[str] name: Layout name
         """
         pulumi.set(__self__, "artifact_path_pattern", artifact_path_pattern)
         pulumi.set(__self__, "file_integration_revision_regexp", file_integration_revision_regexp)
         pulumi.set(__self__, "folder_integration_revision_regexp", folder_integration_revision_regexp)
-        pulumi.set(__self__, "name", name)
         if descriptor_path_pattern is not None:
             pulumi.set(__self__, "descriptor_path_pattern", descriptor_path_pattern)
         if distinctive_descriptor_path_pattern is not None:
             pulumi.set(__self__, "distinctive_descriptor_path_pattern", distinctive_descriptor_path_pattern)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="artifactPathPattern")
@@ -89,18 +90,6 @@ class RepositoryLayoutArgs:
         pulumi.set(self, "folder_integration_revision_regexp", value)
 
     @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        Layout name
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
-
-    @property
     @pulumi.getter(name="descriptorPathPattern")
     def descriptor_path_pattern(self) -> Optional[pulumi.Input[str]]:
         """
@@ -125,6 +114,18 @@ class RepositoryLayoutArgs:
     @distinctive_descriptor_path_pattern.setter
     def distinctive_descriptor_path_pattern(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "distinctive_descriptor_path_pattern", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Layout name
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
@@ -327,8 +328,6 @@ class RepositoryLayout(pulumi.CustomResource):
             if folder_integration_revision_regexp is None and not opts.urn:
                 raise TypeError("Missing required property 'folder_integration_revision_regexp'")
             __props__.__dict__["folder_integration_revision_regexp"] = folder_integration_revision_regexp
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
         super(RepositoryLayout, __self__).__init__(
             'artifactory:index/repositoryLayout:RepositoryLayout',

@@ -19,11 +19,11 @@ import javax.annotation.Nullable;
 /**
  * ## Import
  * 
- * Groups can be imported using their name, e.g.
- * 
  * ```sh
  *  $ pulumi import artifactory:index/group:Group terraform-group mygroup
  * ```
+ * 
+ *  ~&gt; `users_names` can&#39;t be imported due to API limitations.
  * 
  */
 @ResourceType(type="artifactory:index/group:Group")
@@ -57,32 +57,32 @@ public class Group extends com.pulumi.resources.CustomResource {
         return this.autoJoin;
     }
     /**
-     * A description for the group
+     * A description for the group.
      * 
      */
     @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return A description for the group
+     * @return A description for the group.
      * 
      */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
     /**
-     * When this is set to `true`, an empty or missing usernames array will detach all users from the group
+     * When this is set to `true`, an empty or missing usernames array will detach all users from the group.
      * 
      */
     @Export(name="detachAllUsers", type=Boolean.class, parameters={})
-    private Output</* @Nullable */ Boolean> detachAllUsers;
+    private Output<Boolean> detachAllUsers;
 
     /**
-     * @return When this is set to `true`, an empty or missing usernames array will detach all users from the group
+     * @return When this is set to `true`, an empty or missing usernames array will detach all users from the group.
      * 
      */
-    public Output<Optional<Boolean>> detachAllUsers() {
-        return Codegen.optional(this.detachAllUsers);
+    public Output<Boolean> detachAllUsers() {
+        return this.detachAllUsers;
     }
     /**
      * New external group ID used to configure the corresponding group in Azure AD.
@@ -99,14 +99,14 @@ public class Group extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.externalId);
     }
     /**
-     * Name of the group
+     * Name of the group.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return Name of the group
+     * @return Name of the group.
      * 
      */
     public Output<String> name() {
@@ -117,14 +117,14 @@ public class Group extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="policyManager", type=Boolean.class, parameters={})
-    private Output</* @Nullable */ Boolean> policyManager;
+    private Output<Boolean> policyManager;
 
     /**
      * @return When this override is set, User in the group can set Xray security and compliance policies. Default value is `false`.
      * 
      */
-    public Output<Optional<Boolean>> policyManager() {
-        return Codegen.optional(this.policyManager);
+    public Output<Boolean> policyManager() {
+        return this.policyManager;
     }
     /**
      * The realm for the group.
@@ -159,18 +159,26 @@ public class Group extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="reportsManager", type=Boolean.class, parameters={})
-    private Output</* @Nullable */ Boolean> reportsManager;
+    private Output<Boolean> reportsManager;
 
     /**
      * @return When this override is set, User in the group can manage Xray Reports on any resource type. Default value is `false`.
      * 
      */
-    public Output<Optional<Boolean>> reportsManager() {
-        return Codegen.optional(this.reportsManager);
+    public Output<Boolean> reportsManager() {
+        return this.reportsManager;
     }
+    /**
+     * List of users assigned to the group. If not set or empty, Terraform will not manage group membership.
+     * 
+     */
     @Export(name="usersNames", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> usersNames;
 
+    /**
+     * @return List of users assigned to the group. If not set or empty, Terraform will not manage group membership.
+     * 
+     */
     public Output<Optional<List<String>>> usersNames() {
         return Codegen.optional(this.usersNames);
     }
@@ -179,14 +187,14 @@ public class Group extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="watchManager", type=Boolean.class, parameters={})
-    private Output</* @Nullable */ Boolean> watchManager;
+    private Output<Boolean> watchManager;
 
     /**
      * @return When this override is set, User in the group can manage Xray Watches on any resource type. Default value is `false`.
      * 
      */
-    public Output<Optional<Boolean>> watchManager() {
-        return Codegen.optional(this.watchManager);
+    public Output<Boolean> watchManager() {
+        return this.watchManager;
     }
 
     /**
@@ -201,7 +209,7 @@ public class Group extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Group(String name, GroupArgs args) {
+    public Group(String name, @Nullable GroupArgs args) {
         this(name, args, null);
     }
     /**
@@ -210,7 +218,7 @@ public class Group extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Group(String name, GroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public Group(String name, @Nullable GroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("artifactory:index/group:Group", name, args == null ? GroupArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
     }
 

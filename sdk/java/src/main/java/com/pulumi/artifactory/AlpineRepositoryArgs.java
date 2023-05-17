@@ -172,14 +172,16 @@ public final class AlpineRepositoryArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The RSA key to be used to sign alpine indices.
+     * Used to sign index files in Alpine Linux repositories. See:
+     * https://www.jfrog.com/confluence/display/JFROG/Alpine+Linux+Repositories#AlpineLinuxRepositories-SigningAlpineLinuxIndex
      * 
      */
     @Import(name="primaryKeypairRef")
     private @Nullable Output<String> primaryKeypairRef;
 
     /**
-     * @return The RSA key to be used to sign alpine indices.
+     * @return Used to sign index files in Alpine Linux repositories. See:
+     * https://www.jfrog.com/confluence/display/JFROG/Alpine+Linux+Repositories#AlpineLinuxRepositories-SigningAlpineLinuxIndex
      * 
      */
     public Optional<Output<String>> primaryKeypairRef() {
@@ -541,7 +543,8 @@ public final class AlpineRepositoryArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param primaryKeypairRef The RSA key to be used to sign alpine indices.
+         * @param primaryKeypairRef Used to sign index files in Alpine Linux repositories. See:
+         * https://www.jfrog.com/confluence/display/JFROG/Alpine+Linux+Repositories#AlpineLinuxRepositories-SigningAlpineLinuxIndex
          * 
          * @return builder
          * 
@@ -552,7 +555,8 @@ public final class AlpineRepositoryArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param primaryKeypairRef The RSA key to be used to sign alpine indices.
+         * @param primaryKeypairRef Used to sign index files in Alpine Linux repositories. See:
+         * https://www.jfrog.com/confluence/display/JFROG/Alpine+Linux+Repositories#AlpineLinuxRepositories-SigningAlpineLinuxIndex
          * 
          * @return builder
          * 

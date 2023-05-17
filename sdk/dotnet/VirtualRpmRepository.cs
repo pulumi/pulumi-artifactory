@@ -154,7 +154,7 @@ namespace Pulumi.Artifactory
         public Output<ImmutableArray<string>> Repositories { get; private set; } = null!;
 
         /// <summary>
-        /// The secondary GPG key to be used to sign packages.
+        /// Secondary keypair used to sign artifacts.
         /// </summary>
         [Output("secondaryKeypairRef")]
         public Output<string?> SecondaryKeypairRef { get; private set; } = null!;
@@ -298,7 +298,7 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// The secondary GPG key to be used to sign packages.
+        /// Secondary keypair used to sign artifacts.
         /// </summary>
         [Input("secondaryKeypairRef")]
         public Input<string>? SecondaryKeypairRef { get; set; }
@@ -407,7 +407,7 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// The secondary GPG key to be used to sign packages.
+        /// Secondary keypair used to sign artifacts.
         /// </summary>
         [Input("secondaryKeypairRef")]
         public Input<string>? SecondaryKeypairRef { get; set; }

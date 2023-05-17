@@ -46,12 +46,15 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test_user = new User(&#34;test-user&#34;, UserArgs.builder()        
+ *             .admin(false)
+ *             .disableUiAccess(false)
  *             .email(&#34;test-user@artifactory-terraform.com&#34;)
  *             .groups(            
- *                 &#34;logged-in-users&#34;,
- *                 &#34;readers&#34;)
- *             .name(&#34;terraform&#34;)
+ *                 &#34;readers&#34;,
+ *                 &#34;logged-in-users&#34;)
+ *             .internalPasswordDisabled(false)
  *             .password(&#34;my super secret password&#34;)
+ *             .profileUpdatable(true)
  *             .build());
  * 
  *     }
@@ -63,8 +66,6 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Users can be imported using their name, e.g.
- * 
  * ```sh
  *  $ pulumi import artifactory:index/user:User test-user myusername
  * ```
@@ -73,32 +74,32 @@ import javax.annotation.Nullable;
 @ResourceType(type="artifactory:index/user:User")
 public class User extends com.pulumi.resources.CustomResource {
     /**
-     * When enabled, this user is an administrator with all the ensuing privileges. Default value is `false`.
+     * (Optional, Default: false) When enabled, this user is an administrator with all the ensuing privileges.
      * 
      */
     @Export(name="admin", type=Boolean.class, parameters={})
-    private Output</* @Nullable */ Boolean> admin;
+    private Output<Boolean> admin;
 
     /**
-     * @return When enabled, this user is an administrator with all the ensuing privileges. Default value is `false`.
+     * @return (Optional, Default: false) When enabled, this user is an administrator with all the ensuing privileges.
      * 
      */
-    public Output<Optional<Boolean>> admin() {
-        return Codegen.optional(this.admin);
+    public Output<Boolean> admin() {
+        return this.admin;
     }
     /**
-     * When set, this user can only access Artifactory through the REST API. This option cannot be set if the user has Admin privileges. Default value is `true`.
+     * (Optional, Default: true) When enabled, this user can only access the system through the REST API. This option cannot be set if the user has Admin privileges.
      * 
      */
     @Export(name="disableUiAccess", type=Boolean.class, parameters={})
-    private Output</* @Nullable */ Boolean> disableUiAccess;
+    private Output<Boolean> disableUiAccess;
 
     /**
-     * @return When set, this user can only access Artifactory through the REST API. This option cannot be set if the user has Admin privileges. Default value is `true`.
+     * @return (Optional, Default: true) When enabled, this user can only access the system through the REST API. This option cannot be set if the user has Admin privileges.
      * 
      */
-    public Output<Optional<Boolean>> disableUiAccess() {
-        return Codegen.optional(this.disableUiAccess);
+    public Output<Boolean> disableUiAccess() {
+        return this.disableUiAccess;
     }
     /**
      * Email for user.
@@ -115,32 +116,32 @@ public class User extends com.pulumi.resources.CustomResource {
         return this.email;
     }
     /**
-     * List of groups this user is a part of. **Notes:** If this attribute is not specified then user&#39;s group membership set to empty. User will not be part of default &#34;readers&#34; group automatically.
+     * List of groups this user is a part of. If no groups set, `readers` group will be added by default. If other groups are assigned, `readers` must be added to the list manually to avoid state drift.
      * 
      */
     @Export(name="groups", type=List.class, parameters={String.class})
-    private Output</* @Nullable */ List<String>> groups;
+    private Output<List<String>> groups;
 
     /**
-     * @return List of groups this user is a part of. **Notes:** If this attribute is not specified then user&#39;s group membership set to empty. User will not be part of default &#34;readers&#34; group automatically.
+     * @return List of groups this user is a part of. If no groups set, `readers` group will be added by default. If other groups are assigned, `readers` must be added to the list manually to avoid state drift.
      * 
      */
-    public Output<Optional<List<String>>> groups() {
-        return Codegen.optional(this.groups);
+    public Output<List<String>> groups() {
+        return this.groups;
     }
     /**
-     * When set, disables the fallback of using an internal password when external authentication (such as LDAP) is enabled.
+     * (Optional, Default: false) When enabled, disables the fallback mechanism for using an internal password when external authentication (such as LDAP) is enabled.
      * 
      */
     @Export(name="internalPasswordDisabled", type=Boolean.class, parameters={})
-    private Output</* @Nullable */ Boolean> internalPasswordDisabled;
+    private Output<Boolean> internalPasswordDisabled;
 
     /**
-     * @return When set, disables the fallback of using an internal password when external authentication (such as LDAP) is enabled.
+     * @return (Optional, Default: false) When enabled, disables the fallback mechanism for using an internal password when external authentication (such as LDAP) is enabled.
      * 
      */
-    public Output<Optional<Boolean>> internalPasswordDisabled() {
-        return Codegen.optional(this.internalPasswordDisabled);
+    public Output<Boolean> internalPasswordDisabled() {
+        return this.internalPasswordDisabled;
     }
     /**
      * Username for user.
@@ -157,32 +158,32 @@ public class User extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters.
+     * (Optional, Sensitive) Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters
      * 
      */
     @Export(name="password", type=String.class, parameters={})
     private Output</* @Nullable */ String> password;
 
     /**
-     * @return Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters.
+     * @return (Optional, Sensitive) Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters
      * 
      */
     public Output<Optional<String>> password() {
         return Codegen.optional(this.password);
     }
     /**
-     * When set, this user can update his profile details (except for the password. Only an administrator can update the password). Default value is `true`.
+     * (Optional, Default: true) When enabled, this user can update their profile details (except for the password. Only an administrator can update the password). There may be cases in which you want to leave this unset to prevent users from updating their profile. For example, a departmental user with a single password shared between all department members.
      * 
      */
     @Export(name="profileUpdatable", type=Boolean.class, parameters={})
-    private Output</* @Nullable */ Boolean> profileUpdatable;
+    private Output<Boolean> profileUpdatable;
 
     /**
-     * @return When set, this user can update his profile details (except for the password. Only an administrator can update the password). Default value is `true`.
+     * @return (Optional, Default: true) When enabled, this user can update their profile details (except for the password. Only an administrator can update the password). There may be cases in which you want to leave this unset to prevent users from updating their profile. For example, a departmental user with a single password shared between all department members.
      * 
      */
-    public Output<Optional<Boolean>> profileUpdatable() {
-        return Codegen.optional(this.profileUpdatable);
+    public Output<Boolean> profileUpdatable() {
+        return this.profileUpdatable;
     }
 
     /**

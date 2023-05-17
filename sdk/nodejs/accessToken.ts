@@ -7,6 +7,116 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * Provides an Artifactory Access Token resource. This can be used to create and manage Artifactory Access Tokens.
+ *
+ * > **Note:** Access Tokens will be stored in the raw state as plain-text. Read more about sensitive data in
+ * state.
+ *
+ * ## Example Usage
+ *
+ * ### S
+ * ### Create a new Artifactory Access Token for an existing user
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const exisingUser = new artifactory.AccessToken("exisingUser", {
+ *     endDateRelative: "5m",
+ *     username: "existing-user",
+ * });
+ * ```
+ *
+ * Note: This assumes that the user `existing-user` has already been created in Artifactory by different means, i.e. manually or in a separate pulumi up.
+ * ### Create a new Artifactory User and Access token
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const newUserUser = new artifactory.User("newUserUser", {
+ *     email: "new_user@somewhere.com",
+ *     groups: ["readers"],
+ * });
+ * const newUserAccessToken = new artifactory.AccessToken("newUserAccessToken", {
+ *     username: newUserUser.name,
+ *     endDateRelative: "5m",
+ * });
+ * ```
+ * ### Creates a new token for groups
+ * This creates a transient user called `temporary-user`.
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const temporaryUser = new artifactory.AccessToken("temporaryUser", {
+ *     endDateRelative: "1h",
+ *     groups: ["readers"],
+ *     username: "temporary-user",
+ * });
+ * ```
+ * ### Create token with no expiry
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const noExpiry = new artifactory.AccessToken("noExpiry", {
+ *     endDateRelative: "0s",
+ *     username: "existing-user",
+ * });
+ * ```
+ * ### Creates a refreshable token
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const refreshable = new artifactory.AccessToken("refreshable", {
+ *     endDateRelative: "1m",
+ *     groups: ["readers"],
+ *     refreshable: true,
+ *     username: "refreshable",
+ * });
+ * ```
+ * ### Creates an administrator token
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const admin = new artifactory.AccessToken("admin", {
+ *     adminToken: {
+ *         instanceId: "<instance id>",
+ *     },
+ *     endDateRelative: "1m",
+ *     username: "admin",
+ * });
+ * ```
+ * ### Creates a token with an audience
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const audience = new artifactory.AccessToken("audience", {
+ *     audience: "jfrt@*",
+ *     endDateRelative: "1m",
+ *     refreshable: true,
+ *     username: "audience",
+ * });
+ * ```
+ * ### Creates a token with a fixed end date
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const fixeddate = new artifactory.AccessToken("fixeddate", {
+ *     endDate: "2018-01-01T01:02:03Z",
+ *     groups: ["readers"],
+ *     username: "fixeddate",
+ * });
+ * ```
+ * ## References
+ *
+ * - https://www.jfrog.com/confluence/display/ACC1X/Access+Tokens
+ * - https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-CreateToken
+ *
  * ## Import
  *
  * Artifactory **does not** retain access tokens and cannot be imported into state.

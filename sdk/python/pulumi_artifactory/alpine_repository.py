@@ -48,7 +48,8 @@ class AlpineRepositoryArgs:
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         :param pulumi.Input[str] notes: Internal description.
-        :param pulumi.Input[str] primary_keypair_ref: The RSA key to be used to sign alpine indices.
+        :param pulumi.Input[str] primary_keypair_ref: Used to sign index files in Alpine Linux repositories. See:
+               https://www.jfrog.com/confluence/display/JFROG/Alpine+Linux+Repositories#AlpineLinuxRepositories-SigningAlpineLinuxIndex
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
                Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
@@ -222,7 +223,8 @@ class AlpineRepositoryArgs:
     @pulumi.getter(name="primaryKeypairRef")
     def primary_keypair_ref(self) -> Optional[pulumi.Input[str]]:
         """
-        The RSA key to be used to sign alpine indices.
+        Used to sign index files in Alpine Linux repositories. See:
+        https://www.jfrog.com/confluence/display/JFROG/Alpine+Linux+Repositories#AlpineLinuxRepositories-SigningAlpineLinuxIndex
         """
         return pulumi.get(self, "primary_keypair_ref")
 
@@ -346,7 +348,8 @@ class _AlpineRepositoryState:
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         :param pulumi.Input[str] key: the identity key of the repo.
         :param pulumi.Input[str] notes: Internal description.
-        :param pulumi.Input[str] primary_keypair_ref: The RSA key to be used to sign alpine indices.
+        :param pulumi.Input[str] primary_keypair_ref: Used to sign index files in Alpine Linux repositories. See:
+               https://www.jfrog.com/confluence/display/JFROG/Alpine+Linux+Repositories#AlpineLinuxRepositories-SigningAlpineLinuxIndex
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
                Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
@@ -532,7 +535,8 @@ class _AlpineRepositoryState:
     @pulumi.getter(name="primaryKeypairRef")
     def primary_keypair_ref(self) -> Optional[pulumi.Input[str]]:
         """
-        The RSA key to be used to sign alpine indices.
+        Used to sign index files in Alpine Linux repositories. See:
+        https://www.jfrog.com/confluence/display/JFROG/Alpine+Linux+Repositories#AlpineLinuxRepositories-SigningAlpineLinuxIndex
         """
         return pulumi.get(self, "primary_keypair_ref")
 
@@ -687,7 +691,8 @@ class AlpineRepository(pulumi.CustomResource):
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         :param pulumi.Input[str] key: the identity key of the repo.
         :param pulumi.Input[str] notes: Internal description.
-        :param pulumi.Input[str] primary_keypair_ref: The RSA key to be used to sign alpine indices.
+        :param pulumi.Input[str] primary_keypair_ref: Used to sign index files in Alpine Linux repositories. See:
+               https://www.jfrog.com/confluence/display/JFROG/Alpine+Linux+Repositories#AlpineLinuxRepositories-SigningAlpineLinuxIndex
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
                Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
@@ -846,7 +851,8 @@ class AlpineRepository(pulumi.CustomResource):
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         :param pulumi.Input[str] key: the identity key of the repo.
         :param pulumi.Input[str] notes: Internal description.
-        :param pulumi.Input[str] primary_keypair_ref: The RSA key to be used to sign alpine indices.
+        :param pulumi.Input[str] primary_keypair_ref: Used to sign index files in Alpine Linux repositories. See:
+               https://www.jfrog.com/confluence/display/JFROG/Alpine+Linux+Repositories#AlpineLinuxRepositories-SigningAlpineLinuxIndex
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
                Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
@@ -975,7 +981,8 @@ class AlpineRepository(pulumi.CustomResource):
     @pulumi.getter(name="primaryKeypairRef")
     def primary_keypair_ref(self) -> pulumi.Output[Optional[str]]:
         """
-        The RSA key to be used to sign alpine indices.
+        Used to sign index files in Alpine Linux repositories. See:
+        https://www.jfrog.com/confluence/display/JFROG/Alpine+Linux+Repositories#AlpineLinuxRepositories-SigningAlpineLinuxIndex
         """
         return pulumi.get(self, "primary_keypair_ref")
 

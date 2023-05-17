@@ -5,6 +5,90 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
+ * Provides an Artifactory Scoped Token resource. This can be used to create and manage Artifactory Scoped Tokens.
+ *
+ * !>Scoped Tokens will be stored in the raw state as plain-text. Read more about sensitive data in
+ * state.
+ *
+ * ~>Token would not be saved by Artifactory if `expiresIn` is less than the persistency threshold value (default to 10800 seconds) set in Access configuration. See [Persistency Threshold](https://www.jfrog.com/confluence/display/JFROG/Access+Tokens#AccessTokens-PersistencyThreshold) for details.
+ *
+ * ## Example Usage
+ *
+ * ### S
+ * ### Create a new Artifactory scoped token for an existing user
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const scopedToken = new artifactory.ScopedToken("scopedToken", {username: "existing-user"});
+ * ```
+ *
+ * **Note:** This assumes that the user `existing-user` has already been created in Artifactory by different means, i.e. manually or in a separate pulumi up.
+ * ### Create a new Artifactory user and scoped token
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const newUser = new artifactory.User("newUser", {
+ *     email: "new_user@somewhere.com",
+ *     groups: ["readers"],
+ * });
+ * const scopedTokenUser = new artifactory.ScopedToken("scopedTokenUser", {username: newUser.name});
+ * ```
+ * ### Creates a new token for groups
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const scopedTokenGroup = new artifactory.ScopedToken("scopedTokenGroup", {scopes: ["applied-permissions/groups:readers"]});
+ * ```
+ * ### Create token with expiry
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const scopedTokenNoExpiry = new artifactory.ScopedToken("scopedTokenNoExpiry", {
+ *     expiresIn: 7200,
+ *     username: "existing-user",
+ * });
+ * ```
+ * ### Creates a refreshable token
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const scopedTokenRefreshable = new artifactory.ScopedToken("scopedTokenRefreshable", {
+ *     refreshable: true,
+ *     username: "existing-user",
+ * });
+ * ```
+ * ### Creates an administrator token
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const admin = new artifactory.ScopedToken("admin", {
+ *     scopes: ["applied-permissions/admin"],
+ *     username: "admin-user",
+ * });
+ * ```
+ * ### Creates a token with an audience
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const audience = new artifactory.ScopedToken("audience", {
+ *     audiences: ["jfrt@*"],
+ *     scopes: ["applied-permissions/admin"],
+ *     username: "admin-user",
+ * });
+ * ```
+ * ## References
+ *
+ * - https://www.jfrog.com/confluence/display/JFROG/Access+Tokens
+ * - https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-AccessTokens
+ *
  * ## Import
  *
  * Artifactory **does not** retain scoped tokens and cannot be imported into state.

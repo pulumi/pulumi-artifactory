@@ -32,7 +32,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewPropertySet(ctx, "foo", &artifactory.PropertySetArgs{
-//				Name: pulumi.String("property-set1"),
 //				Properties: artifactory.PropertySetPropertyArray{
 //					&artifactory.PropertySetPropertyArgs{
 //						ClosedPredefinedValues: pulumi.Bool(true),
@@ -103,9 +102,6 @@ func NewPropertySet(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.Properties == nil {
 		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
@@ -154,7 +150,7 @@ func (PropertySetState) ElementType() reflect.Type {
 
 type propertySetArgs struct {
 	// Predefined property name.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// A list of properties that will be part of the property set.
 	Properties []PropertySetProperty `pulumi:"properties"`
 	// Defines if the list visible and assignable to the repository or artifact. Default value is `true`.
@@ -164,7 +160,7 @@ type propertySetArgs struct {
 // The set of arguments for constructing a PropertySet resource.
 type PropertySetArgs struct {
 	// Predefined property name.
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// A list of properties that will be part of the property set.
 	Properties PropertySetPropertyArrayInput
 	// Defines if the list visible and assignable to the repository or artifact. Default value is `true`.

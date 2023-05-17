@@ -15,6 +15,7 @@
 package artifactory
 
 import (
+	"context"
 	"fmt"
 	// embed is used to store bridge-metadata.json in the compiled binary
 	_ "embed"
@@ -23,6 +24,7 @@ import (
 
 	artifactoryProvider "github.com/jfrog/terraform-provider-artifactory/v7/pkg/artifactory/provider"
 	"github.com/pulumi/pulumi-artifactory/provider/v3/pkg/version"
+	pfbridge "github.com/pulumi/pulumi-terraform-bridge/pf/tfbridge"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/x"
 	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
@@ -61,7 +63,10 @@ func makeResource(mod string, res string) tokens.Type {
 // Provider returns additional overlaid schema and metadata associated with the provider..
 func Provider() tfbridge.ProviderInfo {
 	// Instantiate the Terraform provider
-	p := shimv2.NewProvider(artifactoryProvider.Provider())
+	p := pfbridge.MuxShimWithPF(context.Background(),
+		shimv2.NewProvider(artifactoryProvider.SdkV2()),
+		artifactoryProvider.Framework()(),
+	)
 
 	// Create a Pulumi provider mapping
 	prov := tfbridge.ProviderInfo{
@@ -74,6 +79,7 @@ func Provider() tfbridge.ProviderInfo {
 		Repository:              "https://github.com/pulumi/pulumi-artifactory",
 		GitHubOrg:               "jfrog",
 		TFProviderModuleVersion: "v7",
+		Version:                 version.Version,
 		Config: map[string]*tfbridge.SchemaInfo{
 			"check_license": {
 				Default: &tfbridge.DefaultInfo{
@@ -304,7 +310,8 @@ func Provider() tfbridge.ProviderInfo {
 			PackageReferences: map[string]string{
 				"Pulumi": "3.*",
 			},
-		}, MetadataInfo: tfbridge.NewProviderMetadata(metadata),
+		},
+		MetadataInfo: tfbridge.NewProviderMetadata(bridgeMetadata),
 	}
 
 	err := x.ComputeDefaults(&prov, x.TokensSingleModule("artifactory_", mainMod,
@@ -364,4 +371,4 @@ func Provider() tfbridge.ProviderInfo {
 }
 
 //go:embed cmd/pulumi-resource-artifactory/bridge-metadata.json
-var metadata []byte
+var bridgeMetadata []byte
