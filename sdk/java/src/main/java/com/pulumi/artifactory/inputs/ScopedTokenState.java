@@ -19,14 +19,14 @@ public final class ScopedTokenState extends com.pulumi.resources.ResourceArgs {
     public static final ScopedTokenState Empty = new ScopedTokenState();
 
     /**
-     * Returns the access token to authenticate to Artifactory
+     * Returns the access token to authenticate to Artifactory.
      * 
      */
     @Import(name="accessToken")
     private @Nullable Output<String> accessToken;
 
     /**
-     * @return Returns the access token to authenticate to Artifactory
+     * @return Returns the access token to authenticate to Artifactory.
      * 
      */
     public Optional<Output<String>> accessToken() {
@@ -34,14 +34,14 @@ public final class ScopedTokenState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * (Optional) A list of the other instances or services that should accept this token identified by their Service-IDs. Limited to total 255 characters. Default to `*@*` if not set. Service ID must begin with `jfrt@`. For instructions to retrieve the Artifactory Service ID see this [documentation](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-GetServiceID).
+     * A list of the other instances or services that should accept this token identified by their Service-IDs. Limited to total 255 characters. Default to &#39;*@*&#39; if not set. Service ID must begin with valid JFrog service type. Options: jfrt, jfxr, jfpip, jfds, jfmc, jfac, jfevt, jfmd, jfcon, or *. For instructions to retrieve the Artifactory Service ID see this [documentation](https://jfrog.com/help/r/jfrog-rest-apis/get-service-id)
      * 
      */
     @Import(name="audiences")
     private @Nullable Output<List<String>> audiences;
 
     /**
-     * @return (Optional) A list of the other instances or services that should accept this token identified by their Service-IDs. Limited to total 255 characters. Default to `*@*` if not set. Service ID must begin with `jfrt@`. For instructions to retrieve the Artifactory Service ID see this [documentation](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-GetServiceID).
+     * @return A list of the other instances or services that should accept this token identified by their Service-IDs. Limited to total 255 characters. Default to &#39;*@*&#39; if not set. Service ID must begin with valid JFrog service type. Options: jfrt, jfxr, jfpip, jfds, jfmc, jfac, jfevt, jfmd, jfcon, or *. For instructions to retrieve the Artifactory Service ID see this [documentation](https://jfrog.com/help/r/jfrog-rest-apis/get-service-id)
      * 
      */
     public Optional<Output<List<String>>> audiences() {
@@ -49,14 +49,14 @@ public final class ScopedTokenState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * (Optional) Free text token description. Useful for filtering and managing tokens. Limited to 1024 characters.
+     * Free text token description. Useful for filtering and managing tokens. Limited to 1024 characters.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return (Optional) Free text token description. Useful for filtering and managing tokens. Limited to 1024 characters.
+     * @return Free text token description. Useful for filtering and managing tokens. Limited to 1024 characters.
      * 
      */
     public Optional<Output<String>> description() {
@@ -64,14 +64,14 @@ public final class ScopedTokenState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * (Optional) The amount of time, in seconds, it would take for the token to expire. An admin shall be able to set whether expiry is mandatory, what is the default expiry, and what is the maximum expiry allowed. Must be non-negative. Default value is based on configuration in `access.config.yaml`. See [API documentation](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-RevokeTokenbyIDrevoketokenbyid) for details.
+     * The amount of time, in seconds, it would take for the token to expire. An admin shall be able to set whether expiry is mandatory, what is the default expiry, and what is the maximum expiry allowed. Must be non-negative. Default value is based on configuration in &#39;access.config.yaml&#39;. See [API documentation](https://jfrog.com/help/r/jfrog-rest-apis/revoke-token-by-id) for details. Access Token would not be saved by Artifactory if this is less than the persistence threshold value (default to 10800 seconds) set in Access configuration. See [official documentation](https://jfrog.com/help/r/jfrog-platform-administration-documentation/using-the-revocable-and-persistency-thresholds) for details.
      * 
      */
     @Import(name="expiresIn")
     private @Nullable Output<Integer> expiresIn;
 
     /**
-     * @return (Optional) The amount of time, in seconds, it would take for the token to expire. An admin shall be able to set whether expiry is mandatory, what is the default expiry, and what is the maximum expiry allowed. Must be non-negative. Default value is based on configuration in `access.config.yaml`. See [API documentation](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-RevokeTokenbyIDrevoketokenbyid) for details.
+     * @return The amount of time, in seconds, it would take for the token to expire. An admin shall be able to set whether expiry is mandatory, what is the default expiry, and what is the maximum expiry allowed. Must be non-negative. Default value is based on configuration in &#39;access.config.yaml&#39;. See [API documentation](https://jfrog.com/help/r/jfrog-rest-apis/revoke-token-by-id) for details. Access Token would not be saved by Artifactory if this is less than the persistence threshold value (default to 10800 seconds) set in Access configuration. See [official documentation](https://jfrog.com/help/r/jfrog-platform-administration-documentation/using-the-revocable-and-persistency-thresholds) for details.
      * 
      */
     public Optional<Output<Integer>> expiresIn() {
@@ -79,14 +79,14 @@ public final class ScopedTokenState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Returns the token expiry
+     * Returns the token expiry.
      * 
      */
     @Import(name="expiry")
     private @Nullable Output<Integer> expiry;
 
     /**
-     * @return Returns the token expiry
+     * @return Returns the token expiry.
      * 
      */
     public Optional<Output<Integer>> expiry() {
@@ -94,14 +94,29 @@ public final class ScopedTokenState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * (Optional) Should a reference token also be created? Defaults to `false`
+     * The grant type used to authenticate the request. In this case, the only value supported is `client_credentials` which is also the default value if this parameter is not specified.
+     * 
+     */
+    @Import(name="grantType")
+    private @Nullable Output<String> grantType;
+
+    /**
+     * @return The grant type used to authenticate the request. In this case, the only value supported is `client_credentials` which is also the default value if this parameter is not specified.
+     * 
+     */
+    public Optional<Output<String>> grantType() {
+        return Optional.ofNullable(this.grantType);
+    }
+
+    /**
+     * Also create a reference token which can be used like an API key. Default is `false`.
      * 
      */
     @Import(name="includeReferenceToken")
     private @Nullable Output<Boolean> includeReferenceToken;
 
     /**
-     * @return (Optional) Should a reference token also be created? Defaults to `false`
+     * @return Also create a reference token which can be used like an API key. Default is `false`.
      * 
      */
     public Optional<Output<Boolean>> includeReferenceToken() {
@@ -109,14 +124,14 @@ public final class ScopedTokenState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Returns the token issued at date/time
+     * Returns the token issued at date/time.
      * 
      */
     @Import(name="issuedAt")
     private @Nullable Output<Integer> issuedAt;
 
     /**
-     * @return Returns the token issued at date/time
+     * @return Returns the token issued at date/time.
      * 
      */
     public Optional<Output<Integer>> issuedAt() {
@@ -124,14 +139,14 @@ public final class ScopedTokenState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Returns the token issuer
+     * Returns the token issuer.
      * 
      */
     @Import(name="issuer")
     private @Nullable Output<String> issuer;
 
     /**
-     * @return Returns the token issuer
+     * @return Returns the token issuer.
      * 
      */
     public Optional<Output<String>> issuer() {
@@ -139,36 +154,44 @@ public final class ScopedTokenState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Returns the reference token to authenticate to Artifactory
+     * Reference Token (alias to Access Token).
      * 
      */
     @Import(name="referenceToken")
     private @Nullable Output<String> referenceToken;
 
     /**
-     * @return Returns the reference token to authenticate to Artifactory
+     * @return Reference Token (alias to Access Token).
      * 
      */
     public Optional<Output<String>> referenceToken() {
         return Optional.ofNullable(this.referenceToken);
     }
 
+    /**
+     * Refresh token.
+     * 
+     */
     @Import(name="refreshToken")
     private @Nullable Output<String> refreshToken;
 
+    /**
+     * @return Refresh token.
+     * 
+     */
     public Optional<Output<String>> refreshToken() {
         return Optional.ofNullable(this.refreshToken);
     }
 
     /**
-     * (Optional) Is this token refreshable? Defaults to `false`
+     * Is this token refreshable? Default is `false`.
      * 
      */
     @Import(name="refreshable")
     private @Nullable Output<Boolean> refreshable;
 
     /**
-     * @return (Optional) Is this token refreshable? Defaults to `false`
+     * @return Is this token refreshable? Default is `false`.
      * 
      */
     public Optional<Output<Boolean>> refreshable() {
@@ -176,14 +199,16 @@ public final class ScopedTokenState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * (Optional) The scope of access that the token provides. Access to the REST API is always provided by default. Administrators can set any scope, while non-admin users can only set the scope to a subset of the groups to which they belong.
+     * The scope of access that the token provides. Access to the REST API is always provided by default. Administrators can set any scope, while non-admin users can only set the scope to a subset of the groups to which they belong.
+     * The supported scopes include:
      * 
      */
     @Import(name="scopes")
     private @Nullable Output<List<String>> scopes;
 
     /**
-     * @return (Optional) The scope of access that the token provides. Access to the REST API is always provided by default. Administrators can set any scope, while non-admin users can only set the scope to a subset of the groups to which they belong.
+     * @return The scope of access that the token provides. Access to the REST API is always provided by default. Administrators can set any scope, while non-admin users can only set the scope to a subset of the groups to which they belong.
+     * The supported scopes include:
      * 
      */
     public Optional<Output<List<String>>> scopes() {
@@ -191,14 +216,14 @@ public final class ScopedTokenState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Returns the token type
+     * Returns the token type.
      * 
      */
     @Import(name="subject")
     private @Nullable Output<String> subject;
 
     /**
-     * @return Returns the token type
+     * @return Returns the token type.
      * 
      */
     public Optional<Output<String>> subject() {
@@ -206,14 +231,14 @@ public final class ScopedTokenState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Returns the token type
+     * Returns the token type.
      * 
      */
     @Import(name="tokenType")
     private @Nullable Output<String> tokenType;
 
     /**
-     * @return Returns the token type
+     * @return Returns the token type.
      * 
      */
     public Optional<Output<String>> tokenType() {
@@ -221,14 +246,14 @@ public final class ScopedTokenState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * (Optional) The user name for which this token is created. The username is based on the authenticated user - either from the user of the authenticated token or based on the username (if basic auth was used). The username is then used to set the subject of the token: `&lt;service-id&gt;/users/&lt;username&gt;`. Limited to 255 characters.
+     * The user name for which this token is created. The username is based on the authenticated user - either from the user of the authenticated token or based on the username (if basic auth was used). The username is then used to set the subject of the token: \n\n/users/\n\n. Limited to 255 characters.
      * 
      */
     @Import(name="username")
     private @Nullable Output<String> username;
 
     /**
-     * @return (Optional) The user name for which this token is created. The username is based on the authenticated user - either from the user of the authenticated token or based on the username (if basic auth was used). The username is then used to set the subject of the token: `&lt;service-id&gt;/users/&lt;username&gt;`. Limited to 255 characters.
+     * @return The user name for which this token is created. The username is based on the authenticated user - either from the user of the authenticated token or based on the username (if basic auth was used). The username is then used to set the subject of the token: \n\n/users/\n\n. Limited to 255 characters.
      * 
      */
     public Optional<Output<String>> username() {
@@ -243,6 +268,7 @@ public final class ScopedTokenState extends com.pulumi.resources.ResourceArgs {
         this.description = $.description;
         this.expiresIn = $.expiresIn;
         this.expiry = $.expiry;
+        this.grantType = $.grantType;
         this.includeReferenceToken = $.includeReferenceToken;
         this.issuedAt = $.issuedAt;
         this.issuer = $.issuer;
@@ -274,7 +300,7 @@ public final class ScopedTokenState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessToken Returns the access token to authenticate to Artifactory
+         * @param accessToken Returns the access token to authenticate to Artifactory.
          * 
          * @return builder
          * 
@@ -285,7 +311,7 @@ public final class ScopedTokenState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessToken Returns the access token to authenticate to Artifactory
+         * @param accessToken Returns the access token to authenticate to Artifactory.
          * 
          * @return builder
          * 
@@ -295,7 +321,7 @@ public final class ScopedTokenState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param audiences (Optional) A list of the other instances or services that should accept this token identified by their Service-IDs. Limited to total 255 characters. Default to `*@*` if not set. Service ID must begin with `jfrt@`. For instructions to retrieve the Artifactory Service ID see this [documentation](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-GetServiceID).
+         * @param audiences A list of the other instances or services that should accept this token identified by their Service-IDs. Limited to total 255 characters. Default to &#39;*@*&#39; if not set. Service ID must begin with valid JFrog service type. Options: jfrt, jfxr, jfpip, jfds, jfmc, jfac, jfevt, jfmd, jfcon, or *. For instructions to retrieve the Artifactory Service ID see this [documentation](https://jfrog.com/help/r/jfrog-rest-apis/get-service-id)
          * 
          * @return builder
          * 
@@ -306,7 +332,7 @@ public final class ScopedTokenState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param audiences (Optional) A list of the other instances or services that should accept this token identified by their Service-IDs. Limited to total 255 characters. Default to `*@*` if not set. Service ID must begin with `jfrt@`. For instructions to retrieve the Artifactory Service ID see this [documentation](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-GetServiceID).
+         * @param audiences A list of the other instances or services that should accept this token identified by their Service-IDs. Limited to total 255 characters. Default to &#39;*@*&#39; if not set. Service ID must begin with valid JFrog service type. Options: jfrt, jfxr, jfpip, jfds, jfmc, jfac, jfevt, jfmd, jfcon, or *. For instructions to retrieve the Artifactory Service ID see this [documentation](https://jfrog.com/help/r/jfrog-rest-apis/get-service-id)
          * 
          * @return builder
          * 
@@ -316,7 +342,7 @@ public final class ScopedTokenState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param audiences (Optional) A list of the other instances or services that should accept this token identified by their Service-IDs. Limited to total 255 characters. Default to `*@*` if not set. Service ID must begin with `jfrt@`. For instructions to retrieve the Artifactory Service ID see this [documentation](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-GetServiceID).
+         * @param audiences A list of the other instances or services that should accept this token identified by their Service-IDs. Limited to total 255 characters. Default to &#39;*@*&#39; if not set. Service ID must begin with valid JFrog service type. Options: jfrt, jfxr, jfpip, jfds, jfmc, jfac, jfevt, jfmd, jfcon, or *. For instructions to retrieve the Artifactory Service ID see this [documentation](https://jfrog.com/help/r/jfrog-rest-apis/get-service-id)
          * 
          * @return builder
          * 
@@ -326,7 +352,7 @@ public final class ScopedTokenState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description (Optional) Free text token description. Useful for filtering and managing tokens. Limited to 1024 characters.
+         * @param description Free text token description. Useful for filtering and managing tokens. Limited to 1024 characters.
          * 
          * @return builder
          * 
@@ -337,7 +363,7 @@ public final class ScopedTokenState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description (Optional) Free text token description. Useful for filtering and managing tokens. Limited to 1024 characters.
+         * @param description Free text token description. Useful for filtering and managing tokens. Limited to 1024 characters.
          * 
          * @return builder
          * 
@@ -347,7 +373,7 @@ public final class ScopedTokenState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param expiresIn (Optional) The amount of time, in seconds, it would take for the token to expire. An admin shall be able to set whether expiry is mandatory, what is the default expiry, and what is the maximum expiry allowed. Must be non-negative. Default value is based on configuration in `access.config.yaml`. See [API documentation](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-RevokeTokenbyIDrevoketokenbyid) for details.
+         * @param expiresIn The amount of time, in seconds, it would take for the token to expire. An admin shall be able to set whether expiry is mandatory, what is the default expiry, and what is the maximum expiry allowed. Must be non-negative. Default value is based on configuration in &#39;access.config.yaml&#39;. See [API documentation](https://jfrog.com/help/r/jfrog-rest-apis/revoke-token-by-id) for details. Access Token would not be saved by Artifactory if this is less than the persistence threshold value (default to 10800 seconds) set in Access configuration. See [official documentation](https://jfrog.com/help/r/jfrog-platform-administration-documentation/using-the-revocable-and-persistency-thresholds) for details.
          * 
          * @return builder
          * 
@@ -358,7 +384,7 @@ public final class ScopedTokenState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param expiresIn (Optional) The amount of time, in seconds, it would take for the token to expire. An admin shall be able to set whether expiry is mandatory, what is the default expiry, and what is the maximum expiry allowed. Must be non-negative. Default value is based on configuration in `access.config.yaml`. See [API documentation](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-RevokeTokenbyIDrevoketokenbyid) for details.
+         * @param expiresIn The amount of time, in seconds, it would take for the token to expire. An admin shall be able to set whether expiry is mandatory, what is the default expiry, and what is the maximum expiry allowed. Must be non-negative. Default value is based on configuration in &#39;access.config.yaml&#39;. See [API documentation](https://jfrog.com/help/r/jfrog-rest-apis/revoke-token-by-id) for details. Access Token would not be saved by Artifactory if this is less than the persistence threshold value (default to 10800 seconds) set in Access configuration. See [official documentation](https://jfrog.com/help/r/jfrog-platform-administration-documentation/using-the-revocable-and-persistency-thresholds) for details.
          * 
          * @return builder
          * 
@@ -368,7 +394,7 @@ public final class ScopedTokenState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param expiry Returns the token expiry
+         * @param expiry Returns the token expiry.
          * 
          * @return builder
          * 
@@ -379,7 +405,7 @@ public final class ScopedTokenState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param expiry Returns the token expiry
+         * @param expiry Returns the token expiry.
          * 
          * @return builder
          * 
@@ -389,7 +415,28 @@ public final class ScopedTokenState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param includeReferenceToken (Optional) Should a reference token also be created? Defaults to `false`
+         * @param grantType The grant type used to authenticate the request. In this case, the only value supported is `client_credentials` which is also the default value if this parameter is not specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder grantType(@Nullable Output<String> grantType) {
+            $.grantType = grantType;
+            return this;
+        }
+
+        /**
+         * @param grantType The grant type used to authenticate the request. In this case, the only value supported is `client_credentials` which is also the default value if this parameter is not specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder grantType(String grantType) {
+            return grantType(Output.of(grantType));
+        }
+
+        /**
+         * @param includeReferenceToken Also create a reference token which can be used like an API key. Default is `false`.
          * 
          * @return builder
          * 
@@ -400,7 +447,7 @@ public final class ScopedTokenState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param includeReferenceToken (Optional) Should a reference token also be created? Defaults to `false`
+         * @param includeReferenceToken Also create a reference token which can be used like an API key. Default is `false`.
          * 
          * @return builder
          * 
@@ -410,7 +457,7 @@ public final class ScopedTokenState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param issuedAt Returns the token issued at date/time
+         * @param issuedAt Returns the token issued at date/time.
          * 
          * @return builder
          * 
@@ -421,7 +468,7 @@ public final class ScopedTokenState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param issuedAt Returns the token issued at date/time
+         * @param issuedAt Returns the token issued at date/time.
          * 
          * @return builder
          * 
@@ -431,7 +478,7 @@ public final class ScopedTokenState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param issuer Returns the token issuer
+         * @param issuer Returns the token issuer.
          * 
          * @return builder
          * 
@@ -442,7 +489,7 @@ public final class ScopedTokenState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param issuer Returns the token issuer
+         * @param issuer Returns the token issuer.
          * 
          * @return builder
          * 
@@ -452,7 +499,7 @@ public final class ScopedTokenState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param referenceToken Returns the reference token to authenticate to Artifactory
+         * @param referenceToken Reference Token (alias to Access Token).
          * 
          * @return builder
          * 
@@ -463,7 +510,7 @@ public final class ScopedTokenState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param referenceToken Returns the reference token to authenticate to Artifactory
+         * @param referenceToken Reference Token (alias to Access Token).
          * 
          * @return builder
          * 
@@ -472,17 +519,29 @@ public final class ScopedTokenState extends com.pulumi.resources.ResourceArgs {
             return referenceToken(Output.of(referenceToken));
         }
 
+        /**
+         * @param refreshToken Refresh token.
+         * 
+         * @return builder
+         * 
+         */
         public Builder refreshToken(@Nullable Output<String> refreshToken) {
             $.refreshToken = refreshToken;
             return this;
         }
 
+        /**
+         * @param refreshToken Refresh token.
+         * 
+         * @return builder
+         * 
+         */
         public Builder refreshToken(String refreshToken) {
             return refreshToken(Output.of(refreshToken));
         }
 
         /**
-         * @param refreshable (Optional) Is this token refreshable? Defaults to `false`
+         * @param refreshable Is this token refreshable? Default is `false`.
          * 
          * @return builder
          * 
@@ -493,7 +552,7 @@ public final class ScopedTokenState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param refreshable (Optional) Is this token refreshable? Defaults to `false`
+         * @param refreshable Is this token refreshable? Default is `false`.
          * 
          * @return builder
          * 
@@ -503,7 +562,8 @@ public final class ScopedTokenState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param scopes (Optional) The scope of access that the token provides. Access to the REST API is always provided by default. Administrators can set any scope, while non-admin users can only set the scope to a subset of the groups to which they belong.
+         * @param scopes The scope of access that the token provides. Access to the REST API is always provided by default. Administrators can set any scope, while non-admin users can only set the scope to a subset of the groups to which they belong.
+         * The supported scopes include:
          * 
          * @return builder
          * 
@@ -514,7 +574,8 @@ public final class ScopedTokenState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param scopes (Optional) The scope of access that the token provides. Access to the REST API is always provided by default. Administrators can set any scope, while non-admin users can only set the scope to a subset of the groups to which they belong.
+         * @param scopes The scope of access that the token provides. Access to the REST API is always provided by default. Administrators can set any scope, while non-admin users can only set the scope to a subset of the groups to which they belong.
+         * The supported scopes include:
          * 
          * @return builder
          * 
@@ -524,7 +585,8 @@ public final class ScopedTokenState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param scopes (Optional) The scope of access that the token provides. Access to the REST API is always provided by default. Administrators can set any scope, while non-admin users can only set the scope to a subset of the groups to which they belong.
+         * @param scopes The scope of access that the token provides. Access to the REST API is always provided by default. Administrators can set any scope, while non-admin users can only set the scope to a subset of the groups to which they belong.
+         * The supported scopes include:
          * 
          * @return builder
          * 
@@ -534,7 +596,7 @@ public final class ScopedTokenState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subject Returns the token type
+         * @param subject Returns the token type.
          * 
          * @return builder
          * 
@@ -545,7 +607,7 @@ public final class ScopedTokenState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subject Returns the token type
+         * @param subject Returns the token type.
          * 
          * @return builder
          * 
@@ -555,7 +617,7 @@ public final class ScopedTokenState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tokenType Returns the token type
+         * @param tokenType Returns the token type.
          * 
          * @return builder
          * 
@@ -566,7 +628,7 @@ public final class ScopedTokenState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tokenType Returns the token type
+         * @param tokenType Returns the token type.
          * 
          * @return builder
          * 
@@ -576,7 +638,7 @@ public final class ScopedTokenState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param username (Optional) The user name for which this token is created. The username is based on the authenticated user - either from the user of the authenticated token or based on the username (if basic auth was used). The username is then used to set the subject of the token: `&lt;service-id&gt;/users/&lt;username&gt;`. Limited to 255 characters.
+         * @param username The user name for which this token is created. The username is based on the authenticated user - either from the user of the authenticated token or based on the username (if basic auth was used). The username is then used to set the subject of the token: \n\n/users/\n\n. Limited to 255 characters.
          * 
          * @return builder
          * 
@@ -587,7 +649,7 @@ public final class ScopedTokenState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param username (Optional) The user name for which this token is created. The username is based on the authenticated user - either from the user of the authenticated token or based on the username (if basic auth was used). The username is then used to set the subject of the token: `&lt;service-id&gt;/users/&lt;username&gt;`. Limited to 255 characters.
+         * @param username The user name for which this token is created. The username is based on the authenticated user - either from the user of the authenticated token or based on the username (if basic auth was used). The username is then used to set the subject of the token: \n\n/users/\n\n. Limited to 255 characters.
          * 
          * @return builder
          * 

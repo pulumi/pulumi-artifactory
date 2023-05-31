@@ -15,243 +15,100 @@ import (
 // !>Scoped Tokens will be stored in the raw state as plain-text. Read more about sensitive data in
 // state.
 //
-// ~>Token would not be saved by Artifactory if `expiresIn` is less than the persistency threshold value (default to 10800 seconds) set in Access configuration. See [Persistency Threshold](https://www.jfrog.com/confluence/display/JFROG/Access+Tokens#AccessTokens-PersistencyThreshold) for details.
+// ~>Token would not be saved by Artifactory if `expiresIn` is less than the persistency threshold value (default to 10800 seconds) set in Access configuration. See [Persistency Threshold](https://jfrog.com/help/r/jfrog-platform-administration-documentation/using-the-revocable-and-persistency-thresholds) for details.
 //
 // ## Example Usage
 //
-// ### S
 // ### Create a new Artifactory scoped token for an existing user
 //
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.NewScopedToken(ctx, "scopedToken", &artifactory.ScopedTokenArgs{
-//				Username: pulumi.String("existing-user"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
+//	resource "artifactory_scoped_token" "scoped_token" {
+//	  username = "existing-user"
 //	}
 //
-// ```
+// ### **Note:** This assumes that the user `existing-user` has already been created in Artifactory by different means, i.e. manually or in a separate pulumi up.
 //
-// **Note:** This assumes that the user `existing-user` has already been created in Artifactory by different means, i.e. manually or in a separate pulumi up.
 // ### Create a new Artifactory user and scoped token
-// ```go
-// package main
 //
-// import (
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			newUser, err := artifactory.NewUser(ctx, "newUser", &artifactory.UserArgs{
-//				Email: pulumi.String("new_user@somewhere.com"),
-//				Groups: pulumi.StringArray{
-//					pulumi.String("readers"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = artifactory.NewScopedToken(ctx, "scopedTokenUser", &artifactory.ScopedTokenArgs{
-//				Username: newUser.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
+//	resource "artifactory_user" "new_user" {
+//	  name   = "new_user"
+//	  email  = "new_user@somewhere.com"
+//	  groups = ["readers"]
 //	}
 //
-// ```
+//	resource "artifactory_scoped_token" "scoped_token_user" {
+//	  username = artifactory_user.new_user.name
+//	}
+//
 // ### Creates a new token for groups
-// ```go
-// package main
 //
-// import (
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.NewScopedToken(ctx, "scopedTokenGroup", &artifactory.ScopedTokenArgs{
-//				Scopes: pulumi.StringArray{
-//					pulumi.String("applied-permissions/groups:readers"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
+//	resource "artifactory_scoped_token" "scoped_token_group" {
+//	  scopes = ["applied-permissions/groups:readers"]
 //	}
 //
-// ```
 // ### Create token with expiry
-// ```go
-// package main
 //
-// import (
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.NewScopedToken(ctx, "scopedTokenNoExpiry", &artifactory.ScopedTokenArgs{
-//				ExpiresIn: pulumi.Int(7200),
-//				Username:  pulumi.String("existing-user"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
+//	resource "artifactory_scoped_token" "scoped_token_no_expiry" {
+//	  username   = "existing-user"
+//	  expires_in = 7200 // in seconds
 //	}
 //
-// ```
 // ### Creates a refreshable token
-// ```go
-// package main
 //
-// import (
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.NewScopedToken(ctx, "scopedTokenRefreshable", &artifactory.ScopedTokenArgs{
-//				Refreshable: pulumi.Bool(true),
-//				Username:    pulumi.String("existing-user"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
+//	resource "artifactory_scoped_token" "scoped_token_refreshable" {
+//	  username    = "existing-user"
+//	  refreshable = true
 //	}
 //
-// ```
 // ### Creates an administrator token
-// ```go
-// package main
 //
-// import (
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.NewScopedToken(ctx, "admin", &artifactory.ScopedTokenArgs{
-//				Scopes: pulumi.StringArray{
-//					pulumi.String("applied-permissions/admin"),
-//				},
-//				Username: pulumi.String("admin-user"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
+//	resource "artifactory_scoped_token" "admin" {
+//	  username = "admin-user"
+//	  scopes   = ["applied-permissions/admin"]
 //	}
 //
-// ```
-// ### Creates a token with an audience
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.NewScopedToken(ctx, "audience", &artifactory.ScopedTokenArgs{
-//				Audiences: pulumi.StringArray{
-//					pulumi.String("jfrt@*"),
-//				},
-//				Scopes: pulumi.StringArray{
-//					pulumi.String("applied-permissions/admin"),
-//				},
-//				Username: pulumi.String("admin-user"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 // ## References
 //
-// - https://www.jfrog.com/confluence/display/JFROG/Access+Tokens
-// - https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-AccessTokens
+// - https://jfrog.com/help/r/jfrog-platform-administration-documentation/access-tokens
+// - https://jfrog.com/help/r/jfrog-rest-apis/access-tokens
 //
 // ## Import
 //
-// Artifactory **does not** retain scoped tokens and cannot be imported into state.
+// Artifactory **does not** retain scoped tokens, and they cannot be imported into state.
 type ScopedToken struct {
 	pulumi.CustomResourceState
 
-	// Returns the access token to authenticate to Artifactory
+	// Returns the access token to authenticate to Artifactory.
 	AccessToken pulumi.StringOutput `pulumi:"accessToken"`
-	// (Optional) A list of the other instances or services that should accept this token identified by their Service-IDs. Limited to total 255 characters. Default to `*@*` if not set. Service ID must begin with `jfrt@`. For instructions to retrieve the Artifactory Service ID see this [documentation](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-GetServiceID).
+	// A list of the other instances or services that should accept this token identified by their Service-IDs. Limited to total 255 characters. Default to '*@*' if not set. Service ID must begin with valid JFrog service type. Options: jfrt, jfxr, jfpip, jfds, jfmc, jfac, jfevt, jfmd, jfcon, or *. For instructions to retrieve the Artifactory Service ID see this [documentation](https://jfrog.com/help/r/jfrog-rest-apis/get-service-id)
 	Audiences pulumi.StringArrayOutput `pulumi:"audiences"`
-	// (Optional) Free text token description. Useful for filtering and managing tokens. Limited to 1024 characters.
+	// Free text token description. Useful for filtering and managing tokens. Limited to 1024 characters.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// (Optional) The amount of time, in seconds, it would take for the token to expire. An admin shall be able to set whether expiry is mandatory, what is the default expiry, and what is the maximum expiry allowed. Must be non-negative. Default value is based on configuration in `access.config.yaml`. See [API documentation](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-RevokeTokenbyIDrevoketokenbyid) for details.
+	// The amount of time, in seconds, it would take for the token to expire. An admin shall be able to set whether expiry is mandatory, what is the default expiry, and what is the maximum expiry allowed. Must be non-negative. Default value is based on configuration in 'access.config.yaml'. See [API documentation](https://jfrog.com/help/r/jfrog-rest-apis/revoke-token-by-id) for details. Access Token would not be saved by Artifactory if this is less than the persistence threshold value (default to 10800 seconds) set in Access configuration. See [official documentation](https://jfrog.com/help/r/jfrog-platform-administration-documentation/using-the-revocable-and-persistency-thresholds) for details.
 	ExpiresIn pulumi.IntOutput `pulumi:"expiresIn"`
-	// Returns the token expiry
+	// Returns the token expiry.
 	Expiry pulumi.IntOutput `pulumi:"expiry"`
-	// (Optional) Should a reference token also be created? Defaults to `false`
-	IncludeReferenceToken pulumi.BoolPtrOutput `pulumi:"includeReferenceToken"`
-	// Returns the token issued at date/time
+	// The grant type used to authenticate the request. In this case, the only value supported is `clientCredentials` which is also the default value if this parameter is not specified.
+	GrantType pulumi.StringOutput `pulumi:"grantType"`
+	// Also create a reference token which can be used like an API key. Default is `false`.
+	IncludeReferenceToken pulumi.BoolOutput `pulumi:"includeReferenceToken"`
+	// Returns the token issued at date/time.
 	IssuedAt pulumi.IntOutput `pulumi:"issuedAt"`
-	// Returns the token issuer
+	// Returns the token issuer.
 	Issuer pulumi.StringOutput `pulumi:"issuer"`
-	// Returns the reference token to authenticate to Artifactory
+	// Reference Token (alias to Access Token).
 	ReferenceToken pulumi.StringOutput `pulumi:"referenceToken"`
-	RefreshToken   pulumi.StringOutput `pulumi:"refreshToken"`
-	// (Optional) Is this token refreshable? Defaults to `false`
-	Refreshable pulumi.BoolPtrOutput `pulumi:"refreshable"`
-	// (Optional) The scope of access that the token provides. Access to the REST API is always provided by default. Administrators can set any scope, while non-admin users can only set the scope to a subset of the groups to which they belong.
+	// Refresh token.
+	RefreshToken pulumi.StringOutput `pulumi:"refreshToken"`
+	// Is this token refreshable? Default is `false`.
+	Refreshable pulumi.BoolOutput `pulumi:"refreshable"`
+	// The scope of access that the token provides. Access to the REST API is always provided by default. Administrators can set any scope, while non-admin users can only set the scope to a subset of the groups to which they belong.
+	// The supported scopes include:
 	Scopes pulumi.StringArrayOutput `pulumi:"scopes"`
-	// Returns the token type
+	// Returns the token type.
 	Subject pulumi.StringOutput `pulumi:"subject"`
-	// Returns the token type
+	// Returns the token type.
 	TokenType pulumi.StringOutput `pulumi:"tokenType"`
-	// (Optional) The user name for which this token is created. The username is based on the authenticated user - either from the user of the authenticated token or based on the username (if basic auth was used). The username is then used to set the subject of the token: `<service-id>/users/<username>`. Limited to 255 characters.
+	// The user name for which this token is created. The username is based on the authenticated user - either from the user of the authenticated token or based on the username (if basic auth was used). The username is then used to set the subject of the token: \n\n/users/\n\n. Limited to 255 characters.
 	Username pulumi.StringPtrOutput `pulumi:"username"`
 }
 
@@ -290,66 +147,74 @@ func GetScopedToken(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ScopedToken resources.
 type scopedTokenState struct {
-	// Returns the access token to authenticate to Artifactory
+	// Returns the access token to authenticate to Artifactory.
 	AccessToken *string `pulumi:"accessToken"`
-	// (Optional) A list of the other instances or services that should accept this token identified by their Service-IDs. Limited to total 255 characters. Default to `*@*` if not set. Service ID must begin with `jfrt@`. For instructions to retrieve the Artifactory Service ID see this [documentation](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-GetServiceID).
+	// A list of the other instances or services that should accept this token identified by their Service-IDs. Limited to total 255 characters. Default to '*@*' if not set. Service ID must begin with valid JFrog service type. Options: jfrt, jfxr, jfpip, jfds, jfmc, jfac, jfevt, jfmd, jfcon, or *. For instructions to retrieve the Artifactory Service ID see this [documentation](https://jfrog.com/help/r/jfrog-rest-apis/get-service-id)
 	Audiences []string `pulumi:"audiences"`
-	// (Optional) Free text token description. Useful for filtering and managing tokens. Limited to 1024 characters.
+	// Free text token description. Useful for filtering and managing tokens. Limited to 1024 characters.
 	Description *string `pulumi:"description"`
-	// (Optional) The amount of time, in seconds, it would take for the token to expire. An admin shall be able to set whether expiry is mandatory, what is the default expiry, and what is the maximum expiry allowed. Must be non-negative. Default value is based on configuration in `access.config.yaml`. See [API documentation](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-RevokeTokenbyIDrevoketokenbyid) for details.
+	// The amount of time, in seconds, it would take for the token to expire. An admin shall be able to set whether expiry is mandatory, what is the default expiry, and what is the maximum expiry allowed. Must be non-negative. Default value is based on configuration in 'access.config.yaml'. See [API documentation](https://jfrog.com/help/r/jfrog-rest-apis/revoke-token-by-id) for details. Access Token would not be saved by Artifactory if this is less than the persistence threshold value (default to 10800 seconds) set in Access configuration. See [official documentation](https://jfrog.com/help/r/jfrog-platform-administration-documentation/using-the-revocable-and-persistency-thresholds) for details.
 	ExpiresIn *int `pulumi:"expiresIn"`
-	// Returns the token expiry
+	// Returns the token expiry.
 	Expiry *int `pulumi:"expiry"`
-	// (Optional) Should a reference token also be created? Defaults to `false`
+	// The grant type used to authenticate the request. In this case, the only value supported is `clientCredentials` which is also the default value if this parameter is not specified.
+	GrantType *string `pulumi:"grantType"`
+	// Also create a reference token which can be used like an API key. Default is `false`.
 	IncludeReferenceToken *bool `pulumi:"includeReferenceToken"`
-	// Returns the token issued at date/time
+	// Returns the token issued at date/time.
 	IssuedAt *int `pulumi:"issuedAt"`
-	// Returns the token issuer
+	// Returns the token issuer.
 	Issuer *string `pulumi:"issuer"`
-	// Returns the reference token to authenticate to Artifactory
+	// Reference Token (alias to Access Token).
 	ReferenceToken *string `pulumi:"referenceToken"`
-	RefreshToken   *string `pulumi:"refreshToken"`
-	// (Optional) Is this token refreshable? Defaults to `false`
+	// Refresh token.
+	RefreshToken *string `pulumi:"refreshToken"`
+	// Is this token refreshable? Default is `false`.
 	Refreshable *bool `pulumi:"refreshable"`
-	// (Optional) The scope of access that the token provides. Access to the REST API is always provided by default. Administrators can set any scope, while non-admin users can only set the scope to a subset of the groups to which they belong.
+	// The scope of access that the token provides. Access to the REST API is always provided by default. Administrators can set any scope, while non-admin users can only set the scope to a subset of the groups to which they belong.
+	// The supported scopes include:
 	Scopes []string `pulumi:"scopes"`
-	// Returns the token type
+	// Returns the token type.
 	Subject *string `pulumi:"subject"`
-	// Returns the token type
+	// Returns the token type.
 	TokenType *string `pulumi:"tokenType"`
-	// (Optional) The user name for which this token is created. The username is based on the authenticated user - either from the user of the authenticated token or based on the username (if basic auth was used). The username is then used to set the subject of the token: `<service-id>/users/<username>`. Limited to 255 characters.
+	// The user name for which this token is created. The username is based on the authenticated user - either from the user of the authenticated token or based on the username (if basic auth was used). The username is then used to set the subject of the token: \n\n/users/\n\n. Limited to 255 characters.
 	Username *string `pulumi:"username"`
 }
 
 type ScopedTokenState struct {
-	// Returns the access token to authenticate to Artifactory
+	// Returns the access token to authenticate to Artifactory.
 	AccessToken pulumi.StringPtrInput
-	// (Optional) A list of the other instances or services that should accept this token identified by their Service-IDs. Limited to total 255 characters. Default to `*@*` if not set. Service ID must begin with `jfrt@`. For instructions to retrieve the Artifactory Service ID see this [documentation](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-GetServiceID).
+	// A list of the other instances or services that should accept this token identified by their Service-IDs. Limited to total 255 characters. Default to '*@*' if not set. Service ID must begin with valid JFrog service type. Options: jfrt, jfxr, jfpip, jfds, jfmc, jfac, jfevt, jfmd, jfcon, or *. For instructions to retrieve the Artifactory Service ID see this [documentation](https://jfrog.com/help/r/jfrog-rest-apis/get-service-id)
 	Audiences pulumi.StringArrayInput
-	// (Optional) Free text token description. Useful for filtering and managing tokens. Limited to 1024 characters.
+	// Free text token description. Useful for filtering and managing tokens. Limited to 1024 characters.
 	Description pulumi.StringPtrInput
-	// (Optional) The amount of time, in seconds, it would take for the token to expire. An admin shall be able to set whether expiry is mandatory, what is the default expiry, and what is the maximum expiry allowed. Must be non-negative. Default value is based on configuration in `access.config.yaml`. See [API documentation](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-RevokeTokenbyIDrevoketokenbyid) for details.
+	// The amount of time, in seconds, it would take for the token to expire. An admin shall be able to set whether expiry is mandatory, what is the default expiry, and what is the maximum expiry allowed. Must be non-negative. Default value is based on configuration in 'access.config.yaml'. See [API documentation](https://jfrog.com/help/r/jfrog-rest-apis/revoke-token-by-id) for details. Access Token would not be saved by Artifactory if this is less than the persistence threshold value (default to 10800 seconds) set in Access configuration. See [official documentation](https://jfrog.com/help/r/jfrog-platform-administration-documentation/using-the-revocable-and-persistency-thresholds) for details.
 	ExpiresIn pulumi.IntPtrInput
-	// Returns the token expiry
+	// Returns the token expiry.
 	Expiry pulumi.IntPtrInput
-	// (Optional) Should a reference token also be created? Defaults to `false`
+	// The grant type used to authenticate the request. In this case, the only value supported is `clientCredentials` which is also the default value if this parameter is not specified.
+	GrantType pulumi.StringPtrInput
+	// Also create a reference token which can be used like an API key. Default is `false`.
 	IncludeReferenceToken pulumi.BoolPtrInput
-	// Returns the token issued at date/time
+	// Returns the token issued at date/time.
 	IssuedAt pulumi.IntPtrInput
-	// Returns the token issuer
+	// Returns the token issuer.
 	Issuer pulumi.StringPtrInput
-	// Returns the reference token to authenticate to Artifactory
+	// Reference Token (alias to Access Token).
 	ReferenceToken pulumi.StringPtrInput
-	RefreshToken   pulumi.StringPtrInput
-	// (Optional) Is this token refreshable? Defaults to `false`
+	// Refresh token.
+	RefreshToken pulumi.StringPtrInput
+	// Is this token refreshable? Default is `false`.
 	Refreshable pulumi.BoolPtrInput
-	// (Optional) The scope of access that the token provides. Access to the REST API is always provided by default. Administrators can set any scope, while non-admin users can only set the scope to a subset of the groups to which they belong.
+	// The scope of access that the token provides. Access to the REST API is always provided by default. Administrators can set any scope, while non-admin users can only set the scope to a subset of the groups to which they belong.
+	// The supported scopes include:
 	Scopes pulumi.StringArrayInput
-	// Returns the token type
+	// Returns the token type.
 	Subject pulumi.StringPtrInput
-	// Returns the token type
+	// Returns the token type.
 	TokenType pulumi.StringPtrInput
-	// (Optional) The user name for which this token is created. The username is based on the authenticated user - either from the user of the authenticated token or based on the username (if basic auth was used). The username is then used to set the subject of the token: `<service-id>/users/<username>`. Limited to 255 characters.
+	// The user name for which this token is created. The username is based on the authenticated user - either from the user of the authenticated token or based on the username (if basic auth was used). The username is then used to set the subject of the token: \n\n/users/\n\n. Limited to 255 characters.
 	Username pulumi.StringPtrInput
 }
 
@@ -358,37 +223,43 @@ func (ScopedTokenState) ElementType() reflect.Type {
 }
 
 type scopedTokenArgs struct {
-	// (Optional) A list of the other instances or services that should accept this token identified by their Service-IDs. Limited to total 255 characters. Default to `*@*` if not set. Service ID must begin with `jfrt@`. For instructions to retrieve the Artifactory Service ID see this [documentation](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-GetServiceID).
+	// A list of the other instances or services that should accept this token identified by their Service-IDs. Limited to total 255 characters. Default to '*@*' if not set. Service ID must begin with valid JFrog service type. Options: jfrt, jfxr, jfpip, jfds, jfmc, jfac, jfevt, jfmd, jfcon, or *. For instructions to retrieve the Artifactory Service ID see this [documentation](https://jfrog.com/help/r/jfrog-rest-apis/get-service-id)
 	Audiences []string `pulumi:"audiences"`
-	// (Optional) Free text token description. Useful for filtering and managing tokens. Limited to 1024 characters.
+	// Free text token description. Useful for filtering and managing tokens. Limited to 1024 characters.
 	Description *string `pulumi:"description"`
-	// (Optional) The amount of time, in seconds, it would take for the token to expire. An admin shall be able to set whether expiry is mandatory, what is the default expiry, and what is the maximum expiry allowed. Must be non-negative. Default value is based on configuration in `access.config.yaml`. See [API documentation](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-RevokeTokenbyIDrevoketokenbyid) for details.
+	// The amount of time, in seconds, it would take for the token to expire. An admin shall be able to set whether expiry is mandatory, what is the default expiry, and what is the maximum expiry allowed. Must be non-negative. Default value is based on configuration in 'access.config.yaml'. See [API documentation](https://jfrog.com/help/r/jfrog-rest-apis/revoke-token-by-id) for details. Access Token would not be saved by Artifactory if this is less than the persistence threshold value (default to 10800 seconds) set in Access configuration. See [official documentation](https://jfrog.com/help/r/jfrog-platform-administration-documentation/using-the-revocable-and-persistency-thresholds) for details.
 	ExpiresIn *int `pulumi:"expiresIn"`
-	// (Optional) Should a reference token also be created? Defaults to `false`
+	// The grant type used to authenticate the request. In this case, the only value supported is `clientCredentials` which is also the default value if this parameter is not specified.
+	GrantType *string `pulumi:"grantType"`
+	// Also create a reference token which can be used like an API key. Default is `false`.
 	IncludeReferenceToken *bool `pulumi:"includeReferenceToken"`
-	// (Optional) Is this token refreshable? Defaults to `false`
+	// Is this token refreshable? Default is `false`.
 	Refreshable *bool `pulumi:"refreshable"`
-	// (Optional) The scope of access that the token provides. Access to the REST API is always provided by default. Administrators can set any scope, while non-admin users can only set the scope to a subset of the groups to which they belong.
+	// The scope of access that the token provides. Access to the REST API is always provided by default. Administrators can set any scope, while non-admin users can only set the scope to a subset of the groups to which they belong.
+	// The supported scopes include:
 	Scopes []string `pulumi:"scopes"`
-	// (Optional) The user name for which this token is created. The username is based on the authenticated user - either from the user of the authenticated token or based on the username (if basic auth was used). The username is then used to set the subject of the token: `<service-id>/users/<username>`. Limited to 255 characters.
+	// The user name for which this token is created. The username is based on the authenticated user - either from the user of the authenticated token or based on the username (if basic auth was used). The username is then used to set the subject of the token: \n\n/users/\n\n. Limited to 255 characters.
 	Username *string `pulumi:"username"`
 }
 
 // The set of arguments for constructing a ScopedToken resource.
 type ScopedTokenArgs struct {
-	// (Optional) A list of the other instances or services that should accept this token identified by their Service-IDs. Limited to total 255 characters. Default to `*@*` if not set. Service ID must begin with `jfrt@`. For instructions to retrieve the Artifactory Service ID see this [documentation](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-GetServiceID).
+	// A list of the other instances or services that should accept this token identified by their Service-IDs. Limited to total 255 characters. Default to '*@*' if not set. Service ID must begin with valid JFrog service type. Options: jfrt, jfxr, jfpip, jfds, jfmc, jfac, jfevt, jfmd, jfcon, or *. For instructions to retrieve the Artifactory Service ID see this [documentation](https://jfrog.com/help/r/jfrog-rest-apis/get-service-id)
 	Audiences pulumi.StringArrayInput
-	// (Optional) Free text token description. Useful for filtering and managing tokens. Limited to 1024 characters.
+	// Free text token description. Useful for filtering and managing tokens. Limited to 1024 characters.
 	Description pulumi.StringPtrInput
-	// (Optional) The amount of time, in seconds, it would take for the token to expire. An admin shall be able to set whether expiry is mandatory, what is the default expiry, and what is the maximum expiry allowed. Must be non-negative. Default value is based on configuration in `access.config.yaml`. See [API documentation](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-RevokeTokenbyIDrevoketokenbyid) for details.
+	// The amount of time, in seconds, it would take for the token to expire. An admin shall be able to set whether expiry is mandatory, what is the default expiry, and what is the maximum expiry allowed. Must be non-negative. Default value is based on configuration in 'access.config.yaml'. See [API documentation](https://jfrog.com/help/r/jfrog-rest-apis/revoke-token-by-id) for details. Access Token would not be saved by Artifactory if this is less than the persistence threshold value (default to 10800 seconds) set in Access configuration. See [official documentation](https://jfrog.com/help/r/jfrog-platform-administration-documentation/using-the-revocable-and-persistency-thresholds) for details.
 	ExpiresIn pulumi.IntPtrInput
-	// (Optional) Should a reference token also be created? Defaults to `false`
+	// The grant type used to authenticate the request. In this case, the only value supported is `clientCredentials` which is also the default value if this parameter is not specified.
+	GrantType pulumi.StringPtrInput
+	// Also create a reference token which can be used like an API key. Default is `false`.
 	IncludeReferenceToken pulumi.BoolPtrInput
-	// (Optional) Is this token refreshable? Defaults to `false`
+	// Is this token refreshable? Default is `false`.
 	Refreshable pulumi.BoolPtrInput
-	// (Optional) The scope of access that the token provides. Access to the REST API is always provided by default. Administrators can set any scope, while non-admin users can only set the scope to a subset of the groups to which they belong.
+	// The scope of access that the token provides. Access to the REST API is always provided by default. Administrators can set any scope, while non-admin users can only set the scope to a subset of the groups to which they belong.
+	// The supported scopes include:
 	Scopes pulumi.StringArrayInput
-	// (Optional) The user name for which this token is created. The username is based on the authenticated user - either from the user of the authenticated token or based on the username (if basic auth was used). The username is then used to set the subject of the token: `<service-id>/users/<username>`. Limited to 255 characters.
+	// The user name for which this token is created. The username is based on the authenticated user - either from the user of the authenticated token or based on the username (if basic auth was used). The username is then used to set the subject of the token: \n\n/users/\n\n. Limited to 255 characters.
 	Username pulumi.StringPtrInput
 }
 
@@ -479,76 +350,83 @@ func (o ScopedTokenOutput) ToScopedTokenOutputWithContext(ctx context.Context) S
 	return o
 }
 
-// Returns the access token to authenticate to Artifactory
+// Returns the access token to authenticate to Artifactory.
 func (o ScopedTokenOutput) AccessToken() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScopedToken) pulumi.StringOutput { return v.AccessToken }).(pulumi.StringOutput)
 }
 
-// (Optional) A list of the other instances or services that should accept this token identified by their Service-IDs. Limited to total 255 characters. Default to `*@*` if not set. Service ID must begin with `jfrt@`. For instructions to retrieve the Artifactory Service ID see this [documentation](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-GetServiceID).
+// A list of the other instances or services that should accept this token identified by their Service-IDs. Limited to total 255 characters. Default to '*@*' if not set. Service ID must begin with valid JFrog service type. Options: jfrt, jfxr, jfpip, jfds, jfmc, jfac, jfevt, jfmd, jfcon, or *. For instructions to retrieve the Artifactory Service ID see this [documentation](https://jfrog.com/help/r/jfrog-rest-apis/get-service-id)
 func (o ScopedTokenOutput) Audiences() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ScopedToken) pulumi.StringArrayOutput { return v.Audiences }).(pulumi.StringArrayOutput)
 }
 
-// (Optional) Free text token description. Useful for filtering and managing tokens. Limited to 1024 characters.
+// Free text token description. Useful for filtering and managing tokens. Limited to 1024 characters.
 func (o ScopedTokenOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScopedToken) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// (Optional) The amount of time, in seconds, it would take for the token to expire. An admin shall be able to set whether expiry is mandatory, what is the default expiry, and what is the maximum expiry allowed. Must be non-negative. Default value is based on configuration in `access.config.yaml`. See [API documentation](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-RevokeTokenbyIDrevoketokenbyid) for details.
+// The amount of time, in seconds, it would take for the token to expire. An admin shall be able to set whether expiry is mandatory, what is the default expiry, and what is the maximum expiry allowed. Must be non-negative. Default value is based on configuration in 'access.config.yaml'. See [API documentation](https://jfrog.com/help/r/jfrog-rest-apis/revoke-token-by-id) for details. Access Token would not be saved by Artifactory if this is less than the persistence threshold value (default to 10800 seconds) set in Access configuration. See [official documentation](https://jfrog.com/help/r/jfrog-platform-administration-documentation/using-the-revocable-and-persistency-thresholds) for details.
 func (o ScopedTokenOutput) ExpiresIn() pulumi.IntOutput {
 	return o.ApplyT(func(v *ScopedToken) pulumi.IntOutput { return v.ExpiresIn }).(pulumi.IntOutput)
 }
 
-// Returns the token expiry
+// Returns the token expiry.
 func (o ScopedTokenOutput) Expiry() pulumi.IntOutput {
 	return o.ApplyT(func(v *ScopedToken) pulumi.IntOutput { return v.Expiry }).(pulumi.IntOutput)
 }
 
-// (Optional) Should a reference token also be created? Defaults to `false`
-func (o ScopedTokenOutput) IncludeReferenceToken() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ScopedToken) pulumi.BoolPtrOutput { return v.IncludeReferenceToken }).(pulumi.BoolPtrOutput)
+// The grant type used to authenticate the request. In this case, the only value supported is `clientCredentials` which is also the default value if this parameter is not specified.
+func (o ScopedTokenOutput) GrantType() pulumi.StringOutput {
+	return o.ApplyT(func(v *ScopedToken) pulumi.StringOutput { return v.GrantType }).(pulumi.StringOutput)
 }
 
-// Returns the token issued at date/time
+// Also create a reference token which can be used like an API key. Default is `false`.
+func (o ScopedTokenOutput) IncludeReferenceToken() pulumi.BoolOutput {
+	return o.ApplyT(func(v *ScopedToken) pulumi.BoolOutput { return v.IncludeReferenceToken }).(pulumi.BoolOutput)
+}
+
+// Returns the token issued at date/time.
 func (o ScopedTokenOutput) IssuedAt() pulumi.IntOutput {
 	return o.ApplyT(func(v *ScopedToken) pulumi.IntOutput { return v.IssuedAt }).(pulumi.IntOutput)
 }
 
-// Returns the token issuer
+// Returns the token issuer.
 func (o ScopedTokenOutput) Issuer() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScopedToken) pulumi.StringOutput { return v.Issuer }).(pulumi.StringOutput)
 }
 
-// Returns the reference token to authenticate to Artifactory
+// Reference Token (alias to Access Token).
 func (o ScopedTokenOutput) ReferenceToken() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScopedToken) pulumi.StringOutput { return v.ReferenceToken }).(pulumi.StringOutput)
 }
 
+// Refresh token.
 func (o ScopedTokenOutput) RefreshToken() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScopedToken) pulumi.StringOutput { return v.RefreshToken }).(pulumi.StringOutput)
 }
 
-// (Optional) Is this token refreshable? Defaults to `false`
-func (o ScopedTokenOutput) Refreshable() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ScopedToken) pulumi.BoolPtrOutput { return v.Refreshable }).(pulumi.BoolPtrOutput)
+// Is this token refreshable? Default is `false`.
+func (o ScopedTokenOutput) Refreshable() pulumi.BoolOutput {
+	return o.ApplyT(func(v *ScopedToken) pulumi.BoolOutput { return v.Refreshable }).(pulumi.BoolOutput)
 }
 
-// (Optional) The scope of access that the token provides. Access to the REST API is always provided by default. Administrators can set any scope, while non-admin users can only set the scope to a subset of the groups to which they belong.
+// The scope of access that the token provides. Access to the REST API is always provided by default. Administrators can set any scope, while non-admin users can only set the scope to a subset of the groups to which they belong.
+// The supported scopes include:
 func (o ScopedTokenOutput) Scopes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ScopedToken) pulumi.StringArrayOutput { return v.Scopes }).(pulumi.StringArrayOutput)
 }
 
-// Returns the token type
+// Returns the token type.
 func (o ScopedTokenOutput) Subject() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScopedToken) pulumi.StringOutput { return v.Subject }).(pulumi.StringOutput)
 }
 
-// Returns the token type
+// Returns the token type.
 func (o ScopedTokenOutput) TokenType() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScopedToken) pulumi.StringOutput { return v.TokenType }).(pulumi.StringOutput)
 }
 
-// (Optional) The user name for which this token is created. The username is based on the authenticated user - either from the user of the authenticated token or based on the username (if basic auth was used). The username is then used to set the subject of the token: `<service-id>/users/<username>`. Limited to 255 characters.
+// The user name for which this token is created. The username is based on the authenticated user - either from the user of the authenticated token or based on the username (if basic auth was used). The username is then used to set the subject of the token: \n\n/users/\n\n. Limited to 255 characters.
 func (o ScopedTokenOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScopedToken) pulumi.StringPtrOutput { return v.Username }).(pulumi.StringPtrOutput)
 }
