@@ -2874,7 +2874,7 @@
             "artifactory:index/replicationConfig:ReplicationConfig": 0,
             "artifactory:index/repositoryLayout:RepositoryLayout": 0,
             "artifactory:index/samlSettings:SamlSettings": 0,
-            "artifactory:index/scopedToken:ScopedToken": 0,
+            "artifactory:index/scopedToken:ScopedToken": 1,
             "artifactory:index/singleReplicationConfig:SingleReplicationConfig": 0,
             "artifactory:index/unmanagedUser:UnmanagedUser": 0,
             "artifactory:index/user:User": 1,
@@ -8915,6 +8915,7 @@
             "artifactory:index/scopedToken:ScopedToken": {
                 "accessToken": "access_token",
                 "expiresIn": "expires_in",
+                "grantType": "grant_type",
                 "includeReferenceToken": "include_reference_token",
                 "issuedAt": "issued_at",
                 "referenceToken": "reference_token",
