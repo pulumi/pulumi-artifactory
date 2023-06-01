@@ -23,437 +23,284 @@ import javax.annotation.Nullable;
  * !&gt;Scoped Tokens will be stored in the raw state as plain-text. Read more about sensitive data in
  * state.
  * 
- * ~&gt;Token would not be saved by Artifactory if `expires_in` is less than the persistency threshold value (default to 10800 seconds) set in Access configuration. See [Persistency Threshold](https://www.jfrog.com/confluence/display/JFROG/Access+Tokens#AccessTokens-PersistencyThreshold) for details.
+ * ~&gt;Token would not be saved by Artifactory if `expires_in` is less than the persistency threshold value (default to 10800 seconds) set in Access configuration. See [Persistency Threshold](https://jfrog.com/help/r/jfrog-platform-administration-documentation/using-the-revocable-and-persistency-thresholds) for details.
  * 
  * ## Example Usage
  * 
- * ### S
  * ### Create a new Artifactory scoped token for an existing user
- * ```java
- * package generated_program;
  * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.artifactory.ScopedToken;
- * import com.pulumi.artifactory.ScopedTokenArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var scopedToken = new ScopedToken(&#34;scopedToken&#34;, ScopedTokenArgs.builder()        
- *             .username(&#34;existing-user&#34;)
- *             .build());
- * 
- *     }
+ * resource &#34;artifactory_scoped_token&#34; &#34;scoped_token&#34; {
+ *   username = &#34;existing-user&#34;
  * }
- * ```
  * 
- * **Note:** This assumes that the user `existing-user` has already been created in Artifactory by different means, i.e. manually or in a separate pulumi up.
+ * ### **Note:** This assumes that the user `existing-user` has already been created in Artifactory by different means, i.e. manually or in a separate pulumi up.
+ * 
  * ### Create a new Artifactory user and scoped token
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.artifactory.User;
- * import com.pulumi.artifactory.UserArgs;
- * import com.pulumi.artifactory.ScopedToken;
- * import com.pulumi.artifactory.ScopedTokenArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var newUser = new User(&#34;newUser&#34;, UserArgs.builder()        
- *             .email(&#34;new_user@somewhere.com&#34;)
- *             .groups(&#34;readers&#34;)
- *             .build());
- * 
- *         var scopedTokenUser = new ScopedToken(&#34;scopedTokenUser&#34;, ScopedTokenArgs.builder()        
- *             .username(newUser.name())
- *             .build());
- * 
- *     }
+ * resource &#34;artifactory_user&#34; &#34;new_user&#34; {
+ *   name   = &#34;new_user&#34;
+ *   email  = &#34;new_user@somewhere.com&#34;
+ *   groups = [&#34;readers&#34;]
  * }
- * ```
+ * 
+ * resource &#34;artifactory_scoped_token&#34; &#34;scoped_token_user&#34; {
+ *   username = artifactory_user.new_user.name
+ * }
+ * 
  * ### Creates a new token for groups
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.artifactory.ScopedToken;
- * import com.pulumi.artifactory.ScopedTokenArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var scopedTokenGroup = new ScopedToken(&#34;scopedTokenGroup&#34;, ScopedTokenArgs.builder()        
- *             .scopes(&#34;applied-permissions/groups:readers&#34;)
- *             .build());
- * 
- *     }
+ * resource &#34;artifactory_scoped_token&#34; &#34;scoped_token_group&#34; {
+ *   scopes = [&#34;applied-permissions/groups:readers&#34;]
  * }
- * ```
+ * 
  * ### Create token with expiry
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.artifactory.ScopedToken;
- * import com.pulumi.artifactory.ScopedTokenArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var scopedTokenNoExpiry = new ScopedToken(&#34;scopedTokenNoExpiry&#34;, ScopedTokenArgs.builder()        
- *             .expiresIn(7200)
- *             .username(&#34;existing-user&#34;)
- *             .build());
- * 
- *     }
+ * resource &#34;artifactory_scoped_token&#34; &#34;scoped_token_no_expiry&#34; {
+ *   username   = &#34;existing-user&#34;
+ *   expires_in = 7200 // in seconds
  * }
- * ```
+ * 
  * ### Creates a refreshable token
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.artifactory.ScopedToken;
- * import com.pulumi.artifactory.ScopedTokenArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var scopedTokenRefreshable = new ScopedToken(&#34;scopedTokenRefreshable&#34;, ScopedTokenArgs.builder()        
- *             .refreshable(true)
- *             .username(&#34;existing-user&#34;)
- *             .build());
- * 
- *     }
+ * resource &#34;artifactory_scoped_token&#34; &#34;scoped_token_refreshable&#34; {
+ *   username    = &#34;existing-user&#34;
+ *   refreshable = true
  * }
- * ```
+ * 
  * ### Creates an administrator token
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.artifactory.ScopedToken;
- * import com.pulumi.artifactory.ScopedTokenArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var admin = new ScopedToken(&#34;admin&#34;, ScopedTokenArgs.builder()        
- *             .scopes(&#34;applied-permissions/admin&#34;)
- *             .username(&#34;admin-user&#34;)
- *             .build());
- * 
- *     }
+ * resource &#34;artifactory_scoped_token&#34; &#34;admin&#34; {
+ *   username = &#34;admin-user&#34;
+ *   scopes   = [&#34;applied-permissions/admin&#34;]
  * }
- * ```
- * ### Creates a token with an audience
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.artifactory.ScopedToken;
- * import com.pulumi.artifactory.ScopedTokenArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var audience = new ScopedToken(&#34;audience&#34;, ScopedTokenArgs.builder()        
- *             .audiences(&#34;jfrt@*&#34;)
- *             .scopes(&#34;applied-permissions/admin&#34;)
- *             .username(&#34;admin-user&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
  * ## References
  * 
- * - https://www.jfrog.com/confluence/display/JFROG/Access+Tokens
- * - https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-AccessTokens
+ * - https://jfrog.com/help/r/jfrog-platform-administration-documentation/access-tokens
+ * - https://jfrog.com/help/r/jfrog-rest-apis/access-tokens
  * 
  * ## Import
  * 
- * Artifactory **does not** retain scoped tokens and cannot be imported into state.
+ * Artifactory **does not** retain scoped tokens, and they cannot be imported into state.
  * 
  */
 @ResourceType(type="artifactory:index/scopedToken:ScopedToken")
 public class ScopedToken extends com.pulumi.resources.CustomResource {
     /**
-     * Returns the access token to authenticate to Artifactory
+     * Returns the access token to authenticate to Artifactory.
      * 
      */
     @Export(name="accessToken", type=String.class, parameters={})
     private Output<String> accessToken;
 
     /**
-     * @return Returns the access token to authenticate to Artifactory
+     * @return Returns the access token to authenticate to Artifactory.
      * 
      */
     public Output<String> accessToken() {
         return this.accessToken;
     }
     /**
-     * (Optional) A list of the other instances or services that should accept this token identified by their Service-IDs. Limited to total 255 characters. Default to `*@*` if not set. Service ID must begin with `jfrt@`. For instructions to retrieve the Artifactory Service ID see this [documentation](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-GetServiceID).
+     * A list of the other instances or services that should accept this token identified by their Service-IDs. Limited to total 255 characters. Default to &#39;*@*&#39; if not set. Service ID must begin with valid JFrog service type. Options: jfrt, jfxr, jfpip, jfds, jfmc, jfac, jfevt, jfmd, jfcon, or *. For instructions to retrieve the Artifactory Service ID see this [documentation](https://jfrog.com/help/r/jfrog-rest-apis/get-service-id)
      * 
      */
     @Export(name="audiences", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> audiences;
 
     /**
-     * @return (Optional) A list of the other instances or services that should accept this token identified by their Service-IDs. Limited to total 255 characters. Default to `*@*` if not set. Service ID must begin with `jfrt@`. For instructions to retrieve the Artifactory Service ID see this [documentation](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-GetServiceID).
+     * @return A list of the other instances or services that should accept this token identified by their Service-IDs. Limited to total 255 characters. Default to &#39;*@*&#39; if not set. Service ID must begin with valid JFrog service type. Options: jfrt, jfxr, jfpip, jfds, jfmc, jfac, jfevt, jfmd, jfcon, or *. For instructions to retrieve the Artifactory Service ID see this [documentation](https://jfrog.com/help/r/jfrog-rest-apis/get-service-id)
      * 
      */
     public Output<Optional<List<String>>> audiences() {
         return Codegen.optional(this.audiences);
     }
     /**
-     * (Optional) Free text token description. Useful for filtering and managing tokens. Limited to 1024 characters.
+     * Free text token description. Useful for filtering and managing tokens. Limited to 1024 characters.
      * 
      */
     @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return (Optional) Free text token description. Useful for filtering and managing tokens. Limited to 1024 characters.
+     * @return Free text token description. Useful for filtering and managing tokens. Limited to 1024 characters.
      * 
      */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
     /**
-     * (Optional) The amount of time, in seconds, it would take for the token to expire. An admin shall be able to set whether expiry is mandatory, what is the default expiry, and what is the maximum expiry allowed. Must be non-negative. Default value is based on configuration in `access.config.yaml`. See [API documentation](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-RevokeTokenbyIDrevoketokenbyid) for details.
+     * The amount of time, in seconds, it would take for the token to expire. An admin shall be able to set whether expiry is mandatory, what is the default expiry, and what is the maximum expiry allowed. Must be non-negative. Default value is based on configuration in &#39;access.config.yaml&#39;. See [API documentation](https://jfrog.com/help/r/jfrog-rest-apis/revoke-token-by-id) for details. Access Token would not be saved by Artifactory if this is less than the persistence threshold value (default to 10800 seconds) set in Access configuration. See [official documentation](https://jfrog.com/help/r/jfrog-platform-administration-documentation/using-the-revocable-and-persistency-thresholds) for details.
      * 
      */
     @Export(name="expiresIn", type=Integer.class, parameters={})
     private Output<Integer> expiresIn;
 
     /**
-     * @return (Optional) The amount of time, in seconds, it would take for the token to expire. An admin shall be able to set whether expiry is mandatory, what is the default expiry, and what is the maximum expiry allowed. Must be non-negative. Default value is based on configuration in `access.config.yaml`. See [API documentation](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-RevokeTokenbyIDrevoketokenbyid) for details.
+     * @return The amount of time, in seconds, it would take for the token to expire. An admin shall be able to set whether expiry is mandatory, what is the default expiry, and what is the maximum expiry allowed. Must be non-negative. Default value is based on configuration in &#39;access.config.yaml&#39;. See [API documentation](https://jfrog.com/help/r/jfrog-rest-apis/revoke-token-by-id) for details. Access Token would not be saved by Artifactory if this is less than the persistence threshold value (default to 10800 seconds) set in Access configuration. See [official documentation](https://jfrog.com/help/r/jfrog-platform-administration-documentation/using-the-revocable-and-persistency-thresholds) for details.
      * 
      */
     public Output<Integer> expiresIn() {
         return this.expiresIn;
     }
     /**
-     * Returns the token expiry
+     * Returns the token expiry.
      * 
      */
     @Export(name="expiry", type=Integer.class, parameters={})
     private Output<Integer> expiry;
 
     /**
-     * @return Returns the token expiry
+     * @return Returns the token expiry.
      * 
      */
     public Output<Integer> expiry() {
         return this.expiry;
     }
     /**
-     * (Optional) Should a reference token also be created? Defaults to `false`
+     * The grant type used to authenticate the request. In this case, the only value supported is `client_credentials` which is also the default value if this parameter is not specified.
+     * 
+     */
+    @Export(name="grantType", type=String.class, parameters={})
+    private Output<String> grantType;
+
+    /**
+     * @return The grant type used to authenticate the request. In this case, the only value supported is `client_credentials` which is also the default value if this parameter is not specified.
+     * 
+     */
+    public Output<String> grantType() {
+        return this.grantType;
+    }
+    /**
+     * Also create a reference token which can be used like an API key. Default is `false`.
      * 
      */
     @Export(name="includeReferenceToken", type=Boolean.class, parameters={})
-    private Output</* @Nullable */ Boolean> includeReferenceToken;
+    private Output<Boolean> includeReferenceToken;
 
     /**
-     * @return (Optional) Should a reference token also be created? Defaults to `false`
+     * @return Also create a reference token which can be used like an API key. Default is `false`.
      * 
      */
-    public Output<Optional<Boolean>> includeReferenceToken() {
-        return Codegen.optional(this.includeReferenceToken);
+    public Output<Boolean> includeReferenceToken() {
+        return this.includeReferenceToken;
     }
     /**
-     * Returns the token issued at date/time
+     * Returns the token issued at date/time.
      * 
      */
     @Export(name="issuedAt", type=Integer.class, parameters={})
     private Output<Integer> issuedAt;
 
     /**
-     * @return Returns the token issued at date/time
+     * @return Returns the token issued at date/time.
      * 
      */
     public Output<Integer> issuedAt() {
         return this.issuedAt;
     }
     /**
-     * Returns the token issuer
+     * Returns the token issuer.
      * 
      */
     @Export(name="issuer", type=String.class, parameters={})
     private Output<String> issuer;
 
     /**
-     * @return Returns the token issuer
+     * @return Returns the token issuer.
      * 
      */
     public Output<String> issuer() {
         return this.issuer;
     }
     /**
-     * Returns the reference token to authenticate to Artifactory
+     * Reference Token (alias to Access Token).
      * 
      */
     @Export(name="referenceToken", type=String.class, parameters={})
     private Output<String> referenceToken;
 
     /**
-     * @return Returns the reference token to authenticate to Artifactory
+     * @return Reference Token (alias to Access Token).
      * 
      */
     public Output<String> referenceToken() {
         return this.referenceToken;
     }
+    /**
+     * Refresh token.
+     * 
+     */
     @Export(name="refreshToken", type=String.class, parameters={})
     private Output<String> refreshToken;
 
+    /**
+     * @return Refresh token.
+     * 
+     */
     public Output<String> refreshToken() {
         return this.refreshToken;
     }
     /**
-     * (Optional) Is this token refreshable? Defaults to `false`
+     * Is this token refreshable? Default is `false`.
      * 
      */
     @Export(name="refreshable", type=Boolean.class, parameters={})
-    private Output</* @Nullable */ Boolean> refreshable;
+    private Output<Boolean> refreshable;
 
     /**
-     * @return (Optional) Is this token refreshable? Defaults to `false`
+     * @return Is this token refreshable? Default is `false`.
      * 
      */
-    public Output<Optional<Boolean>> refreshable() {
-        return Codegen.optional(this.refreshable);
+    public Output<Boolean> refreshable() {
+        return this.refreshable;
     }
     /**
-     * (Optional) The scope of access that the token provides. Access to the REST API is always provided by default. Administrators can set any scope, while non-admin users can only set the scope to a subset of the groups to which they belong.
+     * The scope of access that the token provides. Access to the REST API is always provided by default. Administrators can set any scope, while non-admin users can only set the scope to a subset of the groups to which they belong.
+     * The supported scopes include:
      * 
      */
     @Export(name="scopes", type=List.class, parameters={String.class})
     private Output<List<String>> scopes;
 
     /**
-     * @return (Optional) The scope of access that the token provides. Access to the REST API is always provided by default. Administrators can set any scope, while non-admin users can only set the scope to a subset of the groups to which they belong.
+     * @return The scope of access that the token provides. Access to the REST API is always provided by default. Administrators can set any scope, while non-admin users can only set the scope to a subset of the groups to which they belong.
+     * The supported scopes include:
      * 
      */
     public Output<List<String>> scopes() {
         return this.scopes;
     }
     /**
-     * Returns the token type
+     * Returns the token type.
      * 
      */
     @Export(name="subject", type=String.class, parameters={})
     private Output<String> subject;
 
     /**
-     * @return Returns the token type
+     * @return Returns the token type.
      * 
      */
     public Output<String> subject() {
         return this.subject;
     }
     /**
-     * Returns the token type
+     * Returns the token type.
      * 
      */
     @Export(name="tokenType", type=String.class, parameters={})
     private Output<String> tokenType;
 
     /**
-     * @return Returns the token type
+     * @return Returns the token type.
      * 
      */
     public Output<String> tokenType() {
         return this.tokenType;
     }
     /**
-     * (Optional) The user name for which this token is created. The username is based on the authenticated user - either from the user of the authenticated token or based on the username (if basic auth was used). The username is then used to set the subject of the token: `&lt;service-id&gt;/users/&lt;username&gt;`. Limited to 255 characters.
+     * The user name for which this token is created. The username is based on the authenticated user - either from the user of the authenticated token or based on the username (if basic auth was used). The username is then used to set the subject of the token: \n\n/users/\n\n. Limited to 255 characters.
      * 
      */
     @Export(name="username", type=String.class, parameters={})
     private Output</* @Nullable */ String> username;
 
     /**
-     * @return (Optional) The user name for which this token is created. The username is based on the authenticated user - either from the user of the authenticated token or based on the username (if basic auth was used). The username is then used to set the subject of the token: `&lt;service-id&gt;/users/&lt;username&gt;`. Limited to 255 characters.
+     * @return The user name for which this token is created. The username is based on the authenticated user - either from the user of the authenticated token or based on the username (if basic auth was used). The username is then used to set the subject of the token: \n\n/users/\n\n. Limited to 255 characters.
      * 
      */
     public Output<Optional<String>> username() {

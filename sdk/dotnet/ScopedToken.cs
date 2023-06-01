@@ -15,247 +15,156 @@ namespace Pulumi.Artifactory
     /// !&gt;Scoped Tokens will be stored in the raw state as plain-text. Read more about sensitive data in
     /// state.
     /// 
-    /// ~&gt;Token would not be saved by Artifactory if `expires_in` is less than the persistency threshold value (default to 10800 seconds) set in Access configuration. See [Persistency Threshold](https://www.jfrog.com/confluence/display/JFROG/Access+Tokens#AccessTokens-PersistencyThreshold) for details.
+    /// ~&gt;Token would not be saved by Artifactory if `expires_in` is less than the persistency threshold value (default to 10800 seconds) set in Access configuration. See [Persistency Threshold](https://jfrog.com/help/r/jfrog-platform-administration-documentation/using-the-revocable-and-persistency-thresholds) for details.
     /// 
     /// ## Example Usage
     /// 
-    /// ### S
     /// ### Create a new Artifactory scoped token for an existing user
     /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Artifactory = Pulumi.Artifactory;
+    /// resource "artifactory_scoped_token" "scoped_token" {
+    ///   username = "existing-user"
+    /// }
     /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var scopedToken = new Artifactory.ScopedToken("scopedToken", new()
-    ///     {
-    ///         Username = "existing-user",
-    ///     });
+    /// ### **Note:** This assumes that the user `existing-user` has already been created in Artifactory by different means, i.e. manually or in a separate pulumi up.
     /// 
-    /// });
-    /// ```
-    /// 
-    /// **Note:** This assumes that the user `existing-user` has already been created in Artifactory by different means, i.e. manually or in a separate pulumi up.
     /// ### Create a new Artifactory user and scoped token
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Artifactory = Pulumi.Artifactory;
+    /// resource "artifactory_user" "new_user" {
+    ///   name   = "new_user"
+    ///   email  = "new_user@somewhere.com"
+    ///   groups = ["readers"]
+    /// }
     /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var newUser = new Artifactory.User("newUser", new()
-    ///     {
-    ///         Email = "new_user@somewhere.com",
-    ///         Groups = new[]
-    ///         {
-    ///             "readers",
-    ///         },
-    ///     });
+    /// resource "artifactory_scoped_token" "scoped_token_user" {
+    ///   username = artifactory_user.new_user.name
+    /// }
     /// 
-    ///     var scopedTokenUser = new Artifactory.ScopedToken("scopedTokenUser", new()
-    ///     {
-    ///         Username = newUser.Name,
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// ### Creates a new token for groups
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Artifactory = Pulumi.Artifactory;
+    /// resource "artifactory_scoped_token" "scoped_token_group" {
+    ///   scopes = ["applied-permissions/groups:readers"]
+    /// }
     /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var scopedTokenGroup = new Artifactory.ScopedToken("scopedTokenGroup", new()
-    ///     {
-    ///         Scopes = new[]
-    ///         {
-    ///             "applied-permissions/groups:readers",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// ### Create token with expiry
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Artifactory = Pulumi.Artifactory;
+    /// resource "artifactory_scoped_token" "scoped_token_no_expiry" {
+    ///   username   = "existing-user"
+    ///   expires_in = 7200 // in seconds
+    /// }
     /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var scopedTokenNoExpiry = new Artifactory.ScopedToken("scopedTokenNoExpiry", new()
-    ///     {
-    ///         ExpiresIn = 7200,
-    ///         Username = "existing-user",
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// ### Creates a refreshable token
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Artifactory = Pulumi.Artifactory;
+    /// resource "artifactory_scoped_token" "scoped_token_refreshable" {
+    ///   username    = "existing-user"
+    ///   refreshable = true
+    /// }
     /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var scopedTokenRefreshable = new Artifactory.ScopedToken("scopedTokenRefreshable", new()
-    ///     {
-    ///         Refreshable = true,
-    ///         Username = "existing-user",
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// ### Creates an administrator token
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Artifactory = Pulumi.Artifactory;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var admin = new Artifactory.ScopedToken("admin", new()
-    ///     {
-    ///         Scopes = new[]
-    ///         {
-    ///             "applied-permissions/admin",
-    ///         },
-    ///         Username = "admin-user",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Creates a token with an audience
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Artifactory = Pulumi.Artifactory;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var audience = new Artifactory.ScopedToken("audience", new()
-    ///     {
-    ///         Audiences = new[]
-    ///         {
-    ///             "jfrt@*",
-    ///         },
-    ///         Scopes = new[]
-    ///         {
-    ///             "applied-permissions/admin",
-    ///         },
-    ///         Username = "admin-user",
-    ///     });
-    /// 
-    /// });
-    /// ```
+    /// resource "artifactory_scoped_token" "admin" {
+    ///   username = "admin-user"
+    ///   scopes   = ["applied-permissions/admin"]
+    /// }
     /// ## References
     /// 
-    /// - https://www.jfrog.com/confluence/display/JFROG/Access+Tokens
-    /// - https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-AccessTokens
+    /// - https://jfrog.com/help/r/jfrog-platform-administration-documentation/access-tokens
+    /// - https://jfrog.com/help/r/jfrog-rest-apis/access-tokens
     /// 
     /// ## Import
     /// 
-    /// Artifactory **does not** retain scoped tokens and cannot be imported into state.
+    /// Artifactory **does not** retain scoped tokens, and they cannot be imported into state.
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/scopedToken:ScopedToken")]
     public partial class ScopedToken : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Returns the access token to authenticate to Artifactory
+        /// Returns the access token to authenticate to Artifactory.
         /// </summary>
         [Output("accessToken")]
         public Output<string> AccessToken { get; private set; } = null!;
 
         /// <summary>
-        /// (Optional) A list of the other instances or services that should accept this token identified by their Service-IDs. Limited to total 255 characters. Default to `*@*` if not set. Service ID must begin with `jfrt@`. For instructions to retrieve the Artifactory Service ID see this [documentation](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-GetServiceID).
+        /// A list of the other instances or services that should accept this token identified by their Service-IDs. Limited to total 255 characters. Default to '*@*' if not set. Service ID must begin with valid JFrog service type. Options: jfrt, jfxr, jfpip, jfds, jfmc, jfac, jfevt, jfmd, jfcon, or *. For instructions to retrieve the Artifactory Service ID see this [documentation](https://jfrog.com/help/r/jfrog-rest-apis/get-service-id)
         /// </summary>
         [Output("audiences")]
         public Output<ImmutableArray<string>> Audiences { get; private set; } = null!;
 
         /// <summary>
-        /// (Optional) Free text token description. Useful for filtering and managing tokens. Limited to 1024 characters.
+        /// Free text token description. Useful for filtering and managing tokens. Limited to 1024 characters.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// (Optional) The amount of time, in seconds, it would take for the token to expire. An admin shall be able to set whether expiry is mandatory, what is the default expiry, and what is the maximum expiry allowed. Must be non-negative. Default value is based on configuration in `access.config.yaml`. See [API documentation](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-RevokeTokenbyIDrevoketokenbyid) for details.
+        /// The amount of time, in seconds, it would take for the token to expire. An admin shall be able to set whether expiry is mandatory, what is the default expiry, and what is the maximum expiry allowed. Must be non-negative. Default value is based on configuration in 'access.config.yaml'. See [API documentation](https://jfrog.com/help/r/jfrog-rest-apis/revoke-token-by-id) for details. Access Token would not be saved by Artifactory if this is less than the persistence threshold value (default to 10800 seconds) set in Access configuration. See [official documentation](https://jfrog.com/help/r/jfrog-platform-administration-documentation/using-the-revocable-and-persistency-thresholds) for details.
         /// </summary>
         [Output("expiresIn")]
         public Output<int> ExpiresIn { get; private set; } = null!;
 
         /// <summary>
-        /// Returns the token expiry
+        /// Returns the token expiry.
         /// </summary>
         [Output("expiry")]
         public Output<int> Expiry { get; private set; } = null!;
 
         /// <summary>
-        /// (Optional) Should a reference token also be created? Defaults to `false`
+        /// The grant type used to authenticate the request. In this case, the only value supported is `client_credentials` which is also the default value if this parameter is not specified.
         /// </summary>
-        [Output("includeReferenceToken")]
-        public Output<bool?> IncludeReferenceToken { get; private set; } = null!;
+        [Output("grantType")]
+        public Output<string> GrantType { get; private set; } = null!;
 
         /// <summary>
-        /// Returns the token issued at date/time
+        /// Also create a reference token which can be used like an API key. Default is `false`.
+        /// </summary>
+        [Output("includeReferenceToken")]
+        public Output<bool> IncludeReferenceToken { get; private set; } = null!;
+
+        /// <summary>
+        /// Returns the token issued at date/time.
         /// </summary>
         [Output("issuedAt")]
         public Output<int> IssuedAt { get; private set; } = null!;
 
         /// <summary>
-        /// Returns the token issuer
+        /// Returns the token issuer.
         /// </summary>
         [Output("issuer")]
         public Output<string> Issuer { get; private set; } = null!;
 
         /// <summary>
-        /// Returns the reference token to authenticate to Artifactory
+        /// Reference Token (alias to Access Token).
         /// </summary>
         [Output("referenceToken")]
         public Output<string> ReferenceToken { get; private set; } = null!;
 
+        /// <summary>
+        /// Refresh token.
+        /// </summary>
         [Output("refreshToken")]
         public Output<string> RefreshToken { get; private set; } = null!;
 
         /// <summary>
-        /// (Optional) Is this token refreshable? Defaults to `false`
+        /// Is this token refreshable? Default is `false`.
         /// </summary>
         [Output("refreshable")]
-        public Output<bool?> Refreshable { get; private set; } = null!;
+        public Output<bool> Refreshable { get; private set; } = null!;
 
         /// <summary>
-        /// (Optional) The scope of access that the token provides. Access to the REST API is always provided by default. Administrators can set any scope, while non-admin users can only set the scope to a subset of the groups to which they belong.
+        /// The scope of access that the token provides. Access to the REST API is always provided by default. Administrators can set any scope, while non-admin users can only set the scope to a subset of the groups to which they belong.
+        /// The supported scopes include:
         /// </summary>
         [Output("scopes")]
         public Output<ImmutableArray<string>> Scopes { get; private set; } = null!;
 
         /// <summary>
-        /// Returns the token type
+        /// Returns the token type.
         /// </summary>
         [Output("subject")]
         public Output<string> Subject { get; private set; } = null!;
 
         /// <summary>
-        /// Returns the token type
+        /// Returns the token type.
         /// </summary>
         [Output("tokenType")]
         public Output<string> TokenType { get; private set; } = null!;
 
         /// <summary>
-        /// (Optional) The user name for which this token is created. The username is based on the authenticated user - either from the user of the authenticated token or based on the username (if basic auth was used). The username is then used to set the subject of the token: `&lt;service-id&gt;/users/&lt;username&gt;`. Limited to 255 characters.
+        /// The user name for which this token is created. The username is based on the authenticated user - either from the user of the authenticated token or based on the username (if basic auth was used). The username is then used to set the subject of the token: \n\n/users/\n\n. Limited to 255 characters.
         /// </summary>
         [Output("username")]
         public Output<string?> Username { get; private set; } = null!;
@@ -316,7 +225,7 @@ namespace Pulumi.Artifactory
         private InputList<string>? _audiences;
 
         /// <summary>
-        /// (Optional) A list of the other instances or services that should accept this token identified by their Service-IDs. Limited to total 255 characters. Default to `*@*` if not set. Service ID must begin with `jfrt@`. For instructions to retrieve the Artifactory Service ID see this [documentation](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-GetServiceID).
+        /// A list of the other instances or services that should accept this token identified by their Service-IDs. Limited to total 255 characters. Default to '*@*' if not set. Service ID must begin with valid JFrog service type. Options: jfrt, jfxr, jfpip, jfds, jfmc, jfac, jfevt, jfmd, jfcon, or *. For instructions to retrieve the Artifactory Service ID see this [documentation](https://jfrog.com/help/r/jfrog-rest-apis/get-service-id)
         /// </summary>
         public InputList<string> Audiences
         {
@@ -325,25 +234,31 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// (Optional) Free text token description. Useful for filtering and managing tokens. Limited to 1024 characters.
+        /// Free text token description. Useful for filtering and managing tokens. Limited to 1024 characters.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// (Optional) The amount of time, in seconds, it would take for the token to expire. An admin shall be able to set whether expiry is mandatory, what is the default expiry, and what is the maximum expiry allowed. Must be non-negative. Default value is based on configuration in `access.config.yaml`. See [API documentation](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-RevokeTokenbyIDrevoketokenbyid) for details.
+        /// The amount of time, in seconds, it would take for the token to expire. An admin shall be able to set whether expiry is mandatory, what is the default expiry, and what is the maximum expiry allowed. Must be non-negative. Default value is based on configuration in 'access.config.yaml'. See [API documentation](https://jfrog.com/help/r/jfrog-rest-apis/revoke-token-by-id) for details. Access Token would not be saved by Artifactory if this is less than the persistence threshold value (default to 10800 seconds) set in Access configuration. See [official documentation](https://jfrog.com/help/r/jfrog-platform-administration-documentation/using-the-revocable-and-persistency-thresholds) for details.
         /// </summary>
         [Input("expiresIn")]
         public Input<int>? ExpiresIn { get; set; }
 
         /// <summary>
-        /// (Optional) Should a reference token also be created? Defaults to `false`
+        /// The grant type used to authenticate the request. In this case, the only value supported is `client_credentials` which is also the default value if this parameter is not specified.
+        /// </summary>
+        [Input("grantType")]
+        public Input<string>? GrantType { get; set; }
+
+        /// <summary>
+        /// Also create a reference token which can be used like an API key. Default is `false`.
         /// </summary>
         [Input("includeReferenceToken")]
         public Input<bool>? IncludeReferenceToken { get; set; }
 
         /// <summary>
-        /// (Optional) Is this token refreshable? Defaults to `false`
+        /// Is this token refreshable? Default is `false`.
         /// </summary>
         [Input("refreshable")]
         public Input<bool>? Refreshable { get; set; }
@@ -352,7 +267,8 @@ namespace Pulumi.Artifactory
         private InputList<string>? _scopes;
 
         /// <summary>
-        /// (Optional) The scope of access that the token provides. Access to the REST API is always provided by default. Administrators can set any scope, while non-admin users can only set the scope to a subset of the groups to which they belong.
+        /// The scope of access that the token provides. Access to the REST API is always provided by default. Administrators can set any scope, while non-admin users can only set the scope to a subset of the groups to which they belong.
+        /// The supported scopes include:
         /// </summary>
         public InputList<string> Scopes
         {
@@ -361,7 +277,7 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// (Optional) The user name for which this token is created. The username is based on the authenticated user - either from the user of the authenticated token or based on the username (if basic auth was used). The username is then used to set the subject of the token: `&lt;service-id&gt;/users/&lt;username&gt;`. Limited to 255 characters.
+        /// The user name for which this token is created. The username is based on the authenticated user - either from the user of the authenticated token or based on the username (if basic auth was used). The username is then used to set the subject of the token: \n\n/users/\n\n. Limited to 255 characters.
         /// </summary>
         [Input("username")]
         public Input<string>? Username { get; set; }
@@ -378,7 +294,7 @@ namespace Pulumi.Artifactory
         private Input<string>? _accessToken;
 
         /// <summary>
-        /// Returns the access token to authenticate to Artifactory
+        /// Returns the access token to authenticate to Artifactory.
         /// </summary>
         public Input<string>? AccessToken
         {
@@ -394,7 +310,7 @@ namespace Pulumi.Artifactory
         private InputList<string>? _audiences;
 
         /// <summary>
-        /// (Optional) A list of the other instances or services that should accept this token identified by their Service-IDs. Limited to total 255 characters. Default to `*@*` if not set. Service ID must begin with `jfrt@`. For instructions to retrieve the Artifactory Service ID see this [documentation](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-GetServiceID).
+        /// A list of the other instances or services that should accept this token identified by their Service-IDs. Limited to total 255 characters. Default to '*@*' if not set. Service ID must begin with valid JFrog service type. Options: jfrt, jfxr, jfpip, jfds, jfmc, jfac, jfevt, jfmd, jfcon, or *. For instructions to retrieve the Artifactory Service ID see this [documentation](https://jfrog.com/help/r/jfrog-rest-apis/get-service-id)
         /// </summary>
         public InputList<string> Audiences
         {
@@ -403,37 +319,43 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// (Optional) Free text token description. Useful for filtering and managing tokens. Limited to 1024 characters.
+        /// Free text token description. Useful for filtering and managing tokens. Limited to 1024 characters.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// (Optional) The amount of time, in seconds, it would take for the token to expire. An admin shall be able to set whether expiry is mandatory, what is the default expiry, and what is the maximum expiry allowed. Must be non-negative. Default value is based on configuration in `access.config.yaml`. See [API documentation](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-RevokeTokenbyIDrevoketokenbyid) for details.
+        /// The amount of time, in seconds, it would take for the token to expire. An admin shall be able to set whether expiry is mandatory, what is the default expiry, and what is the maximum expiry allowed. Must be non-negative. Default value is based on configuration in 'access.config.yaml'. See [API documentation](https://jfrog.com/help/r/jfrog-rest-apis/revoke-token-by-id) for details. Access Token would not be saved by Artifactory if this is less than the persistence threshold value (default to 10800 seconds) set in Access configuration. See [official documentation](https://jfrog.com/help/r/jfrog-platform-administration-documentation/using-the-revocable-and-persistency-thresholds) for details.
         /// </summary>
         [Input("expiresIn")]
         public Input<int>? ExpiresIn { get; set; }
 
         /// <summary>
-        /// Returns the token expiry
+        /// Returns the token expiry.
         /// </summary>
         [Input("expiry")]
         public Input<int>? Expiry { get; set; }
 
         /// <summary>
-        /// (Optional) Should a reference token also be created? Defaults to `false`
+        /// The grant type used to authenticate the request. In this case, the only value supported is `client_credentials` which is also the default value if this parameter is not specified.
+        /// </summary>
+        [Input("grantType")]
+        public Input<string>? GrantType { get; set; }
+
+        /// <summary>
+        /// Also create a reference token which can be used like an API key. Default is `false`.
         /// </summary>
         [Input("includeReferenceToken")]
         public Input<bool>? IncludeReferenceToken { get; set; }
 
         /// <summary>
-        /// Returns the token issued at date/time
+        /// Returns the token issued at date/time.
         /// </summary>
         [Input("issuedAt")]
         public Input<int>? IssuedAt { get; set; }
 
         /// <summary>
-        /// Returns the token issuer
+        /// Returns the token issuer.
         /// </summary>
         [Input("issuer")]
         public Input<string>? Issuer { get; set; }
@@ -442,7 +364,7 @@ namespace Pulumi.Artifactory
         private Input<string>? _referenceToken;
 
         /// <summary>
-        /// Returns the reference token to authenticate to Artifactory
+        /// Reference Token (alias to Access Token).
         /// </summary>
         public Input<string>? ReferenceToken
         {
@@ -456,6 +378,10 @@ namespace Pulumi.Artifactory
 
         [Input("refreshToken")]
         private Input<string>? _refreshToken;
+
+        /// <summary>
+        /// Refresh token.
+        /// </summary>
         public Input<string>? RefreshToken
         {
             get => _refreshToken;
@@ -467,7 +393,7 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// (Optional) Is this token refreshable? Defaults to `false`
+        /// Is this token refreshable? Default is `false`.
         /// </summary>
         [Input("refreshable")]
         public Input<bool>? Refreshable { get; set; }
@@ -476,7 +402,8 @@ namespace Pulumi.Artifactory
         private InputList<string>? _scopes;
 
         /// <summary>
-        /// (Optional) The scope of access that the token provides. Access to the REST API is always provided by default. Administrators can set any scope, while non-admin users can only set the scope to a subset of the groups to which they belong.
+        /// The scope of access that the token provides. Access to the REST API is always provided by default. Administrators can set any scope, while non-admin users can only set the scope to a subset of the groups to which they belong.
+        /// The supported scopes include:
         /// </summary>
         public InputList<string> Scopes
         {
@@ -485,19 +412,19 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// Returns the token type
+        /// Returns the token type.
         /// </summary>
         [Input("subject")]
         public Input<string>? Subject { get; set; }
 
         /// <summary>
-        /// Returns the token type
+        /// Returns the token type.
         /// </summary>
         [Input("tokenType")]
         public Input<string>? TokenType { get; set; }
 
         /// <summary>
-        /// (Optional) The user name for which this token is created. The username is based on the authenticated user - either from the user of the authenticated token or based on the username (if basic auth was used). The username is then used to set the subject of the token: `&lt;service-id&gt;/users/&lt;username&gt;`. Limited to 255 characters.
+        /// The user name for which this token is created. The username is based on the authenticated user - either from the user of the authenticated token or based on the username (if basic auth was used). The username is then used to set the subject of the token: \n\n/users/\n\n. Limited to 255 characters.
         /// </summary>
         [Input("username")]
         public Input<string>? Username { get; set; }
