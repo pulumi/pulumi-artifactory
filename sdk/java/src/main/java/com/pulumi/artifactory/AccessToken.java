@@ -286,47 +286,6 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
- * ### Rotate token after it expires
- * This example will generate a token that will expire in 1 hour.
- * 
- * If `pulumi up` is run before 1 hour, nothing changes.
- * One an hour has passed, `pulumi up` will generate a new token.
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.time.Rotating;
- * import com.pulumi.time.RotatingArgs;
- * import com.pulumi.artifactory.AccessToken;
- * import com.pulumi.artifactory.AccessTokenArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var nowPlus1Hours = new Rotating(&#34;nowPlus1Hours&#34;, RotatingArgs.builder()        
- *             .rotationHours(&#34;1&#34;)
- *             .build());
- * 
- *         var rotating = new AccessToken(&#34;rotating&#34;, AccessTokenArgs.builder()        
- *             .username(&#34;rotating&#34;)
- *             .endDate(time_rotating.now_plus_1_hour().rotation_rfc3339())
- *             .groups(&#34;readers&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
  * ## References
  * 
  * - https://www.jfrog.com/confluence/display/ACC1X/Access+Tokens

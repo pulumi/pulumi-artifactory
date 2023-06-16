@@ -186,38 +186,6 @@ namespace Pulumi.Artifactory
     /// 
     /// });
     /// ```
-    /// ### Rotate token after it expires
-    /// This example will generate a token that will expire in 1 hour.
-    /// 
-    /// If `pulumi up` is run before 1 hour, nothing changes.
-    /// One an hour has passed, `pulumi up` will generate a new token.
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Artifactory = Pulumi.Artifactory;
-    /// using Time = Pulumiverse.Time;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var nowPlus1Hours = new Time.Rotating("nowPlus1Hours", new()
-    ///     {
-    ///         RotationHours = 1,
-    ///     });
-    /// 
-    ///     var rotating = new Artifactory.AccessToken("rotating", new()
-    ///     {
-    ///         Username = "rotating",
-    ///         EndDate = time_rotating.Now_plus_1_hour.Rotation_rfc3339,
-    ///         Groups = new[]
-    ///         {
-    ///             "readers",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// ## References
     /// 
     /// - https://www.jfrog.com/confluence/display/ACC1X/Access+Tokens
