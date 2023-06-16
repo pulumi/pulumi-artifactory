@@ -116,17 +116,9 @@ public final class GetRemoteGoRepositoryPlainArgs extends com.pulumi.resources.I
         return Optional.ofNullable(this.includesPattern);
     }
 
-    /**
-     * the identity key of the repo.
-     * 
-     */
     @Import(name="key", required=true)
     private String key;
 
-    /**
-     * @return the identity key of the repo.
-     * 
-     */
     public String key() {
         return this.key;
     }
@@ -299,17 +291,9 @@ public final class GetRemoteGoRepositoryPlainArgs extends com.pulumi.resources.I
         return Optional.ofNullable(this.username);
     }
 
-    /**
-     * (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `ARTIFACTORY`.
-     * 
-     */
     @Import(name="vcsGitProvider")
     private @Nullable String vcsGitProvider;
 
-    /**
-     * @return (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `ARTIFACTORY`.
-     * 
-     */
     public Optional<String> vcsGitProvider() {
         return Optional.ofNullable(this.vcsGitProvider);
     }
@@ -455,12 +439,6 @@ public final class GetRemoteGoRepositoryPlainArgs extends com.pulumi.resources.I
             return this;
         }
 
-        /**
-         * @param key the identity key of the repo.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(String key) {
             $.key = key;
             return this;
@@ -594,12 +572,6 @@ public final class GetRemoteGoRepositoryPlainArgs extends com.pulumi.resources.I
             return this;
         }
 
-        /**
-         * @param vcsGitProvider (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `ARTIFACTORY`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vcsGitProvider(@Nullable String vcsGitProvider) {
             $.vcsGitProvider = vcsGitProvider;
             return this;

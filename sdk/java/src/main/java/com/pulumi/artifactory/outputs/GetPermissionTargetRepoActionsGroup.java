@@ -10,18 +10,10 @@ import java.util.Objects;
 
 @CustomType
 public final class GetPermissionTargetRepoActionsGroup {
-    /**
-     * @return Name of the permission target.
-     * 
-     */
     private String name;
     private List<String> permissions;
 
     private GetPermissionTargetRepoActionsGroup() {}
-    /**
-     * @return Name of the permission target.
-     * 
-     */
     public String name() {
         return this.name;
     }

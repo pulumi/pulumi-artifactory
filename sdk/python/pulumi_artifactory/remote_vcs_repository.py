@@ -61,8 +61,8 @@ class RemoteVcsRepositoryArgs:
                  xray_index: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a RemoteVcsRepository resource.
-        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-               contain spaces or special characters.
+        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+               characters. It cannot begin with a number or contain spaces or special characters.
         :param pulumi.Input[str] url: The remote repo URL.
         :param pulumi.Input[bool] allow_any_host_auth: 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any
                other host.
@@ -94,9 +94,8 @@ class RemoteVcsRepositoryArgs:
                the 'Retrieval Cache Period'. Default value is 'true'.
         :param pulumi.Input[str] local_address: The local address to be used when creating connections. Useful for specifying the interface to use on systems with
                multiple network interfaces.
-        :param pulumi.Input[int] max_unique_snapshots: The maximum number of unique snapshots of a single artifact to store.
-               Once the number of snapshots exceeds this setting, older versions are removed.
-               A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+        :param pulumi.Input[int] max_unique_snapshots: The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
+               older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
         :param pulumi.Input[int] metadata_retrieval_timeout_secs: Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
                the remote before serving locally cached artifact or fail the request.
         :param pulumi.Input[str] mismatching_mime_types_override_list: The set of mime types that should override the block_mismatching_mime_types setting. Eg:
@@ -131,10 +130,9 @@ class RemoteVcsRepositoryArgs:
         :param pulumi.Input[bool] synchronize_properties: When set, remote artifacts are fetched along with their properties.
         :param pulumi.Input[int] unused_artifacts_cleanup_period_hours: Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed 'unused' and
                eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
-        :param pulumi.Input[str] vcs_git_download_url: This attribute is used when vcs_git_provider is set to `CUSTOM`. Provided URL will be used as proxy.
-        :param pulumi.Input[str] vcs_git_provider: Artifactory supports proxying the following Git providers out-of-the-box: GitHub, Bitbucket,
-               Stash, a remote Artifactory instance or a custom Git repository. Allowed values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`,
-               `STASH`, `ARTIFACTORY`, `CUSTOM`. Default value is `GITHUB`
+        :param pulumi.Input[str] vcs_git_download_url: This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
+        :param pulumi.Input[str] vcs_git_provider: Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance.
+               Default value is "GITHUB".
         :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
                Xray settings.
         """
@@ -227,8 +225,8 @@ class RemoteVcsRepositoryArgs:
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
         """
-        A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-        contain spaces or special characters.
+        A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+        characters. It cannot begin with a number or contain spaces or special characters.
         """
         return pulumi.get(self, "key")
 
@@ -456,9 +454,8 @@ class RemoteVcsRepositoryArgs:
     @pulumi.getter(name="maxUniqueSnapshots")
     def max_unique_snapshots(self) -> Optional[pulumi.Input[int]]:
         """
-        The maximum number of unique snapshots of a single artifact to store.
-        Once the number of snapshots exceeds this setting, older versions are removed.
-        A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+        The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
+        older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
         """
         return pulumi.get(self, "max_unique_snapshots")
 
@@ -729,7 +726,7 @@ class RemoteVcsRepositoryArgs:
     @pulumi.getter(name="vcsGitDownloadUrl")
     def vcs_git_download_url(self) -> Optional[pulumi.Input[str]]:
         """
-        This attribute is used when vcs_git_provider is set to `CUSTOM`. Provided URL will be used as proxy.
+        This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
         """
         return pulumi.get(self, "vcs_git_download_url")
 
@@ -741,9 +738,8 @@ class RemoteVcsRepositoryArgs:
     @pulumi.getter(name="vcsGitProvider")
     def vcs_git_provider(self) -> Optional[pulumi.Input[str]]:
         """
-        Artifactory supports proxying the following Git providers out-of-the-box: GitHub, Bitbucket,
-        Stash, a remote Artifactory instance or a custom Git repository. Allowed values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`,
-        `STASH`, `ARTIFACTORY`, `CUSTOM`. Default value is `GITHUB`
+        Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance.
+        Default value is "GITHUB".
         """
         return pulumi.get(self, "vcs_git_provider")
 
@@ -840,15 +836,14 @@ class _RemoteVcsRepositoryState:
                communicate with this repository.
         :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
                used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-               contain spaces or special characters.
+        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+               characters. It cannot begin with a number or contain spaces or special characters.
         :param pulumi.Input[bool] list_remote_folder_items: Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
                the 'Retrieval Cache Period'. Default value is 'true'.
         :param pulumi.Input[str] local_address: The local address to be used when creating connections. Useful for specifying the interface to use on systems with
                multiple network interfaces.
-        :param pulumi.Input[int] max_unique_snapshots: The maximum number of unique snapshots of a single artifact to store.
-               Once the number of snapshots exceeds this setting, older versions are removed.
-               A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+        :param pulumi.Input[int] max_unique_snapshots: The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
+               older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
         :param pulumi.Input[int] metadata_retrieval_timeout_secs: Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
                the remote before serving locally cached artifact or fail the request.
         :param pulumi.Input[str] mismatching_mime_types_override_list: The set of mime types that should override the block_mismatching_mime_types setting. Eg:
@@ -884,10 +879,9 @@ class _RemoteVcsRepositoryState:
         :param pulumi.Input[int] unused_artifacts_cleanup_period_hours: Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed 'unused' and
                eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
         :param pulumi.Input[str] url: The remote repo URL.
-        :param pulumi.Input[str] vcs_git_download_url: This attribute is used when vcs_git_provider is set to `CUSTOM`. Provided URL will be used as proxy.
-        :param pulumi.Input[str] vcs_git_provider: Artifactory supports proxying the following Git providers out-of-the-box: GitHub, Bitbucket,
-               Stash, a remote Artifactory instance or a custom Git repository. Allowed values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`,
-               `STASH`, `ARTIFACTORY`, `CUSTOM`. Default value is `GITHUB`
+        :param pulumi.Input[str] vcs_git_download_url: This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
+        :param pulumi.Input[str] vcs_git_provider: Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance.
+               Default value is "GITHUB".
         :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
                Xray settings.
         """
@@ -1162,8 +1156,8 @@ class _RemoteVcsRepositoryState:
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
         """
-        A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-        contain spaces or special characters.
+        A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+        characters. It cannot begin with a number or contain spaces or special characters.
         """
         return pulumi.get(self, "key")
 
@@ -1201,9 +1195,8 @@ class _RemoteVcsRepositoryState:
     @pulumi.getter(name="maxUniqueSnapshots")
     def max_unique_snapshots(self) -> Optional[pulumi.Input[int]]:
         """
-        The maximum number of unique snapshots of a single artifact to store.
-        Once the number of snapshots exceeds this setting, older versions are removed.
-        A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+        The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
+        older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
         """
         return pulumi.get(self, "max_unique_snapshots")
 
@@ -1495,7 +1488,7 @@ class _RemoteVcsRepositoryState:
     @pulumi.getter(name="vcsGitDownloadUrl")
     def vcs_git_download_url(self) -> Optional[pulumi.Input[str]]:
         """
-        This attribute is used when vcs_git_provider is set to `CUSTOM`. Provided URL will be used as proxy.
+        This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
         """
         return pulumi.get(self, "vcs_git_download_url")
 
@@ -1507,9 +1500,8 @@ class _RemoteVcsRepositoryState:
     @pulumi.getter(name="vcsGitProvider")
     def vcs_git_provider(self) -> Optional[pulumi.Input[str]]:
         """
-        Artifactory supports proxying the following Git providers out-of-the-box: GitHub, Bitbucket,
-        Stash, a remote Artifactory instance or a custom Git repository. Allowed values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`,
-        `STASH`, `ARTIFACTORY`, `CUSTOM`. Default value is `GITHUB`
+        Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance.
+        Default value is "GITHUB".
         """
         return pulumi.get(self, "vcs_git_provider")
 
@@ -1581,31 +1573,7 @@ class RemoteVcsRepository(pulumi.CustomResource):
                  xray_index: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        Creates a remote VCS repository.
-
-        Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/VCS+Repositories).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_artifactory as artifactory
-
-        my_remote_vcs = artifactory.RemoteVcsRepository("my-remote-vcs",
-            key="my-remote-vcs",
-            max_unique_snapshots=5,
-            url="https://github.com/",
-            vcs_git_provider="GITHUB")
-        ```
-
-        ## Import
-
-        Remote repositories can be imported using their name, e.g.
-
-        ```sh
-         $ pulumi import artifactory:index/remoteVcsRepository:RemoteVcsRepository my-remote-vcs my-remote-vcs
-        ```
-
+        Create a RemoteVcsRepository resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_any_host_auth: 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any
@@ -1634,15 +1602,14 @@ class RemoteVcsRepository(pulumi.CustomResource):
                communicate with this repository.
         :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
                used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-               contain spaces or special characters.
+        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+               characters. It cannot begin with a number or contain spaces or special characters.
         :param pulumi.Input[bool] list_remote_folder_items: Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
                the 'Retrieval Cache Period'. Default value is 'true'.
         :param pulumi.Input[str] local_address: The local address to be used when creating connections. Useful for specifying the interface to use on systems with
                multiple network interfaces.
-        :param pulumi.Input[int] max_unique_snapshots: The maximum number of unique snapshots of a single artifact to store.
-               Once the number of snapshots exceeds this setting, older versions are removed.
-               A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+        :param pulumi.Input[int] max_unique_snapshots: The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
+               older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
         :param pulumi.Input[int] metadata_retrieval_timeout_secs: Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
                the remote before serving locally cached artifact or fail the request.
         :param pulumi.Input[str] mismatching_mime_types_override_list: The set of mime types that should override the block_mismatching_mime_types setting. Eg:
@@ -1678,10 +1645,9 @@ class RemoteVcsRepository(pulumi.CustomResource):
         :param pulumi.Input[int] unused_artifacts_cleanup_period_hours: Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed 'unused' and
                eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
         :param pulumi.Input[str] url: The remote repo URL.
-        :param pulumi.Input[str] vcs_git_download_url: This attribute is used when vcs_git_provider is set to `CUSTOM`. Provided URL will be used as proxy.
-        :param pulumi.Input[str] vcs_git_provider: Artifactory supports proxying the following Git providers out-of-the-box: GitHub, Bitbucket,
-               Stash, a remote Artifactory instance or a custom Git repository. Allowed values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`,
-               `STASH`, `ARTIFACTORY`, `CUSTOM`. Default value is `GITHUB`
+        :param pulumi.Input[str] vcs_git_download_url: This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
+        :param pulumi.Input[str] vcs_git_provider: Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance.
+               Default value is "GITHUB".
         :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
                Xray settings.
         """
@@ -1692,31 +1658,7 @@ class RemoteVcsRepository(pulumi.CustomResource):
                  args: RemoteVcsRepositoryArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Creates a remote VCS repository.
-
-        Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/VCS+Repositories).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_artifactory as artifactory
-
-        my_remote_vcs = artifactory.RemoteVcsRepository("my-remote-vcs",
-            key="my-remote-vcs",
-            max_unique_snapshots=5,
-            url="https://github.com/",
-            vcs_git_provider="GITHUB")
-        ```
-
-        ## Import
-
-        Remote repositories can be imported using their name, e.g.
-
-        ```sh
-         $ pulumi import artifactory:index/remoteVcsRepository:RemoteVcsRepository my-remote-vcs my-remote-vcs
-        ```
-
+        Create a RemoteVcsRepository resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param RemoteVcsRepositoryArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1921,15 +1863,14 @@ class RemoteVcsRepository(pulumi.CustomResource):
                communicate with this repository.
         :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
                used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-               contain spaces or special characters.
+        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+               characters. It cannot begin with a number or contain spaces or special characters.
         :param pulumi.Input[bool] list_remote_folder_items: Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
                the 'Retrieval Cache Period'. Default value is 'true'.
         :param pulumi.Input[str] local_address: The local address to be used when creating connections. Useful for specifying the interface to use on systems with
                multiple network interfaces.
-        :param pulumi.Input[int] max_unique_snapshots: The maximum number of unique snapshots of a single artifact to store.
-               Once the number of snapshots exceeds this setting, older versions are removed.
-               A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+        :param pulumi.Input[int] max_unique_snapshots: The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
+               older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
         :param pulumi.Input[int] metadata_retrieval_timeout_secs: Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
                the remote before serving locally cached artifact or fail the request.
         :param pulumi.Input[str] mismatching_mime_types_override_list: The set of mime types that should override the block_mismatching_mime_types setting. Eg:
@@ -1965,10 +1906,9 @@ class RemoteVcsRepository(pulumi.CustomResource):
         :param pulumi.Input[int] unused_artifacts_cleanup_period_hours: Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed 'unused' and
                eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
         :param pulumi.Input[str] url: The remote repo URL.
-        :param pulumi.Input[str] vcs_git_download_url: This attribute is used when vcs_git_provider is set to `CUSTOM`. Provided URL will be used as proxy.
-        :param pulumi.Input[str] vcs_git_provider: Artifactory supports proxying the following Git providers out-of-the-box: GitHub, Bitbucket,
-               Stash, a remote Artifactory instance or a custom Git repository. Allowed values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`,
-               `STASH`, `ARTIFACTORY`, `CUSTOM`. Default value is `GITHUB`
+        :param pulumi.Input[str] vcs_git_download_url: This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
+        :param pulumi.Input[str] vcs_git_provider: Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance.
+               Default value is "GITHUB".
         :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
                Xray settings.
         """
@@ -2148,8 +2088,8 @@ class RemoteVcsRepository(pulumi.CustomResource):
     @pulumi.getter
     def key(self) -> pulumi.Output[str]:
         """
-        A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-        contain spaces or special characters.
+        A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+        characters. It cannot begin with a number or contain spaces or special characters.
         """
         return pulumi.get(self, "key")
 
@@ -2175,9 +2115,8 @@ class RemoteVcsRepository(pulumi.CustomResource):
     @pulumi.getter(name="maxUniqueSnapshots")
     def max_unique_snapshots(self) -> pulumi.Output[Optional[int]]:
         """
-        The maximum number of unique snapshots of a single artifact to store.
-        Once the number of snapshots exceeds this setting, older versions are removed.
-        A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+        The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
+        older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
         """
         return pulumi.get(self, "max_unique_snapshots")
 
@@ -2373,7 +2312,7 @@ class RemoteVcsRepository(pulumi.CustomResource):
     @pulumi.getter(name="vcsGitDownloadUrl")
     def vcs_git_download_url(self) -> pulumi.Output[Optional[str]]:
         """
-        This attribute is used when vcs_git_provider is set to `CUSTOM`. Provided URL will be used as proxy.
+        This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
         """
         return pulumi.get(self, "vcs_git_download_url")
 
@@ -2381,9 +2320,8 @@ class RemoteVcsRepository(pulumi.CustomResource):
     @pulumi.getter(name="vcsGitProvider")
     def vcs_git_provider(self) -> pulumi.Output[Optional[str]]:
         """
-        Artifactory supports proxying the following Git providers out-of-the-box: GitHub, Bitbucket,
-        Stash, a remote Artifactory instance or a custom Git repository. Allowed values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`,
-        `STASH`, `ARTIFACTORY`, `CUSTOM`. Default value is `GITHUB`
+        Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance.
+        Default value is "GITHUB".
         """
         return pulumi.get(self, "vcs_git_provider")
 

@@ -51,17 +51,9 @@ public final class GetVirtualDockerRepositoryPlainArgs extends com.pulumi.resour
         return Optional.ofNullable(this.includesPattern);
     }
 
-    /**
-     * the identity key of the repo.
-     * 
-     */
     @Import(name="key", required=true)
     private String key;
 
-    /**
-     * @return the identity key of the repo.
-     * 
-     */
     public String key() {
         return this.key;
     }
@@ -101,17 +93,9 @@ public final class GetVirtualDockerRepositoryPlainArgs extends com.pulumi.resour
         return Optional.ofNullable(this.repositories);
     }
 
-    /**
-     * (Optional) When enabled, in cases where the same Docker tag exists in two or more of the aggregated repositories, Artifactory will return the tag that has the latest timestamp. Default values is `false`.
-     * 
-     */
     @Import(name="resolveDockerTagsByTimestamp")
     private @Nullable Boolean resolveDockerTagsByTimestamp;
 
-    /**
-     * @return (Optional) When enabled, in cases where the same Docker tag exists in two or more of the aggregated repositories, Artifactory will return the tag that has the latest timestamp. Default values is `false`.
-     * 
-     */
     public Optional<Boolean> resolveDockerTagsByTimestamp() {
         return Optional.ofNullable(this.resolveDockerTagsByTimestamp);
     }
@@ -176,12 +160,6 @@ public final class GetVirtualDockerRepositoryPlainArgs extends com.pulumi.resour
             return this;
         }
 
-        /**
-         * @param key the identity key of the repo.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(String key) {
             $.key = key;
             return this;
@@ -220,12 +198,6 @@ public final class GetVirtualDockerRepositoryPlainArgs extends com.pulumi.resour
             return repositories(List.of(repositories));
         }
 
-        /**
-         * @param resolveDockerTagsByTimestamp (Optional) When enabled, in cases where the same Docker tag exists in two or more of the aggregated repositories, Artifactory will return the tag that has the latest timestamp. Default values is `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resolveDockerTagsByTimestamp(@Nullable Boolean resolveDockerTagsByTimestamp) {
             $.resolveDockerTagsByTimestamp = resolveDockerTagsByTimestamp;
             return this;

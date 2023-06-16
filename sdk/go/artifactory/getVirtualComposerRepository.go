@@ -10,33 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Retrieves a virtual PHP Composer repository.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupVirtualComposerRepository(ctx, &artifactory.LookupVirtualComposerRepositoryArgs{
-//				Key: "virtual-composer",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupVirtualComposerRepository(ctx *pulumi.Context, args *LookupVirtualComposerRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupVirtualComposerRepositoryResult, error) {
 	var rv LookupVirtualComposerRepositoryResult
 	err := ctx.Invoke("artifactory:index/getVirtualComposerRepository:getVirtualComposerRepository", args, &rv, opts...)
@@ -48,18 +21,17 @@ func LookupVirtualComposerRepository(ctx *pulumi.Context, args *LookupVirtualCom
 
 // A collection of arguments for invoking getVirtualComposerRepository.
 type LookupVirtualComposerRepositoryArgs struct {
-	ArtifactoryRequestsCanRetrieveRemoteArtifacts *bool   `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`
-	DefaultDeploymentRepo                         *string `pulumi:"defaultDeploymentRepo"`
-	Description                                   *string `pulumi:"description"`
-	ExcludesPattern                               *string `pulumi:"excludesPattern"`
-	IncludesPattern                               *string `pulumi:"includesPattern"`
-	// the identity key of the repo.
-	Key                 string   `pulumi:"key"`
-	Notes               *string  `pulumi:"notes"`
-	ProjectEnvironments []string `pulumi:"projectEnvironments"`
-	ProjectKey          *string  `pulumi:"projectKey"`
-	RepoLayoutRef       *string  `pulumi:"repoLayoutRef"`
-	Repositories        []string `pulumi:"repositories"`
+	ArtifactoryRequestsCanRetrieveRemoteArtifacts *bool    `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`
+	DefaultDeploymentRepo                         *string  `pulumi:"defaultDeploymentRepo"`
+	Description                                   *string  `pulumi:"description"`
+	ExcludesPattern                               *string  `pulumi:"excludesPattern"`
+	IncludesPattern                               *string  `pulumi:"includesPattern"`
+	Key                                           string   `pulumi:"key"`
+	Notes                                         *string  `pulumi:"notes"`
+	ProjectEnvironments                           []string `pulumi:"projectEnvironments"`
+	ProjectKey                                    *string  `pulumi:"projectKey"`
+	RepoLayoutRef                                 *string  `pulumi:"repoLayoutRef"`
+	Repositories                                  []string `pulumi:"repositories"`
 }
 
 // A collection of values returned by getVirtualComposerRepository.
@@ -95,18 +67,17 @@ func LookupVirtualComposerRepositoryOutput(ctx *pulumi.Context, args LookupVirtu
 
 // A collection of arguments for invoking getVirtualComposerRepository.
 type LookupVirtualComposerRepositoryOutputArgs struct {
-	ArtifactoryRequestsCanRetrieveRemoteArtifacts pulumi.BoolPtrInput   `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`
-	DefaultDeploymentRepo                         pulumi.StringPtrInput `pulumi:"defaultDeploymentRepo"`
-	Description                                   pulumi.StringPtrInput `pulumi:"description"`
-	ExcludesPattern                               pulumi.StringPtrInput `pulumi:"excludesPattern"`
-	IncludesPattern                               pulumi.StringPtrInput `pulumi:"includesPattern"`
-	// the identity key of the repo.
-	Key                 pulumi.StringInput      `pulumi:"key"`
-	Notes               pulumi.StringPtrInput   `pulumi:"notes"`
-	ProjectEnvironments pulumi.StringArrayInput `pulumi:"projectEnvironments"`
-	ProjectKey          pulumi.StringPtrInput   `pulumi:"projectKey"`
-	RepoLayoutRef       pulumi.StringPtrInput   `pulumi:"repoLayoutRef"`
-	Repositories        pulumi.StringArrayInput `pulumi:"repositories"`
+	ArtifactoryRequestsCanRetrieveRemoteArtifacts pulumi.BoolPtrInput     `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`
+	DefaultDeploymentRepo                         pulumi.StringPtrInput   `pulumi:"defaultDeploymentRepo"`
+	Description                                   pulumi.StringPtrInput   `pulumi:"description"`
+	ExcludesPattern                               pulumi.StringPtrInput   `pulumi:"excludesPattern"`
+	IncludesPattern                               pulumi.StringPtrInput   `pulumi:"includesPattern"`
+	Key                                           pulumi.StringInput      `pulumi:"key"`
+	Notes                                         pulumi.StringPtrInput   `pulumi:"notes"`
+	ProjectEnvironments                           pulumi.StringArrayInput `pulumi:"projectEnvironments"`
+	ProjectKey                                    pulumi.StringPtrInput   `pulumi:"projectKey"`
+	RepoLayoutRef                                 pulumi.StringPtrInput   `pulumi:"repoLayoutRef"`
+	Repositories                                  pulumi.StringArrayInput `pulumi:"repositories"`
 }
 
 func (LookupVirtualComposerRepositoryOutputArgs) ElementType() reflect.Type {

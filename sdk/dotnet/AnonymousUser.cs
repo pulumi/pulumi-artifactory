@@ -9,29 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Artifactory
 {
-    /// <summary>
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Artifactory = Pulumi.Artifactory;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     // Define a new Artifactory 'anonymous' user for import
-    ///     var anonymous = new Artifactory.AnonymousUser("anonymous");
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// ```sh
-    ///  $ pulumi import artifactory:index/anonymousUser:AnonymousUser anonymous-user anonymous
-    /// ```
-    /// </summary>
     [ArtifactoryResourceType("artifactory:index/anonymousUser:AnonymousUser")]
     public partial class AnonymousUser : global::Pulumi.CustomResource
     {

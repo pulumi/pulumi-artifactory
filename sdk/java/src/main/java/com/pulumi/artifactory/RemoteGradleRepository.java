@@ -18,54 +18,6 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Creates a remote Gradle repository resource.
- * Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Remote+Repositories#RemoteRepositories-Maven,Gradle,IvyandSBTRepositories).
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.artifactory.RemoteGradleRepository;
- * import com.pulumi.artifactory.RemoteGradleRepositoryArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var gradle_remote = new RemoteGradleRepository(&#34;gradle-remote&#34;, RemoteGradleRepositoryArgs.builder()        
- *             .fetchJarsEagerly(true)
- *             .fetchSourcesEagerly(false)
- *             .key(&#34;gradle-remote-foo&#34;)
- *             .rejectInvalidJars(true)
- *             .suppressPomConsistencyChecks(true)
- *             .url(&#34;https://repo1.maven.org/maven2/&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Remote repositories can be imported using their name, e.g.
- * 
- * ```sh
- *  $ pulumi import artifactory:index/remoteGradleRepository:RemoteGradleRepository gradle-remote gradle-remote
- * ```
- * 
- */
 @ResourceType(type="artifactory:index/remoteGradleRepository:RemoteGradleRepository")
 public class RemoteGradleRepository extends com.pulumi.resources.CustomResource {
     /**
@@ -251,56 +203,60 @@ public class RemoteGradleRepository extends com.pulumi.resources.CustomResource 
         return Codegen.optional(this.excludesPattern);
     }
     /**
-     * When set, if a POM is requested, Artifactory attempts to fetch the corresponding jar in the background. This will accelerate first access time to the jar when it is subsequently requested.
+     * When set, if a POM is requested, Artifactory attempts to fetch the corresponding jar in the background. This will
+     * accelerate first access time to the jar when it is subsequently requested. Default value is &#39;false&#39;.
      * 
      */
     @Export(name="fetchJarsEagerly", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> fetchJarsEagerly;
 
     /**
-     * @return When set, if a POM is requested, Artifactory attempts to fetch the corresponding jar in the background. This will accelerate first access time to the jar when it is subsequently requested.
+     * @return When set, if a POM is requested, Artifactory attempts to fetch the corresponding jar in the background. This will
+     * accelerate first access time to the jar when it is subsequently requested. Default value is &#39;false&#39;.
      * 
      */
     public Output<Optional<Boolean>> fetchJarsEagerly() {
         return Codegen.optional(this.fetchJarsEagerly);
     }
     /**
-     * When set, if a binaries jar is requested, Artifactory attempts to fetch the corresponding source jar in the background. This will accelerate first access time to the source jar when it is subsequently requested.
+     * When set, if a binaries jar is requested, Artifactory attempts to fetch the corresponding source jar in the background.
+     * This will accelerate first access time to the source jar when it is subsequently requested. Default value is &#39;false&#39;.
      * 
      */
     @Export(name="fetchSourcesEagerly", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> fetchSourcesEagerly;
 
     /**
-     * @return When set, if a binaries jar is requested, Artifactory attempts to fetch the corresponding source jar in the background. This will accelerate first access time to the source jar when it is subsequently requested.
+     * @return When set, if a binaries jar is requested, Artifactory attempts to fetch the corresponding source jar in the background.
+     * This will accelerate first access time to the source jar when it is subsequently requested. Default value is &#39;false&#39;.
      * 
      */
     public Output<Optional<Boolean>> fetchSourcesEagerly() {
         return Codegen.optional(this.fetchSourcesEagerly);
     }
     /**
-     * If set, Artifactory allows you to deploy release artifacts into this repository.
+     * If set, Artifactory allows you to deploy release artifacts into this repository. Default value is &#39;true&#39;.
      * 
      */
     @Export(name="handleReleases", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> handleReleases;
 
     /**
-     * @return If set, Artifactory allows you to deploy release artifacts into this repository.
+     * @return If set, Artifactory allows you to deploy release artifacts into this repository. Default value is &#39;true&#39;.
      * 
      */
     public Output<Optional<Boolean>> handleReleases() {
         return Codegen.optional(this.handleReleases);
     }
     /**
-     * If set, Artifactory allows you to deploy snapshot artifacts into this repository.
+     * If set, Artifactory allows you to deploy snapshot artifacts into this repository. Default value is &#39;true&#39;.
      * 
      */
     @Export(name="handleSnapshots", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> handleSnapshots;
 
     /**
-     * @return If set, Artifactory allows you to deploy snapshot artifacts into this repository.
+     * @return If set, Artifactory allows you to deploy snapshot artifacts into this repository. Default value is &#39;true&#39;.
      * 
      */
     public Output<Optional<Boolean>> handleSnapshots() {
@@ -339,16 +295,16 @@ public class RemoteGradleRepository extends com.pulumi.resources.CustomResource 
         return Codegen.optional(this.includesPattern);
     }
     /**
-     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-     * contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      * 
      */
     @Export(name="key", type=String.class, parameters={})
     private Output<String> key;
 
     /**
-     * @return A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-     * contain spaces or special characters.
+     * @return A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      * 
      */
     public Output<String> key() {
@@ -573,28 +529,34 @@ public class RemoteGradleRepository extends com.pulumi.resources.CustomResource 
         return Codegen.optional(this.queryParams);
     }
     /**
-     * Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a &#34;captive portal&#34;.
+     * Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a &#34;captive
+     * portal&#34;. Default value is &#39;false&#39;.
      * 
      */
     @Export(name="rejectInvalidJars", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> rejectInvalidJars;
 
     /**
-     * @return Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a &#34;captive portal&#34;.
+     * @return Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a &#34;captive
+     * portal&#34;. Default value is &#39;false&#39;.
      * 
      */
     public Output<Optional<Boolean>> rejectInvalidJars() {
         return Codegen.optional(this.rejectInvalidJars);
     }
     /**
-     * Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
+     * Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the
+     * system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated
+     * checksum. Default value is &#39;generate-if-absent&#39;.
      * 
      */
     @Export(name="remoteRepoChecksumPolicyType", type=String.class, parameters={})
     private Output</* @Nullable */ String> remoteRepoChecksumPolicyType;
 
     /**
-     * @return Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
+     * @return Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the
+     * system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated
+     * checksum. Default value is &#39;generate-if-absent&#39;.
      * 
      */
     public Output<Optional<String>> remoteRepoChecksumPolicyType() {
@@ -687,14 +649,20 @@ public class RemoteGradleRepository extends com.pulumi.resources.CustomResource 
         return Codegen.optional(this.storeArtifactsLocally);
     }
     /**
-     * By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a &#34;409 Conflict&#34; error. You can disable this behavior by setting this attribute to `true`.
+     * By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the
+     * groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the
+     * deployment with a &#34;409 Conflict&#34; error. You can disable this behavior by setting this attribute to &#39;true&#39;. Default value
+     * is &#39;false&#39;.
      * 
      */
     @Export(name="suppressPomConsistencyChecks", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> suppressPomConsistencyChecks;
 
     /**
-     * @return By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a &#34;409 Conflict&#34; error. You can disable this behavior by setting this attribute to `true`.
+     * @return By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the
+     * groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the
+     * deployment with a &#34;409 Conflict&#34; error. You can disable this behavior by setting this attribute to &#39;true&#39;. Default value
+     * is &#39;false&#39;.
      * 
      */
     public Output<Optional<Boolean>> suppressPomConsistencyChecks() {

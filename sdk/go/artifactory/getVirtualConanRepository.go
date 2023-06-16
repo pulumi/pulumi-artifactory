@@ -10,33 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Retrieves a virtual Conan repository.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupVirtualConanRepository(ctx, &artifactory.LookupVirtualConanRepositoryArgs{
-//				Key: "virtual-conan",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupVirtualConanRepository(ctx *pulumi.Context, args *LookupVirtualConanRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupVirtualConanRepositoryResult, error) {
 	var rv LookupVirtualConanRepositoryResult
 	err := ctx.Invoke("artifactory:index/getVirtualConanRepository:getVirtualConanRepository", args, &rv, opts...)
@@ -48,20 +21,18 @@ func LookupVirtualConanRepository(ctx *pulumi.Context, args *LookupVirtualConanR
 
 // A collection of arguments for invoking getVirtualConanRepository.
 type LookupVirtualConanRepositoryArgs struct {
-	ArtifactoryRequestsCanRetrieveRemoteArtifacts *bool   `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`
-	DefaultDeploymentRepo                         *string `pulumi:"defaultDeploymentRepo"`
-	Description                                   *string `pulumi:"description"`
-	ExcludesPattern                               *string `pulumi:"excludesPattern"`
-	IncludesPattern                               *string `pulumi:"includesPattern"`
-	// the identity key of the repo.
-	Key                 string   `pulumi:"key"`
-	Notes               *string  `pulumi:"notes"`
-	ProjectEnvironments []string `pulumi:"projectEnvironments"`
-	ProjectKey          *string  `pulumi:"projectKey"`
-	RepoLayoutRef       *string  `pulumi:"repoLayoutRef"`
-	Repositories        []string `pulumi:"repositories"`
-	// (Optional, Default: `7200`) This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
-	RetrievalCachePeriodSeconds *int `pulumi:"retrievalCachePeriodSeconds"`
+	ArtifactoryRequestsCanRetrieveRemoteArtifacts *bool    `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`
+	DefaultDeploymentRepo                         *string  `pulumi:"defaultDeploymentRepo"`
+	Description                                   *string  `pulumi:"description"`
+	ExcludesPattern                               *string  `pulumi:"excludesPattern"`
+	IncludesPattern                               *string  `pulumi:"includesPattern"`
+	Key                                           string   `pulumi:"key"`
+	Notes                                         *string  `pulumi:"notes"`
+	ProjectEnvironments                           []string `pulumi:"projectEnvironments"`
+	ProjectKey                                    *string  `pulumi:"projectKey"`
+	RepoLayoutRef                                 *string  `pulumi:"repoLayoutRef"`
+	Repositories                                  []string `pulumi:"repositories"`
+	RetrievalCachePeriodSeconds                   *int     `pulumi:"retrievalCachePeriodSeconds"`
 }
 
 // A collection of values returned by getVirtualConanRepository.
@@ -71,17 +42,16 @@ type LookupVirtualConanRepositoryResult struct {
 	Description                                   *string `pulumi:"description"`
 	ExcludesPattern                               *string `pulumi:"excludesPattern"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                  string   `pulumi:"id"`
-	IncludesPattern     *string  `pulumi:"includesPattern"`
-	Key                 string   `pulumi:"key"`
-	Notes               *string  `pulumi:"notes"`
-	PackageType         string   `pulumi:"packageType"`
-	ProjectEnvironments []string `pulumi:"projectEnvironments"`
-	ProjectKey          *string  `pulumi:"projectKey"`
-	RepoLayoutRef       *string  `pulumi:"repoLayoutRef"`
-	Repositories        []string `pulumi:"repositories"`
-	// (Optional, Default: `7200`) This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
-	RetrievalCachePeriodSeconds *int `pulumi:"retrievalCachePeriodSeconds"`
+	Id                          string   `pulumi:"id"`
+	IncludesPattern             *string  `pulumi:"includesPattern"`
+	Key                         string   `pulumi:"key"`
+	Notes                       *string  `pulumi:"notes"`
+	PackageType                 string   `pulumi:"packageType"`
+	ProjectEnvironments         []string `pulumi:"projectEnvironments"`
+	ProjectKey                  *string  `pulumi:"projectKey"`
+	RepoLayoutRef               *string  `pulumi:"repoLayoutRef"`
+	Repositories                []string `pulumi:"repositories"`
+	RetrievalCachePeriodSeconds *int     `pulumi:"retrievalCachePeriodSeconds"`
 }
 
 func LookupVirtualConanRepositoryOutput(ctx *pulumi.Context, args LookupVirtualConanRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupVirtualConanRepositoryResultOutput {
@@ -99,20 +69,18 @@ func LookupVirtualConanRepositoryOutput(ctx *pulumi.Context, args LookupVirtualC
 
 // A collection of arguments for invoking getVirtualConanRepository.
 type LookupVirtualConanRepositoryOutputArgs struct {
-	ArtifactoryRequestsCanRetrieveRemoteArtifacts pulumi.BoolPtrInput   `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`
-	DefaultDeploymentRepo                         pulumi.StringPtrInput `pulumi:"defaultDeploymentRepo"`
-	Description                                   pulumi.StringPtrInput `pulumi:"description"`
-	ExcludesPattern                               pulumi.StringPtrInput `pulumi:"excludesPattern"`
-	IncludesPattern                               pulumi.StringPtrInput `pulumi:"includesPattern"`
-	// the identity key of the repo.
-	Key                 pulumi.StringInput      `pulumi:"key"`
-	Notes               pulumi.StringPtrInput   `pulumi:"notes"`
-	ProjectEnvironments pulumi.StringArrayInput `pulumi:"projectEnvironments"`
-	ProjectKey          pulumi.StringPtrInput   `pulumi:"projectKey"`
-	RepoLayoutRef       pulumi.StringPtrInput   `pulumi:"repoLayoutRef"`
-	Repositories        pulumi.StringArrayInput `pulumi:"repositories"`
-	// (Optional, Default: `7200`) This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
-	RetrievalCachePeriodSeconds pulumi.IntPtrInput `pulumi:"retrievalCachePeriodSeconds"`
+	ArtifactoryRequestsCanRetrieveRemoteArtifacts pulumi.BoolPtrInput     `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`
+	DefaultDeploymentRepo                         pulumi.StringPtrInput   `pulumi:"defaultDeploymentRepo"`
+	Description                                   pulumi.StringPtrInput   `pulumi:"description"`
+	ExcludesPattern                               pulumi.StringPtrInput   `pulumi:"excludesPattern"`
+	IncludesPattern                               pulumi.StringPtrInput   `pulumi:"includesPattern"`
+	Key                                           pulumi.StringInput      `pulumi:"key"`
+	Notes                                         pulumi.StringPtrInput   `pulumi:"notes"`
+	ProjectEnvironments                           pulumi.StringArrayInput `pulumi:"projectEnvironments"`
+	ProjectKey                                    pulumi.StringPtrInput   `pulumi:"projectKey"`
+	RepoLayoutRef                                 pulumi.StringPtrInput   `pulumi:"repoLayoutRef"`
+	Repositories                                  pulumi.StringArrayInput `pulumi:"repositories"`
+	RetrievalCachePeriodSeconds                   pulumi.IntPtrInput      `pulumi:"retrievalCachePeriodSeconds"`
 }
 
 func (LookupVirtualConanRepositoryOutputArgs) ElementType() reflect.Type {
@@ -189,7 +157,6 @@ func (o LookupVirtualConanRepositoryResultOutput) Repositories() pulumi.StringAr
 	return o.ApplyT(func(v LookupVirtualConanRepositoryResult) []string { return v.Repositories }).(pulumi.StringArrayOutput)
 }
 
-// (Optional, Default: `7200`) This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
 func (o LookupVirtualConanRepositoryResultOutput) RetrievalCachePeriodSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupVirtualConanRepositoryResult) *int { return v.RetrievalCachePeriodSeconds }).(pulumi.IntPtrOutput)
 }

@@ -47,17 +47,9 @@ public final class GetRemoteDockerRepositoryArgs extends com.pulumi.resources.In
         return Optional.ofNullable(this.blockMismatchingMimeTypes);
     }
 
-    /**
-     * (Optional) When set, Artifactory will block the pulling of Docker images with manifest v2 schema 1 from the remote repository (i.e. the upstream). It will be possible to pull images with manifest v2 schema 1 that exist in the cache.
-     * 
-     */
     @Import(name="blockPushingSchema1")
     private @Nullable Output<Boolean> blockPushingSchema1;
 
-    /**
-     * @return (Optional) When set, Artifactory will block the pulling of Docker images with manifest v2 schema 1 from the remote repository (i.e. the upstream). It will be possible to pull images with manifest v2 schema 1 that exist in the cache.
-     * 
-     */
     public Optional<Output<Boolean>> blockPushingSchema1() {
         return Optional.ofNullable(this.blockPushingSchema1);
     }
@@ -111,17 +103,9 @@ public final class GetRemoteDockerRepositoryArgs extends com.pulumi.resources.In
         return Optional.ofNullable(this.enableCookieManagement);
     }
 
-    /**
-     * (Optional) Enable token (Bearer) based authentication.
-     * 
-     */
     @Import(name="enableTokenAuthentication")
     private @Nullable Output<Boolean> enableTokenAuthentication;
 
-    /**
-     * @return (Optional) Enable token (Bearer) based authentication.
-     * 
-     */
     public Optional<Output<Boolean>> enableTokenAuthentication() {
         return Optional.ofNullable(this.enableTokenAuthentication);
     }
@@ -133,32 +117,16 @@ public final class GetRemoteDockerRepositoryArgs extends com.pulumi.resources.In
         return Optional.ofNullable(this.excludesPattern);
     }
 
-    /**
-     * (Optional) Also known as &#39;Foreign Layers Caching&#39; on the UI.
-     * 
-     */
     @Import(name="externalDependenciesEnabled")
     private @Nullable Output<Boolean> externalDependenciesEnabled;
 
-    /**
-     * @return (Optional) Also known as &#39;Foreign Layers Caching&#39; on the UI.
-     * 
-     */
     public Optional<Output<Boolean>> externalDependenciesEnabled() {
         return Optional.ofNullable(this.externalDependenciesEnabled);
     }
 
-    /**
-     * (Optional) An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download remote modules from, when presented with &#39;go-import&#39; meta tags in the remote repository response. By default, this is set to `[**]` in the UI, which means that remote modules may be downloaded from any external VCS source. Due to SDKv2 limitations, we can&#39;t set the default value for the list. This value `[**]` must be assigned to the attribute manually, if user don&#39;t specify any other non-default values. We don&#39;t want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns `[**]` on update if HCL doesn&#39;t have the attribute set or the list is empty.
-     * 
-     */
     @Import(name="externalDependenciesPatterns")
     private @Nullable Output<List<String>> externalDependenciesPatterns;
 
-    /**
-     * @return (Optional) An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download remote modules from, when presented with &#39;go-import&#39; meta tags in the remote repository response. By default, this is set to `[**]` in the UI, which means that remote modules may be downloaded from any external VCS source. Due to SDKv2 limitations, we can&#39;t set the default value for the list. This value `[**]` must be assigned to the attribute manually, if user don&#39;t specify any other non-default values. We don&#39;t want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns `[**]` on update if HCL doesn&#39;t have the attribute set or the list is empty.
-     * 
-     */
     public Optional<Output<List<String>>> externalDependenciesPatterns() {
         return Optional.ofNullable(this.externalDependenciesPatterns);
     }
@@ -177,17 +145,9 @@ public final class GetRemoteDockerRepositoryArgs extends com.pulumi.resources.In
         return Optional.ofNullable(this.includesPattern);
     }
 
-    /**
-     * the identity key of the repo.
-     * 
-     */
     @Import(name="key", required=true)
     private Output<String> key;
 
-    /**
-     * @return the identity key of the repo.
-     * 
-     */
     public Output<String> key() {
         return this.key;
     }
@@ -470,23 +430,11 @@ public final class GetRemoteDockerRepositoryArgs extends com.pulumi.resources.In
             return blockMismatchingMimeTypes(Output.of(blockMismatchingMimeTypes));
         }
 
-        /**
-         * @param blockPushingSchema1 (Optional) When set, Artifactory will block the pulling of Docker images with manifest v2 schema 1 from the remote repository (i.e. the upstream). It will be possible to pull images with manifest v2 schema 1 that exist in the cache.
-         * 
-         * @return builder
-         * 
-         */
         public Builder blockPushingSchema1(@Nullable Output<Boolean> blockPushingSchema1) {
             $.blockPushingSchema1 = blockPushingSchema1;
             return this;
         }
 
-        /**
-         * @param blockPushingSchema1 (Optional) When set, Artifactory will block the pulling of Docker images with manifest v2 schema 1 from the remote repository (i.e. the upstream). It will be possible to pull images with manifest v2 schema 1 that exist in the cache.
-         * 
-         * @return builder
-         * 
-         */
         public Builder blockPushingSchema1(Boolean blockPushingSchema1) {
             return blockPushingSchema1(Output.of(blockPushingSchema1));
         }
@@ -554,23 +502,11 @@ public final class GetRemoteDockerRepositoryArgs extends com.pulumi.resources.In
             return enableCookieManagement(Output.of(enableCookieManagement));
         }
 
-        /**
-         * @param enableTokenAuthentication (Optional) Enable token (Bearer) based authentication.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enableTokenAuthentication(@Nullable Output<Boolean> enableTokenAuthentication) {
             $.enableTokenAuthentication = enableTokenAuthentication;
             return this;
         }
 
-        /**
-         * @param enableTokenAuthentication (Optional) Enable token (Bearer) based authentication.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enableTokenAuthentication(Boolean enableTokenAuthentication) {
             return enableTokenAuthentication(Output.of(enableTokenAuthentication));
         }
@@ -584,54 +520,24 @@ public final class GetRemoteDockerRepositoryArgs extends com.pulumi.resources.In
             return excludesPattern(Output.of(excludesPattern));
         }
 
-        /**
-         * @param externalDependenciesEnabled (Optional) Also known as &#39;Foreign Layers Caching&#39; on the UI.
-         * 
-         * @return builder
-         * 
-         */
         public Builder externalDependenciesEnabled(@Nullable Output<Boolean> externalDependenciesEnabled) {
             $.externalDependenciesEnabled = externalDependenciesEnabled;
             return this;
         }
 
-        /**
-         * @param externalDependenciesEnabled (Optional) Also known as &#39;Foreign Layers Caching&#39; on the UI.
-         * 
-         * @return builder
-         * 
-         */
         public Builder externalDependenciesEnabled(Boolean externalDependenciesEnabled) {
             return externalDependenciesEnabled(Output.of(externalDependenciesEnabled));
         }
 
-        /**
-         * @param externalDependenciesPatterns (Optional) An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download remote modules from, when presented with &#39;go-import&#39; meta tags in the remote repository response. By default, this is set to `[**]` in the UI, which means that remote modules may be downloaded from any external VCS source. Due to SDKv2 limitations, we can&#39;t set the default value for the list. This value `[**]` must be assigned to the attribute manually, if user don&#39;t specify any other non-default values. We don&#39;t want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns `[**]` on update if HCL doesn&#39;t have the attribute set or the list is empty.
-         * 
-         * @return builder
-         * 
-         */
         public Builder externalDependenciesPatterns(@Nullable Output<List<String>> externalDependenciesPatterns) {
             $.externalDependenciesPatterns = externalDependenciesPatterns;
             return this;
         }
 
-        /**
-         * @param externalDependenciesPatterns (Optional) An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download remote modules from, when presented with &#39;go-import&#39; meta tags in the remote repository response. By default, this is set to `[**]` in the UI, which means that remote modules may be downloaded from any external VCS source. Due to SDKv2 limitations, we can&#39;t set the default value for the list. This value `[**]` must be assigned to the attribute manually, if user don&#39;t specify any other non-default values. We don&#39;t want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns `[**]` on update if HCL doesn&#39;t have the attribute set or the list is empty.
-         * 
-         * @return builder
-         * 
-         */
         public Builder externalDependenciesPatterns(List<String> externalDependenciesPatterns) {
             return externalDependenciesPatterns(Output.of(externalDependenciesPatterns));
         }
 
-        /**
-         * @param externalDependenciesPatterns (Optional) An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download remote modules from, when presented with &#39;go-import&#39; meta tags in the remote repository response. By default, this is set to `[**]` in the UI, which means that remote modules may be downloaded from any external VCS source. Due to SDKv2 limitations, we can&#39;t set the default value for the list. This value `[**]` must be assigned to the attribute manually, if user don&#39;t specify any other non-default values. We don&#39;t want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns `[**]` on update if HCL doesn&#39;t have the attribute set or the list is empty.
-         * 
-         * @return builder
-         * 
-         */
         public Builder externalDependenciesPatterns(String... externalDependenciesPatterns) {
             return externalDependenciesPatterns(List.of(externalDependenciesPatterns));
         }
@@ -654,23 +560,11 @@ public final class GetRemoteDockerRepositoryArgs extends com.pulumi.resources.In
             return includesPattern(Output.of(includesPattern));
         }
 
-        /**
-         * @param key the identity key of the repo.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(Output<String> key) {
             $.key = key;
             return this;
         }
 
-        /**
-         * @param key the identity key of the repo.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(String key) {
             return key(Output.of(key));
         }

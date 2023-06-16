@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class PropertySetPropertyPredefinedValue {
-    /**
-     * @return Whether the value is selected by default in the UI.
-     * 
-     */
     private Boolean defaultValue;
-    /**
-     * @return Predefined property name.
-     * 
-     */
     private String name;
 
     private PropertySetPropertyPredefinedValue() {}
-    /**
-     * @return Whether the value is selected by default in the UI.
-     * 
-     */
     public Boolean defaultValue() {
         return this.defaultValue;
     }
-    /**
-     * @return Predefined property name.
-     * 
-     */
     public String name() {
         return this.name;
     }

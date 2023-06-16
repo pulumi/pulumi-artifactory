@@ -11,47 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Creates a remote Pypi repository.
-// Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/PyPI+Repositories).
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.NewRemotePypiRepository(ctx, "pypi-remote", &artifactory.RemotePypiRepositoryArgs{
-//				Key:                  pulumi.String("pypi-remote-foo"),
-//				PypiRegistryUrl:      pulumi.String("https://pypi.org"),
-//				PypiRepositorySuffix: pulumi.String("simple"),
-//				Url:                  pulumi.String("https://files.pythonhosted.org"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Remote repositories can be imported using their name, e.g.
-//
-// ```sh
-//
-//	$ pulumi import artifactory:index/remotePypiRepository:RemotePypiRepository pypi-remote pypi-remote
-//
-// ```
 type RemotePypiRepository struct {
 	pulumi.CustomResourceState
 
@@ -95,8 +54,8 @@ type RemotePypiRepository struct {
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrOutput `pulumi:"includesPattern"`
-	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-	// contain spaces or special characters.
+	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+	// characters. It cannot begin with a number or contain spaces or special characters.
 	Key pulumi.StringOutput `pulumi:"key"`
 	// Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
 	// the 'Retrieval Cache Period'. Default value is 'true'.
@@ -135,9 +94,11 @@ type RemotePypiRepository struct {
 	PropertySets pulumi.StringArrayOutput `pulumi:"propertySets"`
 	// Proxy key from Artifactory Proxies settings
 	Proxy pulumi.StringPtrOutput `pulumi:"proxy"`
-	// To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another Artifactory server. See JFrog Pypi documentation [here](https://www.jfrog.com/confluence/display/JFROG/PyPI+Repositories) for the usage details. Default value is `https://pypi.org`.
+	// To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another
+	// Artifactory server. See JFrog Pypi documentation for the usage details. Default value is 'https://pypi.org'.
 	PypiRegistryUrl pulumi.StringPtrOutput `pulumi:"pypiRegistryUrl"`
-	// Usually should be left as a default for `simple`, unless the remote is a PyPI server that has custom registry suffix, like +simple in DevPI. Default value is `simple`.
+	// Usually should be left as a default for 'simple', unless the remote is a PyPI server that has custom registry suffix,
+	// like +simple in DevPI. Default value is 'simple'.
 	PypiRepositorySuffix pulumi.StringPtrOutput `pulumi:"pypiRepositorySuffix"`
 	// Custom HTTP query parameters that will be automatically included in all remote resource requests. For example:
 	// `param1=val1&param2=val2&param3=val3`
@@ -253,8 +214,8 @@ type remotePypiRepositoryState struct {
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
-	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-	// contain spaces or special characters.
+	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+	// characters. It cannot begin with a number or contain spaces or special characters.
 	Key *string `pulumi:"key"`
 	// Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
 	// the 'Retrieval Cache Period'. Default value is 'true'.
@@ -293,9 +254,11 @@ type remotePypiRepositoryState struct {
 	PropertySets []string `pulumi:"propertySets"`
 	// Proxy key from Artifactory Proxies settings
 	Proxy *string `pulumi:"proxy"`
-	// To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another Artifactory server. See JFrog Pypi documentation [here](https://www.jfrog.com/confluence/display/JFROG/PyPI+Repositories) for the usage details. Default value is `https://pypi.org`.
+	// To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another
+	// Artifactory server. See JFrog Pypi documentation for the usage details. Default value is 'https://pypi.org'.
 	PypiRegistryUrl *string `pulumi:"pypiRegistryUrl"`
-	// Usually should be left as a default for `simple`, unless the remote is a PyPI server that has custom registry suffix, like +simple in DevPI. Default value is `simple`.
+	// Usually should be left as a default for 'simple', unless the remote is a PyPI server that has custom registry suffix,
+	// like +simple in DevPI. Default value is 'simple'.
 	PypiRepositorySuffix *string `pulumi:"pypiRepositorySuffix"`
 	// Custom HTTP query parameters that will be automatically included in all remote resource requests. For example:
 	// `param1=val1&param2=val2&param3=val3`
@@ -370,8 +333,8 @@ type RemotePypiRepositoryState struct {
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
-	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-	// contain spaces or special characters.
+	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+	// characters. It cannot begin with a number or contain spaces or special characters.
 	Key pulumi.StringPtrInput
 	// Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
 	// the 'Retrieval Cache Period'. Default value is 'true'.
@@ -410,9 +373,11 @@ type RemotePypiRepositoryState struct {
 	PropertySets pulumi.StringArrayInput
 	// Proxy key from Artifactory Proxies settings
 	Proxy pulumi.StringPtrInput
-	// To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another Artifactory server. See JFrog Pypi documentation [here](https://www.jfrog.com/confluence/display/JFROG/PyPI+Repositories) for the usage details. Default value is `https://pypi.org`.
+	// To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another
+	// Artifactory server. See JFrog Pypi documentation for the usage details. Default value is 'https://pypi.org'.
 	PypiRegistryUrl pulumi.StringPtrInput
-	// Usually should be left as a default for `simple`, unless the remote is a PyPI server that has custom registry suffix, like +simple in DevPI. Default value is `simple`.
+	// Usually should be left as a default for 'simple', unless the remote is a PyPI server that has custom registry suffix,
+	// like +simple in DevPI. Default value is 'simple'.
 	PypiRepositorySuffix pulumi.StringPtrInput
 	// Custom HTTP query parameters that will be automatically included in all remote resource requests. For example:
 	// `param1=val1&param2=val2&param3=val3`
@@ -491,8 +456,8 @@ type remotePypiRepositoryArgs struct {
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
-	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-	// contain spaces or special characters.
+	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+	// characters. It cannot begin with a number or contain spaces or special characters.
 	Key string `pulumi:"key"`
 	// Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
 	// the 'Retrieval Cache Period'. Default value is 'true'.
@@ -530,9 +495,11 @@ type remotePypiRepositoryArgs struct {
 	PropertySets []string `pulumi:"propertySets"`
 	// Proxy key from Artifactory Proxies settings
 	Proxy *string `pulumi:"proxy"`
-	// To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another Artifactory server. See JFrog Pypi documentation [here](https://www.jfrog.com/confluence/display/JFROG/PyPI+Repositories) for the usage details. Default value is `https://pypi.org`.
+	// To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another
+	// Artifactory server. See JFrog Pypi documentation for the usage details. Default value is 'https://pypi.org'.
 	PypiRegistryUrl *string `pulumi:"pypiRegistryUrl"`
-	// Usually should be left as a default for `simple`, unless the remote is a PyPI server that has custom registry suffix, like +simple in DevPI. Default value is `simple`.
+	// Usually should be left as a default for 'simple', unless the remote is a PyPI server that has custom registry suffix,
+	// like +simple in DevPI. Default value is 'simple'.
 	PypiRepositorySuffix *string `pulumi:"pypiRepositorySuffix"`
 	// Custom HTTP query parameters that will be automatically included in all remote resource requests. For example:
 	// `param1=val1&param2=val2&param3=val3`
@@ -608,8 +575,8 @@ type RemotePypiRepositoryArgs struct {
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
-	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-	// contain spaces or special characters.
+	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+	// characters. It cannot begin with a number or contain spaces or special characters.
 	Key pulumi.StringInput
 	// Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
 	// the 'Retrieval Cache Period'. Default value is 'true'.
@@ -647,9 +614,11 @@ type RemotePypiRepositoryArgs struct {
 	PropertySets pulumi.StringArrayInput
 	// Proxy key from Artifactory Proxies settings
 	Proxy pulumi.StringPtrInput
-	// To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another Artifactory server. See JFrog Pypi documentation [here](https://www.jfrog.com/confluence/display/JFROG/PyPI+Repositories) for the usage details. Default value is `https://pypi.org`.
+	// To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another
+	// Artifactory server. See JFrog Pypi documentation for the usage details. Default value is 'https://pypi.org'.
 	PypiRegistryUrl pulumi.StringPtrInput
-	// Usually should be left as a default for `simple`, unless the remote is a PyPI server that has custom registry suffix, like +simple in DevPI. Default value is `simple`.
+	// Usually should be left as a default for 'simple', unless the remote is a PyPI server that has custom registry suffix,
+	// like +simple in DevPI. Default value is 'simple'.
 	PypiRepositorySuffix pulumi.StringPtrInput
 	// Custom HTTP query parameters that will be automatically included in all remote resource requests. For example:
 	// `param1=val1&param2=val2&param3=val3`
@@ -854,8 +823,8 @@ func (o RemotePypiRepositoryOutput) IncludesPattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RemotePypiRepository) pulumi.StringPtrOutput { return v.IncludesPattern }).(pulumi.StringPtrOutput)
 }
 
-// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-// contain spaces or special characters.
+// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+// characters. It cannot begin with a number or contain spaces or special characters.
 func (o RemotePypiRepositoryOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v *RemotePypiRepository) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
 }
@@ -939,12 +908,14 @@ func (o RemotePypiRepositoryOutput) Proxy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RemotePypiRepository) pulumi.StringPtrOutput { return v.Proxy }).(pulumi.StringPtrOutput)
 }
 
-// To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another Artifactory server. See JFrog Pypi documentation [here](https://www.jfrog.com/confluence/display/JFROG/PyPI+Repositories) for the usage details. Default value is `https://pypi.org`.
+// To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another
+// Artifactory server. See JFrog Pypi documentation for the usage details. Default value is 'https://pypi.org'.
 func (o RemotePypiRepositoryOutput) PypiRegistryUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RemotePypiRepository) pulumi.StringPtrOutput { return v.PypiRegistryUrl }).(pulumi.StringPtrOutput)
 }
 
-// Usually should be left as a default for `simple`, unless the remote is a PyPI server that has custom registry suffix, like +simple in DevPI. Default value is `simple`.
+// Usually should be left as a default for 'simple', unless the remote is a PyPI server that has custom registry suffix,
+// like +simple in DevPI. Default value is 'simple'.
 func (o RemotePypiRepositoryOutput) PypiRepositorySuffix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RemotePypiRepository) pulumi.StringPtrOutput { return v.PypiRepositorySuffix }).(pulumi.StringPtrOutput)
 }

@@ -16,107 +16,51 @@ public final class GetUserPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetUserPlainArgs Empty = new GetUserPlainArgs();
 
-    /**
-     * When enabled, this user is an administrator with all the ensuing privileges. Default value is `false`.
-     * 
-     */
     @Import(name="admin")
     private @Nullable Boolean admin;
 
-    /**
-     * @return When enabled, this user is an administrator with all the ensuing privileges. Default value is `false`.
-     * 
-     */
     public Optional<Boolean> admin() {
         return Optional.ofNullable(this.admin);
     }
 
-    /**
-     * When set, this user can only access Artifactory through the REST API. This option cannot be set if the user has Admin privileges. Default value is `true`.
-     * 
-     */
     @Import(name="disableUiAccess")
     private @Nullable Boolean disableUiAccess;
 
-    /**
-     * @return When set, this user can only access Artifactory through the REST API. This option cannot be set if the user has Admin privileges. Default value is `true`.
-     * 
-     */
     public Optional<Boolean> disableUiAccess() {
         return Optional.ofNullable(this.disableUiAccess);
     }
 
-    /**
-     * Email for user.
-     * 
-     */
     @Import(name="email")
     private @Nullable String email;
 
-    /**
-     * @return Email for user.
-     * 
-     */
     public Optional<String> email() {
         return Optional.ofNullable(this.email);
     }
 
-    /**
-     * List of groups this user is a part of.
-     * 
-     */
     @Import(name="groups")
     private @Nullable List<String> groups;
 
-    /**
-     * @return List of groups this user is a part of.
-     * 
-     */
     public Optional<List<String>> groups() {
         return Optional.ofNullable(this.groups);
     }
 
-    /**
-     * When set, disables the fallback of using an internal password when external authentication (such as LDAP) is enabled.
-     * 
-     */
     @Import(name="internalPasswordDisabled")
     private @Nullable Boolean internalPasswordDisabled;
 
-    /**
-     * @return When set, disables the fallback of using an internal password when external authentication (such as LDAP) is enabled.
-     * 
-     */
     public Optional<Boolean> internalPasswordDisabled() {
         return Optional.ofNullable(this.internalPasswordDisabled);
     }
 
-    /**
-     * Name of the user.
-     * 
-     */
     @Import(name="name", required=true)
     private String name;
 
-    /**
-     * @return Name of the user.
-     * 
-     */
     public String name() {
         return this.name;
     }
 
-    /**
-     * When set, this user can update his profile details (except for the password. Only an administrator can update the password). Default value is `true`.
-     * 
-     */
     @Import(name="profileUpdatable")
     private @Nullable Boolean profileUpdatable;
 
-    /**
-     * @return When set, this user can update his profile details (except for the password. Only an administrator can update the password). Default value is `true`.
-     * 
-     */
     public Optional<Boolean> profileUpdatable() {
         return Optional.ofNullable(this.profileUpdatable);
     }
@@ -151,88 +95,40 @@ public final class GetUserPlainArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetUserPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param admin When enabled, this user is an administrator with all the ensuing privileges. Default value is `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder admin(@Nullable Boolean admin) {
             $.admin = admin;
             return this;
         }
 
-        /**
-         * @param disableUiAccess When set, this user can only access Artifactory through the REST API. This option cannot be set if the user has Admin privileges. Default value is `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder disableUiAccess(@Nullable Boolean disableUiAccess) {
             $.disableUiAccess = disableUiAccess;
             return this;
         }
 
-        /**
-         * @param email Email for user.
-         * 
-         * @return builder
-         * 
-         */
         public Builder email(@Nullable String email) {
             $.email = email;
             return this;
         }
 
-        /**
-         * @param groups List of groups this user is a part of.
-         * 
-         * @return builder
-         * 
-         */
         public Builder groups(@Nullable List<String> groups) {
             $.groups = groups;
             return this;
         }
 
-        /**
-         * @param groups List of groups this user is a part of.
-         * 
-         * @return builder
-         * 
-         */
         public Builder groups(String... groups) {
             return groups(List.of(groups));
         }
 
-        /**
-         * @param internalPasswordDisabled When set, disables the fallback of using an internal password when external authentication (such as LDAP) is enabled.
-         * 
-         * @return builder
-         * 
-         */
         public Builder internalPasswordDisabled(@Nullable Boolean internalPasswordDisabled) {
             $.internalPasswordDisabled = internalPasswordDisabled;
             return this;
         }
 
-        /**
-         * @param name Name of the user.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param profileUpdatable When set, this user can update his profile details (except for the password. Only an administrator can update the password). Default value is `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder profileUpdatable(@Nullable Boolean profileUpdatable) {
             $.profileUpdatable = profileUpdatable;
             return this;

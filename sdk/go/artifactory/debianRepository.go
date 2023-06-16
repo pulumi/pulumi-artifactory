@@ -11,85 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Creates a local Debian repository and allows for the creation of a GPG key.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//	"os"
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func readFileOrPanic(path string) pulumi.StringPtrInput {
-//		data, err := os.ReadFile(path)
-//		if err != nil {
-//			panic(err.Error())
-//		}
-//		return pulumi.String(string(data))
-//	}
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.NewKeypair(ctx, "some-keypairGPG1", &artifactory.KeypairArgs{
-//				PairName:   pulumi.String(fmt.Sprintf("some-keypair%v", random_id.Randid.Id)),
-//				PairType:   pulumi.String("GPG"),
-//				Alias:      pulumi.String("foo-alias1"),
-//				PrivateKey: readFileOrPanic("samples/gpg.priv"),
-//				PublicKey:  readFileOrPanic("samples/gpg.pub"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = artifactory.NewKeypair(ctx, "some-keypairGPG2", &artifactory.KeypairArgs{
-//				PairName:   pulumi.String(fmt.Sprintf("some-keypair4%v", random_id.Randid.Id)),
-//				PairType:   pulumi.String("GPG"),
-//				Alias:      pulumi.String("foo-alias2"),
-//				PrivateKey: readFileOrPanic("samples/gpg.priv"),
-//				PublicKey:  readFileOrPanic("samples/gpg.pub"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = artifactory.NewDebianRepository(ctx, "my-debian-repo", &artifactory.DebianRepositoryArgs{
-//				Key:                 pulumi.String("my-debian-repo"),
-//				PrimaryKeypairRef:   some_keypairGPG1.PairName,
-//				SecondaryKeypairRef: some_keypairGPG2.PairName,
-//				IndexCompressionFormats: pulumi.StringArray{
-//					pulumi.String("bz2"),
-//					pulumi.String("lzma"),
-//					pulumi.String("xz"),
-//				},
-//				TrivialLayout: pulumi.Bool(true),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				some_keypairGPG1,
-//				some_keypairGPG2,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Local repositories can be imported using their name, e.g.
-//
-// ```sh
-//
-//	$ pulumi import artifactory:index/debianRepository:DebianRepository my-debian-repo my-debian-repo
-//
-// ```
 type DebianRepository struct {
 	pulumi.CustomResourceState
 
@@ -112,16 +33,15 @@ type DebianRepository struct {
 	ExcludesPattern pulumi.StringOutput `pulumi:"excludesPattern"`
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-	IncludesPattern pulumi.StringOutput `pulumi:"includesPattern"`
-	// The options are Bzip2 (.bz2 extension) (default), LZMA (.lzma extension)
-	// and XZ (.xz extension).
+	IncludesPattern         pulumi.StringOutput      `pulumi:"includesPattern"`
 	IndexCompressionFormats pulumi.StringArrayOutput `pulumi:"indexCompressionFormats"`
-	// the identity key of the repo.
+	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+	// characters. It cannot begin with a number or contain spaces or special characters.
 	Key pulumi.StringOutput `pulumi:"key"`
 	// Internal description.
 	Notes       pulumi.StringPtrOutput `pulumi:"notes"`
 	PackageType pulumi.StringOutput    `pulumi:"packageType"`
-	// The primary RSA key to be used to sign packages.
+	// Used to sign index files in Debian artifacts.
 	PrimaryKeypairRef pulumi.StringPtrOutput `pulumi:"primaryKeypairRef"`
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution pulumi.BoolPtrOutput `pulumi:"priorityResolution"`
@@ -137,7 +57,7 @@ type DebianRepository struct {
 	PropertySets pulumi.StringArrayOutput `pulumi:"propertySets"`
 	// Repository layout key for the local repository
 	RepoLayoutRef pulumi.StringPtrOutput `pulumi:"repoLayoutRef"`
-	// The secondary RSA key to be used to sign packages.
+	// Used to sign index files in Debian artifacts.
 	SecondaryKeypairRef pulumi.StringPtrOutput `pulumi:"secondaryKeypairRef"`
 	// When set, the repository will use the deprecated trivial layout.
 	//
@@ -199,16 +119,15 @@ type debianRepositoryState struct {
 	ExcludesPattern *string `pulumi:"excludesPattern"`
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-	IncludesPattern *string `pulumi:"includesPattern"`
-	// The options are Bzip2 (.bz2 extension) (default), LZMA (.lzma extension)
-	// and XZ (.xz extension).
+	IncludesPattern         *string  `pulumi:"includesPattern"`
 	IndexCompressionFormats []string `pulumi:"indexCompressionFormats"`
-	// the identity key of the repo.
+	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+	// characters. It cannot begin with a number or contain spaces or special characters.
 	Key *string `pulumi:"key"`
 	// Internal description.
 	Notes       *string `pulumi:"notes"`
 	PackageType *string `pulumi:"packageType"`
-	// The primary RSA key to be used to sign packages.
+	// Used to sign index files in Debian artifacts.
 	PrimaryKeypairRef *string `pulumi:"primaryKeypairRef"`
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution *bool `pulumi:"priorityResolution"`
@@ -224,7 +143,7 @@ type debianRepositoryState struct {
 	PropertySets []string `pulumi:"propertySets"`
 	// Repository layout key for the local repository
 	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
-	// The secondary RSA key to be used to sign packages.
+	// Used to sign index files in Debian artifacts.
 	SecondaryKeypairRef *string `pulumi:"secondaryKeypairRef"`
 	// When set, the repository will use the deprecated trivial layout.
 	//
@@ -255,16 +174,15 @@ type DebianRepositoryState struct {
 	ExcludesPattern pulumi.StringPtrInput
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-	IncludesPattern pulumi.StringPtrInput
-	// The options are Bzip2 (.bz2 extension) (default), LZMA (.lzma extension)
-	// and XZ (.xz extension).
+	IncludesPattern         pulumi.StringPtrInput
 	IndexCompressionFormats pulumi.StringArrayInput
-	// the identity key of the repo.
+	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+	// characters. It cannot begin with a number or contain spaces or special characters.
 	Key pulumi.StringPtrInput
 	// Internal description.
 	Notes       pulumi.StringPtrInput
 	PackageType pulumi.StringPtrInput
-	// The primary RSA key to be used to sign packages.
+	// Used to sign index files in Debian artifacts.
 	PrimaryKeypairRef pulumi.StringPtrInput
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution pulumi.BoolPtrInput
@@ -280,7 +198,7 @@ type DebianRepositoryState struct {
 	PropertySets pulumi.StringArrayInput
 	// Repository layout key for the local repository
 	RepoLayoutRef pulumi.StringPtrInput
-	// The secondary RSA key to be used to sign packages.
+	// Used to sign index files in Debian artifacts.
 	SecondaryKeypairRef pulumi.StringPtrInput
 	// When set, the repository will use the deprecated trivial layout.
 	//
@@ -315,15 +233,14 @@ type debianRepositoryArgs struct {
 	ExcludesPattern *string `pulumi:"excludesPattern"`
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-	IncludesPattern *string `pulumi:"includesPattern"`
-	// The options are Bzip2 (.bz2 extension) (default), LZMA (.lzma extension)
-	// and XZ (.xz extension).
+	IncludesPattern         *string  `pulumi:"includesPattern"`
 	IndexCompressionFormats []string `pulumi:"indexCompressionFormats"`
-	// the identity key of the repo.
+	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+	// characters. It cannot begin with a number or contain spaces or special characters.
 	Key string `pulumi:"key"`
 	// Internal description.
 	Notes *string `pulumi:"notes"`
-	// The primary RSA key to be used to sign packages.
+	// Used to sign index files in Debian artifacts.
 	PrimaryKeypairRef *string `pulumi:"primaryKeypairRef"`
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution *bool `pulumi:"priorityResolution"`
@@ -339,7 +256,7 @@ type debianRepositoryArgs struct {
 	PropertySets []string `pulumi:"propertySets"`
 	// Repository layout key for the local repository
 	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
-	// The secondary RSA key to be used to sign packages.
+	// Used to sign index files in Debian artifacts.
 	SecondaryKeypairRef *string `pulumi:"secondaryKeypairRef"`
 	// When set, the repository will use the deprecated trivial layout.
 	//
@@ -371,15 +288,14 @@ type DebianRepositoryArgs struct {
 	ExcludesPattern pulumi.StringPtrInput
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-	IncludesPattern pulumi.StringPtrInput
-	// The options are Bzip2 (.bz2 extension) (default), LZMA (.lzma extension)
-	// and XZ (.xz extension).
+	IncludesPattern         pulumi.StringPtrInput
 	IndexCompressionFormats pulumi.StringArrayInput
-	// the identity key of the repo.
+	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+	// characters. It cannot begin with a number or contain spaces or special characters.
 	Key pulumi.StringInput
 	// Internal description.
 	Notes pulumi.StringPtrInput
-	// The primary RSA key to be used to sign packages.
+	// Used to sign index files in Debian artifacts.
 	PrimaryKeypairRef pulumi.StringPtrInput
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution pulumi.BoolPtrInput
@@ -395,7 +311,7 @@ type DebianRepositoryArgs struct {
 	PropertySets pulumi.StringArrayInput
 	// Repository layout key for the local repository
 	RepoLayoutRef pulumi.StringPtrInput
-	// The secondary RSA key to be used to sign packages.
+	// Used to sign index files in Debian artifacts.
 	SecondaryKeypairRef pulumi.StringPtrInput
 	// When set, the repository will use the deprecated trivial layout.
 	//
@@ -534,13 +450,12 @@ func (o DebianRepositoryOutput) IncludesPattern() pulumi.StringOutput {
 	return o.ApplyT(func(v *DebianRepository) pulumi.StringOutput { return v.IncludesPattern }).(pulumi.StringOutput)
 }
 
-// The options are Bzip2 (.bz2 extension) (default), LZMA (.lzma extension)
-// and XZ (.xz extension).
 func (o DebianRepositoryOutput) IndexCompressionFormats() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DebianRepository) pulumi.StringArrayOutput { return v.IndexCompressionFormats }).(pulumi.StringArrayOutput)
 }
 
-// the identity key of the repo.
+// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+// characters. It cannot begin with a number or contain spaces or special characters.
 func (o DebianRepositoryOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v *DebianRepository) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
 }
@@ -554,7 +469,7 @@ func (o DebianRepositoryOutput) PackageType() pulumi.StringOutput {
 	return o.ApplyT(func(v *DebianRepository) pulumi.StringOutput { return v.PackageType }).(pulumi.StringOutput)
 }
 
-// The primary RSA key to be used to sign packages.
+// Used to sign index files in Debian artifacts.
 func (o DebianRepositoryOutput) PrimaryKeypairRef() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DebianRepository) pulumi.StringPtrOutput { return v.PrimaryKeypairRef }).(pulumi.StringPtrOutput)
 }
@@ -588,7 +503,7 @@ func (o DebianRepositoryOutput) RepoLayoutRef() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DebianRepository) pulumi.StringPtrOutput { return v.RepoLayoutRef }).(pulumi.StringPtrOutput)
 }
 
-// The secondary RSA key to be used to sign packages.
+// Used to sign index files in Debian artifacts.
 func (o DebianRepositoryOutput) SecondaryKeypairRef() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DebianRepository) pulumi.StringPtrOutput { return v.SecondaryKeypairRef }).(pulumi.StringPtrOutput)
 }

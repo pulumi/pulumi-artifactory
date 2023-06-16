@@ -18,52 +18,6 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Creates a remote Pypi repository.
- * Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/PyPI+Repositories).
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.artifactory.RemotePypiRepository;
- * import com.pulumi.artifactory.RemotePypiRepositoryArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var pypi_remote = new RemotePypiRepository(&#34;pypi-remote&#34;, RemotePypiRepositoryArgs.builder()        
- *             .key(&#34;pypi-remote-foo&#34;)
- *             .pypiRegistryUrl(&#34;https://pypi.org&#34;)
- *             .pypiRepositorySuffix(&#34;simple&#34;)
- *             .url(&#34;https://files.pythonhosted.org&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Remote repositories can be imported using their name, e.g.
- * 
- * ```sh
- *  $ pulumi import artifactory:index/remotePypiRepository:RemotePypiRepository pypi-remote pypi-remote
- * ```
- * 
- */
 @ResourceType(type="artifactory:index/remotePypiRepository:RemotePypiRepository")
 public class RemotePypiRepository extends com.pulumi.resources.CustomResource {
     /**
@@ -281,16 +235,16 @@ public class RemotePypiRepository extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.includesPattern);
     }
     /**
-     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-     * contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      * 
      */
     @Export(name="key", type=String.class, parameters={})
     private Output<String> key;
 
     /**
-     * @return A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-     * contain spaces or special characters.
+     * @return A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      * 
      */
     public Output<String> key() {
@@ -499,28 +453,32 @@ public class RemotePypiRepository extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.proxy);
     }
     /**
-     * To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another Artifactory server. See JFrog Pypi documentation [here](https://www.jfrog.com/confluence/display/JFROG/PyPI+Repositories) for the usage details. Default value is `https://pypi.org`.
+     * To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another
+     * Artifactory server. See JFrog Pypi documentation for the usage details. Default value is &#39;https://pypi.org&#39;.
      * 
      */
     @Export(name="pypiRegistryUrl", type=String.class, parameters={})
     private Output</* @Nullable */ String> pypiRegistryUrl;
 
     /**
-     * @return To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another Artifactory server. See JFrog Pypi documentation [here](https://www.jfrog.com/confluence/display/JFROG/PyPI+Repositories) for the usage details. Default value is `https://pypi.org`.
+     * @return To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another
+     * Artifactory server. See JFrog Pypi documentation for the usage details. Default value is &#39;https://pypi.org&#39;.
      * 
      */
     public Output<Optional<String>> pypiRegistryUrl() {
         return Codegen.optional(this.pypiRegistryUrl);
     }
     /**
-     * Usually should be left as a default for `simple`, unless the remote is a PyPI server that has custom registry suffix, like +simple in DevPI. Default value is `simple`.
+     * Usually should be left as a default for &#39;simple&#39;, unless the remote is a PyPI server that has custom registry suffix,
+     * like +simple in DevPI. Default value is &#39;simple&#39;.
      * 
      */
     @Export(name="pypiRepositorySuffix", type=String.class, parameters={})
     private Output</* @Nullable */ String> pypiRepositorySuffix;
 
     /**
-     * @return Usually should be left as a default for `simple`, unless the remote is a PyPI server that has custom registry suffix, like +simple in DevPI. Default value is `simple`.
+     * @return Usually should be left as a default for &#39;simple&#39;, unless the remote is a PyPI server that has custom registry suffix,
+     * like +simple in DevPI. Default value is &#39;simple&#39;.
      * 
      */
     public Output<Optional<String>> pypiRepositorySuffix() {

@@ -11,62 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an Artifactory Proxy resource.
-//
-// This resource configuration corresponds to 'proxies' config block in system configuration XML
-// (REST endpoint: [artifactory/api/system/configuration](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-GeneralConfiguration)).
-//
-// ~>The `Proxy` resource utilizes endpoints which are blocked/removed in SaaS environments (i.e. in Artifactory online), rendering this resource incompatible with Artifactory SaaS environments.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.NewProxy(ctx, "my-proxy", &artifactory.ProxyArgs{
-//				Host:            pulumi.String("my-proxy.mycompany.com"),
-//				Key:             pulumi.String("my-proxy"),
-//				NtDomain:        pulumi.String("MYCOMPANY"),
-//				NtHost:          pulumi.String("MYCOMPANY.COM"),
-//				Password:        pulumi.String("password"),
-//				PlatformDefault: pulumi.Bool(false),
-//				Port:            pulumi.Int(8888),
-//				RedirectToHosts: pulumi.StringArray{
-//					pulumi.String("redirec-host.mycompany.com"),
-//				},
-//				Services: pulumi.StringArray{
-//					pulumi.String("jfrt"),
-//					pulumi.String("jfxr"),
-//				},
-//				Username: pulumi.String("user1"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Current Proxy can be imported using `proxy-key` from Artifactory as the `ID`, e.g.
-//
-// ```sh
-//
-//	$ pulumi import artifactory:index/proxy:Proxy my-proxy proxy-key
-//
-// ```
 type Proxy struct {
 	pulumi.CustomResourceState
 
@@ -80,13 +24,15 @@ type Proxy struct {
 	NtHost pulumi.StringPtrOutput `pulumi:"ntHost"`
 	// The proxy password when authentication credentials are required.
 	Password pulumi.StringPtrOutput `pulumi:"password"`
-	// When set, this proxy will be the default proxy for new remote repositories and for internal HTTP requests issued by Artifactory. Will also be used as proxy for all other services in the platform (for example: Xray, Distribution, etc).
+	// When set, this proxy will be the default proxy for new remote repositories and for internal HTTP requests issued by
+	// Artifactory. Will also be used as proxy for all other services in the platform (for example: Xray, Distribution, etc).
 	PlatformDefault pulumi.BoolPtrOutput `pulumi:"platformDefault"`
 	// The proxy port number.
 	Port pulumi.IntOutput `pulumi:"port"`
-	// An optional list of host names to which this proxy may redirect requests. The credentials defined for the proxy are reused by requests redirected to all of these hosts.
+	// An optional list of host names to which this proxy may redirect requests. The credentials defined for the proxy are
+	// reused by requests redirected to all of these hosts.
 	RedirectToHosts pulumi.StringArrayOutput `pulumi:"redirectToHosts"`
-	// An optional list of services names to which this proxy be the default of. The options are `jfrt`, `jfmc`, `jfxr`, `jfds`.
+	// An optional list of services names to which this proxy be the default of. The options are jfrt, jfmc, jfxr, jfds
 	Services pulumi.StringArrayOutput `pulumi:"services"`
 	// The proxy username when authentication credentials are required.
 	Username pulumi.StringPtrOutput `pulumi:"username"`
@@ -147,13 +93,15 @@ type proxyState struct {
 	NtHost *string `pulumi:"ntHost"`
 	// The proxy password when authentication credentials are required.
 	Password *string `pulumi:"password"`
-	// When set, this proxy will be the default proxy for new remote repositories and for internal HTTP requests issued by Artifactory. Will also be used as proxy for all other services in the platform (for example: Xray, Distribution, etc).
+	// When set, this proxy will be the default proxy for new remote repositories and for internal HTTP requests issued by
+	// Artifactory. Will also be used as proxy for all other services in the platform (for example: Xray, Distribution, etc).
 	PlatformDefault *bool `pulumi:"platformDefault"`
 	// The proxy port number.
 	Port *int `pulumi:"port"`
-	// An optional list of host names to which this proxy may redirect requests. The credentials defined for the proxy are reused by requests redirected to all of these hosts.
+	// An optional list of host names to which this proxy may redirect requests. The credentials defined for the proxy are
+	// reused by requests redirected to all of these hosts.
 	RedirectToHosts []string `pulumi:"redirectToHosts"`
-	// An optional list of services names to which this proxy be the default of. The options are `jfrt`, `jfmc`, `jfxr`, `jfds`.
+	// An optional list of services names to which this proxy be the default of. The options are jfrt, jfmc, jfxr, jfds
 	Services []string `pulumi:"services"`
 	// The proxy username when authentication credentials are required.
 	Username *string `pulumi:"username"`
@@ -170,13 +118,15 @@ type ProxyState struct {
 	NtHost pulumi.StringPtrInput
 	// The proxy password when authentication credentials are required.
 	Password pulumi.StringPtrInput
-	// When set, this proxy will be the default proxy for new remote repositories and for internal HTTP requests issued by Artifactory. Will also be used as proxy for all other services in the platform (for example: Xray, Distribution, etc).
+	// When set, this proxy will be the default proxy for new remote repositories and for internal HTTP requests issued by
+	// Artifactory. Will also be used as proxy for all other services in the platform (for example: Xray, Distribution, etc).
 	PlatformDefault pulumi.BoolPtrInput
 	// The proxy port number.
 	Port pulumi.IntPtrInput
-	// An optional list of host names to which this proxy may redirect requests. The credentials defined for the proxy are reused by requests redirected to all of these hosts.
+	// An optional list of host names to which this proxy may redirect requests. The credentials defined for the proxy are
+	// reused by requests redirected to all of these hosts.
 	RedirectToHosts pulumi.StringArrayInput
-	// An optional list of services names to which this proxy be the default of. The options are `jfrt`, `jfmc`, `jfxr`, `jfds`.
+	// An optional list of services names to which this proxy be the default of. The options are jfrt, jfmc, jfxr, jfds
 	Services pulumi.StringArrayInput
 	// The proxy username when authentication credentials are required.
 	Username pulumi.StringPtrInput
@@ -197,13 +147,15 @@ type proxyArgs struct {
 	NtHost *string `pulumi:"ntHost"`
 	// The proxy password when authentication credentials are required.
 	Password *string `pulumi:"password"`
-	// When set, this proxy will be the default proxy for new remote repositories and for internal HTTP requests issued by Artifactory. Will also be used as proxy for all other services in the platform (for example: Xray, Distribution, etc).
+	// When set, this proxy will be the default proxy for new remote repositories and for internal HTTP requests issued by
+	// Artifactory. Will also be used as proxy for all other services in the platform (for example: Xray, Distribution, etc).
 	PlatformDefault *bool `pulumi:"platformDefault"`
 	// The proxy port number.
 	Port int `pulumi:"port"`
-	// An optional list of host names to which this proxy may redirect requests. The credentials defined for the proxy are reused by requests redirected to all of these hosts.
+	// An optional list of host names to which this proxy may redirect requests. The credentials defined for the proxy are
+	// reused by requests redirected to all of these hosts.
 	RedirectToHosts []string `pulumi:"redirectToHosts"`
-	// An optional list of services names to which this proxy be the default of. The options are `jfrt`, `jfmc`, `jfxr`, `jfds`.
+	// An optional list of services names to which this proxy be the default of. The options are jfrt, jfmc, jfxr, jfds
 	Services []string `pulumi:"services"`
 	// The proxy username when authentication credentials are required.
 	Username *string `pulumi:"username"`
@@ -221,13 +173,15 @@ type ProxyArgs struct {
 	NtHost pulumi.StringPtrInput
 	// The proxy password when authentication credentials are required.
 	Password pulumi.StringPtrInput
-	// When set, this proxy will be the default proxy for new remote repositories and for internal HTTP requests issued by Artifactory. Will also be used as proxy for all other services in the platform (for example: Xray, Distribution, etc).
+	// When set, this proxy will be the default proxy for new remote repositories and for internal HTTP requests issued by
+	// Artifactory. Will also be used as proxy for all other services in the platform (for example: Xray, Distribution, etc).
 	PlatformDefault pulumi.BoolPtrInput
 	// The proxy port number.
 	Port pulumi.IntInput
-	// An optional list of host names to which this proxy may redirect requests. The credentials defined for the proxy are reused by requests redirected to all of these hosts.
+	// An optional list of host names to which this proxy may redirect requests. The credentials defined for the proxy are
+	// reused by requests redirected to all of these hosts.
 	RedirectToHosts pulumi.StringArrayInput
-	// An optional list of services names to which this proxy be the default of. The options are `jfrt`, `jfmc`, `jfxr`, `jfds`.
+	// An optional list of services names to which this proxy be the default of. The options are jfrt, jfmc, jfxr, jfds
 	Services pulumi.StringArrayInput
 	// The proxy username when authentication credentials are required.
 	Username pulumi.StringPtrInput
@@ -345,7 +299,8 @@ func (o ProxyOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Proxy) pulumi.StringPtrOutput { return v.Password }).(pulumi.StringPtrOutput)
 }
 
-// When set, this proxy will be the default proxy for new remote repositories and for internal HTTP requests issued by Artifactory. Will also be used as proxy for all other services in the platform (for example: Xray, Distribution, etc).
+// When set, this proxy will be the default proxy for new remote repositories and for internal HTTP requests issued by
+// Artifactory. Will also be used as proxy for all other services in the platform (for example: Xray, Distribution, etc).
 func (o ProxyOutput) PlatformDefault() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Proxy) pulumi.BoolPtrOutput { return v.PlatformDefault }).(pulumi.BoolPtrOutput)
 }
@@ -355,12 +310,13 @@ func (o ProxyOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v *Proxy) pulumi.IntOutput { return v.Port }).(pulumi.IntOutput)
 }
 
-// An optional list of host names to which this proxy may redirect requests. The credentials defined for the proxy are reused by requests redirected to all of these hosts.
+// An optional list of host names to which this proxy may redirect requests. The credentials defined for the proxy are
+// reused by requests redirected to all of these hosts.
 func (o ProxyOutput) RedirectToHosts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Proxy) pulumi.StringArrayOutput { return v.RedirectToHosts }).(pulumi.StringArrayOutput)
 }
 
-// An optional list of services names to which this proxy be the default of. The options are `jfrt`, `jfmc`, `jfxr`, `jfds`.
+// An optional list of services names to which this proxy be the default of. The options are jfrt, jfmc, jfxr, jfds
 func (o ProxyOutput) Services() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Proxy) pulumi.StringArrayOutput { return v.Services }).(pulumi.StringArrayOutput)
 }

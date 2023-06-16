@@ -6,42 +6,6 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
-/**
- * Provides an Artifactory webhook resource. This can be used to register and manage Artifactory webhook subscription which enables you to be notified or notify other users when such events take place in Artifactory.
- *
- * ## Example Usage
- *
- * .
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const artifactory_release_bundle_webhook = new artifactory.ArtifactoryReleaseBundleWebhook("artifactory-release-bundle-webhook", {
- *     criteria: {
- *         anyReleaseBundle: false,
- *         excludePatterns: ["bar/**"],
- *         includePatterns: ["foo/**"],
- *         registeredReleaseBundleNames: ["bundle-name"],
- *     },
- *     eventTypes: [
- *         "received",
- *         "delete_started",
- *         "delete_completed",
- *         "delete_failed",
- *     ],
- *     handlers: [{
- *         customHttpHeaders: {
- *             "header-1": "value-1",
- *             "header-2": "value-2",
- *         },
- *         proxy: "proxy-key",
- *         secret: "some-secret",
- *         url: "http://tempurl.org/webhook",
- *     }],
- *     key: "artifactory-release-bundle-webhook",
- * });
- * ```
- */
 export class ArtifactoryReleaseBundleWebhook extends pulumi.CustomResource {
     /**
      * Get an existing ArtifactoryReleaseBundleWebhook resource's state with the given name, ID, and optional extra
@@ -71,27 +35,25 @@ export class ArtifactoryReleaseBundleWebhook extends pulumi.CustomResource {
     }
 
     /**
-     * Specifies where the webhook will be applied on which repositories.
+     * Specifies where the webhook will be applied, on which release bundles or distributions.
      */
     public readonly criteria!: pulumi.Output<outputs.ArtifactoryReleaseBundleWebhookCriteria>;
     /**
-     * Webhook description. Max length 1000 characters.
+     * Description of webhook. Max length 1000 characters.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * Status of webhook. Default to `true`
+     * Status of webhook. Default to 'true'
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
-     * List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `received`, `deleteStarted`, `deleteCompleted`, `deleteFailed`
+     * List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow
+     * values: received, delete_started, delete_completed, delete_failed
      */
     public readonly eventTypes!: pulumi.Output<string[]>;
-    /**
-     * At least one is required.
-     */
     public readonly handlers!: pulumi.Output<outputs.ArtifactoryReleaseBundleWebhookHandler[]>;
     /**
-     * The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
+     * Key of webhook. Must be between 2 and 200 characters. Cannot contain spaces.
      */
     public readonly key!: pulumi.Output<string>;
 
@@ -145,27 +107,25 @@ export class ArtifactoryReleaseBundleWebhook extends pulumi.CustomResource {
  */
 export interface ArtifactoryReleaseBundleWebhookState {
     /**
-     * Specifies where the webhook will be applied on which repositories.
+     * Specifies where the webhook will be applied, on which release bundles or distributions.
      */
     criteria?: pulumi.Input<inputs.ArtifactoryReleaseBundleWebhookCriteria>;
     /**
-     * Webhook description. Max length 1000 characters.
+     * Description of webhook. Max length 1000 characters.
      */
     description?: pulumi.Input<string>;
     /**
-     * Status of webhook. Default to `true`
+     * Status of webhook. Default to 'true'
      */
     enabled?: pulumi.Input<boolean>;
     /**
-     * List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `received`, `deleteStarted`, `deleteCompleted`, `deleteFailed`
+     * List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow
+     * values: received, delete_started, delete_completed, delete_failed
      */
     eventTypes?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * At least one is required.
-     */
     handlers?: pulumi.Input<pulumi.Input<inputs.ArtifactoryReleaseBundleWebhookHandler>[]>;
     /**
-     * The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
+     * Key of webhook. Must be between 2 and 200 characters. Cannot contain spaces.
      */
     key?: pulumi.Input<string>;
 }
@@ -175,27 +135,25 @@ export interface ArtifactoryReleaseBundleWebhookState {
  */
 export interface ArtifactoryReleaseBundleWebhookArgs {
     /**
-     * Specifies where the webhook will be applied on which repositories.
+     * Specifies where the webhook will be applied, on which release bundles or distributions.
      */
     criteria: pulumi.Input<inputs.ArtifactoryReleaseBundleWebhookCriteria>;
     /**
-     * Webhook description. Max length 1000 characters.
+     * Description of webhook. Max length 1000 characters.
      */
     description?: pulumi.Input<string>;
     /**
-     * Status of webhook. Default to `true`
+     * Status of webhook. Default to 'true'
      */
     enabled?: pulumi.Input<boolean>;
     /**
-     * List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `received`, `deleteStarted`, `deleteCompleted`, `deleteFailed`
+     * List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow
+     * values: received, delete_started, delete_completed, delete_failed
      */
     eventTypes: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * At least one is required.
-     */
     handlers: pulumi.Input<pulumi.Input<inputs.ArtifactoryReleaseBundleWebhookHandler>[]>;
     /**
-     * The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
+     * Key of webhook. Must be between 2 and 200 characters. Cannot contain spaces.
      */
     key: pulumi.Input<string>;
 }

@@ -27,8 +27,8 @@ class VirtualTerraformRepositoryArgs:
                  repositories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a VirtualTerraformRepository resource.
-        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-               contain spaces or special characters.
+        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+               characters. It cannot begin with a number or contain spaces or special characters.
         :param pulumi.Input[bool] artifactory_requests_can_retrieve_remote_artifacts: Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
                another Artifactory instance.
         :param pulumi.Input[str] default_deployment_repo: Default repository to deploy artifacts.
@@ -73,8 +73,8 @@ class VirtualTerraformRepositoryArgs:
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
         """
-        A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-        contain spaces or special characters.
+        A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+        characters. It cannot begin with a number or contain spaces or special characters.
         """
         return pulumi.get(self, "key")
 
@@ -235,8 +235,8 @@ class _VirtualTerraformRepositoryState:
                artifacts are excluded.
         :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
                used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-               contain spaces or special characters.
+        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+               characters. It cannot begin with a number or contain spaces or special characters.
         :param pulumi.Input[str] notes: Internal description.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
                Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
@@ -339,8 +339,8 @@ class _VirtualTerraformRepositoryState:
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
         """
-        A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-        contain spaces or special characters.
+        A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+        characters. It cannot begin with a number or contain spaces or special characters.
         """
         return pulumi.get(self, "key")
 
@@ -440,29 +440,7 @@ class VirtualTerraformRepository(pulumi.CustomResource):
                  repositories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_artifactory as artifactory
-
-        terraform_virtual = artifactory.VirtualTerraformRepository("terraform-virtual",
-            description="A test virtual repo",
-            excludes_pattern="com/google/**",
-            includes_pattern="com/jfrog/**,cloud/jfrog/**",
-            key="terraform-remote",
-            notes="Internal description",
-            repositories=[])
-        ```
-
-        ## Import
-
-        Virtual repositories can be imported using their name, e.g.
-
-        ```sh
-         $ pulumi import artifactory:index/virtualTerraformRepository:VirtualTerraformRepository terraform-virtual terraform-remote
-        ```
-
+        Create a VirtualTerraformRepository resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] artifactory_requests_can_retrieve_remote_artifacts: Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
@@ -473,8 +451,8 @@ class VirtualTerraformRepository(pulumi.CustomResource):
                artifacts are excluded.
         :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
                used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-               contain spaces or special characters.
+        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+               characters. It cannot begin with a number or contain spaces or special characters.
         :param pulumi.Input[str] notes: Internal description.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
                Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
@@ -492,29 +470,7 @@ class VirtualTerraformRepository(pulumi.CustomResource):
                  args: VirtualTerraformRepositoryArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_artifactory as artifactory
-
-        terraform_virtual = artifactory.VirtualTerraformRepository("terraform-virtual",
-            description="A test virtual repo",
-            excludes_pattern="com/google/**",
-            includes_pattern="com/jfrog/**,cloud/jfrog/**",
-            key="terraform-remote",
-            notes="Internal description",
-            repositories=[])
-        ```
-
-        ## Import
-
-        Virtual repositories can be imported using their name, e.g.
-
-        ```sh
-         $ pulumi import artifactory:index/virtualTerraformRepository:VirtualTerraformRepository terraform-virtual terraform-remote
-        ```
-
+        Create a VirtualTerraformRepository resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param VirtualTerraformRepositoryArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -601,8 +557,8 @@ class VirtualTerraformRepository(pulumi.CustomResource):
                artifacts are excluded.
         :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
                used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-               contain spaces or special characters.
+        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+               characters. It cannot begin with a number or contain spaces or special characters.
         :param pulumi.Input[str] notes: Internal description.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
                Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
@@ -678,8 +634,8 @@ class VirtualTerraformRepository(pulumi.CustomResource):
     @pulumi.getter
     def key(self) -> pulumi.Output[str]:
         """
-        A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-        contain spaces or special characters.
+        A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+        characters. It cannot begin with a number or contain spaces or special characters.
         """
         return pulumi.get(self, "key")
 

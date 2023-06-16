@@ -17,50 +17,6 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Creates a virtual Helm repository.
- * Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Kubernetes+Helm+Chart+Repositories#KubernetesHelmChartRepositories-VirtualRepositories).
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.artifactory.VirtualHelmRepository;
- * import com.pulumi.artifactory.VirtualHelmRepositoryArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var foo_helm_virtual = new VirtualHelmRepository(&#34;foo-helm-virtual&#34;, VirtualHelmRepositoryArgs.builder()        
- *             .key(&#34;foo-helm-virtual&#34;)
- *             .useNamespaces(true)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Virtual repositories can be imported using their name, e.g.
- * 
- * ```sh
- *  $ pulumi import artifactory:index/virtualHelmRepository:VirtualHelmRepository foo-helm-virtual foo-helm-virtual
- * ```
- * 
- */
 @ResourceType(type="artifactory:index/virtualHelmRepository:VirtualHelmRepository")
 public class VirtualHelmRepository extends com.pulumi.resources.CustomResource {
     /**
@@ -140,16 +96,16 @@ public class VirtualHelmRepository extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.includesPattern);
     }
     /**
-     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-     * contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      * 
      */
     @Export(name="key", type=String.class, parameters={})
     private Output<String> key;
 
     /**
-     * @return A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-     * contain spaces or special characters.
+     * @return A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      * 
      */
     public Output<String> key() {
@@ -240,28 +196,36 @@ public class VirtualHelmRepository extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.repositories);
     }
     /**
-     * This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
+     * This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
+     * repositories. A value of 0 indicates no caching.
      * 
      */
     @Export(name="retrievalCachePeriodSeconds", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> retrievalCachePeriodSeconds;
 
     /**
-     * @return This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
+     * @return This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
+     * repositories. A value of 0 indicates no caching.
      * 
      */
     public Output<Optional<Integer>> retrievalCachePeriodSeconds() {
         return Codegen.optional(this.retrievalCachePeriodSeconds);
     }
     /**
-     * From Artifactory 7.24.1 (SaaS Version), you can explicitly state a specific aggregated local or remote repository to fetch from a virtual by assigning namespaces to local and remote repositories. See the documentation [here](https://www.jfrog.com/confluence/display/JFROG/Kubernetes+Helm+Chart+Repositories#KubernetesHelmChartRepositories-NamespaceSupportforHelmVirtualRepositories). Default is `false`.
+     * From Artifactory 7.24.1 (SaaS Version), you can explicitly state a specific aggregated local or remote repository to
+     * fetch from a virtual by assigning namespaces to local and remote repositories See
+     * https://www.jfrog.com/confluence/display/JFROG/Kubernetes+Helm+Chart+Repositories#KubernetesHelmChartRepositories-NamespaceSupportforHelmVirtualRepositories.
+     * Default to &#39;false&#39;
      * 
      */
     @Export(name="useNamespaces", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> useNamespaces;
 
     /**
-     * @return From Artifactory 7.24.1 (SaaS Version), you can explicitly state a specific aggregated local or remote repository to fetch from a virtual by assigning namespaces to local and remote repositories. See the documentation [here](https://www.jfrog.com/confluence/display/JFROG/Kubernetes+Helm+Chart+Repositories#KubernetesHelmChartRepositories-NamespaceSupportforHelmVirtualRepositories). Default is `false`.
+     * @return From Artifactory 7.24.1 (SaaS Version), you can explicitly state a specific aggregated local or remote repository to
+     * fetch from a virtual by assigning namespaces to local and remote repositories See
+     * https://www.jfrog.com/confluence/display/JFROG/Kubernetes+Helm+Chart+Repositories#KubernetesHelmChartRepositories-NamespaceSupportforHelmVirtualRepositories.
+     * Default to &#39;false&#39;
      * 
      */
     public Output<Optional<Boolean>> useNamespaces() {

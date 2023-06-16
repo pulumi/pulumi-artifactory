@@ -17,58 +17,6 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Creates a federated Cran repository.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.artifactory.FederatedCranRepository;
- * import com.pulumi.artifactory.FederatedCranRepositoryArgs;
- * import com.pulumi.artifactory.inputs.FederatedCranRepositoryMemberArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var terraform_federated_test_cran_repo = new FederatedCranRepository(&#34;terraform-federated-test-cran-repo&#34;, FederatedCranRepositoryArgs.builder()        
- *             .key(&#34;terraform-federated-test-cran-repo&#34;)
- *             .members(            
- *                 FederatedCranRepositoryMemberArgs.builder()
- *                     .enabled(true)
- *                     .url(&#34;http://tempurl.org/artifactory/terraform-federated-test-cran-repo&#34;)
- *                     .build(),
- *                 FederatedCranRepositoryMemberArgs.builder()
- *                     .enabled(true)
- *                     .url(&#34;http://tempurl2.org/artifactory/terraform-federated-test-cran-repo-2&#34;)
- *                     .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Federated repositories can be imported using their name, e.g.
- * 
- * ```sh
- *  $ pulumi import artifactory:index/federatedCranRepository:FederatedCranRepository terraform-federated-test-cran-repo terraform-federated-test-cran-repo
- * ```
- * 
- */
 @ResourceType(type="artifactory:index/federatedCranRepository:FederatedCranRepository")
 public class FederatedCranRepository extends com.pulumi.resources.CustomResource {
     /**
@@ -198,23 +146,26 @@ public class FederatedCranRepository extends com.pulumi.resources.CustomResource
         return this.includesPattern;
     }
     /**
-     * the identity key of the repo.
+     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      * 
      */
     @Export(name="key", type=String.class, parameters={})
     private Output<String> key;
 
     /**
-     * @return the identity key of the repo.
+     * @return A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      * 
      */
     public Output<String> key() {
         return this.key;
     }
     /**
-     * The list of Federated members and must contain this repository URL (configured base URL
-     * `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
-     * Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+     * The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
+     * will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
+     * federated members will need to have a base URL set. Please follow the
+     * [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
      * to set up Federated repositories correctly.
      * 
      */
@@ -222,9 +173,10 @@ public class FederatedCranRepository extends com.pulumi.resources.CustomResource
     private Output<List<FederatedCranRepositoryMember>> members;
 
     /**
-     * @return The list of Federated members and must contain this repository URL (configured base URL
-     * `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
-     * Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+     * @return The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
+     * will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
+     * federated members will need to have a base URL set. Please follow the
+     * [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
      * to set up Federated repositories correctly.
      * 
      */

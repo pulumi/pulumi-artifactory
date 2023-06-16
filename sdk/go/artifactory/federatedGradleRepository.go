@@ -11,53 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Creates a federated Gradle repository.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.NewFederatedGradleRepository(ctx, "terraform-federated-test-gradle-repo", &artifactory.FederatedGradleRepositoryArgs{
-//				Key: pulumi.String("terraform-federated-test-gradle-repo"),
-//				Members: artifactory.FederatedGradleRepositoryMemberArray{
-//					&artifactory.FederatedGradleRepositoryMemberArgs{
-//						Enabled: pulumi.Bool(true),
-//						Url:     pulumi.String("http://tempurl.org/artifactory/terraform-federated-test-gradle-repo"),
-//					},
-//					&artifactory.FederatedGradleRepositoryMemberArgs{
-//						Enabled: pulumi.Bool(true),
-//						Url:     pulumi.String("http://tempurl2.org/artifactory/terraform-federated-test-gradle-repo-2"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Federated repositories can be imported using their name, e.g.
-//
-// ```sh
-//
-//	$ pulumi import artifactory:index/federatedGradleRepository:FederatedGradleRepository terraform-federated-test-gradle-repo terraform-federated-test-gradle-repo
-//
-// ```
 type FederatedGradleRepository struct {
 	pulumi.CustomResourceState
 
@@ -93,14 +46,16 @@ type FederatedGradleRepository struct {
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringOutput `pulumi:"includesPattern"`
-	// the identity key of the repo.
+	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+	// characters. It cannot begin with a number or contain spaces or special characters.
 	Key pulumi.StringOutput `pulumi:"key"`
 	// The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
 	// older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
 	MaxUniqueSnapshots pulumi.IntPtrOutput `pulumi:"maxUniqueSnapshots"`
-	// The list of Federated members and must contain this repository URL (configured base URL
-	// `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
-	// Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+	// The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
+	// will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
+	// federated members will need to have a base URL set. Please follow the
+	// [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
 	// to set up Federated repositories correctly.
 	Members FederatedGradleRepositoryMemberArrayOutput `pulumi:"members"`
 	// Internal description.
@@ -201,14 +156,16 @@ type federatedGradleRepositoryState struct {
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
-	// the identity key of the repo.
+	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+	// characters. It cannot begin with a number or contain spaces or special characters.
 	Key *string `pulumi:"key"`
 	// The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
 	// older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
 	MaxUniqueSnapshots *int `pulumi:"maxUniqueSnapshots"`
-	// The list of Federated members and must contain this repository URL (configured base URL
-	// `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
-	// Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+	// The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
+	// will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
+	// federated members will need to have a base URL set. Please follow the
+	// [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
 	// to set up Federated repositories correctly.
 	Members []FederatedGradleRepositoryMember `pulumi:"members"`
 	// Internal description.
@@ -275,14 +232,16 @@ type FederatedGradleRepositoryState struct {
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
-	// the identity key of the repo.
+	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+	// characters. It cannot begin with a number or contain spaces or special characters.
 	Key pulumi.StringPtrInput
 	// The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
 	// older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
 	MaxUniqueSnapshots pulumi.IntPtrInput
-	// The list of Federated members and must contain this repository URL (configured base URL
-	// `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
-	// Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+	// The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
+	// will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
+	// federated members will need to have a base URL set. Please follow the
+	// [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
 	// to set up Federated repositories correctly.
 	Members FederatedGradleRepositoryMemberArrayInput
 	// Internal description.
@@ -353,14 +312,16 @@ type federatedGradleRepositoryArgs struct {
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
-	// the identity key of the repo.
+	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+	// characters. It cannot begin with a number or contain spaces or special characters.
 	Key string `pulumi:"key"`
 	// The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
 	// older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
 	MaxUniqueSnapshots *int `pulumi:"maxUniqueSnapshots"`
-	// The list of Federated members and must contain this repository URL (configured base URL
-	// `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
-	// Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+	// The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
+	// will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
+	// federated members will need to have a base URL set. Please follow the
+	// [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
 	// to set up Federated repositories correctly.
 	Members []FederatedGradleRepositoryMember `pulumi:"members"`
 	// Internal description.
@@ -427,14 +388,16 @@ type FederatedGradleRepositoryArgs struct {
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
-	// the identity key of the repo.
+	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+	// characters. It cannot begin with a number or contain spaces or special characters.
 	Key pulumi.StringInput
 	// The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
 	// older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
 	MaxUniqueSnapshots pulumi.IntPtrInput
-	// The list of Federated members and must contain this repository URL (configured base URL
-	// `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
-	// Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+	// The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
+	// will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
+	// federated members will need to have a base URL set. Please follow the
+	// [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
 	// to set up Federated repositories correctly.
 	Members FederatedGradleRepositoryMemberArrayInput
 	// Internal description.
@@ -619,7 +582,8 @@ func (o FederatedGradleRepositoryOutput) IncludesPattern() pulumi.StringOutput {
 	return o.ApplyT(func(v *FederatedGradleRepository) pulumi.StringOutput { return v.IncludesPattern }).(pulumi.StringOutput)
 }
 
-// the identity key of the repo.
+// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+// characters. It cannot begin with a number or contain spaces or special characters.
 func (o FederatedGradleRepositoryOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v *FederatedGradleRepository) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
 }
@@ -630,9 +594,10 @@ func (o FederatedGradleRepositoryOutput) MaxUniqueSnapshots() pulumi.IntPtrOutpu
 	return o.ApplyT(func(v *FederatedGradleRepository) pulumi.IntPtrOutput { return v.MaxUniqueSnapshots }).(pulumi.IntPtrOutput)
 }
 
-// The list of Federated members and must contain this repository URL (configured base URL
-// `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
-// Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+// The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
+// will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
+// federated members will need to have a base URL set. Please follow the
+// [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
 // to set up Federated repositories correctly.
 func (o FederatedGradleRepositoryOutput) Members() FederatedGradleRepositoryMemberArrayOutput {
 	return o.ApplyT(func(v *FederatedGradleRepository) FederatedGradleRepositoryMemberArrayOutput { return v.Members }).(FederatedGradleRepositoryMemberArrayOutput)

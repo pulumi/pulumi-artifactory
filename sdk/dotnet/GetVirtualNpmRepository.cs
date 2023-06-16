@@ -11,59 +11,9 @@ namespace Pulumi.Artifactory
 {
     public static class GetVirtualNpmRepository
     {
-        /// <summary>
-        /// Retrieves a virtual NPM repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var virtual_npm = Artifactory.GetVirtualNpmRepository.Invoke(new()
-        ///     {
-        ///         Key = "virtual-npm",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetVirtualNpmRepositoryResult> InvokeAsync(GetVirtualNpmRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNpmRepositoryResult>("artifactory:index/getVirtualNpmRepository:getVirtualNpmRepository", args ?? new GetVirtualNpmRepositoryArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Retrieves a virtual NPM repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var virtual_npm = Artifactory.GetVirtualNpmRepository.Invoke(new()
-        ///     {
-        ///         Key = "virtual-npm",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Output<GetVirtualNpmRepositoryResult> Invoke(GetVirtualNpmRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualNpmRepositoryResult>("artifactory:index/getVirtualNpmRepository:getVirtualNpmRepository", args ?? new GetVirtualNpmRepositoryInvokeArgs(), options.WithDefaults());
     }
@@ -100,9 +50,6 @@ namespace Pulumi.Artifactory
         [Input("includesPattern")]
         public string? IncludesPattern { get; set; }
 
-        /// <summary>
-        /// the identity key of the repo.
-        /// </summary>
         [Input("key", required: true)]
         public string Key { get; set; } = null!;
 
@@ -131,9 +78,6 @@ namespace Pulumi.Artifactory
             set => _repositories = value;
         }
 
-        /// <summary>
-        /// (Optional, Default: `7200`) This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
-        /// </summary>
         [Input("retrievalCachePeriodSeconds")]
         public int? RetrievalCachePeriodSeconds { get; set; }
 
@@ -174,9 +118,6 @@ namespace Pulumi.Artifactory
         [Input("includesPattern")]
         public Input<string>? IncludesPattern { get; set; }
 
-        /// <summary>
-        /// the identity key of the repo.
-        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
@@ -205,9 +146,6 @@ namespace Pulumi.Artifactory
             set => _repositories = value;
         }
 
-        /// <summary>
-        /// (Optional, Default: `7200`) This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
-        /// </summary>
         [Input("retrievalCachePeriodSeconds")]
         public Input<int>? RetrievalCachePeriodSeconds { get; set; }
 
@@ -240,9 +178,6 @@ namespace Pulumi.Artifactory
         public readonly string? ProjectKey;
         public readonly string? RepoLayoutRef;
         public readonly ImmutableArray<string> Repositories;
-        /// <summary>
-        /// (Optional, Default: `7200`) This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
-        /// </summary>
         public readonly int? RetrievalCachePeriodSeconds;
 
         [OutputConstructor]

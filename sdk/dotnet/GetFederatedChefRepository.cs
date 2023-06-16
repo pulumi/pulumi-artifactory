@@ -11,59 +11,9 @@ namespace Pulumi.Artifactory
 {
     public static class GetFederatedChefRepository
     {
-        /// <summary>
-        /// Retrieves a federated Chef repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var federated_test_chef_repo = Artifactory.GetFederatedChefRepository.Invoke(new()
-        ///     {
-        ///         Key = "federated-test-chef-repo",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetFederatedChefRepositoryResult> InvokeAsync(GetFederatedChefRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFederatedChefRepositoryResult>("artifactory:index/getFederatedChefRepository:getFederatedChefRepository", args ?? new GetFederatedChefRepositoryArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Retrieves a federated Chef repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var federated_test_chef_repo = Artifactory.GetFederatedChefRepository.Invoke(new()
-        ///     {
-        ///         Key = "federated-test-chef-repo",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Output<GetFederatedChefRepositoryResult> Invoke(GetFederatedChefRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFederatedChefRepositoryResult>("artifactory:index/getFederatedChefRepository:getFederatedChefRepository", args ?? new GetFederatedChefRepositoryInvokeArgs(), options.WithDefaults());
     }
@@ -95,21 +45,11 @@ namespace Pulumi.Artifactory
         [Input("includesPattern")]
         public string? IncludesPattern { get; set; }
 
-        /// <summary>
-        /// the identity key of the repo.
-        /// </summary>
         [Input("key", required: true)]
         public string Key { get; set; } = null!;
 
         [Input("members")]
         private List<Inputs.GetFederatedChefRepositoryMemberArgs>? _members;
-
-        /// <summary>
-        /// The list of Federated members and must contain this repository URL (configured base URL
-        /// `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
-        /// Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
-        /// to set up Federated repositories correctly.
-        /// </summary>
         public List<Inputs.GetFederatedChefRepositoryMemberArgs> Members
         {
             get => _members ?? (_members = new List<Inputs.GetFederatedChefRepositoryMemberArgs>());
@@ -179,21 +119,11 @@ namespace Pulumi.Artifactory
         [Input("includesPattern")]
         public Input<string>? IncludesPattern { get; set; }
 
-        /// <summary>
-        /// the identity key of the repo.
-        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
         [Input("members")]
         private InputList<Inputs.GetFederatedChefRepositoryMemberInputArgs>? _members;
-
-        /// <summary>
-        /// The list of Federated members and must contain this repository URL (configured base URL
-        /// `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
-        /// Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
-        /// to set up Federated repositories correctly.
-        /// </summary>
         public InputList<Inputs.GetFederatedChefRepositoryMemberInputArgs> Members
         {
             get => _members ?? (_members = new InputList<Inputs.GetFederatedChefRepositoryMemberInputArgs>());
@@ -253,16 +183,7 @@ namespace Pulumi.Artifactory
         /// </summary>
         public readonly string Id;
         public readonly string IncludesPattern;
-        /// <summary>
-        /// the identity key of the repo.
-        /// </summary>
         public readonly string Key;
-        /// <summary>
-        /// The list of Federated members and must contain this repository URL (configured base URL
-        /// `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
-        /// Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
-        /// to set up Federated repositories correctly.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetFederatedChefRepositoryMemberResult> Members;
         public readonly string? Notes;
         public readonly string PackageType;

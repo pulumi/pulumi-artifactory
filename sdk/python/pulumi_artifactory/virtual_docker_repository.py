@@ -28,8 +28,8 @@ class VirtualDockerRepositoryArgs:
                  resolve_docker_tags_by_timestamp: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a VirtualDockerRepository resource.
-        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-               contain spaces or special characters.
+        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+               characters. It cannot begin with a number or contain spaces or special characters.
         :param pulumi.Input[bool] artifactory_requests_can_retrieve_remote_artifacts: Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
                another Artifactory instance.
         :param pulumi.Input[str] default_deployment_repo: Default repository to deploy artifacts.
@@ -47,7 +47,8 @@ class VirtualDockerRepositoryArgs:
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
         :param pulumi.Input[Sequence[pulumi.Input[str]]] repositories: The effective list of actual repositories included in this virtual repository.
-        :param pulumi.Input[bool] resolve_docker_tags_by_timestamp: When enabled, in cases where the same Docker tag exists in two or more of the aggregated repositories, Artifactory will return the tag that has the latest timestamp. Default values is `false`.
+        :param pulumi.Input[bool] resolve_docker_tags_by_timestamp: When enabled, in cases where the same Docker tag exists in two or more of the aggregated repositories, Artifactory will
+               return the tag that has the latest timestamp.
         """
         pulumi.set(__self__, "key", key)
         if artifactory_requests_can_retrieve_remote_artifacts is not None:
@@ -77,8 +78,8 @@ class VirtualDockerRepositoryArgs:
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
         """
-        A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-        contain spaces or special characters.
+        A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+        characters. It cannot begin with a number or contain spaces or special characters.
         """
         return pulumi.get(self, "key")
 
@@ -217,7 +218,8 @@ class VirtualDockerRepositoryArgs:
     @pulumi.getter(name="resolveDockerTagsByTimestamp")
     def resolve_docker_tags_by_timestamp(self) -> Optional[pulumi.Input[bool]]:
         """
-        When enabled, in cases where the same Docker tag exists in two or more of the aggregated repositories, Artifactory will return the tag that has the latest timestamp. Default values is `false`.
+        When enabled, in cases where the same Docker tag exists in two or more of the aggregated repositories, Artifactory will
+        return the tag that has the latest timestamp.
         """
         return pulumi.get(self, "resolve_docker_tags_by_timestamp")
 
@@ -252,8 +254,8 @@ class _VirtualDockerRepositoryState:
                artifacts are excluded.
         :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
                used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-               contain spaces or special characters.
+        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+               characters. It cannot begin with a number or contain spaces or special characters.
         :param pulumi.Input[str] notes: Internal description.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
                Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
@@ -263,7 +265,8 @@ class _VirtualDockerRepositoryState:
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
         :param pulumi.Input[Sequence[pulumi.Input[str]]] repositories: The effective list of actual repositories included in this virtual repository.
-        :param pulumi.Input[bool] resolve_docker_tags_by_timestamp: When enabled, in cases where the same Docker tag exists in two or more of the aggregated repositories, Artifactory will return the tag that has the latest timestamp. Default values is `false`.
+        :param pulumi.Input[bool] resolve_docker_tags_by_timestamp: When enabled, in cases where the same Docker tag exists in two or more of the aggregated repositories, Artifactory will
+               return the tag that has the latest timestamp.
         """
         if artifactory_requests_can_retrieve_remote_artifacts is not None:
             pulumi.set(__self__, "artifactory_requests_can_retrieve_remote_artifacts", artifactory_requests_can_retrieve_remote_artifacts)
@@ -359,8 +362,8 @@ class _VirtualDockerRepositoryState:
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
         """
-        A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-        contain spaces or special characters.
+        A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+        characters. It cannot begin with a number or contain spaces or special characters.
         """
         return pulumi.get(self, "key")
 
@@ -445,7 +448,8 @@ class _VirtualDockerRepositoryState:
     @pulumi.getter(name="resolveDockerTagsByTimestamp")
     def resolve_docker_tags_by_timestamp(self) -> Optional[pulumi.Input[bool]]:
         """
-        When enabled, in cases where the same Docker tag exists in two or more of the aggregated repositories, Artifactory will return the tag that has the latest timestamp. Default values is `false`.
+        When enabled, in cases where the same Docker tag exists in two or more of the aggregated repositories, Artifactory will
+        return the tag that has the latest timestamp.
         """
         return pulumi.get(self, "resolve_docker_tags_by_timestamp")
 
@@ -473,33 +477,7 @@ class VirtualDockerRepository(pulumi.CustomResource):
                  resolve_docker_tags_by_timestamp: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        Creates a virtual Docker repository.
-        Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Docker+Registry#DockerRegistry-VirtualDockerRepositories).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_artifactory as artifactory
-
-        foo_docker = artifactory.VirtualDockerRepository("foo-docker",
-            description="A test virtual repo",
-            excludes_pattern="com/google/**",
-            includes_pattern="com/jfrog/**,cloud/jfrog/**",
-            key="foo-docker",
-            notes="Internal description",
-            repositories=[],
-            resolve_docker_tags_by_timestamp=True)
-        ```
-
-        ## Import
-
-        Virtual repositories can be imported using their name, e.g.
-
-        ```sh
-         $ pulumi import artifactory:index/virtualDockerRepository:VirtualDockerRepository foo-docker foo-docker
-        ```
-
+        Create a VirtualDockerRepository resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] artifactory_requests_can_retrieve_remote_artifacts: Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
@@ -510,8 +488,8 @@ class VirtualDockerRepository(pulumi.CustomResource):
                artifacts are excluded.
         :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
                used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-               contain spaces or special characters.
+        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+               characters. It cannot begin with a number or contain spaces or special characters.
         :param pulumi.Input[str] notes: Internal description.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
                Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
@@ -521,7 +499,8 @@ class VirtualDockerRepository(pulumi.CustomResource):
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
         :param pulumi.Input[Sequence[pulumi.Input[str]]] repositories: The effective list of actual repositories included in this virtual repository.
-        :param pulumi.Input[bool] resolve_docker_tags_by_timestamp: When enabled, in cases where the same Docker tag exists in two or more of the aggregated repositories, Artifactory will return the tag that has the latest timestamp. Default values is `false`.
+        :param pulumi.Input[bool] resolve_docker_tags_by_timestamp: When enabled, in cases where the same Docker tag exists in two or more of the aggregated repositories, Artifactory will
+               return the tag that has the latest timestamp.
         """
         ...
     @overload
@@ -530,33 +509,7 @@ class VirtualDockerRepository(pulumi.CustomResource):
                  args: VirtualDockerRepositoryArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Creates a virtual Docker repository.
-        Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Docker+Registry#DockerRegistry-VirtualDockerRepositories).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_artifactory as artifactory
-
-        foo_docker = artifactory.VirtualDockerRepository("foo-docker",
-            description="A test virtual repo",
-            excludes_pattern="com/google/**",
-            includes_pattern="com/jfrog/**,cloud/jfrog/**",
-            key="foo-docker",
-            notes="Internal description",
-            repositories=[],
-            resolve_docker_tags_by_timestamp=True)
-        ```
-
-        ## Import
-
-        Virtual repositories can be imported using their name, e.g.
-
-        ```sh
-         $ pulumi import artifactory:index/virtualDockerRepository:VirtualDockerRepository foo-docker foo-docker
-        ```
-
+        Create a VirtualDockerRepository resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param VirtualDockerRepositoryArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -646,8 +599,8 @@ class VirtualDockerRepository(pulumi.CustomResource):
                artifacts are excluded.
         :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
                used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-               contain spaces or special characters.
+        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+               characters. It cannot begin with a number or contain spaces or special characters.
         :param pulumi.Input[str] notes: Internal description.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
                Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
@@ -657,7 +610,8 @@ class VirtualDockerRepository(pulumi.CustomResource):
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
         :param pulumi.Input[Sequence[pulumi.Input[str]]] repositories: The effective list of actual repositories included in this virtual repository.
-        :param pulumi.Input[bool] resolve_docker_tags_by_timestamp: When enabled, in cases where the same Docker tag exists in two or more of the aggregated repositories, Artifactory will return the tag that has the latest timestamp. Default values is `false`.
+        :param pulumi.Input[bool] resolve_docker_tags_by_timestamp: When enabled, in cases where the same Docker tag exists in two or more of the aggregated repositories, Artifactory will
+               return the tag that has the latest timestamp.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -725,8 +679,8 @@ class VirtualDockerRepository(pulumi.CustomResource):
     @pulumi.getter
     def key(self) -> pulumi.Output[str]:
         """
-        A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-        contain spaces or special characters.
+        A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+        characters. It cannot begin with a number or contain spaces or special characters.
         """
         return pulumi.get(self, "key")
 
@@ -783,7 +737,8 @@ class VirtualDockerRepository(pulumi.CustomResource):
     @pulumi.getter(name="resolveDockerTagsByTimestamp")
     def resolve_docker_tags_by_timestamp(self) -> pulumi.Output[Optional[bool]]:
         """
-        When enabled, in cases where the same Docker tag exists in two or more of the aggregated repositories, Artifactory will return the tag that has the latest timestamp. Default values is `false`.
+        When enabled, in cases where the same Docker tag exists in two or more of the aggregated repositories, Artifactory will
+        return the tag that has the latest timestamp.
         """
         return pulumi.get(self, "resolve_docker_tags_by_timestamp")
 

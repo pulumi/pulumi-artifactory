@@ -103,62 +103,30 @@ public final class GetRemoteGradleRepositoryArgs extends com.pulumi.resources.In
         return Optional.ofNullable(this.excludesPattern);
     }
 
-    /**
-     * (Optional, Default: `false`) When set, if a POM is requested, Artifactory attempts to fetch the corresponding jar in the background. This will accelerate first access time to the jar when it is subsequently requested.
-     * 
-     */
     @Import(name="fetchJarsEagerly")
     private @Nullable Output<Boolean> fetchJarsEagerly;
 
-    /**
-     * @return (Optional, Default: `false`) When set, if a POM is requested, Artifactory attempts to fetch the corresponding jar in the background. This will accelerate first access time to the jar when it is subsequently requested.
-     * 
-     */
     public Optional<Output<Boolean>> fetchJarsEagerly() {
         return Optional.ofNullable(this.fetchJarsEagerly);
     }
 
-    /**
-     * (Optional, Default: `false`) When set, if a binaries jar is requested, Artifactory attempts to fetch the corresponding source jar in the background. This will accelerate first access time to the source jar when it is subsequently requested.
-     * 
-     */
     @Import(name="fetchSourcesEagerly")
     private @Nullable Output<Boolean> fetchSourcesEagerly;
 
-    /**
-     * @return (Optional, Default: `false`) When set, if a binaries jar is requested, Artifactory attempts to fetch the corresponding source jar in the background. This will accelerate first access time to the source jar when it is subsequently requested.
-     * 
-     */
     public Optional<Output<Boolean>> fetchSourcesEagerly() {
         return Optional.ofNullable(this.fetchSourcesEagerly);
     }
 
-    /**
-     * (Optional, Default: `true`) If set, Artifactory allows you to deploy release artifacts into this repository.
-     * 
-     */
     @Import(name="handleReleases")
     private @Nullable Output<Boolean> handleReleases;
 
-    /**
-     * @return (Optional, Default: `true`) If set, Artifactory allows you to deploy release artifacts into this repository.
-     * 
-     */
     public Optional<Output<Boolean>> handleReleases() {
         return Optional.ofNullable(this.handleReleases);
     }
 
-    /**
-     * (Optional, Default: `true`) If set, Artifactory allows you to deploy snapshot artifacts into this repository.
-     * 
-     */
     @Import(name="handleSnapshots")
     private @Nullable Output<Boolean> handleSnapshots;
 
-    /**
-     * @return (Optional, Default: `true`) If set, Artifactory allows you to deploy snapshot artifacts into this repository.
-     * 
-     */
     public Optional<Output<Boolean>> handleSnapshots() {
         return Optional.ofNullable(this.handleSnapshots);
     }
@@ -177,17 +145,9 @@ public final class GetRemoteGradleRepositoryArgs extends com.pulumi.resources.In
         return Optional.ofNullable(this.includesPattern);
     }
 
-    /**
-     * the identity key of the repo.
-     * 
-     */
     @Import(name="key", required=true)
     private Output<String> key;
 
-    /**
-     * @return the identity key of the repo.
-     * 
-     */
     public Output<String> key() {
         return this.key;
     }
@@ -290,32 +250,16 @@ public final class GetRemoteGradleRepositoryArgs extends com.pulumi.resources.In
         return Optional.ofNullable(this.queryParams);
     }
 
-    /**
-     * (Optional, Default: `false`) Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a &#34;captive portal&#34;.
-     * 
-     */
     @Import(name="rejectInvalidJars")
     private @Nullable Output<Boolean> rejectInvalidJars;
 
-    /**
-     * @return (Optional, Default: `false`) Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a &#34;captive portal&#34;.
-     * 
-     */
     public Optional<Output<Boolean>> rejectInvalidJars() {
         return Optional.ofNullable(this.rejectInvalidJars);
     }
 
-    /**
-     * (Optional, Default: `generate-if-absent`) Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
-     * 
-     */
     @Import(name="remoteRepoChecksumPolicyType")
     private @Nullable Output<String> remoteRepoChecksumPolicyType;
 
-    /**
-     * @return (Optional, Default: `generate-if-absent`) Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
-     * 
-     */
     public Optional<Output<String>> remoteRepoChecksumPolicyType() {
         return Optional.ofNullable(this.remoteRepoChecksumPolicyType);
     }
@@ -362,17 +306,9 @@ public final class GetRemoteGradleRepositoryArgs extends com.pulumi.resources.In
         return Optional.ofNullable(this.storeArtifactsLocally);
     }
 
-    /**
-     * (Optional, Default: `true`) - By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a &#34;409 Conflict&#34; error. You can disable this behavior by setting this attribute to `true`.
-     * 
-     */
     @Import(name="suppressPomConsistencyChecks")
     private @Nullable Output<Boolean> suppressPomConsistencyChecks;
 
-    /**
-     * @return (Optional, Default: `true`) - By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a &#34;409 Conflict&#34; error. You can disable this behavior by setting this attribute to `true`.
-     * 
-     */
     public Optional<Output<Boolean>> suppressPomConsistencyChecks() {
         return Optional.ofNullable(this.suppressPomConsistencyChecks);
     }
@@ -590,86 +526,38 @@ public final class GetRemoteGradleRepositoryArgs extends com.pulumi.resources.In
             return excludesPattern(Output.of(excludesPattern));
         }
 
-        /**
-         * @param fetchJarsEagerly (Optional, Default: `false`) When set, if a POM is requested, Artifactory attempts to fetch the corresponding jar in the background. This will accelerate first access time to the jar when it is subsequently requested.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fetchJarsEagerly(@Nullable Output<Boolean> fetchJarsEagerly) {
             $.fetchJarsEagerly = fetchJarsEagerly;
             return this;
         }
 
-        /**
-         * @param fetchJarsEagerly (Optional, Default: `false`) When set, if a POM is requested, Artifactory attempts to fetch the corresponding jar in the background. This will accelerate first access time to the jar when it is subsequently requested.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fetchJarsEagerly(Boolean fetchJarsEagerly) {
             return fetchJarsEagerly(Output.of(fetchJarsEagerly));
         }
 
-        /**
-         * @param fetchSourcesEagerly (Optional, Default: `false`) When set, if a binaries jar is requested, Artifactory attempts to fetch the corresponding source jar in the background. This will accelerate first access time to the source jar when it is subsequently requested.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fetchSourcesEagerly(@Nullable Output<Boolean> fetchSourcesEagerly) {
             $.fetchSourcesEagerly = fetchSourcesEagerly;
             return this;
         }
 
-        /**
-         * @param fetchSourcesEagerly (Optional, Default: `false`) When set, if a binaries jar is requested, Artifactory attempts to fetch the corresponding source jar in the background. This will accelerate first access time to the source jar when it is subsequently requested.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fetchSourcesEagerly(Boolean fetchSourcesEagerly) {
             return fetchSourcesEagerly(Output.of(fetchSourcesEagerly));
         }
 
-        /**
-         * @param handleReleases (Optional, Default: `true`) If set, Artifactory allows you to deploy release artifacts into this repository.
-         * 
-         * @return builder
-         * 
-         */
         public Builder handleReleases(@Nullable Output<Boolean> handleReleases) {
             $.handleReleases = handleReleases;
             return this;
         }
 
-        /**
-         * @param handleReleases (Optional, Default: `true`) If set, Artifactory allows you to deploy release artifacts into this repository.
-         * 
-         * @return builder
-         * 
-         */
         public Builder handleReleases(Boolean handleReleases) {
             return handleReleases(Output.of(handleReleases));
         }
 
-        /**
-         * @param handleSnapshots (Optional, Default: `true`) If set, Artifactory allows you to deploy snapshot artifacts into this repository.
-         * 
-         * @return builder
-         * 
-         */
         public Builder handleSnapshots(@Nullable Output<Boolean> handleSnapshots) {
             $.handleSnapshots = handleSnapshots;
             return this;
         }
 
-        /**
-         * @param handleSnapshots (Optional, Default: `true`) If set, Artifactory allows you to deploy snapshot artifacts into this repository.
-         * 
-         * @return builder
-         * 
-         */
         public Builder handleSnapshots(Boolean handleSnapshots) {
             return handleSnapshots(Output.of(handleSnapshots));
         }
@@ -692,23 +580,11 @@ public final class GetRemoteGradleRepositoryArgs extends com.pulumi.resources.In
             return includesPattern(Output.of(includesPattern));
         }
 
-        /**
-         * @param key the identity key of the repo.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(Output<String> key) {
             $.key = key;
             return this;
         }
 
-        /**
-         * @param key the identity key of the repo.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(String key) {
             return key(Output.of(key));
         }
@@ -847,44 +723,20 @@ public final class GetRemoteGradleRepositoryArgs extends com.pulumi.resources.In
             return queryParams(Output.of(queryParams));
         }
 
-        /**
-         * @param rejectInvalidJars (Optional, Default: `false`) Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a &#34;captive portal&#34;.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rejectInvalidJars(@Nullable Output<Boolean> rejectInvalidJars) {
             $.rejectInvalidJars = rejectInvalidJars;
             return this;
         }
 
-        /**
-         * @param rejectInvalidJars (Optional, Default: `false`) Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a &#34;captive portal&#34;.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rejectInvalidJars(Boolean rejectInvalidJars) {
             return rejectInvalidJars(Output.of(rejectInvalidJars));
         }
 
-        /**
-         * @param remoteRepoChecksumPolicyType (Optional, Default: `generate-if-absent`) Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder remoteRepoChecksumPolicyType(@Nullable Output<String> remoteRepoChecksumPolicyType) {
             $.remoteRepoChecksumPolicyType = remoteRepoChecksumPolicyType;
             return this;
         }
 
-        /**
-         * @param remoteRepoChecksumPolicyType (Optional, Default: `generate-if-absent`) Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder remoteRepoChecksumPolicyType(String remoteRepoChecksumPolicyType) {
             return remoteRepoChecksumPolicyType(Output.of(remoteRepoChecksumPolicyType));
         }
@@ -943,23 +795,11 @@ public final class GetRemoteGradleRepositoryArgs extends com.pulumi.resources.In
             return storeArtifactsLocally(Output.of(storeArtifactsLocally));
         }
 
-        /**
-         * @param suppressPomConsistencyChecks (Optional, Default: `true`) - By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a &#34;409 Conflict&#34; error. You can disable this behavior by setting this attribute to `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder suppressPomConsistencyChecks(@Nullable Output<Boolean> suppressPomConsistencyChecks) {
             $.suppressPomConsistencyChecks = suppressPomConsistencyChecks;
             return this;
         }
 
-        /**
-         * @param suppressPomConsistencyChecks (Optional, Default: `true`) - By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a &#34;409 Conflict&#34; error. You can disable this behavior by setting this attribute to `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder suppressPomConsistencyChecks(Boolean suppressPomConsistencyChecks) {
             return suppressPomConsistencyChecks(Output.of(suppressPomConsistencyChecks));
         }

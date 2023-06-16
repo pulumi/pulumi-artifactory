@@ -15,115 +15,51 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a remote repository replication resource, also referred to as Artifactory pull replication.
- * This resource provides a convenient way to proactively populate a remote cache, and is very useful when waiting for new artifacts to arrive on demand (when first requested) is not desirable due to network latency. See [official documentation](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-PullReplication).
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.artifactory.LocalMavenRepository;
- * import com.pulumi.artifactory.LocalMavenRepositoryArgs;
- * import com.pulumi.artifactory.RemoteMavenRepository;
- * import com.pulumi.artifactory.RemoteMavenRepositoryArgs;
- * import com.pulumi.artifactory.RemoteRepositoryReplication;
- * import com.pulumi.artifactory.RemoteRepositoryReplicationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var config = ctx.config();
- *         final var artifactoryUrl = config.get(&#34;artifactoryUrl&#34;);
- *         var providerTestSource = new LocalMavenRepository(&#34;providerTestSource&#34;, LocalMavenRepositoryArgs.builder()        
- *             .key(&#34;provider_test_source&#34;)
- *             .build());
- * 
- *         var providerTestDest = new RemoteMavenRepository(&#34;providerTestDest&#34;, RemoteMavenRepositoryArgs.builder()        
- *             .key(&#34;provider_test_dest&#34;)
- *             .url(String.format(&#34;%s/artifactory/%s&#34;, artifactoryUrl,artifactory_local_maven_repository.artifactory_local_maven_repository().key()))
- *             .username(&#34;foo&#34;)
- *             .password(&#34;bar&#34;)
- *             .build());
- * 
- *         var remote_rep = new RemoteRepositoryReplication(&#34;remote-rep&#34;, RemoteRepositoryReplicationArgs.builder()        
- *             .repoKey(providerTestDest.key())
- *             .cronExp(&#34;0 0 * * * ?&#34;)
- *             .enableEventReplication(true)
- *             .enabled(true)
- *             .syncDeletes(false)
- *             .syncProperties(true)
- *             .includePathPrefixPattern(&#34;/some-repo/&#34;)
- *             .excludePathPrefixPattern(&#34;/some-other-repo/&#34;)
- *             .checkBinaryExistenceInFilestore(false)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Push replication configs can be imported using their repo key, e.g.
- * 
- * ```sh
- *  $ pulumi import artifactory:index/remoteRepositoryReplication:RemoteRepositoryReplication foo-rep provider_test_source
- * ```
- * 
- */
 @ResourceType(type="artifactory:index/remoteRepositoryReplication:RemoteRepositoryReplication")
 public class RemoteRepositoryReplication extends com.pulumi.resources.CustomResource {
     /**
-     * Enabling the `check_binary_existence_in_filestore` flag requires an Enterprise Plus license. When true, enables distributed checksum storage. For more information, see [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
+     * Enabling the `check_binary_existence_in_filestore` flag requires an Enterprise Plus license. When true, enables
+     * distributed checksum storage. For more information, see [Optimizing Repository Replication with Checksum-Based
+     * Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
      * 
      */
     @Export(name="checkBinaryExistenceInFilestore", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> checkBinaryExistenceInFilestore;
 
     /**
-     * @return Enabling the `check_binary_existence_in_filestore` flag requires an Enterprise Plus license. When true, enables distributed checksum storage. For more information, see [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
+     * @return Enabling the `check_binary_existence_in_filestore` flag requires an Enterprise Plus license. When true, enables
+     * distributed checksum storage. For more information, see [Optimizing Repository Replication with Checksum-Based
+     * Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
      * 
      */
     public Output<Optional<Boolean>> checkBinaryExistenceInFilestore() {
         return Codegen.optional(this.checkBinaryExistenceInFilestore);
     }
     /**
-     * A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
+     * The Cron expression that determines when the next replication will be triggered.
      * 
      */
     @Export(name="cronExp", type=String.class, parameters={})
     private Output</* @Nullable */ String> cronExp;
 
     /**
-     * @return A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
+     * @return The Cron expression that determines when the next replication will be triggered.
      * 
      */
     public Output<Optional<String>> cronExp() {
         return Codegen.optional(this.cronExp);
     }
     /**
-     * When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. add, deleted or property change. Default value is `false`.
-     * com/confluence/display/JFROG/User+Profile#UserProfile-IdentityTokenidentitytoken).
+     * When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on
+     * artifact, e.g. add, deleted or property change. Default value is `false`.
      * 
      */
     @Export(name="enableEventReplication", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enableEventReplication;
 
     /**
-     * @return When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. add, deleted or property change. Default value is `false`.
-     * com/confluence/display/JFROG/User+Profile#UserProfile-IdentityTokenidentitytoken).
+     * @return When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on
+     * artifact, e.g. add, deleted or property change. Default value is `false`.
      * 
      */
     public Output<Optional<Boolean>> enableEventReplication() {
@@ -144,42 +80,46 @@ public class RemoteRepositoryReplication extends com.pulumi.resources.CustomReso
         return Codegen.optional(this.enabled);
     }
     /**
-     * List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**{@literal /}z/*`. By default, no artifacts are excluded.
+     * List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**{@literal /}z/*. By default no
+     * artifacts are excluded.
      * 
      */
     @Export(name="excludePathPrefixPattern", type=String.class, parameters={})
     private Output</* @Nullable */ String> excludePathPrefixPattern;
 
     /**
-     * @return List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**{@literal /}z/*`. By default, no artifacts are excluded.
+     * @return List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**{@literal /}z/*. By default no
+     * artifacts are excluded.
      * 
      */
     public Output<Optional<String>> excludePathPrefixPattern() {
         return Codegen.optional(this.excludePathPrefixPattern);
     }
     /**
-     * List of artifact patterns to include when evaluating artifact requests in the form of `x/y/**{@literal /}z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included `(**{@literal /}*)`.
+     * List of artifact patterns to include when evaluating artifact requests in the form of x/y/**{@literal /}z/*. When used, only
+     * artifacts matching one of the include patterns are served. By default, all artifacts are included (**{@literal /}*).
      * 
      */
     @Export(name="includePathPrefixPattern", type=String.class, parameters={})
     private Output</* @Nullable */ String> includePathPrefixPattern;
 
     /**
-     * @return List of artifact patterns to include when evaluating artifact requests in the form of `x/y/**{@literal /}z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included `(**{@literal /}*)`.
+     * @return List of artifact patterns to include when evaluating artifact requests in the form of x/y/**{@literal /}z/*. When used, only
+     * artifacts matching one of the include patterns are served. By default, all artifacts are included (**{@literal /}*).
      * 
      */
     public Output<Optional<String>> includePathPrefixPattern() {
         return Codegen.optional(this.includePathPrefixPattern);
     }
     /**
-     * Replication ID, the value is unknown until the resource is created. Can&#39;t be set or updated.
+     * Replication ID.
      * 
      */
     @Export(name="replicationKey", type=String.class, parameters={})
     private Output<String> replicationKey;
 
     /**
-     * @return Replication ID, the value is unknown until the resource is created. Can&#39;t be set or updated.
+     * @return Replication ID.
      * 
      */
     public Output<String> replicationKey() {
@@ -200,28 +140,32 @@ public class RemoteRepositoryReplication extends com.pulumi.resources.CustomReso
         return this.repoKey;
     }
     /**
-     * When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata). Note that enabling this option, will delete artifacts on the target that do not exist in the source repository. Default value is `false`.
+     * When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata). Note
+     * that enabling this option, will delete artifacts on the target that do not exist in the source repository. Default value
+     * is `false`.
      * 
      */
     @Export(name="syncDeletes", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> syncDeletes;
 
     /**
-     * @return When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata). Note that enabling this option, will delete artifacts on the target that do not exist in the source repository. Default value is `false`.
+     * @return When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata). Note
+     * that enabling this option, will delete artifacts on the target that do not exist in the source repository. Default value
+     * is `false`.
      * 
      */
     public Output<Optional<Boolean>> syncDeletes() {
         return Codegen.optional(this.syncDeletes);
     }
     /**
-     * When set, the task also synchronizes the properties of replicated artifacts. Default value is `true`.
+     * When set, the task also synchronizes the properties of replicated artifacts. Default value is `true`
      * 
      */
     @Export(name="syncProperties", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> syncProperties;
 
     /**
-     * @return When set, the task also synchronizes the properties of replicated artifacts. Default value is `true`.
+     * @return When set, the task also synchronizes the properties of replicated artifacts. Default value is `true`
      * 
      */
     public Output<Optional<Boolean>> syncProperties() {

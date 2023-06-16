@@ -11,50 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a remote Helm repository.
-// Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Kubernetes+Helm+Chart+Repositories).
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.NewRemoteHelmRepository(ctx, "helm-remote", &artifactory.RemoteHelmRepositoryArgs{
-//				ExternalDependenciesEnabled: pulumi.Bool(true),
-//				ExternalDependenciesPatterns: pulumi.StringArray{
-//					pulumi.String("**github.com**"),
-//				},
-//				HelmChartsBaseUrl: pulumi.String("https://foo.com"),
-//				Key:               pulumi.String("helm-remote-foo25"),
-//				Url:               pulumi.String("https://repo.chartcenter.io/"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Remote repositories can be imported using their name, e.g.
-//
-// ```sh
-//
-//	$ pulumi import artifactory:index/remoteHelmRepository:RemoteHelmRepository helm-remote helm-remote
-//
-// ```
 type RemoteHelmRepository struct {
 	pulumi.CustomResourceState
 
@@ -92,26 +48,23 @@ type RemoteHelmRepository struct {
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 	// artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrOutput `pulumi:"excludesPattern"`
-	// When set, external dependencies are rewritten. `External Dependency Rewrite` in the UI.
+	// When set, external dependencies are rewritten. External Dependency Rewrite in the UI.
 	ExternalDependenciesEnabled pulumi.BoolPtrOutput `pulumi:"externalDependenciesEnabled"`
-	// An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will
-	// follow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response.
-	// By default, this is set to `[**]` in the UI, which means that remote modules may be downloaded from any external VCS source.
-	// Due to SDKv2 limitations, we can't set the default value for the list.
-	// This value `[**]` must be assigned to the attribute manually, if user don't specify any other non-default values.
-	// We don't want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns
-	// `[**]` on update if HCL doesn't have the attribute set or the list is empty.
+	// An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download
+	// remote modules from, when presented with 'go-import' meta tags in the remote repository response.Default value in UI is
+	// empty. This attribute must be set together with `external_dependencies_enabled = true`
 	ExternalDependenciesPatterns pulumi.StringArrayOutput `pulumi:"externalDependenciesPatterns"`
 	// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
 	// communicate with this repository.
 	HardFail pulumi.BoolPtrOutput `pulumi:"hardFail"`
-	// No documentation is available. Hopefully you know what this means.
+	// Base URL for the translation of chart source URLs in the index.yaml of virtual repos. Artifactory will only translate
+	// URLs matching the index.yamls hostname or URLs starting with this base url.
 	HelmChartsBaseUrl pulumi.StringPtrOutput `pulumi:"helmChartsBaseUrl"`
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrOutput `pulumi:"includesPattern"`
-	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-	// contain spaces or special characters.
+	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+	// characters. It cannot begin with a number or contain spaces or special characters.
 	Key pulumi.StringOutput `pulumi:"key"`
 	// Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
 	// the 'Retrieval Cache Period'. Default value is 'true'.
@@ -258,26 +211,23 @@ type remoteHelmRepositoryState struct {
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 	// artifacts are excluded.
 	ExcludesPattern *string `pulumi:"excludesPattern"`
-	// When set, external dependencies are rewritten. `External Dependency Rewrite` in the UI.
+	// When set, external dependencies are rewritten. External Dependency Rewrite in the UI.
 	ExternalDependenciesEnabled *bool `pulumi:"externalDependenciesEnabled"`
-	// An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will
-	// follow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response.
-	// By default, this is set to `[**]` in the UI, which means that remote modules may be downloaded from any external VCS source.
-	// Due to SDKv2 limitations, we can't set the default value for the list.
-	// This value `[**]` must be assigned to the attribute manually, if user don't specify any other non-default values.
-	// We don't want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns
-	// `[**]` on update if HCL doesn't have the attribute set or the list is empty.
+	// An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download
+	// remote modules from, when presented with 'go-import' meta tags in the remote repository response.Default value in UI is
+	// empty. This attribute must be set together with `external_dependencies_enabled = true`
 	ExternalDependenciesPatterns []string `pulumi:"externalDependenciesPatterns"`
 	// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
 	// communicate with this repository.
 	HardFail *bool `pulumi:"hardFail"`
-	// No documentation is available. Hopefully you know what this means.
+	// Base URL for the translation of chart source URLs in the index.yaml of virtual repos. Artifactory will only translate
+	// URLs matching the index.yamls hostname or URLs starting with this base url.
 	HelmChartsBaseUrl *string `pulumi:"helmChartsBaseUrl"`
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
-	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-	// contain spaces or special characters.
+	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+	// characters. It cannot begin with a number or contain spaces or special characters.
 	Key *string `pulumi:"key"`
 	// Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
 	// the 'Retrieval Cache Period'. Default value is 'true'.
@@ -383,26 +333,23 @@ type RemoteHelmRepositoryState struct {
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 	// artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrInput
-	// When set, external dependencies are rewritten. `External Dependency Rewrite` in the UI.
+	// When set, external dependencies are rewritten. External Dependency Rewrite in the UI.
 	ExternalDependenciesEnabled pulumi.BoolPtrInput
-	// An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will
-	// follow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response.
-	// By default, this is set to `[**]` in the UI, which means that remote modules may be downloaded from any external VCS source.
-	// Due to SDKv2 limitations, we can't set the default value for the list.
-	// This value `[**]` must be assigned to the attribute manually, if user don't specify any other non-default values.
-	// We don't want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns
-	// `[**]` on update if HCL doesn't have the attribute set or the list is empty.
+	// An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download
+	// remote modules from, when presented with 'go-import' meta tags in the remote repository response.Default value in UI is
+	// empty. This attribute must be set together with `external_dependencies_enabled = true`
 	ExternalDependenciesPatterns pulumi.StringArrayInput
 	// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
 	// communicate with this repository.
 	HardFail pulumi.BoolPtrInput
-	// No documentation is available. Hopefully you know what this means.
+	// Base URL for the translation of chart source URLs in the index.yaml of virtual repos. Artifactory will only translate
+	// URLs matching the index.yamls hostname or URLs starting with this base url.
 	HelmChartsBaseUrl pulumi.StringPtrInput
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
-	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-	// contain spaces or special characters.
+	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+	// characters. It cannot begin with a number or contain spaces or special characters.
 	Key pulumi.StringPtrInput
 	// Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
 	// the 'Retrieval Cache Period'. Default value is 'true'.
@@ -512,26 +459,23 @@ type remoteHelmRepositoryArgs struct {
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 	// artifacts are excluded.
 	ExcludesPattern *string `pulumi:"excludesPattern"`
-	// When set, external dependencies are rewritten. `External Dependency Rewrite` in the UI.
+	// When set, external dependencies are rewritten. External Dependency Rewrite in the UI.
 	ExternalDependenciesEnabled *bool `pulumi:"externalDependenciesEnabled"`
-	// An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will
-	// follow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response.
-	// By default, this is set to `[**]` in the UI, which means that remote modules may be downloaded from any external VCS source.
-	// Due to SDKv2 limitations, we can't set the default value for the list.
-	// This value `[**]` must be assigned to the attribute manually, if user don't specify any other non-default values.
-	// We don't want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns
-	// `[**]` on update if HCL doesn't have the attribute set or the list is empty.
+	// An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download
+	// remote modules from, when presented with 'go-import' meta tags in the remote repository response.Default value in UI is
+	// empty. This attribute must be set together with `external_dependencies_enabled = true`
 	ExternalDependenciesPatterns []string `pulumi:"externalDependenciesPatterns"`
 	// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
 	// communicate with this repository.
 	HardFail *bool `pulumi:"hardFail"`
-	// No documentation is available. Hopefully you know what this means.
+	// Base URL for the translation of chart source URLs in the index.yaml of virtual repos. Artifactory will only translate
+	// URLs matching the index.yamls hostname or URLs starting with this base url.
 	HelmChartsBaseUrl *string `pulumi:"helmChartsBaseUrl"`
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
-	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-	// contain spaces or special characters.
+	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+	// characters. It cannot begin with a number or contain spaces or special characters.
 	Key string `pulumi:"key"`
 	// Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
 	// the 'Retrieval Cache Period'. Default value is 'true'.
@@ -637,26 +581,23 @@ type RemoteHelmRepositoryArgs struct {
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 	// artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrInput
-	// When set, external dependencies are rewritten. `External Dependency Rewrite` in the UI.
+	// When set, external dependencies are rewritten. External Dependency Rewrite in the UI.
 	ExternalDependenciesEnabled pulumi.BoolPtrInput
-	// An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will
-	// follow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response.
-	// By default, this is set to `[**]` in the UI, which means that remote modules may be downloaded from any external VCS source.
-	// Due to SDKv2 limitations, we can't set the default value for the list.
-	// This value `[**]` must be assigned to the attribute manually, if user don't specify any other non-default values.
-	// We don't want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns
-	// `[**]` on update if HCL doesn't have the attribute set or the list is empty.
+	// An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download
+	// remote modules from, when presented with 'go-import' meta tags in the remote repository response.Default value in UI is
+	// empty. This attribute must be set together with `external_dependencies_enabled = true`
 	ExternalDependenciesPatterns pulumi.StringArrayInput
 	// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
 	// communicate with this repository.
 	HardFail pulumi.BoolPtrInput
-	// No documentation is available. Hopefully you know what this means.
+	// Base URL for the translation of chart source URLs in the index.yaml of virtual repos. Artifactory will only translate
+	// URLs matching the index.yamls hostname or URLs starting with this base url.
 	HelmChartsBaseUrl pulumi.StringPtrInput
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
-	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-	// contain spaces or special characters.
+	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+	// characters. It cannot begin with a number or contain spaces or special characters.
 	Key pulumi.StringInput
 	// Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
 	// the 'Retrieval Cache Period'. Default value is 'true'.
@@ -885,18 +826,14 @@ func (o RemoteHelmRepositoryOutput) ExcludesPattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RemoteHelmRepository) pulumi.StringPtrOutput { return v.ExcludesPattern }).(pulumi.StringPtrOutput)
 }
 
-// When set, external dependencies are rewritten. `External Dependency Rewrite` in the UI.
+// When set, external dependencies are rewritten. External Dependency Rewrite in the UI.
 func (o RemoteHelmRepositoryOutput) ExternalDependenciesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteHelmRepository) pulumi.BoolPtrOutput { return v.ExternalDependenciesEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will
-// follow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response.
-// By default, this is set to `[**]` in the UI, which means that remote modules may be downloaded from any external VCS source.
-// Due to SDKv2 limitations, we can't set the default value for the list.
-// This value `[**]` must be assigned to the attribute manually, if user don't specify any other non-default values.
-// We don't want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns
-// `[**]` on update if HCL doesn't have the attribute set or the list is empty.
+// An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download
+// remote modules from, when presented with 'go-import' meta tags in the remote repository response.Default value in UI is
+// empty. This attribute must be set together with `external_dependencies_enabled = true`
 func (o RemoteHelmRepositoryOutput) ExternalDependenciesPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RemoteHelmRepository) pulumi.StringArrayOutput { return v.ExternalDependenciesPatterns }).(pulumi.StringArrayOutput)
 }
@@ -907,7 +844,8 @@ func (o RemoteHelmRepositoryOutput) HardFail() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteHelmRepository) pulumi.BoolPtrOutput { return v.HardFail }).(pulumi.BoolPtrOutput)
 }
 
-// No documentation is available. Hopefully you know what this means.
+// Base URL for the translation of chart source URLs in the index.yaml of virtual repos. Artifactory will only translate
+// URLs matching the index.yamls hostname or URLs starting with this base url.
 func (o RemoteHelmRepositoryOutput) HelmChartsBaseUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RemoteHelmRepository) pulumi.StringPtrOutput { return v.HelmChartsBaseUrl }).(pulumi.StringPtrOutput)
 }
@@ -918,8 +856,8 @@ func (o RemoteHelmRepositoryOutput) IncludesPattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RemoteHelmRepository) pulumi.StringPtrOutput { return v.IncludesPattern }).(pulumi.StringPtrOutput)
 }
 
-// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-// contain spaces or special characters.
+// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+// characters. It cannot begin with a number or contain spaces or special characters.
 func (o RemoteHelmRepositoryOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v *RemoteHelmRepository) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
 }

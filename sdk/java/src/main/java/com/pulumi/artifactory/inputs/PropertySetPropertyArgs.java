@@ -18,62 +18,30 @@ public final class PropertySetPropertyArgs extends com.pulumi.resources.Resource
 
     public static final PropertySetPropertyArgs Empty = new PropertySetPropertyArgs();
 
-    /**
-     * Disables `multiple_choice` if set to `false` at the same time with multiple_choice set to `true`. Default value is `false`
-     * 
-     */
     @Import(name="closedPredefinedValues")
     private @Nullable Output<Boolean> closedPredefinedValues;
 
-    /**
-     * @return Disables `multiple_choice` if set to `false` at the same time with multiple_choice set to `true`. Default value is `false`
-     * 
-     */
     public Optional<Output<Boolean>> closedPredefinedValues() {
         return Optional.ofNullable(this.closedPredefinedValues);
     }
 
-    /**
-     * Defines if user can select multiple values. `closed_predefined_values` should be set to `true`. Default value is `false`.
-     * 
-     */
     @Import(name="multipleChoice")
     private @Nullable Output<Boolean> multipleChoice;
 
-    /**
-     * @return Defines if user can select multiple values. `closed_predefined_values` should be set to `true`. Default value is `false`.
-     * 
-     */
     public Optional<Output<Boolean>> multipleChoice() {
         return Optional.ofNullable(this.multipleChoice);
     }
 
-    /**
-     * Predefined property name.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return Predefined property name.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
 
-    /**
-     * Properties in the property set.
-     * 
-     */
     @Import(name="predefinedValues", required=true)
     private Output<List<PropertySetPropertyPredefinedValueArgs>> predefinedValues;
 
-    /**
-     * @return Properties in the property set.
-     * 
-     */
     public Output<List<PropertySetPropertyPredefinedValueArgs>> predefinedValues() {
         return this.predefinedValues;
     }
@@ -105,96 +73,42 @@ public final class PropertySetPropertyArgs extends com.pulumi.resources.Resource
             $ = new PropertySetPropertyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param closedPredefinedValues Disables `multiple_choice` if set to `false` at the same time with multiple_choice set to `true`. Default value is `false`
-         * 
-         * @return builder
-         * 
-         */
         public Builder closedPredefinedValues(@Nullable Output<Boolean> closedPredefinedValues) {
             $.closedPredefinedValues = closedPredefinedValues;
             return this;
         }
 
-        /**
-         * @param closedPredefinedValues Disables `multiple_choice` if set to `false` at the same time with multiple_choice set to `true`. Default value is `false`
-         * 
-         * @return builder
-         * 
-         */
         public Builder closedPredefinedValues(Boolean closedPredefinedValues) {
             return closedPredefinedValues(Output.of(closedPredefinedValues));
         }
 
-        /**
-         * @param multipleChoice Defines if user can select multiple values. `closed_predefined_values` should be set to `true`. Default value is `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder multipleChoice(@Nullable Output<Boolean> multipleChoice) {
             $.multipleChoice = multipleChoice;
             return this;
         }
 
-        /**
-         * @param multipleChoice Defines if user can select multiple values. `closed_predefined_values` should be set to `true`. Default value is `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder multipleChoice(Boolean multipleChoice) {
             return multipleChoice(Output.of(multipleChoice));
         }
 
-        /**
-         * @param name Predefined property name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Predefined property name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param predefinedValues Properties in the property set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder predefinedValues(Output<List<PropertySetPropertyPredefinedValueArgs>> predefinedValues) {
             $.predefinedValues = predefinedValues;
             return this;
         }
 
-        /**
-         * @param predefinedValues Properties in the property set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder predefinedValues(List<PropertySetPropertyPredefinedValueArgs> predefinedValues) {
             return predefinedValues(Output.of(predefinedValues));
         }
 
-        /**
-         * @param predefinedValues Properties in the property set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder predefinedValues(PropertySetPropertyPredefinedValueArgs... predefinedValues) {
             return predefinedValues(List.of(predefinedValues));
         }

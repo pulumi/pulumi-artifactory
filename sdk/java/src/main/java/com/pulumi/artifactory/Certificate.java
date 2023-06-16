@@ -15,82 +15,17 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an Artifactory certificate resource. This can be used to create and manage Artifactory certificates which can be used as client authentication against remote repositories.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.artifactory.Certificate;
- * import com.pulumi.artifactory.CertificateArgs;
- * import com.pulumi.artifactory.RemoteMavenRepository;
- * import com.pulumi.artifactory.RemoteMavenRepositoryArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var my_cert = new Certificate(&#34;my-cert&#34;, CertificateArgs.builder()        
- *             .alias(&#34;my-cert&#34;)
- *             .content(Files.readString(Paths.get(&#34;/path/to/bundle.pem&#34;)))
- *             .build());
- * 
- *         var my_remote = new RemoteMavenRepository(&#34;my-remote&#34;, RemoteMavenRepositoryArgs.builder()        
- *             .clientTlsCertificate(my_cert.alias())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Certificates can be imported using their alias, e.g.
- * 
- * ```sh
- *  $ pulumi import artifactory:index/certificate:Certificate my-cert my-cert
- * ```
- * 
- */
 @ResourceType(type="artifactory:index/certificate:Certificate")
 public class Certificate extends com.pulumi.resources.CustomResource {
-    /**
-     * Name of certificate.
-     * 
-     */
     @Export(name="alias", type=String.class, parameters={})
     private Output<String> alias;
 
-    /**
-     * @return Name of certificate.
-     * 
-     */
     public Output<String> alias() {
         return this.alias;
     }
-    /**
-     * PEM-encoded client certificate and private key.
-     * 
-     */
     @Export(name="content", type=String.class, parameters={})
     private Output</* @Nullable */ String> content;
 
-    /**
-     * @return PEM-encoded client certificate and private key.
-     * 
-     */
     public Output<Optional<String>> content() {
         return Codegen.optional(this.content);
     }
@@ -100,73 +35,33 @@ public class Certificate extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> file() {
         return Codegen.optional(this.file);
     }
-    /**
-     * SHA256 fingerprint of the certificate.
-     * 
-     */
     @Export(name="fingerprint", type=String.class, parameters={})
     private Output<String> fingerprint;
 
-    /**
-     * @return SHA256 fingerprint of the certificate.
-     * 
-     */
     public Output<String> fingerprint() {
         return this.fingerprint;
     }
-    /**
-     * Name of the certificate authority that issued the certificate.
-     * 
-     */
     @Export(name="issuedBy", type=String.class, parameters={})
     private Output<String> issuedBy;
 
-    /**
-     * @return Name of the certificate authority that issued the certificate.
-     * 
-     */
     public Output<String> issuedBy() {
         return this.issuedBy;
     }
-    /**
-     * The time &amp; date when the certificate is valid from.
-     * 
-     */
     @Export(name="issuedOn", type=String.class, parameters={})
     private Output<String> issuedOn;
 
-    /**
-     * @return The time &amp; date when the certificate is valid from.
-     * 
-     */
     public Output<String> issuedOn() {
         return this.issuedOn;
     }
-    /**
-     * Name of whom the certificate has been issued to.
-     * 
-     */
     @Export(name="issuedTo", type=String.class, parameters={})
     private Output<String> issuedTo;
 
-    /**
-     * @return Name of whom the certificate has been issued to.
-     * 
-     */
     public Output<String> issuedTo() {
         return this.issuedTo;
     }
-    /**
-     * The time &amp; date when the certificate expires.
-     * 
-     */
     @Export(name="validUntil", type=String.class, parameters={})
     private Output<String> validUntil;
 
-    /**
-     * @return The time &amp; date when the certificate expires.
-     * 
-     */
     public Output<String> validUntil() {
         return this.validUntil;
     }

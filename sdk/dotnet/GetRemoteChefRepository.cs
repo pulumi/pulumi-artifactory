@@ -11,59 +11,9 @@ namespace Pulumi.Artifactory
 {
     public static class GetRemoteChefRepository
     {
-        /// <summary>
-        /// Retrieves a remote Chef repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var remote_chef = Artifactory.GetRemoteChefRepository.Invoke(new()
-        ///     {
-        ///         Key = "remote-chef",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetRemoteChefRepositoryResult> InvokeAsync(GetRemoteChefRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRemoteChefRepositoryResult>("artifactory:index/getRemoteChefRepository:getRemoteChefRepository", args ?? new GetRemoteChefRepositoryArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Retrieves a remote Chef repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var remote_chef = Artifactory.GetRemoteChefRepository.Invoke(new()
-        ///     {
-        ///         Key = "remote-chef",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Output<GetRemoteChefRepositoryResult> Invoke(GetRemoteChefRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRemoteChefRepositoryResult>("artifactory:index/getRemoteChefRepository:getRemoteChefRepository", args ?? new GetRemoteChefRepositoryInvokeArgs(), options.WithDefaults());
     }
@@ -113,9 +63,6 @@ namespace Pulumi.Artifactory
         [Input("includesPattern")]
         public string? IncludesPattern { get; set; }
 
-        /// <summary>
-        /// the identity key of the repo.
-        /// </summary>
         [Input("key", required: true)]
         public string Key { get; set; } = null!;
 
@@ -259,9 +206,6 @@ namespace Pulumi.Artifactory
         [Input("includesPattern")]
         public Input<string>? IncludesPattern { get; set; }
 
-        /// <summary>
-        /// the identity key of the repo.
-        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 

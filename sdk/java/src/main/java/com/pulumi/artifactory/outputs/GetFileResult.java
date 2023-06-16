@@ -13,20 +13,8 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetFileResult {
-    /**
-     * @return The time &amp; date when the file was created.
-     * 
-     */
     private String created;
-    /**
-     * @return The user who created the file.
-     * 
-     */
     private String createdBy;
-    /**
-     * @return The URI that can be used to download the file.
-     * 
-     */
     private String downloadUri;
     private @Nullable Boolean forceOverwrite;
     /**
@@ -34,70 +22,26 @@ public final class GetFileResult {
      * 
      */
     private String id;
-    /**
-     * @return The time &amp; date when the file was last modified.
-     * 
-     */
     private String lastModified;
-    /**
-     * @return The time &amp; date when the file was last updated.
-     * 
-     */
     private String lastUpdated;
-    /**
-     * @return MD5 checksum of the file.
-     * 
-     */
     private String md5;
-    /**
-     * @return The mimetype of the file.
-     * 
-     */
     private String mimetype;
-    /**
-     * @return The user who last modified the file.
-     * 
-     */
     private String modifiedBy;
     private String outputPath;
     private String path;
     private @Nullable Boolean pathIsAliased;
     private String repository;
-    /**
-     * @return SHA1 checksum of the file.
-     * 
-     */
     private String sha1;
-    /**
-     * @return SHA256 checksum of the file.
-     * 
-     */
     private String sha256;
-    /**
-     * @return The size of the file.
-     * 
-     */
     private Integer size;
 
     private GetFileResult() {}
-    /**
-     * @return The time &amp; date when the file was created.
-     * 
-     */
     public String created() {
         return this.created;
     }
-    /**
-     * @return The user who created the file.
-     * 
-     */
     public String createdBy() {
         return this.createdBy;
     }
-    /**
-     * @return The URI that can be used to download the file.
-     * 
-     */
     public String downloadUri() {
         return this.downloadUri;
     }
@@ -111,38 +55,18 @@ public final class GetFileResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return The time &amp; date when the file was last modified.
-     * 
-     */
     public String lastModified() {
         return this.lastModified;
     }
-    /**
-     * @return The time &amp; date when the file was last updated.
-     * 
-     */
     public String lastUpdated() {
         return this.lastUpdated;
     }
-    /**
-     * @return MD5 checksum of the file.
-     * 
-     */
     public String md5() {
         return this.md5;
     }
-    /**
-     * @return The mimetype of the file.
-     * 
-     */
     public String mimetype() {
         return this.mimetype;
     }
-    /**
-     * @return The user who last modified the file.
-     * 
-     */
     public String modifiedBy() {
         return this.modifiedBy;
     }
@@ -158,24 +82,12 @@ public final class GetFileResult {
     public String repository() {
         return this.repository;
     }
-    /**
-     * @return SHA1 checksum of the file.
-     * 
-     */
     public String sha1() {
         return this.sha1;
     }
-    /**
-     * @return SHA256 checksum of the file.
-     * 
-     */
     public String sha256() {
         return this.sha256;
     }
-    /**
-     * @return The size of the file.
-     * 
-     */
     public Integer size() {
         return this.size;
     }

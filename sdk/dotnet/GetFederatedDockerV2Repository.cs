@@ -11,59 +11,9 @@ namespace Pulumi.Artifactory
 {
     public static class GetFederatedDockerV2Repository
     {
-        /// <summary>
-        /// Retrieves a federated Docker repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var federated_test_docker_repo = Artifactory.GetFederatedDockerV2Repository.Invoke(new()
-        ///     {
-        ///         Key = "federated-test-docker-repo",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetFederatedDockerV2RepositoryResult> InvokeAsync(GetFederatedDockerV2RepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFederatedDockerV2RepositoryResult>("artifactory:index/getFederatedDockerV2Repository:getFederatedDockerV2Repository", args ?? new GetFederatedDockerV2RepositoryArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Retrieves a federated Docker repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var federated_test_docker_repo = Artifactory.GetFederatedDockerV2Repository.Invoke(new()
-        ///     {
-        ///         Key = "federated-test-docker-repo",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Output<GetFederatedDockerV2RepositoryResult> Invoke(GetFederatedDockerV2RepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFederatedDockerV2RepositoryResult>("artifactory:index/getFederatedDockerV2Repository:getFederatedDockerV2Repository", args ?? new GetFederatedDockerV2RepositoryInvokeArgs(), options.WithDefaults());
     }
@@ -98,9 +48,6 @@ namespace Pulumi.Artifactory
         [Input("includesPattern")]
         public string? IncludesPattern { get; set; }
 
-        /// <summary>
-        /// the identity key of the repo.
-        /// </summary>
         [Input("key", required: true)]
         public string Key { get; set; } = null!;
 
@@ -109,13 +56,6 @@ namespace Pulumi.Artifactory
 
         [Input("members")]
         private List<Inputs.GetFederatedDockerV2RepositoryMemberArgs>? _members;
-
-        /// <summary>
-        /// The list of Federated members and must contain this repository URL (configured base URL
-        /// `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
-        /// Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
-        /// to set up Federated repositories correctly.
-        /// </summary>
         public List<Inputs.GetFederatedDockerV2RepositoryMemberArgs> Members
         {
             get => _members ?? (_members = new List<Inputs.GetFederatedDockerV2RepositoryMemberArgs>());
@@ -191,9 +131,6 @@ namespace Pulumi.Artifactory
         [Input("includesPattern")]
         public Input<string>? IncludesPattern { get; set; }
 
-        /// <summary>
-        /// the identity key of the repo.
-        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
@@ -202,13 +139,6 @@ namespace Pulumi.Artifactory
 
         [Input("members")]
         private InputList<Inputs.GetFederatedDockerV2RepositoryMemberInputArgs>? _members;
-
-        /// <summary>
-        /// The list of Federated members and must contain this repository URL (configured base URL
-        /// `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
-        /// Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
-        /// to set up Federated repositories correctly.
-        /// </summary>
         public InputList<Inputs.GetFederatedDockerV2RepositoryMemberInputArgs> Members
         {
             get => _members ?? (_members = new InputList<Inputs.GetFederatedDockerV2RepositoryMemberInputArgs>());
@@ -275,12 +205,6 @@ namespace Pulumi.Artifactory
         public readonly string IncludesPattern;
         public readonly string Key;
         public readonly int? MaxUniqueTags;
-        /// <summary>
-        /// The list of Federated members and must contain this repository URL (configured base URL
-        /// `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
-        /// Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
-        /// to set up Federated repositories correctly.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetFederatedDockerV2RepositoryMemberResult> Members;
         public readonly string? Notes;
         public readonly string PackageType;

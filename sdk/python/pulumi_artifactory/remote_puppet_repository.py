@@ -58,8 +58,8 @@ class RemotePuppetRepositoryArgs:
                  xray_index: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a RemotePuppetRepository resource.
-        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-               contain spaces or special characters.
+        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+               characters. It cannot begin with a number or contain spaces or special characters.
         :param pulumi.Input[str] url: The remote repo URL.
         :param pulumi.Input[bool] allow_any_host_auth: 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any
                other host.
@@ -211,8 +211,8 @@ class RemotePuppetRepositoryArgs:
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
         """
-        A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-        contain spaces or special characters.
+        A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+        characters. It cannot begin with a number or contain spaces or special characters.
         """
         return pulumi.get(self, "key")
 
@@ -781,8 +781,8 @@ class _RemotePuppetRepositoryState:
                communicate with this repository.
         :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
                used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-               contain spaces or special characters.
+        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+               characters. It cannot begin with a number or contain spaces or special characters.
         :param pulumi.Input[bool] list_remote_folder_items: Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
                the 'Retrieval Cache Period'. Default value is 'true'.
         :param pulumi.Input[str] local_address: The local address to be used when creating connections. Useful for specifying the interface to use on systems with
@@ -1090,8 +1090,8 @@ class _RemotePuppetRepositoryState:
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
         """
-        A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-        contain spaces or special characters.
+        A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+        characters. It cannot begin with a number or contain spaces or special characters.
         """
         return pulumi.get(self, "key")
 
@@ -1466,28 +1466,7 @@ class RemotePuppetRepository(pulumi.CustomResource):
                  xray_index: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        Creates a remote Puppet repository.
-        Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Puppet+Repositories).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_artifactory as artifactory
-
-        my_remote_puppet = artifactory.RemotePuppetRepository("my-remote-puppet",
-            key="my-remote-puppet",
-            url="https://forgeapi.puppetlabs.com/")
-        ```
-
-        ## Import
-
-        Remote repositories can be imported using their name, e.g.
-
-        ```sh
-         $ pulumi import artifactory:index/remotePuppetRepository:RemotePuppetRepository my-remote-puppet my-remote-puppet
-        ```
-
+        Create a RemotePuppetRepository resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_any_host_auth: 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any
@@ -1516,8 +1495,8 @@ class RemotePuppetRepository(pulumi.CustomResource):
                communicate with this repository.
         :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
                used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-               contain spaces or special characters.
+        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+               characters. It cannot begin with a number or contain spaces or special characters.
         :param pulumi.Input[bool] list_remote_folder_items: Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
                the 'Retrieval Cache Period'. Default value is 'true'.
         :param pulumi.Input[str] local_address: The local address to be used when creating connections. Useful for specifying the interface to use on systems with
@@ -1567,28 +1546,7 @@ class RemotePuppetRepository(pulumi.CustomResource):
                  args: RemotePuppetRepositoryArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Creates a remote Puppet repository.
-        Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Puppet+Repositories).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_artifactory as artifactory
-
-        my_remote_puppet = artifactory.RemotePuppetRepository("my-remote-puppet",
-            key="my-remote-puppet",
-            url="https://forgeapi.puppetlabs.com/")
-        ```
-
-        ## Import
-
-        Remote repositories can be imported using their name, e.g.
-
-        ```sh
-         $ pulumi import artifactory:index/remotePuppetRepository:RemotePuppetRepository my-remote-puppet my-remote-puppet
-        ```
-
+        Create a RemotePuppetRepository resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param RemotePuppetRepositoryArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1784,8 +1742,8 @@ class RemotePuppetRepository(pulumi.CustomResource):
                communicate with this repository.
         :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
                used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-               contain spaces or special characters.
+        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+               characters. It cannot begin with a number or contain spaces or special characters.
         :param pulumi.Input[bool] list_remote_folder_items: Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
                the 'Retrieval Cache Period'. Default value is 'true'.
         :param pulumi.Input[str] local_address: The local address to be used when creating connections. Useful for specifying the interface to use on systems with
@@ -2001,8 +1959,8 @@ class RemotePuppetRepository(pulumi.CustomResource):
     @pulumi.getter
     def key(self) -> pulumi.Output[str]:
         """
-        A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-        contain spaces or special characters.
+        A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+        characters. It cannot begin with a number or contain spaces or special characters.
         """
         return pulumi.get(self, "key")
 

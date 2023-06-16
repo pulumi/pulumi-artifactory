@@ -10,33 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Retrieves a remote Cargo repository.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupRemoteCargoRepository(ctx, &artifactory.LookupRemoteCargoRepositoryArgs{
-//				Key: "remote-cargo",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupRemoteCargoRepository(ctx *pulumi.Context, args *LookupRemoteCargoRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupRemoteCargoRepositoryResult, error) {
 	var rv LookupRemoteCargoRepositoryResult
 	err := ctx.Invoke("artifactory:index/getRemoteCargoRepository:getRemoteCargoRepository", args, &rv, opts...)
@@ -48,59 +21,54 @@ func LookupRemoteCargoRepository(ctx *pulumi.Context, args *LookupRemoteCargoRep
 
 // A collection of arguments for invoking getRemoteCargoRepository.
 type LookupRemoteCargoRepositoryArgs struct {
-	AllowAnyHostAuth *bool `pulumi:"allowAnyHostAuth"`
-	// (Required) Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
-	AnonymousAccess           *bool                                           `pulumi:"anonymousAccess"`
-	AssumedOfflinePeriodSecs  *int                                            `pulumi:"assumedOfflinePeriodSecs"`
-	BlackedOut                *bool                                           `pulumi:"blackedOut"`
-	BlockMismatchingMimeTypes *bool                                           `pulumi:"blockMismatchingMimeTypes"`
-	BypassHeadRequests        *bool                                           `pulumi:"bypassHeadRequests"`
-	CdnRedirect               *bool                                           `pulumi:"cdnRedirect"`
-	ClientTlsCertificate      *string                                         `pulumi:"clientTlsCertificate"`
-	ContentSynchronisation    *GetRemoteCargoRepositoryContentSynchronisation `pulumi:"contentSynchronisation"`
-	Description               *string                                         `pulumi:"description"`
-	DownloadDirect            *bool                                           `pulumi:"downloadDirect"`
-	EnableCookieManagement    *bool                                           `pulumi:"enableCookieManagement"`
-	// (Optional) Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
-	EnableSparseIndex *bool   `pulumi:"enableSparseIndex"`
-	ExcludesPattern   *string `pulumi:"excludesPattern"`
-	// (Optional) This is the index url, expected to be a git repository. Default value is `https://github.com/rust-lang/crates.io-index`.
-	GitRegistryUrl  *string `pulumi:"gitRegistryUrl"`
-	HardFail        *bool   `pulumi:"hardFail"`
-	IncludesPattern *string `pulumi:"includesPattern"`
-	// the identity key of the repo.
-	Key                               string   `pulumi:"key"`
-	ListRemoteFolderItems             *bool    `pulumi:"listRemoteFolderItems"`
-	LocalAddress                      *string  `pulumi:"localAddress"`
-	MetadataRetrievalTimeoutSecs      *int     `pulumi:"metadataRetrievalTimeoutSecs"`
-	MismatchingMimeTypesOverrideList  *string  `pulumi:"mismatchingMimeTypesOverrideList"`
-	MissedCachePeriodSeconds          *int     `pulumi:"missedCachePeriodSeconds"`
-	Notes                             *string  `pulumi:"notes"`
-	Offline                           *bool    `pulumi:"offline"`
-	Password                          *string  `pulumi:"password"`
-	PriorityResolution                *bool    `pulumi:"priorityResolution"`
-	ProjectEnvironments               []string `pulumi:"projectEnvironments"`
-	ProjectKey                        *string  `pulumi:"projectKey"`
-	PropertySets                      []string `pulumi:"propertySets"`
-	Proxy                             *string  `pulumi:"proxy"`
-	QueryParams                       *string  `pulumi:"queryParams"`
-	RemoteRepoLayoutRef               *string  `pulumi:"remoteRepoLayoutRef"`
-	RepoLayoutRef                     *string  `pulumi:"repoLayoutRef"`
-	RetrievalCachePeriodSeconds       *int     `pulumi:"retrievalCachePeriodSeconds"`
-	ShareConfiguration                *bool    `pulumi:"shareConfiguration"`
-	SocketTimeoutMillis               *int     `pulumi:"socketTimeoutMillis"`
-	StoreArtifactsLocally             *bool    `pulumi:"storeArtifactsLocally"`
-	SynchronizeProperties             *bool    `pulumi:"synchronizeProperties"`
-	UnusedArtifactsCleanupPeriodHours *int     `pulumi:"unusedArtifactsCleanupPeriodHours"`
-	Url                               *string  `pulumi:"url"`
-	Username                          *string  `pulumi:"username"`
-	XrayIndex                         *bool    `pulumi:"xrayIndex"`
+	AllowAnyHostAuth                  *bool                                           `pulumi:"allowAnyHostAuth"`
+	AnonymousAccess                   *bool                                           `pulumi:"anonymousAccess"`
+	AssumedOfflinePeriodSecs          *int                                            `pulumi:"assumedOfflinePeriodSecs"`
+	BlackedOut                        *bool                                           `pulumi:"blackedOut"`
+	BlockMismatchingMimeTypes         *bool                                           `pulumi:"blockMismatchingMimeTypes"`
+	BypassHeadRequests                *bool                                           `pulumi:"bypassHeadRequests"`
+	CdnRedirect                       *bool                                           `pulumi:"cdnRedirect"`
+	ClientTlsCertificate              *string                                         `pulumi:"clientTlsCertificate"`
+	ContentSynchronisation            *GetRemoteCargoRepositoryContentSynchronisation `pulumi:"contentSynchronisation"`
+	Description                       *string                                         `pulumi:"description"`
+	DownloadDirect                    *bool                                           `pulumi:"downloadDirect"`
+	EnableCookieManagement            *bool                                           `pulumi:"enableCookieManagement"`
+	EnableSparseIndex                 *bool                                           `pulumi:"enableSparseIndex"`
+	ExcludesPattern                   *string                                         `pulumi:"excludesPattern"`
+	GitRegistryUrl                    *string                                         `pulumi:"gitRegistryUrl"`
+	HardFail                          *bool                                           `pulumi:"hardFail"`
+	IncludesPattern                   *string                                         `pulumi:"includesPattern"`
+	Key                               string                                          `pulumi:"key"`
+	ListRemoteFolderItems             *bool                                           `pulumi:"listRemoteFolderItems"`
+	LocalAddress                      *string                                         `pulumi:"localAddress"`
+	MetadataRetrievalTimeoutSecs      *int                                            `pulumi:"metadataRetrievalTimeoutSecs"`
+	MismatchingMimeTypesOverrideList  *string                                         `pulumi:"mismatchingMimeTypesOverrideList"`
+	MissedCachePeriodSeconds          *int                                            `pulumi:"missedCachePeriodSeconds"`
+	Notes                             *string                                         `pulumi:"notes"`
+	Offline                           *bool                                           `pulumi:"offline"`
+	Password                          *string                                         `pulumi:"password"`
+	PriorityResolution                *bool                                           `pulumi:"priorityResolution"`
+	ProjectEnvironments               []string                                        `pulumi:"projectEnvironments"`
+	ProjectKey                        *string                                         `pulumi:"projectKey"`
+	PropertySets                      []string                                        `pulumi:"propertySets"`
+	Proxy                             *string                                         `pulumi:"proxy"`
+	QueryParams                       *string                                         `pulumi:"queryParams"`
+	RemoteRepoLayoutRef               *string                                         `pulumi:"remoteRepoLayoutRef"`
+	RepoLayoutRef                     *string                                         `pulumi:"repoLayoutRef"`
+	RetrievalCachePeriodSeconds       *int                                            `pulumi:"retrievalCachePeriodSeconds"`
+	ShareConfiguration                *bool                                           `pulumi:"shareConfiguration"`
+	SocketTimeoutMillis               *int                                            `pulumi:"socketTimeoutMillis"`
+	StoreArtifactsLocally             *bool                                           `pulumi:"storeArtifactsLocally"`
+	SynchronizeProperties             *bool                                           `pulumi:"synchronizeProperties"`
+	UnusedArtifactsCleanupPeriodHours *int                                            `pulumi:"unusedArtifactsCleanupPeriodHours"`
+	Url                               *string                                         `pulumi:"url"`
+	Username                          *string                                         `pulumi:"username"`
+	XrayIndex                         *bool                                           `pulumi:"xrayIndex"`
 }
 
 // A collection of values returned by getRemoteCargoRepository.
 type LookupRemoteCargoRepositoryResult struct {
-	AllowAnyHostAuth *bool `pulumi:"allowAnyHostAuth"`
-	// (Required) Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
+	AllowAnyHostAuth          *bool                                          `pulumi:"allowAnyHostAuth"`
 	AnonymousAccess           *bool                                          `pulumi:"anonymousAccess"`
 	AssumedOfflinePeriodSecs  *int                                           `pulumi:"assumedOfflinePeriodSecs"`
 	BlackedOut                *bool                                          `pulumi:"blackedOut"`
@@ -112,12 +80,10 @@ type LookupRemoteCargoRepositoryResult struct {
 	Description               *string                                        `pulumi:"description"`
 	DownloadDirect            *bool                                          `pulumi:"downloadDirect"`
 	EnableCookieManagement    *bool                                          `pulumi:"enableCookieManagement"`
-	// (Optional) Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
-	EnableSparseIndex *bool   `pulumi:"enableSparseIndex"`
-	ExcludesPattern   *string `pulumi:"excludesPattern"`
-	// (Optional) This is the index url, expected to be a git repository. Default value is `https://github.com/rust-lang/crates.io-index`.
-	GitRegistryUrl *string `pulumi:"gitRegistryUrl"`
-	HardFail       *bool   `pulumi:"hardFail"`
+	EnableSparseIndex         *bool                                          `pulumi:"enableSparseIndex"`
+	ExcludesPattern           *string                                        `pulumi:"excludesPattern"`
+	GitRegistryUrl            *string                                        `pulumi:"gitRegistryUrl"`
+	HardFail                  *bool                                          `pulumi:"hardFail"`
 	// The provider-assigned unique ID for this managed resource.
 	Id                                string   `pulumi:"id"`
 	IncludesPattern                   *string  `pulumi:"includesPattern"`
@@ -165,53 +131,49 @@ func LookupRemoteCargoRepositoryOutput(ctx *pulumi.Context, args LookupRemoteCar
 
 // A collection of arguments for invoking getRemoteCargoRepository.
 type LookupRemoteCargoRepositoryOutputArgs struct {
-	AllowAnyHostAuth pulumi.BoolPtrInput `pulumi:"allowAnyHostAuth"`
-	// (Required) Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
-	AnonymousAccess           pulumi.BoolPtrInput                                    `pulumi:"anonymousAccess"`
-	AssumedOfflinePeriodSecs  pulumi.IntPtrInput                                     `pulumi:"assumedOfflinePeriodSecs"`
-	BlackedOut                pulumi.BoolPtrInput                                    `pulumi:"blackedOut"`
-	BlockMismatchingMimeTypes pulumi.BoolPtrInput                                    `pulumi:"blockMismatchingMimeTypes"`
-	BypassHeadRequests        pulumi.BoolPtrInput                                    `pulumi:"bypassHeadRequests"`
-	CdnRedirect               pulumi.BoolPtrInput                                    `pulumi:"cdnRedirect"`
-	ClientTlsCertificate      pulumi.StringPtrInput                                  `pulumi:"clientTlsCertificate"`
-	ContentSynchronisation    GetRemoteCargoRepositoryContentSynchronisationPtrInput `pulumi:"contentSynchronisation"`
-	Description               pulumi.StringPtrInput                                  `pulumi:"description"`
-	DownloadDirect            pulumi.BoolPtrInput                                    `pulumi:"downloadDirect"`
-	EnableCookieManagement    pulumi.BoolPtrInput                                    `pulumi:"enableCookieManagement"`
-	// (Optional) Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
-	EnableSparseIndex pulumi.BoolPtrInput   `pulumi:"enableSparseIndex"`
-	ExcludesPattern   pulumi.StringPtrInput `pulumi:"excludesPattern"`
-	// (Optional) This is the index url, expected to be a git repository. Default value is `https://github.com/rust-lang/crates.io-index`.
-	GitRegistryUrl  pulumi.StringPtrInput `pulumi:"gitRegistryUrl"`
-	HardFail        pulumi.BoolPtrInput   `pulumi:"hardFail"`
-	IncludesPattern pulumi.StringPtrInput `pulumi:"includesPattern"`
-	// the identity key of the repo.
-	Key                               pulumi.StringInput      `pulumi:"key"`
-	ListRemoteFolderItems             pulumi.BoolPtrInput     `pulumi:"listRemoteFolderItems"`
-	LocalAddress                      pulumi.StringPtrInput   `pulumi:"localAddress"`
-	MetadataRetrievalTimeoutSecs      pulumi.IntPtrInput      `pulumi:"metadataRetrievalTimeoutSecs"`
-	MismatchingMimeTypesOverrideList  pulumi.StringPtrInput   `pulumi:"mismatchingMimeTypesOverrideList"`
-	MissedCachePeriodSeconds          pulumi.IntPtrInput      `pulumi:"missedCachePeriodSeconds"`
-	Notes                             pulumi.StringPtrInput   `pulumi:"notes"`
-	Offline                           pulumi.BoolPtrInput     `pulumi:"offline"`
-	Password                          pulumi.StringPtrInput   `pulumi:"password"`
-	PriorityResolution                pulumi.BoolPtrInput     `pulumi:"priorityResolution"`
-	ProjectEnvironments               pulumi.StringArrayInput `pulumi:"projectEnvironments"`
-	ProjectKey                        pulumi.StringPtrInput   `pulumi:"projectKey"`
-	PropertySets                      pulumi.StringArrayInput `pulumi:"propertySets"`
-	Proxy                             pulumi.StringPtrInput   `pulumi:"proxy"`
-	QueryParams                       pulumi.StringPtrInput   `pulumi:"queryParams"`
-	RemoteRepoLayoutRef               pulumi.StringPtrInput   `pulumi:"remoteRepoLayoutRef"`
-	RepoLayoutRef                     pulumi.StringPtrInput   `pulumi:"repoLayoutRef"`
-	RetrievalCachePeriodSeconds       pulumi.IntPtrInput      `pulumi:"retrievalCachePeriodSeconds"`
-	ShareConfiguration                pulumi.BoolPtrInput     `pulumi:"shareConfiguration"`
-	SocketTimeoutMillis               pulumi.IntPtrInput      `pulumi:"socketTimeoutMillis"`
-	StoreArtifactsLocally             pulumi.BoolPtrInput     `pulumi:"storeArtifactsLocally"`
-	SynchronizeProperties             pulumi.BoolPtrInput     `pulumi:"synchronizeProperties"`
-	UnusedArtifactsCleanupPeriodHours pulumi.IntPtrInput      `pulumi:"unusedArtifactsCleanupPeriodHours"`
-	Url                               pulumi.StringPtrInput   `pulumi:"url"`
-	Username                          pulumi.StringPtrInput   `pulumi:"username"`
-	XrayIndex                         pulumi.BoolPtrInput     `pulumi:"xrayIndex"`
+	AllowAnyHostAuth                  pulumi.BoolPtrInput                                    `pulumi:"allowAnyHostAuth"`
+	AnonymousAccess                   pulumi.BoolPtrInput                                    `pulumi:"anonymousAccess"`
+	AssumedOfflinePeriodSecs          pulumi.IntPtrInput                                     `pulumi:"assumedOfflinePeriodSecs"`
+	BlackedOut                        pulumi.BoolPtrInput                                    `pulumi:"blackedOut"`
+	BlockMismatchingMimeTypes         pulumi.BoolPtrInput                                    `pulumi:"blockMismatchingMimeTypes"`
+	BypassHeadRequests                pulumi.BoolPtrInput                                    `pulumi:"bypassHeadRequests"`
+	CdnRedirect                       pulumi.BoolPtrInput                                    `pulumi:"cdnRedirect"`
+	ClientTlsCertificate              pulumi.StringPtrInput                                  `pulumi:"clientTlsCertificate"`
+	ContentSynchronisation            GetRemoteCargoRepositoryContentSynchronisationPtrInput `pulumi:"contentSynchronisation"`
+	Description                       pulumi.StringPtrInput                                  `pulumi:"description"`
+	DownloadDirect                    pulumi.BoolPtrInput                                    `pulumi:"downloadDirect"`
+	EnableCookieManagement            pulumi.BoolPtrInput                                    `pulumi:"enableCookieManagement"`
+	EnableSparseIndex                 pulumi.BoolPtrInput                                    `pulumi:"enableSparseIndex"`
+	ExcludesPattern                   pulumi.StringPtrInput                                  `pulumi:"excludesPattern"`
+	GitRegistryUrl                    pulumi.StringPtrInput                                  `pulumi:"gitRegistryUrl"`
+	HardFail                          pulumi.BoolPtrInput                                    `pulumi:"hardFail"`
+	IncludesPattern                   pulumi.StringPtrInput                                  `pulumi:"includesPattern"`
+	Key                               pulumi.StringInput                                     `pulumi:"key"`
+	ListRemoteFolderItems             pulumi.BoolPtrInput                                    `pulumi:"listRemoteFolderItems"`
+	LocalAddress                      pulumi.StringPtrInput                                  `pulumi:"localAddress"`
+	MetadataRetrievalTimeoutSecs      pulumi.IntPtrInput                                     `pulumi:"metadataRetrievalTimeoutSecs"`
+	MismatchingMimeTypesOverrideList  pulumi.StringPtrInput                                  `pulumi:"mismatchingMimeTypesOverrideList"`
+	MissedCachePeriodSeconds          pulumi.IntPtrInput                                     `pulumi:"missedCachePeriodSeconds"`
+	Notes                             pulumi.StringPtrInput                                  `pulumi:"notes"`
+	Offline                           pulumi.BoolPtrInput                                    `pulumi:"offline"`
+	Password                          pulumi.StringPtrInput                                  `pulumi:"password"`
+	PriorityResolution                pulumi.BoolPtrInput                                    `pulumi:"priorityResolution"`
+	ProjectEnvironments               pulumi.StringArrayInput                                `pulumi:"projectEnvironments"`
+	ProjectKey                        pulumi.StringPtrInput                                  `pulumi:"projectKey"`
+	PropertySets                      pulumi.StringArrayInput                                `pulumi:"propertySets"`
+	Proxy                             pulumi.StringPtrInput                                  `pulumi:"proxy"`
+	QueryParams                       pulumi.StringPtrInput                                  `pulumi:"queryParams"`
+	RemoteRepoLayoutRef               pulumi.StringPtrInput                                  `pulumi:"remoteRepoLayoutRef"`
+	RepoLayoutRef                     pulumi.StringPtrInput                                  `pulumi:"repoLayoutRef"`
+	RetrievalCachePeriodSeconds       pulumi.IntPtrInput                                     `pulumi:"retrievalCachePeriodSeconds"`
+	ShareConfiguration                pulumi.BoolPtrInput                                    `pulumi:"shareConfiguration"`
+	SocketTimeoutMillis               pulumi.IntPtrInput                                     `pulumi:"socketTimeoutMillis"`
+	StoreArtifactsLocally             pulumi.BoolPtrInput                                    `pulumi:"storeArtifactsLocally"`
+	SynchronizeProperties             pulumi.BoolPtrInput                                    `pulumi:"synchronizeProperties"`
+	UnusedArtifactsCleanupPeriodHours pulumi.IntPtrInput                                     `pulumi:"unusedArtifactsCleanupPeriodHours"`
+	Url                               pulumi.StringPtrInput                                  `pulumi:"url"`
+	Username                          pulumi.StringPtrInput                                  `pulumi:"username"`
+	XrayIndex                         pulumi.BoolPtrInput                                    `pulumi:"xrayIndex"`
 }
 
 func (LookupRemoteCargoRepositoryOutputArgs) ElementType() reflect.Type {
@@ -237,7 +199,6 @@ func (o LookupRemoteCargoRepositoryResultOutput) AllowAnyHostAuth() pulumi.BoolP
 	return o.ApplyT(func(v LookupRemoteCargoRepositoryResult) *bool { return v.AllowAnyHostAuth }).(pulumi.BoolPtrOutput)
 }
 
-// (Required) Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
 func (o LookupRemoteCargoRepositoryResultOutput) AnonymousAccess() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupRemoteCargoRepositoryResult) *bool { return v.AnonymousAccess }).(pulumi.BoolPtrOutput)
 }
@@ -284,7 +245,6 @@ func (o LookupRemoteCargoRepositoryResultOutput) EnableCookieManagement() pulumi
 	return o.ApplyT(func(v LookupRemoteCargoRepositoryResult) *bool { return v.EnableCookieManagement }).(pulumi.BoolPtrOutput)
 }
 
-// (Optional) Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
 func (o LookupRemoteCargoRepositoryResultOutput) EnableSparseIndex() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupRemoteCargoRepositoryResult) *bool { return v.EnableSparseIndex }).(pulumi.BoolPtrOutput)
 }
@@ -293,7 +253,6 @@ func (o LookupRemoteCargoRepositoryResultOutput) ExcludesPattern() pulumi.String
 	return o.ApplyT(func(v LookupRemoteCargoRepositoryResult) *string { return v.ExcludesPattern }).(pulumi.StringPtrOutput)
 }
 
-// (Optional) This is the index url, expected to be a git repository. Default value is `https://github.com/rust-lang/crates.io-index`.
 func (o LookupRemoteCargoRepositoryResultOutput) GitRegistryUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRemoteCargoRepositoryResult) *string { return v.GitRegistryUrl }).(pulumi.StringPtrOutput)
 }

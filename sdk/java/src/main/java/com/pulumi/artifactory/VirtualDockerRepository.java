@@ -16,55 +16,6 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Creates a virtual Docker repository.
- * Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Docker+Registry#DockerRegistry-VirtualDockerRepositories).
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.artifactory.VirtualDockerRepository;
- * import com.pulumi.artifactory.VirtualDockerRepositoryArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var foo_docker = new VirtualDockerRepository(&#34;foo-docker&#34;, VirtualDockerRepositoryArgs.builder()        
- *             .description(&#34;A test virtual repo&#34;)
- *             .excludesPattern(&#34;com/google/**&#34;)
- *             .includesPattern(&#34;com/jfrog/**,cloud/jfrog/**&#34;)
- *             .key(&#34;foo-docker&#34;)
- *             .notes(&#34;Internal description&#34;)
- *             .repositories()
- *             .resolveDockerTagsByTimestamp(true)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Virtual repositories can be imported using their name, e.g.
- * 
- * ```sh
- *  $ pulumi import artifactory:index/virtualDockerRepository:VirtualDockerRepository foo-docker foo-docker
- * ```
- * 
- */
 @ResourceType(type="artifactory:index/virtualDockerRepository:VirtualDockerRepository")
 public class VirtualDockerRepository extends com.pulumi.resources.CustomResource {
     /**
@@ -144,16 +95,16 @@ public class VirtualDockerRepository extends com.pulumi.resources.CustomResource
         return Codegen.optional(this.includesPattern);
     }
     /**
-     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-     * contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      * 
      */
     @Export(name="key", type=String.class, parameters={})
     private Output<String> key;
 
     /**
-     * @return A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-     * contain spaces or special characters.
+     * @return A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      * 
      */
     public Output<String> key() {
@@ -244,14 +195,16 @@ public class VirtualDockerRepository extends com.pulumi.resources.CustomResource
         return Codegen.optional(this.repositories);
     }
     /**
-     * When enabled, in cases where the same Docker tag exists in two or more of the aggregated repositories, Artifactory will return the tag that has the latest timestamp. Default values is `false`.
+     * When enabled, in cases where the same Docker tag exists in two or more of the aggregated repositories, Artifactory will
+     * return the tag that has the latest timestamp.
      * 
      */
     @Export(name="resolveDockerTagsByTimestamp", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> resolveDockerTagsByTimestamp;
 
     /**
-     * @return When enabled, in cases where the same Docker tag exists in two or more of the aggregated repositories, Artifactory will return the tag that has the latest timestamp. Default values is `false`.
+     * @return When enabled, in cases where the same Docker tag exists in two or more of the aggregated repositories, Artifactory will
+     * return the tag that has the latest timestamp.
      * 
      */
     public Output<Optional<Boolean>> resolveDockerTagsByTimestamp() {

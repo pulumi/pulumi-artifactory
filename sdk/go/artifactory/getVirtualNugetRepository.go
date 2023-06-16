@@ -10,33 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Retrieves a virtual NPM repository.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupVirtualNpmRepository(ctx, &artifactory.LookupVirtualNpmRepositoryArgs{
-//				Key: "virtual-npm",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupVirtualNugetRepository(ctx *pulumi.Context, args *LookupVirtualNugetRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupVirtualNugetRepositoryResult, error) {
 	var rv LookupVirtualNugetRepositoryResult
 	err := ctx.Invoke("artifactory:index/getVirtualNugetRepository:getVirtualNugetRepository", args, &rv, opts...)
@@ -48,20 +21,18 @@ func LookupVirtualNugetRepository(ctx *pulumi.Context, args *LookupVirtualNugetR
 
 // A collection of arguments for invoking getVirtualNugetRepository.
 type LookupVirtualNugetRepositoryArgs struct {
-	ArtifactoryRequestsCanRetrieveRemoteArtifacts *bool   `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`
-	DefaultDeploymentRepo                         *string `pulumi:"defaultDeploymentRepo"`
-	Description                                   *string `pulumi:"description"`
-	ExcludesPattern                               *string `pulumi:"excludesPattern"`
-	// (Optional) If set, user authentication is required when accessing the repository. An anonymous request will display an HTTP 401 error. This is also enforced when aggregated repositories support anonymous requests. Default is `false`.
-	ForceNugetAuthentication *bool   `pulumi:"forceNugetAuthentication"`
-	IncludesPattern          *string `pulumi:"includesPattern"`
-	// the identity key of the repo.
-	Key                 string   `pulumi:"key"`
-	Notes               *string  `pulumi:"notes"`
-	ProjectEnvironments []string `pulumi:"projectEnvironments"`
-	ProjectKey          *string  `pulumi:"projectKey"`
-	RepoLayoutRef       *string  `pulumi:"repoLayoutRef"`
-	Repositories        []string `pulumi:"repositories"`
+	ArtifactoryRequestsCanRetrieveRemoteArtifacts *bool    `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`
+	DefaultDeploymentRepo                         *string  `pulumi:"defaultDeploymentRepo"`
+	Description                                   *string  `pulumi:"description"`
+	ExcludesPattern                               *string  `pulumi:"excludesPattern"`
+	ForceNugetAuthentication                      *bool    `pulumi:"forceNugetAuthentication"`
+	IncludesPattern                               *string  `pulumi:"includesPattern"`
+	Key                                           string   `pulumi:"key"`
+	Notes                                         *string  `pulumi:"notes"`
+	ProjectEnvironments                           []string `pulumi:"projectEnvironments"`
+	ProjectKey                                    *string  `pulumi:"projectKey"`
+	RepoLayoutRef                                 *string  `pulumi:"repoLayoutRef"`
+	Repositories                                  []string `pulumi:"repositories"`
 }
 
 // A collection of values returned by getVirtualNugetRepository.
@@ -70,8 +41,7 @@ type LookupVirtualNugetRepositoryResult struct {
 	DefaultDeploymentRepo                         *string `pulumi:"defaultDeploymentRepo"`
 	Description                                   *string `pulumi:"description"`
 	ExcludesPattern                               *string `pulumi:"excludesPattern"`
-	// (Optional) If set, user authentication is required when accessing the repository. An anonymous request will display an HTTP 401 error. This is also enforced when aggregated repositories support anonymous requests. Default is `false`.
-	ForceNugetAuthentication *bool `pulumi:"forceNugetAuthentication"`
+	ForceNugetAuthentication                      *bool   `pulumi:"forceNugetAuthentication"`
 	// The provider-assigned unique ID for this managed resource.
 	Id                  string   `pulumi:"id"`
 	IncludesPattern     *string  `pulumi:"includesPattern"`
@@ -99,20 +69,18 @@ func LookupVirtualNugetRepositoryOutput(ctx *pulumi.Context, args LookupVirtualN
 
 // A collection of arguments for invoking getVirtualNugetRepository.
 type LookupVirtualNugetRepositoryOutputArgs struct {
-	ArtifactoryRequestsCanRetrieveRemoteArtifacts pulumi.BoolPtrInput   `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`
-	DefaultDeploymentRepo                         pulumi.StringPtrInput `pulumi:"defaultDeploymentRepo"`
-	Description                                   pulumi.StringPtrInput `pulumi:"description"`
-	ExcludesPattern                               pulumi.StringPtrInput `pulumi:"excludesPattern"`
-	// (Optional) If set, user authentication is required when accessing the repository. An anonymous request will display an HTTP 401 error. This is also enforced when aggregated repositories support anonymous requests. Default is `false`.
-	ForceNugetAuthentication pulumi.BoolPtrInput   `pulumi:"forceNugetAuthentication"`
-	IncludesPattern          pulumi.StringPtrInput `pulumi:"includesPattern"`
-	// the identity key of the repo.
-	Key                 pulumi.StringInput      `pulumi:"key"`
-	Notes               pulumi.StringPtrInput   `pulumi:"notes"`
-	ProjectEnvironments pulumi.StringArrayInput `pulumi:"projectEnvironments"`
-	ProjectKey          pulumi.StringPtrInput   `pulumi:"projectKey"`
-	RepoLayoutRef       pulumi.StringPtrInput   `pulumi:"repoLayoutRef"`
-	Repositories        pulumi.StringArrayInput `pulumi:"repositories"`
+	ArtifactoryRequestsCanRetrieveRemoteArtifacts pulumi.BoolPtrInput     `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`
+	DefaultDeploymentRepo                         pulumi.StringPtrInput   `pulumi:"defaultDeploymentRepo"`
+	Description                                   pulumi.StringPtrInput   `pulumi:"description"`
+	ExcludesPattern                               pulumi.StringPtrInput   `pulumi:"excludesPattern"`
+	ForceNugetAuthentication                      pulumi.BoolPtrInput     `pulumi:"forceNugetAuthentication"`
+	IncludesPattern                               pulumi.StringPtrInput   `pulumi:"includesPattern"`
+	Key                                           pulumi.StringInput      `pulumi:"key"`
+	Notes                                         pulumi.StringPtrInput   `pulumi:"notes"`
+	ProjectEnvironments                           pulumi.StringArrayInput `pulumi:"projectEnvironments"`
+	ProjectKey                                    pulumi.StringPtrInput   `pulumi:"projectKey"`
+	RepoLayoutRef                                 pulumi.StringPtrInput   `pulumi:"repoLayoutRef"`
+	Repositories                                  pulumi.StringArrayInput `pulumi:"repositories"`
 }
 
 func (LookupVirtualNugetRepositoryOutputArgs) ElementType() reflect.Type {
@@ -152,7 +120,6 @@ func (o LookupVirtualNugetRepositoryResultOutput) ExcludesPattern() pulumi.Strin
 	return o.ApplyT(func(v LookupVirtualNugetRepositoryResult) *string { return v.ExcludesPattern }).(pulumi.StringPtrOutput)
 }
 
-// (Optional) If set, user authentication is required when accessing the repository. An anonymous request will display an HTTP 401 error. This is also enforced when aggregated repositories support anonymous requests. Default is `false`.
 func (o LookupVirtualNugetRepositoryResultOutput) ForceNugetAuthentication() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupVirtualNugetRepositoryResult) *bool { return v.ForceNugetAuthentication }).(pulumi.BoolPtrOutput)
 }

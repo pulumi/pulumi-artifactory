@@ -18,53 +18,6 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a remote Helm repository.
- * Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Kubernetes+Helm+Chart+Repositories).
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.artifactory.RemoteHelmRepository;
- * import com.pulumi.artifactory.RemoteHelmRepositoryArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var helm_remote = new RemoteHelmRepository(&#34;helm-remote&#34;, RemoteHelmRepositoryArgs.builder()        
- *             .externalDependenciesEnabled(true)
- *             .externalDependenciesPatterns(&#34;**github.com**&#34;)
- *             .helmChartsBaseUrl(&#34;https://foo.com&#34;)
- *             .key(&#34;helm-remote-foo25&#34;)
- *             .url(&#34;https://repo.chartcenter.io/&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Remote repositories can be imported using their name, e.g.
- * 
- * ```sh
- *  $ pulumi import artifactory:index/remoteHelmRepository:RemoteHelmRepository helm-remote helm-remote
- * ```
- * 
- */
 @ResourceType(type="artifactory:index/remoteHelmRepository:RemoteHelmRepository")
 public class RemoteHelmRepository extends com.pulumi.resources.CustomResource {
     /**
@@ -250,40 +203,32 @@ public class RemoteHelmRepository extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.excludesPattern);
     }
     /**
-     * When set, external dependencies are rewritten. `External Dependency Rewrite` in the UI.
+     * When set, external dependencies are rewritten. External Dependency Rewrite in the UI.
      * 
      */
     @Export(name="externalDependenciesEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> externalDependenciesEnabled;
 
     /**
-     * @return When set, external dependencies are rewritten. `External Dependency Rewrite` in the UI.
+     * @return When set, external dependencies are rewritten. External Dependency Rewrite in the UI.
      * 
      */
     public Output<Optional<Boolean>> externalDependenciesEnabled() {
         return Codegen.optional(this.externalDependenciesEnabled);
     }
     /**
-     * An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will
-     * follow to download remote modules from, when presented with &#39;go-import&#39; meta tags in the remote repository response.
-     * By default, this is set to `[**]` in the UI, which means that remote modules may be downloaded from any external VCS source.
-     * Due to SDKv2 limitations, we can&#39;t set the default value for the list.
-     * This value `[**]` must be assigned to the attribute manually, if user don&#39;t specify any other non-default values.
-     * We don&#39;t want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns
-     * `[**]` on update if HCL doesn&#39;t have the attribute set or the list is empty.
+     * An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download
+     * remote modules from, when presented with &#39;go-import&#39; meta tags in the remote repository response.Default value in UI is
+     * empty. This attribute must be set together with `external_dependencies_enabled = true`
      * 
      */
     @Export(name="externalDependenciesPatterns", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> externalDependenciesPatterns;
 
     /**
-     * @return An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will
-     * follow to download remote modules from, when presented with &#39;go-import&#39; meta tags in the remote repository response.
-     * By default, this is set to `[**]` in the UI, which means that remote modules may be downloaded from any external VCS source.
-     * Due to SDKv2 limitations, we can&#39;t set the default value for the list.
-     * This value `[**]` must be assigned to the attribute manually, if user don&#39;t specify any other non-default values.
-     * We don&#39;t want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns
-     * `[**]` on update if HCL doesn&#39;t have the attribute set or the list is empty.
+     * @return An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download
+     * remote modules from, when presented with &#39;go-import&#39; meta tags in the remote repository response.Default value in UI is
+     * empty. This attribute must be set together with `external_dependencies_enabled = true`
      * 
      */
     public Output<Optional<List<String>>> externalDependenciesPatterns() {
@@ -306,14 +251,16 @@ public class RemoteHelmRepository extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.hardFail);
     }
     /**
-     * No documentation is available. Hopefully you know what this means.
+     * Base URL for the translation of chart source URLs in the index.yaml of virtual repos. Artifactory will only translate
+     * URLs matching the index.yamls hostname or URLs starting with this base url.
      * 
      */
     @Export(name="helmChartsBaseUrl", type=String.class, parameters={})
     private Output</* @Nullable */ String> helmChartsBaseUrl;
 
     /**
-     * @return No documentation is available. Hopefully you know what this means.
+     * @return Base URL for the translation of chart source URLs in the index.yaml of virtual repos. Artifactory will only translate
+     * URLs matching the index.yamls hostname or URLs starting with this base url.
      * 
      */
     public Output<Optional<String>> helmChartsBaseUrl() {
@@ -336,16 +283,16 @@ public class RemoteHelmRepository extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.includesPattern);
     }
     /**
-     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-     * contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      * 
      */
     @Export(name="key", type=String.class, parameters={})
     private Output<String> key;
 
     /**
-     * @return A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-     * contain spaces or special characters.
+     * @return A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      * 
      */
     public Output<String> key() {

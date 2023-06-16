@@ -6,20 +6,6 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
-/**
- * Retrieves a federated Alpine repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const federated-test-alpine-repo = artifactory.getFederatedAlpineRepository({
- *     key: "federated-test-alpine-repo",
- * });
- * ```
- */
 export function getFederatedAlpineRepository(args: GetFederatedAlpineRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetFederatedAlpineRepositoryResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -59,16 +45,7 @@ export interface GetFederatedAlpineRepositoryArgs {
     excludesPattern?: string;
     includesPattern?: string;
     indexCompressionFormats?: string[];
-    /**
-     * the identity key of the repo.
-     */
     key: string;
-    /**
-     * The list of Federated members and must contain this repository URL (configured base URL
-     * `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
-     * Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
-     * to set up Federated repositories correctly.
-     */
     members?: inputs.GetFederatedAlpineRepositoryMember[];
     notes?: string;
     primaryKeypairRef?: string;
@@ -98,12 +75,6 @@ export interface GetFederatedAlpineRepositoryResult {
     readonly includesPattern: string;
     readonly indexCompressionFormats?: string[];
     readonly key: string;
-    /**
-     * The list of Federated members and must contain this repository URL (configured base URL
-     * `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
-     * Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
-     * to set up Federated repositories correctly.
-     */
     readonly members?: outputs.GetFederatedAlpineRepositoryMember[];
     readonly notes?: string;
     readonly packageType: string;
@@ -115,20 +86,6 @@ export interface GetFederatedAlpineRepositoryResult {
     readonly repoLayoutRef?: string;
     readonly xrayIndex?: boolean;
 }
-/**
- * Retrieves a federated Alpine repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const federated-test-alpine-repo = artifactory.getFederatedAlpineRepository({
- *     key: "federated-test-alpine-repo",
- * });
- * ```
- */
 export function getFederatedAlpineRepositoryOutput(args: GetFederatedAlpineRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedAlpineRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getFederatedAlpineRepository(a, opts))
 }
@@ -146,16 +103,7 @@ export interface GetFederatedAlpineRepositoryOutputArgs {
     excludesPattern?: pulumi.Input<string>;
     includesPattern?: pulumi.Input<string>;
     indexCompressionFormats?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * the identity key of the repo.
-     */
     key: pulumi.Input<string>;
-    /**
-     * The list of Federated members and must contain this repository URL (configured base URL
-     * `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
-     * Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
-     * to set up Federated repositories correctly.
-     */
     members?: pulumi.Input<pulumi.Input<inputs.GetFederatedAlpineRepositoryMemberArgs>[]>;
     notes?: pulumi.Input<string>;
     primaryKeypairRef?: pulumi.Input<string>;

@@ -6,33 +6,6 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
-/**
- * Creates a remote VCS repository.
- *
- * Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/VCS+Repositories).
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const my_remote_vcs = new artifactory.RemoteVcsRepository("my-remote-vcs", {
- *     key: "my-remote-vcs",
- *     maxUniqueSnapshots: 5,
- *     url: "https://github.com/",
- *     vcsGitProvider: "GITHUB",
- * });
- * ```
- *
- * ## Import
- *
- * Remote repositories can be imported using their name, e.g.
- *
- * ```sh
- *  $ pulumi import artifactory:index/remoteVcsRepository:RemoteVcsRepository my-remote-vcs my-remote-vcs
- * ```
- */
 export class RemoteVcsRepository extends pulumi.CustomResource {
     /**
      * Get an existing RemoteVcsRepository resource's state with the given name, ID, and optional extra
@@ -128,8 +101,8 @@ export class RemoteVcsRepository extends pulumi.CustomResource {
      */
     public readonly includesPattern!: pulumi.Output<string | undefined>;
     /**
-     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-     * contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      */
     public readonly key!: pulumi.Output<string>;
     /**
@@ -143,9 +116,8 @@ export class RemoteVcsRepository extends pulumi.CustomResource {
      */
     public readonly localAddress!: pulumi.Output<string | undefined>;
     /**
-     * The maximum number of unique snapshots of a single artifact to store.
-     * Once the number of snapshots exceeds this setting, older versions are removed.
-     * A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+     * The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
+     * older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
      */
     public readonly maxUniqueSnapshots!: pulumi.Output<number | undefined>;
     /**
@@ -245,13 +217,12 @@ export class RemoteVcsRepository extends pulumi.CustomResource {
     public readonly url!: pulumi.Output<string>;
     public readonly username!: pulumi.Output<string | undefined>;
     /**
-     * This attribute is used when vcsGitProvider is set to `CUSTOM`. Provided URL will be used as proxy.
+     * This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
      */
     public readonly vcsGitDownloadUrl!: pulumi.Output<string | undefined>;
     /**
-     * Artifactory supports proxying the following Git providers out-of-the-box: GitHub, Bitbucket,
-     * Stash, a remote Artifactory instance or a custom Git repository. Allowed values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`,
-     * `STASH`, `ARTIFACTORY`, `CUSTOM`. Default value is `GITHUB`
+     * Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance.
+     * Default value is "GITHUB".
      */
     public readonly vcsGitProvider!: pulumi.Output<string | undefined>;
     /**
@@ -448,8 +419,8 @@ export interface RemoteVcsRepositoryState {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-     * contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      */
     key?: pulumi.Input<string>;
     /**
@@ -463,9 +434,8 @@ export interface RemoteVcsRepositoryState {
      */
     localAddress?: pulumi.Input<string>;
     /**
-     * The maximum number of unique snapshots of a single artifact to store.
-     * Once the number of snapshots exceeds this setting, older versions are removed.
-     * A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+     * The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
+     * older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
      */
     maxUniqueSnapshots?: pulumi.Input<number>;
     /**
@@ -565,13 +535,12 @@ export interface RemoteVcsRepositoryState {
     url?: pulumi.Input<string>;
     username?: pulumi.Input<string>;
     /**
-     * This attribute is used when vcsGitProvider is set to `CUSTOM`. Provided URL will be used as proxy.
+     * This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
      */
     vcsGitDownloadUrl?: pulumi.Input<string>;
     /**
-     * Artifactory supports proxying the following Git providers out-of-the-box: GitHub, Bitbucket,
-     * Stash, a remote Artifactory instance or a custom Git repository. Allowed values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`,
-     * `STASH`, `ARTIFACTORY`, `CUSTOM`. Default value is `GITHUB`
+     * Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance.
+     * Default value is "GITHUB".
      */
     vcsGitProvider?: pulumi.Input<string>;
     /**
@@ -652,8 +621,8 @@ export interface RemoteVcsRepositoryArgs {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-     * contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      */
     key: pulumi.Input<string>;
     /**
@@ -667,9 +636,8 @@ export interface RemoteVcsRepositoryArgs {
      */
     localAddress?: pulumi.Input<string>;
     /**
-     * The maximum number of unique snapshots of a single artifact to store.
-     * Once the number of snapshots exceeds this setting, older versions are removed.
-     * A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+     * The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
+     * older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
      */
     maxUniqueSnapshots?: pulumi.Input<number>;
     /**
@@ -768,13 +736,12 @@ export interface RemoteVcsRepositoryArgs {
     url: pulumi.Input<string>;
     username?: pulumi.Input<string>;
     /**
-     * This attribute is used when vcsGitProvider is set to `CUSTOM`. Provided URL will be used as proxy.
+     * This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
      */
     vcsGitDownloadUrl?: pulumi.Input<string>;
     /**
-     * Artifactory supports proxying the following Git providers out-of-the-box: GitHub, Bitbucket,
-     * Stash, a remote Artifactory instance or a custom Git repository. Allowed values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`,
-     * `STASH`, `ARTIFACTORY`, `CUSTOM`. Default value is `GITHUB`
+     * Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance.
+     * Default value is "GITHUB".
      */
     vcsGitProvider?: pulumi.Input<string>;
     /**

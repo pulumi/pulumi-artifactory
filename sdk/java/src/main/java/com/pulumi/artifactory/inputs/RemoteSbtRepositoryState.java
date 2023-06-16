@@ -214,14 +214,16 @@ public final class RemoteSbtRepositoryState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * When set, if a POM is requested, Artifactory attempts to fetch the corresponding jar in the background. This will accelerate first access time to the jar when it is subsequently requested.
+     * When set, if a POM is requested, Artifactory attempts to fetch the corresponding jar in the background. This will
+     * accelerate first access time to the jar when it is subsequently requested. Default value is &#39;false&#39;.
      * 
      */
     @Import(name="fetchJarsEagerly")
     private @Nullable Output<Boolean> fetchJarsEagerly;
 
     /**
-     * @return When set, if a POM is requested, Artifactory attempts to fetch the corresponding jar in the background. This will accelerate first access time to the jar when it is subsequently requested.
+     * @return When set, if a POM is requested, Artifactory attempts to fetch the corresponding jar in the background. This will
+     * accelerate first access time to the jar when it is subsequently requested. Default value is &#39;false&#39;.
      * 
      */
     public Optional<Output<Boolean>> fetchJarsEagerly() {
@@ -229,14 +231,16 @@ public final class RemoteSbtRepositoryState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * When set, if a binaries jar is requested, Artifactory attempts to fetch the corresponding source jar in the background. This will accelerate first access time to the source jar when it is subsequently requested.
+     * When set, if a binaries jar is requested, Artifactory attempts to fetch the corresponding source jar in the background.
+     * This will accelerate first access time to the source jar when it is subsequently requested. Default value is &#39;false&#39;.
      * 
      */
     @Import(name="fetchSourcesEagerly")
     private @Nullable Output<Boolean> fetchSourcesEagerly;
 
     /**
-     * @return When set, if a binaries jar is requested, Artifactory attempts to fetch the corresponding source jar in the background. This will accelerate first access time to the source jar when it is subsequently requested.
+     * @return When set, if a binaries jar is requested, Artifactory attempts to fetch the corresponding source jar in the background.
+     * This will accelerate first access time to the source jar when it is subsequently requested. Default value is &#39;false&#39;.
      * 
      */
     public Optional<Output<Boolean>> fetchSourcesEagerly() {
@@ -244,14 +248,14 @@ public final class RemoteSbtRepositoryState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * If set, Artifactory allows you to deploy release artifacts into this repository.
+     * If set, Artifactory allows you to deploy release artifacts into this repository. Default value is &#39;true&#39;.
      * 
      */
     @Import(name="handleReleases")
     private @Nullable Output<Boolean> handleReleases;
 
     /**
-     * @return If set, Artifactory allows you to deploy release artifacts into this repository.
+     * @return If set, Artifactory allows you to deploy release artifacts into this repository. Default value is &#39;true&#39;.
      * 
      */
     public Optional<Output<Boolean>> handleReleases() {
@@ -259,14 +263,14 @@ public final class RemoteSbtRepositoryState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * If set, Artifactory allows you to deploy snapshot artifacts into this repository.
+     * If set, Artifactory allows you to deploy snapshot artifacts into this repository. Default value is &#39;true&#39;.
      * 
      */
     @Import(name="handleSnapshots")
     private @Nullable Output<Boolean> handleSnapshots;
 
     /**
-     * @return If set, Artifactory allows you to deploy snapshot artifacts into this repository.
+     * @return If set, Artifactory allows you to deploy snapshot artifacts into this repository. Default value is &#39;true&#39;.
      * 
      */
     public Optional<Output<Boolean>> handleSnapshots() {
@@ -308,16 +312,16 @@ public final class RemoteSbtRepositoryState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-     * contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      * 
      */
     @Import(name="key")
     private @Nullable Output<String> key;
 
     /**
-     * @return A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-     * contain spaces or special characters.
+     * @return A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      * 
      */
     public Optional<Output<String>> key() {
@@ -558,14 +562,16 @@ public final class RemoteSbtRepositoryState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a &#34;captive portal&#34;.
+     * Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a &#34;captive
+     * portal&#34;. Default value is &#39;false&#39;.
      * 
      */
     @Import(name="rejectInvalidJars")
     private @Nullable Output<Boolean> rejectInvalidJars;
 
     /**
-     * @return Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a &#34;captive portal&#34;.
+     * @return Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a &#34;captive
+     * portal&#34;. Default value is &#39;false&#39;.
      * 
      */
     public Optional<Output<Boolean>> rejectInvalidJars() {
@@ -573,14 +579,18 @@ public final class RemoteSbtRepositoryState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
+     * Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the
+     * system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated
+     * checksum. Default value is &#39;generate-if-absent&#39;.
      * 
      */
     @Import(name="remoteRepoChecksumPolicyType")
     private @Nullable Output<String> remoteRepoChecksumPolicyType;
 
     /**
-     * @return Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
+     * @return Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the
+     * system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated
+     * checksum. Default value is &#39;generate-if-absent&#39;.
      * 
      */
     public Optional<Output<String>> remoteRepoChecksumPolicyType() {
@@ -680,14 +690,20 @@ public final class RemoteSbtRepositoryState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a &#34;409 Conflict&#34; error. You can disable this behavior by setting this attribute to `true`.
+     * By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the
+     * groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the
+     * deployment with a &#34;409 Conflict&#34; error. You can disable this behavior by setting this attribute to &#39;true&#39;. Default value
+     * is &#39;false&#39;.
      * 
      */
     @Import(name="suppressPomConsistencyChecks")
     private @Nullable Output<Boolean> suppressPomConsistencyChecks;
 
     /**
-     * @return By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a &#34;409 Conflict&#34; error. You can disable this behavior by setting this attribute to `true`.
+     * @return By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the
+     * groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the
+     * deployment with a &#34;409 Conflict&#34; error. You can disable this behavior by setting this attribute to &#39;true&#39;. Default value
+     * is &#39;false&#39;.
      * 
      */
     public Optional<Output<Boolean>> suppressPomConsistencyChecks() {
@@ -1099,7 +1115,8 @@ public final class RemoteSbtRepositoryState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param fetchJarsEagerly When set, if a POM is requested, Artifactory attempts to fetch the corresponding jar in the background. This will accelerate first access time to the jar when it is subsequently requested.
+         * @param fetchJarsEagerly When set, if a POM is requested, Artifactory attempts to fetch the corresponding jar in the background. This will
+         * accelerate first access time to the jar when it is subsequently requested. Default value is &#39;false&#39;.
          * 
          * @return builder
          * 
@@ -1110,7 +1127,8 @@ public final class RemoteSbtRepositoryState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param fetchJarsEagerly When set, if a POM is requested, Artifactory attempts to fetch the corresponding jar in the background. This will accelerate first access time to the jar when it is subsequently requested.
+         * @param fetchJarsEagerly When set, if a POM is requested, Artifactory attempts to fetch the corresponding jar in the background. This will
+         * accelerate first access time to the jar when it is subsequently requested. Default value is &#39;false&#39;.
          * 
          * @return builder
          * 
@@ -1120,7 +1138,8 @@ public final class RemoteSbtRepositoryState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param fetchSourcesEagerly When set, if a binaries jar is requested, Artifactory attempts to fetch the corresponding source jar in the background. This will accelerate first access time to the source jar when it is subsequently requested.
+         * @param fetchSourcesEagerly When set, if a binaries jar is requested, Artifactory attempts to fetch the corresponding source jar in the background.
+         * This will accelerate first access time to the source jar when it is subsequently requested. Default value is &#39;false&#39;.
          * 
          * @return builder
          * 
@@ -1131,7 +1150,8 @@ public final class RemoteSbtRepositoryState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param fetchSourcesEagerly When set, if a binaries jar is requested, Artifactory attempts to fetch the corresponding source jar in the background. This will accelerate first access time to the source jar when it is subsequently requested.
+         * @param fetchSourcesEagerly When set, if a binaries jar is requested, Artifactory attempts to fetch the corresponding source jar in the background.
+         * This will accelerate first access time to the source jar when it is subsequently requested. Default value is &#39;false&#39;.
          * 
          * @return builder
          * 
@@ -1141,7 +1161,7 @@ public final class RemoteSbtRepositoryState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param handleReleases If set, Artifactory allows you to deploy release artifacts into this repository.
+         * @param handleReleases If set, Artifactory allows you to deploy release artifacts into this repository. Default value is &#39;true&#39;.
          * 
          * @return builder
          * 
@@ -1152,7 +1172,7 @@ public final class RemoteSbtRepositoryState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param handleReleases If set, Artifactory allows you to deploy release artifacts into this repository.
+         * @param handleReleases If set, Artifactory allows you to deploy release artifacts into this repository. Default value is &#39;true&#39;.
          * 
          * @return builder
          * 
@@ -1162,7 +1182,7 @@ public final class RemoteSbtRepositoryState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param handleSnapshots If set, Artifactory allows you to deploy snapshot artifacts into this repository.
+         * @param handleSnapshots If set, Artifactory allows you to deploy snapshot artifacts into this repository. Default value is &#39;true&#39;.
          * 
          * @return builder
          * 
@@ -1173,7 +1193,7 @@ public final class RemoteSbtRepositoryState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param handleSnapshots If set, Artifactory allows you to deploy snapshot artifacts into this repository.
+         * @param handleSnapshots If set, Artifactory allows you to deploy snapshot artifacts into this repository. Default value is &#39;true&#39;.
          * 
          * @return builder
          * 
@@ -1229,8 +1249,8 @@ public final class RemoteSbtRepositoryState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param key A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-         * contain spaces or special characters.
+         * @param key A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+         * characters. It cannot begin with a number or contain spaces or special characters.
          * 
          * @return builder
          * 
@@ -1241,8 +1261,8 @@ public final class RemoteSbtRepositoryState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param key A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-         * contain spaces or special characters.
+         * @param key A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+         * characters. It cannot begin with a number or contain spaces or special characters.
          * 
          * @return builder
          * 
@@ -1590,7 +1610,8 @@ public final class RemoteSbtRepositoryState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param rejectInvalidJars Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a &#34;captive portal&#34;.
+         * @param rejectInvalidJars Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a &#34;captive
+         * portal&#34;. Default value is &#39;false&#39;.
          * 
          * @return builder
          * 
@@ -1601,7 +1622,8 @@ public final class RemoteSbtRepositoryState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param rejectInvalidJars Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a &#34;captive portal&#34;.
+         * @param rejectInvalidJars Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a &#34;captive
+         * portal&#34;. Default value is &#39;false&#39;.
          * 
          * @return builder
          * 
@@ -1611,7 +1633,9 @@ public final class RemoteSbtRepositoryState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param remoteRepoChecksumPolicyType Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
+         * @param remoteRepoChecksumPolicyType Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the
+         * system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated
+         * checksum. Default value is &#39;generate-if-absent&#39;.
          * 
          * @return builder
          * 
@@ -1622,7 +1646,9 @@ public final class RemoteSbtRepositoryState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param remoteRepoChecksumPolicyType Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
+         * @param remoteRepoChecksumPolicyType Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the
+         * system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated
+         * checksum. Default value is &#39;generate-if-absent&#39;.
          * 
          * @return builder
          * 
@@ -1756,7 +1782,10 @@ public final class RemoteSbtRepositoryState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param suppressPomConsistencyChecks By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a &#34;409 Conflict&#34; error. You can disable this behavior by setting this attribute to `true`.
+         * @param suppressPomConsistencyChecks By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the
+         * groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the
+         * deployment with a &#34;409 Conflict&#34; error. You can disable this behavior by setting this attribute to &#39;true&#39;. Default value
+         * is &#39;false&#39;.
          * 
          * @return builder
          * 
@@ -1767,7 +1796,10 @@ public final class RemoteSbtRepositoryState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param suppressPomConsistencyChecks By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a &#34;409 Conflict&#34; error. You can disable this behavior by setting this attribute to `true`.
+         * @param suppressPomConsistencyChecks By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the
+         * groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the
+         * deployment with a &#34;409 Conflict&#34; error. You can disable this behavior by setting this attribute to &#39;true&#39;. Default value
+         * is &#39;false&#39;.
          * 
          * @return builder
          * 

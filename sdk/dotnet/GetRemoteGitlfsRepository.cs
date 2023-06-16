@@ -11,59 +11,9 @@ namespace Pulumi.Artifactory
 {
     public static class GetRemoteGitlfsRepository
     {
-        /// <summary>
-        /// Retrieves a remote GitLfs repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var remote_gitlfs = Artifactory.GetRemoteGitlfsRepository.Invoke(new()
-        ///     {
-        ///         Key = "remote-gitlfs",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetRemoteGitlfsRepositoryResult> InvokeAsync(GetRemoteGitlfsRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRemoteGitlfsRepositoryResult>("artifactory:index/getRemoteGitlfsRepository:getRemoteGitlfsRepository", args ?? new GetRemoteGitlfsRepositoryArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Retrieves a remote GitLfs repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var remote_gitlfs = Artifactory.GetRemoteGitlfsRepository.Invoke(new()
-        ///     {
-        ///         Key = "remote-gitlfs",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Output<GetRemoteGitlfsRepositoryResult> Invoke(GetRemoteGitlfsRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRemoteGitlfsRepositoryResult>("artifactory:index/getRemoteGitlfsRepository:getRemoteGitlfsRepository", args ?? new GetRemoteGitlfsRepositoryInvokeArgs(), options.WithDefaults());
     }
@@ -113,9 +63,6 @@ namespace Pulumi.Artifactory
         [Input("includesPattern")]
         public string? IncludesPattern { get; set; }
 
-        /// <summary>
-        /// the identity key of the repo.
-        /// </summary>
         [Input("key", required: true)]
         public string Key { get; set; } = null!;
 
@@ -259,9 +206,6 @@ namespace Pulumi.Artifactory
         [Input("includesPattern")]
         public Input<string>? IncludesPattern { get; set; }
 
-        /// <summary>
-        /// the identity key of the repo.
-        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 

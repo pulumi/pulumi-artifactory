@@ -11,59 +11,9 @@ namespace Pulumi.Artifactory
 {
     public static class GetRemoteCargoRepository
     {
-        /// <summary>
-        /// Retrieves a remote Cargo repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var remote_cargo = Artifactory.GetRemoteCargoRepository.Invoke(new()
-        ///     {
-        ///         Key = "remote-cargo",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetRemoteCargoRepositoryResult> InvokeAsync(GetRemoteCargoRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRemoteCargoRepositoryResult>("artifactory:index/getRemoteCargoRepository:getRemoteCargoRepository", args ?? new GetRemoteCargoRepositoryArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Retrieves a remote Cargo repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var remote_cargo = Artifactory.GetRemoteCargoRepository.Invoke(new()
-        ///     {
-        ///         Key = "remote-cargo",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Output<GetRemoteCargoRepositoryResult> Invoke(GetRemoteCargoRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRemoteCargoRepositoryResult>("artifactory:index/getRemoteCargoRepository:getRemoteCargoRepository", args ?? new GetRemoteCargoRepositoryInvokeArgs(), options.WithDefaults());
     }
@@ -74,9 +24,6 @@ namespace Pulumi.Artifactory
         [Input("allowAnyHostAuth")]
         public bool? AllowAnyHostAuth { get; set; }
 
-        /// <summary>
-        /// (Required) Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
-        /// </summary>
         [Input("anonymousAccess")]
         public bool? AnonymousAccess { get; set; }
 
@@ -110,18 +57,12 @@ namespace Pulumi.Artifactory
         [Input("enableCookieManagement")]
         public bool? EnableCookieManagement { get; set; }
 
-        /// <summary>
-        /// (Optional) Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
-        /// </summary>
         [Input("enableSparseIndex")]
         public bool? EnableSparseIndex { get; set; }
 
         [Input("excludesPattern")]
         public string? ExcludesPattern { get; set; }
 
-        /// <summary>
-        /// (Optional) This is the index url, expected to be a git repository. Default value is `https://github.com/rust-lang/crates.io-index`.
-        /// </summary>
         [Input("gitRegistryUrl")]
         public string? GitRegistryUrl { get; set; }
 
@@ -131,9 +72,6 @@ namespace Pulumi.Artifactory
         [Input("includesPattern")]
         public string? IncludesPattern { get; set; }
 
-        /// <summary>
-        /// the identity key of the repo.
-        /// </summary>
         [Input("key", required: true)]
         public string Key { get; set; } = null!;
 
@@ -238,9 +176,6 @@ namespace Pulumi.Artifactory
         [Input("allowAnyHostAuth")]
         public Input<bool>? AllowAnyHostAuth { get; set; }
 
-        /// <summary>
-        /// (Required) Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
-        /// </summary>
         [Input("anonymousAccess")]
         public Input<bool>? AnonymousAccess { get; set; }
 
@@ -274,18 +209,12 @@ namespace Pulumi.Artifactory
         [Input("enableCookieManagement")]
         public Input<bool>? EnableCookieManagement { get; set; }
 
-        /// <summary>
-        /// (Optional) Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
-        /// </summary>
         [Input("enableSparseIndex")]
         public Input<bool>? EnableSparseIndex { get; set; }
 
         [Input("excludesPattern")]
         public Input<string>? ExcludesPattern { get; set; }
 
-        /// <summary>
-        /// (Optional) This is the index url, expected to be a git repository. Default value is `https://github.com/rust-lang/crates.io-index`.
-        /// </summary>
         [Input("gitRegistryUrl")]
         public Input<string>? GitRegistryUrl { get; set; }
 
@@ -295,9 +224,6 @@ namespace Pulumi.Artifactory
         [Input("includesPattern")]
         public Input<string>? IncludesPattern { get; set; }
 
-        /// <summary>
-        /// the identity key of the repo.
-        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
@@ -406,9 +332,6 @@ namespace Pulumi.Artifactory
     public sealed class GetRemoteCargoRepositoryResult
     {
         public readonly bool? AllowAnyHostAuth;
-        /// <summary>
-        /// (Required) Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
-        /// </summary>
         public readonly bool? AnonymousAccess;
         public readonly int? AssumedOfflinePeriodSecs;
         public readonly bool? BlackedOut;
@@ -420,14 +343,8 @@ namespace Pulumi.Artifactory
         public readonly string? Description;
         public readonly bool? DownloadDirect;
         public readonly bool? EnableCookieManagement;
-        /// <summary>
-        /// (Optional) Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
-        /// </summary>
         public readonly bool? EnableSparseIndex;
         public readonly string? ExcludesPattern;
-        /// <summary>
-        /// (Optional) This is the index url, expected to be a git repository. Default value is `https://github.com/rust-lang/crates.io-index`.
-        /// </summary>
         public readonly string? GitRegistryUrl;
         public readonly bool? HardFail;
         /// <summary>

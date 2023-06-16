@@ -17,62 +17,30 @@ public final class BuildWebhookCriteriaArgs extends com.pulumi.resources.Resourc
 
     public static final BuildWebhookCriteriaArgs Empty = new BuildWebhookCriteriaArgs();
 
-    /**
-     * Trigger on any build.
-     * 
-     */
     @Import(name="anyBuild", required=true)
     private Output<Boolean> anyBuild;
 
-    /**
-     * @return Trigger on any build.
-     * 
-     */
     public Output<Boolean> anyBuild() {
         return this.anyBuild;
     }
 
-    /**
-     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
-     * 
-     */
     @Import(name="excludePatterns")
     private @Nullable Output<List<String>> excludePatterns;
 
-    /**
-     * @return Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
-     * 
-     */
     public Optional<Output<List<String>>> excludePatterns() {
         return Optional.ofNullable(this.excludePatterns);
     }
 
-    /**
-     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
-     * 
-     */
     @Import(name="includePatterns")
     private @Nullable Output<List<String>> includePatterns;
 
-    /**
-     * @return Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
-     * 
-     */
     public Optional<Output<List<String>>> includePatterns() {
         return Optional.ofNullable(this.includePatterns);
     }
 
-    /**
-     * Trigger on this list of build names.
-     * 
-     */
     @Import(name="selectedBuilds", required=true)
     private Output<List<String>> selectedBuilds;
 
-    /**
-     * @return Trigger on this list of build names.
-     * 
-     */
     public Output<List<String>> selectedBuilds() {
         return this.selectedBuilds;
     }
@@ -104,116 +72,50 @@ public final class BuildWebhookCriteriaArgs extends com.pulumi.resources.Resourc
             $ = new BuildWebhookCriteriaArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param anyBuild Trigger on any build.
-         * 
-         * @return builder
-         * 
-         */
         public Builder anyBuild(Output<Boolean> anyBuild) {
             $.anyBuild = anyBuild;
             return this;
         }
 
-        /**
-         * @param anyBuild Trigger on any build.
-         * 
-         * @return builder
-         * 
-         */
         public Builder anyBuild(Boolean anyBuild) {
             return anyBuild(Output.of(anyBuild));
         }
 
-        /**
-         * @param excludePatterns Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder excludePatterns(@Nullable Output<List<String>> excludePatterns) {
             $.excludePatterns = excludePatterns;
             return this;
         }
 
-        /**
-         * @param excludePatterns Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder excludePatterns(List<String> excludePatterns) {
             return excludePatterns(Output.of(excludePatterns));
         }
 
-        /**
-         * @param excludePatterns Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder excludePatterns(String... excludePatterns) {
             return excludePatterns(List.of(excludePatterns));
         }
 
-        /**
-         * @param includePatterns Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder includePatterns(@Nullable Output<List<String>> includePatterns) {
             $.includePatterns = includePatterns;
             return this;
         }
 
-        /**
-         * @param includePatterns Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder includePatterns(List<String> includePatterns) {
             return includePatterns(Output.of(includePatterns));
         }
 
-        /**
-         * @param includePatterns Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder includePatterns(String... includePatterns) {
             return includePatterns(List.of(includePatterns));
         }
 
-        /**
-         * @param selectedBuilds Trigger on this list of build names.
-         * 
-         * @return builder
-         * 
-         */
         public Builder selectedBuilds(Output<List<String>> selectedBuilds) {
             $.selectedBuilds = selectedBuilds;
             return this;
         }
 
-        /**
-         * @param selectedBuilds Trigger on this list of build names.
-         * 
-         * @return builder
-         * 
-         */
         public Builder selectedBuilds(List<String> selectedBuilds) {
             return selectedBuilds(Output.of(selectedBuilds));
         }
 
-        /**
-         * @param selectedBuilds Trigger on this list of build names.
-         * 
-         * @return builder
-         * 
-         */
         public Builder selectedBuilds(String... selectedBuilds) {
             return selectedBuilds(List.of(selectedBuilds));
         }

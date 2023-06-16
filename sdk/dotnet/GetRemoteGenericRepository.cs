@@ -11,59 +11,9 @@ namespace Pulumi.Artifactory
 {
     public static class GetRemoteGenericRepository
     {
-        /// <summary>
-        /// Retrieves a remote Generic repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var remote_generic = Artifactory.GetRemoteGenericRepository.Invoke(new()
-        ///     {
-        ///         Key = "remote-generic",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetRemoteGenericRepositoryResult> InvokeAsync(GetRemoteGenericRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRemoteGenericRepositoryResult>("artifactory:index/getRemoteGenericRepository:getRemoteGenericRepository", args ?? new GetRemoteGenericRepositoryArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Retrieves a remote Generic repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var remote_generic = Artifactory.GetRemoteGenericRepository.Invoke(new()
-        ///     {
-        ///         Key = "remote-generic",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Output<GetRemoteGenericRepositoryResult> Invoke(GetRemoteGenericRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRemoteGenericRepositoryResult>("artifactory:index/getRemoteGenericRepository:getRemoteGenericRepository", args ?? new GetRemoteGenericRepositoryInvokeArgs(), options.WithDefaults());
     }
@@ -113,9 +63,6 @@ namespace Pulumi.Artifactory
         [Input("includesPattern")]
         public string? IncludesPattern { get; set; }
 
-        /// <summary>
-        /// the identity key of the repo.
-        /// </summary>
         [Input("key", required: true)]
         public string Key { get; set; } = null!;
 
@@ -162,9 +109,6 @@ namespace Pulumi.Artifactory
         [Input("projectKey")]
         public string? ProjectKey { get; set; }
 
-        /// <summary>
-        /// (Optional, Default: `false`) When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
-        /// </summary>
         [Input("propagateQueryParams")]
         public bool? PropagateQueryParams { get; set; }
 
@@ -265,9 +209,6 @@ namespace Pulumi.Artifactory
         [Input("includesPattern")]
         public Input<string>? IncludesPattern { get; set; }
 
-        /// <summary>
-        /// the identity key of the repo.
-        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
@@ -318,9 +259,6 @@ namespace Pulumi.Artifactory
         [Input("projectKey")]
         public Input<string>? ProjectKey { get; set; }
 
-        /// <summary>
-        /// (Optional, Default: `false`) When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
-        /// </summary>
         [Input("propagateQueryParams")]
         public Input<bool>? PropagateQueryParams { get; set; }
 
@@ -412,9 +350,6 @@ namespace Pulumi.Artifactory
         public readonly bool? PriorityResolution;
         public readonly ImmutableArray<string> ProjectEnvironments;
         public readonly string? ProjectKey;
-        /// <summary>
-        /// (Optional, Default: `false`) When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
-        /// </summary>
         public readonly bool? PropagateQueryParams;
         public readonly ImmutableArray<string> PropertySets;
         public readonly string? Proxy;

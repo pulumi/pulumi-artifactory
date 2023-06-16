@@ -16,55 +16,6 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Creates a virtual Ivy repository.
- * Official documentation can be found [here](https://jfrog.com/blog/how-to-set-up-a-private-remote-and-virtual-maven-gradle-registry/).
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.artifactory.VirtualIvyRepository;
- * import com.pulumi.artifactory.VirtualIvyRepositoryArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var foo_ivy = new VirtualIvyRepository(&#34;foo-ivy&#34;, VirtualIvyRepositoryArgs.builder()        
- *             .description(&#34;A test virtual repo&#34;)
- *             .excludesPattern(&#34;com/google/**&#34;)
- *             .includesPattern(&#34;com/jfrog/**,cloud/jfrog/**&#34;)
- *             .key(&#34;foo-ivy&#34;)
- *             .notes(&#34;Internal description&#34;)
- *             .pomRepositoryReferencesCleanupPolicy(&#34;discard_active_reference&#34;)
- *             .repositories()
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Virtual repositories can be imported using their name, e.g.
- * 
- * ```sh
- *  $ pulumi import artifactory:index/virtualIvyRepository:VirtualIvyRepository foo-ivy foo-ivy
- * ```
- * 
- */
 @ResourceType(type="artifactory:index/virtualIvyRepository:VirtualIvyRepository")
 public class VirtualIvyRepository extends com.pulumi.resources.CustomResource {
     /**
@@ -160,30 +111,30 @@ public class VirtualIvyRepository extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.includesPattern);
     }
     /**
-     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-     * contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      * 
      */
     @Export(name="key", type=String.class, parameters={})
     private Output<String> key;
 
     /**
-     * @return A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-     * contain spaces or special characters.
+     * @return A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      * 
      */
     public Output<String> key() {
         return this.key;
     }
     /**
-     * The keypair used to sign artifacts.
+     * The keypair used to sign artifacts
      * 
      */
     @Export(name="keyPair", type=String.class, parameters={})
     private Output</* @Nullable */ String> keyPair;
 
     /**
-     * @return The keypair used to sign artifacts.
+     * @return The keypair used to sign artifacts
      * 
      */
     public Output<Optional<String>> keyPair() {
@@ -210,18 +161,20 @@ public class VirtualIvyRepository extends com.pulumi.resources.CustomResource {
         return this.packageType;
     }
     /**
-     * - (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
-     * - (2: discard_any_reference) Discard Any References - Removes all repository elements regardless of whether they are included in an active profile or not.
-     * - (3: nothing) Nothing - Does not remove any repository elements declared in the POM.
+     * (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under
+     * project or under a profile in the same POM that is activeByDefault. (2: discard_any_reference) Discard Any References -
+     * Removes all repository elements regardless of whether they are included in an active profile or not. (3: nothing)
+     * Nothing - Does not remove any repository elements declared in the POM.
      * 
      */
     @Export(name="pomRepositoryReferencesCleanupPolicy", type=String.class, parameters={})
     private Output<String> pomRepositoryReferencesCleanupPolicy;
 
     /**
-     * @return - (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
-     * - (2: discard_any_reference) Discard Any References - Removes all repository elements regardless of whether they are included in an active profile or not.
-     * - (3: nothing) Nothing - Does not remove any repository elements declared in the POM.
+     * @return (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under
+     * project or under a profile in the same POM that is activeByDefault. (2: discard_any_reference) Discard Any References -
+     * Removes all repository elements regardless of whether they are included in an active profile or not. (3: nothing)
+     * Nothing - Does not remove any repository elements declared in the POM.
      * 
      */
     public Output<String> pomRepositoryReferencesCleanupPolicy() {

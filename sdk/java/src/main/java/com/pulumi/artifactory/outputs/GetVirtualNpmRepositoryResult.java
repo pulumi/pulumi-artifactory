@@ -34,10 +34,6 @@ public final class GetVirtualNpmRepositoryResult {
     private @Nullable String projectKey;
     private @Nullable String repoLayoutRef;
     private @Nullable List<String> repositories;
-    /**
-     * @return (Optional, Default: `7200`) This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
-     * 
-     */
     private @Nullable Integer retrievalCachePeriodSeconds;
 
     private GetVirtualNpmRepositoryResult() {}
@@ -93,10 +89,6 @@ public final class GetVirtualNpmRepositoryResult {
     public List<String> repositories() {
         return this.repositories == null ? List.of() : this.repositories;
     }
-    /**
-     * @return (Optional, Default: `7200`) This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
-     * 
-     */
     public Optional<Integer> retrievalCachePeriodSeconds() {
         return Optional.ofNullable(this.retrievalCachePeriodSeconds);
     }

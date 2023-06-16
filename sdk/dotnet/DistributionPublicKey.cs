@@ -9,39 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Artifactory
 {
-    /// <summary>
-    /// Provides an Artifactory Distribution Public Key resource. This can be used to create and manage Artifactory Distribution Public Keys.
-    /// 
-    /// See [API description](https://jfrog.com/help/r/jfrog-rest-apis/set-distributionpublic-gpg-key) in the Artifactory documentation for more details. Also the [UI documentation](https://jfrog.com/help/r/jfrog-platform-administration-documentation/managing-webstart-and-jar-signing) has further details on where to find these keys in Artifactory.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.IO;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Artifactory = Pulumi.Artifactory;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var my_key = new Artifactory.DistributionPublicKey("my-key", new()
-    ///     {
-    ///         Alias = "my-key",
-    ///         PublicKey = File.ReadAllText("samples/rsa.pub"),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Distribution Public Key can be imported using the key id, e.g.
-    /// 
-    /// ```sh
-    ///  $ pulumi import artifactory:index/distributionPublicKey:DistributionPublicKey my-key keyid
-    /// ```
-    /// </summary>
     [ArtifactoryResourceType("artifactory:index/distributionPublicKey:DistributionPublicKey")]
     public partial class DistributionPublicKey : global::Pulumi.CustomResource
     {
@@ -58,27 +25,25 @@ namespace Pulumi.Artifactory
         public Output<string> Fingerprint { get; private set; } = null!;
 
         /// <summary>
-        /// Returns the name and eMail address of issuer
+        /// Returns the name and eMail address of issuer.
         /// </summary>
         [Output("issuedBy")]
         public Output<string> IssuedBy { get; private set; } = null!;
 
         /// <summary>
-        /// Returns the date/time when this GPG key was created
+        /// Returns the date/time when this GPG key was created.
         /// </summary>
         [Output("issuedOn")]
         public Output<string> IssuedOn { get; private set; } = null!;
 
         /// <summary>
-        /// Returns the key id by which this key is referenced in Artifactory
+        /// Returns the key id by which this key is referenced in Artifactory.
         /// </summary>
         [Output("keyId")]
         public Output<string> KeyId { get; private set; } = null!;
 
         /// <summary>
         /// The Public key to add as a trusted distribution GPG key.
-        /// 
-        /// The following additional attributes are exported:
         /// </summary>
         [Output("publicKey")]
         public Output<string> PublicKey { get; private set; } = null!;
@@ -143,8 +108,6 @@ namespace Pulumi.Artifactory
 
         /// <summary>
         /// The Public key to add as a trusted distribution GPG key.
-        /// 
-        /// The following additional attributes are exported:
         /// </summary>
         [Input("publicKey", required: true)]
         public Input<string> PublicKey { get; set; } = null!;
@@ -170,27 +133,25 @@ namespace Pulumi.Artifactory
         public Input<string>? Fingerprint { get; set; }
 
         /// <summary>
-        /// Returns the name and eMail address of issuer
+        /// Returns the name and eMail address of issuer.
         /// </summary>
         [Input("issuedBy")]
         public Input<string>? IssuedBy { get; set; }
 
         /// <summary>
-        /// Returns the date/time when this GPG key was created
+        /// Returns the date/time when this GPG key was created.
         /// </summary>
         [Input("issuedOn")]
         public Input<string>? IssuedOn { get; set; }
 
         /// <summary>
-        /// Returns the key id by which this key is referenced in Artifactory
+        /// Returns the key id by which this key is referenced in Artifactory.
         /// </summary>
         [Input("keyId")]
         public Input<string>? KeyId { get; set; }
 
         /// <summary>
         /// The Public key to add as a trusted distribution GPG key.
-        /// 
-        /// The following additional attributes are exported:
         /// </summary>
         [Input("publicKey")]
         public Input<string>? PublicKey { get; set; }

@@ -14,32 +14,16 @@ public final class PropertySetPropertyPredefinedValueArgs extends com.pulumi.res
 
     public static final PropertySetPropertyPredefinedValueArgs Empty = new PropertySetPropertyPredefinedValueArgs();
 
-    /**
-     * Whether the value is selected by default in the UI.
-     * 
-     */
     @Import(name="defaultValue", required=true)
     private Output<Boolean> defaultValue;
 
-    /**
-     * @return Whether the value is selected by default in the UI.
-     * 
-     */
     public Output<Boolean> defaultValue() {
         return this.defaultValue;
     }
 
-    /**
-     * Predefined property name.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return Predefined property name.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
@@ -69,44 +53,20 @@ public final class PropertySetPropertyPredefinedValueArgs extends com.pulumi.res
             $ = new PropertySetPropertyPredefinedValueArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param defaultValue Whether the value is selected by default in the UI.
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultValue(Output<Boolean> defaultValue) {
             $.defaultValue = defaultValue;
             return this;
         }
 
-        /**
-         * @param defaultValue Whether the value is selected by default in the UI.
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultValue(Boolean defaultValue) {
             return defaultValue(Output.of(defaultValue));
         }
 
-        /**
-         * @param name Predefined property name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Predefined property name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

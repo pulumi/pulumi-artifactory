@@ -9,59 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Artifactory
 {
-    /// <summary>
-    /// Note: this resource is deprecated in favor of `artifactory.PushReplication` resource.
-    /// 
-    /// Provides an Artifactory replication config resource. This can be used to create and manage Artifactory replications.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Artifactory = Pulumi.Artifactory;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     // Create a replication between two artifactory local repositories
-    ///     var providerTestSource = new Artifactory.LocalMavenRepository("providerTestSource", new()
-    ///     {
-    ///         Key = "provider_test_source",
-    ///     });
-    /// 
-    ///     var providerTestDest = new Artifactory.LocalMavenRepository("providerTestDest", new()
-    ///     {
-    ///         Key = "provider_test_dest",
-    ///     });
-    /// 
-    ///     var foo_rep = new Artifactory.ReplicationConfig("foo-rep", new()
-    ///     {
-    ///         CronExp = "0 0 * * * ?",
-    ///         EnableEventReplication = true,
-    ///         Replications = new[]
-    ///         {
-    ///             new Artifactory.Inputs.ReplicationConfigReplicationArgs
-    ///             {
-    ///                 Password = "$var.artifactory_password",
-    ///                 Url = "$var.artifactory_url",
-    ///                 Username = "$var.artifactory_username",
-    ///             },
-    ///         },
-    ///         RepoKey = providerTestSource.Key,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Replication configs can be imported using their repo key, e.g.
-    /// 
-    /// ```sh
-    ///  $ pulumi import artifactory:index/replicationConfig:ReplicationConfig foo-rep provider_test_source
-    /// ```
-    /// </summary>
     [ArtifactoryResourceType("artifactory:index/replicationConfig:ReplicationConfig")]
     public partial class ReplicationConfig : global::Pulumi.CustomResource
     {

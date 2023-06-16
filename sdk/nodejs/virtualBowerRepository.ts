@@ -4,34 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-/**
- * Creates a virtual Bower repository.
- * Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Bower+Repositories#BowerRepositories-VirtualRepositories).
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const foo_bower = new artifactory.VirtualBowerRepository("foo-bower", {
- *     description: "A test virtual repo",
- *     excludesPattern: "com/google/**",
- *     externalDependenciesEnabled: false,
- *     includesPattern: "com/jfrog/**,cloud/jfrog/**",
- *     key: "foo-bower",
- *     notes: "Internal description",
- *     repositories: [],
- * });
- * ```
- *
- * ## Import
- *
- * Virtual repositories can be imported using their name, e.g.
- *
- * ```sh
- *  $ pulumi import artifactory:index/virtualBowerRepository:VirtualBowerRepository foo-bower foo-bower
- * ```
- */
 export class VirtualBowerRepository extends pulumi.CustomResource {
     /**
      * Get an existing VirtualBowerRepository resource's state with the given name, ID, and optional extra
@@ -83,7 +55,8 @@ export class VirtualBowerRepository extends pulumi.CustomResource {
      */
     public readonly externalDependenciesEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded from any external source.
+     * An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default,
+     * this is set to ** which means that dependencies may be downloaded from any external source.
      */
     public readonly externalDependenciesPatterns!: pulumi.Output<string[] | undefined>;
     /**
@@ -96,8 +69,8 @@ export class VirtualBowerRepository extends pulumi.CustomResource {
      */
     public readonly includesPattern!: pulumi.Output<string | undefined>;
     /**
-     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-     * contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      */
     public readonly key!: pulumi.Output<string>;
     /**
@@ -207,7 +180,8 @@ export interface VirtualBowerRepositoryState {
      */
     externalDependenciesEnabled?: pulumi.Input<boolean>;
     /**
-     * An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded from any external source.
+     * An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default,
+     * this is set to ** which means that dependencies may be downloaded from any external source.
      */
     externalDependenciesPatterns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -220,8 +194,8 @@ export interface VirtualBowerRepositoryState {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-     * contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      */
     key?: pulumi.Input<string>;
     /**
@@ -278,7 +252,8 @@ export interface VirtualBowerRepositoryArgs {
      */
     externalDependenciesEnabled?: pulumi.Input<boolean>;
     /**
-     * An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded from any external source.
+     * An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default,
+     * this is set to ** which means that dependencies may be downloaded from any external source.
      */
     externalDependenciesPatterns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -291,8 +266,8 @@ export interface VirtualBowerRepositoryArgs {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-     * contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      */
     key: pulumi.Input<string>;
     /**

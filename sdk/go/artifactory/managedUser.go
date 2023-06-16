@@ -11,62 +11,30 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.NewManagedUser(ctx, "test-user", &artifactory.ManagedUserArgs{
-//				Email: pulumi.String("test-user@artifactory-terraform.com"),
-//				Groups: pulumi.StringArray{
-//					pulumi.String("readers"),
-//					pulumi.String("logged-in-users"),
-//				},
-//				Password: pulumi.String("my super secret password"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// ```sh
-//
-//	$ pulumi import artifactory:index/managedUser:ManagedUser test-user myusername
-//
-// ```
 type ManagedUser struct {
 	pulumi.CustomResourceState
 
 	// (Optional, Default: false) When enabled, this user is an administrator with all the ensuing privileges.
 	Admin pulumi.BoolOutput `pulumi:"admin"`
-	// (Optional, Default: true) When enabled, this user can only access the system through the REST API. This option cannot be set if the user has Admin privileges.
+	// (Optional, Default: true) When enabled, this user can only access the system through the REST API. This option cannot be
+	// set if the user has Admin privileges.
 	DisableUiAccess pulumi.BoolOutput `pulumi:"disableUiAccess"`
 	// Email for user.
 	Email pulumi.StringOutput `pulumi:"email"`
-	// List of groups this user is a part of. If no groups set, `readers` group will be added by default. If other groups are assigned, `readers` must be added to the list manually to avoid state drift.
+	// List of groups this user is a part of. If no groups set, `readers` group will be added by default. If other groups are
+	// assigned, `readers` must be added to the list manually to avoid state drift.
 	Groups pulumi.StringArrayOutput `pulumi:"groups"`
-	// (Optional, Default: false) When enabled, disables the fallback mechanism for using an internal password when external authentication (such as LDAP) is enabled.
+	// (Optional, Default: false) When enabled, disables the fallback mechanism for using an internal password when external
+	// authentication (such as LDAP) is enabled.
 	InternalPasswordDisabled pulumi.BoolOutput `pulumi:"internalPasswordDisabled"`
 	// Username for user.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// (Optional, Sensitive) Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters
+	// (Optional, Sensitive) Password for the user. When omitted, a random password is generated using the following password
+	// policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters
 	Password pulumi.StringPtrOutput `pulumi:"password"`
-	// (Optional, Default: true) When enabled, this user can update their profile details (except for the password. Only an administrator can update the password). There may be cases in which you want to leave this unset to prevent users from updating their profile. For example, a departmental user with a single password shared between all department members.
+	// (Optional, Default: true) When enabled, this user can update their profile details (except for the password. Only an
+	// administrator can update the password). There may be cases in which you want to leave this unset to prevent users from
+	// updating their profile. For example, a departmental user with a single password shared between all department members.
 	ProfileUpdatable pulumi.BoolOutput `pulumi:"profileUpdatable"`
 }
 
@@ -111,38 +79,50 @@ func GetManagedUser(ctx *pulumi.Context,
 type managedUserState struct {
 	// (Optional, Default: false) When enabled, this user is an administrator with all the ensuing privileges.
 	Admin *bool `pulumi:"admin"`
-	// (Optional, Default: true) When enabled, this user can only access the system through the REST API. This option cannot be set if the user has Admin privileges.
+	// (Optional, Default: true) When enabled, this user can only access the system through the REST API. This option cannot be
+	// set if the user has Admin privileges.
 	DisableUiAccess *bool `pulumi:"disableUiAccess"`
 	// Email for user.
 	Email *string `pulumi:"email"`
-	// List of groups this user is a part of. If no groups set, `readers` group will be added by default. If other groups are assigned, `readers` must be added to the list manually to avoid state drift.
+	// List of groups this user is a part of. If no groups set, `readers` group will be added by default. If other groups are
+	// assigned, `readers` must be added to the list manually to avoid state drift.
 	Groups []string `pulumi:"groups"`
-	// (Optional, Default: false) When enabled, disables the fallback mechanism for using an internal password when external authentication (such as LDAP) is enabled.
+	// (Optional, Default: false) When enabled, disables the fallback mechanism for using an internal password when external
+	// authentication (such as LDAP) is enabled.
 	InternalPasswordDisabled *bool `pulumi:"internalPasswordDisabled"`
 	// Username for user.
 	Name *string `pulumi:"name"`
-	// (Optional, Sensitive) Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters
+	// (Optional, Sensitive) Password for the user. When omitted, a random password is generated using the following password
+	// policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters
 	Password *string `pulumi:"password"`
-	// (Optional, Default: true) When enabled, this user can update their profile details (except for the password. Only an administrator can update the password). There may be cases in which you want to leave this unset to prevent users from updating their profile. For example, a departmental user with a single password shared between all department members.
+	// (Optional, Default: true) When enabled, this user can update their profile details (except for the password. Only an
+	// administrator can update the password). There may be cases in which you want to leave this unset to prevent users from
+	// updating their profile. For example, a departmental user with a single password shared between all department members.
 	ProfileUpdatable *bool `pulumi:"profileUpdatable"`
 }
 
 type ManagedUserState struct {
 	// (Optional, Default: false) When enabled, this user is an administrator with all the ensuing privileges.
 	Admin pulumi.BoolPtrInput
-	// (Optional, Default: true) When enabled, this user can only access the system through the REST API. This option cannot be set if the user has Admin privileges.
+	// (Optional, Default: true) When enabled, this user can only access the system through the REST API. This option cannot be
+	// set if the user has Admin privileges.
 	DisableUiAccess pulumi.BoolPtrInput
 	// Email for user.
 	Email pulumi.StringPtrInput
-	// List of groups this user is a part of. If no groups set, `readers` group will be added by default. If other groups are assigned, `readers` must be added to the list manually to avoid state drift.
+	// List of groups this user is a part of. If no groups set, `readers` group will be added by default. If other groups are
+	// assigned, `readers` must be added to the list manually to avoid state drift.
 	Groups pulumi.StringArrayInput
-	// (Optional, Default: false) When enabled, disables the fallback mechanism for using an internal password when external authentication (such as LDAP) is enabled.
+	// (Optional, Default: false) When enabled, disables the fallback mechanism for using an internal password when external
+	// authentication (such as LDAP) is enabled.
 	InternalPasswordDisabled pulumi.BoolPtrInput
 	// Username for user.
 	Name pulumi.StringPtrInput
-	// (Optional, Sensitive) Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters
+	// (Optional, Sensitive) Password for the user. When omitted, a random password is generated using the following password
+	// policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters
 	Password pulumi.StringPtrInput
-	// (Optional, Default: true) When enabled, this user can update their profile details (except for the password. Only an administrator can update the password). There may be cases in which you want to leave this unset to prevent users from updating their profile. For example, a departmental user with a single password shared between all department members.
+	// (Optional, Default: true) When enabled, this user can update their profile details (except for the password. Only an
+	// administrator can update the password). There may be cases in which you want to leave this unset to prevent users from
+	// updating their profile. For example, a departmental user with a single password shared between all department members.
 	ProfileUpdatable pulumi.BoolPtrInput
 }
 
@@ -153,19 +133,25 @@ func (ManagedUserState) ElementType() reflect.Type {
 type managedUserArgs struct {
 	// (Optional, Default: false) When enabled, this user is an administrator with all the ensuing privileges.
 	Admin *bool `pulumi:"admin"`
-	// (Optional, Default: true) When enabled, this user can only access the system through the REST API. This option cannot be set if the user has Admin privileges.
+	// (Optional, Default: true) When enabled, this user can only access the system through the REST API. This option cannot be
+	// set if the user has Admin privileges.
 	DisableUiAccess *bool `pulumi:"disableUiAccess"`
 	// Email for user.
 	Email string `pulumi:"email"`
-	// List of groups this user is a part of. If no groups set, `readers` group will be added by default. If other groups are assigned, `readers` must be added to the list manually to avoid state drift.
+	// List of groups this user is a part of. If no groups set, `readers` group will be added by default. If other groups are
+	// assigned, `readers` must be added to the list manually to avoid state drift.
 	Groups []string `pulumi:"groups"`
-	// (Optional, Default: false) When enabled, disables the fallback mechanism for using an internal password when external authentication (such as LDAP) is enabled.
+	// (Optional, Default: false) When enabled, disables the fallback mechanism for using an internal password when external
+	// authentication (such as LDAP) is enabled.
 	InternalPasswordDisabled *bool `pulumi:"internalPasswordDisabled"`
 	// Username for user.
 	Name *string `pulumi:"name"`
-	// (Optional, Sensitive) Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters
+	// (Optional, Sensitive) Password for the user. When omitted, a random password is generated using the following password
+	// policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters
 	Password *string `pulumi:"password"`
-	// (Optional, Default: true) When enabled, this user can update their profile details (except for the password. Only an administrator can update the password). There may be cases in which you want to leave this unset to prevent users from updating their profile. For example, a departmental user with a single password shared between all department members.
+	// (Optional, Default: true) When enabled, this user can update their profile details (except for the password. Only an
+	// administrator can update the password). There may be cases in which you want to leave this unset to prevent users from
+	// updating their profile. For example, a departmental user with a single password shared between all department members.
 	ProfileUpdatable *bool `pulumi:"profileUpdatable"`
 }
 
@@ -173,19 +159,25 @@ type managedUserArgs struct {
 type ManagedUserArgs struct {
 	// (Optional, Default: false) When enabled, this user is an administrator with all the ensuing privileges.
 	Admin pulumi.BoolPtrInput
-	// (Optional, Default: true) When enabled, this user can only access the system through the REST API. This option cannot be set if the user has Admin privileges.
+	// (Optional, Default: true) When enabled, this user can only access the system through the REST API. This option cannot be
+	// set if the user has Admin privileges.
 	DisableUiAccess pulumi.BoolPtrInput
 	// Email for user.
 	Email pulumi.StringInput
-	// List of groups this user is a part of. If no groups set, `readers` group will be added by default. If other groups are assigned, `readers` must be added to the list manually to avoid state drift.
+	// List of groups this user is a part of. If no groups set, `readers` group will be added by default. If other groups are
+	// assigned, `readers` must be added to the list manually to avoid state drift.
 	Groups pulumi.StringArrayInput
-	// (Optional, Default: false) When enabled, disables the fallback mechanism for using an internal password when external authentication (such as LDAP) is enabled.
+	// (Optional, Default: false) When enabled, disables the fallback mechanism for using an internal password when external
+	// authentication (such as LDAP) is enabled.
 	InternalPasswordDisabled pulumi.BoolPtrInput
 	// Username for user.
 	Name pulumi.StringPtrInput
-	// (Optional, Sensitive) Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters
+	// (Optional, Sensitive) Password for the user. When omitted, a random password is generated using the following password
+	// policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters
 	Password pulumi.StringPtrInput
-	// (Optional, Default: true) When enabled, this user can update their profile details (except for the password. Only an administrator can update the password). There may be cases in which you want to leave this unset to prevent users from updating their profile. For example, a departmental user with a single password shared between all department members.
+	// (Optional, Default: true) When enabled, this user can update their profile details (except for the password. Only an
+	// administrator can update the password). There may be cases in which you want to leave this unset to prevent users from
+	// updating their profile. For example, a departmental user with a single password shared between all department members.
 	ProfileUpdatable pulumi.BoolPtrInput
 }
 
@@ -281,7 +273,8 @@ func (o ManagedUserOutput) Admin() pulumi.BoolOutput {
 	return o.ApplyT(func(v *ManagedUser) pulumi.BoolOutput { return v.Admin }).(pulumi.BoolOutput)
 }
 
-// (Optional, Default: true) When enabled, this user can only access the system through the REST API. This option cannot be set if the user has Admin privileges.
+// (Optional, Default: true) When enabled, this user can only access the system through the REST API. This option cannot be
+// set if the user has Admin privileges.
 func (o ManagedUserOutput) DisableUiAccess() pulumi.BoolOutput {
 	return o.ApplyT(func(v *ManagedUser) pulumi.BoolOutput { return v.DisableUiAccess }).(pulumi.BoolOutput)
 }
@@ -291,12 +284,14 @@ func (o ManagedUserOutput) Email() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedUser) pulumi.StringOutput { return v.Email }).(pulumi.StringOutput)
 }
 
-// List of groups this user is a part of. If no groups set, `readers` group will be added by default. If other groups are assigned, `readers` must be added to the list manually to avoid state drift.
+// List of groups this user is a part of. If no groups set, `readers` group will be added by default. If other groups are
+// assigned, `readers` must be added to the list manually to avoid state drift.
 func (o ManagedUserOutput) Groups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ManagedUser) pulumi.StringArrayOutput { return v.Groups }).(pulumi.StringArrayOutput)
 }
 
-// (Optional, Default: false) When enabled, disables the fallback mechanism for using an internal password when external authentication (such as LDAP) is enabled.
+// (Optional, Default: false) When enabled, disables the fallback mechanism for using an internal password when external
+// authentication (such as LDAP) is enabled.
 func (o ManagedUserOutput) InternalPasswordDisabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *ManagedUser) pulumi.BoolOutput { return v.InternalPasswordDisabled }).(pulumi.BoolOutput)
 }
@@ -306,12 +301,15 @@ func (o ManagedUserOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedUser) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// (Optional, Sensitive) Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters
+// (Optional, Sensitive) Password for the user. When omitted, a random password is generated using the following password
+// policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters
 func (o ManagedUserOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedUser) pulumi.StringPtrOutput { return v.Password }).(pulumi.StringPtrOutput)
 }
 
-// (Optional, Default: true) When enabled, this user can update their profile details (except for the password. Only an administrator can update the password). There may be cases in which you want to leave this unset to prevent users from updating their profile. For example, a departmental user with a single password shared between all department members.
+// (Optional, Default: true) When enabled, this user can update their profile details (except for the password. Only an
+// administrator can update the password). There may be cases in which you want to leave this unset to prevent users from
+// updating their profile. For example, a departmental user with a single password shared between all department members.
 func (o ManagedUserOutput) ProfileUpdatable() pulumi.BoolOutput {
 	return o.ApplyT(func(v *ManagedUser) pulumi.BoolOutput { return v.ProfileUpdatable }).(pulumi.BoolOutput)
 }

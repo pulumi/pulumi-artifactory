@@ -18,57 +18,6 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Creates a remote Cargo repository.
- * Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Cargo+Registry).
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.artifactory.RemoteCargoRepository;
- * import com.pulumi.artifactory.RemoteCargoRepositoryArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var my_remote_cargo = new RemoteCargoRepository(&#34;my-remote-cargo&#34;, RemoteCargoRepositoryArgs.builder()        
- *             .anonymousAccess(true)
- *             .enableSparseIndex(true)
- *             .gitRegistryUrl(&#34;https://github.com/rust-lang/foo.index&#34;)
- *             .key(&#34;my-remote-cargo&#34;)
- *             .url(&#34;https://github.com/rust-lang/crates.io-index&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * ## Note
- * 
- * If you get a 400 error: `&#34;Custom Base URL should be defined prior to creating a Cargo repository&#34;`,
- * you must set the base url at: `http://${host}/ui/admin/configuration/general`
- * 
- * ## Import
- * 
- * Remote repositories can be imported using their name, e.g.
- * 
- * ```sh
- *  $ pulumi import artifactory:index/remoteCargoRepository:RemoteCargoRepository my-remote-cargo my-remote-cargo
- * ```
- * 
- */
 @ResourceType(type="artifactory:index/remoteCargoRepository:RemoteCargoRepository")
 public class RemoteCargoRepository extends com.pulumi.resources.CustomResource {
     /**
@@ -88,14 +37,18 @@ public class RemoteCargoRepository extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.allowAnyHostAuth);
     }
     /**
-     * Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
+     * (On the UI: Anonymous download and search) Cargo client does not send credentials when performing download and search
+     * for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security
+     * anonymous access option.
      * 
      */
     @Export(name="anonymousAccess", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> anonymousAccess;
 
     /**
-     * @return Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
+     * @return (On the UI: Anonymous download and search) Cargo client does not send credentials when performing download and search
+     * for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security
+     * anonymous access option.
      * 
      */
     public Output<Optional<Boolean>> anonymousAccess() {
@@ -252,14 +205,16 @@ public class RemoteCargoRepository extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.enableCookieManagement);
     }
     /**
-     * Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
+     * Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default
+     * value is &#39;false&#39;.
      * 
      */
     @Export(name="enableSparseIndex", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enableSparseIndex;
 
     /**
-     * @return Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
+     * @return Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default
+     * value is &#39;false&#39;.
      * 
      */
     public Output<Optional<Boolean>> enableSparseIndex() {
@@ -282,14 +237,16 @@ public class RemoteCargoRepository extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.excludesPattern);
     }
     /**
-     * This is the index url, expected to be a git repository. Default value is `https://github.com/rust-lang/crates.io-index`.
+     * This is the index url, expected to be a git repository. Default value in UI is
+     * &#34;https://github.com/rust-lang/crates.io-index&#34;
      * 
      */
     @Export(name="gitRegistryUrl", type=String.class, parameters={})
     private Output<String> gitRegistryUrl;
 
     /**
-     * @return This is the index url, expected to be a git repository. Default value is `https://github.com/rust-lang/crates.io-index`.
+     * @return This is the index url, expected to be a git repository. Default value in UI is
+     * &#34;https://github.com/rust-lang/crates.io-index&#34;
      * 
      */
     public Output<String> gitRegistryUrl() {
@@ -328,16 +285,16 @@ public class RemoteCargoRepository extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.includesPattern);
     }
     /**
-     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-     * contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      * 
      */
     @Export(name="key", type=String.class, parameters={})
     private Output<String> key;
 
     /**
-     * @return A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-     * contain spaces or special characters.
+     * @return A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      * 
      */
     public Output<String> key() {

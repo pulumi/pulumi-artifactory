@@ -53,17 +53,9 @@ public final class GetVirtualHelmRepositoryArgs extends com.pulumi.resources.Inv
         return Optional.ofNullable(this.includesPattern);
     }
 
-    /**
-     * the identity key of the repo.
-     * 
-     */
     @Import(name="key", required=true)
     private Output<String> key;
 
-    /**
-     * @return the identity key of the repo.
-     * 
-     */
     public Output<String> key() {
         return this.key;
     }
@@ -103,32 +95,16 @@ public final class GetVirtualHelmRepositoryArgs extends com.pulumi.resources.Inv
         return Optional.ofNullable(this.repositories);
     }
 
-    /**
-     * (Optional, Default: `7200`) This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
-     * 
-     */
     @Import(name="retrievalCachePeriodSeconds")
     private @Nullable Output<Integer> retrievalCachePeriodSeconds;
 
-    /**
-     * @return (Optional, Default: `7200`) This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
-     * 
-     */
     public Optional<Output<Integer>> retrievalCachePeriodSeconds() {
         return Optional.ofNullable(this.retrievalCachePeriodSeconds);
     }
 
-    /**
-     * (Optional) From Artifactory 7.24.1 (SaaS Version), you can explicitly state a specific aggregated local or remote repository to fetch from a virtual by assigning namespaces to local and remote repositories. See the documentation [here](https://www.jfrog.com/confluence/display/JFROG/Kubernetes+Helm+Chart+Repositories#KubernetesHelmChartRepositories-NamespaceSupportforHelmVirtualRepositories). Default is `false`.
-     * 
-     */
     @Import(name="useNamespaces")
     private @Nullable Output<Boolean> useNamespaces;
 
-    /**
-     * @return (Optional) From Artifactory 7.24.1 (SaaS Version), you can explicitly state a specific aggregated local or remote repository to fetch from a virtual by assigning namespaces to local and remote repositories. See the documentation [here](https://www.jfrog.com/confluence/display/JFROG/Kubernetes+Helm+Chart+Repositories#KubernetesHelmChartRepositories-NamespaceSupportforHelmVirtualRepositories). Default is `false`.
-     * 
-     */
     public Optional<Output<Boolean>> useNamespaces() {
         return Optional.ofNullable(this.useNamespaces);
     }
@@ -214,23 +190,11 @@ public final class GetVirtualHelmRepositoryArgs extends com.pulumi.resources.Inv
             return includesPattern(Output.of(includesPattern));
         }
 
-        /**
-         * @param key the identity key of the repo.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(Output<String> key) {
             $.key = key;
             return this;
         }
 
-        /**
-         * @param key the identity key of the repo.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(String key) {
             return key(Output.of(key));
         }
@@ -288,44 +252,20 @@ public final class GetVirtualHelmRepositoryArgs extends com.pulumi.resources.Inv
             return repositories(List.of(repositories));
         }
 
-        /**
-         * @param retrievalCachePeriodSeconds (Optional, Default: `7200`) This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
-         * 
-         * @return builder
-         * 
-         */
         public Builder retrievalCachePeriodSeconds(@Nullable Output<Integer> retrievalCachePeriodSeconds) {
             $.retrievalCachePeriodSeconds = retrievalCachePeriodSeconds;
             return this;
         }
 
-        /**
-         * @param retrievalCachePeriodSeconds (Optional, Default: `7200`) This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
-         * 
-         * @return builder
-         * 
-         */
         public Builder retrievalCachePeriodSeconds(Integer retrievalCachePeriodSeconds) {
             return retrievalCachePeriodSeconds(Output.of(retrievalCachePeriodSeconds));
         }
 
-        /**
-         * @param useNamespaces (Optional) From Artifactory 7.24.1 (SaaS Version), you can explicitly state a specific aggregated local or remote repository to fetch from a virtual by assigning namespaces to local and remote repositories. See the documentation [here](https://www.jfrog.com/confluence/display/JFROG/Kubernetes+Helm+Chart+Repositories#KubernetesHelmChartRepositories-NamespaceSupportforHelmVirtualRepositories). Default is `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder useNamespaces(@Nullable Output<Boolean> useNamespaces) {
             $.useNamespaces = useNamespaces;
             return this;
         }
 
-        /**
-         * @param useNamespaces (Optional) From Artifactory 7.24.1 (SaaS Version), you can explicitly state a specific aggregated local or remote repository to fetch from a virtual by assigning namespaces to local and remote repositories. See the documentation [here](https://www.jfrog.com/confluence/display/JFROG/Kubernetes+Helm+Chart+Repositories#KubernetesHelmChartRepositories-NamespaceSupportforHelmVirtualRepositories). Default is `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder useNamespaces(Boolean useNamespaces) {
             return useNamespaces(Output.of(useNamespaces));
         }

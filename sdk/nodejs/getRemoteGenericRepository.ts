@@ -6,20 +6,6 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
-/**
- * Retrieves a remote Generic repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const remote-generic = artifactory.getRemoteGenericRepository({
- *     key: "remote-generic",
- * });
- * ```
- */
 export function getRemoteGenericRepository(args: GetRemoteGenericRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetRemoteGenericRepositoryResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -86,9 +72,6 @@ export interface GetRemoteGenericRepositoryArgs {
     excludesPattern?: string;
     hardFail?: boolean;
     includesPattern?: string;
-    /**
-     * the identity key of the repo.
-     */
     key: string;
     listRemoteFolderItems?: boolean;
     localAddress?: string;
@@ -101,9 +84,6 @@ export interface GetRemoteGenericRepositoryArgs {
     priorityResolution?: boolean;
     projectEnvironments?: string[];
     projectKey?: string;
-    /**
-     * (Optional, Default: `false`) When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
-     */
     propagateQueryParams?: boolean;
     propertySets?: string[];
     proxy?: string;
@@ -156,9 +136,6 @@ export interface GetRemoteGenericRepositoryResult {
     readonly priorityResolution?: boolean;
     readonly projectEnvironments: string[];
     readonly projectKey?: string;
-    /**
-     * (Optional, Default: `false`) When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
-     */
     readonly propagateQueryParams?: boolean;
     readonly propertySets?: string[];
     readonly proxy?: string;
@@ -175,20 +152,6 @@ export interface GetRemoteGenericRepositoryResult {
     readonly username?: string;
     readonly xrayIndex?: boolean;
 }
-/**
- * Retrieves a remote Generic repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const remote-generic = artifactory.getRemoteGenericRepository({
- *     key: "remote-generic",
- * });
- * ```
- */
 export function getRemoteGenericRepositoryOutput(args: GetRemoteGenericRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemoteGenericRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getRemoteGenericRepository(a, opts))
 }
@@ -211,9 +174,6 @@ export interface GetRemoteGenericRepositoryOutputArgs {
     excludesPattern?: pulumi.Input<string>;
     hardFail?: pulumi.Input<boolean>;
     includesPattern?: pulumi.Input<string>;
-    /**
-     * the identity key of the repo.
-     */
     key: pulumi.Input<string>;
     listRemoteFolderItems?: pulumi.Input<boolean>;
     localAddress?: pulumi.Input<string>;
@@ -226,9 +186,6 @@ export interface GetRemoteGenericRepositoryOutputArgs {
     priorityResolution?: pulumi.Input<boolean>;
     projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
     projectKey?: pulumi.Input<string>;
-    /**
-     * (Optional, Default: `false`) When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
-     */
     propagateQueryParams?: pulumi.Input<boolean>;
     propertySets?: pulumi.Input<pulumi.Input<string>[]>;
     proxy?: pulumi.Input<string>;

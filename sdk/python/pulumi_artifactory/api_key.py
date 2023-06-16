@@ -26,11 +26,6 @@ class _ApiKeyState:
                  api_key: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ApiKey resources.
-        :param pulumi.Input[str] api_key: The API key. Deprecated. An upcoming version will support the option to block the usage/creation of API Keys (for admins to set on their platform).
-               In September 2022, the option to block the usage/creation of API Keys will be enabled by default, with the option for admins to change it back to enable API Keys.
-               In January 2023, API Keys will be deprecated all together and the option to use them will no longer be available.
-               It is recommended to use scoped tokens instead - `ScopedToken` resource.
-               Please check the [release notes](https://www.jfrog.com/confluence/display/JFROG/Artifactory+Release+Notes#ArtifactoryReleaseNotes-Artifactory7.38.4).
         """
         if api_key is not None:
             pulumi.set(__self__, "api_key", api_key)
@@ -38,13 +33,6 @@ class _ApiKeyState:
     @property
     @pulumi.getter(name="apiKey")
     def api_key(self) -> Optional[pulumi.Input[str]]:
-        """
-        The API key. Deprecated. An upcoming version will support the option to block the usage/creation of API Keys (for admins to set on their platform).
-        In September 2022, the option to block the usage/creation of API Keys will be enabled by default, with the option for admins to change it back to enable API Keys.
-        In January 2023, API Keys will be deprecated all together and the option to use them will no longer be available.
-        It is recommended to use scoped tokens instead - `ScopedToken` resource.
-        Please check the [release notes](https://www.jfrog.com/confluence/display/JFROG/Artifactory+Release+Notes#ArtifactoryReleaseNotes-Artifactory7.38.4).
-        """
         return pulumi.get(self, "api_key")
 
     @api_key.setter
@@ -59,28 +47,7 @@ class ApiKey(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  __props__=None):
         """
-        Provides an Artifactory API key resource. This can be used to create and manage Artifactory API keys.
-
-        > **Note:** API keys will be stored in the raw state as plain-text. Read more about sensitive data in state.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_artifactory as artifactory
-
-        # Create a new Artifactory API key for the configured user
-        ci = artifactory.ApiKey("ci")
-        ```
-
-        ## Import
-
-        A user's API key can be imported using any identifier, e.g.
-
-        ```sh
-         $ pulumi import artifactory:index/apiKey:ApiKey test import
-        ```
-
+        Create a ApiKey resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
@@ -91,28 +58,7 @@ class ApiKey(pulumi.CustomResource):
                  args: Optional[ApiKeyArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an Artifactory API key resource. This can be used to create and manage Artifactory API keys.
-
-        > **Note:** API keys will be stored in the raw state as plain-text. Read more about sensitive data in state.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_artifactory as artifactory
-
-        # Create a new Artifactory API key for the configured user
-        ci = artifactory.ApiKey("ci")
-        ```
-
-        ## Import
-
-        A user's API key can be imported using any identifier, e.g.
-
-        ```sh
-         $ pulumi import artifactory:index/apiKey:ApiKey test import
-        ```
-
+        Create a ApiKey resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ApiKeyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -158,11 +104,6 @@ class ApiKey(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] api_key: The API key. Deprecated. An upcoming version will support the option to block the usage/creation of API Keys (for admins to set on their platform).
-               In September 2022, the option to block the usage/creation of API Keys will be enabled by default, with the option for admins to change it back to enable API Keys.
-               In January 2023, API Keys will be deprecated all together and the option to use them will no longer be available.
-               It is recommended to use scoped tokens instead - `ScopedToken` resource.
-               Please check the [release notes](https://www.jfrog.com/confluence/display/JFROG/Artifactory+Release+Notes#ArtifactoryReleaseNotes-Artifactory7.38.4).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -174,12 +115,5 @@ class ApiKey(pulumi.CustomResource):
     @property
     @pulumi.getter(name="apiKey")
     def api_key(self) -> pulumi.Output[str]:
-        """
-        The API key. Deprecated. An upcoming version will support the option to block the usage/creation of API Keys (for admins to set on their platform).
-        In September 2022, the option to block the usage/creation of API Keys will be enabled by default, with the option for admins to change it back to enable API Keys.
-        In January 2023, API Keys will be deprecated all together and the option to use them will no longer be available.
-        It is recommended to use scoped tokens instead - `ScopedToken` resource.
-        Please check the [release notes](https://www.jfrog.com/confluence/display/JFROG/Artifactory+Release+Notes#ArtifactoryReleaseNotes-Artifactory7.38.4).
-        """
         return pulumi.get(self, "api_key")
 

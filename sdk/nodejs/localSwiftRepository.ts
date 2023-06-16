@@ -4,26 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-/**
- * Creates a local Swift repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const terraform_local_test_swift_repo = new artifactory.LocalSwiftRepository("terraform-local-test-swift-repo", {key: "terraform-local-test-swift-repo"});
- * ```
- *
- * ## Import
- *
- * Local repositories can be imported using their name, e.g.
- *
- * ```sh
- *  $ pulumi import artifactory:index/localSwiftRepository:LocalSwiftRepository terraform-local-test-swift-repo terraform-local-test-swift-repo
- * ```
- */
 export class LocalSwiftRepository extends pulumi.CustomResource {
     /**
      * Get an existing LocalSwiftRepository resource's state with the given name, ID, and optional extra
@@ -87,7 +67,8 @@ export class LocalSwiftRepository extends pulumi.CustomResource {
      */
     public readonly includesPattern!: pulumi.Output<string>;
     /**
-     * the identity key of the repo.
+     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      */
     public readonly key!: pulumi.Output<string>;
     /**
@@ -220,7 +201,8 @@ export interface LocalSwiftRepositoryState {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * the identity key of the repo.
+     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      */
     key?: pulumi.Input<string>;
     /**
@@ -298,7 +280,8 @@ export interface LocalSwiftRepositoryArgs {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * the identity key of the repo.
+     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      */
     key: pulumi.Input<string>;
     /**

@@ -4,20 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-/**
- * Retrieves a virtual PHP Composer repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const virtual-composer = artifactory.getVirtualComposerRepository({
- *     key: "virtual-composer",
- * });
- * ```
- */
 export function getVirtualComposerRepository(args: GetVirtualComposerRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualComposerRepositoryResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -45,9 +31,6 @@ export interface GetVirtualComposerRepositoryArgs {
     description?: string;
     excludesPattern?: string;
     includesPattern?: string;
-    /**
-     * the identity key of the repo.
-     */
     key: string;
     notes?: string;
     projectEnvironments?: string[];
@@ -77,20 +60,6 @@ export interface GetVirtualComposerRepositoryResult {
     readonly repoLayoutRef?: string;
     readonly repositories?: string[];
 }
-/**
- * Retrieves a virtual PHP Composer repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const virtual-composer = artifactory.getVirtualComposerRepository({
- *     key: "virtual-composer",
- * });
- * ```
- */
 export function getVirtualComposerRepositoryOutput(args: GetVirtualComposerRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualComposerRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getVirtualComposerRepository(a, opts))
 }
@@ -104,9 +73,6 @@ export interface GetVirtualComposerRepositoryOutputArgs {
     description?: pulumi.Input<string>;
     excludesPattern?: pulumi.Input<string>;
     includesPattern?: pulumi.Input<string>;
-    /**
-     * the identity key of the repo.
-     */
     key: pulumi.Input<string>;
     notes?: pulumi.Input<string>;
     projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;

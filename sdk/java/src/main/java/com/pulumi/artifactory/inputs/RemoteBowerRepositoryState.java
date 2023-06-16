@@ -92,14 +92,14 @@ public final class RemoteBowerRepositoryState extends com.pulumi.resources.Resou
     }
 
     /**
-     * Proxy remote Bower repository. Default value is `https://registry.bower.io`.
+     * Proxy remote Bower repository. Default value is &#34;https://registry.bower.io&#34;.
      * 
      */
     @Import(name="bowerRegistryUrl")
     private @Nullable Output<String> bowerRegistryUrl;
 
     /**
-     * @return Proxy remote Bower repository. Default value is `https://registry.bower.io`.
+     * @return Proxy remote Bower repository. Default value is &#34;https://registry.bower.io&#34;.
      * 
      */
     public Optional<Output<String>> bowerRegistryUrl() {
@@ -263,16 +263,16 @@ public final class RemoteBowerRepositoryState extends com.pulumi.resources.Resou
     }
 
     /**
-     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-     * contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      * 
      */
     @Import(name="key")
     private @Nullable Output<String> key;
 
     /**
-     * @return A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-     * contain spaces or special characters.
+     * @return A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      * 
      */
     public Optional<Output<String>> key() {
@@ -674,14 +674,16 @@ public final class RemoteBowerRepositoryState extends com.pulumi.resources.Resou
     }
 
     /**
-     * Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`. Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
+     * Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance.
+     * Default value is &#34;GITHUB&#34;.
      * 
      */
     @Import(name="vcsGitProvider")
     private @Nullable Output<String> vcsGitProvider;
 
     /**
-     * @return Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`. Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
+     * @return Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance.
+     * Default value is &#34;GITHUB&#34;.
      * 
      */
     public Optional<Output<String>> vcsGitProvider() {
@@ -869,7 +871,7 @@ public final class RemoteBowerRepositoryState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param bowerRegistryUrl Proxy remote Bower repository. Default value is `https://registry.bower.io`.
+         * @param bowerRegistryUrl Proxy remote Bower repository. Default value is &#34;https://registry.bower.io&#34;.
          * 
          * @return builder
          * 
@@ -880,7 +882,7 @@ public final class RemoteBowerRepositoryState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param bowerRegistryUrl Proxy remote Bower repository. Default value is `https://registry.bower.io`.
+         * @param bowerRegistryUrl Proxy remote Bower repository. Default value is &#34;https://registry.bower.io&#34;.
          * 
          * @return builder
          * 
@@ -1102,8 +1104,8 @@ public final class RemoteBowerRepositoryState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param key A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-         * contain spaces or special characters.
+         * @param key A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+         * characters. It cannot begin with a number or contain spaces or special characters.
          * 
          * @return builder
          * 
@@ -1114,8 +1116,8 @@ public final class RemoteBowerRepositoryState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param key A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-         * contain spaces or special characters.
+         * @param key A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+         * characters. It cannot begin with a number or contain spaces or special characters.
          * 
          * @return builder
          * 
@@ -1682,7 +1684,8 @@ public final class RemoteBowerRepositoryState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param vcsGitProvider Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`. Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
+         * @param vcsGitProvider Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance.
+         * Default value is &#34;GITHUB&#34;.
          * 
          * @return builder
          * 
@@ -1693,7 +1696,8 @@ public final class RemoteBowerRepositoryState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param vcsGitProvider Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`. Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
+         * @param vcsGitProvider Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance.
+         * Default value is &#34;GITHUB&#34;.
          * 
          * @return builder
          * 

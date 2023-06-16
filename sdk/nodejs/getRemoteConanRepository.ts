@@ -6,20 +6,6 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
-/**
- * Retrieves a remote Conan repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const remote-conan = artifactory.getRemoteConanRepository({
- *     key: "remote-conan",
- * });
- * ```
- */
 export function getRemoteConanRepository(args: GetRemoteConanRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetRemoteConanRepositoryResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -84,15 +70,9 @@ export interface GetRemoteConanRepositoryArgs {
     downloadDirect?: boolean;
     enableCookieManagement?: boolean;
     excludesPattern?: string;
-    /**
-     * (Optional) Force basic authentication credentials in order to use this repository. Default value is `false`.
-     */
     forceConanAuthentication?: boolean;
     hardFail?: boolean;
     includesPattern?: string;
-    /**
-     * the identity key of the repo.
-     */
     key: string;
     listRemoteFolderItems?: boolean;
     localAddress?: string;
@@ -137,9 +117,6 @@ export interface GetRemoteConanRepositoryResult {
     readonly downloadDirect?: boolean;
     readonly enableCookieManagement?: boolean;
     readonly excludesPattern?: string;
-    /**
-     * (Optional) Force basic authentication credentials in order to use this repository. Default value is `false`.
-     */
     readonly forceConanAuthentication?: boolean;
     readonly hardFail?: boolean;
     /**
@@ -175,20 +152,6 @@ export interface GetRemoteConanRepositoryResult {
     readonly username?: string;
     readonly xrayIndex?: boolean;
 }
-/**
- * Retrieves a remote Conan repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const remote-conan = artifactory.getRemoteConanRepository({
- *     key: "remote-conan",
- * });
- * ```
- */
 export function getRemoteConanRepositoryOutput(args: GetRemoteConanRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemoteConanRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getRemoteConanRepository(a, opts))
 }
@@ -209,15 +172,9 @@ export interface GetRemoteConanRepositoryOutputArgs {
     downloadDirect?: pulumi.Input<boolean>;
     enableCookieManagement?: pulumi.Input<boolean>;
     excludesPattern?: pulumi.Input<string>;
-    /**
-     * (Optional) Force basic authentication credentials in order to use this repository. Default value is `false`.
-     */
     forceConanAuthentication?: pulumi.Input<boolean>;
     hardFail?: pulumi.Input<boolean>;
     includesPattern?: pulumi.Input<string>;
-    /**
-     * the identity key of the repo.
-     */
     key: pulumi.Input<string>;
     listRemoteFolderItems?: pulumi.Input<boolean>;
     localAddress?: pulumi.Input<string>;

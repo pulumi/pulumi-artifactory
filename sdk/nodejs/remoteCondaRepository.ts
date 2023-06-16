@@ -6,30 +6,6 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
-/**
- * Creates a remote Conda repository.
- * Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Conda+Repositories).
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const my_remote_conda = new artifactory.RemoteCondaRepository("my-remote-conda", {
- *     key: "my-remote-conda",
- *     url: "https://repo.anaconda.com/pkgs/main",
- * });
- * ```
- *
- * ## Import
- *
- * Remote repositories can be imported using their name, e.g.
- *
- * ```sh
- *  $ pulumi import artifactory:index/remoteCondaRepository:RemoteCondaRepository my-remote-conda my-remote-conda
- * ```
- */
 export class RemoteCondaRepository extends pulumi.CustomResource {
     /**
      * Get an existing RemoteCondaRepository resource's state with the given name, ID, and optional extra
@@ -125,8 +101,8 @@ export class RemoteCondaRepository extends pulumi.CustomResource {
      */
     public readonly includesPattern!: pulumi.Output<string | undefined>;
     /**
-     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-     * contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      */
     public readonly key!: pulumi.Output<string>;
     /**
@@ -423,8 +399,8 @@ export interface RemoteCondaRepositoryState {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-     * contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      */
     key?: pulumi.Input<string>;
     /**
@@ -611,8 +587,8 @@ export interface RemoteCondaRepositoryArgs {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-     * contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      */
     key: pulumi.Input<string>;
     /**

@@ -217,9 +217,6 @@ class GetRemoteConanRepositoryResult:
     @property
     @pulumi.getter(name="forceConanAuthentication")
     def force_conan_authentication(self) -> Optional[bool]:
-        """
-        (Optional) Force basic authentication credentials in order to use this repository. Default value is `false`.
-        """
         return pulumi.get(self, "force_conan_authentication")
 
     @property
@@ -470,20 +467,7 @@ def get_remote_conan_repository(allow_any_host_auth: Optional[bool] = None,
                                 xray_index: Optional[bool] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRemoteConanRepositoryResult:
     """
-    Retrieves a remote Conan repository.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    remote_conan = artifactory.get_remote_conan_repository(key="remote-conan")
-    ```
-
-
-    :param bool force_conan_authentication: (Optional) Force basic authentication credentials in order to use this repository. Default value is `false`.
-    :param str key: the identity key of the repo.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['allowAnyHostAuth'] = allow_any_host_auth
@@ -620,19 +604,6 @@ def get_remote_conan_repository_output(allow_any_host_auth: Optional[pulumi.Inpu
                                        xray_index: Optional[pulumi.Input[Optional[bool]]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRemoteConanRepositoryResult]:
     """
-    Retrieves a remote Conan repository.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    remote_conan = artifactory.get_remote_conan_repository(key="remote-conan")
-    ```
-
-
-    :param bool force_conan_authentication: (Optional) Force basic authentication credentials in order to use this repository. Default value is `false`.
-    :param str key: the identity key of the repo.
+    Use this data source to access information about an existing resource.
     """
     ...

@@ -17,68 +17,6 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Note: this resource is deprecated in favor of `artifactory.PushReplication` resource.
- * 
- * Provides an Artifactory replication config resource. This can be used to create and manage Artifactory replications.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.artifactory.LocalMavenRepository;
- * import com.pulumi.artifactory.LocalMavenRepositoryArgs;
- * import com.pulumi.artifactory.ReplicationConfig;
- * import com.pulumi.artifactory.ReplicationConfigArgs;
- * import com.pulumi.artifactory.inputs.ReplicationConfigReplicationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var providerTestSource = new LocalMavenRepository(&#34;providerTestSource&#34;, LocalMavenRepositoryArgs.builder()        
- *             .key(&#34;provider_test_source&#34;)
- *             .build());
- * 
- *         var providerTestDest = new LocalMavenRepository(&#34;providerTestDest&#34;, LocalMavenRepositoryArgs.builder()        
- *             .key(&#34;provider_test_dest&#34;)
- *             .build());
- * 
- *         var foo_rep = new ReplicationConfig(&#34;foo-rep&#34;, ReplicationConfigArgs.builder()        
- *             .cronExp(&#34;0 0 * * * ?&#34;)
- *             .enableEventReplication(true)
- *             .replications(ReplicationConfigReplicationArgs.builder()
- *                 .password(&#34;$var.artifactory_password&#34;)
- *                 .url(&#34;$var.artifactory_url&#34;)
- *                 .username(&#34;$var.artifactory_username&#34;)
- *                 .build())
- *             .repoKey(providerTestSource.key())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Replication configs can be imported using their repo key, e.g.
- * 
- * ```sh
- *  $ pulumi import artifactory:index/replicationConfig:ReplicationConfig foo-rep provider_test_source
- * ```
- * 
- */
 @ResourceType(type="artifactory:index/replicationConfig:ReplicationConfig")
 public class ReplicationConfig extends com.pulumi.resources.CustomResource {
     /**

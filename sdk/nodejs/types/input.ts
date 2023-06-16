@@ -10,866 +10,349 @@ export interface AccessTokenAdminToken {
 }
 
 export interface ArtifactPropertyWebhookCriteria {
-    /**
-     * Trigger on any local repo.
-     */
     anyLocal: pulumi.Input<boolean>;
-    /**
-     * Trigger on any remote repo.
-     */
     anyRemote: pulumi.Input<boolean>;
-    /**
-     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
-     */
     excludePatterns?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
-     */
     includePatterns?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Trigger on this list of repo keys.
-     */
     repoKeys: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 export interface ArtifactPropertyWebhookHandler {
-    /**
-     * Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
-     */
     customHttpHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Proxy key from Artifactory UI (Administration > Proxies > Configuration).
-     */
     proxy?: pulumi.Input<string>;
-    /**
-     * Secret authentication token that will be sent to the configured URL. The value will be sent as `x-jfrog-event-auth` header.
-     */
     secret?: pulumi.Input<string>;
-    /**
-     * Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
-     */
     url: pulumi.Input<string>;
 }
 
 export interface ArtifactWebhookCriteria {
-    /**
-     * Trigger on any local repo.
-     */
     anyLocal: pulumi.Input<boolean>;
-    /**
-     * Trigger on any remote repo.
-     */
     anyRemote: pulumi.Input<boolean>;
-    /**
-     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
-     */
     excludePatterns?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
-     */
     includePatterns?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Trigger on this list of repo keys.
-     */
     repoKeys: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 export interface ArtifactWebhookHandler {
-    /**
-     * Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
-     */
     customHttpHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Proxy key from Artifactory UI (Administration > Proxies > Configuration).
-     */
     proxy?: pulumi.Input<string>;
-    /**
-     * Secret authentication token that will be sent to the configured URL. The value will be sent as `x-jfrog-event-auth` header.
-     */
     secret?: pulumi.Input<string>;
-    /**
-     * Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
-     */
     url: pulumi.Input<string>;
 }
 
 export interface ArtifactoryReleaseBundleWebhookCriteria {
-    /**
-     * Trigger on any release bundle
-     */
     anyReleaseBundle: pulumi.Input<boolean>;
-    /**
-     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`
-     */
     excludePatterns?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`
-     */
     includePatterns?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Trigger on this list of release bundle names
-     */
     registeredReleaseBundleNames: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 export interface ArtifactoryReleaseBundleWebhookHandler {
-    /**
-     * Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
-     */
     customHttpHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Proxy key from Artifactory UI (Administration > Proxies > Configuration).
-     */
     proxy?: pulumi.Input<string>;
-    /**
-     * Secret authentication token that will be sent to the configured URL. The value will be sent as `x-jfrog-event-auth` header.
-     */
     secret?: pulumi.Input<string>;
-    /**
-     * Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
-     */
     url: pulumi.Input<string>;
 }
 
 export interface BuildWebhookCriteria {
-    /**
-     * Trigger on any build.
-     */
     anyBuild: pulumi.Input<boolean>;
-    /**
-     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
-     */
     excludePatterns?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
-     */
     includePatterns?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Trigger on this list of build names.
-     */
     selectedBuilds: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 export interface BuildWebhookHandler {
-    /**
-     * Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
-     */
     customHttpHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Proxy key from Artifactory UI (Administration > Proxies > Configuration).
-     */
     proxy?: pulumi.Input<string>;
-    /**
-     * Secret authentication token that will be sent to the configured URL. The value will be sent as `x-jfrog-event-auth` header.
-     */
     secret?: pulumi.Input<string>;
-    /**
-     * Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
-     */
     url: pulumi.Input<string>;
 }
 
 export interface DistributionWebhookCriteria {
-    /**
-     * Trigger on any release bundle.
-     */
     anyReleaseBundle: pulumi.Input<boolean>;
-    /**
-     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
-     */
     excludePatterns?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
-     */
     includePatterns?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Trigger on this list of release bundle names.
-     */
     registeredReleaseBundleNames: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 export interface DistributionWebhookHandler {
-    /**
-     * Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
-     */
     customHttpHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Proxy key from Artifactory UI (Administration > Proxies > Configuration).
-     */
     proxy?: pulumi.Input<string>;
-    /**
-     * Secret authentication token that will be sent to the configured URL. The value will be sent as `x-jfrog-event-auth` header.
-     */
     secret?: pulumi.Input<string>;
-    /**
-     * Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
-     */
     url: pulumi.Input<string>;
 }
 
 export interface DockerWebhookCriteria {
-    /**
-     * Trigger on any local repo.
-     */
     anyLocal: pulumi.Input<boolean>;
-    /**
-     * Trigger on any remote repo.
-     */
     anyRemote: pulumi.Input<boolean>;
-    /**
-     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
-     */
     excludePatterns?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
-     */
     includePatterns?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Trigger on this list of repo keys.
-     */
     repoKeys: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 export interface DockerWebhookHandler {
-    /**
-     * Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
-     */
     customHttpHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Proxy key from Artifactory UI (Administration > Proxies > Configuration).
-     */
     proxy?: pulumi.Input<string>;
-    /**
-     * Secret authentication token that will be sent to the configured URL. The value will be sent as `x-jfrog-event-auth` header.
-     */
     secret?: pulumi.Input<string>;
-    /**
-     * Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
-     */
     url: pulumi.Input<string>;
 }
 
 export interface FederatedAlpineRepositoryMember {
-    /**
-     * Represents the active state of the federated member. It is supported to change the enabled
-     * status of my own member. The config will be updated on the other federated members automatically.
-     */
     enabled: pulumi.Input<boolean>;
-    /**
-     * Full URL to ending with the repository name.
-     */
     url: pulumi.Input<string>;
 }
 
 export interface FederatedBowerRepositoryMember {
-    /**
-     * Represents the active state of the federated member. It is supported to change the enabled
-     * status of my own member. The config will be updated on the other federated members automatically.
-     */
     enabled: pulumi.Input<boolean>;
-    /**
-     * Full URL to ending with the repository name.
-     */
     url: pulumi.Input<string>;
 }
 
 export interface FederatedCargoRepositoryMember {
-    /**
-     * Represents the active state of the federated member. It is supported to change the enabled
-     * status of my own member. The config will be updated on the other federated members automatically.
-     */
     enabled: pulumi.Input<boolean>;
-    /**
-     * Full URL to ending with the repository name.
-     */
     url: pulumi.Input<string>;
 }
 
 export interface FederatedChefRepositoryMember {
-    /**
-     * Represents the active state of the federated member. It is supported to change the enabled
-     * status of my own member. The config will be updated on the other federated members automatically.
-     */
     enabled: pulumi.Input<boolean>;
-    /**
-     * Full URL to ending with the repository name.
-     */
     url: pulumi.Input<string>;
 }
 
 export interface FederatedCocoapodsRepositoryMember {
-    /**
-     * Represents the active state of the federated member. It is supported to change the enabled
-     * status of my own member. The config will be updated on the other federated members automatically.
-     */
     enabled: pulumi.Input<boolean>;
-    /**
-     * Full URL to ending with the repository name.
-     */
     url: pulumi.Input<string>;
 }
 
 export interface FederatedComposerRepositoryMember {
-    /**
-     * Represents the active state of the federated member. It is supported to change the enabled
-     * status of my own member. The config will be updated on the other federated members automatically.
-     */
     enabled: pulumi.Input<boolean>;
-    /**
-     * Full URL to ending with the repository name.
-     */
     url: pulumi.Input<string>;
 }
 
 export interface FederatedConanRepositoryMember {
-    /**
-     * Represents the active state of the federated member. It is supported to change the enabled
-     * status of my own member. The config will be updated on the other federated members automatically.
-     */
     enabled: pulumi.Input<boolean>;
-    /**
-     * Full URL to ending with the repository name.
-     */
     url: pulumi.Input<string>;
 }
 
 export interface FederatedCondaRepositoryMember {
-    /**
-     * Represents the active state of the federated member. It is supported to change the enabled
-     * status of my own member. The config will be updated on the other federated members automatically.
-     */
     enabled: pulumi.Input<boolean>;
-    /**
-     * Full URL to ending with the repository name.
-     */
     url: pulumi.Input<string>;
 }
 
 export interface FederatedCranRepositoryMember {
-    /**
-     * Represents the active state of the federated member. It is supported to change the enabled
-     * status of my own member. The config will be updated on the other federated members automatically.
-     */
     enabled: pulumi.Input<boolean>;
-    /**
-     * Full URL to ending with the repository name.
-     */
     url: pulumi.Input<string>;
 }
 
 export interface FederatedDebianRepositoryMember {
-    /**
-     * Represents the active state of the federated member. It is supported to change the enabled
-     * status of my own member. The config will be updated on the other federated members automatically.
-     */
     enabled: pulumi.Input<boolean>;
-    /**
-     * Full URL to ending with the repository name.
-     */
     url: pulumi.Input<string>;
 }
 
 export interface FederatedDockerRepositoryMember {
-    /**
-     * Represents the active state of the federated member. It is supported to change the enabled
-     * status of my own member. The config will be updated on the other federated members automatically.
-     */
     enabled: pulumi.Input<boolean>;
-    /**
-     * Full URL to ending with the repository name.
-     */
     url: pulumi.Input<string>;
 }
 
 export interface FederatedDockerV1RepositoryMember {
-    /**
-     * Represents the active state of the federated member. It is supported to change the enabled
-     * status of my own member. The config will be updated on the other federated members automatically.
-     */
     enabled: pulumi.Input<boolean>;
-    /**
-     * Full URL to ending with the repository name.
-     */
     url: pulumi.Input<string>;
 }
 
 export interface FederatedDockerV2RepositoryMember {
-    /**
-     * Represents the active state of the federated member. It is supported to change the enabled
-     * status of my own member. The config will be updated on the other federated members automatically.
-     */
     enabled: pulumi.Input<boolean>;
-    /**
-     * Full URL to ending with the repository name.
-     */
     url: pulumi.Input<string>;
 }
 
 export interface FederatedGemsRepositoryMember {
-    /**
-     * Represents the active state of the federated member. It is supported to change the enabled
-     * status of my own member. The config will be updated on the other federated members automatically.
-     */
     enabled: pulumi.Input<boolean>;
-    /**
-     * Full URL to ending with the repository name.
-     */
     url: pulumi.Input<string>;
 }
 
 export interface FederatedGenericRepositoryMember {
-    /**
-     * Represents the active state of the federated member. It is supported to change the enabled
-     * status of my own member. The config will be updated on the other federated members automatically.
-     */
     enabled: pulumi.Input<boolean>;
-    /**
-     * Full URL to ending with the repository name.
-     */
     url: pulumi.Input<string>;
 }
 
 export interface FederatedGitltfsRepositoryMember {
-    /**
-     * Represents the active state of the federated member. It is supported to change the enabled
-     * status of my own member. The config will be updated on the other federated members automatically.
-     */
     enabled: pulumi.Input<boolean>;
-    /**
-     * Full URL to ending with the repository name.
-     */
     url: pulumi.Input<string>;
 }
 
 export interface FederatedGoRepositoryMember {
-    /**
-     * Represents the active state of the federated member. It is supported to change the enabled
-     * status of my own member. The config will be updated on the other federated members automatically.
-     */
     enabled: pulumi.Input<boolean>;
-    /**
-     * Full URL to ending with the repository name.
-     */
     url: pulumi.Input<string>;
 }
 
 export interface FederatedGradleRepositoryMember {
-    /**
-     * Represents the active state of the federated member. It is supported to change the enabled
-     * status of my own member. The config will be updated on the other federated members automatically.
-     */
     enabled: pulumi.Input<boolean>;
-    /**
-     * Full URL to ending with the repository name.
-     */
     url: pulumi.Input<string>;
 }
 
 export interface FederatedHelmRepositoryMember {
-    /**
-     * Represents the active state of the federated member. It is supported to change the enabled
-     * status of my own member. The config will be updated on the other federated members automatically.
-     */
     enabled: pulumi.Input<boolean>;
-    /**
-     * Full URL to ending with the repository name.
-     */
     url: pulumi.Input<string>;
 }
 
 export interface FederatedIvyRepositoryMember {
-    /**
-     * Represents the active state of the federated member. It is supported to change the enabled
-     * status of my own member. The config will be updated on the other federated members automatically.
-     */
     enabled: pulumi.Input<boolean>;
-    /**
-     * Full URL to ending with the repository name.
-     */
     url: pulumi.Input<string>;
 }
 
 export interface FederatedMavenRepositoryMember {
-    /**
-     * Represents the active state of the federated member. It is supported to change the enabled
-     * status of my own member. The config will be updated on the other federated members automatically.
-     */
     enabled: pulumi.Input<boolean>;
-    /**
-     * Full URL to ending with the repository name.
-     */
     url: pulumi.Input<string>;
 }
 
 export interface FederatedNpmRepositoryMember {
-    /**
-     * Represents the active state of the federated member. It is supported to change the enabled
-     * status of my own member. The config will be updated on the other federated members automatically.
-     */
     enabled: pulumi.Input<boolean>;
-    /**
-     * Full URL to ending with the repository name.
-     */
     url: pulumi.Input<string>;
 }
 
 export interface FederatedNugetRepositoryMember {
-    /**
-     * Represents the active state of the federated member. It is supported to change the enabled
-     * status of my own member. The config will be updated on the other federated members automatically.
-     */
     enabled: pulumi.Input<boolean>;
-    /**
-     * Full URL to ending with the repository name.
-     */
     url: pulumi.Input<string>;
 }
 
 export interface FederatedOpkgRepositoryMember {
-    /**
-     * Represents the active state of the federated member. It is supported to change the enabled
-     * status of my own member. The config will be updated on the other federated members automatically.
-     */
     enabled: pulumi.Input<boolean>;
-    /**
-     * Full URL to ending with the repository name.
-     */
     url: pulumi.Input<string>;
 }
 
 export interface FederatedPuppetRepositoryMember {
-    /**
-     * Represents the active state of the federated member. It is supported to change the enabled
-     * status of my own member. The config will be updated on the other federated members automatically.
-     */
     enabled: pulumi.Input<boolean>;
-    /**
-     * Full URL to ending with the repository name.
-     */
     url: pulumi.Input<string>;
 }
 
 export interface FederatedPypiRepositoryMember {
-    /**
-     * Represents the active state of the federated member. It is supported to change the enabled
-     * status of my own member. The config will be updated on the other federated members automatically.
-     */
     enabled: pulumi.Input<boolean>;
-    /**
-     * Full URL to ending with the repository name.
-     */
     url: pulumi.Input<string>;
 }
 
 export interface FederatedRpmRepositoryMember {
-    /**
-     * Represents the active state of the federated member. It is supported to change the enabled
-     * status of my own member. The config will be updated on the other federated members automatically.
-     */
     enabled: pulumi.Input<boolean>;
-    /**
-     * Full URL to ending with the repository name.
-     */
     url: pulumi.Input<string>;
 }
 
 export interface FederatedSbtRepositoryMember {
-    /**
-     * Represents the active state of the federated member. It is supported to change the enabled
-     * status of my own member. The config will be updated on the other federated members automatically.
-     */
     enabled: pulumi.Input<boolean>;
-    /**
-     * Full URL to ending with the repository name.
-     */
     url: pulumi.Input<string>;
 }
 
 export interface FederatedSwiftRepositoryMember {
-    /**
-     * Represents the active state of the federated member. It is supported to change the enabled
-     * status of my own member. The config will be updated on the other federated members automatically.
-     */
     enabled: pulumi.Input<boolean>;
-    /**
-     * Full URL to ending with the repository name.
-     */
     url: pulumi.Input<string>;
 }
 
 export interface FederatedTerraformModuleRepositoryMember {
-    /**
-     * Represents the active state of the federated member. It is supported to change the enabled
-     * status of my own member. The config will be updated on the other federated members automatically.
-     */
     enabled: pulumi.Input<boolean>;
-    /**
-     * Full URL to ending with the repository name.
-     */
     url: pulumi.Input<string>;
 }
 
 export interface FederatedTerraformProviderRepositoryMember {
-    /**
-     * Represents the active state of the federated member. It is supported to change the enabled
-     * status of my own member. The config will be updated on the other federated members automatically.
-     */
     enabled: pulumi.Input<boolean>;
-    /**
-     * Full URL to ending with the repository name.
-     */
     url: pulumi.Input<string>;
 }
 
 export interface FederatedVagrantRepositoryMember {
-    /**
-     * Represents the active state of the federated member. It is supported to change the enabled
-     * status of my own member. The config will be updated on the other federated members automatically.
-     */
     enabled: pulumi.Input<boolean>;
-    /**
-     * Full URL to ending with the repository name.
-     */
     url: pulumi.Input<string>;
 }
 
 export interface GetFederatedAlpineRepositoryMember {
-    /**
-     * Represents the active state of the federated member. It is supported to change the enabled
-     * status of my own member. The config will be updated on the other federated members automatically.
-     */
     enabled: boolean;
-    /**
-     * Full URL to ending with the repository name.
-     */
     url: string;
 }
 
 export interface GetFederatedAlpineRepositoryMemberArgs {
-    /**
-     * Represents the active state of the federated member. It is supported to change the enabled
-     * status of my own member. The config will be updated on the other federated members automatically.
-     */
     enabled: pulumi.Input<boolean>;
-    /**
-     * Full URL to ending with the repository name.
-     */
     url: pulumi.Input<string>;
 }
 
 export interface GetFederatedBowerRepositoryMember {
-    /**
-     * Represents the active state of the federated member. It is supported to change the enabled
-     * status of my own member. The config will be updated on the other federated members automatically.
-     */
     enabled: boolean;
-    /**
-     * Full URL to ending with the repository name.
-     */
     url: string;
 }
 
 export interface GetFederatedBowerRepositoryMemberArgs {
-    /**
-     * Represents the active state of the federated member. It is supported to change the enabled
-     * status of my own member. The config will be updated on the other federated members automatically.
-     */
     enabled: pulumi.Input<boolean>;
-    /**
-     * Full URL to ending with the repository name.
-     */
     url: pulumi.Input<string>;
 }
 
 export interface GetFederatedCargoRepositoryMember {
-    /**
-     * Represents the active state of the federated member. It is supported to change the enabled
-     * status of my own member. The config will be updated on the other federated members automatically.
-     */
     enabled: boolean;
-    /**
-     * Full URL to ending with the repository name.
-     */
     url: string;
 }
 
 export interface GetFederatedCargoRepositoryMemberArgs {
-    /**
-     * Represents the active state of the federated member. It is supported to change the enabled
-     * status of my own member. The config will be updated on the other federated members automatically.
-     */
     enabled: pulumi.Input<boolean>;
-    /**
-     * Full URL to ending with the repository name.
-     */
     url: pulumi.Input<string>;
 }
 
 export interface GetFederatedChefRepositoryMember {
-    /**
-     * Represents the active state of the federated member. It is supported to change the enabled
-     * status of my own member. The config will be updated on the other federated members automatically.
-     */
     enabled: boolean;
-    /**
-     * Full URL to ending with the repository name.
-     */
     url: string;
 }
 
 export interface GetFederatedChefRepositoryMemberArgs {
-    /**
-     * Represents the active state of the federated member. It is supported to change the enabled
-     * status of my own member. The config will be updated on the other federated members automatically.
-     */
     enabled: pulumi.Input<boolean>;
-    /**
-     * Full URL to ending with the repository name.
-     */
     url: pulumi.Input<string>;
 }
 
 export interface GetFederatedCocoapodsRepositoryMember {
-    /**
-     * Represents the active state of the federated member. It is supported to change the enabled
-     * status of my own member. The config will be updated on the other federated members automatically.
-     */
     enabled: boolean;
-    /**
-     * Full URL to ending with the repository name.
-     */
     url: string;
 }
 
 export interface GetFederatedCocoapodsRepositoryMemberArgs {
-    /**
-     * Represents the active state of the federated member. It is supported to change the enabled
-     * status of my own member. The config will be updated on the other federated members automatically.
-     */
     enabled: pulumi.Input<boolean>;
-    /**
-     * Full URL to ending with the repository name.
-     */
     url: pulumi.Input<string>;
 }
 
 export interface GetFederatedComposerRepositoryMember {
-    /**
-     * Represents the active state of the federated member. It is supported to change the enabled
-     * status of my own member. The config will be updated on the other federated members automatically.
-     */
     enabled: boolean;
-    /**
-     * Full URL to ending with the repository name.
-     */
     url: string;
 }
 
 export interface GetFederatedComposerRepositoryMemberArgs {
-    /**
-     * Represents the active state of the federated member. It is supported to change the enabled
-     * status of my own member. The config will be updated on the other federated members automatically.
-     */
     enabled: pulumi.Input<boolean>;
-    /**
-     * Full URL to ending with the repository name.
-     */
     url: pulumi.Input<string>;
 }
 
 export interface GetFederatedConanRepositoryMember {
-    /**
-     * Represents the active state of the federated member. It is supported to change the enabled
-     * status of my own member. The config will be updated on the other federated members automatically.
-     */
     enabled: boolean;
-    /**
-     * Full URL to ending with the repository name.
-     */
     url: string;
 }
 
 export interface GetFederatedConanRepositoryMemberArgs {
-    /**
-     * Represents the active state of the federated member. It is supported to change the enabled
-     * status of my own member. The config will be updated on the other federated members automatically.
-     */
     enabled: pulumi.Input<boolean>;
-    /**
-     * Full URL to ending with the repository name.
-     */
     url: pulumi.Input<string>;
 }
 
 export interface GetFederatedCondaRepositoryMember {
-    /**
-     * Represents the active state of the federated member. It is supported to change the enabled
-     * status of my own member. The config will be updated on the other federated members automatically.
-     */
     enabled: boolean;
-    /**
-     * Full URL to ending with the repository name.
-     */
     url: string;
 }
 
 export interface GetFederatedCondaRepositoryMemberArgs {
-    /**
-     * Represents the active state of the federated member. It is supported to change the enabled
-     * status of my own member. The config will be updated on the other federated members automatically.
-     */
     enabled: pulumi.Input<boolean>;
-    /**
-     * Full URL to ending with the repository name.
-     */
     url: pulumi.Input<string>;
 }
 
 export interface GetFederatedCranRepositoryMember {
-    /**
-     * Represents the active state of the federated member. It is supported to change the enabled
-     * status of my own member. The config will be updated on the other federated members automatically.
-     */
     enabled: boolean;
-    /**
-     * Full URL to ending with the repository name.
-     */
     url: string;
 }
 
 export interface GetFederatedCranRepositoryMemberArgs {
-    /**
-     * Represents the active state of the federated member. It is supported to change the enabled
-     * status of my own member. The config will be updated on the other federated members automatically.
-     */
     enabled: pulumi.Input<boolean>;
-    /**
-     * Full URL to ending with the repository name.
-     */
     url: pulumi.Input<string>;
 }
 
 export interface GetFederatedDebianRepositoryMember {
-    /**
-     * Represents the active state of the federated member. It is supported to change the enabled
-     * status of my own member. The config will be updated on the other federated members automatically.
-     */
     enabled: boolean;
-    /**
-     * Full URL to ending with the repository name.
-     */
     url: string;
 }
 
 export interface GetFederatedDebianRepositoryMemberArgs {
-    /**
-     * Represents the active state of the federated member. It is supported to change the enabled
-     * status of my own member. The config will be updated on the other federated members automatically.
-     */
     enabled: pulumi.Input<boolean>;
-    /**
-     * Full URL to ending with the repository name.
-     */
     url: pulumi.Input<string>;
 }
 
@@ -884,775 +367,343 @@ export interface GetFederatedDockerRepositoryMemberArgs {
 }
 
 export interface GetFederatedDockerV1RepositoryMember {
-    /**
-     * Represents the active state of the federated member. It is supported to change the enabled
-     * status of my own member. The config will be updated on the other federated members automatically.
-     */
     enabled: boolean;
-    /**
-     * Full URL to ending with the repository name.
-     */
     url: string;
 }
 
 export interface GetFederatedDockerV1RepositoryMemberArgs {
-    /**
-     * Represents the active state of the federated member. It is supported to change the enabled
-     * status of my own member. The config will be updated on the other federated members automatically.
-     */
     enabled: pulumi.Input<boolean>;
-    /**
-     * Full URL to ending with the repository name.
-     */
     url: pulumi.Input<string>;
 }
 
 export interface GetFederatedDockerV2RepositoryMember {
-    /**
-     * Represents the active state of the federated member. It is supported to change the enabled
-     * status of my own member. The config will be updated on the other federated members automatically.
-     */
     enabled: boolean;
-    /**
-     * Full URL to ending with the repository name.
-     */
     url: string;
 }
 
 export interface GetFederatedDockerV2RepositoryMemberArgs {
-    /**
-     * Represents the active state of the federated member. It is supported to change the enabled
-     * status of my own member. The config will be updated on the other federated members automatically.
-     */
     enabled: pulumi.Input<boolean>;
-    /**
-     * Full URL to ending with the repository name.
-     */
     url: pulumi.Input<string>;
 }
 
 export interface GetFederatedGemsRepositoryMember {
-    /**
-     * Represents the active state of the federated member. It is supported to change the enabled
-     * status of my own member. The config will be updated on the other federated members automatically.
-     */
     enabled: boolean;
-    /**
-     * Full URL to ending with the repository name.
-     */
     url: string;
 }
 
 export interface GetFederatedGemsRepositoryMemberArgs {
-    /**
-     * Represents the active state of the federated member. It is supported to change the enabled
-     * status of my own member. The config will be updated on the other federated members automatically.
-     */
     enabled: pulumi.Input<boolean>;
-    /**
-     * Full URL to ending with the repository name.
-     */
     url: pulumi.Input<string>;
 }
 
 export interface GetFederatedGenericRepositoryMember {
-    /**
-     * Represents the active state of the federated member. It is supported to change the enabled
-     * status of my own member. The config will be updated on the other federated members automatically.
-     */
     enabled: boolean;
-    /**
-     * Full URL to ending with the repository name.
-     */
     url: string;
 }
 
 export interface GetFederatedGenericRepositoryMemberArgs {
-    /**
-     * Represents the active state of the federated member. It is supported to change the enabled
-     * status of my own member. The config will be updated on the other federated members automatically.
-     */
     enabled: pulumi.Input<boolean>;
-    /**
-     * Full URL to ending with the repository name.
-     */
     url: pulumi.Input<string>;
 }
 
 export interface GetFederatedGitlfsRepositoryMember {
-    /**
-     * Represents the active state of the federated member. It is supported to change the enabled
-     * status of my own member. The config will be updated on the other federated members automatically.
-     */
     enabled: boolean;
-    /**
-     * Full URL to ending with the repository name.
-     */
     url: string;
 }
 
 export interface GetFederatedGitlfsRepositoryMemberArgs {
-    /**
-     * Represents the active state of the federated member. It is supported to change the enabled
-     * status of my own member. The config will be updated on the other federated members automatically.
-     */
     enabled: pulumi.Input<boolean>;
-    /**
-     * Full URL to ending with the repository name.
-     */
     url: pulumi.Input<string>;
 }
 
 export interface GetFederatedGoRepositoryMember {
-    /**
-     * Represents the active state of the federated member. It is supported to change the enabled
-     * status of my own member. The config will be updated on the other federated members automatically.
-     */
     enabled: boolean;
-    /**
-     * Full URL to ending with the repository name.
-     */
     url: string;
 }
 
 export interface GetFederatedGoRepositoryMemberArgs {
-    /**
-     * Represents the active state of the federated member. It is supported to change the enabled
-     * status of my own member. The config will be updated on the other federated members automatically.
-     */
     enabled: pulumi.Input<boolean>;
-    /**
-     * Full URL to ending with the repository name.
-     */
     url: pulumi.Input<string>;
 }
 
 export interface GetFederatedGradleRepositoryMember {
-    /**
-     * Represents the active state of the federated member. It is supported to change the enabled
-     * status of my own member. The config will be updated on the other federated members automatically.
-     */
     enabled: boolean;
-    /**
-     * Full URL to ending with the repository name.
-     */
     url: string;
 }
 
 export interface GetFederatedGradleRepositoryMemberArgs {
-    /**
-     * Represents the active state of the federated member. It is supported to change the enabled
-     * status of my own member. The config will be updated on the other federated members automatically.
-     */
     enabled: pulumi.Input<boolean>;
-    /**
-     * Full URL to ending with the repository name.
-     */
     url: pulumi.Input<string>;
 }
 
 export interface GetFederatedHelmRepositoryMember {
-    /**
-     * Represents the active state of the federated member. It is supported to change the enabled
-     * status of my own member. The config will be updated on the other federated members automatically.
-     */
     enabled: boolean;
-    /**
-     * Full URL to ending with the repository name.
-     */
     url: string;
 }
 
 export interface GetFederatedHelmRepositoryMemberArgs {
-    /**
-     * Represents the active state of the federated member. It is supported to change the enabled
-     * status of my own member. The config will be updated on the other federated members automatically.
-     */
     enabled: pulumi.Input<boolean>;
-    /**
-     * Full URL to ending with the repository name.
-     */
     url: pulumi.Input<string>;
 }
 
 export interface GetFederatedIvyRepositoryMember {
-    /**
-     * Represents the active state of the federated member. It is supported to change the enabled
-     * status of my own member. The config will be updated on the other federated members automatically.
-     */
     enabled: boolean;
-    /**
-     * Full URL to ending with the repository name.
-     */
     url: string;
 }
 
 export interface GetFederatedIvyRepositoryMemberArgs {
-    /**
-     * Represents the active state of the federated member. It is supported to change the enabled
-     * status of my own member. The config will be updated on the other federated members automatically.
-     */
     enabled: pulumi.Input<boolean>;
-    /**
-     * Full URL to ending with the repository name.
-     */
     url: pulumi.Input<string>;
 }
 
 export interface GetFederatedMavenRepositoryMember {
-    /**
-     * Represents the active state of the federated member. It is supported to change the enabled
-     * status of my own member. The config will be updated on the other federated members automatically.
-     */
     enabled: boolean;
-    /**
-     * Full URL to ending with the repository name.
-     */
     url: string;
 }
 
 export interface GetFederatedMavenRepositoryMemberArgs {
-    /**
-     * Represents the active state of the federated member. It is supported to change the enabled
-     * status of my own member. The config will be updated on the other federated members automatically.
-     */
     enabled: pulumi.Input<boolean>;
-    /**
-     * Full URL to ending with the repository name.
-     */
     url: pulumi.Input<string>;
 }
 
 export interface GetFederatedNpmRepositoryMember {
-    /**
-     * Represents the active state of the federated member. It is supported to change the enabled
-     * status of my own member. The config will be updated on the other federated members automatically.
-     */
     enabled: boolean;
-    /**
-     * Full URL to ending with the repository name.
-     */
     url: string;
 }
 
 export interface GetFederatedNpmRepositoryMemberArgs {
-    /**
-     * Represents the active state of the federated member. It is supported to change the enabled
-     * status of my own member. The config will be updated on the other federated members automatically.
-     */
     enabled: pulumi.Input<boolean>;
-    /**
-     * Full URL to ending with the repository name.
-     */
     url: pulumi.Input<string>;
 }
 
 export interface GetFederatedNugetRepositoryMember {
-    /**
-     * Represents the active state of the federated member. It is supported to change the enabled
-     * status of my own member. The config will be updated on the other federated members automatically.
-     */
     enabled: boolean;
-    /**
-     * Full URL to ending with the repository name.
-     */
     url: string;
 }
 
 export interface GetFederatedNugetRepositoryMemberArgs {
-    /**
-     * Represents the active state of the federated member. It is supported to change the enabled
-     * status of my own member. The config will be updated on the other federated members automatically.
-     */
     enabled: pulumi.Input<boolean>;
-    /**
-     * Full URL to ending with the repository name.
-     */
     url: pulumi.Input<string>;
 }
 
 export interface GetFederatedOpkgRepositoryMember {
-    /**
-     * Represents the active state of the federated member. It is supported to change the enabled
-     * status of my own member. The config will be updated on the other federated members automatically.
-     */
     enabled: boolean;
-    /**
-     * Full URL to ending with the repository name.
-     */
     url: string;
 }
 
 export interface GetFederatedOpkgRepositoryMemberArgs {
-    /**
-     * Represents the active state of the federated member. It is supported to change the enabled
-     * status of my own member. The config will be updated on the other federated members automatically.
-     */
     enabled: pulumi.Input<boolean>;
-    /**
-     * Full URL to ending with the repository name.
-     */
     url: pulumi.Input<string>;
 }
 
 export interface GetFederatedPuppetRepositoryMember {
-    /**
-     * Represents the active state of the federated member. It is supported to change the enabled
-     * status of my own member. The config will be updated on the other federated members automatically.
-     */
     enabled: boolean;
-    /**
-     * Full URL to ending with the repository name.
-     */
     url: string;
 }
 
 export interface GetFederatedPuppetRepositoryMemberArgs {
-    /**
-     * Represents the active state of the federated member. It is supported to change the enabled
-     * status of my own member. The config will be updated on the other federated members automatically.
-     */
     enabled: pulumi.Input<boolean>;
-    /**
-     * Full URL to ending with the repository name.
-     */
     url: pulumi.Input<string>;
 }
 
 export interface GetFederatedPypiRepositoryMember {
-    /**
-     * Represents the active state of the federated member. It is supported to change the enabled
-     * status of my own member. The config will be updated on the other federated members automatically.
-     */
     enabled: boolean;
-    /**
-     * Full URL to ending with the repository name.
-     */
     url: string;
 }
 
 export interface GetFederatedPypiRepositoryMemberArgs {
-    /**
-     * Represents the active state of the federated member. It is supported to change the enabled
-     * status of my own member. The config will be updated on the other federated members automatically.
-     */
     enabled: pulumi.Input<boolean>;
-    /**
-     * Full URL to ending with the repository name.
-     */
     url: pulumi.Input<string>;
 }
 
 export interface GetFederatedRpmRepositoryMember {
-    /**
-     * Represents the active state of the federated member. It is supported to change the enabled
-     * status of my own member. The config will be updated on the other federated members automatically.
-     */
     enabled: boolean;
-    /**
-     * Full URL to ending with the repository name.
-     */
     url: string;
 }
 
 export interface GetFederatedRpmRepositoryMemberArgs {
-    /**
-     * Represents the active state of the federated member. It is supported to change the enabled
-     * status of my own member. The config will be updated on the other federated members automatically.
-     */
     enabled: pulumi.Input<boolean>;
-    /**
-     * Full URL to ending with the repository name.
-     */
     url: pulumi.Input<string>;
 }
 
 export interface GetFederatedSbtRepositoryMember {
-    /**
-     * Represents the active state of the federated member. It is supported to change the enabled
-     * status of my own member. The config will be updated on the other federated members automatically.
-     */
     enabled: boolean;
-    /**
-     * Full URL to ending with the repository name.
-     */
     url: string;
 }
 
 export interface GetFederatedSbtRepositoryMemberArgs {
-    /**
-     * Represents the active state of the federated member. It is supported to change the enabled
-     * status of my own member. The config will be updated on the other federated members automatically.
-     */
     enabled: pulumi.Input<boolean>;
-    /**
-     * Full URL to ending with the repository name.
-     */
     url: pulumi.Input<string>;
 }
 
 export interface GetFederatedSwiftRepositoryMember {
-    /**
-     * Represents the active state of the federated member. It is supported to change the enabled
-     * status of my own member. The config will be updated on the other federated members automatically.
-     */
     enabled: boolean;
-    /**
-     * Full URL to ending with the repository name.
-     */
     url: string;
 }
 
 export interface GetFederatedSwiftRepositoryMemberArgs {
-    /**
-     * Represents the active state of the federated member. It is supported to change the enabled
-     * status of my own member. The config will be updated on the other federated members automatically.
-     */
     enabled: pulumi.Input<boolean>;
-    /**
-     * Full URL to ending with the repository name.
-     */
     url: pulumi.Input<string>;
 }
 
 export interface GetFederatedTerraformModuleRepositoryMember {
-    /**
-     * Represents the active state of the federated member. It is supported to change the enabled
-     * status of my own member. The config will be updated on the other federated members automatically.
-     */
     enabled: boolean;
-    /**
-     * Full URL to ending with the repository name.
-     */
     url: string;
 }
 
 export interface GetFederatedTerraformModuleRepositoryMemberArgs {
-    /**
-     * Represents the active state of the federated member. It is supported to change the enabled
-     * status of my own member. The config will be updated on the other federated members automatically.
-     */
     enabled: pulumi.Input<boolean>;
-    /**
-     * Full URL to ending with the repository name.
-     */
     url: pulumi.Input<string>;
 }
 
 export interface GetFederatedTerraformProviderRepositoryMember {
-    /**
-     * Represents the active state of the federated member. It is supported to change the enabled
-     * status of my own member. The config will be updated on the other federated members automatically.
-     */
     enabled: boolean;
-    /**
-     * Full URL to ending with the repository name.
-     */
     url: string;
 }
 
 export interface GetFederatedTerraformProviderRepositoryMemberArgs {
-    /**
-     * Represents the active state of the federated member. It is supported to change the enabled
-     * status of my own member. The config will be updated on the other federated members automatically.
-     */
     enabled: pulumi.Input<boolean>;
-    /**
-     * Full URL to ending with the repository name.
-     */
     url: pulumi.Input<string>;
 }
 
 export interface GetFederatedVagrantRepositoryMember {
-    /**
-     * Represents the active state of the federated member. It is supported to change the enabled
-     * status of my own member. The config will be updated on the other federated members automatically.
-     */
     enabled: boolean;
-    /**
-     * Full URL to ending with the repository name.
-     */
     url: string;
 }
 
 export interface GetFederatedVagrantRepositoryMemberArgs {
-    /**
-     * Represents the active state of the federated member. It is supported to change the enabled
-     * status of my own member. The config will be updated on the other federated members automatically.
-     */
     enabled: pulumi.Input<boolean>;
-    /**
-     * Full URL to ending with the repository name.
-     */
     url: pulumi.Input<string>;
 }
 
 export interface GetPermissionTargetBuild {
     actions?: inputs.GetPermissionTargetBuildActions;
-    /**
-     * Pattern of artifacts to exclude.
-     */
     excludesPatterns?: string[];
-    /**
-     * Pattern of artifacts to include.
-     */
     includesPatterns?: string[];
-    /**
-     * List of repositories this permission target is applicable for. You can specify the
-     * name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote
-     * repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
-     */
     repositories: string[];
 }
 
 export interface GetPermissionTargetBuildArgs {
     actions?: pulumi.Input<inputs.GetPermissionTargetBuildActionsArgs>;
-    /**
-     * Pattern of artifacts to exclude.
-     */
     excludesPatterns?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Pattern of artifacts to include.
-     */
     includesPatterns?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * List of repositories this permission target is applicable for. You can specify the
-     * name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote
-     * repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
-     */
     repositories: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 export interface GetPermissionTargetBuildActions {
-    /**
-     * Groups this permission applies for.
-     */
     groups?: inputs.GetPermissionTargetBuildActionsGroup[];
-    /**
-     * Users this permission target applies for.
-     */
     users?: inputs.GetPermissionTargetBuildActionsUser[];
 }
 
 export interface GetPermissionTargetBuildActionsArgs {
-    /**
-     * Groups this permission applies for.
-     */
     groups?: pulumi.Input<pulumi.Input<inputs.GetPermissionTargetBuildActionsGroupArgs>[]>;
-    /**
-     * Users this permission target applies for.
-     */
     users?: pulumi.Input<pulumi.Input<inputs.GetPermissionTargetBuildActionsUserArgs>[]>;
 }
 
 export interface GetPermissionTargetBuildActionsGroup {
-    /**
-     * Name of the permission target.
-     */
     name: string;
     permissions: string[];
 }
 
 export interface GetPermissionTargetBuildActionsGroupArgs {
-    /**
-     * Name of the permission target.
-     */
     name: pulumi.Input<string>;
     permissions: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 export interface GetPermissionTargetBuildActionsUser {
-    /**
-     * Name of the permission target.
-     */
     name: string;
     permissions: string[];
 }
 
 export interface GetPermissionTargetBuildActionsUserArgs {
-    /**
-     * Name of the permission target.
-     */
     name: pulumi.Input<string>;
     permissions: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 export interface GetPermissionTargetReleaseBundle {
     actions?: inputs.GetPermissionTargetReleaseBundleActions;
-    /**
-     * Pattern of artifacts to exclude.
-     */
     excludesPatterns?: string[];
-    /**
-     * Pattern of artifacts to include.
-     */
     includesPatterns?: string[];
-    /**
-     * List of repositories this permission target is applicable for. You can specify the
-     * name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote
-     * repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
-     */
     repositories: string[];
 }
 
 export interface GetPermissionTargetReleaseBundleArgs {
     actions?: pulumi.Input<inputs.GetPermissionTargetReleaseBundleActionsArgs>;
-    /**
-     * Pattern of artifacts to exclude.
-     */
     excludesPatterns?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Pattern of artifacts to include.
-     */
     includesPatterns?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * List of repositories this permission target is applicable for. You can specify the
-     * name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote
-     * repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
-     */
     repositories: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 export interface GetPermissionTargetReleaseBundleActions {
-    /**
-     * Groups this permission applies for.
-     */
     groups?: inputs.GetPermissionTargetReleaseBundleActionsGroup[];
-    /**
-     * Users this permission target applies for.
-     */
     users?: inputs.GetPermissionTargetReleaseBundleActionsUser[];
 }
 
 export interface GetPermissionTargetReleaseBundleActionsArgs {
-    /**
-     * Groups this permission applies for.
-     */
     groups?: pulumi.Input<pulumi.Input<inputs.GetPermissionTargetReleaseBundleActionsGroupArgs>[]>;
-    /**
-     * Users this permission target applies for.
-     */
     users?: pulumi.Input<pulumi.Input<inputs.GetPermissionTargetReleaseBundleActionsUserArgs>[]>;
 }
 
 export interface GetPermissionTargetReleaseBundleActionsGroup {
-    /**
-     * Name of the permission target.
-     */
     name: string;
     permissions: string[];
 }
 
 export interface GetPermissionTargetReleaseBundleActionsGroupArgs {
-    /**
-     * Name of the permission target.
-     */
     name: pulumi.Input<string>;
     permissions: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 export interface GetPermissionTargetReleaseBundleActionsUser {
-    /**
-     * Name of the permission target.
-     */
     name: string;
     permissions: string[];
 }
 
 export interface GetPermissionTargetReleaseBundleActionsUserArgs {
-    /**
-     * Name of the permission target.
-     */
     name: pulumi.Input<string>;
     permissions: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 export interface GetPermissionTargetRepo {
     actions?: inputs.GetPermissionTargetRepoActions;
-    /**
-     * Pattern of artifacts to exclude.
-     */
     excludesPatterns?: string[];
-    /**
-     * Pattern of artifacts to include.
-     */
     includesPatterns?: string[];
-    /**
-     * List of repositories this permission target is applicable for. You can specify the
-     * name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote
-     * repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
-     */
     repositories: string[];
 }
 
 export interface GetPermissionTargetRepoArgs {
     actions?: pulumi.Input<inputs.GetPermissionTargetRepoActionsArgs>;
-    /**
-     * Pattern of artifacts to exclude.
-     */
     excludesPatterns?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Pattern of artifacts to include.
-     */
     includesPatterns?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * List of repositories this permission target is applicable for. You can specify the
-     * name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote
-     * repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
-     */
     repositories: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 export interface GetPermissionTargetRepoActions {
-    /**
-     * Groups this permission applies for.
-     */
     groups?: inputs.GetPermissionTargetRepoActionsGroup[];
-    /**
-     * Users this permission target applies for.
-     */
     users?: inputs.GetPermissionTargetRepoActionsUser[];
 }
 
 export interface GetPermissionTargetRepoActionsArgs {
-    /**
-     * Groups this permission applies for.
-     */
     groups?: pulumi.Input<pulumi.Input<inputs.GetPermissionTargetRepoActionsGroupArgs>[]>;
-    /**
-     * Users this permission target applies for.
-     */
     users?: pulumi.Input<pulumi.Input<inputs.GetPermissionTargetRepoActionsUserArgs>[]>;
 }
 
 export interface GetPermissionTargetRepoActionsGroup {
-    /**
-     * Name of the permission target.
-     */
     name: string;
     permissions: string[];
 }
 
 export interface GetPermissionTargetRepoActionsGroupArgs {
-    /**
-     * Name of the permission target.
-     */
     name: pulumi.Input<string>;
     permissions: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 export interface GetPermissionTargetRepoActionsUser {
-    /**
-     * Name of the permission target.
-     */
     name: string;
     permissions: string[];
 }
 
 export interface GetPermissionTargetRepoActionsUserArgs {
-    /**
-     * Name of the permission target.
-     */
     name: pulumi.Input<string>;
     permissions: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -2092,467 +1143,135 @@ export interface GetRemoteVcsRepositoryContentSynchronisationArgs {
 }
 
 export interface LocalRepositoryMultiReplicationReplication {
-    /**
-     * Enabling the `checkBinaryExistenceInFilestore` flag requires an Enterprise Plus license. When true, enables distributed checksum storage. For more information, see [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
-     */
     checkBinaryExistenceInFilestore?: pulumi.Input<boolean>;
-    /**
-     * When set, enables replication of this repository to the target specified in `url` attribute. Default value is `true`.
-     */
     enabled?: pulumi.Input<boolean>;
-    /**
-     * List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`. By default, no artifacts are excluded.
-     */
     excludePathPrefixPattern?: pulumi.Input<string>;
-    /**
-     * List of artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included `(**&#47;*)`.
-     */
     includePathPrefixPattern?: pulumi.Input<string>;
-    /**
-     * Use either the HTTP authentication password or [identity token](https://www.jfrog.com/confluence/display/JFROG/User+Profile#UserProfile-IdentityTokenidentitytoken).
-     */
     password?: pulumi.Input<string>;
-    /**
-     * Proxy key from Artifactory Proxies settings. The proxy configuration will be used when communicating with the remote instance.
-     */
     proxy?: pulumi.Input<string>;
-    /**
-     * Replication ID, the value is unknown until the resource is created. Can't be set or updated.
-     */
     replicationKey?: pulumi.Input<string>;
-    /**
-     * The network timeout in milliseconds to use for remote operations. Default value is `15000`.
-     */
     socketTimeoutMillis?: pulumi.Input<number>;
-    /**
-     * When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata). Note that enabling this option, will delete artifacts on the target that do not exist in the source repository. Default value is `false`.
-     */
     syncDeletes?: pulumi.Input<boolean>;
-    /**
-     * When set, the task also synchronizes the properties of replicated artifacts. Default value is `true`.
-     */
     syncProperties?: pulumi.Input<boolean>;
-    /**
-     * When set, the task also synchronizes artifact download statistics. Set to avoid inadvertent cleanup at the target instance when setting up replication for disaster recovery. Default value is `false`
-     */
     syncStatistics?: pulumi.Input<boolean>;
-    /**
-     * The URL of the target local repository on a remote Artifactory server. Use the format `https://<artifactory_url>/artifactory/<repository_name>`.
-     */
     url: pulumi.Input<string>;
-    /**
-     * Username on the remote Artifactory instance.
-     */
     username: pulumi.Input<string>;
 }
 
 export interface OauthSettingsOauthProvider {
-    /**
-     * OAuth user info endpoint for the IdP.
-     */
     apiUrl: pulumi.Input<string>;
-    /**
-     * OAuth authorization endpoint for the IdP.
-     */
     authUrl: pulumi.Input<string>;
-    /**
-     * OAuth client ID configured on the IdP.
-     */
     clientId: pulumi.Input<string>;
-    /**
-     * OAuth client secret configured on the IdP.
-     */
     clientSecret: pulumi.Input<string>;
-    /**
-     * Enable the Artifactory OAuth provider.  Default value is `true`.
-     */
     enabled?: pulumi.Input<boolean>;
-    /**
-     * Name of the Artifactory OAuth provider.
-     */
     name: pulumi.Input<string>;
-    /**
-     * OAuth token endpoint for the IdP.
-     */
     tokenUrl: pulumi.Input<string>;
-    /**
-     * Type of OAuth provider. (e.g., `github`, `google`, `cloudfoundry`, or `openId`)
-     */
     type: pulumi.Input<string>;
 }
 
 export interface PermissionTargetBuild {
     actions?: pulumi.Input<inputs.PermissionTargetBuildActions>;
-    /**
-     * Pattern of artifacts to exclude.
-     */
     excludesPatterns?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Pattern of artifacts to include.
-     */
     includesPatterns?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
-     */
     repositories: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 export interface PermissionTargetBuildActions {
-    /**
-     * Groups this permission applies for.
-     */
     groups?: pulumi.Input<pulumi.Input<inputs.PermissionTargetBuildActionsGroup>[]>;
-    /**
-     * Users this permission target applies for.
-     */
     users?: pulumi.Input<pulumi.Input<inputs.PermissionTargetBuildActionsUser>[]>;
 }
 
 export interface PermissionTargetBuildActionsGroup {
-    /**
-     * Name of permission.
-     */
     name: pulumi.Input<string>;
     permissions: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 export interface PermissionTargetBuildActionsUser {
-    /**
-     * Name of permission.
-     */
     name: pulumi.Input<string>;
     permissions: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 export interface PermissionTargetReleaseBundle {
     actions?: pulumi.Input<inputs.PermissionTargetReleaseBundleActions>;
-    /**
-     * Pattern of artifacts to exclude.
-     */
     excludesPatterns?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Pattern of artifacts to include.
-     */
     includesPatterns?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
-     */
     repositories: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 export interface PermissionTargetReleaseBundleActions {
-    /**
-     * Groups this permission applies for.
-     */
     groups?: pulumi.Input<pulumi.Input<inputs.PermissionTargetReleaseBundleActionsGroup>[]>;
-    /**
-     * Users this permission target applies for.
-     */
     users?: pulumi.Input<pulumi.Input<inputs.PermissionTargetReleaseBundleActionsUser>[]>;
 }
 
 export interface PermissionTargetReleaseBundleActionsGroup {
-    /**
-     * Name of permission.
-     */
     name: pulumi.Input<string>;
     permissions: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 export interface PermissionTargetReleaseBundleActionsUser {
-    /**
-     * Name of permission.
-     */
     name: pulumi.Input<string>;
     permissions: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 export interface PermissionTargetRepo {
     actions?: pulumi.Input<inputs.PermissionTargetRepoActions>;
-    /**
-     * Pattern of artifacts to exclude.
-     */
     excludesPatterns?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Pattern of artifacts to include.
-     */
     includesPatterns?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
-     */
     repositories: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 export interface PermissionTargetRepoActions {
-    /**
-     * Groups this permission applies for.
-     */
     groups?: pulumi.Input<pulumi.Input<inputs.PermissionTargetRepoActionsGroup>[]>;
-    /**
-     * Users this permission target applies for.
-     */
     users?: pulumi.Input<pulumi.Input<inputs.PermissionTargetRepoActionsUser>[]>;
 }
 
 export interface PermissionTargetRepoActionsGroup {
-    /**
-     * Name of permission.
-     */
     name: pulumi.Input<string>;
     permissions: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 export interface PermissionTargetRepoActionsUser {
-    /**
-     * Name of permission.
-     */
-    name: pulumi.Input<string>;
-    permissions: pulumi.Input<pulumi.Input<string>[]>;
-}
-
-export interface PermissionTargetsBuild {
-    actions?: pulumi.Input<inputs.PermissionTargetsBuildActions>;
-    /**
-     * Pattern of artifacts to exclude.
-     */
-    excludesPatterns?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Pattern of artifacts to include.
-     */
-    includesPatterns?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
-     */
-    repositories: pulumi.Input<pulumi.Input<string>[]>;
-}
-
-export interface PermissionTargetsBuildActions {
-    /**
-     * Groups this permission applies for.
-     */
-    groups?: pulumi.Input<pulumi.Input<inputs.PermissionTargetsBuildActionsGroup>[]>;
-    /**
-     * Users this permission target applies for.
-     */
-    users?: pulumi.Input<pulumi.Input<inputs.PermissionTargetsBuildActionsUser>[]>;
-}
-
-export interface PermissionTargetsBuildActionsGroup {
-    /**
-     * Name of permission.
-     */
-    name: pulumi.Input<string>;
-    permissions: pulumi.Input<pulumi.Input<string>[]>;
-}
-
-export interface PermissionTargetsBuildActionsUser {
-    /**
-     * Name of permission.
-     */
-    name: pulumi.Input<string>;
-    permissions: pulumi.Input<pulumi.Input<string>[]>;
-}
-
-export interface PermissionTargetsReleaseBundle {
-    actions?: pulumi.Input<inputs.PermissionTargetsReleaseBundleActions>;
-    /**
-     * Pattern of artifacts to exclude.
-     */
-    excludesPatterns?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Pattern of artifacts to include.
-     */
-    includesPatterns?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
-     */
-    repositories: pulumi.Input<pulumi.Input<string>[]>;
-}
-
-export interface PermissionTargetsReleaseBundleActions {
-    /**
-     * Groups this permission applies for.
-     */
-    groups?: pulumi.Input<pulumi.Input<inputs.PermissionTargetsReleaseBundleActionsGroup>[]>;
-    /**
-     * Users this permission target applies for.
-     */
-    users?: pulumi.Input<pulumi.Input<inputs.PermissionTargetsReleaseBundleActionsUser>[]>;
-}
-
-export interface PermissionTargetsReleaseBundleActionsGroup {
-    /**
-     * Name of permission.
-     */
-    name: pulumi.Input<string>;
-    permissions: pulumi.Input<pulumi.Input<string>[]>;
-}
-
-export interface PermissionTargetsReleaseBundleActionsUser {
-    /**
-     * Name of permission.
-     */
-    name: pulumi.Input<string>;
-    permissions: pulumi.Input<pulumi.Input<string>[]>;
-}
-
-export interface PermissionTargetsRepo {
-    actions?: pulumi.Input<inputs.PermissionTargetsRepoActions>;
-    /**
-     * Pattern of artifacts to exclude.
-     */
-    excludesPatterns?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Pattern of artifacts to include.
-     */
-    includesPatterns?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
-     */
-    repositories: pulumi.Input<pulumi.Input<string>[]>;
-}
-
-export interface PermissionTargetsRepoActions {
-    /**
-     * Groups this permission applies for.
-     */
-    groups?: pulumi.Input<pulumi.Input<inputs.PermissionTargetsRepoActionsGroup>[]>;
-    /**
-     * Users this permission target applies for.
-     */
-    users?: pulumi.Input<pulumi.Input<inputs.PermissionTargetsRepoActionsUser>[]>;
-}
-
-export interface PermissionTargetsRepoActionsGroup {
-    /**
-     * Name of permission.
-     */
-    name: pulumi.Input<string>;
-    permissions: pulumi.Input<pulumi.Input<string>[]>;
-}
-
-export interface PermissionTargetsRepoActionsUser {
-    /**
-     * Name of permission.
-     */
     name: pulumi.Input<string>;
     permissions: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 export interface PropertySetProperty {
-    /**
-     * Disables `multipleChoice` if set to `false` at the same time with multipleChoice set to `true`. Default value is `false`
-     */
     closedPredefinedValues?: pulumi.Input<boolean>;
-    /**
-     * Defines if user can select multiple values. `closedPredefinedValues` should be set to `true`. Default value is `false`.
-     */
     multipleChoice?: pulumi.Input<boolean>;
-    /**
-     * Predefined property name.
-     */
     name: pulumi.Input<string>;
-    /**
-     * Properties in the property set.
-     */
     predefinedValues: pulumi.Input<pulumi.Input<inputs.PropertySetPropertyPredefinedValue>[]>;
 }
 
 export interface PropertySetPropertyPredefinedValue {
-    /**
-     * Whether the value is selected by default in the UI.
-     */
     defaultValue: pulumi.Input<boolean>;
-    /**
-     * Predefined property name.
-     */
     name: pulumi.Input<string>;
 }
 
 export interface PushReplicationReplication {
-    /**
-     * When true, enables distributed checksum storage. For more information, see
-     * [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
-     */
     checkBinaryExistenceInFilestore?: pulumi.Input<boolean>;
-    /**
-     * When set, this replication will be enabled when saved.
-     */
     enabled?: pulumi.Input<boolean>;
-    /**
-     * Required for local repository, but not needed for remote repository.
-     */
     password: pulumi.Input<string>;
-    /**
-     * Only artifacts that located in path that matches the subpath within the remote repository will be replicated.
-     */
     pathPrefix?: pulumi.Input<string>;
-    /**
-     * Proxy key from Artifactory Proxies settings. The proxy configuration will be used when communicating with the remote instance.
-     */
     proxy?: pulumi.Input<string>;
-    /**
-     * The network timeout in milliseconds to use for remote operations.
-     */
     socketTimeoutMillis?: pulumi.Input<number>;
-    /**
-     * When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata).
-     * Note that enabling this option, will delete artifacts on the target that do not exist in the source repository.
-     */
     syncDeletes?: pulumi.Input<boolean>;
-    /**
-     * When set, the task also synchronizes the properties of replicated artifacts.
-     */
     syncProperties?: pulumi.Input<boolean>;
-    /**
-     * When set, artifact download statistics will also be replicated. Set to avoid inadvertent cleanup at the target instance when setting up replication for disaster recovery.
-     */
     syncStatistics?: pulumi.Input<boolean>;
-    /**
-     * The URL of the target local repository on a remote Artifactory server. Required for local repository, but not needed for remote repository.
-     */
     url: pulumi.Input<string>;
-    /**
-     * Required for local repository, but not needed for remote repository.
-     */
     username: pulumi.Input<string>;
 }
 
 export interface ReleaseBundleWebhookCriteria {
-    /**
-     * Trigger on any release bundle.
-     */
     anyReleaseBundle: pulumi.Input<boolean>;
-    /**
-     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: "org/apache/**".
-     */
     excludePatterns?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: "org/apache/**".
-     */
     includePatterns?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Trigger on this list of release bundle names.
-     */
     registeredReleaseBundleNames: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 export interface ReleaseBundleWebhookHandler {
-    /**
-     * Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
-     */
     customHttpHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Proxy key from Artifactory UI (Administration > Proxies > Configuration).
-     */
     proxy?: pulumi.Input<string>;
-    /**
-     * Secret authentication token that will be sent to the configured URL. The value will be sent as `x-jfrog-event-auth` header.
-     */
     secret?: pulumi.Input<string>;
-    /**
-     * Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
-     */
     url: pulumi.Input<string>;
 }
 
@@ -2775,14 +1494,8 @@ export interface RemoteVcsRepositoryContentSynchronisation {
 
 export interface ReplicationConfigReplication {
     enabled?: pulumi.Input<boolean>;
-    /**
-     * Requires password encryption to be turned off `POST /api/system/decrypt`.
-     */
     password?: pulumi.Input<string>;
     pathPrefix?: pulumi.Input<string>;
-    /**
-     * Proxy key from Artifactory Proxies setting
-     */
     proxy?: pulumi.Input<string>;
     socketTimeoutMillis?: pulumi.Input<number>;
     syncDeletes?: pulumi.Input<boolean>;

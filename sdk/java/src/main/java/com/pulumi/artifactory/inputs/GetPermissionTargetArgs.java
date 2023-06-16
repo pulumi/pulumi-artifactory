@@ -18,62 +18,30 @@ public final class GetPermissionTargetArgs extends com.pulumi.resources.InvokeAr
 
     public static final GetPermissionTargetArgs Empty = new GetPermissionTargetArgs();
 
-    /**
-     * Same as repo but for artifactory-build-info permissions.
-     * 
-     */
     @Import(name="build")
     private @Nullable Output<GetPermissionTargetBuildArgs> build;
 
-    /**
-     * @return Same as repo but for artifactory-build-info permissions.
-     * 
-     */
     public Optional<Output<GetPermissionTargetBuildArgs>> build() {
         return Optional.ofNullable(this.build);
     }
 
-    /**
-     * Name of the permission target.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return Name of the permission target.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
 
-    /**
-     * Same as repo but for release-bundles permissions.
-     * 
-     */
     @Import(name="releaseBundle")
     private @Nullable Output<GetPermissionTargetReleaseBundleArgs> releaseBundle;
 
-    /**
-     * @return Same as repo but for release-bundles permissions.
-     * 
-     */
     public Optional<Output<GetPermissionTargetReleaseBundleArgs>> releaseBundle() {
         return Optional.ofNullable(this.releaseBundle);
     }
 
-    /**
-     * Repository permission configuration.
-     * 
-     */
     @Import(name="repo")
     private @Nullable Output<GetPermissionTargetRepoArgs> repo;
 
-    /**
-     * @return Repository permission configuration.
-     * 
-     */
     public Optional<Output<GetPermissionTargetRepoArgs>> repo() {
         return Optional.ofNullable(this.repo);
     }
@@ -105,86 +73,38 @@ public final class GetPermissionTargetArgs extends com.pulumi.resources.InvokeAr
             $ = new GetPermissionTargetArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param build Same as repo but for artifactory-build-info permissions.
-         * 
-         * @return builder
-         * 
-         */
         public Builder build(@Nullable Output<GetPermissionTargetBuildArgs> build) {
             $.build = build;
             return this;
         }
 
-        /**
-         * @param build Same as repo but for artifactory-build-info permissions.
-         * 
-         * @return builder
-         * 
-         */
         public Builder build(GetPermissionTargetBuildArgs build) {
             return build(Output.of(build));
         }
 
-        /**
-         * @param name Name of the permission target.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the permission target.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param releaseBundle Same as repo but for release-bundles permissions.
-         * 
-         * @return builder
-         * 
-         */
         public Builder releaseBundle(@Nullable Output<GetPermissionTargetReleaseBundleArgs> releaseBundle) {
             $.releaseBundle = releaseBundle;
             return this;
         }
 
-        /**
-         * @param releaseBundle Same as repo but for release-bundles permissions.
-         * 
-         * @return builder
-         * 
-         */
         public Builder releaseBundle(GetPermissionTargetReleaseBundleArgs releaseBundle) {
             return releaseBundle(Output.of(releaseBundle));
         }
 
-        /**
-         * @param repo Repository permission configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder repo(@Nullable Output<GetPermissionTargetRepoArgs> repo) {
             $.repo = repo;
             return this;
         }
 
-        /**
-         * @param repo Repository permission configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder repo(GetPermissionTargetRepoArgs repo) {
             return repo(Output.of(repo));
         }

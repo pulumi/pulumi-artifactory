@@ -6,30 +6,6 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
-/**
- * Creates a remote Alpine repository.
- * Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Alpine+Linux+Repositories).
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const my_remote_alpine = new artifactory.RemoteAlpineRepository("my-remote-alpine", {
- *     key: "my-remote-alpine",
- *     url: "http://dl-cdn.alpinelinux.org/alpine",
- * });
- * ```
- *
- * ## Import
- *
- * Remote repositories can be imported using their name, e.g.
- *
- * ```sh
- *  $ pulumi import artifactory:index/remoteAlpineRepository:RemoteAlpineRepository my-remote-alpine my-remote-alpine
- * ```
- */
 export class RemoteAlpineRepository extends pulumi.CustomResource {
     /**
      * Get an existing RemoteAlpineRepository resource's state with the given name, ID, and optional extra
@@ -125,8 +101,8 @@ export class RemoteAlpineRepository extends pulumi.CustomResource {
      */
     public readonly includesPattern!: pulumi.Output<string | undefined>;
     /**
-     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-     * contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      */
     public readonly key!: pulumi.Output<string>;
     /**
@@ -423,8 +399,8 @@ export interface RemoteAlpineRepositoryState {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-     * contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      */
     key?: pulumi.Input<string>;
     /**
@@ -611,8 +587,8 @@ export interface RemoteAlpineRepositoryArgs {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-     * contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      */
     key: pulumi.Input<string>;
     /**

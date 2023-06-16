@@ -11,59 +11,9 @@ namespace Pulumi.Artifactory
 {
     public static class GetRemotePypiRepository
     {
-        /// <summary>
-        /// Retrieves a remote Pypi repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var remote_pypi = Artifactory.GetRemotePypiRepository.Invoke(new()
-        ///     {
-        ///         Key = "remote-pypi",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetRemotePypiRepositoryResult> InvokeAsync(GetRemotePypiRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRemotePypiRepositoryResult>("artifactory:index/getRemotePypiRepository:getRemotePypiRepository", args ?? new GetRemotePypiRepositoryArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Retrieves a remote Pypi repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var remote_pypi = Artifactory.GetRemotePypiRepository.Invoke(new()
-        ///     {
-        ///         Key = "remote-pypi",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Output<GetRemotePypiRepositoryResult> Invoke(GetRemotePypiRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRemotePypiRepositoryResult>("artifactory:index/getRemotePypiRepository:getRemotePypiRepository", args ?? new GetRemotePypiRepositoryInvokeArgs(), options.WithDefaults());
     }
@@ -113,9 +63,6 @@ namespace Pulumi.Artifactory
         [Input("includesPattern")]
         public string? IncludesPattern { get; set; }
 
-        /// <summary>
-        /// the identity key of the repo.
-        /// </summary>
         [Input("key", required: true)]
         public string Key { get; set; } = null!;
 
@@ -173,15 +120,9 @@ namespace Pulumi.Artifactory
         [Input("proxy")]
         public string? Proxy { get; set; }
 
-        /// <summary>
-        /// (Optional) To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another Artifactory server. See JFrog Pypi documentation [here](https://www.jfrog.com/confluence/display/JFROG/PyPI+Repositories) for the usage details. Default value is `https://pypi.org`.
-        /// </summary>
         [Input("pypiRegistryUrl")]
         public string? PypiRegistryUrl { get; set; }
 
-        /// <summary>
-        /// (Optional) Usually should be left as a default for `simple`, unless the remote is a PyPI server that has custom registry suffix, like +simple in DevPI. Default value is `simple`.
-        /// </summary>
         [Input("pypiRepositorySuffix")]
         public string? PypiRepositorySuffix { get; set; }
 
@@ -271,9 +212,6 @@ namespace Pulumi.Artifactory
         [Input("includesPattern")]
         public Input<string>? IncludesPattern { get; set; }
 
-        /// <summary>
-        /// the identity key of the repo.
-        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
@@ -335,15 +273,9 @@ namespace Pulumi.Artifactory
         [Input("proxy")]
         public Input<string>? Proxy { get; set; }
 
-        /// <summary>
-        /// (Optional) To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another Artifactory server. See JFrog Pypi documentation [here](https://www.jfrog.com/confluence/display/JFROG/PyPI+Repositories) for the usage details. Default value is `https://pypi.org`.
-        /// </summary>
         [Input("pypiRegistryUrl")]
         public Input<string>? PypiRegistryUrl { get; set; }
 
-        /// <summary>
-        /// (Optional) Usually should be left as a default for `simple`, unless the remote is a PyPI server that has custom registry suffix, like +simple in DevPI. Default value is `simple`.
-        /// </summary>
         [Input("pypiRepositorySuffix")]
         public Input<string>? PypiRepositorySuffix { get; set; }
 
@@ -426,13 +358,7 @@ namespace Pulumi.Artifactory
         public readonly string? ProjectKey;
         public readonly ImmutableArray<string> PropertySets;
         public readonly string? Proxy;
-        /// <summary>
-        /// (Optional) To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another Artifactory server. See JFrog Pypi documentation [here](https://www.jfrog.com/confluence/display/JFROG/PyPI+Repositories) for the usage details. Default value is `https://pypi.org`.
-        /// </summary>
         public readonly string? PypiRegistryUrl;
-        /// <summary>
-        /// (Optional) Usually should be left as a default for `simple`, unless the remote is a PyPI server that has custom registry suffix, like +simple in DevPI. Default value is `simple`.
-        /// </summary>
         public readonly string? PypiRepositorySuffix;
         public readonly string? QueryParams;
         public readonly string? RemoteRepoLayoutRef;

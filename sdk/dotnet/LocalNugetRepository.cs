@@ -9,37 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Artifactory
 {
-    /// <summary>
-    /// Creates a local Nuget repository.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Artifactory = Pulumi.Artifactory;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var terraform_local_test_nuget_repo_basic = new Artifactory.LocalNugetRepository("terraform-local-test-nuget-repo-basic", new()
-    ///     {
-    ///         ForceNugetAuthentication = true,
-    ///         Key = "terraform-local-test-nuget-repo-basic",
-    ///         MaxUniqueSnapshots = 5,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Local repositories can be imported using their name, e.g.
-    /// 
-    /// ```sh
-    ///  $ pulumi import artifactory:index/localNugetRepository:LocalNugetRepository terraform-local-test-nuget-repo-basic terraform-local-test-nuget-repo-basic
-    /// ```
-    /// </summary>
     [ArtifactoryResourceType("artifactory:index/localNugetRepository:LocalNugetRepository")]
     public partial class LocalNugetRepository : global::Pulumi.CustomResource
     {
@@ -86,7 +55,6 @@ namespace Pulumi.Artifactory
 
         /// <summary>
         /// Force basic authentication credentials in order to use this repository.
-        /// Default is `false`.
         /// </summary>
         [Output("forceNugetAuthentication")]
         public Output<bool?> ForceNugetAuthentication { get; private set; } = null!;
@@ -99,15 +67,15 @@ namespace Pulumi.Artifactory
         public Output<string> IncludesPattern { get; private set; } = null!;
 
         /// <summary>
-        /// the identity key of the repo.
+        /// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+        /// characters. It cannot begin with a number or contain spaces or special characters.
         /// </summary>
         [Output("key")]
         public Output<string> Key { get; private set; } = null!;
 
         /// <summary>
-        /// The maximum number of unique snapshots of a single artifact to store
-        /// Once the number of snapshots exceeds this setting, older versions are removed
-        /// A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+        /// The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
+        /// older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
         /// </summary>
         [Output("maxUniqueSnapshots")]
         public Output<int?> MaxUniqueSnapshots { get; private set; } = null!;
@@ -251,7 +219,6 @@ namespace Pulumi.Artifactory
 
         /// <summary>
         /// Force basic authentication credentials in order to use this repository.
-        /// Default is `false`.
         /// </summary>
         [Input("forceNugetAuthentication")]
         public Input<bool>? ForceNugetAuthentication { get; set; }
@@ -264,15 +231,15 @@ namespace Pulumi.Artifactory
         public Input<string>? IncludesPattern { get; set; }
 
         /// <summary>
-        /// the identity key of the repo.
+        /// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+        /// characters. It cannot begin with a number or contain spaces or special characters.
         /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
         /// <summary>
-        /// The maximum number of unique snapshots of a single artifact to store
-        /// Once the number of snapshots exceeds this setting, older versions are removed
-        /// A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+        /// The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
+        /// older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
         /// </summary>
         [Input("maxUniqueSnapshots")]
         public Input<int>? MaxUniqueSnapshots { get; set; }
@@ -387,7 +354,6 @@ namespace Pulumi.Artifactory
 
         /// <summary>
         /// Force basic authentication credentials in order to use this repository.
-        /// Default is `false`.
         /// </summary>
         [Input("forceNugetAuthentication")]
         public Input<bool>? ForceNugetAuthentication { get; set; }
@@ -400,15 +366,15 @@ namespace Pulumi.Artifactory
         public Input<string>? IncludesPattern { get; set; }
 
         /// <summary>
-        /// the identity key of the repo.
+        /// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+        /// characters. It cannot begin with a number or contain spaces or special characters.
         /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
 
         /// <summary>
-        /// The maximum number of unique snapshots of a single artifact to store
-        /// Once the number of snapshots exceeds this setting, older versions are removed
-        /// A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+        /// The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
+        /// older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
         /// </summary>
         [Input("maxUniqueSnapshots")]
         public Input<int>? MaxUniqueSnapshots { get; set; }

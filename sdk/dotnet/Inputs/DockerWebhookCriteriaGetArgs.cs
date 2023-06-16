@@ -12,24 +12,14 @@ namespace Pulumi.Artifactory.Inputs
 
     public sealed class DockerWebhookCriteriaGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Trigger on any local repo.
-        /// </summary>
         [Input("anyLocal", required: true)]
         public Input<bool> AnyLocal { get; set; } = null!;
 
-        /// <summary>
-        /// Trigger on any remote repo.
-        /// </summary>
         [Input("anyRemote", required: true)]
         public Input<bool> AnyRemote { get; set; } = null!;
 
         [Input("excludePatterns")]
         private InputList<string>? _excludePatterns;
-
-        /// <summary>
-        /// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
-        /// </summary>
         public InputList<string> ExcludePatterns
         {
             get => _excludePatterns ?? (_excludePatterns = new InputList<string>());
@@ -38,10 +28,6 @@ namespace Pulumi.Artifactory.Inputs
 
         [Input("includePatterns")]
         private InputList<string>? _includePatterns;
-
-        /// <summary>
-        /// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
-        /// </summary>
         public InputList<string> IncludePatterns
         {
             get => _includePatterns ?? (_includePatterns = new InputList<string>());
@@ -50,10 +36,6 @@ namespace Pulumi.Artifactory.Inputs
 
         [Input("repoKeys", required: true)]
         private InputList<string>? _repoKeys;
-
-        /// <summary>
-        /// Trigger on this list of repo keys.
-        /// </summary>
         public InputList<string> RepoKeys
         {
             get => _repoKeys ?? (_repoKeys = new InputList<string>());

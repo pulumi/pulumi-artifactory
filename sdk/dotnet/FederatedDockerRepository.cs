@@ -9,50 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Artifactory
 {
-    /// <summary>
-    /// Creates a federated Docker repository.
-    /// 
-    /// ~&gt;This resource has been superseded by the `artifactory.FederatedDockerV2Repository` resource. This resource will continue to be available in the provider for backward compatibility. For documentation, please refer to the new resource.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Artifactory = Pulumi.Artifactory;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var terraform_federated_test_docker_repo = new Artifactory.FederatedDockerRepository("terraform-federated-test-docker-repo", new()
-    ///     {
-    ///         Key = "terraform-federated-test-docker-repo",
-    ///         Members = new[]
-    ///         {
-    ///             new Artifactory.Inputs.FederatedDockerRepositoryMemberArgs
-    ///             {
-    ///                 Enabled = true,
-    ///                 Url = "http://tempurl.org/artifactory/terraform-federated-test-docker-repo",
-    ///             },
-    ///             new Artifactory.Inputs.FederatedDockerRepositoryMemberArgs
-    ///             {
-    ///                 Enabled = true,
-    ///                 Url = "http://tempurl2.org/artifactory/terraform-federated-test-docker-repo-2",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Federated repositories can be imported using their name, e.g.
-    /// 
-    /// ```sh
-    ///  $ pulumi import artifactory:index/federatedDockerRepository:FederatedDockerRepository terraform-federated-test-docker-repo terraform-federated-test-docker-repo
-    /// ```
-    /// </summary>
     [ArtifactoryResourceType("artifactory:index/federatedDockerRepository:FederatedDockerRepository")]
     public partial class FederatedDockerRepository : global::Pulumi.CustomResource
     {
@@ -124,7 +80,8 @@ namespace Pulumi.Artifactory
         public Output<string> IncludesPattern { get; private set; } = null!;
 
         /// <summary>
-        /// the identity key of the repo.
+        /// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+        /// characters. It cannot begin with a number or contain spaces or special characters.
         /// </summary>
         [Output("key")]
         public Output<string> Key { get; private set; } = null!;
@@ -138,9 +95,10 @@ namespace Pulumi.Artifactory
         public Output<int?> MaxUniqueTags { get; private set; } = null!;
 
         /// <summary>
-        /// The list of Federated members and must contain this repository URL (configured base URL
-        /// `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
-        /// Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+        /// The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
+        /// will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
+        /// federated members will need to have a base URL set. Please follow the
+        /// [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
         /// to set up Federated repositories correctly.
         /// </summary>
         [Output("members")]
@@ -311,7 +269,8 @@ namespace Pulumi.Artifactory
         public Input<string>? IncludesPattern { get; set; }
 
         /// <summary>
-        /// the identity key of the repo.
+        /// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+        /// characters. It cannot begin with a number or contain spaces or special characters.
         /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -328,9 +287,10 @@ namespace Pulumi.Artifactory
         private InputList<Inputs.FederatedDockerRepositoryMemberArgs>? _members;
 
         /// <summary>
-        /// The list of Federated members and must contain this repository URL (configured base URL
-        /// `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
-        /// Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+        /// The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
+        /// will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
+        /// federated members will need to have a base URL set. Please follow the
+        /// [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
         /// to set up Federated repositories correctly.
         /// </summary>
         public InputList<Inputs.FederatedDockerRepositoryMemberArgs> Members
@@ -481,7 +441,8 @@ namespace Pulumi.Artifactory
         public Input<string>? IncludesPattern { get; set; }
 
         /// <summary>
-        /// the identity key of the repo.
+        /// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+        /// characters. It cannot begin with a number or contain spaces or special characters.
         /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
@@ -498,9 +459,10 @@ namespace Pulumi.Artifactory
         private InputList<Inputs.FederatedDockerRepositoryMemberGetArgs>? _members;
 
         /// <summary>
-        /// The list of Federated members and must contain this repository URL (configured base URL
-        /// `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
-        /// Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+        /// The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
+        /// will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
+        /// federated members will need to have a base URL set. Please follow the
+        /// [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
         /// to set up Federated repositories correctly.
         /// </summary>
         public InputList<Inputs.FederatedDockerRepositoryMemberGetArgs> Members

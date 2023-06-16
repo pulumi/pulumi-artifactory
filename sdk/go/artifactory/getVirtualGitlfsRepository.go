@@ -10,33 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Retrieves a virtual Git LFS repository.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupVirtualGitlfsRepository(ctx, &artifactory.LookupVirtualGitlfsRepositoryArgs{
-//				Key: "virtual-gitlfs",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupVirtualGitlfsRepository(ctx *pulumi.Context, args *LookupVirtualGitlfsRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupVirtualGitlfsRepositoryResult, error) {
 	var rv LookupVirtualGitlfsRepositoryResult
 	err := ctx.Invoke("artifactory:index/getVirtualGitlfsRepository:getVirtualGitlfsRepository", args, &rv, opts...)
@@ -48,18 +21,17 @@ func LookupVirtualGitlfsRepository(ctx *pulumi.Context, args *LookupVirtualGitlf
 
 // A collection of arguments for invoking getVirtualGitlfsRepository.
 type LookupVirtualGitlfsRepositoryArgs struct {
-	ArtifactoryRequestsCanRetrieveRemoteArtifacts *bool   `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`
-	DefaultDeploymentRepo                         *string `pulumi:"defaultDeploymentRepo"`
-	Description                                   *string `pulumi:"description"`
-	ExcludesPattern                               *string `pulumi:"excludesPattern"`
-	IncludesPattern                               *string `pulumi:"includesPattern"`
-	// the identity key of the repo.
-	Key                 string   `pulumi:"key"`
-	Notes               *string  `pulumi:"notes"`
-	ProjectEnvironments []string `pulumi:"projectEnvironments"`
-	ProjectKey          *string  `pulumi:"projectKey"`
-	RepoLayoutRef       *string  `pulumi:"repoLayoutRef"`
-	Repositories        []string `pulumi:"repositories"`
+	ArtifactoryRequestsCanRetrieveRemoteArtifacts *bool    `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`
+	DefaultDeploymentRepo                         *string  `pulumi:"defaultDeploymentRepo"`
+	Description                                   *string  `pulumi:"description"`
+	ExcludesPattern                               *string  `pulumi:"excludesPattern"`
+	IncludesPattern                               *string  `pulumi:"includesPattern"`
+	Key                                           string   `pulumi:"key"`
+	Notes                                         *string  `pulumi:"notes"`
+	ProjectEnvironments                           []string `pulumi:"projectEnvironments"`
+	ProjectKey                                    *string  `pulumi:"projectKey"`
+	RepoLayoutRef                                 *string  `pulumi:"repoLayoutRef"`
+	Repositories                                  []string `pulumi:"repositories"`
 }
 
 // A collection of values returned by getVirtualGitlfsRepository.
@@ -95,18 +67,17 @@ func LookupVirtualGitlfsRepositoryOutput(ctx *pulumi.Context, args LookupVirtual
 
 // A collection of arguments for invoking getVirtualGitlfsRepository.
 type LookupVirtualGitlfsRepositoryOutputArgs struct {
-	ArtifactoryRequestsCanRetrieveRemoteArtifacts pulumi.BoolPtrInput   `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`
-	DefaultDeploymentRepo                         pulumi.StringPtrInput `pulumi:"defaultDeploymentRepo"`
-	Description                                   pulumi.StringPtrInput `pulumi:"description"`
-	ExcludesPattern                               pulumi.StringPtrInput `pulumi:"excludesPattern"`
-	IncludesPattern                               pulumi.StringPtrInput `pulumi:"includesPattern"`
-	// the identity key of the repo.
-	Key                 pulumi.StringInput      `pulumi:"key"`
-	Notes               pulumi.StringPtrInput   `pulumi:"notes"`
-	ProjectEnvironments pulumi.StringArrayInput `pulumi:"projectEnvironments"`
-	ProjectKey          pulumi.StringPtrInput   `pulumi:"projectKey"`
-	RepoLayoutRef       pulumi.StringPtrInput   `pulumi:"repoLayoutRef"`
-	Repositories        pulumi.StringArrayInput `pulumi:"repositories"`
+	ArtifactoryRequestsCanRetrieveRemoteArtifacts pulumi.BoolPtrInput     `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`
+	DefaultDeploymentRepo                         pulumi.StringPtrInput   `pulumi:"defaultDeploymentRepo"`
+	Description                                   pulumi.StringPtrInput   `pulumi:"description"`
+	ExcludesPattern                               pulumi.StringPtrInput   `pulumi:"excludesPattern"`
+	IncludesPattern                               pulumi.StringPtrInput   `pulumi:"includesPattern"`
+	Key                                           pulumi.StringInput      `pulumi:"key"`
+	Notes                                         pulumi.StringPtrInput   `pulumi:"notes"`
+	ProjectEnvironments                           pulumi.StringArrayInput `pulumi:"projectEnvironments"`
+	ProjectKey                                    pulumi.StringPtrInput   `pulumi:"projectKey"`
+	RepoLayoutRef                                 pulumi.StringPtrInput   `pulumi:"repoLayoutRef"`
+	Repositories                                  pulumi.StringArrayInput `pulumi:"repositories"`
 }
 
 func (LookupVirtualGitlfsRepositoryOutputArgs) ElementType() reflect.Type {

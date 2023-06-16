@@ -17,128 +17,41 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a local repository replication resource, also referred to as Artifactory push replication. This can be used to create and manage Artifactory local repository replications using [Multi-push Replication API](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-CreateorReplaceLocalMulti-pushReplication).
- * Push replication is used to synchronize Local Repositories, and is implemented by the Artifactory server on the near end invoking a synchronization of artifacts to the far end.
- * See the [Official Documentation](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-PushReplication).
- * This resource replaces `artifactory.PushReplication` and used to create a replication of one local repository to multiple repositories on the remote server.
- * 
- * &gt; This resource requires Artifactory Enterprise license. Use `artifactory.LocalRepositorySingleReplication` with other licenses.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.artifactory.LocalMavenRepository;
- * import com.pulumi.artifactory.LocalMavenRepositoryArgs;
- * import com.pulumi.artifactory.LocalRepositoryMultiReplication;
- * import com.pulumi.artifactory.LocalRepositoryMultiReplicationArgs;
- * import com.pulumi.artifactory.inputs.LocalRepositoryMultiReplicationReplicationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var config = ctx.config();
- *         final var artifactoryUrl = config.get(&#34;artifactoryUrl&#34;);
- *         final var artifactoryUsername = config.get(&#34;artifactoryUsername&#34;);
- *         final var artifactoryPassword = config.get(&#34;artifactoryPassword&#34;);
- *         var providerTestSource = new LocalMavenRepository(&#34;providerTestSource&#34;, LocalMavenRepositoryArgs.builder()        
- *             .key(&#34;provider_test_source&#34;)
- *             .build());
- * 
- *         var providerTestDest = new LocalMavenRepository(&#34;providerTestDest&#34;, LocalMavenRepositoryArgs.builder()        
- *             .key(&#34;provider_test_dest&#34;)
- *             .build());
- * 
- *         var providerTestDest1 = new LocalMavenRepository(&#34;providerTestDest1&#34;, LocalMavenRepositoryArgs.builder()        
- *             .key(&#34;provider_test_dest1&#34;)
- *             .build());
- * 
- *         var foo_rep = new LocalRepositoryMultiReplication(&#34;foo-rep&#34;, LocalRepositoryMultiReplicationArgs.builder()        
- *             .repoKey(providerTestSource.key())
- *             .cronExp(&#34;0 0 * * * ?&#34;)
- *             .enableEventReplication(true)
- *             .replications(            
- *                 LocalRepositoryMultiReplicationReplicationArgs.builder()
- *                     .url(providerTestDest.key().applyValue(key -&gt; String.format(&#34;%s/artifactory/%s&#34;, artifactoryUrl,key)))
- *                     .username(&#34;$var.artifactory_username&#34;)
- *                     .password(&#34;$var.artifactory_password&#34;)
- *                     .enabled(true)
- *                     .build(),
- *                 LocalRepositoryMultiReplicationReplicationArgs.builder()
- *                     .url(providerTestDest1.key().applyValue(key -&gt; String.format(&#34;%s/artifactory/%s&#34;, artifactoryUrl,key)))
- *                     .username(&#34;$var.artifactory_username&#34;)
- *                     .password(&#34;$var.artifactory_password&#34;)
- *                     .enabled(true)
- *                     .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Push replication configs can be imported using their repo key, e.g.
- * 
- * ```sh
- *  $ pulumi import artifactory:index/localRepositoryMultiReplication:LocalRepositoryMultiReplication foo-rep provider_test_source
- * ```
- * 
- */
 @ResourceType(type="artifactory:index/localRepositoryMultiReplication:LocalRepositoryMultiReplication")
 public class LocalRepositoryMultiReplication extends com.pulumi.resources.CustomResource {
     /**
-     * A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
+     * Cron expression to control the operation frequency.
      * 
      */
     @Export(name="cronExp", type=String.class, parameters={})
     private Output<String> cronExp;
 
     /**
-     * @return A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
+     * @return Cron expression to control the operation frequency.
      * 
      */
     public Output<String> cronExp() {
         return this.cronExp;
     }
     /**
-     * When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. add, deleted or property change. Default value is `false`.
+     * When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on
+     * artifact, e.g. add, deleted or property change. Default value is `false`.
      * 
      */
     @Export(name="enableEventReplication", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enableEventReplication;
 
     /**
-     * @return When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. add, deleted or property change. Default value is `false`.
+     * @return When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on
+     * artifact, e.g. add, deleted or property change. Default value is `false`.
      * 
      */
     public Output<Optional<Boolean>> enableEventReplication() {
         return Codegen.optional(this.enableEventReplication);
     }
-    /**
-     * List of replications minimum 1 element.
-     * 
-     */
     @Export(name="replications", type=List.class, parameters={LocalRepositoryMultiReplicationReplication.class})
     private Output</* @Nullable */ List<LocalRepositoryMultiReplicationReplication>> replications;
 
-    /**
-     * @return List of replications minimum 1 element.
-     * 
-     */
     public Output<Optional<List<LocalRepositoryMultiReplicationReplication>>> replications() {
         return Codegen.optional(this.replications);
     }

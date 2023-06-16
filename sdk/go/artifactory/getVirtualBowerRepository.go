@@ -10,33 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Retrieves a virtual Bower repository.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupVirtualBowerRepository(ctx, &artifactory.LookupVirtualBowerRepositoryArgs{
-//				Key: "virtual-alpine",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupVirtualBowerRepository(ctx *pulumi.Context, args *LookupVirtualBowerRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupVirtualBowerRepositoryResult, error) {
 	var rv LookupVirtualBowerRepositoryResult
 	err := ctx.Invoke("artifactory:index/getVirtualBowerRepository:getVirtualBowerRepository", args, &rv, opts...)
@@ -48,38 +21,31 @@ func LookupVirtualBowerRepository(ctx *pulumi.Context, args *LookupVirtualBowerR
 
 // A collection of arguments for invoking getVirtualBowerRepository.
 type LookupVirtualBowerRepositoryArgs struct {
-	ArtifactoryRequestsCanRetrieveRemoteArtifacts *bool   `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`
-	DefaultDeploymentRepo                         *string `pulumi:"defaultDeploymentRepo"`
-	Description                                   *string `pulumi:"description"`
-	ExcludesPattern                               *string `pulumi:"excludesPattern"`
-	// (Optional) When set, external dependencies are rewritten. Default value is false.
-	ExternalDependenciesEnabled *bool `pulumi:"externalDependenciesEnabled"`
-	// (Optional) An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded from any external source.
-	ExternalDependenciesPatterns []string `pulumi:"externalDependenciesPatterns"`
-	// (Optional) The remote repository aggregated by this virtual repository in which the external dependency will be cached.
-	ExternalDependenciesRemoteRepo *string `pulumi:"externalDependenciesRemoteRepo"`
-	IncludesPattern                *string `pulumi:"includesPattern"`
-	// the identity key of the repo.
-	Key                 string   `pulumi:"key"`
-	Notes               *string  `pulumi:"notes"`
-	ProjectEnvironments []string `pulumi:"projectEnvironments"`
-	ProjectKey          *string  `pulumi:"projectKey"`
-	RepoLayoutRef       *string  `pulumi:"repoLayoutRef"`
-	Repositories        []string `pulumi:"repositories"`
+	ArtifactoryRequestsCanRetrieveRemoteArtifacts *bool    `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`
+	DefaultDeploymentRepo                         *string  `pulumi:"defaultDeploymentRepo"`
+	Description                                   *string  `pulumi:"description"`
+	ExcludesPattern                               *string  `pulumi:"excludesPattern"`
+	ExternalDependenciesEnabled                   *bool    `pulumi:"externalDependenciesEnabled"`
+	ExternalDependenciesPatterns                  []string `pulumi:"externalDependenciesPatterns"`
+	ExternalDependenciesRemoteRepo                *string  `pulumi:"externalDependenciesRemoteRepo"`
+	IncludesPattern                               *string  `pulumi:"includesPattern"`
+	Key                                           string   `pulumi:"key"`
+	Notes                                         *string  `pulumi:"notes"`
+	ProjectEnvironments                           []string `pulumi:"projectEnvironments"`
+	ProjectKey                                    *string  `pulumi:"projectKey"`
+	RepoLayoutRef                                 *string  `pulumi:"repoLayoutRef"`
+	Repositories                                  []string `pulumi:"repositories"`
 }
 
 // A collection of values returned by getVirtualBowerRepository.
 type LookupVirtualBowerRepositoryResult struct {
-	ArtifactoryRequestsCanRetrieveRemoteArtifacts *bool   `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`
-	DefaultDeploymentRepo                         *string `pulumi:"defaultDeploymentRepo"`
-	Description                                   *string `pulumi:"description"`
-	ExcludesPattern                               *string `pulumi:"excludesPattern"`
-	// (Optional) When set, external dependencies are rewritten. Default value is false.
-	ExternalDependenciesEnabled *bool `pulumi:"externalDependenciesEnabled"`
-	// (Optional) An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded from any external source.
-	ExternalDependenciesPatterns []string `pulumi:"externalDependenciesPatterns"`
-	// (Optional) The remote repository aggregated by this virtual repository in which the external dependency will be cached.
-	ExternalDependenciesRemoteRepo *string `pulumi:"externalDependenciesRemoteRepo"`
+	ArtifactoryRequestsCanRetrieveRemoteArtifacts *bool    `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`
+	DefaultDeploymentRepo                         *string  `pulumi:"defaultDeploymentRepo"`
+	Description                                   *string  `pulumi:"description"`
+	ExcludesPattern                               *string  `pulumi:"excludesPattern"`
+	ExternalDependenciesEnabled                   *bool    `pulumi:"externalDependenciesEnabled"`
+	ExternalDependenciesPatterns                  []string `pulumi:"externalDependenciesPatterns"`
+	ExternalDependenciesRemoteRepo                *string  `pulumi:"externalDependenciesRemoteRepo"`
 	// The provider-assigned unique ID for this managed resource.
 	Id                  string   `pulumi:"id"`
 	IncludesPattern     *string  `pulumi:"includesPattern"`
@@ -107,24 +73,20 @@ func LookupVirtualBowerRepositoryOutput(ctx *pulumi.Context, args LookupVirtualB
 
 // A collection of arguments for invoking getVirtualBowerRepository.
 type LookupVirtualBowerRepositoryOutputArgs struct {
-	ArtifactoryRequestsCanRetrieveRemoteArtifacts pulumi.BoolPtrInput   `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`
-	DefaultDeploymentRepo                         pulumi.StringPtrInput `pulumi:"defaultDeploymentRepo"`
-	Description                                   pulumi.StringPtrInput `pulumi:"description"`
-	ExcludesPattern                               pulumi.StringPtrInput `pulumi:"excludesPattern"`
-	// (Optional) When set, external dependencies are rewritten. Default value is false.
-	ExternalDependenciesEnabled pulumi.BoolPtrInput `pulumi:"externalDependenciesEnabled"`
-	// (Optional) An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded from any external source.
-	ExternalDependenciesPatterns pulumi.StringArrayInput `pulumi:"externalDependenciesPatterns"`
-	// (Optional) The remote repository aggregated by this virtual repository in which the external dependency will be cached.
-	ExternalDependenciesRemoteRepo pulumi.StringPtrInput `pulumi:"externalDependenciesRemoteRepo"`
-	IncludesPattern                pulumi.StringPtrInput `pulumi:"includesPattern"`
-	// the identity key of the repo.
-	Key                 pulumi.StringInput      `pulumi:"key"`
-	Notes               pulumi.StringPtrInput   `pulumi:"notes"`
-	ProjectEnvironments pulumi.StringArrayInput `pulumi:"projectEnvironments"`
-	ProjectKey          pulumi.StringPtrInput   `pulumi:"projectKey"`
-	RepoLayoutRef       pulumi.StringPtrInput   `pulumi:"repoLayoutRef"`
-	Repositories        pulumi.StringArrayInput `pulumi:"repositories"`
+	ArtifactoryRequestsCanRetrieveRemoteArtifacts pulumi.BoolPtrInput     `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`
+	DefaultDeploymentRepo                         pulumi.StringPtrInput   `pulumi:"defaultDeploymentRepo"`
+	Description                                   pulumi.StringPtrInput   `pulumi:"description"`
+	ExcludesPattern                               pulumi.StringPtrInput   `pulumi:"excludesPattern"`
+	ExternalDependenciesEnabled                   pulumi.BoolPtrInput     `pulumi:"externalDependenciesEnabled"`
+	ExternalDependenciesPatterns                  pulumi.StringArrayInput `pulumi:"externalDependenciesPatterns"`
+	ExternalDependenciesRemoteRepo                pulumi.StringPtrInput   `pulumi:"externalDependenciesRemoteRepo"`
+	IncludesPattern                               pulumi.StringPtrInput   `pulumi:"includesPattern"`
+	Key                                           pulumi.StringInput      `pulumi:"key"`
+	Notes                                         pulumi.StringPtrInput   `pulumi:"notes"`
+	ProjectEnvironments                           pulumi.StringArrayInput `pulumi:"projectEnvironments"`
+	ProjectKey                                    pulumi.StringPtrInput   `pulumi:"projectKey"`
+	RepoLayoutRef                                 pulumi.StringPtrInput   `pulumi:"repoLayoutRef"`
+	Repositories                                  pulumi.StringArrayInput `pulumi:"repositories"`
 }
 
 func (LookupVirtualBowerRepositoryOutputArgs) ElementType() reflect.Type {
@@ -164,17 +126,14 @@ func (o LookupVirtualBowerRepositoryResultOutput) ExcludesPattern() pulumi.Strin
 	return o.ApplyT(func(v LookupVirtualBowerRepositoryResult) *string { return v.ExcludesPattern }).(pulumi.StringPtrOutput)
 }
 
-// (Optional) When set, external dependencies are rewritten. Default value is false.
 func (o LookupVirtualBowerRepositoryResultOutput) ExternalDependenciesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupVirtualBowerRepositoryResult) *bool { return v.ExternalDependenciesEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// (Optional) An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded from any external source.
 func (o LookupVirtualBowerRepositoryResultOutput) ExternalDependenciesPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupVirtualBowerRepositoryResult) []string { return v.ExternalDependenciesPatterns }).(pulumi.StringArrayOutput)
 }
 
-// (Optional) The remote repository aggregated by this virtual repository in which the external dependency will be cached.
 func (o LookupVirtualBowerRepositoryResultOutput) ExternalDependenciesRemoteRepo() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupVirtualBowerRepositoryResult) *string { return v.ExternalDependenciesRemoteRepo }).(pulumi.StringPtrOutput)
 }

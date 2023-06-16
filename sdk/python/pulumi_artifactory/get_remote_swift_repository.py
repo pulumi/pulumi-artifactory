@@ -457,19 +457,7 @@ def get_remote_swift_repository(allow_any_host_auth: Optional[bool] = None,
                                 xray_index: Optional[bool] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRemoteSwiftRepositoryResult:
     """
-    Retrieves a remote Swift repository.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    remote_swift = artifactory.get_remote_swift_repository(key="remote-swift")
-    ```
-
-
-    :param str key: the identity key of the repo.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['allowAnyHostAuth'] = allow_any_host_auth
@@ -603,18 +591,6 @@ def get_remote_swift_repository_output(allow_any_host_auth: Optional[pulumi.Inpu
                                        xray_index: Optional[pulumi.Input[Optional[bool]]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRemoteSwiftRepositoryResult]:
     """
-    Retrieves a remote Swift repository.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    remote_swift = artifactory.get_remote_swift_repository(key="remote-swift")
-    ```
-
-
-    :param str key: the identity key of the repo.
+    Use this data source to access information about an existing resource.
     """
     ...

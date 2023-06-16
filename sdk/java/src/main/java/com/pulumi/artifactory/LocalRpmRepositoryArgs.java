@@ -52,17 +52,9 @@ public final class LocalRpmRepositoryArgs extends com.pulumi.resources.ResourceA
         return Optional.ofNullable(this.blackedOut);
     }
 
-    /**
-     * Default: `false`.
-     * 
-     */
     @Import(name="calculateYumMetadata")
     private @Nullable Output<Boolean> calculateYumMetadata;
 
-    /**
-     * @return Default: `false`.
-     * 
-     */
     public Optional<Output<Boolean>> calculateYumMetadata() {
         return Optional.ofNullable(this.calculateYumMetadata);
     }
@@ -116,17 +108,9 @@ public final class LocalRpmRepositoryArgs extends com.pulumi.resources.ResourceA
         return Optional.ofNullable(this.downloadDirect);
     }
 
-    /**
-     * Default: `false`.
-     * 
-     */
     @Import(name="enableFileListsIndexing")
     private @Nullable Output<Boolean> enableFileListsIndexing;
 
-    /**
-     * @return Default: `false`.
-     * 
-     */
     public Optional<Output<Boolean>> enableFileListsIndexing() {
         return Optional.ofNullable(this.enableFileListsIndexing);
     }
@@ -166,14 +150,16 @@ public final class LocalRpmRepositoryArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * the identity key of the repo.
+     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      * 
      */
     @Import(name="key", required=true)
     private Output<String> key;
 
     /**
-     * @return the identity key of the repo.
+     * @return A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      * 
      */
     public Output<String> key() {
@@ -196,14 +182,14 @@ public final class LocalRpmRepositoryArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The primary GPG key to be used to sign packages.
+     * Primary keypair used to sign artifacts.
      * 
      */
     @Import(name="primaryKeypairRef")
     private @Nullable Output<String> primaryKeypairRef;
 
     /**
-     * @return The primary GPG key to be used to sign packages.
+     * @return Primary keypair used to sign artifacts.
      * 
      */
     public Optional<Output<String>> primaryKeypairRef() {
@@ -294,14 +280,14 @@ public final class LocalRpmRepositoryArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The secondary GPG key to be used to sign packages.
+     * Secondary keypair used to sign artifacts.
      * 
      */
     @Import(name="secondaryKeypairRef")
     private @Nullable Output<String> secondaryKeypairRef;
 
     /**
-     * @return The secondary GPG key to be used to sign packages.
+     * @return Secondary keypair used to sign artifacts.
      * 
      */
     public Optional<Output<String>> secondaryKeypairRef() {
@@ -326,18 +312,18 @@ public final class LocalRpmRepositoryArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * A comma separated list of XML file names containing RPM group component definitions.
-     * Artifactory includes the group definitions as part of the calculated RPM metadata, as well as automatically
-     * generating a gzipped version of the group files, if required. Default is empty string.
+     * A comma separated list of XML file names containing RPM group component definitions. Artifactory includes the group
+     * definitions as part of the calculated RPM metadata, as well as automatically generating a gzipped version of the group
+     * files, if required.
      * 
      */
     @Import(name="yumGroupFileNames")
     private @Nullable Output<String> yumGroupFileNames;
 
     /**
-     * @return A comma separated list of XML file names containing RPM group component definitions.
-     * Artifactory includes the group definitions as part of the calculated RPM metadata, as well as automatically
-     * generating a gzipped version of the group files, if required. Default is empty string.
+     * @return A comma separated list of XML file names containing RPM group component definitions. Artifactory includes the group
+     * definitions as part of the calculated RPM metadata, as well as automatically generating a gzipped version of the group
+     * files, if required.
      * 
      */
     public Optional<Output<String>> yumGroupFileNames() {
@@ -345,22 +331,18 @@ public final class LocalRpmRepositoryArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The depth, relative to the repository&#39;s root folder, where RPM metadata is created.
-     * This is useful when your repository contains multiple RPM repositories under parallel hierarchies. For example, if
-     * your RPMs are stored under &#39;fedora/linux/$releasever/$basearch&#39;, specify a depth of 4. Once the number of snapshots
-     * exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique
-     * snapshots are not cleaned up.
+     * The depth, relative to the repository&#39;s root folder, where RPM metadata is created. This is useful when your repository
+     * contains multiple RPM repositories under parallel hierarchies. For example, if your RPMs are stored under
+     * &#39;fedora/linux/$releasever/$basearch&#39;, specify a depth of 4.
      * 
      */
     @Import(name="yumRootDepth")
     private @Nullable Output<Integer> yumRootDepth;
 
     /**
-     * @return The depth, relative to the repository&#39;s root folder, where RPM metadata is created.
-     * This is useful when your repository contains multiple RPM repositories under parallel hierarchies. For example, if
-     * your RPMs are stored under &#39;fedora/linux/$releasever/$basearch&#39;, specify a depth of 4. Once the number of snapshots
-     * exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique
-     * snapshots are not cleaned up.
+     * @return The depth, relative to the repository&#39;s root folder, where RPM metadata is created. This is useful when your repository
+     * contains multiple RPM repositories under parallel hierarchies. For example, if your RPMs are stored under
+     * &#39;fedora/linux/$releasever/$basearch&#39;, specify a depth of 4.
      * 
      */
     public Optional<Output<Integer>> yumRootDepth() {
@@ -457,23 +439,11 @@ public final class LocalRpmRepositoryArgs extends com.pulumi.resources.ResourceA
             return blackedOut(Output.of(blackedOut));
         }
 
-        /**
-         * @param calculateYumMetadata Default: `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder calculateYumMetadata(@Nullable Output<Boolean> calculateYumMetadata) {
             $.calculateYumMetadata = calculateYumMetadata;
             return this;
         }
 
-        /**
-         * @param calculateYumMetadata Default: `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder calculateYumMetadata(Boolean calculateYumMetadata) {
             return calculateYumMetadata(Output.of(calculateYumMetadata));
         }
@@ -545,23 +515,11 @@ public final class LocalRpmRepositoryArgs extends com.pulumi.resources.ResourceA
             return downloadDirect(Output.of(downloadDirect));
         }
 
-        /**
-         * @param enableFileListsIndexing Default: `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enableFileListsIndexing(@Nullable Output<Boolean> enableFileListsIndexing) {
             $.enableFileListsIndexing = enableFileListsIndexing;
             return this;
         }
 
-        /**
-         * @param enableFileListsIndexing Default: `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enableFileListsIndexing(Boolean enableFileListsIndexing) {
             return enableFileListsIndexing(Output.of(enableFileListsIndexing));
         }
@@ -613,7 +571,8 @@ public final class LocalRpmRepositoryArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param key the identity key of the repo.
+         * @param key A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+         * characters. It cannot begin with a number or contain spaces or special characters.
          * 
          * @return builder
          * 
@@ -624,7 +583,8 @@ public final class LocalRpmRepositoryArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param key the identity key of the repo.
+         * @param key A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+         * characters. It cannot begin with a number or contain spaces or special characters.
          * 
          * @return builder
          * 
@@ -655,7 +615,7 @@ public final class LocalRpmRepositoryArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param primaryKeypairRef The primary GPG key to be used to sign packages.
+         * @param primaryKeypairRef Primary keypair used to sign artifacts.
          * 
          * @return builder
          * 
@@ -666,7 +626,7 @@ public final class LocalRpmRepositoryArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param primaryKeypairRef The primary GPG key to be used to sign packages.
+         * @param primaryKeypairRef Primary keypair used to sign artifacts.
          * 
          * @return builder
          * 
@@ -812,7 +772,7 @@ public final class LocalRpmRepositoryArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param secondaryKeypairRef The secondary GPG key to be used to sign packages.
+         * @param secondaryKeypairRef Secondary keypair used to sign artifacts.
          * 
          * @return builder
          * 
@@ -823,7 +783,7 @@ public final class LocalRpmRepositoryArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param secondaryKeypairRef The secondary GPG key to be used to sign packages.
+         * @param secondaryKeypairRef Secondary keypair used to sign artifacts.
          * 
          * @return builder
          * 
@@ -856,9 +816,9 @@ public final class LocalRpmRepositoryArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param yumGroupFileNames A comma separated list of XML file names containing RPM group component definitions.
-         * Artifactory includes the group definitions as part of the calculated RPM metadata, as well as automatically
-         * generating a gzipped version of the group files, if required. Default is empty string.
+         * @param yumGroupFileNames A comma separated list of XML file names containing RPM group component definitions. Artifactory includes the group
+         * definitions as part of the calculated RPM metadata, as well as automatically generating a gzipped version of the group
+         * files, if required.
          * 
          * @return builder
          * 
@@ -869,9 +829,9 @@ public final class LocalRpmRepositoryArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param yumGroupFileNames A comma separated list of XML file names containing RPM group component definitions.
-         * Artifactory includes the group definitions as part of the calculated RPM metadata, as well as automatically
-         * generating a gzipped version of the group files, if required. Default is empty string.
+         * @param yumGroupFileNames A comma separated list of XML file names containing RPM group component definitions. Artifactory includes the group
+         * definitions as part of the calculated RPM metadata, as well as automatically generating a gzipped version of the group
+         * files, if required.
          * 
          * @return builder
          * 
@@ -881,11 +841,9 @@ public final class LocalRpmRepositoryArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param yumRootDepth The depth, relative to the repository&#39;s root folder, where RPM metadata is created.
-         * This is useful when your repository contains multiple RPM repositories under parallel hierarchies. For example, if
-         * your RPMs are stored under &#39;fedora/linux/$releasever/$basearch&#39;, specify a depth of 4. Once the number of snapshots
-         * exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique
-         * snapshots are not cleaned up.
+         * @param yumRootDepth The depth, relative to the repository&#39;s root folder, where RPM metadata is created. This is useful when your repository
+         * contains multiple RPM repositories under parallel hierarchies. For example, if your RPMs are stored under
+         * &#39;fedora/linux/$releasever/$basearch&#39;, specify a depth of 4.
          * 
          * @return builder
          * 
@@ -896,11 +854,9 @@ public final class LocalRpmRepositoryArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param yumRootDepth The depth, relative to the repository&#39;s root folder, where RPM metadata is created.
-         * This is useful when your repository contains multiple RPM repositories under parallel hierarchies. For example, if
-         * your RPMs are stored under &#39;fedora/linux/$releasever/$basearch&#39;, specify a depth of 4. Once the number of snapshots
-         * exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique
-         * snapshots are not cleaned up.
+         * @param yumRootDepth The depth, relative to the repository&#39;s root folder, where RPM metadata is created. This is useful when your repository
+         * contains multiple RPM repositories under parallel hierarchies. For example, if your RPMs are stored under
+         * &#39;fedora/linux/$releasever/$basearch&#39;, specify a depth of 4.
          * 
          * @return builder
          * 

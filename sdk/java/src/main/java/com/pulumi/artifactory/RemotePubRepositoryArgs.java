@@ -248,16 +248,16 @@ public final class RemotePubRepositoryArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-     * contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      * 
      */
     @Import(name="key", required=true)
     private Output<String> key;
 
     /**
-     * @return A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-     * contain spaces or special characters.
+     * @return A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      * 
      */
     public Output<String> key() {
@@ -615,14 +615,14 @@ public final class RemotePubRepositoryArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * The remote repository URL.
+     * The remote repo URL.
      * 
      */
     @Import(name="url", required=true)
     private Output<String> url;
 
     /**
-     * @return The remote repository URL.
+     * @return The remote repo URL.
      * 
      */
     public Output<String> url() {
@@ -1025,8 +1025,8 @@ public final class RemotePubRepositoryArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param key A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-         * contain spaces or special characters.
+         * @param key A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+         * characters. It cannot begin with a number or contain spaces or special characters.
          * 
          * @return builder
          * 
@@ -1037,8 +1037,8 @@ public final class RemotePubRepositoryArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param key A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-         * contain spaces or special characters.
+         * @param key A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+         * characters. It cannot begin with a number or contain spaces or special characters.
          * 
          * @return builder
          * 
@@ -1545,7 +1545,7 @@ public final class RemotePubRepositoryArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param url The remote repository URL.
+         * @param url The remote repo URL.
          * 
          * @return builder
          * 
@@ -1556,7 +1556,7 @@ public final class RemotePubRepositoryArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param url The remote repository URL.
+         * @param url The remote repo URL.
          * 
          * @return builder
          * 

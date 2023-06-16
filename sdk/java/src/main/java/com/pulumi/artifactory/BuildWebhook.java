@@ -18,144 +18,81 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an Artifactory webhook resource. This can be used to register and manage Artifactory webhook subscription which enables you to be notified or notify other users when such events take place in Artifactory.
- * 
- * ## Example Usage
- * 
- * .
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.artifactory.BuildWebhook;
- * import com.pulumi.artifactory.BuildWebhookArgs;
- * import com.pulumi.artifactory.inputs.BuildWebhookCriteriaArgs;
- * import com.pulumi.artifactory.inputs.BuildWebhookHandlerArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var build_webhook = new BuildWebhook(&#34;build-webhook&#34;, BuildWebhookArgs.builder()        
- *             .criteria(BuildWebhookCriteriaArgs.builder()
- *                 .anyBuild(true)
- *                 .excludePatterns(&#34;bar/**&#34;)
- *                 .includePatterns(&#34;foo/**&#34;)
- *                 .selectedBuilds(&#34;build-id&#34;)
- *                 .build())
- *             .eventTypes(            
- *                 &#34;uploaded&#34;,
- *                 &#34;deleted&#34;,
- *                 &#34;promoted&#34;)
- *             .handlers(BuildWebhookHandlerArgs.builder()
- *                 .customHttpHeaders(Map.ofEntries(
- *                     Map.entry(&#34;header-1&#34;, &#34;value-1&#34;),
- *                     Map.entry(&#34;header-2&#34;, &#34;value-2&#34;)
- *                 ))
- *                 .proxy(&#34;proxy-key&#34;)
- *                 .secret(&#34;some-secret&#34;)
- *                 .url(&#34;http://tempurl.org/webhook&#34;)
- *                 .build())
- *             .key(&#34;build-webhook&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- */
 @ResourceType(type="artifactory:index/buildWebhook:BuildWebhook")
 public class BuildWebhook extends com.pulumi.resources.CustomResource {
     /**
-     * Specifies where the webhook will be applied on which repositories.
+     * Specifies where the webhook will be applied on which builds.
      * 
      */
     @Export(name="criteria", type=BuildWebhookCriteria.class, parameters={})
     private Output<BuildWebhookCriteria> criteria;
 
     /**
-     * @return Specifies where the webhook will be applied on which repositories.
+     * @return Specifies where the webhook will be applied on which builds.
      * 
      */
     public Output<BuildWebhookCriteria> criteria() {
         return this.criteria;
     }
     /**
-     * Webhook description. Max length 1000 characters.
+     * Description of webhook. Max length 1000 characters.
      * 
      */
     @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return Webhook description. Max length 1000 characters.
+     * @return Description of webhook. Max length 1000 characters.
      * 
      */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
     /**
-     * Status of webhook. Default to `true`.
+     * Status of webhook. Default to &#39;true&#39;
      * 
      */
     @Export(name="enabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
-     * @return Status of webhook. Default to `true`.
+     * @return Status of webhook. Default to &#39;true&#39;
      * 
      */
     public Output<Optional<Boolean>> enabled() {
         return Codegen.optional(this.enabled);
     }
     /**
-     * List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `uploaded`, `deleted`, `promoted`.
+     * List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow
+     * values: uploaded, deleted, promoted
      * 
      */
     @Export(name="eventTypes", type=List.class, parameters={String.class})
     private Output<List<String>> eventTypes;
 
     /**
-     * @return List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `uploaded`, `deleted`, `promoted`.
+     * @return List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow
+     * values: uploaded, deleted, promoted
      * 
      */
     public Output<List<String>> eventTypes() {
         return this.eventTypes;
     }
-    /**
-     * At least one is required.
-     * 
-     */
     @Export(name="handlers", type=List.class, parameters={BuildWebhookHandler.class})
     private Output<List<BuildWebhookHandler>> handlers;
 
-    /**
-     * @return At least one is required.
-     * 
-     */
     public Output<List<BuildWebhookHandler>> handlers() {
         return this.handlers;
     }
     /**
-     * The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
+     * Key of webhook. Must be between 2 and 200 characters. Cannot contain spaces.
      * 
      */
     @Export(name="key", type=String.class, parameters={})
     private Output<String> key;
 
     /**
-     * @return The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
+     * @return Key of webhook. Must be between 2 and 200 characters. Cannot contain spaces.
      * 
      */
     public Output<String> key() {

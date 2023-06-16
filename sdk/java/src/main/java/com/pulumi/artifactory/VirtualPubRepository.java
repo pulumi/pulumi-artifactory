@@ -16,54 +16,6 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Creates a virtual Pub repository.
- * Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Pub+Repositories#PubRepositories-SettingupaVirtualRepository).
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.artifactory.VirtualPubRepository;
- * import com.pulumi.artifactory.VirtualPubRepositoryArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var foo_pub = new VirtualPubRepository(&#34;foo-pub&#34;, VirtualPubRepositoryArgs.builder()        
- *             .description(&#34;A test virtual repo&#34;)
- *             .excludesPattern(&#34;com/google/**&#34;)
- *             .includesPattern(&#34;com/jfrog/**,cloud/jfrog/**&#34;)
- *             .key(&#34;foo-pub&#34;)
- *             .notes(&#34;Internal description&#34;)
- *             .repositories()
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Virtual repositories can be imported using their name, e.g.
- * 
- * ```sh
- *  $ pulumi import artifactory:index/virtualPubRepository:VirtualPubRepository foo-pub foo-pub
- * ```
- * 
- */
 @ResourceType(type="artifactory:index/virtualPubRepository:VirtualPubRepository")
 public class VirtualPubRepository extends com.pulumi.resources.CustomResource {
     /**
@@ -143,16 +95,16 @@ public class VirtualPubRepository extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.includesPattern);
     }
     /**
-     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-     * contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      * 
      */
     @Export(name="key", type=String.class, parameters={})
     private Output<String> key;
 
     /**
-     * @return A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-     * contain spaces or special characters.
+     * @return A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      * 
      */
     public Output<String> key() {

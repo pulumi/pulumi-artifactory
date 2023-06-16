@@ -16,122 +16,58 @@ public final class OauthSettingsOauthProviderArgs extends com.pulumi.resources.R
 
     public static final OauthSettingsOauthProviderArgs Empty = new OauthSettingsOauthProviderArgs();
 
-    /**
-     * OAuth user info endpoint for the IdP.
-     * 
-     */
     @Import(name="apiUrl", required=true)
     private Output<String> apiUrl;
 
-    /**
-     * @return OAuth user info endpoint for the IdP.
-     * 
-     */
     public Output<String> apiUrl() {
         return this.apiUrl;
     }
 
-    /**
-     * OAuth authorization endpoint for the IdP.
-     * 
-     */
     @Import(name="authUrl", required=true)
     private Output<String> authUrl;
 
-    /**
-     * @return OAuth authorization endpoint for the IdP.
-     * 
-     */
     public Output<String> authUrl() {
         return this.authUrl;
     }
 
-    /**
-     * OAuth client ID configured on the IdP.
-     * 
-     */
     @Import(name="clientId", required=true)
     private Output<String> clientId;
 
-    /**
-     * @return OAuth client ID configured on the IdP.
-     * 
-     */
     public Output<String> clientId() {
         return this.clientId;
     }
 
-    /**
-     * OAuth client secret configured on the IdP.
-     * 
-     */
     @Import(name="clientSecret", required=true)
     private Output<String> clientSecret;
 
-    /**
-     * @return OAuth client secret configured on the IdP.
-     * 
-     */
     public Output<String> clientSecret() {
         return this.clientSecret;
     }
 
-    /**
-     * Enable the Artifactory OAuth provider.  Default value is `true`.
-     * 
-     */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
-    /**
-     * @return Enable the Artifactory OAuth provider.  Default value is `true`.
-     * 
-     */
     public Optional<Output<Boolean>> enabled() {
         return Optional.ofNullable(this.enabled);
     }
 
-    /**
-     * Name of the Artifactory OAuth provider.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return Name of the Artifactory OAuth provider.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
 
-    /**
-     * OAuth token endpoint for the IdP.
-     * 
-     */
     @Import(name="tokenUrl", required=true)
     private Output<String> tokenUrl;
 
-    /**
-     * @return OAuth token endpoint for the IdP.
-     * 
-     */
     public Output<String> tokenUrl() {
         return this.tokenUrl;
     }
 
-    /**
-     * Type of OAuth provider. (e.g., `github`, `google`, `cloudfoundry`, or `openId`)
-     * 
-     */
     @Import(name="type", required=true)
     private Output<String> type;
 
-    /**
-     * @return Type of OAuth provider. (e.g., `github`, `google`, `cloudfoundry`, or `openId`)
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
@@ -167,170 +103,74 @@ public final class OauthSettingsOauthProviderArgs extends com.pulumi.resources.R
             $ = new OauthSettingsOauthProviderArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param apiUrl OAuth user info endpoint for the IdP.
-         * 
-         * @return builder
-         * 
-         */
         public Builder apiUrl(Output<String> apiUrl) {
             $.apiUrl = apiUrl;
             return this;
         }
 
-        /**
-         * @param apiUrl OAuth user info endpoint for the IdP.
-         * 
-         * @return builder
-         * 
-         */
         public Builder apiUrl(String apiUrl) {
             return apiUrl(Output.of(apiUrl));
         }
 
-        /**
-         * @param authUrl OAuth authorization endpoint for the IdP.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authUrl(Output<String> authUrl) {
             $.authUrl = authUrl;
             return this;
         }
 
-        /**
-         * @param authUrl OAuth authorization endpoint for the IdP.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authUrl(String authUrl) {
             return authUrl(Output.of(authUrl));
         }
 
-        /**
-         * @param clientId OAuth client ID configured on the IdP.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clientId(Output<String> clientId) {
             $.clientId = clientId;
             return this;
         }
 
-        /**
-         * @param clientId OAuth client ID configured on the IdP.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clientId(String clientId) {
             return clientId(Output.of(clientId));
         }
 
-        /**
-         * @param clientSecret OAuth client secret configured on the IdP.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clientSecret(Output<String> clientSecret) {
             $.clientSecret = clientSecret;
             return this;
         }
 
-        /**
-         * @param clientSecret OAuth client secret configured on the IdP.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clientSecret(String clientSecret) {
             return clientSecret(Output.of(clientSecret));
         }
 
-        /**
-         * @param enabled Enable the Artifactory OAuth provider.  Default value is `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(@Nullable Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
-        /**
-         * @param enabled Enable the Artifactory OAuth provider.  Default value is `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }
 
-        /**
-         * @param name Name of the Artifactory OAuth provider.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the Artifactory OAuth provider.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param tokenUrl OAuth token endpoint for the IdP.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tokenUrl(Output<String> tokenUrl) {
             $.tokenUrl = tokenUrl;
             return this;
         }
 
-        /**
-         * @param tokenUrl OAuth token endpoint for the IdP.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tokenUrl(String tokenUrl) {
             return tokenUrl(Output.of(tokenUrl));
         }
 
-        /**
-         * @param type Type of OAuth provider. (e.g., `github`, `google`, `cloudfoundry`, or `openId`)
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type Type of OAuth provider. (e.g., `github`, `google`, `cloudfoundry`, or `openId`)
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

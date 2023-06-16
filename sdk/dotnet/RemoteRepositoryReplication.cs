@@ -9,77 +9,26 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Artifactory
 {
-    /// <summary>
-    /// Provides a remote repository replication resource, also referred to as Artifactory pull replication.
-    /// This resource provides a convenient way to proactively populate a remote cache, and is very useful when waiting for new artifacts to arrive on demand (when first requested) is not desirable due to network latency. See [official documentation](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-PullReplication).
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Artifactory = Pulumi.Artifactory;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var config = new Config();
-    ///     var artifactoryUrl = config.Require("artifactoryUrl");
-    ///     var providerTestSource = new Artifactory.LocalMavenRepository("providerTestSource", new()
-    ///     {
-    ///         Key = "provider_test_source",
-    ///     });
-    /// 
-    ///     var providerTestDest = new Artifactory.RemoteMavenRepository("providerTestDest", new()
-    ///     {
-    ///         Key = "provider_test_dest",
-    ///         Url = $"{artifactoryUrl}/artifactory/{artifactory_local_maven_repository.Artifactory_local_maven_repository.Key}",
-    ///         Username = "foo",
-    ///         Password = "bar",
-    ///     });
-    /// 
-    ///     var remote_rep = new Artifactory.RemoteRepositoryReplication("remote-rep", new()
-    ///     {
-    ///         RepoKey = providerTestDest.Key,
-    ///         CronExp = "0 0 * * * ?",
-    ///         EnableEventReplication = true,
-    ///         Enabled = true,
-    ///         SyncDeletes = false,
-    ///         SyncProperties = true,
-    ///         IncludePathPrefixPattern = "/some-repo/",
-    ///         ExcludePathPrefixPattern = "/some-other-repo/",
-    ///         CheckBinaryExistenceInFilestore = false,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Push replication configs can be imported using their repo key, e.g.
-    /// 
-    /// ```sh
-    ///  $ pulumi import artifactory:index/remoteRepositoryReplication:RemoteRepositoryReplication foo-rep provider_test_source
-    /// ```
-    /// </summary>
     [ArtifactoryResourceType("artifactory:index/remoteRepositoryReplication:RemoteRepositoryReplication")]
     public partial class RemoteRepositoryReplication : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Enabling the `check_binary_existence_in_filestore` flag requires an Enterprise Plus license. When true, enables distributed checksum storage. For more information, see [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
+        /// Enabling the `check_binary_existence_in_filestore` flag requires an Enterprise Plus license. When true, enables
+        /// distributed checksum storage. For more information, see [Optimizing Repository Replication with Checksum-Based
+        /// Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
         /// </summary>
         [Output("checkBinaryExistenceInFilestore")]
         public Output<bool?> CheckBinaryExistenceInFilestore { get; private set; } = null!;
 
         /// <summary>
-        /// A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
+        /// The Cron expression that determines when the next replication will be triggered.
         /// </summary>
         [Output("cronExp")]
         public Output<string?> CronExp { get; private set; } = null!;
 
         /// <summary>
-        /// When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. add, deleted or property change. Default value is `false`.
-        /// com/confluence/display/JFROG/User+Profile#UserProfile-IdentityTokenidentitytoken).
+        /// When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on
+        /// artifact, e.g. add, deleted or property change. Default value is `false`.
         /// </summary>
         [Output("enableEventReplication")]
         public Output<bool?> EnableEventReplication { get; private set; } = null!;
@@ -91,19 +40,21 @@ namespace Pulumi.Artifactory
         public Output<bool?> Enabled { get; private set; } = null!;
 
         /// <summary>
-        /// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. By default, no artifacts are excluded.
+        /// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+        /// artifacts are excluded.
         /// </summary>
         [Output("excludePathPrefixPattern")]
         public Output<string?> ExcludePathPrefixPattern { get; private set; } = null!;
 
         /// <summary>
-        /// List of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included `(**/*)`.
+        /// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
+        /// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         /// </summary>
         [Output("includePathPrefixPattern")]
         public Output<string?> IncludePathPrefixPattern { get; private set; } = null!;
 
         /// <summary>
-        /// Replication ID, the value is unknown until the resource is created. Can't be set or updated.
+        /// Replication ID.
         /// </summary>
         [Output("replicationKey")]
         public Output<string> ReplicationKey { get; private set; } = null!;
@@ -115,13 +66,15 @@ namespace Pulumi.Artifactory
         public Output<string> RepoKey { get; private set; } = null!;
 
         /// <summary>
-        /// When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata). Note that enabling this option, will delete artifacts on the target that do not exist in the source repository. Default value is `false`.
+        /// When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata). Note
+        /// that enabling this option, will delete artifacts on the target that do not exist in the source repository. Default value
+        /// is `false`.
         /// </summary>
         [Output("syncDeletes")]
         public Output<bool?> SyncDeletes { get; private set; } = null!;
 
         /// <summary>
-        /// When set, the task also synchronizes the properties of replicated artifacts. Default value is `true`.
+        /// When set, the task also synchronizes the properties of replicated artifacts. Default value is `true`
         /// </summary>
         [Output("syncProperties")]
         public Output<bool?> SyncProperties { get; private set; } = null!;
@@ -173,20 +126,22 @@ namespace Pulumi.Artifactory
     public sealed class RemoteRepositoryReplicationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Enabling the `check_binary_existence_in_filestore` flag requires an Enterprise Plus license. When true, enables distributed checksum storage. For more information, see [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
+        /// Enabling the `check_binary_existence_in_filestore` flag requires an Enterprise Plus license. When true, enables
+        /// distributed checksum storage. For more information, see [Optimizing Repository Replication with Checksum-Based
+        /// Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
         /// </summary>
         [Input("checkBinaryExistenceInFilestore")]
         public Input<bool>? CheckBinaryExistenceInFilestore { get; set; }
 
         /// <summary>
-        /// A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
+        /// The Cron expression that determines when the next replication will be triggered.
         /// </summary>
         [Input("cronExp")]
         public Input<string>? CronExp { get; set; }
 
         /// <summary>
-        /// When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. add, deleted or property change. Default value is `false`.
-        /// com/confluence/display/JFROG/User+Profile#UserProfile-IdentityTokenidentitytoken).
+        /// When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on
+        /// artifact, e.g. add, deleted or property change. Default value is `false`.
         /// </summary>
         [Input("enableEventReplication")]
         public Input<bool>? EnableEventReplication { get; set; }
@@ -198,19 +153,21 @@ namespace Pulumi.Artifactory
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. By default, no artifacts are excluded.
+        /// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+        /// artifacts are excluded.
         /// </summary>
         [Input("excludePathPrefixPattern")]
         public Input<string>? ExcludePathPrefixPattern { get; set; }
 
         /// <summary>
-        /// List of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included `(**/*)`.
+        /// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
+        /// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         /// </summary>
         [Input("includePathPrefixPattern")]
         public Input<string>? IncludePathPrefixPattern { get; set; }
 
         /// <summary>
-        /// Replication ID, the value is unknown until the resource is created. Can't be set or updated.
+        /// Replication ID.
         /// </summary>
         [Input("replicationKey")]
         public Input<string>? ReplicationKey { get; set; }
@@ -222,13 +179,15 @@ namespace Pulumi.Artifactory
         public Input<string> RepoKey { get; set; } = null!;
 
         /// <summary>
-        /// When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata). Note that enabling this option, will delete artifacts on the target that do not exist in the source repository. Default value is `false`.
+        /// When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata). Note
+        /// that enabling this option, will delete artifacts on the target that do not exist in the source repository. Default value
+        /// is `false`.
         /// </summary>
         [Input("syncDeletes")]
         public Input<bool>? SyncDeletes { get; set; }
 
         /// <summary>
-        /// When set, the task also synchronizes the properties of replicated artifacts. Default value is `true`.
+        /// When set, the task also synchronizes the properties of replicated artifacts. Default value is `true`
         /// </summary>
         [Input("syncProperties")]
         public Input<bool>? SyncProperties { get; set; }
@@ -242,20 +201,22 @@ namespace Pulumi.Artifactory
     public sealed class RemoteRepositoryReplicationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Enabling the `check_binary_existence_in_filestore` flag requires an Enterprise Plus license. When true, enables distributed checksum storage. For more information, see [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
+        /// Enabling the `check_binary_existence_in_filestore` flag requires an Enterprise Plus license. When true, enables
+        /// distributed checksum storage. For more information, see [Optimizing Repository Replication with Checksum-Based
+        /// Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
         /// </summary>
         [Input("checkBinaryExistenceInFilestore")]
         public Input<bool>? CheckBinaryExistenceInFilestore { get; set; }
 
         /// <summary>
-        /// A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
+        /// The Cron expression that determines when the next replication will be triggered.
         /// </summary>
         [Input("cronExp")]
         public Input<string>? CronExp { get; set; }
 
         /// <summary>
-        /// When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. add, deleted or property change. Default value is `false`.
-        /// com/confluence/display/JFROG/User+Profile#UserProfile-IdentityTokenidentitytoken).
+        /// When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on
+        /// artifact, e.g. add, deleted or property change. Default value is `false`.
         /// </summary>
         [Input("enableEventReplication")]
         public Input<bool>? EnableEventReplication { get; set; }
@@ -267,19 +228,21 @@ namespace Pulumi.Artifactory
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. By default, no artifacts are excluded.
+        /// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+        /// artifacts are excluded.
         /// </summary>
         [Input("excludePathPrefixPattern")]
         public Input<string>? ExcludePathPrefixPattern { get; set; }
 
         /// <summary>
-        /// List of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included `(**/*)`.
+        /// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
+        /// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         /// </summary>
         [Input("includePathPrefixPattern")]
         public Input<string>? IncludePathPrefixPattern { get; set; }
 
         /// <summary>
-        /// Replication ID, the value is unknown until the resource is created. Can't be set or updated.
+        /// Replication ID.
         /// </summary>
         [Input("replicationKey")]
         public Input<string>? ReplicationKey { get; set; }
@@ -291,13 +254,15 @@ namespace Pulumi.Artifactory
         public Input<string>? RepoKey { get; set; }
 
         /// <summary>
-        /// When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata). Note that enabling this option, will delete artifacts on the target that do not exist in the source repository. Default value is `false`.
+        /// When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata). Note
+        /// that enabling this option, will delete artifacts on the target that do not exist in the source repository. Default value
+        /// is `false`.
         /// </summary>
         [Input("syncDeletes")]
         public Input<bool>? SyncDeletes { get; set; }
 
         /// <summary>
-        /// When set, the task also synchronizes the properties of replicated artifacts. Default value is `true`.
+        /// When set, the task also synchronizes the properties of replicated artifacts. Default value is `true`
         /// </summary>
         [Input("syncProperties")]
         public Input<bool>? SyncProperties { get; set; }

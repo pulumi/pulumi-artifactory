@@ -119,9 +119,6 @@ class GetVirtualRpmRepositoryResult:
     @property
     @pulumi.getter(name="primaryKeypairRef")
     def primary_keypair_ref(self) -> Optional[str]:
-        """
-        (Optional) The primary GPG key to be used to sign packages.
-        """
         return pulumi.get(self, "primary_keypair_ref")
 
     @property
@@ -147,9 +144,6 @@ class GetVirtualRpmRepositoryResult:
     @property
     @pulumi.getter(name="secondaryKeypairRef")
     def secondary_keypair_ref(self) -> Optional[str]:
-        """
-        (Optional) The secondary GPG key to be used to sign packages.
-        """
         return pulumi.get(self, "secondary_keypair_ref")
 
 
@@ -191,21 +185,7 @@ def get_virtual_rpm_repository(artifactory_requests_can_retrieve_remote_artifact
                                secondary_keypair_ref: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualRpmRepositoryResult:
     """
-    Retrieves a virtual Rpm repository.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    virtual_rpm = artifactory.get_virtual_rpm_repository(key="virtual-rpm")
-    ```
-
-
-    :param str key: the identity key of the repo.
-    :param str primary_keypair_ref: (Optional) The primary GPG key to be used to sign packages.
-    :param str secondary_keypair_ref: (Optional) The secondary GPG key to be used to sign packages.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['artifactoryRequestsCanRetrieveRemoteArtifacts'] = artifactory_requests_can_retrieve_remote_artifacts
@@ -258,20 +238,6 @@ def get_virtual_rpm_repository_output(artifactory_requests_can_retrieve_remote_a
                                       secondary_keypair_ref: Optional[pulumi.Input[Optional[str]]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualRpmRepositoryResult]:
     """
-    Retrieves a virtual Rpm repository.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    virtual_rpm = artifactory.get_virtual_rpm_repository(key="virtual-rpm")
-    ```
-
-
-    :param str key: the identity key of the repo.
-    :param str primary_keypair_ref: (Optional) The primary GPG key to be used to sign packages.
-    :param str secondary_keypair_ref: (Optional) The secondary GPG key to be used to sign packages.
+    Use this data source to access information about an existing resource.
     """
     ...

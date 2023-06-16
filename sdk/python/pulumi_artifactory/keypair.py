@@ -22,12 +22,12 @@ class KeypairArgs:
                  passphrase: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Keypair resource.
-        :param pulumi.Input[str] alias: Will be used as a filename when retrieving the public key via REST API.
+        :param pulumi.Input[str] alias: Will be used as a filename when retrieving the public key via REST API
         :param pulumi.Input[str] pair_name: A unique identifier for the Key Pair record.
         :param pulumi.Input[str] pair_type: Key Pair type. Supported types - GPG and RSA.
         :param pulumi.Input[str] private_key: Private key. PEM format will be validated.
         :param pulumi.Input[str] public_key: Public key. PEM format will be validated.
-        :param pulumi.Input[str] passphrase: Passphrase will be used to decrypt the private key. Validated server side.
+        :param pulumi.Input[str] passphrase: Passphrase will be used to decrypt the private key. Validated server side
         """
         pulumi.set(__self__, "alias", alias)
         pulumi.set(__self__, "pair_name", pair_name)
@@ -41,7 +41,7 @@ class KeypairArgs:
     @pulumi.getter
     def alias(self) -> pulumi.Input[str]:
         """
-        Will be used as a filename when retrieving the public key via REST API.
+        Will be used as a filename when retrieving the public key via REST API
         """
         return pulumi.get(self, "alias")
 
@@ -101,7 +101,7 @@ class KeypairArgs:
     @pulumi.getter
     def passphrase(self) -> Optional[pulumi.Input[str]]:
         """
-        Passphrase will be used to decrypt the private key. Validated server side.
+        Passphrase will be used to decrypt the private key. Validated server side
         """
         return pulumi.get(self, "passphrase")
 
@@ -122,15 +122,13 @@ class _KeypairState:
                  unavailable: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering Keypair resources.
-        :param pulumi.Input[str] alias: Will be used as a filename when retrieving the public key via REST API.
+        :param pulumi.Input[str] alias: Will be used as a filename when retrieving the public key via REST API
         :param pulumi.Input[str] pair_name: A unique identifier for the Key Pair record.
         :param pulumi.Input[str] pair_type: Key Pair type. Supported types - GPG and RSA.
-        :param pulumi.Input[str] passphrase: Passphrase will be used to decrypt the private key. Validated server side.
+        :param pulumi.Input[str] passphrase: Passphrase will be used to decrypt the private key. Validated server side
         :param pulumi.Input[str] private_key: Private key. PEM format will be validated.
         :param pulumi.Input[str] public_key: Public key. PEM format will be validated.
         :param pulumi.Input[bool] unavailable: Unknown usage. Returned in the json payload and cannot be set.
-               
-               Artifactory REST API call Get Key Pair doesn't return keys `private_key` and `passphrase`, but consumes these keys in the POST call.
         """
         if alias is not None:
             pulumi.set(__self__, "alias", alias)
@@ -151,7 +149,7 @@ class _KeypairState:
     @pulumi.getter
     def alias(self) -> Optional[pulumi.Input[str]]:
         """
-        Will be used as a filename when retrieving the public key via REST API.
+        Will be used as a filename when retrieving the public key via REST API
         """
         return pulumi.get(self, "alias")
 
@@ -187,7 +185,7 @@ class _KeypairState:
     @pulumi.getter
     def passphrase(self) -> Optional[pulumi.Input[str]]:
         """
-        Passphrase will be used to decrypt the private key. Validated server side.
+        Passphrase will be used to decrypt the private key. Validated server side
         """
         return pulumi.get(self, "passphrase")
 
@@ -224,8 +222,6 @@ class _KeypairState:
     def unavailable(self) -> Optional[pulumi.Input[bool]]:
         """
         Unknown usage. Returned in the json payload and cannot be set.
-
-        Artifactory REST API call Get Key Pair doesn't return keys `private_key` and `passphrase`, but consumes these keys in the POST call.
         """
         return pulumi.get(self, "unavailable")
 
@@ -247,41 +243,13 @@ class Keypair(pulumi.CustomResource):
                  public_key: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        RSA key pairs are used to sign and verify the Alpine Linux index files in JFrog Artifactory, while GPG key pairs are
-        used to sign and validate packages integrity in JFrog Distribution. The JFrog Platform enables you to manage multiple
-        RSA and GPG signing keys through the Keys Management UI and REST API. The JFrog Platform supports managing multiple
-        pairs of GPG signing keys to sign packages for authentication of several package types such as Debian, Opkg, and RPM
-        through the Keys Management UI and REST API.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_artifactory as artifactory
-
-        some_keypair6543461672124900137 = artifactory.Keypair("some-keypair6543461672124900137",
-            pair_name="some-keypair6543461672124900137",
-            pair_type="RSA",
-            alias="foo-alias6543461672124900137",
-            private_key=(lambda path: open(path).read())("samples/rsa.priv"),
-            public_key=(lambda path: open(path).read())("samples/rsa.pub"),
-            passphrase="PASSPHRASE")
-        ```
-
-        ## Import
-
-        Keypair can be imported using their name, e.g.
-
-        ```sh
-         $ pulumi import artifactory:index/keypair:Keypair my-keypair my-keypair
-        ```
-
+        Create a Keypair resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] alias: Will be used as a filename when retrieving the public key via REST API.
+        :param pulumi.Input[str] alias: Will be used as a filename when retrieving the public key via REST API
         :param pulumi.Input[str] pair_name: A unique identifier for the Key Pair record.
         :param pulumi.Input[str] pair_type: Key Pair type. Supported types - GPG and RSA.
-        :param pulumi.Input[str] passphrase: Passphrase will be used to decrypt the private key. Validated server side.
+        :param pulumi.Input[str] passphrase: Passphrase will be used to decrypt the private key. Validated server side
         :param pulumi.Input[str] private_key: Private key. PEM format will be validated.
         :param pulumi.Input[str] public_key: Public key. PEM format will be validated.
         """
@@ -292,35 +260,7 @@ class Keypair(pulumi.CustomResource):
                  args: KeypairArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        RSA key pairs are used to sign and verify the Alpine Linux index files in JFrog Artifactory, while GPG key pairs are
-        used to sign and validate packages integrity in JFrog Distribution. The JFrog Platform enables you to manage multiple
-        RSA and GPG signing keys through the Keys Management UI and REST API. The JFrog Platform supports managing multiple
-        pairs of GPG signing keys to sign packages for authentication of several package types such as Debian, Opkg, and RPM
-        through the Keys Management UI and REST API.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_artifactory as artifactory
-
-        some_keypair6543461672124900137 = artifactory.Keypair("some-keypair6543461672124900137",
-            pair_name="some-keypair6543461672124900137",
-            pair_type="RSA",
-            alias="foo-alias6543461672124900137",
-            private_key=(lambda path: open(path).read())("samples/rsa.priv"),
-            public_key=(lambda path: open(path).read())("samples/rsa.pub"),
-            passphrase="PASSPHRASE")
-        ```
-
-        ## Import
-
-        Keypair can be imported using their name, e.g.
-
-        ```sh
-         $ pulumi import artifactory:index/keypair:Keypair my-keypair my-keypair
-        ```
-
+        Create a Keypair resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param KeypairArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -394,15 +334,13 @@ class Keypair(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] alias: Will be used as a filename when retrieving the public key via REST API.
+        :param pulumi.Input[str] alias: Will be used as a filename when retrieving the public key via REST API
         :param pulumi.Input[str] pair_name: A unique identifier for the Key Pair record.
         :param pulumi.Input[str] pair_type: Key Pair type. Supported types - GPG and RSA.
-        :param pulumi.Input[str] passphrase: Passphrase will be used to decrypt the private key. Validated server side.
+        :param pulumi.Input[str] passphrase: Passphrase will be used to decrypt the private key. Validated server side
         :param pulumi.Input[str] private_key: Private key. PEM format will be validated.
         :param pulumi.Input[str] public_key: Public key. PEM format will be validated.
         :param pulumi.Input[bool] unavailable: Unknown usage. Returned in the json payload and cannot be set.
-               
-               Artifactory REST API call Get Key Pair doesn't return keys `private_key` and `passphrase`, but consumes these keys in the POST call.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -421,7 +359,7 @@ class Keypair(pulumi.CustomResource):
     @pulumi.getter
     def alias(self) -> pulumi.Output[str]:
         """
-        Will be used as a filename when retrieving the public key via REST API.
+        Will be used as a filename when retrieving the public key via REST API
         """
         return pulumi.get(self, "alias")
 
@@ -445,7 +383,7 @@ class Keypair(pulumi.CustomResource):
     @pulumi.getter
     def passphrase(self) -> pulumi.Output[Optional[str]]:
         """
-        Passphrase will be used to decrypt the private key. Validated server side.
+        Passphrase will be used to decrypt the private key. Validated server side
         """
         return pulumi.get(self, "passphrase")
 
@@ -470,8 +408,6 @@ class Keypair(pulumi.CustomResource):
     def unavailable(self) -> pulumi.Output[bool]:
         """
         Unknown usage. Returned in the json payload and cannot be set.
-
-        Artifactory REST API call Get Key Pair doesn't return keys `private_key` and `passphrase`, but consumes these keys in the POST call.
         """
         return pulumi.get(self, "unavailable")
 

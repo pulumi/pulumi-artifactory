@@ -13,57 +13,18 @@ namespace Pulumi.Artifactory.Outputs
     [OutputType]
     public sealed class LocalRepositoryMultiReplicationReplication
     {
-        /// <summary>
-        /// Enabling the `check_binary_existence_in_filestore` flag requires an Enterprise Plus license. When true, enables distributed checksum storage. For more information, see [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
-        /// </summary>
         public readonly bool? CheckBinaryExistenceInFilestore;
-        /// <summary>
-        /// When set, enables replication of this repository to the target specified in `url` attribute. Default value is `true`.
-        /// </summary>
         public readonly bool? Enabled;
-        /// <summary>
-        /// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. By default, no artifacts are excluded.
-        /// </summary>
         public readonly string? ExcludePathPrefixPattern;
-        /// <summary>
-        /// List of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included `(**/*)`.
-        /// </summary>
         public readonly string? IncludePathPrefixPattern;
-        /// <summary>
-        /// Use either the HTTP authentication password or [identity token](https://www.jfrog.com/confluence/display/JFROG/User+Profile#UserProfile-IdentityTokenidentitytoken).
-        /// </summary>
         public readonly string? Password;
-        /// <summary>
-        /// Proxy key from Artifactory Proxies settings. The proxy configuration will be used when communicating with the remote instance.
-        /// </summary>
         public readonly string? Proxy;
-        /// <summary>
-        /// Replication ID, the value is unknown until the resource is created. Can't be set or updated.
-        /// </summary>
         public readonly string? ReplicationKey;
-        /// <summary>
-        /// The network timeout in milliseconds to use for remote operations. Default value is `15000`.
-        /// </summary>
         public readonly int? SocketTimeoutMillis;
-        /// <summary>
-        /// When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata). Note that enabling this option, will delete artifacts on the target that do not exist in the source repository. Default value is `false`.
-        /// </summary>
         public readonly bool? SyncDeletes;
-        /// <summary>
-        /// When set, the task also synchronizes the properties of replicated artifacts. Default value is `true`.
-        /// </summary>
         public readonly bool? SyncProperties;
-        /// <summary>
-        /// When set, the task also synchronizes artifact download statistics. Set to avoid inadvertent cleanup at the target instance when setting up replication for disaster recovery. Default value is `false`
-        /// </summary>
         public readonly bool? SyncStatistics;
-        /// <summary>
-        /// The URL of the target local repository on a remote Artifactory server. Use the format `https://&lt;artifactory_url&gt;/artifactory/&lt;repository_name&gt;`.
-        /// </summary>
         public readonly string Url;
-        /// <summary>
-        /// Username on the remote Artifactory instance.
-        /// </summary>
         public readonly string Username;
 
         [OutputConstructor]

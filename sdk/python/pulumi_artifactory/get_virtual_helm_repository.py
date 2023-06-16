@@ -139,17 +139,11 @@ class GetVirtualHelmRepositoryResult:
     @property
     @pulumi.getter(name="retrievalCachePeriodSeconds")
     def retrieval_cache_period_seconds(self) -> Optional[int]:
-        """
-        (Optional, Default: `7200`) This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
-        """
         return pulumi.get(self, "retrieval_cache_period_seconds")
 
     @property
     @pulumi.getter(name="useNamespaces")
     def use_namespaces(self) -> Optional[bool]:
-        """
-        (Optional) From Artifactory 7.24.1 (SaaS Version), you can explicitly state a specific aggregated local or remote repository to fetch from a virtual by assigning namespaces to local and remote repositories. See the documentation [here](https://www.jfrog.com/confluence/display/JFROG/Kubernetes+Helm+Chart+Repositories#KubernetesHelmChartRepositories-NamespaceSupportforHelmVirtualRepositories). Default is `false`.
-        """
         return pulumi.get(self, "use_namespaces")
 
 
@@ -191,21 +185,7 @@ def get_virtual_helm_repository(artifactory_requests_can_retrieve_remote_artifac
                                 use_namespaces: Optional[bool] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualHelmRepositoryResult:
     """
-    Retrieves a virtual Helm repository.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    virtual_helm = artifactory.get_virtual_helm_repository(key="virtual-helm")
-    ```
-
-
-    :param str key: the identity key of the repo.
-    :param int retrieval_cache_period_seconds: (Optional, Default: `7200`) This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
-    :param bool use_namespaces: (Optional) From Artifactory 7.24.1 (SaaS Version), you can explicitly state a specific aggregated local or remote repository to fetch from a virtual by assigning namespaces to local and remote repositories. See the documentation [here](https://www.jfrog.com/confluence/display/JFROG/Kubernetes+Helm+Chart+Repositories#KubernetesHelmChartRepositories-NamespaceSupportforHelmVirtualRepositories). Default is `false`.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['artifactoryRequestsCanRetrieveRemoteArtifacts'] = artifactory_requests_can_retrieve_remote_artifacts
@@ -258,20 +238,6 @@ def get_virtual_helm_repository_output(artifactory_requests_can_retrieve_remote_
                                        use_namespaces: Optional[pulumi.Input[Optional[bool]]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualHelmRepositoryResult]:
     """
-    Retrieves a virtual Helm repository.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    virtual_helm = artifactory.get_virtual_helm_repository(key="virtual-helm")
-    ```
-
-
-    :param str key: the identity key of the repo.
-    :param int retrieval_cache_period_seconds: (Optional, Default: `7200`) This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
-    :param bool use_namespaces: (Optional) From Artifactory 7.24.1 (SaaS Version), you can explicitly state a specific aggregated local or remote repository to fetch from a virtual by assigning namespaces to local and remote repositories. See the documentation [here](https://www.jfrog.com/confluence/display/JFROG/Kubernetes+Helm+Chart+Repositories#KubernetesHelmChartRepositories-NamespaceSupportforHelmVirtualRepositories). Default is `false`.
+    Use this data source to access information about an existing resource.
     """
     ...

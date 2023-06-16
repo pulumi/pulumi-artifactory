@@ -102,62 +102,30 @@ public final class GetRemoteMavenRepositoryPlainArgs extends com.pulumi.resource
         return Optional.ofNullable(this.excludesPattern);
     }
 
-    /**
-     * (Optional, Default: `false`) When set, if a POM is requested, Artifactory attempts to fetch the corresponding jar in the background. This will accelerate first access time to the jar when it is subsequently requested.
-     * 
-     */
     @Import(name="fetchJarsEagerly")
     private @Nullable Boolean fetchJarsEagerly;
 
-    /**
-     * @return (Optional, Default: `false`) When set, if a POM is requested, Artifactory attempts to fetch the corresponding jar in the background. This will accelerate first access time to the jar when it is subsequently requested.
-     * 
-     */
     public Optional<Boolean> fetchJarsEagerly() {
         return Optional.ofNullable(this.fetchJarsEagerly);
     }
 
-    /**
-     * (Optional, Default: `false`) When set, if a binaries jar is requested, Artifactory attempts to fetch the corresponding source jar in the background. This will accelerate first access time to the source jar when it is subsequently requested.
-     * 
-     */
     @Import(name="fetchSourcesEagerly")
     private @Nullable Boolean fetchSourcesEagerly;
 
-    /**
-     * @return (Optional, Default: `false`) When set, if a binaries jar is requested, Artifactory attempts to fetch the corresponding source jar in the background. This will accelerate first access time to the source jar when it is subsequently requested.
-     * 
-     */
     public Optional<Boolean> fetchSourcesEagerly() {
         return Optional.ofNullable(this.fetchSourcesEagerly);
     }
 
-    /**
-     * (Optional, Default: `true`) If set, Artifactory allows you to deploy release artifacts into this repository.
-     * 
-     */
     @Import(name="handleReleases")
     private @Nullable Boolean handleReleases;
 
-    /**
-     * @return (Optional, Default: `true`) If set, Artifactory allows you to deploy release artifacts into this repository.
-     * 
-     */
     public Optional<Boolean> handleReleases() {
         return Optional.ofNullable(this.handleReleases);
     }
 
-    /**
-     * (Optional, Default: `true`) If set, Artifactory allows you to deploy snapshot artifacts into this repository.
-     * 
-     */
     @Import(name="handleSnapshots")
     private @Nullable Boolean handleSnapshots;
 
-    /**
-     * @return (Optional, Default: `true`) If set, Artifactory allows you to deploy snapshot artifacts into this repository.
-     * 
-     */
     public Optional<Boolean> handleSnapshots() {
         return Optional.ofNullable(this.handleSnapshots);
     }
@@ -176,17 +144,9 @@ public final class GetRemoteMavenRepositoryPlainArgs extends com.pulumi.resource
         return Optional.ofNullable(this.includesPattern);
     }
 
-    /**
-     * the identity key of the repo.
-     * 
-     */
     @Import(name="key", required=true)
     private String key;
 
-    /**
-     * @return the identity key of the repo.
-     * 
-     */
     public String key() {
         return this.key;
     }
@@ -205,17 +165,9 @@ public final class GetRemoteMavenRepositoryPlainArgs extends com.pulumi.resource
         return Optional.ofNullable(this.localAddress);
     }
 
-    /**
-     * (Optional, Default: 60) This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrieval_cache_period_seconds` attribute.
-     * 
-     */
     @Import(name="metadataRetrievalTimeoutSecs")
     private @Nullable Integer metadataRetrievalTimeoutSecs;
 
-    /**
-     * @return (Optional, Default: 60) This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrieval_cache_period_seconds` attribute.
-     * 
-     */
     public Optional<Integer> metadataRetrievalTimeoutSecs() {
         return Optional.ofNullable(this.metadataRetrievalTimeoutSecs);
     }
@@ -297,32 +249,16 @@ public final class GetRemoteMavenRepositoryPlainArgs extends com.pulumi.resource
         return Optional.ofNullable(this.queryParams);
     }
 
-    /**
-     * (Optional, Default: `false`) Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a &#34;captive portal&#34;.
-     * 
-     */
     @Import(name="rejectInvalidJars")
     private @Nullable Boolean rejectInvalidJars;
 
-    /**
-     * @return (Optional, Default: `false`) Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a &#34;captive portal&#34;.
-     * 
-     */
     public Optional<Boolean> rejectInvalidJars() {
         return Optional.ofNullable(this.rejectInvalidJars);
     }
 
-    /**
-     * (Optional, Default: `generate-if-absent`) Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
-     * 
-     */
     @Import(name="remoteRepoChecksumPolicyType")
     private @Nullable String remoteRepoChecksumPolicyType;
 
-    /**
-     * @return (Optional, Default: `generate-if-absent`) Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
-     * 
-     */
     public Optional<String> remoteRepoChecksumPolicyType() {
         return Optional.ofNullable(this.remoteRepoChecksumPolicyType);
     }
@@ -369,17 +305,9 @@ public final class GetRemoteMavenRepositoryPlainArgs extends com.pulumi.resource
         return Optional.ofNullable(this.storeArtifactsLocally);
     }
 
-    /**
-     * (Optional, Default: `true`) By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a &#34;409 Conflict&#34; error. You can disable this behavior by setting this attribute to `true`.
-     * 
-     */
     @Import(name="suppressPomConsistencyChecks")
     private @Nullable Boolean suppressPomConsistencyChecks;
 
-    /**
-     * @return (Optional, Default: `true`) By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a &#34;409 Conflict&#34; error. You can disable this behavior by setting this attribute to `true`.
-     * 
-     */
     public Optional<Boolean> suppressPomConsistencyChecks() {
         return Optional.ofNullable(this.suppressPomConsistencyChecks);
     }
@@ -549,45 +477,21 @@ public final class GetRemoteMavenRepositoryPlainArgs extends com.pulumi.resource
             return this;
         }
 
-        /**
-         * @param fetchJarsEagerly (Optional, Default: `false`) When set, if a POM is requested, Artifactory attempts to fetch the corresponding jar in the background. This will accelerate first access time to the jar when it is subsequently requested.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fetchJarsEagerly(@Nullable Boolean fetchJarsEagerly) {
             $.fetchJarsEagerly = fetchJarsEagerly;
             return this;
         }
 
-        /**
-         * @param fetchSourcesEagerly (Optional, Default: `false`) When set, if a binaries jar is requested, Artifactory attempts to fetch the corresponding source jar in the background. This will accelerate first access time to the source jar when it is subsequently requested.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fetchSourcesEagerly(@Nullable Boolean fetchSourcesEagerly) {
             $.fetchSourcesEagerly = fetchSourcesEagerly;
             return this;
         }
 
-        /**
-         * @param handleReleases (Optional, Default: `true`) If set, Artifactory allows you to deploy release artifacts into this repository.
-         * 
-         * @return builder
-         * 
-         */
         public Builder handleReleases(@Nullable Boolean handleReleases) {
             $.handleReleases = handleReleases;
             return this;
         }
 
-        /**
-         * @param handleSnapshots (Optional, Default: `true`) If set, Artifactory allows you to deploy snapshot artifacts into this repository.
-         * 
-         * @return builder
-         * 
-         */
         public Builder handleSnapshots(@Nullable Boolean handleSnapshots) {
             $.handleSnapshots = handleSnapshots;
             return this;
@@ -603,12 +507,6 @@ public final class GetRemoteMavenRepositoryPlainArgs extends com.pulumi.resource
             return this;
         }
 
-        /**
-         * @param key the identity key of the repo.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(String key) {
             $.key = key;
             return this;
@@ -624,12 +522,6 @@ public final class GetRemoteMavenRepositoryPlainArgs extends com.pulumi.resource
             return this;
         }
 
-        /**
-         * @param metadataRetrievalTimeoutSecs (Optional, Default: 60) This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrieval_cache_period_seconds` attribute.
-         * 
-         * @return builder
-         * 
-         */
         public Builder metadataRetrievalTimeoutSecs(@Nullable Integer metadataRetrievalTimeoutSecs) {
             $.metadataRetrievalTimeoutSecs = metadataRetrievalTimeoutSecs;
             return this;
@@ -698,23 +590,11 @@ public final class GetRemoteMavenRepositoryPlainArgs extends com.pulumi.resource
             return this;
         }
 
-        /**
-         * @param rejectInvalidJars (Optional, Default: `false`) Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a &#34;captive portal&#34;.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rejectInvalidJars(@Nullable Boolean rejectInvalidJars) {
             $.rejectInvalidJars = rejectInvalidJars;
             return this;
         }
 
-        /**
-         * @param remoteRepoChecksumPolicyType (Optional, Default: `generate-if-absent`) Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder remoteRepoChecksumPolicyType(@Nullable String remoteRepoChecksumPolicyType) {
             $.remoteRepoChecksumPolicyType = remoteRepoChecksumPolicyType;
             return this;
@@ -750,12 +630,6 @@ public final class GetRemoteMavenRepositoryPlainArgs extends com.pulumi.resource
             return this;
         }
 
-        /**
-         * @param suppressPomConsistencyChecks (Optional, Default: `true`) By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a &#34;409 Conflict&#34; error. You can disable this behavior by setting this attribute to `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder suppressPomConsistencyChecks(@Nullable Boolean suppressPomConsistencyChecks) {
             $.suppressPomConsistencyChecks = suppressPomConsistencyChecks;
             return this;

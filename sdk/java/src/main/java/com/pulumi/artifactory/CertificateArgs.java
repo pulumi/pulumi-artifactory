@@ -15,32 +15,16 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final CertificateArgs Empty = new CertificateArgs();
 
-    /**
-     * Name of certificate.
-     * 
-     */
     @Import(name="alias", required=true)
     private Output<String> alias;
 
-    /**
-     * @return Name of certificate.
-     * 
-     */
     public Output<String> alias() {
         return this.alias;
     }
 
-    /**
-     * PEM-encoded client certificate and private key.
-     * 
-     */
     @Import(name="content")
     private @Nullable Output<String> content;
 
-    /**
-     * @return PEM-encoded client certificate and private key.
-     * 
-     */
     public Optional<Output<String>> content() {
         return Optional.ofNullable(this.content);
     }
@@ -78,44 +62,20 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
             $ = new CertificateArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param alias Name of certificate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder alias(Output<String> alias) {
             $.alias = alias;
             return this;
         }
 
-        /**
-         * @param alias Name of certificate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder alias(String alias) {
             return alias(Output.of(alias));
         }
 
-        /**
-         * @param content PEM-encoded client certificate and private key.
-         * 
-         * @return builder
-         * 
-         */
         public Builder content(@Nullable Output<String> content) {
             $.content = content;
             return this;
         }
 
-        /**
-         * @param content PEM-encoded client certificate and private key.
-         * 
-         * @return builder
-         * 
-         */
         public Builder content(String content) {
             return content(Output.of(content));
         }

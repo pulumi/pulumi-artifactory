@@ -58,32 +58,16 @@ public final class GetVirtualIvyRepositoryPlainArgs extends com.pulumi.resources
         return Optional.ofNullable(this.includesPattern);
     }
 
-    /**
-     * the identity key of the repo.
-     * 
-     */
     @Import(name="key", required=true)
     private String key;
 
-    /**
-     * @return the identity key of the repo.
-     * 
-     */
     public String key() {
         return this.key;
     }
 
-    /**
-     * (Optional) The keypair used to sign artifacts.
-     * 
-     */
     @Import(name="keyPair")
     private @Nullable String keyPair;
 
-    /**
-     * @return (Optional) The keypair used to sign artifacts.
-     * 
-     */
     public Optional<String> keyPair() {
         return Optional.ofNullable(this.keyPair);
     }
@@ -95,23 +79,9 @@ public final class GetVirtualIvyRepositoryPlainArgs extends com.pulumi.resources
         return Optional.ofNullable(this.notes);
     }
 
-    /**
-     * (Optional)
-     * - (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
-     * - (2: discard_any_reference) Discard Any References - Removes all repository elements regardless of whether they are included in an active profile or not.
-     * - (3: nothing) Nothing - Does not remove any repository elements declared in the POM.
-     * 
-     */
     @Import(name="pomRepositoryReferencesCleanupPolicy")
     private @Nullable String pomRepositoryReferencesCleanupPolicy;
 
-    /**
-     * @return (Optional)
-     * - (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
-     * - (2: discard_any_reference) Discard Any References - Removes all repository elements regardless of whether they are included in an active profile or not.
-     * - (3: nothing) Nothing - Does not remove any repository elements declared in the POM.
-     * 
-     */
     public Optional<String> pomRepositoryReferencesCleanupPolicy() {
         return Optional.ofNullable(this.pomRepositoryReferencesCleanupPolicy);
     }
@@ -211,23 +181,11 @@ public final class GetVirtualIvyRepositoryPlainArgs extends com.pulumi.resources
             return this;
         }
 
-        /**
-         * @param key the identity key of the repo.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(String key) {
             $.key = key;
             return this;
         }
 
-        /**
-         * @param keyPair (Optional) The keypair used to sign artifacts.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyPair(@Nullable String keyPair) {
             $.keyPair = keyPair;
             return this;
@@ -238,15 +196,6 @@ public final class GetVirtualIvyRepositoryPlainArgs extends com.pulumi.resources
             return this;
         }
 
-        /**
-         * @param pomRepositoryReferencesCleanupPolicy (Optional)
-         * - (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
-         * - (2: discard_any_reference) Discard Any References - Removes all repository elements regardless of whether they are included in an active profile or not.
-         * - (3: nothing) Nothing - Does not remove any repository elements declared in the POM.
-         * 
-         * @return builder
-         * 
-         */
         public Builder pomRepositoryReferencesCleanupPolicy(@Nullable String pomRepositoryReferencesCleanupPolicy) {
             $.pomRepositoryReferencesCleanupPolicy = pomRepositoryReferencesCleanupPolicy;
             return this;

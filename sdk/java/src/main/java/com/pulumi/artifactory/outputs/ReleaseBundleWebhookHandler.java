@@ -12,53 +12,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ReleaseBundleWebhookHandler {
-    /**
-     * @return Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
-     * 
-     */
     private @Nullable Map<String,String> customHttpHeaders;
-    /**
-     * @return Proxy key from Artifactory UI (Administration &gt; Proxies &gt; Configuration).
-     * 
-     */
     private @Nullable String proxy;
-    /**
-     * @return Secret authentication token that will be sent to the configured URL. The value will be sent as `x-jfrog-event-auth` header.
-     * 
-     */
     private @Nullable String secret;
-    /**
-     * @return Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
-     * 
-     */
     private String url;
 
     private ReleaseBundleWebhookHandler() {}
-    /**
-     * @return Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
-     * 
-     */
     public Map<String,String> customHttpHeaders() {
         return this.customHttpHeaders == null ? Map.of() : this.customHttpHeaders;
     }
-    /**
-     * @return Proxy key from Artifactory UI (Administration &gt; Proxies &gt; Configuration).
-     * 
-     */
     public Optional<String> proxy() {
         return Optional.ofNullable(this.proxy);
     }
-    /**
-     * @return Secret authentication token that will be sent to the configured URL. The value will be sent as `x-jfrog-event-auth` header.
-     * 
-     */
     public Optional<String> secret() {
         return Optional.ofNullable(this.secret);
     }
-    /**
-     * @return Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
-     * 
-     */
     public String url() {
         return this.url;
     }

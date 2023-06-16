@@ -24,17 +24,9 @@ public final class ReplicationConfigReplicationArgs extends com.pulumi.resources
         return Optional.ofNullable(this.enabled);
     }
 
-    /**
-     * Requires password encryption to be turned off `POST /api/system/decrypt`.
-     * 
-     */
     @Import(name="password")
     private @Nullable Output<String> password;
 
-    /**
-     * @return Requires password encryption to be turned off `POST /api/system/decrypt`.
-     * 
-     */
     public Optional<Output<String>> password() {
         return Optional.ofNullable(this.password);
     }
@@ -46,17 +38,9 @@ public final class ReplicationConfigReplicationArgs extends com.pulumi.resources
         return Optional.ofNullable(this.pathPrefix);
     }
 
-    /**
-     * Proxy key from Artifactory Proxies setting
-     * 
-     */
     @Import(name="proxy")
     private @Nullable Output<String> proxy;
 
-    /**
-     * @return Proxy key from Artifactory Proxies setting
-     * 
-     */
     public Optional<Output<String>> proxy() {
         return Optional.ofNullable(this.proxy);
     }
@@ -145,23 +129,11 @@ public final class ReplicationConfigReplicationArgs extends com.pulumi.resources
             return enabled(Output.of(enabled));
         }
 
-        /**
-         * @param password Requires password encryption to be turned off `POST /api/system/decrypt`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder password(@Nullable Output<String> password) {
             $.password = password;
             return this;
         }
 
-        /**
-         * @param password Requires password encryption to be turned off `POST /api/system/decrypt`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder password(String password) {
             return password(Output.of(password));
         }
@@ -175,23 +147,11 @@ public final class ReplicationConfigReplicationArgs extends com.pulumi.resources
             return pathPrefix(Output.of(pathPrefix));
         }
 
-        /**
-         * @param proxy Proxy key from Artifactory Proxies setting
-         * 
-         * @return builder
-         * 
-         */
         public Builder proxy(@Nullable Output<String> proxy) {
             $.proxy = proxy;
             return this;
         }
 
-        /**
-         * @param proxy Proxy key from Artifactory Proxies setting
-         * 
-         * @return builder
-         * 
-         */
         public Builder proxy(String proxy) {
             return proxy(Output.of(proxy));
         }

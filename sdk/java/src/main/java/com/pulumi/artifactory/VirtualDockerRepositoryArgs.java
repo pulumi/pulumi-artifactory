@@ -99,16 +99,16 @@ public final class VirtualDockerRepositoryArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-     * contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      * 
      */
     @Import(name="key", required=true)
     private Output<String> key;
 
     /**
-     * @return A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-     * contain spaces or special characters.
+     * @return A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      * 
      */
     public Output<String> key() {
@@ -199,14 +199,16 @@ public final class VirtualDockerRepositoryArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * When enabled, in cases where the same Docker tag exists in two or more of the aggregated repositories, Artifactory will return the tag that has the latest timestamp. Default values is `false`.
+     * When enabled, in cases where the same Docker tag exists in two or more of the aggregated repositories, Artifactory will
+     * return the tag that has the latest timestamp.
      * 
      */
     @Import(name="resolveDockerTagsByTimestamp")
     private @Nullable Output<Boolean> resolveDockerTagsByTimestamp;
 
     /**
-     * @return When enabled, in cases where the same Docker tag exists in two or more of the aggregated repositories, Artifactory will return the tag that has the latest timestamp. Default values is `false`.
+     * @return When enabled, in cases where the same Docker tag exists in two or more of the aggregated repositories, Artifactory will
+     * return the tag that has the latest timestamp.
      * 
      */
     public Optional<Output<Boolean>> resolveDockerTagsByTimestamp() {
@@ -360,8 +362,8 @@ public final class VirtualDockerRepositoryArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param key A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-         * contain spaces or special characters.
+         * @param key A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+         * characters. It cannot begin with a number or contain spaces or special characters.
          * 
          * @return builder
          * 
@@ -372,8 +374,8 @@ public final class VirtualDockerRepositoryArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param key A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-         * contain spaces or special characters.
+         * @param key A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+         * characters. It cannot begin with a number or contain spaces or special characters.
          * 
          * @return builder
          * 
@@ -519,7 +521,8 @@ public final class VirtualDockerRepositoryArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param resolveDockerTagsByTimestamp When enabled, in cases where the same Docker tag exists in two or more of the aggregated repositories, Artifactory will return the tag that has the latest timestamp. Default values is `false`.
+         * @param resolveDockerTagsByTimestamp When enabled, in cases where the same Docker tag exists in two or more of the aggregated repositories, Artifactory will
+         * return the tag that has the latest timestamp.
          * 
          * @return builder
          * 
@@ -530,7 +533,8 @@ public final class VirtualDockerRepositoryArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param resolveDockerTagsByTimestamp When enabled, in cases where the same Docker tag exists in two or more of the aggregated repositories, Artifactory will return the tag that has the latest timestamp. Default values is `false`.
+         * @param resolveDockerTagsByTimestamp When enabled, in cases where the same Docker tag exists in two or more of the aggregated repositories, Artifactory will
+         * return the tag that has the latest timestamp.
          * 
          * @return builder
          * 

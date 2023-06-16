@@ -9,23 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Artifactory
 {
-    /// <summary>
-    /// Note: this resource is deprecated in favor of `artifactory.PullReplication` resource.
-    /// 
-    /// Provides an Artifactory single replication config resource. This can be used to create and manage a single Artifactory
-    /// replication. Primarily used when pull replication is needed.
-    /// 
-    /// **WARNING: This should not be used on a repository with `artifactory.ReplicationConfig`. Using both together will cause
-    /// unexpected behaviour and will almost certainly cause your replications to break.**
-    /// 
-    /// ## Import
-    /// 
-    /// Replication configs can be imported using their repo key, e.g.
-    /// 
-    /// ```sh
-    ///  $ pulumi import artifactory:index/singleReplicationConfig:SingleReplicationConfig foo-rep repository-key
-    /// ```
-    /// </summary>
     [ArtifactoryResourceType("artifactory:index/singleReplicationConfig:SingleReplicationConfig")]
     public partial class SingleReplicationConfig : global::Pulumi.CustomResource
     {
@@ -42,7 +25,8 @@ namespace Pulumi.Artifactory
         public Output<bool> Enabled { get; private set; } = null!;
 
         /// <summary>
-        /// Requires password encryption to be turned off `POST /api/system/decrypt`.
+        /// If a password is used to create the resource, it will be returned as encrypted and this will become the new
+        /// state.Practically speaking, what this means is that, the password can only be set, not gotten.
         /// </summary>
         [Output("password")]
         public Output<string> Password { get; private set; } = null!;
@@ -51,7 +35,7 @@ namespace Pulumi.Artifactory
         public Output<string?> PathPrefix { get; private set; } = null!;
 
         /// <summary>
-        /// Proxy key from Artifactory Proxies setting.
+        /// Proxy key from Artifactory Proxies setting
         /// </summary>
         [Output("proxy")]
         public Output<string?> Proxy { get; private set; } = null!;
@@ -143,7 +127,7 @@ namespace Pulumi.Artifactory
         public Input<string>? PathPrefix { get; set; }
 
         /// <summary>
-        /// Proxy key from Artifactory Proxies setting.
+        /// Proxy key from Artifactory Proxies setting
         /// </summary>
         [Input("proxy")]
         public Input<string>? Proxy { get; set; }
@@ -193,7 +177,8 @@ namespace Pulumi.Artifactory
         private Input<string>? _password;
 
         /// <summary>
-        /// Requires password encryption to be turned off `POST /api/system/decrypt`.
+        /// If a password is used to create the resource, it will be returned as encrypted and this will become the new
+        /// state.Practically speaking, what this means is that, the password can only be set, not gotten.
         /// </summary>
         public Input<string>? Password
         {
@@ -209,7 +194,7 @@ namespace Pulumi.Artifactory
         public Input<string>? PathPrefix { get; set; }
 
         /// <summary>
-        /// Proxy key from Artifactory Proxies setting.
+        /// Proxy key from Artifactory Proxies setting
         /// </summary>
         [Input("proxy")]
         public Input<string>? Proxy { get; set; }

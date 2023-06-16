@@ -11,45 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Creates a remote Gitlfs repository.
-// Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Git+LFS+Repositories).
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.NewRemoteGitlfsRepository(ctx, "my-remote-gitlfs", &artifactory.RemoteGitlfsRepositoryArgs{
-//				Key: pulumi.String("my-remote-gitlfs"),
-//				Url: pulumi.String("http://testartifactory.io/artifactory/example-gitlfs/"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Remote repositories can be imported using their name, e.g.
-//
-// ```sh
-//
-//	$ pulumi import artifactory:index/remoteGitlfsRepository:RemoteGitlfsRepository my-remote-gitlfs my-remote-gitlfs
-//
-// ```
 type RemoteGitlfsRepository struct {
 	pulumi.CustomResourceState
 
@@ -93,8 +54,8 @@ type RemoteGitlfsRepository struct {
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrOutput `pulumi:"includesPattern"`
-	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-	// contain spaces or special characters.
+	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+	// characters. It cannot begin with a number or contain spaces or special characters.
 	Key pulumi.StringOutput `pulumi:"key"`
 	// Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
 	// the 'Retrieval Cache Period'. Default value is 'true'.
@@ -247,8 +208,8 @@ type remoteGitlfsRepositoryState struct {
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
-	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-	// contain spaces or special characters.
+	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+	// characters. It cannot begin with a number or contain spaces or special characters.
 	Key *string `pulumi:"key"`
 	// Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
 	// the 'Retrieval Cache Period'. Default value is 'true'.
@@ -360,8 +321,8 @@ type RemoteGitlfsRepositoryState struct {
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
-	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-	// contain spaces or special characters.
+	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+	// characters. It cannot begin with a number or contain spaces or special characters.
 	Key pulumi.StringPtrInput
 	// Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
 	// the 'Retrieval Cache Period'. Default value is 'true'.
@@ -477,8 +438,8 @@ type remoteGitlfsRepositoryArgs struct {
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
-	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-	// contain spaces or special characters.
+	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+	// characters. It cannot begin with a number or contain spaces or special characters.
 	Key string `pulumi:"key"`
 	// Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
 	// the 'Retrieval Cache Period'. Default value is 'true'.
@@ -590,8 +551,8 @@ type RemoteGitlfsRepositoryArgs struct {
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
-	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-	// contain spaces or special characters.
+	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+	// characters. It cannot begin with a number or contain spaces or special characters.
 	Key pulumi.StringInput
 	// Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
 	// the 'Retrieval Cache Period'. Default value is 'true'.
@@ -832,8 +793,8 @@ func (o RemoteGitlfsRepositoryOutput) IncludesPattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RemoteGitlfsRepository) pulumi.StringPtrOutput { return v.IncludesPattern }).(pulumi.StringPtrOutput)
 }
 
-// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-// contain spaces or special characters.
+// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+// characters. It cannot begin with a number or contain spaces or special characters.
 func (o RemoteGitlfsRepositoryOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v *RemoteGitlfsRepository) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
 }

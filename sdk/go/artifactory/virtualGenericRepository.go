@@ -11,50 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Creates a virtual Generic repository.
-// Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Virtual+Repositories).
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.NewVirtualGenericRepository(ctx, "foo-generic", &artifactory.VirtualGenericRepositoryArgs{
-//				Description:     pulumi.String("A test virtual repo"),
-//				ExcludesPattern: pulumi.String("com/google/**"),
-//				IncludesPattern: pulumi.String("com/jfrog/**,cloud/jfrog/**"),
-//				Key:             pulumi.String("foo-generic"),
-//				Notes:           pulumi.String("Internal description"),
-//				RepoLayoutRef:   pulumi.String("simple-default"),
-//				Repositories:    pulumi.StringArray{},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Virtual repositories can be imported using their name, e.g.
-//
-// ```sh
-//
-//	$ pulumi import artifactory:index/virtualGenericRepository:VirtualGenericRepository foo-generic foo-generic
-//
-// ```
 type VirtualGenericRepository struct {
 	pulumi.CustomResourceState
 
@@ -71,8 +27,8 @@ type VirtualGenericRepository struct {
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrOutput `pulumi:"includesPattern"`
-	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-	// contain spaces or special characters.
+	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+	// characters. It cannot begin with a number or contain spaces or special characters.
 	Key pulumi.StringOutput `pulumi:"key"`
 	// Internal description.
 	Notes       pulumi.StringPtrOutput `pulumi:"notes"`
@@ -136,8 +92,8 @@ type virtualGenericRepositoryState struct {
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
-	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-	// contain spaces or special characters.
+	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+	// characters. It cannot begin with a number or contain spaces or special characters.
 	Key *string `pulumi:"key"`
 	// Internal description.
 	Notes       *string `pulumi:"notes"`
@@ -170,8 +126,8 @@ type VirtualGenericRepositoryState struct {
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
-	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-	// contain spaces or special characters.
+	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+	// characters. It cannot begin with a number or contain spaces or special characters.
 	Key pulumi.StringPtrInput
 	// Internal description.
 	Notes       pulumi.StringPtrInput
@@ -208,8 +164,8 @@ type virtualGenericRepositoryArgs struct {
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
-	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-	// contain spaces or special characters.
+	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+	// characters. It cannot begin with a number or contain spaces or special characters.
 	Key string `pulumi:"key"`
 	// Internal description.
 	Notes *string `pulumi:"notes"`
@@ -242,8 +198,8 @@ type VirtualGenericRepositoryArgs struct {
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
-	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-	// contain spaces or special characters.
+	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+	// characters. It cannot begin with a number or contain spaces or special characters.
 	Key pulumi.StringInput
 	// Internal description.
 	Notes pulumi.StringPtrInput
@@ -378,8 +334,8 @@ func (o VirtualGenericRepositoryOutput) IncludesPattern() pulumi.StringPtrOutput
 	return o.ApplyT(func(v *VirtualGenericRepository) pulumi.StringPtrOutput { return v.IncludesPattern }).(pulumi.StringPtrOutput)
 }
 
-// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-// contain spaces or special characters.
+// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+// characters. It cannot begin with a number or contain spaces or special characters.
 func (o VirtualGenericRepositoryOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualGenericRepository) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
 }

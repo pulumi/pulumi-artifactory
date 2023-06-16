@@ -248,16 +248,16 @@ public final class RemoteVcsRepositoryArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-     * contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      * 
      */
     @Import(name="key", required=true)
     private Output<String> key;
 
     /**
-     * @return A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-     * contain spaces or special characters.
+     * @return A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      * 
      */
     public Output<String> key() {
@@ -299,18 +299,16 @@ public final class RemoteVcsRepositoryArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * The maximum number of unique snapshots of a single artifact to store.
-     * Once the number of snapshots exceeds this setting, older versions are removed.
-     * A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+     * The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
+     * older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
      * 
      */
     @Import(name="maxUniqueSnapshots")
     private @Nullable Output<Integer> maxUniqueSnapshots;
 
     /**
-     * @return The maximum number of unique snapshots of a single artifact to store.
-     * Once the number of snapshots exceeds this setting, older versions are removed.
-     * A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+     * @return The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
+     * older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
      * 
      */
     public Optional<Output<Integer>> maxUniqueSnapshots() {
@@ -656,14 +654,14 @@ public final class RemoteVcsRepositoryArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * This attribute is used when vcs_git_provider is set to `CUSTOM`. Provided URL will be used as proxy.
+     * This attribute is used when vcs_git_provider is set to &#39;CUSTOM&#39;. Provided URL will be used as proxy.
      * 
      */
     @Import(name="vcsGitDownloadUrl")
     private @Nullable Output<String> vcsGitDownloadUrl;
 
     /**
-     * @return This attribute is used when vcs_git_provider is set to `CUSTOM`. Provided URL will be used as proxy.
+     * @return This attribute is used when vcs_git_provider is set to &#39;CUSTOM&#39;. Provided URL will be used as proxy.
      * 
      */
     public Optional<Output<String>> vcsGitDownloadUrl() {
@@ -671,18 +669,16 @@ public final class RemoteVcsRepositoryArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Artifactory supports proxying the following Git providers out-of-the-box: GitHub, Bitbucket,
-     * Stash, a remote Artifactory instance or a custom Git repository. Allowed values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`,
-     * `STASH`, `ARTIFACTORY`, `CUSTOM`. Default value is `GITHUB`
+     * Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance.
+     * Default value is &#34;GITHUB&#34;.
      * 
      */
     @Import(name="vcsGitProvider")
     private @Nullable Output<String> vcsGitProvider;
 
     /**
-     * @return Artifactory supports proxying the following Git providers out-of-the-box: GitHub, Bitbucket,
-     * Stash, a remote Artifactory instance or a custom Git repository. Allowed values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`,
-     * `STASH`, `ARTIFACTORY`, `CUSTOM`. Default value is `GITHUB`
+     * @return Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance.
+     * Default value is &#34;GITHUB&#34;.
      * 
      */
     public Optional<Output<String>> vcsGitProvider() {
@@ -1081,8 +1077,8 @@ public final class RemoteVcsRepositoryArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param key A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-         * contain spaces or special characters.
+         * @param key A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+         * characters. It cannot begin with a number or contain spaces or special characters.
          * 
          * @return builder
          * 
@@ -1093,8 +1089,8 @@ public final class RemoteVcsRepositoryArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param key A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-         * contain spaces or special characters.
+         * @param key A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+         * characters. It cannot begin with a number or contain spaces or special characters.
          * 
          * @return builder
          * 
@@ -1150,9 +1146,8 @@ public final class RemoteVcsRepositoryArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param maxUniqueSnapshots The maximum number of unique snapshots of a single artifact to store.
-         * Once the number of snapshots exceeds this setting, older versions are removed.
-         * A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+         * @param maxUniqueSnapshots The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
+         * older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
          * 
          * @return builder
          * 
@@ -1163,9 +1158,8 @@ public final class RemoteVcsRepositoryArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param maxUniqueSnapshots The maximum number of unique snapshots of a single artifact to store.
-         * Once the number of snapshots exceeds this setting, older versions are removed.
-         * A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+         * @param maxUniqueSnapshots The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
+         * older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
          * 
          * @return builder
          * 
@@ -1656,7 +1650,7 @@ public final class RemoteVcsRepositoryArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param vcsGitDownloadUrl This attribute is used when vcs_git_provider is set to `CUSTOM`. Provided URL will be used as proxy.
+         * @param vcsGitDownloadUrl This attribute is used when vcs_git_provider is set to &#39;CUSTOM&#39;. Provided URL will be used as proxy.
          * 
          * @return builder
          * 
@@ -1667,7 +1661,7 @@ public final class RemoteVcsRepositoryArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param vcsGitDownloadUrl This attribute is used when vcs_git_provider is set to `CUSTOM`. Provided URL will be used as proxy.
+         * @param vcsGitDownloadUrl This attribute is used when vcs_git_provider is set to &#39;CUSTOM&#39;. Provided URL will be used as proxy.
          * 
          * @return builder
          * 
@@ -1677,9 +1671,8 @@ public final class RemoteVcsRepositoryArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param vcsGitProvider Artifactory supports proxying the following Git providers out-of-the-box: GitHub, Bitbucket,
-         * Stash, a remote Artifactory instance or a custom Git repository. Allowed values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`,
-         * `STASH`, `ARTIFACTORY`, `CUSTOM`. Default value is `GITHUB`
+         * @param vcsGitProvider Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance.
+         * Default value is &#34;GITHUB&#34;.
          * 
          * @return builder
          * 
@@ -1690,9 +1683,8 @@ public final class RemoteVcsRepositoryArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param vcsGitProvider Artifactory supports proxying the following Git providers out-of-the-box: GitHub, Bitbucket,
-         * Stash, a remote Artifactory instance or a custom Git repository. Allowed values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`,
-         * `STASH`, `ARTIFACTORY`, `CUSTOM`. Default value is `GITHUB`
+         * @param vcsGitProvider Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance.
+         * Default value is &#34;GITHUB&#34;.
          * 
          * @return builder
          * 

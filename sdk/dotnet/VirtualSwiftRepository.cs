@@ -9,18 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Artifactory
 {
-    /// <summary>
-    /// Creates a virtual Swift repository.
-    /// Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Swift+Repositories#SwiftRepositories-VirtualRepositories).
-    /// 
-    /// ## Import
-    /// 
-    /// Virtual repositories can be imported using their name, e.g.
-    /// 
-    /// ```sh
-    ///  $ pulumi import artifactory:index/virtualSwiftRepository:VirtualSwiftRepository foo-swift foo-swift
-    /// ```
-    /// </summary>
     [ArtifactoryResourceType("artifactory:index/virtualSwiftRepository:VirtualSwiftRepository")]
     public partial class VirtualSwiftRepository : global::Pulumi.CustomResource
     {
@@ -58,8 +46,8 @@ namespace Pulumi.Artifactory
         public Output<string?> IncludesPattern { get; private set; } = null!;
 
         /// <summary>
-        /// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-        /// contain spaces or special characters.
+        /// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+        /// characters. It cannot begin with a number or contain spaces or special characters.
         /// </summary>
         [Output("key")]
         public Output<string> Key { get; private set; } = null!;
@@ -181,8 +169,8 @@ namespace Pulumi.Artifactory
         public Input<string>? IncludesPattern { get; set; }
 
         /// <summary>
-        /// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-        /// contain spaces or special characters.
+        /// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+        /// characters. It cannot begin with a number or contain spaces or special characters.
         /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -275,8 +263,8 @@ namespace Pulumi.Artifactory
         public Input<string>? IncludesPattern { get; set; }
 
         /// <summary>
-        /// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-        /// contain spaces or special characters.
+        /// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+        /// characters. It cannot begin with a number or contain spaces or special characters.
         /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }

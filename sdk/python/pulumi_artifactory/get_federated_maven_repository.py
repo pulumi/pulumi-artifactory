@@ -176,12 +176,6 @@ class GetFederatedMavenRepositoryResult:
     @property
     @pulumi.getter
     def members(self) -> Optional[Sequence['outputs.GetFederatedMavenRepositoryMemberResult']]:
-        """
-        The list of Federated members and must contain this repository URL (configured base URL
-        `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
-        Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
-        to set up Federated repositories correctly.
-        """
         return pulumi.get(self, "members")
 
     @property
@@ -293,23 +287,7 @@ def get_federated_maven_repository(archive_browsing_enabled: Optional[bool] = No
                                    xray_index: Optional[bool] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFederatedMavenRepositoryResult:
     """
-    Retrieves a federated Maven repository.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    federated_test_maven_repo = artifactory.get_federated_maven_repository(key="federated-test-maven-repo")
-    ```
-
-
-    :param str key: the identity key of the repo.
-    :param Sequence[pulumi.InputType['GetFederatedMavenRepositoryMemberArgs']] members: The list of Federated members and must contain this repository URL (configured base URL
-           `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
-           Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
-           to set up Federated repositories correctly.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['archiveBrowsingEnabled'] = archive_browsing_enabled
@@ -392,22 +370,6 @@ def get_federated_maven_repository_output(archive_browsing_enabled: Optional[pul
                                           xray_index: Optional[pulumi.Input[Optional[bool]]] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFederatedMavenRepositoryResult]:
     """
-    Retrieves a federated Maven repository.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    federated_test_maven_repo = artifactory.get_federated_maven_repository(key="federated-test-maven-repo")
-    ```
-
-
-    :param str key: the identity key of the repo.
-    :param Sequence[pulumi.InputType['GetFederatedMavenRepositoryMemberArgs']] members: The list of Federated members and must contain this repository URL (configured base URL
-           `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
-           Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
-           to set up Federated repositories correctly.
+    Use this data source to access information about an existing resource.
     """
     ...

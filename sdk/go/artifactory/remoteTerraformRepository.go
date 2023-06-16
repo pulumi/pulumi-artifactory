@@ -11,44 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.NewRemoteTerraformRepository(ctx, "terraform-remote", &artifactory.RemoteTerraformRepositoryArgs{
-//				Key:                   pulumi.String("terraform-remote"),
-//				TerraformProvidersUrl: pulumi.String("https://releases.hashicorp.com"),
-//				TerraformRegistryUrl:  pulumi.String("https://registry.terraform.io"),
-//				Url:                   pulumi.String("https://github.com/"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Remote repositories can be imported using their name, e.g.
-//
-// ```sh
-//
-//	$ pulumi import artifactory:index/remoteTerraformRepository:RemoteTerraformRepository terraform-remote terraform-remote
-//
-// ```
 type RemoteTerraformRepository struct {
 	pulumi.CustomResourceState
 
@@ -92,8 +54,8 @@ type RemoteTerraformRepository struct {
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrOutput `pulumi:"includesPattern"`
-	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-	// contain spaces or special characters.
+	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+	// characters. It cannot begin with a number or contain spaces or special characters.
 	Key pulumi.StringOutput `pulumi:"key"`
 	// Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
 	// the 'Retrieval Cache Period'. Default value is 'true'.
@@ -162,7 +124,7 @@ type RemoteTerraformRepository struct {
 	// Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed 'unused' and
 	// eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
 	UnusedArtifactsCleanupPeriodHours pulumi.IntPtrOutput `pulumi:"unusedArtifactsCleanupPeriodHours"`
-	// The base URL of the Module storage API.
+	// The remote repo URL.
 	Url      pulumi.StringOutput    `pulumi:"url"`
 	Username pulumi.StringPtrOutput `pulumi:"username"`
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
@@ -252,8 +214,8 @@ type remoteTerraformRepositoryState struct {
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
-	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-	// contain spaces or special characters.
+	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+	// characters. It cannot begin with a number or contain spaces or special characters.
 	Key *string `pulumi:"key"`
 	// Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
 	// the 'Retrieval Cache Period'. Default value is 'true'.
@@ -322,7 +284,7 @@ type remoteTerraformRepositoryState struct {
 	// Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed 'unused' and
 	// eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
 	UnusedArtifactsCleanupPeriodHours *int `pulumi:"unusedArtifactsCleanupPeriodHours"`
-	// The base URL of the Module storage API.
+	// The remote repo URL.
 	Url      *string `pulumi:"url"`
 	Username *string `pulumi:"username"`
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
@@ -371,8 +333,8 @@ type RemoteTerraformRepositoryState struct {
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
-	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-	// contain spaces or special characters.
+	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+	// characters. It cannot begin with a number or contain spaces or special characters.
 	Key pulumi.StringPtrInput
 	// Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
 	// the 'Retrieval Cache Period'. Default value is 'true'.
@@ -441,7 +403,7 @@ type RemoteTerraformRepositoryState struct {
 	// Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed 'unused' and
 	// eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
 	UnusedArtifactsCleanupPeriodHours pulumi.IntPtrInput
-	// The base URL of the Module storage API.
+	// The remote repo URL.
 	Url      pulumi.StringPtrInput
 	Username pulumi.StringPtrInput
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
@@ -494,8 +456,8 @@ type remoteTerraformRepositoryArgs struct {
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
-	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-	// contain spaces or special characters.
+	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+	// characters. It cannot begin with a number or contain spaces or special characters.
 	Key string `pulumi:"key"`
 	// Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
 	// the 'Retrieval Cache Period'. Default value is 'true'.
@@ -563,7 +525,7 @@ type remoteTerraformRepositoryArgs struct {
 	// Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed 'unused' and
 	// eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
 	UnusedArtifactsCleanupPeriodHours *int `pulumi:"unusedArtifactsCleanupPeriodHours"`
-	// The base URL of the Module storage API.
+	// The remote repo URL.
 	Url      string  `pulumi:"url"`
 	Username *string `pulumi:"username"`
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
@@ -613,8 +575,8 @@ type RemoteTerraformRepositoryArgs struct {
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
-	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-	// contain spaces or special characters.
+	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+	// characters. It cannot begin with a number or contain spaces or special characters.
 	Key pulumi.StringInput
 	// Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
 	// the 'Retrieval Cache Period'. Default value is 'true'.
@@ -682,7 +644,7 @@ type RemoteTerraformRepositoryArgs struct {
 	// Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed 'unused' and
 	// eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
 	UnusedArtifactsCleanupPeriodHours pulumi.IntPtrInput
-	// The base URL of the Module storage API.
+	// The remote repo URL.
 	Url      pulumi.StringInput
 	Username pulumi.StringPtrInput
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
@@ -861,8 +823,8 @@ func (o RemoteTerraformRepositoryOutput) IncludesPattern() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v *RemoteTerraformRepository) pulumi.StringPtrOutput { return v.IncludesPattern }).(pulumi.StringPtrOutput)
 }
 
-// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-// contain spaces or special characters.
+// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+// characters. It cannot begin with a number or contain spaces or special characters.
 func (o RemoteTerraformRepositoryOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v *RemoteTerraformRepository) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
 }
@@ -1009,7 +971,7 @@ func (o RemoteTerraformRepositoryOutput) UnusedArtifactsCleanupPeriodHours() pul
 	return o.ApplyT(func(v *RemoteTerraformRepository) pulumi.IntPtrOutput { return v.UnusedArtifactsCleanupPeriodHours }).(pulumi.IntPtrOutput)
 }
 
-// The base URL of the Module storage API.
+// The remote repo URL.
 func (o RemoteTerraformRepositoryOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v *RemoteTerraformRepository) pulumi.StringOutput { return v.Url }).(pulumi.StringOutput)
 }

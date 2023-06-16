@@ -6,32 +6,6 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
-/**
- * Creates a remote Pypi repository.
- * Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/PyPI+Repositories).
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const pypi_remote = new artifactory.RemotePypiRepository("pypi-remote", {
- *     key: "pypi-remote-foo",
- *     pypiRegistryUrl: "https://pypi.org",
- *     pypiRepositorySuffix: "simple",
- *     url: "https://files.pythonhosted.org",
- * });
- * ```
- *
- * ## Import
- *
- * Remote repositories can be imported using their name, e.g.
- *
- * ```sh
- *  $ pulumi import artifactory:index/remotePypiRepository:RemotePypiRepository pypi-remote pypi-remote
- * ```
- */
 export class RemotePypiRepository extends pulumi.CustomResource {
     /**
      * Get an existing RemotePypiRepository resource's state with the given name, ID, and optional extra
@@ -127,8 +101,8 @@ export class RemotePypiRepository extends pulumi.CustomResource {
      */
     public readonly includesPattern!: pulumi.Output<string | undefined>;
     /**
-     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-     * contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      */
     public readonly key!: pulumi.Output<string>;
     /**
@@ -193,11 +167,13 @@ export class RemotePypiRepository extends pulumi.CustomResource {
      */
     public readonly proxy!: pulumi.Output<string | undefined>;
     /**
-     * To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another Artifactory server. See JFrog Pypi documentation [here](https://www.jfrog.com/confluence/display/JFROG/PyPI+Repositories) for the usage details. Default value is `https://pypi.org`.
+     * To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another
+     * Artifactory server. See JFrog Pypi documentation for the usage details. Default value is 'https://pypi.org'.
      */
     public readonly pypiRegistryUrl!: pulumi.Output<string | undefined>;
     /**
-     * Usually should be left as a default for `simple`, unless the remote is a PyPI server that has custom registry suffix, like +simple in DevPI. Default value is `simple`.
+     * Usually should be left as a default for 'simple', unless the remote is a PyPI server that has custom registry suffix,
+     * like +simple in DevPI. Default value is 'simple'.
      */
     public readonly pypiRepositorySuffix!: pulumi.Output<string | undefined>;
     /**
@@ -437,8 +413,8 @@ export interface RemotePypiRepositoryState {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-     * contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      */
     key?: pulumi.Input<string>;
     /**
@@ -503,11 +479,13 @@ export interface RemotePypiRepositoryState {
      */
     proxy?: pulumi.Input<string>;
     /**
-     * To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another Artifactory server. See JFrog Pypi documentation [here](https://www.jfrog.com/confluence/display/JFROG/PyPI+Repositories) for the usage details. Default value is `https://pypi.org`.
+     * To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another
+     * Artifactory server. See JFrog Pypi documentation for the usage details. Default value is 'https://pypi.org'.
      */
     pypiRegistryUrl?: pulumi.Input<string>;
     /**
-     * Usually should be left as a default for `simple`, unless the remote is a PyPI server that has custom registry suffix, like +simple in DevPI. Default value is `simple`.
+     * Usually should be left as a default for 'simple', unless the remote is a PyPI server that has custom registry suffix,
+     * like +simple in DevPI. Default value is 'simple'.
      */
     pypiRepositorySuffix?: pulumi.Input<string>;
     /**
@@ -633,8 +611,8 @@ export interface RemotePypiRepositoryArgs {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-     * contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      */
     key: pulumi.Input<string>;
     /**
@@ -698,11 +676,13 @@ export interface RemotePypiRepositoryArgs {
      */
     proxy?: pulumi.Input<string>;
     /**
-     * To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another Artifactory server. See JFrog Pypi documentation [here](https://www.jfrog.com/confluence/display/JFROG/PyPI+Repositories) for the usage details. Default value is `https://pypi.org`.
+     * To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another
+     * Artifactory server. See JFrog Pypi documentation for the usage details. Default value is 'https://pypi.org'.
      */
     pypiRegistryUrl?: pulumi.Input<string>;
     /**
-     * Usually should be left as a default for `simple`, unless the remote is a PyPI server that has custom registry suffix, like +simple in DevPI. Default value is `simple`.
+     * Usually should be left as a default for 'simple', unless the remote is a PyPI server that has custom registry suffix,
+     * like +simple in DevPI. Default value is 'simple'.
      */
     pypiRepositorySuffix?: pulumi.Input<string>;
     /**

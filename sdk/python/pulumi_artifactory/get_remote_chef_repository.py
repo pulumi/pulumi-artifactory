@@ -457,19 +457,7 @@ def get_remote_chef_repository(allow_any_host_auth: Optional[bool] = None,
                                xray_index: Optional[bool] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRemoteChefRepositoryResult:
     """
-    Retrieves a remote Chef repository.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    remote_chef = artifactory.get_remote_chef_repository(key="remote-chef")
-    ```
-
-
-    :param str key: the identity key of the repo.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['allowAnyHostAuth'] = allow_any_host_auth
@@ -603,18 +591,6 @@ def get_remote_chef_repository_output(allow_any_host_auth: Optional[pulumi.Input
                                       xray_index: Optional[pulumi.Input[Optional[bool]]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRemoteChefRepositoryResult]:
     """
-    Retrieves a remote Chef repository.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    remote_chef = artifactory.get_remote_chef_repository(key="remote-chef")
-    ```
-
-
-    :param str key: the identity key of the repo.
+    Use this data source to access information about an existing resource.
     """
     ...

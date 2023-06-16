@@ -14,17 +14,9 @@ public final class GetPermissionTargetRepoActionsUserArgs extends com.pulumi.res
 
     public static final GetPermissionTargetRepoActionsUserArgs Empty = new GetPermissionTargetRepoActionsUserArgs();
 
-    /**
-     * Name of the permission target.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return Name of the permission target.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
@@ -61,23 +53,11 @@ public final class GetPermissionTargetRepoActionsUserArgs extends com.pulumi.res
             $ = new GetPermissionTargetRepoActionsUserArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name Name of the permission target.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the permission target.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

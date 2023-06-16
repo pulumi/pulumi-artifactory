@@ -11,50 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Creates a virtual Conan repository.
-// Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Conan+Repositories#ConanRepositories-VirtualRepositories).
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.NewVirtualConanRepository(ctx, "foo-conan", &artifactory.VirtualConanRepositoryArgs{
-//				Description:     pulumi.String("A test virtual repo"),
-//				ExcludesPattern: pulumi.String("com/google/**"),
-//				IncludesPattern: pulumi.String("com/jfrog/**,cloud/jfrog/**"),
-//				Key:             pulumi.String("foo-conan"),
-//				Notes:           pulumi.String("Internal description"),
-//				RepoLayoutRef:   pulumi.String("conan-default"),
-//				Repositories:    pulumi.StringArray{},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Virtual repositories can be imported using their name, e.g.
-//
-// ```sh
-//
-//	$ pulumi import artifactory:index/virtualConanRepository:VirtualConanRepository foo-conan foo-conan
-//
-// ```
 type VirtualConanRepository struct {
 	pulumi.CustomResourceState
 
@@ -71,8 +27,8 @@ type VirtualConanRepository struct {
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrOutput `pulumi:"includesPattern"`
-	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-	// contain spaces or special characters.
+	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+	// characters. It cannot begin with a number or contain spaces or special characters.
 	Key pulumi.StringOutput `pulumi:"key"`
 	// Internal description.
 	Notes       pulumi.StringPtrOutput `pulumi:"notes"`
@@ -89,7 +45,8 @@ type VirtualConanRepository struct {
 	RepoLayoutRef pulumi.StringPtrOutput `pulumi:"repoLayoutRef"`
 	// The effective list of actual repositories included in this virtual repository.
 	Repositories pulumi.StringArrayOutput `pulumi:"repositories"`
-	// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
+	// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
+	// repositories. A value of 0 indicates no caching.
 	RetrievalCachePeriodSeconds pulumi.IntPtrOutput `pulumi:"retrievalCachePeriodSeconds"`
 }
 
@@ -138,8 +95,8 @@ type virtualConanRepositoryState struct {
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
-	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-	// contain spaces or special characters.
+	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+	// characters. It cannot begin with a number or contain spaces or special characters.
 	Key *string `pulumi:"key"`
 	// Internal description.
 	Notes       *string `pulumi:"notes"`
@@ -156,7 +113,8 @@ type virtualConanRepositoryState struct {
 	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
 	// The effective list of actual repositories included in this virtual repository.
 	Repositories []string `pulumi:"repositories"`
-	// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
+	// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
+	// repositories. A value of 0 indicates no caching.
 	RetrievalCachePeriodSeconds *int `pulumi:"retrievalCachePeriodSeconds"`
 }
 
@@ -174,8 +132,8 @@ type VirtualConanRepositoryState struct {
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
-	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-	// contain spaces or special characters.
+	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+	// characters. It cannot begin with a number or contain spaces or special characters.
 	Key pulumi.StringPtrInput
 	// Internal description.
 	Notes       pulumi.StringPtrInput
@@ -192,7 +150,8 @@ type VirtualConanRepositoryState struct {
 	RepoLayoutRef pulumi.StringPtrInput
 	// The effective list of actual repositories included in this virtual repository.
 	Repositories pulumi.StringArrayInput
-	// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
+	// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
+	// repositories. A value of 0 indicates no caching.
 	RetrievalCachePeriodSeconds pulumi.IntPtrInput
 }
 
@@ -214,8 +173,8 @@ type virtualConanRepositoryArgs struct {
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
-	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-	// contain spaces or special characters.
+	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+	// characters. It cannot begin with a number or contain spaces or special characters.
 	Key string `pulumi:"key"`
 	// Internal description.
 	Notes *string `pulumi:"notes"`
@@ -231,7 +190,8 @@ type virtualConanRepositoryArgs struct {
 	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
 	// The effective list of actual repositories included in this virtual repository.
 	Repositories []string `pulumi:"repositories"`
-	// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
+	// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
+	// repositories. A value of 0 indicates no caching.
 	RetrievalCachePeriodSeconds *int `pulumi:"retrievalCachePeriodSeconds"`
 }
 
@@ -250,8 +210,8 @@ type VirtualConanRepositoryArgs struct {
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
-	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-	// contain spaces or special characters.
+	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+	// characters. It cannot begin with a number or contain spaces or special characters.
 	Key pulumi.StringInput
 	// Internal description.
 	Notes pulumi.StringPtrInput
@@ -267,7 +227,8 @@ type VirtualConanRepositoryArgs struct {
 	RepoLayoutRef pulumi.StringPtrInput
 	// The effective list of actual repositories included in this virtual repository.
 	Repositories pulumi.StringArrayInput
-	// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
+	// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
+	// repositories. A value of 0 indicates no caching.
 	RetrievalCachePeriodSeconds pulumi.IntPtrInput
 }
 
@@ -388,8 +349,8 @@ func (o VirtualConanRepositoryOutput) IncludesPattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualConanRepository) pulumi.StringPtrOutput { return v.IncludesPattern }).(pulumi.StringPtrOutput)
 }
 
-// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-// contain spaces or special characters.
+// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+// characters. It cannot begin with a number or contain spaces or special characters.
 func (o VirtualConanRepositoryOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualConanRepository) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
 }
@@ -427,7 +388,8 @@ func (o VirtualConanRepositoryOutput) Repositories() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VirtualConanRepository) pulumi.StringArrayOutput { return v.Repositories }).(pulumi.StringArrayOutput)
 }
 
-// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
+// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
+// repositories. A value of 0 indicates no caching.
 func (o VirtualConanRepositoryOutput) RetrievalCachePeriodSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *VirtualConanRepository) pulumi.IntPtrOutput { return v.RetrievalCachePeriodSeconds }).(pulumi.IntPtrOutput)
 }

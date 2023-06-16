@@ -6,20 +6,6 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
-/**
- * Retrieves a remote GitLfs repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const remote-gitlfs = artifactory.getRemoteGitlfsRepository({
- *     key: "remote-gitlfs",
- * });
- * ```
- */
 export function getRemoteGitlfsRepository(args: GetRemoteGitlfsRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetRemoteGitlfsRepositoryResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -85,9 +71,6 @@ export interface GetRemoteGitlfsRepositoryArgs {
     excludesPattern?: string;
     hardFail?: boolean;
     includesPattern?: string;
-    /**
-     * the identity key of the repo.
-     */
     key: string;
     listRemoteFolderItems?: boolean;
     localAddress?: string;
@@ -166,20 +149,6 @@ export interface GetRemoteGitlfsRepositoryResult {
     readonly username?: string;
     readonly xrayIndex?: boolean;
 }
-/**
- * Retrieves a remote GitLfs repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const remote-gitlfs = artifactory.getRemoteGitlfsRepository({
- *     key: "remote-gitlfs",
- * });
- * ```
- */
 export function getRemoteGitlfsRepositoryOutput(args: GetRemoteGitlfsRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemoteGitlfsRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getRemoteGitlfsRepository(a, opts))
 }
@@ -202,9 +171,6 @@ export interface GetRemoteGitlfsRepositoryOutputArgs {
     excludesPattern?: pulumi.Input<string>;
     hardFail?: pulumi.Input<boolean>;
     includesPattern?: pulumi.Input<string>;
-    /**
-     * the identity key of the repo.
-     */
     key: pulumi.Input<string>;
     listRemoteFolderItems?: pulumi.Input<boolean>;
     localAddress?: pulumi.Input<string>;

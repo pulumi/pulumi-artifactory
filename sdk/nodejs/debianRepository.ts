@@ -4,56 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-/**
- * Creates a local Debian repository and allows for the creation of a GPG key.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- * import * as fs from "fs";
- *
- * const some_keypairGPG1 = new artifactory.Keypair("some-keypairGPG1", {
- *     pairName: `some-keypair${random_id.randid.id}`,
- *     pairType: "GPG",
- *     alias: "foo-alias1",
- *     privateKey: fs.readFileSync("samples/gpg.priv"),
- *     publicKey: fs.readFileSync("samples/gpg.pub"),
- * });
- * const some_keypairGPG2 = new artifactory.Keypair("some-keypairGPG2", {
- *     pairName: `some-keypair4${random_id.randid.id}`,
- *     pairType: "GPG",
- *     alias: "foo-alias2",
- *     privateKey: fs.readFileSync("samples/gpg.priv"),
- *     publicKey: fs.readFileSync("samples/gpg.pub"),
- * });
- * const my_debian_repo = new artifactory.DebianRepository("my-debian-repo", {
- *     key: "my-debian-repo",
- *     primaryKeypairRef: some_keypairGPG1.pairName,
- *     secondaryKeypairRef: some_keypairGPG2.pairName,
- *     indexCompressionFormats: [
- *         "bz2",
- *         "lzma",
- *         "xz",
- *     ],
- *     trivialLayout: true,
- * }, {
- *     dependsOn: [
- *         some_keypairGPG1,
- *         some_keypairGPG2,
- *     ],
- * });
- * ```
- *
- * ## Import
- *
- * Local repositories can be imported using their name, e.g.
- *
- * ```sh
- *  $ pulumi import artifactory:index/debianRepository:DebianRepository my-debian-repo my-debian-repo
- * ```
- */
 export class DebianRepository extends pulumi.CustomResource {
     /**
      * Get an existing DebianRepository resource's state with the given name, ID, and optional extra
@@ -116,13 +66,10 @@ export class DebianRepository extends pulumi.CustomResource {
      * artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
      */
     public readonly includesPattern!: pulumi.Output<string>;
-    /**
-     * The options are Bzip2 (.bz2 extension) (default), LZMA (.lzma extension)
-     * and XZ (.xz extension).
-     */
     public readonly indexCompressionFormats!: pulumi.Output<string[] | undefined>;
     /**
-     * the identity key of the repo.
+     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      */
     public readonly key!: pulumi.Output<string>;
     /**
@@ -131,7 +78,7 @@ export class DebianRepository extends pulumi.CustomResource {
     public readonly notes!: pulumi.Output<string | undefined>;
     public /*out*/ readonly packageType!: pulumi.Output<string>;
     /**
-     * The primary RSA key to be used to sign packages.
+     * Used to sign index files in Debian artifacts.
      */
     public readonly primaryKeypairRef!: pulumi.Output<string | undefined>;
     /**
@@ -159,7 +106,7 @@ export class DebianRepository extends pulumi.CustomResource {
      */
     public readonly repoLayoutRef!: pulumi.Output<string | undefined>;
     /**
-     * The secondary RSA key to be used to sign packages.
+     * Used to sign index files in Debian artifacts.
      */
     public readonly secondaryKeypairRef!: pulumi.Output<string | undefined>;
     /**
@@ -276,13 +223,10 @@ export interface DebianRepositoryState {
      * artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
      */
     includesPattern?: pulumi.Input<string>;
-    /**
-     * The options are Bzip2 (.bz2 extension) (default), LZMA (.lzma extension)
-     * and XZ (.xz extension).
-     */
     indexCompressionFormats?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * the identity key of the repo.
+     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      */
     key?: pulumi.Input<string>;
     /**
@@ -291,7 +235,7 @@ export interface DebianRepositoryState {
     notes?: pulumi.Input<string>;
     packageType?: pulumi.Input<string>;
     /**
-     * The primary RSA key to be used to sign packages.
+     * Used to sign index files in Debian artifacts.
      */
     primaryKeypairRef?: pulumi.Input<string>;
     /**
@@ -319,7 +263,7 @@ export interface DebianRepositoryState {
      */
     repoLayoutRef?: pulumi.Input<string>;
     /**
-     * The secondary RSA key to be used to sign packages.
+     * Used to sign index files in Debian artifacts.
      */
     secondaryKeypairRef?: pulumi.Input<string>;
     /**
@@ -373,13 +317,10 @@ export interface DebianRepositoryArgs {
      * artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
      */
     includesPattern?: pulumi.Input<string>;
-    /**
-     * The options are Bzip2 (.bz2 extension) (default), LZMA (.lzma extension)
-     * and XZ (.xz extension).
-     */
     indexCompressionFormats?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * the identity key of the repo.
+     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      */
     key: pulumi.Input<string>;
     /**
@@ -387,7 +328,7 @@ export interface DebianRepositoryArgs {
      */
     notes?: pulumi.Input<string>;
     /**
-     * The primary RSA key to be used to sign packages.
+     * Used to sign index files in Debian artifacts.
      */
     primaryKeypairRef?: pulumi.Input<string>;
     /**
@@ -415,7 +356,7 @@ export interface DebianRepositoryArgs {
      */
     repoLayoutRef?: pulumi.Input<string>;
     /**
-     * The secondary RSA key to be used to sign packages.
+     * Used to sign index files in Debian artifacts.
      */
     secondaryKeypairRef?: pulumi.Input<string>;
     /**

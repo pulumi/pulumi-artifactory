@@ -11,59 +11,9 @@ namespace Pulumi.Artifactory
 {
     public static class GetRemoteGemsRepository
     {
-        /// <summary>
-        /// Retrieves a remote Gems repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var remote_gems = Artifactory.GetRemoteGemsRepository.Invoke(new()
-        ///     {
-        ///         Key = "remote-gems",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetRemoteGemsRepositoryResult> InvokeAsync(GetRemoteGemsRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRemoteGemsRepositoryResult>("artifactory:index/getRemoteGemsRepository:getRemoteGemsRepository", args ?? new GetRemoteGemsRepositoryArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Retrieves a remote Gems repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var remote_gems = Artifactory.GetRemoteGemsRepository.Invoke(new()
-        ///     {
-        ///         Key = "remote-gems",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Output<GetRemoteGemsRepositoryResult> Invoke(GetRemoteGemsRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRemoteGemsRepositoryResult>("artifactory:index/getRemoteGemsRepository:getRemoteGemsRepository", args ?? new GetRemoteGemsRepositoryInvokeArgs(), options.WithDefaults());
     }
@@ -113,9 +63,6 @@ namespace Pulumi.Artifactory
         [Input("includesPattern")]
         public string? IncludesPattern { get; set; }
 
-        /// <summary>
-        /// the identity key of the repo.
-        /// </summary>
         [Input("key", required: true)]
         public string Key { get; set; } = null!;
 
@@ -259,9 +206,6 @@ namespace Pulumi.Artifactory
         [Input("includesPattern")]
         public Input<string>? IncludesPattern { get; set; }
 
-        /// <summary>
-        /// the identity key of the repo.
-        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 

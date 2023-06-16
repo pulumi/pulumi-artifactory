@@ -6,34 +6,6 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
-/**
- * Creates a remote Gradle repository resource.
- * Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Remote+Repositories#RemoteRepositories-Maven,Gradle,IvyandSBTRepositories).
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const gradle_remote = new artifactory.RemoteGradleRepository("gradle-remote", {
- *     fetchJarsEagerly: true,
- *     fetchSourcesEagerly: false,
- *     key: "gradle-remote-foo",
- *     rejectInvalidJars: true,
- *     suppressPomConsistencyChecks: true,
- *     url: "https://repo1.maven.org/maven2/",
- * });
- * ```
- *
- * ## Import
- *
- * Remote repositories can be imported using their name, e.g.
- *
- * ```sh
- *  $ pulumi import artifactory:index/remoteGradleRepository:RemoteGradleRepository gradle-remote gradle-remote
- * ```
- */
 export class RemoteGradleRepository extends pulumi.CustomResource {
     /**
      * Get an existing RemoteGradleRepository resource's state with the given name, ID, and optional extra
@@ -119,19 +91,21 @@ export class RemoteGradleRepository extends pulumi.CustomResource {
      */
     public readonly excludesPattern!: pulumi.Output<string | undefined>;
     /**
-     * When set, if a POM is requested, Artifactory attempts to fetch the corresponding jar in the background. This will accelerate first access time to the jar when it is subsequently requested.
+     * When set, if a POM is requested, Artifactory attempts to fetch the corresponding jar in the background. This will
+     * accelerate first access time to the jar when it is subsequently requested. Default value is 'false'.
      */
     public readonly fetchJarsEagerly!: pulumi.Output<boolean | undefined>;
     /**
-     * When set, if a binaries jar is requested, Artifactory attempts to fetch the corresponding source jar in the background. This will accelerate first access time to the source jar when it is subsequently requested.
+     * When set, if a binaries jar is requested, Artifactory attempts to fetch the corresponding source jar in the background.
+     * This will accelerate first access time to the source jar when it is subsequently requested. Default value is 'false'.
      */
     public readonly fetchSourcesEagerly!: pulumi.Output<boolean | undefined>;
     /**
-     * If set, Artifactory allows you to deploy release artifacts into this repository.
+     * If set, Artifactory allows you to deploy release artifacts into this repository. Default value is 'true'.
      */
     public readonly handleReleases!: pulumi.Output<boolean | undefined>;
     /**
-     * If set, Artifactory allows you to deploy snapshot artifacts into this repository.
+     * If set, Artifactory allows you to deploy snapshot artifacts into this repository. Default value is 'true'.
      */
     public readonly handleSnapshots!: pulumi.Output<boolean | undefined>;
     /**
@@ -145,8 +119,8 @@ export class RemoteGradleRepository extends pulumi.CustomResource {
      */
     public readonly includesPattern!: pulumi.Output<string | undefined>;
     /**
-     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-     * contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      */
     public readonly key!: pulumi.Output<string>;
     /**
@@ -216,11 +190,14 @@ export class RemoteGradleRepository extends pulumi.CustomResource {
      */
     public readonly queryParams!: pulumi.Output<string | undefined>;
     /**
-     * Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a "captive portal".
+     * Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a "captive
+     * portal". Default value is 'false'.
      */
     public readonly rejectInvalidJars!: pulumi.Output<boolean | undefined>;
     /**
-     * Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
+     * Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the
+     * system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated
+     * checksum. Default value is 'generate-if-absent'.
      */
     public readonly remoteRepoChecksumPolicyType!: pulumi.Output<string | undefined>;
     /**
@@ -250,7 +227,10 @@ export class RemoteGradleRepository extends pulumi.CustomResource {
      */
     public readonly storeArtifactsLocally!: pulumi.Output<boolean | undefined>;
     /**
-     * By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error. You can disable this behavior by setting this attribute to `true`.
+     * By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the
+     * groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the
+     * deployment with a "409 Conflict" error. You can disable this behavior by setting this attribute to 'true'. Default value
+     * is 'false'.
      */
     public readonly suppressPomConsistencyChecks!: pulumi.Output<boolean | undefined>;
     /**
@@ -459,19 +439,21 @@ export interface RemoteGradleRepositoryState {
      */
     excludesPattern?: pulumi.Input<string>;
     /**
-     * When set, if a POM is requested, Artifactory attempts to fetch the corresponding jar in the background. This will accelerate first access time to the jar when it is subsequently requested.
+     * When set, if a POM is requested, Artifactory attempts to fetch the corresponding jar in the background. This will
+     * accelerate first access time to the jar when it is subsequently requested. Default value is 'false'.
      */
     fetchJarsEagerly?: pulumi.Input<boolean>;
     /**
-     * When set, if a binaries jar is requested, Artifactory attempts to fetch the corresponding source jar in the background. This will accelerate first access time to the source jar when it is subsequently requested.
+     * When set, if a binaries jar is requested, Artifactory attempts to fetch the corresponding source jar in the background.
+     * This will accelerate first access time to the source jar when it is subsequently requested. Default value is 'false'.
      */
     fetchSourcesEagerly?: pulumi.Input<boolean>;
     /**
-     * If set, Artifactory allows you to deploy release artifacts into this repository.
+     * If set, Artifactory allows you to deploy release artifacts into this repository. Default value is 'true'.
      */
     handleReleases?: pulumi.Input<boolean>;
     /**
-     * If set, Artifactory allows you to deploy snapshot artifacts into this repository.
+     * If set, Artifactory allows you to deploy snapshot artifacts into this repository. Default value is 'true'.
      */
     handleSnapshots?: pulumi.Input<boolean>;
     /**
@@ -485,8 +467,8 @@ export interface RemoteGradleRepositoryState {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-     * contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      */
     key?: pulumi.Input<string>;
     /**
@@ -556,11 +538,14 @@ export interface RemoteGradleRepositoryState {
      */
     queryParams?: pulumi.Input<string>;
     /**
-     * Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a "captive portal".
+     * Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a "captive
+     * portal". Default value is 'false'.
      */
     rejectInvalidJars?: pulumi.Input<boolean>;
     /**
-     * Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
+     * Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the
+     * system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated
+     * checksum. Default value is 'generate-if-absent'.
      */
     remoteRepoChecksumPolicyType?: pulumi.Input<string>;
     /**
@@ -590,7 +575,10 @@ export interface RemoteGradleRepositoryState {
      */
     storeArtifactsLocally?: pulumi.Input<boolean>;
     /**
-     * By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error. You can disable this behavior by setting this attribute to `true`.
+     * By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the
+     * groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the
+     * deployment with a "409 Conflict" error. You can disable this behavior by setting this attribute to 'true'. Default value
+     * is 'false'.
      */
     suppressPomConsistencyChecks?: pulumi.Input<boolean>;
     /**
@@ -675,19 +663,21 @@ export interface RemoteGradleRepositoryArgs {
      */
     excludesPattern?: pulumi.Input<string>;
     /**
-     * When set, if a POM is requested, Artifactory attempts to fetch the corresponding jar in the background. This will accelerate first access time to the jar when it is subsequently requested.
+     * When set, if a POM is requested, Artifactory attempts to fetch the corresponding jar in the background. This will
+     * accelerate first access time to the jar when it is subsequently requested. Default value is 'false'.
      */
     fetchJarsEagerly?: pulumi.Input<boolean>;
     /**
-     * When set, if a binaries jar is requested, Artifactory attempts to fetch the corresponding source jar in the background. This will accelerate first access time to the source jar when it is subsequently requested.
+     * When set, if a binaries jar is requested, Artifactory attempts to fetch the corresponding source jar in the background.
+     * This will accelerate first access time to the source jar when it is subsequently requested. Default value is 'false'.
      */
     fetchSourcesEagerly?: pulumi.Input<boolean>;
     /**
-     * If set, Artifactory allows you to deploy release artifacts into this repository.
+     * If set, Artifactory allows you to deploy release artifacts into this repository. Default value is 'true'.
      */
     handleReleases?: pulumi.Input<boolean>;
     /**
-     * If set, Artifactory allows you to deploy snapshot artifacts into this repository.
+     * If set, Artifactory allows you to deploy snapshot artifacts into this repository. Default value is 'true'.
      */
     handleSnapshots?: pulumi.Input<boolean>;
     /**
@@ -701,8 +691,8 @@ export interface RemoteGradleRepositoryArgs {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-     * contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      */
     key: pulumi.Input<string>;
     /**
@@ -771,11 +761,14 @@ export interface RemoteGradleRepositoryArgs {
      */
     queryParams?: pulumi.Input<string>;
     /**
-     * Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a "captive portal".
+     * Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a "captive
+     * portal". Default value is 'false'.
      */
     rejectInvalidJars?: pulumi.Input<boolean>;
     /**
-     * Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
+     * Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the
+     * system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated
+     * checksum. Default value is 'generate-if-absent'.
      */
     remoteRepoChecksumPolicyType?: pulumi.Input<string>;
     /**
@@ -805,7 +798,10 @@ export interface RemoteGradleRepositoryArgs {
      */
     storeArtifactsLocally?: pulumi.Input<boolean>;
     /**
-     * By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error. You can disable this behavior by setting this attribute to `true`.
+     * By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the
+     * groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the
+     * deployment with a "409 Conflict" error. You can disable this behavior by setting this attribute to 'true'. Default value
+     * is 'false'.
      */
     suppressPomConsistencyChecks?: pulumi.Input<boolean>;
     /**

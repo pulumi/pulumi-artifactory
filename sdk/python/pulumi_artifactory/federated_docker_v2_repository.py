@@ -38,10 +38,12 @@ class FederatedDockerV2RepositoryArgs:
                  xray_index: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a FederatedDockerV2Repository resource.
-        :param pulumi.Input[str] key: the identity key of the repo.
-        :param pulumi.Input[Sequence[pulumi.Input['FederatedDockerV2RepositoryMemberArgs']]] members: The list of Federated members and must contain this repository URL (configured base URL
-               `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
-               Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+               characters. It cannot begin with a number or contain spaces or special characters.
+        :param pulumi.Input[Sequence[pulumi.Input['FederatedDockerV2RepositoryMemberArgs']]] members: The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
+               will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
+               federated members will need to have a base URL set. Please follow the
+               [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
                to set up Federated repositories correctly.
         :param pulumi.Input[bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
                therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
@@ -120,7 +122,8 @@ class FederatedDockerV2RepositoryArgs:
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
         """
-        the identity key of the repo.
+        A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+        characters. It cannot begin with a number or contain spaces or special characters.
         """
         return pulumi.get(self, "key")
 
@@ -132,9 +135,10 @@ class FederatedDockerV2RepositoryArgs:
     @pulumi.getter
     def members(self) -> pulumi.Input[Sequence[pulumi.Input['FederatedDockerV2RepositoryMemberArgs']]]:
         """
-        The list of Federated members and must contain this repository URL (configured base URL
-        `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
-        Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+        The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
+        will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
+        federated members will need to have a base URL set. Please follow the
+        [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
         to set up Federated repositories correctly.
         """
         return pulumi.get(self, "members")
@@ -419,13 +423,15 @@ class _FederatedDockerV2RepositoryState:
                artifacts are excluded.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] key: the identity key of the repo.
+        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+               characters. It cannot begin with a number or contain spaces or special characters.
         :param pulumi.Input[int] max_unique_tags: The maximum number of unique tags of a single Docker image to store in this repository. Once the number tags for an
                image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit. This only
                applies to manifest v2
-        :param pulumi.Input[Sequence[pulumi.Input['FederatedDockerV2RepositoryMemberArgs']]] members: The list of Federated members and must contain this repository URL (configured base URL
-               `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
-               Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+        :param pulumi.Input[Sequence[pulumi.Input['FederatedDockerV2RepositoryMemberArgs']]] members: The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
+               will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
+               federated members will need to have a base URL set. Please follow the
+               [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
                to set up Federated repositories correctly.
         :param pulumi.Input[str] notes: Internal description.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
@@ -618,7 +624,8 @@ class _FederatedDockerV2RepositoryState:
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
         """
-        the identity key of the repo.
+        A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+        characters. It cannot begin with a number or contain spaces or special characters.
         """
         return pulumi.get(self, "key")
 
@@ -644,9 +651,10 @@ class _FederatedDockerV2RepositoryState:
     @pulumi.getter
     def members(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FederatedDockerV2RepositoryMemberArgs']]]]:
         """
-        The list of Federated members and must contain this repository URL (configured base URL
-        `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
-        Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+        The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
+        will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
+        federated members will need to have a base URL set. Please follow the
+        [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
         to set up Federated repositories correctly.
         """
         return pulumi.get(self, "members")
@@ -794,36 +802,7 @@ class FederatedDockerV2Repository(pulumi.CustomResource):
                  xray_index: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        Creates a federated Docker repository.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_artifactory as artifactory
-
-        terraform_federated_test_docker_repo = artifactory.FederatedDockerV2Repository("terraform-federated-test-docker-repo",
-            key="terraform-federated-test-docker-repo",
-            members=[
-                artifactory.FederatedDockerV2RepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl.org/artifactory/terraform-federated-test-docker-repo",
-                ),
-                artifactory.FederatedDockerV2RepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl2.org/artifactory/terraform-federated-test-docker-repo-2",
-                ),
-            ])
-        ```
-
-        ## Import
-
-        Federated repositories can be imported using their name, e.g.
-
-        ```sh
-         $ pulumi import artifactory:index/federatedDockerV2Repository:FederatedDockerV2Repository terraform-federated-test-docker-repo terraform-federated-test-docker-repo
-        ```
-
+        Create a FederatedDockerV2Repository resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -842,13 +821,15 @@ class FederatedDockerV2Repository(pulumi.CustomResource):
                artifacts are excluded.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] key: the identity key of the repo.
+        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+               characters. It cannot begin with a number or contain spaces or special characters.
         :param pulumi.Input[int] max_unique_tags: The maximum number of unique tags of a single Docker image to store in this repository. Once the number tags for an
                image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit. This only
                applies to manifest v2
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FederatedDockerV2RepositoryMemberArgs']]]] members: The list of Federated members and must contain this repository URL (configured base URL
-               `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
-               Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FederatedDockerV2RepositoryMemberArgs']]]] members: The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
+               will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
+               federated members will need to have a base URL set. Please follow the
+               [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
                to set up Federated repositories correctly.
         :param pulumi.Input[str] notes: Internal description.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
@@ -872,36 +853,7 @@ class FederatedDockerV2Repository(pulumi.CustomResource):
                  args: FederatedDockerV2RepositoryArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Creates a federated Docker repository.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_artifactory as artifactory
-
-        terraform_federated_test_docker_repo = artifactory.FederatedDockerV2Repository("terraform-federated-test-docker-repo",
-            key="terraform-federated-test-docker-repo",
-            members=[
-                artifactory.FederatedDockerV2RepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl.org/artifactory/terraform-federated-test-docker-repo",
-                ),
-                artifactory.FederatedDockerV2RepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl2.org/artifactory/terraform-federated-test-docker-repo-2",
-                ),
-            ])
-        ```
-
-        ## Import
-
-        Federated repositories can be imported using their name, e.g.
-
-        ```sh
-         $ pulumi import artifactory:index/federatedDockerV2Repository:FederatedDockerV2Repository terraform-federated-test-docker-repo terraform-federated-test-docker-repo
-        ```
-
+        Create a FederatedDockerV2Repository resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param FederatedDockerV2RepositoryArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1028,13 +980,15 @@ class FederatedDockerV2Repository(pulumi.CustomResource):
                artifacts are excluded.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] key: the identity key of the repo.
+        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+               characters. It cannot begin with a number or contain spaces or special characters.
         :param pulumi.Input[int] max_unique_tags: The maximum number of unique tags of a single Docker image to store in this repository. Once the number tags for an
                image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit. This only
                applies to manifest v2
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FederatedDockerV2RepositoryMemberArgs']]]] members: The list of Federated members and must contain this repository URL (configured base URL
-               `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
-               Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FederatedDockerV2RepositoryMemberArgs']]]] members: The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
+               will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
+               federated members will need to have a base URL set. Please follow the
+               [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
                to set up Federated repositories correctly.
         :param pulumi.Input[str] notes: Internal description.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
@@ -1170,7 +1124,8 @@ class FederatedDockerV2Repository(pulumi.CustomResource):
     @pulumi.getter
     def key(self) -> pulumi.Output[str]:
         """
-        the identity key of the repo.
+        A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+        characters. It cannot begin with a number or contain spaces or special characters.
         """
         return pulumi.get(self, "key")
 
@@ -1188,9 +1143,10 @@ class FederatedDockerV2Repository(pulumi.CustomResource):
     @pulumi.getter
     def members(self) -> pulumi.Output[Sequence['outputs.FederatedDockerV2RepositoryMember']]:
         """
-        The list of Federated members and must contain this repository URL (configured base URL
-        `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
-        Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+        The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
+        will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
+        federated members will need to have a base URL set. Please follow the
+        [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
         to set up Federated repositories correctly.
         """
         return pulumi.get(self, "members")

@@ -16,55 +16,6 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Creates a virtual Nuget repository.
- * Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/NuGet+Repositories#NuGetRepositories-VirtualRepositories).
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.artifactory.VirtualNugetRepository;
- * import com.pulumi.artifactory.VirtualNugetRepositoryArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var foo_nuget = new VirtualNugetRepository(&#34;foo-nuget&#34;, VirtualNugetRepositoryArgs.builder()        
- *             .description(&#34;A test virtual repo&#34;)
- *             .excludesPattern(&#34;com/google/**&#34;)
- *             .forceNugetAuthentication(true)
- *             .includesPattern(&#34;com/jfrog/**,cloud/jfrog/**&#34;)
- *             .key(&#34;foo-nuget&#34;)
- *             .notes(&#34;Internal description&#34;)
- *             .repositories()
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Virtual repositories can be imported using their name, e.g.
- * 
- * ```sh
- *  $ pulumi import artifactory:index/virtualNugetRepository:VirtualNugetRepository foo-nuget foo-nuget
- * ```
- * 
- */
 @ResourceType(type="artifactory:index/virtualNugetRepository:VirtualNugetRepository")
 public class VirtualNugetRepository extends com.pulumi.resources.CustomResource {
     /**
@@ -128,14 +79,16 @@ public class VirtualNugetRepository extends com.pulumi.resources.CustomResource 
         return Codegen.optional(this.excludesPattern);
     }
     /**
-     * If set, user authentication is required when accessing the repository. An anonymous request will display an HTTP 401 error. This is also enforced when aggregated repositories support anonymous requests. Default is `false`.
+     * If set, user authentication is required when accessing the repository. An anonymous request will display an HTTP 401
+     * error. This is also enforced when aggregated repositories support anonymous requests.
      * 
      */
     @Export(name="forceNugetAuthentication", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> forceNugetAuthentication;
 
     /**
-     * @return If set, user authentication is required when accessing the repository. An anonymous request will display an HTTP 401 error. This is also enforced when aggregated repositories support anonymous requests. Default is `false`.
+     * @return If set, user authentication is required when accessing the repository. An anonymous request will display an HTTP 401
+     * error. This is also enforced when aggregated repositories support anonymous requests.
      * 
      */
     public Output<Optional<Boolean>> forceNugetAuthentication() {
@@ -158,16 +111,16 @@ public class VirtualNugetRepository extends com.pulumi.resources.CustomResource 
         return Codegen.optional(this.includesPattern);
     }
     /**
-     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-     * contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      * 
      */
     @Export(name="key", type=String.class, parameters={})
     private Output<String> key;
 
     /**
-     * @return A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-     * contain spaces or special characters.
+     * @return A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      * 
      */
     public Output<String> key() {

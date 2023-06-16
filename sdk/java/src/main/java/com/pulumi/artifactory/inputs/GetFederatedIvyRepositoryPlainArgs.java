@@ -95,17 +95,9 @@ public final class GetFederatedIvyRepositoryPlainArgs extends com.pulumi.resourc
         return Optional.ofNullable(this.includesPattern);
     }
 
-    /**
-     * the identity key of the repo.
-     * 
-     */
     @Import(name="key", required=true)
     private String key;
 
-    /**
-     * @return the identity key of the repo.
-     * 
-     */
     public String key() {
         return this.key;
     }
@@ -117,23 +109,9 @@ public final class GetFederatedIvyRepositoryPlainArgs extends com.pulumi.resourc
         return Optional.ofNullable(this.maxUniqueSnapshots);
     }
 
-    /**
-     * The list of Federated members and must contain this repository URL (configured base URL
-     * `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
-     * Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
-     * to set up Federated repositories correctly.
-     * 
-     */
     @Import(name="members")
     private @Nullable List<GetFederatedIvyRepositoryMember> members;
 
-    /**
-     * @return The list of Federated members and must contain this repository URL (configured base URL
-     * `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
-     * Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
-     * to set up Federated repositories correctly.
-     * 
-     */
     public Optional<List<GetFederatedIvyRepositoryMember>> members() {
         return Optional.ofNullable(this.members);
     }
@@ -302,12 +280,6 @@ public final class GetFederatedIvyRepositoryPlainArgs extends com.pulumi.resourc
             return this;
         }
 
-        /**
-         * @param key the identity key of the repo.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(String key) {
             $.key = key;
             return this;
@@ -318,29 +290,11 @@ public final class GetFederatedIvyRepositoryPlainArgs extends com.pulumi.resourc
             return this;
         }
 
-        /**
-         * @param members The list of Federated members and must contain this repository URL (configured base URL
-         * `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
-         * Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
-         * to set up Federated repositories correctly.
-         * 
-         * @return builder
-         * 
-         */
         public Builder members(@Nullable List<GetFederatedIvyRepositoryMember> members) {
             $.members = members;
             return this;
         }
 
-        /**
-         * @param members The list of Federated members and must contain this repository URL (configured base URL
-         * `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
-         * Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
-         * to set up Federated repositories correctly.
-         * 
-         * @return builder
-         * 
-         */
         public Builder members(GetFederatedIvyRepositoryMember... members) {
             return members(List.of(members));
         }

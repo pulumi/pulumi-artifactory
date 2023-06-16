@@ -4,20 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-/**
- * Retrieves a virtual Pub repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const virtual-pub = artifactory.getVirtualPubRepository({
- *     key: "virtual-pub",
- * });
- * ```
- */
 export function getVirtualPubRepository(args: GetVirtualPubRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualPubRepositoryResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -45,9 +31,6 @@ export interface GetVirtualPubRepositoryArgs {
     description?: string;
     excludesPattern?: string;
     includesPattern?: string;
-    /**
-     * the identity key of the repo.
-     */
     key: string;
     notes?: string;
     projectEnvironments?: string[];
@@ -77,20 +60,6 @@ export interface GetVirtualPubRepositoryResult {
     readonly repoLayoutRef?: string;
     readonly repositories?: string[];
 }
-/**
- * Retrieves a virtual Pub repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const virtual-pub = artifactory.getVirtualPubRepository({
- *     key: "virtual-pub",
- * });
- * ```
- */
 export function getVirtualPubRepositoryOutput(args: GetVirtualPubRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualPubRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getVirtualPubRepository(a, opts))
 }
@@ -104,9 +73,6 @@ export interface GetVirtualPubRepositoryOutputArgs {
     description?: pulumi.Input<string>;
     excludesPattern?: pulumi.Input<string>;
     includesPattern?: pulumi.Input<string>;
-    /**
-     * the identity key of the repo.
-     */
     key: pulumi.Input<string>;
     notes?: pulumi.Input<string>;
     projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;

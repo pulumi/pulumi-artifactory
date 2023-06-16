@@ -17,14 +17,14 @@ public final class SamlSettingsArgs extends com.pulumi.resources.ResourceArgs {
     public static final SamlSettingsArgs Empty = new SamlSettingsArgs();
 
     /**
-     * Allow persisted users to access their profile.  Default value is `true`.
+     * Allow persisted users to access their profile. Default value is &#34;true&#34;.
      * 
      */
     @Import(name="allowUserToAccessProfile")
     private @Nullable Output<Boolean> allowUserToAccessProfile;
 
     /**
-     * @return Allow persisted users to access their profile.  Default value is `true`.
+     * @return Allow persisted users to access their profile. Default value is &#34;true&#34;.
      * 
      */
     public Optional<Output<Boolean>> allowUserToAccessProfile() {
@@ -32,14 +32,14 @@ public final class SamlSettingsArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Auto redirect to login through the IdP when clicking on Artifactory&#39;s login link.  Default value is `false`.
+     * Auto redirect to login through the IdP when clicking on Artifactory&#39;s login link. Default value is &#34;false&#34;.
      * 
      */
     @Import(name="autoRedirect")
     private @Nullable Output<Boolean> autoRedirect;
 
     /**
-     * @return Auto redirect to login through the IdP when clicking on Artifactory&#39;s login link.  Default value is `false`.
+     * @return Auto redirect to login through the IdP when clicking on Artifactory&#39;s login link. Default value is &#34;false&#34;.
      * 
      */
     public Optional<Output<Boolean>> autoRedirect() {
@@ -47,14 +47,16 @@ public final class SamlSettingsArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * SAML certificate that contains the public key for the IdP service provider.  Used by Artifactory to verify sign-in requests. Default value is ``.
+     * SAML certificate that contains the public key for the IdP service provider. Used by Artifactory to verify sign-in
+     * requests. Default value is &#34;&#34;.
      * 
      */
     @Import(name="certificate")
     private @Nullable Output<String> certificate;
 
     /**
-     * @return SAML certificate that contains the public key for the IdP service provider.  Used by Artifactory to verify sign-in requests. Default value is ``.
+     * @return SAML certificate that contains the public key for the IdP service provider. Used by Artifactory to verify sign-in
+     * requests. Default value is &#34;&#34;.
      * 
      */
     public Optional<Output<String>> certificate() {
@@ -62,14 +64,14 @@ public final class SamlSettingsArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the attribute in the SAML response from the IdP that contains the user&#39;s email. Default value is ``.
+     * Name of the attribute in the SAML response from the IdP that contains the user&#39;s email. Default value is &#34;&#34;.
      * 
      */
     @Import(name="emailAttribute")
     private @Nullable Output<String> emailAttribute;
 
     /**
-     * @return Name of the attribute in the SAML response from the IdP that contains the user&#39;s email. Default value is ``.
+     * @return Name of the attribute in the SAML response from the IdP that contains the user&#39;s email. Default value is &#34;&#34;.
      * 
      */
     public Optional<Output<String>> emailAttribute() {
@@ -77,14 +79,14 @@ public final class SamlSettingsArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Enable SAML SSO.  Default value is `true`.
+     * Enable SAML SSO. Default value is &#34;true&#34;.
      * 
      */
     @Import(name="enable")
     private @Nullable Output<Boolean> enable;
 
     /**
-     * @return Enable SAML SSO.  Default value is `true`.
+     * @return Enable SAML SSO. Default value is &#34;true&#34;.
      * 
      */
     public Optional<Output<Boolean>> enable() {
@@ -92,14 +94,14 @@ public final class SamlSettingsArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the attribute in the SAML response from the IdP that contains the user&#39;s group memberships. Default value is ``.
+     * Name of the attribute in the SAML response from the IdP that contains the user&#39;s group memberships. Default value is &#34;&#34;.
      * 
      */
     @Import(name="groupAttribute")
     private @Nullable Output<String> groupAttribute;
 
     /**
-     * @return Name of the attribute in the SAML response from the IdP that contains the user&#39;s group memberships. Default value is ``.
+     * @return Name of the attribute in the SAML response from the IdP that contains the user&#39;s group memberships. Default value is &#34;&#34;.
      * 
      */
     public Optional<Output<String>> groupAttribute() {
@@ -137,14 +139,20 @@ public final class SamlSettingsArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * When automatic user creation is off, authenticated users are not automatically created inside Artifactory. Instead, for every request from an SSO user, the user is temporarily associated with default groups (if such groups are defined), and the permissions for these groups apply. Without auto-user creation, you must manually create the user inside Artifactory to manage user permissions not attached to their default groups. Default value is `false`.
+     * When automatic user creation is off, authenticated users are not automatically created inside Artifactory. Instead, for
+     * every request from an SSO user, the user is temporarily associated with default groups (if such groups are defined), and
+     * the permissions for these groups apply. Without auto-user creation, you must manually create the user inside Artifactory
+     * to manage user permissions not attached to their default groups. Default value is &#34;false&#34;.
      * 
      */
     @Import(name="noAutoUserCreation")
     private @Nullable Output<Boolean> noAutoUserCreation;
 
     /**
-     * @return When automatic user creation is off, authenticated users are not automatically created inside Artifactory. Instead, for every request from an SSO user, the user is temporarily associated with default groups (if such groups are defined), and the permissions for these groups apply. Without auto-user creation, you must manually create the user inside Artifactory to manage user permissions not attached to their default groups. Default value is `false`.
+     * @return When automatic user creation is off, authenticated users are not automatically created inside Artifactory. Instead, for
+     * every request from an SSO user, the user is temporarily associated with default groups (if such groups are defined), and
+     * the permissions for these groups apply. Without auto-user creation, you must manually create the user inside Artifactory
+     * to manage user permissions not attached to their default groups. Default value is &#34;false&#34;.
      * 
      */
     public Optional<Output<Boolean>> noAutoUserCreation() {
@@ -167,14 +175,16 @@ public final class SamlSettingsArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Associate user with Artifactory groups based on the `group_attribute` provided in the SAML response from the identity provider.  Default value is `false`.
+     * Associate user with Artifactory groups based on the &#34;group_attribute&#34; provided in the SAML response from the identity
+     * provider. Default value is &#34;false&#34;.
      * 
      */
     @Import(name="syncGroups")
     private @Nullable Output<Boolean> syncGroups;
 
     /**
-     * @return Associate user with Artifactory groups based on the `group_attribute` provided in the SAML response from the identity provider.  Default value is `false`.
+     * @return Associate user with Artifactory groups based on the &#34;group_attribute&#34; provided in the SAML response from the identity
+     * provider. Default value is &#34;false&#34;.
      * 
      */
     public Optional<Output<Boolean>> syncGroups() {
@@ -182,14 +192,18 @@ public final class SamlSettingsArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * When set, an X.509 public certificate will be created by Artifactory. Download this certificate and upload it to your IDP and choose your own encryption algorithm. This process will let you encrypt the assertion section in your SAML response. Default value is `false`.
+     * When set, an X.509 public certificate will be created by Artifactory. Download this certificate and upload it to your
+     * IDP and choose your own encryption algorithm. This process will let you encrypt the assertion section in your SAML
+     * response. Default value is &#34;false&#34;.
      * 
      */
     @Import(name="useEncryptedAssertion")
     private @Nullable Output<Boolean> useEncryptedAssertion;
 
     /**
-     * @return When set, an X.509 public certificate will be created by Artifactory. Download this certificate and upload it to your IDP and choose your own encryption algorithm. This process will let you encrypt the assertion section in your SAML response. Default value is `false`.
+     * @return When set, an X.509 public certificate will be created by Artifactory. Download this certificate and upload it to your
+     * IDP and choose your own encryption algorithm. This process will let you encrypt the assertion section in your SAML
+     * response. Default value is &#34;false&#34;.
      * 
      */
     public Optional<Output<Boolean>> useEncryptedAssertion() {
@@ -197,14 +211,16 @@ public final class SamlSettingsArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Enable &#34;audience&#34;, or who the SAML assertion is intended for.  Ensures that the correct service provider intended for Artifactory is used on the IdP.  Default value is `true`.
+     * Enable &#34;audience&#34;, or who the SAML assertion is intended for. Ensures that the correct service provider intended for
+     * Artifactory is used on the IdP. Default value is &#34;true&#34;.
      * 
      */
     @Import(name="verifyAudienceRestriction")
     private @Nullable Output<Boolean> verifyAudienceRestriction;
 
     /**
-     * @return Enable &#34;audience&#34;, or who the SAML assertion is intended for.  Ensures that the correct service provider intended for Artifactory is used on the IdP.  Default value is `true`.
+     * @return Enable &#34;audience&#34;, or who the SAML assertion is intended for. Ensures that the correct service provider intended for
+     * Artifactory is used on the IdP. Default value is &#34;true&#34;.
      * 
      */
     public Optional<Output<Boolean>> verifyAudienceRestriction() {
@@ -248,7 +264,7 @@ public final class SamlSettingsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param allowUserToAccessProfile Allow persisted users to access their profile.  Default value is `true`.
+         * @param allowUserToAccessProfile Allow persisted users to access their profile. Default value is &#34;true&#34;.
          * 
          * @return builder
          * 
@@ -259,7 +275,7 @@ public final class SamlSettingsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param allowUserToAccessProfile Allow persisted users to access their profile.  Default value is `true`.
+         * @param allowUserToAccessProfile Allow persisted users to access their profile. Default value is &#34;true&#34;.
          * 
          * @return builder
          * 
@@ -269,7 +285,7 @@ public final class SamlSettingsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoRedirect Auto redirect to login through the IdP when clicking on Artifactory&#39;s login link.  Default value is `false`.
+         * @param autoRedirect Auto redirect to login through the IdP when clicking on Artifactory&#39;s login link. Default value is &#34;false&#34;.
          * 
          * @return builder
          * 
@@ -280,7 +296,7 @@ public final class SamlSettingsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoRedirect Auto redirect to login through the IdP when clicking on Artifactory&#39;s login link.  Default value is `false`.
+         * @param autoRedirect Auto redirect to login through the IdP when clicking on Artifactory&#39;s login link. Default value is &#34;false&#34;.
          * 
          * @return builder
          * 
@@ -290,7 +306,8 @@ public final class SamlSettingsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param certificate SAML certificate that contains the public key for the IdP service provider.  Used by Artifactory to verify sign-in requests. Default value is ``.
+         * @param certificate SAML certificate that contains the public key for the IdP service provider. Used by Artifactory to verify sign-in
+         * requests. Default value is &#34;&#34;.
          * 
          * @return builder
          * 
@@ -301,7 +318,8 @@ public final class SamlSettingsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param certificate SAML certificate that contains the public key for the IdP service provider.  Used by Artifactory to verify sign-in requests. Default value is ``.
+         * @param certificate SAML certificate that contains the public key for the IdP service provider. Used by Artifactory to verify sign-in
+         * requests. Default value is &#34;&#34;.
          * 
          * @return builder
          * 
@@ -311,7 +329,7 @@ public final class SamlSettingsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param emailAttribute Name of the attribute in the SAML response from the IdP that contains the user&#39;s email. Default value is ``.
+         * @param emailAttribute Name of the attribute in the SAML response from the IdP that contains the user&#39;s email. Default value is &#34;&#34;.
          * 
          * @return builder
          * 
@@ -322,7 +340,7 @@ public final class SamlSettingsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param emailAttribute Name of the attribute in the SAML response from the IdP that contains the user&#39;s email. Default value is ``.
+         * @param emailAttribute Name of the attribute in the SAML response from the IdP that contains the user&#39;s email. Default value is &#34;&#34;.
          * 
          * @return builder
          * 
@@ -332,7 +350,7 @@ public final class SamlSettingsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enable Enable SAML SSO.  Default value is `true`.
+         * @param enable Enable SAML SSO. Default value is &#34;true&#34;.
          * 
          * @return builder
          * 
@@ -343,7 +361,7 @@ public final class SamlSettingsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enable Enable SAML SSO.  Default value is `true`.
+         * @param enable Enable SAML SSO. Default value is &#34;true&#34;.
          * 
          * @return builder
          * 
@@ -353,7 +371,7 @@ public final class SamlSettingsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param groupAttribute Name of the attribute in the SAML response from the IdP that contains the user&#39;s group memberships. Default value is ``.
+         * @param groupAttribute Name of the attribute in the SAML response from the IdP that contains the user&#39;s group memberships. Default value is &#34;&#34;.
          * 
          * @return builder
          * 
@@ -364,7 +382,7 @@ public final class SamlSettingsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param groupAttribute Name of the attribute in the SAML response from the IdP that contains the user&#39;s group memberships. Default value is ``.
+         * @param groupAttribute Name of the attribute in the SAML response from the IdP that contains the user&#39;s group memberships. Default value is &#34;&#34;.
          * 
          * @return builder
          * 
@@ -416,7 +434,10 @@ public final class SamlSettingsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param noAutoUserCreation When automatic user creation is off, authenticated users are not automatically created inside Artifactory. Instead, for every request from an SSO user, the user is temporarily associated with default groups (if such groups are defined), and the permissions for these groups apply. Without auto-user creation, you must manually create the user inside Artifactory to manage user permissions not attached to their default groups. Default value is `false`.
+         * @param noAutoUserCreation When automatic user creation is off, authenticated users are not automatically created inside Artifactory. Instead, for
+         * every request from an SSO user, the user is temporarily associated with default groups (if such groups are defined), and
+         * the permissions for these groups apply. Without auto-user creation, you must manually create the user inside Artifactory
+         * to manage user permissions not attached to their default groups. Default value is &#34;false&#34;.
          * 
          * @return builder
          * 
@@ -427,7 +448,10 @@ public final class SamlSettingsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param noAutoUserCreation When automatic user creation is off, authenticated users are not automatically created inside Artifactory. Instead, for every request from an SSO user, the user is temporarily associated with default groups (if such groups are defined), and the permissions for these groups apply. Without auto-user creation, you must manually create the user inside Artifactory to manage user permissions not attached to their default groups. Default value is `false`.
+         * @param noAutoUserCreation When automatic user creation is off, authenticated users are not automatically created inside Artifactory. Instead, for
+         * every request from an SSO user, the user is temporarily associated with default groups (if such groups are defined), and
+         * the permissions for these groups apply. Without auto-user creation, you must manually create the user inside Artifactory
+         * to manage user permissions not attached to their default groups. Default value is &#34;false&#34;.
          * 
          * @return builder
          * 
@@ -458,7 +482,8 @@ public final class SamlSettingsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param syncGroups Associate user with Artifactory groups based on the `group_attribute` provided in the SAML response from the identity provider.  Default value is `false`.
+         * @param syncGroups Associate user with Artifactory groups based on the &#34;group_attribute&#34; provided in the SAML response from the identity
+         * provider. Default value is &#34;false&#34;.
          * 
          * @return builder
          * 
@@ -469,7 +494,8 @@ public final class SamlSettingsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param syncGroups Associate user with Artifactory groups based on the `group_attribute` provided in the SAML response from the identity provider.  Default value is `false`.
+         * @param syncGroups Associate user with Artifactory groups based on the &#34;group_attribute&#34; provided in the SAML response from the identity
+         * provider. Default value is &#34;false&#34;.
          * 
          * @return builder
          * 
@@ -479,7 +505,9 @@ public final class SamlSettingsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param useEncryptedAssertion When set, an X.509 public certificate will be created by Artifactory. Download this certificate and upload it to your IDP and choose your own encryption algorithm. This process will let you encrypt the assertion section in your SAML response. Default value is `false`.
+         * @param useEncryptedAssertion When set, an X.509 public certificate will be created by Artifactory. Download this certificate and upload it to your
+         * IDP and choose your own encryption algorithm. This process will let you encrypt the assertion section in your SAML
+         * response. Default value is &#34;false&#34;.
          * 
          * @return builder
          * 
@@ -490,7 +518,9 @@ public final class SamlSettingsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param useEncryptedAssertion When set, an X.509 public certificate will be created by Artifactory. Download this certificate and upload it to your IDP and choose your own encryption algorithm. This process will let you encrypt the assertion section in your SAML response. Default value is `false`.
+         * @param useEncryptedAssertion When set, an X.509 public certificate will be created by Artifactory. Download this certificate and upload it to your
+         * IDP and choose your own encryption algorithm. This process will let you encrypt the assertion section in your SAML
+         * response. Default value is &#34;false&#34;.
          * 
          * @return builder
          * 
@@ -500,7 +530,8 @@ public final class SamlSettingsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param verifyAudienceRestriction Enable &#34;audience&#34;, or who the SAML assertion is intended for.  Ensures that the correct service provider intended for Artifactory is used on the IdP.  Default value is `true`.
+         * @param verifyAudienceRestriction Enable &#34;audience&#34;, or who the SAML assertion is intended for. Ensures that the correct service provider intended for
+         * Artifactory is used on the IdP. Default value is &#34;true&#34;.
          * 
          * @return builder
          * 
@@ -511,7 +542,8 @@ public final class SamlSettingsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param verifyAudienceRestriction Enable &#34;audience&#34;, or who the SAML assertion is intended for.  Ensures that the correct service provider intended for Artifactory is used on the IdP.  Default value is `true`.
+         * @param verifyAudienceRestriction Enable &#34;audience&#34;, or who the SAML assertion is intended for. Ensures that the correct service provider intended for
+         * Artifactory is used on the IdP. Default value is &#34;true&#34;.
          * 
          * @return builder
          * 

@@ -117,17 +117,9 @@ public final class GetRemoteTerraformRepositoryArgs extends com.pulumi.resources
         return Optional.ofNullable(this.includesPattern);
     }
 
-    /**
-     * the identity key of the repo.
-     * 
-     */
     @Import(name="key", required=true)
     private Output<String> key;
 
-    /**
-     * @return the identity key of the repo.
-     * 
-     */
     public Output<String> key() {
         return this.key;
     }
@@ -512,23 +504,11 @@ public final class GetRemoteTerraformRepositoryArgs extends com.pulumi.resources
             return includesPattern(Output.of(includesPattern));
         }
 
-        /**
-         * @param key the identity key of the repo.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(Output<String> key) {
             $.key = key;
             return this;
         }
 
-        /**
-         * @param key the identity key of the repo.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(String key) {
             return key(Output.of(key));
         }

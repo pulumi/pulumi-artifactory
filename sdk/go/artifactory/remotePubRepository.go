@@ -11,45 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Creates a remote Pub repository.
-// Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Pub+Repositories).
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.NewRemotePubRepository(ctx, "my-remote-pub", &artifactory.RemotePubRepositoryArgs{
-//				Key: pulumi.String("my-remote-pub"),
-//				Url: pulumi.String("https://pub.dartlang.org"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Remote repositories can be imported using their name, e.g.
-//
-// ```sh
-//
-//	$ pulumi import artifactory:index/remotePubRepository:RemotePubRepository my-remote-pub my-remote-pub
-//
-// ```
 type RemotePubRepository struct {
 	pulumi.CustomResourceState
 
@@ -93,8 +54,8 @@ type RemotePubRepository struct {
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrOutput `pulumi:"includesPattern"`
-	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-	// contain spaces or special characters.
+	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+	// characters. It cannot begin with a number or contain spaces or special characters.
 	Key pulumi.StringOutput `pulumi:"key"`
 	// Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
 	// the 'Retrieval Cache Period'. Default value is 'true'.
@@ -157,7 +118,7 @@ type RemotePubRepository struct {
 	// Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed 'unused' and
 	// eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
 	UnusedArtifactsCleanupPeriodHours pulumi.IntPtrOutput `pulumi:"unusedArtifactsCleanupPeriodHours"`
-	// The remote repository URL.
+	// The remote repo URL.
 	Url      pulumi.StringOutput    `pulumi:"url"`
 	Username pulumi.StringPtrOutput `pulumi:"username"`
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
@@ -247,8 +208,8 @@ type remotePubRepositoryState struct {
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
-	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-	// contain spaces or special characters.
+	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+	// characters. It cannot begin with a number or contain spaces or special characters.
 	Key *string `pulumi:"key"`
 	// Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
 	// the 'Retrieval Cache Period'. Default value is 'true'.
@@ -311,7 +272,7 @@ type remotePubRepositoryState struct {
 	// Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed 'unused' and
 	// eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
 	UnusedArtifactsCleanupPeriodHours *int `pulumi:"unusedArtifactsCleanupPeriodHours"`
-	// The remote repository URL.
+	// The remote repo URL.
 	Url      *string `pulumi:"url"`
 	Username *string `pulumi:"username"`
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
@@ -360,8 +321,8 @@ type RemotePubRepositoryState struct {
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
-	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-	// contain spaces or special characters.
+	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+	// characters. It cannot begin with a number or contain spaces or special characters.
 	Key pulumi.StringPtrInput
 	// Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
 	// the 'Retrieval Cache Period'. Default value is 'true'.
@@ -424,7 +385,7 @@ type RemotePubRepositoryState struct {
 	// Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed 'unused' and
 	// eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
 	UnusedArtifactsCleanupPeriodHours pulumi.IntPtrInput
-	// The remote repository URL.
+	// The remote repo URL.
 	Url      pulumi.StringPtrInput
 	Username pulumi.StringPtrInput
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
@@ -477,8 +438,8 @@ type remotePubRepositoryArgs struct {
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
-	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-	// contain spaces or special characters.
+	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+	// characters. It cannot begin with a number or contain spaces or special characters.
 	Key string `pulumi:"key"`
 	// Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
 	// the 'Retrieval Cache Period'. Default value is 'true'.
@@ -540,7 +501,7 @@ type remotePubRepositoryArgs struct {
 	// Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed 'unused' and
 	// eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
 	UnusedArtifactsCleanupPeriodHours *int `pulumi:"unusedArtifactsCleanupPeriodHours"`
-	// The remote repository URL.
+	// The remote repo URL.
 	Url      string  `pulumi:"url"`
 	Username *string `pulumi:"username"`
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
@@ -590,8 +551,8 @@ type RemotePubRepositoryArgs struct {
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
-	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-	// contain spaces or special characters.
+	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+	// characters. It cannot begin with a number or contain spaces or special characters.
 	Key pulumi.StringInput
 	// Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
 	// the 'Retrieval Cache Period'. Default value is 'true'.
@@ -653,7 +614,7 @@ type RemotePubRepositoryArgs struct {
 	// Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed 'unused' and
 	// eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
 	UnusedArtifactsCleanupPeriodHours pulumi.IntPtrInput
-	// The remote repository URL.
+	// The remote repo URL.
 	Url      pulumi.StringInput
 	Username pulumi.StringPtrInput
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
@@ -832,8 +793,8 @@ func (o RemotePubRepositoryOutput) IncludesPattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RemotePubRepository) pulumi.StringPtrOutput { return v.IncludesPattern }).(pulumi.StringPtrOutput)
 }
 
-// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-// contain spaces or special characters.
+// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+// characters. It cannot begin with a number or contain spaces or special characters.
 func (o RemotePubRepositoryOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v *RemotePubRepository) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
 }
@@ -968,7 +929,7 @@ func (o RemotePubRepositoryOutput) UnusedArtifactsCleanupPeriodHours() pulumi.In
 	return o.ApplyT(func(v *RemotePubRepository) pulumi.IntPtrOutput { return v.UnusedArtifactsCleanupPeriodHours }).(pulumi.IntPtrOutput)
 }
 
-// The remote repository URL.
+// The remote repo URL.
 func (o RemotePubRepositoryOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v *RemotePubRepository) pulumi.StringOutput { return v.Url }).(pulumi.StringOutput)
 }

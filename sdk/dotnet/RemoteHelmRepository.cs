@@ -9,43 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Artifactory
 {
-    /// <summary>
-    /// Provides a remote Helm repository.
-    /// Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Kubernetes+Helm+Chart+Repositories).
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Artifactory = Pulumi.Artifactory;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var helm_remote = new Artifactory.RemoteHelmRepository("helm-remote", new()
-    ///     {
-    ///         ExternalDependenciesEnabled = true,
-    ///         ExternalDependenciesPatterns = new[]
-    ///         {
-    ///             "**github.com**",
-    ///         },
-    ///         HelmChartsBaseUrl = "https://foo.com",
-    ///         Key = "helm-remote-foo25",
-    ///         Url = "https://repo.chartcenter.io/",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Remote repositories can be imported using their name, e.g.
-    /// 
-    /// ```sh
-    ///  $ pulumi import artifactory:index/remoteHelmRepository:RemoteHelmRepository helm-remote helm-remote
-    /// ```
-    /// </summary>
     [ArtifactoryResourceType("artifactory:index/remoteHelmRepository:RemoteHelmRepository")]
     public partial class RemoteHelmRepository : global::Pulumi.CustomResource
     {
@@ -130,19 +93,15 @@ namespace Pulumi.Artifactory
         public Output<string?> ExcludesPattern { get; private set; } = null!;
 
         /// <summary>
-        /// When set, external dependencies are rewritten. `External Dependency Rewrite` in the UI.
+        /// When set, external dependencies are rewritten. External Dependency Rewrite in the UI.
         /// </summary>
         [Output("externalDependenciesEnabled")]
         public Output<bool?> ExternalDependenciesEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will
-        /// follow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response.
-        /// By default, this is set to `[**]` in the UI, which means that remote modules may be downloaded from any external VCS source.
-        /// Due to SDKv2 limitations, we can't set the default value for the list.
-        /// This value `[**]` must be assigned to the attribute manually, if user don't specify any other non-default values.
-        /// We don't want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns
-        /// `[**]` on update if HCL doesn't have the attribute set or the list is empty.
+        /// An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download
+        /// remote modules from, when presented with 'go-import' meta tags in the remote repository response.Default value in UI is
+        /// empty. This attribute must be set together with `external_dependencies_enabled = true`
         /// </summary>
         [Output("externalDependenciesPatterns")]
         public Output<ImmutableArray<string>> ExternalDependenciesPatterns { get; private set; } = null!;
@@ -155,7 +114,8 @@ namespace Pulumi.Artifactory
         public Output<bool?> HardFail { get; private set; } = null!;
 
         /// <summary>
-        /// No documentation is available. Hopefully you know what this means.
+        /// Base URL for the translation of chart source URLs in the index.yaml of virtual repos. Artifactory will only translate
+        /// URLs matching the index.yamls hostname or URLs starting with this base url.
         /// </summary>
         [Output("helmChartsBaseUrl")]
         public Output<string?> HelmChartsBaseUrl { get; private set; } = null!;
@@ -168,8 +128,8 @@ namespace Pulumi.Artifactory
         public Output<string?> IncludesPattern { get; private set; } = null!;
 
         /// <summary>
-        /// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-        /// contain spaces or special characters.
+        /// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+        /// characters. It cannot begin with a number or contain spaces or special characters.
         /// </summary>
         [Output("key")]
         public Output<string> Key { get; private set; } = null!;
@@ -468,7 +428,7 @@ namespace Pulumi.Artifactory
         public Input<string>? ExcludesPattern { get; set; }
 
         /// <summary>
-        /// When set, external dependencies are rewritten. `External Dependency Rewrite` in the UI.
+        /// When set, external dependencies are rewritten. External Dependency Rewrite in the UI.
         /// </summary>
         [Input("externalDependenciesEnabled")]
         public Input<bool>? ExternalDependenciesEnabled { get; set; }
@@ -477,13 +437,9 @@ namespace Pulumi.Artifactory
         private InputList<string>? _externalDependenciesPatterns;
 
         /// <summary>
-        /// An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will
-        /// follow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response.
-        /// By default, this is set to `[**]` in the UI, which means that remote modules may be downloaded from any external VCS source.
-        /// Due to SDKv2 limitations, we can't set the default value for the list.
-        /// This value `[**]` must be assigned to the attribute manually, if user don't specify any other non-default values.
-        /// We don't want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns
-        /// `[**]` on update if HCL doesn't have the attribute set or the list is empty.
+        /// An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download
+        /// remote modules from, when presented with 'go-import' meta tags in the remote repository response.Default value in UI is
+        /// empty. This attribute must be set together with `external_dependencies_enabled = true`
         /// </summary>
         public InputList<string> ExternalDependenciesPatterns
         {
@@ -499,7 +455,8 @@ namespace Pulumi.Artifactory
         public Input<bool>? HardFail { get; set; }
 
         /// <summary>
-        /// No documentation is available. Hopefully you know what this means.
+        /// Base URL for the translation of chart source URLs in the index.yaml of virtual repos. Artifactory will only translate
+        /// URLs matching the index.yamls hostname or URLs starting with this base url.
         /// </summary>
         [Input("helmChartsBaseUrl")]
         public Input<string>? HelmChartsBaseUrl { get; set; }
@@ -512,8 +469,8 @@ namespace Pulumi.Artifactory
         public Input<string>? IncludesPattern { get; set; }
 
         /// <summary>
-        /// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-        /// contain spaces or special characters.
+        /// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+        /// characters. It cannot begin with a number or contain spaces or special characters.
         /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -788,7 +745,7 @@ namespace Pulumi.Artifactory
         public Input<string>? ExcludesPattern { get; set; }
 
         /// <summary>
-        /// When set, external dependencies are rewritten. `External Dependency Rewrite` in the UI.
+        /// When set, external dependencies are rewritten. External Dependency Rewrite in the UI.
         /// </summary>
         [Input("externalDependenciesEnabled")]
         public Input<bool>? ExternalDependenciesEnabled { get; set; }
@@ -797,13 +754,9 @@ namespace Pulumi.Artifactory
         private InputList<string>? _externalDependenciesPatterns;
 
         /// <summary>
-        /// An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will
-        /// follow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response.
-        /// By default, this is set to `[**]` in the UI, which means that remote modules may be downloaded from any external VCS source.
-        /// Due to SDKv2 limitations, we can't set the default value for the list.
-        /// This value `[**]` must be assigned to the attribute manually, if user don't specify any other non-default values.
-        /// We don't want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns
-        /// `[**]` on update if HCL doesn't have the attribute set or the list is empty.
+        /// An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download
+        /// remote modules from, when presented with 'go-import' meta tags in the remote repository response.Default value in UI is
+        /// empty. This attribute must be set together with `external_dependencies_enabled = true`
         /// </summary>
         public InputList<string> ExternalDependenciesPatterns
         {
@@ -819,7 +772,8 @@ namespace Pulumi.Artifactory
         public Input<bool>? HardFail { get; set; }
 
         /// <summary>
-        /// No documentation is available. Hopefully you know what this means.
+        /// Base URL for the translation of chart source URLs in the index.yaml of virtual repos. Artifactory will only translate
+        /// URLs matching the index.yamls hostname or URLs starting with this base url.
         /// </summary>
         [Input("helmChartsBaseUrl")]
         public Input<string>? HelmChartsBaseUrl { get; set; }
@@ -832,8 +786,8 @@ namespace Pulumi.Artifactory
         public Input<string>? IncludesPattern { get; set; }
 
         /// <summary>
-        /// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-        /// contain spaces or special characters.
+        /// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+        /// characters. It cannot begin with a number or contain spaces or special characters.
         /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }

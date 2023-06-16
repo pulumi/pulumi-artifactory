@@ -28,15 +28,16 @@ class VirtualNugetRepositoryArgs:
                  repositories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a VirtualNugetRepository resource.
-        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-               contain spaces or special characters.
+        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+               characters. It cannot begin with a number or contain spaces or special characters.
         :param pulumi.Input[bool] artifactory_requests_can_retrieve_remote_artifacts: Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
                another Artifactory instance.
         :param pulumi.Input[str] default_deployment_repo: Default repository to deploy artifacts.
         :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
                artifacts are excluded.
-        :param pulumi.Input[bool] force_nuget_authentication: If set, user authentication is required when accessing the repository. An anonymous request will display an HTTP 401 error. This is also enforced when aggregated repositories support anonymous requests. Default is `false`.
+        :param pulumi.Input[bool] force_nuget_authentication: If set, user authentication is required when accessing the repository. An anonymous request will display an HTTP 401
+               error. This is also enforced when aggregated repositories support anonymous requests.
         :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
                used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         :param pulumi.Input[str] notes: Internal description.
@@ -77,8 +78,8 @@ class VirtualNugetRepositoryArgs:
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
         """
-        A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-        contain spaces or special characters.
+        A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+        characters. It cannot begin with a number or contain spaces or special characters.
         """
         return pulumi.get(self, "key")
 
@@ -140,7 +141,8 @@ class VirtualNugetRepositoryArgs:
     @pulumi.getter(name="forceNugetAuthentication")
     def force_nuget_authentication(self) -> Optional[pulumi.Input[bool]]:
         """
-        If set, user authentication is required when accessing the repository. An anonymous request will display an HTTP 401 error. This is also enforced when aggregated repositories support anonymous requests. Default is `false`.
+        If set, user authentication is required when accessing the repository. An anonymous request will display an HTTP 401
+        error. This is also enforced when aggregated repositories support anonymous requests.
         """
         return pulumi.get(self, "force_nuget_authentication")
 
@@ -250,11 +252,12 @@ class _VirtualNugetRepositoryState:
         :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
                artifacts are excluded.
-        :param pulumi.Input[bool] force_nuget_authentication: If set, user authentication is required when accessing the repository. An anonymous request will display an HTTP 401 error. This is also enforced when aggregated repositories support anonymous requests. Default is `false`.
+        :param pulumi.Input[bool] force_nuget_authentication: If set, user authentication is required when accessing the repository. An anonymous request will display an HTTP 401
+               error. This is also enforced when aggregated repositories support anonymous requests.
         :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
                used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-               contain spaces or special characters.
+        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+               characters. It cannot begin with a number or contain spaces or special characters.
         :param pulumi.Input[str] notes: Internal description.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
                Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
@@ -346,7 +349,8 @@ class _VirtualNugetRepositoryState:
     @pulumi.getter(name="forceNugetAuthentication")
     def force_nuget_authentication(self) -> Optional[pulumi.Input[bool]]:
         """
-        If set, user authentication is required when accessing the repository. An anonymous request will display an HTTP 401 error. This is also enforced when aggregated repositories support anonymous requests. Default is `false`.
+        If set, user authentication is required when accessing the repository. An anonymous request will display an HTTP 401
+        error. This is also enforced when aggregated repositories support anonymous requests.
         """
         return pulumi.get(self, "force_nuget_authentication")
 
@@ -371,8 +375,8 @@ class _VirtualNugetRepositoryState:
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
         """
-        A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-        contain spaces or special characters.
+        A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+        characters. It cannot begin with a number or contain spaces or special characters.
         """
         return pulumi.get(self, "key")
 
@@ -473,33 +477,7 @@ class VirtualNugetRepository(pulumi.CustomResource):
                  repositories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Creates a virtual Nuget repository.
-        Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/NuGet+Repositories#NuGetRepositories-VirtualRepositories).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_artifactory as artifactory
-
-        foo_nuget = artifactory.VirtualNugetRepository("foo-nuget",
-            description="A test virtual repo",
-            excludes_pattern="com/google/**",
-            force_nuget_authentication=True,
-            includes_pattern="com/jfrog/**,cloud/jfrog/**",
-            key="foo-nuget",
-            notes="Internal description",
-            repositories=[])
-        ```
-
-        ## Import
-
-        Virtual repositories can be imported using their name, e.g.
-
-        ```sh
-         $ pulumi import artifactory:index/virtualNugetRepository:VirtualNugetRepository foo-nuget foo-nuget
-        ```
-
+        Create a VirtualNugetRepository resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] artifactory_requests_can_retrieve_remote_artifacts: Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
@@ -508,11 +486,12 @@ class VirtualNugetRepository(pulumi.CustomResource):
         :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
                artifacts are excluded.
-        :param pulumi.Input[bool] force_nuget_authentication: If set, user authentication is required when accessing the repository. An anonymous request will display an HTTP 401 error. This is also enforced when aggregated repositories support anonymous requests. Default is `false`.
+        :param pulumi.Input[bool] force_nuget_authentication: If set, user authentication is required when accessing the repository. An anonymous request will display an HTTP 401
+               error. This is also enforced when aggregated repositories support anonymous requests.
         :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
                used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-               contain spaces or special characters.
+        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+               characters. It cannot begin with a number or contain spaces or special characters.
         :param pulumi.Input[str] notes: Internal description.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
                Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
@@ -530,33 +509,7 @@ class VirtualNugetRepository(pulumi.CustomResource):
                  args: VirtualNugetRepositoryArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Creates a virtual Nuget repository.
-        Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/NuGet+Repositories#NuGetRepositories-VirtualRepositories).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_artifactory as artifactory
-
-        foo_nuget = artifactory.VirtualNugetRepository("foo-nuget",
-            description="A test virtual repo",
-            excludes_pattern="com/google/**",
-            force_nuget_authentication=True,
-            includes_pattern="com/jfrog/**,cloud/jfrog/**",
-            key="foo-nuget",
-            notes="Internal description",
-            repositories=[])
-        ```
-
-        ## Import
-
-        Virtual repositories can be imported using their name, e.g.
-
-        ```sh
-         $ pulumi import artifactory:index/virtualNugetRepository:VirtualNugetRepository foo-nuget foo-nuget
-        ```
-
+        Create a VirtualNugetRepository resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param VirtualNugetRepositoryArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -644,11 +597,12 @@ class VirtualNugetRepository(pulumi.CustomResource):
         :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
                artifacts are excluded.
-        :param pulumi.Input[bool] force_nuget_authentication: If set, user authentication is required when accessing the repository. An anonymous request will display an HTTP 401 error. This is also enforced when aggregated repositories support anonymous requests. Default is `false`.
+        :param pulumi.Input[bool] force_nuget_authentication: If set, user authentication is required when accessing the repository. An anonymous request will display an HTTP 401
+               error. This is also enforced when aggregated repositories support anonymous requests.
         :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
                used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-               contain spaces or special characters.
+        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+               characters. It cannot begin with a number or contain spaces or special characters.
         :param pulumi.Input[str] notes: Internal description.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
                Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
@@ -716,7 +670,8 @@ class VirtualNugetRepository(pulumi.CustomResource):
     @pulumi.getter(name="forceNugetAuthentication")
     def force_nuget_authentication(self) -> pulumi.Output[Optional[bool]]:
         """
-        If set, user authentication is required when accessing the repository. An anonymous request will display an HTTP 401 error. This is also enforced when aggregated repositories support anonymous requests. Default is `false`.
+        If set, user authentication is required when accessing the repository. An anonymous request will display an HTTP 401
+        error. This is also enforced when aggregated repositories support anonymous requests.
         """
         return pulumi.get(self, "force_nuget_authentication")
 
@@ -733,8 +688,8 @@ class VirtualNugetRepository(pulumi.CustomResource):
     @pulumi.getter
     def key(self) -> pulumi.Output[str]:
         """
-        A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-        contain spaces or special characters.
+        A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+        characters. It cannot begin with a number or contain spaces or special characters.
         """
         return pulumi.get(self, "key")
 

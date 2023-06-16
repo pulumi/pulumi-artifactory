@@ -11,59 +11,9 @@ namespace Pulumi.Artifactory
 {
     public static class GetVirtualIvyRepository
     {
-        /// <summary>
-        /// Retrieves a virtual Ivy repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var virtual_ivy = Artifactory.GetVirtualIvyRepository.Invoke(new()
-        ///     {
-        ///         Key = "virtual-ivy",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetVirtualIvyRepositoryResult> InvokeAsync(GetVirtualIvyRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualIvyRepositoryResult>("artifactory:index/getVirtualIvyRepository:getVirtualIvyRepository", args ?? new GetVirtualIvyRepositoryArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Retrieves a virtual Ivy repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var virtual_ivy = Artifactory.GetVirtualIvyRepository.Invoke(new()
-        ///     {
-        ///         Key = "virtual-ivy",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Output<GetVirtualIvyRepositoryResult> Invoke(GetVirtualIvyRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualIvyRepositoryResult>("artifactory:index/getVirtualIvyRepository:getVirtualIvyRepository", args ?? new GetVirtualIvyRepositoryInvokeArgs(), options.WithDefaults());
     }
@@ -89,27 +39,15 @@ namespace Pulumi.Artifactory
         [Input("includesPattern")]
         public string? IncludesPattern { get; set; }
 
-        /// <summary>
-        /// the identity key of the repo.
-        /// </summary>
         [Input("key", required: true)]
         public string Key { get; set; } = null!;
 
-        /// <summary>
-        /// (Optional) The keypair used to sign artifacts.
-        /// </summary>
         [Input("keyPair")]
         public string? KeyPair { get; set; }
 
         [Input("notes")]
         public string? Notes { get; set; }
 
-        /// <summary>
-        /// (Optional)
-        /// - (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
-        /// - (2: discard_any_reference) Discard Any References - Removes all repository elements regardless of whether they are included in an active profile or not.
-        /// - (3: nothing) Nothing - Does not remove any repository elements declared in the POM.
-        /// </summary>
         [Input("pomRepositoryReferencesCleanupPolicy")]
         public string? PomRepositoryReferencesCleanupPolicy { get; set; }
 
@@ -161,27 +99,15 @@ namespace Pulumi.Artifactory
         [Input("includesPattern")]
         public Input<string>? IncludesPattern { get; set; }
 
-        /// <summary>
-        /// the identity key of the repo.
-        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
-        /// <summary>
-        /// (Optional) The keypair used to sign artifacts.
-        /// </summary>
         [Input("keyPair")]
         public Input<string>? KeyPair { get; set; }
 
         [Input("notes")]
         public Input<string>? Notes { get; set; }
 
-        /// <summary>
-        /// (Optional)
-        /// - (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
-        /// - (2: discard_any_reference) Discard Any References - Removes all repository elements regardless of whether they are included in an active profile or not.
-        /// - (3: nothing) Nothing - Does not remove any repository elements declared in the POM.
-        /// </summary>
         [Input("pomRepositoryReferencesCleanupPolicy")]
         public Input<string>? PomRepositoryReferencesCleanupPolicy { get; set; }
 
@@ -228,18 +154,9 @@ namespace Pulumi.Artifactory
         public readonly string Id;
         public readonly string? IncludesPattern;
         public readonly string Key;
-        /// <summary>
-        /// (Optional) The keypair used to sign artifacts.
-        /// </summary>
         public readonly string? KeyPair;
         public readonly string? Notes;
         public readonly string PackageType;
-        /// <summary>
-        /// (Optional)
-        /// - (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
-        /// - (2: discard_any_reference) Discard Any References - Removes all repository elements regardless of whether they are included in an active profile or not.
-        /// - (3: nothing) Nothing - Does not remove any repository elements declared in the POM.
-        /// </summary>
         public readonly string PomRepositoryReferencesCleanupPolicy;
         public readonly ImmutableArray<string> ProjectEnvironments;
         public readonly string? ProjectKey;

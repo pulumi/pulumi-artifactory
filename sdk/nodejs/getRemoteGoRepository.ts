@@ -6,20 +6,6 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
-/**
- * Retrieves a remote Go repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const remote-go = artifactory.getRemoteGoRepository({
- *     key: "remote-go",
- * });
- * ```
- */
 export function getRemoteGoRepository(args: GetRemoteGoRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetRemoteGoRepositoryResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -86,9 +72,6 @@ export interface GetRemoteGoRepositoryArgs {
     excludesPattern?: string;
     hardFail?: boolean;
     includesPattern?: string;
-    /**
-     * the identity key of the repo.
-     */
     key: string;
     listRemoteFolderItems?: boolean;
     localAddress?: string;
@@ -114,9 +97,6 @@ export interface GetRemoteGoRepositoryArgs {
     unusedArtifactsCleanupPeriodHours?: number;
     url?: string;
     username?: string;
-    /**
-     * (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `ARTIFACTORY`.
-     */
     vcsGitProvider?: string;
     xrayIndex?: boolean;
 }
@@ -169,26 +149,9 @@ export interface GetRemoteGoRepositoryResult {
     readonly unusedArtifactsCleanupPeriodHours?: number;
     readonly url?: string;
     readonly username?: string;
-    /**
-     * (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `ARTIFACTORY`.
-     */
     readonly vcsGitProvider?: string;
     readonly xrayIndex?: boolean;
 }
-/**
- * Retrieves a remote Go repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const remote-go = artifactory.getRemoteGoRepository({
- *     key: "remote-go",
- * });
- * ```
- */
 export function getRemoteGoRepositoryOutput(args: GetRemoteGoRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemoteGoRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getRemoteGoRepository(a, opts))
 }
@@ -211,9 +174,6 @@ export interface GetRemoteGoRepositoryOutputArgs {
     excludesPattern?: pulumi.Input<string>;
     hardFail?: pulumi.Input<boolean>;
     includesPattern?: pulumi.Input<string>;
-    /**
-     * the identity key of the repo.
-     */
     key: pulumi.Input<string>;
     listRemoteFolderItems?: pulumi.Input<boolean>;
     localAddress?: pulumi.Input<string>;
@@ -239,9 +199,6 @@ export interface GetRemoteGoRepositoryOutputArgs {
     unusedArtifactsCleanupPeriodHours?: pulumi.Input<number>;
     url?: pulumi.Input<string>;
     username?: pulumi.Input<string>;
-    /**
-     * (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `ARTIFACTORY`.
-     */
     vcsGitProvider?: pulumi.Input<string>;
     xrayIndex?: pulumi.Input<boolean>;
 }

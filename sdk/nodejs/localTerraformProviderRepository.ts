@@ -4,24 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-/**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const terraform_local_test_terraform_provider_repo = new artifactory.LocalTerraformProviderRepository("terraform-local-test-terraform-provider-repo", {key: "terraform-local-test-terraform-provider-repo"});
- * ```
- *
- * ## Import
- *
- * Local repositories can be imported using their name, e.g.
- *
- * ```sh
- *  $ pulumi import artifactory:index/localTerraformProviderRepository:LocalTerraformProviderRepository terraform-local-test-terraform-provider-repo terraform-local-test-terraform-provider-repo
- * ```
- */
 export class LocalTerraformProviderRepository extends pulumi.CustomResource {
     /**
      * Get an existing LocalTerraformProviderRepository resource's state with the given name, ID, and optional extra
@@ -85,7 +67,8 @@ export class LocalTerraformProviderRepository extends pulumi.CustomResource {
      */
     public readonly includesPattern!: pulumi.Output<string>;
     /**
-     * the identity key of the repo.
+     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      */
     public readonly key!: pulumi.Output<string>;
     /**
@@ -218,7 +201,8 @@ export interface LocalTerraformProviderRepositoryState {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * the identity key of the repo.
+     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      */
     key?: pulumi.Input<string>;
     /**
@@ -296,7 +280,8 @@ export interface LocalTerraformProviderRepositoryArgs {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * the identity key of the repo.
+     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      */
     key: pulumi.Input<string>;
     /**

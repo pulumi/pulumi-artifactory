@@ -4,20 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-/**
- * Retrieves a virtual Alpine repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const virtual-alpine = artifactory.getVirtualAlpineRepository({
- *     key: "virtual-alpine",
- * });
- * ```
- */
 export function getVirtualAlpineRepository(args: GetVirtualAlpineRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualAlpineRepositoryResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -47,22 +33,13 @@ export interface GetVirtualAlpineRepositoryArgs {
     description?: string;
     excludesPattern?: string;
     includesPattern?: string;
-    /**
-     * the identity key of the repo.
-     */
     key: string;
     notes?: string;
-    /**
-     * (Optional) Primary keypair used to sign artifacts. Default value is empty.
-     */
     primaryKeypairRef?: string;
     projectEnvironments?: string[];
     projectKey?: string;
     repoLayoutRef?: string;
     repositories?: string[];
-    /**
-     * (Optional, Default: `7200`) This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
-     */
     retrievalCachePeriodSeconds?: number;
 }
 
@@ -82,33 +59,13 @@ export interface GetVirtualAlpineRepositoryResult {
     readonly key: string;
     readonly notes?: string;
     readonly packageType: string;
-    /**
-     * (Optional) Primary keypair used to sign artifacts. Default value is empty.
-     */
     readonly primaryKeypairRef?: string;
     readonly projectEnvironments: string[];
     readonly projectKey?: string;
     readonly repoLayoutRef?: string;
     readonly repositories?: string[];
-    /**
-     * (Optional, Default: `7200`) This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
-     */
     readonly retrievalCachePeriodSeconds?: number;
 }
-/**
- * Retrieves a virtual Alpine repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const virtual-alpine = artifactory.getVirtualAlpineRepository({
- *     key: "virtual-alpine",
- * });
- * ```
- */
 export function getVirtualAlpineRepositoryOutput(args: GetVirtualAlpineRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualAlpineRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getVirtualAlpineRepository(a, opts))
 }
@@ -122,21 +79,12 @@ export interface GetVirtualAlpineRepositoryOutputArgs {
     description?: pulumi.Input<string>;
     excludesPattern?: pulumi.Input<string>;
     includesPattern?: pulumi.Input<string>;
-    /**
-     * the identity key of the repo.
-     */
     key: pulumi.Input<string>;
     notes?: pulumi.Input<string>;
-    /**
-     * (Optional) Primary keypair used to sign artifacts. Default value is empty.
-     */
     primaryKeypairRef?: pulumi.Input<string>;
     projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
     projectKey?: pulumi.Input<string>;
     repoLayoutRef?: pulumi.Input<string>;
     repositories?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * (Optional, Default: `7200`) This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
-     */
     retrievalCachePeriodSeconds?: pulumi.Input<number>;
 }

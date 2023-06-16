@@ -18,54 +18,6 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Creates a remote Nuget repository.
- * Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/NuGet+Repositories).
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.artifactory.RemoteNugetRepository;
- * import com.pulumi.artifactory.RemoteNugetRepositoryArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var my_remote_nuget = new RemoteNugetRepository(&#34;my-remote-nuget&#34;, RemoteNugetRepositoryArgs.builder()        
- *             .downloadContextPath(&#34;api/v2/package&#34;)
- *             .forceNugetAuthentication(true)
- *             .key(&#34;my-remote-nuget&#34;)
- *             .symbolServerUrl(&#34;https://symbols.nuget.org/download/symbols&#34;)
- *             .url(&#34;https://www.nuget.org/&#34;)
- *             .v3FeedUrl(&#34;https://api.nuget.org/v3/index.json&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Remote repositories can be imported using their name, e.g.
- * 
- * ```sh
- *  $ pulumi import artifactory:index/remoteNugetRepository:RemoteNugetRepository my-remote-nuget my-remote-nuget
- * ```
- * 
- */
 @ResourceType(type="artifactory:index/remoteNugetRepository:RemoteNugetRepository")
 public class RemoteNugetRepository extends com.pulumi.resources.CustomResource {
     /**
@@ -205,18 +157,14 @@ public class RemoteNugetRepository extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * The context path prefix through which NuGet downloads are served.
-     * For example, the NuGet Gallery download URL is `https://nuget.org/api/v2/package`, so the repository
-     * URL should be configured as `https://nuget.org` and the download context path should be configured as `api/v2/package`. Default value is `api/v2/package`.
+     * The context path prefix through which NuGet downloads are served. Default value is &#39;api/v2/package&#39;.
      * 
      */
     @Export(name="downloadContextPath", type=String.class, parameters={})
     private Output</* @Nullable */ String> downloadContextPath;
 
     /**
-     * @return The context path prefix through which NuGet downloads are served.
-     * For example, the NuGet Gallery download URL is `https://nuget.org/api/v2/package`, so the repository
-     * URL should be configured as `https://nuget.org` and the download context path should be configured as `api/v2/package`. Default value is `api/v2/package`.
+     * @return The context path prefix through which NuGet downloads are served. Default value is &#39;api/v2/package&#39;.
      * 
      */
     public Output<Optional<String>> downloadContextPath() {
@@ -269,28 +217,30 @@ public class RemoteNugetRepository extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.excludesPattern);
     }
     /**
-     * When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value is `api/v2`.
+     * When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value is
+     * &#39;api/v2&#39;.
      * 
      */
     @Export(name="feedContextPath", type=String.class, parameters={})
     private Output</* @Nullable */ String> feedContextPath;
 
     /**
-     * @return When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value is `api/v2`.
+     * @return When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value is
+     * &#39;api/v2&#39;.
      * 
      */
     public Output<Optional<String>> feedContextPath() {
         return Codegen.optional(this.feedContextPath);
     }
     /**
-     * Force basic authentication credentials in order to use this repository. Default value is `false`.
+     * Force basic authentication credentials in order to use this repository. Default value is &#39;false&#39;.
      * 
      */
     @Export(name="forceNugetAuthentication", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> forceNugetAuthentication;
 
     /**
-     * @return Force basic authentication credentials in order to use this repository. Default value is `false`.
+     * @return Force basic authentication credentials in order to use this repository. Default value is &#39;false&#39;.
      * 
      */
     public Output<Optional<Boolean>> forceNugetAuthentication() {
@@ -329,16 +279,16 @@ public class RemoteNugetRepository extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.includesPattern);
     }
     /**
-     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-     * contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      * 
      */
     @Export(name="key", type=String.class, parameters={})
     private Output<String> key;
 
     /**
-     * @return A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-     * contain spaces or special characters.
+     * @return A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      * 
      */
     public Output<String> key() {
@@ -649,14 +599,14 @@ public class RemoteNugetRepository extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.storeArtifactsLocally);
     }
     /**
-     * NuGet symbol server URL. Default value is `https://symbols.nuget.org/download/symbols`.
+     * NuGet symbol server URL.
      * 
      */
     @Export(name="symbolServerUrl", type=String.class, parameters={})
     private Output</* @Nullable */ String> symbolServerUrl;
 
     /**
-     * @return NuGet symbol server URL. Default value is `https://symbols.nuget.org/download/symbols`.
+     * @return NuGet symbol server URL.
      * 
      */
     public Output<Optional<String>> symbolServerUrl() {
@@ -713,14 +663,14 @@ public class RemoteNugetRepository extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.username);
     }
     /**
-     * The URL to the NuGet v3 feed. Default value is `https://api.nuget.org/v3/index.json`.
+     * The URL to the NuGet v3 feed. Default value is &#39;https://api.nuget.org/v3/index.json&#39;.
      * 
      */
     @Export(name="v3FeedUrl", type=String.class, parameters={})
     private Output</* @Nullable */ String> v3FeedUrl;
 
     /**
-     * @return The URL to the NuGet v3 feed. Default value is `https://api.nuget.org/v3/index.json`.
+     * @return The URL to the NuGet v3 feed. Default value is &#39;https://api.nuget.org/v3/index.json&#39;.
      * 
      */
     public Output<Optional<String>> v3FeedUrl() {

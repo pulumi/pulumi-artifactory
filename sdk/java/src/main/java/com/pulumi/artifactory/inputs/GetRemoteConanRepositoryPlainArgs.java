@@ -102,17 +102,9 @@ public final class GetRemoteConanRepositoryPlainArgs extends com.pulumi.resource
         return Optional.ofNullable(this.excludesPattern);
     }
 
-    /**
-     * (Optional) Force basic authentication credentials in order to use this repository. Default value is `false`.
-     * 
-     */
     @Import(name="forceConanAuthentication")
     private @Nullable Boolean forceConanAuthentication;
 
-    /**
-     * @return (Optional) Force basic authentication credentials in order to use this repository. Default value is `false`.
-     * 
-     */
     public Optional<Boolean> forceConanAuthentication() {
         return Optional.ofNullable(this.forceConanAuthentication);
     }
@@ -131,17 +123,9 @@ public final class GetRemoteConanRepositoryPlainArgs extends com.pulumi.resource
         return Optional.ofNullable(this.includesPattern);
     }
 
-    /**
-     * the identity key of the repo.
-     * 
-     */
     @Import(name="key", required=true)
     private String key;
 
-    /**
-     * @return the identity key of the repo.
-     * 
-     */
     public String key() {
         return this.key;
     }
@@ -445,12 +429,6 @@ public final class GetRemoteConanRepositoryPlainArgs extends com.pulumi.resource
             return this;
         }
 
-        /**
-         * @param forceConanAuthentication (Optional) Force basic authentication credentials in order to use this repository. Default value is `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder forceConanAuthentication(@Nullable Boolean forceConanAuthentication) {
             $.forceConanAuthentication = forceConanAuthentication;
             return this;
@@ -466,12 +444,6 @@ public final class GetRemoteConanRepositoryPlainArgs extends com.pulumi.resource
             return this;
         }
 
-        /**
-         * @param key the identity key of the repo.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(String key) {
             $.key = key;
             return this;

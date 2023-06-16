@@ -10,31 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class FederatedDockerV2RepositoryMember {
-    /**
-     * @return Represents the active state of the federated member. It is supported to change the enabled
-     * status of my own member. The config will be updated on the other federated members automatically.
-     * 
-     */
     private Boolean enabled;
-    /**
-     * @return Full URL to ending with the repository name.
-     * 
-     */
     private String url;
 
     private FederatedDockerV2RepositoryMember() {}
-    /**
-     * @return Represents the active state of the federated member. It is supported to change the enabled
-     * status of my own member. The config will be updated on the other federated members automatically.
-     * 
-     */
     public Boolean enabled() {
         return this.enabled;
     }
-    /**
-     * @return Full URL to ending with the repository name.
-     * 
-     */
     public String url() {
         return this.url;
     }

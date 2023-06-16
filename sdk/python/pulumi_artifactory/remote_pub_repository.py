@@ -58,9 +58,9 @@ class RemotePubRepositoryArgs:
                  xray_index: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a RemotePubRepository resource.
-        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-               contain spaces or special characters.
-        :param pulumi.Input[str] url: The remote repository URL.
+        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+               characters. It cannot begin with a number or contain spaces or special characters.
+        :param pulumi.Input[str] url: The remote repo URL.
         :param pulumi.Input[bool] allow_any_host_auth: 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any
                other host.
         :param pulumi.Input[int] assumed_offline_period_secs: The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
@@ -211,8 +211,8 @@ class RemotePubRepositoryArgs:
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
         """
-        A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-        contain spaces or special characters.
+        A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+        characters. It cannot begin with a number or contain spaces or special characters.
         """
         return pulumi.get(self, "key")
 
@@ -224,7 +224,7 @@ class RemotePubRepositoryArgs:
     @pulumi.getter
     def url(self) -> pulumi.Input[str]:
         """
-        The remote repository URL.
+        The remote repo URL.
         """
         return pulumi.get(self, "url")
 
@@ -781,8 +781,8 @@ class _RemotePubRepositoryState:
                communicate with this repository.
         :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
                used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-               contain spaces or special characters.
+        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+               characters. It cannot begin with a number or contain spaces or special characters.
         :param pulumi.Input[bool] list_remote_folder_items: Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
                the 'Retrieval Cache Period'. Default value is 'true'.
         :param pulumi.Input[str] local_address: The local address to be used when creating connections. Useful for specifying the interface to use on systems with
@@ -821,7 +821,7 @@ class _RemotePubRepositoryState:
         :param pulumi.Input[bool] synchronize_properties: When set, remote artifacts are fetched along with their properties.
         :param pulumi.Input[int] unused_artifacts_cleanup_period_hours: Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed 'unused' and
                eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
-        :param pulumi.Input[str] url: The remote repository URL.
+        :param pulumi.Input[str] url: The remote repo URL.
         :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
                Xray settings.
         """
@@ -1090,8 +1090,8 @@ class _RemotePubRepositoryState:
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
         """
-        A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-        contain spaces or special characters.
+        A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+        characters. It cannot begin with a number or contain spaces or special characters.
         """
         return pulumi.get(self, "key")
 
@@ -1388,7 +1388,7 @@ class _RemotePubRepositoryState:
     @pulumi.getter
     def url(self) -> Optional[pulumi.Input[str]]:
         """
-        The remote repository URL.
+        The remote repo URL.
         """
         return pulumi.get(self, "url")
 
@@ -1466,28 +1466,7 @@ class RemotePubRepository(pulumi.CustomResource):
                  xray_index: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        Creates a remote Pub repository.
-        Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Pub+Repositories).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_artifactory as artifactory
-
-        my_remote_pub = artifactory.RemotePubRepository("my-remote-pub",
-            key="my-remote-pub",
-            url="https://pub.dartlang.org")
-        ```
-
-        ## Import
-
-        Remote repositories can be imported using their name, e.g.
-
-        ```sh
-         $ pulumi import artifactory:index/remotePubRepository:RemotePubRepository my-remote-pub my-remote-pub
-        ```
-
+        Create a RemotePubRepository resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_any_host_auth: 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any
@@ -1516,8 +1495,8 @@ class RemotePubRepository(pulumi.CustomResource):
                communicate with this repository.
         :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
                used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-               contain spaces or special characters.
+        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+               characters. It cannot begin with a number or contain spaces or special characters.
         :param pulumi.Input[bool] list_remote_folder_items: Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
                the 'Retrieval Cache Period'. Default value is 'true'.
         :param pulumi.Input[str] local_address: The local address to be used when creating connections. Useful for specifying the interface to use on systems with
@@ -1556,7 +1535,7 @@ class RemotePubRepository(pulumi.CustomResource):
         :param pulumi.Input[bool] synchronize_properties: When set, remote artifacts are fetched along with their properties.
         :param pulumi.Input[int] unused_artifacts_cleanup_period_hours: Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed 'unused' and
                eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
-        :param pulumi.Input[str] url: The remote repository URL.
+        :param pulumi.Input[str] url: The remote repo URL.
         :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
                Xray settings.
         """
@@ -1567,28 +1546,7 @@ class RemotePubRepository(pulumi.CustomResource):
                  args: RemotePubRepositoryArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Creates a remote Pub repository.
-        Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Pub+Repositories).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_artifactory as artifactory
-
-        my_remote_pub = artifactory.RemotePubRepository("my-remote-pub",
-            key="my-remote-pub",
-            url="https://pub.dartlang.org")
-        ```
-
-        ## Import
-
-        Remote repositories can be imported using their name, e.g.
-
-        ```sh
-         $ pulumi import artifactory:index/remotePubRepository:RemotePubRepository my-remote-pub my-remote-pub
-        ```
-
+        Create a RemotePubRepository resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param RemotePubRepositoryArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1784,8 +1742,8 @@ class RemotePubRepository(pulumi.CustomResource):
                communicate with this repository.
         :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
                used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-               contain spaces or special characters.
+        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+               characters. It cannot begin with a number or contain spaces or special characters.
         :param pulumi.Input[bool] list_remote_folder_items: Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
                the 'Retrieval Cache Period'. Default value is 'true'.
         :param pulumi.Input[str] local_address: The local address to be used when creating connections. Useful for specifying the interface to use on systems with
@@ -1824,7 +1782,7 @@ class RemotePubRepository(pulumi.CustomResource):
         :param pulumi.Input[bool] synchronize_properties: When set, remote artifacts are fetched along with their properties.
         :param pulumi.Input[int] unused_artifacts_cleanup_period_hours: Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed 'unused' and
                eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
-        :param pulumi.Input[str] url: The remote repository URL.
+        :param pulumi.Input[str] url: The remote repo URL.
         :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
                Xray settings.
         """
@@ -2001,8 +1959,8 @@ class RemotePubRepository(pulumi.CustomResource):
     @pulumi.getter
     def key(self) -> pulumi.Output[str]:
         """
-        A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-        contain spaces or special characters.
+        A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+        characters. It cannot begin with a number or contain spaces or special characters.
         """
         return pulumi.get(self, "key")
 
@@ -2203,7 +2161,7 @@ class RemotePubRepository(pulumi.CustomResource):
     @pulumi.getter
     def url(self) -> pulumi.Output[str]:
         """
-        The remote repository URL.
+        The remote repo URL.
         """
         return pulumi.get(self, "url")
 

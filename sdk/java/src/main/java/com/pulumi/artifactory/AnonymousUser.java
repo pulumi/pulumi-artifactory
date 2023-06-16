@@ -13,41 +13,6 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.artifactory.AnonymousUser;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var anonymous = new AnonymousUser(&#34;anonymous&#34;);
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * ```sh
- *  $ pulumi import artifactory:index/anonymousUser:AnonymousUser anonymous-user anonymous
- * ```
- * 
- */
 @ResourceType(type="artifactory:index/anonymousUser:AnonymousUser")
 public class AnonymousUser extends com.pulumi.resources.CustomResource {
     /**

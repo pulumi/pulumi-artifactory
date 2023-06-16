@@ -45,17 +45,9 @@ public final class GetVirtualNugetRepositoryArgs extends com.pulumi.resources.In
         return Optional.ofNullable(this.excludesPattern);
     }
 
-    /**
-     * (Optional) If set, user authentication is required when accessing the repository. An anonymous request will display an HTTP 401 error. This is also enforced when aggregated repositories support anonymous requests. Default is `false`.
-     * 
-     */
     @Import(name="forceNugetAuthentication")
     private @Nullable Output<Boolean> forceNugetAuthentication;
 
-    /**
-     * @return (Optional) If set, user authentication is required when accessing the repository. An anonymous request will display an HTTP 401 error. This is also enforced when aggregated repositories support anonymous requests. Default is `false`.
-     * 
-     */
     public Optional<Output<Boolean>> forceNugetAuthentication() {
         return Optional.ofNullable(this.forceNugetAuthentication);
     }
@@ -67,17 +59,9 @@ public final class GetVirtualNugetRepositoryArgs extends com.pulumi.resources.In
         return Optional.ofNullable(this.includesPattern);
     }
 
-    /**
-     * the identity key of the repo.
-     * 
-     */
     @Import(name="key", required=true)
     private Output<String> key;
 
-    /**
-     * @return the identity key of the repo.
-     * 
-     */
     public Output<String> key() {
         return this.key;
     }
@@ -188,23 +172,11 @@ public final class GetVirtualNugetRepositoryArgs extends com.pulumi.resources.In
             return excludesPattern(Output.of(excludesPattern));
         }
 
-        /**
-         * @param forceNugetAuthentication (Optional) If set, user authentication is required when accessing the repository. An anonymous request will display an HTTP 401 error. This is also enforced when aggregated repositories support anonymous requests. Default is `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder forceNugetAuthentication(@Nullable Output<Boolean> forceNugetAuthentication) {
             $.forceNugetAuthentication = forceNugetAuthentication;
             return this;
         }
 
-        /**
-         * @param forceNugetAuthentication (Optional) If set, user authentication is required when accessing the repository. An anonymous request will display an HTTP 401 error. This is also enforced when aggregated repositories support anonymous requests. Default is `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder forceNugetAuthentication(Boolean forceNugetAuthentication) {
             return forceNugetAuthentication(Output.of(forceNugetAuthentication));
         }
@@ -218,23 +190,11 @@ public final class GetVirtualNugetRepositoryArgs extends com.pulumi.resources.In
             return includesPattern(Output.of(includesPattern));
         }
 
-        /**
-         * @param key the identity key of the repo.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(Output<String> key) {
             $.key = key;
             return this;
         }
 
-        /**
-         * @param key the identity key of the repo.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(String key) {
             return key(Output.of(key));
         }

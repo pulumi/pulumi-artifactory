@@ -169,14 +169,16 @@ public final class FederatedNugetRepositoryState extends com.pulumi.resources.Re
     }
 
     /**
-     * the identity key of the repo.
+     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      * 
      */
     @Import(name="key")
     private @Nullable Output<String> key;
 
     /**
-     * @return the identity key of the repo.
+     * @return A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      * 
      */
     public Optional<Output<String>> key() {
@@ -201,9 +203,10 @@ public final class FederatedNugetRepositoryState extends com.pulumi.resources.Re
     }
 
     /**
-     * The list of Federated members and must contain this repository URL (configured base URL
-     * `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
-     * Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+     * The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
+     * will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
+     * federated members will need to have a base URL set. Please follow the
+     * [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
      * to set up Federated repositories correctly.
      * 
      */
@@ -211,9 +214,10 @@ public final class FederatedNugetRepositoryState extends com.pulumi.resources.Re
     private @Nullable Output<List<FederatedNugetRepositoryMemberArgs>> members;
 
     /**
-     * @return The list of Federated members and must contain this repository URL (configured base URL
-     * `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
-     * Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+     * @return The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
+     * will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
+     * federated members will need to have a base URL set. Please follow the
+     * [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
      * to set up Federated repositories correctly.
      * 
      */
@@ -590,7 +594,8 @@ public final class FederatedNugetRepositoryState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param key the identity key of the repo.
+         * @param key A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+         * characters. It cannot begin with a number or contain spaces or special characters.
          * 
          * @return builder
          * 
@@ -601,7 +606,8 @@ public final class FederatedNugetRepositoryState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param key the identity key of the repo.
+         * @param key A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+         * characters. It cannot begin with a number or contain spaces or special characters.
          * 
          * @return builder
          * 
@@ -634,9 +640,10 @@ public final class FederatedNugetRepositoryState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param members The list of Federated members and must contain this repository URL (configured base URL
-         * `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
-         * Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+         * @param members The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
+         * will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
+         * federated members will need to have a base URL set. Please follow the
+         * [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
          * to set up Federated repositories correctly.
          * 
          * @return builder
@@ -648,9 +655,10 @@ public final class FederatedNugetRepositoryState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param members The list of Federated members and must contain this repository URL (configured base URL
-         * `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
-         * Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+         * @param members The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
+         * will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
+         * federated members will need to have a base URL set. Please follow the
+         * [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
          * to set up Federated repositories correctly.
          * 
          * @return builder
@@ -661,9 +669,10 @@ public final class FederatedNugetRepositoryState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param members The list of Federated members and must contain this repository URL (configured base URL
-         * `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
-         * Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+         * @param members The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
+         * will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
+         * federated members will need to have a base URL set. Please follow the
+         * [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
          * to set up Federated repositories correctly.
          * 
          * @return builder

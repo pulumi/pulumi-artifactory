@@ -11,59 +11,9 @@ namespace Pulumi.Artifactory
 {
     public static class GetVirtualRpmRepository
     {
-        /// <summary>
-        /// Retrieves a virtual Rpm repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var virtual_rpm = Artifactory.GetVirtualRpmRepository.Invoke(new()
-        ///     {
-        ///         Key = "virtual-rpm",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetVirtualRpmRepositoryResult> InvokeAsync(GetVirtualRpmRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualRpmRepositoryResult>("artifactory:index/getVirtualRpmRepository:getVirtualRpmRepository", args ?? new GetVirtualRpmRepositoryArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Retrieves a virtual Rpm repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var virtual_rpm = Artifactory.GetVirtualRpmRepository.Invoke(new()
-        ///     {
-        ///         Key = "virtual-rpm",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Output<GetVirtualRpmRepositoryResult> Invoke(GetVirtualRpmRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualRpmRepositoryResult>("artifactory:index/getVirtualRpmRepository:getVirtualRpmRepository", args ?? new GetVirtualRpmRepositoryInvokeArgs(), options.WithDefaults());
     }
@@ -86,18 +36,12 @@ namespace Pulumi.Artifactory
         [Input("includesPattern")]
         public string? IncludesPattern { get; set; }
 
-        /// <summary>
-        /// the identity key of the repo.
-        /// </summary>
         [Input("key", required: true)]
         public string Key { get; set; } = null!;
 
         [Input("notes")]
         public string? Notes { get; set; }
 
-        /// <summary>
-        /// (Optional) The primary GPG key to be used to sign packages.
-        /// </summary>
         [Input("primaryKeypairRef")]
         public string? PrimaryKeypairRef { get; set; }
 
@@ -123,9 +67,6 @@ namespace Pulumi.Artifactory
             set => _repositories = value;
         }
 
-        /// <summary>
-        /// (Optional) The secondary GPG key to be used to sign packages.
-        /// </summary>
         [Input("secondaryKeypairRef")]
         public string? SecondaryKeypairRef { get; set; }
 
@@ -152,18 +93,12 @@ namespace Pulumi.Artifactory
         [Input("includesPattern")]
         public Input<string>? IncludesPattern { get; set; }
 
-        /// <summary>
-        /// the identity key of the repo.
-        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
         [Input("notes")]
         public Input<string>? Notes { get; set; }
 
-        /// <summary>
-        /// (Optional) The primary GPG key to be used to sign packages.
-        /// </summary>
         [Input("primaryKeypairRef")]
         public Input<string>? PrimaryKeypairRef { get; set; }
 
@@ -189,9 +124,6 @@ namespace Pulumi.Artifactory
             set => _repositories = value;
         }
 
-        /// <summary>
-        /// (Optional) The secondary GPG key to be used to sign packages.
-        /// </summary>
         [Input("secondaryKeypairRef")]
         public Input<string>? SecondaryKeypairRef { get; set; }
 
@@ -217,17 +149,11 @@ namespace Pulumi.Artifactory
         public readonly string Key;
         public readonly string? Notes;
         public readonly string PackageType;
-        /// <summary>
-        /// (Optional) The primary GPG key to be used to sign packages.
-        /// </summary>
         public readonly string? PrimaryKeypairRef;
         public readonly ImmutableArray<string> ProjectEnvironments;
         public readonly string? ProjectKey;
         public readonly string? RepoLayoutRef;
         public readonly ImmutableArray<string> Repositories;
-        /// <summary>
-        /// (Optional) The secondary GPG key to be used to sign packages.
-        /// </summary>
         public readonly string? SecondaryKeypairRef;
 
         [OutputConstructor]

@@ -1085,11 +1085,6 @@ export type PermissionTarget = import("./permissionTarget").PermissionTarget;
 export const PermissionTarget: typeof import("./permissionTarget").PermissionTarget = null as any;
 utilities.lazyLoad(exports, ["PermissionTarget"], () => require("./permissionTarget"));
 
-export { PermissionTargetsArgs, PermissionTargetsState } from "./permissionTargets";
-export type PermissionTargets = import("./permissionTargets").PermissionTargets;
-export const PermissionTargets: typeof import("./permissionTargets").PermissionTargets = null as any;
-utilities.lazyLoad(exports, ["PermissionTargets"], () => require("./permissionTargets"));
-
 export { PropertySetArgs, PropertySetState } from "./propertySet";
 export type PropertySet = import("./propertySet").PropertySet;
 export const PropertySet: typeof import("./propertySet").PropertySet = null as any;
@@ -1632,8 +1627,6 @@ const _module = {
                 return new OauthSettings(name, <any>undefined, { urn })
             case "artifactory:index/permissionTarget:PermissionTarget":
                 return new PermissionTarget(name, <any>undefined, { urn })
-            case "artifactory:index/permissionTargets:PermissionTargets":
-                return new PermissionTargets(name, <any>undefined, { urn })
             case "artifactory:index/propertySet:PropertySet":
                 return new PropertySet(name, <any>undefined, { urn })
             case "artifactory:index/proxy:Proxy":
@@ -1866,7 +1859,6 @@ pulumi.runtime.registerResourceModule("artifactory", "index/managedUser", _modul
 pulumi.runtime.registerResourceModule("artifactory", "index/mavenRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/oauthSettings", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/permissionTarget", _module)
-pulumi.runtime.registerResourceModule("artifactory", "index/permissionTargets", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/propertySet", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/proxy", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/pullReplication", _module)

@@ -19,8 +19,6 @@ class CertificateArgs:
                  file: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Certificate resource.
-        :param pulumi.Input[str] alias: Name of certificate.
-        :param pulumi.Input[str] content: PEM-encoded client certificate and private key.
         """
         pulumi.set(__self__, "alias", alias)
         if content is not None:
@@ -31,9 +29,6 @@ class CertificateArgs:
     @property
     @pulumi.getter
     def alias(self) -> pulumi.Input[str]:
-        """
-        Name of certificate.
-        """
         return pulumi.get(self, "alias")
 
     @alias.setter
@@ -43,9 +38,6 @@ class CertificateArgs:
     @property
     @pulumi.getter
     def content(self) -> Optional[pulumi.Input[str]]:
-        """
-        PEM-encoded client certificate and private key.
-        """
         return pulumi.get(self, "content")
 
     @content.setter
@@ -75,13 +67,6 @@ class _CertificateState:
                  valid_until: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Certificate resources.
-        :param pulumi.Input[str] alias: Name of certificate.
-        :param pulumi.Input[str] content: PEM-encoded client certificate and private key.
-        :param pulumi.Input[str] fingerprint: SHA256 fingerprint of the certificate.
-        :param pulumi.Input[str] issued_by: Name of the certificate authority that issued the certificate.
-        :param pulumi.Input[str] issued_on: The time & date when the certificate is valid from.
-        :param pulumi.Input[str] issued_to: Name of whom the certificate has been issued to.
-        :param pulumi.Input[str] valid_until: The time & date when the certificate expires.
         """
         if alias is not None:
             pulumi.set(__self__, "alias", alias)
@@ -103,9 +88,6 @@ class _CertificateState:
     @property
     @pulumi.getter
     def alias(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of certificate.
-        """
         return pulumi.get(self, "alias")
 
     @alias.setter
@@ -115,9 +97,6 @@ class _CertificateState:
     @property
     @pulumi.getter
     def content(self) -> Optional[pulumi.Input[str]]:
-        """
-        PEM-encoded client certificate and private key.
-        """
         return pulumi.get(self, "content")
 
     @content.setter
@@ -136,9 +115,6 @@ class _CertificateState:
     @property
     @pulumi.getter
     def fingerprint(self) -> Optional[pulumi.Input[str]]:
-        """
-        SHA256 fingerprint of the certificate.
-        """
         return pulumi.get(self, "fingerprint")
 
     @fingerprint.setter
@@ -148,9 +124,6 @@ class _CertificateState:
     @property
     @pulumi.getter(name="issuedBy")
     def issued_by(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the certificate authority that issued the certificate.
-        """
         return pulumi.get(self, "issued_by")
 
     @issued_by.setter
@@ -160,9 +133,6 @@ class _CertificateState:
     @property
     @pulumi.getter(name="issuedOn")
     def issued_on(self) -> Optional[pulumi.Input[str]]:
-        """
-        The time & date when the certificate is valid from.
-        """
         return pulumi.get(self, "issued_on")
 
     @issued_on.setter
@@ -172,9 +142,6 @@ class _CertificateState:
     @property
     @pulumi.getter(name="issuedTo")
     def issued_to(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of whom the certificate has been issued to.
-        """
         return pulumi.get(self, "issued_to")
 
     @issued_to.setter
@@ -184,9 +151,6 @@ class _CertificateState:
     @property
     @pulumi.getter(name="validUntil")
     def valid_until(self) -> Optional[pulumi.Input[str]]:
-        """
-        The time & date when the certificate expires.
-        """
         return pulumi.get(self, "valid_until")
 
     @valid_until.setter
@@ -204,34 +168,9 @@ class Certificate(pulumi.CustomResource):
                  file: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides an Artifactory certificate resource. This can be used to create and manage Artifactory certificates which can be used as client authentication against remote repositories.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_artifactory as artifactory
-
-        # Create a new Artifactory certificate called my-cert
-        my_cert = artifactory.Certificate("my-cert",
-            alias="my-cert",
-            content=(lambda path: open(path).read())("/path/to/bundle.pem"))
-        # This can then be used by a remote repository
-        my_remote = artifactory.RemoteMavenRepository("my-remote", client_tls_certificate=my_cert.alias)
-        ```
-
-        ## Import
-
-        Certificates can be imported using their alias, e.g.
-
-        ```sh
-         $ pulumi import artifactory:index/certificate:Certificate my-cert my-cert
-        ```
-
+        Create a Certificate resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] alias: Name of certificate.
-        :param pulumi.Input[str] content: PEM-encoded client certificate and private key.
         """
         ...
     @overload
@@ -240,30 +179,7 @@ class Certificate(pulumi.CustomResource):
                  args: CertificateArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an Artifactory certificate resource. This can be used to create and manage Artifactory certificates which can be used as client authentication against remote repositories.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_artifactory as artifactory
-
-        # Create a new Artifactory certificate called my-cert
-        my_cert = artifactory.Certificate("my-cert",
-            alias="my-cert",
-            content=(lambda path: open(path).read())("/path/to/bundle.pem"))
-        # This can then be used by a remote repository
-        my_remote = artifactory.RemoteMavenRepository("my-remote", client_tls_certificate=my_cert.alias)
-        ```
-
-        ## Import
-
-        Certificates can be imported using their alias, e.g.
-
-        ```sh
-         $ pulumi import artifactory:index/certificate:Certificate my-cert my-cert
-        ```
-
+        Create a Certificate resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param CertificateArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -328,13 +244,6 @@ class Certificate(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] alias: Name of certificate.
-        :param pulumi.Input[str] content: PEM-encoded client certificate and private key.
-        :param pulumi.Input[str] fingerprint: SHA256 fingerprint of the certificate.
-        :param pulumi.Input[str] issued_by: Name of the certificate authority that issued the certificate.
-        :param pulumi.Input[str] issued_on: The time & date when the certificate is valid from.
-        :param pulumi.Input[str] issued_to: Name of whom the certificate has been issued to.
-        :param pulumi.Input[str] valid_until: The time & date when the certificate expires.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -353,17 +262,11 @@ class Certificate(pulumi.CustomResource):
     @property
     @pulumi.getter
     def alias(self) -> pulumi.Output[str]:
-        """
-        Name of certificate.
-        """
         return pulumi.get(self, "alias")
 
     @property
     @pulumi.getter
     def content(self) -> pulumi.Output[Optional[str]]:
-        """
-        PEM-encoded client certificate and private key.
-        """
         return pulumi.get(self, "content")
 
     @property
@@ -374,40 +277,25 @@ class Certificate(pulumi.CustomResource):
     @property
     @pulumi.getter
     def fingerprint(self) -> pulumi.Output[str]:
-        """
-        SHA256 fingerprint of the certificate.
-        """
         return pulumi.get(self, "fingerprint")
 
     @property
     @pulumi.getter(name="issuedBy")
     def issued_by(self) -> pulumi.Output[str]:
-        """
-        Name of the certificate authority that issued the certificate.
-        """
         return pulumi.get(self, "issued_by")
 
     @property
     @pulumi.getter(name="issuedOn")
     def issued_on(self) -> pulumi.Output[str]:
-        """
-        The time & date when the certificate is valid from.
-        """
         return pulumi.get(self, "issued_on")
 
     @property
     @pulumi.getter(name="issuedTo")
     def issued_to(self) -> pulumi.Output[str]:
-        """
-        Name of whom the certificate has been issued to.
-        """
         return pulumi.get(self, "issued_to")
 
     @property
     @pulumi.getter(name="validUntil")
     def valid_until(self) -> pulumi.Output[str]:
-        """
-        The time & date when the certificate expires.
-        """
         return pulumi.get(self, "valid_until")
 

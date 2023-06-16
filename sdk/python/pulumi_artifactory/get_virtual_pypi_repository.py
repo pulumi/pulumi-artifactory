@@ -165,19 +165,7 @@ def get_virtual_pypi_repository(artifactory_requests_can_retrieve_remote_artifac
                                 repositories: Optional[Sequence[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualPypiRepositoryResult:
     """
-    Retrieves a virtual Pypi repository.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    virtual_pypi = artifactory.get_virtual_pypi_repository(key="virtual-pypi")
-    ```
-
-
-    :param str key: the identity key of the repo.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['artifactoryRequestsCanRetrieveRemoteArtifacts'] = artifactory_requests_can_retrieve_remote_artifacts
@@ -224,18 +212,6 @@ def get_virtual_pypi_repository_output(artifactory_requests_can_retrieve_remote_
                                        repositories: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualPypiRepositoryResult]:
     """
-    Retrieves a virtual Pypi repository.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    virtual_pypi = artifactory.get_virtual_pypi_repository(key="virtual-pypi")
-    ```
-
-
-    :param str key: the identity key of the repo.
+    Use this data source to access information about an existing resource.
     """
     ...

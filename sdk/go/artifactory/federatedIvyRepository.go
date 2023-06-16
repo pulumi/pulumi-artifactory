@@ -11,53 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Creates a federated Ivy repository.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.NewFederatedIvyRepository(ctx, "terraform-federated-test-ivy-repo", &artifactory.FederatedIvyRepositoryArgs{
-//				Key: pulumi.String("terraform-federated-test-ivy-repo"),
-//				Members: artifactory.FederatedIvyRepositoryMemberArray{
-//					&artifactory.FederatedIvyRepositoryMemberArgs{
-//						Enabled: pulumi.Bool(true),
-//						Url:     pulumi.String("http://tempurl.org/artifactory/terraform-federated-test-ivy-repo"),
-//					},
-//					&artifactory.FederatedIvyRepositoryMemberArgs{
-//						Enabled: pulumi.Bool(true),
-//						Url:     pulumi.String("http://tempurl2.org/artifactory/terraform-federated-test-ivy-repo-2"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Federated repositories can be imported using their name, e.g.
-//
-// ```sh
-//
-//	$ pulumi import artifactory:index/federatedIvyRepository:FederatedIvyRepository terraform-federated-test-ivy-repo terraform-federated-test-ivy-repo
-//
-// ```
 type FederatedIvyRepository struct {
 	pulumi.CustomResourceState
 
@@ -93,14 +46,16 @@ type FederatedIvyRepository struct {
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringOutput `pulumi:"includesPattern"`
-	// the identity key of the repo.
+	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+	// characters. It cannot begin with a number or contain spaces or special characters.
 	Key pulumi.StringOutput `pulumi:"key"`
 	// The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
 	// older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
 	MaxUniqueSnapshots pulumi.IntPtrOutput `pulumi:"maxUniqueSnapshots"`
-	// The list of Federated members and must contain this repository URL (configured base URL
-	// `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
-	// Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+	// The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
+	// will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
+	// federated members will need to have a base URL set. Please follow the
+	// [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
 	// to set up Federated repositories correctly.
 	Members FederatedIvyRepositoryMemberArrayOutput `pulumi:"members"`
 	// Internal description.
@@ -201,14 +156,16 @@ type federatedIvyRepositoryState struct {
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
-	// the identity key of the repo.
+	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+	// characters. It cannot begin with a number or contain spaces or special characters.
 	Key *string `pulumi:"key"`
 	// The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
 	// older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
 	MaxUniqueSnapshots *int `pulumi:"maxUniqueSnapshots"`
-	// The list of Federated members and must contain this repository URL (configured base URL
-	// `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
-	// Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+	// The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
+	// will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
+	// federated members will need to have a base URL set. Please follow the
+	// [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
 	// to set up Federated repositories correctly.
 	Members []FederatedIvyRepositoryMember `pulumi:"members"`
 	// Internal description.
@@ -275,14 +232,16 @@ type FederatedIvyRepositoryState struct {
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
-	// the identity key of the repo.
+	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+	// characters. It cannot begin with a number or contain spaces or special characters.
 	Key pulumi.StringPtrInput
 	// The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
 	// older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
 	MaxUniqueSnapshots pulumi.IntPtrInput
-	// The list of Federated members and must contain this repository URL (configured base URL
-	// `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
-	// Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+	// The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
+	// will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
+	// federated members will need to have a base URL set. Please follow the
+	// [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
 	// to set up Federated repositories correctly.
 	Members FederatedIvyRepositoryMemberArrayInput
 	// Internal description.
@@ -353,14 +312,16 @@ type federatedIvyRepositoryArgs struct {
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
-	// the identity key of the repo.
+	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+	// characters. It cannot begin with a number or contain spaces or special characters.
 	Key string `pulumi:"key"`
 	// The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
 	// older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
 	MaxUniqueSnapshots *int `pulumi:"maxUniqueSnapshots"`
-	// The list of Federated members and must contain this repository URL (configured base URL
-	// `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
-	// Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+	// The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
+	// will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
+	// federated members will need to have a base URL set. Please follow the
+	// [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
 	// to set up Federated repositories correctly.
 	Members []FederatedIvyRepositoryMember `pulumi:"members"`
 	// Internal description.
@@ -427,14 +388,16 @@ type FederatedIvyRepositoryArgs struct {
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
-	// the identity key of the repo.
+	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+	// characters. It cannot begin with a number or contain spaces or special characters.
 	Key pulumi.StringInput
 	// The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
 	// older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
 	MaxUniqueSnapshots pulumi.IntPtrInput
-	// The list of Federated members and must contain this repository URL (configured base URL
-	// `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
-	// Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+	// The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
+	// will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
+	// federated members will need to have a base URL set. Please follow the
+	// [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
 	// to set up Federated repositories correctly.
 	Members FederatedIvyRepositoryMemberArrayInput
 	// Internal description.
@@ -619,7 +582,8 @@ func (o FederatedIvyRepositoryOutput) IncludesPattern() pulumi.StringOutput {
 	return o.ApplyT(func(v *FederatedIvyRepository) pulumi.StringOutput { return v.IncludesPattern }).(pulumi.StringOutput)
 }
 
-// the identity key of the repo.
+// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+// characters. It cannot begin with a number or contain spaces or special characters.
 func (o FederatedIvyRepositoryOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v *FederatedIvyRepository) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
 }
@@ -630,9 +594,10 @@ func (o FederatedIvyRepositoryOutput) MaxUniqueSnapshots() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FederatedIvyRepository) pulumi.IntPtrOutput { return v.MaxUniqueSnapshots }).(pulumi.IntPtrOutput)
 }
 
-// The list of Federated members and must contain this repository URL (configured base URL
-// `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
-// Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+// The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
+// will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
+// federated members will need to have a base URL set. Please follow the
+// [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
 // to set up Federated repositories correctly.
 func (o FederatedIvyRepositoryOutput) Members() FederatedIvyRepositoryMemberArrayOutput {
 	return o.ApplyT(func(v *FederatedIvyRepository) FederatedIvyRepositoryMemberArrayOutput { return v.Members }).(FederatedIvyRepositoryMemberArrayOutput)

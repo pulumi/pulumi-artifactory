@@ -11,59 +11,9 @@ namespace Pulumi.Artifactory
 {
     public static class GetVirtualConanRepository
     {
-        /// <summary>
-        /// Retrieves a virtual Conan repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var virtual_conan = Artifactory.GetVirtualConanRepository.Invoke(new()
-        ///     {
-        ///         Key = "virtual-conan",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetVirtualConanRepositoryResult> InvokeAsync(GetVirtualConanRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualConanRepositoryResult>("artifactory:index/getVirtualConanRepository:getVirtualConanRepository", args ?? new GetVirtualConanRepositoryArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Retrieves a virtual Conan repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var virtual_conan = Artifactory.GetVirtualConanRepository.Invoke(new()
-        ///     {
-        ///         Key = "virtual-conan",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Output<GetVirtualConanRepositoryResult> Invoke(GetVirtualConanRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualConanRepositoryResult>("artifactory:index/getVirtualConanRepository:getVirtualConanRepository", args ?? new GetVirtualConanRepositoryInvokeArgs(), options.WithDefaults());
     }
@@ -86,9 +36,6 @@ namespace Pulumi.Artifactory
         [Input("includesPattern")]
         public string? IncludesPattern { get; set; }
 
-        /// <summary>
-        /// the identity key of the repo.
-        /// </summary>
         [Input("key", required: true)]
         public string Key { get; set; } = null!;
 
@@ -117,9 +64,6 @@ namespace Pulumi.Artifactory
             set => _repositories = value;
         }
 
-        /// <summary>
-        /// (Optional, Default: `7200`) This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
-        /// </summary>
         [Input("retrievalCachePeriodSeconds")]
         public int? RetrievalCachePeriodSeconds { get; set; }
 
@@ -146,9 +90,6 @@ namespace Pulumi.Artifactory
         [Input("includesPattern")]
         public Input<string>? IncludesPattern { get; set; }
 
-        /// <summary>
-        /// the identity key of the repo.
-        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
@@ -177,9 +118,6 @@ namespace Pulumi.Artifactory
             set => _repositories = value;
         }
 
-        /// <summary>
-        /// (Optional, Default: `7200`) This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
-        /// </summary>
         [Input("retrievalCachePeriodSeconds")]
         public Input<int>? RetrievalCachePeriodSeconds { get; set; }
 
@@ -209,9 +147,6 @@ namespace Pulumi.Artifactory
         public readonly string? ProjectKey;
         public readonly string? RepoLayoutRef;
         public readonly ImmutableArray<string> Repositories;
-        /// <summary>
-        /// (Optional, Default: `7200`) This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
-        /// </summary>
         public readonly int? RetrievalCachePeriodSeconds;
 
         [OutputConstructor]

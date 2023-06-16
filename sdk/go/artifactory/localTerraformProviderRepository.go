@@ -11,41 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.NewLocalTerraformProviderRepository(ctx, "terraform-local-test-terraform-provider-repo", &artifactory.LocalTerraformProviderRepositoryArgs{
-//				Key: pulumi.String("terraform-local-test-terraform-provider-repo"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Local repositories can be imported using their name, e.g.
-//
-// ```sh
-//
-//	$ pulumi import artifactory:index/localTerraformProviderRepository:LocalTerraformProviderRepository terraform-local-test-terraform-provider-repo terraform-local-test-terraform-provider-repo
-//
-// ```
 type LocalTerraformProviderRepository struct {
 	pulumi.CustomResourceState
 
@@ -69,7 +34,8 @@ type LocalTerraformProviderRepository struct {
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringOutput `pulumi:"includesPattern"`
-	// the identity key of the repo.
+	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+	// characters. It cannot begin with a number or contain spaces or special characters.
 	Key pulumi.StringOutput `pulumi:"key"`
 	// Internal description.
 	Notes       pulumi.StringPtrOutput `pulumi:"notes"`
@@ -145,7 +111,8 @@ type localTerraformProviderRepositoryState struct {
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
-	// the identity key of the repo.
+	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+	// characters. It cannot begin with a number or contain spaces or special characters.
 	Key *string `pulumi:"key"`
 	// Internal description.
 	Notes       *string `pulumi:"notes"`
@@ -190,7 +157,8 @@ type LocalTerraformProviderRepositoryState struct {
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
-	// the identity key of the repo.
+	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+	// characters. It cannot begin with a number or contain spaces or special characters.
 	Key pulumi.StringPtrInput
 	// Internal description.
 	Notes       pulumi.StringPtrInput
@@ -239,7 +207,8 @@ type localTerraformProviderRepositoryArgs struct {
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
-	// the identity key of the repo.
+	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+	// characters. It cannot begin with a number or contain spaces or special characters.
 	Key string `pulumi:"key"`
 	// Internal description.
 	Notes *string `pulumi:"notes"`
@@ -284,7 +253,8 @@ type LocalTerraformProviderRepositoryArgs struct {
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
-	// the identity key of the repo.
+	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+	// characters. It cannot begin with a number or contain spaces or special characters.
 	Key pulumi.StringInput
 	// Internal description.
 	Notes pulumi.StringPtrInput
@@ -435,7 +405,8 @@ func (o LocalTerraformProviderRepositoryOutput) IncludesPattern() pulumi.StringO
 	return o.ApplyT(func(v *LocalTerraformProviderRepository) pulumi.StringOutput { return v.IncludesPattern }).(pulumi.StringOutput)
 }
 
-// the identity key of the repo.
+// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+// characters. It cannot begin with a number or contain spaces or special characters.
 func (o LocalTerraformProviderRepositoryOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v *LocalTerraformProviderRepository) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
 }

@@ -15,10 +15,6 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetVirtualDebianRepositoryResult {
     private @Nullable Boolean artifactoryRequestsCanRetrieveRemoteArtifacts;
-    /**
-     * @return (Optional) Specifying  architectures will speed up Artifactory&#39;s initial metadata indexing process. The default architecture values are amd64 and i386.
-     * 
-     */
     private @Nullable String debianDefaultArchitectures;
     private @Nullable String defaultDeploymentRepo;
     private @Nullable String description;
@@ -31,40 +27,20 @@ public final class GetVirtualDebianRepositoryResult {
     private @Nullable String includesPattern;
     private String key;
     private @Nullable String notes;
-    /**
-     * @return (Optional) Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are `bz2`,`lzma` and `xz`. Default value is `bz2`.
-     * 
-     */
     private List<String> optionalIndexCompressionFormats;
     private String packageType;
-    /**
-     * @return (Optional) Primary keypair used to sign artifacts. Default is empty.
-     * 
-     */
     private @Nullable String primaryKeypairRef;
     private List<String> projectEnvironments;
     private @Nullable String projectKey;
     private @Nullable String repoLayoutRef;
     private @Nullable List<String> repositories;
-    /**
-     * @return (Optional, Default: `7200`) This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
-     * 
-     */
     private @Nullable Integer retrievalCachePeriodSeconds;
-    /**
-     * @return (Optional) Secondary keypair used to sign artifacts. Default is empty.
-     * 
-     */
     private @Nullable String secondaryKeypairRef;
 
     private GetVirtualDebianRepositoryResult() {}
     public Optional<Boolean> artifactoryRequestsCanRetrieveRemoteArtifacts() {
         return Optional.ofNullable(this.artifactoryRequestsCanRetrieveRemoteArtifacts);
     }
-    /**
-     * @return (Optional) Specifying  architectures will speed up Artifactory&#39;s initial metadata indexing process. The default architecture values are amd64 and i386.
-     * 
-     */
     public Optional<String> debianDefaultArchitectures() {
         return Optional.ofNullable(this.debianDefaultArchitectures);
     }
@@ -93,20 +69,12 @@ public final class GetVirtualDebianRepositoryResult {
     public Optional<String> notes() {
         return Optional.ofNullable(this.notes);
     }
-    /**
-     * @return (Optional) Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are `bz2`,`lzma` and `xz`. Default value is `bz2`.
-     * 
-     */
     public List<String> optionalIndexCompressionFormats() {
         return this.optionalIndexCompressionFormats;
     }
     public String packageType() {
         return this.packageType;
     }
-    /**
-     * @return (Optional) Primary keypair used to sign artifacts. Default is empty.
-     * 
-     */
     public Optional<String> primaryKeypairRef() {
         return Optional.ofNullable(this.primaryKeypairRef);
     }
@@ -122,17 +90,9 @@ public final class GetVirtualDebianRepositoryResult {
     public List<String> repositories() {
         return this.repositories == null ? List.of() : this.repositories;
     }
-    /**
-     * @return (Optional, Default: `7200`) This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
-     * 
-     */
     public Optional<Integer> retrievalCachePeriodSeconds() {
         return Optional.ofNullable(this.retrievalCachePeriodSeconds);
     }
-    /**
-     * @return (Optional) Secondary keypair used to sign artifacts. Default is empty.
-     * 
-     */
     public Optional<String> secondaryKeypairRef() {
         return Optional.ofNullable(this.secondaryKeypairRef);
     }

@@ -16,61 +16,6 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an Artifactory user resource. This can be used to create and manage Artifactory users.
- * The password is a required field by the [Artifactory API](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-CreateorReplaceUser), but we made it optional in this resource to accommodate the scenario where the password is not needed and will be reset by the actual user later.\
- * When the optional attribute `password` is omitted, a random password is generated according to current Artifactory password policy.
- * 
- * &gt; The generated password won&#39;t be stored in the TF state and can not be recovered. The user must reset the password to be able to log in. An admin can always generate the access key for the user as well. The password change won&#39;t trigger state drift. We don&#39;t recommend to use this resource unless there is a specific use case for it. Recommended resource is `artifactory.ManagedUser`.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.artifactory.User;
- * import com.pulumi.artifactory.UserArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var test_user = new User(&#34;test-user&#34;, UserArgs.builder()        
- *             .admin(false)
- *             .disableUiAccess(false)
- *             .email(&#34;test-user@artifactory-terraform.com&#34;)
- *             .groups(            
- *                 &#34;readers&#34;,
- *                 &#34;logged-in-users&#34;)
- *             .internalPasswordDisabled(false)
- *             .password(&#34;my super secret password&#34;)
- *             .profileUpdatable(true)
- *             .build());
- * 
- *     }
- * }
- * ```
- * ## Managing groups relationship
- * 
- * See our recommendation on how to manage user-group relationship.
- * 
- * ## Import
- * 
- * ```sh
- *  $ pulumi import artifactory:index/user:User test-user myusername
- * ```
- * 
- */
 @ResourceType(type="artifactory:index/user:User")
 public class User extends com.pulumi.resources.CustomResource {
     /**
@@ -88,14 +33,16 @@ public class User extends com.pulumi.resources.CustomResource {
         return this.admin;
     }
     /**
-     * (Optional, Default: true) When enabled, this user can only access the system through the REST API. This option cannot be set if the user has Admin privileges.
+     * (Optional, Default: true) When enabled, this user can only access the system through the REST API. This option cannot be
+     * set if the user has Admin privileges.
      * 
      */
     @Export(name="disableUiAccess", type=Boolean.class, parameters={})
     private Output<Boolean> disableUiAccess;
 
     /**
-     * @return (Optional, Default: true) When enabled, this user can only access the system through the REST API. This option cannot be set if the user has Admin privileges.
+     * @return (Optional, Default: true) When enabled, this user can only access the system through the REST API. This option cannot be
+     * set if the user has Admin privileges.
      * 
      */
     public Output<Boolean> disableUiAccess() {
@@ -116,28 +63,32 @@ public class User extends com.pulumi.resources.CustomResource {
         return this.email;
     }
     /**
-     * List of groups this user is a part of. If no groups set, `readers` group will be added by default. If other groups are assigned, `readers` must be added to the list manually to avoid state drift.
+     * List of groups this user is a part of. If no groups set, `readers` group will be added by default. If other groups are
+     * assigned, `readers` must be added to the list manually to avoid state drift.
      * 
      */
     @Export(name="groups", type=List.class, parameters={String.class})
     private Output<List<String>> groups;
 
     /**
-     * @return List of groups this user is a part of. If no groups set, `readers` group will be added by default. If other groups are assigned, `readers` must be added to the list manually to avoid state drift.
+     * @return List of groups this user is a part of. If no groups set, `readers` group will be added by default. If other groups are
+     * assigned, `readers` must be added to the list manually to avoid state drift.
      * 
      */
     public Output<List<String>> groups() {
         return this.groups;
     }
     /**
-     * (Optional, Default: false) When enabled, disables the fallback mechanism for using an internal password when external authentication (such as LDAP) is enabled.
+     * (Optional, Default: false) When enabled, disables the fallback mechanism for using an internal password when external
+     * authentication (such as LDAP) is enabled.
      * 
      */
     @Export(name="internalPasswordDisabled", type=Boolean.class, parameters={})
     private Output<Boolean> internalPasswordDisabled;
 
     /**
-     * @return (Optional, Default: false) When enabled, disables the fallback mechanism for using an internal password when external authentication (such as LDAP) is enabled.
+     * @return (Optional, Default: false) When enabled, disables the fallback mechanism for using an internal password when external
+     * authentication (such as LDAP) is enabled.
      * 
      */
     public Output<Boolean> internalPasswordDisabled() {
@@ -158,28 +109,34 @@ public class User extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * (Optional, Sensitive) Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters
+     * (Optional, Sensitive) Password for the user. When omitted, a random password is generated using the following password
+     * policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters
      * 
      */
     @Export(name="password", type=String.class, parameters={})
     private Output</* @Nullable */ String> password;
 
     /**
-     * @return (Optional, Sensitive) Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters
+     * @return (Optional, Sensitive) Password for the user. When omitted, a random password is generated using the following password
+     * policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters
      * 
      */
     public Output<Optional<String>> password() {
         return Codegen.optional(this.password);
     }
     /**
-     * (Optional, Default: true) When enabled, this user can update their profile details (except for the password. Only an administrator can update the password). There may be cases in which you want to leave this unset to prevent users from updating their profile. For example, a departmental user with a single password shared between all department members.
+     * (Optional, Default: true) When enabled, this user can update their profile details (except for the password. Only an
+     * administrator can update the password). There may be cases in which you want to leave this unset to prevent users from
+     * updating their profile. For example, a departmental user with a single password shared between all department members.
      * 
      */
     @Export(name="profileUpdatable", type=Boolean.class, parameters={})
     private Output<Boolean> profileUpdatable;
 
     /**
-     * @return (Optional, Default: true) When enabled, this user can update their profile details (except for the password. Only an administrator can update the password). There may be cases in which you want to leave this unset to prevent users from updating their profile. For example, a departmental user with a single password shared between all department members.
+     * @return (Optional, Default: true) When enabled, this user can update their profile details (except for the password. Only an
+     * administrator can update the password). There may be cases in which you want to leave this unset to prevent users from
+     * updating their profile. For example, a departmental user with a single password shared between all department members.
      * 
      */
     public Output<Boolean> profileUpdatable() {

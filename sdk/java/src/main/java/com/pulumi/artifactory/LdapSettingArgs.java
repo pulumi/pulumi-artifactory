@@ -17,14 +17,16 @@ public final class LdapSettingArgs extends com.pulumi.resources.ResourceArgs {
     public static final LdapSettingArgs Empty = new LdapSettingArgs();
 
     /**
-     * When set, users created after logging in using LDAP will be able to access their profile page.  Default value is `false`.
+     * Auto created users will have access to their profile page and will be able to perform actions such as generating an API
+     * key. Default value is &#34;false&#34;.
      * 
      */
     @Import(name="allowUserToAccessProfile")
     private @Nullable Output<Boolean> allowUserToAccessProfile;
 
     /**
-     * @return When set, users created after logging in using LDAP will be able to access their profile page.  Default value is `false`.
+     * @return Auto created users will have access to their profile page and will be able to perform actions such as generating an API
+     * key. Default value is &#34;false&#34;.
      * 
      */
     public Optional<Output<Boolean>> allowUserToAccessProfile() {
@@ -32,14 +34,16 @@ public final class LdapSettingArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * When set, the system will automatically create new users for those who have logged in using LDAP, and assign them to the default groups.  Default value is `true`.
+     * When set, users are automatically created when using LDAP. Otherwise, users are transient and associated with auto-join
+     * groups defined in Artifactory. Default value is &#34;true&#34;.
      * 
      */
     @Import(name="autoCreateUser")
     private @Nullable Output<Boolean> autoCreateUser;
 
     /**
-     * @return When set, the system will automatically create new users for those who have logged in using LDAP, and assign them to the default groups.  Default value is `true`.
+     * @return When set, users are automatically created when using LDAP. Otherwise, users are transient and associated with auto-join
+     * groups defined in Artifactory. Default value is &#34;true&#34;.
      * 
      */
     public Optional<Output<Boolean>> autoCreateUser() {
@@ -47,16 +51,16 @@ public final class LdapSettingArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * An attribute that can be used to map a user&#39;s email address to a user created automatically in Artifactory. Default value is `mail`.
-     * - Note: If blank/empty string input was set for email_attribute, Default value `mail` takes effect. This is to match with Artifactory behavior.
+     * An attribute that can be used to map a user&#39;s email address to a user created automatically in Artifactory. Default
+     * value is &#34;mail&#34;.
      * 
      */
     @Import(name="emailAttribute")
     private @Nullable Output<String> emailAttribute;
 
     /**
-     * @return An attribute that can be used to map a user&#39;s email address to a user created automatically in Artifactory. Default value is `mail`.
-     * - Note: If blank/empty string input was set for email_attribute, Default value `mail` takes effect. This is to match with Artifactory behavior.
+     * @return An attribute that can be used to map a user&#39;s email address to a user created automatically in Artifactory. Default
+     * value is &#34;mail&#34;.
      * 
      */
     public Optional<Output<String>> emailAttribute() {
@@ -64,14 +68,14 @@ public final class LdapSettingArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * When set, these settings are enabled. Default value is `true`.
+     * Flag to enable or disable the ldap setting. Default value is &#34;true&#34;.
      * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return When set, these settings are enabled. Default value is `true`.
+     * @return Flag to enable or disable the ldap setting. Default value is &#34;true&#34;.
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -79,14 +83,14 @@ public final class LdapSettingArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The unique ID of the LDAP setting.
+     * Ldap setting name.
      * 
      */
     @Import(name="key", required=true)
     private Output<String> key;
 
     /**
-     * @return The unique ID of the LDAP setting.
+     * @return Ldap setting name.
      * 
      */
     public Output<String> key() {
@@ -94,14 +98,14 @@ public final class LdapSettingArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Protects against LDAP poisoning by filtering out users exposed to vulnerabilities.  Default value is `true`.
+     * Protects against LDAP poisoning by filtering out users exposed to vulnerabilities. Default value is &#34;true&#34;.
      * 
      */
     @Import(name="ldapPoisoningProtection")
     private @Nullable Output<Boolean> ldapPoisoningProtection;
 
     /**
-     * @return Protects against LDAP poisoning by filtering out users exposed to vulnerabilities.  Default value is `true`.
+     * @return Protects against LDAP poisoning by filtering out users exposed to vulnerabilities. Default value is &#34;true&#34;.
      * 
      */
     public Optional<Output<Boolean>> ldapPoisoningProtection() {
@@ -109,14 +113,14 @@ public final class LdapSettingArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Location of the LDAP server in the following format: ldap://myserver:myport/dc=sampledomain,dc=com. The URL should include the base DN used to search for and/or authenticate users.
+     * Location of the LDAP server in the following format: ldap://myldapserver/dc=sampledomain,dc=com
      * 
      */
     @Import(name="ldapUrl", required=true)
     private Output<String> ldapUrl;
 
     /**
-     * @return Location of the LDAP server in the following format: ldap://myserver:myport/dc=sampledomain,dc=com. The URL should include the base DN used to search for and/or authenticate users.
+     * @return Location of the LDAP server in the following format: ldap://myldapserver/dc=sampledomain,dc=com
      * 
      */
     public Output<String> ldapUrl() {
@@ -124,14 +128,14 @@ public final class LdapSettingArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The full DN of a user with permissions that allow querying the LDAP server. When working with LDAP Groups, the user should have permissions for any extra group attributes such as memberOf.
+     * The full DN of the user that binds to the LDAP server to perform user searches. Only used with &#34;search&#34; authentication.
      * 
      */
     @Import(name="managerDn")
     private @Nullable Output<String> managerDn;
 
     /**
-     * @return The full DN of a user with permissions that allow querying the LDAP server. When working with LDAP Groups, the user should have permissions for any extra group attributes such as memberOf.
+     * @return The full DN of the user that binds to the LDAP server to perform user searches. Only used with &#34;search&#34; authentication.
      * 
      */
     public Optional<Output<String>> managerDn() {
@@ -139,14 +143,14 @@ public final class LdapSettingArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The password of the user binding to the LDAP server when using &#34;search&#34; authentication.
+     * The password of the user that binds to the LDAP server to perform the search. Only used with &#34;search&#34; authentication.
      * 
      */
     @Import(name="managerPassword")
     private @Nullable Output<String> managerPassword;
 
     /**
-     * @return The password of the user binding to the LDAP server when using &#34;search&#34; authentication.
+     * @return The password of the user that binds to the LDAP server to perform the search. Only used with &#34;search&#34; authentication.
      * 
      */
     public Optional<Output<String>> managerPassword() {
@@ -154,14 +158,16 @@ public final class LdapSettingArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * When set, supports paging results for the LDAP server. This feature requires that the LDAP Server supports a PagedResultsControl configuration.  Default value is `true`.
+     * When set, supports paging results for the LDAP server. This feature requires that the LDAP server supports a
+     * PagedResultsControl configuration. Default value is &#34;true&#34;.
      * 
      */
     @Import(name="pagingSupportEnabled")
     private @Nullable Output<Boolean> pagingSupportEnabled;
 
     /**
-     * @return When set, supports paging results for the LDAP server. This feature requires that the LDAP Server supports a PagedResultsControl configuration.  Default value is `true`.
+     * @return When set, supports paging results for the LDAP server. This feature requires that the LDAP server supports a
+     * PagedResultsControl configuration. Default value is &#34;true&#34;.
      * 
      */
     public Optional<Output<Boolean>> pagingSupportEnabled() {
@@ -169,14 +175,16 @@ public final class LdapSettingArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Context name in which to search relative to the base DN in the LDAP URL. Multiple search bases may be specified separated by a pipe ( | ).
+     * A context name to search in relative to the base DN of the LDAP URL. For example, &#39;ou=users&#39; With the LDAP Group Add-on
+     * enabled, it is possible to enter multiple search base entries separated by a pipe (&#39;|&#39;) character.
      * 
      */
     @Import(name="searchBase")
     private @Nullable Output<String> searchBase;
 
     /**
-     * @return The Context name in which to search relative to the base DN in the LDAP URL. Multiple search bases may be specified separated by a pipe ( | ).
+     * @return A context name to search in relative to the base DN of the LDAP URL. For example, &#39;ou=users&#39; With the LDAP Group Add-on
+     * enabled, it is possible to enter multiple search base entries separated by a pipe (&#39;|&#39;) character.
      * 
      */
     public Optional<Output<String>> searchBase() {
@@ -184,16 +192,20 @@ public final class LdapSettingArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A filter expression used to search for the user DN that is used in LDAP authentication. This is an LDAP search filter (as defined in &#39;RFC 2254&#39;) with optional arguments. In this case, the username is the only argument, denoted by &#39;{0}&#39;. Possible examples are: uid={0}) - this would search for a username match on the uid attribute. Authentication using LDAP is performed from the DN found if successful. Default value is blank/empty.
-     * - Note: LDAP settings should provide a userDnPattern or a searchFilter (or both)
+     * A filter expression used to search for the user DN used in LDAP authentication. This is an LDAP search filter (as
+     * defined in &#39;RFC 2254&#39;) with optional arguments. In this case, the username is the only argument, and is denoted by
+     * &#39;{0}&#39;. Possible examples are: (uid={0}) - This searches for a username match on the attribute. Authentication to LDAP is
+     * performed from the DN found if successful.
      * 
      */
     @Import(name="searchFilter")
     private @Nullable Output<String> searchFilter;
 
     /**
-     * @return A filter expression used to search for the user DN that is used in LDAP authentication. This is an LDAP search filter (as defined in &#39;RFC 2254&#39;) with optional arguments. In this case, the username is the only argument, denoted by &#39;{0}&#39;. Possible examples are: uid={0}) - this would search for a username match on the uid attribute. Authentication using LDAP is performed from the DN found if successful. Default value is blank/empty.
-     * - Note: LDAP settings should provide a userDnPattern or a searchFilter (or both)
+     * @return A filter expression used to search for the user DN used in LDAP authentication. This is an LDAP search filter (as
+     * defined in &#39;RFC 2254&#39;) with optional arguments. In this case, the username is the only argument, and is denoted by
+     * &#39;{0}&#39;. Possible examples are: (uid={0}) - This searches for a username match on the attribute. Authentication to LDAP is
+     * performed from the DN found if successful.
      * 
      */
     public Optional<Output<String>> searchFilter() {
@@ -201,14 +213,14 @@ public final class LdapSettingArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * When set, enables deep search through the sub-tree of the LDAP URL + Search Base.  Default value is `true`.
+     * When set, enables deep search through the sub tree of the LDAP URL + search base. Default value is &#34;true&#34;.
      * 
      */
     @Import(name="searchSubTree")
     private @Nullable Output<Boolean> searchSubTree;
 
     /**
-     * @return When set, enables deep search through the sub-tree of the LDAP URL + Search Base.  Default value is `true`.
+     * @return When set, enables deep search through the sub tree of the LDAP URL + search base. Default value is &#34;true&#34;.
      * 
      */
     public Optional<Output<Boolean>> searchSubTree() {
@@ -216,16 +228,22 @@ public final class LdapSettingArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A DN pattern used to log users directly in to the LDAP database. This pattern is used to create a DN string for &#34;direct&#34; user authentication, and is relative to the base DN in the LDAP URL. The pattern argument {0} is replaced with the username at runtime. This only works if anonymous binding is allowed and a direct user DN can be used (which is not the default case for Active Directory). For example: uid={0},ou=People. Default value is blank/empty.
-     * - Note: LDAP settings should provide a userDnPattern or a searchFilter (or both).
+     * A DN pattern that can be used to log users directly in to LDAP. This pattern is used to create a DN string for &#39;direct&#39;
+     * user authentication where the pattern is relative to the base DN in the LDAP URL. The pattern argument {0} is replaced
+     * with the username. This only works if anonymous binding is allowed and a direct user DN can be used, which is not the
+     * default case for Active Directory (use User DN search filter instead). Example: uid={0},ou=People. Default value is
+     * blank/empty.
      * 
      */
     @Import(name="userDnPattern")
     private @Nullable Output<String> userDnPattern;
 
     /**
-     * @return A DN pattern used to log users directly in to the LDAP database. This pattern is used to create a DN string for &#34;direct&#34; user authentication, and is relative to the base DN in the LDAP URL. The pattern argument {0} is replaced with the username at runtime. This only works if anonymous binding is allowed and a direct user DN can be used (which is not the default case for Active Directory). For example: uid={0},ou=People. Default value is blank/empty.
-     * - Note: LDAP settings should provide a userDnPattern or a searchFilter (or both).
+     * @return A DN pattern that can be used to log users directly in to LDAP. This pattern is used to create a DN string for &#39;direct&#39;
+     * user authentication where the pattern is relative to the base DN in the LDAP URL. The pattern argument {0} is replaced
+     * with the username. This only works if anonymous binding is allowed and a direct user DN can be used, which is not the
+     * default case for Active Directory (use User DN search filter instead). Example: uid={0},ou=People. Default value is
+     * blank/empty.
      * 
      */
     public Optional<Output<String>> userDnPattern() {
@@ -270,7 +288,8 @@ public final class LdapSettingArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param allowUserToAccessProfile When set, users created after logging in using LDAP will be able to access their profile page.  Default value is `false`.
+         * @param allowUserToAccessProfile Auto created users will have access to their profile page and will be able to perform actions such as generating an API
+         * key. Default value is &#34;false&#34;.
          * 
          * @return builder
          * 
@@ -281,7 +300,8 @@ public final class LdapSettingArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param allowUserToAccessProfile When set, users created after logging in using LDAP will be able to access their profile page.  Default value is `false`.
+         * @param allowUserToAccessProfile Auto created users will have access to their profile page and will be able to perform actions such as generating an API
+         * key. Default value is &#34;false&#34;.
          * 
          * @return builder
          * 
@@ -291,7 +311,8 @@ public final class LdapSettingArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoCreateUser When set, the system will automatically create new users for those who have logged in using LDAP, and assign them to the default groups.  Default value is `true`.
+         * @param autoCreateUser When set, users are automatically created when using LDAP. Otherwise, users are transient and associated with auto-join
+         * groups defined in Artifactory. Default value is &#34;true&#34;.
          * 
          * @return builder
          * 
@@ -302,7 +323,8 @@ public final class LdapSettingArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoCreateUser When set, the system will automatically create new users for those who have logged in using LDAP, and assign them to the default groups.  Default value is `true`.
+         * @param autoCreateUser When set, users are automatically created when using LDAP. Otherwise, users are transient and associated with auto-join
+         * groups defined in Artifactory. Default value is &#34;true&#34;.
          * 
          * @return builder
          * 
@@ -312,8 +334,8 @@ public final class LdapSettingArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param emailAttribute An attribute that can be used to map a user&#39;s email address to a user created automatically in Artifactory. Default value is `mail`.
-         * - Note: If blank/empty string input was set for email_attribute, Default value `mail` takes effect. This is to match with Artifactory behavior.
+         * @param emailAttribute An attribute that can be used to map a user&#39;s email address to a user created automatically in Artifactory. Default
+         * value is &#34;mail&#34;.
          * 
          * @return builder
          * 
@@ -324,8 +346,8 @@ public final class LdapSettingArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param emailAttribute An attribute that can be used to map a user&#39;s email address to a user created automatically in Artifactory. Default value is `mail`.
-         * - Note: If blank/empty string input was set for email_attribute, Default value `mail` takes effect. This is to match with Artifactory behavior.
+         * @param emailAttribute An attribute that can be used to map a user&#39;s email address to a user created automatically in Artifactory. Default
+         * value is &#34;mail&#34;.
          * 
          * @return builder
          * 
@@ -335,7 +357,7 @@ public final class LdapSettingArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enabled When set, these settings are enabled. Default value is `true`.
+         * @param enabled Flag to enable or disable the ldap setting. Default value is &#34;true&#34;.
          * 
          * @return builder
          * 
@@ -346,7 +368,7 @@ public final class LdapSettingArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enabled When set, these settings are enabled. Default value is `true`.
+         * @param enabled Flag to enable or disable the ldap setting. Default value is &#34;true&#34;.
          * 
          * @return builder
          * 
@@ -356,7 +378,7 @@ public final class LdapSettingArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param key The unique ID of the LDAP setting.
+         * @param key Ldap setting name.
          * 
          * @return builder
          * 
@@ -367,7 +389,7 @@ public final class LdapSettingArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param key The unique ID of the LDAP setting.
+         * @param key Ldap setting name.
          * 
          * @return builder
          * 
@@ -377,7 +399,7 @@ public final class LdapSettingArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ldapPoisoningProtection Protects against LDAP poisoning by filtering out users exposed to vulnerabilities.  Default value is `true`.
+         * @param ldapPoisoningProtection Protects against LDAP poisoning by filtering out users exposed to vulnerabilities. Default value is &#34;true&#34;.
          * 
          * @return builder
          * 
@@ -388,7 +410,7 @@ public final class LdapSettingArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ldapPoisoningProtection Protects against LDAP poisoning by filtering out users exposed to vulnerabilities.  Default value is `true`.
+         * @param ldapPoisoningProtection Protects against LDAP poisoning by filtering out users exposed to vulnerabilities. Default value is &#34;true&#34;.
          * 
          * @return builder
          * 
@@ -398,7 +420,7 @@ public final class LdapSettingArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ldapUrl Location of the LDAP server in the following format: ldap://myserver:myport/dc=sampledomain,dc=com. The URL should include the base DN used to search for and/or authenticate users.
+         * @param ldapUrl Location of the LDAP server in the following format: ldap://myldapserver/dc=sampledomain,dc=com
          * 
          * @return builder
          * 
@@ -409,7 +431,7 @@ public final class LdapSettingArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ldapUrl Location of the LDAP server in the following format: ldap://myserver:myport/dc=sampledomain,dc=com. The URL should include the base DN used to search for and/or authenticate users.
+         * @param ldapUrl Location of the LDAP server in the following format: ldap://myldapserver/dc=sampledomain,dc=com
          * 
          * @return builder
          * 
@@ -419,7 +441,7 @@ public final class LdapSettingArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param managerDn The full DN of a user with permissions that allow querying the LDAP server. When working with LDAP Groups, the user should have permissions for any extra group attributes such as memberOf.
+         * @param managerDn The full DN of the user that binds to the LDAP server to perform user searches. Only used with &#34;search&#34; authentication.
          * 
          * @return builder
          * 
@@ -430,7 +452,7 @@ public final class LdapSettingArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param managerDn The full DN of a user with permissions that allow querying the LDAP server. When working with LDAP Groups, the user should have permissions for any extra group attributes such as memberOf.
+         * @param managerDn The full DN of the user that binds to the LDAP server to perform user searches. Only used with &#34;search&#34; authentication.
          * 
          * @return builder
          * 
@@ -440,7 +462,7 @@ public final class LdapSettingArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param managerPassword The password of the user binding to the LDAP server when using &#34;search&#34; authentication.
+         * @param managerPassword The password of the user that binds to the LDAP server to perform the search. Only used with &#34;search&#34; authentication.
          * 
          * @return builder
          * 
@@ -451,7 +473,7 @@ public final class LdapSettingArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param managerPassword The password of the user binding to the LDAP server when using &#34;search&#34; authentication.
+         * @param managerPassword The password of the user that binds to the LDAP server to perform the search. Only used with &#34;search&#34; authentication.
          * 
          * @return builder
          * 
@@ -461,7 +483,8 @@ public final class LdapSettingArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param pagingSupportEnabled When set, supports paging results for the LDAP server. This feature requires that the LDAP Server supports a PagedResultsControl configuration.  Default value is `true`.
+         * @param pagingSupportEnabled When set, supports paging results for the LDAP server. This feature requires that the LDAP server supports a
+         * PagedResultsControl configuration. Default value is &#34;true&#34;.
          * 
          * @return builder
          * 
@@ -472,7 +495,8 @@ public final class LdapSettingArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param pagingSupportEnabled When set, supports paging results for the LDAP server. This feature requires that the LDAP Server supports a PagedResultsControl configuration.  Default value is `true`.
+         * @param pagingSupportEnabled When set, supports paging results for the LDAP server. This feature requires that the LDAP server supports a
+         * PagedResultsControl configuration. Default value is &#34;true&#34;.
          * 
          * @return builder
          * 
@@ -482,7 +506,8 @@ public final class LdapSettingArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param searchBase The Context name in which to search relative to the base DN in the LDAP URL. Multiple search bases may be specified separated by a pipe ( | ).
+         * @param searchBase A context name to search in relative to the base DN of the LDAP URL. For example, &#39;ou=users&#39; With the LDAP Group Add-on
+         * enabled, it is possible to enter multiple search base entries separated by a pipe (&#39;|&#39;) character.
          * 
          * @return builder
          * 
@@ -493,7 +518,8 @@ public final class LdapSettingArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param searchBase The Context name in which to search relative to the base DN in the LDAP URL. Multiple search bases may be specified separated by a pipe ( | ).
+         * @param searchBase A context name to search in relative to the base DN of the LDAP URL. For example, &#39;ou=users&#39; With the LDAP Group Add-on
+         * enabled, it is possible to enter multiple search base entries separated by a pipe (&#39;|&#39;) character.
          * 
          * @return builder
          * 
@@ -503,8 +529,10 @@ public final class LdapSettingArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param searchFilter A filter expression used to search for the user DN that is used in LDAP authentication. This is an LDAP search filter (as defined in &#39;RFC 2254&#39;) with optional arguments. In this case, the username is the only argument, denoted by &#39;{0}&#39;. Possible examples are: uid={0}) - this would search for a username match on the uid attribute. Authentication using LDAP is performed from the DN found if successful. Default value is blank/empty.
-         * - Note: LDAP settings should provide a userDnPattern or a searchFilter (or both)
+         * @param searchFilter A filter expression used to search for the user DN used in LDAP authentication. This is an LDAP search filter (as
+         * defined in &#39;RFC 2254&#39;) with optional arguments. In this case, the username is the only argument, and is denoted by
+         * &#39;{0}&#39;. Possible examples are: (uid={0}) - This searches for a username match on the attribute. Authentication to LDAP is
+         * performed from the DN found if successful.
          * 
          * @return builder
          * 
@@ -515,8 +543,10 @@ public final class LdapSettingArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param searchFilter A filter expression used to search for the user DN that is used in LDAP authentication. This is an LDAP search filter (as defined in &#39;RFC 2254&#39;) with optional arguments. In this case, the username is the only argument, denoted by &#39;{0}&#39;. Possible examples are: uid={0}) - this would search for a username match on the uid attribute. Authentication using LDAP is performed from the DN found if successful. Default value is blank/empty.
-         * - Note: LDAP settings should provide a userDnPattern or a searchFilter (or both)
+         * @param searchFilter A filter expression used to search for the user DN used in LDAP authentication. This is an LDAP search filter (as
+         * defined in &#39;RFC 2254&#39;) with optional arguments. In this case, the username is the only argument, and is denoted by
+         * &#39;{0}&#39;. Possible examples are: (uid={0}) - This searches for a username match on the attribute. Authentication to LDAP is
+         * performed from the DN found if successful.
          * 
          * @return builder
          * 
@@ -526,7 +556,7 @@ public final class LdapSettingArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param searchSubTree When set, enables deep search through the sub-tree of the LDAP URL + Search Base.  Default value is `true`.
+         * @param searchSubTree When set, enables deep search through the sub tree of the LDAP URL + search base. Default value is &#34;true&#34;.
          * 
          * @return builder
          * 
@@ -537,7 +567,7 @@ public final class LdapSettingArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param searchSubTree When set, enables deep search through the sub-tree of the LDAP URL + Search Base.  Default value is `true`.
+         * @param searchSubTree When set, enables deep search through the sub tree of the LDAP URL + search base. Default value is &#34;true&#34;.
          * 
          * @return builder
          * 
@@ -547,8 +577,11 @@ public final class LdapSettingArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userDnPattern A DN pattern used to log users directly in to the LDAP database. This pattern is used to create a DN string for &#34;direct&#34; user authentication, and is relative to the base DN in the LDAP URL. The pattern argument {0} is replaced with the username at runtime. This only works if anonymous binding is allowed and a direct user DN can be used (which is not the default case for Active Directory). For example: uid={0},ou=People. Default value is blank/empty.
-         * - Note: LDAP settings should provide a userDnPattern or a searchFilter (or both).
+         * @param userDnPattern A DN pattern that can be used to log users directly in to LDAP. This pattern is used to create a DN string for &#39;direct&#39;
+         * user authentication where the pattern is relative to the base DN in the LDAP URL. The pattern argument {0} is replaced
+         * with the username. This only works if anonymous binding is allowed and a direct user DN can be used, which is not the
+         * default case for Active Directory (use User DN search filter instead). Example: uid={0},ou=People. Default value is
+         * blank/empty.
          * 
          * @return builder
          * 
@@ -559,8 +592,11 @@ public final class LdapSettingArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userDnPattern A DN pattern used to log users directly in to the LDAP database. This pattern is used to create a DN string for &#34;direct&#34; user authentication, and is relative to the base DN in the LDAP URL. The pattern argument {0} is replaced with the username at runtime. This only works if anonymous binding is allowed and a direct user DN can be used (which is not the default case for Active Directory). For example: uid={0},ou=People. Default value is blank/empty.
-         * - Note: LDAP settings should provide a userDnPattern or a searchFilter (or both).
+         * @param userDnPattern A DN pattern that can be used to log users directly in to LDAP. This pattern is used to create a DN string for &#39;direct&#39;
+         * user authentication where the pattern is relative to the base DN in the LDAP URL. The pattern argument {0} is replaced
+         * with the username. This only works if anonymous binding is allowed and a direct user DN can be used, which is not the
+         * default case for Active Directory (use User DN search filter instead). Example: uid={0},ou=People. Default value is
+         * blank/empty.
          * 
          * @return builder
          * 

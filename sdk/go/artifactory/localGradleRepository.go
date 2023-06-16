@@ -11,49 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Creates a local Gradle repository.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.NewLocalGradleRepository(ctx, "terraform-local-test-gradle-repo-basic", &artifactory.LocalGradleRepositoryArgs{
-//				ChecksumPolicyType:           pulumi.String("client-checksums"),
-//				HandleReleases:               pulumi.Bool(true),
-//				HandleSnapshots:              pulumi.Bool(true),
-//				Key:                          pulumi.String("terraform-local-test-gradle-repo-basic"),
-//				MaxUniqueSnapshots:           pulumi.Int(10),
-//				SnapshotVersionBehavior:      pulumi.String("unique"),
-//				SuppressPomConsistencyChecks: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Local repositories can be imported using their name, e.g.
-//
-// ```sh
-//
-//	$ pulumi import artifactory:index/localGradleRepository:LocalGradleRepository terraform-local-test-gradle-repo-basic terraform-local-test-gradle-repo-basic
-//
-// ```
 type LocalGradleRepository struct {
 	pulumi.CustomResourceState
 
@@ -66,10 +23,10 @@ type LocalGradleRepository struct {
 	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
 	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
 	CdnRedirect pulumi.BoolPtrOutput `pulumi:"cdnRedirect"`
-	// Checksum policy determines how Artifactory behaves when a client checksum for a deployed
-	// resource is missing or conflicts with the locally calculated checksum (bad checksum). The options are
-	// `client-checksums` and `generated-checksums`. For more details,
-	// please refer to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy).
+	// Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or
+	// conflicts with the locally calculated checksum (bad checksum). Options are: "client-checksums", or
+	// "server-generated-checksums". Default: "client-checksums"\n For more details, please refer to Checksum Policy -
+	// https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy
 	ChecksumPolicyType pulumi.StringPtrOutput `pulumi:"checksumPolicyType"`
 	// Public description.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -79,18 +36,18 @@ type LocalGradleRepository struct {
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
 	// artifacts are excluded.
 	ExcludesPattern pulumi.StringOutput `pulumi:"excludesPattern"`
-	// If set, Artifactory allows you to deploy release artifacts into this repository. Default is `true`.
+	// If set, Artifactory allows you to deploy release artifacts into this repository.
 	HandleReleases pulumi.BoolPtrOutput `pulumi:"handleReleases"`
-	// If set, Artifactory allows you to deploy snapshot artifacts into this repository. Default is `true`.
+	// If set, Artifactory allows you to deploy snapshot artifacts into this repository.
 	HandleSnapshots pulumi.BoolPtrOutput `pulumi:"handleSnapshots"`
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringOutput `pulumi:"includesPattern"`
-	// the identity key of the repo.
+	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+	// characters. It cannot begin with a number or contain spaces or special characters.
 	Key pulumi.StringOutput `pulumi:"key"`
-	// The maximum number of unique snapshots of a single artifact to store.
-	// Once the number of snapshots exceeds this setting, older versions are removed.
-	// A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+	// The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
+	// older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
 	MaxUniqueSnapshots pulumi.IntPtrOutput `pulumi:"maxUniqueSnapshots"`
 	// Internal description.
 	Notes       pulumi.StringPtrOutput `pulumi:"notes"`
@@ -109,12 +66,14 @@ type LocalGradleRepository struct {
 	PropertySets pulumi.StringArrayOutput `pulumi:"propertySets"`
 	// Repository layout key for the local repository
 	RepoLayoutRef pulumi.StringPtrOutput `pulumi:"repoLayoutRef"`
-	// Specifies the naming convention for Maven SNAPSHOT versions.
-	// The options are -
+	// Specifies the naming convention for Maven SNAPSHOT versions. The options are - unique: Version number is based on a
+	// time-stamp (default) non-unique: Version number uses a self-overriding naming pattern of
+	// artifactId-version-SNAPSHOT.type deployer: Respects the settings in the Maven client that is deploying the artifact.
 	SnapshotVersionBehavior pulumi.StringPtrOutput `pulumi:"snapshotVersionBehavior"`
-	// By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path).
-	// If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error.
-	// You can disable this behavior by setting the Suppress POM Consistency Checks checkbox. True by default for Gradle repository.
+	// By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the
+	// groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the
+	// deployment with a "409 Conflict" error. You can disable this behavior by setting the Suppress POM Consistency Checks
+	// checkbox.
 	SuppressPomConsistencyChecks pulumi.BoolPtrOutput `pulumi:"suppressPomConsistencyChecks"`
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.
@@ -162,10 +121,10 @@ type localGradleRepositoryState struct {
 	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
 	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
 	CdnRedirect *bool `pulumi:"cdnRedirect"`
-	// Checksum policy determines how Artifactory behaves when a client checksum for a deployed
-	// resource is missing or conflicts with the locally calculated checksum (bad checksum). The options are
-	// `client-checksums` and `generated-checksums`. For more details,
-	// please refer to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy).
+	// Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or
+	// conflicts with the locally calculated checksum (bad checksum). Options are: "client-checksums", or
+	// "server-generated-checksums". Default: "client-checksums"\n For more details, please refer to Checksum Policy -
+	// https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy
 	ChecksumPolicyType *string `pulumi:"checksumPolicyType"`
 	// Public description.
 	Description *string `pulumi:"description"`
@@ -175,18 +134,18 @@ type localGradleRepositoryState struct {
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
 	// artifacts are excluded.
 	ExcludesPattern *string `pulumi:"excludesPattern"`
-	// If set, Artifactory allows you to deploy release artifacts into this repository. Default is `true`.
+	// If set, Artifactory allows you to deploy release artifacts into this repository.
 	HandleReleases *bool `pulumi:"handleReleases"`
-	// If set, Artifactory allows you to deploy snapshot artifacts into this repository. Default is `true`.
+	// If set, Artifactory allows you to deploy snapshot artifacts into this repository.
 	HandleSnapshots *bool `pulumi:"handleSnapshots"`
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
-	// the identity key of the repo.
+	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+	// characters. It cannot begin with a number or contain spaces or special characters.
 	Key *string `pulumi:"key"`
-	// The maximum number of unique snapshots of a single artifact to store.
-	// Once the number of snapshots exceeds this setting, older versions are removed.
-	// A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+	// The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
+	// older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
 	MaxUniqueSnapshots *int `pulumi:"maxUniqueSnapshots"`
 	// Internal description.
 	Notes       *string `pulumi:"notes"`
@@ -205,12 +164,14 @@ type localGradleRepositoryState struct {
 	PropertySets []string `pulumi:"propertySets"`
 	// Repository layout key for the local repository
 	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
-	// Specifies the naming convention for Maven SNAPSHOT versions.
-	// The options are -
+	// Specifies the naming convention for Maven SNAPSHOT versions. The options are - unique: Version number is based on a
+	// time-stamp (default) non-unique: Version number uses a self-overriding naming pattern of
+	// artifactId-version-SNAPSHOT.type deployer: Respects the settings in the Maven client that is deploying the artifact.
 	SnapshotVersionBehavior *string `pulumi:"snapshotVersionBehavior"`
-	// By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path).
-	// If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error.
-	// You can disable this behavior by setting the Suppress POM Consistency Checks checkbox. True by default for Gradle repository.
+	// By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the
+	// groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the
+	// deployment with a "409 Conflict" error. You can disable this behavior by setting the Suppress POM Consistency Checks
+	// checkbox.
 	SuppressPomConsistencyChecks *bool `pulumi:"suppressPomConsistencyChecks"`
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.
@@ -227,10 +188,10 @@ type LocalGradleRepositoryState struct {
 	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
 	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
 	CdnRedirect pulumi.BoolPtrInput
-	// Checksum policy determines how Artifactory behaves when a client checksum for a deployed
-	// resource is missing or conflicts with the locally calculated checksum (bad checksum). The options are
-	// `client-checksums` and `generated-checksums`. For more details,
-	// please refer to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy).
+	// Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or
+	// conflicts with the locally calculated checksum (bad checksum). Options are: "client-checksums", or
+	// "server-generated-checksums". Default: "client-checksums"\n For more details, please refer to Checksum Policy -
+	// https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy
 	ChecksumPolicyType pulumi.StringPtrInput
 	// Public description.
 	Description pulumi.StringPtrInput
@@ -240,18 +201,18 @@ type LocalGradleRepositoryState struct {
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
 	// artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrInput
-	// If set, Artifactory allows you to deploy release artifacts into this repository. Default is `true`.
+	// If set, Artifactory allows you to deploy release artifacts into this repository.
 	HandleReleases pulumi.BoolPtrInput
-	// If set, Artifactory allows you to deploy snapshot artifacts into this repository. Default is `true`.
+	// If set, Artifactory allows you to deploy snapshot artifacts into this repository.
 	HandleSnapshots pulumi.BoolPtrInput
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
-	// the identity key of the repo.
+	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+	// characters. It cannot begin with a number or contain spaces or special characters.
 	Key pulumi.StringPtrInput
-	// The maximum number of unique snapshots of a single artifact to store.
-	// Once the number of snapshots exceeds this setting, older versions are removed.
-	// A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+	// The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
+	// older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
 	MaxUniqueSnapshots pulumi.IntPtrInput
 	// Internal description.
 	Notes       pulumi.StringPtrInput
@@ -270,12 +231,14 @@ type LocalGradleRepositoryState struct {
 	PropertySets pulumi.StringArrayInput
 	// Repository layout key for the local repository
 	RepoLayoutRef pulumi.StringPtrInput
-	// Specifies the naming convention for Maven SNAPSHOT versions.
-	// The options are -
+	// Specifies the naming convention for Maven SNAPSHOT versions. The options are - unique: Version number is based on a
+	// time-stamp (default) non-unique: Version number uses a self-overriding naming pattern of
+	// artifactId-version-SNAPSHOT.type deployer: Respects the settings in the Maven client that is deploying the artifact.
 	SnapshotVersionBehavior pulumi.StringPtrInput
-	// By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path).
-	// If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error.
-	// You can disable this behavior by setting the Suppress POM Consistency Checks checkbox. True by default for Gradle repository.
+	// By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the
+	// groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the
+	// deployment with a "409 Conflict" error. You can disable this behavior by setting the Suppress POM Consistency Checks
+	// checkbox.
 	SuppressPomConsistencyChecks pulumi.BoolPtrInput
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.
@@ -296,10 +259,10 @@ type localGradleRepositoryArgs struct {
 	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
 	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
 	CdnRedirect *bool `pulumi:"cdnRedirect"`
-	// Checksum policy determines how Artifactory behaves when a client checksum for a deployed
-	// resource is missing or conflicts with the locally calculated checksum (bad checksum). The options are
-	// `client-checksums` and `generated-checksums`. For more details,
-	// please refer to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy).
+	// Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or
+	// conflicts with the locally calculated checksum (bad checksum). Options are: "client-checksums", or
+	// "server-generated-checksums". Default: "client-checksums"\n For more details, please refer to Checksum Policy -
+	// https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy
 	ChecksumPolicyType *string `pulumi:"checksumPolicyType"`
 	// Public description.
 	Description *string `pulumi:"description"`
@@ -309,18 +272,18 @@ type localGradleRepositoryArgs struct {
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
 	// artifacts are excluded.
 	ExcludesPattern *string `pulumi:"excludesPattern"`
-	// If set, Artifactory allows you to deploy release artifacts into this repository. Default is `true`.
+	// If set, Artifactory allows you to deploy release artifacts into this repository.
 	HandleReleases *bool `pulumi:"handleReleases"`
-	// If set, Artifactory allows you to deploy snapshot artifacts into this repository. Default is `true`.
+	// If set, Artifactory allows you to deploy snapshot artifacts into this repository.
 	HandleSnapshots *bool `pulumi:"handleSnapshots"`
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
-	// the identity key of the repo.
+	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+	// characters. It cannot begin with a number or contain spaces or special characters.
 	Key string `pulumi:"key"`
-	// The maximum number of unique snapshots of a single artifact to store.
-	// Once the number of snapshots exceeds this setting, older versions are removed.
-	// A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+	// The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
+	// older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
 	MaxUniqueSnapshots *int `pulumi:"maxUniqueSnapshots"`
 	// Internal description.
 	Notes *string `pulumi:"notes"`
@@ -338,12 +301,14 @@ type localGradleRepositoryArgs struct {
 	PropertySets []string `pulumi:"propertySets"`
 	// Repository layout key for the local repository
 	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
-	// Specifies the naming convention for Maven SNAPSHOT versions.
-	// The options are -
+	// Specifies the naming convention for Maven SNAPSHOT versions. The options are - unique: Version number is based on a
+	// time-stamp (default) non-unique: Version number uses a self-overriding naming pattern of
+	// artifactId-version-SNAPSHOT.type deployer: Respects the settings in the Maven client that is deploying the artifact.
 	SnapshotVersionBehavior *string `pulumi:"snapshotVersionBehavior"`
-	// By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path).
-	// If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error.
-	// You can disable this behavior by setting the Suppress POM Consistency Checks checkbox. True by default for Gradle repository.
+	// By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the
+	// groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the
+	// deployment with a "409 Conflict" error. You can disable this behavior by setting the Suppress POM Consistency Checks
+	// checkbox.
 	SuppressPomConsistencyChecks *bool `pulumi:"suppressPomConsistencyChecks"`
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.
@@ -361,10 +326,10 @@ type LocalGradleRepositoryArgs struct {
 	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
 	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
 	CdnRedirect pulumi.BoolPtrInput
-	// Checksum policy determines how Artifactory behaves when a client checksum for a deployed
-	// resource is missing or conflicts with the locally calculated checksum (bad checksum). The options are
-	// `client-checksums` and `generated-checksums`. For more details,
-	// please refer to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy).
+	// Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or
+	// conflicts with the locally calculated checksum (bad checksum). Options are: "client-checksums", or
+	// "server-generated-checksums". Default: "client-checksums"\n For more details, please refer to Checksum Policy -
+	// https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy
 	ChecksumPolicyType pulumi.StringPtrInput
 	// Public description.
 	Description pulumi.StringPtrInput
@@ -374,18 +339,18 @@ type LocalGradleRepositoryArgs struct {
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
 	// artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrInput
-	// If set, Artifactory allows you to deploy release artifacts into this repository. Default is `true`.
+	// If set, Artifactory allows you to deploy release artifacts into this repository.
 	HandleReleases pulumi.BoolPtrInput
-	// If set, Artifactory allows you to deploy snapshot artifacts into this repository. Default is `true`.
+	// If set, Artifactory allows you to deploy snapshot artifacts into this repository.
 	HandleSnapshots pulumi.BoolPtrInput
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
-	// the identity key of the repo.
+	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+	// characters. It cannot begin with a number or contain spaces or special characters.
 	Key pulumi.StringInput
-	// The maximum number of unique snapshots of a single artifact to store.
-	// Once the number of snapshots exceeds this setting, older versions are removed.
-	// A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+	// The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
+	// older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
 	MaxUniqueSnapshots pulumi.IntPtrInput
 	// Internal description.
 	Notes pulumi.StringPtrInput
@@ -403,12 +368,14 @@ type LocalGradleRepositoryArgs struct {
 	PropertySets pulumi.StringArrayInput
 	// Repository layout key for the local repository
 	RepoLayoutRef pulumi.StringPtrInput
-	// Specifies the naming convention for Maven SNAPSHOT versions.
-	// The options are -
+	// Specifies the naming convention for Maven SNAPSHOT versions. The options are - unique: Version number is based on a
+	// time-stamp (default) non-unique: Version number uses a self-overriding naming pattern of
+	// artifactId-version-SNAPSHOT.type deployer: Respects the settings in the Maven client that is deploying the artifact.
 	SnapshotVersionBehavior pulumi.StringPtrInput
-	// By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path).
-	// If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error.
-	// You can disable this behavior by setting the Suppress POM Consistency Checks checkbox. True by default for Gradle repository.
+	// By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the
+	// groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the
+	// deployment with a "409 Conflict" error. You can disable this behavior by setting the Suppress POM Consistency Checks
+	// checkbox.
 	SuppressPomConsistencyChecks pulumi.BoolPtrInput
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.
@@ -520,10 +487,10 @@ func (o LocalGradleRepositoryOutput) CdnRedirect() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LocalGradleRepository) pulumi.BoolPtrOutput { return v.CdnRedirect }).(pulumi.BoolPtrOutput)
 }
 
-// Checksum policy determines how Artifactory behaves when a client checksum for a deployed
-// resource is missing or conflicts with the locally calculated checksum (bad checksum). The options are
-// `client-checksums` and `generated-checksums`. For more details,
-// please refer to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy).
+// Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or
+// conflicts with the locally calculated checksum (bad checksum). Options are: "client-checksums", or
+// "server-generated-checksums". Default: "client-checksums"\n For more details, please refer to Checksum Policy -
+// https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy
 func (o LocalGradleRepositoryOutput) ChecksumPolicyType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LocalGradleRepository) pulumi.StringPtrOutput { return v.ChecksumPolicyType }).(pulumi.StringPtrOutput)
 }
@@ -545,12 +512,12 @@ func (o LocalGradleRepositoryOutput) ExcludesPattern() pulumi.StringOutput {
 	return o.ApplyT(func(v *LocalGradleRepository) pulumi.StringOutput { return v.ExcludesPattern }).(pulumi.StringOutput)
 }
 
-// If set, Artifactory allows you to deploy release artifacts into this repository. Default is `true`.
+// If set, Artifactory allows you to deploy release artifacts into this repository.
 func (o LocalGradleRepositoryOutput) HandleReleases() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LocalGradleRepository) pulumi.BoolPtrOutput { return v.HandleReleases }).(pulumi.BoolPtrOutput)
 }
 
-// If set, Artifactory allows you to deploy snapshot artifacts into this repository. Default is `true`.
+// If set, Artifactory allows you to deploy snapshot artifacts into this repository.
 func (o LocalGradleRepositoryOutput) HandleSnapshots() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LocalGradleRepository) pulumi.BoolPtrOutput { return v.HandleSnapshots }).(pulumi.BoolPtrOutput)
 }
@@ -561,14 +528,14 @@ func (o LocalGradleRepositoryOutput) IncludesPattern() pulumi.StringOutput {
 	return o.ApplyT(func(v *LocalGradleRepository) pulumi.StringOutput { return v.IncludesPattern }).(pulumi.StringOutput)
 }
 
-// the identity key of the repo.
+// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+// characters. It cannot begin with a number or contain spaces or special characters.
 func (o LocalGradleRepositoryOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v *LocalGradleRepository) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
 }
 
-// The maximum number of unique snapshots of a single artifact to store.
-// Once the number of snapshots exceeds this setting, older versions are removed.
-// A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+// The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
+// older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
 func (o LocalGradleRepositoryOutput) MaxUniqueSnapshots() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LocalGradleRepository) pulumi.IntPtrOutput { return v.MaxUniqueSnapshots }).(pulumi.IntPtrOutput)
 }
@@ -611,15 +578,17 @@ func (o LocalGradleRepositoryOutput) RepoLayoutRef() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LocalGradleRepository) pulumi.StringPtrOutput { return v.RepoLayoutRef }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the naming convention for Maven SNAPSHOT versions.
-// The options are -
+// Specifies the naming convention for Maven SNAPSHOT versions. The options are - unique: Version number is based on a
+// time-stamp (default) non-unique: Version number uses a self-overriding naming pattern of
+// artifactId-version-SNAPSHOT.type deployer: Respects the settings in the Maven client that is deploying the artifact.
 func (o LocalGradleRepositoryOutput) SnapshotVersionBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LocalGradleRepository) pulumi.StringPtrOutput { return v.SnapshotVersionBehavior }).(pulumi.StringPtrOutput)
 }
 
-// By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path).
-// If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error.
-// You can disable this behavior by setting the Suppress POM Consistency Checks checkbox. True by default for Gradle repository.
+// By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the
+// groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the
+// deployment with a "409 Conflict" error. You can disable this behavior by setting the Suppress POM Consistency Checks
+// checkbox.
 func (o LocalGradleRepositoryOutput) SuppressPomConsistencyChecks() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LocalGradleRepository) pulumi.BoolPtrOutput { return v.SuppressPomConsistencyChecks }).(pulumi.BoolPtrOutput)
 }

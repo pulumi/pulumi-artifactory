@@ -6,40 +6,6 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
-/**
- * Creates a federated Conan repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const terraform_federated_test_conan_repo = new artifactory.FederatedConanRepository("terraform-federated-test-conan-repo", {
- *     key: "terraform-federated-test-conan-repo",
- *     members: [
- *         {
- *             enabled: true,
- *             url: "http://tempurl.org/artifactory/terraform-federated-test-conan-repo",
- *         },
- *         {
- *             enabled: true,
- *             url: "http://tempurl2.org/artifactory/terraform-federated-test-conan-repo-2",
- *         },
- *     ],
- * });
- * ```
- *
- * ## Import
- *
- * Federated repositories can be imported using their name, e.g.
- *
- * ```sh
- *  $ pulumi import artifactory:index/federatedConanRepository:FederatedConanRepository resource "artifactory_federated_conan_repository" "terraform-federated-test-conan-repo" {
- * ```
- *
- *  .terraform-federated-test-conan-repo terraform-federated-test-conan-repo
- */
 export class FederatedConanRepository extends pulumi.CustomResource {
     /**
      * Get an existing FederatedConanRepository resource's state with the given name, ID, and optional extra
@@ -108,13 +74,15 @@ export class FederatedConanRepository extends pulumi.CustomResource {
      */
     public readonly includesPattern!: pulumi.Output<string>;
     /**
-     * the identity key of the repo.
+     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      */
     public readonly key!: pulumi.Output<string>;
     /**
-     * The list of Federated members and must contain this repository URL (configured base URL
-     * `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
-     * Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+     * The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
+     * will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
+     * federated members will need to have a base URL set. Please follow the
+     * [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
      * to set up Federated repositories correctly.
      */
     public readonly members!: pulumi.Output<outputs.FederatedConanRepositoryMember[]>;
@@ -260,13 +228,15 @@ export interface FederatedConanRepositoryState {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * the identity key of the repo.
+     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      */
     key?: pulumi.Input<string>;
     /**
-     * The list of Federated members and must contain this repository URL (configured base URL
-     * `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
-     * Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+     * The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
+     * will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
+     * federated members will need to have a base URL set. Please follow the
+     * [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
      * to set up Federated repositories correctly.
      */
     members?: pulumi.Input<pulumi.Input<inputs.FederatedConanRepositoryMember>[]>;
@@ -350,13 +320,15 @@ export interface FederatedConanRepositoryArgs {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * the identity key of the repo.
+     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      */
     key: pulumi.Input<string>;
     /**
-     * The list of Federated members and must contain this repository URL (configured base URL
-     * `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
-     * Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+     * The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
+     * will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
+     * federated members will need to have a base URL set. Please follow the
+     * [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
      * to set up Federated repositories correctly.
      */
     members: pulumi.Input<pulumi.Input<inputs.FederatedConanRepositoryMember>[]>;

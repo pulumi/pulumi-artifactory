@@ -12,101 +12,37 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class OauthSettingsOauthProvider {
-    /**
-     * @return OAuth user info endpoint for the IdP.
-     * 
-     */
     private String apiUrl;
-    /**
-     * @return OAuth authorization endpoint for the IdP.
-     * 
-     */
     private String authUrl;
-    /**
-     * @return OAuth client ID configured on the IdP.
-     * 
-     */
     private String clientId;
-    /**
-     * @return OAuth client secret configured on the IdP.
-     * 
-     */
     private String clientSecret;
-    /**
-     * @return Enable the Artifactory OAuth provider.  Default value is `true`.
-     * 
-     */
     private @Nullable Boolean enabled;
-    /**
-     * @return Name of the Artifactory OAuth provider.
-     * 
-     */
     private String name;
-    /**
-     * @return OAuth token endpoint for the IdP.
-     * 
-     */
     private String tokenUrl;
-    /**
-     * @return Type of OAuth provider. (e.g., `github`, `google`, `cloudfoundry`, or `openId`)
-     * 
-     */
     private String type;
 
     private OauthSettingsOauthProvider() {}
-    /**
-     * @return OAuth user info endpoint for the IdP.
-     * 
-     */
     public String apiUrl() {
         return this.apiUrl;
     }
-    /**
-     * @return OAuth authorization endpoint for the IdP.
-     * 
-     */
     public String authUrl() {
         return this.authUrl;
     }
-    /**
-     * @return OAuth client ID configured on the IdP.
-     * 
-     */
     public String clientId() {
         return this.clientId;
     }
-    /**
-     * @return OAuth client secret configured on the IdP.
-     * 
-     */
     public String clientSecret() {
         return this.clientSecret;
     }
-    /**
-     * @return Enable the Artifactory OAuth provider.  Default value is `true`.
-     * 
-     */
     public Optional<Boolean> enabled() {
         return Optional.ofNullable(this.enabled);
     }
-    /**
-     * @return Name of the Artifactory OAuth provider.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return OAuth token endpoint for the IdP.
-     * 
-     */
     public String tokenUrl() {
         return this.tokenUrl;
     }
-    /**
-     * @return Type of OAuth provider. (e.g., `github`, `google`, `cloudfoundry`, or `openId`)
-     * 
-     */
     public String type() {
         return this.type;
     }

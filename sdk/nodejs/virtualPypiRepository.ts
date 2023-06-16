@@ -4,34 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-/**
- * Creates a virtual Pypi repository.
- * Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/PyPI+Repositories#PyPIRepositories-VirtualRepositories).
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const foo_pypi = new artifactory.VirtualPypiRepository("foo-pypi", {
- *     description: "A test virtual repo",
- *     excludesPattern: "com/google/**",
- *     includesPattern: "com/jfrog/**,cloud/jfrog/**",
- *     key: "foo-pypi",
- *     notes: "Internal description",
- *     repositories: [],
- * });
- * ```
- *
- * ## Import
- *
- * Virtual repositories can be imported using their name, e.g.
- *
- * ```sh
- *  $ pulumi import artifactory:index/virtualPypiRepository:VirtualPypiRepository foo-pypi foo-pypi
- * ```
- */
 export class VirtualPypiRepository extends pulumi.CustomResource {
     /**
      * Get an existing VirtualPypiRepository resource's state with the given name, ID, and optional extra
@@ -84,8 +56,8 @@ export class VirtualPypiRepository extends pulumi.CustomResource {
      */
     public readonly includesPattern!: pulumi.Output<string | undefined>;
     /**
-     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-     * contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      */
     public readonly key!: pulumi.Output<string>;
     /**
@@ -190,8 +162,8 @@ export interface VirtualPypiRepositoryState {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-     * contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      */
     key?: pulumi.Input<string>;
     /**
@@ -249,8 +221,8 @@ export interface VirtualPypiRepositoryArgs {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-     * contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      */
     key: pulumi.Input<string>;
     /**

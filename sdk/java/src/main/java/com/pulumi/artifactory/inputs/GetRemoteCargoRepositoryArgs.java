@@ -26,17 +26,9 @@ public final class GetRemoteCargoRepositoryArgs extends com.pulumi.resources.Inv
         return Optional.ofNullable(this.allowAnyHostAuth);
     }
 
-    /**
-     * (Required) Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
-     * 
-     */
     @Import(name="anonymousAccess")
     private @Nullable Output<Boolean> anonymousAccess;
 
-    /**
-     * @return (Required) Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
-     * 
-     */
     public Optional<Output<Boolean>> anonymousAccess() {
         return Optional.ofNullable(this.anonymousAccess);
     }
@@ -111,17 +103,9 @@ public final class GetRemoteCargoRepositoryArgs extends com.pulumi.resources.Inv
         return Optional.ofNullable(this.enableCookieManagement);
     }
 
-    /**
-     * (Optional) Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
-     * 
-     */
     @Import(name="enableSparseIndex")
     private @Nullable Output<Boolean> enableSparseIndex;
 
-    /**
-     * @return (Optional) Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
-     * 
-     */
     public Optional<Output<Boolean>> enableSparseIndex() {
         return Optional.ofNullable(this.enableSparseIndex);
     }
@@ -133,17 +117,9 @@ public final class GetRemoteCargoRepositoryArgs extends com.pulumi.resources.Inv
         return Optional.ofNullable(this.excludesPattern);
     }
 
-    /**
-     * (Optional) This is the index url, expected to be a git repository. Default value is `https://github.com/rust-lang/crates.io-index`.
-     * 
-     */
     @Import(name="gitRegistryUrl")
     private @Nullable Output<String> gitRegistryUrl;
 
-    /**
-     * @return (Optional) This is the index url, expected to be a git repository. Default value is `https://github.com/rust-lang/crates.io-index`.
-     * 
-     */
     public Optional<Output<String>> gitRegistryUrl() {
         return Optional.ofNullable(this.gitRegistryUrl);
     }
@@ -162,17 +138,9 @@ public final class GetRemoteCargoRepositoryArgs extends com.pulumi.resources.Inv
         return Optional.ofNullable(this.includesPattern);
     }
 
-    /**
-     * the identity key of the repo.
-     * 
-     */
     @Import(name="key", required=true)
     private Output<String> key;
 
-    /**
-     * @return the identity key of the repo.
-     * 
-     */
     public Output<String> key() {
         return this.key;
     }
@@ -427,23 +395,11 @@ public final class GetRemoteCargoRepositoryArgs extends com.pulumi.resources.Inv
             return allowAnyHostAuth(Output.of(allowAnyHostAuth));
         }
 
-        /**
-         * @param anonymousAccess (Required) Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder anonymousAccess(@Nullable Output<Boolean> anonymousAccess) {
             $.anonymousAccess = anonymousAccess;
             return this;
         }
 
-        /**
-         * @param anonymousAccess (Required) Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder anonymousAccess(Boolean anonymousAccess) {
             return anonymousAccess(Output.of(anonymousAccess));
         }
@@ -538,23 +494,11 @@ public final class GetRemoteCargoRepositoryArgs extends com.pulumi.resources.Inv
             return enableCookieManagement(Output.of(enableCookieManagement));
         }
 
-        /**
-         * @param enableSparseIndex (Optional) Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enableSparseIndex(@Nullable Output<Boolean> enableSparseIndex) {
             $.enableSparseIndex = enableSparseIndex;
             return this;
         }
 
-        /**
-         * @param enableSparseIndex (Optional) Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enableSparseIndex(Boolean enableSparseIndex) {
             return enableSparseIndex(Output.of(enableSparseIndex));
         }
@@ -568,23 +512,11 @@ public final class GetRemoteCargoRepositoryArgs extends com.pulumi.resources.Inv
             return excludesPattern(Output.of(excludesPattern));
         }
 
-        /**
-         * @param gitRegistryUrl (Optional) This is the index url, expected to be a git repository. Default value is `https://github.com/rust-lang/crates.io-index`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder gitRegistryUrl(@Nullable Output<String> gitRegistryUrl) {
             $.gitRegistryUrl = gitRegistryUrl;
             return this;
         }
 
-        /**
-         * @param gitRegistryUrl (Optional) This is the index url, expected to be a git repository. Default value is `https://github.com/rust-lang/crates.io-index`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder gitRegistryUrl(String gitRegistryUrl) {
             return gitRegistryUrl(Output.of(gitRegistryUrl));
         }
@@ -607,23 +539,11 @@ public final class GetRemoteCargoRepositoryArgs extends com.pulumi.resources.Inv
             return includesPattern(Output.of(includesPattern));
         }
 
-        /**
-         * @param key the identity key of the repo.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(Output<String> key) {
             $.key = key;
             return this;
         }
 
-        /**
-         * @param key the identity key of the repo.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(String key) {
             return key(Output.of(key));
         }

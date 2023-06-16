@@ -10,35 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## # Artifactory Permission Target Data Source
-//
-// Provides an Artifactory permission target data source. This can be used to read the configuration of permission targets in artifactory.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupPermissionTarget(ctx, &artifactory.LookupPermissionTargetArgs{
-//				Name: "my_permission",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupPermissionTarget(ctx *pulumi.Context, args *LookupPermissionTargetArgs, opts ...pulumi.InvokeOption) (*LookupPermissionTargetResult, error) {
 	var rv LookupPermissionTargetResult
 	err := ctx.Invoke("artifactory:index/getPermissionTarget:getPermissionTarget", args, &rv, opts...)
@@ -50,27 +21,20 @@ func LookupPermissionTarget(ctx *pulumi.Context, args *LookupPermissionTargetArg
 
 // A collection of arguments for invoking getPermissionTarget.
 type LookupPermissionTargetArgs struct {
-	// Same as repo but for artifactory-build-info permissions.
-	Build *GetPermissionTargetBuild `pulumi:"build"`
-	// Name of the permission target.
-	Name string `pulumi:"name"`
-	// Same as repo but for release-bundles permissions.
+	Build         *GetPermissionTargetBuild         `pulumi:"build"`
+	Name          string                            `pulumi:"name"`
 	ReleaseBundle *GetPermissionTargetReleaseBundle `pulumi:"releaseBundle"`
-	// Repository permission configuration.
-	Repo *GetPermissionTargetRepo `pulumi:"repo"`
+	Repo          *GetPermissionTargetRepo          `pulumi:"repo"`
 }
 
 // A collection of values returned by getPermissionTarget.
 type LookupPermissionTargetResult struct {
-	// Same as repo but for artifactory-build-info permissions.
 	Build *GetPermissionTargetBuild `pulumi:"build"`
 	// The provider-assigned unique ID for this managed resource.
-	Id   string `pulumi:"id"`
-	Name string `pulumi:"name"`
-	// Same as repo but for release-bundles permissions.
+	Id            string                            `pulumi:"id"`
+	Name          string                            `pulumi:"name"`
 	ReleaseBundle *GetPermissionTargetReleaseBundle `pulumi:"releaseBundle"`
-	// Repository permission configuration.
-	Repo *GetPermissionTargetRepo `pulumi:"repo"`
+	Repo          *GetPermissionTargetRepo          `pulumi:"repo"`
 }
 
 func LookupPermissionTargetOutput(ctx *pulumi.Context, args LookupPermissionTargetOutputArgs, opts ...pulumi.InvokeOption) LookupPermissionTargetResultOutput {
@@ -88,14 +52,10 @@ func LookupPermissionTargetOutput(ctx *pulumi.Context, args LookupPermissionTarg
 
 // A collection of arguments for invoking getPermissionTarget.
 type LookupPermissionTargetOutputArgs struct {
-	// Same as repo but for artifactory-build-info permissions.
-	Build GetPermissionTargetBuildPtrInput `pulumi:"build"`
-	// Name of the permission target.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Same as repo but for release-bundles permissions.
+	Build         GetPermissionTargetBuildPtrInput         `pulumi:"build"`
+	Name          pulumi.StringInput                       `pulumi:"name"`
 	ReleaseBundle GetPermissionTargetReleaseBundlePtrInput `pulumi:"releaseBundle"`
-	// Repository permission configuration.
-	Repo GetPermissionTargetRepoPtrInput `pulumi:"repo"`
+	Repo          GetPermissionTargetRepoPtrInput          `pulumi:"repo"`
 }
 
 func (LookupPermissionTargetOutputArgs) ElementType() reflect.Type {
@@ -117,7 +77,6 @@ func (o LookupPermissionTargetResultOutput) ToLookupPermissionTargetResultOutput
 	return o
 }
 
-// Same as repo but for artifactory-build-info permissions.
 func (o LookupPermissionTargetResultOutput) Build() GetPermissionTargetBuildPtrOutput {
 	return o.ApplyT(func(v LookupPermissionTargetResult) *GetPermissionTargetBuild { return v.Build }).(GetPermissionTargetBuildPtrOutput)
 }
@@ -131,12 +90,10 @@ func (o LookupPermissionTargetResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPermissionTargetResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Same as repo but for release-bundles permissions.
 func (o LookupPermissionTargetResultOutput) ReleaseBundle() GetPermissionTargetReleaseBundlePtrOutput {
 	return o.ApplyT(func(v LookupPermissionTargetResult) *GetPermissionTargetReleaseBundle { return v.ReleaseBundle }).(GetPermissionTargetReleaseBundlePtrOutput)
 }
 
-// Repository permission configuration.
 func (o LookupPermissionTargetResultOutput) Repo() GetPermissionTargetRepoPtrOutput {
 	return o.ApplyT(func(v LookupPermissionTargetResult) *GetPermissionTargetRepo { return v.Repo }).(GetPermissionTargetRepoPtrOutput)
 }

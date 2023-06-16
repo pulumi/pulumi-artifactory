@@ -19,10 +19,6 @@ public final class GetRemoteDockerRepositoryResult {
     private @Nullable Integer assumedOfflinePeriodSecs;
     private @Nullable Boolean blackedOut;
     private @Nullable Boolean blockMismatchingMimeTypes;
-    /**
-     * @return (Optional) When set, Artifactory will block the pulling of Docker images with manifest v2 schema 1 from the remote repository (i.e. the upstream). It will be possible to pull images with manifest v2 schema 1 that exist in the cache.
-     * 
-     */
     private Boolean blockPushingSchema1;
     private @Nullable Boolean bypassHeadRequests;
     private @Nullable Boolean cdnRedirect;
@@ -31,21 +27,9 @@ public final class GetRemoteDockerRepositoryResult {
     private @Nullable String description;
     private @Nullable Boolean downloadDirect;
     private @Nullable Boolean enableCookieManagement;
-    /**
-     * @return (Optional) Enable token (Bearer) based authentication.
-     * 
-     */
     private Boolean enableTokenAuthentication;
     private @Nullable String excludesPattern;
-    /**
-     * @return (Optional) Also known as &#39;Foreign Layers Caching&#39; on the UI.
-     * 
-     */
     private @Nullable Boolean externalDependenciesEnabled;
-    /**
-     * @return (Optional) An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download remote modules from, when presented with &#39;go-import&#39; meta tags in the remote repository response. By default, this is set to `[**]` in the UI, which means that remote modules may be downloaded from any external VCS source. Due to SDKv2 limitations, we can&#39;t set the default value for the list. This value `[**]` must be assigned to the attribute manually, if user don&#39;t specify any other non-default values. We don&#39;t want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns `[**]` on update if HCL doesn&#39;t have the attribute set or the list is empty.
-     * 
-     */
     private @Nullable List<String> externalDependenciesPatterns;
     private @Nullable Boolean hardFail;
     /**
@@ -95,10 +79,6 @@ public final class GetRemoteDockerRepositoryResult {
     public Optional<Boolean> blockMismatchingMimeTypes() {
         return Optional.ofNullable(this.blockMismatchingMimeTypes);
     }
-    /**
-     * @return (Optional) When set, Artifactory will block the pulling of Docker images with manifest v2 schema 1 from the remote repository (i.e. the upstream). It will be possible to pull images with manifest v2 schema 1 that exist in the cache.
-     * 
-     */
     public Boolean blockPushingSchema1() {
         return this.blockPushingSchema1;
     }
@@ -123,27 +103,15 @@ public final class GetRemoteDockerRepositoryResult {
     public Optional<Boolean> enableCookieManagement() {
         return Optional.ofNullable(this.enableCookieManagement);
     }
-    /**
-     * @return (Optional) Enable token (Bearer) based authentication.
-     * 
-     */
     public Boolean enableTokenAuthentication() {
         return this.enableTokenAuthentication;
     }
     public Optional<String> excludesPattern() {
         return Optional.ofNullable(this.excludesPattern);
     }
-    /**
-     * @return (Optional) Also known as &#39;Foreign Layers Caching&#39; on the UI.
-     * 
-     */
     public Optional<Boolean> externalDependenciesEnabled() {
         return Optional.ofNullable(this.externalDependenciesEnabled);
     }
-    /**
-     * @return (Optional) An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download remote modules from, when presented with &#39;go-import&#39; meta tags in the remote repository response. By default, this is set to `[**]` in the UI, which means that remote modules may be downloaded from any external VCS source. Due to SDKv2 limitations, we can&#39;t set the default value for the list. This value `[**]` must be assigned to the attribute manually, if user don&#39;t specify any other non-default values. We don&#39;t want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns `[**]` on update if HCL doesn&#39;t have the attribute set or the list is empty.
-     * 
-     */
     public List<String> externalDependenciesPatterns() {
         return this.externalDependenciesPatterns == null ? List.of() : this.externalDependenciesPatterns;
     }

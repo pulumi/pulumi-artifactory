@@ -16,51 +16,6 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.artifactory.VirtualTerraformRepository;
- * import com.pulumi.artifactory.VirtualTerraformRepositoryArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var terraform_virtual = new VirtualTerraformRepository(&#34;terraform-virtual&#34;, VirtualTerraformRepositoryArgs.builder()        
- *             .description(&#34;A test virtual repo&#34;)
- *             .excludesPattern(&#34;com/google/**&#34;)
- *             .includesPattern(&#34;com/jfrog/**,cloud/jfrog/**&#34;)
- *             .key(&#34;terraform-remote&#34;)
- *             .notes(&#34;Internal description&#34;)
- *             .repositories()
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Virtual repositories can be imported using their name, e.g.
- * 
- * ```sh
- *  $ pulumi import artifactory:index/virtualTerraformRepository:VirtualTerraformRepository terraform-virtual terraform-remote
- * ```
- * 
- */
 @ResourceType(type="artifactory:index/virtualTerraformRepository:VirtualTerraformRepository")
 public class VirtualTerraformRepository extends com.pulumi.resources.CustomResource {
     /**
@@ -140,16 +95,16 @@ public class VirtualTerraformRepository extends com.pulumi.resources.CustomResou
         return Codegen.optional(this.includesPattern);
     }
     /**
-     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-     * contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      * 
      */
     @Export(name="key", type=String.class, parameters={})
     private Output<String> key;
 
     /**
-     * @return A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-     * contain spaces or special characters.
+     * @return A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      * 
      */
     public Output<String> key() {

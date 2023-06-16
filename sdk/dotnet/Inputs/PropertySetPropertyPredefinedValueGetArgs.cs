@@ -12,15 +12,9 @@ namespace Pulumi.Artifactory.Inputs
 
     public sealed class PropertySetPropertyPredefinedValueGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Whether the value is selected by default in the UI.
-        /// </summary>
         [Input("defaultValue", required: true)]
         public Input<bool> DefaultValue { get; set; } = null!;
 
-        /// <summary>
-        /// Predefined property name.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 

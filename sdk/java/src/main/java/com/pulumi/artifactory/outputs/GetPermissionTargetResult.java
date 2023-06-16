@@ -14,10 +14,6 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetPermissionTargetResult {
-    /**
-     * @return Same as repo but for artifactory-build-info permissions.
-     * 
-     */
     private @Nullable GetPermissionTargetBuild build;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -25,22 +21,10 @@ public final class GetPermissionTargetResult {
      */
     private String id;
     private String name;
-    /**
-     * @return Same as repo but for release-bundles permissions.
-     * 
-     */
     private @Nullable GetPermissionTargetReleaseBundle releaseBundle;
-    /**
-     * @return Repository permission configuration.
-     * 
-     */
     private @Nullable GetPermissionTargetRepo repo;
 
     private GetPermissionTargetResult() {}
-    /**
-     * @return Same as repo but for artifactory-build-info permissions.
-     * 
-     */
     public Optional<GetPermissionTargetBuild> build() {
         return Optional.ofNullable(this.build);
     }
@@ -54,17 +38,9 @@ public final class GetPermissionTargetResult {
     public String name() {
         return this.name;
     }
-    /**
-     * @return Same as repo but for release-bundles permissions.
-     * 
-     */
     public Optional<GetPermissionTargetReleaseBundle> releaseBundle() {
         return Optional.ofNullable(this.releaseBundle);
     }
-    /**
-     * @return Repository permission configuration.
-     * 
-     */
     public Optional<GetPermissionTargetRepo> repo() {
         return Optional.ofNullable(this.repo);
     }

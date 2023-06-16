@@ -11,43 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Creates a local Docker v1 repository - By choosing a V1 repository, you don't really have many options.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.NewDockerV1Repository(ctx, "foo", &artifactory.DockerV1RepositoryArgs{
-//				Key: pulumi.String("foo"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Local repositories can be imported using their name, e.g.
-//
-// ```sh
-//
-//	$ pulumi import artifactory:index/dockerV1Repository:DockerV1Repository foo foo
-//
-// ```
 type DockerV1Repository struct {
 	pulumi.CustomResourceState
 
@@ -73,7 +36,8 @@ type DockerV1Repository struct {
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringOutput `pulumi:"includesPattern"`
-	// the identity key of the repo.
+	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+	// characters. It cannot begin with a number or contain spaces or special characters.
 	Key           pulumi.StringOutput `pulumi:"key"`
 	MaxUniqueTags pulumi.IntOutput    `pulumi:"maxUniqueTags"`
 	// Internal description.
@@ -153,7 +117,8 @@ type dockerV1RepositoryState struct {
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
-	// the identity key of the repo.
+	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+	// characters. It cannot begin with a number or contain spaces or special characters.
 	Key           *string `pulumi:"key"`
 	MaxUniqueTags *int    `pulumi:"maxUniqueTags"`
 	// Internal description.
@@ -202,7 +167,8 @@ type DockerV1RepositoryState struct {
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
-	// the identity key of the repo.
+	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+	// characters. It cannot begin with a number or contain spaces or special characters.
 	Key           pulumi.StringPtrInput
 	MaxUniqueTags pulumi.IntPtrInput
 	// Internal description.
@@ -253,7 +219,8 @@ type dockerV1RepositoryArgs struct {
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
-	// the identity key of the repo.
+	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+	// characters. It cannot begin with a number or contain spaces or special characters.
 	Key           string `pulumi:"key"`
 	MaxUniqueTags *int   `pulumi:"maxUniqueTags"`
 	// Internal description.
@@ -299,7 +266,8 @@ type DockerV1RepositoryArgs struct {
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
-	// the identity key of the repo.
+	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+	// characters. It cannot begin with a number or contain spaces or special characters.
 	Key           pulumi.StringInput
 	MaxUniqueTags pulumi.IntPtrInput
 	// Internal description.
@@ -459,7 +427,8 @@ func (o DockerV1RepositoryOutput) IncludesPattern() pulumi.StringOutput {
 	return o.ApplyT(func(v *DockerV1Repository) pulumi.StringOutput { return v.IncludesPattern }).(pulumi.StringOutput)
 }
 
-// the identity key of the repo.
+// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+// characters. It cannot begin with a number or contain spaces or special characters.
 func (o DockerV1RepositoryOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v *DockerV1Repository) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
 }

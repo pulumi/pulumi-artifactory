@@ -18,51 +18,6 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Creates a remote PHP Composer repository.
- * Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/PHP+Composer+Repositories).
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.artifactory.RemoteComposerRepository;
- * import com.pulumi.artifactory.RemoteComposerRepositoryArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var my_remote_composer = new RemoteComposerRepository(&#34;my-remote-composer&#34;, RemoteComposerRepositoryArgs.builder()        
- *             .key(&#34;my-remote-composer&#34;)
- *             .url(&#34;https://github.com/&#34;)
- *             .vcsGitProvider(&#34;GITHUB&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Remote repositories can be imported using their name, e.g.
- * 
- * ```sh
- *  $ pulumi import artifactory:index/remoteComposerRepository:RemoteComposerRepository my-remote-composer my-remote-composer
- * ```
- * 
- */
 @ResourceType(type="artifactory:index/remoteComposerRepository:RemoteComposerRepository")
 public class RemoteComposerRepository extends com.pulumi.resources.CustomResource {
     /**
@@ -182,14 +137,14 @@ public class RemoteComposerRepository extends com.pulumi.resources.CustomResourc
         return this.clientTlsCertificate;
     }
     /**
-     * Proxy remote Composer repository. Default value is `https://packagist.org`.
+     * Proxy remote Composer repository. Default value is &#34;https://packagist.org&#34;.
      * 
      */
     @Export(name="composerRegistryUrl", type=String.class, parameters={})
     private Output</* @Nullable */ String> composerRegistryUrl;
 
     /**
-     * @return Proxy remote Composer repository. Default value is `https://packagist.org`.
+     * @return Proxy remote Composer repository. Default value is &#34;https://packagist.org&#34;.
      * 
      */
     public Output<Optional<String>> composerRegistryUrl() {
@@ -294,16 +249,16 @@ public class RemoteComposerRepository extends com.pulumi.resources.CustomResourc
         return Codegen.optional(this.includesPattern);
     }
     /**
-     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-     * contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      * 
      */
     @Export(name="key", type=String.class, parameters={})
     private Output<String> key;
 
     /**
-     * @return A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-     * contain spaces or special characters.
+     * @return A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      * 
      */
     public Output<String> key() {
@@ -664,28 +619,30 @@ public class RemoteComposerRepository extends com.pulumi.resources.CustomResourc
         return Codegen.optional(this.username);
     }
     /**
-     * This attribute is used when vcs_git_provider is set to `CUSTOM`. Provided URL will be used as proxy.
+     * This attribute is used when vcs_git_provider is set to &#39;CUSTOM&#39;. Provided URL will be used as proxy.
      * 
      */
     @Export(name="vcsGitDownloadUrl", type=String.class, parameters={})
     private Output</* @Nullable */ String> vcsGitDownloadUrl;
 
     /**
-     * @return This attribute is used when vcs_git_provider is set to `CUSTOM`. Provided URL will be used as proxy.
+     * @return This attribute is used when vcs_git_provider is set to &#39;CUSTOM&#39;. Provided URL will be used as proxy.
      * 
      */
     public Output<Optional<String>> vcsGitDownloadUrl() {
         return Codegen.optional(this.vcsGitDownloadUrl);
     }
     /**
-     * Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`. Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
+     * Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance.
+     * Default value is &#34;GITHUB&#34;.
      * 
      */
     @Export(name="vcsGitProvider", type=String.class, parameters={})
     private Output</* @Nullable */ String> vcsGitProvider;
 
     /**
-     * @return Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`. Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
+     * @return Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance.
+     * Default value is &#34;GITHUB&#34;.
      * 
      */
     public Output<Optional<String>> vcsGitProvider() {

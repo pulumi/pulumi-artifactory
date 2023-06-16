@@ -165,19 +165,7 @@ def get_virtual_composer_repository(artifactory_requests_can_retrieve_remote_art
                                     repositories: Optional[Sequence[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualComposerRepositoryResult:
     """
-    Retrieves a virtual PHP Composer repository.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    virtual_composer = artifactory.get_virtual_composer_repository(key="virtual-composer")
-    ```
-
-
-    :param str key: the identity key of the repo.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['artifactoryRequestsCanRetrieveRemoteArtifacts'] = artifactory_requests_can_retrieve_remote_artifacts
@@ -224,18 +212,6 @@ def get_virtual_composer_repository_output(artifactory_requests_can_retrieve_rem
                                            repositories: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualComposerRepositoryResult]:
     """
-    Retrieves a virtual PHP Composer repository.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    virtual_composer = artifactory.get_virtual_composer_repository(key="virtual-composer")
-    ```
-
-
-    :param str key: the identity key of the repo.
+    Use this data source to access information about an existing resource.
     """
     ...

@@ -4,38 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-/**
- * RSA key pairs are used to sign and verify the Alpine Linux index files in JFrog Artifactory, while GPG key pairs are
- * used to sign and validate packages integrity in JFrog Distribution. The JFrog Platform enables you to manage multiple
- * RSA and GPG signing keys through the Keys Management UI and REST API. The JFrog Platform supports managing multiple
- * pairs of GPG signing keys to sign packages for authentication of several package types such as Debian, Opkg, and RPM
- * through the Keys Management UI and REST API.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- * import * as fs from "fs";
- *
- * const some_keypair6543461672124900137 = new artifactory.Keypair("some-keypair6543461672124900137", {
- *     pairName: "some-keypair6543461672124900137",
- *     pairType: "RSA",
- *     alias: "foo-alias6543461672124900137",
- *     privateKey: fs.readFileSync("samples/rsa.priv"),
- *     publicKey: fs.readFileSync("samples/rsa.pub"),
- *     passphrase: "PASSPHRASE",
- * });
- * ```
- *
- * ## Import
- *
- * Keypair can be imported using their name, e.g.
- *
- * ```sh
- *  $ pulumi import artifactory:index/keypair:Keypair my-keypair my-keypair
- * ```
- */
 export class Keypair extends pulumi.CustomResource {
     /**
      * Get an existing Keypair resource's state with the given name, ID, and optional extra
@@ -65,7 +33,7 @@ export class Keypair extends pulumi.CustomResource {
     }
 
     /**
-     * Will be used as a filename when retrieving the public key via REST API.
+     * Will be used as a filename when retrieving the public key via REST API
      */
     public readonly alias!: pulumi.Output<string>;
     /**
@@ -77,7 +45,7 @@ export class Keypair extends pulumi.CustomResource {
      */
     public readonly pairType!: pulumi.Output<string>;
     /**
-     * Passphrase will be used to decrypt the private key. Validated server side.
+     * Passphrase will be used to decrypt the private key. Validated server side
      */
     public readonly passphrase!: pulumi.Output<string | undefined>;
     /**
@@ -90,8 +58,6 @@ export class Keypair extends pulumi.CustomResource {
     public readonly publicKey!: pulumi.Output<string>;
     /**
      * Unknown usage. Returned in the json payload and cannot be set.
-     *
-     * Artifactory REST API call Get Key Pair doesn't return keys `privateKey` and `passphrase`, but consumes these keys in the POST call.
      */
     public /*out*/ readonly unavailable!: pulumi.Output<boolean>;
 
@@ -152,7 +118,7 @@ export class Keypair extends pulumi.CustomResource {
  */
 export interface KeypairState {
     /**
-     * Will be used as a filename when retrieving the public key via REST API.
+     * Will be used as a filename when retrieving the public key via REST API
      */
     alias?: pulumi.Input<string>;
     /**
@@ -164,7 +130,7 @@ export interface KeypairState {
      */
     pairType?: pulumi.Input<string>;
     /**
-     * Passphrase will be used to decrypt the private key. Validated server side.
+     * Passphrase will be used to decrypt the private key. Validated server side
      */
     passphrase?: pulumi.Input<string>;
     /**
@@ -177,8 +143,6 @@ export interface KeypairState {
     publicKey?: pulumi.Input<string>;
     /**
      * Unknown usage. Returned in the json payload and cannot be set.
-     *
-     * Artifactory REST API call Get Key Pair doesn't return keys `privateKey` and `passphrase`, but consumes these keys in the POST call.
      */
     unavailable?: pulumi.Input<boolean>;
 }
@@ -188,7 +152,7 @@ export interface KeypairState {
  */
 export interface KeypairArgs {
     /**
-     * Will be used as a filename when retrieving the public key via REST API.
+     * Will be used as a filename when retrieving the public key via REST API
      */
     alias: pulumi.Input<string>;
     /**
@@ -200,7 +164,7 @@ export interface KeypairArgs {
      */
     pairType: pulumi.Input<string>;
     /**
-     * Passphrase will be used to decrypt the private key. Validated server side.
+     * Passphrase will be used to decrypt the private key. Validated server side
      */
     passphrase?: pulumi.Input<string>;
     /**

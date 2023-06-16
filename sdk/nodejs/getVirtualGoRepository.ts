@@ -4,20 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-/**
- * Retrieves a virtual Go repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const virtual-go = artifactory.getVirtualGoRepository({
- *     key: "virtual-go",
- * });
- * ```
- */
 export function getVirtualGoRepository(args: GetVirtualGoRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualGoRepositoryResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -46,19 +32,9 @@ export interface GetVirtualGoRepositoryArgs {
     defaultDeploymentRepo?: string;
     description?: string;
     excludesPattern?: string;
-    /**
-     * (Optional) Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list. 
-     * When checked (default), Artifactory will automatically follow remote VCS roots in 'go-import' meta tags to download remote modules.
-     */
     externalDependenciesEnabled?: boolean;
-    /**
-     * (Optional) 'go-import' Allow List on the UI.
-     */
     externalDependenciesPatterns?: string[];
     includesPattern?: string;
-    /**
-     * the identity key of the repo.
-     */
     key: string;
     notes?: string;
     projectEnvironments?: string[];
@@ -75,14 +51,7 @@ export interface GetVirtualGoRepositoryResult {
     readonly defaultDeploymentRepo?: string;
     readonly description?: string;
     readonly excludesPattern?: string;
-    /**
-     * (Optional) Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list. 
-     * When checked (default), Artifactory will automatically follow remote VCS roots in 'go-import' meta tags to download remote modules.
-     */
     readonly externalDependenciesEnabled?: boolean;
-    /**
-     * (Optional) 'go-import' Allow List on the UI.
-     */
     readonly externalDependenciesPatterns?: string[];
     /**
      * The provider-assigned unique ID for this managed resource.
@@ -97,20 +66,6 @@ export interface GetVirtualGoRepositoryResult {
     readonly repoLayoutRef?: string;
     readonly repositories?: string[];
 }
-/**
- * Retrieves a virtual Go repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const virtual-go = artifactory.getVirtualGoRepository({
- *     key: "virtual-go",
- * });
- * ```
- */
 export function getVirtualGoRepositoryOutput(args: GetVirtualGoRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualGoRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getVirtualGoRepository(a, opts))
 }
@@ -123,19 +78,9 @@ export interface GetVirtualGoRepositoryOutputArgs {
     defaultDeploymentRepo?: pulumi.Input<string>;
     description?: pulumi.Input<string>;
     excludesPattern?: pulumi.Input<string>;
-    /**
-     * (Optional) Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list. 
-     * When checked (default), Artifactory will automatically follow remote VCS roots in 'go-import' meta tags to download remote modules.
-     */
     externalDependenciesEnabled?: pulumi.Input<boolean>;
-    /**
-     * (Optional) 'go-import' Allow List on the UI.
-     */
     externalDependenciesPatterns?: pulumi.Input<pulumi.Input<string>[]>;
     includesPattern?: pulumi.Input<string>;
-    /**
-     * the identity key of the repo.
-     */
     key: pulumi.Input<string>;
     notes?: pulumi.Input<string>;
     projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;

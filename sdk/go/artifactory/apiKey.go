@@ -10,51 +10,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an Artifactory API key resource. This can be used to create and manage Artifactory API keys.
-//
-// > **Note:** API keys will be stored in the raw state as plain-text. Read more about sensitive data in state.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.NewApiKey(ctx, "ci", nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// A user's API key can be imported using any identifier, e.g.
-//
-// ```sh
-//
-//	$ pulumi import artifactory:index/apiKey:ApiKey test import
-//
-// ```
 type ApiKey struct {
 	pulumi.CustomResourceState
 
-	// The API key. Deprecated. An upcoming version will support the option to block the usage/creation of API Keys (for admins to set on their platform).
-	// In September 2022, the option to block the usage/creation of API Keys will be enabled by default, with the option for admins to change it back to enable API Keys.
-	// In January 2023, API Keys will be deprecated all together and the option to use them will no longer be available.
-	// It is recommended to use scoped tokens instead - `ScopedToken` resource.
-	// Please check the [release notes](https://www.jfrog.com/confluence/display/JFROG/Artifactory+Release+Notes#ArtifactoryReleaseNotes-Artifactory7.38.4).
 	ApiKey pulumi.StringOutput `pulumi:"apiKey"`
 }
 
@@ -91,20 +49,10 @@ func GetApiKey(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ApiKey resources.
 type apiKeyState struct {
-	// The API key. Deprecated. An upcoming version will support the option to block the usage/creation of API Keys (for admins to set on their platform).
-	// In September 2022, the option to block the usage/creation of API Keys will be enabled by default, with the option for admins to change it back to enable API Keys.
-	// In January 2023, API Keys will be deprecated all together and the option to use them will no longer be available.
-	// It is recommended to use scoped tokens instead - `ScopedToken` resource.
-	// Please check the [release notes](https://www.jfrog.com/confluence/display/JFROG/Artifactory+Release+Notes#ArtifactoryReleaseNotes-Artifactory7.38.4).
 	ApiKey *string `pulumi:"apiKey"`
 }
 
 type ApiKeyState struct {
-	// The API key. Deprecated. An upcoming version will support the option to block the usage/creation of API Keys (for admins to set on their platform).
-	// In September 2022, the option to block the usage/creation of API Keys will be enabled by default, with the option for admins to change it back to enable API Keys.
-	// In January 2023, API Keys will be deprecated all together and the option to use them will no longer be available.
-	// It is recommended to use scoped tokens instead - `ScopedToken` resource.
-	// Please check the [release notes](https://www.jfrog.com/confluence/display/JFROG/Artifactory+Release+Notes#ArtifactoryReleaseNotes-Artifactory7.38.4).
 	ApiKey pulumi.StringPtrInput
 }
 
@@ -206,11 +154,6 @@ func (o ApiKeyOutput) ToApiKeyOutputWithContext(ctx context.Context) ApiKeyOutpu
 	return o
 }
 
-// The API key. Deprecated. An upcoming version will support the option to block the usage/creation of API Keys (for admins to set on their platform).
-// In September 2022, the option to block the usage/creation of API Keys will be enabled by default, with the option for admins to change it back to enable API Keys.
-// In January 2023, API Keys will be deprecated all together and the option to use them will no longer be available.
-// It is recommended to use scoped tokens instead - `ScopedToken` resource.
-// Please check the [release notes](https://www.jfrog.com/confluence/display/JFROG/Artifactory+Release+Notes#ArtifactoryReleaseNotes-Artifactory7.38.4).
 func (o ApiKeyOutput) ApiKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApiKey) pulumi.StringOutput { return v.ApiKey }).(pulumi.StringOutput)
 }

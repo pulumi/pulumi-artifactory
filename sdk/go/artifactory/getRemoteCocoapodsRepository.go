@@ -10,33 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Retrieves a remote CocoaPods repository.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupRemoteCocoapodsRepository(ctx, &artifactory.LookupRemoteCocoapodsRepositoryArgs{
-//				Key: "remote-cocoapods",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupRemoteCocoapodsRepository(ctx *pulumi.Context, args *LookupRemoteCocoapodsRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupRemoteCocoapodsRepositoryResult, error) {
 	var rv LookupRemoteCocoapodsRepositoryResult
 	err := ctx.Invoke("artifactory:index/getRemoteCocoapodsRepository:getRemoteCocoapodsRepository", args, &rv, opts...)
@@ -48,53 +21,49 @@ func LookupRemoteCocoapodsRepository(ctx *pulumi.Context, args *LookupRemoteCoco
 
 // A collection of arguments for invoking getRemoteCocoapodsRepository.
 type LookupRemoteCocoapodsRepositoryArgs struct {
-	AllowAnyHostAuth          *bool                                               `pulumi:"allowAnyHostAuth"`
-	AssumedOfflinePeriodSecs  *int                                                `pulumi:"assumedOfflinePeriodSecs"`
-	BlackedOut                *bool                                               `pulumi:"blackedOut"`
-	BlockMismatchingMimeTypes *bool                                               `pulumi:"blockMismatchingMimeTypes"`
-	BypassHeadRequests        *bool                                               `pulumi:"bypassHeadRequests"`
-	CdnRedirect               *bool                                               `pulumi:"cdnRedirect"`
-	ClientTlsCertificate      *string                                             `pulumi:"clientTlsCertificate"`
-	ContentSynchronisation    *GetRemoteCocoapodsRepositoryContentSynchronisation `pulumi:"contentSynchronisation"`
-	Description               *string                                             `pulumi:"description"`
-	DownloadDirect            *bool                                               `pulumi:"downloadDirect"`
-	EnableCookieManagement    *bool                                               `pulumi:"enableCookieManagement"`
-	ExcludesPattern           *string                                             `pulumi:"excludesPattern"`
-	HardFail                  *bool                                               `pulumi:"hardFail"`
-	IncludesPattern           *string                                             `pulumi:"includesPattern"`
-	// the identity key of the repo.
-	Key                              string  `pulumi:"key"`
-	ListRemoteFolderItems            *bool   `pulumi:"listRemoteFolderItems"`
-	LocalAddress                     *string `pulumi:"localAddress"`
-	MetadataRetrievalTimeoutSecs     *int    `pulumi:"metadataRetrievalTimeoutSecs"`
-	MismatchingMimeTypesOverrideList *string `pulumi:"mismatchingMimeTypesOverrideList"`
-	MissedCachePeriodSeconds         *int    `pulumi:"missedCachePeriodSeconds"`
-	Notes                            *string `pulumi:"notes"`
-	Offline                          *bool   `pulumi:"offline"`
-	Password                         *string `pulumi:"password"`
-	// (Optional) Proxy remote CocoaPods Specs repositories. Default value is `https://github.com/CocoaPods/Specs`.
-	PodsSpecsRepoUrl                  *string  `pulumi:"podsSpecsRepoUrl"`
-	PriorityResolution                *bool    `pulumi:"priorityResolution"`
-	ProjectEnvironments               []string `pulumi:"projectEnvironments"`
-	ProjectKey                        *string  `pulumi:"projectKey"`
-	PropertySets                      []string `pulumi:"propertySets"`
-	Proxy                             *string  `pulumi:"proxy"`
-	QueryParams                       *string  `pulumi:"queryParams"`
-	RemoteRepoLayoutRef               *string  `pulumi:"remoteRepoLayoutRef"`
-	RepoLayoutRef                     *string  `pulumi:"repoLayoutRef"`
-	RetrievalCachePeriodSeconds       *int     `pulumi:"retrievalCachePeriodSeconds"`
-	ShareConfiguration                *bool    `pulumi:"shareConfiguration"`
-	SocketTimeoutMillis               *int     `pulumi:"socketTimeoutMillis"`
-	StoreArtifactsLocally             *bool    `pulumi:"storeArtifactsLocally"`
-	SynchronizeProperties             *bool    `pulumi:"synchronizeProperties"`
-	UnusedArtifactsCleanupPeriodHours *int     `pulumi:"unusedArtifactsCleanupPeriodHours"`
-	Url                               *string  `pulumi:"url"`
-	Username                          *string  `pulumi:"username"`
-	// (Optional) This attribute is used when vcsGitProvider is set to `CUSTOM`. Provided URL will be used as proxy.
-	VcsGitDownloadUrl *string `pulumi:"vcsGitDownloadUrl"`
-	// (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`. Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
-	VcsGitProvider *string `pulumi:"vcsGitProvider"`
-	XrayIndex      *bool   `pulumi:"xrayIndex"`
+	AllowAnyHostAuth                  *bool                                               `pulumi:"allowAnyHostAuth"`
+	AssumedOfflinePeriodSecs          *int                                                `pulumi:"assumedOfflinePeriodSecs"`
+	BlackedOut                        *bool                                               `pulumi:"blackedOut"`
+	BlockMismatchingMimeTypes         *bool                                               `pulumi:"blockMismatchingMimeTypes"`
+	BypassHeadRequests                *bool                                               `pulumi:"bypassHeadRequests"`
+	CdnRedirect                       *bool                                               `pulumi:"cdnRedirect"`
+	ClientTlsCertificate              *string                                             `pulumi:"clientTlsCertificate"`
+	ContentSynchronisation            *GetRemoteCocoapodsRepositoryContentSynchronisation `pulumi:"contentSynchronisation"`
+	Description                       *string                                             `pulumi:"description"`
+	DownloadDirect                    *bool                                               `pulumi:"downloadDirect"`
+	EnableCookieManagement            *bool                                               `pulumi:"enableCookieManagement"`
+	ExcludesPattern                   *string                                             `pulumi:"excludesPattern"`
+	HardFail                          *bool                                               `pulumi:"hardFail"`
+	IncludesPattern                   *string                                             `pulumi:"includesPattern"`
+	Key                               string                                              `pulumi:"key"`
+	ListRemoteFolderItems             *bool                                               `pulumi:"listRemoteFolderItems"`
+	LocalAddress                      *string                                             `pulumi:"localAddress"`
+	MetadataRetrievalTimeoutSecs      *int                                                `pulumi:"metadataRetrievalTimeoutSecs"`
+	MismatchingMimeTypesOverrideList  *string                                             `pulumi:"mismatchingMimeTypesOverrideList"`
+	MissedCachePeriodSeconds          *int                                                `pulumi:"missedCachePeriodSeconds"`
+	Notes                             *string                                             `pulumi:"notes"`
+	Offline                           *bool                                               `pulumi:"offline"`
+	Password                          *string                                             `pulumi:"password"`
+	PodsSpecsRepoUrl                  *string                                             `pulumi:"podsSpecsRepoUrl"`
+	PriorityResolution                *bool                                               `pulumi:"priorityResolution"`
+	ProjectEnvironments               []string                                            `pulumi:"projectEnvironments"`
+	ProjectKey                        *string                                             `pulumi:"projectKey"`
+	PropertySets                      []string                                            `pulumi:"propertySets"`
+	Proxy                             *string                                             `pulumi:"proxy"`
+	QueryParams                       *string                                             `pulumi:"queryParams"`
+	RemoteRepoLayoutRef               *string                                             `pulumi:"remoteRepoLayoutRef"`
+	RepoLayoutRef                     *string                                             `pulumi:"repoLayoutRef"`
+	RetrievalCachePeriodSeconds       *int                                                `pulumi:"retrievalCachePeriodSeconds"`
+	ShareConfiguration                *bool                                               `pulumi:"shareConfiguration"`
+	SocketTimeoutMillis               *int                                                `pulumi:"socketTimeoutMillis"`
+	StoreArtifactsLocally             *bool                                               `pulumi:"storeArtifactsLocally"`
+	SynchronizeProperties             *bool                                               `pulumi:"synchronizeProperties"`
+	UnusedArtifactsCleanupPeriodHours *int                                                `pulumi:"unusedArtifactsCleanupPeriodHours"`
+	Url                               *string                                             `pulumi:"url"`
+	Username                          *string                                             `pulumi:"username"`
+	VcsGitDownloadUrl                 *string                                             `pulumi:"vcsGitDownloadUrl"`
+	VcsGitProvider                    *string                                             `pulumi:"vcsGitProvider"`
+	XrayIndex                         *bool                                               `pulumi:"xrayIndex"`
 }
 
 // A collection of values returned by getRemoteCocoapodsRepository.
@@ -113,19 +82,18 @@ type LookupRemoteCocoapodsRepositoryResult struct {
 	ExcludesPattern           *string                                            `pulumi:"excludesPattern"`
 	HardFail                  *bool                                              `pulumi:"hardFail"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                               string  `pulumi:"id"`
-	IncludesPattern                  *string `pulumi:"includesPattern"`
-	Key                              string  `pulumi:"key"`
-	ListRemoteFolderItems            *bool   `pulumi:"listRemoteFolderItems"`
-	LocalAddress                     *string `pulumi:"localAddress"`
-	MetadataRetrievalTimeoutSecs     *int    `pulumi:"metadataRetrievalTimeoutSecs"`
-	MismatchingMimeTypesOverrideList *string `pulumi:"mismatchingMimeTypesOverrideList"`
-	MissedCachePeriodSeconds         *int    `pulumi:"missedCachePeriodSeconds"`
-	Notes                            *string `pulumi:"notes"`
-	Offline                          *bool   `pulumi:"offline"`
-	PackageType                      string  `pulumi:"packageType"`
-	Password                         *string `pulumi:"password"`
-	// (Optional) Proxy remote CocoaPods Specs repositories. Default value is `https://github.com/CocoaPods/Specs`.
+	Id                                string   `pulumi:"id"`
+	IncludesPattern                   *string  `pulumi:"includesPattern"`
+	Key                               string   `pulumi:"key"`
+	ListRemoteFolderItems             *bool    `pulumi:"listRemoteFolderItems"`
+	LocalAddress                      *string  `pulumi:"localAddress"`
+	MetadataRetrievalTimeoutSecs      *int     `pulumi:"metadataRetrievalTimeoutSecs"`
+	MismatchingMimeTypesOverrideList  *string  `pulumi:"mismatchingMimeTypesOverrideList"`
+	MissedCachePeriodSeconds          *int     `pulumi:"missedCachePeriodSeconds"`
+	Notes                             *string  `pulumi:"notes"`
+	Offline                           *bool    `pulumi:"offline"`
+	PackageType                       string   `pulumi:"packageType"`
+	Password                          *string  `pulumi:"password"`
 	PodsSpecsRepoUrl                  *string  `pulumi:"podsSpecsRepoUrl"`
 	PriorityResolution                *bool    `pulumi:"priorityResolution"`
 	ProjectEnvironments               []string `pulumi:"projectEnvironments"`
@@ -143,11 +111,9 @@ type LookupRemoteCocoapodsRepositoryResult struct {
 	UnusedArtifactsCleanupPeriodHours *int     `pulumi:"unusedArtifactsCleanupPeriodHours"`
 	Url                               *string  `pulumi:"url"`
 	Username                          *string  `pulumi:"username"`
-	// (Optional) This attribute is used when vcsGitProvider is set to `CUSTOM`. Provided URL will be used as proxy.
-	VcsGitDownloadUrl *string `pulumi:"vcsGitDownloadUrl"`
-	// (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`. Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
-	VcsGitProvider *string `pulumi:"vcsGitProvider"`
-	XrayIndex      *bool   `pulumi:"xrayIndex"`
+	VcsGitDownloadUrl                 *string  `pulumi:"vcsGitDownloadUrl"`
+	VcsGitProvider                    *string  `pulumi:"vcsGitProvider"`
+	XrayIndex                         *bool    `pulumi:"xrayIndex"`
 }
 
 func LookupRemoteCocoapodsRepositoryOutput(ctx *pulumi.Context, args LookupRemoteCocoapodsRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupRemoteCocoapodsRepositoryResultOutput {
@@ -165,53 +131,49 @@ func LookupRemoteCocoapodsRepositoryOutput(ctx *pulumi.Context, args LookupRemot
 
 // A collection of arguments for invoking getRemoteCocoapodsRepository.
 type LookupRemoteCocoapodsRepositoryOutputArgs struct {
-	AllowAnyHostAuth          pulumi.BoolPtrInput                                        `pulumi:"allowAnyHostAuth"`
-	AssumedOfflinePeriodSecs  pulumi.IntPtrInput                                         `pulumi:"assumedOfflinePeriodSecs"`
-	BlackedOut                pulumi.BoolPtrInput                                        `pulumi:"blackedOut"`
-	BlockMismatchingMimeTypes pulumi.BoolPtrInput                                        `pulumi:"blockMismatchingMimeTypes"`
-	BypassHeadRequests        pulumi.BoolPtrInput                                        `pulumi:"bypassHeadRequests"`
-	CdnRedirect               pulumi.BoolPtrInput                                        `pulumi:"cdnRedirect"`
-	ClientTlsCertificate      pulumi.StringPtrInput                                      `pulumi:"clientTlsCertificate"`
-	ContentSynchronisation    GetRemoteCocoapodsRepositoryContentSynchronisationPtrInput `pulumi:"contentSynchronisation"`
-	Description               pulumi.StringPtrInput                                      `pulumi:"description"`
-	DownloadDirect            pulumi.BoolPtrInput                                        `pulumi:"downloadDirect"`
-	EnableCookieManagement    pulumi.BoolPtrInput                                        `pulumi:"enableCookieManagement"`
-	ExcludesPattern           pulumi.StringPtrInput                                      `pulumi:"excludesPattern"`
-	HardFail                  pulumi.BoolPtrInput                                        `pulumi:"hardFail"`
-	IncludesPattern           pulumi.StringPtrInput                                      `pulumi:"includesPattern"`
-	// the identity key of the repo.
-	Key                              pulumi.StringInput    `pulumi:"key"`
-	ListRemoteFolderItems            pulumi.BoolPtrInput   `pulumi:"listRemoteFolderItems"`
-	LocalAddress                     pulumi.StringPtrInput `pulumi:"localAddress"`
-	MetadataRetrievalTimeoutSecs     pulumi.IntPtrInput    `pulumi:"metadataRetrievalTimeoutSecs"`
-	MismatchingMimeTypesOverrideList pulumi.StringPtrInput `pulumi:"mismatchingMimeTypesOverrideList"`
-	MissedCachePeriodSeconds         pulumi.IntPtrInput    `pulumi:"missedCachePeriodSeconds"`
-	Notes                            pulumi.StringPtrInput `pulumi:"notes"`
-	Offline                          pulumi.BoolPtrInput   `pulumi:"offline"`
-	Password                         pulumi.StringPtrInput `pulumi:"password"`
-	// (Optional) Proxy remote CocoaPods Specs repositories. Default value is `https://github.com/CocoaPods/Specs`.
-	PodsSpecsRepoUrl                  pulumi.StringPtrInput   `pulumi:"podsSpecsRepoUrl"`
-	PriorityResolution                pulumi.BoolPtrInput     `pulumi:"priorityResolution"`
-	ProjectEnvironments               pulumi.StringArrayInput `pulumi:"projectEnvironments"`
-	ProjectKey                        pulumi.StringPtrInput   `pulumi:"projectKey"`
-	PropertySets                      pulumi.StringArrayInput `pulumi:"propertySets"`
-	Proxy                             pulumi.StringPtrInput   `pulumi:"proxy"`
-	QueryParams                       pulumi.StringPtrInput   `pulumi:"queryParams"`
-	RemoteRepoLayoutRef               pulumi.StringPtrInput   `pulumi:"remoteRepoLayoutRef"`
-	RepoLayoutRef                     pulumi.StringPtrInput   `pulumi:"repoLayoutRef"`
-	RetrievalCachePeriodSeconds       pulumi.IntPtrInput      `pulumi:"retrievalCachePeriodSeconds"`
-	ShareConfiguration                pulumi.BoolPtrInput     `pulumi:"shareConfiguration"`
-	SocketTimeoutMillis               pulumi.IntPtrInput      `pulumi:"socketTimeoutMillis"`
-	StoreArtifactsLocally             pulumi.BoolPtrInput     `pulumi:"storeArtifactsLocally"`
-	SynchronizeProperties             pulumi.BoolPtrInput     `pulumi:"synchronizeProperties"`
-	UnusedArtifactsCleanupPeriodHours pulumi.IntPtrInput      `pulumi:"unusedArtifactsCleanupPeriodHours"`
-	Url                               pulumi.StringPtrInput   `pulumi:"url"`
-	Username                          pulumi.StringPtrInput   `pulumi:"username"`
-	// (Optional) This attribute is used when vcsGitProvider is set to `CUSTOM`. Provided URL will be used as proxy.
-	VcsGitDownloadUrl pulumi.StringPtrInput `pulumi:"vcsGitDownloadUrl"`
-	// (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`. Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
-	VcsGitProvider pulumi.StringPtrInput `pulumi:"vcsGitProvider"`
-	XrayIndex      pulumi.BoolPtrInput   `pulumi:"xrayIndex"`
+	AllowAnyHostAuth                  pulumi.BoolPtrInput                                        `pulumi:"allowAnyHostAuth"`
+	AssumedOfflinePeriodSecs          pulumi.IntPtrInput                                         `pulumi:"assumedOfflinePeriodSecs"`
+	BlackedOut                        pulumi.BoolPtrInput                                        `pulumi:"blackedOut"`
+	BlockMismatchingMimeTypes         pulumi.BoolPtrInput                                        `pulumi:"blockMismatchingMimeTypes"`
+	BypassHeadRequests                pulumi.BoolPtrInput                                        `pulumi:"bypassHeadRequests"`
+	CdnRedirect                       pulumi.BoolPtrInput                                        `pulumi:"cdnRedirect"`
+	ClientTlsCertificate              pulumi.StringPtrInput                                      `pulumi:"clientTlsCertificate"`
+	ContentSynchronisation            GetRemoteCocoapodsRepositoryContentSynchronisationPtrInput `pulumi:"contentSynchronisation"`
+	Description                       pulumi.StringPtrInput                                      `pulumi:"description"`
+	DownloadDirect                    pulumi.BoolPtrInput                                        `pulumi:"downloadDirect"`
+	EnableCookieManagement            pulumi.BoolPtrInput                                        `pulumi:"enableCookieManagement"`
+	ExcludesPattern                   pulumi.StringPtrInput                                      `pulumi:"excludesPattern"`
+	HardFail                          pulumi.BoolPtrInput                                        `pulumi:"hardFail"`
+	IncludesPattern                   pulumi.StringPtrInput                                      `pulumi:"includesPattern"`
+	Key                               pulumi.StringInput                                         `pulumi:"key"`
+	ListRemoteFolderItems             pulumi.BoolPtrInput                                        `pulumi:"listRemoteFolderItems"`
+	LocalAddress                      pulumi.StringPtrInput                                      `pulumi:"localAddress"`
+	MetadataRetrievalTimeoutSecs      pulumi.IntPtrInput                                         `pulumi:"metadataRetrievalTimeoutSecs"`
+	MismatchingMimeTypesOverrideList  pulumi.StringPtrInput                                      `pulumi:"mismatchingMimeTypesOverrideList"`
+	MissedCachePeriodSeconds          pulumi.IntPtrInput                                         `pulumi:"missedCachePeriodSeconds"`
+	Notes                             pulumi.StringPtrInput                                      `pulumi:"notes"`
+	Offline                           pulumi.BoolPtrInput                                        `pulumi:"offline"`
+	Password                          pulumi.StringPtrInput                                      `pulumi:"password"`
+	PodsSpecsRepoUrl                  pulumi.StringPtrInput                                      `pulumi:"podsSpecsRepoUrl"`
+	PriorityResolution                pulumi.BoolPtrInput                                        `pulumi:"priorityResolution"`
+	ProjectEnvironments               pulumi.StringArrayInput                                    `pulumi:"projectEnvironments"`
+	ProjectKey                        pulumi.StringPtrInput                                      `pulumi:"projectKey"`
+	PropertySets                      pulumi.StringArrayInput                                    `pulumi:"propertySets"`
+	Proxy                             pulumi.StringPtrInput                                      `pulumi:"proxy"`
+	QueryParams                       pulumi.StringPtrInput                                      `pulumi:"queryParams"`
+	RemoteRepoLayoutRef               pulumi.StringPtrInput                                      `pulumi:"remoteRepoLayoutRef"`
+	RepoLayoutRef                     pulumi.StringPtrInput                                      `pulumi:"repoLayoutRef"`
+	RetrievalCachePeriodSeconds       pulumi.IntPtrInput                                         `pulumi:"retrievalCachePeriodSeconds"`
+	ShareConfiguration                pulumi.BoolPtrInput                                        `pulumi:"shareConfiguration"`
+	SocketTimeoutMillis               pulumi.IntPtrInput                                         `pulumi:"socketTimeoutMillis"`
+	StoreArtifactsLocally             pulumi.BoolPtrInput                                        `pulumi:"storeArtifactsLocally"`
+	SynchronizeProperties             pulumi.BoolPtrInput                                        `pulumi:"synchronizeProperties"`
+	UnusedArtifactsCleanupPeriodHours pulumi.IntPtrInput                                         `pulumi:"unusedArtifactsCleanupPeriodHours"`
+	Url                               pulumi.StringPtrInput                                      `pulumi:"url"`
+	Username                          pulumi.StringPtrInput                                      `pulumi:"username"`
+	VcsGitDownloadUrl                 pulumi.StringPtrInput                                      `pulumi:"vcsGitDownloadUrl"`
+	VcsGitProvider                    pulumi.StringPtrInput                                      `pulumi:"vcsGitProvider"`
+	XrayIndex                         pulumi.BoolPtrInput                                        `pulumi:"xrayIndex"`
 }
 
 func (LookupRemoteCocoapodsRepositoryOutputArgs) ElementType() reflect.Type {
@@ -336,7 +298,6 @@ func (o LookupRemoteCocoapodsRepositoryResultOutput) Password() pulumi.StringPtr
 	return o.ApplyT(func(v LookupRemoteCocoapodsRepositoryResult) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
-// (Optional) Proxy remote CocoaPods Specs repositories. Default value is `https://github.com/CocoaPods/Specs`.
 func (o LookupRemoteCocoapodsRepositoryResultOutput) PodsSpecsRepoUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRemoteCocoapodsRepositoryResult) *string { return v.PodsSpecsRepoUrl }).(pulumi.StringPtrOutput)
 }
@@ -405,12 +366,10 @@ func (o LookupRemoteCocoapodsRepositoryResultOutput) Username() pulumi.StringPtr
 	return o.ApplyT(func(v LookupRemoteCocoapodsRepositoryResult) *string { return v.Username }).(pulumi.StringPtrOutput)
 }
 
-// (Optional) This attribute is used when vcsGitProvider is set to `CUSTOM`. Provided URL will be used as proxy.
 func (o LookupRemoteCocoapodsRepositoryResultOutput) VcsGitDownloadUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRemoteCocoapodsRepositoryResult) *string { return v.VcsGitDownloadUrl }).(pulumi.StringPtrOutput)
 }
 
-// (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`. Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
 func (o LookupRemoteCocoapodsRepositoryResultOutput) VcsGitProvider() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRemoteCocoapodsRepositoryResult) *string { return v.VcsGitProvider }).(pulumi.StringPtrOutput)
 }

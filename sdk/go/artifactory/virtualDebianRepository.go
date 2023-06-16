@@ -11,61 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Creates a virtual Debian repository.
-// Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Debian+Repositories#DebianRepositories-VirtualRepositories).
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.NewVirtualDebianRepository(ctx, "foo-debian", &artifactory.VirtualDebianRepositoryArgs{
-//				DebianDefaultArchitectures: pulumi.String("amd64,i386"),
-//				Description:                pulumi.String("A test virtual repo"),
-//				ExcludesPattern:            pulumi.String("com/google/**"),
-//				IncludesPattern:            pulumi.String("com/jfrog/**,cloud/jfrog/**"),
-//				Key:                        pulumi.String("foo-debian"),
-//				Notes:                      pulumi.String("Internal description"),
-//				OptionalIndexCompressionFormats: pulumi.StringArray{
-//					pulumi.String("bz2"),
-//					pulumi.String("xz"),
-//				},
-//				Repositories: pulumi.StringArray{},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Virtual repositories can be imported using their name, e.g.
-//
-// ```sh
-//
-//	$ pulumi import artifactory:index/virtualDebianRepository:VirtualDebianRepository foo-debian foo-debian
-//
-// ```
 type VirtualDebianRepository struct {
 	pulumi.CustomResourceState
 
 	// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
 	// another Artifactory instance.
 	ArtifactoryRequestsCanRetrieveRemoteArtifacts pulumi.BoolPtrOutput `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`
-	// Specifying  architectures will speed up Artifactory's initial metadata indexing process. The default architecture values are amd64 and i386.
+	// Specifying architectures will speed up Artifactory's initial metadata indexing process. The default architecture values
+	// are amd64 and i386.
 	DebianDefaultArchitectures pulumi.StringPtrOutput `pulumi:"debianDefaultArchitectures"`
 	// Default repository to deploy artifacts.
 	DefaultDeploymentRepo pulumi.StringPtrOutput `pulumi:"defaultDeploymentRepo"`
@@ -77,12 +30,13 @@ type VirtualDebianRepository struct {
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrOutput `pulumi:"includesPattern"`
-	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-	// contain spaces or special characters.
+	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+	// characters. It cannot begin with a number or contain spaces or special characters.
 	Key pulumi.StringOutput `pulumi:"key"`
 	// Internal description.
 	Notes pulumi.StringPtrOutput `pulumi:"notes"`
-	// Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are `bz2`,`lzma` and `xz`. Default value is `bz2`.
+	// Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are
+	// 'bz2','lzma' and 'xz'. Default value is 'bz2'.
 	OptionalIndexCompressionFormats pulumi.StringArrayOutput `pulumi:"optionalIndexCompressionFormats"`
 	PackageType                     pulumi.StringOutput      `pulumi:"packageType"`
 	// Primary keypair used to sign artifacts. Default is empty.
@@ -99,7 +53,8 @@ type VirtualDebianRepository struct {
 	RepoLayoutRef pulumi.StringPtrOutput `pulumi:"repoLayoutRef"`
 	// The effective list of actual repositories included in this virtual repository.
 	Repositories pulumi.StringArrayOutput `pulumi:"repositories"`
-	// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
+	// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
+	// repositories. A value of 0 indicates no caching.
 	RetrievalCachePeriodSeconds pulumi.IntPtrOutput `pulumi:"retrievalCachePeriodSeconds"`
 	// Secondary keypair used to sign artifacts. Default is empty.
 	SecondaryKeypairRef pulumi.StringPtrOutput `pulumi:"secondaryKeypairRef"`
@@ -140,7 +95,8 @@ type virtualDebianRepositoryState struct {
 	// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
 	// another Artifactory instance.
 	ArtifactoryRequestsCanRetrieveRemoteArtifacts *bool `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`
-	// Specifying  architectures will speed up Artifactory's initial metadata indexing process. The default architecture values are amd64 and i386.
+	// Specifying architectures will speed up Artifactory's initial metadata indexing process. The default architecture values
+	// are amd64 and i386.
 	DebianDefaultArchitectures *string `pulumi:"debianDefaultArchitectures"`
 	// Default repository to deploy artifacts.
 	DefaultDeploymentRepo *string `pulumi:"defaultDeploymentRepo"`
@@ -152,12 +108,13 @@ type virtualDebianRepositoryState struct {
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
-	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-	// contain spaces or special characters.
+	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+	// characters. It cannot begin with a number or contain spaces or special characters.
 	Key *string `pulumi:"key"`
 	// Internal description.
 	Notes *string `pulumi:"notes"`
-	// Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are `bz2`,`lzma` and `xz`. Default value is `bz2`.
+	// Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are
+	// 'bz2','lzma' and 'xz'. Default value is 'bz2'.
 	OptionalIndexCompressionFormats []string `pulumi:"optionalIndexCompressionFormats"`
 	PackageType                     *string  `pulumi:"packageType"`
 	// Primary keypair used to sign artifacts. Default is empty.
@@ -174,7 +131,8 @@ type virtualDebianRepositoryState struct {
 	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
 	// The effective list of actual repositories included in this virtual repository.
 	Repositories []string `pulumi:"repositories"`
-	// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
+	// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
+	// repositories. A value of 0 indicates no caching.
 	RetrievalCachePeriodSeconds *int `pulumi:"retrievalCachePeriodSeconds"`
 	// Secondary keypair used to sign artifacts. Default is empty.
 	SecondaryKeypairRef *string `pulumi:"secondaryKeypairRef"`
@@ -184,7 +142,8 @@ type VirtualDebianRepositoryState struct {
 	// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
 	// another Artifactory instance.
 	ArtifactoryRequestsCanRetrieveRemoteArtifacts pulumi.BoolPtrInput
-	// Specifying  architectures will speed up Artifactory's initial metadata indexing process. The default architecture values are amd64 and i386.
+	// Specifying architectures will speed up Artifactory's initial metadata indexing process. The default architecture values
+	// are amd64 and i386.
 	DebianDefaultArchitectures pulumi.StringPtrInput
 	// Default repository to deploy artifacts.
 	DefaultDeploymentRepo pulumi.StringPtrInput
@@ -196,12 +155,13 @@ type VirtualDebianRepositoryState struct {
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
-	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-	// contain spaces or special characters.
+	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+	// characters. It cannot begin with a number or contain spaces or special characters.
 	Key pulumi.StringPtrInput
 	// Internal description.
 	Notes pulumi.StringPtrInput
-	// Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are `bz2`,`lzma` and `xz`. Default value is `bz2`.
+	// Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are
+	// 'bz2','lzma' and 'xz'. Default value is 'bz2'.
 	OptionalIndexCompressionFormats pulumi.StringArrayInput
 	PackageType                     pulumi.StringPtrInput
 	// Primary keypair used to sign artifacts. Default is empty.
@@ -218,7 +178,8 @@ type VirtualDebianRepositoryState struct {
 	RepoLayoutRef pulumi.StringPtrInput
 	// The effective list of actual repositories included in this virtual repository.
 	Repositories pulumi.StringArrayInput
-	// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
+	// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
+	// repositories. A value of 0 indicates no caching.
 	RetrievalCachePeriodSeconds pulumi.IntPtrInput
 	// Secondary keypair used to sign artifacts. Default is empty.
 	SecondaryKeypairRef pulumi.StringPtrInput
@@ -232,7 +193,8 @@ type virtualDebianRepositoryArgs struct {
 	// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
 	// another Artifactory instance.
 	ArtifactoryRequestsCanRetrieveRemoteArtifacts *bool `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`
-	// Specifying  architectures will speed up Artifactory's initial metadata indexing process. The default architecture values are amd64 and i386.
+	// Specifying architectures will speed up Artifactory's initial metadata indexing process. The default architecture values
+	// are amd64 and i386.
 	DebianDefaultArchitectures *string `pulumi:"debianDefaultArchitectures"`
 	// Default repository to deploy artifacts.
 	DefaultDeploymentRepo *string `pulumi:"defaultDeploymentRepo"`
@@ -244,12 +206,13 @@ type virtualDebianRepositoryArgs struct {
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
-	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-	// contain spaces or special characters.
+	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+	// characters. It cannot begin with a number or contain spaces or special characters.
 	Key string `pulumi:"key"`
 	// Internal description.
 	Notes *string `pulumi:"notes"`
-	// Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are `bz2`,`lzma` and `xz`. Default value is `bz2`.
+	// Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are
+	// 'bz2','lzma' and 'xz'. Default value is 'bz2'.
 	OptionalIndexCompressionFormats []string `pulumi:"optionalIndexCompressionFormats"`
 	// Primary keypair used to sign artifacts. Default is empty.
 	PrimaryKeypairRef *string `pulumi:"primaryKeypairRef"`
@@ -265,7 +228,8 @@ type virtualDebianRepositoryArgs struct {
 	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
 	// The effective list of actual repositories included in this virtual repository.
 	Repositories []string `pulumi:"repositories"`
-	// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
+	// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
+	// repositories. A value of 0 indicates no caching.
 	RetrievalCachePeriodSeconds *int `pulumi:"retrievalCachePeriodSeconds"`
 	// Secondary keypair used to sign artifacts. Default is empty.
 	SecondaryKeypairRef *string `pulumi:"secondaryKeypairRef"`
@@ -276,7 +240,8 @@ type VirtualDebianRepositoryArgs struct {
 	// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
 	// another Artifactory instance.
 	ArtifactoryRequestsCanRetrieveRemoteArtifacts pulumi.BoolPtrInput
-	// Specifying  architectures will speed up Artifactory's initial metadata indexing process. The default architecture values are amd64 and i386.
+	// Specifying architectures will speed up Artifactory's initial metadata indexing process. The default architecture values
+	// are amd64 and i386.
 	DebianDefaultArchitectures pulumi.StringPtrInput
 	// Default repository to deploy artifacts.
 	DefaultDeploymentRepo pulumi.StringPtrInput
@@ -288,12 +253,13 @@ type VirtualDebianRepositoryArgs struct {
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
-	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-	// contain spaces or special characters.
+	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+	// characters. It cannot begin with a number or contain spaces or special characters.
 	Key pulumi.StringInput
 	// Internal description.
 	Notes pulumi.StringPtrInput
-	// Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are `bz2`,`lzma` and `xz`. Default value is `bz2`.
+	// Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are
+	// 'bz2','lzma' and 'xz'. Default value is 'bz2'.
 	OptionalIndexCompressionFormats pulumi.StringArrayInput
 	// Primary keypair used to sign artifacts. Default is empty.
 	PrimaryKeypairRef pulumi.StringPtrInput
@@ -309,7 +275,8 @@ type VirtualDebianRepositoryArgs struct {
 	RepoLayoutRef pulumi.StringPtrInput
 	// The effective list of actual repositories included in this virtual repository.
 	Repositories pulumi.StringArrayInput
-	// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
+	// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
+	// repositories. A value of 0 indicates no caching.
 	RetrievalCachePeriodSeconds pulumi.IntPtrInput
 	// Secondary keypair used to sign artifacts. Default is empty.
 	SecondaryKeypairRef pulumi.StringPtrInput
@@ -410,7 +377,8 @@ func (o VirtualDebianRepositoryOutput) ArtifactoryRequestsCanRetrieveRemoteArtif
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Specifying  architectures will speed up Artifactory's initial metadata indexing process. The default architecture values are amd64 and i386.
+// Specifying architectures will speed up Artifactory's initial metadata indexing process. The default architecture values
+// are amd64 and i386.
 func (o VirtualDebianRepositoryOutput) DebianDefaultArchitectures() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualDebianRepository) pulumi.StringPtrOutput { return v.DebianDefaultArchitectures }).(pulumi.StringPtrOutput)
 }
@@ -437,8 +405,8 @@ func (o VirtualDebianRepositoryOutput) IncludesPattern() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v *VirtualDebianRepository) pulumi.StringPtrOutput { return v.IncludesPattern }).(pulumi.StringPtrOutput)
 }
 
-// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-// contain spaces or special characters.
+// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+// characters. It cannot begin with a number or contain spaces or special characters.
 func (o VirtualDebianRepositoryOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualDebianRepository) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
 }
@@ -448,7 +416,8 @@ func (o VirtualDebianRepositoryOutput) Notes() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualDebianRepository) pulumi.StringPtrOutput { return v.Notes }).(pulumi.StringPtrOutput)
 }
 
-// Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are `bz2`,`lzma` and `xz`. Default value is `bz2`.
+// Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are
+// 'bz2','lzma' and 'xz'. Default value is 'bz2'.
 func (o VirtualDebianRepositoryOutput) OptionalIndexCompressionFormats() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VirtualDebianRepository) pulumi.StringArrayOutput { return v.OptionalIndexCompressionFormats }).(pulumi.StringArrayOutput)
 }
@@ -486,7 +455,8 @@ func (o VirtualDebianRepositoryOutput) Repositories() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VirtualDebianRepository) pulumi.StringArrayOutput { return v.Repositories }).(pulumi.StringArrayOutput)
 }
 
-// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
+// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
+// repositories. A value of 0 indicates no caching.
 func (o VirtualDebianRepositoryOutput) RetrievalCachePeriodSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *VirtualDebianRepository) pulumi.IntPtrOutput { return v.RetrievalCachePeriodSeconds }).(pulumi.IntPtrOutput)
 }

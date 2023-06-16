@@ -6,121 +6,6 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
-/**
- * Provides an Artifactory Access Token resource. This can be used to create and manage Artifactory Access Tokens.
- *
- * > **Note:** Access Tokens will be stored in the raw state as plain-text. Read more about sensitive data in
- * state.
- *
- * ## Example Usage
- *
- * ### S
- * ### Create a new Artifactory Access Token for an existing user
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const exisingUser = new artifactory.AccessToken("exisingUser", {
- *     endDateRelative: "5m",
- *     username: "existing-user",
- * });
- * ```
- *
- * Note: This assumes that the user `existing-user` has already been created in Artifactory by different means, i.e. manually or in a separate pulumi up.
- * ### Create a new Artifactory User and Access token
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const newUserUser = new artifactory.User("newUserUser", {
- *     email: "new_user@somewhere.com",
- *     groups: ["readers"],
- * });
- * const newUserAccessToken = new artifactory.AccessToken("newUserAccessToken", {
- *     username: newUserUser.name,
- *     endDateRelative: "5m",
- * });
- * ```
- * ### Creates a new token for groups
- * This creates a transient user called `temporary-user`.
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const temporaryUser = new artifactory.AccessToken("temporaryUser", {
- *     endDateRelative: "1h",
- *     groups: ["readers"],
- *     username: "temporary-user",
- * });
- * ```
- * ### Create token with no expiry
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const noExpiry = new artifactory.AccessToken("noExpiry", {
- *     endDateRelative: "0s",
- *     username: "existing-user",
- * });
- * ```
- * ### Creates a refreshable token
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const refreshable = new artifactory.AccessToken("refreshable", {
- *     endDateRelative: "1m",
- *     groups: ["readers"],
- *     refreshable: true,
- *     username: "refreshable",
- * });
- * ```
- * ### Creates an administrator token
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const admin = new artifactory.AccessToken("admin", {
- *     adminToken: {
- *         instanceId: "<instance id>",
- *     },
- *     endDateRelative: "1m",
- *     username: "admin",
- * });
- * ```
- * ### Creates a token with an audience
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const audience = new artifactory.AccessToken("audience", {
- *     audience: "jfrt@*",
- *     endDateRelative: "1m",
- *     refreshable: true,
- *     username: "audience",
- * });
- * ```
- * ### Creates a token with a fixed end date
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const fixeddate = new artifactory.AccessToken("fixeddate", {
- *     endDate: "2018-01-01T01:02:03Z",
- *     groups: ["readers"],
- *     username: "fixeddate",
- * });
- * ```
- * ## References
- *
- * - https://www.jfrog.com/confluence/display/ACC1X/Access+Tokens
- * - https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-CreateToken
- *
- * ## Import
- *
- * Artifactory **does not** retain access tokens and cannot be imported into state.
- */
 export class AccessToken extends pulumi.CustomResource {
     /**
      * Get an existing AccessToken resource's state with the given name, ID, and optional extra
@@ -149,41 +34,14 @@ export class AccessToken extends pulumi.CustomResource {
         return obj['__pulumiType'] === AccessToken.__pulumiType;
     }
 
-    /**
-     * Returns the access token to authenciate to Artifactory
-     */
     public /*out*/ readonly accessToken!: pulumi.Output<string>;
-    /**
-     * (Optional) Specify the `instanceId` in this block to grant this token admin privileges. This can only be created when the authenticated user is an admin. `adminToken` cannot be specified with `groups`.
-     */
     public readonly adminToken!: pulumi.Output<outputs.AccessTokenAdminToken | undefined>;
-    /**
-     * (Optional) A space-separate list of the other Artifactory instances or services that should accept this token identified by their Artifactory Service IDs. You may set `"jfrt@*"` so the token to be accepted by all Artifactory instances.
-     */
     public readonly audience!: pulumi.Output<string | undefined>;
-    /**
-     * (Optional) The end date which the token is valid until, formatted as a RFC3339 date string (e.g. `2018-01-01T01:02:03Z`).
-     */
     public readonly endDate!: pulumi.Output<string>;
-    /**
-     * (Optional) A relative duration for which the token is valid until, for example `240h` (10 days) or `2400h30m`. Valid time units are "s", "m", "h".
-     */
     public readonly endDateRelative!: pulumi.Output<string | undefined>;
-    /**
-     * (Optional) List of groups. The token is granted access based on the permissions of the groups. Specify `["*"]` for all groups that the user belongs to. `groups` cannot be specified with `adminToken`.
-     */
     public readonly groups!: pulumi.Output<string[] | undefined>;
-    /**
-     * Returns the refresh token when `refreshable` is true, or an empty string when `refreshable` is false.
-     */
     public /*out*/ readonly refreshToken!: pulumi.Output<string>;
-    /**
-     * (Optional) Is this token refreshable? Defaults to `false`
-     */
     public readonly refreshable!: pulumi.Output<boolean | undefined>;
-    /**
-     * (Required) The username or subject for the token. A non-admin can only specify their own username. Admins can specify any existing username, or a new name for a temporary token. Temporary tokens require `groups` to be set.
-     */
     public readonly username!: pulumi.Output<string>;
 
     /**
@@ -234,41 +92,14 @@ export class AccessToken extends pulumi.CustomResource {
  * Input properties used for looking up and filtering AccessToken resources.
  */
 export interface AccessTokenState {
-    /**
-     * Returns the access token to authenciate to Artifactory
-     */
     accessToken?: pulumi.Input<string>;
-    /**
-     * (Optional) Specify the `instanceId` in this block to grant this token admin privileges. This can only be created when the authenticated user is an admin. `adminToken` cannot be specified with `groups`.
-     */
     adminToken?: pulumi.Input<inputs.AccessTokenAdminToken>;
-    /**
-     * (Optional) A space-separate list of the other Artifactory instances or services that should accept this token identified by their Artifactory Service IDs. You may set `"jfrt@*"` so the token to be accepted by all Artifactory instances.
-     */
     audience?: pulumi.Input<string>;
-    /**
-     * (Optional) The end date which the token is valid until, formatted as a RFC3339 date string (e.g. `2018-01-01T01:02:03Z`).
-     */
     endDate?: pulumi.Input<string>;
-    /**
-     * (Optional) A relative duration for which the token is valid until, for example `240h` (10 days) or `2400h30m`. Valid time units are "s", "m", "h".
-     */
     endDateRelative?: pulumi.Input<string>;
-    /**
-     * (Optional) List of groups. The token is granted access based on the permissions of the groups. Specify `["*"]` for all groups that the user belongs to. `groups` cannot be specified with `adminToken`.
-     */
     groups?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Returns the refresh token when `refreshable` is true, or an empty string when `refreshable` is false.
-     */
     refreshToken?: pulumi.Input<string>;
-    /**
-     * (Optional) Is this token refreshable? Defaults to `false`
-     */
     refreshable?: pulumi.Input<boolean>;
-    /**
-     * (Required) The username or subject for the token. A non-admin can only specify their own username. Admins can specify any existing username, or a new name for a temporary token. Temporary tokens require `groups` to be set.
-     */
     username?: pulumi.Input<string>;
 }
 
@@ -276,32 +107,11 @@ export interface AccessTokenState {
  * The set of arguments for constructing a AccessToken resource.
  */
 export interface AccessTokenArgs {
-    /**
-     * (Optional) Specify the `instanceId` in this block to grant this token admin privileges. This can only be created when the authenticated user is an admin. `adminToken` cannot be specified with `groups`.
-     */
     adminToken?: pulumi.Input<inputs.AccessTokenAdminToken>;
-    /**
-     * (Optional) A space-separate list of the other Artifactory instances or services that should accept this token identified by their Artifactory Service IDs. You may set `"jfrt@*"` so the token to be accepted by all Artifactory instances.
-     */
     audience?: pulumi.Input<string>;
-    /**
-     * (Optional) The end date which the token is valid until, formatted as a RFC3339 date string (e.g. `2018-01-01T01:02:03Z`).
-     */
     endDate?: pulumi.Input<string>;
-    /**
-     * (Optional) A relative duration for which the token is valid until, for example `240h` (10 days) or `2400h30m`. Valid time units are "s", "m", "h".
-     */
     endDateRelative?: pulumi.Input<string>;
-    /**
-     * (Optional) List of groups. The token is granted access based on the permissions of the groups. Specify `["*"]` for all groups that the user belongs to. `groups` cannot be specified with `adminToken`.
-     */
     groups?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * (Optional) Is this token refreshable? Defaults to `false`
-     */
     refreshable?: pulumi.Input<boolean>;
-    /**
-     * (Required) The username or subject for the token. A non-admin can only specify their own username. Admins can specify any existing username, or a new name for a temporary token. Temporary tokens require `groups` to be set.
-     */
     username: pulumi.Input<string>;
 }

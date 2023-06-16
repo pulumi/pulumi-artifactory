@@ -4,51 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-/**
- * Creates a virtual Rpm repository.
- * Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/RPM+Repositories).
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- * import * as fs from "fs";
- *
- * const primary_keypair = new artifactory.Keypair("primary-keypair", {
- *     pairName: "primary-keypair",
- *     pairType: "GPG",
- *     alias: "foo-alias-1",
- *     privateKey: fs.readFileSync("samples/gpg.priv"),
- *     publicKey: fs.readFileSync("samples/gpg.pub"),
- * });
- * const secondary_keypair = new artifactory.Keypair("secondary-keypair", {
- *     pairName: "secondary-keypair",
- *     pairType: "GPG",
- *     alias: "foo-alias-2",
- *     privateKey: fs.readFileSync("samples/gpg.priv"),
- *     publicKey: fs.readFileSync("samples/gpg.pub"),
- * });
- * const foo_rpm_virtual = new artifactory.VirtualRpmRepository("foo-rpm-virtual", {
- *     key: "foo-rpm-virtual",
- *     primaryKeypairRef: primary_keypair.pairName,
- *     secondaryKeypairRef: secondary_keypair.pairName,
- * }, {
- *     dependsOn: [
- *         primary_keypair,
- *         secondary_keypair,
- *     ],
- * });
- * ```
- *
- * ## Import
- *
- * Virtual repositories can be imported using their name, e.g.
- *
- * ```sh
- *  $ pulumi import artifactory:index/virtualRpmRepository:VirtualRpmRepository foo-rpm-virtual foo-rpm-virtual
- * ```
- */
 export class VirtualRpmRepository extends pulumi.CustomResource {
     /**
      * Get an existing VirtualRpmRepository resource's state with the given name, ID, and optional extra
@@ -101,8 +56,8 @@ export class VirtualRpmRepository extends pulumi.CustomResource {
      */
     public readonly includesPattern!: pulumi.Output<string | undefined>;
     /**
-     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-     * contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      */
     public readonly key!: pulumi.Output<string>;
     /**
@@ -111,7 +66,7 @@ export class VirtualRpmRepository extends pulumi.CustomResource {
     public readonly notes!: pulumi.Output<string | undefined>;
     public /*out*/ readonly packageType!: pulumi.Output<string>;
     /**
-     * The primary GPG key to be used to sign packages.
+     * Primary keypair used to sign artifacts.
      */
     public readonly primaryKeypairRef!: pulumi.Output<string | undefined>;
     /**
@@ -219,8 +174,8 @@ export interface VirtualRpmRepositoryState {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-     * contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      */
     key?: pulumi.Input<string>;
     /**
@@ -229,7 +184,7 @@ export interface VirtualRpmRepositoryState {
     notes?: pulumi.Input<string>;
     packageType?: pulumi.Input<string>;
     /**
-     * The primary GPG key to be used to sign packages.
+     * Primary keypair used to sign artifacts.
      */
     primaryKeypairRef?: pulumi.Input<string>;
     /**
@@ -286,8 +241,8 @@ export interface VirtualRpmRepositoryArgs {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-     * contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      */
     key: pulumi.Input<string>;
     /**
@@ -295,7 +250,7 @@ export interface VirtualRpmRepositoryArgs {
      */
     notes?: pulumi.Input<string>;
     /**
-     * The primary GPG key to be used to sign packages.
+     * Primary keypair used to sign artifacts.
      */
     primaryKeypairRef?: pulumi.Input<string>;
     /**

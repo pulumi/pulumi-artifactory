@@ -147,16 +147,16 @@ public final class VirtualNpmRepositoryArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-     * contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      * 
      */
     @Import(name="key", required=true)
     private Output<String> key;
 
     /**
-     * @return A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-     * contain spaces or special characters.
+     * @return A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      * 
      */
     public Output<String> key() {
@@ -247,14 +247,16 @@ public final class VirtualNpmRepositoryArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
+     * This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
+     * repositories. A value of 0 indicates no caching.
      * 
      */
     @Import(name="retrievalCachePeriodSeconds")
     private @Nullable Output<Integer> retrievalCachePeriodSeconds;
 
     /**
-     * @return This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
+     * @return This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
+     * repositories. A value of 0 indicates no caching.
      * 
      */
     public Optional<Output<Integer>> retrievalCachePeriodSeconds() {
@@ -487,8 +489,8 @@ public final class VirtualNpmRepositoryArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param key A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-         * contain spaces or special characters.
+         * @param key A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+         * characters. It cannot begin with a number or contain spaces or special characters.
          * 
          * @return builder
          * 
@@ -499,8 +501,8 @@ public final class VirtualNpmRepositoryArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param key A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-         * contain spaces or special characters.
+         * @param key A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+         * characters. It cannot begin with a number or contain spaces or special characters.
          * 
          * @return builder
          * 
@@ -646,7 +648,8 @@ public final class VirtualNpmRepositoryArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param retrievalCachePeriodSeconds This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
+         * @param retrievalCachePeriodSeconds This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
+         * repositories. A value of 0 indicates no caching.
          * 
          * @return builder
          * 
@@ -657,7 +660,8 @@ public final class VirtualNpmRepositoryArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param retrievalCachePeriodSeconds This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
+         * @param retrievalCachePeriodSeconds This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
+         * repositories. A value of 0 indicates no caching.
          * 
          * @return builder
          * 

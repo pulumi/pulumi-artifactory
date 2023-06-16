@@ -120,7 +120,6 @@ public final class LocalNugetRepositoryState extends com.pulumi.resources.Resour
 
     /**
      * Force basic authentication credentials in order to use this repository.
-     * Default is `false`.
      * 
      */
     @Import(name="forceNugetAuthentication")
@@ -128,7 +127,6 @@ public final class LocalNugetRepositoryState extends com.pulumi.resources.Resour
 
     /**
      * @return Force basic authentication credentials in order to use this repository.
-     * Default is `false`.
      * 
      */
     public Optional<Output<Boolean>> forceNugetAuthentication() {
@@ -153,14 +151,16 @@ public final class LocalNugetRepositoryState extends com.pulumi.resources.Resour
     }
 
     /**
-     * the identity key of the repo.
+     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      * 
      */
     @Import(name="key")
     private @Nullable Output<String> key;
 
     /**
-     * @return the identity key of the repo.
+     * @return A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      * 
      */
     public Optional<Output<String>> key() {
@@ -168,18 +168,16 @@ public final class LocalNugetRepositoryState extends com.pulumi.resources.Resour
     }
 
     /**
-     * The maximum number of unique snapshots of a single artifact to store
-     * Once the number of snapshots exceeds this setting, older versions are removed
-     * A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+     * The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
+     * older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
      * 
      */
     @Import(name="maxUniqueSnapshots")
     private @Nullable Output<Integer> maxUniqueSnapshots;
 
     /**
-     * @return The maximum number of unique snapshots of a single artifact to store
-     * Once the number of snapshots exceeds this setting, older versions are removed
-     * A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+     * @return The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
+     * older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
      * 
      */
     public Optional<Output<Integer>> maxUniqueSnapshots() {
@@ -487,7 +485,6 @@ public final class LocalNugetRepositoryState extends com.pulumi.resources.Resour
 
         /**
          * @param forceNugetAuthentication Force basic authentication credentials in order to use this repository.
-         * Default is `false`.
          * 
          * @return builder
          * 
@@ -499,7 +496,6 @@ public final class LocalNugetRepositoryState extends com.pulumi.resources.Resour
 
         /**
          * @param forceNugetAuthentication Force basic authentication credentials in order to use this repository.
-         * Default is `false`.
          * 
          * @return builder
          * 
@@ -532,7 +528,8 @@ public final class LocalNugetRepositoryState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param key the identity key of the repo.
+         * @param key A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+         * characters. It cannot begin with a number or contain spaces or special characters.
          * 
          * @return builder
          * 
@@ -543,7 +540,8 @@ public final class LocalNugetRepositoryState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param key the identity key of the repo.
+         * @param key A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+         * characters. It cannot begin with a number or contain spaces or special characters.
          * 
          * @return builder
          * 
@@ -553,9 +551,8 @@ public final class LocalNugetRepositoryState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param maxUniqueSnapshots The maximum number of unique snapshots of a single artifact to store
-         * Once the number of snapshots exceeds this setting, older versions are removed
-         * A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+         * @param maxUniqueSnapshots The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
+         * older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
          * 
          * @return builder
          * 
@@ -566,9 +563,8 @@ public final class LocalNugetRepositoryState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param maxUniqueSnapshots The maximum number of unique snapshots of a single artifact to store
-         * Once the number of snapshots exceeds this setting, older versions are removed
-         * A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+         * @param maxUniqueSnapshots The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
+         * older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
          * 
          * @return builder
          * 

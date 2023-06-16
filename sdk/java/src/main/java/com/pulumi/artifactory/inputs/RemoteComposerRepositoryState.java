@@ -143,14 +143,14 @@ public final class RemoteComposerRepositoryState extends com.pulumi.resources.Re
     }
 
     /**
-     * Proxy remote Composer repository. Default value is `https://packagist.org`.
+     * Proxy remote Composer repository. Default value is &#34;https://packagist.org&#34;.
      * 
      */
     @Import(name="composerRegistryUrl")
     private @Nullable Output<String> composerRegistryUrl;
 
     /**
-     * @return Proxy remote Composer repository. Default value is `https://packagist.org`.
+     * @return Proxy remote Composer repository. Default value is &#34;https://packagist.org&#34;.
      * 
      */
     public Optional<Output<String>> composerRegistryUrl() {
@@ -263,16 +263,16 @@ public final class RemoteComposerRepositoryState extends com.pulumi.resources.Re
     }
 
     /**
-     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-     * contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      * 
      */
     @Import(name="key")
     private @Nullable Output<String> key;
 
     /**
-     * @return A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-     * contain spaces or special characters.
+     * @return A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      * 
      */
     public Optional<Output<String>> key() {
@@ -659,14 +659,14 @@ public final class RemoteComposerRepositoryState extends com.pulumi.resources.Re
     }
 
     /**
-     * This attribute is used when vcs_git_provider is set to `CUSTOM`. Provided URL will be used as proxy.
+     * This attribute is used when vcs_git_provider is set to &#39;CUSTOM&#39;. Provided URL will be used as proxy.
      * 
      */
     @Import(name="vcsGitDownloadUrl")
     private @Nullable Output<String> vcsGitDownloadUrl;
 
     /**
-     * @return This attribute is used when vcs_git_provider is set to `CUSTOM`. Provided URL will be used as proxy.
+     * @return This attribute is used when vcs_git_provider is set to &#39;CUSTOM&#39;. Provided URL will be used as proxy.
      * 
      */
     public Optional<Output<String>> vcsGitDownloadUrl() {
@@ -674,14 +674,16 @@ public final class RemoteComposerRepositoryState extends com.pulumi.resources.Re
     }
 
     /**
-     * Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`. Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
+     * Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance.
+     * Default value is &#34;GITHUB&#34;.
      * 
      */
     @Import(name="vcsGitProvider")
     private @Nullable Output<String> vcsGitProvider;
 
     /**
-     * @return Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`. Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
+     * @return Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance.
+     * Default value is &#34;GITHUB&#34;.
      * 
      */
     public Optional<Output<String>> vcsGitProvider() {
@@ -938,7 +940,7 @@ public final class RemoteComposerRepositoryState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param composerRegistryUrl Proxy remote Composer repository. Default value is `https://packagist.org`.
+         * @param composerRegistryUrl Proxy remote Composer repository. Default value is &#34;https://packagist.org&#34;.
          * 
          * @return builder
          * 
@@ -949,7 +951,7 @@ public final class RemoteComposerRepositoryState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param composerRegistryUrl Proxy remote Composer repository. Default value is `https://packagist.org`.
+         * @param composerRegistryUrl Proxy remote Composer repository. Default value is &#34;https://packagist.org&#34;.
          * 
          * @return builder
          * 
@@ -1102,8 +1104,8 @@ public final class RemoteComposerRepositoryState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param key A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-         * contain spaces or special characters.
+         * @param key A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+         * characters. It cannot begin with a number or contain spaces or special characters.
          * 
          * @return builder
          * 
@@ -1114,8 +1116,8 @@ public final class RemoteComposerRepositoryState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param key A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-         * contain spaces or special characters.
+         * @param key A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+         * characters. It cannot begin with a number or contain spaces or special characters.
          * 
          * @return builder
          * 
@@ -1661,7 +1663,7 @@ public final class RemoteComposerRepositoryState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param vcsGitDownloadUrl This attribute is used when vcs_git_provider is set to `CUSTOM`. Provided URL will be used as proxy.
+         * @param vcsGitDownloadUrl This attribute is used when vcs_git_provider is set to &#39;CUSTOM&#39;. Provided URL will be used as proxy.
          * 
          * @return builder
          * 
@@ -1672,7 +1674,7 @@ public final class RemoteComposerRepositoryState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param vcsGitDownloadUrl This attribute is used when vcs_git_provider is set to `CUSTOM`. Provided URL will be used as proxy.
+         * @param vcsGitDownloadUrl This attribute is used when vcs_git_provider is set to &#39;CUSTOM&#39;. Provided URL will be used as proxy.
          * 
          * @return builder
          * 
@@ -1682,7 +1684,8 @@ public final class RemoteComposerRepositoryState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param vcsGitProvider Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`. Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
+         * @param vcsGitProvider Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance.
+         * Default value is &#34;GITHUB&#34;.
          * 
          * @return builder
          * 
@@ -1693,7 +1696,8 @@ public final class RemoteComposerRepositoryState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param vcsGitProvider Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`. Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
+         * @param vcsGitProvider Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance.
+         * Default value is &#34;GITHUB&#34;.
          * 
          * @return builder
          * 

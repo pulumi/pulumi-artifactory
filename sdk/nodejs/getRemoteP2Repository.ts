@@ -6,20 +6,6 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
-/**
- * Retrieves a remote P2 repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const remote-p2 = artifactory.getRemoteP2Repository({
- *     key: "remote-p2",
- * });
- * ```
- */
 export function getRemoteP2Repository(args: GetRemoteP2RepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetRemoteP2RepositoryResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -85,9 +71,6 @@ export interface GetRemoteP2RepositoryArgs {
     excludesPattern?: string;
     hardFail?: boolean;
     includesPattern?: string;
-    /**
-     * the identity key of the repo.
-     */
     key: string;
     listRemoteFolderItems?: boolean;
     localAddress?: string;
@@ -166,20 +149,6 @@ export interface GetRemoteP2RepositoryResult {
     readonly username?: string;
     readonly xrayIndex?: boolean;
 }
-/**
- * Retrieves a remote P2 repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const remote-p2 = artifactory.getRemoteP2Repository({
- *     key: "remote-p2",
- * });
- * ```
- */
 export function getRemoteP2RepositoryOutput(args: GetRemoteP2RepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemoteP2RepositoryResult> {
     return pulumi.output(args).apply((a: any) => getRemoteP2Repository(a, opts))
 }
@@ -202,9 +171,6 @@ export interface GetRemoteP2RepositoryOutputArgs {
     excludesPattern?: pulumi.Input<string>;
     hardFail?: pulumi.Input<boolean>;
     includesPattern?: pulumi.Input<string>;
-    /**
-     * the identity key of the repo.
-     */
     key: pulumi.Input<string>;
     listRemoteFolderItems?: pulumi.Input<boolean>;
     localAddress?: pulumi.Input<string>;

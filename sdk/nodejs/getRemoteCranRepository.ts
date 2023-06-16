@@ -6,20 +6,6 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
-/**
- * Retrieves a remote CRAN repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const remote-cran = artifactory.getRemoteCranRepository({
- *     key: "remote-cran",
- * });
- * ```
- */
 export function getRemoteCranRepository(args: GetRemoteCranRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetRemoteCranRepositoryResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -85,9 +71,6 @@ export interface GetRemoteCranRepositoryArgs {
     excludesPattern?: string;
     hardFail?: boolean;
     includesPattern?: string;
-    /**
-     * the identity key of the repo.
-     */
     key: string;
     listRemoteFolderItems?: boolean;
     localAddress?: string;
@@ -166,20 +149,6 @@ export interface GetRemoteCranRepositoryResult {
     readonly username?: string;
     readonly xrayIndex?: boolean;
 }
-/**
- * Retrieves a remote CRAN repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const remote-cran = artifactory.getRemoteCranRepository({
- *     key: "remote-cran",
- * });
- * ```
- */
 export function getRemoteCranRepositoryOutput(args: GetRemoteCranRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemoteCranRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getRemoteCranRepository(a, opts))
 }
@@ -202,9 +171,6 @@ export interface GetRemoteCranRepositoryOutputArgs {
     excludesPattern?: pulumi.Input<string>;
     hardFail?: pulumi.Input<boolean>;
     includesPattern?: pulumi.Input<string>;
-    /**
-     * the identity key of the repo.
-     */
     key: pulumi.Input<string>;
     listRemoteFolderItems?: pulumi.Input<boolean>;
     localAddress?: pulumi.Input<string>;

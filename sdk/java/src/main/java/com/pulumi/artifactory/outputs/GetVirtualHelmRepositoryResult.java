@@ -31,15 +31,7 @@ public final class GetVirtualHelmRepositoryResult {
     private @Nullable String projectKey;
     private @Nullable String repoLayoutRef;
     private @Nullable List<String> repositories;
-    /**
-     * @return (Optional, Default: `7200`) This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
-     * 
-     */
     private @Nullable Integer retrievalCachePeriodSeconds;
-    /**
-     * @return (Optional) From Artifactory 7.24.1 (SaaS Version), you can explicitly state a specific aggregated local or remote repository to fetch from a virtual by assigning namespaces to local and remote repositories. See the documentation [here](https://www.jfrog.com/confluence/display/JFROG/Kubernetes+Helm+Chart+Repositories#KubernetesHelmChartRepositories-NamespaceSupportforHelmVirtualRepositories). Default is `false`.
-     * 
-     */
     private @Nullable Boolean useNamespaces;
 
     private GetVirtualHelmRepositoryResult() {}
@@ -86,17 +78,9 @@ public final class GetVirtualHelmRepositoryResult {
     public List<String> repositories() {
         return this.repositories == null ? List.of() : this.repositories;
     }
-    /**
-     * @return (Optional, Default: `7200`) This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
-     * 
-     */
     public Optional<Integer> retrievalCachePeriodSeconds() {
         return Optional.ofNullable(this.retrievalCachePeriodSeconds);
     }
-    /**
-     * @return (Optional) From Artifactory 7.24.1 (SaaS Version), you can explicitly state a specific aggregated local or remote repository to fetch from a virtual by assigning namespaces to local and remote repositories. See the documentation [here](https://www.jfrog.com/confluence/display/JFROG/Kubernetes+Helm+Chart+Repositories#KubernetesHelmChartRepositories-NamespaceSupportforHelmVirtualRepositories). Default is `false`.
-     * 
-     */
     public Optional<Boolean> useNamespaces() {
         return Optional.ofNullable(this.useNamespaces);
     }

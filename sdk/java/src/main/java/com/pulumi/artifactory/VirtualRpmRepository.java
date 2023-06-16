@@ -16,74 +16,6 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Creates a virtual Rpm repository.
- * Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/RPM+Repositories).
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.artifactory.Keypair;
- * import com.pulumi.artifactory.KeypairArgs;
- * import com.pulumi.artifactory.VirtualRpmRepository;
- * import com.pulumi.artifactory.VirtualRpmRepositoryArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var primary_keypair = new Keypair(&#34;primary-keypair&#34;, KeypairArgs.builder()        
- *             .pairName(&#34;primary-keypair&#34;)
- *             .pairType(&#34;GPG&#34;)
- *             .alias(&#34;foo-alias-1&#34;)
- *             .privateKey(Files.readString(Paths.get(&#34;samples/gpg.priv&#34;)))
- *             .publicKey(Files.readString(Paths.get(&#34;samples/gpg.pub&#34;)))
- *             .build());
- * 
- *         var secondary_keypair = new Keypair(&#34;secondary-keypair&#34;, KeypairArgs.builder()        
- *             .pairName(&#34;secondary-keypair&#34;)
- *             .pairType(&#34;GPG&#34;)
- *             .alias(&#34;foo-alias-2&#34;)
- *             .privateKey(Files.readString(Paths.get(&#34;samples/gpg.priv&#34;)))
- *             .publicKey(Files.readString(Paths.get(&#34;samples/gpg.pub&#34;)))
- *             .build());
- * 
- *         var foo_rpm_virtual = new VirtualRpmRepository(&#34;foo-rpm-virtual&#34;, VirtualRpmRepositoryArgs.builder()        
- *             .key(&#34;foo-rpm-virtual&#34;)
- *             .primaryKeypairRef(primary_keypair.pairName())
- *             .secondaryKeypairRef(secondary_keypair.pairName())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(                
- *                     primary_keypair,
- *                     secondary_keypair)
- *                 .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Virtual repositories can be imported using their name, e.g.
- * 
- * ```sh
- *  $ pulumi import artifactory:index/virtualRpmRepository:VirtualRpmRepository foo-rpm-virtual foo-rpm-virtual
- * ```
- * 
- */
 @ResourceType(type="artifactory:index/virtualRpmRepository:VirtualRpmRepository")
 public class VirtualRpmRepository extends com.pulumi.resources.CustomResource {
     /**
@@ -163,16 +95,16 @@ public class VirtualRpmRepository extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.includesPattern);
     }
     /**
-     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-     * contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      * 
      */
     @Export(name="key", type=String.class, parameters={})
     private Output<String> key;
 
     /**
-     * @return A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-     * contain spaces or special characters.
+     * @return A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      * 
      */
     public Output<String> key() {
@@ -199,14 +131,14 @@ public class VirtualRpmRepository extends com.pulumi.resources.CustomResource {
         return this.packageType;
     }
     /**
-     * The primary GPG key to be used to sign packages.
+     * Primary keypair used to sign artifacts.
      * 
      */
     @Export(name="primaryKeypairRef", type=String.class, parameters={})
     private Output</* @Nullable */ String> primaryKeypairRef;
 
     /**
-     * @return The primary GPG key to be used to sign packages.
+     * @return Primary keypair used to sign artifacts.
      * 
      */
     public Output<Optional<String>> primaryKeypairRef() {

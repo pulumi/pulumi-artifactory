@@ -17,14 +17,18 @@ public final class RemoteRepositoryReplicationArgs extends com.pulumi.resources.
     public static final RemoteRepositoryReplicationArgs Empty = new RemoteRepositoryReplicationArgs();
 
     /**
-     * Enabling the `check_binary_existence_in_filestore` flag requires an Enterprise Plus license. When true, enables distributed checksum storage. For more information, see [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
+     * Enabling the `check_binary_existence_in_filestore` flag requires an Enterprise Plus license. When true, enables
+     * distributed checksum storage. For more information, see [Optimizing Repository Replication with Checksum-Based
+     * Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
      * 
      */
     @Import(name="checkBinaryExistenceInFilestore")
     private @Nullable Output<Boolean> checkBinaryExistenceInFilestore;
 
     /**
-     * @return Enabling the `check_binary_existence_in_filestore` flag requires an Enterprise Plus license. When true, enables distributed checksum storage. For more information, see [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
+     * @return Enabling the `check_binary_existence_in_filestore` flag requires an Enterprise Plus license. When true, enables
+     * distributed checksum storage. For more information, see [Optimizing Repository Replication with Checksum-Based
+     * Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
      * 
      */
     public Optional<Output<Boolean>> checkBinaryExistenceInFilestore() {
@@ -32,14 +36,14 @@ public final class RemoteRepositoryReplicationArgs extends com.pulumi.resources.
     }
 
     /**
-     * A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
+     * The Cron expression that determines when the next replication will be triggered.
      * 
      */
     @Import(name="cronExp")
     private @Nullable Output<String> cronExp;
 
     /**
-     * @return A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
+     * @return The Cron expression that determines when the next replication will be triggered.
      * 
      */
     public Optional<Output<String>> cronExp() {
@@ -47,16 +51,16 @@ public final class RemoteRepositoryReplicationArgs extends com.pulumi.resources.
     }
 
     /**
-     * When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. add, deleted or property change. Default value is `false`.
-     * com/confluence/display/JFROG/User+Profile#UserProfile-IdentityTokenidentitytoken).
+     * When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on
+     * artifact, e.g. add, deleted or property change. Default value is `false`.
      * 
      */
     @Import(name="enableEventReplication")
     private @Nullable Output<Boolean> enableEventReplication;
 
     /**
-     * @return When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. add, deleted or property change. Default value is `false`.
-     * com/confluence/display/JFROG/User+Profile#UserProfile-IdentityTokenidentitytoken).
+     * @return When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on
+     * artifact, e.g. add, deleted or property change. Default value is `false`.
      * 
      */
     public Optional<Output<Boolean>> enableEventReplication() {
@@ -79,14 +83,16 @@ public final class RemoteRepositoryReplicationArgs extends com.pulumi.resources.
     }
 
     /**
-     * List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**{@literal /}z/*`. By default, no artifacts are excluded.
+     * List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**{@literal /}z/*. By default no
+     * artifacts are excluded.
      * 
      */
     @Import(name="excludePathPrefixPattern")
     private @Nullable Output<String> excludePathPrefixPattern;
 
     /**
-     * @return List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**{@literal /}z/*`. By default, no artifacts are excluded.
+     * @return List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**{@literal /}z/*. By default no
+     * artifacts are excluded.
      * 
      */
     public Optional<Output<String>> excludePathPrefixPattern() {
@@ -94,14 +100,16 @@ public final class RemoteRepositoryReplicationArgs extends com.pulumi.resources.
     }
 
     /**
-     * List of artifact patterns to include when evaluating artifact requests in the form of `x/y/**{@literal /}z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included `(**{@literal /}*)`.
+     * List of artifact patterns to include when evaluating artifact requests in the form of x/y/**{@literal /}z/*. When used, only
+     * artifacts matching one of the include patterns are served. By default, all artifacts are included (**{@literal /}*).
      * 
      */
     @Import(name="includePathPrefixPattern")
     private @Nullable Output<String> includePathPrefixPattern;
 
     /**
-     * @return List of artifact patterns to include when evaluating artifact requests in the form of `x/y/**{@literal /}z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included `(**{@literal /}*)`.
+     * @return List of artifact patterns to include when evaluating artifact requests in the form of x/y/**{@literal /}z/*. When used, only
+     * artifacts matching one of the include patterns are served. By default, all artifacts are included (**{@literal /}*).
      * 
      */
     public Optional<Output<String>> includePathPrefixPattern() {
@@ -109,14 +117,14 @@ public final class RemoteRepositoryReplicationArgs extends com.pulumi.resources.
     }
 
     /**
-     * Replication ID, the value is unknown until the resource is created. Can&#39;t be set or updated.
+     * Replication ID.
      * 
      */
     @Import(name="replicationKey")
     private @Nullable Output<String> replicationKey;
 
     /**
-     * @return Replication ID, the value is unknown until the resource is created. Can&#39;t be set or updated.
+     * @return Replication ID.
      * 
      */
     public Optional<Output<String>> replicationKey() {
@@ -139,14 +147,18 @@ public final class RemoteRepositoryReplicationArgs extends com.pulumi.resources.
     }
 
     /**
-     * When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata). Note that enabling this option, will delete artifacts on the target that do not exist in the source repository. Default value is `false`.
+     * When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata). Note
+     * that enabling this option, will delete artifacts on the target that do not exist in the source repository. Default value
+     * is `false`.
      * 
      */
     @Import(name="syncDeletes")
     private @Nullable Output<Boolean> syncDeletes;
 
     /**
-     * @return When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata). Note that enabling this option, will delete artifacts on the target that do not exist in the source repository. Default value is `false`.
+     * @return When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata). Note
+     * that enabling this option, will delete artifacts on the target that do not exist in the source repository. Default value
+     * is `false`.
      * 
      */
     public Optional<Output<Boolean>> syncDeletes() {
@@ -154,14 +166,14 @@ public final class RemoteRepositoryReplicationArgs extends com.pulumi.resources.
     }
 
     /**
-     * When set, the task also synchronizes the properties of replicated artifacts. Default value is `true`.
+     * When set, the task also synchronizes the properties of replicated artifacts. Default value is `true`
      * 
      */
     @Import(name="syncProperties")
     private @Nullable Output<Boolean> syncProperties;
 
     /**
-     * @return When set, the task also synchronizes the properties of replicated artifacts. Default value is `true`.
+     * @return When set, the task also synchronizes the properties of replicated artifacts. Default value is `true`
      * 
      */
     public Optional<Output<Boolean>> syncProperties() {
@@ -202,7 +214,9 @@ public final class RemoteRepositoryReplicationArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param checkBinaryExistenceInFilestore Enabling the `check_binary_existence_in_filestore` flag requires an Enterprise Plus license. When true, enables distributed checksum storage. For more information, see [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
+         * @param checkBinaryExistenceInFilestore Enabling the `check_binary_existence_in_filestore` flag requires an Enterprise Plus license. When true, enables
+         * distributed checksum storage. For more information, see [Optimizing Repository Replication with Checksum-Based
+         * Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
          * 
          * @return builder
          * 
@@ -213,7 +227,9 @@ public final class RemoteRepositoryReplicationArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param checkBinaryExistenceInFilestore Enabling the `check_binary_existence_in_filestore` flag requires an Enterprise Plus license. When true, enables distributed checksum storage. For more information, see [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
+         * @param checkBinaryExistenceInFilestore Enabling the `check_binary_existence_in_filestore` flag requires an Enterprise Plus license. When true, enables
+         * distributed checksum storage. For more information, see [Optimizing Repository Replication with Checksum-Based
+         * Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
          * 
          * @return builder
          * 
@@ -223,7 +239,7 @@ public final class RemoteRepositoryReplicationArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param cronExp A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
+         * @param cronExp The Cron expression that determines when the next replication will be triggered.
          * 
          * @return builder
          * 
@@ -234,7 +250,7 @@ public final class RemoteRepositoryReplicationArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param cronExp A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
+         * @param cronExp The Cron expression that determines when the next replication will be triggered.
          * 
          * @return builder
          * 
@@ -244,8 +260,8 @@ public final class RemoteRepositoryReplicationArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param enableEventReplication When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. add, deleted or property change. Default value is `false`.
-         * com/confluence/display/JFROG/User+Profile#UserProfile-IdentityTokenidentitytoken).
+         * @param enableEventReplication When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on
+         * artifact, e.g. add, deleted or property change. Default value is `false`.
          * 
          * @return builder
          * 
@@ -256,8 +272,8 @@ public final class RemoteRepositoryReplicationArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param enableEventReplication When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. add, deleted or property change. Default value is `false`.
-         * com/confluence/display/JFROG/User+Profile#UserProfile-IdentityTokenidentitytoken).
+         * @param enableEventReplication When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on
+         * artifact, e.g. add, deleted or property change. Default value is `false`.
          * 
          * @return builder
          * 
@@ -288,7 +304,8 @@ public final class RemoteRepositoryReplicationArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param excludePathPrefixPattern List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**{@literal /}z/*`. By default, no artifacts are excluded.
+         * @param excludePathPrefixPattern List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**{@literal /}z/*. By default no
+         * artifacts are excluded.
          * 
          * @return builder
          * 
@@ -299,7 +316,8 @@ public final class RemoteRepositoryReplicationArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param excludePathPrefixPattern List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**{@literal /}z/*`. By default, no artifacts are excluded.
+         * @param excludePathPrefixPattern List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**{@literal /}z/*. By default no
+         * artifacts are excluded.
          * 
          * @return builder
          * 
@@ -309,7 +327,8 @@ public final class RemoteRepositoryReplicationArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param includePathPrefixPattern List of artifact patterns to include when evaluating artifact requests in the form of `x/y/**{@literal /}z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included `(**{@literal /}*)`.
+         * @param includePathPrefixPattern List of artifact patterns to include when evaluating artifact requests in the form of x/y/**{@literal /}z/*. When used, only
+         * artifacts matching one of the include patterns are served. By default, all artifacts are included (**{@literal /}*).
          * 
          * @return builder
          * 
@@ -320,7 +339,8 @@ public final class RemoteRepositoryReplicationArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param includePathPrefixPattern List of artifact patterns to include when evaluating artifact requests in the form of `x/y/**{@literal /}z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included `(**{@literal /}*)`.
+         * @param includePathPrefixPattern List of artifact patterns to include when evaluating artifact requests in the form of x/y/**{@literal /}z/*. When used, only
+         * artifacts matching one of the include patterns are served. By default, all artifacts are included (**{@literal /}*).
          * 
          * @return builder
          * 
@@ -330,7 +350,7 @@ public final class RemoteRepositoryReplicationArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param replicationKey Replication ID, the value is unknown until the resource is created. Can&#39;t be set or updated.
+         * @param replicationKey Replication ID.
          * 
          * @return builder
          * 
@@ -341,7 +361,7 @@ public final class RemoteRepositoryReplicationArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param replicationKey Replication ID, the value is unknown until the resource is created. Can&#39;t be set or updated.
+         * @param replicationKey Replication ID.
          * 
          * @return builder
          * 
@@ -372,7 +392,9 @@ public final class RemoteRepositoryReplicationArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param syncDeletes When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata). Note that enabling this option, will delete artifacts on the target that do not exist in the source repository. Default value is `false`.
+         * @param syncDeletes When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata). Note
+         * that enabling this option, will delete artifacts on the target that do not exist in the source repository. Default value
+         * is `false`.
          * 
          * @return builder
          * 
@@ -383,7 +405,9 @@ public final class RemoteRepositoryReplicationArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param syncDeletes When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata). Note that enabling this option, will delete artifacts on the target that do not exist in the source repository. Default value is `false`.
+         * @param syncDeletes When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata). Note
+         * that enabling this option, will delete artifacts on the target that do not exist in the source repository. Default value
+         * is `false`.
          * 
          * @return builder
          * 
@@ -393,7 +417,7 @@ public final class RemoteRepositoryReplicationArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param syncProperties When set, the task also synchronizes the properties of replicated artifacts. Default value is `true`.
+         * @param syncProperties When set, the task also synchronizes the properties of replicated artifacts. Default value is `true`
          * 
          * @return builder
          * 
@@ -404,7 +428,7 @@ public final class RemoteRepositoryReplicationArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param syncProperties When set, the task also synchronizes the properties of replicated artifacts. Default value is `true`.
+         * @param syncProperties When set, the task also synchronizes the properties of replicated artifacts. Default value is `true`
          * 
          * @return builder
          * 

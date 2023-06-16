@@ -68,16 +68,14 @@ public final class DockerV2RepositoryState extends com.pulumi.resources.Resource
     }
 
     /**
-     * When set, Artifactory will block the pushing of Docker images with manifest
-     * v2 schema 1 to this repository.
+     * When set, Artifactory will block the pushing of Docker images with manifest v2 schema 1 to this repository.
      * 
      */
     @Import(name="blockPushingSchema1")
     private @Nullable Output<Boolean> blockPushingSchema1;
 
     /**
-     * @return When set, Artifactory will block the pushing of Docker images with manifest
-     * v2 schema 1 to this repository.
+     * @return When set, Artifactory will block the pushing of Docker images with manifest v2 schema 1 to this repository.
      * 
      */
     public Optional<Output<Boolean>> blockPushingSchema1() {
@@ -168,14 +166,16 @@ public final class DockerV2RepositoryState extends com.pulumi.resources.Resource
     }
 
     /**
-     * the identity key of the repo.
+     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      * 
      */
     @Import(name="key")
     private @Nullable Output<String> key;
 
     /**
-     * @return the identity key of the repo.
+     * @return A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      * 
      */
     public Optional<Output<String>> key() {
@@ -183,18 +183,18 @@ public final class DockerV2RepositoryState extends com.pulumi.resources.Resource
     }
 
     /**
-     * The maximum number of unique tags of a single Docker image to store in this
-     * repository. Once the number tags for an image exceeds this setting, older tags are removed.
-     * A value of 0 (default) indicates there is no limit. This only applies to manifest v2.
+     * The maximum number of unique tags of a single Docker image to store in this repository. Once the number tags for an
+     * image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit. This only
+     * applies to manifest v2
      * 
      */
     @Import(name="maxUniqueTags")
     private @Nullable Output<Integer> maxUniqueTags;
 
     /**
-     * @return The maximum number of unique tags of a single Docker image to store in this
-     * repository. Once the number tags for an image exceeds this setting, older tags are removed.
-     * A value of 0 (default) indicates there is no limit. This only applies to manifest v2.
+     * @return The maximum number of unique tags of a single Docker image to store in this repository. Once the number tags for an
+     * image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit. This only
+     * applies to manifest v2
      * 
      */
     public Optional<Output<Integer>> maxUniqueTags() {
@@ -307,16 +307,16 @@ public final class DockerV2RepositoryState extends com.pulumi.resources.Resource
     }
 
     /**
-     * If greater than 1, overwritten tags will be saved by their digest, up to the set up
-     * number. This only applies to manifest V2.
+     * If greater than 1, overwritten tags will be saved by their digest, up to the set up number. This only applies to
+     * manifest V2
      * 
      */
     @Import(name="tagRetention")
     private @Nullable Output<Integer> tagRetention;
 
     /**
-     * @return If greater than 1, overwritten tags will be saved by their digest, up to the set up
-     * number. This only applies to manifest V2.
+     * @return If greater than 1, overwritten tags will be saved by their digest, up to the set up number. This only applies to
+     * manifest V2
      * 
      */
     public Optional<Output<Integer>> tagRetention() {
@@ -451,8 +451,7 @@ public final class DockerV2RepositoryState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param blockPushingSchema1 When set, Artifactory will block the pushing of Docker images with manifest
-         * v2 schema 1 to this repository.
+         * @param blockPushingSchema1 When set, Artifactory will block the pushing of Docker images with manifest v2 schema 1 to this repository.
          * 
          * @return builder
          * 
@@ -463,8 +462,7 @@ public final class DockerV2RepositoryState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param blockPushingSchema1 When set, Artifactory will block the pushing of Docker images with manifest
-         * v2 schema 1 to this repository.
+         * @param blockPushingSchema1 When set, Artifactory will block the pushing of Docker images with manifest v2 schema 1 to this repository.
          * 
          * @return builder
          * 
@@ -587,7 +585,8 @@ public final class DockerV2RepositoryState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param key the identity key of the repo.
+         * @param key A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+         * characters. It cannot begin with a number or contain spaces or special characters.
          * 
          * @return builder
          * 
@@ -598,7 +597,8 @@ public final class DockerV2RepositoryState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param key the identity key of the repo.
+         * @param key A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+         * characters. It cannot begin with a number or contain spaces or special characters.
          * 
          * @return builder
          * 
@@ -608,9 +608,9 @@ public final class DockerV2RepositoryState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param maxUniqueTags The maximum number of unique tags of a single Docker image to store in this
-         * repository. Once the number tags for an image exceeds this setting, older tags are removed.
-         * A value of 0 (default) indicates there is no limit. This only applies to manifest v2.
+         * @param maxUniqueTags The maximum number of unique tags of a single Docker image to store in this repository. Once the number tags for an
+         * image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit. This only
+         * applies to manifest v2
          * 
          * @return builder
          * 
@@ -621,9 +621,9 @@ public final class DockerV2RepositoryState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param maxUniqueTags The maximum number of unique tags of a single Docker image to store in this
-         * repository. Once the number tags for an image exceeds this setting, older tags are removed.
-         * A value of 0 (default) indicates there is no limit. This only applies to manifest v2.
+         * @param maxUniqueTags The maximum number of unique tags of a single Docker image to store in this repository. Once the number tags for an
+         * image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit. This only
+         * applies to manifest v2
          * 
          * @return builder
          * 
@@ -799,8 +799,8 @@ public final class DockerV2RepositoryState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param tagRetention If greater than 1, overwritten tags will be saved by their digest, up to the set up
-         * number. This only applies to manifest V2.
+         * @param tagRetention If greater than 1, overwritten tags will be saved by their digest, up to the set up number. This only applies to
+         * manifest V2
          * 
          * @return builder
          * 
@@ -811,8 +811,8 @@ public final class DockerV2RepositoryState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param tagRetention If greater than 1, overwritten tags will be saved by their digest, up to the set up
-         * number. This only applies to manifest V2.
+         * @param tagRetention If greater than 1, overwritten tags will be saved by their digest, up to the set up number. This only applies to
+         * manifest V2
          * 
          * @return builder
          * 

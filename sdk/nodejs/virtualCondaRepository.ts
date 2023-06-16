@@ -4,34 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-/**
- * Creates a virtual Conda repository.
- * Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Conda+Repositories#CondaRepositories-VirtualRepositories).
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const foo_conda = new artifactory.VirtualCondaRepository("foo-conda", {
- *     description: "A test virtual repo",
- *     excludesPattern: "com/google/**",
- *     includesPattern: "com/jfrog/**,cloud/jfrog/**",
- *     key: "foo-conda",
- *     notes: "Internal description",
- *     repositories: [],
- * });
- * ```
- *
- * ## Import
- *
- * Virtual repositories can be imported using their name, e.g.
- *
- * ```sh
- *  $ pulumi import artifactory:index/virtualCondaRepository:VirtualCondaRepository foo-conda foo-conda
- * ```
- */
 export class VirtualCondaRepository extends pulumi.CustomResource {
     /**
      * Get an existing VirtualCondaRepository resource's state with the given name, ID, and optional extra
@@ -84,8 +56,8 @@ export class VirtualCondaRepository extends pulumi.CustomResource {
      */
     public readonly includesPattern!: pulumi.Output<string | undefined>;
     /**
-     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-     * contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      */
     public readonly key!: pulumi.Output<string>;
     /**
@@ -114,7 +86,8 @@ export class VirtualCondaRepository extends pulumi.CustomResource {
      */
     public readonly repositories!: pulumi.Output<string[] | undefined>;
     /**
-     * This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
+     * This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
+     * repositories. A value of 0 indicates no caching.
      */
     public readonly retrievalCachePeriodSeconds!: pulumi.Output<number | undefined>;
 
@@ -196,8 +169,8 @@ export interface VirtualCondaRepositoryState {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-     * contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      */
     key?: pulumi.Input<string>;
     /**
@@ -226,7 +199,8 @@ export interface VirtualCondaRepositoryState {
      */
     repositories?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
+     * This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
+     * repositories. A value of 0 indicates no caching.
      */
     retrievalCachePeriodSeconds?: pulumi.Input<number>;
 }
@@ -259,8 +233,8 @@ export interface VirtualCondaRepositoryArgs {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-     * contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      */
     key: pulumi.Input<string>;
     /**
@@ -288,7 +262,8 @@ export interface VirtualCondaRepositoryArgs {
      */
     repositories?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
+     * This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
+     * repositories. A value of 0 indicates no caching.
      */
     retrievalCachePeriodSeconds?: pulumi.Input<number>;
 }

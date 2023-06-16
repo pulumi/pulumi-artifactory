@@ -11,59 +11,9 @@ namespace Pulumi.Artifactory
 {
     public static class GetVirtualGoRepository
     {
-        /// <summary>
-        /// Retrieves a virtual Go repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var virtual_go = Artifactory.GetVirtualGoRepository.Invoke(new()
-        ///     {
-        ///         Key = "virtual-go",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetVirtualGoRepositoryResult> InvokeAsync(GetVirtualGoRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualGoRepositoryResult>("artifactory:index/getVirtualGoRepository:getVirtualGoRepository", args ?? new GetVirtualGoRepositoryArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Retrieves a virtual Go repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var virtual_go = Artifactory.GetVirtualGoRepository.Invoke(new()
-        ///     {
-        ///         Key = "virtual-go",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Output<GetVirtualGoRepositoryResult> Invoke(GetVirtualGoRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualGoRepositoryResult>("artifactory:index/getVirtualGoRepository:getVirtualGoRepository", args ?? new GetVirtualGoRepositoryInvokeArgs(), options.WithDefaults());
     }
@@ -83,19 +33,11 @@ namespace Pulumi.Artifactory
         [Input("excludesPattern")]
         public string? ExcludesPattern { get; set; }
 
-        /// <summary>
-        /// (Optional) Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list. 
-        /// When checked (default), Artifactory will automatically follow remote VCS roots in 'go-import' meta tags to download remote modules.
-        /// </summary>
         [Input("externalDependenciesEnabled")]
         public bool? ExternalDependenciesEnabled { get; set; }
 
         [Input("externalDependenciesPatterns")]
         private List<string>? _externalDependenciesPatterns;
-
-        /// <summary>
-        /// (Optional) 'go-import' Allow List on the UI.
-        /// </summary>
         public List<string> ExternalDependenciesPatterns
         {
             get => _externalDependenciesPatterns ?? (_externalDependenciesPatterns = new List<string>());
@@ -105,9 +47,6 @@ namespace Pulumi.Artifactory
         [Input("includesPattern")]
         public string? IncludesPattern { get; set; }
 
-        /// <summary>
-        /// the identity key of the repo.
-        /// </summary>
         [Input("key", required: true)]
         public string Key { get; set; } = null!;
 
@@ -156,19 +95,11 @@ namespace Pulumi.Artifactory
         [Input("excludesPattern")]
         public Input<string>? ExcludesPattern { get; set; }
 
-        /// <summary>
-        /// (Optional) Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list. 
-        /// When checked (default), Artifactory will automatically follow remote VCS roots in 'go-import' meta tags to download remote modules.
-        /// </summary>
         [Input("externalDependenciesEnabled")]
         public Input<bool>? ExternalDependenciesEnabled { get; set; }
 
         [Input("externalDependenciesPatterns")]
         private InputList<string>? _externalDependenciesPatterns;
-
-        /// <summary>
-        /// (Optional) 'go-import' Allow List on the UI.
-        /// </summary>
         public InputList<string> ExternalDependenciesPatterns
         {
             get => _externalDependenciesPatterns ?? (_externalDependenciesPatterns = new InputList<string>());
@@ -178,9 +109,6 @@ namespace Pulumi.Artifactory
         [Input("includesPattern")]
         public Input<string>? IncludesPattern { get; set; }
 
-        /// <summary>
-        /// the identity key of the repo.
-        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
@@ -223,14 +151,7 @@ namespace Pulumi.Artifactory
         public readonly string? DefaultDeploymentRepo;
         public readonly string? Description;
         public readonly string? ExcludesPattern;
-        /// <summary>
-        /// (Optional) Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list. 
-        /// When checked (default), Artifactory will automatically follow remote VCS roots in 'go-import' meta tags to download remote modules.
-        /// </summary>
         public readonly bool? ExternalDependenciesEnabled;
-        /// <summary>
-        /// (Optional) 'go-import' Allow List on the UI.
-        /// </summary>
         public readonly ImmutableArray<string> ExternalDependenciesPatterns;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.

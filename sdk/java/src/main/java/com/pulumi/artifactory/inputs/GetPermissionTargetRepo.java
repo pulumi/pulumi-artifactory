@@ -23,51 +23,23 @@ public final class GetPermissionTargetRepo extends com.pulumi.resources.InvokeAr
         return Optional.ofNullable(this.actions);
     }
 
-    /**
-     * Pattern of artifacts to exclude.
-     * 
-     */
     @Import(name="excludesPatterns")
     private @Nullable List<String> excludesPatterns;
 
-    /**
-     * @return Pattern of artifacts to exclude.
-     * 
-     */
     public Optional<List<String>> excludesPatterns() {
         return Optional.ofNullable(this.excludesPatterns);
     }
 
-    /**
-     * Pattern of artifacts to include.
-     * 
-     */
     @Import(name="includesPatterns")
     private @Nullable List<String> includesPatterns;
 
-    /**
-     * @return Pattern of artifacts to include.
-     * 
-     */
     public Optional<List<String>> includesPatterns() {
         return Optional.ofNullable(this.includesPatterns);
     }
 
-    /**
-     * List of repositories this permission target is applicable for. You can specify the
-     * name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote
-     * repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
-     * 
-     */
     @Import(name="repositories", required=true)
     private List<String> repositories;
 
-    /**
-     * @return List of repositories this permission target is applicable for. You can specify the
-     * name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote
-     * repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
-     * 
-     */
     public List<String> repositories() {
         return this.repositories;
     }
@@ -104,69 +76,29 @@ public final class GetPermissionTargetRepo extends com.pulumi.resources.InvokeAr
             return this;
         }
 
-        /**
-         * @param excludesPatterns Pattern of artifacts to exclude.
-         * 
-         * @return builder
-         * 
-         */
         public Builder excludesPatterns(@Nullable List<String> excludesPatterns) {
             $.excludesPatterns = excludesPatterns;
             return this;
         }
 
-        /**
-         * @param excludesPatterns Pattern of artifacts to exclude.
-         * 
-         * @return builder
-         * 
-         */
         public Builder excludesPatterns(String... excludesPatterns) {
             return excludesPatterns(List.of(excludesPatterns));
         }
 
-        /**
-         * @param includesPatterns Pattern of artifacts to include.
-         * 
-         * @return builder
-         * 
-         */
         public Builder includesPatterns(@Nullable List<String> includesPatterns) {
             $.includesPatterns = includesPatterns;
             return this;
         }
 
-        /**
-         * @param includesPatterns Pattern of artifacts to include.
-         * 
-         * @return builder
-         * 
-         */
         public Builder includesPatterns(String... includesPatterns) {
             return includesPatterns(List.of(includesPatterns));
         }
 
-        /**
-         * @param repositories List of repositories this permission target is applicable for. You can specify the
-         * name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote
-         * repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder repositories(List<String> repositories) {
             $.repositories = repositories;
             return this;
         }
 
-        /**
-         * @param repositories List of repositories this permission target is applicable for. You can specify the
-         * name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote
-         * repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder repositories(String... repositories) {
             return repositories(List.of(repositories));
         }

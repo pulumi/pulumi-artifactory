@@ -10,33 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Retrieves a remote Docker repository.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupRemoteDockerRepository(ctx, &artifactory.LookupRemoteDockerRepositoryArgs{
-//				Key: "remote-docker",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupRemoteDockerRepository(ctx *pulumi.Context, args *LookupRemoteDockerRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupRemoteDockerRepositoryResult, error) {
 	var rv LookupRemoteDockerRepositoryResult
 	err := ctx.Invoke("artifactory:index/getRemoteDockerRepository:getRemoteDockerRepository", args, &rv, opts...)
@@ -48,80 +21,71 @@ func LookupRemoteDockerRepository(ctx *pulumi.Context, args *LookupRemoteDockerR
 
 // A collection of arguments for invoking getRemoteDockerRepository.
 type LookupRemoteDockerRepositoryArgs struct {
-	AllowAnyHostAuth          *bool `pulumi:"allowAnyHostAuth"`
-	AssumedOfflinePeriodSecs  *int  `pulumi:"assumedOfflinePeriodSecs"`
-	BlackedOut                *bool `pulumi:"blackedOut"`
-	BlockMismatchingMimeTypes *bool `pulumi:"blockMismatchingMimeTypes"`
-	// (Optional) When set, Artifactory will block the pulling of Docker images with manifest v2 schema 1 from the remote repository (i.e. the upstream). It will be possible to pull images with manifest v2 schema 1 that exist in the cache.
-	BlockPushingSchema1    *bool                                            `pulumi:"blockPushingSchema1"`
-	BypassHeadRequests     *bool                                            `pulumi:"bypassHeadRequests"`
-	CdnRedirect            *bool                                            `pulumi:"cdnRedirect"`
-	ClientTlsCertificate   *string                                          `pulumi:"clientTlsCertificate"`
-	ContentSynchronisation *GetRemoteDockerRepositoryContentSynchronisation `pulumi:"contentSynchronisation"`
-	Description            *string                                          `pulumi:"description"`
-	DownloadDirect         *bool                                            `pulumi:"downloadDirect"`
-	EnableCookieManagement *bool                                            `pulumi:"enableCookieManagement"`
-	// (Optional) Enable token (Bearer) based authentication.
-	EnableTokenAuthentication *bool   `pulumi:"enableTokenAuthentication"`
-	ExcludesPattern           *string `pulumi:"excludesPattern"`
-	// (Optional) Also known as 'Foreign Layers Caching' on the UI.
-	ExternalDependenciesEnabled *bool `pulumi:"externalDependenciesEnabled"`
-	// (Optional) An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response. By default, this is set to `[**]` in the UI, which means that remote modules may be downloaded from any external VCS source. Due to SDKv2 limitations, we can't set the default value for the list. This value `[**]` must be assigned to the attribute manually, if user don't specify any other non-default values. We don't want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns `[**]` on update if HCL doesn't have the attribute set or the list is empty.
-	ExternalDependenciesPatterns []string `pulumi:"externalDependenciesPatterns"`
-	HardFail                     *bool    `pulumi:"hardFail"`
-	IncludesPattern              *string  `pulumi:"includesPattern"`
-	// the identity key of the repo.
-	Key                               string   `pulumi:"key"`
-	ListRemoteFolderItems             *bool    `pulumi:"listRemoteFolderItems"`
-	LocalAddress                      *string  `pulumi:"localAddress"`
-	MetadataRetrievalTimeoutSecs      *int     `pulumi:"metadataRetrievalTimeoutSecs"`
-	MismatchingMimeTypesOverrideList  *string  `pulumi:"mismatchingMimeTypesOverrideList"`
-	MissedCachePeriodSeconds          *int     `pulumi:"missedCachePeriodSeconds"`
-	Notes                             *string  `pulumi:"notes"`
-	Offline                           *bool    `pulumi:"offline"`
-	Password                          *string  `pulumi:"password"`
-	PriorityResolution                *bool    `pulumi:"priorityResolution"`
-	ProjectEnvironments               []string `pulumi:"projectEnvironments"`
-	ProjectKey                        *string  `pulumi:"projectKey"`
-	PropertySets                      []string `pulumi:"propertySets"`
-	Proxy                             *string  `pulumi:"proxy"`
-	QueryParams                       *string  `pulumi:"queryParams"`
-	RemoteRepoLayoutRef               *string  `pulumi:"remoteRepoLayoutRef"`
-	RepoLayoutRef                     *string  `pulumi:"repoLayoutRef"`
-	RetrievalCachePeriodSeconds       *int     `pulumi:"retrievalCachePeriodSeconds"`
-	ShareConfiguration                *bool    `pulumi:"shareConfiguration"`
-	SocketTimeoutMillis               *int     `pulumi:"socketTimeoutMillis"`
-	StoreArtifactsLocally             *bool    `pulumi:"storeArtifactsLocally"`
-	SynchronizeProperties             *bool    `pulumi:"synchronizeProperties"`
-	UnusedArtifactsCleanupPeriodHours *int     `pulumi:"unusedArtifactsCleanupPeriodHours"`
-	Url                               *string  `pulumi:"url"`
-	Username                          *string  `pulumi:"username"`
-	XrayIndex                         *bool    `pulumi:"xrayIndex"`
+	AllowAnyHostAuth                  *bool                                            `pulumi:"allowAnyHostAuth"`
+	AssumedOfflinePeriodSecs          *int                                             `pulumi:"assumedOfflinePeriodSecs"`
+	BlackedOut                        *bool                                            `pulumi:"blackedOut"`
+	BlockMismatchingMimeTypes         *bool                                            `pulumi:"blockMismatchingMimeTypes"`
+	BlockPushingSchema1               *bool                                            `pulumi:"blockPushingSchema1"`
+	BypassHeadRequests                *bool                                            `pulumi:"bypassHeadRequests"`
+	CdnRedirect                       *bool                                            `pulumi:"cdnRedirect"`
+	ClientTlsCertificate              *string                                          `pulumi:"clientTlsCertificate"`
+	ContentSynchronisation            *GetRemoteDockerRepositoryContentSynchronisation `pulumi:"contentSynchronisation"`
+	Description                       *string                                          `pulumi:"description"`
+	DownloadDirect                    *bool                                            `pulumi:"downloadDirect"`
+	EnableCookieManagement            *bool                                            `pulumi:"enableCookieManagement"`
+	EnableTokenAuthentication         *bool                                            `pulumi:"enableTokenAuthentication"`
+	ExcludesPattern                   *string                                          `pulumi:"excludesPattern"`
+	ExternalDependenciesEnabled       *bool                                            `pulumi:"externalDependenciesEnabled"`
+	ExternalDependenciesPatterns      []string                                         `pulumi:"externalDependenciesPatterns"`
+	HardFail                          *bool                                            `pulumi:"hardFail"`
+	IncludesPattern                   *string                                          `pulumi:"includesPattern"`
+	Key                               string                                           `pulumi:"key"`
+	ListRemoteFolderItems             *bool                                            `pulumi:"listRemoteFolderItems"`
+	LocalAddress                      *string                                          `pulumi:"localAddress"`
+	MetadataRetrievalTimeoutSecs      *int                                             `pulumi:"metadataRetrievalTimeoutSecs"`
+	MismatchingMimeTypesOverrideList  *string                                          `pulumi:"mismatchingMimeTypesOverrideList"`
+	MissedCachePeriodSeconds          *int                                             `pulumi:"missedCachePeriodSeconds"`
+	Notes                             *string                                          `pulumi:"notes"`
+	Offline                           *bool                                            `pulumi:"offline"`
+	Password                          *string                                          `pulumi:"password"`
+	PriorityResolution                *bool                                            `pulumi:"priorityResolution"`
+	ProjectEnvironments               []string                                         `pulumi:"projectEnvironments"`
+	ProjectKey                        *string                                          `pulumi:"projectKey"`
+	PropertySets                      []string                                         `pulumi:"propertySets"`
+	Proxy                             *string                                          `pulumi:"proxy"`
+	QueryParams                       *string                                          `pulumi:"queryParams"`
+	RemoteRepoLayoutRef               *string                                          `pulumi:"remoteRepoLayoutRef"`
+	RepoLayoutRef                     *string                                          `pulumi:"repoLayoutRef"`
+	RetrievalCachePeriodSeconds       *int                                             `pulumi:"retrievalCachePeriodSeconds"`
+	ShareConfiguration                *bool                                            `pulumi:"shareConfiguration"`
+	SocketTimeoutMillis               *int                                             `pulumi:"socketTimeoutMillis"`
+	StoreArtifactsLocally             *bool                                            `pulumi:"storeArtifactsLocally"`
+	SynchronizeProperties             *bool                                            `pulumi:"synchronizeProperties"`
+	UnusedArtifactsCleanupPeriodHours *int                                             `pulumi:"unusedArtifactsCleanupPeriodHours"`
+	Url                               *string                                          `pulumi:"url"`
+	Username                          *string                                          `pulumi:"username"`
+	XrayIndex                         *bool                                            `pulumi:"xrayIndex"`
 }
 
 // A collection of values returned by getRemoteDockerRepository.
 type LookupRemoteDockerRepositoryResult struct {
-	AllowAnyHostAuth          *bool `pulumi:"allowAnyHostAuth"`
-	AssumedOfflinePeriodSecs  *int  `pulumi:"assumedOfflinePeriodSecs"`
-	BlackedOut                *bool `pulumi:"blackedOut"`
-	BlockMismatchingMimeTypes *bool `pulumi:"blockMismatchingMimeTypes"`
-	// (Optional) When set, Artifactory will block the pulling of Docker images with manifest v2 schema 1 from the remote repository (i.e. the upstream). It will be possible to pull images with manifest v2 schema 1 that exist in the cache.
-	BlockPushingSchema1    bool                                            `pulumi:"blockPushingSchema1"`
-	BypassHeadRequests     *bool                                           `pulumi:"bypassHeadRequests"`
-	CdnRedirect            *bool                                           `pulumi:"cdnRedirect"`
-	ClientTlsCertificate   string                                          `pulumi:"clientTlsCertificate"`
-	ContentSynchronisation GetRemoteDockerRepositoryContentSynchronisation `pulumi:"contentSynchronisation"`
-	Description            *string                                         `pulumi:"description"`
-	DownloadDirect         *bool                                           `pulumi:"downloadDirect"`
-	EnableCookieManagement *bool                                           `pulumi:"enableCookieManagement"`
-	// (Optional) Enable token (Bearer) based authentication.
-	EnableTokenAuthentication bool    `pulumi:"enableTokenAuthentication"`
-	ExcludesPattern           *string `pulumi:"excludesPattern"`
-	// (Optional) Also known as 'Foreign Layers Caching' on the UI.
-	ExternalDependenciesEnabled *bool `pulumi:"externalDependenciesEnabled"`
-	// (Optional) An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response. By default, this is set to `[**]` in the UI, which means that remote modules may be downloaded from any external VCS source. Due to SDKv2 limitations, we can't set the default value for the list. This value `[**]` must be assigned to the attribute manually, if user don't specify any other non-default values. We don't want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns `[**]` on update if HCL doesn't have the attribute set or the list is empty.
-	ExternalDependenciesPatterns []string `pulumi:"externalDependenciesPatterns"`
-	HardFail                     *bool    `pulumi:"hardFail"`
+	AllowAnyHostAuth             *bool                                           `pulumi:"allowAnyHostAuth"`
+	AssumedOfflinePeriodSecs     *int                                            `pulumi:"assumedOfflinePeriodSecs"`
+	BlackedOut                   *bool                                           `pulumi:"blackedOut"`
+	BlockMismatchingMimeTypes    *bool                                           `pulumi:"blockMismatchingMimeTypes"`
+	BlockPushingSchema1          bool                                            `pulumi:"blockPushingSchema1"`
+	BypassHeadRequests           *bool                                           `pulumi:"bypassHeadRequests"`
+	CdnRedirect                  *bool                                           `pulumi:"cdnRedirect"`
+	ClientTlsCertificate         string                                          `pulumi:"clientTlsCertificate"`
+	ContentSynchronisation       GetRemoteDockerRepositoryContentSynchronisation `pulumi:"contentSynchronisation"`
+	Description                  *string                                         `pulumi:"description"`
+	DownloadDirect               *bool                                           `pulumi:"downloadDirect"`
+	EnableCookieManagement       *bool                                           `pulumi:"enableCookieManagement"`
+	EnableTokenAuthentication    bool                                            `pulumi:"enableTokenAuthentication"`
+	ExcludesPattern              *string                                         `pulumi:"excludesPattern"`
+	ExternalDependenciesEnabled  *bool                                           `pulumi:"externalDependenciesEnabled"`
+	ExternalDependenciesPatterns []string                                        `pulumi:"externalDependenciesPatterns"`
+	HardFail                     *bool                                           `pulumi:"hardFail"`
 	// The provider-assigned unique ID for this managed resource.
 	Id                                string   `pulumi:"id"`
 	IncludesPattern                   *string  `pulumi:"includesPattern"`
@@ -169,55 +133,50 @@ func LookupRemoteDockerRepositoryOutput(ctx *pulumi.Context, args LookupRemoteDo
 
 // A collection of arguments for invoking getRemoteDockerRepository.
 type LookupRemoteDockerRepositoryOutputArgs struct {
-	AllowAnyHostAuth          pulumi.BoolPtrInput `pulumi:"allowAnyHostAuth"`
-	AssumedOfflinePeriodSecs  pulumi.IntPtrInput  `pulumi:"assumedOfflinePeriodSecs"`
-	BlackedOut                pulumi.BoolPtrInput `pulumi:"blackedOut"`
-	BlockMismatchingMimeTypes pulumi.BoolPtrInput `pulumi:"blockMismatchingMimeTypes"`
-	// (Optional) When set, Artifactory will block the pulling of Docker images with manifest v2 schema 1 from the remote repository (i.e. the upstream). It will be possible to pull images with manifest v2 schema 1 that exist in the cache.
-	BlockPushingSchema1    pulumi.BoolPtrInput                                     `pulumi:"blockPushingSchema1"`
-	BypassHeadRequests     pulumi.BoolPtrInput                                     `pulumi:"bypassHeadRequests"`
-	CdnRedirect            pulumi.BoolPtrInput                                     `pulumi:"cdnRedirect"`
-	ClientTlsCertificate   pulumi.StringPtrInput                                   `pulumi:"clientTlsCertificate"`
-	ContentSynchronisation GetRemoteDockerRepositoryContentSynchronisationPtrInput `pulumi:"contentSynchronisation"`
-	Description            pulumi.StringPtrInput                                   `pulumi:"description"`
-	DownloadDirect         pulumi.BoolPtrInput                                     `pulumi:"downloadDirect"`
-	EnableCookieManagement pulumi.BoolPtrInput                                     `pulumi:"enableCookieManagement"`
-	// (Optional) Enable token (Bearer) based authentication.
-	EnableTokenAuthentication pulumi.BoolPtrInput   `pulumi:"enableTokenAuthentication"`
-	ExcludesPattern           pulumi.StringPtrInput `pulumi:"excludesPattern"`
-	// (Optional) Also known as 'Foreign Layers Caching' on the UI.
-	ExternalDependenciesEnabled pulumi.BoolPtrInput `pulumi:"externalDependenciesEnabled"`
-	// (Optional) An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response. By default, this is set to `[**]` in the UI, which means that remote modules may be downloaded from any external VCS source. Due to SDKv2 limitations, we can't set the default value for the list. This value `[**]` must be assigned to the attribute manually, if user don't specify any other non-default values. We don't want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns `[**]` on update if HCL doesn't have the attribute set or the list is empty.
-	ExternalDependenciesPatterns pulumi.StringArrayInput `pulumi:"externalDependenciesPatterns"`
-	HardFail                     pulumi.BoolPtrInput     `pulumi:"hardFail"`
-	IncludesPattern              pulumi.StringPtrInput   `pulumi:"includesPattern"`
-	// the identity key of the repo.
-	Key                               pulumi.StringInput      `pulumi:"key"`
-	ListRemoteFolderItems             pulumi.BoolPtrInput     `pulumi:"listRemoteFolderItems"`
-	LocalAddress                      pulumi.StringPtrInput   `pulumi:"localAddress"`
-	MetadataRetrievalTimeoutSecs      pulumi.IntPtrInput      `pulumi:"metadataRetrievalTimeoutSecs"`
-	MismatchingMimeTypesOverrideList  pulumi.StringPtrInput   `pulumi:"mismatchingMimeTypesOverrideList"`
-	MissedCachePeriodSeconds          pulumi.IntPtrInput      `pulumi:"missedCachePeriodSeconds"`
-	Notes                             pulumi.StringPtrInput   `pulumi:"notes"`
-	Offline                           pulumi.BoolPtrInput     `pulumi:"offline"`
-	Password                          pulumi.StringPtrInput   `pulumi:"password"`
-	PriorityResolution                pulumi.BoolPtrInput     `pulumi:"priorityResolution"`
-	ProjectEnvironments               pulumi.StringArrayInput `pulumi:"projectEnvironments"`
-	ProjectKey                        pulumi.StringPtrInput   `pulumi:"projectKey"`
-	PropertySets                      pulumi.StringArrayInput `pulumi:"propertySets"`
-	Proxy                             pulumi.StringPtrInput   `pulumi:"proxy"`
-	QueryParams                       pulumi.StringPtrInput   `pulumi:"queryParams"`
-	RemoteRepoLayoutRef               pulumi.StringPtrInput   `pulumi:"remoteRepoLayoutRef"`
-	RepoLayoutRef                     pulumi.StringPtrInput   `pulumi:"repoLayoutRef"`
-	RetrievalCachePeriodSeconds       pulumi.IntPtrInput      `pulumi:"retrievalCachePeriodSeconds"`
-	ShareConfiguration                pulumi.BoolPtrInput     `pulumi:"shareConfiguration"`
-	SocketTimeoutMillis               pulumi.IntPtrInput      `pulumi:"socketTimeoutMillis"`
-	StoreArtifactsLocally             pulumi.BoolPtrInput     `pulumi:"storeArtifactsLocally"`
-	SynchronizeProperties             pulumi.BoolPtrInput     `pulumi:"synchronizeProperties"`
-	UnusedArtifactsCleanupPeriodHours pulumi.IntPtrInput      `pulumi:"unusedArtifactsCleanupPeriodHours"`
-	Url                               pulumi.StringPtrInput   `pulumi:"url"`
-	Username                          pulumi.StringPtrInput   `pulumi:"username"`
-	XrayIndex                         pulumi.BoolPtrInput     `pulumi:"xrayIndex"`
+	AllowAnyHostAuth                  pulumi.BoolPtrInput                                     `pulumi:"allowAnyHostAuth"`
+	AssumedOfflinePeriodSecs          pulumi.IntPtrInput                                      `pulumi:"assumedOfflinePeriodSecs"`
+	BlackedOut                        pulumi.BoolPtrInput                                     `pulumi:"blackedOut"`
+	BlockMismatchingMimeTypes         pulumi.BoolPtrInput                                     `pulumi:"blockMismatchingMimeTypes"`
+	BlockPushingSchema1               pulumi.BoolPtrInput                                     `pulumi:"blockPushingSchema1"`
+	BypassHeadRequests                pulumi.BoolPtrInput                                     `pulumi:"bypassHeadRequests"`
+	CdnRedirect                       pulumi.BoolPtrInput                                     `pulumi:"cdnRedirect"`
+	ClientTlsCertificate              pulumi.StringPtrInput                                   `pulumi:"clientTlsCertificate"`
+	ContentSynchronisation            GetRemoteDockerRepositoryContentSynchronisationPtrInput `pulumi:"contentSynchronisation"`
+	Description                       pulumi.StringPtrInput                                   `pulumi:"description"`
+	DownloadDirect                    pulumi.BoolPtrInput                                     `pulumi:"downloadDirect"`
+	EnableCookieManagement            pulumi.BoolPtrInput                                     `pulumi:"enableCookieManagement"`
+	EnableTokenAuthentication         pulumi.BoolPtrInput                                     `pulumi:"enableTokenAuthentication"`
+	ExcludesPattern                   pulumi.StringPtrInput                                   `pulumi:"excludesPattern"`
+	ExternalDependenciesEnabled       pulumi.BoolPtrInput                                     `pulumi:"externalDependenciesEnabled"`
+	ExternalDependenciesPatterns      pulumi.StringArrayInput                                 `pulumi:"externalDependenciesPatterns"`
+	HardFail                          pulumi.BoolPtrInput                                     `pulumi:"hardFail"`
+	IncludesPattern                   pulumi.StringPtrInput                                   `pulumi:"includesPattern"`
+	Key                               pulumi.StringInput                                      `pulumi:"key"`
+	ListRemoteFolderItems             pulumi.BoolPtrInput                                     `pulumi:"listRemoteFolderItems"`
+	LocalAddress                      pulumi.StringPtrInput                                   `pulumi:"localAddress"`
+	MetadataRetrievalTimeoutSecs      pulumi.IntPtrInput                                      `pulumi:"metadataRetrievalTimeoutSecs"`
+	MismatchingMimeTypesOverrideList  pulumi.StringPtrInput                                   `pulumi:"mismatchingMimeTypesOverrideList"`
+	MissedCachePeriodSeconds          pulumi.IntPtrInput                                      `pulumi:"missedCachePeriodSeconds"`
+	Notes                             pulumi.StringPtrInput                                   `pulumi:"notes"`
+	Offline                           pulumi.BoolPtrInput                                     `pulumi:"offline"`
+	Password                          pulumi.StringPtrInput                                   `pulumi:"password"`
+	PriorityResolution                pulumi.BoolPtrInput                                     `pulumi:"priorityResolution"`
+	ProjectEnvironments               pulumi.StringArrayInput                                 `pulumi:"projectEnvironments"`
+	ProjectKey                        pulumi.StringPtrInput                                   `pulumi:"projectKey"`
+	PropertySets                      pulumi.StringArrayInput                                 `pulumi:"propertySets"`
+	Proxy                             pulumi.StringPtrInput                                   `pulumi:"proxy"`
+	QueryParams                       pulumi.StringPtrInput                                   `pulumi:"queryParams"`
+	RemoteRepoLayoutRef               pulumi.StringPtrInput                                   `pulumi:"remoteRepoLayoutRef"`
+	RepoLayoutRef                     pulumi.StringPtrInput                                   `pulumi:"repoLayoutRef"`
+	RetrievalCachePeriodSeconds       pulumi.IntPtrInput                                      `pulumi:"retrievalCachePeriodSeconds"`
+	ShareConfiguration                pulumi.BoolPtrInput                                     `pulumi:"shareConfiguration"`
+	SocketTimeoutMillis               pulumi.IntPtrInput                                      `pulumi:"socketTimeoutMillis"`
+	StoreArtifactsLocally             pulumi.BoolPtrInput                                     `pulumi:"storeArtifactsLocally"`
+	SynchronizeProperties             pulumi.BoolPtrInput                                     `pulumi:"synchronizeProperties"`
+	UnusedArtifactsCleanupPeriodHours pulumi.IntPtrInput                                      `pulumi:"unusedArtifactsCleanupPeriodHours"`
+	Url                               pulumi.StringPtrInput                                   `pulumi:"url"`
+	Username                          pulumi.StringPtrInput                                   `pulumi:"username"`
+	XrayIndex                         pulumi.BoolPtrInput                                     `pulumi:"xrayIndex"`
 }
 
 func (LookupRemoteDockerRepositoryOutputArgs) ElementType() reflect.Type {
@@ -255,7 +214,6 @@ func (o LookupRemoteDockerRepositoryResultOutput) BlockMismatchingMimeTypes() pu
 	return o.ApplyT(func(v LookupRemoteDockerRepositoryResult) *bool { return v.BlockMismatchingMimeTypes }).(pulumi.BoolPtrOutput)
 }
 
-// (Optional) When set, Artifactory will block the pulling of Docker images with manifest v2 schema 1 from the remote repository (i.e. the upstream). It will be possible to pull images with manifest v2 schema 1 that exist in the cache.
 func (o LookupRemoteDockerRepositoryResultOutput) BlockPushingSchema1() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupRemoteDockerRepositoryResult) bool { return v.BlockPushingSchema1 }).(pulumi.BoolOutput)
 }
@@ -290,7 +248,6 @@ func (o LookupRemoteDockerRepositoryResultOutput) EnableCookieManagement() pulum
 	return o.ApplyT(func(v LookupRemoteDockerRepositoryResult) *bool { return v.EnableCookieManagement }).(pulumi.BoolPtrOutput)
 }
 
-// (Optional) Enable token (Bearer) based authentication.
 func (o LookupRemoteDockerRepositoryResultOutput) EnableTokenAuthentication() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupRemoteDockerRepositoryResult) bool { return v.EnableTokenAuthentication }).(pulumi.BoolOutput)
 }
@@ -299,12 +256,10 @@ func (o LookupRemoteDockerRepositoryResultOutput) ExcludesPattern() pulumi.Strin
 	return o.ApplyT(func(v LookupRemoteDockerRepositoryResult) *string { return v.ExcludesPattern }).(pulumi.StringPtrOutput)
 }
 
-// (Optional) Also known as 'Foreign Layers Caching' on the UI.
 func (o LookupRemoteDockerRepositoryResultOutput) ExternalDependenciesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupRemoteDockerRepositoryResult) *bool { return v.ExternalDependenciesEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// (Optional) An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response. By default, this is set to `[**]` in the UI, which means that remote modules may be downloaded from any external VCS source. Due to SDKv2 limitations, we can't set the default value for the list. This value `[**]` must be assigned to the attribute manually, if user don't specify any other non-default values. We don't want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns `[**]` on update if HCL doesn't have the attribute set or the list is empty.
 func (o LookupRemoteDockerRepositoryResultOutput) ExternalDependenciesPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupRemoteDockerRepositoryResult) []string { return v.ExternalDependenciesPatterns }).(pulumi.StringArrayOutput)
 }

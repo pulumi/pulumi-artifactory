@@ -248,16 +248,16 @@ public final class RemoteGoRepositoryState extends com.pulumi.resources.Resource
     }
 
     /**
-     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-     * contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      * 
      */
     @Import(name="key")
     private @Nullable Output<String> key;
 
     /**
-     * @return A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-     * contain spaces or special characters.
+     * @return A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      * 
      */
     public Optional<Output<String>> key() {
@@ -644,14 +644,16 @@ public final class RemoteGoRepositoryState extends com.pulumi.resources.Resource
     }
 
     /**
-     * Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `ARTIFACTORY`.
+     * Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance.
+     * Default value is &#34;ARTIFACTORY&#34;.
      * 
      */
     @Import(name="vcsGitProvider")
     private @Nullable Output<String> vcsGitProvider;
 
     /**
-     * @return Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `ARTIFACTORY`.
+     * @return Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance.
+     * Default value is &#34;ARTIFACTORY&#34;.
      * 
      */
     public Optional<Output<String>> vcsGitProvider() {
@@ -1049,8 +1051,8 @@ public final class RemoteGoRepositoryState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param key A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-         * contain spaces or special characters.
+         * @param key A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+         * characters. It cannot begin with a number or contain spaces or special characters.
          * 
          * @return builder
          * 
@@ -1061,8 +1063,8 @@ public final class RemoteGoRepositoryState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param key A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-         * contain spaces or special characters.
+         * @param key A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+         * characters. It cannot begin with a number or contain spaces or special characters.
          * 
          * @return builder
          * 
@@ -1608,7 +1610,8 @@ public final class RemoteGoRepositoryState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param vcsGitProvider Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `ARTIFACTORY`.
+         * @param vcsGitProvider Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance.
+         * Default value is &#34;ARTIFACTORY&#34;.
          * 
          * @return builder
          * 
@@ -1619,7 +1622,8 @@ public final class RemoteGoRepositoryState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param vcsGitProvider Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `ARTIFACTORY`.
+         * @param vcsGitProvider Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance.
+         * Default value is &#34;ARTIFACTORY&#34;.
          * 
          * @return builder
          * 

@@ -17,58 +17,6 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Creates a virtual Debian repository.
- * Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Debian+Repositories#DebianRepositories-VirtualRepositories).
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.artifactory.VirtualDebianRepository;
- * import com.pulumi.artifactory.VirtualDebianRepositoryArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var foo_debian = new VirtualDebianRepository(&#34;foo-debian&#34;, VirtualDebianRepositoryArgs.builder()        
- *             .debianDefaultArchitectures(&#34;amd64,i386&#34;)
- *             .description(&#34;A test virtual repo&#34;)
- *             .excludesPattern(&#34;com/google/**&#34;)
- *             .includesPattern(&#34;com/jfrog/**,cloud/jfrog/**&#34;)
- *             .key(&#34;foo-debian&#34;)
- *             .notes(&#34;Internal description&#34;)
- *             .optionalIndexCompressionFormats(            
- *                 &#34;bz2&#34;,
- *                 &#34;xz&#34;)
- *             .repositories()
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Virtual repositories can be imported using their name, e.g.
- * 
- * ```sh
- *  $ pulumi import artifactory:index/virtualDebianRepository:VirtualDebianRepository foo-debian foo-debian
- * ```
- * 
- */
 @ResourceType(type="artifactory:index/virtualDebianRepository:VirtualDebianRepository")
 public class VirtualDebianRepository extends com.pulumi.resources.CustomResource {
     /**
@@ -88,14 +36,16 @@ public class VirtualDebianRepository extends com.pulumi.resources.CustomResource
         return Codegen.optional(this.artifactoryRequestsCanRetrieveRemoteArtifacts);
     }
     /**
-     * Specifying  architectures will speed up Artifactory&#39;s initial metadata indexing process. The default architecture values are amd64 and i386.
+     * Specifying architectures will speed up Artifactory&#39;s initial metadata indexing process. The default architecture values
+     * are amd64 and i386.
      * 
      */
     @Export(name="debianDefaultArchitectures", type=String.class, parameters={})
     private Output</* @Nullable */ String> debianDefaultArchitectures;
 
     /**
-     * @return Specifying  architectures will speed up Artifactory&#39;s initial metadata indexing process. The default architecture values are amd64 and i386.
+     * @return Specifying architectures will speed up Artifactory&#39;s initial metadata indexing process. The default architecture values
+     * are amd64 and i386.
      * 
      */
     public Output<Optional<String>> debianDefaultArchitectures() {
@@ -162,16 +112,16 @@ public class VirtualDebianRepository extends com.pulumi.resources.CustomResource
         return Codegen.optional(this.includesPattern);
     }
     /**
-     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-     * contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      * 
      */
     @Export(name="key", type=String.class, parameters={})
     private Output<String> key;
 
     /**
-     * @return A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-     * contain spaces or special characters.
+     * @return A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      * 
      */
     public Output<String> key() {
@@ -192,14 +142,16 @@ public class VirtualDebianRepository extends com.pulumi.resources.CustomResource
         return Codegen.optional(this.notes);
     }
     /**
-     * Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are `bz2`,`lzma` and `xz`. Default value is `bz2`.
+     * Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are
+     * &#39;bz2&#39;,&#39;lzma&#39; and &#39;xz&#39;. Default value is &#39;bz2&#39;.
      * 
      */
     @Export(name="optionalIndexCompressionFormats", type=List.class, parameters={String.class})
     private Output<List<String>> optionalIndexCompressionFormats;
 
     /**
-     * @return Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are `bz2`,`lzma` and `xz`. Default value is `bz2`.
+     * @return Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are
+     * &#39;bz2&#39;,&#39;lzma&#39; and &#39;xz&#39;. Default value is &#39;bz2&#39;.
      * 
      */
     public Output<List<String>> optionalIndexCompressionFormats() {
@@ -290,14 +242,16 @@ public class VirtualDebianRepository extends com.pulumi.resources.CustomResource
         return Codegen.optional(this.repositories);
     }
     /**
-     * This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
+     * This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
+     * repositories. A value of 0 indicates no caching.
      * 
      */
     @Export(name="retrievalCachePeriodSeconds", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> retrievalCachePeriodSeconds;
 
     /**
-     * @return This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
+     * @return This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
+     * repositories. A value of 0 indicates no caching.
      * 
      */
     public Output<Optional<Integer>> retrievalCachePeriodSeconds() {

@@ -9,39 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Artifactory
 {
-    /// <summary>
-    /// Creates a remote Pypi repository.
-    /// Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/PyPI+Repositories).
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Artifactory = Pulumi.Artifactory;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var pypi_remote = new Artifactory.RemotePypiRepository("pypi-remote", new()
-    ///     {
-    ///         Key = "pypi-remote-foo",
-    ///         PypiRegistryUrl = "https://pypi.org",
-    ///         PypiRepositorySuffix = "simple",
-    ///         Url = "https://files.pythonhosted.org",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Remote repositories can be imported using their name, e.g.
-    /// 
-    /// ```sh
-    ///  $ pulumi import artifactory:index/remotePypiRepository:RemotePypiRepository pypi-remote pypi-remote
-    /// ```
-    /// </summary>
     [ArtifactoryResourceType("artifactory:index/remotePypiRepository:RemotePypiRepository")]
     public partial class RemotePypiRepository : global::Pulumi.CustomResource
     {
@@ -140,8 +107,8 @@ namespace Pulumi.Artifactory
         public Output<string?> IncludesPattern { get; private set; } = null!;
 
         /// <summary>
-        /// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-        /// contain spaces or special characters.
+        /// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+        /// characters. It cannot begin with a number or contain spaces or special characters.
         /// </summary>
         [Output("key")]
         public Output<string> Key { get; private set; } = null!;
@@ -236,13 +203,15 @@ namespace Pulumi.Artifactory
         public Output<string?> Proxy { get; private set; } = null!;
 
         /// <summary>
-        /// To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another Artifactory server. See JFrog Pypi documentation [here](https://www.jfrog.com/confluence/display/JFROG/PyPI+Repositories) for the usage details. Default value is `https://pypi.org`.
+        /// To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another
+        /// Artifactory server. See JFrog Pypi documentation for the usage details. Default value is 'https://pypi.org'.
         /// </summary>
         [Output("pypiRegistryUrl")]
         public Output<string?> PypiRegistryUrl { get; private set; } = null!;
 
         /// <summary>
-        /// Usually should be left as a default for `simple`, unless the remote is a PyPI server that has custom registry suffix, like +simple in DevPI. Default value is `simple`.
+        /// Usually should be left as a default for 'simple', unless the remote is a PyPI server that has custom registry suffix,
+        /// like +simple in DevPI. Default value is 'simple'.
         /// </summary>
         [Output("pypiRepositorySuffix")]
         public Output<string?> PypiRepositorySuffix { get; private set; } = null!;
@@ -466,8 +435,8 @@ namespace Pulumi.Artifactory
         public Input<string>? IncludesPattern { get; set; }
 
         /// <summary>
-        /// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-        /// contain spaces or special characters.
+        /// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+        /// characters. It cannot begin with a number or contain spaces or special characters.
         /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -580,13 +549,15 @@ namespace Pulumi.Artifactory
         public Input<string>? Proxy { get; set; }
 
         /// <summary>
-        /// To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another Artifactory server. See JFrog Pypi documentation [here](https://www.jfrog.com/confluence/display/JFROG/PyPI+Repositories) for the usage details. Default value is `https://pypi.org`.
+        /// To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another
+        /// Artifactory server. See JFrog Pypi documentation for the usage details. Default value is 'https://pypi.org'.
         /// </summary>
         [Input("pypiRegistryUrl")]
         public Input<string>? PypiRegistryUrl { get; set; }
 
         /// <summary>
-        /// Usually should be left as a default for `simple`, unless the remote is a PyPI server that has custom registry suffix, like +simple in DevPI. Default value is `simple`.
+        /// Usually should be left as a default for 'simple', unless the remote is a PyPI server that has custom registry suffix,
+        /// like +simple in DevPI. Default value is 'simple'.
         /// </summary>
         [Input("pypiRepositorySuffix")]
         public Input<string>? PypiRepositorySuffix { get; set; }
@@ -768,8 +739,8 @@ namespace Pulumi.Artifactory
         public Input<string>? IncludesPattern { get; set; }
 
         /// <summary>
-        /// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-        /// contain spaces or special characters.
+        /// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+        /// characters. It cannot begin with a number or contain spaces or special characters.
         /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
@@ -885,13 +856,15 @@ namespace Pulumi.Artifactory
         public Input<string>? Proxy { get; set; }
 
         /// <summary>
-        /// To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another Artifactory server. See JFrog Pypi documentation [here](https://www.jfrog.com/confluence/display/JFROG/PyPI+Repositories) for the usage details. Default value is `https://pypi.org`.
+        /// To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another
+        /// Artifactory server. See JFrog Pypi documentation for the usage details. Default value is 'https://pypi.org'.
         /// </summary>
         [Input("pypiRegistryUrl")]
         public Input<string>? PypiRegistryUrl { get; set; }
 
         /// <summary>
-        /// Usually should be left as a default for `simple`, unless the remote is a PyPI server that has custom registry suffix, like +simple in DevPI. Default value is `simple`.
+        /// Usually should be left as a default for 'simple', unless the remote is a PyPI server that has custom registry suffix,
+        /// like +simple in DevPI. Default value is 'simple'.
         /// </summary>
         [Input("pypiRepositorySuffix")]
         public Input<string>? PypiRepositorySuffix { get; set; }

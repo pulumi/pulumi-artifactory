@@ -18,50 +18,6 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Creates a remote Debian repository.
- * Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Debian+Repositories).
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.artifactory.RemoteDebianRepository;
- * import com.pulumi.artifactory.RemoteDebianRepositoryArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var my_remote_debian = new RemoteDebianRepository(&#34;my-remote-debian&#34;, RemoteDebianRepositoryArgs.builder()        
- *             .key(&#34;my-remote-Debian&#34;)
- *             .url(&#34;http://archive.ubuntu.com/ubuntu/&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Remote repositories can be imported using their name, e.g.
- * 
- * ```sh
- *  $ pulumi import artifactory:index/remoteDebianRepository:RemoteDebianRepository my-remote-debian my-remote-debian
- * ```
- * 
- */
 @ResourceType(type="artifactory:index/remoteDebianRepository:RemoteDebianRepository")
 public class RemoteDebianRepository extends com.pulumi.resources.CustomResource {
     /**
@@ -279,16 +235,16 @@ public class RemoteDebianRepository extends com.pulumi.resources.CustomResource 
         return Codegen.optional(this.includesPattern);
     }
     /**
-     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-     * contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      * 
      */
     @Export(name="key", type=String.class, parameters={})
     private Output<String> key;
 
     /**
-     * @return A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-     * contain spaces or special characters.
+     * @return A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      * 
      */
     public Output<String> key() {

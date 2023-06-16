@@ -6,46 +6,6 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
-/**
- * Provides an Artifactory webhook resource. This can be used to register and manage Artifactory webhook subscription which enables you to be notified or notify other users when such events take place in Artifactory.
- *
- * ## Example Usage
- *
- * .
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const my_generic_local = new artifactory.LocalGenericRepository("my-generic-local", {key: "my-generic-local"});
- * const artifact_webhook = new artifactory.ArtifactWebhook("artifact-webhook", {
- *     key: "artifact-webhook",
- *     eventTypes: [
- *         "deployed",
- *         "deleted",
- *         "moved",
- *         "copied",
- *     ],
- *     criteria: {
- *         anyLocal: true,
- *         anyRemote: false,
- *         repoKeys: [my_generic_local.key],
- *         includePatterns: ["foo/**"],
- *         excludePatterns: ["bar/**"],
- *     },
- *     handlers: [{
- *         url: "http://tempurl.org/webhook",
- *         secret: "some-secret",
- *         proxy: "proxy-key",
- *         customHttpHeaders: {
- *             "header-1": "value-1",
- *             "header-2": "value-2",
- *         },
- *     }],
- * }, {
- *     dependsOn: [my_generic_local],
- * });
- * ```
- */
 export class ArtifactWebhook extends pulumi.CustomResource {
     /**
      * Get an existing ArtifactWebhook resource's state with the given name, ID, and optional extra
@@ -79,23 +39,21 @@ export class ArtifactWebhook extends pulumi.CustomResource {
      */
     public readonly criteria!: pulumi.Output<outputs.ArtifactWebhookCriteria>;
     /**
-     * Webhook description. Max length 1000 characters.
+     * Description of webhook. Max length 1000 characters.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * Status of webhook. Default to `true`.
+     * Status of webhook. Default to 'true'
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
-     * List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `deployed`, `deleted`, `moved`, `copied`, `cached`.
+     * List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow
+     * values: deployed, deleted, moved, copied, cached
      */
     public readonly eventTypes!: pulumi.Output<string[]>;
-    /**
-     * At least one is required.
-     */
     public readonly handlers!: pulumi.Output<outputs.ArtifactWebhookHandler[]>;
     /**
-     * The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
+     * Key of webhook. Must be between 2 and 200 characters. Cannot contain spaces.
      */
     public readonly key!: pulumi.Output<string>;
 
@@ -153,23 +111,21 @@ export interface ArtifactWebhookState {
      */
     criteria?: pulumi.Input<inputs.ArtifactWebhookCriteria>;
     /**
-     * Webhook description. Max length 1000 characters.
+     * Description of webhook. Max length 1000 characters.
      */
     description?: pulumi.Input<string>;
     /**
-     * Status of webhook. Default to `true`.
+     * Status of webhook. Default to 'true'
      */
     enabled?: pulumi.Input<boolean>;
     /**
-     * List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `deployed`, `deleted`, `moved`, `copied`, `cached`.
+     * List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow
+     * values: deployed, deleted, moved, copied, cached
      */
     eventTypes?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * At least one is required.
-     */
     handlers?: pulumi.Input<pulumi.Input<inputs.ArtifactWebhookHandler>[]>;
     /**
-     * The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
+     * Key of webhook. Must be between 2 and 200 characters. Cannot contain spaces.
      */
     key?: pulumi.Input<string>;
 }
@@ -183,23 +139,21 @@ export interface ArtifactWebhookArgs {
      */
     criteria: pulumi.Input<inputs.ArtifactWebhookCriteria>;
     /**
-     * Webhook description. Max length 1000 characters.
+     * Description of webhook. Max length 1000 characters.
      */
     description?: pulumi.Input<string>;
     /**
-     * Status of webhook. Default to `true`.
+     * Status of webhook. Default to 'true'
      */
     enabled?: pulumi.Input<boolean>;
     /**
-     * List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `deployed`, `deleted`, `moved`, `copied`, `cached`.
+     * List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow
+     * values: deployed, deleted, moved, copied, cached
      */
     eventTypes: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * At least one is required.
-     */
     handlers: pulumi.Input<pulumi.Input<inputs.ArtifactWebhookHandler>[]>;
     /**
-     * The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
+     * Key of webhook. Must be between 2 and 200 characters. Cannot contain spaces.
      */
     key: pulumi.Input<string>;
 }

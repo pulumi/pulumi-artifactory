@@ -4,22 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-/**
- * ## # Artifactory User Data Source
- *
- * Provides an Artifactory user data source. This can be used to read the configuration of users in artifactory.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const user1 = artifactory.getUser({
- *     name: "user1",
- * });
- * ```
- */
 export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise<GetUserResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -38,33 +22,12 @@ export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise
  * A collection of arguments for invoking getUser.
  */
 export interface GetUserArgs {
-    /**
-     * When enabled, this user is an administrator with all the ensuing privileges. Default value is `false`.
-     */
     admin?: boolean;
-    /**
-     * When set, this user can only access Artifactory through the REST API. This option cannot be set if the user has Admin privileges. Default value is `true`.
-     */
     disableUiAccess?: boolean;
-    /**
-     * Email for user.
-     */
     email?: string;
-    /**
-     * List of groups this user is a part of.
-     */
     groups?: string[];
-    /**
-     * When set, disables the fallback of using an internal password when external authentication (such as LDAP) is enabled.
-     */
     internalPasswordDisabled?: boolean;
-    /**
-     * Name of the user.
-     */
     name: string;
-    /**
-     * When set, this user can update his profile details (except for the password. Only an administrator can update the password). Default value is `true`.
-     */
     profileUpdatable?: boolean;
 }
 
@@ -72,52 +35,18 @@ export interface GetUserArgs {
  * A collection of values returned by getUser.
  */
 export interface GetUserResult {
-    /**
-     * When enabled, this user is an administrator with all the ensuing privileges. Default value is `false`.
-     */
     readonly admin?: boolean;
-    /**
-     * When set, this user can only access Artifactory through the REST API. This option cannot be set if the user has Admin privileges. Default value is `true`.
-     */
     readonly disableUiAccess?: boolean;
-    /**
-     * Email for user.
-     */
     readonly email?: string;
-    /**
-     * List of groups this user is a part of.
-     */
     readonly groups?: string[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * When set, disables the fallback of using an internal password when external authentication (such as LDAP) is enabled.
-     */
     readonly internalPasswordDisabled?: boolean;
     readonly name: string;
-    /**
-     * When set, this user can update his profile details (except for the password. Only an administrator can update the password). Default value is `true`.
-     */
     readonly profileUpdatable?: boolean;
 }
-/**
- * ## # Artifactory User Data Source
- *
- * Provides an Artifactory user data source. This can be used to read the configuration of users in artifactory.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const user1 = artifactory.getUser({
- *     name: "user1",
- * });
- * ```
- */
 export function getUserOutput(args: GetUserOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserResult> {
     return pulumi.output(args).apply((a: any) => getUser(a, opts))
 }
@@ -126,32 +55,11 @@ export function getUserOutput(args: GetUserOutputArgs, opts?: pulumi.InvokeOptio
  * A collection of arguments for invoking getUser.
  */
 export interface GetUserOutputArgs {
-    /**
-     * When enabled, this user is an administrator with all the ensuing privileges. Default value is `false`.
-     */
     admin?: pulumi.Input<boolean>;
-    /**
-     * When set, this user can only access Artifactory through the REST API. This option cannot be set if the user has Admin privileges. Default value is `true`.
-     */
     disableUiAccess?: pulumi.Input<boolean>;
-    /**
-     * Email for user.
-     */
     email?: pulumi.Input<string>;
-    /**
-     * List of groups this user is a part of.
-     */
     groups?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * When set, disables the fallback of using an internal password when external authentication (such as LDAP) is enabled.
-     */
     internalPasswordDisabled?: pulumi.Input<boolean>;
-    /**
-     * Name of the user.
-     */
     name: pulumi.Input<string>;
-    /**
-     * When set, this user can update his profile details (except for the password. Only an administrator can update the password). Default value is `true`.
-     */
     profileUpdatable?: pulumi.Input<boolean>;
 }

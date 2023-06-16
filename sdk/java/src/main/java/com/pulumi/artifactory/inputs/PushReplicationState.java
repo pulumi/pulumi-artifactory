@@ -19,14 +19,14 @@ public final class PushReplicationState extends com.pulumi.resources.ResourceArg
     public static final PushReplicationState Empty = new PushReplicationState();
 
     /**
-     * A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
+     * Cron expression to control the operation frequency.
      * 
      */
     @Import(name="cronExp")
     private @Nullable Output<String> cronExp;
 
     /**
-     * @return A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
+     * @return Cron expression to control the operation frequency.
      * 
      */
     public Optional<Output<String>> cronExp() {
@@ -34,14 +34,16 @@ public final class PushReplicationState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. added, deleted or property change.
+     * When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on
+     * artifact, e.g. add, deleted or property change. Default value is `false`.
      * 
      */
     @Import(name="enableEventReplication")
     private @Nullable Output<Boolean> enableEventReplication;
 
     /**
-     * @return When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. added, deleted or property change.
+     * @return When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on
+     * artifact, e.g. add, deleted or property change. Default value is `false`.
      * 
      */
     public Optional<Output<Boolean>> enableEventReplication() {
@@ -55,17 +57,9 @@ public final class PushReplicationState extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.replications);
     }
 
-    /**
-     * Repository name.
-     * 
-     */
     @Import(name="repoKey")
     private @Nullable Output<String> repoKey;
 
-    /**
-     * @return Repository name.
-     * 
-     */
     public Optional<Output<String>> repoKey() {
         return Optional.ofNullable(this.repoKey);
     }
@@ -98,7 +92,7 @@ public final class PushReplicationState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param cronExp A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
+         * @param cronExp Cron expression to control the operation frequency.
          * 
          * @return builder
          * 
@@ -109,7 +103,7 @@ public final class PushReplicationState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param cronExp A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
+         * @param cronExp Cron expression to control the operation frequency.
          * 
          * @return builder
          * 
@@ -119,7 +113,8 @@ public final class PushReplicationState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param enableEventReplication When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. added, deleted or property change.
+         * @param enableEventReplication When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on
+         * artifact, e.g. add, deleted or property change. Default value is `false`.
          * 
          * @return builder
          * 
@@ -130,7 +125,8 @@ public final class PushReplicationState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param enableEventReplication When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. added, deleted or property change.
+         * @param enableEventReplication When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on
+         * artifact, e.g. add, deleted or property change. Default value is `false`.
          * 
          * @return builder
          * 
@@ -152,23 +148,11 @@ public final class PushReplicationState extends com.pulumi.resources.ResourceArg
             return replications(List.of(replications));
         }
 
-        /**
-         * @param repoKey Repository name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder repoKey(@Nullable Output<String> repoKey) {
             $.repoKey = repoKey;
             return this;
         }
 
-        /**
-         * @param repoKey Repository name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder repoKey(String repoKey) {
             return repoKey(Output.of(repoKey));
         }

@@ -11,59 +11,9 @@ namespace Pulumi.Artifactory
 {
     public static class GetRemoteMavenRepository
     {
-        /// <summary>
-        /// Retrieves a remote Maven repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var remote_maven = Artifactory.GetRemoteMavenRepository.Invoke(new()
-        ///     {
-        ///         Key = "remote-maven",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetRemoteMavenRepositoryResult> InvokeAsync(GetRemoteMavenRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRemoteMavenRepositoryResult>("artifactory:index/getRemoteMavenRepository:getRemoteMavenRepository", args ?? new GetRemoteMavenRepositoryArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Retrieves a remote Maven repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var remote_maven = Artifactory.GetRemoteMavenRepository.Invoke(new()
-        ///     {
-        ///         Key = "remote-maven",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Output<GetRemoteMavenRepositoryResult> Invoke(GetRemoteMavenRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRemoteMavenRepositoryResult>("artifactory:index/getRemoteMavenRepository:getRemoteMavenRepository", args ?? new GetRemoteMavenRepositoryInvokeArgs(), options.WithDefaults());
     }
@@ -107,27 +57,15 @@ namespace Pulumi.Artifactory
         [Input("excludesPattern")]
         public string? ExcludesPattern { get; set; }
 
-        /// <summary>
-        /// (Optional, Default: `false`) When set, if a POM is requested, Artifactory attempts to fetch the corresponding jar in the background. This will accelerate first access time to the jar when it is subsequently requested.
-        /// </summary>
         [Input("fetchJarsEagerly")]
         public bool? FetchJarsEagerly { get; set; }
 
-        /// <summary>
-        /// (Optional, Default: `false`) When set, if a binaries jar is requested, Artifactory attempts to fetch the corresponding source jar in the background. This will accelerate first access time to the source jar when it is subsequently requested.
-        /// </summary>
         [Input("fetchSourcesEagerly")]
         public bool? FetchSourcesEagerly { get; set; }
 
-        /// <summary>
-        /// (Optional, Default: `true`) If set, Artifactory allows you to deploy release artifacts into this repository.
-        /// </summary>
         [Input("handleReleases")]
         public bool? HandleReleases { get; set; }
 
-        /// <summary>
-        /// (Optional, Default: `true`) If set, Artifactory allows you to deploy snapshot artifacts into this repository.
-        /// </summary>
         [Input("handleSnapshots")]
         public bool? HandleSnapshots { get; set; }
 
@@ -137,9 +75,6 @@ namespace Pulumi.Artifactory
         [Input("includesPattern")]
         public string? IncludesPattern { get; set; }
 
-        /// <summary>
-        /// the identity key of the repo.
-        /// </summary>
         [Input("key", required: true)]
         public string Key { get; set; } = null!;
 
@@ -149,9 +84,6 @@ namespace Pulumi.Artifactory
         [Input("localAddress")]
         public string? LocalAddress { get; set; }
 
-        /// <summary>
-        /// (Optional, Default: 60) This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrieval_cache_period_seconds` attribute.
-        /// </summary>
         [Input("metadataRetrievalTimeoutSecs")]
         public int? MetadataRetrievalTimeoutSecs { get; set; }
 
@@ -203,15 +135,9 @@ namespace Pulumi.Artifactory
         [Input("queryParams")]
         public string? QueryParams { get; set; }
 
-        /// <summary>
-        /// (Optional, Default: `false`) Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a "captive portal".
-        /// </summary>
         [Input("rejectInvalidJars")]
         public bool? RejectInvalidJars { get; set; }
 
-        /// <summary>
-        /// (Optional, Default: `generate-if-absent`) Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
-        /// </summary>
         [Input("remoteRepoChecksumPolicyType")]
         public string? RemoteRepoChecksumPolicyType { get; set; }
 
@@ -233,9 +159,6 @@ namespace Pulumi.Artifactory
         [Input("storeArtifactsLocally")]
         public bool? StoreArtifactsLocally { get; set; }
 
-        /// <summary>
-        /// (Optional, Default: `true`) By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error. You can disable this behavior by setting this attribute to `true`.
-        /// </summary>
         [Input("suppressPomConsistencyChecks")]
         public bool? SuppressPomConsistencyChecks { get; set; }
 
@@ -298,27 +221,15 @@ namespace Pulumi.Artifactory
         [Input("excludesPattern")]
         public Input<string>? ExcludesPattern { get; set; }
 
-        /// <summary>
-        /// (Optional, Default: `false`) When set, if a POM is requested, Artifactory attempts to fetch the corresponding jar in the background. This will accelerate first access time to the jar when it is subsequently requested.
-        /// </summary>
         [Input("fetchJarsEagerly")]
         public Input<bool>? FetchJarsEagerly { get; set; }
 
-        /// <summary>
-        /// (Optional, Default: `false`) When set, if a binaries jar is requested, Artifactory attempts to fetch the corresponding source jar in the background. This will accelerate first access time to the source jar when it is subsequently requested.
-        /// </summary>
         [Input("fetchSourcesEagerly")]
         public Input<bool>? FetchSourcesEagerly { get; set; }
 
-        /// <summary>
-        /// (Optional, Default: `true`) If set, Artifactory allows you to deploy release artifacts into this repository.
-        /// </summary>
         [Input("handleReleases")]
         public Input<bool>? HandleReleases { get; set; }
 
-        /// <summary>
-        /// (Optional, Default: `true`) If set, Artifactory allows you to deploy snapshot artifacts into this repository.
-        /// </summary>
         [Input("handleSnapshots")]
         public Input<bool>? HandleSnapshots { get; set; }
 
@@ -328,9 +239,6 @@ namespace Pulumi.Artifactory
         [Input("includesPattern")]
         public Input<string>? IncludesPattern { get; set; }
 
-        /// <summary>
-        /// the identity key of the repo.
-        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
@@ -340,9 +248,6 @@ namespace Pulumi.Artifactory
         [Input("localAddress")]
         public Input<string>? LocalAddress { get; set; }
 
-        /// <summary>
-        /// (Optional, Default: 60) This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrieval_cache_period_seconds` attribute.
-        /// </summary>
         [Input("metadataRetrievalTimeoutSecs")]
         public Input<int>? MetadataRetrievalTimeoutSecs { get; set; }
 
@@ -398,15 +303,9 @@ namespace Pulumi.Artifactory
         [Input("queryParams")]
         public Input<string>? QueryParams { get; set; }
 
-        /// <summary>
-        /// (Optional, Default: `false`) Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a "captive portal".
-        /// </summary>
         [Input("rejectInvalidJars")]
         public Input<bool>? RejectInvalidJars { get; set; }
 
-        /// <summary>
-        /// (Optional, Default: `generate-if-absent`) Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
-        /// </summary>
         [Input("remoteRepoChecksumPolicyType")]
         public Input<string>? RemoteRepoChecksumPolicyType { get; set; }
 
@@ -428,9 +327,6 @@ namespace Pulumi.Artifactory
         [Input("storeArtifactsLocally")]
         public Input<bool>? StoreArtifactsLocally { get; set; }
 
-        /// <summary>
-        /// (Optional, Default: `true`) By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error. You can disable this behavior by setting this attribute to `true`.
-        /// </summary>
         [Input("suppressPomConsistencyChecks")]
         public Input<bool>? SuppressPomConsistencyChecks { get; set; }
 
@@ -471,21 +367,9 @@ namespace Pulumi.Artifactory
         public readonly bool? DownloadDirect;
         public readonly bool? EnableCookieManagement;
         public readonly string? ExcludesPattern;
-        /// <summary>
-        /// (Optional, Default: `false`) When set, if a POM is requested, Artifactory attempts to fetch the corresponding jar in the background. This will accelerate first access time to the jar when it is subsequently requested.
-        /// </summary>
         public readonly bool? FetchJarsEagerly;
-        /// <summary>
-        /// (Optional, Default: `false`) When set, if a binaries jar is requested, Artifactory attempts to fetch the corresponding source jar in the background. This will accelerate first access time to the source jar when it is subsequently requested.
-        /// </summary>
         public readonly bool? FetchSourcesEagerly;
-        /// <summary>
-        /// (Optional, Default: `true`) If set, Artifactory allows you to deploy release artifacts into this repository.
-        /// </summary>
         public readonly bool? HandleReleases;
-        /// <summary>
-        /// (Optional, Default: `true`) If set, Artifactory allows you to deploy snapshot artifacts into this repository.
-        /// </summary>
         public readonly bool? HandleSnapshots;
         public readonly bool? HardFail;
         /// <summary>
@@ -496,9 +380,6 @@ namespace Pulumi.Artifactory
         public readonly string Key;
         public readonly bool? ListRemoteFolderItems;
         public readonly string? LocalAddress;
-        /// <summary>
-        /// (Optional, Default: 60) This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrieval_cache_period_seconds` attribute.
-        /// </summary>
         public readonly int? MetadataRetrievalTimeoutSecs;
         public readonly string? MismatchingMimeTypesOverrideList;
         public readonly int? MissedCachePeriodSeconds;
@@ -512,13 +393,7 @@ namespace Pulumi.Artifactory
         public readonly ImmutableArray<string> PropertySets;
         public readonly string? Proxy;
         public readonly string? QueryParams;
-        /// <summary>
-        /// (Optional, Default: `false`) Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a "captive portal".
-        /// </summary>
         public readonly bool? RejectInvalidJars;
-        /// <summary>
-        /// (Optional, Default: `generate-if-absent`) Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
-        /// </summary>
         public readonly string? RemoteRepoChecksumPolicyType;
         public readonly string? RemoteRepoLayoutRef;
         public readonly string? RepoLayoutRef;
@@ -526,9 +401,6 @@ namespace Pulumi.Artifactory
         public readonly bool ShareConfiguration;
         public readonly int? SocketTimeoutMillis;
         public readonly bool? StoreArtifactsLocally;
-        /// <summary>
-        /// (Optional, Default: `true`) By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error. You can disable this behavior by setting this attribute to `true`.
-        /// </summary>
         public readonly bool? SuppressPomConsistencyChecks;
         public readonly bool? SynchronizeProperties;
         public readonly int? UnusedArtifactsCleanupPeriodHours;

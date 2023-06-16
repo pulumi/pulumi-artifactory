@@ -37,29 +37,29 @@ class LocalMavenRepositoryArgs:
                  xray_index: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a LocalMavenRepository resource.
-        :param pulumi.Input[str] key: the identity key of the repo.
+        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+               characters. It cannot begin with a number or contain spaces or special characters.
         :param pulumi.Input[bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
                therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
                security (e.g., cross-site scripting attacks).
         :param pulumi.Input[bool] blacked_out: When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
         :param pulumi.Input[bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS
                CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
-        :param pulumi.Input[str] checksum_policy_type: Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or conflicts with the locally calculated checksum (bad checksum). The options are:
-               - `client-checksums`
-               - `server-generated-checksums`.
-               For more details, please refer to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy).
+        :param pulumi.Input[str] checksum_policy_type: Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or
+               conflicts with the locally calculated checksum (bad checksum). Options are: "client-checksums", or
+               "server-generated-checksums". Default: "client-checksums"\\n For more details, please refer to Checksum Policy -
+               https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy
         :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
                artifacts are excluded.
-        :param pulumi.Input[bool] handle_releases: If set, Artifactory allows you to deploy release artifacts into this repository. Default is `true`.
-        :param pulumi.Input[bool] handle_snapshots: If set, Artifactory allows you to deploy snapshot artifacts into this repository. Default is `true`.
+        :param pulumi.Input[bool] handle_releases: If set, Artifactory allows you to deploy release artifacts into this repository.
+        :param pulumi.Input[bool] handle_snapshots: If set, Artifactory allows you to deploy snapshot artifacts into this repository.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[int] max_unique_snapshots: The maximum number of unique snapshots of a single artifact to store.
-               Once the number of snapshots exceeds this setting, older versions are removed.
-               A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+        :param pulumi.Input[int] max_unique_snapshots: The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
+               older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
         :param pulumi.Input[str] notes: Internal description.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
@@ -70,11 +70,13 @@ class LocalMavenRepositoryArgs:
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
-        :param pulumi.Input[str] snapshot_version_behavior: Specifies the naming convention for Maven SNAPSHOT versions.
-               The options are -
-        :param pulumi.Input[bool] suppress_pom_consistency_checks: By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path).
-               If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error.
-               You can disable this behavior by setting the Suppress POM Consistency Checks checkbox. False by default for Maven repository.
+        :param pulumi.Input[str] snapshot_version_behavior: Specifies the naming convention for Maven SNAPSHOT versions. The options are - unique: Version number is based on a
+               time-stamp (default) non-unique: Version number uses a self-overriding naming pattern of
+               artifactId-version-SNAPSHOT.type deployer: Respects the settings in the Maven client that is deploying the artifact.
+        :param pulumi.Input[bool] suppress_pom_consistency_checks: By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the
+               groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the
+               deployment with a "409 Conflict" error. You can disable this behavior by setting the Suppress POM Consistency Checks
+               checkbox.
         :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
                Xray settings.
         """
@@ -124,7 +126,8 @@ class LocalMavenRepositoryArgs:
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
         """
-        the identity key of the repo.
+        A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+        characters. It cannot begin with a number or contain spaces or special characters.
         """
         return pulumi.get(self, "key")
 
@@ -175,10 +178,10 @@ class LocalMavenRepositoryArgs:
     @pulumi.getter(name="checksumPolicyType")
     def checksum_policy_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or conflicts with the locally calculated checksum (bad checksum). The options are:
-        - `client-checksums`
-        - `server-generated-checksums`.
-        For more details, please refer to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy).
+        Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or
+        conflicts with the locally calculated checksum (bad checksum). Options are: "client-checksums", or
+        "server-generated-checksums". Default: "client-checksums"\\n For more details, please refer to Checksum Policy -
+        https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy
         """
         return pulumi.get(self, "checksum_policy_type")
 
@@ -228,7 +231,7 @@ class LocalMavenRepositoryArgs:
     @pulumi.getter(name="handleReleases")
     def handle_releases(self) -> Optional[pulumi.Input[bool]]:
         """
-        If set, Artifactory allows you to deploy release artifacts into this repository. Default is `true`.
+        If set, Artifactory allows you to deploy release artifacts into this repository.
         """
         return pulumi.get(self, "handle_releases")
 
@@ -240,7 +243,7 @@ class LocalMavenRepositoryArgs:
     @pulumi.getter(name="handleSnapshots")
     def handle_snapshots(self) -> Optional[pulumi.Input[bool]]:
         """
-        If set, Artifactory allows you to deploy snapshot artifacts into this repository. Default is `true`.
+        If set, Artifactory allows you to deploy snapshot artifacts into this repository.
         """
         return pulumi.get(self, "handle_snapshots")
 
@@ -265,9 +268,8 @@ class LocalMavenRepositoryArgs:
     @pulumi.getter(name="maxUniqueSnapshots")
     def max_unique_snapshots(self) -> Optional[pulumi.Input[int]]:
         """
-        The maximum number of unique snapshots of a single artifact to store.
-        Once the number of snapshots exceeds this setting, older versions are removed.
-        A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+        The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
+        older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
         """
         return pulumi.get(self, "max_unique_snapshots")
 
@@ -355,8 +357,9 @@ class LocalMavenRepositoryArgs:
     @pulumi.getter(name="snapshotVersionBehavior")
     def snapshot_version_behavior(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the naming convention for Maven SNAPSHOT versions.
-        The options are -
+        Specifies the naming convention for Maven SNAPSHOT versions. The options are - unique: Version number is based on a
+        time-stamp (default) non-unique: Version number uses a self-overriding naming pattern of
+        artifactId-version-SNAPSHOT.type deployer: Respects the settings in the Maven client that is deploying the artifact.
         """
         return pulumi.get(self, "snapshot_version_behavior")
 
@@ -368,9 +371,10 @@ class LocalMavenRepositoryArgs:
     @pulumi.getter(name="suppressPomConsistencyChecks")
     def suppress_pom_consistency_checks(self) -> Optional[pulumi.Input[bool]]:
         """
-        By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path).
-        If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error.
-        You can disable this behavior by setting the Suppress POM Consistency Checks checkbox. False by default for Maven repository.
+        By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the
+        groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the
+        deployment with a "409 Conflict" error. You can disable this behavior by setting the Suppress POM Consistency Checks
+        checkbox.
         """
         return pulumi.get(self, "suppress_pom_consistency_checks")
 
@@ -425,23 +429,23 @@ class _LocalMavenRepositoryState:
         :param pulumi.Input[bool] blacked_out: When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
         :param pulumi.Input[bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS
                CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
-        :param pulumi.Input[str] checksum_policy_type: Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or conflicts with the locally calculated checksum (bad checksum). The options are:
-               - `client-checksums`
-               - `server-generated-checksums`.
-               For more details, please refer to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy).
+        :param pulumi.Input[str] checksum_policy_type: Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or
+               conflicts with the locally calculated checksum (bad checksum). Options are: "client-checksums", or
+               "server-generated-checksums". Default: "client-checksums"\\n For more details, please refer to Checksum Policy -
+               https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy
         :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
                artifacts are excluded.
-        :param pulumi.Input[bool] handle_releases: If set, Artifactory allows you to deploy release artifacts into this repository. Default is `true`.
-        :param pulumi.Input[bool] handle_snapshots: If set, Artifactory allows you to deploy snapshot artifacts into this repository. Default is `true`.
+        :param pulumi.Input[bool] handle_releases: If set, Artifactory allows you to deploy release artifacts into this repository.
+        :param pulumi.Input[bool] handle_snapshots: If set, Artifactory allows you to deploy snapshot artifacts into this repository.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] key: the identity key of the repo.
-        :param pulumi.Input[int] max_unique_snapshots: The maximum number of unique snapshots of a single artifact to store.
-               Once the number of snapshots exceeds this setting, older versions are removed.
-               A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+               characters. It cannot begin with a number or contain spaces or special characters.
+        :param pulumi.Input[int] max_unique_snapshots: The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
+               older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
         :param pulumi.Input[str] notes: Internal description.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
@@ -452,11 +456,13 @@ class _LocalMavenRepositoryState:
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
-        :param pulumi.Input[str] snapshot_version_behavior: Specifies the naming convention for Maven SNAPSHOT versions.
-               The options are -
-        :param pulumi.Input[bool] suppress_pom_consistency_checks: By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path).
-               If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error.
-               You can disable this behavior by setting the Suppress POM Consistency Checks checkbox. False by default for Maven repository.
+        :param pulumi.Input[str] snapshot_version_behavior: Specifies the naming convention for Maven SNAPSHOT versions. The options are - unique: Version number is based on a
+               time-stamp (default) non-unique: Version number uses a self-overriding naming pattern of
+               artifactId-version-SNAPSHOT.type deployer: Respects the settings in the Maven client that is deploying the artifact.
+        :param pulumi.Input[bool] suppress_pom_consistency_checks: By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the
+               groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the
+               deployment with a "409 Conflict" error. You can disable this behavior by setting the Suppress POM Consistency Checks
+               checkbox.
         :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
                Xray settings.
         """
@@ -548,10 +554,10 @@ class _LocalMavenRepositoryState:
     @pulumi.getter(name="checksumPolicyType")
     def checksum_policy_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or conflicts with the locally calculated checksum (bad checksum). The options are:
-        - `client-checksums`
-        - `server-generated-checksums`.
-        For more details, please refer to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy).
+        Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or
+        conflicts with the locally calculated checksum (bad checksum). Options are: "client-checksums", or
+        "server-generated-checksums". Default: "client-checksums"\\n For more details, please refer to Checksum Policy -
+        https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy
         """
         return pulumi.get(self, "checksum_policy_type")
 
@@ -601,7 +607,7 @@ class _LocalMavenRepositoryState:
     @pulumi.getter(name="handleReleases")
     def handle_releases(self) -> Optional[pulumi.Input[bool]]:
         """
-        If set, Artifactory allows you to deploy release artifacts into this repository. Default is `true`.
+        If set, Artifactory allows you to deploy release artifacts into this repository.
         """
         return pulumi.get(self, "handle_releases")
 
@@ -613,7 +619,7 @@ class _LocalMavenRepositoryState:
     @pulumi.getter(name="handleSnapshots")
     def handle_snapshots(self) -> Optional[pulumi.Input[bool]]:
         """
-        If set, Artifactory allows you to deploy snapshot artifacts into this repository. Default is `true`.
+        If set, Artifactory allows you to deploy snapshot artifacts into this repository.
         """
         return pulumi.get(self, "handle_snapshots")
 
@@ -638,7 +644,8 @@ class _LocalMavenRepositoryState:
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
         """
-        the identity key of the repo.
+        A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+        characters. It cannot begin with a number or contain spaces or special characters.
         """
         return pulumi.get(self, "key")
 
@@ -650,9 +657,8 @@ class _LocalMavenRepositoryState:
     @pulumi.getter(name="maxUniqueSnapshots")
     def max_unique_snapshots(self) -> Optional[pulumi.Input[int]]:
         """
-        The maximum number of unique snapshots of a single artifact to store.
-        Once the number of snapshots exceeds this setting, older versions are removed.
-        A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+        The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
+        older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
         """
         return pulumi.get(self, "max_unique_snapshots")
 
@@ -749,8 +755,9 @@ class _LocalMavenRepositoryState:
     @pulumi.getter(name="snapshotVersionBehavior")
     def snapshot_version_behavior(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the naming convention for Maven SNAPSHOT versions.
-        The options are -
+        Specifies the naming convention for Maven SNAPSHOT versions. The options are - unique: Version number is based on a
+        time-stamp (default) non-unique: Version number uses a self-overriding naming pattern of
+        artifactId-version-SNAPSHOT.type deployer: Respects the settings in the Maven client that is deploying the artifact.
         """
         return pulumi.get(self, "snapshot_version_behavior")
 
@@ -762,9 +769,10 @@ class _LocalMavenRepositoryState:
     @pulumi.getter(name="suppressPomConsistencyChecks")
     def suppress_pom_consistency_checks(self) -> Optional[pulumi.Input[bool]]:
         """
-        By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path).
-        If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error.
-        You can disable this behavior by setting the Suppress POM Consistency Checks checkbox. False by default for Maven repository.
+        By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the
+        groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the
+        deployment with a "409 Conflict" error. You can disable this behavior by setting the Suppress POM Consistency Checks
+        checkbox.
         """
         return pulumi.get(self, "suppress_pom_consistency_checks")
 
@@ -814,32 +822,7 @@ class LocalMavenRepository(pulumi.CustomResource):
                  xray_index: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        Creates a local Maven repository.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_artifactory as artifactory
-
-        terraform_local_test_maven_repo_basic = artifactory.LocalMavenRepository("terraform-local-test-maven-repo-basic",
-            checksum_policy_type="client-checksums",
-            handle_releases=True,
-            handle_snapshots=True,
-            key="terraform-local-test-maven-repo-basic",
-            max_unique_snapshots=10,
-            snapshot_version_behavior="unique",
-            suppress_pom_consistency_checks=False)
-        ```
-
-        ## Import
-
-        Local repositories can be imported using their name, e.g.
-
-        ```sh
-         $ pulumi import artifactory:index/localMavenRepository:LocalMavenRepository terraform-local-test-maven-repo-basic terraform-local-test-maven-repo-basic
-        ```
-
+        Create a LocalMavenRepository resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -848,23 +831,23 @@ class LocalMavenRepository(pulumi.CustomResource):
         :param pulumi.Input[bool] blacked_out: When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
         :param pulumi.Input[bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS
                CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
-        :param pulumi.Input[str] checksum_policy_type: Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or conflicts with the locally calculated checksum (bad checksum). The options are:
-               - `client-checksums`
-               - `server-generated-checksums`.
-               For more details, please refer to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy).
+        :param pulumi.Input[str] checksum_policy_type: Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or
+               conflicts with the locally calculated checksum (bad checksum). Options are: "client-checksums", or
+               "server-generated-checksums". Default: "client-checksums"\\n For more details, please refer to Checksum Policy -
+               https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy
         :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
                artifacts are excluded.
-        :param pulumi.Input[bool] handle_releases: If set, Artifactory allows you to deploy release artifacts into this repository. Default is `true`.
-        :param pulumi.Input[bool] handle_snapshots: If set, Artifactory allows you to deploy snapshot artifacts into this repository. Default is `true`.
+        :param pulumi.Input[bool] handle_releases: If set, Artifactory allows you to deploy release artifacts into this repository.
+        :param pulumi.Input[bool] handle_snapshots: If set, Artifactory allows you to deploy snapshot artifacts into this repository.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] key: the identity key of the repo.
-        :param pulumi.Input[int] max_unique_snapshots: The maximum number of unique snapshots of a single artifact to store.
-               Once the number of snapshots exceeds this setting, older versions are removed.
-               A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+               characters. It cannot begin with a number or contain spaces or special characters.
+        :param pulumi.Input[int] max_unique_snapshots: The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
+               older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
         :param pulumi.Input[str] notes: Internal description.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
@@ -875,11 +858,13 @@ class LocalMavenRepository(pulumi.CustomResource):
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
-        :param pulumi.Input[str] snapshot_version_behavior: Specifies the naming convention for Maven SNAPSHOT versions.
-               The options are -
-        :param pulumi.Input[bool] suppress_pom_consistency_checks: By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path).
-               If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error.
-               You can disable this behavior by setting the Suppress POM Consistency Checks checkbox. False by default for Maven repository.
+        :param pulumi.Input[str] snapshot_version_behavior: Specifies the naming convention for Maven SNAPSHOT versions. The options are - unique: Version number is based on a
+               time-stamp (default) non-unique: Version number uses a self-overriding naming pattern of
+               artifactId-version-SNAPSHOT.type deployer: Respects the settings in the Maven client that is deploying the artifact.
+        :param pulumi.Input[bool] suppress_pom_consistency_checks: By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the
+               groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the
+               deployment with a "409 Conflict" error. You can disable this behavior by setting the Suppress POM Consistency Checks
+               checkbox.
         :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
                Xray settings.
         """
@@ -890,32 +875,7 @@ class LocalMavenRepository(pulumi.CustomResource):
                  args: LocalMavenRepositoryArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Creates a local Maven repository.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_artifactory as artifactory
-
-        terraform_local_test_maven_repo_basic = artifactory.LocalMavenRepository("terraform-local-test-maven-repo-basic",
-            checksum_policy_type="client-checksums",
-            handle_releases=True,
-            handle_snapshots=True,
-            key="terraform-local-test-maven-repo-basic",
-            max_unique_snapshots=10,
-            snapshot_version_behavior="unique",
-            suppress_pom_consistency_checks=False)
-        ```
-
-        ## Import
-
-        Local repositories can be imported using their name, e.g.
-
-        ```sh
-         $ pulumi import artifactory:index/localMavenRepository:LocalMavenRepository terraform-local-test-maven-repo-basic terraform-local-test-maven-repo-basic
-        ```
-
+        Create a LocalMavenRepository resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param LocalMavenRepositoryArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1030,23 +990,23 @@ class LocalMavenRepository(pulumi.CustomResource):
         :param pulumi.Input[bool] blacked_out: When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
         :param pulumi.Input[bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS
                CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
-        :param pulumi.Input[str] checksum_policy_type: Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or conflicts with the locally calculated checksum (bad checksum). The options are:
-               - `client-checksums`
-               - `server-generated-checksums`.
-               For more details, please refer to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy).
+        :param pulumi.Input[str] checksum_policy_type: Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or
+               conflicts with the locally calculated checksum (bad checksum). Options are: "client-checksums", or
+               "server-generated-checksums". Default: "client-checksums"\\n For more details, please refer to Checksum Policy -
+               https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy
         :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
                artifacts are excluded.
-        :param pulumi.Input[bool] handle_releases: If set, Artifactory allows you to deploy release artifacts into this repository. Default is `true`.
-        :param pulumi.Input[bool] handle_snapshots: If set, Artifactory allows you to deploy snapshot artifacts into this repository. Default is `true`.
+        :param pulumi.Input[bool] handle_releases: If set, Artifactory allows you to deploy release artifacts into this repository.
+        :param pulumi.Input[bool] handle_snapshots: If set, Artifactory allows you to deploy snapshot artifacts into this repository.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] key: the identity key of the repo.
-        :param pulumi.Input[int] max_unique_snapshots: The maximum number of unique snapshots of a single artifact to store.
-               Once the number of snapshots exceeds this setting, older versions are removed.
-               A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+               characters. It cannot begin with a number or contain spaces or special characters.
+        :param pulumi.Input[int] max_unique_snapshots: The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
+               older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
         :param pulumi.Input[str] notes: Internal description.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
@@ -1057,11 +1017,13 @@ class LocalMavenRepository(pulumi.CustomResource):
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
-        :param pulumi.Input[str] snapshot_version_behavior: Specifies the naming convention for Maven SNAPSHOT versions.
-               The options are -
-        :param pulumi.Input[bool] suppress_pom_consistency_checks: By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path).
-               If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error.
-               You can disable this behavior by setting the Suppress POM Consistency Checks checkbox. False by default for Maven repository.
+        :param pulumi.Input[str] snapshot_version_behavior: Specifies the naming convention for Maven SNAPSHOT versions. The options are - unique: Version number is based on a
+               time-stamp (default) non-unique: Version number uses a self-overriding naming pattern of
+               artifactId-version-SNAPSHOT.type deployer: Respects the settings in the Maven client that is deploying the artifact.
+        :param pulumi.Input[bool] suppress_pom_consistency_checks: By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the
+               groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the
+               deployment with a "409 Conflict" error. You can disable this behavior by setting the Suppress POM Consistency Checks
+               checkbox.
         :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
                Xray settings.
         """
@@ -1124,10 +1086,10 @@ class LocalMavenRepository(pulumi.CustomResource):
     @pulumi.getter(name="checksumPolicyType")
     def checksum_policy_type(self) -> pulumi.Output[Optional[str]]:
         """
-        Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or conflicts with the locally calculated checksum (bad checksum). The options are:
-        - `client-checksums`
-        - `server-generated-checksums`.
-        For more details, please refer to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy).
+        Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or
+        conflicts with the locally calculated checksum (bad checksum). Options are: "client-checksums", or
+        "server-generated-checksums". Default: "client-checksums"\\n For more details, please refer to Checksum Policy -
+        https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy
         """
         return pulumi.get(self, "checksum_policy_type")
 
@@ -1161,7 +1123,7 @@ class LocalMavenRepository(pulumi.CustomResource):
     @pulumi.getter(name="handleReleases")
     def handle_releases(self) -> pulumi.Output[Optional[bool]]:
         """
-        If set, Artifactory allows you to deploy release artifacts into this repository. Default is `true`.
+        If set, Artifactory allows you to deploy release artifacts into this repository.
         """
         return pulumi.get(self, "handle_releases")
 
@@ -1169,7 +1131,7 @@ class LocalMavenRepository(pulumi.CustomResource):
     @pulumi.getter(name="handleSnapshots")
     def handle_snapshots(self) -> pulumi.Output[Optional[bool]]:
         """
-        If set, Artifactory allows you to deploy snapshot artifacts into this repository. Default is `true`.
+        If set, Artifactory allows you to deploy snapshot artifacts into this repository.
         """
         return pulumi.get(self, "handle_snapshots")
 
@@ -1186,7 +1148,8 @@ class LocalMavenRepository(pulumi.CustomResource):
     @pulumi.getter
     def key(self) -> pulumi.Output[str]:
         """
-        the identity key of the repo.
+        A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+        characters. It cannot begin with a number or contain spaces or special characters.
         """
         return pulumi.get(self, "key")
 
@@ -1194,9 +1157,8 @@ class LocalMavenRepository(pulumi.CustomResource):
     @pulumi.getter(name="maxUniqueSnapshots")
     def max_unique_snapshots(self) -> pulumi.Output[Optional[int]]:
         """
-        The maximum number of unique snapshots of a single artifact to store.
-        Once the number of snapshots exceeds this setting, older versions are removed.
-        A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+        The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
+        older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
         """
         return pulumi.get(self, "max_unique_snapshots")
 
@@ -1261,8 +1223,9 @@ class LocalMavenRepository(pulumi.CustomResource):
     @pulumi.getter(name="snapshotVersionBehavior")
     def snapshot_version_behavior(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies the naming convention for Maven SNAPSHOT versions.
-        The options are -
+        Specifies the naming convention for Maven SNAPSHOT versions. The options are - unique: Version number is based on a
+        time-stamp (default) non-unique: Version number uses a self-overriding naming pattern of
+        artifactId-version-SNAPSHOT.type deployer: Respects the settings in the Maven client that is deploying the artifact.
         """
         return pulumi.get(self, "snapshot_version_behavior")
 
@@ -1270,9 +1233,10 @@ class LocalMavenRepository(pulumi.CustomResource):
     @pulumi.getter(name="suppressPomConsistencyChecks")
     def suppress_pom_consistency_checks(self) -> pulumi.Output[Optional[bool]]:
         """
-        By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path).
-        If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error.
-        You can disable this behavior by setting the Suppress POM Consistency Checks checkbox. False by default for Maven repository.
+        By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the
+        groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the
+        deployment with a "409 Conflict" error. You can disable this behavior by setting the Suppress POM Consistency Checks
+        checkbox.
         """
         return pulumi.get(self, "suppress_pom_consistency_checks")
 

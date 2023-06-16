@@ -16,48 +16,6 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Creates a local Helm repository.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.artifactory.LocalHelmRepository;
- * import com.pulumi.artifactory.LocalHelmRepositoryArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var terraform_local_test_helm_repo = new LocalHelmRepository(&#34;terraform-local-test-helm-repo&#34;, LocalHelmRepositoryArgs.builder()        
- *             .key(&#34;terraform-local-test-helm-repo&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Local repositories can be imported using their name, e.g.
- * 
- * ```sh
- *  $ pulumi import artifactory:index/localHelmRepository:LocalHelmRepository terraform-local-test-helm-repo terraform-local-test-helm-repo
- * ```
- * 
- */
 @ResourceType(type="artifactory:index/localHelmRepository:LocalHelmRepository")
 public class LocalHelmRepository extends com.pulumi.resources.CustomResource {
     /**
@@ -171,14 +129,16 @@ public class LocalHelmRepository extends com.pulumi.resources.CustomResource {
         return this.includesPattern;
     }
     /**
-     * the identity key of the repo.
+     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      * 
      */
     @Export(name="key", type=String.class, parameters={})
     private Output<String> key;
 
     /**
-     * @return the identity key of the repo.
+     * @return A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      * 
      */
     public Output<String> key() {

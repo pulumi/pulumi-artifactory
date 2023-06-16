@@ -14,68 +14,11 @@ import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
 
-/**
- * Provides an Artifactory API key resource. This can be used to create and manage Artifactory API keys.
- * 
- * &gt; **Note:** API keys will be stored in the raw state as plain-text. Read more about sensitive data in state.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.artifactory.ApiKey;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var ci = new ApiKey(&#34;ci&#34;);
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * A user&#39;s API key can be imported using any identifier, e.g.
- * 
- * ```sh
- *  $ pulumi import artifactory:index/apiKey:ApiKey test import
- * ```
- * 
- */
 @ResourceType(type="artifactory:index/apiKey:ApiKey")
 public class ApiKey extends com.pulumi.resources.CustomResource {
-    /**
-     * The API key. Deprecated. An upcoming version will support the option to block the usage/creation of API Keys (for admins to set on their platform).
-     * In September 2022, the option to block the usage/creation of API Keys will be enabled by default, with the option for admins to change it back to enable API Keys.
-     * In January 2023, API Keys will be deprecated all together and the option to use them will no longer be available.
-     * It is recommended to use scoped tokens instead - `artifactory.ScopedToken` resource.
-     * Please check the [release notes](https://www.jfrog.com/confluence/display/JFROG/Artifactory+Release+Notes#ArtifactoryReleaseNotes-Artifactory7.38.4).
-     * 
-     */
     @Export(name="apiKey", type=String.class, parameters={})
     private Output<String> apiKey;
 
-    /**
-     * @return The API key. Deprecated. An upcoming version will support the option to block the usage/creation of API Keys (for admins to set on their platform).
-     * In September 2022, the option to block the usage/creation of API Keys will be enabled by default, with the option for admins to change it back to enable API Keys.
-     * In January 2023, API Keys will be deprecated all together and the option to use them will no longer be available.
-     * It is recommended to use scoped tokens instead - `artifactory.ScopedToken` resource.
-     * Please check the [release notes](https://www.jfrog.com/confluence/display/JFROG/Artifactory+Release+Notes#ArtifactoryReleaseNotes-Artifactory7.38.4).
-     * 
-     */
     public Output<String> apiKey() {
         return this.apiKey;
     }

@@ -17,20 +17,8 @@ public final class GetVirtualBowerRepositoryResult {
     private @Nullable String defaultDeploymentRepo;
     private @Nullable String description;
     private @Nullable String excludesPattern;
-    /**
-     * @return (Optional) When set, external dependencies are rewritten. Default value is false.
-     * 
-     */
     private @Nullable Boolean externalDependenciesEnabled;
-    /**
-     * @return (Optional) An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded from any external source.
-     * 
-     */
     private @Nullable List<String> externalDependenciesPatterns;
-    /**
-     * @return (Optional) The remote repository aggregated by this virtual repository in which the external dependency will be cached.
-     * 
-     */
     private @Nullable String externalDependenciesRemoteRepo;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -59,24 +47,12 @@ public final class GetVirtualBowerRepositoryResult {
     public Optional<String> excludesPattern() {
         return Optional.ofNullable(this.excludesPattern);
     }
-    /**
-     * @return (Optional) When set, external dependencies are rewritten. Default value is false.
-     * 
-     */
     public Optional<Boolean> externalDependenciesEnabled() {
         return Optional.ofNullable(this.externalDependenciesEnabled);
     }
-    /**
-     * @return (Optional) An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded from any external source.
-     * 
-     */
     public List<String> externalDependenciesPatterns() {
         return this.externalDependenciesPatterns == null ? List.of() : this.externalDependenciesPatterns;
     }
-    /**
-     * @return (Optional) The remote repository aggregated by this virtual repository in which the external dependency will be cached.
-     * 
-     */
     public Optional<String> externalDependenciesRemoteRepo() {
         return Optional.ofNullable(this.externalDependenciesRemoteRepo);
     }

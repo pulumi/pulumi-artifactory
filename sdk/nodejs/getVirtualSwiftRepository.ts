@@ -4,20 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-/**
- * Retrieves a virtual Swift repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const virtual-swift = artifactory.getVirtualSwiftRepository({
- *     key: "virtual-swift",
- * });
- * ```
- */
 export function getVirtualSwiftRepository(args: GetVirtualSwiftRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualSwiftRepositoryResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -45,9 +31,6 @@ export interface GetVirtualSwiftRepositoryArgs {
     description?: string;
     excludesPattern?: string;
     includesPattern?: string;
-    /**
-     * the identity key of the repo.
-     */
     key: string;
     notes?: string;
     projectEnvironments?: string[];
@@ -77,20 +60,6 @@ export interface GetVirtualSwiftRepositoryResult {
     readonly repoLayoutRef?: string;
     readonly repositories?: string[];
 }
-/**
- * Retrieves a virtual Swift repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const virtual-swift = artifactory.getVirtualSwiftRepository({
- *     key: "virtual-swift",
- * });
- * ```
- */
 export function getVirtualSwiftRepositoryOutput(args: GetVirtualSwiftRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualSwiftRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getVirtualSwiftRepository(a, opts))
 }
@@ -104,9 +73,6 @@ export interface GetVirtualSwiftRepositoryOutputArgs {
     description?: pulumi.Input<string>;
     excludesPattern?: pulumi.Input<string>;
     includesPattern?: pulumi.Input<string>;
-    /**
-     * the identity key of the repo.
-     */
     key: pulumi.Input<string>;
     notes?: pulumi.Input<string>;
     projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;

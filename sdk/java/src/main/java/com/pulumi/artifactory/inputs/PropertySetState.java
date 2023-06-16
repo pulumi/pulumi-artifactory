@@ -19,14 +19,14 @@ public final class PropertySetState extends com.pulumi.resources.ResourceArgs {
     public static final PropertySetState Empty = new PropertySetState();
 
     /**
-     * Predefined property name.
+     * Property set name.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Predefined property name.
+     * @return Property set name.
      * 
      */
     public Optional<Output<String>> name() {
@@ -49,14 +49,14 @@ public final class PropertySetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Defines if the list visible and assignable to the repository or artifact. Default value is `true`.
+     * Defines if the list visible and assignable to the repository or artifact.
      * 
      */
     @Import(name="visible")
     private @Nullable Output<Boolean> visible;
 
     /**
-     * @return Defines if the list visible and assignable to the repository or artifact. Default value is `true`.
+     * @return Defines if the list visible and assignable to the repository or artifact.
      * 
      */
     public Optional<Output<Boolean>> visible() {
@@ -90,7 +90,7 @@ public final class PropertySetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Predefined property name.
+         * @param name Property set name.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class PropertySetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Predefined property name.
+         * @param name Property set name.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class PropertySetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param visible Defines if the list visible and assignable to the repository or artifact. Default value is `true`.
+         * @param visible Defines if the list visible and assignable to the repository or artifact.
          * 
          * @return builder
          * 
@@ -153,7 +153,7 @@ public final class PropertySetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param visible Defines if the list visible and assignable to the repository or artifact. Default value is `true`.
+         * @param visible Defines if the list visible and assignable to the repository or artifact.
          * 
          * @return builder
          * 

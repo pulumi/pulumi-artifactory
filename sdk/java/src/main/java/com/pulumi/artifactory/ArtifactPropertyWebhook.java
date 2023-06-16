@@ -18,72 +18,6 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an Artifactory webhook resource. This can be used to register and manage Artifactory webhook subscription which enables you to be notified or notify other users when such events take place in Artifactory.
- * 
- * ## Example Usage
- * 
- * .
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.artifactory.LocalGenericRepository;
- * import com.pulumi.artifactory.LocalGenericRepositoryArgs;
- * import com.pulumi.artifactory.ArtifactPropertyWebhook;
- * import com.pulumi.artifactory.ArtifactPropertyWebhookArgs;
- * import com.pulumi.artifactory.inputs.ArtifactPropertyWebhookCriteriaArgs;
- * import com.pulumi.artifactory.inputs.ArtifactPropertyWebhookHandlerArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var my_generic_local = new LocalGenericRepository(&#34;my-generic-local&#34;, LocalGenericRepositoryArgs.builder()        
- *             .key(&#34;my-generic-local&#34;)
- *             .build());
- * 
- *         var artifact_webhook = new ArtifactPropertyWebhook(&#34;artifact-webhook&#34;, ArtifactPropertyWebhookArgs.builder()        
- *             .key(&#34;artifact-property-webhook&#34;)
- *             .eventTypes(            
- *                 &#34;added&#34;,
- *                 &#34;deleted&#34;)
- *             .criteria(ArtifactPropertyWebhookCriteriaArgs.builder()
- *                 .anyLocal(true)
- *                 .anyRemote(false)
- *                 .repoKeys(my_generic_local.key())
- *                 .includePatterns(&#34;foo/**&#34;)
- *                 .excludePatterns(&#34;bar/**&#34;)
- *                 .build())
- *             .handlers(ArtifactPropertyWebhookHandlerArgs.builder()
- *                 .url(&#34;http://tempurl.org/webhook&#34;)
- *                 .secret(&#34;some-secret&#34;)
- *                 .proxy(&#34;proxy-key&#34;)
- *                 .customHttpHeaders(Map.ofEntries(
- *                     Map.entry(&#34;header-1&#34;, &#34;value-1&#34;),
- *                     Map.entry(&#34;header-2&#34;, &#34;value-2&#34;)
- *                 ))
- *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(my_generic_local)
- *                 .build());
- * 
- *     }
- * }
- * ```
- * 
- */
 @ResourceType(type="artifactory:index/artifactPropertyWebhook:ArtifactPropertyWebhook")
 public class ArtifactPropertyWebhook extends com.pulumi.resources.CustomResource {
     /**
@@ -101,70 +35,64 @@ public class ArtifactPropertyWebhook extends com.pulumi.resources.CustomResource
         return this.criteria;
     }
     /**
-     * Webhook description. Max length 1000 characters.
+     * Description of webhook. Max length 1000 characters.
      * 
      */
     @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return Webhook description. Max length 1000 characters.
+     * @return Description of webhook. Max length 1000 characters.
      * 
      */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
     /**
-     * Status of webhook. Default to `true`.
+     * Status of webhook. Default to &#39;true&#39;
      * 
      */
     @Export(name="enabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
-     * @return Status of webhook. Default to `true`.
+     * @return Status of webhook. Default to &#39;true&#39;
      * 
      */
     public Output<Optional<Boolean>> enabled() {
         return Codegen.optional(this.enabled);
     }
     /**
-     * List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `added`, `deleted`.
+     * List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow
+     * values: added, deleted
      * 
      */
     @Export(name="eventTypes", type=List.class, parameters={String.class})
     private Output<List<String>> eventTypes;
 
     /**
-     * @return List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `added`, `deleted`.
+     * @return List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow
+     * values: added, deleted
      * 
      */
     public Output<List<String>> eventTypes() {
         return this.eventTypes;
     }
-    /**
-     * At least one is required.
-     * 
-     */
     @Export(name="handlers", type=List.class, parameters={ArtifactPropertyWebhookHandler.class})
     private Output<List<ArtifactPropertyWebhookHandler>> handlers;
 
-    /**
-     * @return At least one is required.
-     * 
-     */
     public Output<List<ArtifactPropertyWebhookHandler>> handlers() {
         return this.handlers;
     }
     /**
-     * The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
+     * Key of webhook. Must be between 2 and 200 characters. Cannot contain spaces.
      * 
      */
     @Export(name="key", type=String.class, parameters={})
     private Output<String> key;
 
     /**
-     * @return The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
+     * @return Key of webhook. Must be between 2 and 200 characters. Cannot contain spaces.
      * 
      */
     public Output<String> key() {

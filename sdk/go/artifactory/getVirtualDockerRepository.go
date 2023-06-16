@@ -10,33 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Retrieves a virtual Docker repository.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupVirtualDockerRepository(ctx, &artifactory.LookupVirtualDockerRepositoryArgs{
-//				Key: "virtual-docker",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupVirtualDockerRepository(ctx *pulumi.Context, args *LookupVirtualDockerRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupVirtualDockerRepositoryResult, error) {
 	var rv LookupVirtualDockerRepositoryResult
 	err := ctx.Invoke("artifactory:index/getVirtualDockerRepository:getVirtualDockerRepository", args, &rv, opts...)
@@ -48,20 +21,18 @@ func LookupVirtualDockerRepository(ctx *pulumi.Context, args *LookupVirtualDocke
 
 // A collection of arguments for invoking getVirtualDockerRepository.
 type LookupVirtualDockerRepositoryArgs struct {
-	ArtifactoryRequestsCanRetrieveRemoteArtifacts *bool   `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`
-	DefaultDeploymentRepo                         *string `pulumi:"defaultDeploymentRepo"`
-	Description                                   *string `pulumi:"description"`
-	ExcludesPattern                               *string `pulumi:"excludesPattern"`
-	IncludesPattern                               *string `pulumi:"includesPattern"`
-	// the identity key of the repo.
-	Key                 string   `pulumi:"key"`
-	Notes               *string  `pulumi:"notes"`
-	ProjectEnvironments []string `pulumi:"projectEnvironments"`
-	ProjectKey          *string  `pulumi:"projectKey"`
-	RepoLayoutRef       *string  `pulumi:"repoLayoutRef"`
-	Repositories        []string `pulumi:"repositories"`
-	// (Optional) When enabled, in cases where the same Docker tag exists in two or more of the aggregated repositories, Artifactory will return the tag that has the latest timestamp. Default values is `false`.
-	ResolveDockerTagsByTimestamp *bool `pulumi:"resolveDockerTagsByTimestamp"`
+	ArtifactoryRequestsCanRetrieveRemoteArtifacts *bool    `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`
+	DefaultDeploymentRepo                         *string  `pulumi:"defaultDeploymentRepo"`
+	Description                                   *string  `pulumi:"description"`
+	ExcludesPattern                               *string  `pulumi:"excludesPattern"`
+	IncludesPattern                               *string  `pulumi:"includesPattern"`
+	Key                                           string   `pulumi:"key"`
+	Notes                                         *string  `pulumi:"notes"`
+	ProjectEnvironments                           []string `pulumi:"projectEnvironments"`
+	ProjectKey                                    *string  `pulumi:"projectKey"`
+	RepoLayoutRef                                 *string  `pulumi:"repoLayoutRef"`
+	Repositories                                  []string `pulumi:"repositories"`
+	ResolveDockerTagsByTimestamp                  *bool    `pulumi:"resolveDockerTagsByTimestamp"`
 }
 
 // A collection of values returned by getVirtualDockerRepository.
@@ -71,17 +42,16 @@ type LookupVirtualDockerRepositoryResult struct {
 	Description                                   *string `pulumi:"description"`
 	ExcludesPattern                               *string `pulumi:"excludesPattern"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                  string   `pulumi:"id"`
-	IncludesPattern     *string  `pulumi:"includesPattern"`
-	Key                 string   `pulumi:"key"`
-	Notes               *string  `pulumi:"notes"`
-	PackageType         string   `pulumi:"packageType"`
-	ProjectEnvironments []string `pulumi:"projectEnvironments"`
-	ProjectKey          *string  `pulumi:"projectKey"`
-	RepoLayoutRef       *string  `pulumi:"repoLayoutRef"`
-	Repositories        []string `pulumi:"repositories"`
-	// (Optional) When enabled, in cases where the same Docker tag exists in two or more of the aggregated repositories, Artifactory will return the tag that has the latest timestamp. Default values is `false`.
-	ResolveDockerTagsByTimestamp *bool `pulumi:"resolveDockerTagsByTimestamp"`
+	Id                           string   `pulumi:"id"`
+	IncludesPattern              *string  `pulumi:"includesPattern"`
+	Key                          string   `pulumi:"key"`
+	Notes                        *string  `pulumi:"notes"`
+	PackageType                  string   `pulumi:"packageType"`
+	ProjectEnvironments          []string `pulumi:"projectEnvironments"`
+	ProjectKey                   *string  `pulumi:"projectKey"`
+	RepoLayoutRef                *string  `pulumi:"repoLayoutRef"`
+	Repositories                 []string `pulumi:"repositories"`
+	ResolveDockerTagsByTimestamp *bool    `pulumi:"resolveDockerTagsByTimestamp"`
 }
 
 func LookupVirtualDockerRepositoryOutput(ctx *pulumi.Context, args LookupVirtualDockerRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupVirtualDockerRepositoryResultOutput {
@@ -99,20 +69,18 @@ func LookupVirtualDockerRepositoryOutput(ctx *pulumi.Context, args LookupVirtual
 
 // A collection of arguments for invoking getVirtualDockerRepository.
 type LookupVirtualDockerRepositoryOutputArgs struct {
-	ArtifactoryRequestsCanRetrieveRemoteArtifacts pulumi.BoolPtrInput   `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`
-	DefaultDeploymentRepo                         pulumi.StringPtrInput `pulumi:"defaultDeploymentRepo"`
-	Description                                   pulumi.StringPtrInput `pulumi:"description"`
-	ExcludesPattern                               pulumi.StringPtrInput `pulumi:"excludesPattern"`
-	IncludesPattern                               pulumi.StringPtrInput `pulumi:"includesPattern"`
-	// the identity key of the repo.
-	Key                 pulumi.StringInput      `pulumi:"key"`
-	Notes               pulumi.StringPtrInput   `pulumi:"notes"`
-	ProjectEnvironments pulumi.StringArrayInput `pulumi:"projectEnvironments"`
-	ProjectKey          pulumi.StringPtrInput   `pulumi:"projectKey"`
-	RepoLayoutRef       pulumi.StringPtrInput   `pulumi:"repoLayoutRef"`
-	Repositories        pulumi.StringArrayInput `pulumi:"repositories"`
-	// (Optional) When enabled, in cases where the same Docker tag exists in two or more of the aggregated repositories, Artifactory will return the tag that has the latest timestamp. Default values is `false`.
-	ResolveDockerTagsByTimestamp pulumi.BoolPtrInput `pulumi:"resolveDockerTagsByTimestamp"`
+	ArtifactoryRequestsCanRetrieveRemoteArtifacts pulumi.BoolPtrInput     `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`
+	DefaultDeploymentRepo                         pulumi.StringPtrInput   `pulumi:"defaultDeploymentRepo"`
+	Description                                   pulumi.StringPtrInput   `pulumi:"description"`
+	ExcludesPattern                               pulumi.StringPtrInput   `pulumi:"excludesPattern"`
+	IncludesPattern                               pulumi.StringPtrInput   `pulumi:"includesPattern"`
+	Key                                           pulumi.StringInput      `pulumi:"key"`
+	Notes                                         pulumi.StringPtrInput   `pulumi:"notes"`
+	ProjectEnvironments                           pulumi.StringArrayInput `pulumi:"projectEnvironments"`
+	ProjectKey                                    pulumi.StringPtrInput   `pulumi:"projectKey"`
+	RepoLayoutRef                                 pulumi.StringPtrInput   `pulumi:"repoLayoutRef"`
+	Repositories                                  pulumi.StringArrayInput `pulumi:"repositories"`
+	ResolveDockerTagsByTimestamp                  pulumi.BoolPtrInput     `pulumi:"resolveDockerTagsByTimestamp"`
 }
 
 func (LookupVirtualDockerRepositoryOutputArgs) ElementType() reflect.Type {
@@ -189,7 +157,6 @@ func (o LookupVirtualDockerRepositoryResultOutput) Repositories() pulumi.StringA
 	return o.ApplyT(func(v LookupVirtualDockerRepositoryResult) []string { return v.Repositories }).(pulumi.StringArrayOutput)
 }
 
-// (Optional) When enabled, in cases where the same Docker tag exists in two or more of the aggregated repositories, Artifactory will return the tag that has the latest timestamp. Default values is `false`.
 func (o LookupVirtualDockerRepositoryResultOutput) ResolveDockerTagsByTimestamp() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupVirtualDockerRepositoryResult) *bool { return v.ResolveDockerTagsByTimestamp }).(pulumi.BoolPtrOutput)
 }

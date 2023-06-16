@@ -18,52 +18,6 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Creates a remote CocoaPods repository.
- * Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/CocoaPods+Repositories).
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.artifactory.RemoteCocoapodsRepository;
- * import com.pulumi.artifactory.RemoteCocoapodsRepositoryArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var my_remote_cocoapods = new RemoteCocoapodsRepository(&#34;my-remote-cocoapods&#34;, RemoteCocoapodsRepositoryArgs.builder()        
- *             .key(&#34;my-remote-cocoapods&#34;)
- *             .podsSpecsRepoUrl(&#34;https://github.com/CocoaPods/Spec&#34;)
- *             .url(&#34;https://github.com/&#34;)
- *             .vcsGitProvider(&#34;GITHUB&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Remote repositories can be imported using their name, e.g.
- * 
- * ```sh
- *  $ pulumi import artifactory:index/remoteCocoapodsRepository:RemoteCocoapodsRepository my-remote-cocoapods my-remote-cocoapods
- * ```
- * 
- */
 @ResourceType(type="artifactory:index/remoteCocoapodsRepository:RemoteCocoapodsRepository")
 public class RemoteCocoapodsRepository extends com.pulumi.resources.CustomResource {
     /**
@@ -281,16 +235,16 @@ public class RemoteCocoapodsRepository extends com.pulumi.resources.CustomResour
         return Codegen.optional(this.includesPattern);
     }
     /**
-     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-     * contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      * 
      */
     @Export(name="key", type=String.class, parameters={})
     private Output<String> key;
 
     /**
-     * @return A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-     * contain spaces or special characters.
+     * @return A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      * 
      */
     public Output<String> key() {
@@ -417,14 +371,14 @@ public class RemoteCocoapodsRepository extends com.pulumi.resources.CustomResour
         return Codegen.optional(this.password);
     }
     /**
-     * Proxy remote CocoaPods Specs repositories. Default value is `https://github.com/CocoaPods/Specs`.
+     * Proxy remote CocoaPods Specs repositories. Default value is &#34;https://github.com/CocoaPods/Specs&#34;.
      * 
      */
     @Export(name="podsSpecsRepoUrl", type=String.class, parameters={})
     private Output</* @Nullable */ String> podsSpecsRepoUrl;
 
     /**
-     * @return Proxy remote CocoaPods Specs repositories. Default value is `https://github.com/CocoaPods/Specs`.
+     * @return Proxy remote CocoaPods Specs repositories. Default value is &#34;https://github.com/CocoaPods/Specs&#34;.
      * 
      */
     public Output<Optional<String>> podsSpecsRepoUrl() {
@@ -665,30 +619,30 @@ public class RemoteCocoapodsRepository extends com.pulumi.resources.CustomResour
         return Codegen.optional(this.username);
     }
     /**
-     * This attribute is used when vcs_git_provider is set to `CUSTOM`. Provided URL will be used as proxy.
+     * This attribute is used when vcs_git_provider is set to &#39;CUSTOM&#39;. Provided URL will be used as proxy.
      * 
      */
     @Export(name="vcsGitDownloadUrl", type=String.class, parameters={})
     private Output</* @Nullable */ String> vcsGitDownloadUrl;
 
     /**
-     * @return This attribute is used when vcs_git_provider is set to `CUSTOM`. Provided URL will be used as proxy.
+     * @return This attribute is used when vcs_git_provider is set to &#39;CUSTOM&#39;. Provided URL will be used as proxy.
      * 
      */
     public Output<Optional<String>> vcsGitDownloadUrl() {
         return Codegen.optional(this.vcsGitDownloadUrl);
     }
     /**
-     * Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`.
-     * Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
+     * Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance.
+     * Default value is &#34;GITHUB&#34;.
      * 
      */
     @Export(name="vcsGitProvider", type=String.class, parameters={})
     private Output</* @Nullable */ String> vcsGitProvider;
 
     /**
-     * @return Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`.
-     * Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
+     * @return Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance.
+     * Default value is &#34;GITHUB&#34;.
      * 
      */
     public Output<Optional<String>> vcsGitProvider() {

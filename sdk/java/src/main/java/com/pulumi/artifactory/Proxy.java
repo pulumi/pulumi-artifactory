@@ -17,64 +17,6 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an Artifactory Proxy resource.
- * 
- * This resource configuration corresponds to &#39;proxies&#39; config block in system configuration XML
- * (REST endpoint: [artifactory/api/system/configuration](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-GeneralConfiguration)).
- * 
- * ~&gt;The `artifactory.Proxy` resource utilizes endpoints which are blocked/removed in SaaS environments (i.e. in Artifactory online), rendering this resource incompatible with Artifactory SaaS environments.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.artifactory.Proxy;
- * import com.pulumi.artifactory.ProxyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var my_proxy = new Proxy(&#34;my-proxy&#34;, ProxyArgs.builder()        
- *             .host(&#34;my-proxy.mycompany.com&#34;)
- *             .key(&#34;my-proxy&#34;)
- *             .ntDomain(&#34;MYCOMPANY&#34;)
- *             .ntHost(&#34;MYCOMPANY.COM&#34;)
- *             .password(&#34;password&#34;)
- *             .platformDefault(false)
- *             .port(8888)
- *             .redirectToHosts(&#34;redirec-host.mycompany.com&#34;)
- *             .services(            
- *                 &#34;jfrt&#34;,
- *                 &#34;jfxr&#34;)
- *             .username(&#34;user1&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Current Proxy can be imported using `proxy-key` from Artifactory as the `ID`, e.g.
- * 
- * ```sh
- *  $ pulumi import artifactory:index/proxy:Proxy my-proxy proxy-key
- * ```
- * 
- */
 @ResourceType(type="artifactory:index/proxy:Proxy")
 public class Proxy extends com.pulumi.resources.CustomResource {
     /**
@@ -148,14 +90,16 @@ public class Proxy extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.password);
     }
     /**
-     * When set, this proxy will be the default proxy for new remote repositories and for internal HTTP requests issued by Artifactory. Will also be used as proxy for all other services in the platform (for example: Xray, Distribution, etc).
+     * When set, this proxy will be the default proxy for new remote repositories and for internal HTTP requests issued by
+     * Artifactory. Will also be used as proxy for all other services in the platform (for example: Xray, Distribution, etc).
      * 
      */
     @Export(name="platformDefault", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> platformDefault;
 
     /**
-     * @return When set, this proxy will be the default proxy for new remote repositories and for internal HTTP requests issued by Artifactory. Will also be used as proxy for all other services in the platform (for example: Xray, Distribution, etc).
+     * @return When set, this proxy will be the default proxy for new remote repositories and for internal HTTP requests issued by
+     * Artifactory. Will also be used as proxy for all other services in the platform (for example: Xray, Distribution, etc).
      * 
      */
     public Output<Optional<Boolean>> platformDefault() {
@@ -176,28 +120,30 @@ public class Proxy extends com.pulumi.resources.CustomResource {
         return this.port;
     }
     /**
-     * An optional list of host names to which this proxy may redirect requests. The credentials defined for the proxy are reused by requests redirected to all of these hosts.
+     * An optional list of host names to which this proxy may redirect requests. The credentials defined for the proxy are
+     * reused by requests redirected to all of these hosts.
      * 
      */
     @Export(name="redirectToHosts", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> redirectToHosts;
 
     /**
-     * @return An optional list of host names to which this proxy may redirect requests. The credentials defined for the proxy are reused by requests redirected to all of these hosts.
+     * @return An optional list of host names to which this proxy may redirect requests. The credentials defined for the proxy are
+     * reused by requests redirected to all of these hosts.
      * 
      */
     public Output<Optional<List<String>>> redirectToHosts() {
         return Codegen.optional(this.redirectToHosts);
     }
     /**
-     * An optional list of services names to which this proxy be the default of. The options are `jfrt`, `jfmc`, `jfxr`, `jfds`.
+     * An optional list of services names to which this proxy be the default of. The options are jfrt, jfmc, jfxr, jfds
      * 
      */
     @Export(name="services", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> services;
 
     /**
-     * @return An optional list of services names to which this proxy be the default of. The options are `jfrt`, `jfmc`, `jfxr`, `jfds`.
+     * @return An optional list of services names to which this proxy be the default of. The options are jfrt, jfmc, jfxr, jfds
      * 
      */
     public Output<Optional<List<String>>> services() {

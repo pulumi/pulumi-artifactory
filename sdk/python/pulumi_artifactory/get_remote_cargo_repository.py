@@ -168,9 +168,6 @@ class GetRemoteCargoRepositoryResult:
     @property
     @pulumi.getter(name="anonymousAccess")
     def anonymous_access(self) -> Optional[bool]:
-        """
-        (Required) Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
-        """
         return pulumi.get(self, "anonymous_access")
 
     @property
@@ -226,9 +223,6 @@ class GetRemoteCargoRepositoryResult:
     @property
     @pulumi.getter(name="enableSparseIndex")
     def enable_sparse_index(self) -> Optional[bool]:
-        """
-        (Optional) Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
-        """
         return pulumi.get(self, "enable_sparse_index")
 
     @property
@@ -239,9 +233,6 @@ class GetRemoteCargoRepositoryResult:
     @property
     @pulumi.getter(name="gitRegistryUrl")
     def git_registry_url(self) -> Optional[str]:
-        """
-        (Optional) This is the index url, expected to be a git repository. Default value is `https://github.com/rust-lang/crates.io-index`.
-        """
         return pulumi.get(self, "git_registry_url")
 
     @property
@@ -496,22 +487,7 @@ def get_remote_cargo_repository(allow_any_host_auth: Optional[bool] = None,
                                 xray_index: Optional[bool] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRemoteCargoRepositoryResult:
     """
-    Retrieves a remote Cargo repository.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    remote_cargo = artifactory.get_remote_cargo_repository(key="remote-cargo")
-    ```
-
-
-    :param bool anonymous_access: (Required) Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
-    :param bool enable_sparse_index: (Optional) Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
-    :param str git_registry_url: (Optional) This is the index url, expected to be a git repository. Default value is `https://github.com/rust-lang/crates.io-index`.
-    :param str key: the identity key of the repo.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['allowAnyHostAuth'] = allow_any_host_auth
@@ -654,21 +630,6 @@ def get_remote_cargo_repository_output(allow_any_host_auth: Optional[pulumi.Inpu
                                        xray_index: Optional[pulumi.Input[Optional[bool]]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRemoteCargoRepositoryResult]:
     """
-    Retrieves a remote Cargo repository.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    remote_cargo = artifactory.get_remote_cargo_repository(key="remote-cargo")
-    ```
-
-
-    :param bool anonymous_access: (Required) Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
-    :param bool enable_sparse_index: (Optional) Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
-    :param str git_registry_url: (Optional) This is the index url, expected to be a git repository. Default value is `https://github.com/rust-lang/crates.io-index`.
-    :param str key: the identity key of the repo.
+    Use this data source to access information about an existing resource.
     """
     ...

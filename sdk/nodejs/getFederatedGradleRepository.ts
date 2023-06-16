@@ -6,20 +6,6 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
-/**
- * Retrieves a federated Gradle repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const federated-test-gradle-repo = artifactory.getFederatedGradleRepository({
- *     key: "federated-test-gradle-repo",
- * });
- * ```
- */
 export function getFederatedGradleRepository(args: GetFederatedGradleRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetFederatedGradleRepositoryResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -65,17 +51,8 @@ export interface GetFederatedGradleRepositoryArgs {
     handleReleases?: boolean;
     handleSnapshots?: boolean;
     includesPattern?: string;
-    /**
-     * the identity key of the repo.
-     */
     key: string;
     maxUniqueSnapshots?: number;
-    /**
-     * The list of Federated members and must contain this repository URL (configured base URL
-     * `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
-     * Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
-     * to set up Federated repositories correctly.
-     */
     members?: inputs.GetFederatedGradleRepositoryMember[];
     notes?: string;
     priorityResolution?: boolean;
@@ -109,12 +86,6 @@ export interface GetFederatedGradleRepositoryResult {
     readonly includesPattern: string;
     readonly key: string;
     readonly maxUniqueSnapshots?: number;
-    /**
-     * The list of Federated members and must contain this repository URL (configured base URL
-     * `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
-     * Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
-     * to set up Federated repositories correctly.
-     */
     readonly members?: outputs.GetFederatedGradleRepositoryMember[];
     readonly notes?: string;
     readonly packageType: string;
@@ -127,20 +98,6 @@ export interface GetFederatedGradleRepositoryResult {
     readonly suppressPomConsistencyChecks?: boolean;
     readonly xrayIndex?: boolean;
 }
-/**
- * Retrieves a federated Gradle repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const federated-test-gradle-repo = artifactory.getFederatedGradleRepository({
- *     key: "federated-test-gradle-repo",
- * });
- * ```
- */
 export function getFederatedGradleRepositoryOutput(args: GetFederatedGradleRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedGradleRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getFederatedGradleRepository(a, opts))
 }
@@ -160,17 +117,8 @@ export interface GetFederatedGradleRepositoryOutputArgs {
     handleReleases?: pulumi.Input<boolean>;
     handleSnapshots?: pulumi.Input<boolean>;
     includesPattern?: pulumi.Input<string>;
-    /**
-     * the identity key of the repo.
-     */
     key: pulumi.Input<string>;
     maxUniqueSnapshots?: pulumi.Input<number>;
-    /**
-     * The list of Federated members and must contain this repository URL (configured base URL
-     * `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
-     * Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
-     * to set up Federated repositories correctly.
-     */
     members?: pulumi.Input<pulumi.Input<inputs.GetFederatedGradleRepositoryMemberArgs>[]>;
     notes?: pulumi.Input<string>;
     priorityResolution?: pulumi.Input<boolean>;

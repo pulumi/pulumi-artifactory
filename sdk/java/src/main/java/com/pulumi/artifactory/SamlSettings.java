@@ -15,145 +15,89 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * This resource can be used to manage Artifactory&#39;s SAML SSO settings.
- * 
- * Only a single `artifactory.SamlSettings` resource is meant to be defined.
- * 
- * ~&gt;The `artifactory.SamlSettings` resource utilizes endpoints which are blocked/removed in SaaS environments (i.e. in Artifactory online), rendering this resource incompatible with Artifactory SaaS environments.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.artifactory.SamlSettings;
- * import com.pulumi.artifactory.SamlSettingsArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var saml = new SamlSettings(&#34;saml&#34;, SamlSettingsArgs.builder()        
- *             .allowUserToAccessProfile(true)
- *             .autoRedirect(true)
- *             .certificate(&#34;test-certificate&#34;)
- *             .emailAttribute(&#34;email&#34;)
- *             .enable(true)
- *             .groupAttribute(&#34;groups&#34;)
- *             .loginUrl(&#34;test-login-url&#34;)
- *             .logoutUrl(&#34;test-logout-url&#34;)
- *             .noAutoUserCreation(false)
- *             .serviceProviderName(&#34;okta&#34;)
- *             .syncGroups(true)
- *             .useEncryptedAssertion(false)
- *             .verifyAudienceRestriction(true)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Current SAML SSO settings can be imported using `saml_settings` as the `ID`, e.g.
- * 
- * ```sh
- *  $ pulumi import artifactory:index/samlSettings:SamlSettings saml saml_settings
- * ```
- * 
- */
 @ResourceType(type="artifactory:index/samlSettings:SamlSettings")
 public class SamlSettings extends com.pulumi.resources.CustomResource {
     /**
-     * Allow persisted users to access their profile.  Default value is `true`.
+     * Allow persisted users to access their profile. Default value is &#34;true&#34;.
      * 
      */
     @Export(name="allowUserToAccessProfile", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> allowUserToAccessProfile;
 
     /**
-     * @return Allow persisted users to access their profile.  Default value is `true`.
+     * @return Allow persisted users to access their profile. Default value is &#34;true&#34;.
      * 
      */
     public Output<Optional<Boolean>> allowUserToAccessProfile() {
         return Codegen.optional(this.allowUserToAccessProfile);
     }
     /**
-     * Auto redirect to login through the IdP when clicking on Artifactory&#39;s login link.  Default value is `false`.
+     * Auto redirect to login through the IdP when clicking on Artifactory&#39;s login link. Default value is &#34;false&#34;.
      * 
      */
     @Export(name="autoRedirect", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> autoRedirect;
 
     /**
-     * @return Auto redirect to login through the IdP when clicking on Artifactory&#39;s login link.  Default value is `false`.
+     * @return Auto redirect to login through the IdP when clicking on Artifactory&#39;s login link. Default value is &#34;false&#34;.
      * 
      */
     public Output<Optional<Boolean>> autoRedirect() {
         return Codegen.optional(this.autoRedirect);
     }
     /**
-     * SAML certificate that contains the public key for the IdP service provider.  Used by Artifactory to verify sign-in requests. Default value is ``.
+     * SAML certificate that contains the public key for the IdP service provider. Used by Artifactory to verify sign-in
+     * requests. Default value is &#34;&#34;.
      * 
      */
     @Export(name="certificate", type=String.class, parameters={})
     private Output</* @Nullable */ String> certificate;
 
     /**
-     * @return SAML certificate that contains the public key for the IdP service provider.  Used by Artifactory to verify sign-in requests. Default value is ``.
+     * @return SAML certificate that contains the public key for the IdP service provider. Used by Artifactory to verify sign-in
+     * requests. Default value is &#34;&#34;.
      * 
      */
     public Output<Optional<String>> certificate() {
         return Codegen.optional(this.certificate);
     }
     /**
-     * Name of the attribute in the SAML response from the IdP that contains the user&#39;s email. Default value is ``.
+     * Name of the attribute in the SAML response from the IdP that contains the user&#39;s email. Default value is &#34;&#34;.
      * 
      */
     @Export(name="emailAttribute", type=String.class, parameters={})
     private Output</* @Nullable */ String> emailAttribute;
 
     /**
-     * @return Name of the attribute in the SAML response from the IdP that contains the user&#39;s email. Default value is ``.
+     * @return Name of the attribute in the SAML response from the IdP that contains the user&#39;s email. Default value is &#34;&#34;.
      * 
      */
     public Output<Optional<String>> emailAttribute() {
         return Codegen.optional(this.emailAttribute);
     }
     /**
-     * Enable SAML SSO.  Default value is `true`.
+     * Enable SAML SSO. Default value is &#34;true&#34;.
      * 
      */
     @Export(name="enable", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enable;
 
     /**
-     * @return Enable SAML SSO.  Default value is `true`.
+     * @return Enable SAML SSO. Default value is &#34;true&#34;.
      * 
      */
     public Output<Optional<Boolean>> enable() {
         return Codegen.optional(this.enable);
     }
     /**
-     * Name of the attribute in the SAML response from the IdP that contains the user&#39;s group memberships. Default value is ``.
+     * Name of the attribute in the SAML response from the IdP that contains the user&#39;s group memberships. Default value is &#34;&#34;.
      * 
      */
     @Export(name="groupAttribute", type=String.class, parameters={})
     private Output</* @Nullable */ String> groupAttribute;
 
     /**
-     * @return Name of the attribute in the SAML response from the IdP that contains the user&#39;s group memberships. Default value is ``.
+     * @return Name of the attribute in the SAML response from the IdP that contains the user&#39;s group memberships. Default value is &#34;&#34;.
      * 
      */
     public Output<Optional<String>> groupAttribute() {
@@ -188,14 +132,20 @@ public class SamlSettings extends com.pulumi.resources.CustomResource {
         return this.logoutUrl;
     }
     /**
-     * When automatic user creation is off, authenticated users are not automatically created inside Artifactory. Instead, for every request from an SSO user, the user is temporarily associated with default groups (if such groups are defined), and the permissions for these groups apply. Without auto-user creation, you must manually create the user inside Artifactory to manage user permissions not attached to their default groups. Default value is `false`.
+     * When automatic user creation is off, authenticated users are not automatically created inside Artifactory. Instead, for
+     * every request from an SSO user, the user is temporarily associated with default groups (if such groups are defined), and
+     * the permissions for these groups apply. Without auto-user creation, you must manually create the user inside Artifactory
+     * to manage user permissions not attached to their default groups. Default value is &#34;false&#34;.
      * 
      */
     @Export(name="noAutoUserCreation", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> noAutoUserCreation;
 
     /**
-     * @return When automatic user creation is off, authenticated users are not automatically created inside Artifactory. Instead, for every request from an SSO user, the user is temporarily associated with default groups (if such groups are defined), and the permissions for these groups apply. Without auto-user creation, you must manually create the user inside Artifactory to manage user permissions not attached to their default groups. Default value is `false`.
+     * @return When automatic user creation is off, authenticated users are not automatically created inside Artifactory. Instead, for
+     * every request from an SSO user, the user is temporarily associated with default groups (if such groups are defined), and
+     * the permissions for these groups apply. Without auto-user creation, you must manually create the user inside Artifactory
+     * to manage user permissions not attached to their default groups. Default value is &#34;false&#34;.
      * 
      */
     public Output<Optional<Boolean>> noAutoUserCreation() {
@@ -216,42 +166,50 @@ public class SamlSettings extends com.pulumi.resources.CustomResource {
         return this.serviceProviderName;
     }
     /**
-     * Associate user with Artifactory groups based on the `group_attribute` provided in the SAML response from the identity provider.  Default value is `false`.
+     * Associate user with Artifactory groups based on the &#34;group_attribute&#34; provided in the SAML response from the identity
+     * provider. Default value is &#34;false&#34;.
      * 
      */
     @Export(name="syncGroups", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> syncGroups;
 
     /**
-     * @return Associate user with Artifactory groups based on the `group_attribute` provided in the SAML response from the identity provider.  Default value is `false`.
+     * @return Associate user with Artifactory groups based on the &#34;group_attribute&#34; provided in the SAML response from the identity
+     * provider. Default value is &#34;false&#34;.
      * 
      */
     public Output<Optional<Boolean>> syncGroups() {
         return Codegen.optional(this.syncGroups);
     }
     /**
-     * When set, an X.509 public certificate will be created by Artifactory. Download this certificate and upload it to your IDP and choose your own encryption algorithm. This process will let you encrypt the assertion section in your SAML response. Default value is `false`.
+     * When set, an X.509 public certificate will be created by Artifactory. Download this certificate and upload it to your
+     * IDP and choose your own encryption algorithm. This process will let you encrypt the assertion section in your SAML
+     * response. Default value is &#34;false&#34;.
      * 
      */
     @Export(name="useEncryptedAssertion", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> useEncryptedAssertion;
 
     /**
-     * @return When set, an X.509 public certificate will be created by Artifactory. Download this certificate and upload it to your IDP and choose your own encryption algorithm. This process will let you encrypt the assertion section in your SAML response. Default value is `false`.
+     * @return When set, an X.509 public certificate will be created by Artifactory. Download this certificate and upload it to your
+     * IDP and choose your own encryption algorithm. This process will let you encrypt the assertion section in your SAML
+     * response. Default value is &#34;false&#34;.
      * 
      */
     public Output<Optional<Boolean>> useEncryptedAssertion() {
         return Codegen.optional(this.useEncryptedAssertion);
     }
     /**
-     * Enable &#34;audience&#34;, or who the SAML assertion is intended for.  Ensures that the correct service provider intended for Artifactory is used on the IdP.  Default value is `true`.
+     * Enable &#34;audience&#34;, or who the SAML assertion is intended for. Ensures that the correct service provider intended for
+     * Artifactory is used on the IdP. Default value is &#34;true&#34;.
      * 
      */
     @Export(name="verifyAudienceRestriction", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> verifyAudienceRestriction;
 
     /**
-     * @return Enable &#34;audience&#34;, or who the SAML assertion is intended for.  Ensures that the correct service provider intended for Artifactory is used on the IdP.  Default value is `true`.
+     * @return Enable &#34;audience&#34;, or who the SAML assertion is intended for. Ensures that the correct service provider intended for
+     * Artifactory is used on the IdP. Default value is &#34;true&#34;.
      * 
      */
     public Output<Optional<Boolean>> verifyAudienceRestriction() {

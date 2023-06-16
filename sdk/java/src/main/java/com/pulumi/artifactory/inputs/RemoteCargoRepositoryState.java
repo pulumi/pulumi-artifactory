@@ -37,14 +37,18 @@ public final class RemoteCargoRepositoryState extends com.pulumi.resources.Resou
     }
 
     /**
-     * Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
+     * (On the UI: Anonymous download and search) Cargo client does not send credentials when performing download and search
+     * for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security
+     * anonymous access option.
      * 
      */
     @Import(name="anonymousAccess")
     private @Nullable Output<Boolean> anonymousAccess;
 
     /**
-     * @return Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
+     * @return (On the UI: Anonymous download and search) Cargo client does not send credentials when performing download and search
+     * for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security
+     * anonymous access option.
      * 
      */
     public Optional<Output<Boolean>> anonymousAccess() {
@@ -212,14 +216,16 @@ public final class RemoteCargoRepositoryState extends com.pulumi.resources.Resou
     }
 
     /**
-     * Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
+     * Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default
+     * value is &#39;false&#39;.
      * 
      */
     @Import(name="enableSparseIndex")
     private @Nullable Output<Boolean> enableSparseIndex;
 
     /**
-     * @return Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
+     * @return Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default
+     * value is &#39;false&#39;.
      * 
      */
     public Optional<Output<Boolean>> enableSparseIndex() {
@@ -244,14 +250,16 @@ public final class RemoteCargoRepositoryState extends com.pulumi.resources.Resou
     }
 
     /**
-     * This is the index url, expected to be a git repository. Default value is `https://github.com/rust-lang/crates.io-index`.
+     * This is the index url, expected to be a git repository. Default value in UI is
+     * &#34;https://github.com/rust-lang/crates.io-index&#34;
      * 
      */
     @Import(name="gitRegistryUrl")
     private @Nullable Output<String> gitRegistryUrl;
 
     /**
-     * @return This is the index url, expected to be a git repository. Default value is `https://github.com/rust-lang/crates.io-index`.
+     * @return This is the index url, expected to be a git repository. Default value in UI is
+     * &#34;https://github.com/rust-lang/crates.io-index&#34;
      * 
      */
     public Optional<Output<String>> gitRegistryUrl() {
@@ -293,16 +301,16 @@ public final class RemoteCargoRepositoryState extends com.pulumi.resources.Resou
     }
 
     /**
-     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-     * contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      * 
      */
     @Import(name="key")
     private @Nullable Output<String> key;
 
     /**
-     * @return A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-     * contain spaces or special characters.
+     * @return A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      * 
      */
     public Optional<Output<String>> key() {
@@ -796,7 +804,9 @@ public final class RemoteCargoRepositoryState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param anonymousAccess Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
+         * @param anonymousAccess (On the UI: Anonymous download and search) Cargo client does not send credentials when performing download and search
+         * for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security
+         * anonymous access option.
          * 
          * @return builder
          * 
@@ -807,7 +817,9 @@ public final class RemoteCargoRepositoryState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param anonymousAccess Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
+         * @param anonymousAccess (On the UI: Anonymous download and search) Cargo client does not send credentials when performing download and search
+         * for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security
+         * anonymous access option.
          * 
          * @return builder
          * 
@@ -1033,7 +1045,8 @@ public final class RemoteCargoRepositoryState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param enableSparseIndex Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
+         * @param enableSparseIndex Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default
+         * value is &#39;false&#39;.
          * 
          * @return builder
          * 
@@ -1044,7 +1057,8 @@ public final class RemoteCargoRepositoryState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param enableSparseIndex Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
+         * @param enableSparseIndex Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default
+         * value is &#39;false&#39;.
          * 
          * @return builder
          * 
@@ -1077,7 +1091,8 @@ public final class RemoteCargoRepositoryState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param gitRegistryUrl This is the index url, expected to be a git repository. Default value is `https://github.com/rust-lang/crates.io-index`.
+         * @param gitRegistryUrl This is the index url, expected to be a git repository. Default value in UI is
+         * &#34;https://github.com/rust-lang/crates.io-index&#34;
          * 
          * @return builder
          * 
@@ -1088,7 +1103,8 @@ public final class RemoteCargoRepositoryState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param gitRegistryUrl This is the index url, expected to be a git repository. Default value is `https://github.com/rust-lang/crates.io-index`.
+         * @param gitRegistryUrl This is the index url, expected to be a git repository. Default value in UI is
+         * &#34;https://github.com/rust-lang/crates.io-index&#34;
          * 
          * @return builder
          * 
@@ -1144,8 +1160,8 @@ public final class RemoteCargoRepositoryState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param key A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-         * contain spaces or special characters.
+         * @param key A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+         * characters. It cannot begin with a number or contain spaces or special characters.
          * 
          * @return builder
          * 
@@ -1156,8 +1172,8 @@ public final class RemoteCargoRepositoryState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param key A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-         * contain spaces or special characters.
+         * @param key A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+         * characters. It cannot begin with a number or contain spaces or special characters.
          * 
          * @return builder
          * 

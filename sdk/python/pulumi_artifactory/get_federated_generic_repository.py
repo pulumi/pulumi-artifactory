@@ -138,12 +138,6 @@ class GetFederatedGenericRepositoryResult:
     @property
     @pulumi.getter
     def members(self) -> Optional[Sequence['outputs.GetFederatedGenericRepositoryMemberResult']]:
-        """
-        The list of Federated members and must contain this repository URL (configured base URL
-        `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
-        Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
-        to set up Federated repositories correctly.
-        """
         return pulumi.get(self, "members")
 
     @property
@@ -233,23 +227,7 @@ def get_federated_generic_repository(archive_browsing_enabled: Optional[bool] = 
                                      xray_index: Optional[bool] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFederatedGenericRepositoryResult:
     """
-    Retrieves a federated Generic repository.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    terraform_federated_test_generic_repo = artifactory.get_federated_generic_repository(key="terraform-federated-test-generic-repo")
-    ```
-
-
-    :param str key: the identity key of the repo.
-    :param Sequence[pulumi.InputType['GetFederatedGenericRepositoryMemberArgs']] members: The list of Federated members and must contain this repository URL (configured base URL
-           `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
-           Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
-           to set up Federated repositories correctly.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['archiveBrowsingEnabled'] = archive_browsing_enabled
@@ -314,22 +292,6 @@ def get_federated_generic_repository_output(archive_browsing_enabled: Optional[p
                                             xray_index: Optional[pulumi.Input[Optional[bool]]] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFederatedGenericRepositoryResult]:
     """
-    Retrieves a federated Generic repository.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    terraform_federated_test_generic_repo = artifactory.get_federated_generic_repository(key="terraform-federated-test-generic-repo")
-    ```
-
-
-    :param str key: the identity key of the repo.
-    :param Sequence[pulumi.InputType['GetFederatedGenericRepositoryMemberArgs']] members: The list of Federated members and must contain this repository URL (configured base URL
-           `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
-           Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
-           to set up Federated repositories correctly.
+    Use this data source to access information about an existing resource.
     """
     ...

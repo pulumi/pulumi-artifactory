@@ -10,33 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Retrieves a federated Gradle repository.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupFederatedGradleRepository(ctx, &artifactory.LookupFederatedGradleRepositoryArgs{
-//				Key: "federated-test-gradle-repo",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupFederatedGradleRepository(ctx *pulumi.Context, args *LookupFederatedGradleRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupFederatedGradleRepositoryResult, error) {
 	var rv LookupFederatedGradleRepositoryResult
 	err := ctx.Invoke("artifactory:index/getFederatedGradleRepository:getFederatedGradleRepository", args, &rv, opts...)
@@ -48,24 +21,19 @@ func LookupFederatedGradleRepository(ctx *pulumi.Context, args *LookupFederatedG
 
 // A collection of arguments for invoking getFederatedGradleRepository.
 type LookupFederatedGradleRepositoryArgs struct {
-	ArchiveBrowsingEnabled *bool   `pulumi:"archiveBrowsingEnabled"`
-	BlackedOut             *bool   `pulumi:"blackedOut"`
-	CdnRedirect            *bool   `pulumi:"cdnRedirect"`
-	ChecksumPolicyType     *string `pulumi:"checksumPolicyType"`
-	CleanupOnDelete        *bool   `pulumi:"cleanupOnDelete"`
-	Description            *string `pulumi:"description"`
-	DownloadDirect         *bool   `pulumi:"downloadDirect"`
-	ExcludesPattern        *string `pulumi:"excludesPattern"`
-	HandleReleases         *bool   `pulumi:"handleReleases"`
-	HandleSnapshots        *bool   `pulumi:"handleSnapshots"`
-	IncludesPattern        *string `pulumi:"includesPattern"`
-	// the identity key of the repo.
-	Key                string `pulumi:"key"`
-	MaxUniqueSnapshots *int   `pulumi:"maxUniqueSnapshots"`
-	// The list of Federated members and must contain this repository URL (configured base URL
-	// `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
-	// Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
-	// to set up Federated repositories correctly.
+	ArchiveBrowsingEnabled       *bool                                `pulumi:"archiveBrowsingEnabled"`
+	BlackedOut                   *bool                                `pulumi:"blackedOut"`
+	CdnRedirect                  *bool                                `pulumi:"cdnRedirect"`
+	ChecksumPolicyType           *string                              `pulumi:"checksumPolicyType"`
+	CleanupOnDelete              *bool                                `pulumi:"cleanupOnDelete"`
+	Description                  *string                              `pulumi:"description"`
+	DownloadDirect               *bool                                `pulumi:"downloadDirect"`
+	ExcludesPattern              *string                              `pulumi:"excludesPattern"`
+	HandleReleases               *bool                                `pulumi:"handleReleases"`
+	HandleSnapshots              *bool                                `pulumi:"handleSnapshots"`
+	IncludesPattern              *string                              `pulumi:"includesPattern"`
+	Key                          string                               `pulumi:"key"`
+	MaxUniqueSnapshots           *int                                 `pulumi:"maxUniqueSnapshots"`
 	Members                      []GetFederatedGradleRepositoryMember `pulumi:"members"`
 	Notes                        *string                              `pulumi:"notes"`
 	PriorityResolution           *bool                                `pulumi:"priorityResolution"`
@@ -91,14 +59,10 @@ type LookupFederatedGradleRepositoryResult struct {
 	HandleReleases         *bool   `pulumi:"handleReleases"`
 	HandleSnapshots        *bool   `pulumi:"handleSnapshots"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                 string `pulumi:"id"`
-	IncludesPattern    string `pulumi:"includesPattern"`
-	Key                string `pulumi:"key"`
-	MaxUniqueSnapshots *int   `pulumi:"maxUniqueSnapshots"`
-	// The list of Federated members and must contain this repository URL (configured base URL
-	// `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
-	// Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
-	// to set up Federated repositories correctly.
+	Id                           string                               `pulumi:"id"`
+	IncludesPattern              string                               `pulumi:"includesPattern"`
+	Key                          string                               `pulumi:"key"`
+	MaxUniqueSnapshots           *int                                 `pulumi:"maxUniqueSnapshots"`
 	Members                      []GetFederatedGradleRepositoryMember `pulumi:"members"`
 	Notes                        *string                              `pulumi:"notes"`
 	PackageType                  string                               `pulumi:"packageType"`
@@ -127,24 +91,19 @@ func LookupFederatedGradleRepositoryOutput(ctx *pulumi.Context, args LookupFeder
 
 // A collection of arguments for invoking getFederatedGradleRepository.
 type LookupFederatedGradleRepositoryOutputArgs struct {
-	ArchiveBrowsingEnabled pulumi.BoolPtrInput   `pulumi:"archiveBrowsingEnabled"`
-	BlackedOut             pulumi.BoolPtrInput   `pulumi:"blackedOut"`
-	CdnRedirect            pulumi.BoolPtrInput   `pulumi:"cdnRedirect"`
-	ChecksumPolicyType     pulumi.StringPtrInput `pulumi:"checksumPolicyType"`
-	CleanupOnDelete        pulumi.BoolPtrInput   `pulumi:"cleanupOnDelete"`
-	Description            pulumi.StringPtrInput `pulumi:"description"`
-	DownloadDirect         pulumi.BoolPtrInput   `pulumi:"downloadDirect"`
-	ExcludesPattern        pulumi.StringPtrInput `pulumi:"excludesPattern"`
-	HandleReleases         pulumi.BoolPtrInput   `pulumi:"handleReleases"`
-	HandleSnapshots        pulumi.BoolPtrInput   `pulumi:"handleSnapshots"`
-	IncludesPattern        pulumi.StringPtrInput `pulumi:"includesPattern"`
-	// the identity key of the repo.
-	Key                pulumi.StringInput `pulumi:"key"`
-	MaxUniqueSnapshots pulumi.IntPtrInput `pulumi:"maxUniqueSnapshots"`
-	// The list of Federated members and must contain this repository URL (configured base URL
-	// `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
-	// Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
-	// to set up Federated repositories correctly.
+	ArchiveBrowsingEnabled       pulumi.BoolPtrInput                          `pulumi:"archiveBrowsingEnabled"`
+	BlackedOut                   pulumi.BoolPtrInput                          `pulumi:"blackedOut"`
+	CdnRedirect                  pulumi.BoolPtrInput                          `pulumi:"cdnRedirect"`
+	ChecksumPolicyType           pulumi.StringPtrInput                        `pulumi:"checksumPolicyType"`
+	CleanupOnDelete              pulumi.BoolPtrInput                          `pulumi:"cleanupOnDelete"`
+	Description                  pulumi.StringPtrInput                        `pulumi:"description"`
+	DownloadDirect               pulumi.BoolPtrInput                          `pulumi:"downloadDirect"`
+	ExcludesPattern              pulumi.StringPtrInput                        `pulumi:"excludesPattern"`
+	HandleReleases               pulumi.BoolPtrInput                          `pulumi:"handleReleases"`
+	HandleSnapshots              pulumi.BoolPtrInput                          `pulumi:"handleSnapshots"`
+	IncludesPattern              pulumi.StringPtrInput                        `pulumi:"includesPattern"`
+	Key                          pulumi.StringInput                           `pulumi:"key"`
+	MaxUniqueSnapshots           pulumi.IntPtrInput                           `pulumi:"maxUniqueSnapshots"`
 	Members                      GetFederatedGradleRepositoryMemberArrayInput `pulumi:"members"`
 	Notes                        pulumi.StringPtrInput                        `pulumi:"notes"`
 	PriorityResolution           pulumi.BoolPtrInput                          `pulumi:"priorityResolution"`
@@ -233,10 +192,6 @@ func (o LookupFederatedGradleRepositoryResultOutput) MaxUniqueSnapshots() pulumi
 	return o.ApplyT(func(v LookupFederatedGradleRepositoryResult) *int { return v.MaxUniqueSnapshots }).(pulumi.IntPtrOutput)
 }
 
-// The list of Federated members and must contain this repository URL (configured base URL
-// `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
-// Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
-// to set up Federated repositories correctly.
 func (o LookupFederatedGradleRepositoryResultOutput) Members() GetFederatedGradleRepositoryMemberArrayOutput {
 	return o.ApplyT(func(v LookupFederatedGradleRepositoryResult) []GetFederatedGradleRepositoryMember { return v.Members }).(GetFederatedGradleRepositoryMemberArrayOutput)
 }

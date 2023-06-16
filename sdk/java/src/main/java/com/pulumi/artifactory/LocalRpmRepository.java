@@ -17,77 +17,6 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Creates a local RPM repository.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.artifactory.Keypair;
- * import com.pulumi.artifactory.KeypairArgs;
- * import com.pulumi.artifactory.LocalRpmRepository;
- * import com.pulumi.artifactory.LocalRpmRepositoryArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var some_keypair_gpg_1 = new Keypair(&#34;some-keypair-gpg-1&#34;, KeypairArgs.builder()        
- *             .pairName(String.format(&#34;some-keypair%s&#34;, random_id.randid().id()))
- *             .pairType(&#34;GPG&#34;)
- *             .alias(&#34;foo-alias1&#34;)
- *             .privateKey(Files.readString(Paths.get(&#34;samples/gpg.priv&#34;)))
- *             .publicKey(Files.readString(Paths.get(&#34;samples/gpg.pub&#34;)))
- *             .build());
- * 
- *         var some_keypair_gpg_2 = new Keypair(&#34;some-keypair-gpg-2&#34;, KeypairArgs.builder()        
- *             .pairName(String.format(&#34;some-keypair%s&#34;, random_id.randid().id()))
- *             .pairType(&#34;GPG&#34;)
- *             .alias(&#34;foo-alias2&#34;)
- *             .privateKey(Files.readString(Paths.get(&#34;samples/gpg.priv&#34;)))
- *             .publicKey(Files.readString(Paths.get(&#34;samples/gpg.pub&#34;)))
- *             .build());
- * 
- *         var terraform_local_test_rpm_repo_basic = new LocalRpmRepository(&#34;terraform-local-test-rpm-repo-basic&#34;, LocalRpmRepositoryArgs.builder()        
- *             .key(&#34;terraform-local-test-rpm-repo-basic&#34;)
- *             .yumRootDepth(5)
- *             .calculateYumMetadata(true)
- *             .enableFileListsIndexing(true)
- *             .yumGroupFileNames(&#34;file-1.xml,file-2.xml&#34;)
- *             .primaryKeypairRef(artifactory_keypair.some-keypairGPG1().pair_name())
- *             .secondaryKeypairRef(artifactory_keypair.some-keypairGPG2().pair_name())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(                
- *                     some_keypair_gpg_1,
- *                     some_keypair_gpg_2)
- *                 .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Local repositories can be imported using their name, e.g.
- * 
- * ```sh
- *  $ pulumi import artifactory:index/localRpmRepository:LocalRpmRepository terraform-local-test-rpm-repo-basic terraform-local-test-rpm-repo-basic
- * ```
- * 
- */
 @ResourceType(type="artifactory:index/localRpmRepository:LocalRpmRepository")
 public class LocalRpmRepository extends com.pulumi.resources.CustomResource {
     /**
@@ -122,17 +51,9 @@ public class LocalRpmRepository extends com.pulumi.resources.CustomResource {
     public Output<Optional<Boolean>> blackedOut() {
         return Codegen.optional(this.blackedOut);
     }
-    /**
-     * Default: `false`.
-     * 
-     */
     @Export(name="calculateYumMetadata", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> calculateYumMetadata;
 
-    /**
-     * @return Default: `false`.
-     * 
-     */
     public Output<Optional<Boolean>> calculateYumMetadata() {
         return Codegen.optional(this.calculateYumMetadata);
     }
@@ -182,17 +103,9 @@ public class LocalRpmRepository extends com.pulumi.resources.CustomResource {
     public Output<Optional<Boolean>> downloadDirect() {
         return Codegen.optional(this.downloadDirect);
     }
-    /**
-     * Default: `false`.
-     * 
-     */
     @Export(name="enableFileListsIndexing", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enableFileListsIndexing;
 
-    /**
-     * @return Default: `false`.
-     * 
-     */
     public Output<Optional<Boolean>> enableFileListsIndexing() {
         return Codegen.optional(this.enableFileListsIndexing);
     }
@@ -229,14 +142,16 @@ public class LocalRpmRepository extends com.pulumi.resources.CustomResource {
         return this.includesPattern;
     }
     /**
-     * the identity key of the repo.
+     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      * 
      */
     @Export(name="key", type=String.class, parameters={})
     private Output<String> key;
 
     /**
-     * @return the identity key of the repo.
+     * @return A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      * 
      */
     public Output<String> key() {
@@ -263,14 +178,14 @@ public class LocalRpmRepository extends com.pulumi.resources.CustomResource {
         return this.packageType;
     }
     /**
-     * The primary GPG key to be used to sign packages.
+     * Primary keypair used to sign artifacts.
      * 
      */
     @Export(name="primaryKeypairRef", type=String.class, parameters={})
     private Output</* @Nullable */ String> primaryKeypairRef;
 
     /**
-     * @return The primary GPG key to be used to sign packages.
+     * @return Primary keypair used to sign artifacts.
      * 
      */
     public Output<Optional<String>> primaryKeypairRef() {
@@ -355,14 +270,14 @@ public class LocalRpmRepository extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.repoLayoutRef);
     }
     /**
-     * The secondary GPG key to be used to sign packages.
+     * Secondary keypair used to sign artifacts.
      * 
      */
     @Export(name="secondaryKeypairRef", type=String.class, parameters={})
     private Output</* @Nullable */ String> secondaryKeypairRef;
 
     /**
-     * @return The secondary GPG key to be used to sign packages.
+     * @return Secondary keypair used to sign artifacts.
      * 
      */
     public Output<Optional<String>> secondaryKeypairRef() {
@@ -385,40 +300,36 @@ public class LocalRpmRepository extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.xrayIndex);
     }
     /**
-     * A comma separated list of XML file names containing RPM group component definitions.
-     * Artifactory includes the group definitions as part of the calculated RPM metadata, as well as automatically
-     * generating a gzipped version of the group files, if required. Default is empty string.
+     * A comma separated list of XML file names containing RPM group component definitions. Artifactory includes the group
+     * definitions as part of the calculated RPM metadata, as well as automatically generating a gzipped version of the group
+     * files, if required.
      * 
      */
     @Export(name="yumGroupFileNames", type=String.class, parameters={})
     private Output</* @Nullable */ String> yumGroupFileNames;
 
     /**
-     * @return A comma separated list of XML file names containing RPM group component definitions.
-     * Artifactory includes the group definitions as part of the calculated RPM metadata, as well as automatically
-     * generating a gzipped version of the group files, if required. Default is empty string.
+     * @return A comma separated list of XML file names containing RPM group component definitions. Artifactory includes the group
+     * definitions as part of the calculated RPM metadata, as well as automatically generating a gzipped version of the group
+     * files, if required.
      * 
      */
     public Output<Optional<String>> yumGroupFileNames() {
         return Codegen.optional(this.yumGroupFileNames);
     }
     /**
-     * The depth, relative to the repository&#39;s root folder, where RPM metadata is created.
-     * This is useful when your repository contains multiple RPM repositories under parallel hierarchies. For example, if
-     * your RPMs are stored under &#39;fedora/linux/$releasever/$basearch&#39;, specify a depth of 4. Once the number of snapshots
-     * exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique
-     * snapshots are not cleaned up.
+     * The depth, relative to the repository&#39;s root folder, where RPM metadata is created. This is useful when your repository
+     * contains multiple RPM repositories under parallel hierarchies. For example, if your RPMs are stored under
+     * &#39;fedora/linux/$releasever/$basearch&#39;, specify a depth of 4.
      * 
      */
     @Export(name="yumRootDepth", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> yumRootDepth;
 
     /**
-     * @return The depth, relative to the repository&#39;s root folder, where RPM metadata is created.
-     * This is useful when your repository contains multiple RPM repositories under parallel hierarchies. For example, if
-     * your RPMs are stored under &#39;fedora/linux/$releasever/$basearch&#39;, specify a depth of 4. Once the number of snapshots
-     * exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique
-     * snapshots are not cleaned up.
+     * @return The depth, relative to the repository&#39;s root folder, where RPM metadata is created. This is useful when your repository
+     * contains multiple RPM repositories under parallel hierarchies. For example, if your RPMs are stored under
+     * &#39;fedora/linux/$releasever/$basearch&#39;, specify a depth of 4.
      * 
      */
     public Output<Optional<Integer>> yumRootDepth() {

@@ -6,18 +6,6 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
-/**
- * Retrieves a federated Cargo repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const federated_test_cargo_repo = new artifactory.FederatedCargoRepository("federated-test-cargo-repo", {key: "federated-test-cargo-repo"});
- * ```
- */
 export function getFederatedCargoRepository(args: GetFederatedCargoRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetFederatedCargoRepositoryResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -60,16 +48,7 @@ export interface GetFederatedCargoRepositoryArgs {
     excludesPattern?: string;
     includesPattern?: string;
     indexCompressionFormats?: string[];
-    /**
-     * the identity key of the repo.
-     */
     key: string;
-    /**
-     * The list of Federated members and must contain this repository URL (configured base URL
-     * `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
-     * Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
-     * to set up Federated repositories correctly.
-     */
     members?: inputs.GetFederatedCargoRepositoryMember[];
     notes?: string;
     priorityResolution?: boolean;
@@ -100,12 +79,6 @@ export interface GetFederatedCargoRepositoryResult {
     readonly includesPattern: string;
     readonly indexCompressionFormats?: string[];
     readonly key: string;
-    /**
-     * The list of Federated members and must contain this repository URL (configured base URL
-     * `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
-     * Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
-     * to set up Federated repositories correctly.
-     */
     readonly members?: outputs.GetFederatedCargoRepositoryMember[];
     readonly notes?: string;
     readonly packageType: string;
@@ -116,18 +89,6 @@ export interface GetFederatedCargoRepositoryResult {
     readonly repoLayoutRef?: string;
     readonly xrayIndex?: boolean;
 }
-/**
- * Retrieves a federated Cargo repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const federated_test_cargo_repo = new artifactory.FederatedCargoRepository("federated-test-cargo-repo", {key: "federated-test-cargo-repo"});
- * ```
- */
 export function getFederatedCargoRepositoryOutput(args: GetFederatedCargoRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedCargoRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getFederatedCargoRepository(a, opts))
 }
@@ -147,16 +108,7 @@ export interface GetFederatedCargoRepositoryOutputArgs {
     excludesPattern?: pulumi.Input<string>;
     includesPattern?: pulumi.Input<string>;
     indexCompressionFormats?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * the identity key of the repo.
-     */
     key: pulumi.Input<string>;
-    /**
-     * The list of Federated members and must contain this repository URL (configured base URL
-     * `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
-     * Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
-     * to set up Federated repositories correctly.
-     */
     members?: pulumi.Input<pulumi.Input<inputs.GetFederatedCargoRepositoryMemberArgs>[]>;
     notes?: pulumi.Input<string>;
     priorityResolution?: pulumi.Input<boolean>;

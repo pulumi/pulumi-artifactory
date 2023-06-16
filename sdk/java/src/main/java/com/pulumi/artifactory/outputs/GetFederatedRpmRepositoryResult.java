@@ -31,13 +31,6 @@ public final class GetFederatedRpmRepositoryResult {
     private String id;
     private String includesPattern;
     private String key;
-    /**
-     * @return The list of Federated members and must contain this repository URL (configured base URL
-     * `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
-     * Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
-     * to set up Federated repositories correctly.
-     * 
-     */
     private @Nullable List<GetFederatedRpmRepositoryMember> members;
     private @Nullable String notes;
     private String packageType;
@@ -93,13 +86,6 @@ public final class GetFederatedRpmRepositoryResult {
     public String key() {
         return this.key;
     }
-    /**
-     * @return The list of Federated members and must contain this repository URL (configured base URL
-     * `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
-     * Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
-     * to set up Federated repositories correctly.
-     * 
-     */
     public List<GetFederatedRpmRepositoryMember> members() {
         return this.members == null ? List.of() : this.members;
     }

@@ -47,10 +47,6 @@ public final class GetRemoteGenericRepositoryResult {
     private @Nullable Boolean priorityResolution;
     private List<String> projectEnvironments;
     private @Nullable String projectKey;
-    /**
-     * @return (Optional, Default: `false`) When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
-     * 
-     */
     private @Nullable Boolean propagateQueryParams;
     private @Nullable List<String> propertySets;
     private @Nullable String proxy;
@@ -156,10 +152,6 @@ public final class GetRemoteGenericRepositoryResult {
     public Optional<String> projectKey() {
         return Optional.ofNullable(this.projectKey);
     }
-    /**
-     * @return (Optional, Default: `false`) When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
-     * 
-     */
     public Optional<Boolean> propagateQueryParams() {
         return Optional.ofNullable(this.propagateQueryParams);
     }

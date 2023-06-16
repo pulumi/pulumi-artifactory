@@ -18,16 +18,18 @@ public final class PullReplicationArgs extends com.pulumi.resources.ResourceArgs
     public static final PullReplicationArgs Empty = new PullReplicationArgs();
 
     /**
-     * When true, enables distributed checksum storage. For more information, see
-     * [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
+     * When true, enables distributed checksum storage. For more information, see [Optimizing Repository Replication with
+     * Checksum-Based
+     * Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
      * 
      */
     @Import(name="checkBinaryExistenceInFilestore")
     private @Nullable Output<Boolean> checkBinaryExistenceInFilestore;
 
     /**
-     * @return When true, enables distributed checksum storage. For more information, see
-     * [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
+     * @return When true, enables distributed checksum storage. For more information, see [Optimizing Repository Replication with
+     * Checksum-Based
+     * Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
      * 
      */
     public Optional<Output<Boolean>> checkBinaryExistenceInFilestore() {
@@ -35,14 +37,14 @@ public final class PullReplicationArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
+     * The Cron expression that determines when the next replication will be triggered.
      * 
      */
     @Import(name="cronExp")
     private @Nullable Output<String> cronExp;
 
     /**
-     * @return A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
+     * @return The Cron expression that determines when the next replication will be triggered.
      * 
      */
     public Optional<Output<String>> cronExp() {
@@ -50,61 +52,47 @@ public final class PullReplicationArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. added, deleted or property change.
+     * When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on
+     * artifact, e.g. add, deleted or property change. Default value is `false`.
      * 
      */
     @Import(name="enableEventReplication")
     private @Nullable Output<Boolean> enableEventReplication;
 
     /**
-     * @return When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. added, deleted or property change.
+     * @return When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on
+     * artifact, e.g. add, deleted or property change. Default value is `false`.
      * 
      */
     public Optional<Output<Boolean>> enableEventReplication() {
         return Optional.ofNullable(this.enableEventReplication);
     }
 
-    /**
-     * When set, this replication will be enabled when saved.
-     * 
-     */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
-    /**
-     * @return When set, this replication will be enabled when saved.
-     * 
-     */
     public Optional<Output<Boolean>> enabled() {
         return Optional.ofNullable(this.enabled);
     }
 
     /**
-     * Required for local repository, but not needed for remote repository.
+     * Password for local repository replication. Required for local repository, but not needed for remote repository.
      * 
      */
     @Import(name="password")
     private @Nullable Output<String> password;
 
     /**
-     * @return Required for local repository, but not needed for remote repository.
+     * @return Password for local repository replication. Required for local repository, but not needed for remote repository.
      * 
      */
     public Optional<Output<String>> password() {
         return Optional.ofNullable(this.password);
     }
 
-    /**
-     * Only artifacts that located in path that matches the subpath within the remote repository will be replicated.
-     * 
-     */
     @Import(name="pathPrefix")
     private @Nullable Output<String> pathPrefix;
 
-    /**
-     * @return Only artifacts that located in path that matches the subpath within the remote repository will be replicated.
-     * 
-     */
     public Optional<Output<String>> pathPrefix() {
         return Optional.ofNullable(this.pathPrefix);
     }
@@ -146,64 +134,36 @@ public final class PullReplicationArgs extends com.pulumi.resources.ResourceArgs
         return Optional.ofNullable(this.socketTimeoutMillis);
     }
 
-    /**
-     * When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata).
-     * 
-     */
     @Import(name="syncDeletes")
     private @Nullable Output<Boolean> syncDeletes;
 
-    /**
-     * @return When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata).
-     * 
-     */
     public Optional<Output<Boolean>> syncDeletes() {
         return Optional.ofNullable(this.syncDeletes);
     }
 
-    /**
-     * When set, the task also synchronizes the properties of replicated artifacts.
-     * 
-     */
     @Import(name="syncProperties")
     private @Nullable Output<Boolean> syncProperties;
 
-    /**
-     * @return When set, the task also synchronizes the properties of replicated artifacts.
-     * 
-     */
     public Optional<Output<Boolean>> syncProperties() {
         return Optional.ofNullable(this.syncProperties);
     }
 
-    /**
-     * When set, artifact download statistics will also be replicated. Set to avoid inadvertent cleanup at the target instance when setting up replication for disaster recovery.
-     * 
-     */
     @Import(name="syncStatistics")
     private @Nullable Output<Boolean> syncStatistics;
 
-    /**
-     * @return When set, artifact download statistics will also be replicated. Set to avoid inadvertent cleanup at the target instance when setting up replication for disaster recovery.
-     * 
-     */
     public Optional<Output<Boolean>> syncStatistics() {
         return Optional.ofNullable(this.syncStatistics);
     }
 
     /**
-     * The URL of the target local repository on a remote Artifactory server. For some package types, you need to prefix the repository key in the URL with api/&lt;pkg&gt;.
-     * For a list of package types where this is required, see the [note](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-anchorPREFIX).
-     * Required for local repository, but not needed for remote repository.
+     * URL for local repository replication. Required for local repository, but not needed for remote repository.
      * 
      */
     @Import(name="url")
     private @Nullable Output<String> url;
 
     /**
-     * @return The URL of the target local repository on a remote Artifactory server. For some package types, you need to prefix the repository key in the URL with api/&lt;pkg&gt;.
-     * For a list of package types where this is required, see the [note](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-anchorPREFIX).
-     * Required for local repository, but not needed for remote repository.
+     * @return URL for local repository replication. Required for local repository, but not needed for remote repository.
      * 
      */
     public Optional<Output<String>> url() {
@@ -211,14 +171,14 @@ public final class PullReplicationArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Required for local repository, but not needed for remote repository.
+     * Username for local repository replication. Required for local repository, but not needed for remote repository.
      * 
      */
     @Import(name="username")
     private @Nullable Output<String> username;
 
     /**
-     * @return Required for local repository, but not needed for remote repository.
+     * @return Username for local repository replication. Required for local repository, but not needed for remote repository.
      * 
      */
     public Optional<Output<String>> username() {
@@ -263,8 +223,9 @@ public final class PullReplicationArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param checkBinaryExistenceInFilestore When true, enables distributed checksum storage. For more information, see
-         * [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
+         * @param checkBinaryExistenceInFilestore When true, enables distributed checksum storage. For more information, see [Optimizing Repository Replication with
+         * Checksum-Based
+         * Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
          * 
          * @return builder
          * 
@@ -275,8 +236,9 @@ public final class PullReplicationArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param checkBinaryExistenceInFilestore When true, enables distributed checksum storage. For more information, see
-         * [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
+         * @param checkBinaryExistenceInFilestore When true, enables distributed checksum storage. For more information, see [Optimizing Repository Replication with
+         * Checksum-Based
+         * Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
          * 
          * @return builder
          * 
@@ -286,7 +248,7 @@ public final class PullReplicationArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param cronExp A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
+         * @param cronExp The Cron expression that determines when the next replication will be triggered.
          * 
          * @return builder
          * 
@@ -297,7 +259,7 @@ public final class PullReplicationArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param cronExp A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
+         * @param cronExp The Cron expression that determines when the next replication will be triggered.
          * 
          * @return builder
          * 
@@ -307,7 +269,8 @@ public final class PullReplicationArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param enableEventReplication When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. added, deleted or property change.
+         * @param enableEventReplication When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on
+         * artifact, e.g. add, deleted or property change. Default value is `false`.
          * 
          * @return builder
          * 
@@ -318,7 +281,8 @@ public final class PullReplicationArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param enableEventReplication When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. added, deleted or property change.
+         * @param enableEventReplication When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on
+         * artifact, e.g. add, deleted or property change. Default value is `false`.
          * 
          * @return builder
          * 
@@ -327,29 +291,17 @@ public final class PullReplicationArgs extends com.pulumi.resources.ResourceArgs
             return enableEventReplication(Output.of(enableEventReplication));
         }
 
-        /**
-         * @param enabled When set, this replication will be enabled when saved.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(@Nullable Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
-        /**
-         * @param enabled When set, this replication will be enabled when saved.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }
 
         /**
-         * @param password Required for local repository, but not needed for remote repository.
+         * @param password Password for local repository replication. Required for local repository, but not needed for remote repository.
          * 
          * @return builder
          * 
@@ -360,7 +312,7 @@ public final class PullReplicationArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param password Required for local repository, but not needed for remote repository.
+         * @param password Password for local repository replication. Required for local repository, but not needed for remote repository.
          * 
          * @return builder
          * 
@@ -369,23 +321,11 @@ public final class PullReplicationArgs extends com.pulumi.resources.ResourceArgs
             return password(Output.of(password));
         }
 
-        /**
-         * @param pathPrefix Only artifacts that located in path that matches the subpath within the remote repository will be replicated.
-         * 
-         * @return builder
-         * 
-         */
         public Builder pathPrefix(@Nullable Output<String> pathPrefix) {
             $.pathPrefix = pathPrefix;
             return this;
         }
 
-        /**
-         * @param pathPrefix Only artifacts that located in path that matches the subpath within the remote repository will be replicated.
-         * 
-         * @return builder
-         * 
-         */
         public Builder pathPrefix(String pathPrefix) {
             return pathPrefix(Output.of(pathPrefix));
         }
@@ -441,73 +381,35 @@ public final class PullReplicationArgs extends com.pulumi.resources.ResourceArgs
             return socketTimeoutMillis(Output.of(socketTimeoutMillis));
         }
 
-        /**
-         * @param syncDeletes When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata).
-         * 
-         * @return builder
-         * 
-         */
         public Builder syncDeletes(@Nullable Output<Boolean> syncDeletes) {
             $.syncDeletes = syncDeletes;
             return this;
         }
 
-        /**
-         * @param syncDeletes When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata).
-         * 
-         * @return builder
-         * 
-         */
         public Builder syncDeletes(Boolean syncDeletes) {
             return syncDeletes(Output.of(syncDeletes));
         }
 
-        /**
-         * @param syncProperties When set, the task also synchronizes the properties of replicated artifacts.
-         * 
-         * @return builder
-         * 
-         */
         public Builder syncProperties(@Nullable Output<Boolean> syncProperties) {
             $.syncProperties = syncProperties;
             return this;
         }
 
-        /**
-         * @param syncProperties When set, the task also synchronizes the properties of replicated artifacts.
-         * 
-         * @return builder
-         * 
-         */
         public Builder syncProperties(Boolean syncProperties) {
             return syncProperties(Output.of(syncProperties));
         }
 
-        /**
-         * @param syncStatistics When set, artifact download statistics will also be replicated. Set to avoid inadvertent cleanup at the target instance when setting up replication for disaster recovery.
-         * 
-         * @return builder
-         * 
-         */
         public Builder syncStatistics(@Nullable Output<Boolean> syncStatistics) {
             $.syncStatistics = syncStatistics;
             return this;
         }
 
-        /**
-         * @param syncStatistics When set, artifact download statistics will also be replicated. Set to avoid inadvertent cleanup at the target instance when setting up replication for disaster recovery.
-         * 
-         * @return builder
-         * 
-         */
         public Builder syncStatistics(Boolean syncStatistics) {
             return syncStatistics(Output.of(syncStatistics));
         }
 
         /**
-         * @param url The URL of the target local repository on a remote Artifactory server. For some package types, you need to prefix the repository key in the URL with api/&lt;pkg&gt;.
-         * For a list of package types where this is required, see the [note](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-anchorPREFIX).
-         * Required for local repository, but not needed for remote repository.
+         * @param url URL for local repository replication. Required for local repository, but not needed for remote repository.
          * 
          * @return builder
          * 
@@ -518,9 +420,7 @@ public final class PullReplicationArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param url The URL of the target local repository on a remote Artifactory server. For some package types, you need to prefix the repository key in the URL with api/&lt;pkg&gt;.
-         * For a list of package types where this is required, see the [note](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-anchorPREFIX).
-         * Required for local repository, but not needed for remote repository.
+         * @param url URL for local repository replication. Required for local repository, but not needed for remote repository.
          * 
          * @return builder
          * 
@@ -530,7 +430,7 @@ public final class PullReplicationArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param username Required for local repository, but not needed for remote repository.
+         * @param username Username for local repository replication. Required for local repository, but not needed for remote repository.
          * 
          * @return builder
          * 
@@ -541,7 +441,7 @@ public final class PullReplicationArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param username Required for local repository, but not needed for remote repository.
+         * @param username Username for local repository replication. Required for local repository, but not needed for remote repository.
          * 
          * @return builder
          * 

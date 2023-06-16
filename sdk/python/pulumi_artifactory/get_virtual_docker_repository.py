@@ -136,9 +136,6 @@ class GetVirtualDockerRepositoryResult:
     @property
     @pulumi.getter(name="resolveDockerTagsByTimestamp")
     def resolve_docker_tags_by_timestamp(self) -> Optional[bool]:
-        """
-        (Optional) When enabled, in cases where the same Docker tag exists in two or more of the aggregated repositories, Artifactory will return the tag that has the latest timestamp. Default values is `false`.
-        """
         return pulumi.get(self, "resolve_docker_tags_by_timestamp")
 
 
@@ -178,20 +175,7 @@ def get_virtual_docker_repository(artifactory_requests_can_retrieve_remote_artif
                                   resolve_docker_tags_by_timestamp: Optional[bool] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualDockerRepositoryResult:
     """
-    Retrieves a virtual Docker repository.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    virtual_docker = artifactory.get_virtual_docker_repository(key="virtual-docker")
-    ```
-
-
-    :param str key: the identity key of the repo.
-    :param bool resolve_docker_tags_by_timestamp: (Optional) When enabled, in cases where the same Docker tag exists in two or more of the aggregated repositories, Artifactory will return the tag that has the latest timestamp. Default values is `false`.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['artifactoryRequestsCanRetrieveRemoteArtifacts'] = artifactory_requests_can_retrieve_remote_artifacts
@@ -241,19 +225,6 @@ def get_virtual_docker_repository_output(artifactory_requests_can_retrieve_remot
                                          resolve_docker_tags_by_timestamp: Optional[pulumi.Input[Optional[bool]]] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualDockerRepositoryResult]:
     """
-    Retrieves a virtual Docker repository.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    virtual_docker = artifactory.get_virtual_docker_repository(key="virtual-docker")
-    ```
-
-
-    :param str key: the identity key of the repo.
-    :param bool resolve_docker_tags_by_timestamp: (Optional) When enabled, in cases where the same Docker tag exists in two or more of the aggregated repositories, Artifactory will return the tag that has the latest timestamp. Default values is `false`.
+    Use this data source to access information about an existing resource.
     """
     ...

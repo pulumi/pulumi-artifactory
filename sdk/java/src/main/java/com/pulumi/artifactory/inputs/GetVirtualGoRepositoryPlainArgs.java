@@ -44,34 +44,16 @@ public final class GetVirtualGoRepositoryPlainArgs extends com.pulumi.resources.
         return Optional.ofNullable(this.excludesPattern);
     }
 
-    /**
-     * (Optional) Shorthand for &#34;Enable &#39;go-import&#39; Meta Tags&#34; on the UI. This must be set to true in order to use the allow list.
-     * When checked (default), Artifactory will automatically follow remote VCS roots in &#39;go-import&#39; meta tags to download remote modules.
-     * 
-     */
     @Import(name="externalDependenciesEnabled")
     private @Nullable Boolean externalDependenciesEnabled;
 
-    /**
-     * @return (Optional) Shorthand for &#34;Enable &#39;go-import&#39; Meta Tags&#34; on the UI. This must be set to true in order to use the allow list.
-     * When checked (default), Artifactory will automatically follow remote VCS roots in &#39;go-import&#39; meta tags to download remote modules.
-     * 
-     */
     public Optional<Boolean> externalDependenciesEnabled() {
         return Optional.ofNullable(this.externalDependenciesEnabled);
     }
 
-    /**
-     * (Optional) &#39;go-import&#39; Allow List on the UI.
-     * 
-     */
     @Import(name="externalDependenciesPatterns")
     private @Nullable List<String> externalDependenciesPatterns;
 
-    /**
-     * @return (Optional) &#39;go-import&#39; Allow List on the UI.
-     * 
-     */
     public Optional<List<String>> externalDependenciesPatterns() {
         return Optional.ofNullable(this.externalDependenciesPatterns);
     }
@@ -83,17 +65,9 @@ public final class GetVirtualGoRepositoryPlainArgs extends com.pulumi.resources.
         return Optional.ofNullable(this.includesPattern);
     }
 
-    /**
-     * the identity key of the repo.
-     * 
-     */
     @Import(name="key", required=true)
     private String key;
 
-    /**
-     * @return the identity key of the repo.
-     * 
-     */
     public String key() {
         return this.key;
     }
@@ -189,35 +163,16 @@ public final class GetVirtualGoRepositoryPlainArgs extends com.pulumi.resources.
             return this;
         }
 
-        /**
-         * @param externalDependenciesEnabled (Optional) Shorthand for &#34;Enable &#39;go-import&#39; Meta Tags&#34; on the UI. This must be set to true in order to use the allow list.
-         * When checked (default), Artifactory will automatically follow remote VCS roots in &#39;go-import&#39; meta tags to download remote modules.
-         * 
-         * @return builder
-         * 
-         */
         public Builder externalDependenciesEnabled(@Nullable Boolean externalDependenciesEnabled) {
             $.externalDependenciesEnabled = externalDependenciesEnabled;
             return this;
         }
 
-        /**
-         * @param externalDependenciesPatterns (Optional) &#39;go-import&#39; Allow List on the UI.
-         * 
-         * @return builder
-         * 
-         */
         public Builder externalDependenciesPatterns(@Nullable List<String> externalDependenciesPatterns) {
             $.externalDependenciesPatterns = externalDependenciesPatterns;
             return this;
         }
 
-        /**
-         * @param externalDependenciesPatterns (Optional) &#39;go-import&#39; Allow List on the UI.
-         * 
-         * @return builder
-         * 
-         */
         public Builder externalDependenciesPatterns(String... externalDependenciesPatterns) {
             return externalDependenciesPatterns(List.of(externalDependenciesPatterns));
         }
@@ -227,12 +182,6 @@ public final class GetVirtualGoRepositoryPlainArgs extends com.pulumi.resources.
             return this;
         }
 
-        /**
-         * @param key the identity key of the repo.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(String key) {
             $.key = key;
             return this;

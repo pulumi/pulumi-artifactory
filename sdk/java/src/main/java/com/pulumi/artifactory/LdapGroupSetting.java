@@ -15,62 +15,6 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * This resource can be used to manage Artifactory&#39;s LDAP Group settings for user authentication.
- * 
- * LDAP Groups Add-on allows you to synchronize your LDAP groups with the system and leverage your existing organizational
- * structure for managing group-based permissions.
- * 
- * ~&gt;The `artifactory.LdapGroupSetting` resource utilizes endpoints which are blocked/removed in SaaS environments (i.e. in Artifactory online), rendering this resource incompatible with Artifactory SaaS environments.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.artifactory.LdapGroupSetting;
- * import com.pulumi.artifactory.LdapGroupSettingArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var ldapGroupName = new LdapGroupSetting(&#34;ldapGroupName&#34;, LdapGroupSettingArgs.builder()        
- *             .descriptionAttribute(&#34;description&#34;)
- *             .filter(&#34;(objectClass=groupOfNames)&#34;)
- *             .groupBaseDn(&#34;&#34;)
- *             .groupMemberAttribute(&#34;uniqueMember&#34;)
- *             .groupNameAttribute(&#34;cn&#34;)
- *             .ldapSettingKey(&#34;ldap_name&#34;)
- *             .strategy(&#34;STATIC&#34;)
- *             .subTree(true)
- *             .build());
- * 
- *     }
- * }
- * ```
- * Note: `Name` argument has to match to the resource name.\
- * Reference Link: [JFrog LDAP](https://www.jfrog.com/confluence/display/JFROG/LDAP)
- * 
- * ## Import
- * 
- * LDAP Group setting can be imported using the key, e.g.
- * 
- * ```sh
- *  $ pulumi import artifactory:index/ldapGroupSetting:LdapGroupSetting ldap_group_name ldap_group_name
- * ```
- * 
- */
 @ResourceType(type="artifactory:index/ldapGroupSetting:LdapGroupSetting")
 public class LdapGroupSetting extends com.pulumi.resources.CustomResource {
     /**
@@ -102,14 +46,16 @@ public class LdapGroupSetting extends com.pulumi.resources.CustomResource {
         return this.filter;
     }
     /**
-     * A search base for group entry DNs, relative to the DN on the LDAP server’s URL (and not relative to the LDAP Setting’s “Search Base”). Used when importing groups.
+     * A search base for group entry DNs, relative to the DN on the LDAP server’s URL (and not relative to the LDAP
+     * Setting’s “Search Base”). Used when importing groups.
      * 
      */
     @Export(name="groupBaseDn", type=String.class, parameters={})
     private Output</* @Nullable */ String> groupBaseDn;
 
     /**
-     * @return A search base for group entry DNs, relative to the DN on the LDAP server’s URL (and not relative to the LDAP Setting’s “Search Base”). Used when importing groups.
+     * @return A search base for group entry DNs, relative to the DN on the LDAP server’s URL (and not relative to the LDAP
+     * Setting’s “Search Base”). Used when importing groups.
      * 
      */
     public Output<Optional<String>> groupBaseDn() {
@@ -144,14 +90,16 @@ public class LdapGroupSetting extends com.pulumi.resources.CustomResource {
         return this.groupNameAttribute;
     }
     /**
-     * The LDAP setting key you want to use for group retrieval. The value for this field corresponds to &#39;enabledLdap&#39; field of the ldap group setting XML block of system configuration.
+     * The LDAP setting key you want to use for group retrieval. The value for this field corresponds to &#39;enabledLdap&#39; field of
+     * the ldap group setting XML block of system configuration.
      * 
      */
     @Export(name="ldapSettingKey", type=String.class, parameters={})
     private Output<String> ldapSettingKey;
 
     /**
-     * @return The LDAP setting key you want to use for group retrieval. The value for this field corresponds to &#39;enabledLdap&#39; field of the ldap group setting XML block of system configuration.
+     * @return The LDAP setting key you want to use for group retrieval. The value for this field corresponds to &#39;enabledLdap&#39; field of
+     * the ldap group setting XML block of system configuration.
      * 
      */
     public Output<String> ldapSettingKey() {
@@ -172,20 +120,30 @@ public class LdapGroupSetting extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * The JFrog Platform Deployment (JPD) supports three ways of mapping groups to LDAP schemas:
-     * - STATIC: Group objects are aware of their members, however, the users are not aware of the groups they belong to. Each group object such as groupOfNames or groupOfUniqueNames holds its respective member attributes, typically member or uniqueMember, which is a user DN.
-     * - DYNAMIC: User objects are aware of what groups they belong to, but the group objects are not aware of their members. Each user object contains a custom attribute, such as group, that holds the group DNs or group names of which the user is a member.
-     * - HIERARCHICAL: The user&#39;s DN is indicative of the groups the user belongs to by using group names as part of user DN hierarchy. Each user DN contains a list of ou&#39;s or custom attributes that make up the group association. For example, uid=user1,ou=developers,ou=uk,dc=jfrog,dc=org indicates that user1 belongs to two groups: uk and developers.
+     * The JFrog Platform Deployment (JPD) supports three ways of mapping groups to LDAP schemas: Static: Group objects are
+     * aware of their members, however, the users are not aware of the groups they belong to. Each group object such as
+     * groupOfNames or groupOfUniqueNames holds its respective member attributes, typically member or uniqueMember, which is a
+     * user DN. Dynamic: User objects are aware of what groups they belong to, but the group objects are not aware of their
+     * members. Each user object contains a custom attribute, such as group, that holds the group DNs or group names of which
+     * the user is a member. Hierarchy: The user&#39;s DN is indicative of the groups the user belongs to by using group names as
+     * part of user DN hierarchy. Each user DN contains a list of ou&#39;s or custom attributes that make up the group association.
+     * For example, uid=user1,ou=developers,ou=uk,dc=jfrog,dc=org indicates that user1 belongs to two groups: uk and
+     * developers.
      * 
      */
     @Export(name="strategy", type=String.class, parameters={})
     private Output<String> strategy;
 
     /**
-     * @return The JFrog Platform Deployment (JPD) supports three ways of mapping groups to LDAP schemas:
-     * - STATIC: Group objects are aware of their members, however, the users are not aware of the groups they belong to. Each group object such as groupOfNames or groupOfUniqueNames holds its respective member attributes, typically member or uniqueMember, which is a user DN.
-     * - DYNAMIC: User objects are aware of what groups they belong to, but the group objects are not aware of their members. Each user object contains a custom attribute, such as group, that holds the group DNs or group names of which the user is a member.
-     * - HIERARCHICAL: The user&#39;s DN is indicative of the groups the user belongs to by using group names as part of user DN hierarchy. Each user DN contains a list of ou&#39;s or custom attributes that make up the group association. For example, uid=user1,ou=developers,ou=uk,dc=jfrog,dc=org indicates that user1 belongs to two groups: uk and developers.
+     * @return The JFrog Platform Deployment (JPD) supports three ways of mapping groups to LDAP schemas: Static: Group objects are
+     * aware of their members, however, the users are not aware of the groups they belong to. Each group object such as
+     * groupOfNames or groupOfUniqueNames holds its respective member attributes, typically member or uniqueMember, which is a
+     * user DN. Dynamic: User objects are aware of what groups they belong to, but the group objects are not aware of their
+     * members. Each user object contains a custom attribute, such as group, that holds the group DNs or group names of which
+     * the user is a member. Hierarchy: The user&#39;s DN is indicative of the groups the user belongs to by using group names as
+     * part of user DN hierarchy. Each user DN contains a list of ou&#39;s or custom attributes that make up the group association.
+     * For example, uid=user1,ou=developers,ou=uk,dc=jfrog,dc=org indicates that user1 belongs to two groups: uk and
+     * developers.
      * 
      */
     public Output<String> strategy() {

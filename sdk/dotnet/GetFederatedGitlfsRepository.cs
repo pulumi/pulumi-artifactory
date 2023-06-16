@@ -11,59 +11,9 @@ namespace Pulumi.Artifactory
 {
     public static class GetFederatedGitlfsRepository
     {
-        /// <summary>
-        /// Retrieves a federated Gitlfs repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var federated_test_gitlfs_repo = Artifactory.GetFederatedGitlfsRepository.Invoke(new()
-        ///     {
-        ///         Key = "federated-test-gitlfs-repo",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetFederatedGitlfsRepositoryResult> InvokeAsync(GetFederatedGitlfsRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFederatedGitlfsRepositoryResult>("artifactory:index/getFederatedGitlfsRepository:getFederatedGitlfsRepository", args ?? new GetFederatedGitlfsRepositoryArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Retrieves a federated Gitlfs repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var federated_test_gitlfs_repo = Artifactory.GetFederatedGitlfsRepository.Invoke(new()
-        ///     {
-        ///         Key = "federated-test-gitlfs-repo",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Output<GetFederatedGitlfsRepositoryResult> Invoke(GetFederatedGitlfsRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFederatedGitlfsRepositoryResult>("artifactory:index/getFederatedGitlfsRepository:getFederatedGitlfsRepository", args ?? new GetFederatedGitlfsRepositoryInvokeArgs(), options.WithDefaults());
     }
@@ -95,21 +45,11 @@ namespace Pulumi.Artifactory
         [Input("includesPattern")]
         public string? IncludesPattern { get; set; }
 
-        /// <summary>
-        /// the identity key of the repo.
-        /// </summary>
         [Input("key", required: true)]
         public string Key { get; set; } = null!;
 
         [Input("members")]
         private List<Inputs.GetFederatedGitlfsRepositoryMemberArgs>? _members;
-
-        /// <summary>
-        /// The list of Federated members and must contain this repository URL (configured base URL
-        /// `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
-        /// Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
-        /// to set up Federated repositories correctly.
-        /// </summary>
         public List<Inputs.GetFederatedGitlfsRepositoryMemberArgs> Members
         {
             get => _members ?? (_members = new List<Inputs.GetFederatedGitlfsRepositoryMemberArgs>());
@@ -179,21 +119,11 @@ namespace Pulumi.Artifactory
         [Input("includesPattern")]
         public Input<string>? IncludesPattern { get; set; }
 
-        /// <summary>
-        /// the identity key of the repo.
-        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
         [Input("members")]
         private InputList<Inputs.GetFederatedGitlfsRepositoryMemberInputArgs>? _members;
-
-        /// <summary>
-        /// The list of Federated members and must contain this repository URL (configured base URL
-        /// `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
-        /// Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
-        /// to set up Federated repositories correctly.
-        /// </summary>
         public InputList<Inputs.GetFederatedGitlfsRepositoryMemberInputArgs> Members
         {
             get => _members ?? (_members = new InputList<Inputs.GetFederatedGitlfsRepositoryMemberInputArgs>());
@@ -254,12 +184,6 @@ namespace Pulumi.Artifactory
         public readonly string Id;
         public readonly string IncludesPattern;
         public readonly string Key;
-        /// <summary>
-        /// The list of Federated members and must contain this repository URL (configured base URL
-        /// `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
-        /// Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
-        /// to set up Federated repositories correctly.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetFederatedGitlfsRepositoryMemberResult> Members;
         public readonly string? Notes;
         public readonly string PackageType;

@@ -11,59 +11,9 @@ namespace Pulumi.Artifactory
 {
     public static class GetRemoteComposerRepository
     {
-        /// <summary>
-        /// Retrieves a remote Composer repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var remote_composer = Artifactory.GetRemoteComposerRepository.Invoke(new()
-        ///     {
-        ///         Key = "remote-composer",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetRemoteComposerRepositoryResult> InvokeAsync(GetRemoteComposerRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRemoteComposerRepositoryResult>("artifactory:index/getRemoteComposerRepository:getRemoteComposerRepository", args ?? new GetRemoteComposerRepositoryArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Retrieves a remote Composer repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var remote_composer = Artifactory.GetRemoteComposerRepository.Invoke(new()
-        ///     {
-        ///         Key = "remote-composer",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Output<GetRemoteComposerRepositoryResult> Invoke(GetRemoteComposerRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRemoteComposerRepositoryResult>("artifactory:index/getRemoteComposerRepository:getRemoteComposerRepository", args ?? new GetRemoteComposerRepositoryInvokeArgs(), options.WithDefaults());
     }
@@ -92,9 +42,6 @@ namespace Pulumi.Artifactory
         [Input("clientTlsCertificate")]
         public string? ClientTlsCertificate { get; set; }
 
-        /// <summary>
-        /// (Optional) Proxy remote Composer repository. Default value is `https://packagist.org`.
-        /// </summary>
         [Input("composerRegistryUrl")]
         public string? ComposerRegistryUrl { get; set; }
 
@@ -119,9 +66,6 @@ namespace Pulumi.Artifactory
         [Input("includesPattern")]
         public string? IncludesPattern { get; set; }
 
-        /// <summary>
-        /// the identity key of the repo.
-        /// </summary>
         [Input("key", required: true)]
         public string Key { get; set; } = null!;
 
@@ -212,15 +156,9 @@ namespace Pulumi.Artifactory
         [Input("username")]
         public string? Username { get; set; }
 
-        /// <summary>
-        /// (Optional) This attribute is used when vcs_git_provider is set to `CUSTOM`. Provided URL will be used as proxy.
-        /// </summary>
         [Input("vcsGitDownloadUrl")]
         public string? VcsGitDownloadUrl { get; set; }
 
-        /// <summary>
-        /// (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`. Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
-        /// </summary>
         [Input("vcsGitProvider")]
         public string? VcsGitProvider { get; set; }
 
@@ -256,9 +194,6 @@ namespace Pulumi.Artifactory
         [Input("clientTlsCertificate")]
         public Input<string>? ClientTlsCertificate { get; set; }
 
-        /// <summary>
-        /// (Optional) Proxy remote Composer repository. Default value is `https://packagist.org`.
-        /// </summary>
         [Input("composerRegistryUrl")]
         public Input<string>? ComposerRegistryUrl { get; set; }
 
@@ -283,9 +218,6 @@ namespace Pulumi.Artifactory
         [Input("includesPattern")]
         public Input<string>? IncludesPattern { get; set; }
 
-        /// <summary>
-        /// the identity key of the repo.
-        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
@@ -380,15 +312,9 @@ namespace Pulumi.Artifactory
         [Input("username")]
         public Input<string>? Username { get; set; }
 
-        /// <summary>
-        /// (Optional) This attribute is used when vcs_git_provider is set to `CUSTOM`. Provided URL will be used as proxy.
-        /// </summary>
         [Input("vcsGitDownloadUrl")]
         public Input<string>? VcsGitDownloadUrl { get; set; }
 
-        /// <summary>
-        /// (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`. Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
-        /// </summary>
         [Input("vcsGitProvider")]
         public Input<string>? VcsGitProvider { get; set; }
 
@@ -412,9 +338,6 @@ namespace Pulumi.Artifactory
         public readonly bool? BypassHeadRequests;
         public readonly bool? CdnRedirect;
         public readonly string ClientTlsCertificate;
-        /// <summary>
-        /// (Optional) Proxy remote Composer repository. Default value is `https://packagist.org`.
-        /// </summary>
         public readonly string? ComposerRegistryUrl;
         public readonly Outputs.GetRemoteComposerRepositoryContentSynchronisationResult ContentSynchronisation;
         public readonly string? Description;
@@ -453,13 +376,7 @@ namespace Pulumi.Artifactory
         public readonly int? UnusedArtifactsCleanupPeriodHours;
         public readonly string? Url;
         public readonly string? Username;
-        /// <summary>
-        /// (Optional) This attribute is used when vcs_git_provider is set to `CUSTOM`. Provided URL will be used as proxy.
-        /// </summary>
         public readonly string? VcsGitDownloadUrl;
-        /// <summary>
-        /// (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`. Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
-        /// </summary>
         public readonly string? VcsGitProvider;
         public readonly bool? XrayIndex;
 

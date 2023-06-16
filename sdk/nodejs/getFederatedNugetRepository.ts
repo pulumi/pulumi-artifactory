@@ -6,20 +6,6 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
-/**
- * Retrieves a federated Nuget repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const federated-test-nuget-repo = artifactory.getFederatedNugetRepository({
- *     key: "federated-test-nuget-repo",
- * });
- * ```
- */
 export function getFederatedNugetRepository(args: GetFederatedNugetRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetFederatedNugetRepositoryResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -59,17 +45,8 @@ export interface GetFederatedNugetRepositoryArgs {
     excludesPattern?: string;
     forceNugetAuthentication?: boolean;
     includesPattern?: string;
-    /**
-     * the identity key of the repo.
-     */
     key: string;
     maxUniqueSnapshots?: number;
-    /**
-     * The list of Federated members and must contain this repository URL (configured base URL
-     * `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
-     * Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
-     * to set up Federated repositories correctly.
-     */
     members?: inputs.GetFederatedNugetRepositoryMember[];
     notes?: string;
     priorityResolution?: boolean;
@@ -99,12 +76,6 @@ export interface GetFederatedNugetRepositoryResult {
     readonly includesPattern: string;
     readonly key: string;
     readonly maxUniqueSnapshots?: number;
-    /**
-     * The list of Federated members and must contain this repository URL (configured base URL
-     * `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
-     * Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
-     * to set up Federated repositories correctly.
-     */
     readonly members?: outputs.GetFederatedNugetRepositoryMember[];
     readonly notes?: string;
     readonly packageType: string;
@@ -115,20 +86,6 @@ export interface GetFederatedNugetRepositoryResult {
     readonly repoLayoutRef?: string;
     readonly xrayIndex?: boolean;
 }
-/**
- * Retrieves a federated Nuget repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const federated-test-nuget-repo = artifactory.getFederatedNugetRepository({
- *     key: "federated-test-nuget-repo",
- * });
- * ```
- */
 export function getFederatedNugetRepositoryOutput(args: GetFederatedNugetRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedNugetRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getFederatedNugetRepository(a, opts))
 }
@@ -146,17 +103,8 @@ export interface GetFederatedNugetRepositoryOutputArgs {
     excludesPattern?: pulumi.Input<string>;
     forceNugetAuthentication?: pulumi.Input<boolean>;
     includesPattern?: pulumi.Input<string>;
-    /**
-     * the identity key of the repo.
-     */
     key: pulumi.Input<string>;
     maxUniqueSnapshots?: pulumi.Input<number>;
-    /**
-     * The list of Federated members and must contain this repository URL (configured base URL
-     * `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
-     * Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
-     * to set up Federated repositories correctly.
-     */
     members?: pulumi.Input<pulumi.Input<inputs.GetFederatedNugetRepositoryMemberArgs>[]>;
     notes?: pulumi.Input<string>;
     priorityResolution?: pulumi.Input<boolean>;

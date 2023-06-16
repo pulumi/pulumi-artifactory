@@ -11,59 +11,9 @@ namespace Pulumi.Artifactory
 {
     public static class GetFederatedBowerRepository
     {
-        /// <summary>
-        /// Retrieves a federated Bower repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var federated_test_bower_repo = Artifactory.GetFederatedBowerRepository.Invoke(new()
-        ///     {
-        ///         Key = "federated-test-bower-repo",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetFederatedBowerRepositoryResult> InvokeAsync(GetFederatedBowerRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFederatedBowerRepositoryResult>("artifactory:index/getFederatedBowerRepository:getFederatedBowerRepository", args ?? new GetFederatedBowerRepositoryArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Retrieves a federated Bower repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var federated_test_bower_repo = Artifactory.GetFederatedBowerRepository.Invoke(new()
-        ///     {
-        ///         Key = "federated-test-bower-repo",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Output<GetFederatedBowerRepositoryResult> Invoke(GetFederatedBowerRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFederatedBowerRepositoryResult>("artifactory:index/getFederatedBowerRepository:getFederatedBowerRepository", args ?? new GetFederatedBowerRepositoryInvokeArgs(), options.WithDefaults());
     }
@@ -95,21 +45,11 @@ namespace Pulumi.Artifactory
         [Input("includesPattern")]
         public string? IncludesPattern { get; set; }
 
-        /// <summary>
-        /// the identity key of the repo.
-        /// </summary>
         [Input("key", required: true)]
         public string Key { get; set; } = null!;
 
         [Input("members")]
         private List<Inputs.GetFederatedBowerRepositoryMemberArgs>? _members;
-
-        /// <summary>
-        /// The list of Federated members and must contain this repository URL (configured base URL
-        /// `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
-        /// Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
-        /// to set up Federated repositories correctly.
-        /// </summary>
         public List<Inputs.GetFederatedBowerRepositoryMemberArgs> Members
         {
             get => _members ?? (_members = new List<Inputs.GetFederatedBowerRepositoryMemberArgs>());
@@ -179,21 +119,11 @@ namespace Pulumi.Artifactory
         [Input("includesPattern")]
         public Input<string>? IncludesPattern { get; set; }
 
-        /// <summary>
-        /// the identity key of the repo.
-        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
         [Input("members")]
         private InputList<Inputs.GetFederatedBowerRepositoryMemberInputArgs>? _members;
-
-        /// <summary>
-        /// The list of Federated members and must contain this repository URL (configured base URL
-        /// `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
-        /// Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
-        /// to set up Federated repositories correctly.
-        /// </summary>
         public InputList<Inputs.GetFederatedBowerRepositoryMemberInputArgs> Members
         {
             get => _members ?? (_members = new InputList<Inputs.GetFederatedBowerRepositoryMemberInputArgs>());
@@ -254,12 +184,6 @@ namespace Pulumi.Artifactory
         public readonly string Id;
         public readonly string IncludesPattern;
         public readonly string Key;
-        /// <summary>
-        /// The list of Federated members and must contain this repository URL (configured base URL
-        /// `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
-        /// Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
-        /// to set up Federated repositories correctly.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetFederatedBowerRepositoryMemberResult> Members;
         public readonly string? Notes;
         public readonly string PackageType;

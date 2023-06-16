@@ -12,32 +12,16 @@ public final class GetFileinfoPlainArgs extends com.pulumi.resources.InvokeArgs 
 
     public static final GetFileinfoPlainArgs Empty = new GetFileinfoPlainArgs();
 
-    /**
-     * The path to the file within the repository.
-     * 
-     */
     @Import(name="path", required=true)
     private String path;
 
-    /**
-     * @return The path to the file within the repository.
-     * 
-     */
     public String path() {
         return this.path;
     }
 
-    /**
-     * Name of the repository where the file is stored.
-     * 
-     */
     @Import(name="repository", required=true)
     private String repository;
 
-    /**
-     * @return Name of the repository where the file is stored.
-     * 
-     */
     public String repository() {
         return this.repository;
     }
@@ -67,23 +51,11 @@ public final class GetFileinfoPlainArgs extends com.pulumi.resources.InvokeArgs 
             $ = new GetFileinfoPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param path The path to the file within the repository.
-         * 
-         * @return builder
-         * 
-         */
         public Builder path(String path) {
             $.path = path;
             return this;
         }
 
-        /**
-         * @param repository Name of the repository where the file is stored.
-         * 
-         * @return builder
-         * 
-         */
         public Builder repository(String repository) {
             $.repository = repository;
             return this;

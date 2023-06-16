@@ -183,9 +183,6 @@ class GetRemoteBowerRepositoryResult:
     @property
     @pulumi.getter(name="bowerRegistryUrl")
     def bower_registry_url(self) -> Optional[str]:
-        """
-        (Optional) Proxy remote Bower repository. Default value is `https://registry.bower.io`.
-        """
         return pulumi.get(self, "bower_registry_url")
 
     @property
@@ -490,20 +487,7 @@ def get_remote_bower_repository(allow_any_host_auth: Optional[bool] = None,
                                 xray_index: Optional[bool] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRemoteBowerRepositoryResult:
     """
-    Retrieves a remote Bower repository.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    remote_bower = artifactory.get_remote_bower_repository(key="remote-bower")
-    ```
-
-
-    :param str bower_registry_url: (Optional) Proxy remote Bower repository. Default value is `https://registry.bower.io`.
-    :param str key: the identity key of the repo.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['allowAnyHostAuth'] = allow_any_host_auth
@@ -646,19 +630,6 @@ def get_remote_bower_repository_output(allow_any_host_auth: Optional[pulumi.Inpu
                                        xray_index: Optional[pulumi.Input[Optional[bool]]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRemoteBowerRepositoryResult]:
     """
-    Retrieves a remote Bower repository.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    remote_bower = artifactory.get_remote_bower_repository(key="remote-bower")
-    ```
-
-
-    :param str bower_registry_url: (Optional) Proxy remote Bower repository. Default value is `https://registry.bower.io`.
-    :param str key: the identity key of the repo.
+    Use this data source to access information about an existing resource.
     """
     ...

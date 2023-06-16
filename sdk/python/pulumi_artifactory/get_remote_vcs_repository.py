@@ -256,9 +256,6 @@ class GetRemoteVcsRepositoryResult:
     @property
     @pulumi.getter(name="maxUniqueSnapshots")
     def max_unique_snapshots(self) -> Optional[int]:
-        """
-        (Optional) The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
-        """
         return pulumi.get(self, "max_unique_snapshots")
 
     @property
@@ -379,17 +376,11 @@ class GetRemoteVcsRepositoryResult:
     @property
     @pulumi.getter(name="vcsGitDownloadUrl")
     def vcs_git_download_url(self) -> Optional[str]:
-        """
-        (Optional) This attribute is used when vcs_git_provider is set to `CUSTOM`. Provided URL will be used as proxy.
-        """
         return pulumi.get(self, "vcs_git_download_url")
 
     @property
     @pulumi.getter(name="vcsGitProvider")
     def vcs_git_provider(self) -> Optional[str]:
-        """
-        (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub, Bitbucket, Stash, a remote Artifactory instance or a custom Git repository. Allowed values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`. Default value is `GITHUB`
-        """
         return pulumi.get(self, "vcs_git_provider")
 
     @property
@@ -496,22 +487,7 @@ def get_remote_vcs_repository(allow_any_host_auth: Optional[bool] = None,
                               xray_index: Optional[bool] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRemoteVcsRepositoryResult:
     """
-    Retrieves a remote VCS repository.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    remote_vcs = artifactory.get_remote_vcs_repository(key="remote-vcs")
-    ```
-
-
-    :param str key: the identity key of the repo.
-    :param int max_unique_snapshots: (Optional) The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
-    :param str vcs_git_download_url: (Optional) This attribute is used when vcs_git_provider is set to `CUSTOM`. Provided URL will be used as proxy.
-    :param str vcs_git_provider: (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub, Bitbucket, Stash, a remote Artifactory instance or a custom Git repository. Allowed values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`. Default value is `GITHUB`
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['allowAnyHostAuth'] = allow_any_host_auth
@@ -654,21 +630,6 @@ def get_remote_vcs_repository_output(allow_any_host_auth: Optional[pulumi.Input[
                                      xray_index: Optional[pulumi.Input[Optional[bool]]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRemoteVcsRepositoryResult]:
     """
-    Retrieves a remote VCS repository.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    remote_vcs = artifactory.get_remote_vcs_repository(key="remote-vcs")
-    ```
-
-
-    :param str key: the identity key of the repo.
-    :param int max_unique_snapshots: (Optional) The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
-    :param str vcs_git_download_url: (Optional) This attribute is used when vcs_git_provider is set to `CUSTOM`. Provided URL will be used as proxy.
-    :param str vcs_git_provider: (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub, Bitbucket, Stash, a remote Artifactory instance or a custom Git repository. Allowed values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`. Default value is `GITHUB`
+    Use this data source to access information about an existing resource.
     """
     ...

@@ -13,21 +13,9 @@ namespace Pulumi.Artifactory.Outputs
     [OutputType]
     public sealed class ReleaseBundleWebhookCriteria
     {
-        /// <summary>
-        /// Trigger on any release bundle.
-        /// </summary>
         public readonly bool AnyReleaseBundle;
-        /// <summary>
-        /// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: "org/apache/**".
-        /// </summary>
         public readonly ImmutableArray<string> ExcludePatterns;
-        /// <summary>
-        /// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: "org/apache/**".
-        /// </summary>
         public readonly ImmutableArray<string> IncludePatterns;
-        /// <summary>
-        /// Trigger on this list of release bundle names.
-        /// </summary>
         public readonly ImmutableArray<string> RegisteredReleaseBundleNames;
 
         [OutputConstructor]

@@ -11,59 +11,9 @@ namespace Pulumi.Artifactory
 {
     public static class GetVirtualComposerRepository
     {
-        /// <summary>
-        /// Retrieves a virtual PHP Composer repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var virtual_composer = Artifactory.GetVirtualComposerRepository.Invoke(new()
-        ///     {
-        ///         Key = "virtual-composer",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetVirtualComposerRepositoryResult> InvokeAsync(GetVirtualComposerRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualComposerRepositoryResult>("artifactory:index/getVirtualComposerRepository:getVirtualComposerRepository", args ?? new GetVirtualComposerRepositoryArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Retrieves a virtual PHP Composer repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var virtual_composer = Artifactory.GetVirtualComposerRepository.Invoke(new()
-        ///     {
-        ///         Key = "virtual-composer",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Output<GetVirtualComposerRepositoryResult> Invoke(GetVirtualComposerRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualComposerRepositoryResult>("artifactory:index/getVirtualComposerRepository:getVirtualComposerRepository", args ?? new GetVirtualComposerRepositoryInvokeArgs(), options.WithDefaults());
     }
@@ -86,9 +36,6 @@ namespace Pulumi.Artifactory
         [Input("includesPattern")]
         public string? IncludesPattern { get; set; }
 
-        /// <summary>
-        /// the identity key of the repo.
-        /// </summary>
         [Input("key", required: true)]
         public string Key { get; set; } = null!;
 
@@ -140,9 +87,6 @@ namespace Pulumi.Artifactory
         [Input("includesPattern")]
         public Input<string>? IncludesPattern { get; set; }
 
-        /// <summary>
-        /// the identity key of the repo.
-        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 

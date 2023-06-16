@@ -9,75 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Artifactory
 {
-    /// <summary>
-    /// Provides an Artifactory webhook resource. This can be used to register and manage Artifactory webhook subscription which enables you to be notified or notify other users when such events take place in Artifactory.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// .
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Artifactory = Pulumi.Artifactory;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var my_generic_local = new Artifactory.LocalGenericRepository("my-generic-local", new()
-    ///     {
-    ///         Key = "my-generic-local",
-    ///     });
-    /// 
-    ///     var artifact_webhook = new Artifactory.ArtifactPropertyWebhook("artifact-webhook", new()
-    ///     {
-    ///         Key = "artifact-property-webhook",
-    ///         EventTypes = new[]
-    ///         {
-    ///             "added",
-    ///             "deleted",
-    ///         },
-    ///         Criteria = new Artifactory.Inputs.ArtifactPropertyWebhookCriteriaArgs
-    ///         {
-    ///             AnyLocal = true,
-    ///             AnyRemote = false,
-    ///             RepoKeys = new[]
-    ///             {
-    ///                 my_generic_local.Key,
-    ///             },
-    ///             IncludePatterns = new[]
-    ///             {
-    ///                 "foo/**",
-    ///             },
-    ///             ExcludePatterns = new[]
-    ///             {
-    ///                 "bar/**",
-    ///             },
-    ///         },
-    ///         Handlers = new[]
-    ///         {
-    ///             new Artifactory.Inputs.ArtifactPropertyWebhookHandlerArgs
-    ///             {
-    ///                 Url = "http://tempurl.org/webhook",
-    ///                 Secret = "some-secret",
-    ///                 Proxy = "proxy-key",
-    ///                 CustomHttpHeaders = 
-    ///                 {
-    ///                     { "header-1", "value-1" },
-    ///                     { "header-2", "value-2" },
-    ///                 },
-    ///             },
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             my_generic_local,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// </summary>
     [ArtifactoryResourceType("artifactory:index/artifactPropertyWebhook:ArtifactPropertyWebhook")]
     public partial class ArtifactPropertyWebhook : global::Pulumi.CustomResource
     {
@@ -88,31 +19,29 @@ namespace Pulumi.Artifactory
         public Output<Outputs.ArtifactPropertyWebhookCriteria> Criteria { get; private set; } = null!;
 
         /// <summary>
-        /// Webhook description. Max length 1000 characters.
+        /// Description of webhook. Max length 1000 characters.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Status of webhook. Default to `true`.
+        /// Status of webhook. Default to 'true'
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
 
         /// <summary>
-        /// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `added`, `deleted`.
+        /// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow
+        /// values: added, deleted
         /// </summary>
         [Output("eventTypes")]
         public Output<ImmutableArray<string>> EventTypes { get; private set; } = null!;
 
-        /// <summary>
-        /// At least one is required.
-        /// </summary>
         [Output("handlers")]
         public Output<ImmutableArray<Outputs.ArtifactPropertyWebhookHandler>> Handlers { get; private set; } = null!;
 
         /// <summary>
-        /// The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
+        /// Key of webhook. Must be between 2 and 200 characters. Cannot contain spaces.
         /// </summary>
         [Output("key")]
         public Output<string> Key { get; private set; } = null!;
@@ -170,13 +99,13 @@ namespace Pulumi.Artifactory
         public Input<Inputs.ArtifactPropertyWebhookCriteriaArgs> Criteria { get; set; } = null!;
 
         /// <summary>
-        /// Webhook description. Max length 1000 characters.
+        /// Description of webhook. Max length 1000 characters.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Status of webhook. Default to `true`.
+        /// Status of webhook. Default to 'true'
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -185,7 +114,8 @@ namespace Pulumi.Artifactory
         private InputList<string>? _eventTypes;
 
         /// <summary>
-        /// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `added`, `deleted`.
+        /// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow
+        /// values: added, deleted
         /// </summary>
         public InputList<string> EventTypes
         {
@@ -195,10 +125,6 @@ namespace Pulumi.Artifactory
 
         [Input("handlers", required: true)]
         private InputList<Inputs.ArtifactPropertyWebhookHandlerArgs>? _handlers;
-
-        /// <summary>
-        /// At least one is required.
-        /// </summary>
         public InputList<Inputs.ArtifactPropertyWebhookHandlerArgs> Handlers
         {
             get => _handlers ?? (_handlers = new InputList<Inputs.ArtifactPropertyWebhookHandlerArgs>());
@@ -206,7 +132,7 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
+        /// Key of webhook. Must be between 2 and 200 characters. Cannot contain spaces.
         /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -226,13 +152,13 @@ namespace Pulumi.Artifactory
         public Input<Inputs.ArtifactPropertyWebhookCriteriaGetArgs>? Criteria { get; set; }
 
         /// <summary>
-        /// Webhook description. Max length 1000 characters.
+        /// Description of webhook. Max length 1000 characters.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Status of webhook. Default to `true`.
+        /// Status of webhook. Default to 'true'
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -241,7 +167,8 @@ namespace Pulumi.Artifactory
         private InputList<string>? _eventTypes;
 
         /// <summary>
-        /// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `added`, `deleted`.
+        /// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow
+        /// values: added, deleted
         /// </summary>
         public InputList<string> EventTypes
         {
@@ -251,10 +178,6 @@ namespace Pulumi.Artifactory
 
         [Input("handlers")]
         private InputList<Inputs.ArtifactPropertyWebhookHandlerGetArgs>? _handlers;
-
-        /// <summary>
-        /// At least one is required.
-        /// </summary>
         public InputList<Inputs.ArtifactPropertyWebhookHandlerGetArgs> Handlers
         {
             get => _handlers ?? (_handlers = new InputList<Inputs.ArtifactPropertyWebhookHandlerGetArgs>());
@@ -262,7 +185,7 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
+        /// Key of webhook. Must be between 2 and 200 characters. Cannot contain spaces.
         /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }

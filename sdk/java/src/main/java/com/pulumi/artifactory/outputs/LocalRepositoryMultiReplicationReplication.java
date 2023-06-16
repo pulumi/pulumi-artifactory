@@ -13,161 +13,57 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class LocalRepositoryMultiReplicationReplication {
-    /**
-     * @return Enabling the `check_binary_existence_in_filestore` flag requires an Enterprise Plus license. When true, enables distributed checksum storage. For more information, see [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
-     * 
-     */
     private @Nullable Boolean checkBinaryExistenceInFilestore;
-    /**
-     * @return When set, enables replication of this repository to the target specified in `url` attribute. Default value is `true`.
-     * 
-     */
     private @Nullable Boolean enabled;
-    /**
-     * @return List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**{@literal /}z/*`. By default, no artifacts are excluded.
-     * 
-     */
     private @Nullable String excludePathPrefixPattern;
-    /**
-     * @return List of artifact patterns to include when evaluating artifact requests in the form of `x/y/**{@literal /}z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included `(**{@literal /}*)`.
-     * 
-     */
     private @Nullable String includePathPrefixPattern;
-    /**
-     * @return Use either the HTTP authentication password or [identity token](https://www.jfrog.com/confluence/display/JFROG/User+Profile#UserProfile-IdentityTokenidentitytoken).
-     * 
-     */
     private @Nullable String password;
-    /**
-     * @return Proxy key from Artifactory Proxies settings. The proxy configuration will be used when communicating with the remote instance.
-     * 
-     */
     private @Nullable String proxy;
-    /**
-     * @return Replication ID, the value is unknown until the resource is created. Can&#39;t be set or updated.
-     * 
-     */
     private @Nullable String replicationKey;
-    /**
-     * @return The network timeout in milliseconds to use for remote operations. Default value is `15000`.
-     * 
-     */
     private @Nullable Integer socketTimeoutMillis;
-    /**
-     * @return When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata). Note that enabling this option, will delete artifacts on the target that do not exist in the source repository. Default value is `false`.
-     * 
-     */
     private @Nullable Boolean syncDeletes;
-    /**
-     * @return When set, the task also synchronizes the properties of replicated artifacts. Default value is `true`.
-     * 
-     */
     private @Nullable Boolean syncProperties;
-    /**
-     * @return When set, the task also synchronizes artifact download statistics. Set to avoid inadvertent cleanup at the target instance when setting up replication for disaster recovery. Default value is `false`
-     * 
-     */
     private @Nullable Boolean syncStatistics;
-    /**
-     * @return The URL of the target local repository on a remote Artifactory server. Use the format `https://&lt;artifactory_url&gt;/artifactory/&lt;repository_name&gt;`.
-     * 
-     */
     private String url;
-    /**
-     * @return Username on the remote Artifactory instance.
-     * 
-     */
     private String username;
 
     private LocalRepositoryMultiReplicationReplication() {}
-    /**
-     * @return Enabling the `check_binary_existence_in_filestore` flag requires an Enterprise Plus license. When true, enables distributed checksum storage. For more information, see [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
-     * 
-     */
     public Optional<Boolean> checkBinaryExistenceInFilestore() {
         return Optional.ofNullable(this.checkBinaryExistenceInFilestore);
     }
-    /**
-     * @return When set, enables replication of this repository to the target specified in `url` attribute. Default value is `true`.
-     * 
-     */
     public Optional<Boolean> enabled() {
         return Optional.ofNullable(this.enabled);
     }
-    /**
-     * @return List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**{@literal /}z/*`. By default, no artifacts are excluded.
-     * 
-     */
     public Optional<String> excludePathPrefixPattern() {
         return Optional.ofNullable(this.excludePathPrefixPattern);
     }
-    /**
-     * @return List of artifact patterns to include when evaluating artifact requests in the form of `x/y/**{@literal /}z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included `(**{@literal /}*)`.
-     * 
-     */
     public Optional<String> includePathPrefixPattern() {
         return Optional.ofNullable(this.includePathPrefixPattern);
     }
-    /**
-     * @return Use either the HTTP authentication password or [identity token](https://www.jfrog.com/confluence/display/JFROG/User+Profile#UserProfile-IdentityTokenidentitytoken).
-     * 
-     */
     public Optional<String> password() {
         return Optional.ofNullable(this.password);
     }
-    /**
-     * @return Proxy key from Artifactory Proxies settings. The proxy configuration will be used when communicating with the remote instance.
-     * 
-     */
     public Optional<String> proxy() {
         return Optional.ofNullable(this.proxy);
     }
-    /**
-     * @return Replication ID, the value is unknown until the resource is created. Can&#39;t be set or updated.
-     * 
-     */
     public Optional<String> replicationKey() {
         return Optional.ofNullable(this.replicationKey);
     }
-    /**
-     * @return The network timeout in milliseconds to use for remote operations. Default value is `15000`.
-     * 
-     */
     public Optional<Integer> socketTimeoutMillis() {
         return Optional.ofNullable(this.socketTimeoutMillis);
     }
-    /**
-     * @return When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata). Note that enabling this option, will delete artifacts on the target that do not exist in the source repository. Default value is `false`.
-     * 
-     */
     public Optional<Boolean> syncDeletes() {
         return Optional.ofNullable(this.syncDeletes);
     }
-    /**
-     * @return When set, the task also synchronizes the properties of replicated artifacts. Default value is `true`.
-     * 
-     */
     public Optional<Boolean> syncProperties() {
         return Optional.ofNullable(this.syncProperties);
     }
-    /**
-     * @return When set, the task also synchronizes artifact download statistics. Set to avoid inadvertent cleanup at the target instance when setting up replication for disaster recovery. Default value is `false`
-     * 
-     */
     public Optional<Boolean> syncStatistics() {
         return Optional.ofNullable(this.syncStatistics);
     }
-    /**
-     * @return The URL of the target local repository on a remote Artifactory server. Use the format `https://&lt;artifactory_url&gt;/artifactory/&lt;repository_name&gt;`.
-     * 
-     */
     public String url() {
         return this.url;
     }
-    /**
-     * @return Username on the remote Artifactory instance.
-     * 
-     */
     public String username() {
         return this.username;
     }

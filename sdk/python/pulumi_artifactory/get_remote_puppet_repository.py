@@ -457,10 +457,7 @@ def get_remote_puppet_repository(allow_any_host_auth: Optional[bool] = None,
                                  xray_index: Optional[bool] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRemotePuppetRepositoryResult:
     """
-    Retrieves a remote Peppet repository.
-
-
-    :param str key: the identity key of the repo.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['allowAnyHostAuth'] = allow_any_host_auth
@@ -594,9 +591,6 @@ def get_remote_puppet_repository_output(allow_any_host_auth: Optional[pulumi.Inp
                                         xray_index: Optional[pulumi.Input[Optional[bool]]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRemotePuppetRepositoryResult]:
     """
-    Retrieves a remote Peppet repository.
-
-
-    :param str key: the identity key of the repo.
+    Use this data source to access information about an existing resource.
     """
     ...

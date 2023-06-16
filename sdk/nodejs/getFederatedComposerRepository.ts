@@ -6,20 +6,6 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
-/**
- * Retrieves a federated Composer repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const federated-test-composer-repo = artifactory.getFederatedComposerRepository({
- *     key: "federated-test-composer-repo",
- * });
- * ```
- */
 export function getFederatedComposerRepository(args: GetFederatedComposerRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetFederatedComposerRepositoryResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -56,16 +42,7 @@ export interface GetFederatedComposerRepositoryArgs {
     downloadDirect?: boolean;
     excludesPattern?: string;
     includesPattern?: string;
-    /**
-     * the identity key of the repo.
-     */
     key: string;
-    /**
-     * The list of Federated members and must contain this repository URL (configured base URL
-     * `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
-     * Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
-     * to set up Federated repositories correctly.
-     */
     members?: inputs.GetFederatedComposerRepositoryMember[];
     notes?: string;
     priorityResolution?: boolean;
@@ -93,12 +70,6 @@ export interface GetFederatedComposerRepositoryResult {
     readonly id: string;
     readonly includesPattern: string;
     readonly key: string;
-    /**
-     * The list of Federated members and must contain this repository URL (configured base URL
-     * `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
-     * Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
-     * to set up Federated repositories correctly.
-     */
     readonly members?: outputs.GetFederatedComposerRepositoryMember[];
     readonly notes?: string;
     readonly packageType: string;
@@ -109,20 +80,6 @@ export interface GetFederatedComposerRepositoryResult {
     readonly repoLayoutRef?: string;
     readonly xrayIndex?: boolean;
 }
-/**
- * Retrieves a federated Composer repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const federated-test-composer-repo = artifactory.getFederatedComposerRepository({
- *     key: "federated-test-composer-repo",
- * });
- * ```
- */
 export function getFederatedComposerRepositoryOutput(args: GetFederatedComposerRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedComposerRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getFederatedComposerRepository(a, opts))
 }
@@ -139,16 +96,7 @@ export interface GetFederatedComposerRepositoryOutputArgs {
     downloadDirect?: pulumi.Input<boolean>;
     excludesPattern?: pulumi.Input<string>;
     includesPattern?: pulumi.Input<string>;
-    /**
-     * the identity key of the repo.
-     */
     key: pulumi.Input<string>;
-    /**
-     * The list of Federated members and must contain this repository URL (configured base URL
-     * `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
-     * Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
-     * to set up Federated repositories correctly.
-     */
     members?: pulumi.Input<pulumi.Input<inputs.GetFederatedComposerRepositoryMemberArgs>[]>;
     notes?: pulumi.Input<string>;
     priorityResolution?: pulumi.Input<boolean>;

@@ -11,55 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Creates a virtual Go repository.
-// Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Go+Registry#GoRegistry-VirtualRepositories).
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.NewGoRepository(ctx, "baz-go", &artifactory.GoRepositoryArgs{
-//				Description:                 pulumi.String("A test virtual repo"),
-//				ExcludesPattern:             pulumi.String("com/google/**"),
-//				ExternalDependenciesEnabled: pulumi.Bool(true),
-//				ExternalDependenciesPatterns: pulumi.StringArray{
-//					pulumi.String("**/github.com/**"),
-//					pulumi.String("**/go.googlesource.com/**"),
-//				},
-//				IncludesPattern: pulumi.String("com/jfrog/**,cloud/jfrog/**"),
-//				Key:             pulumi.String("baz-go"),
-//				Notes:           pulumi.String("Internal description"),
-//				RepoLayoutRef:   pulumi.String("go-default"),
-//				Repositories:    pulumi.StringArray{},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Virtual repositories can be imported using their name, e.g.
-//
-// ```sh
-//
-//	$ pulumi import artifactory:index/goRepository:GoRepository baz-go baz-go
-//
-// ```
 type GoRepository struct {
 	pulumi.CustomResourceState
 
@@ -73,16 +24,17 @@ type GoRepository struct {
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 	// artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrOutput `pulumi:"excludesPattern"`
-	// Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list.
-	// When checked (default), Artifactory will automatically follow remote VCS roots in 'go-import' meta tags to download remote modules.
+	// When set (default), Artifactory will automatically follow remote VCS roots in 'go-import' meta tags to download remote
+	// modules.
 	ExternalDependenciesEnabled pulumi.BoolPtrOutput `pulumi:"externalDependenciesEnabled"`
-	// 'go-import' Allow List on the UI.
+	// An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download
+	// remote modules from, when presented with 'go-import' meta tags in the remote repository response.
 	ExternalDependenciesPatterns pulumi.StringArrayOutput `pulumi:"externalDependenciesPatterns"`
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrOutput `pulumi:"includesPattern"`
-	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-	// contain spaces or special characters.
+	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+	// characters. It cannot begin with a number or contain spaces or special characters.
 	Key pulumi.StringOutput `pulumi:"key"`
 	// Internal description.
 	Notes       pulumi.StringPtrOutput `pulumi:"notes"`
@@ -143,16 +95,17 @@ type goRepositoryState struct {
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 	// artifacts are excluded.
 	ExcludesPattern *string `pulumi:"excludesPattern"`
-	// Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list.
-	// When checked (default), Artifactory will automatically follow remote VCS roots in 'go-import' meta tags to download remote modules.
+	// When set (default), Artifactory will automatically follow remote VCS roots in 'go-import' meta tags to download remote
+	// modules.
 	ExternalDependenciesEnabled *bool `pulumi:"externalDependenciesEnabled"`
-	// 'go-import' Allow List on the UI.
+	// An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download
+	// remote modules from, when presented with 'go-import' meta tags in the remote repository response.
 	ExternalDependenciesPatterns []string `pulumi:"externalDependenciesPatterns"`
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
-	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-	// contain spaces or special characters.
+	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+	// characters. It cannot begin with a number or contain spaces or special characters.
 	Key *string `pulumi:"key"`
 	// Internal description.
 	Notes       *string `pulumi:"notes"`
@@ -182,16 +135,17 @@ type GoRepositoryState struct {
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 	// artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrInput
-	// Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list.
-	// When checked (default), Artifactory will automatically follow remote VCS roots in 'go-import' meta tags to download remote modules.
+	// When set (default), Artifactory will automatically follow remote VCS roots in 'go-import' meta tags to download remote
+	// modules.
 	ExternalDependenciesEnabled pulumi.BoolPtrInput
-	// 'go-import' Allow List on the UI.
+	// An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download
+	// remote modules from, when presented with 'go-import' meta tags in the remote repository response.
 	ExternalDependenciesPatterns pulumi.StringArrayInput
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
-	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-	// contain spaces or special characters.
+	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+	// characters. It cannot begin with a number or contain spaces or special characters.
 	Key pulumi.StringPtrInput
 	// Internal description.
 	Notes       pulumi.StringPtrInput
@@ -225,16 +179,17 @@ type goRepositoryArgs struct {
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 	// artifacts are excluded.
 	ExcludesPattern *string `pulumi:"excludesPattern"`
-	// Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list.
-	// When checked (default), Artifactory will automatically follow remote VCS roots in 'go-import' meta tags to download remote modules.
+	// When set (default), Artifactory will automatically follow remote VCS roots in 'go-import' meta tags to download remote
+	// modules.
 	ExternalDependenciesEnabled *bool `pulumi:"externalDependenciesEnabled"`
-	// 'go-import' Allow List on the UI.
+	// An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download
+	// remote modules from, when presented with 'go-import' meta tags in the remote repository response.
 	ExternalDependenciesPatterns []string `pulumi:"externalDependenciesPatterns"`
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
-	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-	// contain spaces or special characters.
+	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+	// characters. It cannot begin with a number or contain spaces or special characters.
 	Key string `pulumi:"key"`
 	// Internal description.
 	Notes *string `pulumi:"notes"`
@@ -264,16 +219,17 @@ type GoRepositoryArgs struct {
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 	// artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrInput
-	// Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list.
-	// When checked (default), Artifactory will automatically follow remote VCS roots in 'go-import' meta tags to download remote modules.
+	// When set (default), Artifactory will automatically follow remote VCS roots in 'go-import' meta tags to download remote
+	// modules.
 	ExternalDependenciesEnabled pulumi.BoolPtrInput
-	// 'go-import' Allow List on the UI.
+	// An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download
+	// remote modules from, when presented with 'go-import' meta tags in the remote repository response.
 	ExternalDependenciesPatterns pulumi.StringArrayInput
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
-	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-	// contain spaces or special characters.
+	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+	// characters. It cannot begin with a number or contain spaces or special characters.
 	Key pulumi.StringInput
 	// Internal description.
 	Notes pulumi.StringPtrInput
@@ -400,13 +356,14 @@ func (o GoRepositoryOutput) ExcludesPattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GoRepository) pulumi.StringPtrOutput { return v.ExcludesPattern }).(pulumi.StringPtrOutput)
 }
 
-// Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list.
-// When checked (default), Artifactory will automatically follow remote VCS roots in 'go-import' meta tags to download remote modules.
+// When set (default), Artifactory will automatically follow remote VCS roots in 'go-import' meta tags to download remote
+// modules.
 func (o GoRepositoryOutput) ExternalDependenciesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GoRepository) pulumi.BoolPtrOutput { return v.ExternalDependenciesEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// 'go-import' Allow List on the UI.
+// An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download
+// remote modules from, when presented with 'go-import' meta tags in the remote repository response.
 func (o GoRepositoryOutput) ExternalDependenciesPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *GoRepository) pulumi.StringArrayOutput { return v.ExternalDependenciesPatterns }).(pulumi.StringArrayOutput)
 }
@@ -417,8 +374,8 @@ func (o GoRepositoryOutput) IncludesPattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GoRepository) pulumi.StringPtrOutput { return v.IncludesPattern }).(pulumi.StringPtrOutput)
 }
 
-// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-// contain spaces or special characters.
+// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+// characters. It cannot begin with a number or contain spaces or special characters.
 func (o GoRepositoryOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v *GoRepository) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
 }

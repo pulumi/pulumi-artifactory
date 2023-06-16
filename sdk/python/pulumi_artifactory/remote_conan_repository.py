@@ -59,8 +59,8 @@ class RemoteConanRepositoryArgs:
                  xray_index: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a RemoteConanRepository resource.
-        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-               contain spaces or special characters.
+        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+               characters. It cannot begin with a number or contain spaces or special characters.
         :param pulumi.Input[str] url: The remote repo URL.
         :param pulumi.Input[bool] allow_any_host_auth: 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any
                other host.
@@ -84,7 +84,7 @@ class RemoteConanRepositoryArgs:
         :param pulumi.Input[bool] enable_cookie_management: Enables cookie management if the remote repository uses cookies to manage client state.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
                artifacts are excluded.
-        :param pulumi.Input[bool] force_conan_authentication: Force basic authentication credentials in order to use this repository. Default value is `false`.
+        :param pulumi.Input[bool] force_conan_authentication: Force basic authentication credentials in order to use this repository. Default value is 'false'.
         :param pulumi.Input[bool] hard_fail: When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
                communicate with this repository.
         :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
@@ -215,8 +215,8 @@ class RemoteConanRepositoryArgs:
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
         """
-        A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-        contain spaces or special characters.
+        A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+        characters. It cannot begin with a number or contain spaces or special characters.
         """
         return pulumi.get(self, "key")
 
@@ -392,7 +392,7 @@ class RemoteConanRepositoryArgs:
     @pulumi.getter(name="forceConanAuthentication")
     def force_conan_authentication(self) -> Optional[pulumi.Input[bool]]:
         """
-        Force basic authentication credentials in order to use this repository. Default value is `false`.
+        Force basic authentication credentials in order to use this repository. Default value is 'false'.
         """
         return pulumi.get(self, "force_conan_authentication")
 
@@ -794,13 +794,13 @@ class _RemoteConanRepositoryState:
         :param pulumi.Input[bool] enable_cookie_management: Enables cookie management if the remote repository uses cookies to manage client state.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
                artifacts are excluded.
-        :param pulumi.Input[bool] force_conan_authentication: Force basic authentication credentials in order to use this repository. Default value is `false`.
+        :param pulumi.Input[bool] force_conan_authentication: Force basic authentication credentials in order to use this repository. Default value is 'false'.
         :param pulumi.Input[bool] hard_fail: When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
                communicate with this repository.
         :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
                used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-               contain spaces or special characters.
+        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+               characters. It cannot begin with a number or contain spaces or special characters.
         :param pulumi.Input[bool] list_remote_folder_items: Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
                the 'Retrieval Cache Period'. Default value is 'true'.
         :param pulumi.Input[str] local_address: The local address to be used when creating connections. Useful for specifying the interface to use on systems with
@@ -1084,7 +1084,7 @@ class _RemoteConanRepositoryState:
     @pulumi.getter(name="forceConanAuthentication")
     def force_conan_authentication(self) -> Optional[pulumi.Input[bool]]:
         """
-        Force basic authentication credentials in order to use this repository. Default value is `false`.
+        Force basic authentication credentials in order to use this repository. Default value is 'false'.
         """
         return pulumi.get(self, "force_conan_authentication")
 
@@ -1122,8 +1122,8 @@ class _RemoteConanRepositoryState:
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
         """
-        A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-        contain spaces or special characters.
+        A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+        characters. It cannot begin with a number or contain spaces or special characters.
         """
         return pulumi.get(self, "key")
 
@@ -1499,29 +1499,7 @@ class RemoteConanRepository(pulumi.CustomResource):
                  xray_index: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        Creates a remote Conan repository.
-        Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Conan+Repositories).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_artifactory as artifactory
-
-        my_remote_conan = artifactory.RemoteConanRepository("my-remote-conan",
-            force_conan_authentication=True,
-            key="my-remote-conan",
-            url="https://conan.io/center/")
-        ```
-
-        ## Import
-
-        Remote repositories can be imported using their name, e.g.
-
-        ```sh
-         $ pulumi import artifactory:index/remoteConanRepository:RemoteConanRepository my-remote-conan my-remote-conan
-        ```
-
+        Create a RemoteConanRepository resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_any_host_auth: 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any
@@ -1546,13 +1524,13 @@ class RemoteConanRepository(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_cookie_management: Enables cookie management if the remote repository uses cookies to manage client state.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
                artifacts are excluded.
-        :param pulumi.Input[bool] force_conan_authentication: Force basic authentication credentials in order to use this repository. Default value is `false`.
+        :param pulumi.Input[bool] force_conan_authentication: Force basic authentication credentials in order to use this repository. Default value is 'false'.
         :param pulumi.Input[bool] hard_fail: When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
                communicate with this repository.
         :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
                used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-               contain spaces or special characters.
+        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+               characters. It cannot begin with a number or contain spaces or special characters.
         :param pulumi.Input[bool] list_remote_folder_items: Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
                the 'Retrieval Cache Period'. Default value is 'true'.
         :param pulumi.Input[str] local_address: The local address to be used when creating connections. Useful for specifying the interface to use on systems with
@@ -1602,29 +1580,7 @@ class RemoteConanRepository(pulumi.CustomResource):
                  args: RemoteConanRepositoryArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Creates a remote Conan repository.
-        Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Conan+Repositories).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_artifactory as artifactory
-
-        my_remote_conan = artifactory.RemoteConanRepository("my-remote-conan",
-            force_conan_authentication=True,
-            key="my-remote-conan",
-            url="https://conan.io/center/")
-        ```
-
-        ## Import
-
-        Remote repositories can be imported using their name, e.g.
-
-        ```sh
-         $ pulumi import artifactory:index/remoteConanRepository:RemoteConanRepository my-remote-conan my-remote-conan
-        ```
-
+        Create a RemoteConanRepository resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param RemoteConanRepositoryArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1819,13 +1775,13 @@ class RemoteConanRepository(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_cookie_management: Enables cookie management if the remote repository uses cookies to manage client state.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
                artifacts are excluded.
-        :param pulumi.Input[bool] force_conan_authentication: Force basic authentication credentials in order to use this repository. Default value is `false`.
+        :param pulumi.Input[bool] force_conan_authentication: Force basic authentication credentials in order to use this repository. Default value is 'false'.
         :param pulumi.Input[bool] hard_fail: When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
                communicate with this repository.
         :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
                used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-               contain spaces or special characters.
+        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+               characters. It cannot begin with a number or contain spaces or special characters.
         :param pulumi.Input[bool] list_remote_folder_items: Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
                the 'Retrieval Cache Period'. Default value is 'true'.
         :param pulumi.Input[str] local_address: The local address to be used when creating connections. Useful for specifying the interface to use on systems with
@@ -2024,7 +1980,7 @@ class RemoteConanRepository(pulumi.CustomResource):
     @pulumi.getter(name="forceConanAuthentication")
     def force_conan_authentication(self) -> pulumi.Output[Optional[bool]]:
         """
-        Force basic authentication credentials in order to use this repository. Default value is `false`.
+        Force basic authentication credentials in order to use this repository. Default value is 'false'.
         """
         return pulumi.get(self, "force_conan_authentication")
 
@@ -2050,8 +2006,8 @@ class RemoteConanRepository(pulumi.CustomResource):
     @pulumi.getter
     def key(self) -> pulumi.Output[str]:
         """
-        A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-        contain spaces or special characters.
+        A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+        characters. It cannot begin with a number or contain spaces or special characters.
         """
         return pulumi.get(self, "key")
 

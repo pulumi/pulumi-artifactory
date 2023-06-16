@@ -11,59 +11,9 @@ namespace Pulumi.Artifactory
 {
     public static class GetRemoteConanRepository
     {
-        /// <summary>
-        /// Retrieves a remote Conan repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var remote_conan = Artifactory.GetRemoteConanRepository.Invoke(new()
-        ///     {
-        ///         Key = "remote-conan",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetRemoteConanRepositoryResult> InvokeAsync(GetRemoteConanRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRemoteConanRepositoryResult>("artifactory:index/getRemoteConanRepository:getRemoteConanRepository", args ?? new GetRemoteConanRepositoryArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Retrieves a remote Conan repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var remote_conan = Artifactory.GetRemoteConanRepository.Invoke(new()
-        ///     {
-        ///         Key = "remote-conan",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Output<GetRemoteConanRepositoryResult> Invoke(GetRemoteConanRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRemoteConanRepositoryResult>("artifactory:index/getRemoteConanRepository:getRemoteConanRepository", args ?? new GetRemoteConanRepositoryInvokeArgs(), options.WithDefaults());
     }
@@ -107,9 +57,6 @@ namespace Pulumi.Artifactory
         [Input("excludesPattern")]
         public string? ExcludesPattern { get; set; }
 
-        /// <summary>
-        /// (Optional) Force basic authentication credentials in order to use this repository. Default value is `false`.
-        /// </summary>
         [Input("forceConanAuthentication")]
         public bool? ForceConanAuthentication { get; set; }
 
@@ -119,9 +66,6 @@ namespace Pulumi.Artifactory
         [Input("includesPattern")]
         public string? IncludesPattern { get; set; }
 
-        /// <summary>
-        /// the identity key of the repo.
-        /// </summary>
         [Input("key", required: true)]
         public string Key { get; set; } = null!;
 
@@ -259,9 +203,6 @@ namespace Pulumi.Artifactory
         [Input("excludesPattern")]
         public Input<string>? ExcludesPattern { get; set; }
 
-        /// <summary>
-        /// (Optional) Force basic authentication credentials in order to use this repository. Default value is `false`.
-        /// </summary>
         [Input("forceConanAuthentication")]
         public Input<bool>? ForceConanAuthentication { get; set; }
 
@@ -271,9 +212,6 @@ namespace Pulumi.Artifactory
         [Input("includesPattern")]
         public Input<string>? IncludesPattern { get; set; }
 
-        /// <summary>
-        /// the identity key of the repo.
-        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
@@ -393,9 +331,6 @@ namespace Pulumi.Artifactory
         public readonly bool? DownloadDirect;
         public readonly bool? EnableCookieManagement;
         public readonly string? ExcludesPattern;
-        /// <summary>
-        /// (Optional) Force basic authentication credentials in order to use this repository. Default value is `false`.
-        /// </summary>
         public readonly bool? ForceConanAuthentication;
         public readonly bool? HardFail;
         /// <summary>

@@ -11,15 +11,9 @@ namespace Pulumi.Artifactory
 {
     public static class GetRemotePuppetRepository
     {
-        /// <summary>
-        /// Retrieves a remote Peppet repository.
-        /// </summary>
         public static Task<GetRemotePuppetRepositoryResult> InvokeAsync(GetRemotePuppetRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRemotePuppetRepositoryResult>("artifactory:index/getRemotePuppetRepository:getRemotePuppetRepository", args ?? new GetRemotePuppetRepositoryArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Retrieves a remote Peppet repository.
-        /// </summary>
         public static Output<GetRemotePuppetRepositoryResult> Invoke(GetRemotePuppetRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRemotePuppetRepositoryResult>("artifactory:index/getRemotePuppetRepository:getRemotePuppetRepository", args ?? new GetRemotePuppetRepositoryInvokeArgs(), options.WithDefaults());
     }
@@ -69,9 +63,6 @@ namespace Pulumi.Artifactory
         [Input("includesPattern")]
         public string? IncludesPattern { get; set; }
 
-        /// <summary>
-        /// the identity key of the repo.
-        /// </summary>
         [Input("key", required: true)]
         public string Key { get; set; } = null!;
 
@@ -215,9 +206,6 @@ namespace Pulumi.Artifactory
         [Input("includesPattern")]
         public Input<string>? IncludesPattern { get; set; }
 
-        /// <summary>
-        /// the identity key of the repo.
-        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 

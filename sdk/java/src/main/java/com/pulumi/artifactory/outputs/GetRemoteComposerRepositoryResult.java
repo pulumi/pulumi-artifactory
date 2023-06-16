@@ -22,10 +22,6 @@ public final class GetRemoteComposerRepositoryResult {
     private @Nullable Boolean bypassHeadRequests;
     private @Nullable Boolean cdnRedirect;
     private String clientTlsCertificate;
-    /**
-     * @return (Optional) Proxy remote Composer repository. Default value is `https://packagist.org`.
-     * 
-     */
     private @Nullable String composerRegistryUrl;
     private GetRemoteComposerRepositoryContentSynchronisation contentSynchronisation;
     private @Nullable String description;
@@ -65,15 +61,7 @@ public final class GetRemoteComposerRepositoryResult {
     private @Nullable Integer unusedArtifactsCleanupPeriodHours;
     private @Nullable String url;
     private @Nullable String username;
-    /**
-     * @return (Optional) This attribute is used when vcs_git_provider is set to `CUSTOM`. Provided URL will be used as proxy.
-     * 
-     */
     private @Nullable String vcsGitDownloadUrl;
-    /**
-     * @return (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`. Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
-     * 
-     */
     private @Nullable String vcsGitProvider;
     private @Nullable Boolean xrayIndex;
 
@@ -99,10 +87,6 @@ public final class GetRemoteComposerRepositoryResult {
     public String clientTlsCertificate() {
         return this.clientTlsCertificate;
     }
-    /**
-     * @return (Optional) Proxy remote Composer repository. Default value is `https://packagist.org`.
-     * 
-     */
     public Optional<String> composerRegistryUrl() {
         return Optional.ofNullable(this.composerRegistryUrl);
     }
@@ -212,17 +196,9 @@ public final class GetRemoteComposerRepositoryResult {
     public Optional<String> username() {
         return Optional.ofNullable(this.username);
     }
-    /**
-     * @return (Optional) This attribute is used when vcs_git_provider is set to `CUSTOM`. Provided URL will be used as proxy.
-     * 
-     */
     public Optional<String> vcsGitDownloadUrl() {
         return Optional.ofNullable(this.vcsGitDownloadUrl);
     }
-    /**
-     * @return (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`. Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
-     * 
-     */
     public Optional<String> vcsGitProvider() {
         return Optional.ofNullable(this.vcsGitProvider);
     }

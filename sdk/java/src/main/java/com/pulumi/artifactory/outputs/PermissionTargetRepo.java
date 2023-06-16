@@ -14,44 +14,20 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PermissionTargetRepo {
     private @Nullable PermissionTargetRepoActions actions;
-    /**
-     * @return Pattern of artifacts to exclude.
-     * 
-     */
     private @Nullable List<String> excludesPatterns;
-    /**
-     * @return Pattern of artifacts to include.
-     * 
-     */
     private @Nullable List<String> includesPatterns;
-    /**
-     * @return List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
-     * 
-     */
     private List<String> repositories;
 
     private PermissionTargetRepo() {}
     public Optional<PermissionTargetRepoActions> actions() {
         return Optional.ofNullable(this.actions);
     }
-    /**
-     * @return Pattern of artifacts to exclude.
-     * 
-     */
     public List<String> excludesPatterns() {
         return this.excludesPatterns == null ? List.of() : this.excludesPatterns;
     }
-    /**
-     * @return Pattern of artifacts to include.
-     * 
-     */
     public List<String> includesPatterns() {
         return this.includesPatterns == null ? List.of() : this.includesPatterns;
     }
-    /**
-     * @return List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
-     * 
-     */
     public List<String> repositories() {
         return this.repositories;
     }

@@ -47,14 +47,16 @@ public final class SingleReplicationConfigState extends com.pulumi.resources.Res
     }
 
     /**
-     * Requires password encryption to be turned off `POST /api/system/decrypt`.
+     * If a password is used to create the resource, it will be returned as encrypted and this will become the new
+     * state.Practically speaking, what this means is that, the password can only be set, not gotten.
      * 
      */
     @Import(name="password")
     private @Nullable Output<String> password;
 
     /**
-     * @return Requires password encryption to be turned off `POST /api/system/decrypt`.
+     * @return If a password is used to create the resource, it will be returned as encrypted and this will become the new
+     * state.Practically speaking, what this means is that, the password can only be set, not gotten.
      * 
      */
     public Optional<Output<String>> password() {
@@ -69,14 +71,14 @@ public final class SingleReplicationConfigState extends com.pulumi.resources.Res
     }
 
     /**
-     * Proxy key from Artifactory Proxies setting.
+     * Proxy key from Artifactory Proxies setting
      * 
      */
     @Import(name="proxy")
     private @Nullable Output<String> proxy;
 
     /**
-     * @return Proxy key from Artifactory Proxies setting.
+     * @return Proxy key from Artifactory Proxies setting
      * 
      */
     public Optional<Output<String>> proxy() {
@@ -208,7 +210,8 @@ public final class SingleReplicationConfigState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param password Requires password encryption to be turned off `POST /api/system/decrypt`.
+         * @param password If a password is used to create the resource, it will be returned as encrypted and this will become the new
+         * state.Practically speaking, what this means is that, the password can only be set, not gotten.
          * 
          * @return builder
          * 
@@ -219,7 +222,8 @@ public final class SingleReplicationConfigState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param password Requires password encryption to be turned off `POST /api/system/decrypt`.
+         * @param password If a password is used to create the resource, it will be returned as encrypted and this will become the new
+         * state.Practically speaking, what this means is that, the password can only be set, not gotten.
          * 
          * @return builder
          * 
@@ -238,7 +242,7 @@ public final class SingleReplicationConfigState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param proxy Proxy key from Artifactory Proxies setting.
+         * @param proxy Proxy key from Artifactory Proxies setting
          * 
          * @return builder
          * 
@@ -249,7 +253,7 @@ public final class SingleReplicationConfigState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param proxy Proxy key from Artifactory Proxies setting.
+         * @param proxy Proxy key from Artifactory Proxies setting
          * 
          * @return builder
          * 

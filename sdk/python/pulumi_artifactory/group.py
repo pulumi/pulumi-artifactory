@@ -430,14 +430,7 @@ class Group(pulumi.CustomResource):
                  watch_manager: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        ## Import
-
-        ```sh
-         $ pulumi import artifactory:index/group:Group terraform-group mygroup
-        ```
-
-         ~> `users_names` can't be imported due to API limitations.
-
+        Create a Group resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] admin_privileges: Any users added to this group will automatically be assigned with admin privileges in the system.
@@ -460,14 +453,7 @@ class Group(pulumi.CustomResource):
                  args: Optional[GroupArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Import
-
-        ```sh
-         $ pulumi import artifactory:index/group:Group terraform-group mygroup
-        ```
-
-         ~> `users_names` can't be imported due to API limitations.
-
+        Create a Group resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param GroupArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -594,7 +580,7 @@ class Group(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> pulumi.Output[Optional[str]]:
+    def description(self) -> pulumi.Output[str]:
         """
         A description for the group.
         """
@@ -602,7 +588,7 @@ class Group(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="detachAllUsers")
-    def detach_all_users(self) -> pulumi.Output[bool]:
+    def detach_all_users(self) -> pulumi.Output[Optional[bool]]:
         """
         When this is set to `true`, an empty or missing usernames array will detach all users from the group.
         """
@@ -610,7 +596,7 @@ class Group(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="externalId")
-    def external_id(self) -> pulumi.Output[Optional[str]]:
+    def external_id(self) -> pulumi.Output[str]:
         """
         New external group ID used to configure the corresponding group in Azure AD.
         """
@@ -642,7 +628,7 @@ class Group(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="realmAttributes")
-    def realm_attributes(self) -> pulumi.Output[Optional[str]]:
+    def realm_attributes(self) -> pulumi.Output[str]:
         """
         The realm attributes for the group.
         """
@@ -658,7 +644,7 @@ class Group(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="usersNames")
-    def users_names(self) -> pulumi.Output[Optional[Sequence[str]]]:
+    def users_names(self) -> pulumi.Output[Sequence[str]]:
         """
         List of users assigned to the group. If not set or empty, Terraform will not manage group membership.
         """

@@ -31,16 +31,12 @@ public final class DistributionPublicKeyArgs extends com.pulumi.resources.Resour
     /**
      * The Public key to add as a trusted distribution GPG key.
      * 
-     * The following additional attributes are exported:
-     * 
      */
     @Import(name="publicKey", required=true)
     private Output<String> publicKey;
 
     /**
      * @return The Public key to add as a trusted distribution GPG key.
-     * 
-     * The following additional attributes are exported:
      * 
      */
     public Output<String> publicKey() {
@@ -96,8 +92,6 @@ public final class DistributionPublicKeyArgs extends com.pulumi.resources.Resour
         /**
          * @param publicKey The Public key to add as a trusted distribution GPG key.
          * 
-         * The following additional attributes are exported:
-         * 
          * @return builder
          * 
          */
@@ -108,8 +102,6 @@ public final class DistributionPublicKeyArgs extends com.pulumi.resources.Resour
 
         /**
          * @param publicKey The Public key to add as a trusted distribution GPG key.
-         * 
-         * The following additional attributes are exported:
          * 
          * @return builder
          * 

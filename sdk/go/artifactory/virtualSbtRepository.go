@@ -11,50 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Creates a virtual SBT repository.
-// Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/SBT+Repositories#SBTRepositories-VirtualRepositories).
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.NewVirtualSbtRepository(ctx, "foo-sbt", &artifactory.VirtualSbtRepositoryArgs{
-//				Description:                          pulumi.String("A test virtual repo"),
-//				ExcludesPattern:                      pulumi.String("com/google/**"),
-//				IncludesPattern:                      pulumi.String("com/jfrog/**,cloud/jfrog/**"),
-//				Key:                                  pulumi.String("foo-sbt"),
-//				Notes:                                pulumi.String("Internal description"),
-//				PomRepositoryReferencesCleanupPolicy: pulumi.String("discard_active_reference"),
-//				Repositories:                         pulumi.StringArray{},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Virtual repositories can be imported using their name, e.g.
-//
-// ```sh
-//
-//	$ pulumi import artifactory:index/virtualSbtRepository:VirtualSbtRepository foo-sbt foo-sbt
-//
-// ```
 type VirtualSbtRepository struct {
 	pulumi.CustomResourceState
 
@@ -74,17 +30,18 @@ type VirtualSbtRepository struct {
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrOutput `pulumi:"includesPattern"`
-	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-	// contain spaces or special characters.
+	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+	// characters. It cannot begin with a number or contain spaces or special characters.
 	Key pulumi.StringOutput `pulumi:"key"`
-	// The keypair used to sign artifacts.
+	// The keypair used to sign artifacts
 	KeyPair pulumi.StringPtrOutput `pulumi:"keyPair"`
 	// Internal description.
 	Notes       pulumi.StringPtrOutput `pulumi:"notes"`
 	PackageType pulumi.StringOutput    `pulumi:"packageType"`
-	// - (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
-	// - (2: discard_any_reference) Discard Any References - Removes all repository elements regardless of whether they are included in an active profile or not.
-	// - (3: nothing) Nothing - Does not remove any repository elements declared in the POM.
+	// (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under
+	// project or under a profile in the same POM that is activeByDefault. (2: discard_any_reference) Discard Any References -
+	// Removes all repository elements regardless of whether they are included in an active profile or not. (3: nothing)
+	// Nothing - Does not remove any repository elements declared in the POM.
 	PomRepositoryReferencesCleanupPolicy pulumi.StringOutput `pulumi:"pomRepositoryReferencesCleanupPolicy"`
 	// Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
 	// Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
@@ -148,17 +105,18 @@ type virtualSbtRepositoryState struct {
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
-	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-	// contain spaces or special characters.
+	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+	// characters. It cannot begin with a number or contain spaces or special characters.
 	Key *string `pulumi:"key"`
-	// The keypair used to sign artifacts.
+	// The keypair used to sign artifacts
 	KeyPair *string `pulumi:"keyPair"`
 	// Internal description.
 	Notes       *string `pulumi:"notes"`
 	PackageType *string `pulumi:"packageType"`
-	// - (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
-	// - (2: discard_any_reference) Discard Any References - Removes all repository elements regardless of whether they are included in an active profile or not.
-	// - (3: nothing) Nothing - Does not remove any repository elements declared in the POM.
+	// (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under
+	// project or under a profile in the same POM that is activeByDefault. (2: discard_any_reference) Discard Any References -
+	// Removes all repository elements regardless of whether they are included in an active profile or not. (3: nothing)
+	// Nothing - Does not remove any repository elements declared in the POM.
 	PomRepositoryReferencesCleanupPolicy *string `pulumi:"pomRepositoryReferencesCleanupPolicy"`
 	// Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
 	// Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
@@ -191,17 +149,18 @@ type VirtualSbtRepositoryState struct {
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
-	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-	// contain spaces or special characters.
+	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+	// characters. It cannot begin with a number or contain spaces or special characters.
 	Key pulumi.StringPtrInput
-	// The keypair used to sign artifacts.
+	// The keypair used to sign artifacts
 	KeyPair pulumi.StringPtrInput
 	// Internal description.
 	Notes       pulumi.StringPtrInput
 	PackageType pulumi.StringPtrInput
-	// - (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
-	// - (2: discard_any_reference) Discard Any References - Removes all repository elements regardless of whether they are included in an active profile or not.
-	// - (3: nothing) Nothing - Does not remove any repository elements declared in the POM.
+	// (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under
+	// project or under a profile in the same POM that is activeByDefault. (2: discard_any_reference) Discard Any References -
+	// Removes all repository elements regardless of whether they are included in an active profile or not. (3: nothing)
+	// Nothing - Does not remove any repository elements declared in the POM.
 	PomRepositoryReferencesCleanupPolicy pulumi.StringPtrInput
 	// Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
 	// Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
@@ -238,16 +197,17 @@ type virtualSbtRepositoryArgs struct {
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
-	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-	// contain spaces or special characters.
+	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+	// characters. It cannot begin with a number or contain spaces or special characters.
 	Key string `pulumi:"key"`
-	// The keypair used to sign artifacts.
+	// The keypair used to sign artifacts
 	KeyPair *string `pulumi:"keyPair"`
 	// Internal description.
 	Notes *string `pulumi:"notes"`
-	// - (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
-	// - (2: discard_any_reference) Discard Any References - Removes all repository elements regardless of whether they are included in an active profile or not.
-	// - (3: nothing) Nothing - Does not remove any repository elements declared in the POM.
+	// (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under
+	// project or under a profile in the same POM that is activeByDefault. (2: discard_any_reference) Discard Any References -
+	// Removes all repository elements regardless of whether they are included in an active profile or not. (3: nothing)
+	// Nothing - Does not remove any repository elements declared in the POM.
 	PomRepositoryReferencesCleanupPolicy *string `pulumi:"pomRepositoryReferencesCleanupPolicy"`
 	// Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
 	// Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
@@ -281,16 +241,17 @@ type VirtualSbtRepositoryArgs struct {
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
-	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-	// contain spaces or special characters.
+	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+	// characters. It cannot begin with a number or contain spaces or special characters.
 	Key pulumi.StringInput
-	// The keypair used to sign artifacts.
+	// The keypair used to sign artifacts
 	KeyPair pulumi.StringPtrInput
 	// Internal description.
 	Notes pulumi.StringPtrInput
-	// - (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
-	// - (2: discard_any_reference) Discard Any References - Removes all repository elements regardless of whether they are included in an active profile or not.
-	// - (3: nothing) Nothing - Does not remove any repository elements declared in the POM.
+	// (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under
+	// project or under a profile in the same POM that is activeByDefault. (2: discard_any_reference) Discard Any References -
+	// Removes all repository elements regardless of whether they are included in an active profile or not. (3: nothing)
+	// Nothing - Does not remove any repository elements declared in the POM.
 	PomRepositoryReferencesCleanupPolicy pulumi.StringPtrInput
 	// Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
 	// Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
@@ -429,13 +390,13 @@ func (o VirtualSbtRepositoryOutput) IncludesPattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualSbtRepository) pulumi.StringPtrOutput { return v.IncludesPattern }).(pulumi.StringPtrOutput)
 }
 
-// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-// contain spaces or special characters.
+// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+// characters. It cannot begin with a number or contain spaces or special characters.
 func (o VirtualSbtRepositoryOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualSbtRepository) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
 }
 
-// The keypair used to sign artifacts.
+// The keypair used to sign artifacts
 func (o VirtualSbtRepositoryOutput) KeyPair() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualSbtRepository) pulumi.StringPtrOutput { return v.KeyPair }).(pulumi.StringPtrOutput)
 }
@@ -449,9 +410,10 @@ func (o VirtualSbtRepositoryOutput) PackageType() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualSbtRepository) pulumi.StringOutput { return v.PackageType }).(pulumi.StringOutput)
 }
 
-// - (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
-// - (2: discard_any_reference) Discard Any References - Removes all repository elements regardless of whether they are included in an active profile or not.
-// - (3: nothing) Nothing - Does not remove any repository elements declared in the POM.
+// (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under
+// project or under a profile in the same POM that is activeByDefault. (2: discard_any_reference) Discard Any References -
+// Removes all repository elements regardless of whether they are included in an active profile or not. (3: nothing)
+// Nothing - Does not remove any repository elements declared in the POM.
 func (o VirtualSbtRepositoryOutput) PomRepositoryReferencesCleanupPolicy() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualSbtRepository) pulumi.StringOutput { return v.PomRepositoryReferencesCleanupPolicy }).(pulumi.StringOutput)
 }

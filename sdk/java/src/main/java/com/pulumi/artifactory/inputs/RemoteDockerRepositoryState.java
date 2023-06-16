@@ -92,18 +92,16 @@ public final class RemoteDockerRepositoryState extends com.pulumi.resources.Reso
     }
 
     /**
-     * When set, Artifactory will block the pulling of Docker images with manifest v2
-     * schema 1 from the remote repository (i.e. the upstream). It will be possible to pull images with manifest v2 schema 1
-     * that exist in the cache.
+     * When set, Artifactory will block the pulling of Docker images with manifest v2 schema 1 from the remote repository (i.e.
+     * the upstream). It will be possible to pull images with manifest v2 schema 1 that exist in the cache.
      * 
      */
     @Import(name="blockPushingSchema1")
     private @Nullable Output<Boolean> blockPushingSchema1;
 
     /**
-     * @return When set, Artifactory will block the pulling of Docker images with manifest v2
-     * schema 1 from the remote repository (i.e. the upstream). It will be possible to pull images with manifest v2 schema 1
-     * that exist in the cache.
+     * @return When set, Artifactory will block the pulling of Docker images with manifest v2 schema 1 from the remote repository (i.e.
+     * the upstream). It will be possible to pull images with manifest v2 schema 1 that exist in the cache.
      * 
      */
     public Optional<Output<Boolean>> blockPushingSchema1() {
@@ -248,14 +246,14 @@ public final class RemoteDockerRepositoryState extends com.pulumi.resources.Reso
     }
 
     /**
-     * Also known as &#39;Foreign Layers Caching&#39; on the UI.
+     * Also known as &#39;Foreign Layers Caching&#39; on the UI, default is `false`.
      * 
      */
     @Import(name="externalDependenciesEnabled")
     private @Nullable Output<Boolean> externalDependenciesEnabled;
 
     /**
-     * @return Also known as &#39;Foreign Layers Caching&#39; on the UI.
+     * @return Also known as &#39;Foreign Layers Caching&#39; on the UI, default is `false`.
      * 
      */
     public Optional<Output<Boolean>> externalDependenciesEnabled() {
@@ -263,26 +261,24 @@ public final class RemoteDockerRepositoryState extends com.pulumi.resources.Reso
     }
 
     /**
-     * An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will
-     * follow to download remote modules from, when presented with &#39;go-import&#39; meta tags in the remote repository response.
-     * By default, this is set to `[**]` in the UI, which means that remote modules may be downloaded from any external VCS source.
-     * Due to SDKv2 limitations, we can&#39;t set the default value for the list.
-     * This value `[**]` must be assigned to the attribute manually, if user don&#39;t specify any other non-default values.
-     * We don&#39;t want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns
-     * `[**]` on update if HCL doesn&#39;t have the attribute set or the list is empty.
+     * An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download
+     * remote modules from, when presented with &#39;go-import&#39; meta tags in the remote repository response. By default, this is
+     * set to &#39;**&#39; in the UI, which means that remote modules may be downloaded from any external VCS source.Due to SDKv2
+     * limitations, we can&#39;t set the default value for the list.This value must be assigned to the attribute manually, if user
+     * don&#39;t specify any other non-default values.This attribute must be set together with `external_dependencies_enabled =
+     * true`
      * 
      */
     @Import(name="externalDependenciesPatterns")
     private @Nullable Output<List<String>> externalDependenciesPatterns;
 
     /**
-     * @return An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will
-     * follow to download remote modules from, when presented with &#39;go-import&#39; meta tags in the remote repository response.
-     * By default, this is set to `[**]` in the UI, which means that remote modules may be downloaded from any external VCS source.
-     * Due to SDKv2 limitations, we can&#39;t set the default value for the list.
-     * This value `[**]` must be assigned to the attribute manually, if user don&#39;t specify any other non-default values.
-     * We don&#39;t want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns
-     * `[**]` on update if HCL doesn&#39;t have the attribute set or the list is empty.
+     * @return An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download
+     * remote modules from, when presented with &#39;go-import&#39; meta tags in the remote repository response. By default, this is
+     * set to &#39;**&#39; in the UI, which means that remote modules may be downloaded from any external VCS source.Due to SDKv2
+     * limitations, we can&#39;t set the default value for the list.This value must be assigned to the attribute manually, if user
+     * don&#39;t specify any other non-default values.This attribute must be set together with `external_dependencies_enabled =
+     * true`
      * 
      */
     public Optional<Output<List<String>>> externalDependenciesPatterns() {
@@ -324,16 +320,16 @@ public final class RemoteDockerRepositoryState extends com.pulumi.resources.Reso
     }
 
     /**
-     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-     * contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      * 
      */
     @Import(name="key")
     private @Nullable Output<String> key;
 
     /**
-     * @return A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-     * contain spaces or special characters.
+     * @return A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      * 
      */
     public Optional<Output<String>> key() {
@@ -901,9 +897,8 @@ public final class RemoteDockerRepositoryState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param blockPushingSchema1 When set, Artifactory will block the pulling of Docker images with manifest v2
-         * schema 1 from the remote repository (i.e. the upstream). It will be possible to pull images with manifest v2 schema 1
-         * that exist in the cache.
+         * @param blockPushingSchema1 When set, Artifactory will block the pulling of Docker images with manifest v2 schema 1 from the remote repository (i.e.
+         * the upstream). It will be possible to pull images with manifest v2 schema 1 that exist in the cache.
          * 
          * @return builder
          * 
@@ -914,9 +909,8 @@ public final class RemoteDockerRepositoryState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param blockPushingSchema1 When set, Artifactory will block the pulling of Docker images with manifest v2
-         * schema 1 from the remote repository (i.e. the upstream). It will be possible to pull images with manifest v2 schema 1
-         * that exist in the cache.
+         * @param blockPushingSchema1 When set, Artifactory will block the pulling of Docker images with manifest v2 schema 1 from the remote repository (i.e.
+         * the upstream). It will be possible to pull images with manifest v2 schema 1 that exist in the cache.
          * 
          * @return builder
          * 
@@ -1113,7 +1107,7 @@ public final class RemoteDockerRepositoryState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param externalDependenciesEnabled Also known as &#39;Foreign Layers Caching&#39; on the UI.
+         * @param externalDependenciesEnabled Also known as &#39;Foreign Layers Caching&#39; on the UI, default is `false`.
          * 
          * @return builder
          * 
@@ -1124,7 +1118,7 @@ public final class RemoteDockerRepositoryState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param externalDependenciesEnabled Also known as &#39;Foreign Layers Caching&#39; on the UI.
+         * @param externalDependenciesEnabled Also known as &#39;Foreign Layers Caching&#39; on the UI, default is `false`.
          * 
          * @return builder
          * 
@@ -1134,13 +1128,12 @@ public final class RemoteDockerRepositoryState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param externalDependenciesPatterns An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will
-         * follow to download remote modules from, when presented with &#39;go-import&#39; meta tags in the remote repository response.
-         * By default, this is set to `[**]` in the UI, which means that remote modules may be downloaded from any external VCS source.
-         * Due to SDKv2 limitations, we can&#39;t set the default value for the list.
-         * This value `[**]` must be assigned to the attribute manually, if user don&#39;t specify any other non-default values.
-         * We don&#39;t want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns
-         * `[**]` on update if HCL doesn&#39;t have the attribute set or the list is empty.
+         * @param externalDependenciesPatterns An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download
+         * remote modules from, when presented with &#39;go-import&#39; meta tags in the remote repository response. By default, this is
+         * set to &#39;**&#39; in the UI, which means that remote modules may be downloaded from any external VCS source.Due to SDKv2
+         * limitations, we can&#39;t set the default value for the list.This value must be assigned to the attribute manually, if user
+         * don&#39;t specify any other non-default values.This attribute must be set together with `external_dependencies_enabled =
+         * true`
          * 
          * @return builder
          * 
@@ -1151,13 +1144,12 @@ public final class RemoteDockerRepositoryState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param externalDependenciesPatterns An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will
-         * follow to download remote modules from, when presented with &#39;go-import&#39; meta tags in the remote repository response.
-         * By default, this is set to `[**]` in the UI, which means that remote modules may be downloaded from any external VCS source.
-         * Due to SDKv2 limitations, we can&#39;t set the default value for the list.
-         * This value `[**]` must be assigned to the attribute manually, if user don&#39;t specify any other non-default values.
-         * We don&#39;t want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns
-         * `[**]` on update if HCL doesn&#39;t have the attribute set or the list is empty.
+         * @param externalDependenciesPatterns An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download
+         * remote modules from, when presented with &#39;go-import&#39; meta tags in the remote repository response. By default, this is
+         * set to &#39;**&#39; in the UI, which means that remote modules may be downloaded from any external VCS source.Due to SDKv2
+         * limitations, we can&#39;t set the default value for the list.This value must be assigned to the attribute manually, if user
+         * don&#39;t specify any other non-default values.This attribute must be set together with `external_dependencies_enabled =
+         * true`
          * 
          * @return builder
          * 
@@ -1167,13 +1159,12 @@ public final class RemoteDockerRepositoryState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param externalDependenciesPatterns An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will
-         * follow to download remote modules from, when presented with &#39;go-import&#39; meta tags in the remote repository response.
-         * By default, this is set to `[**]` in the UI, which means that remote modules may be downloaded from any external VCS source.
-         * Due to SDKv2 limitations, we can&#39;t set the default value for the list.
-         * This value `[**]` must be assigned to the attribute manually, if user don&#39;t specify any other non-default values.
-         * We don&#39;t want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns
-         * `[**]` on update if HCL doesn&#39;t have the attribute set or the list is empty.
+         * @param externalDependenciesPatterns An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download
+         * remote modules from, when presented with &#39;go-import&#39; meta tags in the remote repository response. By default, this is
+         * set to &#39;**&#39; in the UI, which means that remote modules may be downloaded from any external VCS source.Due to SDKv2
+         * limitations, we can&#39;t set the default value for the list.This value must be assigned to the attribute manually, if user
+         * don&#39;t specify any other non-default values.This attribute must be set together with `external_dependencies_enabled =
+         * true`
          * 
          * @return builder
          * 
@@ -1229,8 +1220,8 @@ public final class RemoteDockerRepositoryState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param key A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-         * contain spaces or special characters.
+         * @param key A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+         * characters. It cannot begin with a number or contain spaces or special characters.
          * 
          * @return builder
          * 
@@ -1241,8 +1232,8 @@ public final class RemoteDockerRepositoryState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param key A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-         * contain spaces or special characters.
+         * @param key A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+         * characters. It cannot begin with a number or contain spaces or special characters.
          * 
          * @return builder
          * 

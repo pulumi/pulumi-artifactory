@@ -214,14 +214,14 @@ public final class RemoteConanRepositoryArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Force basic authentication credentials in order to use this repository. Default value is `false`.
+     * Force basic authentication credentials in order to use this repository. Default value is &#39;false&#39;.
      * 
      */
     @Import(name="forceConanAuthentication")
     private @Nullable Output<Boolean> forceConanAuthentication;
 
     /**
-     * @return Force basic authentication credentials in order to use this repository. Default value is `false`.
+     * @return Force basic authentication credentials in order to use this repository. Default value is &#39;false&#39;.
      * 
      */
     public Optional<Output<Boolean>> forceConanAuthentication() {
@@ -263,16 +263,16 @@ public final class RemoteConanRepositoryArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-     * contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      * 
      */
     @Import(name="key", required=true)
     private Output<String> key;
 
     /**
-     * @return A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-     * contain spaces or special characters.
+     * @return A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      * 
      */
     public Output<String> key() {
@@ -995,7 +995,7 @@ public final class RemoteConanRepositoryArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param forceConanAuthentication Force basic authentication credentials in order to use this repository. Default value is `false`.
+         * @param forceConanAuthentication Force basic authentication credentials in order to use this repository. Default value is &#39;false&#39;.
          * 
          * @return builder
          * 
@@ -1006,7 +1006,7 @@ public final class RemoteConanRepositoryArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param forceConanAuthentication Force basic authentication credentials in order to use this repository. Default value is `false`.
+         * @param forceConanAuthentication Force basic authentication credentials in order to use this repository. Default value is &#39;false&#39;.
          * 
          * @return builder
          * 
@@ -1062,8 +1062,8 @@ public final class RemoteConanRepositoryArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param key A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-         * contain spaces or special characters.
+         * @param key A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+         * characters. It cannot begin with a number or contain spaces or special characters.
          * 
          * @return builder
          * 
@@ -1074,8 +1074,8 @@ public final class RemoteConanRepositoryArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param key A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-         * contain spaces or special characters.
+         * @param key A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+         * characters. It cannot begin with a number or contain spaces or special characters.
          * 
          * @return builder
          * 

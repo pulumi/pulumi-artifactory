@@ -116,17 +116,9 @@ public final class GetRemoteGenericRepositoryPlainArgs extends com.pulumi.resour
         return Optional.ofNullable(this.includesPattern);
     }
 
-    /**
-     * the identity key of the repo.
-     * 
-     */
     @Import(name="key", required=true)
     private String key;
 
-    /**
-     * @return the identity key of the repo.
-     * 
-     */
     public String key() {
         return this.key;
     }
@@ -208,17 +200,9 @@ public final class GetRemoteGenericRepositoryPlainArgs extends com.pulumi.resour
         return Optional.ofNullable(this.projectKey);
     }
 
-    /**
-     * (Optional, Default: `false`) When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
-     * 
-     */
     @Import(name="propagateQueryParams")
     private @Nullable Boolean propagateQueryParams;
 
-    /**
-     * @return (Optional, Default: `false`) When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
-     * 
-     */
     public Optional<Boolean> propagateQueryParams() {
         return Optional.ofNullable(this.propagateQueryParams);
     }
@@ -455,12 +439,6 @@ public final class GetRemoteGenericRepositoryPlainArgs extends com.pulumi.resour
             return this;
         }
 
-        /**
-         * @param key the identity key of the repo.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(String key) {
             $.key = key;
             return this;
@@ -525,12 +503,6 @@ public final class GetRemoteGenericRepositoryPlainArgs extends com.pulumi.resour
             return this;
         }
 
-        /**
-         * @param propagateQueryParams (Optional, Default: `false`) When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
-         * 
-         * @return builder
-         * 
-         */
         public Builder propagateQueryParams(@Nullable Boolean propagateQueryParams) {
             $.propagateQueryParams = propagateQueryParams;
             return this;

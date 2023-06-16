@@ -68,25 +68,16 @@ class GetFileinfoResult:
     @property
     @pulumi.getter
     def created(self) -> str:
-        """
-        The time & date when the file was created.
-        """
         return pulumi.get(self, "created")
 
     @property
     @pulumi.getter(name="createdBy")
     def created_by(self) -> str:
-        """
-        The user who created the file.
-        """
         return pulumi.get(self, "created_by")
 
     @property
     @pulumi.getter(name="downloadUri")
     def download_uri(self) -> str:
-        """
-        The URI that can be used to download the file.
-        """
         return pulumi.get(self, "download_uri")
 
     @property
@@ -100,41 +91,26 @@ class GetFileinfoResult:
     @property
     @pulumi.getter(name="lastModified")
     def last_modified(self) -> str:
-        """
-        The time & date when the file was last modified.
-        """
         return pulumi.get(self, "last_modified")
 
     @property
     @pulumi.getter(name="lastUpdated")
     def last_updated(self) -> str:
-        """
-        The time & date when the file was last updated.
-        """
         return pulumi.get(self, "last_updated")
 
     @property
     @pulumi.getter
     def md5(self) -> str:
-        """
-        MD5 checksum of the file.
-        """
         return pulumi.get(self, "md5")
 
     @property
     @pulumi.getter
     def mimetype(self) -> str:
-        """
-        The mimetype of the file.
-        """
         return pulumi.get(self, "mimetype")
 
     @property
     @pulumi.getter(name="modifiedBy")
     def modified_by(self) -> str:
-        """
-        The user who last modified the file.
-        """
         return pulumi.get(self, "modified_by")
 
     @property
@@ -150,25 +126,16 @@ class GetFileinfoResult:
     @property
     @pulumi.getter
     def sha1(self) -> str:
-        """
-        SHA1 checksum of the file.
-        """
         return pulumi.get(self, "sha1")
 
     @property
     @pulumi.getter
     def sha256(self) -> str:
-        """
-        SHA256 checksum of the file.
-        """
         return pulumi.get(self, "sha256")
 
     @property
     @pulumi.getter
     def size(self) -> int:
-        """
-        The size of the file.
-        """
         return pulumi.get(self, "size")
 
 
@@ -198,23 +165,7 @@ def get_fileinfo(path: Optional[str] = None,
                  repository: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFileinfoResult:
     """
-    ## # Artifactory File Info Data Source
-
-    Provides an Artifactory fileinfo datasource. This can be used to read metadata of files stored in Artifactory repositories.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    my_file = artifactory.get_fileinfo(path="/path/to/the/artifact.zip",
-        repository="repo-key")
-    ```
-
-
-    :param str path: The path to the file within the repository.
-    :param str repository: Name of the repository where the file is stored.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['path'] = path
@@ -244,22 +195,6 @@ def get_fileinfo_output(path: Optional[pulumi.Input[str]] = None,
                         repository: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFileinfoResult]:
     """
-    ## # Artifactory File Info Data Source
-
-    Provides an Artifactory fileinfo datasource. This can be used to read metadata of files stored in Artifactory repositories.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    my_file = artifactory.get_fileinfo(path="/path/to/the/artifact.zip",
-        repository="repo-key")
-    ```
-
-
-    :param str path: The path to the file within the repository.
-    :param str repository: Name of the repository where the file is stored.
+    Use this data source to access information about an existing resource.
     """
     ...

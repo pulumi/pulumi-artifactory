@@ -6,20 +6,6 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
-/**
- * Retrieves a remote Composer repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const remote-composer = artifactory.getRemoteComposerRepository({
- *     key: "remote-composer",
- * });
- * ```
- */
 export function getRemoteComposerRepository(args: GetRemoteComposerRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetRemoteComposerRepositoryResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -81,9 +67,6 @@ export interface GetRemoteComposerRepositoryArgs {
     bypassHeadRequests?: boolean;
     cdnRedirect?: boolean;
     clientTlsCertificate?: string;
-    /**
-     * (Optional) Proxy remote Composer repository. Default value is `https://packagist.org`.
-     */
     composerRegistryUrl?: string;
     contentSynchronisation?: inputs.GetRemoteComposerRepositoryContentSynchronisation;
     description?: string;
@@ -92,9 +75,6 @@ export interface GetRemoteComposerRepositoryArgs {
     excludesPattern?: string;
     hardFail?: boolean;
     includesPattern?: string;
-    /**
-     * the identity key of the repo.
-     */
     key: string;
     listRemoteFolderItems?: boolean;
     localAddress?: string;
@@ -120,13 +100,7 @@ export interface GetRemoteComposerRepositoryArgs {
     unusedArtifactsCleanupPeriodHours?: number;
     url?: string;
     username?: string;
-    /**
-     * (Optional) This attribute is used when vcsGitProvider is set to `CUSTOM`. Provided URL will be used as proxy.
-     */
     vcsGitDownloadUrl?: string;
-    /**
-     * (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`. Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
-     */
     vcsGitProvider?: string;
     xrayIndex?: boolean;
 }
@@ -142,9 +116,6 @@ export interface GetRemoteComposerRepositoryResult {
     readonly bypassHeadRequests?: boolean;
     readonly cdnRedirect?: boolean;
     readonly clientTlsCertificate: string;
-    /**
-     * (Optional) Proxy remote Composer repository. Default value is `https://packagist.org`.
-     */
     readonly composerRegistryUrl?: string;
     readonly contentSynchronisation: outputs.GetRemoteComposerRepositoryContentSynchronisation;
     readonly description?: string;
@@ -183,30 +154,10 @@ export interface GetRemoteComposerRepositoryResult {
     readonly unusedArtifactsCleanupPeriodHours?: number;
     readonly url?: string;
     readonly username?: string;
-    /**
-     * (Optional) This attribute is used when vcsGitProvider is set to `CUSTOM`. Provided URL will be used as proxy.
-     */
     readonly vcsGitDownloadUrl?: string;
-    /**
-     * (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`. Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
-     */
     readonly vcsGitProvider?: string;
     readonly xrayIndex?: boolean;
 }
-/**
- * Retrieves a remote Composer repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const remote-composer = artifactory.getRemoteComposerRepository({
- *     key: "remote-composer",
- * });
- * ```
- */
 export function getRemoteComposerRepositoryOutput(args: GetRemoteComposerRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemoteComposerRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getRemoteComposerRepository(a, opts))
 }
@@ -222,9 +173,6 @@ export interface GetRemoteComposerRepositoryOutputArgs {
     bypassHeadRequests?: pulumi.Input<boolean>;
     cdnRedirect?: pulumi.Input<boolean>;
     clientTlsCertificate?: pulumi.Input<string>;
-    /**
-     * (Optional) Proxy remote Composer repository. Default value is `https://packagist.org`.
-     */
     composerRegistryUrl?: pulumi.Input<string>;
     contentSynchronisation?: pulumi.Input<inputs.GetRemoteComposerRepositoryContentSynchronisationArgs>;
     description?: pulumi.Input<string>;
@@ -233,9 +181,6 @@ export interface GetRemoteComposerRepositoryOutputArgs {
     excludesPattern?: pulumi.Input<string>;
     hardFail?: pulumi.Input<boolean>;
     includesPattern?: pulumi.Input<string>;
-    /**
-     * the identity key of the repo.
-     */
     key: pulumi.Input<string>;
     listRemoteFolderItems?: pulumi.Input<boolean>;
     localAddress?: pulumi.Input<string>;
@@ -261,13 +206,7 @@ export interface GetRemoteComposerRepositoryOutputArgs {
     unusedArtifactsCleanupPeriodHours?: pulumi.Input<number>;
     url?: pulumi.Input<string>;
     username?: pulumi.Input<string>;
-    /**
-     * (Optional) This attribute is used when vcsGitProvider is set to `CUSTOM`. Provided URL will be used as proxy.
-     */
     vcsGitDownloadUrl?: pulumi.Input<string>;
-    /**
-     * (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`. Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
-     */
     vcsGitProvider?: pulumi.Input<string>;
     xrayIndex?: pulumi.Input<boolean>;
 }

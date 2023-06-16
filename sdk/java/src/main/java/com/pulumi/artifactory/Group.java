@@ -16,16 +16,6 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * ## Import
- * 
- * ```sh
- *  $ pulumi import artifactory:index/group:Group terraform-group mygroup
- * ```
- * 
- *  ~&gt; `users_names` can&#39;t be imported due to API limitations.
- * 
- */
 @ResourceType(type="artifactory:index/group:Group")
 public class Group extends com.pulumi.resources.CustomResource {
     /**
@@ -61,42 +51,42 @@ public class Group extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="description", type=String.class, parameters={})
-    private Output</* @Nullable */ String> description;
+    private Output<String> description;
 
     /**
      * @return A description for the group.
      * 
      */
-    public Output<Optional<String>> description() {
-        return Codegen.optional(this.description);
+    public Output<String> description() {
+        return this.description;
     }
     /**
      * When this is set to `true`, an empty or missing usernames array will detach all users from the group.
      * 
      */
     @Export(name="detachAllUsers", type=Boolean.class, parameters={})
-    private Output<Boolean> detachAllUsers;
+    private Output</* @Nullable */ Boolean> detachAllUsers;
 
     /**
      * @return When this is set to `true`, an empty or missing usernames array will detach all users from the group.
      * 
      */
-    public Output<Boolean> detachAllUsers() {
-        return this.detachAllUsers;
+    public Output<Optional<Boolean>> detachAllUsers() {
+        return Codegen.optional(this.detachAllUsers);
     }
     /**
      * New external group ID used to configure the corresponding group in Azure AD.
      * 
      */
     @Export(name="externalId", type=String.class, parameters={})
-    private Output</* @Nullable */ String> externalId;
+    private Output<String> externalId;
 
     /**
      * @return New external group ID used to configure the corresponding group in Azure AD.
      * 
      */
-    public Output<Optional<String>> externalId() {
-        return Codegen.optional(this.externalId);
+    public Output<String> externalId() {
+        return this.externalId;
     }
     /**
      * Name of the group.
@@ -145,14 +135,14 @@ public class Group extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="realmAttributes", type=String.class, parameters={})
-    private Output</* @Nullable */ String> realmAttributes;
+    private Output<String> realmAttributes;
 
     /**
      * @return The realm attributes for the group.
      * 
      */
-    public Output<Optional<String>> realmAttributes() {
-        return Codegen.optional(this.realmAttributes);
+    public Output<String> realmAttributes() {
+        return this.realmAttributes;
     }
     /**
      * When this override is set, User in the group can manage Xray Reports on any resource type. Default value is `false`.
@@ -173,14 +163,14 @@ public class Group extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="usersNames", type=List.class, parameters={String.class})
-    private Output</* @Nullable */ List<String>> usersNames;
+    private Output<List<String>> usersNames;
 
     /**
      * @return List of users assigned to the group. If not set or empty, Terraform will not manage group membership.
      * 
      */
-    public Output<Optional<List<String>>> usersNames() {
-        return Codegen.optional(this.usersNames);
+    public Output<List<String>> usersNames() {
+        return this.usersNames;
     }
     /**
      * When this override is set, User in the group can manage Xray Watches on any resource type. Default value is `false`.

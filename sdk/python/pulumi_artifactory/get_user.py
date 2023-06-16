@@ -50,33 +50,21 @@ class GetUserResult:
     @property
     @pulumi.getter
     def admin(self) -> Optional[bool]:
-        """
-        When enabled, this user is an administrator with all the ensuing privileges. Default value is `false`.
-        """
         return pulumi.get(self, "admin")
 
     @property
     @pulumi.getter(name="disableUiAccess")
     def disable_ui_access(self) -> Optional[bool]:
-        """
-        When set, this user can only access Artifactory through the REST API. This option cannot be set if the user has Admin privileges. Default value is `true`.
-        """
         return pulumi.get(self, "disable_ui_access")
 
     @property
     @pulumi.getter
     def email(self) -> Optional[str]:
-        """
-        Email for user.
-        """
         return pulumi.get(self, "email")
 
     @property
     @pulumi.getter
     def groups(self) -> Optional[Sequence[str]]:
-        """
-        List of groups this user is a part of.
-        """
         return pulumi.get(self, "groups")
 
     @property
@@ -90,9 +78,6 @@ class GetUserResult:
     @property
     @pulumi.getter(name="internalPasswordDisabled")
     def internal_password_disabled(self) -> Optional[bool]:
-        """
-        When set, disables the fallback of using an internal password when external authentication (such as LDAP) is enabled.
-        """
         return pulumi.get(self, "internal_password_disabled")
 
     @property
@@ -103,9 +88,6 @@ class GetUserResult:
     @property
     @pulumi.getter(name="profileUpdatable")
     def profile_updatable(self) -> Optional[bool]:
-        """
-        When set, this user can update his profile details (except for the password. Only an administrator can update the password). Default value is `true`.
-        """
         return pulumi.get(self, "profile_updatable")
 
 
@@ -134,27 +116,7 @@ def get_user(admin: Optional[bool] = None,
              profile_updatable: Optional[bool] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserResult:
     """
-    ## # Artifactory User Data Source
-
-    Provides an Artifactory user data source. This can be used to read the configuration of users in artifactory.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    user1 = artifactory.get_user(name="user1")
-    ```
-
-
-    :param bool admin: When enabled, this user is an administrator with all the ensuing privileges. Default value is `false`.
-    :param bool disable_ui_access: When set, this user can only access Artifactory through the REST API. This option cannot be set if the user has Admin privileges. Default value is `true`.
-    :param str email: Email for user.
-    :param Sequence[str] groups: List of groups this user is a part of.
-    :param bool internal_password_disabled: When set, disables the fallback of using an internal password when external authentication (such as LDAP) is enabled.
-    :param str name: Name of the user.
-    :param bool profile_updatable: When set, this user can update his profile details (except for the password. Only an administrator can update the password). Default value is `true`.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['admin'] = admin
@@ -188,26 +150,6 @@ def get_user_output(admin: Optional[pulumi.Input[Optional[bool]]] = None,
                     profile_updatable: Optional[pulumi.Input[Optional[bool]]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserResult]:
     """
-    ## # Artifactory User Data Source
-
-    Provides an Artifactory user data source. This can be used to read the configuration of users in artifactory.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    user1 = artifactory.get_user(name="user1")
-    ```
-
-
-    :param bool admin: When enabled, this user is an administrator with all the ensuing privileges. Default value is `false`.
-    :param bool disable_ui_access: When set, this user can only access Artifactory through the REST API. This option cannot be set if the user has Admin privileges. Default value is `true`.
-    :param str email: Email for user.
-    :param Sequence[str] groups: List of groups this user is a part of.
-    :param bool internal_password_disabled: When set, disables the fallback of using an internal password when external authentication (such as LDAP) is enabled.
-    :param str name: Name of the user.
-    :param bool profile_updatable: When set, this user can update his profile details (except for the password. Only an administrator can update the password). Default value is `true`.
+    Use this data source to access information about an existing resource.
     """
     ...

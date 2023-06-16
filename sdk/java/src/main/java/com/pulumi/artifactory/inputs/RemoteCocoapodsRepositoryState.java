@@ -248,16 +248,16 @@ public final class RemoteCocoapodsRepositoryState extends com.pulumi.resources.R
     }
 
     /**
-     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-     * contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      * 
      */
     @Import(name="key")
     private @Nullable Output<String> key;
 
     /**
-     * @return A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-     * contain spaces or special characters.
+     * @return A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      * 
      */
     public Optional<Output<String>> key() {
@@ -394,14 +394,14 @@ public final class RemoteCocoapodsRepositoryState extends com.pulumi.resources.R
     }
 
     /**
-     * Proxy remote CocoaPods Specs repositories. Default value is `https://github.com/CocoaPods/Specs`.
+     * Proxy remote CocoaPods Specs repositories. Default value is &#34;https://github.com/CocoaPods/Specs&#34;.
      * 
      */
     @Import(name="podsSpecsRepoUrl")
     private @Nullable Output<String> podsSpecsRepoUrl;
 
     /**
-     * @return Proxy remote CocoaPods Specs repositories. Default value is `https://github.com/CocoaPods/Specs`.
+     * @return Proxy remote CocoaPods Specs repositories. Default value is &#34;https://github.com/CocoaPods/Specs&#34;.
      * 
      */
     public Optional<Output<String>> podsSpecsRepoUrl() {
@@ -659,14 +659,14 @@ public final class RemoteCocoapodsRepositoryState extends com.pulumi.resources.R
     }
 
     /**
-     * This attribute is used when vcs_git_provider is set to `CUSTOM`. Provided URL will be used as proxy.
+     * This attribute is used when vcs_git_provider is set to &#39;CUSTOM&#39;. Provided URL will be used as proxy.
      * 
      */
     @Import(name="vcsGitDownloadUrl")
     private @Nullable Output<String> vcsGitDownloadUrl;
 
     /**
-     * @return This attribute is used when vcs_git_provider is set to `CUSTOM`. Provided URL will be used as proxy.
+     * @return This attribute is used when vcs_git_provider is set to &#39;CUSTOM&#39;. Provided URL will be used as proxy.
      * 
      */
     public Optional<Output<String>> vcsGitDownloadUrl() {
@@ -674,16 +674,16 @@ public final class RemoteCocoapodsRepositoryState extends com.pulumi.resources.R
     }
 
     /**
-     * Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`.
-     * Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
+     * Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance.
+     * Default value is &#34;GITHUB&#34;.
      * 
      */
     @Import(name="vcsGitProvider")
     private @Nullable Output<String> vcsGitProvider;
 
     /**
-     * @return Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`.
-     * Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
+     * @return Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance.
+     * Default value is &#34;GITHUB&#34;.
      * 
      */
     public Optional<Output<String>> vcsGitProvider() {
@@ -1083,8 +1083,8 @@ public final class RemoteCocoapodsRepositoryState extends com.pulumi.resources.R
         }
 
         /**
-         * @param key A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-         * contain spaces or special characters.
+         * @param key A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+         * characters. It cannot begin with a number or contain spaces or special characters.
          * 
          * @return builder
          * 
@@ -1095,8 +1095,8 @@ public final class RemoteCocoapodsRepositoryState extends com.pulumi.resources.R
         }
 
         /**
-         * @param key A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-         * contain spaces or special characters.
+         * @param key A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+         * characters. It cannot begin with a number or contain spaces or special characters.
          * 
          * @return builder
          * 
@@ -1281,7 +1281,7 @@ public final class RemoteCocoapodsRepositoryState extends com.pulumi.resources.R
         }
 
         /**
-         * @param podsSpecsRepoUrl Proxy remote CocoaPods Specs repositories. Default value is `https://github.com/CocoaPods/Specs`.
+         * @param podsSpecsRepoUrl Proxy remote CocoaPods Specs repositories. Default value is &#34;https://github.com/CocoaPods/Specs&#34;.
          * 
          * @return builder
          * 
@@ -1292,7 +1292,7 @@ public final class RemoteCocoapodsRepositoryState extends com.pulumi.resources.R
         }
 
         /**
-         * @param podsSpecsRepoUrl Proxy remote CocoaPods Specs repositories. Default value is `https://github.com/CocoaPods/Specs`.
+         * @param podsSpecsRepoUrl Proxy remote CocoaPods Specs repositories. Default value is &#34;https://github.com/CocoaPods/Specs&#34;.
          * 
          * @return builder
          * 
@@ -1663,7 +1663,7 @@ public final class RemoteCocoapodsRepositoryState extends com.pulumi.resources.R
         }
 
         /**
-         * @param vcsGitDownloadUrl This attribute is used when vcs_git_provider is set to `CUSTOM`. Provided URL will be used as proxy.
+         * @param vcsGitDownloadUrl This attribute is used when vcs_git_provider is set to &#39;CUSTOM&#39;. Provided URL will be used as proxy.
          * 
          * @return builder
          * 
@@ -1674,7 +1674,7 @@ public final class RemoteCocoapodsRepositoryState extends com.pulumi.resources.R
         }
 
         /**
-         * @param vcsGitDownloadUrl This attribute is used when vcs_git_provider is set to `CUSTOM`. Provided URL will be used as proxy.
+         * @param vcsGitDownloadUrl This attribute is used when vcs_git_provider is set to &#39;CUSTOM&#39;. Provided URL will be used as proxy.
          * 
          * @return builder
          * 
@@ -1684,8 +1684,8 @@ public final class RemoteCocoapodsRepositoryState extends com.pulumi.resources.R
         }
 
         /**
-         * @param vcsGitProvider Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`.
-         * Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
+         * @param vcsGitProvider Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance.
+         * Default value is &#34;GITHUB&#34;.
          * 
          * @return builder
          * 
@@ -1696,8 +1696,8 @@ public final class RemoteCocoapodsRepositoryState extends com.pulumi.resources.R
         }
 
         /**
-         * @param vcsGitProvider Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`.
-         * Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
+         * @param vcsGitProvider Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance.
+         * Default value is &#34;GITHUB&#34;.
          * 
          * @return builder
          * 

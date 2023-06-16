@@ -10,33 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Retrieves a federated Docker repository.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupFederatedDockerV2Repository(ctx, &artifactory.LookupFederatedDockerV2RepositoryArgs{
-//				Key: "federated-test-docker-repo",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupFederatedDockerV2Repository(ctx *pulumi.Context, args *LookupFederatedDockerV2RepositoryArgs, opts ...pulumi.InvokeOption) (*LookupFederatedDockerV2RepositoryResult, error) {
 	var rv LookupFederatedDockerV2RepositoryResult
 	err := ctx.Invoke("artifactory:index/getFederatedDockerV2Repository:getFederatedDockerV2Repository", args, &rv, opts...)
@@ -48,31 +21,26 @@ func LookupFederatedDockerV2Repository(ctx *pulumi.Context, args *LookupFederate
 
 // A collection of arguments for invoking getFederatedDockerV2Repository.
 type LookupFederatedDockerV2RepositoryArgs struct {
-	ArchiveBrowsingEnabled *bool   `pulumi:"archiveBrowsingEnabled"`
-	BlackedOut             *bool   `pulumi:"blackedOut"`
-	BlockPushingSchema1    *bool   `pulumi:"blockPushingSchema1"`
-	CdnRedirect            *bool   `pulumi:"cdnRedirect"`
-	CleanupOnDelete        *bool   `pulumi:"cleanupOnDelete"`
-	Description            *string `pulumi:"description"`
-	DownloadDirect         *bool   `pulumi:"downloadDirect"`
-	ExcludesPattern        *string `pulumi:"excludesPattern"`
-	IncludesPattern        *string `pulumi:"includesPattern"`
-	// the identity key of the repo.
-	Key           string `pulumi:"key"`
-	MaxUniqueTags *int   `pulumi:"maxUniqueTags"`
-	// The list of Federated members and must contain this repository URL (configured base URL
-	// `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
-	// Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
-	// to set up Federated repositories correctly.
-	Members             []GetFederatedDockerV2RepositoryMember `pulumi:"members"`
-	Notes               *string                                `pulumi:"notes"`
-	PriorityResolution  *bool                                  `pulumi:"priorityResolution"`
-	ProjectEnvironments []string                               `pulumi:"projectEnvironments"`
-	ProjectKey          *string                                `pulumi:"projectKey"`
-	PropertySets        []string                               `pulumi:"propertySets"`
-	RepoLayoutRef       *string                                `pulumi:"repoLayoutRef"`
-	TagRetention        *int                                   `pulumi:"tagRetention"`
-	XrayIndex           *bool                                  `pulumi:"xrayIndex"`
+	ArchiveBrowsingEnabled *bool                                  `pulumi:"archiveBrowsingEnabled"`
+	BlackedOut             *bool                                  `pulumi:"blackedOut"`
+	BlockPushingSchema1    *bool                                  `pulumi:"blockPushingSchema1"`
+	CdnRedirect            *bool                                  `pulumi:"cdnRedirect"`
+	CleanupOnDelete        *bool                                  `pulumi:"cleanupOnDelete"`
+	Description            *string                                `pulumi:"description"`
+	DownloadDirect         *bool                                  `pulumi:"downloadDirect"`
+	ExcludesPattern        *string                                `pulumi:"excludesPattern"`
+	IncludesPattern        *string                                `pulumi:"includesPattern"`
+	Key                    string                                 `pulumi:"key"`
+	MaxUniqueTags          *int                                   `pulumi:"maxUniqueTags"`
+	Members                []GetFederatedDockerV2RepositoryMember `pulumi:"members"`
+	Notes                  *string                                `pulumi:"notes"`
+	PriorityResolution     *bool                                  `pulumi:"priorityResolution"`
+	ProjectEnvironments    []string                               `pulumi:"projectEnvironments"`
+	ProjectKey             *string                                `pulumi:"projectKey"`
+	PropertySets           []string                               `pulumi:"propertySets"`
+	RepoLayoutRef          *string                                `pulumi:"repoLayoutRef"`
+	TagRetention           *int                                   `pulumi:"tagRetention"`
+	XrayIndex              *bool                                  `pulumi:"xrayIndex"`
 }
 
 // A collection of values returned by getFederatedDockerV2Repository.
@@ -87,14 +55,10 @@ type LookupFederatedDockerV2RepositoryResult struct {
 	DownloadDirect         *bool   `pulumi:"downloadDirect"`
 	ExcludesPattern        string  `pulumi:"excludesPattern"`
 	// The provider-assigned unique ID for this managed resource.
-	Id              string `pulumi:"id"`
-	IncludesPattern string `pulumi:"includesPattern"`
-	Key             string `pulumi:"key"`
-	MaxUniqueTags   *int   `pulumi:"maxUniqueTags"`
-	// The list of Federated members and must contain this repository URL (configured base URL
-	// `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
-	// Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
-	// to set up Federated repositories correctly.
+	Id                  string                                 `pulumi:"id"`
+	IncludesPattern     string                                 `pulumi:"includesPattern"`
+	Key                 string                                 `pulumi:"key"`
+	MaxUniqueTags       *int                                   `pulumi:"maxUniqueTags"`
 	Members             []GetFederatedDockerV2RepositoryMember `pulumi:"members"`
 	Notes               *string                                `pulumi:"notes"`
 	PackageType         string                                 `pulumi:"packageType"`
@@ -122,31 +86,26 @@ func LookupFederatedDockerV2RepositoryOutput(ctx *pulumi.Context, args LookupFed
 
 // A collection of arguments for invoking getFederatedDockerV2Repository.
 type LookupFederatedDockerV2RepositoryOutputArgs struct {
-	ArchiveBrowsingEnabled pulumi.BoolPtrInput   `pulumi:"archiveBrowsingEnabled"`
-	BlackedOut             pulumi.BoolPtrInput   `pulumi:"blackedOut"`
-	BlockPushingSchema1    pulumi.BoolPtrInput   `pulumi:"blockPushingSchema1"`
-	CdnRedirect            pulumi.BoolPtrInput   `pulumi:"cdnRedirect"`
-	CleanupOnDelete        pulumi.BoolPtrInput   `pulumi:"cleanupOnDelete"`
-	Description            pulumi.StringPtrInput `pulumi:"description"`
-	DownloadDirect         pulumi.BoolPtrInput   `pulumi:"downloadDirect"`
-	ExcludesPattern        pulumi.StringPtrInput `pulumi:"excludesPattern"`
-	IncludesPattern        pulumi.StringPtrInput `pulumi:"includesPattern"`
-	// the identity key of the repo.
-	Key           pulumi.StringInput `pulumi:"key"`
-	MaxUniqueTags pulumi.IntPtrInput `pulumi:"maxUniqueTags"`
-	// The list of Federated members and must contain this repository URL (configured base URL
-	// `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
-	// Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
-	// to set up Federated repositories correctly.
-	Members             GetFederatedDockerV2RepositoryMemberArrayInput `pulumi:"members"`
-	Notes               pulumi.StringPtrInput                          `pulumi:"notes"`
-	PriorityResolution  pulumi.BoolPtrInput                            `pulumi:"priorityResolution"`
-	ProjectEnvironments pulumi.StringArrayInput                        `pulumi:"projectEnvironments"`
-	ProjectKey          pulumi.StringPtrInput                          `pulumi:"projectKey"`
-	PropertySets        pulumi.StringArrayInput                        `pulumi:"propertySets"`
-	RepoLayoutRef       pulumi.StringPtrInput                          `pulumi:"repoLayoutRef"`
-	TagRetention        pulumi.IntPtrInput                             `pulumi:"tagRetention"`
-	XrayIndex           pulumi.BoolPtrInput                            `pulumi:"xrayIndex"`
+	ArchiveBrowsingEnabled pulumi.BoolPtrInput                            `pulumi:"archiveBrowsingEnabled"`
+	BlackedOut             pulumi.BoolPtrInput                            `pulumi:"blackedOut"`
+	BlockPushingSchema1    pulumi.BoolPtrInput                            `pulumi:"blockPushingSchema1"`
+	CdnRedirect            pulumi.BoolPtrInput                            `pulumi:"cdnRedirect"`
+	CleanupOnDelete        pulumi.BoolPtrInput                            `pulumi:"cleanupOnDelete"`
+	Description            pulumi.StringPtrInput                          `pulumi:"description"`
+	DownloadDirect         pulumi.BoolPtrInput                            `pulumi:"downloadDirect"`
+	ExcludesPattern        pulumi.StringPtrInput                          `pulumi:"excludesPattern"`
+	IncludesPattern        pulumi.StringPtrInput                          `pulumi:"includesPattern"`
+	Key                    pulumi.StringInput                             `pulumi:"key"`
+	MaxUniqueTags          pulumi.IntPtrInput                             `pulumi:"maxUniqueTags"`
+	Members                GetFederatedDockerV2RepositoryMemberArrayInput `pulumi:"members"`
+	Notes                  pulumi.StringPtrInput                          `pulumi:"notes"`
+	PriorityResolution     pulumi.BoolPtrInput                            `pulumi:"priorityResolution"`
+	ProjectEnvironments    pulumi.StringArrayInput                        `pulumi:"projectEnvironments"`
+	ProjectKey             pulumi.StringPtrInput                          `pulumi:"projectKey"`
+	PropertySets           pulumi.StringArrayInput                        `pulumi:"propertySets"`
+	RepoLayoutRef          pulumi.StringPtrInput                          `pulumi:"repoLayoutRef"`
+	TagRetention           pulumi.IntPtrInput                             `pulumi:"tagRetention"`
+	XrayIndex              pulumi.BoolPtrInput                            `pulumi:"xrayIndex"`
 }
 
 func (LookupFederatedDockerV2RepositoryOutputArgs) ElementType() reflect.Type {
@@ -221,10 +180,6 @@ func (o LookupFederatedDockerV2RepositoryResultOutput) MaxUniqueTags() pulumi.In
 	return o.ApplyT(func(v LookupFederatedDockerV2RepositoryResult) *int { return v.MaxUniqueTags }).(pulumi.IntPtrOutput)
 }
 
-// The list of Federated members and must contain this repository URL (configured base URL
-// `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
-// Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
-// to set up Federated repositories correctly.
 func (o LookupFederatedDockerV2RepositoryResultOutput) Members() GetFederatedDockerV2RepositoryMemberArrayOutput {
 	return o.ApplyT(func(v LookupFederatedDockerV2RepositoryResult) []GetFederatedDockerV2RepositoryMember {
 		return v.Members

@@ -10,33 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Retrieves a federated Rpm repository.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupFederatedRpmRepository(ctx, &artifactory.LookupFederatedRpmRepositoryArgs{
-//				Key: "federated-test-rpm-repo",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupFederatedRpmRepository(ctx *pulumi.Context, args *LookupFederatedRpmRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupFederatedRpmRepositoryResult, error) {
 	var rv LookupFederatedRpmRepositoryResult
 	err := ctx.Invoke("artifactory:index/getFederatedRpmRepository:getFederatedRpmRepository", args, &rv, opts...)
@@ -48,34 +21,29 @@ func LookupFederatedRpmRepository(ctx *pulumi.Context, args *LookupFederatedRpmR
 
 // A collection of arguments for invoking getFederatedRpmRepository.
 type LookupFederatedRpmRepositoryArgs struct {
-	ArchiveBrowsingEnabled  *bool   `pulumi:"archiveBrowsingEnabled"`
-	BlackedOut              *bool   `pulumi:"blackedOut"`
-	CalculateYumMetadata    *bool   `pulumi:"calculateYumMetadata"`
-	CdnRedirect             *bool   `pulumi:"cdnRedirect"`
-	CleanupOnDelete         *bool   `pulumi:"cleanupOnDelete"`
-	Description             *string `pulumi:"description"`
-	DownloadDirect          *bool   `pulumi:"downloadDirect"`
-	EnableFileListsIndexing *bool   `pulumi:"enableFileListsIndexing"`
-	ExcludesPattern         *string `pulumi:"excludesPattern"`
-	IncludesPattern         *string `pulumi:"includesPattern"`
-	// the identity key of the repo.
-	Key string `pulumi:"key"`
-	// The list of Federated members and must contain this repository URL (configured base URL
-	// `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
-	// Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
-	// to set up Federated repositories correctly.
-	Members             []GetFederatedRpmRepositoryMember `pulumi:"members"`
-	Notes               *string                           `pulumi:"notes"`
-	PrimaryKeypairRef   *string                           `pulumi:"primaryKeypairRef"`
-	PriorityResolution  *bool                             `pulumi:"priorityResolution"`
-	ProjectEnvironments []string                          `pulumi:"projectEnvironments"`
-	ProjectKey          *string                           `pulumi:"projectKey"`
-	PropertySets        []string                          `pulumi:"propertySets"`
-	RepoLayoutRef       *string                           `pulumi:"repoLayoutRef"`
-	SecondaryKeypairRef *string                           `pulumi:"secondaryKeypairRef"`
-	XrayIndex           *bool                             `pulumi:"xrayIndex"`
-	YumGroupFileNames   *string                           `pulumi:"yumGroupFileNames"`
-	YumRootDepth        *int                              `pulumi:"yumRootDepth"`
+	ArchiveBrowsingEnabled  *bool                             `pulumi:"archiveBrowsingEnabled"`
+	BlackedOut              *bool                             `pulumi:"blackedOut"`
+	CalculateYumMetadata    *bool                             `pulumi:"calculateYumMetadata"`
+	CdnRedirect             *bool                             `pulumi:"cdnRedirect"`
+	CleanupOnDelete         *bool                             `pulumi:"cleanupOnDelete"`
+	Description             *string                           `pulumi:"description"`
+	DownloadDirect          *bool                             `pulumi:"downloadDirect"`
+	EnableFileListsIndexing *bool                             `pulumi:"enableFileListsIndexing"`
+	ExcludesPattern         *string                           `pulumi:"excludesPattern"`
+	IncludesPattern         *string                           `pulumi:"includesPattern"`
+	Key                     string                            `pulumi:"key"`
+	Members                 []GetFederatedRpmRepositoryMember `pulumi:"members"`
+	Notes                   *string                           `pulumi:"notes"`
+	PrimaryKeypairRef       *string                           `pulumi:"primaryKeypairRef"`
+	PriorityResolution      *bool                             `pulumi:"priorityResolution"`
+	ProjectEnvironments     []string                          `pulumi:"projectEnvironments"`
+	ProjectKey              *string                           `pulumi:"projectKey"`
+	PropertySets            []string                          `pulumi:"propertySets"`
+	RepoLayoutRef           *string                           `pulumi:"repoLayoutRef"`
+	SecondaryKeypairRef     *string                           `pulumi:"secondaryKeypairRef"`
+	XrayIndex               *bool                             `pulumi:"xrayIndex"`
+	YumGroupFileNames       *string                           `pulumi:"yumGroupFileNames"`
+	YumRootDepth            *int                              `pulumi:"yumRootDepth"`
 }
 
 // A collection of values returned by getFederatedRpmRepository.
@@ -90,13 +58,9 @@ type LookupFederatedRpmRepositoryResult struct {
 	EnableFileListsIndexing *bool   `pulumi:"enableFileListsIndexing"`
 	ExcludesPattern         string  `pulumi:"excludesPattern"`
 	// The provider-assigned unique ID for this managed resource.
-	Id              string `pulumi:"id"`
-	IncludesPattern string `pulumi:"includesPattern"`
-	Key             string `pulumi:"key"`
-	// The list of Federated members and must contain this repository URL (configured base URL
-	// `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
-	// Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
-	// to set up Federated repositories correctly.
+	Id                  string                            `pulumi:"id"`
+	IncludesPattern     string                            `pulumi:"includesPattern"`
+	Key                 string                            `pulumi:"key"`
 	Members             []GetFederatedRpmRepositoryMember `pulumi:"members"`
 	Notes               *string                           `pulumi:"notes"`
 	PackageType         string                            `pulumi:"packageType"`
@@ -127,34 +91,29 @@ func LookupFederatedRpmRepositoryOutput(ctx *pulumi.Context, args LookupFederate
 
 // A collection of arguments for invoking getFederatedRpmRepository.
 type LookupFederatedRpmRepositoryOutputArgs struct {
-	ArchiveBrowsingEnabled  pulumi.BoolPtrInput   `pulumi:"archiveBrowsingEnabled"`
-	BlackedOut              pulumi.BoolPtrInput   `pulumi:"blackedOut"`
-	CalculateYumMetadata    pulumi.BoolPtrInput   `pulumi:"calculateYumMetadata"`
-	CdnRedirect             pulumi.BoolPtrInput   `pulumi:"cdnRedirect"`
-	CleanupOnDelete         pulumi.BoolPtrInput   `pulumi:"cleanupOnDelete"`
-	Description             pulumi.StringPtrInput `pulumi:"description"`
-	DownloadDirect          pulumi.BoolPtrInput   `pulumi:"downloadDirect"`
-	EnableFileListsIndexing pulumi.BoolPtrInput   `pulumi:"enableFileListsIndexing"`
-	ExcludesPattern         pulumi.StringPtrInput `pulumi:"excludesPattern"`
-	IncludesPattern         pulumi.StringPtrInput `pulumi:"includesPattern"`
-	// the identity key of the repo.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The list of Federated members and must contain this repository URL (configured base URL
-	// `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
-	// Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
-	// to set up Federated repositories correctly.
-	Members             GetFederatedRpmRepositoryMemberArrayInput `pulumi:"members"`
-	Notes               pulumi.StringPtrInput                     `pulumi:"notes"`
-	PrimaryKeypairRef   pulumi.StringPtrInput                     `pulumi:"primaryKeypairRef"`
-	PriorityResolution  pulumi.BoolPtrInput                       `pulumi:"priorityResolution"`
-	ProjectEnvironments pulumi.StringArrayInput                   `pulumi:"projectEnvironments"`
-	ProjectKey          pulumi.StringPtrInput                     `pulumi:"projectKey"`
-	PropertySets        pulumi.StringArrayInput                   `pulumi:"propertySets"`
-	RepoLayoutRef       pulumi.StringPtrInput                     `pulumi:"repoLayoutRef"`
-	SecondaryKeypairRef pulumi.StringPtrInput                     `pulumi:"secondaryKeypairRef"`
-	XrayIndex           pulumi.BoolPtrInput                       `pulumi:"xrayIndex"`
-	YumGroupFileNames   pulumi.StringPtrInput                     `pulumi:"yumGroupFileNames"`
-	YumRootDepth        pulumi.IntPtrInput                        `pulumi:"yumRootDepth"`
+	ArchiveBrowsingEnabled  pulumi.BoolPtrInput                       `pulumi:"archiveBrowsingEnabled"`
+	BlackedOut              pulumi.BoolPtrInput                       `pulumi:"blackedOut"`
+	CalculateYumMetadata    pulumi.BoolPtrInput                       `pulumi:"calculateYumMetadata"`
+	CdnRedirect             pulumi.BoolPtrInput                       `pulumi:"cdnRedirect"`
+	CleanupOnDelete         pulumi.BoolPtrInput                       `pulumi:"cleanupOnDelete"`
+	Description             pulumi.StringPtrInput                     `pulumi:"description"`
+	DownloadDirect          pulumi.BoolPtrInput                       `pulumi:"downloadDirect"`
+	EnableFileListsIndexing pulumi.BoolPtrInput                       `pulumi:"enableFileListsIndexing"`
+	ExcludesPattern         pulumi.StringPtrInput                     `pulumi:"excludesPattern"`
+	IncludesPattern         pulumi.StringPtrInput                     `pulumi:"includesPattern"`
+	Key                     pulumi.StringInput                        `pulumi:"key"`
+	Members                 GetFederatedRpmRepositoryMemberArrayInput `pulumi:"members"`
+	Notes                   pulumi.StringPtrInput                     `pulumi:"notes"`
+	PrimaryKeypairRef       pulumi.StringPtrInput                     `pulumi:"primaryKeypairRef"`
+	PriorityResolution      pulumi.BoolPtrInput                       `pulumi:"priorityResolution"`
+	ProjectEnvironments     pulumi.StringArrayInput                   `pulumi:"projectEnvironments"`
+	ProjectKey              pulumi.StringPtrInput                     `pulumi:"projectKey"`
+	PropertySets            pulumi.StringArrayInput                   `pulumi:"propertySets"`
+	RepoLayoutRef           pulumi.StringPtrInput                     `pulumi:"repoLayoutRef"`
+	SecondaryKeypairRef     pulumi.StringPtrInput                     `pulumi:"secondaryKeypairRef"`
+	XrayIndex               pulumi.BoolPtrInput                       `pulumi:"xrayIndex"`
+	YumGroupFileNames       pulumi.StringPtrInput                     `pulumi:"yumGroupFileNames"`
+	YumRootDepth            pulumi.IntPtrInput                        `pulumi:"yumRootDepth"`
 }
 
 func (LookupFederatedRpmRepositoryOutputArgs) ElementType() reflect.Type {
@@ -225,10 +184,6 @@ func (o LookupFederatedRpmRepositoryResultOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFederatedRpmRepositoryResult) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// The list of Federated members and must contain this repository URL (configured base URL
-// `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
-// Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
-// to set up Federated repositories correctly.
 func (o LookupFederatedRpmRepositoryResultOutput) Members() GetFederatedRpmRepositoryMemberArrayOutput {
 	return o.ApplyT(func(v LookupFederatedRpmRepositoryResult) []GetFederatedRpmRepositoryMember { return v.Members }).(GetFederatedRpmRepositoryMemberArrayOutput)
 }

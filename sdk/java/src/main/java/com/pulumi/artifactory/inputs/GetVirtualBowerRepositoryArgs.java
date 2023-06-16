@@ -45,47 +45,23 @@ public final class GetVirtualBowerRepositoryArgs extends com.pulumi.resources.In
         return Optional.ofNullable(this.excludesPattern);
     }
 
-    /**
-     * (Optional) When set, external dependencies are rewritten. Default value is false.
-     * 
-     */
     @Import(name="externalDependenciesEnabled")
     private @Nullable Output<Boolean> externalDependenciesEnabled;
 
-    /**
-     * @return (Optional) When set, external dependencies are rewritten. Default value is false.
-     * 
-     */
     public Optional<Output<Boolean>> externalDependenciesEnabled() {
         return Optional.ofNullable(this.externalDependenciesEnabled);
     }
 
-    /**
-     * (Optional) An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded from any external source.
-     * 
-     */
     @Import(name="externalDependenciesPatterns")
     private @Nullable Output<List<String>> externalDependenciesPatterns;
 
-    /**
-     * @return (Optional) An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded from any external source.
-     * 
-     */
     public Optional<Output<List<String>>> externalDependenciesPatterns() {
         return Optional.ofNullable(this.externalDependenciesPatterns);
     }
 
-    /**
-     * (Optional) The remote repository aggregated by this virtual repository in which the external dependency will be cached.
-     * 
-     */
     @Import(name="externalDependenciesRemoteRepo")
     private @Nullable Output<String> externalDependenciesRemoteRepo;
 
-    /**
-     * @return (Optional) The remote repository aggregated by this virtual repository in which the external dependency will be cached.
-     * 
-     */
     public Optional<Output<String>> externalDependenciesRemoteRepo() {
         return Optional.ofNullable(this.externalDependenciesRemoteRepo);
     }
@@ -97,17 +73,9 @@ public final class GetVirtualBowerRepositoryArgs extends com.pulumi.resources.In
         return Optional.ofNullable(this.includesPattern);
     }
 
-    /**
-     * the identity key of the repo.
-     * 
-     */
     @Import(name="key", required=true)
     private Output<String> key;
 
-    /**
-     * @return the identity key of the repo.
-     * 
-     */
     public Output<String> key() {
         return this.key;
     }
@@ -220,75 +188,33 @@ public final class GetVirtualBowerRepositoryArgs extends com.pulumi.resources.In
             return excludesPattern(Output.of(excludesPattern));
         }
 
-        /**
-         * @param externalDependenciesEnabled (Optional) When set, external dependencies are rewritten. Default value is false.
-         * 
-         * @return builder
-         * 
-         */
         public Builder externalDependenciesEnabled(@Nullable Output<Boolean> externalDependenciesEnabled) {
             $.externalDependenciesEnabled = externalDependenciesEnabled;
             return this;
         }
 
-        /**
-         * @param externalDependenciesEnabled (Optional) When set, external dependencies are rewritten. Default value is false.
-         * 
-         * @return builder
-         * 
-         */
         public Builder externalDependenciesEnabled(Boolean externalDependenciesEnabled) {
             return externalDependenciesEnabled(Output.of(externalDependenciesEnabled));
         }
 
-        /**
-         * @param externalDependenciesPatterns (Optional) An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded from any external source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder externalDependenciesPatterns(@Nullable Output<List<String>> externalDependenciesPatterns) {
             $.externalDependenciesPatterns = externalDependenciesPatterns;
             return this;
         }
 
-        /**
-         * @param externalDependenciesPatterns (Optional) An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded from any external source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder externalDependenciesPatterns(List<String> externalDependenciesPatterns) {
             return externalDependenciesPatterns(Output.of(externalDependenciesPatterns));
         }
 
-        /**
-         * @param externalDependenciesPatterns (Optional) An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded from any external source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder externalDependenciesPatterns(String... externalDependenciesPatterns) {
             return externalDependenciesPatterns(List.of(externalDependenciesPatterns));
         }
 
-        /**
-         * @param externalDependenciesRemoteRepo (Optional) The remote repository aggregated by this virtual repository in which the external dependency will be cached.
-         * 
-         * @return builder
-         * 
-         */
         public Builder externalDependenciesRemoteRepo(@Nullable Output<String> externalDependenciesRemoteRepo) {
             $.externalDependenciesRemoteRepo = externalDependenciesRemoteRepo;
             return this;
         }
 
-        /**
-         * @param externalDependenciesRemoteRepo (Optional) The remote repository aggregated by this virtual repository in which the external dependency will be cached.
-         * 
-         * @return builder
-         * 
-         */
         public Builder externalDependenciesRemoteRepo(String externalDependenciesRemoteRepo) {
             return externalDependenciesRemoteRepo(Output.of(externalDependenciesRemoteRepo));
         }
@@ -302,23 +228,11 @@ public final class GetVirtualBowerRepositoryArgs extends com.pulumi.resources.In
             return includesPattern(Output.of(includesPattern));
         }
 
-        /**
-         * @param key the identity key of the repo.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(Output<String> key) {
             $.key = key;
             return this;
         }
 
-        /**
-         * @param key the identity key of the repo.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(String key) {
             return key(Output.of(key));
         }

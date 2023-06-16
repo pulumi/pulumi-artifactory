@@ -11,59 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Creates a remote Cargo repository.
-// Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Cargo+Registry).
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.NewRemoteCargoRepository(ctx, "my-remote-cargo", &artifactory.RemoteCargoRepositoryArgs{
-//				AnonymousAccess:   pulumi.Bool(true),
-//				EnableSparseIndex: pulumi.Bool(true),
-//				GitRegistryUrl:    pulumi.String("https://github.com/rust-lang/foo.index"),
-//				Key:               pulumi.String("my-remote-cargo"),
-//				Url:               pulumi.String("https://github.com/rust-lang/crates.io-index"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ## Note
-//
-// If you get a 400 error: `"Custom Base URL should be defined prior to creating a Cargo repository"`,
-// you must set the base url at: `http://${host}/ui/admin/configuration/general`
-//
-// ## Import
-//
-// Remote repositories can be imported using their name, e.g.
-//
-// ```sh
-//
-//	$ pulumi import artifactory:index/remoteCargoRepository:RemoteCargoRepository my-remote-cargo my-remote-cargo
-//
-// ```
 type RemoteCargoRepository struct {
 	pulumi.CustomResourceState
 
 	// 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any
 	// other host.
 	AllowAnyHostAuth pulumi.BoolPtrOutput `pulumi:"allowAnyHostAuth"`
-	// Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
+	// (On the UI: Anonymous download and search) Cargo client does not send credentials when performing download and search
+	// for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security
+	// anonymous access option.
 	AnonymousAccess pulumi.BoolPtrOutput `pulumi:"anonymousAccess"`
 	// The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
 	// an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed
@@ -93,12 +49,14 @@ type RemoteCargoRepository struct {
 	DownloadDirect pulumi.BoolPtrOutput `pulumi:"downloadDirect"`
 	// Enables cookie management if the remote repository uses cookies to manage client state.
 	EnableCookieManagement pulumi.BoolPtrOutput `pulumi:"enableCookieManagement"`
-	// Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
+	// Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default
+	// value is 'false'.
 	EnableSparseIndex pulumi.BoolPtrOutput `pulumi:"enableSparseIndex"`
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 	// artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrOutput `pulumi:"excludesPattern"`
-	// This is the index url, expected to be a git repository. Default value is `https://github.com/rust-lang/crates.io-index`.
+	// This is the index url, expected to be a git repository. Default value in UI is
+	// "https://github.com/rust-lang/crates.io-index"
 	GitRegistryUrl pulumi.StringOutput `pulumi:"gitRegistryUrl"`
 	// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
 	// communicate with this repository.
@@ -106,8 +64,8 @@ type RemoteCargoRepository struct {
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrOutput `pulumi:"includesPattern"`
-	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-	// contain spaces or special characters.
+	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+	// characters. It cannot begin with a number or contain spaces or special characters.
 	Key pulumi.StringOutput `pulumi:"key"`
 	// Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
 	// the 'Retrieval Cache Period'. Default value is 'true'.
@@ -226,7 +184,9 @@ type remoteCargoRepositoryState struct {
 	// 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any
 	// other host.
 	AllowAnyHostAuth *bool `pulumi:"allowAnyHostAuth"`
-	// Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
+	// (On the UI: Anonymous download and search) Cargo client does not send credentials when performing download and search
+	// for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security
+	// anonymous access option.
 	AnonymousAccess *bool `pulumi:"anonymousAccess"`
 	// The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
 	// an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed
@@ -256,12 +216,14 @@ type remoteCargoRepositoryState struct {
 	DownloadDirect *bool `pulumi:"downloadDirect"`
 	// Enables cookie management if the remote repository uses cookies to manage client state.
 	EnableCookieManagement *bool `pulumi:"enableCookieManagement"`
-	// Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
+	// Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default
+	// value is 'false'.
 	EnableSparseIndex *bool `pulumi:"enableSparseIndex"`
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 	// artifacts are excluded.
 	ExcludesPattern *string `pulumi:"excludesPattern"`
-	// This is the index url, expected to be a git repository. Default value is `https://github.com/rust-lang/crates.io-index`.
+	// This is the index url, expected to be a git repository. Default value in UI is
+	// "https://github.com/rust-lang/crates.io-index"
 	GitRegistryUrl *string `pulumi:"gitRegistryUrl"`
 	// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
 	// communicate with this repository.
@@ -269,8 +231,8 @@ type remoteCargoRepositoryState struct {
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
-	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-	// contain spaces or special characters.
+	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+	// characters. It cannot begin with a number or contain spaces or special characters.
 	Key *string `pulumi:"key"`
 	// Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
 	// the 'Retrieval Cache Period'. Default value is 'true'.
@@ -345,7 +307,9 @@ type RemoteCargoRepositoryState struct {
 	// 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any
 	// other host.
 	AllowAnyHostAuth pulumi.BoolPtrInput
-	// Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
+	// (On the UI: Anonymous download and search) Cargo client does not send credentials when performing download and search
+	// for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security
+	// anonymous access option.
 	AnonymousAccess pulumi.BoolPtrInput
 	// The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
 	// an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed
@@ -375,12 +339,14 @@ type RemoteCargoRepositoryState struct {
 	DownloadDirect pulumi.BoolPtrInput
 	// Enables cookie management if the remote repository uses cookies to manage client state.
 	EnableCookieManagement pulumi.BoolPtrInput
-	// Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
+	// Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default
+	// value is 'false'.
 	EnableSparseIndex pulumi.BoolPtrInput
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 	// artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrInput
-	// This is the index url, expected to be a git repository. Default value is `https://github.com/rust-lang/crates.io-index`.
+	// This is the index url, expected to be a git repository. Default value in UI is
+	// "https://github.com/rust-lang/crates.io-index"
 	GitRegistryUrl pulumi.StringPtrInput
 	// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
 	// communicate with this repository.
@@ -388,8 +354,8 @@ type RemoteCargoRepositoryState struct {
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
-	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-	// contain spaces or special characters.
+	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+	// characters. It cannot begin with a number or contain spaces or special characters.
 	Key pulumi.StringPtrInput
 	// Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
 	// the 'Retrieval Cache Period'. Default value is 'true'.
@@ -468,7 +434,9 @@ type remoteCargoRepositoryArgs struct {
 	// 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any
 	// other host.
 	AllowAnyHostAuth *bool `pulumi:"allowAnyHostAuth"`
-	// Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
+	// (On the UI: Anonymous download and search) Cargo client does not send credentials when performing download and search
+	// for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security
+	// anonymous access option.
 	AnonymousAccess *bool `pulumi:"anonymousAccess"`
 	// The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
 	// an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed
@@ -498,12 +466,14 @@ type remoteCargoRepositoryArgs struct {
 	DownloadDirect *bool `pulumi:"downloadDirect"`
 	// Enables cookie management if the remote repository uses cookies to manage client state.
 	EnableCookieManagement *bool `pulumi:"enableCookieManagement"`
-	// Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
+	// Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default
+	// value is 'false'.
 	EnableSparseIndex *bool `pulumi:"enableSparseIndex"`
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 	// artifacts are excluded.
 	ExcludesPattern *string `pulumi:"excludesPattern"`
-	// This is the index url, expected to be a git repository. Default value is `https://github.com/rust-lang/crates.io-index`.
+	// This is the index url, expected to be a git repository. Default value in UI is
+	// "https://github.com/rust-lang/crates.io-index"
 	GitRegistryUrl string `pulumi:"gitRegistryUrl"`
 	// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
 	// communicate with this repository.
@@ -511,8 +481,8 @@ type remoteCargoRepositoryArgs struct {
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
-	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-	// contain spaces or special characters.
+	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+	// characters. It cannot begin with a number or contain spaces or special characters.
 	Key string `pulumi:"key"`
 	// Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
 	// the 'Retrieval Cache Period'. Default value is 'true'.
@@ -587,7 +557,9 @@ type RemoteCargoRepositoryArgs struct {
 	// 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any
 	// other host.
 	AllowAnyHostAuth pulumi.BoolPtrInput
-	// Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
+	// (On the UI: Anonymous download and search) Cargo client does not send credentials when performing download and search
+	// for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security
+	// anonymous access option.
 	AnonymousAccess pulumi.BoolPtrInput
 	// The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
 	// an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed
@@ -617,12 +589,14 @@ type RemoteCargoRepositoryArgs struct {
 	DownloadDirect pulumi.BoolPtrInput
 	// Enables cookie management if the remote repository uses cookies to manage client state.
 	EnableCookieManagement pulumi.BoolPtrInput
-	// Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
+	// Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default
+	// value is 'false'.
 	EnableSparseIndex pulumi.BoolPtrInput
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 	// artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrInput
-	// This is the index url, expected to be a git repository. Default value is `https://github.com/rust-lang/crates.io-index`.
+	// This is the index url, expected to be a git repository. Default value in UI is
+	// "https://github.com/rust-lang/crates.io-index"
 	GitRegistryUrl pulumi.StringInput
 	// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
 	// communicate with this repository.
@@ -630,8 +604,8 @@ type RemoteCargoRepositoryArgs struct {
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
-	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-	// contain spaces or special characters.
+	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+	// characters. It cannot begin with a number or contain spaces or special characters.
 	Key pulumi.StringInput
 	// Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
 	// the 'Retrieval Cache Period'. Default value is 'true'.
@@ -794,7 +768,9 @@ func (o RemoteCargoRepositoryOutput) AllowAnyHostAuth() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteCargoRepository) pulumi.BoolPtrOutput { return v.AllowAnyHostAuth }).(pulumi.BoolPtrOutput)
 }
 
-// Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
+// (On the UI: Anonymous download and search) Cargo client does not send credentials when performing download and search
+// for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security
+// anonymous access option.
 func (o RemoteCargoRepositoryOutput) AnonymousAccess() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteCargoRepository) pulumi.BoolPtrOutput { return v.AnonymousAccess }).(pulumi.BoolPtrOutput)
 }
@@ -859,7 +835,8 @@ func (o RemoteCargoRepositoryOutput) EnableCookieManagement() pulumi.BoolPtrOutp
 	return o.ApplyT(func(v *RemoteCargoRepository) pulumi.BoolPtrOutput { return v.EnableCookieManagement }).(pulumi.BoolPtrOutput)
 }
 
-// Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
+// Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default
+// value is 'false'.
 func (o RemoteCargoRepositoryOutput) EnableSparseIndex() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteCargoRepository) pulumi.BoolPtrOutput { return v.EnableSparseIndex }).(pulumi.BoolPtrOutput)
 }
@@ -870,7 +847,8 @@ func (o RemoteCargoRepositoryOutput) ExcludesPattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RemoteCargoRepository) pulumi.StringPtrOutput { return v.ExcludesPattern }).(pulumi.StringPtrOutput)
 }
 
-// This is the index url, expected to be a git repository. Default value is `https://github.com/rust-lang/crates.io-index`.
+// This is the index url, expected to be a git repository. Default value in UI is
+// "https://github.com/rust-lang/crates.io-index"
 func (o RemoteCargoRepositoryOutput) GitRegistryUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *RemoteCargoRepository) pulumi.StringOutput { return v.GitRegistryUrl }).(pulumi.StringOutput)
 }
@@ -887,8 +865,8 @@ func (o RemoteCargoRepositoryOutput) IncludesPattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RemoteCargoRepository) pulumi.StringPtrOutput { return v.IncludesPattern }).(pulumi.StringPtrOutput)
 }
 
-// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-// contain spaces or special characters.
+// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+// characters. It cannot begin with a number or contain spaces or special characters.
 func (o RemoteCargoRepositoryOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v *RemoteCargoRepository) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
 }

@@ -22,10 +22,10 @@ class LocalRepositoryMultiReplicationArgs:
                  replications: Optional[pulumi.Input[Sequence[pulumi.Input['LocalRepositoryMultiReplicationReplicationArgs']]]] = None):
         """
         The set of arguments for constructing a LocalRepositoryMultiReplication resource.
-        :param pulumi.Input[str] cron_exp: A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
+        :param pulumi.Input[str] cron_exp: Cron expression to control the operation frequency.
         :param pulumi.Input[str] repo_key: Repository name.
-        :param pulumi.Input[bool] enable_event_replication: When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. add, deleted or property change. Default value is `false`.
-        :param pulumi.Input[Sequence[pulumi.Input['LocalRepositoryMultiReplicationReplicationArgs']]] replications: List of replications minimum 1 element.
+        :param pulumi.Input[bool] enable_event_replication: When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on
+               artifact, e.g. add, deleted or property change. Default value is `false`.
         """
         pulumi.set(__self__, "cron_exp", cron_exp)
         pulumi.set(__self__, "repo_key", repo_key)
@@ -38,7 +38,7 @@ class LocalRepositoryMultiReplicationArgs:
     @pulumi.getter(name="cronExp")
     def cron_exp(self) -> pulumi.Input[str]:
         """
-        A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
+        Cron expression to control the operation frequency.
         """
         return pulumi.get(self, "cron_exp")
 
@@ -62,7 +62,8 @@ class LocalRepositoryMultiReplicationArgs:
     @pulumi.getter(name="enableEventReplication")
     def enable_event_replication(self) -> Optional[pulumi.Input[bool]]:
         """
-        When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. add, deleted or property change. Default value is `false`.
+        When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on
+        artifact, e.g. add, deleted or property change. Default value is `false`.
         """
         return pulumi.get(self, "enable_event_replication")
 
@@ -73,9 +74,6 @@ class LocalRepositoryMultiReplicationArgs:
     @property
     @pulumi.getter
     def replications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LocalRepositoryMultiReplicationReplicationArgs']]]]:
-        """
-        List of replications minimum 1 element.
-        """
         return pulumi.get(self, "replications")
 
     @replications.setter
@@ -92,9 +90,9 @@ class _LocalRepositoryMultiReplicationState:
                  repo_key: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering LocalRepositoryMultiReplication resources.
-        :param pulumi.Input[str] cron_exp: A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
-        :param pulumi.Input[bool] enable_event_replication: When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. add, deleted or property change. Default value is `false`.
-        :param pulumi.Input[Sequence[pulumi.Input['LocalRepositoryMultiReplicationReplicationArgs']]] replications: List of replications minimum 1 element.
+        :param pulumi.Input[str] cron_exp: Cron expression to control the operation frequency.
+        :param pulumi.Input[bool] enable_event_replication: When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on
+               artifact, e.g. add, deleted or property change. Default value is `false`.
         :param pulumi.Input[str] repo_key: Repository name.
         """
         if cron_exp is not None:
@@ -110,7 +108,7 @@ class _LocalRepositoryMultiReplicationState:
     @pulumi.getter(name="cronExp")
     def cron_exp(self) -> Optional[pulumi.Input[str]]:
         """
-        A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
+        Cron expression to control the operation frequency.
         """
         return pulumi.get(self, "cron_exp")
 
@@ -122,7 +120,8 @@ class _LocalRepositoryMultiReplicationState:
     @pulumi.getter(name="enableEventReplication")
     def enable_event_replication(self) -> Optional[pulumi.Input[bool]]:
         """
-        When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. add, deleted or property change. Default value is `false`.
+        When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on
+        artifact, e.g. add, deleted or property change. Default value is `false`.
         """
         return pulumi.get(self, "enable_event_replication")
 
@@ -133,9 +132,6 @@ class _LocalRepositoryMultiReplicationState:
     @property
     @pulumi.getter
     def replications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LocalRepositoryMultiReplicationReplicationArgs']]]]:
-        """
-        List of replications minimum 1 element.
-        """
         return pulumi.get(self, "replications")
 
     @replications.setter
@@ -166,60 +162,12 @@ class LocalRepositoryMultiReplication(pulumi.CustomResource):
                  repo_key: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides a local repository replication resource, also referred to as Artifactory push replication. This can be used to create and manage Artifactory local repository replications using [Multi-push Replication API](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-CreateorReplaceLocalMulti-pushReplication).
-        Push replication is used to synchronize Local Repositories, and is implemented by the Artifactory server on the near end invoking a synchronization of artifacts to the far end.
-        See the [Official Documentation](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-PushReplication).
-        This resource replaces `PushReplication` and used to create a replication of one local repository to multiple repositories on the remote server.
-
-        > This resource requires Artifactory Enterprise license. Use `LocalRepositorySingleReplication` with other licenses.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_artifactory as artifactory
-
-        config = pulumi.Config()
-        artifactory_url = config.require("artifactoryUrl")
-        artifactory_username = config.require("artifactoryUsername")
-        artifactory_password = config.require("artifactoryPassword")
-        # Create a replication between two artifactory local repositories
-        provider_test_source = artifactory.LocalMavenRepository("providerTestSource", key="provider_test_source")
-        provider_test_dest = artifactory.LocalMavenRepository("providerTestDest", key="provider_test_dest")
-        provider_test_dest1 = artifactory.LocalMavenRepository("providerTestDest1", key="provider_test_dest1")
-        foo_rep = artifactory.LocalRepositoryMultiReplication("foo-rep",
-            repo_key=provider_test_source.key,
-            cron_exp="0 0 * * * ?",
-            enable_event_replication=True,
-            replications=[
-                artifactory.LocalRepositoryMultiReplicationReplicationArgs(
-                    url=provider_test_dest.key.apply(lambda key: f"{artifactory_url}/artifactory/{key}"),
-                    username="$var.artifactory_username",
-                    password="$var.artifactory_password",
-                    enabled=True,
-                ),
-                artifactory.LocalRepositoryMultiReplicationReplicationArgs(
-                    url=provider_test_dest1.key.apply(lambda key: f"{artifactory_url}/artifactory/{key}"),
-                    username="$var.artifactory_username",
-                    password="$var.artifactory_password",
-                    enabled=True,
-                ),
-            ])
-        ```
-
-        ## Import
-
-        Push replication configs can be imported using their repo key, e.g.
-
-        ```sh
-         $ pulumi import artifactory:index/localRepositoryMultiReplication:LocalRepositoryMultiReplication foo-rep provider_test_source
-        ```
-
+        Create a LocalRepositoryMultiReplication resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] cron_exp: A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
-        :param pulumi.Input[bool] enable_event_replication: When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. add, deleted or property change. Default value is `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocalRepositoryMultiReplicationReplicationArgs']]]] replications: List of replications minimum 1 element.
+        :param pulumi.Input[str] cron_exp: Cron expression to control the operation frequency.
+        :param pulumi.Input[bool] enable_event_replication: When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on
+               artifact, e.g. add, deleted or property change. Default value is `false`.
         :param pulumi.Input[str] repo_key: Repository name.
         """
         ...
@@ -229,55 +177,7 @@ class LocalRepositoryMultiReplication(pulumi.CustomResource):
                  args: LocalRepositoryMultiReplicationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a local repository replication resource, also referred to as Artifactory push replication. This can be used to create and manage Artifactory local repository replications using [Multi-push Replication API](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-CreateorReplaceLocalMulti-pushReplication).
-        Push replication is used to synchronize Local Repositories, and is implemented by the Artifactory server on the near end invoking a synchronization of artifacts to the far end.
-        See the [Official Documentation](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-PushReplication).
-        This resource replaces `PushReplication` and used to create a replication of one local repository to multiple repositories on the remote server.
-
-        > This resource requires Artifactory Enterprise license. Use `LocalRepositorySingleReplication` with other licenses.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_artifactory as artifactory
-
-        config = pulumi.Config()
-        artifactory_url = config.require("artifactoryUrl")
-        artifactory_username = config.require("artifactoryUsername")
-        artifactory_password = config.require("artifactoryPassword")
-        # Create a replication between two artifactory local repositories
-        provider_test_source = artifactory.LocalMavenRepository("providerTestSource", key="provider_test_source")
-        provider_test_dest = artifactory.LocalMavenRepository("providerTestDest", key="provider_test_dest")
-        provider_test_dest1 = artifactory.LocalMavenRepository("providerTestDest1", key="provider_test_dest1")
-        foo_rep = artifactory.LocalRepositoryMultiReplication("foo-rep",
-            repo_key=provider_test_source.key,
-            cron_exp="0 0 * * * ?",
-            enable_event_replication=True,
-            replications=[
-                artifactory.LocalRepositoryMultiReplicationReplicationArgs(
-                    url=provider_test_dest.key.apply(lambda key: f"{artifactory_url}/artifactory/{key}"),
-                    username="$var.artifactory_username",
-                    password="$var.artifactory_password",
-                    enabled=True,
-                ),
-                artifactory.LocalRepositoryMultiReplicationReplicationArgs(
-                    url=provider_test_dest1.key.apply(lambda key: f"{artifactory_url}/artifactory/{key}"),
-                    username="$var.artifactory_username",
-                    password="$var.artifactory_password",
-                    enabled=True,
-                ),
-            ])
-        ```
-
-        ## Import
-
-        Push replication configs can be imported using their repo key, e.g.
-
-        ```sh
-         $ pulumi import artifactory:index/localRepositoryMultiReplication:LocalRepositoryMultiReplication foo-rep provider_test_source
-        ```
-
+        Create a LocalRepositoryMultiReplication resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param LocalRepositoryMultiReplicationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -335,9 +235,9 @@ class LocalRepositoryMultiReplication(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] cron_exp: A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
-        :param pulumi.Input[bool] enable_event_replication: When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. add, deleted or property change. Default value is `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocalRepositoryMultiReplicationReplicationArgs']]]] replications: List of replications minimum 1 element.
+        :param pulumi.Input[str] cron_exp: Cron expression to control the operation frequency.
+        :param pulumi.Input[bool] enable_event_replication: When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on
+               artifact, e.g. add, deleted or property change. Default value is `false`.
         :param pulumi.Input[str] repo_key: Repository name.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -354,7 +254,7 @@ class LocalRepositoryMultiReplication(pulumi.CustomResource):
     @pulumi.getter(name="cronExp")
     def cron_exp(self) -> pulumi.Output[str]:
         """
-        A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
+        Cron expression to control the operation frequency.
         """
         return pulumi.get(self, "cron_exp")
 
@@ -362,16 +262,14 @@ class LocalRepositoryMultiReplication(pulumi.CustomResource):
     @pulumi.getter(name="enableEventReplication")
     def enable_event_replication(self) -> pulumi.Output[Optional[bool]]:
         """
-        When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. add, deleted or property change. Default value is `false`.
+        When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on
+        artifact, e.g. add, deleted or property change. Default value is `false`.
         """
         return pulumi.get(self, "enable_event_replication")
 
     @property
     @pulumi.getter
     def replications(self) -> pulumi.Output[Optional[Sequence['outputs.LocalRepositoryMultiReplicationReplication']]]:
-        """
-        List of replications minimum 1 element.
-        """
         return pulumi.get(self, "replications")
 
     @property

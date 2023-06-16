@@ -9,42 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Artifactory
 {
-    /// <summary>
-    /// Creates a virtual Docker repository.
-    /// Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Docker+Registry#DockerRegistry-VirtualDockerRepositories).
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Artifactory = Pulumi.Artifactory;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var foo_docker = new Artifactory.VirtualDockerRepository("foo-docker", new()
-    ///     {
-    ///         Description = "A test virtual repo",
-    ///         ExcludesPattern = "com/google/**",
-    ///         IncludesPattern = "com/jfrog/**,cloud/jfrog/**",
-    ///         Key = "foo-docker",
-    ///         Notes = "Internal description",
-    ///         Repositories = new[] {},
-    ///         ResolveDockerTagsByTimestamp = true,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Virtual repositories can be imported using their name, e.g.
-    /// 
-    /// ```sh
-    ///  $ pulumi import artifactory:index/virtualDockerRepository:VirtualDockerRepository foo-docker foo-docker
-    /// ```
-    /// </summary>
     [ArtifactoryResourceType("artifactory:index/virtualDockerRepository:VirtualDockerRepository")]
     public partial class VirtualDockerRepository : global::Pulumi.CustomResource
     {
@@ -82,8 +46,8 @@ namespace Pulumi.Artifactory
         public Output<string?> IncludesPattern { get; private set; } = null!;
 
         /// <summary>
-        /// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-        /// contain spaces or special characters.
+        /// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+        /// characters. It cannot begin with a number or contain spaces or special characters.
         /// </summary>
         [Output("key")]
         public Output<string> Key { get; private set; } = null!;
@@ -126,7 +90,8 @@ namespace Pulumi.Artifactory
         public Output<ImmutableArray<string>> Repositories { get; private set; } = null!;
 
         /// <summary>
-        /// When enabled, in cases where the same Docker tag exists in two or more of the aggregated repositories, Artifactory will return the tag that has the latest timestamp. Default values is `false`.
+        /// When enabled, in cases where the same Docker tag exists in two or more of the aggregated repositories, Artifactory will
+        /// return the tag that has the latest timestamp.
         /// </summary>
         [Output("resolveDockerTagsByTimestamp")]
         public Output<bool?> ResolveDockerTagsByTimestamp { get; private set; } = null!;
@@ -211,8 +176,8 @@ namespace Pulumi.Artifactory
         public Input<string>? IncludesPattern { get; set; }
 
         /// <summary>
-        /// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-        /// contain spaces or special characters.
+        /// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+        /// characters. It cannot begin with a number or contain spaces or special characters.
         /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -264,7 +229,8 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// When enabled, in cases where the same Docker tag exists in two or more of the aggregated repositories, Artifactory will return the tag that has the latest timestamp. Default values is `false`.
+        /// When enabled, in cases where the same Docker tag exists in two or more of the aggregated repositories, Artifactory will
+        /// return the tag that has the latest timestamp.
         /// </summary>
         [Input("resolveDockerTagsByTimestamp")]
         public Input<bool>? ResolveDockerTagsByTimestamp { get; set; }
@@ -311,8 +277,8 @@ namespace Pulumi.Artifactory
         public Input<string>? IncludesPattern { get; set; }
 
         /// <summary>
-        /// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-        /// contain spaces or special characters.
+        /// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+        /// characters. It cannot begin with a number or contain spaces or special characters.
         /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
@@ -367,7 +333,8 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// When enabled, in cases where the same Docker tag exists in two or more of the aggregated repositories, Artifactory will return the tag that has the latest timestamp. Default values is `false`.
+        /// When enabled, in cases where the same Docker tag exists in two or more of the aggregated repositories, Artifactory will
+        /// return the tag that has the latest timestamp.
         /// </summary>
         [Input("resolveDockerTagsByTimestamp")]
         public Input<bool>? ResolveDockerTagsByTimestamp { get; set; }

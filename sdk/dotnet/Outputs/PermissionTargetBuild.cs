@@ -14,17 +14,8 @@ namespace Pulumi.Artifactory.Outputs
     public sealed class PermissionTargetBuild
     {
         public readonly Outputs.PermissionTargetBuildActions? Actions;
-        /// <summary>
-        /// Pattern of artifacts to exclude.
-        /// </summary>
         public readonly ImmutableArray<string> ExcludesPatterns;
-        /// <summary>
-        /// Pattern of artifacts to include.
-        /// </summary>
         public readonly ImmutableArray<string> IncludesPatterns;
-        /// <summary>
-        /// List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
-        /// </summary>
         public readonly ImmutableArray<string> Repositories;
 
         [OutputConstructor]

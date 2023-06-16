@@ -17,70 +17,6 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Note: this resource is deprecated in favor of `artifactory.PullReplication` resource.
- * 
- * Provides an Artifactory single replication config resource. This can be used to create and manage a single Artifactory
- * replication. Primarily used when pull replication is needed.
- * 
- * **WARNING: This should not be used on a repository with `artifactory.ReplicationConfig`. Using both together will cause
- * unexpected behaviour and will almost certainly cause your replications to break.**
- * 
- * ## Example Usage
- * 
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.artifactory.LocalMavenRepository;
- * import com.pulumi.artifactory.LocalMavenRepositoryArgs;
- * import com.pulumi.artifactory.SingleReplicationConfig;
- * import com.pulumi.artifactory.SingleReplicationConfigArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var providerTestSource = new LocalMavenRepository(&#34;providerTestSource&#34;, LocalMavenRepositoryArgs.builder()        
- *             .key(&#34;provider_test_source&#34;)
- *             .build());
- * 
- *         var providerTestDest = new LocalMavenRepository(&#34;providerTestDest&#34;, LocalMavenRepositoryArgs.builder()        
- *             .key(&#34;provider_test_dest&#34;)
- *             .build());
- * 
- *         var foo_rep = new SingleReplicationConfig(&#34;foo-rep&#34;, SingleReplicationConfigArgs.builder()        
- *             .cronExp(&#34;0 0 * * * ?&#34;)
- *             .enableEventReplication(true)
- *             .password(var_.artifactory_password())
- *             .repoKey(providerTestSource.key())
- *             .url(var_.artifactory_url())
- *             .username(var_.artifactory_username())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Replication configs can be imported using their repo key, e.g.
- * 
- * ```sh
- *  $ pulumi import artifactory:index/singleReplicationConfig:SingleReplicationConfig foo-rep repository-key
- * ```
- * 
- */
 @ResourceType(type="artifactory:index/singleReplicationConfig:SingleReplicationConfig")
 public class SingleReplicationConfig extends com.pulumi.resources.CustomResource {
     /**
@@ -110,14 +46,16 @@ public class SingleReplicationConfig extends com.pulumi.resources.CustomResource
         return this.enabled;
     }
     /**
-     * Requires password encryption to be turned off `POST /api/system/decrypt`.
+     * If a password is used to create the resource, it will be returned as encrypted and this will become the new
+     * state.Practically speaking, what this means is that, the password can only be set, not gotten.
      * 
      */
     @Export(name="password", type=String.class, parameters={})
     private Output<String> password;
 
     /**
-     * @return Requires password encryption to be turned off `POST /api/system/decrypt`.
+     * @return If a password is used to create the resource, it will be returned as encrypted and this will become the new
+     * state.Practically speaking, what this means is that, the password can only be set, not gotten.
      * 
      */
     public Output<String> password() {
@@ -130,14 +68,14 @@ public class SingleReplicationConfig extends com.pulumi.resources.CustomResource
         return Codegen.optional(this.pathPrefix);
     }
     /**
-     * Proxy key from Artifactory Proxies setting.
+     * Proxy key from Artifactory Proxies setting
      * 
      */
     @Export(name="proxy", type=String.class, parameters={})
     private Output</* @Nullable */ String> proxy;
 
     /**
-     * @return Proxy key from Artifactory Proxies setting.
+     * @return Proxy key from Artifactory Proxies setting
      * 
      */
     public Output<Optional<String>> proxy() {

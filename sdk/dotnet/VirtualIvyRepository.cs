@@ -9,42 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Artifactory
 {
-    /// <summary>
-    /// Creates a virtual Ivy repository.
-    /// Official documentation can be found [here](https://jfrog.com/blog/how-to-set-up-a-private-remote-and-virtual-maven-gradle-registry/).
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Artifactory = Pulumi.Artifactory;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var foo_ivy = new Artifactory.VirtualIvyRepository("foo-ivy", new()
-    ///     {
-    ///         Description = "A test virtual repo",
-    ///         ExcludesPattern = "com/google/**",
-    ///         IncludesPattern = "com/jfrog/**,cloud/jfrog/**",
-    ///         Key = "foo-ivy",
-    ///         Notes = "Internal description",
-    ///         PomRepositoryReferencesCleanupPolicy = "discard_active_reference",
-    ///         Repositories = new[] {},
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Virtual repositories can be imported using their name, e.g.
-    /// 
-    /// ```sh
-    ///  $ pulumi import artifactory:index/virtualIvyRepository:VirtualIvyRepository foo-ivy foo-ivy
-    /// ```
-    /// </summary>
     [ArtifactoryResourceType("artifactory:index/virtualIvyRepository:VirtualIvyRepository")]
     public partial class VirtualIvyRepository : global::Pulumi.CustomResource
     {
@@ -89,14 +53,14 @@ namespace Pulumi.Artifactory
         public Output<string?> IncludesPattern { get; private set; } = null!;
 
         /// <summary>
-        /// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-        /// contain spaces or special characters.
+        /// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+        /// characters. It cannot begin with a number or contain spaces or special characters.
         /// </summary>
         [Output("key")]
         public Output<string> Key { get; private set; } = null!;
 
         /// <summary>
-        /// The keypair used to sign artifacts.
+        /// The keypair used to sign artifacts
         /// </summary>
         [Output("keyPair")]
         public Output<string?> KeyPair { get; private set; } = null!;
@@ -111,9 +75,10 @@ namespace Pulumi.Artifactory
         public Output<string> PackageType { get; private set; } = null!;
 
         /// <summary>
-        /// - (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
-        /// - (2: discard_any_reference) Discard Any References - Removes all repository elements regardless of whether they are included in an active profile or not.
-        /// - (3: nothing) Nothing - Does not remove any repository elements declared in the POM.
+        /// (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under
+        /// project or under a profile in the same POM that is activeByDefault. (2: discard_any_reference) Discard Any References -
+        /// Removes all repository elements regardless of whether they are included in an active profile or not. (3: nothing)
+        /// Nothing - Does not remove any repository elements declared in the POM.
         /// </summary>
         [Output("pomRepositoryReferencesCleanupPolicy")]
         public Output<string> PomRepositoryReferencesCleanupPolicy { get; private set; } = null!;
@@ -233,14 +198,14 @@ namespace Pulumi.Artifactory
         public Input<string>? IncludesPattern { get; set; }
 
         /// <summary>
-        /// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-        /// contain spaces or special characters.
+        /// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+        /// characters. It cannot begin with a number or contain spaces or special characters.
         /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
         /// <summary>
-        /// The keypair used to sign artifacts.
+        /// The keypair used to sign artifacts
         /// </summary>
         [Input("keyPair")]
         public Input<string>? KeyPair { get; set; }
@@ -252,9 +217,10 @@ namespace Pulumi.Artifactory
         public Input<string>? Notes { get; set; }
 
         /// <summary>
-        /// - (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
-        /// - (2: discard_any_reference) Discard Any References - Removes all repository elements regardless of whether they are included in an active profile or not.
-        /// - (3: nothing) Nothing - Does not remove any repository elements declared in the POM.
+        /// (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under
+        /// project or under a profile in the same POM that is activeByDefault. (2: discard_any_reference) Discard Any References -
+        /// Removes all repository elements regardless of whether they are included in an active profile or not. (3: nothing)
+        /// Nothing - Does not remove any repository elements declared in the POM.
         /// </summary>
         [Input("pomRepositoryReferencesCleanupPolicy")]
         public Input<string>? PomRepositoryReferencesCleanupPolicy { get; set; }
@@ -348,14 +314,14 @@ namespace Pulumi.Artifactory
         public Input<string>? IncludesPattern { get; set; }
 
         /// <summary>
-        /// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-        /// contain spaces or special characters.
+        /// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+        /// characters. It cannot begin with a number or contain spaces or special characters.
         /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
 
         /// <summary>
-        /// The keypair used to sign artifacts.
+        /// The keypair used to sign artifacts
         /// </summary>
         [Input("keyPair")]
         public Input<string>? KeyPair { get; set; }
@@ -370,9 +336,10 @@ namespace Pulumi.Artifactory
         public Input<string>? PackageType { get; set; }
 
         /// <summary>
-        /// - (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
-        /// - (2: discard_any_reference) Discard Any References - Removes all repository elements regardless of whether they are included in an active profile or not.
-        /// - (3: nothing) Nothing - Does not remove any repository elements declared in the POM.
+        /// (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under
+        /// project or under a profile in the same POM that is activeByDefault. (2: discard_any_reference) Discard Any References -
+        /// Removes all repository elements regardless of whether they are included in an active profile or not. (3: nothing)
+        /// Nothing - Does not remove any repository elements declared in the POM.
         /// </summary>
         [Input("pomRepositoryReferencesCleanupPolicy")]
         public Input<string>? PomRepositoryReferencesCleanupPolicy { get; set; }

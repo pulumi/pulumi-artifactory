@@ -37,10 +37,6 @@ public final class GetRemoteVcsRepositoryResult {
     private String key;
     private @Nullable Boolean listRemoteFolderItems;
     private @Nullable String localAddress;
-    /**
-     * @return (Optional) The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
-     * 
-     */
     private @Nullable Integer maxUniqueSnapshots;
     private @Nullable Integer metadataRetrievalTimeoutSecs;
     private @Nullable String mismatchingMimeTypesOverrideList;
@@ -65,15 +61,7 @@ public final class GetRemoteVcsRepositoryResult {
     private @Nullable Integer unusedArtifactsCleanupPeriodHours;
     private @Nullable String url;
     private @Nullable String username;
-    /**
-     * @return (Optional) This attribute is used when vcs_git_provider is set to `CUSTOM`. Provided URL will be used as proxy.
-     * 
-     */
     private @Nullable String vcsGitDownloadUrl;
-    /**
-     * @return (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub, Bitbucket, Stash, a remote Artifactory instance or a custom Git repository. Allowed values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`. Default value is `GITHUB`
-     * 
-     */
     private @Nullable String vcsGitProvider;
     private @Nullable Boolean xrayIndex;
 
@@ -136,10 +124,6 @@ public final class GetRemoteVcsRepositoryResult {
     public Optional<String> localAddress() {
         return Optional.ofNullable(this.localAddress);
     }
-    /**
-     * @return (Optional) The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
-     * 
-     */
     public Optional<Integer> maxUniqueSnapshots() {
         return Optional.ofNullable(this.maxUniqueSnapshots);
     }
@@ -212,17 +196,9 @@ public final class GetRemoteVcsRepositoryResult {
     public Optional<String> username() {
         return Optional.ofNullable(this.username);
     }
-    /**
-     * @return (Optional) This attribute is used when vcs_git_provider is set to `CUSTOM`. Provided URL will be used as proxy.
-     * 
-     */
     public Optional<String> vcsGitDownloadUrl() {
         return Optional.ofNullable(this.vcsGitDownloadUrl);
     }
-    /**
-     * @return (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub, Bitbucket, Stash, a remote Artifactory instance or a custom Git repository. Allowed values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`. Default value is `GITHUB`
-     * 
-     */
     public Optional<String> vcsGitProvider() {
         return Optional.ofNullable(this.vcsGitProvider);
     }

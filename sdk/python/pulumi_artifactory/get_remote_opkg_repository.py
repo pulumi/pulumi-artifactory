@@ -457,19 +457,7 @@ def get_remote_opkg_repository(allow_any_host_auth: Optional[bool] = None,
                                xray_index: Optional[bool] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRemoteOpkgRepositoryResult:
     """
-    Retrieves a remote Opkg repository.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    remote_opkg = artifactory.get_remote_opkg_repository(key="remote-opkg")
-    ```
-
-
-    :param str key: the identity key of the repo.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['allowAnyHostAuth'] = allow_any_host_auth
@@ -603,18 +591,6 @@ def get_remote_opkg_repository_output(allow_any_host_auth: Optional[pulumi.Input
                                       xray_index: Optional[pulumi.Input[Optional[bool]]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRemoteOpkgRepositoryResult]:
     """
-    Retrieves a remote Opkg repository.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    remote_opkg = artifactory.get_remote_opkg_repository(key="remote-opkg")
-    ```
-
-
-    :param str key: the identity key of the repo.
+    Use this data source to access information about an existing resource.
     """
     ...

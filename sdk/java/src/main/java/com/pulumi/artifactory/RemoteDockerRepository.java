@@ -18,54 +18,6 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Creates remote Docker repository resource.
- * Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Docker+Registry)
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.artifactory.RemoteDockerRepository;
- * import com.pulumi.artifactory.RemoteDockerRepositoryArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var my_remote_docker = new RemoteDockerRepository(&#34;my-remote-docker&#34;, RemoteDockerRepositoryArgs.builder()        
- *             .blockPushingSchema1(true)
- *             .enableTokenAuthentication(true)
- *             .externalDependenciesEnabled(true)
- *             .externalDependenciesPatterns(&#34;**{@literal /}registry-1.docker.io/**&#34;)
- *             .key(&#34;my-remote-docker&#34;)
- *             .url(&#34;https://registry-1.docker.io/&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Remote repositories can be imported using their name, e.g.
- * 
- * ```sh
- *  $ pulumi import artifactory:index/remoteDockerRepository:RemoteDockerRepository my-remote-docker my-remote-docker
- * ```
- * 
- */
 @ResourceType(type="artifactory:index/remoteDockerRepository:RemoteDockerRepository")
 public class RemoteDockerRepository extends com.pulumi.resources.CustomResource {
     /**
@@ -137,18 +89,16 @@ public class RemoteDockerRepository extends com.pulumi.resources.CustomResource 
         return Codegen.optional(this.blockMismatchingMimeTypes);
     }
     /**
-     * When set, Artifactory will block the pulling of Docker images with manifest v2
-     * schema 1 from the remote repository (i.e. the upstream). It will be possible to pull images with manifest v2 schema 1
-     * that exist in the cache.
+     * When set, Artifactory will block the pulling of Docker images with manifest v2 schema 1 from the remote repository (i.e.
+     * the upstream). It will be possible to pull images with manifest v2 schema 1 that exist in the cache.
      * 
      */
     @Export(name="blockPushingSchema1", type=Boolean.class, parameters={})
     private Output<Boolean> blockPushingSchema1;
 
     /**
-     * @return When set, Artifactory will block the pulling of Docker images with manifest v2
-     * schema 1 from the remote repository (i.e. the upstream). It will be possible to pull images with manifest v2 schema 1
-     * that exist in the cache.
+     * @return When set, Artifactory will block the pulling of Docker images with manifest v2 schema 1 from the remote repository (i.e.
+     * the upstream). It will be possible to pull images with manifest v2 schema 1 that exist in the cache.
      * 
      */
     public Output<Boolean> blockPushingSchema1() {
@@ -283,40 +233,38 @@ public class RemoteDockerRepository extends com.pulumi.resources.CustomResource 
         return Codegen.optional(this.excludesPattern);
     }
     /**
-     * Also known as &#39;Foreign Layers Caching&#39; on the UI.
+     * Also known as &#39;Foreign Layers Caching&#39; on the UI, default is `false`.
      * 
      */
     @Export(name="externalDependenciesEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> externalDependenciesEnabled;
 
     /**
-     * @return Also known as &#39;Foreign Layers Caching&#39; on the UI.
+     * @return Also known as &#39;Foreign Layers Caching&#39; on the UI, default is `false`.
      * 
      */
     public Output<Optional<Boolean>> externalDependenciesEnabled() {
         return Codegen.optional(this.externalDependenciesEnabled);
     }
     /**
-     * An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will
-     * follow to download remote modules from, when presented with &#39;go-import&#39; meta tags in the remote repository response.
-     * By default, this is set to `[**]` in the UI, which means that remote modules may be downloaded from any external VCS source.
-     * Due to SDKv2 limitations, we can&#39;t set the default value for the list.
-     * This value `[**]` must be assigned to the attribute manually, if user don&#39;t specify any other non-default values.
-     * We don&#39;t want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns
-     * `[**]` on update if HCL doesn&#39;t have the attribute set or the list is empty.
+     * An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download
+     * remote modules from, when presented with &#39;go-import&#39; meta tags in the remote repository response. By default, this is
+     * set to &#39;**&#39; in the UI, which means that remote modules may be downloaded from any external VCS source.Due to SDKv2
+     * limitations, we can&#39;t set the default value for the list.This value must be assigned to the attribute manually, if user
+     * don&#39;t specify any other non-default values.This attribute must be set together with `external_dependencies_enabled =
+     * true`
      * 
      */
     @Export(name="externalDependenciesPatterns", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> externalDependenciesPatterns;
 
     /**
-     * @return An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will
-     * follow to download remote modules from, when presented with &#39;go-import&#39; meta tags in the remote repository response.
-     * By default, this is set to `[**]` in the UI, which means that remote modules may be downloaded from any external VCS source.
-     * Due to SDKv2 limitations, we can&#39;t set the default value for the list.
-     * This value `[**]` must be assigned to the attribute manually, if user don&#39;t specify any other non-default values.
-     * We don&#39;t want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns
-     * `[**]` on update if HCL doesn&#39;t have the attribute set or the list is empty.
+     * @return An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download
+     * remote modules from, when presented with &#39;go-import&#39; meta tags in the remote repository response. By default, this is
+     * set to &#39;**&#39; in the UI, which means that remote modules may be downloaded from any external VCS source.Due to SDKv2
+     * limitations, we can&#39;t set the default value for the list.This value must be assigned to the attribute manually, if user
+     * don&#39;t specify any other non-default values.This attribute must be set together with `external_dependencies_enabled =
+     * true`
      * 
      */
     public Output<Optional<List<String>>> externalDependenciesPatterns() {
@@ -355,16 +303,16 @@ public class RemoteDockerRepository extends com.pulumi.resources.CustomResource 
         return Codegen.optional(this.includesPattern);
     }
     /**
-     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-     * contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      * 
      */
     @Export(name="key", type=String.class, parameters={})
     private Output<String> key;
 
     /**
-     * @return A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-     * contain spaces or special characters.
+     * @return A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      * 
      */
     public Output<String> key() {

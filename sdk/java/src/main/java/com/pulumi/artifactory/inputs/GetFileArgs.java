@@ -16,79 +16,37 @@ public final class GetFileArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetFileArgs Empty = new GetFileArgs();
 
-    /**
-     * If set to true, an existing file in the output_path will be overwritten. Default: `false`
-     * 
-     */
     @Import(name="forceOverwrite")
     private @Nullable Output<Boolean> forceOverwrite;
 
-    /**
-     * @return If set to true, an existing file in the output_path will be overwritten. Default: `false`
-     * 
-     */
     public Optional<Output<Boolean>> forceOverwrite() {
         return Optional.ofNullable(this.forceOverwrite);
     }
 
-    /**
-     * The local path the file should be downloaded to.
-     * 
-     */
     @Import(name="outputPath", required=true)
     private Output<String> outputPath;
 
-    /**
-     * @return The local path the file should be downloaded to.
-     * 
-     */
     public Output<String> outputPath() {
         return this.outputPath;
     }
 
-    /**
-     * The path to the file within the repository.
-     * 
-     */
     @Import(name="path", required=true)
     private Output<String> path;
 
-    /**
-     * @return The path to the file within the repository.
-     * 
-     */
     public Output<String> path() {
         return this.path;
     }
 
-    /**
-     * If set to `true`, the provider will get the artifact directly from Artifactory without attempting to resolve it or verify it and will delegate this to artifactory
-     * if the file exists. More details in the [official documentation](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-RetrieveLatestArtifact)
-     * 
-     */
     @Import(name="pathIsAliased")
     private @Nullable Output<Boolean> pathIsAliased;
 
-    /**
-     * @return If set to `true`, the provider will get the artifact directly from Artifactory without attempting to resolve it or verify it and will delegate this to artifactory
-     * if the file exists. More details in the [official documentation](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-RetrieveLatestArtifact)
-     * 
-     */
     public Optional<Output<Boolean>> pathIsAliased() {
         return Optional.ofNullable(this.pathIsAliased);
     }
 
-    /**
-     * Name of the repository where the file is stored.
-     * 
-     */
     @Import(name="repository", required=true)
     private Output<String> repository;
 
-    /**
-     * @return Name of the repository where the file is stored.
-     * 
-     */
     public Output<String> repository() {
         return this.repository;
     }
@@ -121,109 +79,47 @@ public final class GetFileArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetFileArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param forceOverwrite If set to true, an existing file in the output_path will be overwritten. Default: `false`
-         * 
-         * @return builder
-         * 
-         */
         public Builder forceOverwrite(@Nullable Output<Boolean> forceOverwrite) {
             $.forceOverwrite = forceOverwrite;
             return this;
         }
 
-        /**
-         * @param forceOverwrite If set to true, an existing file in the output_path will be overwritten. Default: `false`
-         * 
-         * @return builder
-         * 
-         */
         public Builder forceOverwrite(Boolean forceOverwrite) {
             return forceOverwrite(Output.of(forceOverwrite));
         }
 
-        /**
-         * @param outputPath The local path the file should be downloaded to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder outputPath(Output<String> outputPath) {
             $.outputPath = outputPath;
             return this;
         }
 
-        /**
-         * @param outputPath The local path the file should be downloaded to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder outputPath(String outputPath) {
             return outputPath(Output.of(outputPath));
         }
 
-        /**
-         * @param path The path to the file within the repository.
-         * 
-         * @return builder
-         * 
-         */
         public Builder path(Output<String> path) {
             $.path = path;
             return this;
         }
 
-        /**
-         * @param path The path to the file within the repository.
-         * 
-         * @return builder
-         * 
-         */
         public Builder path(String path) {
             return path(Output.of(path));
         }
 
-        /**
-         * @param pathIsAliased If set to `true`, the provider will get the artifact directly from Artifactory without attempting to resolve it or verify it and will delegate this to artifactory
-         * if the file exists. More details in the [official documentation](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-RetrieveLatestArtifact)
-         * 
-         * @return builder
-         * 
-         */
         public Builder pathIsAliased(@Nullable Output<Boolean> pathIsAliased) {
             $.pathIsAliased = pathIsAliased;
             return this;
         }
 
-        /**
-         * @param pathIsAliased If set to `true`, the provider will get the artifact directly from Artifactory without attempting to resolve it or verify it and will delegate this to artifactory
-         * if the file exists. More details in the [official documentation](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-RetrieveLatestArtifact)
-         * 
-         * @return builder
-         * 
-         */
         public Builder pathIsAliased(Boolean pathIsAliased) {
             return pathIsAliased(Output.of(pathIsAliased));
         }
 
-        /**
-         * @param repository Name of the repository where the file is stored.
-         * 
-         * @return builder
-         * 
-         */
         public Builder repository(Output<String> repository) {
             $.repository = repository;
             return this;
         }
 
-        /**
-         * @param repository Name of the repository where the file is stored.
-         * 
-         * @return builder
-         * 
-         */
         public Builder repository(String repository) {
             return repository(Output.of(repository));
         }

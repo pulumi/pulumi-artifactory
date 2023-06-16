@@ -4,20 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-/**
- * Retrieves a virtual Ivy repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const virtual-ivy = artifactory.getVirtualIvyRepository({
- *     key: "virtual-ivy",
- * });
- * ```
- */
 export function getVirtualIvyRepository(args: GetVirtualIvyRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualIvyRepositoryResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -49,21 +35,9 @@ export interface GetVirtualIvyRepositoryArgs {
     excludesPattern?: string;
     forceMavenAuthentication?: boolean;
     includesPattern?: string;
-    /**
-     * the identity key of the repo.
-     */
     key: string;
-    /**
-     * (Optional) The keypair used to sign artifacts.
-     */
     keyPair?: string;
     notes?: string;
-    /**
-     * (Optional)
-     * - (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
-     * - (2: discard_any_reference) Discard Any References - Removes all repository elements regardless of whether they are included in an active profile or not.
-     * - (3: nothing) Nothing - Does not remove any repository elements declared in the POM.
-     */
     pomRepositoryReferencesCleanupPolicy?: string;
     projectEnvironments?: string[];
     projectKey?: string;
@@ -86,38 +60,15 @@ export interface GetVirtualIvyRepositoryResult {
     readonly id: string;
     readonly includesPattern?: string;
     readonly key: string;
-    /**
-     * (Optional) The keypair used to sign artifacts.
-     */
     readonly keyPair?: string;
     readonly notes?: string;
     readonly packageType: string;
-    /**
-     * (Optional)
-     * - (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
-     * - (2: discard_any_reference) Discard Any References - Removes all repository elements regardless of whether they are included in an active profile or not.
-     * - (3: nothing) Nothing - Does not remove any repository elements declared in the POM.
-     */
     readonly pomRepositoryReferencesCleanupPolicy: string;
     readonly projectEnvironments: string[];
     readonly projectKey?: string;
     readonly repoLayoutRef?: string;
     readonly repositories?: string[];
 }
-/**
- * Retrieves a virtual Ivy repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const virtual-ivy = artifactory.getVirtualIvyRepository({
- *     key: "virtual-ivy",
- * });
- * ```
- */
 export function getVirtualIvyRepositoryOutput(args: GetVirtualIvyRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualIvyRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getVirtualIvyRepository(a, opts))
 }
@@ -132,21 +83,9 @@ export interface GetVirtualIvyRepositoryOutputArgs {
     excludesPattern?: pulumi.Input<string>;
     forceMavenAuthentication?: pulumi.Input<boolean>;
     includesPattern?: pulumi.Input<string>;
-    /**
-     * the identity key of the repo.
-     */
     key: pulumi.Input<string>;
-    /**
-     * (Optional) The keypair used to sign artifacts.
-     */
     keyPair?: pulumi.Input<string>;
     notes?: pulumi.Input<string>;
-    /**
-     * (Optional)
-     * - (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
-     * - (2: discard_any_reference) Discard Any References - Removes all repository elements regardless of whether they are included in an active profile or not.
-     * - (3: nothing) Nothing - Does not remove any repository elements declared in the POM.
-     */
     pomRepositoryReferencesCleanupPolicy?: pulumi.Input<string>;
     projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
     projectKey?: pulumi.Input<string>;

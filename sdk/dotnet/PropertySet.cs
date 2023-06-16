@@ -9,85 +9,11 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Artifactory
 {
-    /// <summary>
-    /// Provides an Artifactory Property Set resource.
-    /// This resource configuration corresponds to 'propertySets' config block in system configuration XML
-    /// (REST endpoint: artifactory/api/system/configuration).
-    /// 
-    /// ~&gt;The `artifactory.PropertySet` resource utilizes endpoints which are blocked/removed in SaaS environments (i.e. in Artifactory online), rendering this resource incompatible with Artifactory SaaS environments.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Artifactory = Pulumi.Artifactory;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var foo = new Artifactory.PropertySet("foo", new()
-    ///     {
-    ///         Properties = new[]
-    ///         {
-    ///             new Artifactory.Inputs.PropertySetPropertyArgs
-    ///             {
-    ///                 ClosedPredefinedValues = true,
-    ///                 MultipleChoice = true,
-    ///                 Name = "set1property1",
-    ///                 PredefinedValues = new[]
-    ///                 {
-    ///                     new Artifactory.Inputs.PropertySetPropertyPredefinedValueArgs
-    ///                     {
-    ///                         DefaultValue = true,
-    ///                         Name = "passed-QA",
-    ///                     },
-    ///                     new Artifactory.Inputs.PropertySetPropertyPredefinedValueArgs
-    ///                     {
-    ///                         DefaultValue = false,
-    ///                         Name = "failed-QA",
-    ///                     },
-    ///                 },
-    ///             },
-    ///             new Artifactory.Inputs.PropertySetPropertyArgs
-    ///             {
-    ///                 ClosedPredefinedValues = false,
-    ///                 MultipleChoice = false,
-    ///                 Name = "set1property2",
-    ///                 PredefinedValues = new[]
-    ///                 {
-    ///                     new Artifactory.Inputs.PropertySetPropertyPredefinedValueArgs
-    ///                     {
-    ///                         DefaultValue = true,
-    ///                         Name = "passed-QA",
-    ///                     },
-    ///                     new Artifactory.Inputs.PropertySetPropertyPredefinedValueArgs
-    ///                     {
-    ///                         DefaultValue = false,
-    ///                         Name = "failed-QA",
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///         Visible = true,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Current Property Set can be imported using `property-set1` as the `ID`, e.g.
-    /// 
-    /// ```sh
-    ///  $ pulumi import artifactory:index/propertySet:PropertySet foo property-set1
-    /// ```
-    /// </summary>
     [ArtifactoryResourceType("artifactory:index/propertySet:PropertySet")]
     public partial class PropertySet : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Predefined property name.
+        /// Property set name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -99,7 +25,7 @@ namespace Pulumi.Artifactory
         public Output<ImmutableArray<Outputs.PropertySetProperty>> Properties { get; private set; } = null!;
 
         /// <summary>
-        /// Defines if the list visible and assignable to the repository or artifact. Default value is `true`.
+        /// Defines if the list visible and assignable to the repository or artifact.
         /// </summary>
         [Output("visible")]
         public Output<bool?> Visible { get; private set; } = null!;
@@ -151,7 +77,7 @@ namespace Pulumi.Artifactory
     public sealed class PropertySetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Predefined property name.
+        /// Property set name.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -169,7 +95,7 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// Defines if the list visible and assignable to the repository or artifact. Default value is `true`.
+        /// Defines if the list visible and assignable to the repository or artifact.
         /// </summary>
         [Input("visible")]
         public Input<bool>? Visible { get; set; }
@@ -183,7 +109,7 @@ namespace Pulumi.Artifactory
     public sealed class PropertySetState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Predefined property name.
+        /// Property set name.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -201,7 +127,7 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// Defines if the list visible and assignable to the repository or artifact. Default value is `true`.
+        /// Defines if the list visible and assignable to the repository or artifact.
         /// </summary>
         [Input("visible")]
         public Input<bool>? Visible { get; set; }

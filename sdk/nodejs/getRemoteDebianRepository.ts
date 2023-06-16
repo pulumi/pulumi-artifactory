@@ -6,20 +6,6 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
-/**
- * Retrieves a remote Debian repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const remote-debian = artifactory.getRemoteDebianRepository({
- *     key: "remote-debian",
- * });
- * ```
- */
 export function getRemoteDebianRepository(args: GetRemoteDebianRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetRemoteDebianRepositoryResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -85,9 +71,6 @@ export interface GetRemoteDebianRepositoryArgs {
     excludesPattern?: string;
     hardFail?: boolean;
     includesPattern?: string;
-    /**
-     * the identity key of the repo.
-     */
     key: string;
     listRemoteFolderItems?: boolean;
     localAddress?: string;
@@ -166,20 +149,6 @@ export interface GetRemoteDebianRepositoryResult {
     readonly username?: string;
     readonly xrayIndex?: boolean;
 }
-/**
- * Retrieves a remote Debian repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const remote-debian = artifactory.getRemoteDebianRepository({
- *     key: "remote-debian",
- * });
- * ```
- */
 export function getRemoteDebianRepositoryOutput(args: GetRemoteDebianRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemoteDebianRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getRemoteDebianRepository(a, opts))
 }
@@ -202,9 +171,6 @@ export interface GetRemoteDebianRepositoryOutputArgs {
     excludesPattern?: pulumi.Input<string>;
     hardFail?: pulumi.Input<boolean>;
     includesPattern?: pulumi.Input<string>;
-    /**
-     * the identity key of the repo.
-     */
     key: pulumi.Input<string>;
     listRemoteFolderItems?: pulumi.Input<boolean>;
     localAddress?: pulumi.Input<string>;

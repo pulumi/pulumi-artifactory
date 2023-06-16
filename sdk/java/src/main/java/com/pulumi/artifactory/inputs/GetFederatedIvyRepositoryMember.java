@@ -13,34 +13,16 @@ public final class GetFederatedIvyRepositoryMember extends com.pulumi.resources.
 
     public static final GetFederatedIvyRepositoryMember Empty = new GetFederatedIvyRepositoryMember();
 
-    /**
-     * Represents the active state of the federated member. It is supported to change the enabled
-     * status of my own member. The config will be updated on the other federated members automatically.
-     * 
-     */
     @Import(name="enabled", required=true)
     private Boolean enabled;
 
-    /**
-     * @return Represents the active state of the federated member. It is supported to change the enabled
-     * status of my own member. The config will be updated on the other federated members automatically.
-     * 
-     */
     public Boolean enabled() {
         return this.enabled;
     }
 
-    /**
-     * Full URL to ending with the repository name.
-     * 
-     */
     @Import(name="url", required=true)
     private String url;
 
-    /**
-     * @return Full URL to ending with the repository name.
-     * 
-     */
     public String url() {
         return this.url;
     }
@@ -70,24 +52,11 @@ public final class GetFederatedIvyRepositoryMember extends com.pulumi.resources.
             $ = new GetFederatedIvyRepositoryMember(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param enabled Represents the active state of the federated member. It is supported to change the enabled
-         * status of my own member. The config will be updated on the other federated members automatically.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Boolean enabled) {
             $.enabled = enabled;
             return this;
         }
 
-        /**
-         * @param url Full URL to ending with the repository name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder url(String url) {
             $.url = url;
             return this;

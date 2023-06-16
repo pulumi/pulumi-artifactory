@@ -9,61 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Artifactory
 {
-    /// <summary>
-    /// Creates a virtual Maven repository.
-    /// Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Maven+Repository).
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Artifactory = Pulumi.Artifactory;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var bar = new Artifactory.LocalMavenRepository("bar", new()
-    ///     {
-    ///         Key = "bar",
-    ///         RepoLayoutRef = "maven-2-default",
-    ///     });
-    /// 
-    ///     var baz = new Artifactory.RemoteMavenRepository("baz", new()
-    ///     {
-    ///         Key = "baz",
-    ///         RepoLayoutRef = "maven-2-default",
-    ///         Url = "https://search.maven.com/",
-    ///     });
-    /// 
-    ///     var maven_virt_repo = new Artifactory.MavenRepository("maven-virt-repo", new()
-    ///     {
-    ///         Description = "A test virtual repo",
-    ///         ExcludesPattern = "com/google/**",
-    ///         ForceMavenAuthentication = true,
-    ///         IncludesPattern = "com/jfrog/**,cloud/jfrog/**",
-    ///         Key = "maven-virt-repo",
-    ///         Notes = "Internal description",
-    ///         PomRepositoryReferencesCleanupPolicy = "discard_active_reference",
-    ///         RepoLayoutRef = "maven-2-default",
-    ///         Repositories = new[]
-    ///         {
-    ///             bar.Key,
-    ///             baz.Key,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Virtual repositories can be imported using their name, e.g.
-    /// 
-    /// ```sh
-    ///  $ pulumi import artifactory:index/mavenRepository:MavenRepository maven-virt-repo maven-virt-repo
-    /// ```
-    /// </summary>
     [ArtifactoryResourceType("artifactory:index/mavenRepository:MavenRepository")]
     public partial class MavenRepository : global::Pulumi.CustomResource
     {
@@ -94,7 +39,8 @@ namespace Pulumi.Artifactory
         public Output<string?> ExcludesPattern { get; private set; } = null!;
 
         /// <summary>
-        /// Forces authentication when fetching from remote repos.
+        /// User authentication is required when accessing the repository. An anonymous request will display an HTTP 401 error. This
+        /// is also enforced when aggregated repositories support anonymous requests.
         /// </summary>
         [Output("forceMavenAuthentication")]
         public Output<bool> ForceMavenAuthentication { get; private set; } = null!;
@@ -107,8 +53,8 @@ namespace Pulumi.Artifactory
         public Output<string?> IncludesPattern { get; private set; } = null!;
 
         /// <summary>
-        /// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-        /// contain spaces or special characters.
+        /// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+        /// characters. It cannot begin with a number or contain spaces or special characters.
         /// </summary>
         [Output("key")]
         public Output<string> Key { get; private set; } = null!;
@@ -129,7 +75,10 @@ namespace Pulumi.Artifactory
         public Output<string> PackageType { get; private set; } = null!;
 
         /// <summary>
-        /// One of: `"discard_active_reference", "discard_any_reference", "nothing"`
+        /// (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under
+        /// project or under a profile in the same POM that is activeByDefault. (2: discard_any_reference) Discard Any References -
+        /// Removes all repository elements regardless of whether they are included in an active profile or not. (3: nothing)
+        /// Nothing - Does not remove any repository elements declared in the POM.
         /// </summary>
         [Output("pomRepositoryReferencesCleanupPolicy")]
         public Output<string> PomRepositoryReferencesCleanupPolicy { get; private set; } = null!;
@@ -235,7 +184,8 @@ namespace Pulumi.Artifactory
         public Input<string>? ExcludesPattern { get; set; }
 
         /// <summary>
-        /// Forces authentication when fetching from remote repos.
+        /// User authentication is required when accessing the repository. An anonymous request will display an HTTP 401 error. This
+        /// is also enforced when aggregated repositories support anonymous requests.
         /// </summary>
         [Input("forceMavenAuthentication")]
         public Input<bool>? ForceMavenAuthentication { get; set; }
@@ -248,8 +198,8 @@ namespace Pulumi.Artifactory
         public Input<string>? IncludesPattern { get; set; }
 
         /// <summary>
-        /// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-        /// contain spaces or special characters.
+        /// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+        /// characters. It cannot begin with a number or contain spaces or special characters.
         /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -267,7 +217,10 @@ namespace Pulumi.Artifactory
         public Input<string>? Notes { get; set; }
 
         /// <summary>
-        /// One of: `"discard_active_reference", "discard_any_reference", "nothing"`
+        /// (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under
+        /// project or under a profile in the same POM that is activeByDefault. (2: discard_any_reference) Discard Any References -
+        /// Removes all repository elements regardless of whether they are included in an active profile or not. (3: nothing)
+        /// Nothing - Does not remove any repository elements declared in the POM.
         /// </summary>
         [Input("pomRepositoryReferencesCleanupPolicy")]
         public Input<string>? PomRepositoryReferencesCleanupPolicy { get; set; }
@@ -347,7 +300,8 @@ namespace Pulumi.Artifactory
         public Input<string>? ExcludesPattern { get; set; }
 
         /// <summary>
-        /// Forces authentication when fetching from remote repos.
+        /// User authentication is required when accessing the repository. An anonymous request will display an HTTP 401 error. This
+        /// is also enforced when aggregated repositories support anonymous requests.
         /// </summary>
         [Input("forceMavenAuthentication")]
         public Input<bool>? ForceMavenAuthentication { get; set; }
@@ -360,8 +314,8 @@ namespace Pulumi.Artifactory
         public Input<string>? IncludesPattern { get; set; }
 
         /// <summary>
-        /// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-        /// contain spaces or special characters.
+        /// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+        /// characters. It cannot begin with a number or contain spaces or special characters.
         /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
@@ -382,7 +336,10 @@ namespace Pulumi.Artifactory
         public Input<string>? PackageType { get; set; }
 
         /// <summary>
-        /// One of: `"discard_active_reference", "discard_any_reference", "nothing"`
+        /// (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under
+        /// project or under a profile in the same POM that is activeByDefault. (2: discard_any_reference) Discard Any References -
+        /// Removes all repository elements regardless of whether they are included in an active profile or not. (3: nothing)
+        /// Nothing - Does not remove any repository elements declared in the POM.
         /// </summary>
         [Input("pomRepositoryReferencesCleanupPolicy")]
         public Input<string>? PomRepositoryReferencesCleanupPolicy { get; set; }

@@ -4,20 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-/**
- * Retrieves a virtual Conan repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const virtual-conan = artifactory.getVirtualConanRepository({
- *     key: "virtual-conan",
- * });
- * ```
- */
 export function getVirtualConanRepository(args: GetVirtualConanRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualConanRepositoryResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -46,18 +32,12 @@ export interface GetVirtualConanRepositoryArgs {
     description?: string;
     excludesPattern?: string;
     includesPattern?: string;
-    /**
-     * the identity key of the repo.
-     */
     key: string;
     notes?: string;
     projectEnvironments?: string[];
     projectKey?: string;
     repoLayoutRef?: string;
     repositories?: string[];
-    /**
-     * (Optional, Default: `7200`) This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
-     */
     retrievalCachePeriodSeconds?: number;
 }
 
@@ -81,25 +61,8 @@ export interface GetVirtualConanRepositoryResult {
     readonly projectKey?: string;
     readonly repoLayoutRef?: string;
     readonly repositories?: string[];
-    /**
-     * (Optional, Default: `7200`) This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
-     */
     readonly retrievalCachePeriodSeconds?: number;
 }
-/**
- * Retrieves a virtual Conan repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const virtual-conan = artifactory.getVirtualConanRepository({
- *     key: "virtual-conan",
- * });
- * ```
- */
 export function getVirtualConanRepositoryOutput(args: GetVirtualConanRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualConanRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getVirtualConanRepository(a, opts))
 }
@@ -113,17 +76,11 @@ export interface GetVirtualConanRepositoryOutputArgs {
     description?: pulumi.Input<string>;
     excludesPattern?: pulumi.Input<string>;
     includesPattern?: pulumi.Input<string>;
-    /**
-     * the identity key of the repo.
-     */
     key: pulumi.Input<string>;
     notes?: pulumi.Input<string>;
     projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
     projectKey?: pulumi.Input<string>;
     repoLayoutRef?: pulumi.Input<string>;
     repositories?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * (Optional, Default: `7200`) This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
-     */
     retrievalCachePeriodSeconds?: pulumi.Input<number>;
 }

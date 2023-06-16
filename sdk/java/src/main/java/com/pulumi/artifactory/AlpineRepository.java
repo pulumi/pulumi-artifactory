@@ -16,62 +16,6 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Creates a local Alpine repository.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.artifactory.Keypair;
- * import com.pulumi.artifactory.KeypairArgs;
- * import com.pulumi.artifactory.AlpineRepository;
- * import com.pulumi.artifactory.AlpineRepositoryArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var some_keypairRSA = new Keypair(&#34;some-keypairRSA&#34;, KeypairArgs.builder()        
- *             .pairName(&#34;some-keypair&#34;)
- *             .pairType(&#34;RSA&#34;)
- *             .alias(&#34;foo-alias&#34;)
- *             .privateKey(Files.readString(Paths.get(&#34;samples/rsa.priv&#34;)))
- *             .publicKey(Files.readString(Paths.get(&#34;samples/rsa.pub&#34;)))
- *             .build());
- * 
- *         var terraform_local_test_alpine_repo_basic = new AlpineRepository(&#34;terraform-local-test-alpine-repo-basic&#34;, AlpineRepositoryArgs.builder()        
- *             .key(&#34;terraform-local-test-alpine-repo-basic&#34;)
- *             .primaryKeypairRef(some_keypairRSA.pairName())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(some_keypairRSA)
- *                 .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Local repositories can be imported using their name, e.g.
- * 
- * ```sh
- *  $ pulumi import artifactory:index/alpineRepository:AlpineRepository terraform-local-test-alpine-repo-basic terraform-local-test-alpine-repo-basic
- * ```
- * 
- */
 @ResourceType(type="artifactory:index/alpineRepository:AlpineRepository")
 public class AlpineRepository extends com.pulumi.resources.CustomResource {
     /**
@@ -191,14 +135,16 @@ public class AlpineRepository extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.indexCompressionFormats);
     }
     /**
-     * the identity key of the repo.
+     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      * 
      */
     @Export(name="key", type=String.class, parameters={})
     private Output<String> key;
 
     /**
-     * @return the identity key of the repo.
+     * @return A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      * 
      */
     public Output<String> key() {

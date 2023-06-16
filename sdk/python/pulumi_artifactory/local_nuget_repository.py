@@ -33,7 +33,8 @@ class LocalNugetRepositoryArgs:
                  xray_index: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a LocalNugetRepository resource.
-        :param pulumi.Input[str] key: the identity key of the repo.
+        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+               characters. It cannot begin with a number or contain spaces or special characters.
         :param pulumi.Input[bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
                therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
                security (e.g., cross-site scripting attacks).
@@ -46,12 +47,10 @@ class LocalNugetRepositoryArgs:
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
                artifacts are excluded.
         :param pulumi.Input[bool] force_nuget_authentication: Force basic authentication credentials in order to use this repository.
-               Default is `false`.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[int] max_unique_snapshots: The maximum number of unique snapshots of a single artifact to store
-               Once the number of snapshots exceeds this setting, older versions are removed
-               A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+        :param pulumi.Input[int] max_unique_snapshots: The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
+               older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
         :param pulumi.Input[str] notes: Internal description.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
@@ -103,7 +102,8 @@ class LocalNugetRepositoryArgs:
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
         """
-        the identity key of the repo.
+        A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+        characters. It cannot begin with a number or contain spaces or special characters.
         """
         return pulumi.get(self, "key")
 
@@ -193,7 +193,6 @@ class LocalNugetRepositoryArgs:
     def force_nuget_authentication(self) -> Optional[pulumi.Input[bool]]:
         """
         Force basic authentication credentials in order to use this repository.
-        Default is `false`.
         """
         return pulumi.get(self, "force_nuget_authentication")
 
@@ -218,9 +217,8 @@ class LocalNugetRepositoryArgs:
     @pulumi.getter(name="maxUniqueSnapshots")
     def max_unique_snapshots(self) -> Optional[pulumi.Input[int]]:
         """
-        The maximum number of unique snapshots of a single artifact to store
-        Once the number of snapshots exceeds this setting, older versions are removed
-        A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+        The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
+        older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
         """
         return pulumi.get(self, "max_unique_snapshots")
 
@@ -353,13 +351,12 @@ class _LocalNugetRepositoryState:
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
                artifacts are excluded.
         :param pulumi.Input[bool] force_nuget_authentication: Force basic authentication credentials in order to use this repository.
-               Default is `false`.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] key: the identity key of the repo.
-        :param pulumi.Input[int] max_unique_snapshots: The maximum number of unique snapshots of a single artifact to store
-               Once the number of snapshots exceeds this setting, older versions are removed
-               A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+               characters. It cannot begin with a number or contain spaces or special characters.
+        :param pulumi.Input[int] max_unique_snapshots: The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
+               older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
         :param pulumi.Input[str] notes: Internal description.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
@@ -492,7 +489,6 @@ class _LocalNugetRepositoryState:
     def force_nuget_authentication(self) -> Optional[pulumi.Input[bool]]:
         """
         Force basic authentication credentials in order to use this repository.
-        Default is `false`.
         """
         return pulumi.get(self, "force_nuget_authentication")
 
@@ -517,7 +513,8 @@ class _LocalNugetRepositoryState:
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
         """
-        the identity key of the repo.
+        A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+        characters. It cannot begin with a number or contain spaces or special characters.
         """
         return pulumi.get(self, "key")
 
@@ -529,9 +526,8 @@ class _LocalNugetRepositoryState:
     @pulumi.getter(name="maxUniqueSnapshots")
     def max_unique_snapshots(self) -> Optional[pulumi.Input[int]]:
         """
-        The maximum number of unique snapshots of a single artifact to store
-        Once the number of snapshots exceeds this setting, older versions are removed
-        A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+        The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
+        older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
         """
         return pulumi.get(self, "max_unique_snapshots")
 
@@ -662,28 +658,7 @@ class LocalNugetRepository(pulumi.CustomResource):
                  xray_index: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        Creates a local Nuget repository.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_artifactory as artifactory
-
-        terraform_local_test_nuget_repo_basic = artifactory.LocalNugetRepository("terraform-local-test-nuget-repo-basic",
-            force_nuget_authentication=True,
-            key="terraform-local-test-nuget-repo-basic",
-            max_unique_snapshots=5)
-        ```
-
-        ## Import
-
-        Local repositories can be imported using their name, e.g.
-
-        ```sh
-         $ pulumi import artifactory:index/localNugetRepository:LocalNugetRepository terraform-local-test-nuget-repo-basic terraform-local-test-nuget-repo-basic
-        ```
-
+        Create a LocalNugetRepository resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -698,13 +673,12 @@ class LocalNugetRepository(pulumi.CustomResource):
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
                artifacts are excluded.
         :param pulumi.Input[bool] force_nuget_authentication: Force basic authentication credentials in order to use this repository.
-               Default is `false`.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] key: the identity key of the repo.
-        :param pulumi.Input[int] max_unique_snapshots: The maximum number of unique snapshots of a single artifact to store
-               Once the number of snapshots exceeds this setting, older versions are removed
-               A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+               characters. It cannot begin with a number or contain spaces or special characters.
+        :param pulumi.Input[int] max_unique_snapshots: The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
+               older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
         :param pulumi.Input[str] notes: Internal description.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
@@ -725,28 +699,7 @@ class LocalNugetRepository(pulumi.CustomResource):
                  args: LocalNugetRepositoryArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Creates a local Nuget repository.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_artifactory as artifactory
-
-        terraform_local_test_nuget_repo_basic = artifactory.LocalNugetRepository("terraform-local-test-nuget-repo-basic",
-            force_nuget_authentication=True,
-            key="terraform-local-test-nuget-repo-basic",
-            max_unique_snapshots=5)
-        ```
-
-        ## Import
-
-        Local repositories can be imported using their name, e.g.
-
-        ```sh
-         $ pulumi import artifactory:index/localNugetRepository:LocalNugetRepository terraform-local-test-nuget-repo-basic terraform-local-test-nuget-repo-basic
-        ```
-
+        Create a LocalNugetRepository resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param LocalNugetRepositoryArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -855,13 +808,12 @@ class LocalNugetRepository(pulumi.CustomResource):
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
                artifacts are excluded.
         :param pulumi.Input[bool] force_nuget_authentication: Force basic authentication credentials in order to use this repository.
-               Default is `false`.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] key: the identity key of the repo.
-        :param pulumi.Input[int] max_unique_snapshots: The maximum number of unique snapshots of a single artifact to store
-               Once the number of snapshots exceeds this setting, older versions are removed
-               A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+               characters. It cannot begin with a number or contain spaces or special characters.
+        :param pulumi.Input[int] max_unique_snapshots: The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
+               older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
         :param pulumi.Input[str] notes: Internal description.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
@@ -957,7 +909,6 @@ class LocalNugetRepository(pulumi.CustomResource):
     def force_nuget_authentication(self) -> pulumi.Output[Optional[bool]]:
         """
         Force basic authentication credentials in order to use this repository.
-        Default is `false`.
         """
         return pulumi.get(self, "force_nuget_authentication")
 
@@ -974,7 +925,8 @@ class LocalNugetRepository(pulumi.CustomResource):
     @pulumi.getter
     def key(self) -> pulumi.Output[str]:
         """
-        the identity key of the repo.
+        A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+        characters. It cannot begin with a number or contain spaces or special characters.
         """
         return pulumi.get(self, "key")
 
@@ -982,9 +934,8 @@ class LocalNugetRepository(pulumi.CustomResource):
     @pulumi.getter(name="maxUniqueSnapshots")
     def max_unique_snapshots(self) -> pulumi.Output[Optional[int]]:
         """
-        The maximum number of unique snapshots of a single artifact to store
-        Once the number of snapshots exceeds this setting, older versions are removed
-        A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+        The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
+        older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
         """
         return pulumi.get(self, "max_unique_snapshots")
 

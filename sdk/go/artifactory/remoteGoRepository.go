@@ -11,46 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Creates a remote Go repository.
-// Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Go+Registry).
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.NewRemoteGoRepository(ctx, "my-remote-go", &artifactory.RemoteGoRepositoryArgs{
-//				Key:            pulumi.String("my-remote-go"),
-//				Url:            pulumi.String("https://proxy.golang.org/"),
-//				VcsGitProvider: pulumi.String("ARTIFACTORY"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Remote repositories can be imported using their name, e.g.
-//
-// ```sh
-//
-//	$ pulumi import artifactory:index/remoteGoRepository:RemoteGoRepository my-remote-go my-remote-go
-//
-// ```
 type RemoteGoRepository struct {
 	pulumi.CustomResourceState
 
@@ -94,8 +54,8 @@ type RemoteGoRepository struct {
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrOutput `pulumi:"includesPattern"`
-	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-	// contain spaces or special characters.
+	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+	// characters. It cannot begin with a number or contain spaces or special characters.
 	Key pulumi.StringOutput `pulumi:"key"`
 	// Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
 	// the 'Retrieval Cache Period'. Default value is 'true'.
@@ -161,7 +121,8 @@ type RemoteGoRepository struct {
 	// The remote repo URL.
 	Url      pulumi.StringOutput    `pulumi:"url"`
 	Username pulumi.StringPtrOutput `pulumi:"username"`
-	// Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `ARTIFACTORY`.
+	// Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance.
+	// Default value is "ARTIFACTORY".
 	VcsGitProvider pulumi.StringPtrOutput `pulumi:"vcsGitProvider"`
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.
@@ -250,8 +211,8 @@ type remoteGoRepositoryState struct {
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
-	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-	// contain spaces or special characters.
+	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+	// characters. It cannot begin with a number or contain spaces or special characters.
 	Key *string `pulumi:"key"`
 	// Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
 	// the 'Retrieval Cache Period'. Default value is 'true'.
@@ -317,7 +278,8 @@ type remoteGoRepositoryState struct {
 	// The remote repo URL.
 	Url      *string `pulumi:"url"`
 	Username *string `pulumi:"username"`
-	// Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `ARTIFACTORY`.
+	// Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance.
+	// Default value is "ARTIFACTORY".
 	VcsGitProvider *string `pulumi:"vcsGitProvider"`
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.
@@ -365,8 +327,8 @@ type RemoteGoRepositoryState struct {
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
-	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-	// contain spaces or special characters.
+	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+	// characters. It cannot begin with a number or contain spaces or special characters.
 	Key pulumi.StringPtrInput
 	// Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
 	// the 'Retrieval Cache Period'. Default value is 'true'.
@@ -432,7 +394,8 @@ type RemoteGoRepositoryState struct {
 	// The remote repo URL.
 	Url      pulumi.StringPtrInput
 	Username pulumi.StringPtrInput
-	// Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `ARTIFACTORY`.
+	// Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance.
+	// Default value is "ARTIFACTORY".
 	VcsGitProvider pulumi.StringPtrInput
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.
@@ -484,8 +447,8 @@ type remoteGoRepositoryArgs struct {
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
-	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-	// contain spaces or special characters.
+	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+	// characters. It cannot begin with a number or contain spaces or special characters.
 	Key string `pulumi:"key"`
 	// Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
 	// the 'Retrieval Cache Period'. Default value is 'true'.
@@ -550,7 +513,8 @@ type remoteGoRepositoryArgs struct {
 	// The remote repo URL.
 	Url      string  `pulumi:"url"`
 	Username *string `pulumi:"username"`
-	// Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `ARTIFACTORY`.
+	// Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance.
+	// Default value is "ARTIFACTORY".
 	VcsGitProvider *string `pulumi:"vcsGitProvider"`
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.
@@ -599,8 +563,8 @@ type RemoteGoRepositoryArgs struct {
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
-	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-	// contain spaces or special characters.
+	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+	// characters. It cannot begin with a number or contain spaces or special characters.
 	Key pulumi.StringInput
 	// Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
 	// the 'Retrieval Cache Period'. Default value is 'true'.
@@ -665,7 +629,8 @@ type RemoteGoRepositoryArgs struct {
 	// The remote repo URL.
 	Url      pulumi.StringInput
 	Username pulumi.StringPtrInput
-	// Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `ARTIFACTORY`.
+	// Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance.
+	// Default value is "ARTIFACTORY".
 	VcsGitProvider pulumi.StringPtrInput
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.
@@ -843,8 +808,8 @@ func (o RemoteGoRepositoryOutput) IncludesPattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RemoteGoRepository) pulumi.StringPtrOutput { return v.IncludesPattern }).(pulumi.StringPtrOutput)
 }
 
-// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-// contain spaces or special characters.
+// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+// characters. It cannot begin with a number or contain spaces or special characters.
 func (o RemoteGoRepositoryOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v *RemoteGoRepository) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
 }
@@ -988,7 +953,8 @@ func (o RemoteGoRepositoryOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RemoteGoRepository) pulumi.StringPtrOutput { return v.Username }).(pulumi.StringPtrOutput)
 }
 
-// Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `ARTIFACTORY`.
+// Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance.
+// Default value is "ARTIFACTORY".
 func (o RemoteGoRepositoryOutput) VcsGitProvider() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RemoteGoRepository) pulumi.StringPtrOutput { return v.VcsGitProvider }).(pulumi.StringPtrOutput)
 }

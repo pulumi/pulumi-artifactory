@@ -4,35 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-/**
- * Creates a virtual SBT repository.
- * Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/SBT+Repositories#SBTRepositories-VirtualRepositories).
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const foo_sbt = new artifactory.VirtualSbtRepository("foo-sbt", {
- *     description: "A test virtual repo",
- *     excludesPattern: "com/google/**",
- *     includesPattern: "com/jfrog/**,cloud/jfrog/**",
- *     key: "foo-sbt",
- *     notes: "Internal description",
- *     pomRepositoryReferencesCleanupPolicy: "discard_active_reference",
- *     repositories: [],
- * });
- * ```
- *
- * ## Import
- *
- * Virtual repositories can be imported using their name, e.g.
- *
- * ```sh
- *  $ pulumi import artifactory:index/virtualSbtRepository:VirtualSbtRepository foo-sbt foo-sbt
- * ```
- */
 export class VirtualSbtRepository extends pulumi.CustomResource {
     /**
      * Get an existing VirtualSbtRepository resource's state with the given name, ID, and optional extra
@@ -90,12 +61,12 @@ export class VirtualSbtRepository extends pulumi.CustomResource {
      */
     public readonly includesPattern!: pulumi.Output<string | undefined>;
     /**
-     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-     * contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      */
     public readonly key!: pulumi.Output<string>;
     /**
-     * The keypair used to sign artifacts.
+     * The keypair used to sign artifacts
      */
     public readonly keyPair!: pulumi.Output<string | undefined>;
     /**
@@ -104,9 +75,10 @@ export class VirtualSbtRepository extends pulumi.CustomResource {
     public readonly notes!: pulumi.Output<string | undefined>;
     public /*out*/ readonly packageType!: pulumi.Output<string>;
     /**
-     * - (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
-     * - (2: discard_any_reference) Discard Any References - Removes all repository elements regardless of whether they are included in an active profile or not.
-     * - (3: nothing) Nothing - Does not remove any repository elements declared in the POM.
+     * (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under
+     * project or under a profile in the same POM that is activeByDefault. (2: discard_any_reference) Discard Any References -
+     * Removes all repository elements regardless of whether they are included in an active profile or not. (3: nothing)
+     * Nothing - Does not remove any repository elements declared in the POM.
      */
     public readonly pomRepositoryReferencesCleanupPolicy!: pulumi.Output<string>;
     /**
@@ -217,12 +189,12 @@ export interface VirtualSbtRepositoryState {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-     * contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      */
     key?: pulumi.Input<string>;
     /**
-     * The keypair used to sign artifacts.
+     * The keypair used to sign artifacts
      */
     keyPair?: pulumi.Input<string>;
     /**
@@ -231,9 +203,10 @@ export interface VirtualSbtRepositoryState {
     notes?: pulumi.Input<string>;
     packageType?: pulumi.Input<string>;
     /**
-     * - (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
-     * - (2: discard_any_reference) Discard Any References - Removes all repository elements regardless of whether they are included in an active profile or not.
-     * - (3: nothing) Nothing - Does not remove any repository elements declared in the POM.
+     * (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under
+     * project or under a profile in the same POM that is activeByDefault. (2: discard_any_reference) Discard Any References -
+     * Removes all repository elements regardless of whether they are included in an active profile or not. (3: nothing)
+     * Nothing - Does not remove any repository elements declared in the POM.
      */
     pomRepositoryReferencesCleanupPolicy?: pulumi.Input<string>;
     /**
@@ -291,12 +264,12 @@ export interface VirtualSbtRepositoryArgs {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-     * contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      */
     key: pulumi.Input<string>;
     /**
-     * The keypair used to sign artifacts.
+     * The keypair used to sign artifacts
      */
     keyPair?: pulumi.Input<string>;
     /**
@@ -304,9 +277,10 @@ export interface VirtualSbtRepositoryArgs {
      */
     notes?: pulumi.Input<string>;
     /**
-     * - (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
-     * - (2: discard_any_reference) Discard Any References - Removes all repository elements regardless of whether they are included in an active profile or not.
-     * - (3: nothing) Nothing - Does not remove any repository elements declared in the POM.
+     * (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under
+     * project or under a profile in the same POM that is activeByDefault. (2: discard_any_reference) Discard Any References -
+     * Removes all repository elements regardless of whether they are included in an active profile or not. (3: nothing)
+     * Nothing - Does not remove any repository elements declared in the POM.
      */
     pomRepositoryReferencesCleanupPolicy?: pulumi.Input<string>;
     /**

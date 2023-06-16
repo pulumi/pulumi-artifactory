@@ -15,25 +15,9 @@ public final class ApiKeyState extends com.pulumi.resources.ResourceArgs {
 
     public static final ApiKeyState Empty = new ApiKeyState();
 
-    /**
-     * The API key. Deprecated. An upcoming version will support the option to block the usage/creation of API Keys (for admins to set on their platform).
-     * In September 2022, the option to block the usage/creation of API Keys will be enabled by default, with the option for admins to change it back to enable API Keys.
-     * In January 2023, API Keys will be deprecated all together and the option to use them will no longer be available.
-     * It is recommended to use scoped tokens instead - `artifactory.ScopedToken` resource.
-     * Please check the [release notes](https://www.jfrog.com/confluence/display/JFROG/Artifactory+Release+Notes#ArtifactoryReleaseNotes-Artifactory7.38.4).
-     * 
-     */
     @Import(name="apiKey")
     private @Nullable Output<String> apiKey;
 
-    /**
-     * @return The API key. Deprecated. An upcoming version will support the option to block the usage/creation of API Keys (for admins to set on their platform).
-     * In September 2022, the option to block the usage/creation of API Keys will be enabled by default, with the option for admins to change it back to enable API Keys.
-     * In January 2023, API Keys will be deprecated all together and the option to use them will no longer be available.
-     * It is recommended to use scoped tokens instead - `artifactory.ScopedToken` resource.
-     * Please check the [release notes](https://www.jfrog.com/confluence/display/JFROG/Artifactory+Release+Notes#ArtifactoryReleaseNotes-Artifactory7.38.4).
-     * 
-     */
     public Optional<Output<String>> apiKey() {
         return Optional.ofNullable(this.apiKey);
     }
@@ -62,31 +46,11 @@ public final class ApiKeyState extends com.pulumi.resources.ResourceArgs {
             $ = new ApiKeyState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param apiKey The API key. Deprecated. An upcoming version will support the option to block the usage/creation of API Keys (for admins to set on their platform).
-         * In September 2022, the option to block the usage/creation of API Keys will be enabled by default, with the option for admins to change it back to enable API Keys.
-         * In January 2023, API Keys will be deprecated all together and the option to use them will no longer be available.
-         * It is recommended to use scoped tokens instead - `artifactory.ScopedToken` resource.
-         * Please check the [release notes](https://www.jfrog.com/confluence/display/JFROG/Artifactory+Release+Notes#ArtifactoryReleaseNotes-Artifactory7.38.4).
-         * 
-         * @return builder
-         * 
-         */
         public Builder apiKey(@Nullable Output<String> apiKey) {
             $.apiKey = apiKey;
             return this;
         }
 
-        /**
-         * @param apiKey The API key. Deprecated. An upcoming version will support the option to block the usage/creation of API Keys (for admins to set on their platform).
-         * In September 2022, the option to block the usage/creation of API Keys will be enabled by default, with the option for admins to change it back to enable API Keys.
-         * In January 2023, API Keys will be deprecated all together and the option to use them will no longer be available.
-         * It is recommended to use scoped tokens instead - `artifactory.ScopedToken` resource.
-         * Please check the [release notes](https://www.jfrog.com/confluence/display/JFROG/Artifactory+Release+Notes#ArtifactoryReleaseNotes-Artifactory7.38.4).
-         * 
-         * @return builder
-         * 
-         */
         public Builder apiKey(String apiKey) {
             return apiKey(Output.of(apiKey));
         }

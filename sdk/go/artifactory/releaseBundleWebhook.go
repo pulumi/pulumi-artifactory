@@ -11,76 +11,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an Artifactory webhook resource. This can be used to register and manage Artifactory webhook subscription which enables you to be notified or notify other users when such events take place in Artifactory.
-//
-// ## Example Usage
-//
-// .
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.NewReleaseBundleWebhook(ctx, "release-bundle-webhook", &artifactory.ReleaseBundleWebhookArgs{
-//				Criteria: &artifactory.ReleaseBundleWebhookCriteriaArgs{
-//					AnyReleaseBundle: pulumi.Bool(false),
-//					ExcludePatterns: pulumi.StringArray{
-//						pulumi.String("bar/**"),
-//					},
-//					IncludePatterns: pulumi.StringArray{
-//						pulumi.String("foo/**"),
-//					},
-//					RegisteredReleaseBundleNames: pulumi.StringArray{
-//						pulumi.String("bundle-name"),
-//					},
-//				},
-//				EventTypes: pulumi.StringArray{
-//					pulumi.String("created"),
-//					pulumi.String("signed"),
-//					pulumi.String("deleted"),
-//				},
-//				Handlers: artifactory.ReleaseBundleWebhookHandlerArray{
-//					&artifactory.ReleaseBundleWebhookHandlerArgs{
-//						CustomHttpHeaders: pulumi.StringMap{
-//							"header-1": pulumi.String("value-1"),
-//							"header-2": pulumi.String("value-2"),
-//						},
-//						Proxy:  pulumi.String("proxy-key"),
-//						Secret: pulumi.String("some-secret"),
-//						Url:    pulumi.String("http://tempurl.org/webhook"),
-//					},
-//				},
-//				Key: pulumi.String("release-bundle-webhook"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type ReleaseBundleWebhook struct {
 	pulumi.CustomResourceState
 
-	// Specifies where the webhook will be applied on which repositories.
+	// Specifies where the webhook will be applied, on which release bundles or distributions.
 	Criteria ReleaseBundleWebhookCriteriaOutput `pulumi:"criteria"`
-	// Webhook description. Max length 1000 characters.
+	// Description of webhook. Max length 1000 characters.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Status of webhook. Default to `true`.
+	// Status of webhook. Default to 'true'
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
-	// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `created`, `signed`, `deleted`.
-	EventTypes pulumi.StringArrayOutput `pulumi:"eventTypes"`
-	// At least one is required.
-	Handlers ReleaseBundleWebhookHandlerArrayOutput `pulumi:"handlers"`
-	// The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
+	// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow
+	// values: created, signed, deleted
+	EventTypes pulumi.StringArrayOutput               `pulumi:"eventTypes"`
+	Handlers   ReleaseBundleWebhookHandlerArrayOutput `pulumi:"handlers"`
+	// Key of webhook. Must be between 2 and 200 characters. Cannot contain spaces.
 	Key pulumi.StringOutput `pulumi:"key"`
 }
 
@@ -125,32 +69,32 @@ func GetReleaseBundleWebhook(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ReleaseBundleWebhook resources.
 type releaseBundleWebhookState struct {
-	// Specifies where the webhook will be applied on which repositories.
+	// Specifies where the webhook will be applied, on which release bundles or distributions.
 	Criteria *ReleaseBundleWebhookCriteria `pulumi:"criteria"`
-	// Webhook description. Max length 1000 characters.
+	// Description of webhook. Max length 1000 characters.
 	Description *string `pulumi:"description"`
-	// Status of webhook. Default to `true`.
+	// Status of webhook. Default to 'true'
 	Enabled *bool `pulumi:"enabled"`
-	// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `created`, `signed`, `deleted`.
-	EventTypes []string `pulumi:"eventTypes"`
-	// At least one is required.
-	Handlers []ReleaseBundleWebhookHandler `pulumi:"handlers"`
-	// The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
+	// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow
+	// values: created, signed, deleted
+	EventTypes []string                      `pulumi:"eventTypes"`
+	Handlers   []ReleaseBundleWebhookHandler `pulumi:"handlers"`
+	// Key of webhook. Must be between 2 and 200 characters. Cannot contain spaces.
 	Key *string `pulumi:"key"`
 }
 
 type ReleaseBundleWebhookState struct {
-	// Specifies where the webhook will be applied on which repositories.
+	// Specifies where the webhook will be applied, on which release bundles or distributions.
 	Criteria ReleaseBundleWebhookCriteriaPtrInput
-	// Webhook description. Max length 1000 characters.
+	// Description of webhook. Max length 1000 characters.
 	Description pulumi.StringPtrInput
-	// Status of webhook. Default to `true`.
+	// Status of webhook. Default to 'true'
 	Enabled pulumi.BoolPtrInput
-	// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `created`, `signed`, `deleted`.
+	// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow
+	// values: created, signed, deleted
 	EventTypes pulumi.StringArrayInput
-	// At least one is required.
-	Handlers ReleaseBundleWebhookHandlerArrayInput
-	// The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
+	Handlers   ReleaseBundleWebhookHandlerArrayInput
+	// Key of webhook. Must be between 2 and 200 characters. Cannot contain spaces.
 	Key pulumi.StringPtrInput
 }
 
@@ -159,33 +103,33 @@ func (ReleaseBundleWebhookState) ElementType() reflect.Type {
 }
 
 type releaseBundleWebhookArgs struct {
-	// Specifies where the webhook will be applied on which repositories.
+	// Specifies where the webhook will be applied, on which release bundles or distributions.
 	Criteria ReleaseBundleWebhookCriteria `pulumi:"criteria"`
-	// Webhook description. Max length 1000 characters.
+	// Description of webhook. Max length 1000 characters.
 	Description *string `pulumi:"description"`
-	// Status of webhook. Default to `true`.
+	// Status of webhook. Default to 'true'
 	Enabled *bool `pulumi:"enabled"`
-	// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `created`, `signed`, `deleted`.
-	EventTypes []string `pulumi:"eventTypes"`
-	// At least one is required.
-	Handlers []ReleaseBundleWebhookHandler `pulumi:"handlers"`
-	// The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
+	// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow
+	// values: created, signed, deleted
+	EventTypes []string                      `pulumi:"eventTypes"`
+	Handlers   []ReleaseBundleWebhookHandler `pulumi:"handlers"`
+	// Key of webhook. Must be between 2 and 200 characters. Cannot contain spaces.
 	Key string `pulumi:"key"`
 }
 
 // The set of arguments for constructing a ReleaseBundleWebhook resource.
 type ReleaseBundleWebhookArgs struct {
-	// Specifies where the webhook will be applied on which repositories.
+	// Specifies where the webhook will be applied, on which release bundles or distributions.
 	Criteria ReleaseBundleWebhookCriteriaInput
-	// Webhook description. Max length 1000 characters.
+	// Description of webhook. Max length 1000 characters.
 	Description pulumi.StringPtrInput
-	// Status of webhook. Default to `true`.
+	// Status of webhook. Default to 'true'
 	Enabled pulumi.BoolPtrInput
-	// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `created`, `signed`, `deleted`.
+	// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow
+	// values: created, signed, deleted
 	EventTypes pulumi.StringArrayInput
-	// At least one is required.
-	Handlers ReleaseBundleWebhookHandlerArrayInput
-	// The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
+	Handlers   ReleaseBundleWebhookHandlerArrayInput
+	// Key of webhook. Must be between 2 and 200 characters. Cannot contain spaces.
 	Key pulumi.StringInput
 }
 
@@ -276,32 +220,32 @@ func (o ReleaseBundleWebhookOutput) ToReleaseBundleWebhookOutputWithContext(ctx 
 	return o
 }
 
-// Specifies where the webhook will be applied on which repositories.
+// Specifies where the webhook will be applied, on which release bundles or distributions.
 func (o ReleaseBundleWebhookOutput) Criteria() ReleaseBundleWebhookCriteriaOutput {
 	return o.ApplyT(func(v *ReleaseBundleWebhook) ReleaseBundleWebhookCriteriaOutput { return v.Criteria }).(ReleaseBundleWebhookCriteriaOutput)
 }
 
-// Webhook description. Max length 1000 characters.
+// Description of webhook. Max length 1000 characters.
 func (o ReleaseBundleWebhookOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReleaseBundleWebhook) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Status of webhook. Default to `true`.
+// Status of webhook. Default to 'true'
 func (o ReleaseBundleWebhookOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ReleaseBundleWebhook) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `created`, `signed`, `deleted`.
+// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow
+// values: created, signed, deleted
 func (o ReleaseBundleWebhookOutput) EventTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ReleaseBundleWebhook) pulumi.StringArrayOutput { return v.EventTypes }).(pulumi.StringArrayOutput)
 }
 
-// At least one is required.
 func (o ReleaseBundleWebhookOutput) Handlers() ReleaseBundleWebhookHandlerArrayOutput {
 	return o.ApplyT(func(v *ReleaseBundleWebhook) ReleaseBundleWebhookHandlerArrayOutput { return v.Handlers }).(ReleaseBundleWebhookHandlerArrayOutput)
 }
 
-// The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
+// Key of webhook. Must be between 2 and 200 characters. Cannot contain spaces.
 func (o ReleaseBundleWebhookOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReleaseBundleWebhook) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
 }

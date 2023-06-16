@@ -136,9 +136,6 @@ class GetVirtualChefRepositoryResult:
     @property
     @pulumi.getter(name="retrievalCachePeriodSeconds")
     def retrieval_cache_period_seconds(self) -> Optional[int]:
-        """
-        (Optional, Default: `7200`) This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
-        """
         return pulumi.get(self, "retrieval_cache_period_seconds")
 
 
@@ -178,20 +175,7 @@ def get_virtual_chef_repository(artifactory_requests_can_retrieve_remote_artifac
                                 retrieval_cache_period_seconds: Optional[int] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualChefRepositoryResult:
     """
-    Retrieves a virtual Chef repository.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    virtual_chef = artifactory.get_virtual_chef_repository(key="virtual-chef")
-    ```
-
-
-    :param str key: the identity key of the repo.
-    :param int retrieval_cache_period_seconds: (Optional, Default: `7200`) This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['artifactoryRequestsCanRetrieveRemoteArtifacts'] = artifactory_requests_can_retrieve_remote_artifacts
@@ -241,19 +225,6 @@ def get_virtual_chef_repository_output(artifactory_requests_can_retrieve_remote_
                                        retrieval_cache_period_seconds: Optional[pulumi.Input[Optional[int]]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualChefRepositoryResult]:
     """
-    Retrieves a virtual Chef repository.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    virtual_chef = artifactory.get_virtual_chef_repository(key="virtual-chef")
-    ```
-
-
-    :param str key: the identity key of the repo.
-    :param int retrieval_cache_period_seconds: (Optional, Default: `7200`) This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
+    Use this data source to access information about an existing resource.
     """
     ...

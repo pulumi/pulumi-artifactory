@@ -11,87 +11,42 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// This resource can be used to manage Artifactory's SAML SSO settings.
-//
-// Only a single `SamlSettings` resource is meant to be defined.
-//
-// ~>The `SamlSettings` resource utilizes endpoints which are blocked/removed in SaaS environments (i.e. in Artifactory online), rendering this resource incompatible with Artifactory SaaS environments.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.NewSamlSettings(ctx, "saml", &artifactory.SamlSettingsArgs{
-//				AllowUserToAccessProfile:  pulumi.Bool(true),
-//				AutoRedirect:              pulumi.Bool(true),
-//				Certificate:               pulumi.String("test-certificate"),
-//				EmailAttribute:            pulumi.String("email"),
-//				Enable:                    pulumi.Bool(true),
-//				GroupAttribute:            pulumi.String("groups"),
-//				LoginUrl:                  pulumi.String("test-login-url"),
-//				LogoutUrl:                 pulumi.String("test-logout-url"),
-//				NoAutoUserCreation:        pulumi.Bool(false),
-//				ServiceProviderName:       pulumi.String("okta"),
-//				SyncGroups:                pulumi.Bool(true),
-//				UseEncryptedAssertion:     pulumi.Bool(false),
-//				VerifyAudienceRestriction: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Current SAML SSO settings can be imported using `saml_settings` as the `ID`, e.g.
-//
-// ```sh
-//
-//	$ pulumi import artifactory:index/samlSettings:SamlSettings saml saml_settings
-//
-// ```
 type SamlSettings struct {
 	pulumi.CustomResourceState
 
-	// Allow persisted users to access their profile.  Default value is `true`.
+	// Allow persisted users to access their profile. Default value is "true".
 	AllowUserToAccessProfile pulumi.BoolPtrOutput `pulumi:"allowUserToAccessProfile"`
-	// Auto redirect to login through the IdP when clicking on Artifactory's login link.  Default value is `false`.
+	// Auto redirect to login through the IdP when clicking on Artifactory's login link. Default value is "false".
 	AutoRedirect pulumi.BoolPtrOutput `pulumi:"autoRedirect"`
-	// SAML certificate that contains the public key for the IdP service provider.  Used by Artifactory to verify sign-in requests. Default value is ``.
+	// SAML certificate that contains the public key for the IdP service provider. Used by Artifactory to verify sign-in
+	// requests. Default value is "".
 	Certificate pulumi.StringPtrOutput `pulumi:"certificate"`
-	// Name of the attribute in the SAML response from the IdP that contains the user's email. Default value is ``.
+	// Name of the attribute in the SAML response from the IdP that contains the user's email. Default value is "".
 	EmailAttribute pulumi.StringPtrOutput `pulumi:"emailAttribute"`
-	// Enable SAML SSO.  Default value is `true`.
+	// Enable SAML SSO. Default value is "true".
 	Enable pulumi.BoolPtrOutput `pulumi:"enable"`
-	// Name of the attribute in the SAML response from the IdP that contains the user's group memberships. Default value is ``.
+	// Name of the attribute in the SAML response from the IdP that contains the user's group memberships. Default value is "".
 	GroupAttribute pulumi.StringPtrOutput `pulumi:"groupAttribute"`
 	// Service provider login url configured on the IdP.
 	LoginUrl pulumi.StringOutput `pulumi:"loginUrl"`
 	// Service provider logout url, or where to redirect after user logs out.
 	LogoutUrl pulumi.StringOutput `pulumi:"logoutUrl"`
-	// When automatic user creation is off, authenticated users are not automatically created inside Artifactory. Instead, for every request from an SSO user, the user is temporarily associated with default groups (if such groups are defined), and the permissions for these groups apply. Without auto-user creation, you must manually create the user inside Artifactory to manage user permissions not attached to their default groups. Default value is `false`.
+	// When automatic user creation is off, authenticated users are not automatically created inside Artifactory. Instead, for
+	// every request from an SSO user, the user is temporarily associated with default groups (if such groups are defined), and
+	// the permissions for these groups apply. Without auto-user creation, you must manually create the user inside Artifactory
+	// to manage user permissions not attached to their default groups. Default value is "false".
 	NoAutoUserCreation pulumi.BoolPtrOutput `pulumi:"noAutoUserCreation"`
 	// The SAML service provider name. This should be a URI that is also known as the entityID, providerID, or entity identity.
 	ServiceProviderName pulumi.StringOutput `pulumi:"serviceProviderName"`
-	// Associate user with Artifactory groups based on the `groupAttribute` provided in the SAML response from the identity provider.  Default value is `false`.
+	// Associate user with Artifactory groups based on the "group_attribute" provided in the SAML response from the identity
+	// provider. Default value is "false".
 	SyncGroups pulumi.BoolPtrOutput `pulumi:"syncGroups"`
-	// When set, an X.509 public certificate will be created by Artifactory. Download this certificate and upload it to your IDP and choose your own encryption algorithm. This process will let you encrypt the assertion section in your SAML response. Default value is `false`.
+	// When set, an X.509 public certificate will be created by Artifactory. Download this certificate and upload it to your
+	// IDP and choose your own encryption algorithm. This process will let you encrypt the assertion section in your SAML
+	// response. Default value is "false".
 	UseEncryptedAssertion pulumi.BoolPtrOutput `pulumi:"useEncryptedAssertion"`
-	// Enable "audience", or who the SAML assertion is intended for.  Ensures that the correct service provider intended for Artifactory is used on the IdP.  Default value is `true`.
+	// Enable "audience", or who the SAML assertion is intended for. Ensures that the correct service provider intended for
+	// Artifactory is used on the IdP. Default value is "true".
 	VerifyAudienceRestriction pulumi.BoolPtrOutput `pulumi:"verifyAudienceRestriction"`
 }
 
@@ -133,60 +88,76 @@ func GetSamlSettings(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SamlSettings resources.
 type samlSettingsState struct {
-	// Allow persisted users to access their profile.  Default value is `true`.
+	// Allow persisted users to access their profile. Default value is "true".
 	AllowUserToAccessProfile *bool `pulumi:"allowUserToAccessProfile"`
-	// Auto redirect to login through the IdP when clicking on Artifactory's login link.  Default value is `false`.
+	// Auto redirect to login through the IdP when clicking on Artifactory's login link. Default value is "false".
 	AutoRedirect *bool `pulumi:"autoRedirect"`
-	// SAML certificate that contains the public key for the IdP service provider.  Used by Artifactory to verify sign-in requests. Default value is ``.
+	// SAML certificate that contains the public key for the IdP service provider. Used by Artifactory to verify sign-in
+	// requests. Default value is "".
 	Certificate *string `pulumi:"certificate"`
-	// Name of the attribute in the SAML response from the IdP that contains the user's email. Default value is ``.
+	// Name of the attribute in the SAML response from the IdP that contains the user's email. Default value is "".
 	EmailAttribute *string `pulumi:"emailAttribute"`
-	// Enable SAML SSO.  Default value is `true`.
+	// Enable SAML SSO. Default value is "true".
 	Enable *bool `pulumi:"enable"`
-	// Name of the attribute in the SAML response from the IdP that contains the user's group memberships. Default value is ``.
+	// Name of the attribute in the SAML response from the IdP that contains the user's group memberships. Default value is "".
 	GroupAttribute *string `pulumi:"groupAttribute"`
 	// Service provider login url configured on the IdP.
 	LoginUrl *string `pulumi:"loginUrl"`
 	// Service provider logout url, or where to redirect after user logs out.
 	LogoutUrl *string `pulumi:"logoutUrl"`
-	// When automatic user creation is off, authenticated users are not automatically created inside Artifactory. Instead, for every request from an SSO user, the user is temporarily associated with default groups (if such groups are defined), and the permissions for these groups apply. Without auto-user creation, you must manually create the user inside Artifactory to manage user permissions not attached to their default groups. Default value is `false`.
+	// When automatic user creation is off, authenticated users are not automatically created inside Artifactory. Instead, for
+	// every request from an SSO user, the user is temporarily associated with default groups (if such groups are defined), and
+	// the permissions for these groups apply. Without auto-user creation, you must manually create the user inside Artifactory
+	// to manage user permissions not attached to their default groups. Default value is "false".
 	NoAutoUserCreation *bool `pulumi:"noAutoUserCreation"`
 	// The SAML service provider name. This should be a URI that is also known as the entityID, providerID, or entity identity.
 	ServiceProviderName *string `pulumi:"serviceProviderName"`
-	// Associate user with Artifactory groups based on the `groupAttribute` provided in the SAML response from the identity provider.  Default value is `false`.
+	// Associate user with Artifactory groups based on the "group_attribute" provided in the SAML response from the identity
+	// provider. Default value is "false".
 	SyncGroups *bool `pulumi:"syncGroups"`
-	// When set, an X.509 public certificate will be created by Artifactory. Download this certificate and upload it to your IDP and choose your own encryption algorithm. This process will let you encrypt the assertion section in your SAML response. Default value is `false`.
+	// When set, an X.509 public certificate will be created by Artifactory. Download this certificate and upload it to your
+	// IDP and choose your own encryption algorithm. This process will let you encrypt the assertion section in your SAML
+	// response. Default value is "false".
 	UseEncryptedAssertion *bool `pulumi:"useEncryptedAssertion"`
-	// Enable "audience", or who the SAML assertion is intended for.  Ensures that the correct service provider intended for Artifactory is used on the IdP.  Default value is `true`.
+	// Enable "audience", or who the SAML assertion is intended for. Ensures that the correct service provider intended for
+	// Artifactory is used on the IdP. Default value is "true".
 	VerifyAudienceRestriction *bool `pulumi:"verifyAudienceRestriction"`
 }
 
 type SamlSettingsState struct {
-	// Allow persisted users to access their profile.  Default value is `true`.
+	// Allow persisted users to access their profile. Default value is "true".
 	AllowUserToAccessProfile pulumi.BoolPtrInput
-	// Auto redirect to login through the IdP when clicking on Artifactory's login link.  Default value is `false`.
+	// Auto redirect to login through the IdP when clicking on Artifactory's login link. Default value is "false".
 	AutoRedirect pulumi.BoolPtrInput
-	// SAML certificate that contains the public key for the IdP service provider.  Used by Artifactory to verify sign-in requests. Default value is ``.
+	// SAML certificate that contains the public key for the IdP service provider. Used by Artifactory to verify sign-in
+	// requests. Default value is "".
 	Certificate pulumi.StringPtrInput
-	// Name of the attribute in the SAML response from the IdP that contains the user's email. Default value is ``.
+	// Name of the attribute in the SAML response from the IdP that contains the user's email. Default value is "".
 	EmailAttribute pulumi.StringPtrInput
-	// Enable SAML SSO.  Default value is `true`.
+	// Enable SAML SSO. Default value is "true".
 	Enable pulumi.BoolPtrInput
-	// Name of the attribute in the SAML response from the IdP that contains the user's group memberships. Default value is ``.
+	// Name of the attribute in the SAML response from the IdP that contains the user's group memberships. Default value is "".
 	GroupAttribute pulumi.StringPtrInput
 	// Service provider login url configured on the IdP.
 	LoginUrl pulumi.StringPtrInput
 	// Service provider logout url, or where to redirect after user logs out.
 	LogoutUrl pulumi.StringPtrInput
-	// When automatic user creation is off, authenticated users are not automatically created inside Artifactory. Instead, for every request from an SSO user, the user is temporarily associated with default groups (if such groups are defined), and the permissions for these groups apply. Without auto-user creation, you must manually create the user inside Artifactory to manage user permissions not attached to their default groups. Default value is `false`.
+	// When automatic user creation is off, authenticated users are not automatically created inside Artifactory. Instead, for
+	// every request from an SSO user, the user is temporarily associated with default groups (if such groups are defined), and
+	// the permissions for these groups apply. Without auto-user creation, you must manually create the user inside Artifactory
+	// to manage user permissions not attached to their default groups. Default value is "false".
 	NoAutoUserCreation pulumi.BoolPtrInput
 	// The SAML service provider name. This should be a URI that is also known as the entityID, providerID, or entity identity.
 	ServiceProviderName pulumi.StringPtrInput
-	// Associate user with Artifactory groups based on the `groupAttribute` provided in the SAML response from the identity provider.  Default value is `false`.
+	// Associate user with Artifactory groups based on the "group_attribute" provided in the SAML response from the identity
+	// provider. Default value is "false".
 	SyncGroups pulumi.BoolPtrInput
-	// When set, an X.509 public certificate will be created by Artifactory. Download this certificate and upload it to your IDP and choose your own encryption algorithm. This process will let you encrypt the assertion section in your SAML response. Default value is `false`.
+	// When set, an X.509 public certificate will be created by Artifactory. Download this certificate and upload it to your
+	// IDP and choose your own encryption algorithm. This process will let you encrypt the assertion section in your SAML
+	// response. Default value is "false".
 	UseEncryptedAssertion pulumi.BoolPtrInput
-	// Enable "audience", or who the SAML assertion is intended for.  Ensures that the correct service provider intended for Artifactory is used on the IdP.  Default value is `true`.
+	// Enable "audience", or who the SAML assertion is intended for. Ensures that the correct service provider intended for
+	// Artifactory is used on the IdP. Default value is "true".
 	VerifyAudienceRestriction pulumi.BoolPtrInput
 }
 
@@ -195,61 +166,77 @@ func (SamlSettingsState) ElementType() reflect.Type {
 }
 
 type samlSettingsArgs struct {
-	// Allow persisted users to access their profile.  Default value is `true`.
+	// Allow persisted users to access their profile. Default value is "true".
 	AllowUserToAccessProfile *bool `pulumi:"allowUserToAccessProfile"`
-	// Auto redirect to login through the IdP when clicking on Artifactory's login link.  Default value is `false`.
+	// Auto redirect to login through the IdP when clicking on Artifactory's login link. Default value is "false".
 	AutoRedirect *bool `pulumi:"autoRedirect"`
-	// SAML certificate that contains the public key for the IdP service provider.  Used by Artifactory to verify sign-in requests. Default value is ``.
+	// SAML certificate that contains the public key for the IdP service provider. Used by Artifactory to verify sign-in
+	// requests. Default value is "".
 	Certificate *string `pulumi:"certificate"`
-	// Name of the attribute in the SAML response from the IdP that contains the user's email. Default value is ``.
+	// Name of the attribute in the SAML response from the IdP that contains the user's email. Default value is "".
 	EmailAttribute *string `pulumi:"emailAttribute"`
-	// Enable SAML SSO.  Default value is `true`.
+	// Enable SAML SSO. Default value is "true".
 	Enable *bool `pulumi:"enable"`
-	// Name of the attribute in the SAML response from the IdP that contains the user's group memberships. Default value is ``.
+	// Name of the attribute in the SAML response from the IdP that contains the user's group memberships. Default value is "".
 	GroupAttribute *string `pulumi:"groupAttribute"`
 	// Service provider login url configured on the IdP.
 	LoginUrl string `pulumi:"loginUrl"`
 	// Service provider logout url, or where to redirect after user logs out.
 	LogoutUrl string `pulumi:"logoutUrl"`
-	// When automatic user creation is off, authenticated users are not automatically created inside Artifactory. Instead, for every request from an SSO user, the user is temporarily associated with default groups (if such groups are defined), and the permissions for these groups apply. Without auto-user creation, you must manually create the user inside Artifactory to manage user permissions not attached to their default groups. Default value is `false`.
+	// When automatic user creation is off, authenticated users are not automatically created inside Artifactory. Instead, for
+	// every request from an SSO user, the user is temporarily associated with default groups (if such groups are defined), and
+	// the permissions for these groups apply. Without auto-user creation, you must manually create the user inside Artifactory
+	// to manage user permissions not attached to their default groups. Default value is "false".
 	NoAutoUserCreation *bool `pulumi:"noAutoUserCreation"`
 	// The SAML service provider name. This should be a URI that is also known as the entityID, providerID, or entity identity.
 	ServiceProviderName string `pulumi:"serviceProviderName"`
-	// Associate user with Artifactory groups based on the `groupAttribute` provided in the SAML response from the identity provider.  Default value is `false`.
+	// Associate user with Artifactory groups based on the "group_attribute" provided in the SAML response from the identity
+	// provider. Default value is "false".
 	SyncGroups *bool `pulumi:"syncGroups"`
-	// When set, an X.509 public certificate will be created by Artifactory. Download this certificate and upload it to your IDP and choose your own encryption algorithm. This process will let you encrypt the assertion section in your SAML response. Default value is `false`.
+	// When set, an X.509 public certificate will be created by Artifactory. Download this certificate and upload it to your
+	// IDP and choose your own encryption algorithm. This process will let you encrypt the assertion section in your SAML
+	// response. Default value is "false".
 	UseEncryptedAssertion *bool `pulumi:"useEncryptedAssertion"`
-	// Enable "audience", or who the SAML assertion is intended for.  Ensures that the correct service provider intended for Artifactory is used on the IdP.  Default value is `true`.
+	// Enable "audience", or who the SAML assertion is intended for. Ensures that the correct service provider intended for
+	// Artifactory is used on the IdP. Default value is "true".
 	VerifyAudienceRestriction *bool `pulumi:"verifyAudienceRestriction"`
 }
 
 // The set of arguments for constructing a SamlSettings resource.
 type SamlSettingsArgs struct {
-	// Allow persisted users to access their profile.  Default value is `true`.
+	// Allow persisted users to access their profile. Default value is "true".
 	AllowUserToAccessProfile pulumi.BoolPtrInput
-	// Auto redirect to login through the IdP when clicking on Artifactory's login link.  Default value is `false`.
+	// Auto redirect to login through the IdP when clicking on Artifactory's login link. Default value is "false".
 	AutoRedirect pulumi.BoolPtrInput
-	// SAML certificate that contains the public key for the IdP service provider.  Used by Artifactory to verify sign-in requests. Default value is ``.
+	// SAML certificate that contains the public key for the IdP service provider. Used by Artifactory to verify sign-in
+	// requests. Default value is "".
 	Certificate pulumi.StringPtrInput
-	// Name of the attribute in the SAML response from the IdP that contains the user's email. Default value is ``.
+	// Name of the attribute in the SAML response from the IdP that contains the user's email. Default value is "".
 	EmailAttribute pulumi.StringPtrInput
-	// Enable SAML SSO.  Default value is `true`.
+	// Enable SAML SSO. Default value is "true".
 	Enable pulumi.BoolPtrInput
-	// Name of the attribute in the SAML response from the IdP that contains the user's group memberships. Default value is ``.
+	// Name of the attribute in the SAML response from the IdP that contains the user's group memberships. Default value is "".
 	GroupAttribute pulumi.StringPtrInput
 	// Service provider login url configured on the IdP.
 	LoginUrl pulumi.StringInput
 	// Service provider logout url, or where to redirect after user logs out.
 	LogoutUrl pulumi.StringInput
-	// When automatic user creation is off, authenticated users are not automatically created inside Artifactory. Instead, for every request from an SSO user, the user is temporarily associated with default groups (if such groups are defined), and the permissions for these groups apply. Without auto-user creation, you must manually create the user inside Artifactory to manage user permissions not attached to their default groups. Default value is `false`.
+	// When automatic user creation is off, authenticated users are not automatically created inside Artifactory. Instead, for
+	// every request from an SSO user, the user is temporarily associated with default groups (if such groups are defined), and
+	// the permissions for these groups apply. Without auto-user creation, you must manually create the user inside Artifactory
+	// to manage user permissions not attached to their default groups. Default value is "false".
 	NoAutoUserCreation pulumi.BoolPtrInput
 	// The SAML service provider name. This should be a URI that is also known as the entityID, providerID, or entity identity.
 	ServiceProviderName pulumi.StringInput
-	// Associate user with Artifactory groups based on the `groupAttribute` provided in the SAML response from the identity provider.  Default value is `false`.
+	// Associate user with Artifactory groups based on the "group_attribute" provided in the SAML response from the identity
+	// provider. Default value is "false".
 	SyncGroups pulumi.BoolPtrInput
-	// When set, an X.509 public certificate will be created by Artifactory. Download this certificate and upload it to your IDP and choose your own encryption algorithm. This process will let you encrypt the assertion section in your SAML response. Default value is `false`.
+	// When set, an X.509 public certificate will be created by Artifactory. Download this certificate and upload it to your
+	// IDP and choose your own encryption algorithm. This process will let you encrypt the assertion section in your SAML
+	// response. Default value is "false".
 	UseEncryptedAssertion pulumi.BoolPtrInput
-	// Enable "audience", or who the SAML assertion is intended for.  Ensures that the correct service provider intended for Artifactory is used on the IdP.  Default value is `true`.
+	// Enable "audience", or who the SAML assertion is intended for. Ensures that the correct service provider intended for
+	// Artifactory is used on the IdP. Default value is "true".
 	VerifyAudienceRestriction pulumi.BoolPtrInput
 }
 
@@ -340,32 +327,33 @@ func (o SamlSettingsOutput) ToSamlSettingsOutputWithContext(ctx context.Context)
 	return o
 }
 
-// Allow persisted users to access their profile.  Default value is `true`.
+// Allow persisted users to access their profile. Default value is "true".
 func (o SamlSettingsOutput) AllowUserToAccessProfile() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SamlSettings) pulumi.BoolPtrOutput { return v.AllowUserToAccessProfile }).(pulumi.BoolPtrOutput)
 }
 
-// Auto redirect to login through the IdP when clicking on Artifactory's login link.  Default value is `false`.
+// Auto redirect to login through the IdP when clicking on Artifactory's login link. Default value is "false".
 func (o SamlSettingsOutput) AutoRedirect() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SamlSettings) pulumi.BoolPtrOutput { return v.AutoRedirect }).(pulumi.BoolPtrOutput)
 }
 
-// SAML certificate that contains the public key for the IdP service provider.  Used by Artifactory to verify sign-in requests. Default value is “.
+// SAML certificate that contains the public key for the IdP service provider. Used by Artifactory to verify sign-in
+// requests. Default value is "".
 func (o SamlSettingsOutput) Certificate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SamlSettings) pulumi.StringPtrOutput { return v.Certificate }).(pulumi.StringPtrOutput)
 }
 
-// Name of the attribute in the SAML response from the IdP that contains the user's email. Default value is “.
+// Name of the attribute in the SAML response from the IdP that contains the user's email. Default value is "".
 func (o SamlSettingsOutput) EmailAttribute() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SamlSettings) pulumi.StringPtrOutput { return v.EmailAttribute }).(pulumi.StringPtrOutput)
 }
 
-// Enable SAML SSO.  Default value is `true`.
+// Enable SAML SSO. Default value is "true".
 func (o SamlSettingsOutput) Enable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SamlSettings) pulumi.BoolPtrOutput { return v.Enable }).(pulumi.BoolPtrOutput)
 }
 
-// Name of the attribute in the SAML response from the IdP that contains the user's group memberships. Default value is “.
+// Name of the attribute in the SAML response from the IdP that contains the user's group memberships. Default value is "".
 func (o SamlSettingsOutput) GroupAttribute() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SamlSettings) pulumi.StringPtrOutput { return v.GroupAttribute }).(pulumi.StringPtrOutput)
 }
@@ -380,7 +368,10 @@ func (o SamlSettingsOutput) LogoutUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *SamlSettings) pulumi.StringOutput { return v.LogoutUrl }).(pulumi.StringOutput)
 }
 
-// When automatic user creation is off, authenticated users are not automatically created inside Artifactory. Instead, for every request from an SSO user, the user is temporarily associated with default groups (if such groups are defined), and the permissions for these groups apply. Without auto-user creation, you must manually create the user inside Artifactory to manage user permissions not attached to their default groups. Default value is `false`.
+// When automatic user creation is off, authenticated users are not automatically created inside Artifactory. Instead, for
+// every request from an SSO user, the user is temporarily associated with default groups (if such groups are defined), and
+// the permissions for these groups apply. Without auto-user creation, you must manually create the user inside Artifactory
+// to manage user permissions not attached to their default groups. Default value is "false".
 func (o SamlSettingsOutput) NoAutoUserCreation() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SamlSettings) pulumi.BoolPtrOutput { return v.NoAutoUserCreation }).(pulumi.BoolPtrOutput)
 }
@@ -390,17 +381,21 @@ func (o SamlSettingsOutput) ServiceProviderName() pulumi.StringOutput {
 	return o.ApplyT(func(v *SamlSettings) pulumi.StringOutput { return v.ServiceProviderName }).(pulumi.StringOutput)
 }
 
-// Associate user with Artifactory groups based on the `groupAttribute` provided in the SAML response from the identity provider.  Default value is `false`.
+// Associate user with Artifactory groups based on the "group_attribute" provided in the SAML response from the identity
+// provider. Default value is "false".
 func (o SamlSettingsOutput) SyncGroups() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SamlSettings) pulumi.BoolPtrOutput { return v.SyncGroups }).(pulumi.BoolPtrOutput)
 }
 
-// When set, an X.509 public certificate will be created by Artifactory. Download this certificate and upload it to your IDP and choose your own encryption algorithm. This process will let you encrypt the assertion section in your SAML response. Default value is `false`.
+// When set, an X.509 public certificate will be created by Artifactory. Download this certificate and upload it to your
+// IDP and choose your own encryption algorithm. This process will let you encrypt the assertion section in your SAML
+// response. Default value is "false".
 func (o SamlSettingsOutput) UseEncryptedAssertion() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SamlSettings) pulumi.BoolPtrOutput { return v.UseEncryptedAssertion }).(pulumi.BoolPtrOutput)
 }
 
-// Enable "audience", or who the SAML assertion is intended for.  Ensures that the correct service provider intended for Artifactory is used on the IdP.  Default value is `true`.
+// Enable "audience", or who the SAML assertion is intended for. Ensures that the correct service provider intended for
+// Artifactory is used on the IdP. Default value is "true".
 func (o SamlSettingsOutput) VerifyAudienceRestriction() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SamlSettings) pulumi.BoolPtrOutput { return v.VerifyAudienceRestriction }).(pulumi.BoolPtrOutput)
 }

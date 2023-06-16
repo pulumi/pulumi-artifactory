@@ -4,34 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-/**
- * Creates a virtual Git LFS repository.
- * Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Git+LFS+Repositories#GitLFSRepositories-VirtualRepositories).
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const foo_gitlfs = new artifactory.VirtualGitlfsRepository("foo-gitlfs", {
- *     description: "A test virtual repo",
- *     excludesPattern: "com/google/**",
- *     includesPattern: "com/jfrog/**,cloud/jfrog/**",
- *     key: "foo-gitlfs",
- *     notes: "Internal description",
- *     repositories: [],
- * });
- * ```
- *
- * ## Import
- *
- * Virtual repositories can be imported using their name, e.g.
- *
- * ```sh
- *  $ pulumi import artifactory:index/virtualGitlfsRepository:VirtualGitlfsRepository foo-gitlfs foo-gitlfs
- * ```
- */
 export class VirtualGitlfsRepository extends pulumi.CustomResource {
     /**
      * Get an existing VirtualGitlfsRepository resource's state with the given name, ID, and optional extra
@@ -84,8 +56,8 @@ export class VirtualGitlfsRepository extends pulumi.CustomResource {
      */
     public readonly includesPattern!: pulumi.Output<string | undefined>;
     /**
-     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-     * contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      */
     public readonly key!: pulumi.Output<string>;
     /**
@@ -190,8 +162,8 @@ export interface VirtualGitlfsRepositoryState {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-     * contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      */
     key?: pulumi.Input<string>;
     /**
@@ -249,8 +221,8 @@ export interface VirtualGitlfsRepositoryArgs {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-     * contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      */
     key: pulumi.Input<string>;
     /**

@@ -35,14 +35,14 @@ public final class ArtifactPropertyWebhookArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * Webhook description. Max length 1000 characters.
+     * Description of webhook. Max length 1000 characters.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return Webhook description. Max length 1000 characters.
+     * @return Description of webhook. Max length 1000 characters.
      * 
      */
     public Optional<Output<String>> description() {
@@ -50,14 +50,14 @@ public final class ArtifactPropertyWebhookArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * Status of webhook. Default to `true`.
+     * Status of webhook. Default to &#39;true&#39;
      * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return Status of webhook. Default to `true`.
+     * @return Status of webhook. Default to &#39;true&#39;
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -65,44 +65,38 @@ public final class ArtifactPropertyWebhookArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `added`, `deleted`.
+     * List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow
+     * values: added, deleted
      * 
      */
     @Import(name="eventTypes", required=true)
     private Output<List<String>> eventTypes;
 
     /**
-     * @return List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `added`, `deleted`.
+     * @return List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow
+     * values: added, deleted
      * 
      */
     public Output<List<String>> eventTypes() {
         return this.eventTypes;
     }
 
-    /**
-     * At least one is required.
-     * 
-     */
     @Import(name="handlers", required=true)
     private Output<List<ArtifactPropertyWebhookHandlerArgs>> handlers;
 
-    /**
-     * @return At least one is required.
-     * 
-     */
     public Output<List<ArtifactPropertyWebhookHandlerArgs>> handlers() {
         return this.handlers;
     }
 
     /**
-     * The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
+     * Key of webhook. Must be between 2 and 200 characters. Cannot contain spaces.
      * 
      */
     @Import(name="key", required=true)
     private Output<String> key;
 
     /**
-     * @return The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
+     * @return Key of webhook. Must be between 2 and 200 characters. Cannot contain spaces.
      * 
      */
     public Output<String> key() {
@@ -160,7 +154,7 @@ public final class ArtifactPropertyWebhookArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param description Webhook description. Max length 1000 characters.
+         * @param description Description of webhook. Max length 1000 characters.
          * 
          * @return builder
          * 
@@ -171,7 +165,7 @@ public final class ArtifactPropertyWebhookArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param description Webhook description. Max length 1000 characters.
+         * @param description Description of webhook. Max length 1000 characters.
          * 
          * @return builder
          * 
@@ -181,7 +175,7 @@ public final class ArtifactPropertyWebhookArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param enabled Status of webhook. Default to `true`.
+         * @param enabled Status of webhook. Default to &#39;true&#39;
          * 
          * @return builder
          * 
@@ -192,7 +186,7 @@ public final class ArtifactPropertyWebhookArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param enabled Status of webhook. Default to `true`.
+         * @param enabled Status of webhook. Default to &#39;true&#39;
          * 
          * @return builder
          * 
@@ -202,7 +196,8 @@ public final class ArtifactPropertyWebhookArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param eventTypes List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `added`, `deleted`.
+         * @param eventTypes List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow
+         * values: added, deleted
          * 
          * @return builder
          * 
@@ -213,7 +208,8 @@ public final class ArtifactPropertyWebhookArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param eventTypes List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `added`, `deleted`.
+         * @param eventTypes List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow
+         * values: added, deleted
          * 
          * @return builder
          * 
@@ -223,7 +219,8 @@ public final class ArtifactPropertyWebhookArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param eventTypes List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `added`, `deleted`.
+         * @param eventTypes List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow
+         * values: added, deleted
          * 
          * @return builder
          * 
@@ -232,39 +229,21 @@ public final class ArtifactPropertyWebhookArgs extends com.pulumi.resources.Reso
             return eventTypes(List.of(eventTypes));
         }
 
-        /**
-         * @param handlers At least one is required.
-         * 
-         * @return builder
-         * 
-         */
         public Builder handlers(Output<List<ArtifactPropertyWebhookHandlerArgs>> handlers) {
             $.handlers = handlers;
             return this;
         }
 
-        /**
-         * @param handlers At least one is required.
-         * 
-         * @return builder
-         * 
-         */
         public Builder handlers(List<ArtifactPropertyWebhookHandlerArgs> handlers) {
             return handlers(Output.of(handlers));
         }
 
-        /**
-         * @param handlers At least one is required.
-         * 
-         * @return builder
-         * 
-         */
         public Builder handlers(ArtifactPropertyWebhookHandlerArgs... handlers) {
             return handlers(List.of(handlers));
         }
 
         /**
-         * @param key The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
+         * @param key Key of webhook. Must be between 2 and 200 characters. Cannot contain spaces.
          * 
          * @return builder
          * 
@@ -275,7 +254,7 @@ public final class ArtifactPropertyWebhookArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param key The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
+         * @param key Key of webhook. Must be between 2 and 200 characters. Cannot contain spaces.
          * 
          * @return builder
          * 

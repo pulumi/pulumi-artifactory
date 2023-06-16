@@ -16,14 +16,14 @@ public final class KeypairArgs extends com.pulumi.resources.ResourceArgs {
     public static final KeypairArgs Empty = new KeypairArgs();
 
     /**
-     * Will be used as a filename when retrieving the public key via REST API.
+     * Will be used as a filename when retrieving the public key via REST API
      * 
      */
     @Import(name="alias", required=true)
     private Output<String> alias;
 
     /**
-     * @return Will be used as a filename when retrieving the public key via REST API.
+     * @return Will be used as a filename when retrieving the public key via REST API
      * 
      */
     public Output<String> alias() {
@@ -61,14 +61,14 @@ public final class KeypairArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Passphrase will be used to decrypt the private key. Validated server side.
+     * Passphrase will be used to decrypt the private key. Validated server side
      * 
      */
     @Import(name="passphrase")
     private @Nullable Output<String> passphrase;
 
     /**
-     * @return Passphrase will be used to decrypt the private key. Validated server side.
+     * @return Passphrase will be used to decrypt the private key. Validated server side
      * 
      */
     public Optional<Output<String>> passphrase() {
@@ -135,7 +135,7 @@ public final class KeypairArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param alias Will be used as a filename when retrieving the public key via REST API.
+         * @param alias Will be used as a filename when retrieving the public key via REST API
          * 
          * @return builder
          * 
@@ -146,7 +146,7 @@ public final class KeypairArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param alias Will be used as a filename when retrieving the public key via REST API.
+         * @param alias Will be used as a filename when retrieving the public key via REST API
          * 
          * @return builder
          * 
@@ -198,7 +198,7 @@ public final class KeypairArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param passphrase Passphrase will be used to decrypt the private key. Validated server side.
+         * @param passphrase Passphrase will be used to decrypt the private key. Validated server side
          * 
          * @return builder
          * 
@@ -209,7 +209,7 @@ public final class KeypairArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param passphrase Passphrase will be used to decrypt the private key. Validated server side.
+         * @param passphrase Passphrase will be used to decrypt the private key. Validated server side
          * 
          * @return builder
          * 

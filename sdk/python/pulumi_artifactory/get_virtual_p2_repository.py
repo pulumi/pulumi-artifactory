@@ -165,19 +165,7 @@ def get_virtual_p2_repository(artifactory_requests_can_retrieve_remote_artifacts
                               repositories: Optional[Sequence[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualP2RepositoryResult:
     """
-    Retrieves a virtual P2 repository.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    virtual_p2 = artifactory.get_virtual_p2_repository(key="virtual-p2")
-    ```
-
-
-    :param str key: the identity key of the repo.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['artifactoryRequestsCanRetrieveRemoteArtifacts'] = artifactory_requests_can_retrieve_remote_artifacts
@@ -224,18 +212,6 @@ def get_virtual_p2_repository_output(artifactory_requests_can_retrieve_remote_ar
                                      repositories: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualP2RepositoryResult]:
     """
-    Retrieves a virtual P2 repository.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    virtual_p2 = artifactory.get_virtual_p2_repository(key="virtual-p2")
-    ```
-
-
-    :param str key: the identity key of the repo.
+    Use this data source to access information about an existing resource.
     """
     ...

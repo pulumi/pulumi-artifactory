@@ -6,20 +6,6 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
-/**
- * Retrieves a remote Rpm repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const remote-rpm = artifactory.getRemoteRpmRepository({
- *     key: "remote-rpm",
- * });
- * ```
- */
 export function getRemoteRpmRepository(args: GetRemoteRpmRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetRemoteRpmRepositoryResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -85,9 +71,6 @@ export interface GetRemoteRpmRepositoryArgs {
     excludesPattern?: string;
     hardFail?: boolean;
     includesPattern?: string;
-    /**
-     * the identity key of the repo.
-     */
     key: string;
     listRemoteFolderItems?: boolean;
     localAddress?: string;
@@ -166,20 +149,6 @@ export interface GetRemoteRpmRepositoryResult {
     readonly username?: string;
     readonly xrayIndex?: boolean;
 }
-/**
- * Retrieves a remote Rpm repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const remote-rpm = artifactory.getRemoteRpmRepository({
- *     key: "remote-rpm",
- * });
- * ```
- */
 export function getRemoteRpmRepositoryOutput(args: GetRemoteRpmRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemoteRpmRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getRemoteRpmRepository(a, opts))
 }
@@ -202,9 +171,6 @@ export interface GetRemoteRpmRepositoryOutputArgs {
     excludesPattern?: pulumi.Input<string>;
     hardFail?: pulumi.Input<boolean>;
     includesPattern?: pulumi.Input<string>;
-    /**
-     * the identity key of the repo.
-     */
     key: pulumi.Input<string>;
     listRemoteFolderItems?: pulumi.Input<boolean>;
     localAddress?: pulumi.Input<string>;

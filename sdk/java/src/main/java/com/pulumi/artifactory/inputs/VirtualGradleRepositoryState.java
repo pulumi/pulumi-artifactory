@@ -116,16 +116,16 @@ public final class VirtualGradleRepositoryState extends com.pulumi.resources.Res
     }
 
     /**
-     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-     * contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      * 
      */
     @Import(name="key")
     private @Nullable Output<String> key;
 
     /**
-     * @return A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-     * contain spaces or special characters.
+     * @return A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      * 
      */
     public Optional<Output<String>> key() {
@@ -133,14 +133,14 @@ public final class VirtualGradleRepositoryState extends com.pulumi.resources.Res
     }
 
     /**
-     * The keypair used to sign artifacts.
+     * The keypair used to sign artifacts
      * 
      */
     @Import(name="keyPair")
     private @Nullable Output<String> keyPair;
 
     /**
-     * @return The keypair used to sign artifacts.
+     * @return The keypair used to sign artifacts
      * 
      */
     public Optional<Output<String>> keyPair() {
@@ -170,18 +170,20 @@ public final class VirtualGradleRepositoryState extends com.pulumi.resources.Res
     }
 
     /**
-     * - (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
-     * - (2: discard_any_reference) Discard Any References - Removes all repository elements regardless of whether they are included in an active profile or not.
-     * - (3: nothing) Nothing - Does not remove any repository elements declared in the POM.
+     * (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under
+     * project or under a profile in the same POM that is activeByDefault. (2: discard_any_reference) Discard Any References -
+     * Removes all repository elements regardless of whether they are included in an active profile or not. (3: nothing)
+     * Nothing - Does not remove any repository elements declared in the POM.
      * 
      */
     @Import(name="pomRepositoryReferencesCleanupPolicy")
     private @Nullable Output<String> pomRepositoryReferencesCleanupPolicy;
 
     /**
-     * @return - (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
-     * - (2: discard_any_reference) Discard Any References - Removes all repository elements regardless of whether they are included in an active profile or not.
-     * - (3: nothing) Nothing - Does not remove any repository elements declared in the POM.
+     * @return (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under
+     * project or under a profile in the same POM that is activeByDefault. (2: discard_any_reference) Discard Any References -
+     * Removes all repository elements regardless of whether they are included in an active profile or not. (3: nothing)
+     * Nothing - Does not remove any repository elements declared in the POM.
      * 
      */
     public Optional<Output<String>> pomRepositoryReferencesCleanupPolicy() {
@@ -429,8 +431,8 @@ public final class VirtualGradleRepositoryState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param key A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-         * contain spaces or special characters.
+         * @param key A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+         * characters. It cannot begin with a number or contain spaces or special characters.
          * 
          * @return builder
          * 
@@ -441,8 +443,8 @@ public final class VirtualGradleRepositoryState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param key A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-         * contain spaces or special characters.
+         * @param key A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+         * characters. It cannot begin with a number or contain spaces or special characters.
          * 
          * @return builder
          * 
@@ -452,7 +454,7 @@ public final class VirtualGradleRepositoryState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param keyPair The keypair used to sign artifacts.
+         * @param keyPair The keypair used to sign artifacts
          * 
          * @return builder
          * 
@@ -463,7 +465,7 @@ public final class VirtualGradleRepositoryState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param keyPair The keypair used to sign artifacts.
+         * @param keyPair The keypair used to sign artifacts
          * 
          * @return builder
          * 
@@ -503,9 +505,10 @@ public final class VirtualGradleRepositoryState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param pomRepositoryReferencesCleanupPolicy - (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
-         * - (2: discard_any_reference) Discard Any References - Removes all repository elements regardless of whether they are included in an active profile or not.
-         * - (3: nothing) Nothing - Does not remove any repository elements declared in the POM.
+         * @param pomRepositoryReferencesCleanupPolicy (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under
+         * project or under a profile in the same POM that is activeByDefault. (2: discard_any_reference) Discard Any References -
+         * Removes all repository elements regardless of whether they are included in an active profile or not. (3: nothing)
+         * Nothing - Does not remove any repository elements declared in the POM.
          * 
          * @return builder
          * 
@@ -516,9 +519,10 @@ public final class VirtualGradleRepositoryState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param pomRepositoryReferencesCleanupPolicy - (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
-         * - (2: discard_any_reference) Discard Any References - Removes all repository elements regardless of whether they are included in an active profile or not.
-         * - (3: nothing) Nothing - Does not remove any repository elements declared in the POM.
+         * @param pomRepositoryReferencesCleanupPolicy (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under
+         * project or under a profile in the same POM that is activeByDefault. (2: discard_any_reference) Discard Any References -
+         * Removes all repository elements regardless of whether they are included in an active profile or not. (3: nothing)
+         * Nothing - Does not remove any repository elements declared in the POM.
          * 
          * @return builder
          * 

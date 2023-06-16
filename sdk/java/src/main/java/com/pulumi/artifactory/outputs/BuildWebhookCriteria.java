@@ -12,53 +12,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class BuildWebhookCriteria {
-    /**
-     * @return Trigger on any build.
-     * 
-     */
     private Boolean anyBuild;
-    /**
-     * @return Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
-     * 
-     */
     private @Nullable List<String> excludePatterns;
-    /**
-     * @return Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
-     * 
-     */
     private @Nullable List<String> includePatterns;
-    /**
-     * @return Trigger on this list of build names.
-     * 
-     */
     private List<String> selectedBuilds;
 
     private BuildWebhookCriteria() {}
-    /**
-     * @return Trigger on any build.
-     * 
-     */
     public Boolean anyBuild() {
         return this.anyBuild;
     }
-    /**
-     * @return Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
-     * 
-     */
     public List<String> excludePatterns() {
         return this.excludePatterns == null ? List.of() : this.excludePatterns;
     }
-    /**
-     * @return Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
-     * 
-     */
     public List<String> includePatterns() {
         return this.includePatterns == null ? List.of() : this.includePatterns;
     }
-    /**
-     * @return Trigger on this list of build names.
-     * 
-     */
     public List<String> selectedBuilds() {
         return this.selectedBuilds;
     }

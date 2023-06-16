@@ -9,36 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Artifactory
 {
-    /// <summary>
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Artifactory = Pulumi.Artifactory;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var terraform_remote = new Artifactory.RemoteTerraformRepository("terraform-remote", new()
-    ///     {
-    ///         Key = "terraform-remote",
-    ///         TerraformProvidersUrl = "https://releases.hashicorp.com",
-    ///         TerraformRegistryUrl = "https://registry.terraform.io",
-    ///         Url = "https://github.com/",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Remote repositories can be imported using their name, e.g.
-    /// 
-    /// ```sh
-    ///  $ pulumi import artifactory:index/remoteTerraformRepository:RemoteTerraformRepository terraform-remote terraform-remote
-    /// ```
-    /// </summary>
     [ArtifactoryResourceType("artifactory:index/remoteTerraformRepository:RemoteTerraformRepository")]
     public partial class RemoteTerraformRepository : global::Pulumi.CustomResource
     {
@@ -137,8 +107,8 @@ namespace Pulumi.Artifactory
         public Output<string?> IncludesPattern { get; private set; } = null!;
 
         /// <summary>
-        /// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-        /// contain spaces or special characters.
+        /// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+        /// characters. It cannot begin with a number or contain spaces or special characters.
         /// </summary>
         [Output("key")]
         public Output<string> Key { get; private set; } = null!;
@@ -305,7 +275,7 @@ namespace Pulumi.Artifactory
         public Output<int?> UnusedArtifactsCleanupPeriodHours { get; private set; } = null!;
 
         /// <summary>
-        /// The base URL of the Module storage API.
+        /// The remote repo URL.
         /// </summary>
         [Output("url")]
         public Output<string> Url { get; private set; } = null!;
@@ -465,8 +435,8 @@ namespace Pulumi.Artifactory
         public Input<string>? IncludesPattern { get; set; }
 
         /// <summary>
-        /// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-        /// contain spaces or special characters.
+        /// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+        /// characters. It cannot begin with a number or contain spaces or special characters.
         /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -651,7 +621,7 @@ namespace Pulumi.Artifactory
         public Input<int>? UnusedArtifactsCleanupPeriodHours { get; set; }
 
         /// <summary>
-        /// The base URL of the Module storage API.
+        /// The remote repo URL.
         /// </summary>
         [Input("url", required: true)]
         public Input<string> Url { get; set; } = null!;
@@ -769,8 +739,8 @@ namespace Pulumi.Artifactory
         public Input<string>? IncludesPattern { get; set; }
 
         /// <summary>
-        /// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-        /// contain spaces or special characters.
+        /// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+        /// characters. It cannot begin with a number or contain spaces or special characters.
         /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
@@ -958,7 +928,7 @@ namespace Pulumi.Artifactory
         public Input<int>? UnusedArtifactsCleanupPeriodHours { get; set; }
 
         /// <summary>
-        /// The base URL of the Module storage API.
+        /// The remote repo URL.
         /// </summary>
         [Input("url")]
         public Input<string>? Url { get; set; }

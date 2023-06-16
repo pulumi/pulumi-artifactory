@@ -17,201 +17,151 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * This resource can be used to manage the automatic and periodic backups of the entire Artifactory instance.
- * 
- * When an `artifactory.Backup` resource is configured and enabled to true, backup of the entire Artifactory system will be done automatically and periodically.
- * The backup process creates a time-stamped directory in the target backup directory.
- * 
- * ~&gt;The `artifactory.Backup` resource utilizes endpoints which are blocked/removed in SaaS environments (i.e. in Artifactory online), rendering this resource incompatible with Artifactory SaaS environments.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.artifactory.Backup;
- * import com.pulumi.artifactory.BackupArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var backupConfigName = new Backup(&#34;backupConfigName&#34;, BackupArgs.builder()        
- *             .createArchive(false)
- *             .cronExp(&#34;0 0 12 * * ? *&#34;)
- *             .enabled(true)
- *             .excludeNewRepositories(true)
- *             .excludedRepositories()
- *             .exportMissionControl(true)
- *             .key(&#34;backup_config_name&#34;)
- *             .retentionPeriodHours(1000)
- *             .sendMailOnError(true)
- *             .verifyDiskSpace(true)
- *             .build());
- * 
- *     }
- * }
- * ```
- * Note: `Key` argument has to match to the resource name.
- * Reference Link: [JFrog Artifactory Backup](https://www.jfrog.com/confluence/display/JFROG/Backups)
- * 
- * ## Import
- * 
- * Backup config can be imported using the key, e.g.
- * 
- * ```sh
- *  $ pulumi import artifactory:index/backup:Backup backup_name backup_name
- * ```
- * 
- */
 @ResourceType(type="artifactory:index/backup:Backup")
 public class Backup extends com.pulumi.resources.CustomResource {
     /**
-     * If set, backups will be created within a Zip archive (Slow and CPU intensive). Default value is `false`.
+     * If set to true, backups will be created within a Zip archive (Slow and CPU intensive). Default value is &#39;false&#39;
      * 
      */
     @Export(name="createArchive", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> createArchive;
 
     /**
-     * @return If set, backups will be created within a Zip archive (Slow and CPU intensive). Default value is `false`.
+     * @return If set to true, backups will be created within a Zip archive (Slow and CPU intensive). Default value is &#39;false&#39;
      * 
      */
     public Output<Optional<Boolean>> createArchive() {
         return Codegen.optional(this.createArchive);
     }
     /**
-     * A valid CRON expression that you can use to control backup frequency. Eg: &#34;0 0 12 * * ? *&#34;, &#34;0 0 2 ? * MON-SAT *&#34;. Note: please use 7 character format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year. Also, specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html) and in [Cronexp package readme](https://github.com/gorhill/cronexpr#other-details).
+     * Cron expression to control the backup frequency.
      * 
      */
     @Export(name="cronExp", type=String.class, parameters={})
     private Output<String> cronExp;
 
     /**
-     * @return A valid CRON expression that you can use to control backup frequency. Eg: &#34;0 0 12 * * ? *&#34;, &#34;0 0 2 ? * MON-SAT *&#34;. Note: please use 7 character format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year. Also, specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html) and in [Cronexp package readme](https://github.com/gorhill/cronexpr#other-details).
+     * @return Cron expression to control the backup frequency.
      * 
      */
     public Output<String> cronExp() {
         return this.cronExp;
     }
     /**
-     * Flag to enable or disable the backup config. Default value is `true`.
+     * Flag to enable or disable the backup config. Default value is &#39;true&#39;.
      * 
      */
     @Export(name="enabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
-     * @return Flag to enable or disable the backup config. Default value is `true`.
+     * @return Flag to enable or disable the backup config. Default value is &#39;true&#39;.
      * 
      */
     public Output<Optional<Boolean>> enabled() {
         return Codegen.optional(this.enabled);
     }
     /**
-     * When set, new repositories will not be automatically added to the backup. Default value is `false`.
+     * When set to true, new repositories will not be automatically added to the backup. Default value is &#39;false&#39;.
      * 
      */
     @Export(name="excludeNewRepositories", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> excludeNewRepositories;
 
     /**
-     * @return When set, new repositories will not be automatically added to the backup. Default value is `false`.
+     * @return When set to true, new repositories will not be automatically added to the backup. Default value is &#39;false&#39;.
      * 
      */
     public Output<Optional<Boolean>> excludeNewRepositories() {
         return Codegen.optional(this.excludeNewRepositories);
     }
     /**
-     * A list of excluded repositories from the backup. Default is empty list.
+     * List of excluded repositories from the backup. Default is empty list.
      * 
      */
     @Export(name="excludedRepositories", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> excludedRepositories;
 
     /**
-     * @return A list of excluded repositories from the backup. Default is empty list.
+     * @return List of excluded repositories from the backup. Default is empty list.
      * 
      */
     public Output<Optional<List<String>>> excludedRepositories() {
         return Codegen.optional(this.excludedRepositories);
     }
     /**
-     * When set to true, mission control will not be automatically added to the backup. Default value is `false`.
+     * When set to true, mission control will not be automatically added to the backup. Default value is &#39;false&#39;.
      * 
      */
     @Export(name="exportMissionControl", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> exportMissionControl;
 
     /**
-     * @return When set to true, mission control will not be automatically added to the backup. Default value is `false`.
+     * @return When set to true, mission control will not be automatically added to the backup. Default value is &#39;false&#39;.
      * 
      */
     public Output<Optional<Boolean>> exportMissionControl() {
         return Codegen.optional(this.exportMissionControl);
     }
     /**
-     * The unique ID of the artifactory backup config.
+     * Backup config name.
      * 
      */
     @Export(name="key", type=String.class, parameters={})
     private Output<String> key;
 
     /**
-     * @return The unique ID of the artifactory backup config.
+     * @return Backup config name.
      * 
      */
     public Output<String> key() {
         return this.key;
     }
     /**
-     * The number of hours to keep a backup before Artifactory will clean it up to free up disk space. Applicable only to non-incremental backups. Default value is 168 hours ie: 7 days.
+     * The number of hours to keep a backup before Artifactory will clean it up to free up disk space. Applicable only to
+     * non-incremental backups. Default value is 168 hours ie: 7 days.
      * 
      */
     @Export(name="retentionPeriodHours", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> retentionPeriodHours;
 
     /**
-     * @return The number of hours to keep a backup before Artifactory will clean it up to free up disk space. Applicable only to non-incremental backups. Default value is 168 hours ie: 7 days.
+     * @return The number of hours to keep a backup before Artifactory will clean it up to free up disk space. Applicable only to
+     * non-incremental backups. Default value is 168 hours ie: 7 days.
      * 
      */
     public Output<Optional<Integer>> retentionPeriodHours() {
         return Codegen.optional(this.retentionPeriodHours);
     }
     /**
-     * If set, all Artifactory administrators will be notified by email if any problem is encountered during backup. Default value is `true`.
+     * If set to true, all Artifactory administrators will be notified by email if any problem is encountered during backup.
+     * Default value is &#39;true&#39;.
      * 
      */
     @Export(name="sendMailOnError", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> sendMailOnError;
 
     /**
-     * @return If set, all Artifactory administrators will be notified by email if any problem is encountered during backup. Default value is `true`.
+     * @return If set to true, all Artifactory administrators will be notified by email if any problem is encountered during backup.
+     * Default value is &#39;true&#39;.
      * 
      */
     public Output<Optional<Boolean>> sendMailOnError() {
         return Codegen.optional(this.sendMailOnError);
     }
     /**
-     * If set, Artifactory will verify that the backup target location has enough disk space available to hold the backed up data. If there is not enough space available, Artifactory will abort the backup and write a message in the log file. Applicable only to non-incremental backups.
+     * If set, Artifactory will verify that the backup target location has enough disk space available to hold the backed up
+     * data. If there is not enough space available, Artifactory will abort the backup and write a message in the log file.
+     * Applicable only to non-incremental backups.
      * 
      */
     @Export(name="verifyDiskSpace", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> verifyDiskSpace;
 
     /**
-     * @return If set, Artifactory will verify that the backup target location has enough disk space available to hold the backed up data. If there is not enough space available, Artifactory will abort the backup and write a message in the log file. Applicable only to non-incremental backups.
+     * @return If set, Artifactory will verify that the backup target location has enough disk space available to hold the backed up
+     * data. If there is not enough space available, Artifactory will abort the backup and write a message in the log file.
+     * Applicable only to non-incremental backups.
      * 
      */
     public Output<Optional<Boolean>> verifyDiskSpace() {

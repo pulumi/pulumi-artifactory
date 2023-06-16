@@ -10,33 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Retrieves a federated Nuget repository.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupFederatedNugetRepository(ctx, &artifactory.LookupFederatedNugetRepositoryArgs{
-//				Key: "federated-test-nuget-repo",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupFederatedNugetRepository(ctx *pulumi.Context, args *LookupFederatedNugetRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupFederatedNugetRepositoryResult, error) {
 	var rv LookupFederatedNugetRepositoryResult
 	err := ctx.Invoke("artifactory:index/getFederatedNugetRepository:getFederatedNugetRepository", args, &rv, opts...)
@@ -48,30 +21,25 @@ func LookupFederatedNugetRepository(ctx *pulumi.Context, args *LookupFederatedNu
 
 // A collection of arguments for invoking getFederatedNugetRepository.
 type LookupFederatedNugetRepositoryArgs struct {
-	ArchiveBrowsingEnabled   *bool   `pulumi:"archiveBrowsingEnabled"`
-	BlackedOut               *bool   `pulumi:"blackedOut"`
-	CdnRedirect              *bool   `pulumi:"cdnRedirect"`
-	CleanupOnDelete          *bool   `pulumi:"cleanupOnDelete"`
-	Description              *string `pulumi:"description"`
-	DownloadDirect           *bool   `pulumi:"downloadDirect"`
-	ExcludesPattern          *string `pulumi:"excludesPattern"`
-	ForceNugetAuthentication *bool   `pulumi:"forceNugetAuthentication"`
-	IncludesPattern          *string `pulumi:"includesPattern"`
-	// the identity key of the repo.
-	Key                string `pulumi:"key"`
-	MaxUniqueSnapshots *int   `pulumi:"maxUniqueSnapshots"`
-	// The list of Federated members and must contain this repository URL (configured base URL
-	// `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
-	// Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
-	// to set up Federated repositories correctly.
-	Members             []GetFederatedNugetRepositoryMember `pulumi:"members"`
-	Notes               *string                             `pulumi:"notes"`
-	PriorityResolution  *bool                               `pulumi:"priorityResolution"`
-	ProjectEnvironments []string                            `pulumi:"projectEnvironments"`
-	ProjectKey          *string                             `pulumi:"projectKey"`
-	PropertySets        []string                            `pulumi:"propertySets"`
-	RepoLayoutRef       *string                             `pulumi:"repoLayoutRef"`
-	XrayIndex           *bool                               `pulumi:"xrayIndex"`
+	ArchiveBrowsingEnabled   *bool                               `pulumi:"archiveBrowsingEnabled"`
+	BlackedOut               *bool                               `pulumi:"blackedOut"`
+	CdnRedirect              *bool                               `pulumi:"cdnRedirect"`
+	CleanupOnDelete          *bool                               `pulumi:"cleanupOnDelete"`
+	Description              *string                             `pulumi:"description"`
+	DownloadDirect           *bool                               `pulumi:"downloadDirect"`
+	ExcludesPattern          *string                             `pulumi:"excludesPattern"`
+	ForceNugetAuthentication *bool                               `pulumi:"forceNugetAuthentication"`
+	IncludesPattern          *string                             `pulumi:"includesPattern"`
+	Key                      string                              `pulumi:"key"`
+	MaxUniqueSnapshots       *int                                `pulumi:"maxUniqueSnapshots"`
+	Members                  []GetFederatedNugetRepositoryMember `pulumi:"members"`
+	Notes                    *string                             `pulumi:"notes"`
+	PriorityResolution       *bool                               `pulumi:"priorityResolution"`
+	ProjectEnvironments      []string                            `pulumi:"projectEnvironments"`
+	ProjectKey               *string                             `pulumi:"projectKey"`
+	PropertySets             []string                            `pulumi:"propertySets"`
+	RepoLayoutRef            *string                             `pulumi:"repoLayoutRef"`
+	XrayIndex                *bool                               `pulumi:"xrayIndex"`
 }
 
 // A collection of values returned by getFederatedNugetRepository.
@@ -85,14 +53,10 @@ type LookupFederatedNugetRepositoryResult struct {
 	ExcludesPattern          string  `pulumi:"excludesPattern"`
 	ForceNugetAuthentication *bool   `pulumi:"forceNugetAuthentication"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                 string `pulumi:"id"`
-	IncludesPattern    string `pulumi:"includesPattern"`
-	Key                string `pulumi:"key"`
-	MaxUniqueSnapshots *int   `pulumi:"maxUniqueSnapshots"`
-	// The list of Federated members and must contain this repository URL (configured base URL
-	// `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
-	// Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
-	// to set up Federated repositories correctly.
+	Id                  string                              `pulumi:"id"`
+	IncludesPattern     string                              `pulumi:"includesPattern"`
+	Key                 string                              `pulumi:"key"`
+	MaxUniqueSnapshots  *int                                `pulumi:"maxUniqueSnapshots"`
 	Members             []GetFederatedNugetRepositoryMember `pulumi:"members"`
 	Notes               *string                             `pulumi:"notes"`
 	PackageType         string                              `pulumi:"packageType"`
@@ -119,30 +83,25 @@ func LookupFederatedNugetRepositoryOutput(ctx *pulumi.Context, args LookupFedera
 
 // A collection of arguments for invoking getFederatedNugetRepository.
 type LookupFederatedNugetRepositoryOutputArgs struct {
-	ArchiveBrowsingEnabled   pulumi.BoolPtrInput   `pulumi:"archiveBrowsingEnabled"`
-	BlackedOut               pulumi.BoolPtrInput   `pulumi:"blackedOut"`
-	CdnRedirect              pulumi.BoolPtrInput   `pulumi:"cdnRedirect"`
-	CleanupOnDelete          pulumi.BoolPtrInput   `pulumi:"cleanupOnDelete"`
-	Description              pulumi.StringPtrInput `pulumi:"description"`
-	DownloadDirect           pulumi.BoolPtrInput   `pulumi:"downloadDirect"`
-	ExcludesPattern          pulumi.StringPtrInput `pulumi:"excludesPattern"`
-	ForceNugetAuthentication pulumi.BoolPtrInput   `pulumi:"forceNugetAuthentication"`
-	IncludesPattern          pulumi.StringPtrInput `pulumi:"includesPattern"`
-	// the identity key of the repo.
-	Key                pulumi.StringInput `pulumi:"key"`
-	MaxUniqueSnapshots pulumi.IntPtrInput `pulumi:"maxUniqueSnapshots"`
-	// The list of Federated members and must contain this repository URL (configured base URL
-	// `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
-	// Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
-	// to set up Federated repositories correctly.
-	Members             GetFederatedNugetRepositoryMemberArrayInput `pulumi:"members"`
-	Notes               pulumi.StringPtrInput                       `pulumi:"notes"`
-	PriorityResolution  pulumi.BoolPtrInput                         `pulumi:"priorityResolution"`
-	ProjectEnvironments pulumi.StringArrayInput                     `pulumi:"projectEnvironments"`
-	ProjectKey          pulumi.StringPtrInput                       `pulumi:"projectKey"`
-	PropertySets        pulumi.StringArrayInput                     `pulumi:"propertySets"`
-	RepoLayoutRef       pulumi.StringPtrInput                       `pulumi:"repoLayoutRef"`
-	XrayIndex           pulumi.BoolPtrInput                         `pulumi:"xrayIndex"`
+	ArchiveBrowsingEnabled   pulumi.BoolPtrInput                         `pulumi:"archiveBrowsingEnabled"`
+	BlackedOut               pulumi.BoolPtrInput                         `pulumi:"blackedOut"`
+	CdnRedirect              pulumi.BoolPtrInput                         `pulumi:"cdnRedirect"`
+	CleanupOnDelete          pulumi.BoolPtrInput                         `pulumi:"cleanupOnDelete"`
+	Description              pulumi.StringPtrInput                       `pulumi:"description"`
+	DownloadDirect           pulumi.BoolPtrInput                         `pulumi:"downloadDirect"`
+	ExcludesPattern          pulumi.StringPtrInput                       `pulumi:"excludesPattern"`
+	ForceNugetAuthentication pulumi.BoolPtrInput                         `pulumi:"forceNugetAuthentication"`
+	IncludesPattern          pulumi.StringPtrInput                       `pulumi:"includesPattern"`
+	Key                      pulumi.StringInput                          `pulumi:"key"`
+	MaxUniqueSnapshots       pulumi.IntPtrInput                          `pulumi:"maxUniqueSnapshots"`
+	Members                  GetFederatedNugetRepositoryMemberArrayInput `pulumi:"members"`
+	Notes                    pulumi.StringPtrInput                       `pulumi:"notes"`
+	PriorityResolution       pulumi.BoolPtrInput                         `pulumi:"priorityResolution"`
+	ProjectEnvironments      pulumi.StringArrayInput                     `pulumi:"projectEnvironments"`
+	ProjectKey               pulumi.StringPtrInput                       `pulumi:"projectKey"`
+	PropertySets             pulumi.StringArrayInput                     `pulumi:"propertySets"`
+	RepoLayoutRef            pulumi.StringPtrInput                       `pulumi:"repoLayoutRef"`
+	XrayIndex                pulumi.BoolPtrInput                         `pulumi:"xrayIndex"`
 }
 
 func (LookupFederatedNugetRepositoryOutputArgs) ElementType() reflect.Type {
@@ -213,10 +172,6 @@ func (o LookupFederatedNugetRepositoryResultOutput) MaxUniqueSnapshots() pulumi.
 	return o.ApplyT(func(v LookupFederatedNugetRepositoryResult) *int { return v.MaxUniqueSnapshots }).(pulumi.IntPtrOutput)
 }
 
-// The list of Federated members and must contain this repository URL (configured base URL
-// `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
-// Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
-// to set up Federated repositories correctly.
 func (o LookupFederatedNugetRepositoryResultOutput) Members() GetFederatedNugetRepositoryMemberArrayOutput {
 	return o.ApplyT(func(v LookupFederatedNugetRepositoryResult) []GetFederatedNugetRepositoryMember { return v.Members }).(GetFederatedNugetRepositoryMemberArrayOutput)
 }

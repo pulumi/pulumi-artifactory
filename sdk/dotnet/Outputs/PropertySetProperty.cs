@@ -13,21 +13,9 @@ namespace Pulumi.Artifactory.Outputs
     [OutputType]
     public sealed class PropertySetProperty
     {
-        /// <summary>
-        /// Disables `multiple_choice` if set to `false` at the same time with multiple_choice set to `true`. Default value is `false`
-        /// </summary>
         public readonly bool? ClosedPredefinedValues;
-        /// <summary>
-        /// Defines if user can select multiple values. `closed_predefined_values` should be set to `true`. Default value is `false`.
-        /// </summary>
         public readonly bool? MultipleChoice;
-        /// <summary>
-        /// Predefined property name.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// Properties in the property set.
-        /// </summary>
         public readonly ImmutableArray<Outputs.PropertySetPropertyPredefinedValue> PredefinedValues;
 
         [OutputConstructor]

@@ -11,46 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Creates a remote PHP Composer repository.
-// Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/PHP+Composer+Repositories).
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.NewRemoteComposerRepository(ctx, "my-remote-composer", &artifactory.RemoteComposerRepositoryArgs{
-//				Key:            pulumi.String("my-remote-composer"),
-//				Url:            pulumi.String("https://github.com/"),
-//				VcsGitProvider: pulumi.String("GITHUB"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Remote repositories can be imported using their name, e.g.
-//
-// ```sh
-//
-//	$ pulumi import artifactory:index/remoteComposerRepository:RemoteComposerRepository my-remote-composer my-remote-composer
-//
-// ```
 type RemoteComposerRepository struct {
 	pulumi.CustomResourceState
 
@@ -77,7 +37,7 @@ type RemoteComposerRepository struct {
 	CdnRedirect pulumi.BoolPtrOutput `pulumi:"cdnRedirect"`
 	// Client TLS certificate name.
 	ClientTlsCertificate pulumi.StringOutput `pulumi:"clientTlsCertificate"`
-	// Proxy remote Composer repository. Default value is `https://packagist.org`.
+	// Proxy remote Composer repository. Default value is "https://packagist.org".
 	ComposerRegistryUrl    pulumi.StringPtrOutput                               `pulumi:"composerRegistryUrl"`
 	ContentSynchronisation RemoteComposerRepositoryContentSynchronisationOutput `pulumi:"contentSynchronisation"`
 	// Public description.
@@ -96,8 +56,8 @@ type RemoteComposerRepository struct {
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrOutput `pulumi:"includesPattern"`
-	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-	// contain spaces or special characters.
+	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+	// characters. It cannot begin with a number or contain spaces or special characters.
 	Key pulumi.StringOutput `pulumi:"key"`
 	// Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
 	// the 'Retrieval Cache Period'. Default value is 'true'.
@@ -163,9 +123,10 @@ type RemoteComposerRepository struct {
 	// The remote repo URL.
 	Url      pulumi.StringOutput    `pulumi:"url"`
 	Username pulumi.StringPtrOutput `pulumi:"username"`
-	// This attribute is used when vcsGitProvider is set to `CUSTOM`. Provided URL will be used as proxy.
+	// This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
 	VcsGitDownloadUrl pulumi.StringPtrOutput `pulumi:"vcsGitDownloadUrl"`
-	// Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`. Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
+	// Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance.
+	// Default value is "GITHUB".
 	VcsGitProvider pulumi.StringPtrOutput `pulumi:"vcsGitProvider"`
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.
@@ -237,7 +198,7 @@ type remoteComposerRepositoryState struct {
 	CdnRedirect *bool `pulumi:"cdnRedirect"`
 	// Client TLS certificate name.
 	ClientTlsCertificate *string `pulumi:"clientTlsCertificate"`
-	// Proxy remote Composer repository. Default value is `https://packagist.org`.
+	// Proxy remote Composer repository. Default value is "https://packagist.org".
 	ComposerRegistryUrl    *string                                         `pulumi:"composerRegistryUrl"`
 	ContentSynchronisation *RemoteComposerRepositoryContentSynchronisation `pulumi:"contentSynchronisation"`
 	// Public description.
@@ -256,8 +217,8 @@ type remoteComposerRepositoryState struct {
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
-	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-	// contain spaces or special characters.
+	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+	// characters. It cannot begin with a number or contain spaces or special characters.
 	Key *string `pulumi:"key"`
 	// Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
 	// the 'Retrieval Cache Period'. Default value is 'true'.
@@ -323,9 +284,10 @@ type remoteComposerRepositoryState struct {
 	// The remote repo URL.
 	Url      *string `pulumi:"url"`
 	Username *string `pulumi:"username"`
-	// This attribute is used when vcsGitProvider is set to `CUSTOM`. Provided URL will be used as proxy.
+	// This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
 	VcsGitDownloadUrl *string `pulumi:"vcsGitDownloadUrl"`
-	// Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`. Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
+	// Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance.
+	// Default value is "GITHUB".
 	VcsGitProvider *string `pulumi:"vcsGitProvider"`
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.
@@ -356,7 +318,7 @@ type RemoteComposerRepositoryState struct {
 	CdnRedirect pulumi.BoolPtrInput
 	// Client TLS certificate name.
 	ClientTlsCertificate pulumi.StringPtrInput
-	// Proxy remote Composer repository. Default value is `https://packagist.org`.
+	// Proxy remote Composer repository. Default value is "https://packagist.org".
 	ComposerRegistryUrl    pulumi.StringPtrInput
 	ContentSynchronisation RemoteComposerRepositoryContentSynchronisationPtrInput
 	// Public description.
@@ -375,8 +337,8 @@ type RemoteComposerRepositoryState struct {
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
-	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-	// contain spaces or special characters.
+	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+	// characters. It cannot begin with a number or contain spaces or special characters.
 	Key pulumi.StringPtrInput
 	// Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
 	// the 'Retrieval Cache Period'. Default value is 'true'.
@@ -442,9 +404,10 @@ type RemoteComposerRepositoryState struct {
 	// The remote repo URL.
 	Url      pulumi.StringPtrInput
 	Username pulumi.StringPtrInput
-	// This attribute is used when vcsGitProvider is set to `CUSTOM`. Provided URL will be used as proxy.
+	// This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
 	VcsGitDownloadUrl pulumi.StringPtrInput
-	// Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`. Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
+	// Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance.
+	// Default value is "GITHUB".
 	VcsGitProvider pulumi.StringPtrInput
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.
@@ -479,7 +442,7 @@ type remoteComposerRepositoryArgs struct {
 	CdnRedirect *bool `pulumi:"cdnRedirect"`
 	// Client TLS certificate name.
 	ClientTlsCertificate *string `pulumi:"clientTlsCertificate"`
-	// Proxy remote Composer repository. Default value is `https://packagist.org`.
+	// Proxy remote Composer repository. Default value is "https://packagist.org".
 	ComposerRegistryUrl    *string                                         `pulumi:"composerRegistryUrl"`
 	ContentSynchronisation *RemoteComposerRepositoryContentSynchronisation `pulumi:"contentSynchronisation"`
 	// Public description.
@@ -498,8 +461,8 @@ type remoteComposerRepositoryArgs struct {
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
-	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-	// contain spaces or special characters.
+	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+	// characters. It cannot begin with a number or contain spaces or special characters.
 	Key string `pulumi:"key"`
 	// Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
 	// the 'Retrieval Cache Period'. Default value is 'true'.
@@ -564,9 +527,10 @@ type remoteComposerRepositoryArgs struct {
 	// The remote repo URL.
 	Url      string  `pulumi:"url"`
 	Username *string `pulumi:"username"`
-	// This attribute is used when vcsGitProvider is set to `CUSTOM`. Provided URL will be used as proxy.
+	// This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
 	VcsGitDownloadUrl *string `pulumi:"vcsGitDownloadUrl"`
-	// Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`. Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
+	// Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance.
+	// Default value is "GITHUB".
 	VcsGitProvider *string `pulumi:"vcsGitProvider"`
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.
@@ -598,7 +562,7 @@ type RemoteComposerRepositoryArgs struct {
 	CdnRedirect pulumi.BoolPtrInput
 	// Client TLS certificate name.
 	ClientTlsCertificate pulumi.StringPtrInput
-	// Proxy remote Composer repository. Default value is `https://packagist.org`.
+	// Proxy remote Composer repository. Default value is "https://packagist.org".
 	ComposerRegistryUrl    pulumi.StringPtrInput
 	ContentSynchronisation RemoteComposerRepositoryContentSynchronisationPtrInput
 	// Public description.
@@ -617,8 +581,8 @@ type RemoteComposerRepositoryArgs struct {
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
-	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-	// contain spaces or special characters.
+	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+	// characters. It cannot begin with a number or contain spaces or special characters.
 	Key pulumi.StringInput
 	// Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
 	// the 'Retrieval Cache Period'. Default value is 'true'.
@@ -683,9 +647,10 @@ type RemoteComposerRepositoryArgs struct {
 	// The remote repo URL.
 	Url      pulumi.StringInput
 	Username pulumi.StringPtrInput
-	// This attribute is used when vcsGitProvider is set to `CUSTOM`. Provided URL will be used as proxy.
+	// This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
 	VcsGitDownloadUrl pulumi.StringPtrInput
-	// Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`. Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
+	// Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance.
+	// Default value is "GITHUB".
 	VcsGitProvider pulumi.StringPtrInput
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.
@@ -823,7 +788,7 @@ func (o RemoteComposerRepositoryOutput) ClientTlsCertificate() pulumi.StringOutp
 	return o.ApplyT(func(v *RemoteComposerRepository) pulumi.StringOutput { return v.ClientTlsCertificate }).(pulumi.StringOutput)
 }
 
-// Proxy remote Composer repository. Default value is `https://packagist.org`.
+// Proxy remote Composer repository. Default value is "https://packagist.org".
 func (o RemoteComposerRepositoryOutput) ComposerRegistryUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RemoteComposerRepository) pulumi.StringPtrOutput { return v.ComposerRegistryUrl }).(pulumi.StringPtrOutput)
 }
@@ -868,8 +833,8 @@ func (o RemoteComposerRepositoryOutput) IncludesPattern() pulumi.StringPtrOutput
 	return o.ApplyT(func(v *RemoteComposerRepository) pulumi.StringPtrOutput { return v.IncludesPattern }).(pulumi.StringPtrOutput)
 }
 
-// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-// contain spaces or special characters.
+// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+// characters. It cannot begin with a number or contain spaces or special characters.
 func (o RemoteComposerRepositoryOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v *RemoteComposerRepository) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
 }
@@ -1013,12 +978,13 @@ func (o RemoteComposerRepositoryOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RemoteComposerRepository) pulumi.StringPtrOutput { return v.Username }).(pulumi.StringPtrOutput)
 }
 
-// This attribute is used when vcsGitProvider is set to `CUSTOM`. Provided URL will be used as proxy.
+// This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
 func (o RemoteComposerRepositoryOutput) VcsGitDownloadUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RemoteComposerRepository) pulumi.StringPtrOutput { return v.VcsGitDownloadUrl }).(pulumi.StringPtrOutput)
 }
 
-// Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`. Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
+// Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance.
+// Default value is "GITHUB".
 func (o RemoteComposerRepositoryOutput) VcsGitProvider() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RemoteComposerRepository) pulumi.StringPtrOutput { return v.VcsGitProvider }).(pulumi.StringPtrOutput)
 }

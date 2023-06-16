@@ -18,50 +18,6 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Creates a remote Puppet repository.
- * Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Puppet+Repositories).
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.artifactory.RemotePuppetRepository;
- * import com.pulumi.artifactory.RemotePuppetRepositoryArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var my_remote_puppet = new RemotePuppetRepository(&#34;my-remote-puppet&#34;, RemotePuppetRepositoryArgs.builder()        
- *             .key(&#34;my-remote-puppet&#34;)
- *             .url(&#34;https://forgeapi.puppetlabs.com/&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Remote repositories can be imported using their name, e.g.
- * 
- * ```sh
- *  $ pulumi import artifactory:index/remotePuppetRepository:RemotePuppetRepository my-remote-puppet my-remote-puppet
- * ```
- * 
- */
 @ResourceType(type="artifactory:index/remotePuppetRepository:RemotePuppetRepository")
 public class RemotePuppetRepository extends com.pulumi.resources.CustomResource {
     /**
@@ -279,16 +235,16 @@ public class RemotePuppetRepository extends com.pulumi.resources.CustomResource 
         return Codegen.optional(this.includesPattern);
     }
     /**
-     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-     * contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      * 
      */
     @Export(name="key", type=String.class, parameters={})
     private Output<String> key;
 
     /**
-     * @return A mandatory identifier for the repository that must be unique. It cannot begin with a number or
-     * contain spaces or special characters.
+     * @return A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
+     * characters. It cannot begin with a number or contain spaces or special characters.
      * 
      */
     public Output<String> key() {

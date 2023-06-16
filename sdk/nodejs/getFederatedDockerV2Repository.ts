@@ -6,20 +6,6 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
-/**
- * Retrieves a federated Docker repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const federated-test-docker-repo = artifactory.getFederatedDockerV2Repository({
- *     key: "federated-test-docker-repo",
- * });
- * ```
- */
 export function getFederatedDockerV2Repository(args: GetFederatedDockerV2RepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetFederatedDockerV2RepositoryResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -60,17 +46,8 @@ export interface GetFederatedDockerV2RepositoryArgs {
     downloadDirect?: boolean;
     excludesPattern?: string;
     includesPattern?: string;
-    /**
-     * the identity key of the repo.
-     */
     key: string;
     maxUniqueTags?: number;
-    /**
-     * The list of Federated members and must contain this repository URL (configured base URL
-     * `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
-     * Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
-     * to set up Federated repositories correctly.
-     */
     members?: inputs.GetFederatedDockerV2RepositoryMember[];
     notes?: string;
     priorityResolution?: boolean;
@@ -102,12 +79,6 @@ export interface GetFederatedDockerV2RepositoryResult {
     readonly includesPattern: string;
     readonly key: string;
     readonly maxUniqueTags?: number;
-    /**
-     * The list of Federated members and must contain this repository URL (configured base URL
-     * `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
-     * Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
-     * to set up Federated repositories correctly.
-     */
     readonly members?: outputs.GetFederatedDockerV2RepositoryMember[];
     readonly notes?: string;
     readonly packageType: string;
@@ -119,20 +90,6 @@ export interface GetFederatedDockerV2RepositoryResult {
     readonly tagRetention?: number;
     readonly xrayIndex?: boolean;
 }
-/**
- * Retrieves a federated Docker repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const federated-test-docker-repo = artifactory.getFederatedDockerV2Repository({
- *     key: "federated-test-docker-repo",
- * });
- * ```
- */
 export function getFederatedDockerV2RepositoryOutput(args: GetFederatedDockerV2RepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedDockerV2RepositoryResult> {
     return pulumi.output(args).apply((a: any) => getFederatedDockerV2Repository(a, opts))
 }
@@ -150,17 +107,8 @@ export interface GetFederatedDockerV2RepositoryOutputArgs {
     downloadDirect?: pulumi.Input<boolean>;
     excludesPattern?: pulumi.Input<string>;
     includesPattern?: pulumi.Input<string>;
-    /**
-     * the identity key of the repo.
-     */
     key: pulumi.Input<string>;
     maxUniqueTags?: pulumi.Input<number>;
-    /**
-     * The list of Federated members and must contain this repository URL (configured base URL
-     * `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
-     * Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
-     * to set up Federated repositories correctly.
-     */
     members?: pulumi.Input<pulumi.Input<inputs.GetFederatedDockerV2RepositoryMemberArgs>[]>;
     notes?: pulumi.Input<string>;
     priorityResolution?: pulumi.Input<boolean>;

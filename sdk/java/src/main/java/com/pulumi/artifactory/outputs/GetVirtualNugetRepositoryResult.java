@@ -17,10 +17,6 @@ public final class GetVirtualNugetRepositoryResult {
     private @Nullable String defaultDeploymentRepo;
     private @Nullable String description;
     private @Nullable String excludesPattern;
-    /**
-     * @return (Optional) If set, user authentication is required when accessing the repository. An anonymous request will display an HTTP 401 error. This is also enforced when aggregated repositories support anonymous requests. Default is `false`.
-     * 
-     */
     private @Nullable Boolean forceNugetAuthentication;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -49,10 +45,6 @@ public final class GetVirtualNugetRepositoryResult {
     public Optional<String> excludesPattern() {
         return Optional.ofNullable(this.excludesPattern);
     }
-    /**
-     * @return (Optional) If set, user authentication is required when accessing the repository. An anonymous request will display an HTTP 401 error. This is also enforced when aggregated repositories support anonymous requests. Default is `false`.
-     * 
-     */
     public Optional<Boolean> forceNugetAuthentication() {
         return Optional.ofNullable(this.forceNugetAuthentication);
     }
