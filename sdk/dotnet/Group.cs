@@ -37,19 +37,19 @@ namespace Pulumi.Artifactory
         /// A description for the group.
         /// </summary>
         [Output("description")]
-        public Output<string?> Description { get; private set; } = null!;
+        public Output<string> Description { get; private set; } = null!;
 
         /// <summary>
         /// When this is set to `true`, an empty or missing usernames array will detach all users from the group.
         /// </summary>
         [Output("detachAllUsers")]
-        public Output<bool> DetachAllUsers { get; private set; } = null!;
+        public Output<bool?> DetachAllUsers { get; private set; } = null!;
 
         /// <summary>
         /// New external group ID used to configure the corresponding group in Azure AD.
         /// </summary>
         [Output("externalId")]
-        public Output<string?> ExternalId { get; private set; } = null!;
+        public Output<string> ExternalId { get; private set; } = null!;
 
         /// <summary>
         /// Name of the group.
@@ -73,7 +73,7 @@ namespace Pulumi.Artifactory
         /// The realm attributes for the group.
         /// </summary>
         [Output("realmAttributes")]
-        public Output<string?> RealmAttributes { get; private set; } = null!;
+        public Output<string> RealmAttributes { get; private set; } = null!;
 
         /// <summary>
         /// When this override is set, User in the group can manage Xray Reports on any resource type. Default value is `false`.

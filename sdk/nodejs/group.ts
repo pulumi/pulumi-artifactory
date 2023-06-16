@@ -52,15 +52,15 @@ export class Group extends pulumi.CustomResource {
     /**
      * A description for the group.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string>;
     /**
      * When this is set to `true`, an empty or missing usernames array will detach all users from the group.
      */
-    public readonly detachAllUsers!: pulumi.Output<boolean>;
+    public readonly detachAllUsers!: pulumi.Output<boolean | undefined>;
     /**
      * New external group ID used to configure the corresponding group in Azure AD.
      */
-    public readonly externalId!: pulumi.Output<string | undefined>;
+    public readonly externalId!: pulumi.Output<string>;
     /**
      * Name of the group.
      */
@@ -76,7 +76,7 @@ export class Group extends pulumi.CustomResource {
     /**
      * The realm attributes for the group.
      */
-    public readonly realmAttributes!: pulumi.Output<string | undefined>;
+    public readonly realmAttributes!: pulumi.Output<string>;
     /**
      * When this override is set, User in the group can manage Xray Reports on any resource type. Default value is `false`.
      */
@@ -84,7 +84,7 @@ export class Group extends pulumi.CustomResource {
     /**
      * List of users assigned to the group. If not set or empty, Terraform will not manage group membership.
      */
-    public readonly usersNames!: pulumi.Output<string[] | undefined>;
+    public readonly usersNames!: pulumi.Output<string[]>;
     /**
      * When this override is set, User in the group can manage Xray Watches on any resource type. Default value is `false`.
      */

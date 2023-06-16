@@ -13,7 +13,7 @@ namespace Pulumi.Artifactory.Outputs
     [OutputType]
     public sealed class PermissionTargetReleaseBundle
     {
-        public readonly Outputs.PermissionTargetReleaseBundleActions? Actions;
+        public readonly ImmutableArray<Outputs.PermissionTargetReleaseBundleAction> Actions;
         /// <summary>
         /// Pattern of artifacts to exclude.
         /// </summary>
@@ -29,7 +29,7 @@ namespace Pulumi.Artifactory.Outputs
 
         [OutputConstructor]
         private PermissionTargetReleaseBundle(
-            Outputs.PermissionTargetReleaseBundleActions? actions,
+            ImmutableArray<Outputs.PermissionTargetReleaseBundleAction> actions,
 
             ImmutableArray<string> excludesPatterns,
 

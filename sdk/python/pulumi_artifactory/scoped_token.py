@@ -708,7 +708,7 @@ class ScopedToken(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> pulumi.Output[Optional[str]]:
+    def description(self) -> pulumi.Output[str]:
         """
         Free text token description. Useful for filtering and managing tokens. Limited to 1024 characters.
         """
