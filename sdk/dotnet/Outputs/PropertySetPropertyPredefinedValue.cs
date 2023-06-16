@@ -13,7 +13,13 @@ namespace Pulumi.Artifactory.Outputs
     [OutputType]
     public sealed class PropertySetPropertyPredefinedValue
     {
+        /// <summary>
+        /// Whether the value is selected by default in the UI.
+        /// </summary>
         public readonly bool DefaultValue;
+        /// <summary>
+        /// Predefined property name.
+        /// </summary>
         public readonly string Name;
 
         [OutputConstructor]

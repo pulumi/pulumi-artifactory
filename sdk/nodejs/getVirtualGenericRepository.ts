@@ -4,6 +4,20 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * Retrieves a virtual Generic repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const virtual-generic = artifactory.getVirtualGenericRepository({
+ *     key: "virtual-generic",
+ * });
+ * ```
+ */
 export function getVirtualGenericRepository(args: GetVirtualGenericRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualGenericRepositoryResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -31,6 +45,9 @@ export interface GetVirtualGenericRepositoryArgs {
     description?: string;
     excludesPattern?: string;
     includesPattern?: string;
+    /**
+     * the identity key of the repo.
+     */
     key: string;
     notes?: string;
     projectEnvironments?: string[];
@@ -60,6 +77,20 @@ export interface GetVirtualGenericRepositoryResult {
     readonly repoLayoutRef?: string;
     readonly repositories?: string[];
 }
+/**
+ * Retrieves a virtual Generic repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const virtual-generic = artifactory.getVirtualGenericRepository({
+ *     key: "virtual-generic",
+ * });
+ * ```
+ */
 export function getVirtualGenericRepositoryOutput(args: GetVirtualGenericRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualGenericRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getVirtualGenericRepository(a, opts))
 }
@@ -73,6 +104,9 @@ export interface GetVirtualGenericRepositoryOutputArgs {
     description?: pulumi.Input<string>;
     excludesPattern?: pulumi.Input<string>;
     includesPattern?: pulumi.Input<string>;
+    /**
+     * the identity key of the repo.
+     */
     key: pulumi.Input<string>;
     notes?: pulumi.Input<string>;
     projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;

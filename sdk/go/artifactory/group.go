@@ -10,6 +10,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Import
+//
+// ```sh
+//
+//	$ pulumi import artifactory:index/group:Group terraform-group mygroup
+//
+// ```
+//
+//	~> `users_names` can't be imported due to API limitations.
 type Group struct {
 	pulumi.CustomResourceState
 

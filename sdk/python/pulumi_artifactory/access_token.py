@@ -25,6 +25,13 @@ class AccessTokenArgs:
                  refreshable: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a AccessToken resource.
+        :param pulumi.Input[str] username: (Required) The username or subject for the token. A non-admin can only specify their own username. Admins can specify any existing username, or a new name for a temporary token. Temporary tokens require `groups` to be set.
+        :param pulumi.Input['AccessTokenAdminTokenArgs'] admin_token: (Optional) Specify the `instance_id` in this block to grant this token admin privileges. This can only be created when the authenticated user is an admin. `admin_token` cannot be specified with `groups`.
+        :param pulumi.Input[str] audience: (Optional) A space-separate list of the other Artifactory instances or services that should accept this token identified by their Artifactory Service IDs. You may set `"jfrt@*"` so the token to be accepted by all Artifactory instances.
+        :param pulumi.Input[str] end_date: (Optional) The end date which the token is valid until, formatted as a RFC3339 date string (e.g. `2018-01-01T01:02:03Z`).
+        :param pulumi.Input[str] end_date_relative: (Optional) A relative duration for which the token is valid until, for example `240h` (10 days) or `2400h30m`. Valid time units are "s", "m", "h".
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: (Optional) List of groups. The token is granted access based on the permissions of the groups. Specify `["*"]` for all groups that the user belongs to. `groups` cannot be specified with `admin_token`.
+        :param pulumi.Input[bool] refreshable: (Optional) Is this token refreshable? Defaults to `false`
         """
         pulumi.set(__self__, "username", username)
         if admin_token is not None:
@@ -43,6 +50,9 @@ class AccessTokenArgs:
     @property
     @pulumi.getter
     def username(self) -> pulumi.Input[str]:
+        """
+        (Required) The username or subject for the token. A non-admin can only specify their own username. Admins can specify any existing username, or a new name for a temporary token. Temporary tokens require `groups` to be set.
+        """
         return pulumi.get(self, "username")
 
     @username.setter
@@ -52,6 +62,9 @@ class AccessTokenArgs:
     @property
     @pulumi.getter(name="adminToken")
     def admin_token(self) -> Optional[pulumi.Input['AccessTokenAdminTokenArgs']]:
+        """
+        (Optional) Specify the `instance_id` in this block to grant this token admin privileges. This can only be created when the authenticated user is an admin. `admin_token` cannot be specified with `groups`.
+        """
         return pulumi.get(self, "admin_token")
 
     @admin_token.setter
@@ -61,6 +74,9 @@ class AccessTokenArgs:
     @property
     @pulumi.getter
     def audience(self) -> Optional[pulumi.Input[str]]:
+        """
+        (Optional) A space-separate list of the other Artifactory instances or services that should accept this token identified by their Artifactory Service IDs. You may set `"jfrt@*"` so the token to be accepted by all Artifactory instances.
+        """
         return pulumi.get(self, "audience")
 
     @audience.setter
@@ -70,6 +86,9 @@ class AccessTokenArgs:
     @property
     @pulumi.getter(name="endDate")
     def end_date(self) -> Optional[pulumi.Input[str]]:
+        """
+        (Optional) The end date which the token is valid until, formatted as a RFC3339 date string (e.g. `2018-01-01T01:02:03Z`).
+        """
         return pulumi.get(self, "end_date")
 
     @end_date.setter
@@ -79,6 +98,9 @@ class AccessTokenArgs:
     @property
     @pulumi.getter(name="endDateRelative")
     def end_date_relative(self) -> Optional[pulumi.Input[str]]:
+        """
+        (Optional) A relative duration for which the token is valid until, for example `240h` (10 days) or `2400h30m`. Valid time units are "s", "m", "h".
+        """
         return pulumi.get(self, "end_date_relative")
 
     @end_date_relative.setter
@@ -88,6 +110,9 @@ class AccessTokenArgs:
     @property
     @pulumi.getter
     def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        (Optional) List of groups. The token is granted access based on the permissions of the groups. Specify `["*"]` for all groups that the user belongs to. `groups` cannot be specified with `admin_token`.
+        """
         return pulumi.get(self, "groups")
 
     @groups.setter
@@ -97,6 +122,9 @@ class AccessTokenArgs:
     @property
     @pulumi.getter
     def refreshable(self) -> Optional[pulumi.Input[bool]]:
+        """
+        (Optional) Is this token refreshable? Defaults to `false`
+        """
         return pulumi.get(self, "refreshable")
 
     @refreshable.setter
@@ -118,6 +146,15 @@ class _AccessTokenState:
                  username: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering AccessToken resources.
+        :param pulumi.Input[str] access_token: Returns the access token to authenciate to Artifactory
+        :param pulumi.Input['AccessTokenAdminTokenArgs'] admin_token: (Optional) Specify the `instance_id` in this block to grant this token admin privileges. This can only be created when the authenticated user is an admin. `admin_token` cannot be specified with `groups`.
+        :param pulumi.Input[str] audience: (Optional) A space-separate list of the other Artifactory instances or services that should accept this token identified by their Artifactory Service IDs. You may set `"jfrt@*"` so the token to be accepted by all Artifactory instances.
+        :param pulumi.Input[str] end_date: (Optional) The end date which the token is valid until, formatted as a RFC3339 date string (e.g. `2018-01-01T01:02:03Z`).
+        :param pulumi.Input[str] end_date_relative: (Optional) A relative duration for which the token is valid until, for example `240h` (10 days) or `2400h30m`. Valid time units are "s", "m", "h".
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: (Optional) List of groups. The token is granted access based on the permissions of the groups. Specify `["*"]` for all groups that the user belongs to. `groups` cannot be specified with `admin_token`.
+        :param pulumi.Input[str] refresh_token: Returns the refresh token when `refreshable` is true, or an empty string when `refreshable` is false.
+        :param pulumi.Input[bool] refreshable: (Optional) Is this token refreshable? Defaults to `false`
+        :param pulumi.Input[str] username: (Required) The username or subject for the token. A non-admin can only specify their own username. Admins can specify any existing username, or a new name for a temporary token. Temporary tokens require `groups` to be set.
         """
         if access_token is not None:
             pulumi.set(__self__, "access_token", access_token)
@@ -141,6 +178,9 @@ class _AccessTokenState:
     @property
     @pulumi.getter(name="accessToken")
     def access_token(self) -> Optional[pulumi.Input[str]]:
+        """
+        Returns the access token to authenciate to Artifactory
+        """
         return pulumi.get(self, "access_token")
 
     @access_token.setter
@@ -150,6 +190,9 @@ class _AccessTokenState:
     @property
     @pulumi.getter(name="adminToken")
     def admin_token(self) -> Optional[pulumi.Input['AccessTokenAdminTokenArgs']]:
+        """
+        (Optional) Specify the `instance_id` in this block to grant this token admin privileges. This can only be created when the authenticated user is an admin. `admin_token` cannot be specified with `groups`.
+        """
         return pulumi.get(self, "admin_token")
 
     @admin_token.setter
@@ -159,6 +202,9 @@ class _AccessTokenState:
     @property
     @pulumi.getter
     def audience(self) -> Optional[pulumi.Input[str]]:
+        """
+        (Optional) A space-separate list of the other Artifactory instances or services that should accept this token identified by their Artifactory Service IDs. You may set `"jfrt@*"` so the token to be accepted by all Artifactory instances.
+        """
         return pulumi.get(self, "audience")
 
     @audience.setter
@@ -168,6 +214,9 @@ class _AccessTokenState:
     @property
     @pulumi.getter(name="endDate")
     def end_date(self) -> Optional[pulumi.Input[str]]:
+        """
+        (Optional) The end date which the token is valid until, formatted as a RFC3339 date string (e.g. `2018-01-01T01:02:03Z`).
+        """
         return pulumi.get(self, "end_date")
 
     @end_date.setter
@@ -177,6 +226,9 @@ class _AccessTokenState:
     @property
     @pulumi.getter(name="endDateRelative")
     def end_date_relative(self) -> Optional[pulumi.Input[str]]:
+        """
+        (Optional) A relative duration for which the token is valid until, for example `240h` (10 days) or `2400h30m`. Valid time units are "s", "m", "h".
+        """
         return pulumi.get(self, "end_date_relative")
 
     @end_date_relative.setter
@@ -186,6 +238,9 @@ class _AccessTokenState:
     @property
     @pulumi.getter
     def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        (Optional) List of groups. The token is granted access based on the permissions of the groups. Specify `["*"]` for all groups that the user belongs to. `groups` cannot be specified with `admin_token`.
+        """
         return pulumi.get(self, "groups")
 
     @groups.setter
@@ -195,6 +250,9 @@ class _AccessTokenState:
     @property
     @pulumi.getter(name="refreshToken")
     def refresh_token(self) -> Optional[pulumi.Input[str]]:
+        """
+        Returns the refresh token when `refreshable` is true, or an empty string when `refreshable` is false.
+        """
         return pulumi.get(self, "refresh_token")
 
     @refresh_token.setter
@@ -204,6 +262,9 @@ class _AccessTokenState:
     @property
     @pulumi.getter
     def refreshable(self) -> Optional[pulumi.Input[bool]]:
+        """
+        (Optional) Is this token refreshable? Defaults to `false`
+        """
         return pulumi.get(self, "refreshable")
 
     @refreshable.setter
@@ -213,6 +274,9 @@ class _AccessTokenState:
     @property
     @pulumi.getter
     def username(self) -> Optional[pulumi.Input[str]]:
+        """
+        (Required) The username or subject for the token. A non-admin can only specify their own username. Admins can specify any existing username, or a new name for a temporary token. Temporary tokens require `groups` to be set.
+        """
         return pulumi.get(self, "username")
 
     @username.setter
@@ -234,9 +298,137 @@ class AccessToken(pulumi.CustomResource):
                  username: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a AccessToken resource with the given unique name, props, and options.
+        Provides an Artifactory Access Token resource. This can be used to create and manage Artifactory Access Tokens.
+
+        > **Note:** Access Tokens will be stored in the raw state as plain-text. Read more about sensitive data in
+        state.
+
+        ## Example Usage
+
+        ### S
+        ### Create a new Artifactory Access Token for an existing user
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        exising_user = artifactory.AccessToken("exisingUser",
+            end_date_relative="5m",
+            username="existing-user")
+        ```
+
+        Note: This assumes that the user `existing-user` has already been created in Artifactory by different means, i.e. manually or in a separate pulumi up.
+        ### Create a new Artifactory User and Access token
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        new_user_user = artifactory.User("newUserUser",
+            email="new_user@somewhere.com",
+            groups=["readers"])
+        new_user_access_token = artifactory.AccessToken("newUserAccessToken",
+            username=new_user_user.name,
+            end_date_relative="5m")
+        ```
+        ### Creates a new token for groups
+        This creates a transient user called `temporary-user`.
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        temporary_user = artifactory.AccessToken("temporaryUser",
+            end_date_relative="1h",
+            groups=["readers"],
+            username="temporary-user")
+        ```
+        ### Create token with no expiry
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        no_expiry = artifactory.AccessToken("noExpiry",
+            end_date_relative="0s",
+            username="existing-user")
+        ```
+        ### Creates a refreshable token
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        refreshable = artifactory.AccessToken("refreshable",
+            end_date_relative="1m",
+            groups=["readers"],
+            refreshable=True,
+            username="refreshable")
+        ```
+        ### Creates an administrator token
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        admin = artifactory.AccessToken("admin",
+            admin_token=artifactory.AccessTokenAdminTokenArgs(
+                instance_id="<instance id>",
+            ),
+            end_date_relative="1m",
+            username="admin")
+        ```
+        ### Creates a token with an audience
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        audience = artifactory.AccessToken("audience",
+            audience="jfrt@*",
+            end_date_relative="1m",
+            refreshable=True,
+            username="audience")
+        ```
+        ### Creates a token with a fixed end date
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        fixeddate = artifactory.AccessToken("fixeddate",
+            end_date="2018-01-01T01:02:03Z",
+            groups=["readers"],
+            username="fixeddate")
+        ```
+        ### Rotate token after it expires
+        This example will generate a token that will expire in 1 hour.
+
+        If `pulumi up` is run before 1 hour, nothing changes.
+        One an hour has passed, `pulumi up` will generate a new token.
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+        import pulumiverse_time as time
+
+        now_plus1_hours = time.Rotating("nowPlus1Hours", rotation_hours=1)
+        rotating = artifactory.AccessToken("rotating",
+            username="rotating",
+            end_date=time_rotating["now_plus_1_hour"]["rotation_rfc3339"],
+            groups=["readers"])
+        ```
+        ## References
+
+        - https://www.jfrog.com/confluence/display/ACC1X/Access+Tokens
+        - https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-CreateToken
+
+        ## Import
+
+        Artifactory **does not** retain access tokens and cannot be imported into state.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['AccessTokenAdminTokenArgs']] admin_token: (Optional) Specify the `instance_id` in this block to grant this token admin privileges. This can only be created when the authenticated user is an admin. `admin_token` cannot be specified with `groups`.
+        :param pulumi.Input[str] audience: (Optional) A space-separate list of the other Artifactory instances or services that should accept this token identified by their Artifactory Service IDs. You may set `"jfrt@*"` so the token to be accepted by all Artifactory instances.
+        :param pulumi.Input[str] end_date: (Optional) The end date which the token is valid until, formatted as a RFC3339 date string (e.g. `2018-01-01T01:02:03Z`).
+        :param pulumi.Input[str] end_date_relative: (Optional) A relative duration for which the token is valid until, for example `240h` (10 days) or `2400h30m`. Valid time units are "s", "m", "h".
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: (Optional) List of groups. The token is granted access based on the permissions of the groups. Specify `["*"]` for all groups that the user belongs to. `groups` cannot be specified with `admin_token`.
+        :param pulumi.Input[bool] refreshable: (Optional) Is this token refreshable? Defaults to `false`
+        :param pulumi.Input[str] username: (Required) The username or subject for the token. A non-admin can only specify their own username. Admins can specify any existing username, or a new name for a temporary token. Temporary tokens require `groups` to be set.
         """
         ...
     @overload
@@ -245,7 +437,128 @@ class AccessToken(pulumi.CustomResource):
                  args: AccessTokenArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a AccessToken resource with the given unique name, props, and options.
+        Provides an Artifactory Access Token resource. This can be used to create and manage Artifactory Access Tokens.
+
+        > **Note:** Access Tokens will be stored in the raw state as plain-text. Read more about sensitive data in
+        state.
+
+        ## Example Usage
+
+        ### S
+        ### Create a new Artifactory Access Token for an existing user
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        exising_user = artifactory.AccessToken("exisingUser",
+            end_date_relative="5m",
+            username="existing-user")
+        ```
+
+        Note: This assumes that the user `existing-user` has already been created in Artifactory by different means, i.e. manually or in a separate pulumi up.
+        ### Create a new Artifactory User and Access token
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        new_user_user = artifactory.User("newUserUser",
+            email="new_user@somewhere.com",
+            groups=["readers"])
+        new_user_access_token = artifactory.AccessToken("newUserAccessToken",
+            username=new_user_user.name,
+            end_date_relative="5m")
+        ```
+        ### Creates a new token for groups
+        This creates a transient user called `temporary-user`.
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        temporary_user = artifactory.AccessToken("temporaryUser",
+            end_date_relative="1h",
+            groups=["readers"],
+            username="temporary-user")
+        ```
+        ### Create token with no expiry
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        no_expiry = artifactory.AccessToken("noExpiry",
+            end_date_relative="0s",
+            username="existing-user")
+        ```
+        ### Creates a refreshable token
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        refreshable = artifactory.AccessToken("refreshable",
+            end_date_relative="1m",
+            groups=["readers"],
+            refreshable=True,
+            username="refreshable")
+        ```
+        ### Creates an administrator token
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        admin = artifactory.AccessToken("admin",
+            admin_token=artifactory.AccessTokenAdminTokenArgs(
+                instance_id="<instance id>",
+            ),
+            end_date_relative="1m",
+            username="admin")
+        ```
+        ### Creates a token with an audience
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        audience = artifactory.AccessToken("audience",
+            audience="jfrt@*",
+            end_date_relative="1m",
+            refreshable=True,
+            username="audience")
+        ```
+        ### Creates a token with a fixed end date
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        fixeddate = artifactory.AccessToken("fixeddate",
+            end_date="2018-01-01T01:02:03Z",
+            groups=["readers"],
+            username="fixeddate")
+        ```
+        ### Rotate token after it expires
+        This example will generate a token that will expire in 1 hour.
+
+        If `pulumi up` is run before 1 hour, nothing changes.
+        One an hour has passed, `pulumi up` will generate a new token.
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+        import pulumiverse_time as time
+
+        now_plus1_hours = time.Rotating("nowPlus1Hours", rotation_hours=1)
+        rotating = artifactory.AccessToken("rotating",
+            username="rotating",
+            end_date=time_rotating["now_plus_1_hour"]["rotation_rfc3339"],
+            groups=["readers"])
+        ```
+        ## References
+
+        - https://www.jfrog.com/confluence/display/ACC1X/Access+Tokens
+        - https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-CreateToken
+
+        ## Import
+
+        Artifactory **does not** retain access tokens and cannot be imported into state.
+
         :param str resource_name: The name of the resource.
         :param AccessTokenArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -316,6 +629,15 @@ class AccessToken(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] access_token: Returns the access token to authenciate to Artifactory
+        :param pulumi.Input[pulumi.InputType['AccessTokenAdminTokenArgs']] admin_token: (Optional) Specify the `instance_id` in this block to grant this token admin privileges. This can only be created when the authenticated user is an admin. `admin_token` cannot be specified with `groups`.
+        :param pulumi.Input[str] audience: (Optional) A space-separate list of the other Artifactory instances or services that should accept this token identified by their Artifactory Service IDs. You may set `"jfrt@*"` so the token to be accepted by all Artifactory instances.
+        :param pulumi.Input[str] end_date: (Optional) The end date which the token is valid until, formatted as a RFC3339 date string (e.g. `2018-01-01T01:02:03Z`).
+        :param pulumi.Input[str] end_date_relative: (Optional) A relative duration for which the token is valid until, for example `240h` (10 days) or `2400h30m`. Valid time units are "s", "m", "h".
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: (Optional) List of groups. The token is granted access based on the permissions of the groups. Specify `["*"]` for all groups that the user belongs to. `groups` cannot be specified with `admin_token`.
+        :param pulumi.Input[str] refresh_token: Returns the refresh token when `refreshable` is true, or an empty string when `refreshable` is false.
+        :param pulumi.Input[bool] refreshable: (Optional) Is this token refreshable? Defaults to `false`
+        :param pulumi.Input[str] username: (Required) The username or subject for the token. A non-admin can only specify their own username. Admins can specify any existing username, or a new name for a temporary token. Temporary tokens require `groups` to be set.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -335,45 +657,72 @@ class AccessToken(pulumi.CustomResource):
     @property
     @pulumi.getter(name="accessToken")
     def access_token(self) -> pulumi.Output[str]:
+        """
+        Returns the access token to authenciate to Artifactory
+        """
         return pulumi.get(self, "access_token")
 
     @property
     @pulumi.getter(name="adminToken")
     def admin_token(self) -> pulumi.Output[Optional['outputs.AccessTokenAdminToken']]:
+        """
+        (Optional) Specify the `instance_id` in this block to grant this token admin privileges. This can only be created when the authenticated user is an admin. `admin_token` cannot be specified with `groups`.
+        """
         return pulumi.get(self, "admin_token")
 
     @property
     @pulumi.getter
     def audience(self) -> pulumi.Output[Optional[str]]:
+        """
+        (Optional) A space-separate list of the other Artifactory instances or services that should accept this token identified by their Artifactory Service IDs. You may set `"jfrt@*"` so the token to be accepted by all Artifactory instances.
+        """
         return pulumi.get(self, "audience")
 
     @property
     @pulumi.getter(name="endDate")
     def end_date(self) -> pulumi.Output[str]:
+        """
+        (Optional) The end date which the token is valid until, formatted as a RFC3339 date string (e.g. `2018-01-01T01:02:03Z`).
+        """
         return pulumi.get(self, "end_date")
 
     @property
     @pulumi.getter(name="endDateRelative")
     def end_date_relative(self) -> pulumi.Output[Optional[str]]:
+        """
+        (Optional) A relative duration for which the token is valid until, for example `240h` (10 days) or `2400h30m`. Valid time units are "s", "m", "h".
+        """
         return pulumi.get(self, "end_date_relative")
 
     @property
     @pulumi.getter
     def groups(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        (Optional) List of groups. The token is granted access based on the permissions of the groups. Specify `["*"]` for all groups that the user belongs to. `groups` cannot be specified with `admin_token`.
+        """
         return pulumi.get(self, "groups")
 
     @property
     @pulumi.getter(name="refreshToken")
     def refresh_token(self) -> pulumi.Output[str]:
+        """
+        Returns the refresh token when `refreshable` is true, or an empty string when `refreshable` is false.
+        """
         return pulumi.get(self, "refresh_token")
 
     @property
     @pulumi.getter
     def refreshable(self) -> pulumi.Output[Optional[bool]]:
+        """
+        (Optional) Is this token refreshable? Defaults to `false`
+        """
         return pulumi.get(self, "refreshable")
 
     @property
     @pulumi.getter
     def username(self) -> pulumi.Output[str]:
+        """
+        (Required) The username or subject for the token. A non-admin can only specify their own username. Admins can specify any existing username, or a new name for a temporary token. Temporary tokens require `groups` to be set.
+        """
         return pulumi.get(self, "username")
 

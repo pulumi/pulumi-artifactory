@@ -11,9 +11,59 @@ namespace Pulumi.Artifactory
 {
     public static class GetFederatedConanRepository
     {
+        /// <summary>
+        /// Retrieves a federated Conan repository.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var federated_test_conan_repo = Artifactory.GetFederatedConanRepository.Invoke(new()
+        ///     {
+        ///         Key = "federated-test-conan-repo",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetFederatedConanRepositoryResult> InvokeAsync(GetFederatedConanRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFederatedConanRepositoryResult>("artifactory:index/getFederatedConanRepository:getFederatedConanRepository", args ?? new GetFederatedConanRepositoryArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Retrieves a federated Conan repository.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var federated_test_conan_repo = Artifactory.GetFederatedConanRepository.Invoke(new()
+        ///     {
+        ///         Key = "federated-test-conan-repo",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetFederatedConanRepositoryResult> Invoke(GetFederatedConanRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFederatedConanRepositoryResult>("artifactory:index/getFederatedConanRepository:getFederatedConanRepository", args ?? new GetFederatedConanRepositoryInvokeArgs(), options.WithDefaults());
     }
@@ -45,11 +95,21 @@ namespace Pulumi.Artifactory
         [Input("includesPattern")]
         public string? IncludesPattern { get; set; }
 
+        /// <summary>
+        /// the identity key of the repo.
+        /// </summary>
         [Input("key", required: true)]
         public string Key { get; set; } = null!;
 
         [Input("members")]
         private List<Inputs.GetFederatedConanRepositoryMemberArgs>? _members;
+
+        /// <summary>
+        /// The list of Federated members and must contain this repository URL (configured base URL
+        /// `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+        /// Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+        /// to set up Federated repositories correctly.
+        /// </summary>
         public List<Inputs.GetFederatedConanRepositoryMemberArgs> Members
         {
             get => _members ?? (_members = new List<Inputs.GetFederatedConanRepositoryMemberArgs>());
@@ -119,11 +179,21 @@ namespace Pulumi.Artifactory
         [Input("includesPattern")]
         public Input<string>? IncludesPattern { get; set; }
 
+        /// <summary>
+        /// the identity key of the repo.
+        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
         [Input("members")]
         private InputList<Inputs.GetFederatedConanRepositoryMemberInputArgs>? _members;
+
+        /// <summary>
+        /// The list of Federated members and must contain this repository URL (configured base URL
+        /// `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+        /// Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+        /// to set up Federated repositories correctly.
+        /// </summary>
         public InputList<Inputs.GetFederatedConanRepositoryMemberInputArgs> Members
         {
             get => _members ?? (_members = new InputList<Inputs.GetFederatedConanRepositoryMemberInputArgs>());
@@ -184,6 +254,12 @@ namespace Pulumi.Artifactory
         public readonly string Id;
         public readonly string IncludesPattern;
         public readonly string Key;
+        /// <summary>
+        /// The list of Federated members and must contain this repository URL (configured base URL
+        /// `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+        /// Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+        /// to set up Federated repositories correctly.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetFederatedConanRepositoryMemberResult> Members;
         public readonly string? Notes;
         public readonly string PackageType;

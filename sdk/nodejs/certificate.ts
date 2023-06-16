@@ -4,6 +4,33 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * Provides an Artifactory certificate resource. This can be used to create and manage Artifactory certificates which can be used as client authentication against remote repositories.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ * import * as fs from "fs";
+ *
+ * // Create a new Artifactory certificate called my-cert
+ * const my_cert = new artifactory.Certificate("my-cert", {
+ *     alias: "my-cert",
+ *     content: fs.readFileSync("/path/to/bundle.pem"),
+ * });
+ * // This can then be used by a remote repository
+ * const my_remote = new artifactory.RemoteMavenRepository("my-remote", {clientTlsCertificate: my_cert.alias});
+ * ```
+ *
+ * ## Import
+ *
+ * Certificates can be imported using their alias, e.g.
+ *
+ * ```sh
+ *  $ pulumi import artifactory:index/certificate:Certificate my-cert my-cert
+ * ```
+ */
 export class Certificate extends pulumi.CustomResource {
     /**
      * Get an existing Certificate resource's state with the given name, ID, and optional extra
@@ -32,13 +59,34 @@ export class Certificate extends pulumi.CustomResource {
         return obj['__pulumiType'] === Certificate.__pulumiType;
     }
 
+    /**
+     * Name of certificate.
+     */
     public readonly alias!: pulumi.Output<string>;
+    /**
+     * PEM-encoded client certificate and private key.
+     */
     public readonly content!: pulumi.Output<string | undefined>;
     public readonly file!: pulumi.Output<string | undefined>;
+    /**
+     * SHA256 fingerprint of the certificate.
+     */
     public /*out*/ readonly fingerprint!: pulumi.Output<string>;
+    /**
+     * Name of the certificate authority that issued the certificate.
+     */
     public /*out*/ readonly issuedBy!: pulumi.Output<string>;
+    /**
+     * The time & date when the certificate is valid from.
+     */
     public /*out*/ readonly issuedOn!: pulumi.Output<string>;
+    /**
+     * Name of whom the certificate has been issued to.
+     */
     public /*out*/ readonly issuedTo!: pulumi.Output<string>;
+    /**
+     * The time & date when the certificate expires.
+     */
     public /*out*/ readonly validUntil!: pulumi.Output<string>;
 
     /**
@@ -87,13 +135,34 @@ export class Certificate extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Certificate resources.
  */
 export interface CertificateState {
+    /**
+     * Name of certificate.
+     */
     alias?: pulumi.Input<string>;
+    /**
+     * PEM-encoded client certificate and private key.
+     */
     content?: pulumi.Input<string>;
     file?: pulumi.Input<string>;
+    /**
+     * SHA256 fingerprint of the certificate.
+     */
     fingerprint?: pulumi.Input<string>;
+    /**
+     * Name of the certificate authority that issued the certificate.
+     */
     issuedBy?: pulumi.Input<string>;
+    /**
+     * The time & date when the certificate is valid from.
+     */
     issuedOn?: pulumi.Input<string>;
+    /**
+     * Name of whom the certificate has been issued to.
+     */
     issuedTo?: pulumi.Input<string>;
+    /**
+     * The time & date when the certificate expires.
+     */
     validUntil?: pulumi.Input<string>;
 }
 
@@ -101,7 +170,13 @@ export interface CertificateState {
  * The set of arguments for constructing a Certificate resource.
  */
 export interface CertificateArgs {
+    /**
+     * Name of certificate.
+     */
     alias: pulumi.Input<string>;
+    /**
+     * PEM-encoded client certificate and private key.
+     */
     content?: pulumi.Input<string>;
     file?: pulumi.Input<string>;
 }

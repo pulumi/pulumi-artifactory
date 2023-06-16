@@ -214,6 +214,9 @@ class GetRemoteNugetRepositoryResult:
     @property
     @pulumi.getter(name="downloadContextPath")
     def download_context_path(self) -> Optional[str]:
+        """
+        (Optional) The context path prefix through which NuGet downloads are served. For example, the NuGet Gallery download URL is `https://nuget.org/api/v2/package`, so the repository URL should be configured as `https://nuget.org` and the download context path should be configured as `api/v2/package`. Default value is `api/v2/package`.
+        """
         return pulumi.get(self, "download_context_path")
 
     @property
@@ -234,11 +237,17 @@ class GetRemoteNugetRepositoryResult:
     @property
     @pulumi.getter(name="feedContextPath")
     def feed_context_path(self) -> Optional[str]:
+        """
+        (Optional) When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value is `api/v2`.
+        """
         return pulumi.get(self, "feed_context_path")
 
     @property
     @pulumi.getter(name="forceNugetAuthentication")
     def force_nuget_authentication(self) -> Optional[bool]:
+        """
+        (Optional) Force basic authentication credentials in order to use this repository. Default value is `false`.
+        """
         return pulumi.get(self, "force_nuget_authentication")
 
     @property
@@ -372,6 +381,9 @@ class GetRemoteNugetRepositoryResult:
     @property
     @pulumi.getter(name="symbolServerUrl")
     def symbol_server_url(self) -> Optional[str]:
+        """
+        (Optional) NuGet symbol server URL. Default value is `https://symbols.nuget.org/download/symbols`.
+        """
         return pulumi.get(self, "symbol_server_url")
 
     @property
@@ -397,6 +409,9 @@ class GetRemoteNugetRepositoryResult:
     @property
     @pulumi.getter(name="v3FeedUrl")
     def v3_feed_url(self) -> Optional[str]:
+        """
+        (Optional) The URL to the NuGet v3 feed. Default value is `https://api.nuget.org/v3/index.json`.
+        """
         return pulumi.get(self, "v3_feed_url")
 
     @property
@@ -507,7 +522,24 @@ def get_remote_nuget_repository(allow_any_host_auth: Optional[bool] = None,
                                 xray_index: Optional[bool] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRemoteNugetRepositoryResult:
     """
-    Use this data source to access information about an existing resource.
+    Retrieves a remote NuGet repository.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_artifactory as artifactory
+
+    remote_nuget = artifactory.get_remote_nuget_repository(key="remote-nuget")
+    ```
+
+
+    :param str download_context_path: (Optional) The context path prefix through which NuGet downloads are served. For example, the NuGet Gallery download URL is `https://nuget.org/api/v2/package`, so the repository URL should be configured as `https://nuget.org` and the download context path should be configured as `api/v2/package`. Default value is `api/v2/package`.
+    :param str feed_context_path: (Optional) When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value is `api/v2`.
+    :param bool force_nuget_authentication: (Optional) Force basic authentication credentials in order to use this repository. Default value is `false`.
+    :param str key: the identity key of the repo.
+    :param str symbol_server_url: (Optional) NuGet symbol server URL. Default value is `https://symbols.nuget.org/download/symbols`.
+    :param str v3_feed_url: (Optional) The URL to the NuGet v3 feed. Default value is `https://api.nuget.org/v3/index.json`.
     """
     __args__ = dict()
     __args__['allowAnyHostAuth'] = allow_any_host_auth
@@ -656,6 +688,23 @@ def get_remote_nuget_repository_output(allow_any_host_auth: Optional[pulumi.Inpu
                                        xray_index: Optional[pulumi.Input[Optional[bool]]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRemoteNugetRepositoryResult]:
     """
-    Use this data source to access information about an existing resource.
+    Retrieves a remote NuGet repository.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_artifactory as artifactory
+
+    remote_nuget = artifactory.get_remote_nuget_repository(key="remote-nuget")
+    ```
+
+
+    :param str download_context_path: (Optional) The context path prefix through which NuGet downloads are served. For example, the NuGet Gallery download URL is `https://nuget.org/api/v2/package`, so the repository URL should be configured as `https://nuget.org` and the download context path should be configured as `api/v2/package`. Default value is `api/v2/package`.
+    :param str feed_context_path: (Optional) When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value is `api/v2`.
+    :param bool force_nuget_authentication: (Optional) Force basic authentication credentials in order to use this repository. Default value is `false`.
+    :param str key: the identity key of the repo.
+    :param str symbol_server_url: (Optional) NuGet symbol server URL. Default value is `https://symbols.nuget.org/download/symbols`.
+    :param str v3_feed_url: (Optional) The URL to the NuGet v3 feed. Default value is `https://api.nuget.org/v3/index.json`.
     """
     ...

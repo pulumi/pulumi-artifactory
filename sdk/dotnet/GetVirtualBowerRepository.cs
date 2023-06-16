@@ -11,9 +11,59 @@ namespace Pulumi.Artifactory
 {
     public static class GetVirtualBowerRepository
     {
+        /// <summary>
+        /// Retrieves a virtual Bower repository.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var virtual_alpine = Artifactory.GetVirtualBowerRepository.Invoke(new()
+        ///     {
+        ///         Key = "virtual-alpine",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetVirtualBowerRepositoryResult> InvokeAsync(GetVirtualBowerRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualBowerRepositoryResult>("artifactory:index/getVirtualBowerRepository:getVirtualBowerRepository", args ?? new GetVirtualBowerRepositoryArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Retrieves a virtual Bower repository.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var virtual_alpine = Artifactory.GetVirtualBowerRepository.Invoke(new()
+        ///     {
+        ///         Key = "virtual-alpine",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetVirtualBowerRepositoryResult> Invoke(GetVirtualBowerRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualBowerRepositoryResult>("artifactory:index/getVirtualBowerRepository:getVirtualBowerRepository", args ?? new GetVirtualBowerRepositoryInvokeArgs(), options.WithDefaults());
     }
@@ -33,23 +83,36 @@ namespace Pulumi.Artifactory
         [Input("excludesPattern")]
         public string? ExcludesPattern { get; set; }
 
+        /// <summary>
+        /// (Optional) When set, external dependencies are rewritten. Default value is false.
+        /// </summary>
         [Input("externalDependenciesEnabled")]
         public bool? ExternalDependenciesEnabled { get; set; }
 
         [Input("externalDependenciesPatterns")]
         private List<string>? _externalDependenciesPatterns;
+
+        /// <summary>
+        /// (Optional) An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded from any external source.
+        /// </summary>
         public List<string> ExternalDependenciesPatterns
         {
             get => _externalDependenciesPatterns ?? (_externalDependenciesPatterns = new List<string>());
             set => _externalDependenciesPatterns = value;
         }
 
+        /// <summary>
+        /// (Optional) The remote repository aggregated by this virtual repository in which the external dependency will be cached.
+        /// </summary>
         [Input("externalDependenciesRemoteRepo")]
         public string? ExternalDependenciesRemoteRepo { get; set; }
 
         [Input("includesPattern")]
         public string? IncludesPattern { get; set; }
 
+        /// <summary>
+        /// the identity key of the repo.
+        /// </summary>
         [Input("key", required: true)]
         public string Key { get; set; } = null!;
 
@@ -98,23 +161,36 @@ namespace Pulumi.Artifactory
         [Input("excludesPattern")]
         public Input<string>? ExcludesPattern { get; set; }
 
+        /// <summary>
+        /// (Optional) When set, external dependencies are rewritten. Default value is false.
+        /// </summary>
         [Input("externalDependenciesEnabled")]
         public Input<bool>? ExternalDependenciesEnabled { get; set; }
 
         [Input("externalDependenciesPatterns")]
         private InputList<string>? _externalDependenciesPatterns;
+
+        /// <summary>
+        /// (Optional) An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded from any external source.
+        /// </summary>
         public InputList<string> ExternalDependenciesPatterns
         {
             get => _externalDependenciesPatterns ?? (_externalDependenciesPatterns = new InputList<string>());
             set => _externalDependenciesPatterns = value;
         }
 
+        /// <summary>
+        /// (Optional) The remote repository aggregated by this virtual repository in which the external dependency will be cached.
+        /// </summary>
         [Input("externalDependenciesRemoteRepo")]
         public Input<string>? ExternalDependenciesRemoteRepo { get; set; }
 
         [Input("includesPattern")]
         public Input<string>? IncludesPattern { get; set; }
 
+        /// <summary>
+        /// the identity key of the repo.
+        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
@@ -157,8 +233,17 @@ namespace Pulumi.Artifactory
         public readonly string? DefaultDeploymentRepo;
         public readonly string? Description;
         public readonly string? ExcludesPattern;
+        /// <summary>
+        /// (Optional) When set, external dependencies are rewritten. Default value is false.
+        /// </summary>
         public readonly bool? ExternalDependenciesEnabled;
+        /// <summary>
+        /// (Optional) An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded from any external source.
+        /// </summary>
         public readonly ImmutableArray<string> ExternalDependenciesPatterns;
+        /// <summary>
+        /// (Optional) The remote repository aggregated by this virtual repository in which the external dependency will be cached.
+        /// </summary>
         public readonly string? ExternalDependenciesRemoteRepo;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.

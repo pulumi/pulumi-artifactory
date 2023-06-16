@@ -11,9 +11,59 @@ namespace Pulumi.Artifactory
 {
     public static class GetRemoteDockerRepository
     {
+        /// <summary>
+        /// Retrieves a remote Docker repository.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var remote_docker = Artifactory.GetRemoteDockerRepository.Invoke(new()
+        ///     {
+        ///         Key = "remote-docker",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetRemoteDockerRepositoryResult> InvokeAsync(GetRemoteDockerRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRemoteDockerRepositoryResult>("artifactory:index/getRemoteDockerRepository:getRemoteDockerRepository", args ?? new GetRemoteDockerRepositoryArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Retrieves a remote Docker repository.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var remote_docker = Artifactory.GetRemoteDockerRepository.Invoke(new()
+        ///     {
+        ///         Key = "remote-docker",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetRemoteDockerRepositoryResult> Invoke(GetRemoteDockerRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRemoteDockerRepositoryResult>("artifactory:index/getRemoteDockerRepository:getRemoteDockerRepository", args ?? new GetRemoteDockerRepositoryInvokeArgs(), options.WithDefaults());
     }
@@ -33,6 +83,9 @@ namespace Pulumi.Artifactory
         [Input("blockMismatchingMimeTypes")]
         public bool? BlockMismatchingMimeTypes { get; set; }
 
+        /// <summary>
+        /// (Optional) When set, Artifactory will block the pulling of Docker images with manifest v2 schema 1 from the remote repository (i.e. the upstream). It will be possible to pull images with manifest v2 schema 1 that exist in the cache.
+        /// </summary>
         [Input("blockPushingSchema1")]
         public bool? BlockPushingSchema1 { get; set; }
 
@@ -57,17 +110,27 @@ namespace Pulumi.Artifactory
         [Input("enableCookieManagement")]
         public bool? EnableCookieManagement { get; set; }
 
+        /// <summary>
+        /// (Optional) Enable token (Bearer) based authentication.
+        /// </summary>
         [Input("enableTokenAuthentication")]
         public bool? EnableTokenAuthentication { get; set; }
 
         [Input("excludesPattern")]
         public string? ExcludesPattern { get; set; }
 
+        /// <summary>
+        /// (Optional) Also known as 'Foreign Layers Caching' on the UI.
+        /// </summary>
         [Input("externalDependenciesEnabled")]
         public bool? ExternalDependenciesEnabled { get; set; }
 
         [Input("externalDependenciesPatterns")]
         private List<string>? _externalDependenciesPatterns;
+
+        /// <summary>
+        /// (Optional) An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response. By default, this is set to `[**]` in the UI, which means that remote modules may be downloaded from any external VCS source. Due to SDKv2 limitations, we can't set the default value for the list. This value `[**]` must be assigned to the attribute manually, if user don't specify any other non-default values. We don't want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns `[**]` on update if HCL doesn't have the attribute set or the list is empty.
+        /// </summary>
         public List<string> ExternalDependenciesPatterns
         {
             get => _externalDependenciesPatterns ?? (_externalDependenciesPatterns = new List<string>());
@@ -80,6 +143,9 @@ namespace Pulumi.Artifactory
         [Input("includesPattern")]
         public string? IncludesPattern { get; set; }
 
+        /// <summary>
+        /// the identity key of the repo.
+        /// </summary>
         [Input("key", required: true)]
         public string Key { get; set; } = null!;
 
@@ -193,6 +259,9 @@ namespace Pulumi.Artifactory
         [Input("blockMismatchingMimeTypes")]
         public Input<bool>? BlockMismatchingMimeTypes { get; set; }
 
+        /// <summary>
+        /// (Optional) When set, Artifactory will block the pulling of Docker images with manifest v2 schema 1 from the remote repository (i.e. the upstream). It will be possible to pull images with manifest v2 schema 1 that exist in the cache.
+        /// </summary>
         [Input("blockPushingSchema1")]
         public Input<bool>? BlockPushingSchema1 { get; set; }
 
@@ -217,17 +286,27 @@ namespace Pulumi.Artifactory
         [Input("enableCookieManagement")]
         public Input<bool>? EnableCookieManagement { get; set; }
 
+        /// <summary>
+        /// (Optional) Enable token (Bearer) based authentication.
+        /// </summary>
         [Input("enableTokenAuthentication")]
         public Input<bool>? EnableTokenAuthentication { get; set; }
 
         [Input("excludesPattern")]
         public Input<string>? ExcludesPattern { get; set; }
 
+        /// <summary>
+        /// (Optional) Also known as 'Foreign Layers Caching' on the UI.
+        /// </summary>
         [Input("externalDependenciesEnabled")]
         public Input<bool>? ExternalDependenciesEnabled { get; set; }
 
         [Input("externalDependenciesPatterns")]
         private InputList<string>? _externalDependenciesPatterns;
+
+        /// <summary>
+        /// (Optional) An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response. By default, this is set to `[**]` in the UI, which means that remote modules may be downloaded from any external VCS source. Due to SDKv2 limitations, we can't set the default value for the list. This value `[**]` must be assigned to the attribute manually, if user don't specify any other non-default values. We don't want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns `[**]` on update if HCL doesn't have the attribute set or the list is empty.
+        /// </summary>
         public InputList<string> ExternalDependenciesPatterns
         {
             get => _externalDependenciesPatterns ?? (_externalDependenciesPatterns = new InputList<string>());
@@ -240,6 +319,9 @@ namespace Pulumi.Artifactory
         [Input("includesPattern")]
         public Input<string>? IncludesPattern { get; set; }
 
+        /// <summary>
+        /// the identity key of the repo.
+        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
@@ -351,6 +433,9 @@ namespace Pulumi.Artifactory
         public readonly int? AssumedOfflinePeriodSecs;
         public readonly bool? BlackedOut;
         public readonly bool? BlockMismatchingMimeTypes;
+        /// <summary>
+        /// (Optional) When set, Artifactory will block the pulling of Docker images with manifest v2 schema 1 from the remote repository (i.e. the upstream). It will be possible to pull images with manifest v2 schema 1 that exist in the cache.
+        /// </summary>
         public readonly bool BlockPushingSchema1;
         public readonly bool? BypassHeadRequests;
         public readonly bool? CdnRedirect;
@@ -359,9 +444,18 @@ namespace Pulumi.Artifactory
         public readonly string? Description;
         public readonly bool? DownloadDirect;
         public readonly bool? EnableCookieManagement;
+        /// <summary>
+        /// (Optional) Enable token (Bearer) based authentication.
+        /// </summary>
         public readonly bool EnableTokenAuthentication;
         public readonly string? ExcludesPattern;
+        /// <summary>
+        /// (Optional) Also known as 'Foreign Layers Caching' on the UI.
+        /// </summary>
         public readonly bool? ExternalDependenciesEnabled;
+        /// <summary>
+        /// (Optional) An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response. By default, this is set to `[**]` in the UI, which means that remote modules may be downloaded from any external VCS source. Due to SDKv2 limitations, we can't set the default value for the list. This value `[**]` must be assigned to the attribute manually, if user don't specify any other non-default values. We don't want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns `[**]` on update if HCL doesn't have the attribute set or the list is empty.
+        /// </summary>
         public readonly ImmutableArray<string> ExternalDependenciesPatterns;
         public readonly bool? HardFail;
         /// <summary>

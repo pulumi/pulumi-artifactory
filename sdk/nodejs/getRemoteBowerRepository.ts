@@ -6,6 +6,20 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * Retrieves a remote Bower repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const remote-bower = artifactory.getRemoteBowerRepository({
+ *     key: "remote-bower",
+ * });
+ * ```
+ */
 export function getRemoteBowerRepository(args: GetRemoteBowerRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetRemoteBowerRepositoryResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -64,6 +78,9 @@ export interface GetRemoteBowerRepositoryArgs {
     assumedOfflinePeriodSecs?: number;
     blackedOut?: boolean;
     blockMismatchingMimeTypes?: boolean;
+    /**
+     * (Optional) Proxy remote Bower repository. Default value is `https://registry.bower.io`.
+     */
     bowerRegistryUrl?: string;
     bypassHeadRequests?: boolean;
     cdnRedirect?: boolean;
@@ -75,6 +92,9 @@ export interface GetRemoteBowerRepositoryArgs {
     excludesPattern?: string;
     hardFail?: boolean;
     includesPattern?: string;
+    /**
+     * the identity key of the repo.
+     */
     key: string;
     listRemoteFolderItems?: boolean;
     localAddress?: string;
@@ -113,6 +133,9 @@ export interface GetRemoteBowerRepositoryResult {
     readonly assumedOfflinePeriodSecs?: number;
     readonly blackedOut?: boolean;
     readonly blockMismatchingMimeTypes?: boolean;
+    /**
+     * (Optional) Proxy remote Bower repository. Default value is `https://registry.bower.io`.
+     */
     readonly bowerRegistryUrl?: string;
     readonly bypassHeadRequests?: boolean;
     readonly cdnRedirect?: boolean;
@@ -158,6 +181,20 @@ export interface GetRemoteBowerRepositoryResult {
     readonly vcsGitProvider?: string;
     readonly xrayIndex?: boolean;
 }
+/**
+ * Retrieves a remote Bower repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const remote-bower = artifactory.getRemoteBowerRepository({
+ *     key: "remote-bower",
+ * });
+ * ```
+ */
 export function getRemoteBowerRepositoryOutput(args: GetRemoteBowerRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemoteBowerRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getRemoteBowerRepository(a, opts))
 }
@@ -170,6 +207,9 @@ export interface GetRemoteBowerRepositoryOutputArgs {
     assumedOfflinePeriodSecs?: pulumi.Input<number>;
     blackedOut?: pulumi.Input<boolean>;
     blockMismatchingMimeTypes?: pulumi.Input<boolean>;
+    /**
+     * (Optional) Proxy remote Bower repository. Default value is `https://registry.bower.io`.
+     */
     bowerRegistryUrl?: pulumi.Input<string>;
     bypassHeadRequests?: pulumi.Input<boolean>;
     cdnRedirect?: pulumi.Input<boolean>;
@@ -181,6 +221,9 @@ export interface GetRemoteBowerRepositoryOutputArgs {
     excludesPattern?: pulumi.Input<string>;
     hardFail?: pulumi.Input<boolean>;
     includesPattern?: pulumi.Input<string>;
+    /**
+     * the identity key of the repo.
+     */
     key: pulumi.Input<string>;
     listRemoteFolderItems?: pulumi.Input<boolean>;
     localAddress?: pulumi.Input<string>;

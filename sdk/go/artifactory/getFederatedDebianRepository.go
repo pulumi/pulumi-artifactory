@@ -10,6 +10,33 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Retrieves a federated Debian repository.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.LookupFederatedDebianRepository(ctx, &artifactory.LookupFederatedDebianRepositoryArgs{
+//				Key: "federated-test-debian-repo",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupFederatedDebianRepository(ctx *pulumi.Context, args *LookupFederatedDebianRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupFederatedDebianRepositoryResult, error) {
 	var rv LookupFederatedDebianRepositoryResult
 	err := ctx.Invoke("artifactory:index/getFederatedDebianRepository:getFederatedDebianRepository", args, &rv, opts...)
@@ -21,25 +48,30 @@ func LookupFederatedDebianRepository(ctx *pulumi.Context, args *LookupFederatedD
 
 // A collection of arguments for invoking getFederatedDebianRepository.
 type LookupFederatedDebianRepositoryArgs struct {
-	ArchiveBrowsingEnabled  *bool                                `pulumi:"archiveBrowsingEnabled"`
-	BlackedOut              *bool                                `pulumi:"blackedOut"`
-	CdnRedirect             *bool                                `pulumi:"cdnRedirect"`
-	CleanupOnDelete         *bool                                `pulumi:"cleanupOnDelete"`
-	Description             *string                              `pulumi:"description"`
-	DownloadDirect          *bool                                `pulumi:"downloadDirect"`
-	ExcludesPattern         *string                              `pulumi:"excludesPattern"`
-	IncludesPattern         *string                              `pulumi:"includesPattern"`
-	IndexCompressionFormats []string                             `pulumi:"indexCompressionFormats"`
-	Key                     string                               `pulumi:"key"`
-	Members                 []GetFederatedDebianRepositoryMember `pulumi:"members"`
-	Notes                   *string                              `pulumi:"notes"`
-	PrimaryKeypairRef       *string                              `pulumi:"primaryKeypairRef"`
-	PriorityResolution      *bool                                `pulumi:"priorityResolution"`
-	ProjectEnvironments     []string                             `pulumi:"projectEnvironments"`
-	ProjectKey              *string                              `pulumi:"projectKey"`
-	PropertySets            []string                             `pulumi:"propertySets"`
-	RepoLayoutRef           *string                              `pulumi:"repoLayoutRef"`
-	SecondaryKeypairRef     *string                              `pulumi:"secondaryKeypairRef"`
+	ArchiveBrowsingEnabled  *bool    `pulumi:"archiveBrowsingEnabled"`
+	BlackedOut              *bool    `pulumi:"blackedOut"`
+	CdnRedirect             *bool    `pulumi:"cdnRedirect"`
+	CleanupOnDelete         *bool    `pulumi:"cleanupOnDelete"`
+	Description             *string  `pulumi:"description"`
+	DownloadDirect          *bool    `pulumi:"downloadDirect"`
+	ExcludesPattern         *string  `pulumi:"excludesPattern"`
+	IncludesPattern         *string  `pulumi:"includesPattern"`
+	IndexCompressionFormats []string `pulumi:"indexCompressionFormats"`
+	// the identity key of the repo.
+	Key string `pulumi:"key"`
+	// The list of Federated members and must contain this repository URL (configured base URL
+	// `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+	// Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+	// to set up Federated repositories correctly.
+	Members             []GetFederatedDebianRepositoryMember `pulumi:"members"`
+	Notes               *string                              `pulumi:"notes"`
+	PrimaryKeypairRef   *string                              `pulumi:"primaryKeypairRef"`
+	PriorityResolution  *bool                                `pulumi:"priorityResolution"`
+	ProjectEnvironments []string                             `pulumi:"projectEnvironments"`
+	ProjectKey          *string                              `pulumi:"projectKey"`
+	PropertySets        []string                             `pulumi:"propertySets"`
+	RepoLayoutRef       *string                              `pulumi:"repoLayoutRef"`
+	SecondaryKeypairRef *string                              `pulumi:"secondaryKeypairRef"`
 	// Deprecated: You shouldn't be using this
 	TrivialLayout *bool `pulumi:"trivialLayout"`
 	XrayIndex     *bool `pulumi:"xrayIndex"`
@@ -55,20 +87,24 @@ type LookupFederatedDebianRepositoryResult struct {
 	DownloadDirect         *bool   `pulumi:"downloadDirect"`
 	ExcludesPattern        string  `pulumi:"excludesPattern"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                      string                               `pulumi:"id"`
-	IncludesPattern         string                               `pulumi:"includesPattern"`
-	IndexCompressionFormats []string                             `pulumi:"indexCompressionFormats"`
-	Key                     string                               `pulumi:"key"`
-	Members                 []GetFederatedDebianRepositoryMember `pulumi:"members"`
-	Notes                   *string                              `pulumi:"notes"`
-	PackageType             string                               `pulumi:"packageType"`
-	PrimaryKeypairRef       *string                              `pulumi:"primaryKeypairRef"`
-	PriorityResolution      *bool                                `pulumi:"priorityResolution"`
-	ProjectEnvironments     []string                             `pulumi:"projectEnvironments"`
-	ProjectKey              *string                              `pulumi:"projectKey"`
-	PropertySets            []string                             `pulumi:"propertySets"`
-	RepoLayoutRef           *string                              `pulumi:"repoLayoutRef"`
-	SecondaryKeypairRef     *string                              `pulumi:"secondaryKeypairRef"`
+	Id                      string   `pulumi:"id"`
+	IncludesPattern         string   `pulumi:"includesPattern"`
+	IndexCompressionFormats []string `pulumi:"indexCompressionFormats"`
+	Key                     string   `pulumi:"key"`
+	// The list of Federated members and must contain this repository URL (configured base URL
+	// `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+	// Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+	// to set up Federated repositories correctly.
+	Members             []GetFederatedDebianRepositoryMember `pulumi:"members"`
+	Notes               *string                              `pulumi:"notes"`
+	PackageType         string                               `pulumi:"packageType"`
+	PrimaryKeypairRef   *string                              `pulumi:"primaryKeypairRef"`
+	PriorityResolution  *bool                                `pulumi:"priorityResolution"`
+	ProjectEnvironments []string                             `pulumi:"projectEnvironments"`
+	ProjectKey          *string                              `pulumi:"projectKey"`
+	PropertySets        []string                             `pulumi:"propertySets"`
+	RepoLayoutRef       *string                              `pulumi:"repoLayoutRef"`
+	SecondaryKeypairRef *string                              `pulumi:"secondaryKeypairRef"`
 	// Deprecated: You shouldn't be using this
 	TrivialLayout *bool `pulumi:"trivialLayout"`
 	XrayIndex     *bool `pulumi:"xrayIndex"`
@@ -89,25 +125,30 @@ func LookupFederatedDebianRepositoryOutput(ctx *pulumi.Context, args LookupFeder
 
 // A collection of arguments for invoking getFederatedDebianRepository.
 type LookupFederatedDebianRepositoryOutputArgs struct {
-	ArchiveBrowsingEnabled  pulumi.BoolPtrInput                          `pulumi:"archiveBrowsingEnabled"`
-	BlackedOut              pulumi.BoolPtrInput                          `pulumi:"blackedOut"`
-	CdnRedirect             pulumi.BoolPtrInput                          `pulumi:"cdnRedirect"`
-	CleanupOnDelete         pulumi.BoolPtrInput                          `pulumi:"cleanupOnDelete"`
-	Description             pulumi.StringPtrInput                        `pulumi:"description"`
-	DownloadDirect          pulumi.BoolPtrInput                          `pulumi:"downloadDirect"`
-	ExcludesPattern         pulumi.StringPtrInput                        `pulumi:"excludesPattern"`
-	IncludesPattern         pulumi.StringPtrInput                        `pulumi:"includesPattern"`
-	IndexCompressionFormats pulumi.StringArrayInput                      `pulumi:"indexCompressionFormats"`
-	Key                     pulumi.StringInput                           `pulumi:"key"`
-	Members                 GetFederatedDebianRepositoryMemberArrayInput `pulumi:"members"`
-	Notes                   pulumi.StringPtrInput                        `pulumi:"notes"`
-	PrimaryKeypairRef       pulumi.StringPtrInput                        `pulumi:"primaryKeypairRef"`
-	PriorityResolution      pulumi.BoolPtrInput                          `pulumi:"priorityResolution"`
-	ProjectEnvironments     pulumi.StringArrayInput                      `pulumi:"projectEnvironments"`
-	ProjectKey              pulumi.StringPtrInput                        `pulumi:"projectKey"`
-	PropertySets            pulumi.StringArrayInput                      `pulumi:"propertySets"`
-	RepoLayoutRef           pulumi.StringPtrInput                        `pulumi:"repoLayoutRef"`
-	SecondaryKeypairRef     pulumi.StringPtrInput                        `pulumi:"secondaryKeypairRef"`
+	ArchiveBrowsingEnabled  pulumi.BoolPtrInput     `pulumi:"archiveBrowsingEnabled"`
+	BlackedOut              pulumi.BoolPtrInput     `pulumi:"blackedOut"`
+	CdnRedirect             pulumi.BoolPtrInput     `pulumi:"cdnRedirect"`
+	CleanupOnDelete         pulumi.BoolPtrInput     `pulumi:"cleanupOnDelete"`
+	Description             pulumi.StringPtrInput   `pulumi:"description"`
+	DownloadDirect          pulumi.BoolPtrInput     `pulumi:"downloadDirect"`
+	ExcludesPattern         pulumi.StringPtrInput   `pulumi:"excludesPattern"`
+	IncludesPattern         pulumi.StringPtrInput   `pulumi:"includesPattern"`
+	IndexCompressionFormats pulumi.StringArrayInput `pulumi:"indexCompressionFormats"`
+	// the identity key of the repo.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The list of Federated members and must contain this repository URL (configured base URL
+	// `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+	// Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+	// to set up Federated repositories correctly.
+	Members             GetFederatedDebianRepositoryMemberArrayInput `pulumi:"members"`
+	Notes               pulumi.StringPtrInput                        `pulumi:"notes"`
+	PrimaryKeypairRef   pulumi.StringPtrInput                        `pulumi:"primaryKeypairRef"`
+	PriorityResolution  pulumi.BoolPtrInput                          `pulumi:"priorityResolution"`
+	ProjectEnvironments pulumi.StringArrayInput                      `pulumi:"projectEnvironments"`
+	ProjectKey          pulumi.StringPtrInput                        `pulumi:"projectKey"`
+	PropertySets        pulumi.StringArrayInput                      `pulumi:"propertySets"`
+	RepoLayoutRef       pulumi.StringPtrInput                        `pulumi:"repoLayoutRef"`
+	SecondaryKeypairRef pulumi.StringPtrInput                        `pulumi:"secondaryKeypairRef"`
 	// Deprecated: You shouldn't be using this
 	TrivialLayout pulumi.BoolPtrInput `pulumi:"trivialLayout"`
 	XrayIndex     pulumi.BoolPtrInput `pulumi:"xrayIndex"`
@@ -177,6 +218,10 @@ func (o LookupFederatedDebianRepositoryResultOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFederatedDebianRepositoryResult) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// The list of Federated members and must contain this repository URL (configured base URL
+// `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+// Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+// to set up Federated repositories correctly.
 func (o LookupFederatedDebianRepositoryResultOutput) Members() GetFederatedDebianRepositoryMemberArrayOutput {
 	return o.ApplyT(func(v LookupFederatedDebianRepositoryResult) []GetFederatedDebianRepositoryMember { return v.Members }).(GetFederatedDebianRepositoryMemberArrayOutput)
 }

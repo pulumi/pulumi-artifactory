@@ -12,6 +12,9 @@ namespace Pulumi.Artifactory.Inputs
 
     public sealed class PermissionTargetBuildActionsGroupArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Name of permission.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 

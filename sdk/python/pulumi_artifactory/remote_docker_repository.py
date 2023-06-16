@@ -62,8 +62,8 @@ class RemoteDockerRepositoryArgs:
                  xray_index: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a RemoteDockerRepository resource.
-        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-               characters. It cannot begin with a number or contain spaces or special characters.
+        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+               contain spaces or special characters.
         :param pulumi.Input[str] url: The remote repo URL.
         :param pulumi.Input[bool] allow_any_host_auth: 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any
                other host.
@@ -75,8 +75,9 @@ class RemoteDockerRepositoryArgs:
         :param pulumi.Input[bool] block_mismatching_mime_types: If set, artifacts will fail to download if a mismatch is detected between requested and received mimetype, according to
                the list specified in the system properties file under blockedMismatchingMimeTypes. You can override by adding mimetypes
                to the override list 'mismatching_mime_types_override_list'.
-        :param pulumi.Input[bool] block_pushing_schema1: When set, Artifactory will block the pulling of Docker images with manifest v2 schema 1 from the remote repository (i.e.
-               the upstream). It will be possible to pull images with manifest v2 schema 1 that exist in the cache.
+        :param pulumi.Input[bool] block_pushing_schema1: When set, Artifactory will block the pulling of Docker images with manifest v2
+               schema 1 from the remote repository (i.e. the upstream). It will be possible to pull images with manifest v2 schema 1
+               that exist in the cache.
         :param pulumi.Input[bool] bypass_head_requests: Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
                HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
                Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
@@ -90,13 +91,14 @@ class RemoteDockerRepositoryArgs:
         :param pulumi.Input[bool] enable_token_authentication: Enable token (Bearer) based authentication.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
                artifacts are excluded.
-        :param pulumi.Input[bool] external_dependencies_enabled: Also known as 'Foreign Layers Caching' on the UI, default is `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_dependencies_patterns: An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download
-               remote modules from, when presented with 'go-import' meta tags in the remote repository response. By default, this is
-               set to '**' in the UI, which means that remote modules may be downloaded from any external VCS source.Due to SDKv2
-               limitations, we can't set the default value for the list.This value must be assigned to the attribute manually, if user
-               don't specify any other non-default values.This attribute must be set together with `external_dependencies_enabled =
-               true`
+        :param pulumi.Input[bool] external_dependencies_enabled: Also known as 'Foreign Layers Caching' on the UI.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_dependencies_patterns: An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will
+               follow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response.
+               By default, this is set to `[**]` in the UI, which means that remote modules may be downloaded from any external VCS source.
+               Due to SDKv2 limitations, we can't set the default value for the list.
+               This value `[**]` must be assigned to the attribute manually, if user don't specify any other non-default values.
+               We don't want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns
+               `[**]` on update if HCL doesn't have the attribute set or the list is empty.
         :param pulumi.Input[bool] hard_fail: When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
                communicate with this repository.
         :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
@@ -233,8 +235,8 @@ class RemoteDockerRepositoryArgs:
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
         """
-        A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-        characters. It cannot begin with a number or contain spaces or special characters.
+        A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+        contain spaces or special characters.
         """
         return pulumi.get(self, "key")
 
@@ -312,8 +314,9 @@ class RemoteDockerRepositoryArgs:
     @pulumi.getter(name="blockPushingSchema1")
     def block_pushing_schema1(self) -> Optional[pulumi.Input[bool]]:
         """
-        When set, Artifactory will block the pulling of Docker images with manifest v2 schema 1 from the remote repository (i.e.
-        the upstream). It will be possible to pull images with manifest v2 schema 1 that exist in the cache.
+        When set, Artifactory will block the pulling of Docker images with manifest v2
+        schema 1 from the remote repository (i.e. the upstream). It will be possible to pull images with manifest v2 schema 1
+        that exist in the cache.
         """
         return pulumi.get(self, "block_pushing_schema1")
 
@@ -435,7 +438,7 @@ class RemoteDockerRepositoryArgs:
     @pulumi.getter(name="externalDependenciesEnabled")
     def external_dependencies_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Also known as 'Foreign Layers Caching' on the UI, default is `false`.
+        Also known as 'Foreign Layers Caching' on the UI.
         """
         return pulumi.get(self, "external_dependencies_enabled")
 
@@ -447,12 +450,13 @@ class RemoteDockerRepositoryArgs:
     @pulumi.getter(name="externalDependenciesPatterns")
     def external_dependencies_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download
-        remote modules from, when presented with 'go-import' meta tags in the remote repository response. By default, this is
-        set to '**' in the UI, which means that remote modules may be downloaded from any external VCS source.Due to SDKv2
-        limitations, we can't set the default value for the list.This value must be assigned to the attribute manually, if user
-        don't specify any other non-default values.This attribute must be set together with `external_dependencies_enabled =
-        true`
+        An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will
+        follow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response.
+        By default, this is set to `[**]` in the UI, which means that remote modules may be downloaded from any external VCS source.
+        Due to SDKv2 limitations, we can't set the default value for the list.
+        This value `[**]` must be assigned to the attribute manually, if user don't specify any other non-default values.
+        We don't want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns
+        `[**]` on update if HCL doesn't have the attribute set or the list is empty.
         """
         return pulumi.get(self, "external_dependencies_patterns")
 
@@ -845,8 +849,9 @@ class _RemoteDockerRepositoryState:
         :param pulumi.Input[bool] block_mismatching_mime_types: If set, artifacts will fail to download if a mismatch is detected between requested and received mimetype, according to
                the list specified in the system properties file under blockedMismatchingMimeTypes. You can override by adding mimetypes
                to the override list 'mismatching_mime_types_override_list'.
-        :param pulumi.Input[bool] block_pushing_schema1: When set, Artifactory will block the pulling of Docker images with manifest v2 schema 1 from the remote repository (i.e.
-               the upstream). It will be possible to pull images with manifest v2 schema 1 that exist in the cache.
+        :param pulumi.Input[bool] block_pushing_schema1: When set, Artifactory will block the pulling of Docker images with manifest v2
+               schema 1 from the remote repository (i.e. the upstream). It will be possible to pull images with manifest v2 schema 1
+               that exist in the cache.
         :param pulumi.Input[bool] bypass_head_requests: Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
                HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
                Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
@@ -860,19 +865,20 @@ class _RemoteDockerRepositoryState:
         :param pulumi.Input[bool] enable_token_authentication: Enable token (Bearer) based authentication.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
                artifacts are excluded.
-        :param pulumi.Input[bool] external_dependencies_enabled: Also known as 'Foreign Layers Caching' on the UI, default is `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_dependencies_patterns: An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download
-               remote modules from, when presented with 'go-import' meta tags in the remote repository response. By default, this is
-               set to '**' in the UI, which means that remote modules may be downloaded from any external VCS source.Due to SDKv2
-               limitations, we can't set the default value for the list.This value must be assigned to the attribute manually, if user
-               don't specify any other non-default values.This attribute must be set together with `external_dependencies_enabled =
-               true`
+        :param pulumi.Input[bool] external_dependencies_enabled: Also known as 'Foreign Layers Caching' on the UI.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_dependencies_patterns: An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will
+               follow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response.
+               By default, this is set to `[**]` in the UI, which means that remote modules may be downloaded from any external VCS source.
+               Due to SDKv2 limitations, we can't set the default value for the list.
+               This value `[**]` must be assigned to the attribute manually, if user don't specify any other non-default values.
+               We don't want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns
+               `[**]` on update if HCL doesn't have the attribute set or the list is empty.
         :param pulumi.Input[bool] hard_fail: When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
                communicate with this repository.
         :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
                used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-               characters. It cannot begin with a number or contain spaces or special characters.
+        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+               contain spaces or special characters.
         :param pulumi.Input[bool] list_remote_folder_items: Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
                the 'Retrieval Cache Period'. Default value is 'true'.
         :param pulumi.Input[str] local_address: The local address to be used when creating connections. Useful for specifying the interface to use on systems with
@@ -1064,8 +1070,9 @@ class _RemoteDockerRepositoryState:
     @pulumi.getter(name="blockPushingSchema1")
     def block_pushing_schema1(self) -> Optional[pulumi.Input[bool]]:
         """
-        When set, Artifactory will block the pulling of Docker images with manifest v2 schema 1 from the remote repository (i.e.
-        the upstream). It will be possible to pull images with manifest v2 schema 1 that exist in the cache.
+        When set, Artifactory will block the pulling of Docker images with manifest v2
+        schema 1 from the remote repository (i.e. the upstream). It will be possible to pull images with manifest v2 schema 1
+        that exist in the cache.
         """
         return pulumi.get(self, "block_pushing_schema1")
 
@@ -1187,7 +1194,7 @@ class _RemoteDockerRepositoryState:
     @pulumi.getter(name="externalDependenciesEnabled")
     def external_dependencies_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Also known as 'Foreign Layers Caching' on the UI, default is `false`.
+        Also known as 'Foreign Layers Caching' on the UI.
         """
         return pulumi.get(self, "external_dependencies_enabled")
 
@@ -1199,12 +1206,13 @@ class _RemoteDockerRepositoryState:
     @pulumi.getter(name="externalDependenciesPatterns")
     def external_dependencies_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download
-        remote modules from, when presented with 'go-import' meta tags in the remote repository response. By default, this is
-        set to '**' in the UI, which means that remote modules may be downloaded from any external VCS source.Due to SDKv2
-        limitations, we can't set the default value for the list.This value must be assigned to the attribute manually, if user
-        don't specify any other non-default values.This attribute must be set together with `external_dependencies_enabled =
-        true`
+        An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will
+        follow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response.
+        By default, this is set to `[**]` in the UI, which means that remote modules may be downloaded from any external VCS source.
+        Due to SDKv2 limitations, we can't set the default value for the list.
+        This value `[**]` must be assigned to the attribute manually, if user don't specify any other non-default values.
+        We don't want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns
+        `[**]` on update if HCL doesn't have the attribute set or the list is empty.
         """
         return pulumi.get(self, "external_dependencies_patterns")
 
@@ -1242,8 +1250,8 @@ class _RemoteDockerRepositoryState:
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
         """
-        A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-        characters. It cannot begin with a number or contain spaces or special characters.
+        A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+        contain spaces or special characters.
         """
         return pulumi.get(self, "key")
 
@@ -1622,7 +1630,32 @@ class RemoteDockerRepository(pulumi.CustomResource):
                  xray_index: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        Create a RemoteDockerRepository resource with the given unique name, props, and options.
+        Creates remote Docker repository resource.
+        Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Docker+Registry)
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        my_remote_docker = artifactory.RemoteDockerRepository("my-remote-docker",
+            block_pushing_schema1=True,
+            enable_token_authentication=True,
+            external_dependencies_enabled=True,
+            external_dependencies_patterns=["**/registry-1.docker.io/**"],
+            key="my-remote-docker",
+            url="https://registry-1.docker.io/")
+        ```
+
+        ## Import
+
+        Remote repositories can be imported using their name, e.g.
+
+        ```sh
+         $ pulumi import artifactory:index/remoteDockerRepository:RemoteDockerRepository my-remote-docker my-remote-docker
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_any_host_auth: 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any
@@ -1635,8 +1668,9 @@ class RemoteDockerRepository(pulumi.CustomResource):
         :param pulumi.Input[bool] block_mismatching_mime_types: If set, artifacts will fail to download if a mismatch is detected between requested and received mimetype, according to
                the list specified in the system properties file under blockedMismatchingMimeTypes. You can override by adding mimetypes
                to the override list 'mismatching_mime_types_override_list'.
-        :param pulumi.Input[bool] block_pushing_schema1: When set, Artifactory will block the pulling of Docker images with manifest v2 schema 1 from the remote repository (i.e.
-               the upstream). It will be possible to pull images with manifest v2 schema 1 that exist in the cache.
+        :param pulumi.Input[bool] block_pushing_schema1: When set, Artifactory will block the pulling of Docker images with manifest v2
+               schema 1 from the remote repository (i.e. the upstream). It will be possible to pull images with manifest v2 schema 1
+               that exist in the cache.
         :param pulumi.Input[bool] bypass_head_requests: Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
                HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
                Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
@@ -1650,19 +1684,20 @@ class RemoteDockerRepository(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_token_authentication: Enable token (Bearer) based authentication.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
                artifacts are excluded.
-        :param pulumi.Input[bool] external_dependencies_enabled: Also known as 'Foreign Layers Caching' on the UI, default is `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_dependencies_patterns: An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download
-               remote modules from, when presented with 'go-import' meta tags in the remote repository response. By default, this is
-               set to '**' in the UI, which means that remote modules may be downloaded from any external VCS source.Due to SDKv2
-               limitations, we can't set the default value for the list.This value must be assigned to the attribute manually, if user
-               don't specify any other non-default values.This attribute must be set together with `external_dependencies_enabled =
-               true`
+        :param pulumi.Input[bool] external_dependencies_enabled: Also known as 'Foreign Layers Caching' on the UI.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_dependencies_patterns: An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will
+               follow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response.
+               By default, this is set to `[**]` in the UI, which means that remote modules may be downloaded from any external VCS source.
+               Due to SDKv2 limitations, we can't set the default value for the list.
+               This value `[**]` must be assigned to the attribute manually, if user don't specify any other non-default values.
+               We don't want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns
+               `[**]` on update if HCL doesn't have the attribute set or the list is empty.
         :param pulumi.Input[bool] hard_fail: When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
                communicate with this repository.
         :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
                used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-               characters. It cannot begin with a number or contain spaces or special characters.
+        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+               contain spaces or special characters.
         :param pulumi.Input[bool] list_remote_folder_items: Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
                the 'Retrieval Cache Period'. Default value is 'true'.
         :param pulumi.Input[str] local_address: The local address to be used when creating connections. Useful for specifying the interface to use on systems with
@@ -1712,7 +1747,32 @@ class RemoteDockerRepository(pulumi.CustomResource):
                  args: RemoteDockerRepositoryArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a RemoteDockerRepository resource with the given unique name, props, and options.
+        Creates remote Docker repository resource.
+        Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Docker+Registry)
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        my_remote_docker = artifactory.RemoteDockerRepository("my-remote-docker",
+            block_pushing_schema1=True,
+            enable_token_authentication=True,
+            external_dependencies_enabled=True,
+            external_dependencies_patterns=["**/registry-1.docker.io/**"],
+            key="my-remote-docker",
+            url="https://registry-1.docker.io/")
+        ```
+
+        ## Import
+
+        Remote repositories can be imported using their name, e.g.
+
+        ```sh
+         $ pulumi import artifactory:index/remoteDockerRepository:RemoteDockerRepository my-remote-docker my-remote-docker
+        ```
+
         :param str resource_name: The name of the resource.
         :param RemoteDockerRepositoryArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1904,8 +1964,9 @@ class RemoteDockerRepository(pulumi.CustomResource):
         :param pulumi.Input[bool] block_mismatching_mime_types: If set, artifacts will fail to download if a mismatch is detected between requested and received mimetype, according to
                the list specified in the system properties file under blockedMismatchingMimeTypes. You can override by adding mimetypes
                to the override list 'mismatching_mime_types_override_list'.
-        :param pulumi.Input[bool] block_pushing_schema1: When set, Artifactory will block the pulling of Docker images with manifest v2 schema 1 from the remote repository (i.e.
-               the upstream). It will be possible to pull images with manifest v2 schema 1 that exist in the cache.
+        :param pulumi.Input[bool] block_pushing_schema1: When set, Artifactory will block the pulling of Docker images with manifest v2
+               schema 1 from the remote repository (i.e. the upstream). It will be possible to pull images with manifest v2 schema 1
+               that exist in the cache.
         :param pulumi.Input[bool] bypass_head_requests: Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
                HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
                Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
@@ -1919,19 +1980,20 @@ class RemoteDockerRepository(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_token_authentication: Enable token (Bearer) based authentication.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
                artifacts are excluded.
-        :param pulumi.Input[bool] external_dependencies_enabled: Also known as 'Foreign Layers Caching' on the UI, default is `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_dependencies_patterns: An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download
-               remote modules from, when presented with 'go-import' meta tags in the remote repository response. By default, this is
-               set to '**' in the UI, which means that remote modules may be downloaded from any external VCS source.Due to SDKv2
-               limitations, we can't set the default value for the list.This value must be assigned to the attribute manually, if user
-               don't specify any other non-default values.This attribute must be set together with `external_dependencies_enabled =
-               true`
+        :param pulumi.Input[bool] external_dependencies_enabled: Also known as 'Foreign Layers Caching' on the UI.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_dependencies_patterns: An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will
+               follow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response.
+               By default, this is set to `[**]` in the UI, which means that remote modules may be downloaded from any external VCS source.
+               Due to SDKv2 limitations, we can't set the default value for the list.
+               This value `[**]` must be assigned to the attribute manually, if user don't specify any other non-default values.
+               We don't want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns
+               `[**]` on update if HCL doesn't have the attribute set or the list is empty.
         :param pulumi.Input[bool] hard_fail: When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
                communicate with this repository.
         :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
                used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-               characters. It cannot begin with a number or contain spaces or special characters.
+        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+               contain spaces or special characters.
         :param pulumi.Input[bool] list_remote_folder_items: Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
                the 'Retrieval Cache Period'. Default value is 'true'.
         :param pulumi.Input[str] local_address: The local address to be used when creating connections. Useful for specifying the interface to use on systems with
@@ -2067,8 +2129,9 @@ class RemoteDockerRepository(pulumi.CustomResource):
     @pulumi.getter(name="blockPushingSchema1")
     def block_pushing_schema1(self) -> pulumi.Output[bool]:
         """
-        When set, Artifactory will block the pulling of Docker images with manifest v2 schema 1 from the remote repository (i.e.
-        the upstream). It will be possible to pull images with manifest v2 schema 1 that exist in the cache.
+        When set, Artifactory will block the pulling of Docker images with manifest v2
+        schema 1 from the remote repository (i.e. the upstream). It will be possible to pull images with manifest v2 schema 1
+        that exist in the cache.
         """
         return pulumi.get(self, "block_pushing_schema1")
 
@@ -2150,7 +2213,7 @@ class RemoteDockerRepository(pulumi.CustomResource):
     @pulumi.getter(name="externalDependenciesEnabled")
     def external_dependencies_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Also known as 'Foreign Layers Caching' on the UI, default is `false`.
+        Also known as 'Foreign Layers Caching' on the UI.
         """
         return pulumi.get(self, "external_dependencies_enabled")
 
@@ -2158,12 +2221,13 @@ class RemoteDockerRepository(pulumi.CustomResource):
     @pulumi.getter(name="externalDependenciesPatterns")
     def external_dependencies_patterns(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download
-        remote modules from, when presented with 'go-import' meta tags in the remote repository response. By default, this is
-        set to '**' in the UI, which means that remote modules may be downloaded from any external VCS source.Due to SDKv2
-        limitations, we can't set the default value for the list.This value must be assigned to the attribute manually, if user
-        don't specify any other non-default values.This attribute must be set together with `external_dependencies_enabled =
-        true`
+        An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will
+        follow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response.
+        By default, this is set to `[**]` in the UI, which means that remote modules may be downloaded from any external VCS source.
+        Due to SDKv2 limitations, we can't set the default value for the list.
+        This value `[**]` must be assigned to the attribute manually, if user don't specify any other non-default values.
+        We don't want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns
+        `[**]` on update if HCL doesn't have the attribute set or the list is empty.
         """
         return pulumi.get(self, "external_dependencies_patterns")
 
@@ -2189,8 +2253,8 @@ class RemoteDockerRepository(pulumi.CustomResource):
     @pulumi.getter
     def key(self) -> pulumi.Output[str]:
         """
-        A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-        characters. It cannot begin with a number or contain spaces or special characters.
+        A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+        contain spaces or special characters.
         """
         return pulumi.get(self, "key")
 

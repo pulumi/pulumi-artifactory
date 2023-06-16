@@ -30,8 +30,8 @@ class VirtualIvyRepositoryArgs:
                  repositories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a VirtualIvyRepository resource.
-        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-               characters. It cannot begin with a number or contain spaces or special characters.
+        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+               contain spaces or special characters.
         :param pulumi.Input[bool] artifactory_requests_can_retrieve_remote_artifacts: Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
                another Artifactory instance.
         :param pulumi.Input[str] default_deployment_repo: Default repository to deploy artifacts.
@@ -42,12 +42,11 @@ class VirtualIvyRepositoryArgs:
                is also enforced when aggregated repositories support anonymous requests.
         :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
                used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] key_pair: The keypair used to sign artifacts
+        :param pulumi.Input[str] key_pair: The keypair used to sign artifacts.
         :param pulumi.Input[str] notes: Internal description.
-        :param pulumi.Input[str] pom_repository_references_cleanup_policy: (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under
-               project or under a profile in the same POM that is activeByDefault. (2: discard_any_reference) Discard Any References -
-               Removes all repository elements regardless of whether they are included in an active profile or not. (3: nothing)
-               Nothing - Does not remove any repository elements declared in the POM.
+        :param pulumi.Input[str] pom_repository_references_cleanup_policy: - (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
+               - (2: discard_any_reference) Discard Any References - Removes all repository elements regardless of whether they are included in an active profile or not.
+               - (3: nothing) Nothing - Does not remove any repository elements declared in the POM.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
                Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
                attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
@@ -89,8 +88,8 @@ class VirtualIvyRepositoryArgs:
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
         """
-        A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-        characters. It cannot begin with a number or contain spaces or special characters.
+        A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+        contain spaces or special characters.
         """
         return pulumi.get(self, "key")
 
@@ -178,7 +177,7 @@ class VirtualIvyRepositoryArgs:
     @pulumi.getter(name="keyPair")
     def key_pair(self) -> Optional[pulumi.Input[str]]:
         """
-        The keypair used to sign artifacts
+        The keypair used to sign artifacts.
         """
         return pulumi.get(self, "key_pair")
 
@@ -202,10 +201,9 @@ class VirtualIvyRepositoryArgs:
     @pulumi.getter(name="pomRepositoryReferencesCleanupPolicy")
     def pom_repository_references_cleanup_policy(self) -> Optional[pulumi.Input[str]]:
         """
-        (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under
-        project or under a profile in the same POM that is activeByDefault. (2: discard_any_reference) Discard Any References -
-        Removes all repository elements regardless of whether they are included in an active profile or not. (3: nothing)
-        Nothing - Does not remove any repository elements declared in the POM.
+        - (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
+        - (2: discard_any_reference) Discard Any References - Removes all repository elements regardless of whether they are included in an active profile or not.
+        - (3: nothing) Nothing - Does not remove any repository elements declared in the POM.
         """
         return pulumi.get(self, "pom_repository_references_cleanup_policy")
 
@@ -296,14 +294,13 @@ class _VirtualIvyRepositoryState:
                is also enforced when aggregated repositories support anonymous requests.
         :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
                used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-               characters. It cannot begin with a number or contain spaces or special characters.
-        :param pulumi.Input[str] key_pair: The keypair used to sign artifacts
+        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+               contain spaces or special characters.
+        :param pulumi.Input[str] key_pair: The keypair used to sign artifacts.
         :param pulumi.Input[str] notes: Internal description.
-        :param pulumi.Input[str] pom_repository_references_cleanup_policy: (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under
-               project or under a profile in the same POM that is activeByDefault. (2: discard_any_reference) Discard Any References -
-               Removes all repository elements regardless of whether they are included in an active profile or not. (3: nothing)
-               Nothing - Does not remove any repository elements declared in the POM.
+        :param pulumi.Input[str] pom_repository_references_cleanup_policy: - (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
+               - (2: discard_any_reference) Discard Any References - Removes all repository elements regardless of whether they are included in an active profile or not.
+               - (3: nothing) Nothing - Does not remove any repository elements declared in the POM.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
                Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
                attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
@@ -424,8 +421,8 @@ class _VirtualIvyRepositoryState:
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
         """
-        A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-        characters. It cannot begin with a number or contain spaces or special characters.
+        A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+        contain spaces or special characters.
         """
         return pulumi.get(self, "key")
 
@@ -437,7 +434,7 @@ class _VirtualIvyRepositoryState:
     @pulumi.getter(name="keyPair")
     def key_pair(self) -> Optional[pulumi.Input[str]]:
         """
-        The keypair used to sign artifacts
+        The keypair used to sign artifacts.
         """
         return pulumi.get(self, "key_pair")
 
@@ -470,10 +467,9 @@ class _VirtualIvyRepositoryState:
     @pulumi.getter(name="pomRepositoryReferencesCleanupPolicy")
     def pom_repository_references_cleanup_policy(self) -> Optional[pulumi.Input[str]]:
         """
-        (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under
-        project or under a profile in the same POM that is activeByDefault. (2: discard_any_reference) Discard Any References -
-        Removes all repository elements regardless of whether they are included in an active profile or not. (3: nothing)
-        Nothing - Does not remove any repository elements declared in the POM.
+        - (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
+        - (2: discard_any_reference) Discard Any References - Removes all repository elements regardless of whether they are included in an active profile or not.
+        - (3: nothing) Nothing - Does not remove any repository elements declared in the POM.
         """
         return pulumi.get(self, "pom_repository_references_cleanup_policy")
 
@@ -555,7 +551,33 @@ class VirtualIvyRepository(pulumi.CustomResource):
                  repositories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Create a VirtualIvyRepository resource with the given unique name, props, and options.
+        Creates a virtual Ivy repository.
+        Official documentation can be found [here](https://jfrog.com/blog/how-to-set-up-a-private-remote-and-virtual-maven-gradle-registry/).
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        foo_ivy = artifactory.VirtualIvyRepository("foo-ivy",
+            description="A test virtual repo",
+            excludes_pattern="com/google/**",
+            includes_pattern="com/jfrog/**,cloud/jfrog/**",
+            key="foo-ivy",
+            notes="Internal description",
+            pom_repository_references_cleanup_policy="discard_active_reference",
+            repositories=[])
+        ```
+
+        ## Import
+
+        Virtual repositories can be imported using their name, e.g.
+
+        ```sh
+         $ pulumi import artifactory:index/virtualIvyRepository:VirtualIvyRepository foo-ivy foo-ivy
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] artifactory_requests_can_retrieve_remote_artifacts: Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
@@ -568,14 +590,13 @@ class VirtualIvyRepository(pulumi.CustomResource):
                is also enforced when aggregated repositories support anonymous requests.
         :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
                used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-               characters. It cannot begin with a number or contain spaces or special characters.
-        :param pulumi.Input[str] key_pair: The keypair used to sign artifacts
+        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+               contain spaces or special characters.
+        :param pulumi.Input[str] key_pair: The keypair used to sign artifacts.
         :param pulumi.Input[str] notes: Internal description.
-        :param pulumi.Input[str] pom_repository_references_cleanup_policy: (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under
-               project or under a profile in the same POM that is activeByDefault. (2: discard_any_reference) Discard Any References -
-               Removes all repository elements regardless of whether they are included in an active profile or not. (3: nothing)
-               Nothing - Does not remove any repository elements declared in the POM.
+        :param pulumi.Input[str] pom_repository_references_cleanup_policy: - (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
+               - (2: discard_any_reference) Discard Any References - Removes all repository elements regardless of whether they are included in an active profile or not.
+               - (3: nothing) Nothing - Does not remove any repository elements declared in the POM.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
                Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
                attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
@@ -592,7 +613,33 @@ class VirtualIvyRepository(pulumi.CustomResource):
                  args: VirtualIvyRepositoryArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a VirtualIvyRepository resource with the given unique name, props, and options.
+        Creates a virtual Ivy repository.
+        Official documentation can be found [here](https://jfrog.com/blog/how-to-set-up-a-private-remote-and-virtual-maven-gradle-registry/).
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        foo_ivy = artifactory.VirtualIvyRepository("foo-ivy",
+            description="A test virtual repo",
+            excludes_pattern="com/google/**",
+            includes_pattern="com/jfrog/**,cloud/jfrog/**",
+            key="foo-ivy",
+            notes="Internal description",
+            pom_repository_references_cleanup_policy="discard_active_reference",
+            repositories=[])
+        ```
+
+        ## Import
+
+        Virtual repositories can be imported using their name, e.g.
+
+        ```sh
+         $ pulumi import artifactory:index/virtualIvyRepository:VirtualIvyRepository foo-ivy foo-ivy
+        ```
+
         :param str resource_name: The name of the resource.
         :param VirtualIvyRepositoryArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -690,14 +737,13 @@ class VirtualIvyRepository(pulumi.CustomResource):
                is also enforced when aggregated repositories support anonymous requests.
         :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
                used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-               characters. It cannot begin with a number or contain spaces or special characters.
-        :param pulumi.Input[str] key_pair: The keypair used to sign artifacts
+        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+               contain spaces or special characters.
+        :param pulumi.Input[str] key_pair: The keypair used to sign artifacts.
         :param pulumi.Input[str] notes: Internal description.
-        :param pulumi.Input[str] pom_repository_references_cleanup_policy: (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under
-               project or under a profile in the same POM that is activeByDefault. (2: discard_any_reference) Discard Any References -
-               Removes all repository elements regardless of whether they are included in an active profile or not. (3: nothing)
-               Nothing - Does not remove any repository elements declared in the POM.
+        :param pulumi.Input[str] pom_repository_references_cleanup_policy: - (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
+               - (2: discard_any_reference) Discard Any References - Removes all repository elements regardless of whether they are included in an active profile or not.
+               - (3: nothing) Nothing - Does not remove any repository elements declared in the POM.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
                Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
                attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
@@ -784,8 +830,8 @@ class VirtualIvyRepository(pulumi.CustomResource):
     @pulumi.getter
     def key(self) -> pulumi.Output[str]:
         """
-        A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-        characters. It cannot begin with a number or contain spaces or special characters.
+        A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+        contain spaces or special characters.
         """
         return pulumi.get(self, "key")
 
@@ -793,7 +839,7 @@ class VirtualIvyRepository(pulumi.CustomResource):
     @pulumi.getter(name="keyPair")
     def key_pair(self) -> pulumi.Output[Optional[str]]:
         """
-        The keypair used to sign artifacts
+        The keypair used to sign artifacts.
         """
         return pulumi.get(self, "key_pair")
 
@@ -814,10 +860,9 @@ class VirtualIvyRepository(pulumi.CustomResource):
     @pulumi.getter(name="pomRepositoryReferencesCleanupPolicy")
     def pom_repository_references_cleanup_policy(self) -> pulumi.Output[str]:
         """
-        (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under
-        project or under a profile in the same POM that is activeByDefault. (2: discard_any_reference) Discard Any References -
-        Removes all repository elements regardless of whether they are included in an active profile or not. (3: nothing)
-        Nothing - Does not remove any repository elements declared in the POM.
+        - (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
+        - (2: discard_any_reference) Discard Any References - Removes all repository elements regardless of whether they are included in an active profile or not.
+        - (3: nothing) Nothing - Does not remove any repository elements declared in the POM.
         """
         return pulumi.get(self, "pom_repository_references_cleanup_policy")
 

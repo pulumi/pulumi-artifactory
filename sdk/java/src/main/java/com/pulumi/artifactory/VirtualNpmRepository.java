@@ -17,6 +17,54 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Creates a virtual repository resource with specific npm features.
+ * Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/npm+Registry#npmRegistry-VirtualnpmRegistry).
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.artifactory.VirtualNpmRepository;
+ * import com.pulumi.artifactory.VirtualNpmRepositoryArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var foo_npm = new VirtualNpmRepository(&#34;foo-npm&#34;, VirtualNpmRepositoryArgs.builder()        
+ *             .description(&#34;A test virtual repo&#34;)
+ *             .excludesPattern(&#34;com/google/**&#34;)
+ *             .includesPattern(&#34;com/jfrog/**,cloud/jfrog/**&#34;)
+ *             .key(&#34;foo-npm&#34;)
+ *             .notes(&#34;Internal description&#34;)
+ *             .repositories()
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Virtual repositories can be imported using their name, e.g.
+ * 
+ * ```sh
+ *  $ pulumi import artifactory:index/virtualNpmRepository:VirtualNpmRepository foo-npm foo-npm
+ * ```
+ * 
+ */
 @ResourceType(type="artifactory:index/virtualNpmRepository:VirtualNpmRepository")
 public class VirtualNpmRepository extends com.pulumi.resources.CustomResource {
     /**
@@ -140,16 +188,16 @@ public class VirtualNpmRepository extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.includesPattern);
     }
     /**
-     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-     * characters. It cannot begin with a number or contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+     * contain spaces or special characters.
      * 
      */
     @Export(name="key", type=String.class, parameters={})
     private Output<String> key;
 
     /**
-     * @return A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-     * characters. It cannot begin with a number or contain spaces or special characters.
+     * @return A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+     * contain spaces or special characters.
      * 
      */
     public Output<String> key() {
@@ -240,16 +288,14 @@ public class VirtualNpmRepository extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.repositories);
     }
     /**
-     * This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
-     * repositories. A value of 0 indicates no caching.
+     * This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
      * 
      */
     @Export(name="retrievalCachePeriodSeconds", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> retrievalCachePeriodSeconds;
 
     /**
-     * @return This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
-     * repositories. A value of 0 indicates no caching.
+     * @return This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
      * 
      */
     public Output<Optional<Integer>> retrievalCachePeriodSeconds() {

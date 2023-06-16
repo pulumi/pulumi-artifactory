@@ -16,21 +16,63 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Creates a local Cargo repository.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.artifactory.LocalCargoRepository;
+ * import com.pulumi.artifactory.LocalCargoRepositoryArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var terraform_local_test_cargo_repo_basic = new LocalCargoRepository(&#34;terraform-local-test-cargo-repo-basic&#34;, LocalCargoRepositoryArgs.builder()        
+ *             .anonymousAccess(false)
+ *             .enableSparseIndex(true)
+ *             .key(&#34;terraform-local-test-cargo-repo-basic&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Local repositories can be imported using their name, e.g.
+ * 
+ * ```sh
+ *  $ pulumi import artifactory:index/localCargoRepository:LocalCargoRepository terraform-local-test-cargo-repo-basic terraform-local-test-cargo-repo-basic
+ * ```
+ * 
+ */
 @ResourceType(type="artifactory:index/localCargoRepository:LocalCargoRepository")
 public class LocalCargoRepository extends com.pulumi.resources.CustomResource {
     /**
-     * Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous
-     * access to these resources (only), note that this will override the security anonymous access option. Default value is
-     * &#39;false&#39;.
+     * Cargo client does not send credentials when performing download and search for crates.
+     * Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
      * 
      */
     @Export(name="anonymousAccess", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> anonymousAccess;
 
     /**
-     * @return Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous
-     * access to these resources (only), note that this will override the security anonymous access option. Default value is
-     * &#39;false&#39;.
+     * @return Cargo client does not send credentials when performing download and search for crates.
+     * Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
      * 
      */
     public Output<Optional<Boolean>> anonymousAccess() {
@@ -115,16 +157,14 @@ public class LocalCargoRepository extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.downloadDirect);
     }
     /**
-     * Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default
-     * value is &#39;false&#39;.
+     * Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
      * 
      */
     @Export(name="enableSparseIndex", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enableSparseIndex;
 
     /**
-     * @return Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default
-     * value is &#39;false&#39;.
+     * @return Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
      * 
      */
     public Output<Optional<Boolean>> enableSparseIndex() {
@@ -169,16 +209,14 @@ public class LocalCargoRepository extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.indexCompressionFormats);
     }
     /**
-     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-     * characters. It cannot begin with a number or contain spaces or special characters.
+     * the identity key of the repo.
      * 
      */
     @Export(name="key", type=String.class, parameters={})
     private Output<String> key;
 
     /**
-     * @return A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-     * characters. It cannot begin with a number or contain spaces or special characters.
+     * @return the identity key of the repo.
      * 
      */
     public Output<String> key() {

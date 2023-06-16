@@ -6,6 +6,20 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * Retrieves a federated Debian repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const federated-test-debian-repo = artifactory.getFederatedDebianRepository({
+ *     key: "federated-test-debian-repo",
+ * });
+ * ```
+ */
 export function getFederatedDebianRepository(args: GetFederatedDebianRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetFederatedDebianRepositoryResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -47,7 +61,16 @@ export interface GetFederatedDebianRepositoryArgs {
     excludesPattern?: string;
     includesPattern?: string;
     indexCompressionFormats?: string[];
+    /**
+     * the identity key of the repo.
+     */
     key: string;
+    /**
+     * The list of Federated members and must contain this repository URL (configured base URL
+     * `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+     * Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+     * to set up Federated repositories correctly.
+     */
     members?: inputs.GetFederatedDebianRepositoryMember[];
     notes?: string;
     primaryKeypairRef?: string;
@@ -82,6 +105,12 @@ export interface GetFederatedDebianRepositoryResult {
     readonly includesPattern: string;
     readonly indexCompressionFormats?: string[];
     readonly key: string;
+    /**
+     * The list of Federated members and must contain this repository URL (configured base URL
+     * `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+     * Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+     * to set up Federated repositories correctly.
+     */
     readonly members?: outputs.GetFederatedDebianRepositoryMember[];
     readonly notes?: string;
     readonly packageType: string;
@@ -98,6 +127,20 @@ export interface GetFederatedDebianRepositoryResult {
     readonly trivialLayout?: boolean;
     readonly xrayIndex?: boolean;
 }
+/**
+ * Retrieves a federated Debian repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const federated-test-debian-repo = artifactory.getFederatedDebianRepository({
+ *     key: "federated-test-debian-repo",
+ * });
+ * ```
+ */
 export function getFederatedDebianRepositoryOutput(args: GetFederatedDebianRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedDebianRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getFederatedDebianRepository(a, opts))
 }
@@ -115,7 +158,16 @@ export interface GetFederatedDebianRepositoryOutputArgs {
     excludesPattern?: pulumi.Input<string>;
     includesPattern?: pulumi.Input<string>;
     indexCompressionFormats?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * the identity key of the repo.
+     */
     key: pulumi.Input<string>;
+    /**
+     * The list of Federated members and must contain this repository URL (configured base URL
+     * `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+     * Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+     * to set up Federated repositories correctly.
+     */
     members?: pulumi.Input<pulumi.Input<inputs.GetFederatedDebianRepositoryMemberArgs>[]>;
     notes?: pulumi.Input<string>;
     primaryKeypairRef?: pulumi.Input<string>;

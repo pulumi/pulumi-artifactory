@@ -11,6 +11,49 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Creates a virtual P2 repository.
+// Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/P2+Repositories#P2Repositories-DefiningaVirtualRepository)
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewVirtualP2Repository(ctx, "foo-p2", &artifactory.VirtualP2RepositoryArgs{
+//				Description:     pulumi.String("A test virtual repo"),
+//				ExcludesPattern: pulumi.String("com/google/**"),
+//				IncludesPattern: pulumi.String("com/jfrog/**,cloud/jfrog/**"),
+//				Key:             pulumi.String("foo-p2"),
+//				Notes:           pulumi.String("Internal description"),
+//				Repositories:    pulumi.StringArray{},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Virtual repositories can be imported using their name, e.g.
+//
+// ```sh
+//
+//	$ pulumi import artifactory:index/virtualP2Repository:VirtualP2Repository foo-p2 foo-p2
+//
+// ```
 type VirtualP2Repository struct {
 	pulumi.CustomResourceState
 
@@ -27,8 +70,8 @@ type VirtualP2Repository struct {
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrOutput `pulumi:"includesPattern"`
-	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-	// characters. It cannot begin with a number or contain spaces or special characters.
+	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+	// contain spaces or special characters.
 	Key pulumi.StringOutput `pulumi:"key"`
 	// Internal description.
 	Notes       pulumi.StringPtrOutput `pulumi:"notes"`
@@ -92,8 +135,8 @@ type virtualP2RepositoryState struct {
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
-	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-	// characters. It cannot begin with a number or contain spaces or special characters.
+	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+	// contain spaces or special characters.
 	Key *string `pulumi:"key"`
 	// Internal description.
 	Notes       *string `pulumi:"notes"`
@@ -126,8 +169,8 @@ type VirtualP2RepositoryState struct {
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
-	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-	// characters. It cannot begin with a number or contain spaces or special characters.
+	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+	// contain spaces or special characters.
 	Key pulumi.StringPtrInput
 	// Internal description.
 	Notes       pulumi.StringPtrInput
@@ -164,8 +207,8 @@ type virtualP2RepositoryArgs struct {
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
-	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-	// characters. It cannot begin with a number or contain spaces or special characters.
+	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+	// contain spaces or special characters.
 	Key string `pulumi:"key"`
 	// Internal description.
 	Notes *string `pulumi:"notes"`
@@ -198,8 +241,8 @@ type VirtualP2RepositoryArgs struct {
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
-	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-	// characters. It cannot begin with a number or contain spaces or special characters.
+	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+	// contain spaces or special characters.
 	Key pulumi.StringInput
 	// Internal description.
 	Notes pulumi.StringPtrInput
@@ -334,8 +377,8 @@ func (o VirtualP2RepositoryOutput) IncludesPattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualP2Repository) pulumi.StringPtrOutput { return v.IncludesPattern }).(pulumi.StringPtrOutput)
 }
 
-// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-// characters. It cannot begin with a number or contain spaces or special characters.
+// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+// contain spaces or special characters.
 func (o VirtualP2RepositoryOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualP2Repository) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
 }

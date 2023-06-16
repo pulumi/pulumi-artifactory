@@ -116,9 +116,17 @@ public final class GetRemotePypiRepositoryPlainArgs extends com.pulumi.resources
         return Optional.ofNullable(this.includesPattern);
     }
 
+    /**
+     * the identity key of the repo.
+     * 
+     */
     @Import(name="key", required=true)
     private String key;
 
+    /**
+     * @return the identity key of the repo.
+     * 
+     */
     public String key() {
         return this.key;
     }
@@ -214,16 +222,32 @@ public final class GetRemotePypiRepositoryPlainArgs extends com.pulumi.resources
         return Optional.ofNullable(this.proxy);
     }
 
+    /**
+     * (Optional) To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another Artifactory server. See JFrog Pypi documentation [here](https://www.jfrog.com/confluence/display/JFROG/PyPI+Repositories) for the usage details. Default value is `https://pypi.org`.
+     * 
+     */
     @Import(name="pypiRegistryUrl")
     private @Nullable String pypiRegistryUrl;
 
+    /**
+     * @return (Optional) To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another Artifactory server. See JFrog Pypi documentation [here](https://www.jfrog.com/confluence/display/JFROG/PyPI+Repositories) for the usage details. Default value is `https://pypi.org`.
+     * 
+     */
     public Optional<String> pypiRegistryUrl() {
         return Optional.ofNullable(this.pypiRegistryUrl);
     }
 
+    /**
+     * (Optional) Usually should be left as a default for `simple`, unless the remote is a PyPI server that has custom registry suffix, like +simple in DevPI. Default value is `simple`.
+     * 
+     */
     @Import(name="pypiRepositorySuffix")
     private @Nullable String pypiRepositorySuffix;
 
+    /**
+     * @return (Optional) Usually should be left as a default for `simple`, unless the remote is a PyPI server that has custom registry suffix, like +simple in DevPI. Default value is `simple`.
+     * 
+     */
     public Optional<String> pypiRepositorySuffix() {
         return Optional.ofNullable(this.pypiRepositorySuffix);
     }
@@ -447,6 +471,12 @@ public final class GetRemotePypiRepositoryPlainArgs extends com.pulumi.resources
             return this;
         }
 
+        /**
+         * @param key the identity key of the repo.
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(String key) {
             $.key = key;
             return this;
@@ -525,11 +555,23 @@ public final class GetRemotePypiRepositoryPlainArgs extends com.pulumi.resources
             return this;
         }
 
+        /**
+         * @param pypiRegistryUrl (Optional) To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another Artifactory server. See JFrog Pypi documentation [here](https://www.jfrog.com/confluence/display/JFROG/PyPI+Repositories) for the usage details. Default value is `https://pypi.org`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder pypiRegistryUrl(@Nullable String pypiRegistryUrl) {
             $.pypiRegistryUrl = pypiRegistryUrl;
             return this;
         }
 
+        /**
+         * @param pypiRepositorySuffix (Optional) Usually should be left as a default for `simple`, unless the remote is a PyPI server that has custom registry suffix, like +simple in DevPI. Default value is `simple`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder pypiRepositorySuffix(@Nullable String pypiRepositorySuffix) {
             $.pypiRepositorySuffix = pypiRepositorySuffix;
             return this;

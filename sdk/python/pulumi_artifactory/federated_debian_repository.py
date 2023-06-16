@@ -39,12 +39,10 @@ class FederatedDebianRepositoryArgs:
                  xray_index: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a FederatedDebianRepository resource.
-        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-               characters. It cannot begin with a number or contain spaces or special characters.
-        :param pulumi.Input[Sequence[pulumi.Input['FederatedDebianRepositoryMemberArgs']]] members: The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
-               will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
-               federated members will need to have a base URL set. Please follow the
-               [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+        :param pulumi.Input[str] key: the identity key of the repo.
+        :param pulumi.Input[Sequence[pulumi.Input['FederatedDebianRepositoryMemberArgs']]] members: The list of Federated members and must contain this repository URL (configured base URL
+               `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+               Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
                to set up Federated repositories correctly.
         :param pulumi.Input[bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
                therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
@@ -125,8 +123,7 @@ class FederatedDebianRepositoryArgs:
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
         """
-        A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-        characters. It cannot begin with a number or contain spaces or special characters.
+        the identity key of the repo.
         """
         return pulumi.get(self, "key")
 
@@ -138,10 +135,9 @@ class FederatedDebianRepositoryArgs:
     @pulumi.getter
     def members(self) -> pulumi.Input[Sequence[pulumi.Input['FederatedDebianRepositoryMemberArgs']]]:
         """
-        The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
-        will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
-        federated members will need to have a base URL set. Please follow the
-        [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+        The list of Federated members and must contain this repository URL (configured base URL
+        `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+        Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
         to set up Federated repositories correctly.
         """
         return pulumi.get(self, "members")
@@ -430,12 +426,10 @@ class _FederatedDebianRepositoryState:
                artifacts are excluded.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-               characters. It cannot begin with a number or contain spaces or special characters.
-        :param pulumi.Input[Sequence[pulumi.Input['FederatedDebianRepositoryMemberArgs']]] members: The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
-               will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
-               federated members will need to have a base URL set. Please follow the
-               [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+        :param pulumi.Input[str] key: the identity key of the repo.
+        :param pulumi.Input[Sequence[pulumi.Input['FederatedDebianRepositoryMemberArgs']]] members: The list of Federated members and must contain this repository URL (configured base URL
+               `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+               Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
                to set up Federated repositories correctly.
         :param pulumi.Input[str] notes: Internal description.
         :param pulumi.Input[str] primary_keypair_ref: Used to sign index files in Debian artifacts.
@@ -617,8 +611,7 @@ class _FederatedDebianRepositoryState:
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
         """
-        A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-        characters. It cannot begin with a number or contain spaces or special characters.
+        the identity key of the repo.
         """
         return pulumi.get(self, "key")
 
@@ -630,10 +623,9 @@ class _FederatedDebianRepositoryState:
     @pulumi.getter
     def members(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FederatedDebianRepositoryMemberArgs']]]]:
         """
-        The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
-        will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
-        federated members will need to have a base URL set. Please follow the
-        [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+        The list of Federated members and must contain this repository URL (configured base URL
+        `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+        Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
         to set up Federated repositories correctly.
         """
         return pulumi.get(self, "members")
@@ -805,7 +797,36 @@ class FederatedDebianRepository(pulumi.CustomResource):
                  xray_index: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        Create a FederatedDebianRepository resource with the given unique name, props, and options.
+        Creates a federated Debian repository.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        terraform_federated_test_debian_repo = artifactory.FederatedDebianRepository("terraform-federated-test-debian-repo",
+            key="terraform-federated-test-debian-repo",
+            members=[
+                artifactory.FederatedDebianRepositoryMemberArgs(
+                    enabled=True,
+                    url="http://tempurl.org/artifactory/terraform-federated-test-debian-repo",
+                ),
+                artifactory.FederatedDebianRepositoryMemberArgs(
+                    enabled=True,
+                    url="http://tempurl2.org/artifactory/terraform-federated-test-debian-repo-2",
+                ),
+            ])
+        ```
+
+        ## Import
+
+        Federated repositories can be imported using their name, e.g.
+
+        ```sh
+         $ pulumi import artifactory:index/federatedDebianRepository:FederatedDebianRepository terraform-federated-test-debian-repo terraform-federated-test-debian-repo
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -823,12 +844,10 @@ class FederatedDebianRepository(pulumi.CustomResource):
                artifacts are excluded.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-               characters. It cannot begin with a number or contain spaces or special characters.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FederatedDebianRepositoryMemberArgs']]]] members: The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
-               will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
-               federated members will need to have a base URL set. Please follow the
-               [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+        :param pulumi.Input[str] key: the identity key of the repo.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FederatedDebianRepositoryMemberArgs']]]] members: The list of Federated members and must contain this repository URL (configured base URL
+               `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+               Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
                to set up Federated repositories correctly.
         :param pulumi.Input[str] notes: Internal description.
         :param pulumi.Input[str] primary_keypair_ref: Used to sign index files in Debian artifacts.
@@ -853,7 +872,36 @@ class FederatedDebianRepository(pulumi.CustomResource):
                  args: FederatedDebianRepositoryArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a FederatedDebianRepository resource with the given unique name, props, and options.
+        Creates a federated Debian repository.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        terraform_federated_test_debian_repo = artifactory.FederatedDebianRepository("terraform-federated-test-debian-repo",
+            key="terraform-federated-test-debian-repo",
+            members=[
+                artifactory.FederatedDebianRepositoryMemberArgs(
+                    enabled=True,
+                    url="http://tempurl.org/artifactory/terraform-federated-test-debian-repo",
+                ),
+                artifactory.FederatedDebianRepositoryMemberArgs(
+                    enabled=True,
+                    url="http://tempurl2.org/artifactory/terraform-federated-test-debian-repo-2",
+                ),
+            ])
+        ```
+
+        ## Import
+
+        Federated repositories can be imported using their name, e.g.
+
+        ```sh
+         $ pulumi import artifactory:index/federatedDebianRepository:FederatedDebianRepository terraform-federated-test-debian-repo terraform-federated-test-debian-repo
+        ```
+
         :param str resource_name: The name of the resource.
         :param FederatedDebianRepositoryArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -982,12 +1030,10 @@ class FederatedDebianRepository(pulumi.CustomResource):
                artifacts are excluded.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-               characters. It cannot begin with a number or contain spaces or special characters.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FederatedDebianRepositoryMemberArgs']]]] members: The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
-               will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
-               federated members will need to have a base URL set. Please follow the
-               [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+        :param pulumi.Input[str] key: the identity key of the repo.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FederatedDebianRepositoryMemberArgs']]]] members: The list of Federated members and must contain this repository URL (configured base URL
+               `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+               Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
                to set up Federated repositories correctly.
         :param pulumi.Input[str] notes: Internal description.
         :param pulumi.Input[str] primary_keypair_ref: Used to sign index files in Debian artifacts.
@@ -1113,8 +1159,7 @@ class FederatedDebianRepository(pulumi.CustomResource):
     @pulumi.getter
     def key(self) -> pulumi.Output[str]:
         """
-        A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-        characters. It cannot begin with a number or contain spaces or special characters.
+        the identity key of the repo.
         """
         return pulumi.get(self, "key")
 
@@ -1122,10 +1167,9 @@ class FederatedDebianRepository(pulumi.CustomResource):
     @pulumi.getter
     def members(self) -> pulumi.Output[Sequence['outputs.FederatedDebianRepositoryMember']]:
         """
-        The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
-        will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
-        federated members will need to have a base URL set. Please follow the
-        [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+        The list of Federated members and must contain this repository URL (configured base URL
+        `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+        Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
         to set up Federated repositories correctly.
         """
         return pulumi.get(self, "members")

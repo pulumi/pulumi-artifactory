@@ -291,6 +291,9 @@ class GetRemoteCocoapodsRepositoryResult:
     @property
     @pulumi.getter(name="podsSpecsRepoUrl")
     def pods_specs_repo_url(self) -> Optional[str]:
+        """
+        (Optional) Proxy remote CocoaPods Specs repositories. Default value is `https://github.com/CocoaPods/Specs`.
+        """
         return pulumi.get(self, "pods_specs_repo_url")
 
     @property
@@ -376,11 +379,17 @@ class GetRemoteCocoapodsRepositoryResult:
     @property
     @pulumi.getter(name="vcsGitDownloadUrl")
     def vcs_git_download_url(self) -> Optional[str]:
+        """
+        (Optional) This attribute is used when vcs_git_provider is set to `CUSTOM`. Provided URL will be used as proxy.
+        """
         return pulumi.get(self, "vcs_git_download_url")
 
     @property
     @pulumi.getter(name="vcsGitProvider")
     def vcs_git_provider(self) -> Optional[str]:
+        """
+        (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`. Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
+        """
         return pulumi.get(self, "vcs_git_provider")
 
     @property
@@ -487,7 +496,22 @@ def get_remote_cocoapods_repository(allow_any_host_auth: Optional[bool] = None,
                                     xray_index: Optional[bool] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRemoteCocoapodsRepositoryResult:
     """
-    Use this data source to access information about an existing resource.
+    Retrieves a remote CocoaPods repository.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_artifactory as artifactory
+
+    remote_cocoapods = artifactory.get_remote_cocoapods_repository(key="remote-cocoapods")
+    ```
+
+
+    :param str key: the identity key of the repo.
+    :param str pods_specs_repo_url: (Optional) Proxy remote CocoaPods Specs repositories. Default value is `https://github.com/CocoaPods/Specs`.
+    :param str vcs_git_download_url: (Optional) This attribute is used when vcs_git_provider is set to `CUSTOM`. Provided URL will be used as proxy.
+    :param str vcs_git_provider: (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`. Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
     """
     __args__ = dict()
     __args__['allowAnyHostAuth'] = allow_any_host_auth
@@ -630,6 +654,21 @@ def get_remote_cocoapods_repository_output(allow_any_host_auth: Optional[pulumi.
                                            xray_index: Optional[pulumi.Input[Optional[bool]]] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRemoteCocoapodsRepositoryResult]:
     """
-    Use this data source to access information about an existing resource.
+    Retrieves a remote CocoaPods repository.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_artifactory as artifactory
+
+    remote_cocoapods = artifactory.get_remote_cocoapods_repository(key="remote-cocoapods")
+    ```
+
+
+    :param str key: the identity key of the repo.
+    :param str pods_specs_repo_url: (Optional) Proxy remote CocoaPods Specs repositories. Default value is `https://github.com/CocoaPods/Specs`.
+    :param str vcs_git_download_url: (Optional) This attribute is used when vcs_git_provider is set to `CUSTOM`. Provided URL will be used as proxy.
+    :param str vcs_git_provider: (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`. Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
     """
     ...

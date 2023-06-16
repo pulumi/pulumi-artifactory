@@ -17,6 +17,48 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Creates a local Docker v1 repository - By choosing a V1 repository, you don&#39;t really have many options.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.artifactory.DockerV1Repository;
+ * import com.pulumi.artifactory.DockerV1RepositoryArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var foo = new DockerV1Repository(&#34;foo&#34;, DockerV1RepositoryArgs.builder()        
+ *             .key(&#34;foo&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Local repositories can be imported using their name, e.g.
+ * 
+ * ```sh
+ *  $ pulumi import artifactory:index/dockerV1Repository:DockerV1Repository foo foo
+ * ```
+ * 
+ */
 @ResourceType(type="artifactory:index/dockerV1Repository:DockerV1Repository")
 public class DockerV1Repository extends com.pulumi.resources.CustomResource {
     @Export(name="apiVersion", type=String.class, parameters={})
@@ -142,16 +184,14 @@ public class DockerV1Repository extends com.pulumi.resources.CustomResource {
         return this.includesPattern;
     }
     /**
-     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-     * characters. It cannot begin with a number or contain spaces or special characters.
+     * the identity key of the repo.
      * 
      */
     @Export(name="key", type=String.class, parameters={})
     private Output<String> key;
 
     /**
-     * @return A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-     * characters. It cannot begin with a number or contain spaces or special characters.
+     * @return the identity key of the repo.
      * 
      */
     public Output<String> key() {

@@ -6,6 +6,20 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * Retrieves a remote Maven repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const remote-maven = artifactory.getRemoteMavenRepository({
+ *     key: "remote-maven",
+ * });
+ * ```
+ */
 export function getRemoteMavenRepository(args: GetRemoteMavenRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetRemoteMavenRepositoryResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -76,15 +90,33 @@ export interface GetRemoteMavenRepositoryArgs {
     downloadDirect?: boolean;
     enableCookieManagement?: boolean;
     excludesPattern?: string;
+    /**
+     * (Optional, Default: `false`) When set, if a POM is requested, Artifactory attempts to fetch the corresponding jar in the background. This will accelerate first access time to the jar when it is subsequently requested.
+     */
     fetchJarsEagerly?: boolean;
+    /**
+     * (Optional, Default: `false`) When set, if a binaries jar is requested, Artifactory attempts to fetch the corresponding source jar in the background. This will accelerate first access time to the source jar when it is subsequently requested.
+     */
     fetchSourcesEagerly?: boolean;
+    /**
+     * (Optional, Default: `true`) If set, Artifactory allows you to deploy release artifacts into this repository.
+     */
     handleReleases?: boolean;
+    /**
+     * (Optional, Default: `true`) If set, Artifactory allows you to deploy snapshot artifacts into this repository.
+     */
     handleSnapshots?: boolean;
     hardFail?: boolean;
     includesPattern?: string;
+    /**
+     * the identity key of the repo.
+     */
     key: string;
     listRemoteFolderItems?: boolean;
     localAddress?: string;
+    /**
+     * (Optional, Default: 60) This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrievalCachePeriodSeconds` attribute.
+     */
     metadataRetrievalTimeoutSecs?: number;
     mismatchingMimeTypesOverrideList?: string;
     missedCachePeriodSeconds?: number;
@@ -97,7 +129,13 @@ export interface GetRemoteMavenRepositoryArgs {
     propertySets?: string[];
     proxy?: string;
     queryParams?: string;
+    /**
+     * (Optional, Default: `false`) Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a "captive portal".
+     */
     rejectInvalidJars?: boolean;
+    /**
+     * (Optional, Default: `generate-if-absent`) Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
+     */
     remoteRepoChecksumPolicyType?: string;
     remoteRepoLayoutRef?: string;
     repoLayoutRef?: string;
@@ -105,6 +143,9 @@ export interface GetRemoteMavenRepositoryArgs {
     shareConfiguration?: boolean;
     socketTimeoutMillis?: number;
     storeArtifactsLocally?: boolean;
+    /**
+     * (Optional, Default: `true`) By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error. You can disable this behavior by setting this attribute to `true`.
+     */
     suppressPomConsistencyChecks?: boolean;
     synchronizeProperties?: boolean;
     unusedArtifactsCleanupPeriodHours?: number;
@@ -129,9 +170,21 @@ export interface GetRemoteMavenRepositoryResult {
     readonly downloadDirect?: boolean;
     readonly enableCookieManagement?: boolean;
     readonly excludesPattern?: string;
+    /**
+     * (Optional, Default: `false`) When set, if a POM is requested, Artifactory attempts to fetch the corresponding jar in the background. This will accelerate first access time to the jar when it is subsequently requested.
+     */
     readonly fetchJarsEagerly?: boolean;
+    /**
+     * (Optional, Default: `false`) When set, if a binaries jar is requested, Artifactory attempts to fetch the corresponding source jar in the background. This will accelerate first access time to the source jar when it is subsequently requested.
+     */
     readonly fetchSourcesEagerly?: boolean;
+    /**
+     * (Optional, Default: `true`) If set, Artifactory allows you to deploy release artifacts into this repository.
+     */
     readonly handleReleases?: boolean;
+    /**
+     * (Optional, Default: `true`) If set, Artifactory allows you to deploy snapshot artifacts into this repository.
+     */
     readonly handleSnapshots?: boolean;
     readonly hardFail?: boolean;
     /**
@@ -142,6 +195,9 @@ export interface GetRemoteMavenRepositoryResult {
     readonly key: string;
     readonly listRemoteFolderItems?: boolean;
     readonly localAddress?: string;
+    /**
+     * (Optional, Default: 60) This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrievalCachePeriodSeconds` attribute.
+     */
     readonly metadataRetrievalTimeoutSecs?: number;
     readonly mismatchingMimeTypesOverrideList?: string;
     readonly missedCachePeriodSeconds?: number;
@@ -155,7 +211,13 @@ export interface GetRemoteMavenRepositoryResult {
     readonly propertySets?: string[];
     readonly proxy?: string;
     readonly queryParams?: string;
+    /**
+     * (Optional, Default: `false`) Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a "captive portal".
+     */
     readonly rejectInvalidJars?: boolean;
+    /**
+     * (Optional, Default: `generate-if-absent`) Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
+     */
     readonly remoteRepoChecksumPolicyType?: string;
     readonly remoteRepoLayoutRef?: string;
     readonly repoLayoutRef?: string;
@@ -163,6 +225,9 @@ export interface GetRemoteMavenRepositoryResult {
     readonly shareConfiguration: boolean;
     readonly socketTimeoutMillis?: number;
     readonly storeArtifactsLocally?: boolean;
+    /**
+     * (Optional, Default: `true`) By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error. You can disable this behavior by setting this attribute to `true`.
+     */
     readonly suppressPomConsistencyChecks?: boolean;
     readonly synchronizeProperties?: boolean;
     readonly unusedArtifactsCleanupPeriodHours?: number;
@@ -170,6 +235,20 @@ export interface GetRemoteMavenRepositoryResult {
     readonly username?: string;
     readonly xrayIndex?: boolean;
 }
+/**
+ * Retrieves a remote Maven repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const remote-maven = artifactory.getRemoteMavenRepository({
+ *     key: "remote-maven",
+ * });
+ * ```
+ */
 export function getRemoteMavenRepositoryOutput(args: GetRemoteMavenRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemoteMavenRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getRemoteMavenRepository(a, opts))
 }
@@ -190,15 +269,33 @@ export interface GetRemoteMavenRepositoryOutputArgs {
     downloadDirect?: pulumi.Input<boolean>;
     enableCookieManagement?: pulumi.Input<boolean>;
     excludesPattern?: pulumi.Input<string>;
+    /**
+     * (Optional, Default: `false`) When set, if a POM is requested, Artifactory attempts to fetch the corresponding jar in the background. This will accelerate first access time to the jar when it is subsequently requested.
+     */
     fetchJarsEagerly?: pulumi.Input<boolean>;
+    /**
+     * (Optional, Default: `false`) When set, if a binaries jar is requested, Artifactory attempts to fetch the corresponding source jar in the background. This will accelerate first access time to the source jar when it is subsequently requested.
+     */
     fetchSourcesEagerly?: pulumi.Input<boolean>;
+    /**
+     * (Optional, Default: `true`) If set, Artifactory allows you to deploy release artifacts into this repository.
+     */
     handleReleases?: pulumi.Input<boolean>;
+    /**
+     * (Optional, Default: `true`) If set, Artifactory allows you to deploy snapshot artifacts into this repository.
+     */
     handleSnapshots?: pulumi.Input<boolean>;
     hardFail?: pulumi.Input<boolean>;
     includesPattern?: pulumi.Input<string>;
+    /**
+     * the identity key of the repo.
+     */
     key: pulumi.Input<string>;
     listRemoteFolderItems?: pulumi.Input<boolean>;
     localAddress?: pulumi.Input<string>;
+    /**
+     * (Optional, Default: 60) This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrievalCachePeriodSeconds` attribute.
+     */
     metadataRetrievalTimeoutSecs?: pulumi.Input<number>;
     mismatchingMimeTypesOverrideList?: pulumi.Input<string>;
     missedCachePeriodSeconds?: pulumi.Input<number>;
@@ -211,7 +308,13 @@ export interface GetRemoteMavenRepositoryOutputArgs {
     propertySets?: pulumi.Input<pulumi.Input<string>[]>;
     proxy?: pulumi.Input<string>;
     queryParams?: pulumi.Input<string>;
+    /**
+     * (Optional, Default: `false`) Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a "captive portal".
+     */
     rejectInvalidJars?: pulumi.Input<boolean>;
+    /**
+     * (Optional, Default: `generate-if-absent`) Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
+     */
     remoteRepoChecksumPolicyType?: pulumi.Input<string>;
     remoteRepoLayoutRef?: pulumi.Input<string>;
     repoLayoutRef?: pulumi.Input<string>;
@@ -219,6 +322,9 @@ export interface GetRemoteMavenRepositoryOutputArgs {
     shareConfiguration?: pulumi.Input<boolean>;
     socketTimeoutMillis?: pulumi.Input<number>;
     storeArtifactsLocally?: pulumi.Input<boolean>;
+    /**
+     * (Optional, Default: `true`) By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error. You can disable this behavior by setting this attribute to `true`.
+     */
     suppressPomConsistencyChecks?: pulumi.Input<boolean>;
     synchronizeProperties?: pulumi.Input<boolean>;
     unusedArtifactsCleanupPeriodHours?: pulumi.Input<number>;

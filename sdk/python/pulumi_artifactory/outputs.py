@@ -246,6 +246,13 @@ class ArtifactPropertyWebhookCriteria(dict):
                  repo_keys: Sequence[str],
                  exclude_patterns: Optional[Sequence[str]] = None,
                  include_patterns: Optional[Sequence[str]] = None):
+        """
+        :param bool any_local: Trigger on any local repo.
+        :param bool any_remote: Trigger on any remote repo.
+        :param Sequence[str] repo_keys: Trigger on this list of repo keys.
+        :param Sequence[str] exclude_patterns: Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: `org/apache/**`.
+        :param Sequence[str] include_patterns: Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: `org/apache/**`.
+        """
         pulumi.set(__self__, "any_local", any_local)
         pulumi.set(__self__, "any_remote", any_remote)
         pulumi.set(__self__, "repo_keys", repo_keys)
@@ -257,26 +264,41 @@ class ArtifactPropertyWebhookCriteria(dict):
     @property
     @pulumi.getter(name="anyLocal")
     def any_local(self) -> bool:
+        """
+        Trigger on any local repo.
+        """
         return pulumi.get(self, "any_local")
 
     @property
     @pulumi.getter(name="anyRemote")
     def any_remote(self) -> bool:
+        """
+        Trigger on any remote repo.
+        """
         return pulumi.get(self, "any_remote")
 
     @property
     @pulumi.getter(name="repoKeys")
     def repo_keys(self) -> Sequence[str]:
+        """
+        Trigger on this list of repo keys.
+        """
         return pulumi.get(self, "repo_keys")
 
     @property
     @pulumi.getter(name="excludePatterns")
     def exclude_patterns(self) -> Optional[Sequence[str]]:
+        """
+        Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: `org/apache/**`.
+        """
         return pulumi.get(self, "exclude_patterns")
 
     @property
     @pulumi.getter(name="includePatterns")
     def include_patterns(self) -> Optional[Sequence[str]]:
+        """
+        Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: `org/apache/**`.
+        """
         return pulumi.get(self, "include_patterns")
 
 
@@ -304,6 +326,12 @@ class ArtifactPropertyWebhookHandler(dict):
                  custom_http_headers: Optional[Mapping[str, str]] = None,
                  proxy: Optional[str] = None,
                  secret: Optional[str] = None):
+        """
+        :param str url: Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+        :param Mapping[str, str] custom_http_headers: Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
+        :param str proxy: Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+        :param str secret: Secret authentication token that will be sent to the configured URL. The value will be sent as `x-jfrog-event-auth` header.
+        """
         pulumi.set(__self__, "url", url)
         if custom_http_headers is not None:
             pulumi.set(__self__, "custom_http_headers", custom_http_headers)
@@ -315,21 +343,33 @@ class ArtifactPropertyWebhookHandler(dict):
     @property
     @pulumi.getter
     def url(self) -> str:
+        """
+        Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+        """
         return pulumi.get(self, "url")
 
     @property
     @pulumi.getter(name="customHttpHeaders")
     def custom_http_headers(self) -> Optional[Mapping[str, str]]:
+        """
+        Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
+        """
         return pulumi.get(self, "custom_http_headers")
 
     @property
     @pulumi.getter
     def proxy(self) -> Optional[str]:
+        """
+        Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+        """
         return pulumi.get(self, "proxy")
 
     @property
     @pulumi.getter
     def secret(self) -> Optional[str]:
+        """
+        Secret authentication token that will be sent to the configured URL. The value will be sent as `x-jfrog-event-auth` header.
+        """
         return pulumi.get(self, "secret")
 
 
@@ -366,6 +406,13 @@ class ArtifactWebhookCriteria(dict):
                  repo_keys: Sequence[str],
                  exclude_patterns: Optional[Sequence[str]] = None,
                  include_patterns: Optional[Sequence[str]] = None):
+        """
+        :param bool any_local: Trigger on any local repo.
+        :param bool any_remote: Trigger on any remote repo.
+        :param Sequence[str] repo_keys: Trigger on this list of repo keys.
+        :param Sequence[str] exclude_patterns: Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: `org/apache/**`.
+        :param Sequence[str] include_patterns: Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: `org/apache/**`.
+        """
         pulumi.set(__self__, "any_local", any_local)
         pulumi.set(__self__, "any_remote", any_remote)
         pulumi.set(__self__, "repo_keys", repo_keys)
@@ -377,26 +424,41 @@ class ArtifactWebhookCriteria(dict):
     @property
     @pulumi.getter(name="anyLocal")
     def any_local(self) -> bool:
+        """
+        Trigger on any local repo.
+        """
         return pulumi.get(self, "any_local")
 
     @property
     @pulumi.getter(name="anyRemote")
     def any_remote(self) -> bool:
+        """
+        Trigger on any remote repo.
+        """
         return pulumi.get(self, "any_remote")
 
     @property
     @pulumi.getter(name="repoKeys")
     def repo_keys(self) -> Sequence[str]:
+        """
+        Trigger on this list of repo keys.
+        """
         return pulumi.get(self, "repo_keys")
 
     @property
     @pulumi.getter(name="excludePatterns")
     def exclude_patterns(self) -> Optional[Sequence[str]]:
+        """
+        Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: `org/apache/**`.
+        """
         return pulumi.get(self, "exclude_patterns")
 
     @property
     @pulumi.getter(name="includePatterns")
     def include_patterns(self) -> Optional[Sequence[str]]:
+        """
+        Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: `org/apache/**`.
+        """
         return pulumi.get(self, "include_patterns")
 
 
@@ -424,6 +486,12 @@ class ArtifactWebhookHandler(dict):
                  custom_http_headers: Optional[Mapping[str, str]] = None,
                  proxy: Optional[str] = None,
                  secret: Optional[str] = None):
+        """
+        :param str url: Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+        :param Mapping[str, str] custom_http_headers: Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
+        :param str proxy: Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+        :param str secret: Secret authentication token that will be sent to the configured URL. The value will be sent as `x-jfrog-event-auth` header.
+        """
         pulumi.set(__self__, "url", url)
         if custom_http_headers is not None:
             pulumi.set(__self__, "custom_http_headers", custom_http_headers)
@@ -435,21 +503,33 @@ class ArtifactWebhookHandler(dict):
     @property
     @pulumi.getter
     def url(self) -> str:
+        """
+        Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+        """
         return pulumi.get(self, "url")
 
     @property
     @pulumi.getter(name="customHttpHeaders")
     def custom_http_headers(self) -> Optional[Mapping[str, str]]:
+        """
+        Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
+        """
         return pulumi.get(self, "custom_http_headers")
 
     @property
     @pulumi.getter
     def proxy(self) -> Optional[str]:
+        """
+        Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+        """
         return pulumi.get(self, "proxy")
 
     @property
     @pulumi.getter
     def secret(self) -> Optional[str]:
+        """
+        Secret authentication token that will be sent to the configured URL. The value will be sent as `x-jfrog-event-auth` header.
+        """
         return pulumi.get(self, "secret")
 
 
@@ -483,6 +563,12 @@ class ArtifactoryReleaseBundleWebhookCriteria(dict):
                  registered_release_bundle_names: Sequence[str],
                  exclude_patterns: Optional[Sequence[str]] = None,
                  include_patterns: Optional[Sequence[str]] = None):
+        """
+        :param bool any_release_bundle: Trigger on any release bundle
+        :param Sequence[str] registered_release_bundle_names: Trigger on this list of release bundle names
+        :param Sequence[str] exclude_patterns: Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: `org/apache/**`
+        :param Sequence[str] include_patterns: Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: `org/apache/**`
+        """
         pulumi.set(__self__, "any_release_bundle", any_release_bundle)
         pulumi.set(__self__, "registered_release_bundle_names", registered_release_bundle_names)
         if exclude_patterns is not None:
@@ -493,21 +579,33 @@ class ArtifactoryReleaseBundleWebhookCriteria(dict):
     @property
     @pulumi.getter(name="anyReleaseBundle")
     def any_release_bundle(self) -> bool:
+        """
+        Trigger on any release bundle
+        """
         return pulumi.get(self, "any_release_bundle")
 
     @property
     @pulumi.getter(name="registeredReleaseBundleNames")
     def registered_release_bundle_names(self) -> Sequence[str]:
+        """
+        Trigger on this list of release bundle names
+        """
         return pulumi.get(self, "registered_release_bundle_names")
 
     @property
     @pulumi.getter(name="excludePatterns")
     def exclude_patterns(self) -> Optional[Sequence[str]]:
+        """
+        Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: `org/apache/**`
+        """
         return pulumi.get(self, "exclude_patterns")
 
     @property
     @pulumi.getter(name="includePatterns")
     def include_patterns(self) -> Optional[Sequence[str]]:
+        """
+        Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: `org/apache/**`
+        """
         return pulumi.get(self, "include_patterns")
 
 
@@ -535,6 +633,12 @@ class ArtifactoryReleaseBundleWebhookHandler(dict):
                  custom_http_headers: Optional[Mapping[str, str]] = None,
                  proxy: Optional[str] = None,
                  secret: Optional[str] = None):
+        """
+        :param str url: Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+        :param Mapping[str, str] custom_http_headers: Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
+        :param str proxy: Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+        :param str secret: Secret authentication token that will be sent to the configured URL. The value will be sent as `x-jfrog-event-auth` header.
+        """
         pulumi.set(__self__, "url", url)
         if custom_http_headers is not None:
             pulumi.set(__self__, "custom_http_headers", custom_http_headers)
@@ -546,21 +650,33 @@ class ArtifactoryReleaseBundleWebhookHandler(dict):
     @property
     @pulumi.getter
     def url(self) -> str:
+        """
+        Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+        """
         return pulumi.get(self, "url")
 
     @property
     @pulumi.getter(name="customHttpHeaders")
     def custom_http_headers(self) -> Optional[Mapping[str, str]]:
+        """
+        Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
+        """
         return pulumi.get(self, "custom_http_headers")
 
     @property
     @pulumi.getter
     def proxy(self) -> Optional[str]:
+        """
+        Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+        """
         return pulumi.get(self, "proxy")
 
     @property
     @pulumi.getter
     def secret(self) -> Optional[str]:
+        """
+        Secret authentication token that will be sent to the configured URL. The value will be sent as `x-jfrog-event-auth` header.
+        """
         return pulumi.get(self, "secret")
 
 
@@ -594,6 +710,12 @@ class BuildWebhookCriteria(dict):
                  selected_builds: Sequence[str],
                  exclude_patterns: Optional[Sequence[str]] = None,
                  include_patterns: Optional[Sequence[str]] = None):
+        """
+        :param bool any_build: Trigger on any build.
+        :param Sequence[str] selected_builds: Trigger on this list of build names.
+        :param Sequence[str] exclude_patterns: Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: `org/apache/**`.
+        :param Sequence[str] include_patterns: Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: `org/apache/**`.
+        """
         pulumi.set(__self__, "any_build", any_build)
         pulumi.set(__self__, "selected_builds", selected_builds)
         if exclude_patterns is not None:
@@ -604,21 +726,33 @@ class BuildWebhookCriteria(dict):
     @property
     @pulumi.getter(name="anyBuild")
     def any_build(self) -> bool:
+        """
+        Trigger on any build.
+        """
         return pulumi.get(self, "any_build")
 
     @property
     @pulumi.getter(name="selectedBuilds")
     def selected_builds(self) -> Sequence[str]:
+        """
+        Trigger on this list of build names.
+        """
         return pulumi.get(self, "selected_builds")
 
     @property
     @pulumi.getter(name="excludePatterns")
     def exclude_patterns(self) -> Optional[Sequence[str]]:
+        """
+        Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: `org/apache/**`.
+        """
         return pulumi.get(self, "exclude_patterns")
 
     @property
     @pulumi.getter(name="includePatterns")
     def include_patterns(self) -> Optional[Sequence[str]]:
+        """
+        Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: `org/apache/**`.
+        """
         return pulumi.get(self, "include_patterns")
 
 
@@ -646,6 +780,12 @@ class BuildWebhookHandler(dict):
                  custom_http_headers: Optional[Mapping[str, str]] = None,
                  proxy: Optional[str] = None,
                  secret: Optional[str] = None):
+        """
+        :param str url: Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+        :param Mapping[str, str] custom_http_headers: Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
+        :param str proxy: Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+        :param str secret: Secret authentication token that will be sent to the configured URL. The value will be sent as `x-jfrog-event-auth` header.
+        """
         pulumi.set(__self__, "url", url)
         if custom_http_headers is not None:
             pulumi.set(__self__, "custom_http_headers", custom_http_headers)
@@ -657,21 +797,33 @@ class BuildWebhookHandler(dict):
     @property
     @pulumi.getter
     def url(self) -> str:
+        """
+        Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+        """
         return pulumi.get(self, "url")
 
     @property
     @pulumi.getter(name="customHttpHeaders")
     def custom_http_headers(self) -> Optional[Mapping[str, str]]:
+        """
+        Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
+        """
         return pulumi.get(self, "custom_http_headers")
 
     @property
     @pulumi.getter
     def proxy(self) -> Optional[str]:
+        """
+        Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+        """
         return pulumi.get(self, "proxy")
 
     @property
     @pulumi.getter
     def secret(self) -> Optional[str]:
+        """
+        Secret authentication token that will be sent to the configured URL. The value will be sent as `x-jfrog-event-auth` header.
+        """
         return pulumi.get(self, "secret")
 
 
@@ -705,6 +857,12 @@ class DistributionWebhookCriteria(dict):
                  registered_release_bundle_names: Sequence[str],
                  exclude_patterns: Optional[Sequence[str]] = None,
                  include_patterns: Optional[Sequence[str]] = None):
+        """
+        :param bool any_release_bundle: Trigger on any release bundle.
+        :param Sequence[str] registered_release_bundle_names: Trigger on this list of release bundle names.
+        :param Sequence[str] exclude_patterns: Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: `org/apache/**`.
+        :param Sequence[str] include_patterns: Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: `org/apache/**`.
+        """
         pulumi.set(__self__, "any_release_bundle", any_release_bundle)
         pulumi.set(__self__, "registered_release_bundle_names", registered_release_bundle_names)
         if exclude_patterns is not None:
@@ -715,21 +873,33 @@ class DistributionWebhookCriteria(dict):
     @property
     @pulumi.getter(name="anyReleaseBundle")
     def any_release_bundle(self) -> bool:
+        """
+        Trigger on any release bundle.
+        """
         return pulumi.get(self, "any_release_bundle")
 
     @property
     @pulumi.getter(name="registeredReleaseBundleNames")
     def registered_release_bundle_names(self) -> Sequence[str]:
+        """
+        Trigger on this list of release bundle names.
+        """
         return pulumi.get(self, "registered_release_bundle_names")
 
     @property
     @pulumi.getter(name="excludePatterns")
     def exclude_patterns(self) -> Optional[Sequence[str]]:
+        """
+        Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: `org/apache/**`.
+        """
         return pulumi.get(self, "exclude_patterns")
 
     @property
     @pulumi.getter(name="includePatterns")
     def include_patterns(self) -> Optional[Sequence[str]]:
+        """
+        Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: `org/apache/**`.
+        """
         return pulumi.get(self, "include_patterns")
 
 
@@ -757,6 +927,12 @@ class DistributionWebhookHandler(dict):
                  custom_http_headers: Optional[Mapping[str, str]] = None,
                  proxy: Optional[str] = None,
                  secret: Optional[str] = None):
+        """
+        :param str url: Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+        :param Mapping[str, str] custom_http_headers: Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
+        :param str proxy: Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+        :param str secret: Secret authentication token that will be sent to the configured URL. The value will be sent as `x-jfrog-event-auth` header.
+        """
         pulumi.set(__self__, "url", url)
         if custom_http_headers is not None:
             pulumi.set(__self__, "custom_http_headers", custom_http_headers)
@@ -768,21 +944,33 @@ class DistributionWebhookHandler(dict):
     @property
     @pulumi.getter
     def url(self) -> str:
+        """
+        Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+        """
         return pulumi.get(self, "url")
 
     @property
     @pulumi.getter(name="customHttpHeaders")
     def custom_http_headers(self) -> Optional[Mapping[str, str]]:
+        """
+        Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
+        """
         return pulumi.get(self, "custom_http_headers")
 
     @property
     @pulumi.getter
     def proxy(self) -> Optional[str]:
+        """
+        Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+        """
         return pulumi.get(self, "proxy")
 
     @property
     @pulumi.getter
     def secret(self) -> Optional[str]:
+        """
+        Secret authentication token that will be sent to the configured URL. The value will be sent as `x-jfrog-event-auth` header.
+        """
         return pulumi.get(self, "secret")
 
 
@@ -819,6 +1007,13 @@ class DockerWebhookCriteria(dict):
                  repo_keys: Sequence[str],
                  exclude_patterns: Optional[Sequence[str]] = None,
                  include_patterns: Optional[Sequence[str]] = None):
+        """
+        :param bool any_local: Trigger on any local repo.
+        :param bool any_remote: Trigger on any remote repo.
+        :param Sequence[str] repo_keys: Trigger on this list of repo keys.
+        :param Sequence[str] exclude_patterns: Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: `org/apache/**`.
+        :param Sequence[str] include_patterns: Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: `org/apache/**`.
+        """
         pulumi.set(__self__, "any_local", any_local)
         pulumi.set(__self__, "any_remote", any_remote)
         pulumi.set(__self__, "repo_keys", repo_keys)
@@ -830,26 +1025,41 @@ class DockerWebhookCriteria(dict):
     @property
     @pulumi.getter(name="anyLocal")
     def any_local(self) -> bool:
+        """
+        Trigger on any local repo.
+        """
         return pulumi.get(self, "any_local")
 
     @property
     @pulumi.getter(name="anyRemote")
     def any_remote(self) -> bool:
+        """
+        Trigger on any remote repo.
+        """
         return pulumi.get(self, "any_remote")
 
     @property
     @pulumi.getter(name="repoKeys")
     def repo_keys(self) -> Sequence[str]:
+        """
+        Trigger on this list of repo keys.
+        """
         return pulumi.get(self, "repo_keys")
 
     @property
     @pulumi.getter(name="excludePatterns")
     def exclude_patterns(self) -> Optional[Sequence[str]]:
+        """
+        Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: `org/apache/**`.
+        """
         return pulumi.get(self, "exclude_patterns")
 
     @property
     @pulumi.getter(name="includePatterns")
     def include_patterns(self) -> Optional[Sequence[str]]:
+        """
+        Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: `org/apache/**`.
+        """
         return pulumi.get(self, "include_patterns")
 
 
@@ -877,6 +1087,12 @@ class DockerWebhookHandler(dict):
                  custom_http_headers: Optional[Mapping[str, str]] = None,
                  proxy: Optional[str] = None,
                  secret: Optional[str] = None):
+        """
+        :param str url: Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+        :param Mapping[str, str] custom_http_headers: Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
+        :param str proxy: Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+        :param str secret: Secret authentication token that will be sent to the configured URL. The value will be sent as `x-jfrog-event-auth` header.
+        """
         pulumi.set(__self__, "url", url)
         if custom_http_headers is not None:
             pulumi.set(__self__, "custom_http_headers", custom_http_headers)
@@ -888,21 +1104,33 @@ class DockerWebhookHandler(dict):
     @property
     @pulumi.getter
     def url(self) -> str:
+        """
+        Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+        """
         return pulumi.get(self, "url")
 
     @property
     @pulumi.getter(name="customHttpHeaders")
     def custom_http_headers(self) -> Optional[Mapping[str, str]]:
+        """
+        Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
+        """
         return pulumi.get(self, "custom_http_headers")
 
     @property
     @pulumi.getter
     def proxy(self) -> Optional[str]:
+        """
+        Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+        """
         return pulumi.get(self, "proxy")
 
     @property
     @pulumi.getter
     def secret(self) -> Optional[str]:
+        """
+        Secret authentication token that will be sent to the configured URL. The value will be sent as `x-jfrog-event-auth` header.
+        """
         return pulumi.get(self, "secret")
 
 
@@ -911,17 +1139,29 @@ class FederatedAlpineRepositoryMember(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
+               status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name.
+        """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def url(self) -> str:
+        """
+        Full URL to ending with the repository name.
+        """
         return pulumi.get(self, "url")
 
 
@@ -930,17 +1170,29 @@ class FederatedBowerRepositoryMember(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
+               status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name.
+        """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def url(self) -> str:
+        """
+        Full URL to ending with the repository name.
+        """
         return pulumi.get(self, "url")
 
 
@@ -949,17 +1201,29 @@ class FederatedCargoRepositoryMember(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
+               status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name.
+        """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def url(self) -> str:
+        """
+        Full URL to ending with the repository name.
+        """
         return pulumi.get(self, "url")
 
 
@@ -968,17 +1232,29 @@ class FederatedChefRepositoryMember(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
+               status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name.
+        """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def url(self) -> str:
+        """
+        Full URL to ending with the repository name.
+        """
         return pulumi.get(self, "url")
 
 
@@ -987,17 +1263,29 @@ class FederatedCocoapodsRepositoryMember(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
+               status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name.
+        """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def url(self) -> str:
+        """
+        Full URL to ending with the repository name.
+        """
         return pulumi.get(self, "url")
 
 
@@ -1006,17 +1294,29 @@ class FederatedComposerRepositoryMember(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
+               status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name.
+        """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def url(self) -> str:
+        """
+        Full URL to ending with the repository name.
+        """
         return pulumi.get(self, "url")
 
 
@@ -1025,17 +1325,29 @@ class FederatedConanRepositoryMember(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
+               status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name.
+        """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def url(self) -> str:
+        """
+        Full URL to ending with the repository name.
+        """
         return pulumi.get(self, "url")
 
 
@@ -1044,17 +1356,29 @@ class FederatedCondaRepositoryMember(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
+               status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name.
+        """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def url(self) -> str:
+        """
+        Full URL to ending with the repository name.
+        """
         return pulumi.get(self, "url")
 
 
@@ -1063,17 +1387,29 @@ class FederatedCranRepositoryMember(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
+               status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name.
+        """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def url(self) -> str:
+        """
+        Full URL to ending with the repository name.
+        """
         return pulumi.get(self, "url")
 
 
@@ -1082,17 +1418,29 @@ class FederatedDebianRepositoryMember(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
+               status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name.
+        """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def url(self) -> str:
+        """
+        Full URL to ending with the repository name.
+        """
         return pulumi.get(self, "url")
 
 
@@ -1101,17 +1449,29 @@ class FederatedDockerRepositoryMember(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
+               status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name.
+        """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def url(self) -> str:
+        """
+        Full URL to ending with the repository name.
+        """
         return pulumi.get(self, "url")
 
 
@@ -1120,17 +1480,29 @@ class FederatedDockerV1RepositoryMember(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
+               status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name.
+        """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def url(self) -> str:
+        """
+        Full URL to ending with the repository name.
+        """
         return pulumi.get(self, "url")
 
 
@@ -1139,17 +1511,29 @@ class FederatedDockerV2RepositoryMember(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
+               status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name.
+        """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def url(self) -> str:
+        """
+        Full URL to ending with the repository name.
+        """
         return pulumi.get(self, "url")
 
 
@@ -1158,17 +1542,29 @@ class FederatedGemsRepositoryMember(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
+               status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name.
+        """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def url(self) -> str:
+        """
+        Full URL to ending with the repository name.
+        """
         return pulumi.get(self, "url")
 
 
@@ -1177,17 +1573,29 @@ class FederatedGenericRepositoryMember(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
+               status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name.
+        """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def url(self) -> str:
+        """
+        Full URL to ending with the repository name.
+        """
         return pulumi.get(self, "url")
 
 
@@ -1196,17 +1604,29 @@ class FederatedGitltfsRepositoryMember(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
+               status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name.
+        """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def url(self) -> str:
+        """
+        Full URL to ending with the repository name.
+        """
         return pulumi.get(self, "url")
 
 
@@ -1215,17 +1635,29 @@ class FederatedGoRepositoryMember(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
+               status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name.
+        """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def url(self) -> str:
+        """
+        Full URL to ending with the repository name.
+        """
         return pulumi.get(self, "url")
 
 
@@ -1234,17 +1666,29 @@ class FederatedGradleRepositoryMember(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
+               status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name.
+        """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def url(self) -> str:
+        """
+        Full URL to ending with the repository name.
+        """
         return pulumi.get(self, "url")
 
 
@@ -1253,17 +1697,29 @@ class FederatedHelmRepositoryMember(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
+               status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name.
+        """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def url(self) -> str:
+        """
+        Full URL to ending with the repository name.
+        """
         return pulumi.get(self, "url")
 
 
@@ -1272,17 +1728,29 @@ class FederatedIvyRepositoryMember(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
+               status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name.
+        """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def url(self) -> str:
+        """
+        Full URL to ending with the repository name.
+        """
         return pulumi.get(self, "url")
 
 
@@ -1291,17 +1759,29 @@ class FederatedMavenRepositoryMember(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
+               status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name.
+        """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def url(self) -> str:
+        """
+        Full URL to ending with the repository name.
+        """
         return pulumi.get(self, "url")
 
 
@@ -1310,17 +1790,29 @@ class FederatedNpmRepositoryMember(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
+               status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name.
+        """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def url(self) -> str:
+        """
+        Full URL to ending with the repository name.
+        """
         return pulumi.get(self, "url")
 
 
@@ -1329,17 +1821,29 @@ class FederatedNugetRepositoryMember(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
+               status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name.
+        """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def url(self) -> str:
+        """
+        Full URL to ending with the repository name.
+        """
         return pulumi.get(self, "url")
 
 
@@ -1348,17 +1852,29 @@ class FederatedOpkgRepositoryMember(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
+               status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name.
+        """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def url(self) -> str:
+        """
+        Full URL to ending with the repository name.
+        """
         return pulumi.get(self, "url")
 
 
@@ -1367,17 +1883,29 @@ class FederatedPuppetRepositoryMember(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
+               status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name.
+        """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def url(self) -> str:
+        """
+        Full URL to ending with the repository name.
+        """
         return pulumi.get(self, "url")
 
 
@@ -1386,17 +1914,29 @@ class FederatedPypiRepositoryMember(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
+               status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name.
+        """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def url(self) -> str:
+        """
+        Full URL to ending with the repository name.
+        """
         return pulumi.get(self, "url")
 
 
@@ -1405,17 +1945,29 @@ class FederatedRpmRepositoryMember(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
+               status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name.
+        """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def url(self) -> str:
+        """
+        Full URL to ending with the repository name.
+        """
         return pulumi.get(self, "url")
 
 
@@ -1424,17 +1976,29 @@ class FederatedSbtRepositoryMember(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
+               status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name.
+        """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def url(self) -> str:
+        """
+        Full URL to ending with the repository name.
+        """
         return pulumi.get(self, "url")
 
 
@@ -1443,17 +2007,29 @@ class FederatedSwiftRepositoryMember(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
+               status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name.
+        """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def url(self) -> str:
+        """
+        Full URL to ending with the repository name.
+        """
         return pulumi.get(self, "url")
 
 
@@ -1462,17 +2038,29 @@ class FederatedTerraformModuleRepositoryMember(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
+               status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name.
+        """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def url(self) -> str:
+        """
+        Full URL to ending with the repository name.
+        """
         return pulumi.get(self, "url")
 
 
@@ -1481,17 +2069,29 @@ class FederatedTerraformProviderRepositoryMember(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
+               status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name.
+        """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def url(self) -> str:
+        """
+        Full URL to ending with the repository name.
+        """
         return pulumi.get(self, "url")
 
 
@@ -1500,17 +2100,29 @@ class FederatedVagrantRepositoryMember(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
+               status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name.
+        """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def url(self) -> str:
+        """
+        Full URL to ending with the repository name.
+        """
         return pulumi.get(self, "url")
 
 
@@ -1561,6 +2173,21 @@ class LocalRepositoryMultiReplicationReplication(dict):
                  sync_deletes: Optional[bool] = None,
                  sync_properties: Optional[bool] = None,
                  sync_statistics: Optional[bool] = None):
+        """
+        :param str url: The URL of the target local repository on a remote Artifactory server. Use the format `https://<artifactory_url>/artifactory/<repository_name>`.
+        :param str username: Username on the remote Artifactory instance.
+        :param bool check_binary_existence_in_filestore: Enabling the `check_binary_existence_in_filestore` flag requires an Enterprise Plus license. When true, enables distributed checksum storage. For more information, see [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
+        :param bool enabled: When set, enables replication of this repository to the target specified in `url` attribute. Default value is `true`.
+        :param str exclude_path_prefix_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. By default, no artifacts are excluded.
+        :param str include_path_prefix_pattern: List of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included `(**/*)`.
+        :param str password: Use either the HTTP authentication password or [identity token](https://www.jfrog.com/confluence/display/JFROG/User+Profile#UserProfile-IdentityTokenidentitytoken).
+        :param str proxy: Proxy key from Artifactory Proxies settings. The proxy configuration will be used when communicating with the remote instance.
+        :param str replication_key: Replication ID, the value is unknown until the resource is created. Can't be set or updated.
+        :param int socket_timeout_millis: The network timeout in milliseconds to use for remote operations. Default value is `15000`.
+        :param bool sync_deletes: When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata). Note that enabling this option, will delete artifacts on the target that do not exist in the source repository. Default value is `false`.
+        :param bool sync_properties: When set, the task also synchronizes the properties of replicated artifacts. Default value is `true`.
+        :param bool sync_statistics: When set, the task also synchronizes artifact download statistics. Set to avoid inadvertent cleanup at the target instance when setting up replication for disaster recovery. Default value is `false`
+        """
         pulumi.set(__self__, "url", url)
         pulumi.set(__self__, "username", username)
         if check_binary_existence_in_filestore is not None:
@@ -1589,66 +2216,105 @@ class LocalRepositoryMultiReplicationReplication(dict):
     @property
     @pulumi.getter
     def url(self) -> str:
+        """
+        The URL of the target local repository on a remote Artifactory server. Use the format `https://<artifactory_url>/artifactory/<repository_name>`.
+        """
         return pulumi.get(self, "url")
 
     @property
     @pulumi.getter
     def username(self) -> str:
+        """
+        Username on the remote Artifactory instance.
+        """
         return pulumi.get(self, "username")
 
     @property
     @pulumi.getter(name="checkBinaryExistenceInFilestore")
     def check_binary_existence_in_filestore(self) -> Optional[bool]:
+        """
+        Enabling the `check_binary_existence_in_filestore` flag requires an Enterprise Plus license. When true, enables distributed checksum storage. For more information, see [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
+        """
         return pulumi.get(self, "check_binary_existence_in_filestore")
 
     @property
     @pulumi.getter
     def enabled(self) -> Optional[bool]:
+        """
+        When set, enables replication of this repository to the target specified in `url` attribute. Default value is `true`.
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter(name="excludePathPrefixPattern")
     def exclude_path_prefix_pattern(self) -> Optional[str]:
+        """
+        List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. By default, no artifacts are excluded.
+        """
         return pulumi.get(self, "exclude_path_prefix_pattern")
 
     @property
     @pulumi.getter(name="includePathPrefixPattern")
     def include_path_prefix_pattern(self) -> Optional[str]:
+        """
+        List of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included `(**/*)`.
+        """
         return pulumi.get(self, "include_path_prefix_pattern")
 
     @property
     @pulumi.getter
     def password(self) -> Optional[str]:
+        """
+        Use either the HTTP authentication password or [identity token](https://www.jfrog.com/confluence/display/JFROG/User+Profile#UserProfile-IdentityTokenidentitytoken).
+        """
         return pulumi.get(self, "password")
 
     @property
     @pulumi.getter
     def proxy(self) -> Optional[str]:
+        """
+        Proxy key from Artifactory Proxies settings. The proxy configuration will be used when communicating with the remote instance.
+        """
         return pulumi.get(self, "proxy")
 
     @property
     @pulumi.getter(name="replicationKey")
     def replication_key(self) -> Optional[str]:
+        """
+        Replication ID, the value is unknown until the resource is created. Can't be set or updated.
+        """
         return pulumi.get(self, "replication_key")
 
     @property
     @pulumi.getter(name="socketTimeoutMillis")
     def socket_timeout_millis(self) -> Optional[int]:
+        """
+        The network timeout in milliseconds to use for remote operations. Default value is `15000`.
+        """
         return pulumi.get(self, "socket_timeout_millis")
 
     @property
     @pulumi.getter(name="syncDeletes")
     def sync_deletes(self) -> Optional[bool]:
+        """
+        When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata). Note that enabling this option, will delete artifacts on the target that do not exist in the source repository. Default value is `false`.
+        """
         return pulumi.get(self, "sync_deletes")
 
     @property
     @pulumi.getter(name="syncProperties")
     def sync_properties(self) -> Optional[bool]:
+        """
+        When set, the task also synchronizes the properties of replicated artifacts. Default value is `true`.
+        """
         return pulumi.get(self, "sync_properties")
 
     @property
     @pulumi.getter(name="syncStatistics")
     def sync_statistics(self) -> Optional[bool]:
+        """
+        When set, the task also synchronizes artifact download statistics. Set to avoid inadvertent cleanup at the target instance when setting up replication for disaster recovery. Default value is `false`
+        """
         return pulumi.get(self, "sync_statistics")
 
 
@@ -1688,6 +2354,16 @@ class OauthSettingsOauthProvider(dict):
                  token_url: str,
                  type: str,
                  enabled: Optional[bool] = None):
+        """
+        :param str api_url: OAuth user info endpoint for the IdP.
+        :param str auth_url: OAuth authorization endpoint for the IdP.
+        :param str client_id: OAuth client ID configured on the IdP.
+        :param str client_secret: OAuth client secret configured on the IdP.
+        :param str name: Name of the Artifactory OAuth provider.
+        :param str token_url: OAuth token endpoint for the IdP.
+        :param str type: Type of OAuth provider. (e.g., `github`, `google`, `cloudfoundry`, or `openId`)
+        :param bool enabled: Enable the Artifactory OAuth provider.  Default value is `true`.
+        """
         pulumi.set(__self__, "api_url", api_url)
         pulumi.set(__self__, "auth_url", auth_url)
         pulumi.set(__self__, "client_id", client_id)
@@ -1701,41 +2377,65 @@ class OauthSettingsOauthProvider(dict):
     @property
     @pulumi.getter(name="apiUrl")
     def api_url(self) -> str:
+        """
+        OAuth user info endpoint for the IdP.
+        """
         return pulumi.get(self, "api_url")
 
     @property
     @pulumi.getter(name="authUrl")
     def auth_url(self) -> str:
+        """
+        OAuth authorization endpoint for the IdP.
+        """
         return pulumi.get(self, "auth_url")
 
     @property
     @pulumi.getter(name="clientId")
     def client_id(self) -> str:
+        """
+        OAuth client ID configured on the IdP.
+        """
         return pulumi.get(self, "client_id")
 
     @property
     @pulumi.getter(name="clientSecret")
     def client_secret(self) -> str:
+        """
+        OAuth client secret configured on the IdP.
+        """
         return pulumi.get(self, "client_secret")
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        Name of the Artifactory OAuth provider.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="tokenUrl")
     def token_url(self) -> str:
+        """
+        OAuth token endpoint for the IdP.
+        """
         return pulumi.get(self, "token_url")
 
     @property
     @pulumi.getter
     def type(self) -> str:
+        """
+        Type of OAuth provider. (e.g., `github`, `google`, `cloudfoundry`, or `openId`)
+        """
         return pulumi.get(self, "type")
 
     @property
     @pulumi.getter
     def enabled(self) -> Optional[bool]:
+        """
+        Enable the Artifactory OAuth provider.  Default value is `true`.
+        """
         return pulumi.get(self, "enabled")
 
 
@@ -1765,6 +2465,11 @@ class PermissionTargetBuild(dict):
                  actions: Optional['outputs.PermissionTargetBuildActions'] = None,
                  excludes_patterns: Optional[Sequence[str]] = None,
                  includes_patterns: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[str] repositories: List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
+        :param Sequence[str] excludes_patterns: Pattern of artifacts to exclude.
+        :param Sequence[str] includes_patterns: Pattern of artifacts to include.
+        """
         pulumi.set(__self__, "repositories", repositories)
         if actions is not None:
             pulumi.set(__self__, "actions", actions)
@@ -1776,6 +2481,9 @@ class PermissionTargetBuild(dict):
     @property
     @pulumi.getter
     def repositories(self) -> Sequence[str]:
+        """
+        List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
+        """
         return pulumi.get(self, "repositories")
 
     @property
@@ -1786,11 +2494,17 @@ class PermissionTargetBuild(dict):
     @property
     @pulumi.getter(name="excludesPatterns")
     def excludes_patterns(self) -> Optional[Sequence[str]]:
+        """
+        Pattern of artifacts to exclude.
+        """
         return pulumi.get(self, "excludes_patterns")
 
     @property
     @pulumi.getter(name="includesPatterns")
     def includes_patterns(self) -> Optional[Sequence[str]]:
+        """
+        Pattern of artifacts to include.
+        """
         return pulumi.get(self, "includes_patterns")
 
 
@@ -1799,6 +2513,10 @@ class PermissionTargetBuildActions(dict):
     def __init__(__self__, *,
                  groups: Optional[Sequence['outputs.PermissionTargetBuildActionsGroup']] = None,
                  users: Optional[Sequence['outputs.PermissionTargetBuildActionsUser']] = None):
+        """
+        :param Sequence['PermissionTargetBuildActionsGroupArgs'] groups: Groups this permission applies for.
+        :param Sequence['PermissionTargetBuildActionsUserArgs'] users: Users this permission target applies for.
+        """
         if groups is not None:
             pulumi.set(__self__, "groups", groups)
         if users is not None:
@@ -1807,11 +2525,17 @@ class PermissionTargetBuildActions(dict):
     @property
     @pulumi.getter
     def groups(self) -> Optional[Sequence['outputs.PermissionTargetBuildActionsGroup']]:
+        """
+        Groups this permission applies for.
+        """
         return pulumi.get(self, "groups")
 
     @property
     @pulumi.getter
     def users(self) -> Optional[Sequence['outputs.PermissionTargetBuildActionsUser']]:
+        """
+        Users this permission target applies for.
+        """
         return pulumi.get(self, "users")
 
 
@@ -1820,12 +2544,18 @@ class PermissionTargetBuildActionsGroup(dict):
     def __init__(__self__, *,
                  name: str,
                  permissions: Sequence[str]):
+        """
+        :param str name: Name of permission.
+        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "permissions", permissions)
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        Name of permission.
+        """
         return pulumi.get(self, "name")
 
     @property
@@ -1839,12 +2569,18 @@ class PermissionTargetBuildActionsUser(dict):
     def __init__(__self__, *,
                  name: str,
                  permissions: Sequence[str]):
+        """
+        :param str name: Name of permission.
+        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "permissions", permissions)
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        Name of permission.
+        """
         return pulumi.get(self, "name")
 
     @property
@@ -1879,6 +2615,11 @@ class PermissionTargetReleaseBundle(dict):
                  actions: Optional['outputs.PermissionTargetReleaseBundleActions'] = None,
                  excludes_patterns: Optional[Sequence[str]] = None,
                  includes_patterns: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[str] repositories: List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
+        :param Sequence[str] excludes_patterns: Pattern of artifacts to exclude.
+        :param Sequence[str] includes_patterns: Pattern of artifacts to include.
+        """
         pulumi.set(__self__, "repositories", repositories)
         if actions is not None:
             pulumi.set(__self__, "actions", actions)
@@ -1890,6 +2631,9 @@ class PermissionTargetReleaseBundle(dict):
     @property
     @pulumi.getter
     def repositories(self) -> Sequence[str]:
+        """
+        List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
+        """
         return pulumi.get(self, "repositories")
 
     @property
@@ -1900,11 +2644,17 @@ class PermissionTargetReleaseBundle(dict):
     @property
     @pulumi.getter(name="excludesPatterns")
     def excludes_patterns(self) -> Optional[Sequence[str]]:
+        """
+        Pattern of artifacts to exclude.
+        """
         return pulumi.get(self, "excludes_patterns")
 
     @property
     @pulumi.getter(name="includesPatterns")
     def includes_patterns(self) -> Optional[Sequence[str]]:
+        """
+        Pattern of artifacts to include.
+        """
         return pulumi.get(self, "includes_patterns")
 
 
@@ -1913,6 +2663,10 @@ class PermissionTargetReleaseBundleActions(dict):
     def __init__(__self__, *,
                  groups: Optional[Sequence['outputs.PermissionTargetReleaseBundleActionsGroup']] = None,
                  users: Optional[Sequence['outputs.PermissionTargetReleaseBundleActionsUser']] = None):
+        """
+        :param Sequence['PermissionTargetReleaseBundleActionsGroupArgs'] groups: Groups this permission applies for.
+        :param Sequence['PermissionTargetReleaseBundleActionsUserArgs'] users: Users this permission target applies for.
+        """
         if groups is not None:
             pulumi.set(__self__, "groups", groups)
         if users is not None:
@@ -1921,11 +2675,17 @@ class PermissionTargetReleaseBundleActions(dict):
     @property
     @pulumi.getter
     def groups(self) -> Optional[Sequence['outputs.PermissionTargetReleaseBundleActionsGroup']]:
+        """
+        Groups this permission applies for.
+        """
         return pulumi.get(self, "groups")
 
     @property
     @pulumi.getter
     def users(self) -> Optional[Sequence['outputs.PermissionTargetReleaseBundleActionsUser']]:
+        """
+        Users this permission target applies for.
+        """
         return pulumi.get(self, "users")
 
 
@@ -1934,12 +2694,18 @@ class PermissionTargetReleaseBundleActionsGroup(dict):
     def __init__(__self__, *,
                  name: str,
                  permissions: Sequence[str]):
+        """
+        :param str name: Name of permission.
+        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "permissions", permissions)
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        Name of permission.
+        """
         return pulumi.get(self, "name")
 
     @property
@@ -1953,12 +2719,18 @@ class PermissionTargetReleaseBundleActionsUser(dict):
     def __init__(__self__, *,
                  name: str,
                  permissions: Sequence[str]):
+        """
+        :param str name: Name of permission.
+        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "permissions", permissions)
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        Name of permission.
+        """
         return pulumi.get(self, "name")
 
     @property
@@ -1993,6 +2765,11 @@ class PermissionTargetRepo(dict):
                  actions: Optional['outputs.PermissionTargetRepoActions'] = None,
                  excludes_patterns: Optional[Sequence[str]] = None,
                  includes_patterns: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[str] repositories: List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
+        :param Sequence[str] excludes_patterns: Pattern of artifacts to exclude.
+        :param Sequence[str] includes_patterns: Pattern of artifacts to include.
+        """
         pulumi.set(__self__, "repositories", repositories)
         if actions is not None:
             pulumi.set(__self__, "actions", actions)
@@ -2004,6 +2781,9 @@ class PermissionTargetRepo(dict):
     @property
     @pulumi.getter
     def repositories(self) -> Sequence[str]:
+        """
+        List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
+        """
         return pulumi.get(self, "repositories")
 
     @property
@@ -2014,11 +2794,17 @@ class PermissionTargetRepo(dict):
     @property
     @pulumi.getter(name="excludesPatterns")
     def excludes_patterns(self) -> Optional[Sequence[str]]:
+        """
+        Pattern of artifacts to exclude.
+        """
         return pulumi.get(self, "excludes_patterns")
 
     @property
     @pulumi.getter(name="includesPatterns")
     def includes_patterns(self) -> Optional[Sequence[str]]:
+        """
+        Pattern of artifacts to include.
+        """
         return pulumi.get(self, "includes_patterns")
 
 
@@ -2027,6 +2813,10 @@ class PermissionTargetRepoActions(dict):
     def __init__(__self__, *,
                  groups: Optional[Sequence['outputs.PermissionTargetRepoActionsGroup']] = None,
                  users: Optional[Sequence['outputs.PermissionTargetRepoActionsUser']] = None):
+        """
+        :param Sequence['PermissionTargetRepoActionsGroupArgs'] groups: Groups this permission applies for.
+        :param Sequence['PermissionTargetRepoActionsUserArgs'] users: Users this permission target applies for.
+        """
         if groups is not None:
             pulumi.set(__self__, "groups", groups)
         if users is not None:
@@ -2035,11 +2825,17 @@ class PermissionTargetRepoActions(dict):
     @property
     @pulumi.getter
     def groups(self) -> Optional[Sequence['outputs.PermissionTargetRepoActionsGroup']]:
+        """
+        Groups this permission applies for.
+        """
         return pulumi.get(self, "groups")
 
     @property
     @pulumi.getter
     def users(self) -> Optional[Sequence['outputs.PermissionTargetRepoActionsUser']]:
+        """
+        Users this permission target applies for.
+        """
         return pulumi.get(self, "users")
 
 
@@ -2048,12 +2844,18 @@ class PermissionTargetRepoActionsGroup(dict):
     def __init__(__self__, *,
                  name: str,
                  permissions: Sequence[str]):
+        """
+        :param str name: Name of permission.
+        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "permissions", permissions)
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        Name of permission.
+        """
         return pulumi.get(self, "name")
 
     @property
@@ -2067,12 +2869,18 @@ class PermissionTargetRepoActionsUser(dict):
     def __init__(__self__, *,
                  name: str,
                  permissions: Sequence[str]):
+        """
+        :param str name: Name of permission.
+        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "permissions", permissions)
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        Name of permission.
+        """
         return pulumi.get(self, "name")
 
     @property
@@ -2109,6 +2917,12 @@ class PropertySetProperty(dict):
                  predefined_values: Sequence['outputs.PropertySetPropertyPredefinedValue'],
                  closed_predefined_values: Optional[bool] = None,
                  multiple_choice: Optional[bool] = None):
+        """
+        :param str name: Predefined property name.
+        :param Sequence['PropertySetPropertyPredefinedValueArgs'] predefined_values: Properties in the property set.
+        :param bool closed_predefined_values: Disables `multiple_choice` if set to `false` at the same time with multiple_choice set to `true`. Default value is `false`
+        :param bool multiple_choice: Defines if user can select multiple values. `closed_predefined_values` should be set to `true`. Default value is `false`.
+        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "predefined_values", predefined_values)
         if closed_predefined_values is not None:
@@ -2119,21 +2933,33 @@ class PropertySetProperty(dict):
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        Predefined property name.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="predefinedValues")
     def predefined_values(self) -> Sequence['outputs.PropertySetPropertyPredefinedValue']:
+        """
+        Properties in the property set.
+        """
         return pulumi.get(self, "predefined_values")
 
     @property
     @pulumi.getter(name="closedPredefinedValues")
     def closed_predefined_values(self) -> Optional[bool]:
+        """
+        Disables `multiple_choice` if set to `false` at the same time with multiple_choice set to `true`. Default value is `false`
+        """
         return pulumi.get(self, "closed_predefined_values")
 
     @property
     @pulumi.getter(name="multipleChoice")
     def multiple_choice(self) -> Optional[bool]:
+        """
+        Defines if user can select multiple values. `closed_predefined_values` should be set to `true`. Default value is `false`.
+        """
         return pulumi.get(self, "multiple_choice")
 
 
@@ -2159,17 +2985,27 @@ class PropertySetPropertyPredefinedValue(dict):
     def __init__(__self__, *,
                  default_value: bool,
                  name: str):
+        """
+        :param bool default_value: Whether the value is selected by default in the UI.
+        :param str name: Predefined property name.
+        """
         pulumi.set(__self__, "default_value", default_value)
         pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="defaultValue")
     def default_value(self) -> bool:
+        """
+        Whether the value is selected by default in the UI.
+        """
         return pulumi.get(self, "default_value")
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        Predefined property name.
+        """
         return pulumi.get(self, "name")
 
 
@@ -2214,6 +3050,21 @@ class PushReplicationReplication(dict):
                  sync_deletes: Optional[bool] = None,
                  sync_properties: Optional[bool] = None,
                  sync_statistics: Optional[bool] = None):
+        """
+        :param str password: Required for local repository, but not needed for remote repository.
+        :param str url: The URL of the target local repository on a remote Artifactory server. Required for local repository, but not needed for remote repository.
+        :param str username: Required for local repository, but not needed for remote repository.
+        :param bool check_binary_existence_in_filestore: When true, enables distributed checksum storage. For more information, see
+               [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
+        :param bool enabled: When set, this replication will be enabled when saved.
+        :param str path_prefix: Only artifacts that located in path that matches the subpath within the remote repository will be replicated.
+        :param str proxy: Proxy key from Artifactory Proxies settings. The proxy configuration will be used when communicating with the remote instance.
+        :param int socket_timeout_millis: The network timeout in milliseconds to use for remote operations.
+        :param bool sync_deletes: When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata).
+               Note that enabling this option, will delete artifacts on the target that do not exist in the source repository.
+        :param bool sync_properties: When set, the task also synchronizes the properties of replicated artifacts.
+        :param bool sync_statistics: When set, artifact download statistics will also be replicated. Set to avoid inadvertent cleanup at the target instance when setting up replication for disaster recovery.
+        """
         pulumi.set(__self__, "password", password)
         pulumi.set(__self__, "url", url)
         pulumi.set(__self__, "username", username)
@@ -2237,56 +3088,91 @@ class PushReplicationReplication(dict):
     @property
     @pulumi.getter
     def password(self) -> str:
+        """
+        Required for local repository, but not needed for remote repository.
+        """
         return pulumi.get(self, "password")
 
     @property
     @pulumi.getter
     def url(self) -> str:
+        """
+        The URL of the target local repository on a remote Artifactory server. Required for local repository, but not needed for remote repository.
+        """
         return pulumi.get(self, "url")
 
     @property
     @pulumi.getter
     def username(self) -> str:
+        """
+        Required for local repository, but not needed for remote repository.
+        """
         return pulumi.get(self, "username")
 
     @property
     @pulumi.getter(name="checkBinaryExistenceInFilestore")
     def check_binary_existence_in_filestore(self) -> Optional[bool]:
+        """
+        When true, enables distributed checksum storage. For more information, see
+        [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
+        """
         return pulumi.get(self, "check_binary_existence_in_filestore")
 
     @property
     @pulumi.getter
     def enabled(self) -> Optional[bool]:
+        """
+        When set, this replication will be enabled when saved.
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter(name="pathPrefix")
     def path_prefix(self) -> Optional[str]:
+        """
+        Only artifacts that located in path that matches the subpath within the remote repository will be replicated.
+        """
         return pulumi.get(self, "path_prefix")
 
     @property
     @pulumi.getter
     def proxy(self) -> Optional[str]:
+        """
+        Proxy key from Artifactory Proxies settings. The proxy configuration will be used when communicating with the remote instance.
+        """
         return pulumi.get(self, "proxy")
 
     @property
     @pulumi.getter(name="socketTimeoutMillis")
     def socket_timeout_millis(self) -> Optional[int]:
+        """
+        The network timeout in milliseconds to use for remote operations.
+        """
         return pulumi.get(self, "socket_timeout_millis")
 
     @property
     @pulumi.getter(name="syncDeletes")
     def sync_deletes(self) -> Optional[bool]:
+        """
+        When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata).
+        Note that enabling this option, will delete artifacts on the target that do not exist in the source repository.
+        """
         return pulumi.get(self, "sync_deletes")
 
     @property
     @pulumi.getter(name="syncProperties")
     def sync_properties(self) -> Optional[bool]:
+        """
+        When set, the task also synchronizes the properties of replicated artifacts.
+        """
         return pulumi.get(self, "sync_properties")
 
     @property
     @pulumi.getter(name="syncStatistics")
     def sync_statistics(self) -> Optional[bool]:
+        """
+        When set, artifact download statistics will also be replicated. Set to avoid inadvertent cleanup at the target instance when setting up replication for disaster recovery.
+        """
         return pulumi.get(self, "sync_statistics")
 
 
@@ -2320,6 +3206,12 @@ class ReleaseBundleWebhookCriteria(dict):
                  registered_release_bundle_names: Sequence[str],
                  exclude_patterns: Optional[Sequence[str]] = None,
                  include_patterns: Optional[Sequence[str]] = None):
+        """
+        :param bool any_release_bundle: Trigger on any release bundle.
+        :param Sequence[str] registered_release_bundle_names: Trigger on this list of release bundle names.
+        :param Sequence[str] exclude_patterns: Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: "org/apache/**".
+        :param Sequence[str] include_patterns: Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: "org/apache/**".
+        """
         pulumi.set(__self__, "any_release_bundle", any_release_bundle)
         pulumi.set(__self__, "registered_release_bundle_names", registered_release_bundle_names)
         if exclude_patterns is not None:
@@ -2330,21 +3222,33 @@ class ReleaseBundleWebhookCriteria(dict):
     @property
     @pulumi.getter(name="anyReleaseBundle")
     def any_release_bundle(self) -> bool:
+        """
+        Trigger on any release bundle.
+        """
         return pulumi.get(self, "any_release_bundle")
 
     @property
     @pulumi.getter(name="registeredReleaseBundleNames")
     def registered_release_bundle_names(self) -> Sequence[str]:
+        """
+        Trigger on this list of release bundle names.
+        """
         return pulumi.get(self, "registered_release_bundle_names")
 
     @property
     @pulumi.getter(name="excludePatterns")
     def exclude_patterns(self) -> Optional[Sequence[str]]:
+        """
+        Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: "org/apache/**".
+        """
         return pulumi.get(self, "exclude_patterns")
 
     @property
     @pulumi.getter(name="includePatterns")
     def include_patterns(self) -> Optional[Sequence[str]]:
+        """
+        Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: "org/apache/**".
+        """
         return pulumi.get(self, "include_patterns")
 
 
@@ -2372,6 +3276,12 @@ class ReleaseBundleWebhookHandler(dict):
                  custom_http_headers: Optional[Mapping[str, str]] = None,
                  proxy: Optional[str] = None,
                  secret: Optional[str] = None):
+        """
+        :param str url: Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+        :param Mapping[str, str] custom_http_headers: Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
+        :param str proxy: Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+        :param str secret: Secret authentication token that will be sent to the configured URL. The value will be sent as `x-jfrog-event-auth` header.
+        """
         pulumi.set(__self__, "url", url)
         if custom_http_headers is not None:
             pulumi.set(__self__, "custom_http_headers", custom_http_headers)
@@ -2383,21 +3293,33 @@ class ReleaseBundleWebhookHandler(dict):
     @property
     @pulumi.getter
     def url(self) -> str:
+        """
+        Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+        """
         return pulumi.get(self, "url")
 
     @property
     @pulumi.getter(name="customHttpHeaders")
     def custom_http_headers(self) -> Optional[Mapping[str, str]]:
+        """
+        Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
+        """
         return pulumi.get(self, "custom_http_headers")
 
     @property
     @pulumi.getter
     def proxy(self) -> Optional[str]:
+        """
+        Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+        """
         return pulumi.get(self, "proxy")
 
     @property
     @pulumi.getter
     def secret(self) -> Optional[str]:
+        """
+        Secret authentication token that will be sent to the configured URL. The value will be sent as `x-jfrog-event-auth` header.
+        """
         return pulumi.get(self, "secret")
 
 
@@ -4237,6 +5159,10 @@ class ReplicationConfigReplication(dict):
                  sync_statistics: Optional[bool] = None,
                  url: Optional[str] = None,
                  username: Optional[str] = None):
+        """
+        :param str password: Requires password encryption to be turned off `POST /api/system/decrypt`.
+        :param str proxy: Proxy key from Artifactory Proxies setting
+        """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if password is not None:
@@ -4266,6 +5192,9 @@ class ReplicationConfigReplication(dict):
     @property
     @pulumi.getter
     def password(self) -> Optional[str]:
+        """
+        Requires password encryption to be turned off `POST /api/system/decrypt`.
+        """
         return pulumi.get(self, "password")
 
     @property
@@ -4276,6 +5205,9 @@ class ReplicationConfigReplication(dict):
     @property
     @pulumi.getter
     def proxy(self) -> Optional[str]:
+        """
+        Proxy key from Artifactory Proxies setting
+        """
         return pulumi.get(self, "proxy")
 
     @property
@@ -4314,17 +5246,29 @@ class GetFederatedAlpineRepositoryMemberResult(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
+               status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name.
+        """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def url(self) -> str:
+        """
+        Full URL to ending with the repository name.
+        """
         return pulumi.get(self, "url")
 
 
@@ -4333,17 +5277,29 @@ class GetFederatedBowerRepositoryMemberResult(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
+               status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name.
+        """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def url(self) -> str:
+        """
+        Full URL to ending with the repository name.
+        """
         return pulumi.get(self, "url")
 
 
@@ -4352,17 +5308,29 @@ class GetFederatedCargoRepositoryMemberResult(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
+               status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name.
+        """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def url(self) -> str:
+        """
+        Full URL to ending with the repository name.
+        """
         return pulumi.get(self, "url")
 
 
@@ -4371,17 +5339,29 @@ class GetFederatedChefRepositoryMemberResult(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
+               status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name.
+        """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def url(self) -> str:
+        """
+        Full URL to ending with the repository name.
+        """
         return pulumi.get(self, "url")
 
 
@@ -4390,17 +5370,29 @@ class GetFederatedCocoapodsRepositoryMemberResult(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
+               status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name.
+        """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def url(self) -> str:
+        """
+        Full URL to ending with the repository name.
+        """
         return pulumi.get(self, "url")
 
 
@@ -4409,17 +5401,29 @@ class GetFederatedComposerRepositoryMemberResult(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
+               status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name.
+        """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def url(self) -> str:
+        """
+        Full URL to ending with the repository name.
+        """
         return pulumi.get(self, "url")
 
 
@@ -4428,17 +5432,29 @@ class GetFederatedConanRepositoryMemberResult(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
+               status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name.
+        """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def url(self) -> str:
+        """
+        Full URL to ending with the repository name.
+        """
         return pulumi.get(self, "url")
 
 
@@ -4447,17 +5463,29 @@ class GetFederatedCondaRepositoryMemberResult(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
+               status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name.
+        """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def url(self) -> str:
+        """
+        Full URL to ending with the repository name.
+        """
         return pulumi.get(self, "url")
 
 
@@ -4466,17 +5494,29 @@ class GetFederatedCranRepositoryMemberResult(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
+               status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name.
+        """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def url(self) -> str:
+        """
+        Full URL to ending with the repository name.
+        """
         return pulumi.get(self, "url")
 
 
@@ -4485,17 +5525,29 @@ class GetFederatedDebianRepositoryMemberResult(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
+               status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name.
+        """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def url(self) -> str:
+        """
+        Full URL to ending with the repository name.
+        """
         return pulumi.get(self, "url")
 
 
@@ -4523,17 +5575,29 @@ class GetFederatedDockerV1RepositoryMemberResult(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
+               status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name.
+        """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def url(self) -> str:
+        """
+        Full URL to ending with the repository name.
+        """
         return pulumi.get(self, "url")
 
 
@@ -4542,17 +5606,29 @@ class GetFederatedDockerV2RepositoryMemberResult(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
+               status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name.
+        """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def url(self) -> str:
+        """
+        Full URL to ending with the repository name.
+        """
         return pulumi.get(self, "url")
 
 
@@ -4561,17 +5637,29 @@ class GetFederatedGemsRepositoryMemberResult(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
+               status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name.
+        """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def url(self) -> str:
+        """
+        Full URL to ending with the repository name.
+        """
         return pulumi.get(self, "url")
 
 
@@ -4580,17 +5668,29 @@ class GetFederatedGenericRepositoryMemberResult(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
+               status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name.
+        """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def url(self) -> str:
+        """
+        Full URL to ending with the repository name.
+        """
         return pulumi.get(self, "url")
 
 
@@ -4599,17 +5699,29 @@ class GetFederatedGitlfsRepositoryMemberResult(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
+               status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name.
+        """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def url(self) -> str:
+        """
+        Full URL to ending with the repository name.
+        """
         return pulumi.get(self, "url")
 
 
@@ -4618,17 +5730,29 @@ class GetFederatedGoRepositoryMemberResult(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
+               status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name.
+        """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def url(self) -> str:
+        """
+        Full URL to ending with the repository name.
+        """
         return pulumi.get(self, "url")
 
 
@@ -4637,17 +5761,29 @@ class GetFederatedGradleRepositoryMemberResult(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
+               status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name.
+        """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def url(self) -> str:
+        """
+        Full URL to ending with the repository name.
+        """
         return pulumi.get(self, "url")
 
 
@@ -4656,17 +5792,29 @@ class GetFederatedHelmRepositoryMemberResult(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
+               status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name.
+        """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def url(self) -> str:
+        """
+        Full URL to ending with the repository name.
+        """
         return pulumi.get(self, "url")
 
 
@@ -4675,17 +5823,29 @@ class GetFederatedIvyRepositoryMemberResult(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
+               status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name.
+        """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def url(self) -> str:
+        """
+        Full URL to ending with the repository name.
+        """
         return pulumi.get(self, "url")
 
 
@@ -4694,17 +5854,29 @@ class GetFederatedMavenRepositoryMemberResult(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
+               status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name.
+        """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def url(self) -> str:
+        """
+        Full URL to ending with the repository name.
+        """
         return pulumi.get(self, "url")
 
 
@@ -4713,17 +5885,29 @@ class GetFederatedNpmRepositoryMemberResult(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
+               status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name.
+        """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def url(self) -> str:
+        """
+        Full URL to ending with the repository name.
+        """
         return pulumi.get(self, "url")
 
 
@@ -4732,17 +5916,29 @@ class GetFederatedNugetRepositoryMemberResult(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
+               status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name.
+        """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def url(self) -> str:
+        """
+        Full URL to ending with the repository name.
+        """
         return pulumi.get(self, "url")
 
 
@@ -4751,17 +5947,29 @@ class GetFederatedOpkgRepositoryMemberResult(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
+               status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name.
+        """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def url(self) -> str:
+        """
+        Full URL to ending with the repository name.
+        """
         return pulumi.get(self, "url")
 
 
@@ -4770,17 +5978,29 @@ class GetFederatedPuppetRepositoryMemberResult(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
+               status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name.
+        """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def url(self) -> str:
+        """
+        Full URL to ending with the repository name.
+        """
         return pulumi.get(self, "url")
 
 
@@ -4789,17 +6009,29 @@ class GetFederatedPypiRepositoryMemberResult(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
+               status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name.
+        """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def url(self) -> str:
+        """
+        Full URL to ending with the repository name.
+        """
         return pulumi.get(self, "url")
 
 
@@ -4808,17 +6040,29 @@ class GetFederatedRpmRepositoryMemberResult(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
+               status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name.
+        """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def url(self) -> str:
+        """
+        Full URL to ending with the repository name.
+        """
         return pulumi.get(self, "url")
 
 
@@ -4827,17 +6071,29 @@ class GetFederatedSbtRepositoryMemberResult(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
+               status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name.
+        """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def url(self) -> str:
+        """
+        Full URL to ending with the repository name.
+        """
         return pulumi.get(self, "url")
 
 
@@ -4846,17 +6102,29 @@ class GetFederatedSwiftRepositoryMemberResult(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
+               status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name.
+        """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def url(self) -> str:
+        """
+        Full URL to ending with the repository name.
+        """
         return pulumi.get(self, "url")
 
 
@@ -4865,17 +6133,29 @@ class GetFederatedTerraformModuleRepositoryMemberResult(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
+               status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name.
+        """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def url(self) -> str:
+        """
+        Full URL to ending with the repository name.
+        """
         return pulumi.get(self, "url")
 
 
@@ -4884,17 +6164,29 @@ class GetFederatedTerraformProviderRepositoryMemberResult(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
+               status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name.
+        """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def url(self) -> str:
+        """
+        Full URL to ending with the repository name.
+        """
         return pulumi.get(self, "url")
 
 
@@ -4903,17 +6195,29 @@ class GetFederatedVagrantRepositoryMemberResult(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
+               status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name.
+        """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def url(self) -> str:
+        """
+        Full URL to ending with the repository name.
+        """
         return pulumi.get(self, "url")
 
 
@@ -4924,6 +6228,13 @@ class GetPermissionTargetBuildResult(dict):
                  actions: Optional['outputs.GetPermissionTargetBuildActionsResult'] = None,
                  excludes_patterns: Optional[Sequence[str]] = None,
                  includes_patterns: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[str] repositories: List of repositories this permission target is applicable for. You can specify the
+               name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote
+               repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
+        :param Sequence[str] excludes_patterns: Pattern of artifacts to exclude.
+        :param Sequence[str] includes_patterns: Pattern of artifacts to include.
+        """
         pulumi.set(__self__, "repositories", repositories)
         if actions is not None:
             pulumi.set(__self__, "actions", actions)
@@ -4935,6 +6246,11 @@ class GetPermissionTargetBuildResult(dict):
     @property
     @pulumi.getter
     def repositories(self) -> Sequence[str]:
+        """
+        List of repositories this permission target is applicable for. You can specify the
+        name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote
+        repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
+        """
         return pulumi.get(self, "repositories")
 
     @property
@@ -4945,11 +6261,17 @@ class GetPermissionTargetBuildResult(dict):
     @property
     @pulumi.getter(name="excludesPatterns")
     def excludes_patterns(self) -> Optional[Sequence[str]]:
+        """
+        Pattern of artifacts to exclude.
+        """
         return pulumi.get(self, "excludes_patterns")
 
     @property
     @pulumi.getter(name="includesPatterns")
     def includes_patterns(self) -> Optional[Sequence[str]]:
+        """
+        Pattern of artifacts to include.
+        """
         return pulumi.get(self, "includes_patterns")
 
 
@@ -4958,6 +6280,10 @@ class GetPermissionTargetBuildActionsResult(dict):
     def __init__(__self__, *,
                  groups: Optional[Sequence['outputs.GetPermissionTargetBuildActionsGroupResult']] = None,
                  users: Optional[Sequence['outputs.GetPermissionTargetBuildActionsUserResult']] = None):
+        """
+        :param Sequence['GetPermissionTargetBuildActionsGroupArgs'] groups: Groups this permission applies for.
+        :param Sequence['GetPermissionTargetBuildActionsUserArgs'] users: Users this permission target applies for.
+        """
         if groups is not None:
             pulumi.set(__self__, "groups", groups)
         if users is not None:
@@ -4966,11 +6292,17 @@ class GetPermissionTargetBuildActionsResult(dict):
     @property
     @pulumi.getter
     def groups(self) -> Optional[Sequence['outputs.GetPermissionTargetBuildActionsGroupResult']]:
+        """
+        Groups this permission applies for.
+        """
         return pulumi.get(self, "groups")
 
     @property
     @pulumi.getter
     def users(self) -> Optional[Sequence['outputs.GetPermissionTargetBuildActionsUserResult']]:
+        """
+        Users this permission target applies for.
+        """
         return pulumi.get(self, "users")
 
 
@@ -4979,12 +6311,18 @@ class GetPermissionTargetBuildActionsGroupResult(dict):
     def __init__(__self__, *,
                  name: str,
                  permissions: Sequence[str]):
+        """
+        :param str name: Name of the permission target.
+        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "permissions", permissions)
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        Name of the permission target.
+        """
         return pulumi.get(self, "name")
 
     @property
@@ -4998,12 +6336,18 @@ class GetPermissionTargetBuildActionsUserResult(dict):
     def __init__(__self__, *,
                  name: str,
                  permissions: Sequence[str]):
+        """
+        :param str name: Name of the permission target.
+        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "permissions", permissions)
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        Name of the permission target.
+        """
         return pulumi.get(self, "name")
 
     @property
@@ -5019,6 +6363,13 @@ class GetPermissionTargetReleaseBundleResult(dict):
                  actions: Optional['outputs.GetPermissionTargetReleaseBundleActionsResult'] = None,
                  excludes_patterns: Optional[Sequence[str]] = None,
                  includes_patterns: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[str] repositories: List of repositories this permission target is applicable for. You can specify the
+               name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote
+               repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
+        :param Sequence[str] excludes_patterns: Pattern of artifacts to exclude.
+        :param Sequence[str] includes_patterns: Pattern of artifacts to include.
+        """
         pulumi.set(__self__, "repositories", repositories)
         if actions is not None:
             pulumi.set(__self__, "actions", actions)
@@ -5030,6 +6381,11 @@ class GetPermissionTargetReleaseBundleResult(dict):
     @property
     @pulumi.getter
     def repositories(self) -> Sequence[str]:
+        """
+        List of repositories this permission target is applicable for. You can specify the
+        name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote
+        repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
+        """
         return pulumi.get(self, "repositories")
 
     @property
@@ -5040,11 +6396,17 @@ class GetPermissionTargetReleaseBundleResult(dict):
     @property
     @pulumi.getter(name="excludesPatterns")
     def excludes_patterns(self) -> Optional[Sequence[str]]:
+        """
+        Pattern of artifacts to exclude.
+        """
         return pulumi.get(self, "excludes_patterns")
 
     @property
     @pulumi.getter(name="includesPatterns")
     def includes_patterns(self) -> Optional[Sequence[str]]:
+        """
+        Pattern of artifacts to include.
+        """
         return pulumi.get(self, "includes_patterns")
 
 
@@ -5053,6 +6415,10 @@ class GetPermissionTargetReleaseBundleActionsResult(dict):
     def __init__(__self__, *,
                  groups: Optional[Sequence['outputs.GetPermissionTargetReleaseBundleActionsGroupResult']] = None,
                  users: Optional[Sequence['outputs.GetPermissionTargetReleaseBundleActionsUserResult']] = None):
+        """
+        :param Sequence['GetPermissionTargetReleaseBundleActionsGroupArgs'] groups: Groups this permission applies for.
+        :param Sequence['GetPermissionTargetReleaseBundleActionsUserArgs'] users: Users this permission target applies for.
+        """
         if groups is not None:
             pulumi.set(__self__, "groups", groups)
         if users is not None:
@@ -5061,11 +6427,17 @@ class GetPermissionTargetReleaseBundleActionsResult(dict):
     @property
     @pulumi.getter
     def groups(self) -> Optional[Sequence['outputs.GetPermissionTargetReleaseBundleActionsGroupResult']]:
+        """
+        Groups this permission applies for.
+        """
         return pulumi.get(self, "groups")
 
     @property
     @pulumi.getter
     def users(self) -> Optional[Sequence['outputs.GetPermissionTargetReleaseBundleActionsUserResult']]:
+        """
+        Users this permission target applies for.
+        """
         return pulumi.get(self, "users")
 
 
@@ -5074,12 +6446,18 @@ class GetPermissionTargetReleaseBundleActionsGroupResult(dict):
     def __init__(__self__, *,
                  name: str,
                  permissions: Sequence[str]):
+        """
+        :param str name: Name of the permission target.
+        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "permissions", permissions)
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        Name of the permission target.
+        """
         return pulumi.get(self, "name")
 
     @property
@@ -5093,12 +6471,18 @@ class GetPermissionTargetReleaseBundleActionsUserResult(dict):
     def __init__(__self__, *,
                  name: str,
                  permissions: Sequence[str]):
+        """
+        :param str name: Name of the permission target.
+        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "permissions", permissions)
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        Name of the permission target.
+        """
         return pulumi.get(self, "name")
 
     @property
@@ -5114,6 +6498,13 @@ class GetPermissionTargetRepoResult(dict):
                  actions: Optional['outputs.GetPermissionTargetRepoActionsResult'] = None,
                  excludes_patterns: Optional[Sequence[str]] = None,
                  includes_patterns: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[str] repositories: List of repositories this permission target is applicable for. You can specify the
+               name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote
+               repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
+        :param Sequence[str] excludes_patterns: Pattern of artifacts to exclude.
+        :param Sequence[str] includes_patterns: Pattern of artifacts to include.
+        """
         pulumi.set(__self__, "repositories", repositories)
         if actions is not None:
             pulumi.set(__self__, "actions", actions)
@@ -5125,6 +6516,11 @@ class GetPermissionTargetRepoResult(dict):
     @property
     @pulumi.getter
     def repositories(self) -> Sequence[str]:
+        """
+        List of repositories this permission target is applicable for. You can specify the
+        name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote
+        repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
+        """
         return pulumi.get(self, "repositories")
 
     @property
@@ -5135,11 +6531,17 @@ class GetPermissionTargetRepoResult(dict):
     @property
     @pulumi.getter(name="excludesPatterns")
     def excludes_patterns(self) -> Optional[Sequence[str]]:
+        """
+        Pattern of artifacts to exclude.
+        """
         return pulumi.get(self, "excludes_patterns")
 
     @property
     @pulumi.getter(name="includesPatterns")
     def includes_patterns(self) -> Optional[Sequence[str]]:
+        """
+        Pattern of artifacts to include.
+        """
         return pulumi.get(self, "includes_patterns")
 
 
@@ -5148,6 +6550,10 @@ class GetPermissionTargetRepoActionsResult(dict):
     def __init__(__self__, *,
                  groups: Optional[Sequence['outputs.GetPermissionTargetRepoActionsGroupResult']] = None,
                  users: Optional[Sequence['outputs.GetPermissionTargetRepoActionsUserResult']] = None):
+        """
+        :param Sequence['GetPermissionTargetRepoActionsGroupArgs'] groups: Groups this permission applies for.
+        :param Sequence['GetPermissionTargetRepoActionsUserArgs'] users: Users this permission target applies for.
+        """
         if groups is not None:
             pulumi.set(__self__, "groups", groups)
         if users is not None:
@@ -5156,11 +6562,17 @@ class GetPermissionTargetRepoActionsResult(dict):
     @property
     @pulumi.getter
     def groups(self) -> Optional[Sequence['outputs.GetPermissionTargetRepoActionsGroupResult']]:
+        """
+        Groups this permission applies for.
+        """
         return pulumi.get(self, "groups")
 
     @property
     @pulumi.getter
     def users(self) -> Optional[Sequence['outputs.GetPermissionTargetRepoActionsUserResult']]:
+        """
+        Users this permission target applies for.
+        """
         return pulumi.get(self, "users")
 
 
@@ -5169,12 +6581,18 @@ class GetPermissionTargetRepoActionsGroupResult(dict):
     def __init__(__self__, *,
                  name: str,
                  permissions: Sequence[str]):
+        """
+        :param str name: Name of the permission target.
+        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "permissions", permissions)
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        Name of the permission target.
+        """
         return pulumi.get(self, "name")
 
     @property
@@ -5188,12 +6606,18 @@ class GetPermissionTargetRepoActionsUserResult(dict):
     def __init__(__self__, *,
                  name: str,
                  permissions: Sequence[str]):
+        """
+        :param str name: Name of the permission target.
+        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "permissions", permissions)
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        Name of the permission target.
+        """
         return pulumi.get(self, "name")
 
     @property

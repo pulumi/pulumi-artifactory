@@ -11,9 +11,59 @@ namespace Pulumi.Artifactory
 {
     public static class GetVirtualNugetRepository
     {
+        /// <summary>
+        /// Retrieves a virtual NPM repository.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var virtual_npm = Artifactory.GetVirtualNpmRepository.Invoke(new()
+        ///     {
+        ///         Key = "virtual-npm",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetVirtualNugetRepositoryResult> InvokeAsync(GetVirtualNugetRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNugetRepositoryResult>("artifactory:index/getVirtualNugetRepository:getVirtualNugetRepository", args ?? new GetVirtualNugetRepositoryArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Retrieves a virtual NPM repository.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var virtual_npm = Artifactory.GetVirtualNpmRepository.Invoke(new()
+        ///     {
+        ///         Key = "virtual-npm",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetVirtualNugetRepositoryResult> Invoke(GetVirtualNugetRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualNugetRepositoryResult>("artifactory:index/getVirtualNugetRepository:getVirtualNugetRepository", args ?? new GetVirtualNugetRepositoryInvokeArgs(), options.WithDefaults());
     }
@@ -33,12 +83,18 @@ namespace Pulumi.Artifactory
         [Input("excludesPattern")]
         public string? ExcludesPattern { get; set; }
 
+        /// <summary>
+        /// (Optional) If set, user authentication is required when accessing the repository. An anonymous request will display an HTTP 401 error. This is also enforced when aggregated repositories support anonymous requests. Default is `false`.
+        /// </summary>
         [Input("forceNugetAuthentication")]
         public bool? ForceNugetAuthentication { get; set; }
 
         [Input("includesPattern")]
         public string? IncludesPattern { get; set; }
 
+        /// <summary>
+        /// the identity key of the repo.
+        /// </summary>
         [Input("key", required: true)]
         public string Key { get; set; } = null!;
 
@@ -87,12 +143,18 @@ namespace Pulumi.Artifactory
         [Input("excludesPattern")]
         public Input<string>? ExcludesPattern { get; set; }
 
+        /// <summary>
+        /// (Optional) If set, user authentication is required when accessing the repository. An anonymous request will display an HTTP 401 error. This is also enforced when aggregated repositories support anonymous requests. Default is `false`.
+        /// </summary>
         [Input("forceNugetAuthentication")]
         public Input<bool>? ForceNugetAuthentication { get; set; }
 
         [Input("includesPattern")]
         public Input<string>? IncludesPattern { get; set; }
 
+        /// <summary>
+        /// the identity key of the repo.
+        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
@@ -135,6 +197,9 @@ namespace Pulumi.Artifactory
         public readonly string? DefaultDeploymentRepo;
         public readonly string? Description;
         public readonly string? ExcludesPattern;
+        /// <summary>
+        /// (Optional) If set, user authentication is required when accessing the repository. An anonymous request will display an HTTP 401 error. This is also enforced when aggregated repositories support anonymous requests. Default is `false`.
+        /// </summary>
         public readonly bool? ForceNugetAuthentication;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.

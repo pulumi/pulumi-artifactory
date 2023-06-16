@@ -6,6 +6,31 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * Creates a remote Bower repository.
+ * Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Bower+Repositories).
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const my_remote_bower = new artifactory.RemoteBowerRepository("my-remote-bower", {
+ *     key: "my-remote-bower",
+ *     url: "https://github.com/",
+ *     vcsGitProvider: "GITHUB",
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * Remote repositories can be imported using their name, e.g.
+ *
+ * ```sh
+ *  $ pulumi import artifactory:index/remoteBowerRepository:RemoteBowerRepository my-remote-bower my-remote-bower
+ * ```
+ */
 export class RemoteBowerRepository extends pulumi.CustomResource {
     /**
      * Get an existing RemoteBowerRepository resource's state with the given name, ID, and optional extra
@@ -57,7 +82,7 @@ export class RemoteBowerRepository extends pulumi.CustomResource {
      */
     public readonly blockMismatchingMimeTypes!: pulumi.Output<boolean | undefined>;
     /**
-     * Proxy remote Bower repository. Default value is "https://registry.bower.io".
+     * Proxy remote Bower repository. Default value is `https://registry.bower.io`.
      */
     public readonly bowerRegistryUrl!: pulumi.Output<string | undefined>;
     /**
@@ -105,8 +130,8 @@ export class RemoteBowerRepository extends pulumi.CustomResource {
      */
     public readonly includesPattern!: pulumi.Output<string | undefined>;
     /**
-     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-     * characters. It cannot begin with a number or contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+     * contain spaces or special characters.
      */
     public readonly key!: pulumi.Output<string>;
     /**
@@ -216,12 +241,11 @@ export class RemoteBowerRepository extends pulumi.CustomResource {
     public readonly url!: pulumi.Output<string>;
     public readonly username!: pulumi.Output<string | undefined>;
     /**
-     * This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
+     * This attribute is used when vcsGitProvider is set to 'CUSTOM'. Provided URL will be used as proxy.
      */
     public readonly vcsGitDownloadUrl!: pulumi.Output<string | undefined>;
     /**
-     * Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance.
-     * Default value is "GITHUB".
+     * Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`. Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
      */
     public readonly vcsGitProvider!: pulumi.Output<string | undefined>;
     /**
@@ -374,7 +398,7 @@ export interface RemoteBowerRepositoryState {
      */
     blockMismatchingMimeTypes?: pulumi.Input<boolean>;
     /**
-     * Proxy remote Bower repository. Default value is "https://registry.bower.io".
+     * Proxy remote Bower repository. Default value is `https://registry.bower.io`.
      */
     bowerRegistryUrl?: pulumi.Input<string>;
     /**
@@ -422,8 +446,8 @@ export interface RemoteBowerRepositoryState {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-     * characters. It cannot begin with a number or contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+     * contain spaces or special characters.
      */
     key?: pulumi.Input<string>;
     /**
@@ -533,12 +557,11 @@ export interface RemoteBowerRepositoryState {
     url?: pulumi.Input<string>;
     username?: pulumi.Input<string>;
     /**
-     * This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
+     * This attribute is used when vcsGitProvider is set to 'CUSTOM'. Provided URL will be used as proxy.
      */
     vcsGitDownloadUrl?: pulumi.Input<string>;
     /**
-     * Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance.
-     * Default value is "GITHUB".
+     * Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`. Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
      */
     vcsGitProvider?: pulumi.Input<string>;
     /**
@@ -575,7 +598,7 @@ export interface RemoteBowerRepositoryArgs {
      */
     blockMismatchingMimeTypes?: pulumi.Input<boolean>;
     /**
-     * Proxy remote Bower repository. Default value is "https://registry.bower.io".
+     * Proxy remote Bower repository. Default value is `https://registry.bower.io`.
      */
     bowerRegistryUrl?: pulumi.Input<string>;
     /**
@@ -623,8 +646,8 @@ export interface RemoteBowerRepositoryArgs {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-     * characters. It cannot begin with a number or contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+     * contain spaces or special characters.
      */
     key: pulumi.Input<string>;
     /**
@@ -733,12 +756,11 @@ export interface RemoteBowerRepositoryArgs {
     url: pulumi.Input<string>;
     username?: pulumi.Input<string>;
     /**
-     * This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
+     * This attribute is used when vcsGitProvider is set to 'CUSTOM'. Provided URL will be used as proxy.
      */
     vcsGitDownloadUrl?: pulumi.Input<string>;
     /**
-     * Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance.
-     * Default value is "GITHUB".
+     * Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`. Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
      */
     vcsGitProvider?: pulumi.Input<string>;
     /**

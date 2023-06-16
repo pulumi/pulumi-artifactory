@@ -365,6 +365,9 @@ class GetRemoteGoRepositoryResult:
     @property
     @pulumi.getter(name="vcsGitProvider")
     def vcs_git_provider(self) -> Optional[str]:
+        """
+        (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `ARTIFACTORY`.
+        """
         return pulumi.get(self, "vcs_git_provider")
 
     @property
@@ -467,7 +470,20 @@ def get_remote_go_repository(allow_any_host_auth: Optional[bool] = None,
                              xray_index: Optional[bool] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRemoteGoRepositoryResult:
     """
-    Use this data source to access information about an existing resource.
+    Retrieves a remote Go repository.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_artifactory as artifactory
+
+    remote_go = artifactory.get_remote_go_repository(key="remote-go")
+    ```
+
+
+    :param str key: the identity key of the repo.
+    :param str vcs_git_provider: (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `ARTIFACTORY`.
     """
     __args__ = dict()
     __args__['allowAnyHostAuth'] = allow_any_host_auth
@@ -604,6 +620,19 @@ def get_remote_go_repository_output(allow_any_host_auth: Optional[pulumi.Input[O
                                     xray_index: Optional[pulumi.Input[Optional[bool]]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRemoteGoRepositoryResult]:
     """
-    Use this data source to access information about an existing resource.
+    Retrieves a remote Go repository.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_artifactory as artifactory
+
+    remote_go = artifactory.get_remote_go_repository(key="remote-go")
+    ```
+
+
+    :param str key: the identity key of the repo.
+    :param str vcs_git_provider: (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `ARTIFACTORY`.
     """
     ...

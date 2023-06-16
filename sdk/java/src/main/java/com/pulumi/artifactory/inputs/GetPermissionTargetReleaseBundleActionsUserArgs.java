@@ -14,9 +14,17 @@ public final class GetPermissionTargetReleaseBundleActionsUserArgs extends com.p
 
     public static final GetPermissionTargetReleaseBundleActionsUserArgs Empty = new GetPermissionTargetReleaseBundleActionsUserArgs();
 
+    /**
+     * Name of the permission target.
+     * 
+     */
     @Import(name="name", required=true)
     private Output<String> name;
 
+    /**
+     * @return Name of the permission target.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
@@ -53,11 +61,23 @@ public final class GetPermissionTargetReleaseBundleActionsUserArgs extends com.p
             $ = new GetPermissionTargetReleaseBundleActionsUserArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param name Name of the permission target.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name Name of the permission target.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

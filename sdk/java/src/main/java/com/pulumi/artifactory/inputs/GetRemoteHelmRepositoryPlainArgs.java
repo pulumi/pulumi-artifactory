@@ -102,16 +102,32 @@ public final class GetRemoteHelmRepositoryPlainArgs extends com.pulumi.resources
         return Optional.ofNullable(this.excludesPattern);
     }
 
+    /**
+     * (Optional) When set, external dependencies are rewritten. `External Dependency Rewrite` in the UI.
+     * 
+     */
     @Import(name="externalDependenciesEnabled")
     private @Nullable Boolean externalDependenciesEnabled;
 
+    /**
+     * @return (Optional) When set, external dependencies are rewritten. `External Dependency Rewrite` in the UI.
+     * 
+     */
     public Optional<Boolean> externalDependenciesEnabled() {
         return Optional.ofNullable(this.externalDependenciesEnabled);
     }
 
+    /**
+     * (Optional) An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download remote modules from, when presented with &#39;go-import&#39; meta tags in the remote repository response. By default, this is set to `[**]` in the UI, which means that remote modules may be downloaded from any external VCS source. Due to SDKv2 limitations, we can&#39;t set the default value for the list. This value `[**]` must be assigned to the attribute manually, if user don&#39;t specify any other non-default values. We don&#39;t want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns `[**]` on update if HCL doesn&#39;t have the attribute set or the list is empty.
+     * 
+     */
     @Import(name="externalDependenciesPatterns")
     private @Nullable List<String> externalDependenciesPatterns;
 
+    /**
+     * @return (Optional) An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download remote modules from, when presented with &#39;go-import&#39; meta tags in the remote repository response. By default, this is set to `[**]` in the UI, which means that remote modules may be downloaded from any external VCS source. Due to SDKv2 limitations, we can&#39;t set the default value for the list. This value `[**]` must be assigned to the attribute manually, if user don&#39;t specify any other non-default values. We don&#39;t want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns `[**]` on update if HCL doesn&#39;t have the attribute set or the list is empty.
+     * 
+     */
     public Optional<List<String>> externalDependenciesPatterns() {
         return Optional.ofNullable(this.externalDependenciesPatterns);
     }
@@ -123,9 +139,17 @@ public final class GetRemoteHelmRepositoryPlainArgs extends com.pulumi.resources
         return Optional.ofNullable(this.hardFail);
     }
 
+    /**
+     * (Optional) No documentation is available. Hopefully you know what this means.
+     * 
+     */
     @Import(name="helmChartsBaseUrl")
     private @Nullable String helmChartsBaseUrl;
 
+    /**
+     * @return (Optional) No documentation is available. Hopefully you know what this means.
+     * 
+     */
     public Optional<String> helmChartsBaseUrl() {
         return Optional.ofNullable(this.helmChartsBaseUrl);
     }
@@ -137,9 +161,17 @@ public final class GetRemoteHelmRepositoryPlainArgs extends com.pulumi.resources
         return Optional.ofNullable(this.includesPattern);
     }
 
+    /**
+     * the identity key of the repo.
+     * 
+     */
     @Import(name="key", required=true)
     private String key;
 
+    /**
+     * @return the identity key of the repo.
+     * 
+     */
     public String key() {
         return this.key;
     }
@@ -445,16 +477,34 @@ public final class GetRemoteHelmRepositoryPlainArgs extends com.pulumi.resources
             return this;
         }
 
+        /**
+         * @param externalDependenciesEnabled (Optional) When set, external dependencies are rewritten. `External Dependency Rewrite` in the UI.
+         * 
+         * @return builder
+         * 
+         */
         public Builder externalDependenciesEnabled(@Nullable Boolean externalDependenciesEnabled) {
             $.externalDependenciesEnabled = externalDependenciesEnabled;
             return this;
         }
 
+        /**
+         * @param externalDependenciesPatterns (Optional) An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download remote modules from, when presented with &#39;go-import&#39; meta tags in the remote repository response. By default, this is set to `[**]` in the UI, which means that remote modules may be downloaded from any external VCS source. Due to SDKv2 limitations, we can&#39;t set the default value for the list. This value `[**]` must be assigned to the attribute manually, if user don&#39;t specify any other non-default values. We don&#39;t want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns `[**]` on update if HCL doesn&#39;t have the attribute set or the list is empty.
+         * 
+         * @return builder
+         * 
+         */
         public Builder externalDependenciesPatterns(@Nullable List<String> externalDependenciesPatterns) {
             $.externalDependenciesPatterns = externalDependenciesPatterns;
             return this;
         }
 
+        /**
+         * @param externalDependenciesPatterns (Optional) An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download remote modules from, when presented with &#39;go-import&#39; meta tags in the remote repository response. By default, this is set to `[**]` in the UI, which means that remote modules may be downloaded from any external VCS source. Due to SDKv2 limitations, we can&#39;t set the default value for the list. This value `[**]` must be assigned to the attribute manually, if user don&#39;t specify any other non-default values. We don&#39;t want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns `[**]` on update if HCL doesn&#39;t have the attribute set or the list is empty.
+         * 
+         * @return builder
+         * 
+         */
         public Builder externalDependenciesPatterns(String... externalDependenciesPatterns) {
             return externalDependenciesPatterns(List.of(externalDependenciesPatterns));
         }
@@ -464,6 +514,12 @@ public final class GetRemoteHelmRepositoryPlainArgs extends com.pulumi.resources
             return this;
         }
 
+        /**
+         * @param helmChartsBaseUrl (Optional) No documentation is available. Hopefully you know what this means.
+         * 
+         * @return builder
+         * 
+         */
         public Builder helmChartsBaseUrl(@Nullable String helmChartsBaseUrl) {
             $.helmChartsBaseUrl = helmChartsBaseUrl;
             return this;
@@ -474,6 +530,12 @@ public final class GetRemoteHelmRepositoryPlainArgs extends com.pulumi.resources
             return this;
         }
 
+        /**
+         * @param key the identity key of the repo.
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(String key) {
             $.key = key;
             return this;

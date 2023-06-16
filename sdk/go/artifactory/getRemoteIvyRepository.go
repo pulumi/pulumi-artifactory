@@ -10,6 +10,33 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Retrieves a remote Ivy repository.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.LookupRemoteIvyRepository(ctx, &artifactory.LookupRemoteIvyRepositoryArgs{
+//				Key: "remote-ivy",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupRemoteIvyRepository(ctx *pulumi.Context, args *LookupRemoteIvyRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupRemoteIvyRepositoryResult, error) {
 	var rv LookupRemoteIvyRepositoryResult
 	err := ctx.Invoke("artifactory:index/getRemoteIvyRepository:getRemoteIvyRepository", args, &rv, opts...)
@@ -21,53 +48,61 @@ func LookupRemoteIvyRepository(ctx *pulumi.Context, args *LookupRemoteIvyReposit
 
 // A collection of arguments for invoking getRemoteIvyRepository.
 type LookupRemoteIvyRepositoryArgs struct {
-	AllowAnyHostAuth                  *bool                                         `pulumi:"allowAnyHostAuth"`
-	AssumedOfflinePeriodSecs          *int                                          `pulumi:"assumedOfflinePeriodSecs"`
-	BlackedOut                        *bool                                         `pulumi:"blackedOut"`
-	BlockMismatchingMimeTypes         *bool                                         `pulumi:"blockMismatchingMimeTypes"`
-	BypassHeadRequests                *bool                                         `pulumi:"bypassHeadRequests"`
-	CdnRedirect                       *bool                                         `pulumi:"cdnRedirect"`
-	ClientTlsCertificate              *string                                       `pulumi:"clientTlsCertificate"`
-	ContentSynchronisation            *GetRemoteIvyRepositoryContentSynchronisation `pulumi:"contentSynchronisation"`
-	Description                       *string                                       `pulumi:"description"`
-	DownloadDirect                    *bool                                         `pulumi:"downloadDirect"`
-	EnableCookieManagement            *bool                                         `pulumi:"enableCookieManagement"`
-	ExcludesPattern                   *string                                       `pulumi:"excludesPattern"`
-	FetchJarsEagerly                  *bool                                         `pulumi:"fetchJarsEagerly"`
-	FetchSourcesEagerly               *bool                                         `pulumi:"fetchSourcesEagerly"`
-	HandleReleases                    *bool                                         `pulumi:"handleReleases"`
-	HandleSnapshots                   *bool                                         `pulumi:"handleSnapshots"`
-	HardFail                          *bool                                         `pulumi:"hardFail"`
-	IncludesPattern                   *string                                       `pulumi:"includesPattern"`
-	Key                               string                                        `pulumi:"key"`
-	ListRemoteFolderItems             *bool                                         `pulumi:"listRemoteFolderItems"`
-	LocalAddress                      *string                                       `pulumi:"localAddress"`
-	MetadataRetrievalTimeoutSecs      *int                                          `pulumi:"metadataRetrievalTimeoutSecs"`
-	MismatchingMimeTypesOverrideList  *string                                       `pulumi:"mismatchingMimeTypesOverrideList"`
-	MissedCachePeriodSeconds          *int                                          `pulumi:"missedCachePeriodSeconds"`
-	Notes                             *string                                       `pulumi:"notes"`
-	Offline                           *bool                                         `pulumi:"offline"`
-	Password                          *string                                       `pulumi:"password"`
-	PriorityResolution                *bool                                         `pulumi:"priorityResolution"`
-	ProjectEnvironments               []string                                      `pulumi:"projectEnvironments"`
-	ProjectKey                        *string                                       `pulumi:"projectKey"`
-	PropertySets                      []string                                      `pulumi:"propertySets"`
-	Proxy                             *string                                       `pulumi:"proxy"`
-	QueryParams                       *string                                       `pulumi:"queryParams"`
-	RejectInvalidJars                 *bool                                         `pulumi:"rejectInvalidJars"`
-	RemoteRepoChecksumPolicyType      *string                                       `pulumi:"remoteRepoChecksumPolicyType"`
-	RemoteRepoLayoutRef               *string                                       `pulumi:"remoteRepoLayoutRef"`
-	RepoLayoutRef                     *string                                       `pulumi:"repoLayoutRef"`
-	RetrievalCachePeriodSeconds       *int                                          `pulumi:"retrievalCachePeriodSeconds"`
-	ShareConfiguration                *bool                                         `pulumi:"shareConfiguration"`
-	SocketTimeoutMillis               *int                                          `pulumi:"socketTimeoutMillis"`
-	StoreArtifactsLocally             *bool                                         `pulumi:"storeArtifactsLocally"`
-	SuppressPomConsistencyChecks      *bool                                         `pulumi:"suppressPomConsistencyChecks"`
-	SynchronizeProperties             *bool                                         `pulumi:"synchronizeProperties"`
-	UnusedArtifactsCleanupPeriodHours *int                                          `pulumi:"unusedArtifactsCleanupPeriodHours"`
-	Url                               *string                                       `pulumi:"url"`
-	Username                          *string                                       `pulumi:"username"`
-	XrayIndex                         *bool                                         `pulumi:"xrayIndex"`
+	AllowAnyHostAuth          *bool                                         `pulumi:"allowAnyHostAuth"`
+	AssumedOfflinePeriodSecs  *int                                          `pulumi:"assumedOfflinePeriodSecs"`
+	BlackedOut                *bool                                         `pulumi:"blackedOut"`
+	BlockMismatchingMimeTypes *bool                                         `pulumi:"blockMismatchingMimeTypes"`
+	BypassHeadRequests        *bool                                         `pulumi:"bypassHeadRequests"`
+	CdnRedirect               *bool                                         `pulumi:"cdnRedirect"`
+	ClientTlsCertificate      *string                                       `pulumi:"clientTlsCertificate"`
+	ContentSynchronisation    *GetRemoteIvyRepositoryContentSynchronisation `pulumi:"contentSynchronisation"`
+	Description               *string                                       `pulumi:"description"`
+	DownloadDirect            *bool                                         `pulumi:"downloadDirect"`
+	EnableCookieManagement    *bool                                         `pulumi:"enableCookieManagement"`
+	ExcludesPattern           *string                                       `pulumi:"excludesPattern"`
+	// (Optional, Default: `false`) When set, if a POM is requested, Artifactory attempts to fetch the corresponding jar in the background. This will accelerate first access time to the jar when it is subsequently requested.
+	FetchJarsEagerly *bool `pulumi:"fetchJarsEagerly"`
+	// (Optional, Default: `false`) When set, if a binaries jar is requested, Artifactory attempts to fetch the corresponding source jar in the background. This will accelerate first access time to the source jar when it is subsequently requested.
+	FetchSourcesEagerly *bool `pulumi:"fetchSourcesEagerly"`
+	// (Optional, Default: `true`) If set, Artifactory allows you to deploy release artifacts into this repository.
+	HandleReleases *bool `pulumi:"handleReleases"`
+	// (Optional, Default: `true`) If set, Artifactory allows you to deploy snapshot artifacts into this repository.
+	HandleSnapshots *bool   `pulumi:"handleSnapshots"`
+	HardFail        *bool   `pulumi:"hardFail"`
+	IncludesPattern *string `pulumi:"includesPattern"`
+	// the identity key of the repo.
+	Key                              string   `pulumi:"key"`
+	ListRemoteFolderItems            *bool    `pulumi:"listRemoteFolderItems"`
+	LocalAddress                     *string  `pulumi:"localAddress"`
+	MetadataRetrievalTimeoutSecs     *int     `pulumi:"metadataRetrievalTimeoutSecs"`
+	MismatchingMimeTypesOverrideList *string  `pulumi:"mismatchingMimeTypesOverrideList"`
+	MissedCachePeriodSeconds         *int     `pulumi:"missedCachePeriodSeconds"`
+	Notes                            *string  `pulumi:"notes"`
+	Offline                          *bool    `pulumi:"offline"`
+	Password                         *string  `pulumi:"password"`
+	PriorityResolution               *bool    `pulumi:"priorityResolution"`
+	ProjectEnvironments              []string `pulumi:"projectEnvironments"`
+	ProjectKey                       *string  `pulumi:"projectKey"`
+	PropertySets                     []string `pulumi:"propertySets"`
+	Proxy                            *string  `pulumi:"proxy"`
+	QueryParams                      *string  `pulumi:"queryParams"`
+	// (Optional, Default: `false`) Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a "captive portal".
+	RejectInvalidJars *bool `pulumi:"rejectInvalidJars"`
+	// (Optional, Default: `generate-if-absent`) Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
+	RemoteRepoChecksumPolicyType *string `pulumi:"remoteRepoChecksumPolicyType"`
+	RemoteRepoLayoutRef          *string `pulumi:"remoteRepoLayoutRef"`
+	RepoLayoutRef                *string `pulumi:"repoLayoutRef"`
+	RetrievalCachePeriodSeconds  *int    `pulumi:"retrievalCachePeriodSeconds"`
+	ShareConfiguration           *bool   `pulumi:"shareConfiguration"`
+	SocketTimeoutMillis          *int    `pulumi:"socketTimeoutMillis"`
+	StoreArtifactsLocally        *bool   `pulumi:"storeArtifactsLocally"`
+	// (Optional, Default: `true`) - By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error. You can disable this behavior by setting this attribute to `true`'
+	SuppressPomConsistencyChecks      *bool   `pulumi:"suppressPomConsistencyChecks"`
+	SynchronizeProperties             *bool   `pulumi:"synchronizeProperties"`
+	UnusedArtifactsCleanupPeriodHours *int    `pulumi:"unusedArtifactsCleanupPeriodHours"`
+	Url                               *string `pulumi:"url"`
+	Username                          *string `pulumi:"username"`
+	XrayIndex                         *bool   `pulumi:"xrayIndex"`
 }
 
 // A collection of values returned by getRemoteIvyRepository.
@@ -84,44 +119,51 @@ type LookupRemoteIvyRepositoryResult struct {
 	DownloadDirect            *bool                                        `pulumi:"downloadDirect"`
 	EnableCookieManagement    *bool                                        `pulumi:"enableCookieManagement"`
 	ExcludesPattern           *string                                      `pulumi:"excludesPattern"`
-	FetchJarsEagerly          *bool                                        `pulumi:"fetchJarsEagerly"`
-	FetchSourcesEagerly       *bool                                        `pulumi:"fetchSourcesEagerly"`
-	HandleReleases            *bool                                        `pulumi:"handleReleases"`
-	HandleSnapshots           *bool                                        `pulumi:"handleSnapshots"`
-	HardFail                  *bool                                        `pulumi:"hardFail"`
+	// (Optional, Default: `false`) When set, if a POM is requested, Artifactory attempts to fetch the corresponding jar in the background. This will accelerate first access time to the jar when it is subsequently requested.
+	FetchJarsEagerly *bool `pulumi:"fetchJarsEagerly"`
+	// (Optional, Default: `false`) When set, if a binaries jar is requested, Artifactory attempts to fetch the corresponding source jar in the background. This will accelerate first access time to the source jar when it is subsequently requested.
+	FetchSourcesEagerly *bool `pulumi:"fetchSourcesEagerly"`
+	// (Optional, Default: `true`) If set, Artifactory allows you to deploy release artifacts into this repository.
+	HandleReleases *bool `pulumi:"handleReleases"`
+	// (Optional, Default: `true`) If set, Artifactory allows you to deploy snapshot artifacts into this repository.
+	HandleSnapshots *bool `pulumi:"handleSnapshots"`
+	HardFail        *bool `pulumi:"hardFail"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                                string   `pulumi:"id"`
-	IncludesPattern                   *string  `pulumi:"includesPattern"`
-	Key                               string   `pulumi:"key"`
-	ListRemoteFolderItems             *bool    `pulumi:"listRemoteFolderItems"`
-	LocalAddress                      *string  `pulumi:"localAddress"`
-	MetadataRetrievalTimeoutSecs      *int     `pulumi:"metadataRetrievalTimeoutSecs"`
-	MismatchingMimeTypesOverrideList  *string  `pulumi:"mismatchingMimeTypesOverrideList"`
-	MissedCachePeriodSeconds          *int     `pulumi:"missedCachePeriodSeconds"`
-	Notes                             *string  `pulumi:"notes"`
-	Offline                           *bool    `pulumi:"offline"`
-	PackageType                       string   `pulumi:"packageType"`
-	Password                          *string  `pulumi:"password"`
-	PriorityResolution                *bool    `pulumi:"priorityResolution"`
-	ProjectEnvironments               []string `pulumi:"projectEnvironments"`
-	ProjectKey                        *string  `pulumi:"projectKey"`
-	PropertySets                      []string `pulumi:"propertySets"`
-	Proxy                             *string  `pulumi:"proxy"`
-	QueryParams                       *string  `pulumi:"queryParams"`
-	RejectInvalidJars                 *bool    `pulumi:"rejectInvalidJars"`
-	RemoteRepoChecksumPolicyType      *string  `pulumi:"remoteRepoChecksumPolicyType"`
-	RemoteRepoLayoutRef               *string  `pulumi:"remoteRepoLayoutRef"`
-	RepoLayoutRef                     *string  `pulumi:"repoLayoutRef"`
-	RetrievalCachePeriodSeconds       *int     `pulumi:"retrievalCachePeriodSeconds"`
-	ShareConfiguration                bool     `pulumi:"shareConfiguration"`
-	SocketTimeoutMillis               *int     `pulumi:"socketTimeoutMillis"`
-	StoreArtifactsLocally             *bool    `pulumi:"storeArtifactsLocally"`
-	SuppressPomConsistencyChecks      *bool    `pulumi:"suppressPomConsistencyChecks"`
-	SynchronizeProperties             *bool    `pulumi:"synchronizeProperties"`
-	UnusedArtifactsCleanupPeriodHours *int     `pulumi:"unusedArtifactsCleanupPeriodHours"`
-	Url                               *string  `pulumi:"url"`
-	Username                          *string  `pulumi:"username"`
-	XrayIndex                         *bool    `pulumi:"xrayIndex"`
+	Id                               string   `pulumi:"id"`
+	IncludesPattern                  *string  `pulumi:"includesPattern"`
+	Key                              string   `pulumi:"key"`
+	ListRemoteFolderItems            *bool    `pulumi:"listRemoteFolderItems"`
+	LocalAddress                     *string  `pulumi:"localAddress"`
+	MetadataRetrievalTimeoutSecs     *int     `pulumi:"metadataRetrievalTimeoutSecs"`
+	MismatchingMimeTypesOverrideList *string  `pulumi:"mismatchingMimeTypesOverrideList"`
+	MissedCachePeriodSeconds         *int     `pulumi:"missedCachePeriodSeconds"`
+	Notes                            *string  `pulumi:"notes"`
+	Offline                          *bool    `pulumi:"offline"`
+	PackageType                      string   `pulumi:"packageType"`
+	Password                         *string  `pulumi:"password"`
+	PriorityResolution               *bool    `pulumi:"priorityResolution"`
+	ProjectEnvironments              []string `pulumi:"projectEnvironments"`
+	ProjectKey                       *string  `pulumi:"projectKey"`
+	PropertySets                     []string `pulumi:"propertySets"`
+	Proxy                            *string  `pulumi:"proxy"`
+	QueryParams                      *string  `pulumi:"queryParams"`
+	// (Optional, Default: `false`) Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a "captive portal".
+	RejectInvalidJars *bool `pulumi:"rejectInvalidJars"`
+	// (Optional, Default: `generate-if-absent`) Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
+	RemoteRepoChecksumPolicyType *string `pulumi:"remoteRepoChecksumPolicyType"`
+	RemoteRepoLayoutRef          *string `pulumi:"remoteRepoLayoutRef"`
+	RepoLayoutRef                *string `pulumi:"repoLayoutRef"`
+	RetrievalCachePeriodSeconds  *int    `pulumi:"retrievalCachePeriodSeconds"`
+	ShareConfiguration           bool    `pulumi:"shareConfiguration"`
+	SocketTimeoutMillis          *int    `pulumi:"socketTimeoutMillis"`
+	StoreArtifactsLocally        *bool   `pulumi:"storeArtifactsLocally"`
+	// (Optional, Default: `true`) - By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error. You can disable this behavior by setting this attribute to `true`'
+	SuppressPomConsistencyChecks      *bool   `pulumi:"suppressPomConsistencyChecks"`
+	SynchronizeProperties             *bool   `pulumi:"synchronizeProperties"`
+	UnusedArtifactsCleanupPeriodHours *int    `pulumi:"unusedArtifactsCleanupPeriodHours"`
+	Url                               *string `pulumi:"url"`
+	Username                          *string `pulumi:"username"`
+	XrayIndex                         *bool   `pulumi:"xrayIndex"`
 }
 
 func LookupRemoteIvyRepositoryOutput(ctx *pulumi.Context, args LookupRemoteIvyRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupRemoteIvyRepositoryResultOutput {
@@ -139,53 +181,61 @@ func LookupRemoteIvyRepositoryOutput(ctx *pulumi.Context, args LookupRemoteIvyRe
 
 // A collection of arguments for invoking getRemoteIvyRepository.
 type LookupRemoteIvyRepositoryOutputArgs struct {
-	AllowAnyHostAuth                  pulumi.BoolPtrInput                                  `pulumi:"allowAnyHostAuth"`
-	AssumedOfflinePeriodSecs          pulumi.IntPtrInput                                   `pulumi:"assumedOfflinePeriodSecs"`
-	BlackedOut                        pulumi.BoolPtrInput                                  `pulumi:"blackedOut"`
-	BlockMismatchingMimeTypes         pulumi.BoolPtrInput                                  `pulumi:"blockMismatchingMimeTypes"`
-	BypassHeadRequests                pulumi.BoolPtrInput                                  `pulumi:"bypassHeadRequests"`
-	CdnRedirect                       pulumi.BoolPtrInput                                  `pulumi:"cdnRedirect"`
-	ClientTlsCertificate              pulumi.StringPtrInput                                `pulumi:"clientTlsCertificate"`
-	ContentSynchronisation            GetRemoteIvyRepositoryContentSynchronisationPtrInput `pulumi:"contentSynchronisation"`
-	Description                       pulumi.StringPtrInput                                `pulumi:"description"`
-	DownloadDirect                    pulumi.BoolPtrInput                                  `pulumi:"downloadDirect"`
-	EnableCookieManagement            pulumi.BoolPtrInput                                  `pulumi:"enableCookieManagement"`
-	ExcludesPattern                   pulumi.StringPtrInput                                `pulumi:"excludesPattern"`
-	FetchJarsEagerly                  pulumi.BoolPtrInput                                  `pulumi:"fetchJarsEagerly"`
-	FetchSourcesEagerly               pulumi.BoolPtrInput                                  `pulumi:"fetchSourcesEagerly"`
-	HandleReleases                    pulumi.BoolPtrInput                                  `pulumi:"handleReleases"`
-	HandleSnapshots                   pulumi.BoolPtrInput                                  `pulumi:"handleSnapshots"`
-	HardFail                          pulumi.BoolPtrInput                                  `pulumi:"hardFail"`
-	IncludesPattern                   pulumi.StringPtrInput                                `pulumi:"includesPattern"`
-	Key                               pulumi.StringInput                                   `pulumi:"key"`
-	ListRemoteFolderItems             pulumi.BoolPtrInput                                  `pulumi:"listRemoteFolderItems"`
-	LocalAddress                      pulumi.StringPtrInput                                `pulumi:"localAddress"`
-	MetadataRetrievalTimeoutSecs      pulumi.IntPtrInput                                   `pulumi:"metadataRetrievalTimeoutSecs"`
-	MismatchingMimeTypesOverrideList  pulumi.StringPtrInput                                `pulumi:"mismatchingMimeTypesOverrideList"`
-	MissedCachePeriodSeconds          pulumi.IntPtrInput                                   `pulumi:"missedCachePeriodSeconds"`
-	Notes                             pulumi.StringPtrInput                                `pulumi:"notes"`
-	Offline                           pulumi.BoolPtrInput                                  `pulumi:"offline"`
-	Password                          pulumi.StringPtrInput                                `pulumi:"password"`
-	PriorityResolution                pulumi.BoolPtrInput                                  `pulumi:"priorityResolution"`
-	ProjectEnvironments               pulumi.StringArrayInput                              `pulumi:"projectEnvironments"`
-	ProjectKey                        pulumi.StringPtrInput                                `pulumi:"projectKey"`
-	PropertySets                      pulumi.StringArrayInput                              `pulumi:"propertySets"`
-	Proxy                             pulumi.StringPtrInput                                `pulumi:"proxy"`
-	QueryParams                       pulumi.StringPtrInput                                `pulumi:"queryParams"`
-	RejectInvalidJars                 pulumi.BoolPtrInput                                  `pulumi:"rejectInvalidJars"`
-	RemoteRepoChecksumPolicyType      pulumi.StringPtrInput                                `pulumi:"remoteRepoChecksumPolicyType"`
-	RemoteRepoLayoutRef               pulumi.StringPtrInput                                `pulumi:"remoteRepoLayoutRef"`
-	RepoLayoutRef                     pulumi.StringPtrInput                                `pulumi:"repoLayoutRef"`
-	RetrievalCachePeriodSeconds       pulumi.IntPtrInput                                   `pulumi:"retrievalCachePeriodSeconds"`
-	ShareConfiguration                pulumi.BoolPtrInput                                  `pulumi:"shareConfiguration"`
-	SocketTimeoutMillis               pulumi.IntPtrInput                                   `pulumi:"socketTimeoutMillis"`
-	StoreArtifactsLocally             pulumi.BoolPtrInput                                  `pulumi:"storeArtifactsLocally"`
-	SuppressPomConsistencyChecks      pulumi.BoolPtrInput                                  `pulumi:"suppressPomConsistencyChecks"`
-	SynchronizeProperties             pulumi.BoolPtrInput                                  `pulumi:"synchronizeProperties"`
-	UnusedArtifactsCleanupPeriodHours pulumi.IntPtrInput                                   `pulumi:"unusedArtifactsCleanupPeriodHours"`
-	Url                               pulumi.StringPtrInput                                `pulumi:"url"`
-	Username                          pulumi.StringPtrInput                                `pulumi:"username"`
-	XrayIndex                         pulumi.BoolPtrInput                                  `pulumi:"xrayIndex"`
+	AllowAnyHostAuth          pulumi.BoolPtrInput                                  `pulumi:"allowAnyHostAuth"`
+	AssumedOfflinePeriodSecs  pulumi.IntPtrInput                                   `pulumi:"assumedOfflinePeriodSecs"`
+	BlackedOut                pulumi.BoolPtrInput                                  `pulumi:"blackedOut"`
+	BlockMismatchingMimeTypes pulumi.BoolPtrInput                                  `pulumi:"blockMismatchingMimeTypes"`
+	BypassHeadRequests        pulumi.BoolPtrInput                                  `pulumi:"bypassHeadRequests"`
+	CdnRedirect               pulumi.BoolPtrInput                                  `pulumi:"cdnRedirect"`
+	ClientTlsCertificate      pulumi.StringPtrInput                                `pulumi:"clientTlsCertificate"`
+	ContentSynchronisation    GetRemoteIvyRepositoryContentSynchronisationPtrInput `pulumi:"contentSynchronisation"`
+	Description               pulumi.StringPtrInput                                `pulumi:"description"`
+	DownloadDirect            pulumi.BoolPtrInput                                  `pulumi:"downloadDirect"`
+	EnableCookieManagement    pulumi.BoolPtrInput                                  `pulumi:"enableCookieManagement"`
+	ExcludesPattern           pulumi.StringPtrInput                                `pulumi:"excludesPattern"`
+	// (Optional, Default: `false`) When set, if a POM is requested, Artifactory attempts to fetch the corresponding jar in the background. This will accelerate first access time to the jar when it is subsequently requested.
+	FetchJarsEagerly pulumi.BoolPtrInput `pulumi:"fetchJarsEagerly"`
+	// (Optional, Default: `false`) When set, if a binaries jar is requested, Artifactory attempts to fetch the corresponding source jar in the background. This will accelerate first access time to the source jar when it is subsequently requested.
+	FetchSourcesEagerly pulumi.BoolPtrInput `pulumi:"fetchSourcesEagerly"`
+	// (Optional, Default: `true`) If set, Artifactory allows you to deploy release artifacts into this repository.
+	HandleReleases pulumi.BoolPtrInput `pulumi:"handleReleases"`
+	// (Optional, Default: `true`) If set, Artifactory allows you to deploy snapshot artifacts into this repository.
+	HandleSnapshots pulumi.BoolPtrInput   `pulumi:"handleSnapshots"`
+	HardFail        pulumi.BoolPtrInput   `pulumi:"hardFail"`
+	IncludesPattern pulumi.StringPtrInput `pulumi:"includesPattern"`
+	// the identity key of the repo.
+	Key                              pulumi.StringInput      `pulumi:"key"`
+	ListRemoteFolderItems            pulumi.BoolPtrInput     `pulumi:"listRemoteFolderItems"`
+	LocalAddress                     pulumi.StringPtrInput   `pulumi:"localAddress"`
+	MetadataRetrievalTimeoutSecs     pulumi.IntPtrInput      `pulumi:"metadataRetrievalTimeoutSecs"`
+	MismatchingMimeTypesOverrideList pulumi.StringPtrInput   `pulumi:"mismatchingMimeTypesOverrideList"`
+	MissedCachePeriodSeconds         pulumi.IntPtrInput      `pulumi:"missedCachePeriodSeconds"`
+	Notes                            pulumi.StringPtrInput   `pulumi:"notes"`
+	Offline                          pulumi.BoolPtrInput     `pulumi:"offline"`
+	Password                         pulumi.StringPtrInput   `pulumi:"password"`
+	PriorityResolution               pulumi.BoolPtrInput     `pulumi:"priorityResolution"`
+	ProjectEnvironments              pulumi.StringArrayInput `pulumi:"projectEnvironments"`
+	ProjectKey                       pulumi.StringPtrInput   `pulumi:"projectKey"`
+	PropertySets                     pulumi.StringArrayInput `pulumi:"propertySets"`
+	Proxy                            pulumi.StringPtrInput   `pulumi:"proxy"`
+	QueryParams                      pulumi.StringPtrInput   `pulumi:"queryParams"`
+	// (Optional, Default: `false`) Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a "captive portal".
+	RejectInvalidJars pulumi.BoolPtrInput `pulumi:"rejectInvalidJars"`
+	// (Optional, Default: `generate-if-absent`) Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
+	RemoteRepoChecksumPolicyType pulumi.StringPtrInput `pulumi:"remoteRepoChecksumPolicyType"`
+	RemoteRepoLayoutRef          pulumi.StringPtrInput `pulumi:"remoteRepoLayoutRef"`
+	RepoLayoutRef                pulumi.StringPtrInput `pulumi:"repoLayoutRef"`
+	RetrievalCachePeriodSeconds  pulumi.IntPtrInput    `pulumi:"retrievalCachePeriodSeconds"`
+	ShareConfiguration           pulumi.BoolPtrInput   `pulumi:"shareConfiguration"`
+	SocketTimeoutMillis          pulumi.IntPtrInput    `pulumi:"socketTimeoutMillis"`
+	StoreArtifactsLocally        pulumi.BoolPtrInput   `pulumi:"storeArtifactsLocally"`
+	// (Optional, Default: `true`) - By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error. You can disable this behavior by setting this attribute to `true`'
+	SuppressPomConsistencyChecks      pulumi.BoolPtrInput   `pulumi:"suppressPomConsistencyChecks"`
+	SynchronizeProperties             pulumi.BoolPtrInput   `pulumi:"synchronizeProperties"`
+	UnusedArtifactsCleanupPeriodHours pulumi.IntPtrInput    `pulumi:"unusedArtifactsCleanupPeriodHours"`
+	Url                               pulumi.StringPtrInput `pulumi:"url"`
+	Username                          pulumi.StringPtrInput `pulumi:"username"`
+	XrayIndex                         pulumi.BoolPtrInput   `pulumi:"xrayIndex"`
 }
 
 func (LookupRemoteIvyRepositoryOutputArgs) ElementType() reflect.Type {
@@ -257,18 +307,22 @@ func (o LookupRemoteIvyRepositoryResultOutput) ExcludesPattern() pulumi.StringPt
 	return o.ApplyT(func(v LookupRemoteIvyRepositoryResult) *string { return v.ExcludesPattern }).(pulumi.StringPtrOutput)
 }
 
+// (Optional, Default: `false`) When set, if a POM is requested, Artifactory attempts to fetch the corresponding jar in the background. This will accelerate first access time to the jar when it is subsequently requested.
 func (o LookupRemoteIvyRepositoryResultOutput) FetchJarsEagerly() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupRemoteIvyRepositoryResult) *bool { return v.FetchJarsEagerly }).(pulumi.BoolPtrOutput)
 }
 
+// (Optional, Default: `false`) When set, if a binaries jar is requested, Artifactory attempts to fetch the corresponding source jar in the background. This will accelerate first access time to the source jar when it is subsequently requested.
 func (o LookupRemoteIvyRepositoryResultOutput) FetchSourcesEagerly() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupRemoteIvyRepositoryResult) *bool { return v.FetchSourcesEagerly }).(pulumi.BoolPtrOutput)
 }
 
+// (Optional, Default: `true`) If set, Artifactory allows you to deploy release artifacts into this repository.
 func (o LookupRemoteIvyRepositoryResultOutput) HandleReleases() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupRemoteIvyRepositoryResult) *bool { return v.HandleReleases }).(pulumi.BoolPtrOutput)
 }
 
+// (Optional, Default: `true`) If set, Artifactory allows you to deploy snapshot artifacts into this repository.
 func (o LookupRemoteIvyRepositoryResultOutput) HandleSnapshots() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupRemoteIvyRepositoryResult) *bool { return v.HandleSnapshots }).(pulumi.BoolPtrOutput)
 }
@@ -350,10 +404,12 @@ func (o LookupRemoteIvyRepositoryResultOutput) QueryParams() pulumi.StringPtrOut
 	return o.ApplyT(func(v LookupRemoteIvyRepositoryResult) *string { return v.QueryParams }).(pulumi.StringPtrOutput)
 }
 
+// (Optional, Default: `false`) Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a "captive portal".
 func (o LookupRemoteIvyRepositoryResultOutput) RejectInvalidJars() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupRemoteIvyRepositoryResult) *bool { return v.RejectInvalidJars }).(pulumi.BoolPtrOutput)
 }
 
+// (Optional, Default: `generate-if-absent`) Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
 func (o LookupRemoteIvyRepositoryResultOutput) RemoteRepoChecksumPolicyType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRemoteIvyRepositoryResult) *string { return v.RemoteRepoChecksumPolicyType }).(pulumi.StringPtrOutput)
 }
@@ -382,6 +438,7 @@ func (o LookupRemoteIvyRepositoryResultOutput) StoreArtifactsLocally() pulumi.Bo
 	return o.ApplyT(func(v LookupRemoteIvyRepositoryResult) *bool { return v.StoreArtifactsLocally }).(pulumi.BoolPtrOutput)
 }
 
+// (Optional, Default: `true`) - By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error. You can disable this behavior by setting this attribute to `true`'
 func (o LookupRemoteIvyRepositoryResultOutput) SuppressPomConsistencyChecks() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupRemoteIvyRepositoryResult) *bool { return v.SuppressPomConsistencyChecks }).(pulumi.BoolPtrOutput)
 }

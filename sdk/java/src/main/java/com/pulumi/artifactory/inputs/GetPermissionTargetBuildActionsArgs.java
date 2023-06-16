@@ -17,16 +17,32 @@ public final class GetPermissionTargetBuildActionsArgs extends com.pulumi.resour
 
     public static final GetPermissionTargetBuildActionsArgs Empty = new GetPermissionTargetBuildActionsArgs();
 
+    /**
+     * Groups this permission applies for.
+     * 
+     */
     @Import(name="groups")
     private @Nullable Output<List<GetPermissionTargetBuildActionsGroupArgs>> groups;
 
+    /**
+     * @return Groups this permission applies for.
+     * 
+     */
     public Optional<Output<List<GetPermissionTargetBuildActionsGroupArgs>>> groups() {
         return Optional.ofNullable(this.groups);
     }
 
+    /**
+     * Users this permission target applies for.
+     * 
+     */
     @Import(name="users")
     private @Nullable Output<List<GetPermissionTargetBuildActionsUserArgs>> users;
 
+    /**
+     * @return Users this permission target applies for.
+     * 
+     */
     public Optional<Output<List<GetPermissionTargetBuildActionsUserArgs>>> users() {
         return Optional.ofNullable(this.users);
     }
@@ -56,28 +72,64 @@ public final class GetPermissionTargetBuildActionsArgs extends com.pulumi.resour
             $ = new GetPermissionTargetBuildActionsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param groups Groups this permission applies for.
+         * 
+         * @return builder
+         * 
+         */
         public Builder groups(@Nullable Output<List<GetPermissionTargetBuildActionsGroupArgs>> groups) {
             $.groups = groups;
             return this;
         }
 
+        /**
+         * @param groups Groups this permission applies for.
+         * 
+         * @return builder
+         * 
+         */
         public Builder groups(List<GetPermissionTargetBuildActionsGroupArgs> groups) {
             return groups(Output.of(groups));
         }
 
+        /**
+         * @param groups Groups this permission applies for.
+         * 
+         * @return builder
+         * 
+         */
         public Builder groups(GetPermissionTargetBuildActionsGroupArgs... groups) {
             return groups(List.of(groups));
         }
 
+        /**
+         * @param users Users this permission target applies for.
+         * 
+         * @return builder
+         * 
+         */
         public Builder users(@Nullable Output<List<GetPermissionTargetBuildActionsUserArgs>> users) {
             $.users = users;
             return this;
         }
 
+        /**
+         * @param users Users this permission target applies for.
+         * 
+         * @return builder
+         * 
+         */
         public Builder users(List<GetPermissionTargetBuildActionsUserArgs> users) {
             return users(Output.of(users));
         }
 
+        /**
+         * @param users Users this permission target applies for.
+         * 
+         * @return builder
+         * 
+         */
         public Builder users(GetPermissionTargetBuildActionsUserArgs... users) {
             return users(List.of(users));
         }

@@ -11,6 +11,53 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Creates a federated Helm repository.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewFederatedHelmRepository(ctx, "terraform-federated-test-helm-repo", &artifactory.FederatedHelmRepositoryArgs{
+//				Key: pulumi.String("terraform-federated-test-helm-repo"),
+//				Members: artifactory.FederatedHelmRepositoryMemberArray{
+//					&artifactory.FederatedHelmRepositoryMemberArgs{
+//						Enabled: pulumi.Bool(true),
+//						Url:     pulumi.String("http://tempurl.org/artifactory/terraform-federated-test-helm-repo"),
+//					},
+//					&artifactory.FederatedHelmRepositoryMemberArgs{
+//						Enabled: pulumi.Bool(true),
+//						Url:     pulumi.String("http://tempurl2.org/artifactory/terraform-federated-test-helm-repo-2"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Federated repositories can be imported using their name, e.g.
+//
+// ```sh
+//
+//	$ pulumi import artifactory:index/federatedHelmRepository:FederatedHelmRepository terraform-federated-test-helm-repo terraform-federated-test-helm-repo
+//
+// ```
 type FederatedHelmRepository struct {
 	pulumi.CustomResourceState
 
@@ -37,13 +84,11 @@ type FederatedHelmRepository struct {
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringOutput `pulumi:"includesPattern"`
-	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-	// characters. It cannot begin with a number or contain spaces or special characters.
+	// the identity key of the repo.
 	Key pulumi.StringOutput `pulumi:"key"`
-	// The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
-	// will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
-	// federated members will need to have a base URL set. Please follow the
-	// [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+	// The list of Federated members and must contain this repository URL (configured base URL
+	// `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+	// Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
 	// to set up Federated repositories correctly.
 	Members FederatedHelmRepositoryMemberArrayOutput `pulumi:"members"`
 	// Internal description.
@@ -126,13 +171,11 @@ type federatedHelmRepositoryState struct {
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
-	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-	// characters. It cannot begin with a number or contain spaces or special characters.
+	// the identity key of the repo.
 	Key *string `pulumi:"key"`
-	// The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
-	// will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
-	// federated members will need to have a base URL set. Please follow the
-	// [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+	// The list of Federated members and must contain this repository URL (configured base URL
+	// `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+	// Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
 	// to set up Federated repositories correctly.
 	Members []FederatedHelmRepositoryMember `pulumi:"members"`
 	// Internal description.
@@ -181,13 +224,11 @@ type FederatedHelmRepositoryState struct {
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
-	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-	// characters. It cannot begin with a number or contain spaces or special characters.
+	// the identity key of the repo.
 	Key pulumi.StringPtrInput
-	// The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
-	// will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
-	// federated members will need to have a base URL set. Please follow the
-	// [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+	// The list of Federated members and must contain this repository URL (configured base URL
+	// `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+	// Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
 	// to set up Federated repositories correctly.
 	Members FederatedHelmRepositoryMemberArrayInput
 	// Internal description.
@@ -240,13 +281,11 @@ type federatedHelmRepositoryArgs struct {
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
-	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-	// characters. It cannot begin with a number or contain spaces or special characters.
+	// the identity key of the repo.
 	Key string `pulumi:"key"`
-	// The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
-	// will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
-	// federated members will need to have a base URL set. Please follow the
-	// [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+	// The list of Federated members and must contain this repository URL (configured base URL
+	// `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+	// Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
 	// to set up Federated repositories correctly.
 	Members []FederatedHelmRepositoryMember `pulumi:"members"`
 	// Internal description.
@@ -295,13 +334,11 @@ type FederatedHelmRepositoryArgs struct {
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
-	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-	// characters. It cannot begin with a number or contain spaces or special characters.
+	// the identity key of the repo.
 	Key pulumi.StringInput
-	// The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
-	// will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
-	// federated members will need to have a base URL set. Please follow the
-	// [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+	// The list of Federated members and must contain this repository URL (configured base URL
+	// `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+	// Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
 	// to set up Federated repositories correctly.
 	Members FederatedHelmRepositoryMemberArrayInput
 	// Internal description.
@@ -459,16 +496,14 @@ func (o FederatedHelmRepositoryOutput) IncludesPattern() pulumi.StringOutput {
 	return o.ApplyT(func(v *FederatedHelmRepository) pulumi.StringOutput { return v.IncludesPattern }).(pulumi.StringOutput)
 }
 
-// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-// characters. It cannot begin with a number or contain spaces or special characters.
+// the identity key of the repo.
 func (o FederatedHelmRepositoryOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v *FederatedHelmRepository) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
 }
 
-// The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
-// will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
-// federated members will need to have a base URL set. Please follow the
-// [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+// The list of Federated members and must contain this repository URL (configured base URL
+// `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+// Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
 // to set up Federated repositories correctly.
 func (o FederatedHelmRepositoryOutput) Members() FederatedHelmRepositoryMemberArrayOutput {
 	return o.ApplyT(func(v *FederatedHelmRepository) FederatedHelmRepositoryMemberArrayOutput { return v.Members }).(FederatedHelmRepositoryMemberArrayOutput)

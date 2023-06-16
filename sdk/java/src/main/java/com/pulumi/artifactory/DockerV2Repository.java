@@ -17,6 +17,50 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Creates a local Docker v2 repository.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.artifactory.DockerV2Repository;
+ * import com.pulumi.artifactory.DockerV2RepositoryArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var foo = new DockerV2Repository(&#34;foo&#34;, DockerV2RepositoryArgs.builder()        
+ *             .key(&#34;foo&#34;)
+ *             .maxUniqueTags(5)
+ *             .tagRetention(3)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Local repositories can be imported using their name, e.g.
+ * 
+ * ```sh
+ *  $ pulumi import artifactory:index/dockerV2Repository:DockerV2Repository foo foo
+ * ```
+ * 
+ */
 @ResourceType(type="artifactory:index/dockerV2Repository:DockerV2Repository")
 public class DockerV2Repository extends com.pulumi.resources.CustomResource {
     /**
@@ -66,14 +110,16 @@ public class DockerV2Repository extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.blackedOut);
     }
     /**
-     * When set, Artifactory will block the pushing of Docker images with manifest v2 schema 1 to this repository.
+     * When set, Artifactory will block the pushing of Docker images with manifest
+     * v2 schema 1 to this repository.
      * 
      */
     @Export(name="blockPushingSchema1", type=Boolean.class, parameters={})
     private Output<Boolean> blockPushingSchema1;
 
     /**
-     * @return When set, Artifactory will block the pushing of Docker images with manifest v2 schema 1 to this repository.
+     * @return When set, Artifactory will block the pushing of Docker images with manifest
+     * v2 schema 1 to this repository.
      * 
      */
     public Output<Boolean> blockPushingSchema1() {
@@ -158,34 +204,32 @@ public class DockerV2Repository extends com.pulumi.resources.CustomResource {
         return this.includesPattern;
     }
     /**
-     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-     * characters. It cannot begin with a number or contain spaces or special characters.
+     * the identity key of the repo.
      * 
      */
     @Export(name="key", type=String.class, parameters={})
     private Output<String> key;
 
     /**
-     * @return A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-     * characters. It cannot begin with a number or contain spaces or special characters.
+     * @return the identity key of the repo.
      * 
      */
     public Output<String> key() {
         return this.key;
     }
     /**
-     * The maximum number of unique tags of a single Docker image to store in this repository. Once the number tags for an
-     * image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit. This only
-     * applies to manifest v2
+     * The maximum number of unique tags of a single Docker image to store in this
+     * repository. Once the number tags for an image exceeds this setting, older tags are removed.
+     * A value of 0 (default) indicates there is no limit. This only applies to manifest v2.
      * 
      */
     @Export(name="maxUniqueTags", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> maxUniqueTags;
 
     /**
-     * @return The maximum number of unique tags of a single Docker image to store in this repository. Once the number tags for an
-     * image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit. This only
-     * applies to manifest v2
+     * @return The maximum number of unique tags of a single Docker image to store in this
+     * repository. Once the number tags for an image exceeds this setting, older tags are removed.
+     * A value of 0 (default) indicates there is no limit. This only applies to manifest v2.
      * 
      */
     public Output<Optional<Integer>> maxUniqueTags() {
@@ -290,16 +334,16 @@ public class DockerV2Repository extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.repoLayoutRef);
     }
     /**
-     * If greater than 1, overwritten tags will be saved by their digest, up to the set up number. This only applies to
-     * manifest V2
+     * If greater than 1, overwritten tags will be saved by their digest, up to the set up
+     * number. This only applies to manifest V2.
      * 
      */
     @Export(name="tagRetention", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> tagRetention;
 
     /**
-     * @return If greater than 1, overwritten tags will be saved by their digest, up to the set up number. This only applies to
-     * manifest V2
+     * @return If greater than 1, overwritten tags will be saved by their digest, up to the set up
+     * number. This only applies to manifest V2.
      * 
      */
     public Output<Optional<Integer>> tagRetention() {

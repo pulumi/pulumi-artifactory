@@ -16,6 +16,55 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Creates a virtual SBT repository.
+ * Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/SBT+Repositories#SBTRepositories-VirtualRepositories).
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.artifactory.VirtualSbtRepository;
+ * import com.pulumi.artifactory.VirtualSbtRepositoryArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var foo_sbt = new VirtualSbtRepository(&#34;foo-sbt&#34;, VirtualSbtRepositoryArgs.builder()        
+ *             .description(&#34;A test virtual repo&#34;)
+ *             .excludesPattern(&#34;com/google/**&#34;)
+ *             .includesPattern(&#34;com/jfrog/**,cloud/jfrog/**&#34;)
+ *             .key(&#34;foo-sbt&#34;)
+ *             .notes(&#34;Internal description&#34;)
+ *             .pomRepositoryReferencesCleanupPolicy(&#34;discard_active_reference&#34;)
+ *             .repositories()
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Virtual repositories can be imported using their name, e.g.
+ * 
+ * ```sh
+ *  $ pulumi import artifactory:index/virtualSbtRepository:VirtualSbtRepository foo-sbt foo-sbt
+ * ```
+ * 
+ */
 @ResourceType(type="artifactory:index/virtualSbtRepository:VirtualSbtRepository")
 public class VirtualSbtRepository extends com.pulumi.resources.CustomResource {
     /**
@@ -111,30 +160,30 @@ public class VirtualSbtRepository extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.includesPattern);
     }
     /**
-     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-     * characters. It cannot begin with a number or contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+     * contain spaces or special characters.
      * 
      */
     @Export(name="key", type=String.class, parameters={})
     private Output<String> key;
 
     /**
-     * @return A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-     * characters. It cannot begin with a number or contain spaces or special characters.
+     * @return A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+     * contain spaces or special characters.
      * 
      */
     public Output<String> key() {
         return this.key;
     }
     /**
-     * The keypair used to sign artifacts
+     * The keypair used to sign artifacts.
      * 
      */
     @Export(name="keyPair", type=String.class, parameters={})
     private Output</* @Nullable */ String> keyPair;
 
     /**
-     * @return The keypair used to sign artifacts
+     * @return The keypair used to sign artifacts.
      * 
      */
     public Output<Optional<String>> keyPair() {
@@ -161,20 +210,18 @@ public class VirtualSbtRepository extends com.pulumi.resources.CustomResource {
         return this.packageType;
     }
     /**
-     * (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under
-     * project or under a profile in the same POM that is activeByDefault. (2: discard_any_reference) Discard Any References -
-     * Removes all repository elements regardless of whether they are included in an active profile or not. (3: nothing)
-     * Nothing - Does not remove any repository elements declared in the POM.
+     * - (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
+     * - (2: discard_any_reference) Discard Any References - Removes all repository elements regardless of whether they are included in an active profile or not.
+     * - (3: nothing) Nothing - Does not remove any repository elements declared in the POM.
      * 
      */
     @Export(name="pomRepositoryReferencesCleanupPolicy", type=String.class, parameters={})
     private Output<String> pomRepositoryReferencesCleanupPolicy;
 
     /**
-     * @return (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under
-     * project or under a profile in the same POM that is activeByDefault. (2: discard_any_reference) Discard Any References -
-     * Removes all repository elements regardless of whether they are included in an active profile or not. (3: nothing)
-     * Nothing - Does not remove any repository elements declared in the POM.
+     * @return - (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
+     * - (2: discard_any_reference) Discard Any References - Removes all repository elements regardless of whether they are included in an active profile or not.
+     * - (3: nothing) Nothing - Does not remove any repository elements declared in the POM.
      * 
      */
     public Output<String> pomRepositoryReferencesCleanupPolicy() {

@@ -16,6 +16,16 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * ## Import
+ * 
+ * ```sh
+ *  $ pulumi import artifactory:index/group:Group terraform-group mygroup
+ * ```
+ * 
+ *  ~&gt; `users_names` can&#39;t be imported due to API limitations.
+ * 
+ */
 @ResourceType(type="artifactory:index/group:Group")
 public class Group extends com.pulumi.resources.CustomResource {
     /**

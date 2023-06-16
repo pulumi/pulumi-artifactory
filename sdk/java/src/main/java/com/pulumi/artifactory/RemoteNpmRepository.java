@@ -18,6 +18,52 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Creates a remote Npm repository.
+ * Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/npm+Registry).
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.artifactory.RemoteNpmRepository;
+ * import com.pulumi.artifactory.RemoteNpmRepositoryArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var npm_remote = new RemoteNpmRepository(&#34;npm-remote&#34;, RemoteNpmRepositoryArgs.builder()        
+ *             .key(&#34;npm-remote&#34;)
+ *             .listRemoteFolderItems(true)
+ *             .mismatchingMimeTypesOverrideList(&#34;application/json,application/xml&#34;)
+ *             .url(&#34;https://registry.npmjs.org&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Remote repositories can be imported using their name, e.g.
+ * 
+ * ```sh
+ *  $ pulumi import artifactory:index/remoteNpmRepository:RemoteNpmRepository npm-remote npm-remote
+ * ```
+ * 
+ */
 @ResourceType(type="artifactory:index/remoteNpmRepository:RemoteNpmRepository")
 public class RemoteNpmRepository extends com.pulumi.resources.CustomResource {
     /**
@@ -235,16 +281,16 @@ public class RemoteNpmRepository extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.includesPattern);
     }
     /**
-     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-     * characters. It cannot begin with a number or contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+     * contain spaces or special characters.
      * 
      */
     @Export(name="key", type=String.class, parameters={})
     private Output<String> key;
 
     /**
-     * @return A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-     * characters. It cannot begin with a number or contain spaces or special characters.
+     * @return A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+     * contain spaces or special characters.
      * 
      */
     public Output<String> key() {

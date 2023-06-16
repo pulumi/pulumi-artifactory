@@ -24,9 +24,17 @@ public final class GetVirtualDebianRepositoryPlainArgs extends com.pulumi.resour
         return Optional.ofNullable(this.artifactoryRequestsCanRetrieveRemoteArtifacts);
     }
 
+    /**
+     * (Optional) Specifying  architectures will speed up Artifactory&#39;s initial metadata indexing process. The default architecture values are amd64 and i386.
+     * 
+     */
     @Import(name="debianDefaultArchitectures")
     private @Nullable String debianDefaultArchitectures;
 
+    /**
+     * @return (Optional) Specifying  architectures will speed up Artifactory&#39;s initial metadata indexing process. The default architecture values are amd64 and i386.
+     * 
+     */
     public Optional<String> debianDefaultArchitectures() {
         return Optional.ofNullable(this.debianDefaultArchitectures);
     }
@@ -59,9 +67,17 @@ public final class GetVirtualDebianRepositoryPlainArgs extends com.pulumi.resour
         return Optional.ofNullable(this.includesPattern);
     }
 
+    /**
+     * the identity key of the repo.
+     * 
+     */
     @Import(name="key", required=true)
     private String key;
 
+    /**
+     * @return the identity key of the repo.
+     * 
+     */
     public String key() {
         return this.key;
     }
@@ -73,16 +89,32 @@ public final class GetVirtualDebianRepositoryPlainArgs extends com.pulumi.resour
         return Optional.ofNullable(this.notes);
     }
 
+    /**
+     * (Optional) Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are `bz2`,`lzma` and `xz`. Default value is `bz2`.
+     * 
+     */
     @Import(name="optionalIndexCompressionFormats")
     private @Nullable List<String> optionalIndexCompressionFormats;
 
+    /**
+     * @return (Optional) Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are `bz2`,`lzma` and `xz`. Default value is `bz2`.
+     * 
+     */
     public Optional<List<String>> optionalIndexCompressionFormats() {
         return Optional.ofNullable(this.optionalIndexCompressionFormats);
     }
 
+    /**
+     * (Optional) Primary keypair used to sign artifacts. Default is empty.
+     * 
+     */
     @Import(name="primaryKeypairRef")
     private @Nullable String primaryKeypairRef;
 
+    /**
+     * @return (Optional) Primary keypair used to sign artifacts. Default is empty.
+     * 
+     */
     public Optional<String> primaryKeypairRef() {
         return Optional.ofNullable(this.primaryKeypairRef);
     }
@@ -115,16 +147,32 @@ public final class GetVirtualDebianRepositoryPlainArgs extends com.pulumi.resour
         return Optional.ofNullable(this.repositories);
     }
 
+    /**
+     * (Optional, Default: `7200`) This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
+     * 
+     */
     @Import(name="retrievalCachePeriodSeconds")
     private @Nullable Integer retrievalCachePeriodSeconds;
 
+    /**
+     * @return (Optional, Default: `7200`) This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
+     * 
+     */
     public Optional<Integer> retrievalCachePeriodSeconds() {
         return Optional.ofNullable(this.retrievalCachePeriodSeconds);
     }
 
+    /**
+     * (Optional) Secondary keypair used to sign artifacts. Default is empty.
+     * 
+     */
     @Import(name="secondaryKeypairRef")
     private @Nullable String secondaryKeypairRef;
 
+    /**
+     * @return (Optional) Secondary keypair used to sign artifacts. Default is empty.
+     * 
+     */
     public Optional<String> secondaryKeypairRef() {
         return Optional.ofNullable(this.secondaryKeypairRef);
     }
@@ -173,6 +221,12 @@ public final class GetVirtualDebianRepositoryPlainArgs extends com.pulumi.resour
             return this;
         }
 
+        /**
+         * @param debianDefaultArchitectures (Optional) Specifying  architectures will speed up Artifactory&#39;s initial metadata indexing process. The default architecture values are amd64 and i386.
+         * 
+         * @return builder
+         * 
+         */
         public Builder debianDefaultArchitectures(@Nullable String debianDefaultArchitectures) {
             $.debianDefaultArchitectures = debianDefaultArchitectures;
             return this;
@@ -198,6 +252,12 @@ public final class GetVirtualDebianRepositoryPlainArgs extends com.pulumi.resour
             return this;
         }
 
+        /**
+         * @param key the identity key of the repo.
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(String key) {
             $.key = key;
             return this;
@@ -208,15 +268,33 @@ public final class GetVirtualDebianRepositoryPlainArgs extends com.pulumi.resour
             return this;
         }
 
+        /**
+         * @param optionalIndexCompressionFormats (Optional) Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are `bz2`,`lzma` and `xz`. Default value is `bz2`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder optionalIndexCompressionFormats(@Nullable List<String> optionalIndexCompressionFormats) {
             $.optionalIndexCompressionFormats = optionalIndexCompressionFormats;
             return this;
         }
 
+        /**
+         * @param optionalIndexCompressionFormats (Optional) Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are `bz2`,`lzma` and `xz`. Default value is `bz2`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder optionalIndexCompressionFormats(String... optionalIndexCompressionFormats) {
             return optionalIndexCompressionFormats(List.of(optionalIndexCompressionFormats));
         }
 
+        /**
+         * @param primaryKeypairRef (Optional) Primary keypair used to sign artifacts. Default is empty.
+         * 
+         * @return builder
+         * 
+         */
         public Builder primaryKeypairRef(@Nullable String primaryKeypairRef) {
             $.primaryKeypairRef = primaryKeypairRef;
             return this;
@@ -250,11 +328,23 @@ public final class GetVirtualDebianRepositoryPlainArgs extends com.pulumi.resour
             return repositories(List.of(repositories));
         }
 
+        /**
+         * @param retrievalCachePeriodSeconds (Optional, Default: `7200`) This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
+         * 
+         * @return builder
+         * 
+         */
         public Builder retrievalCachePeriodSeconds(@Nullable Integer retrievalCachePeriodSeconds) {
             $.retrievalCachePeriodSeconds = retrievalCachePeriodSeconds;
             return this;
         }
 
+        /**
+         * @param secondaryKeypairRef (Optional) Secondary keypair used to sign artifacts. Default is empty.
+         * 
+         * @return builder
+         * 
+         */
         public Builder secondaryKeypairRef(@Nullable String secondaryKeypairRef) {
             $.secondaryKeypairRef = secondaryKeypairRef;
             return this;

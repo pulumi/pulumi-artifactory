@@ -11,9 +11,59 @@ namespace Pulumi.Artifactory
 {
     public static class GetVirtualDockerRepository
     {
+        /// <summary>
+        /// Retrieves a virtual Docker repository.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var virtual_docker = Artifactory.GetVirtualDockerRepository.Invoke(new()
+        ///     {
+        ///         Key = "virtual-docker",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetVirtualDockerRepositoryResult> InvokeAsync(GetVirtualDockerRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualDockerRepositoryResult>("artifactory:index/getVirtualDockerRepository:getVirtualDockerRepository", args ?? new GetVirtualDockerRepositoryArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Retrieves a virtual Docker repository.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var virtual_docker = Artifactory.GetVirtualDockerRepository.Invoke(new()
+        ///     {
+        ///         Key = "virtual-docker",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetVirtualDockerRepositoryResult> Invoke(GetVirtualDockerRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualDockerRepositoryResult>("artifactory:index/getVirtualDockerRepository:getVirtualDockerRepository", args ?? new GetVirtualDockerRepositoryInvokeArgs(), options.WithDefaults());
     }
@@ -36,6 +86,9 @@ namespace Pulumi.Artifactory
         [Input("includesPattern")]
         public string? IncludesPattern { get; set; }
 
+        /// <summary>
+        /// the identity key of the repo.
+        /// </summary>
         [Input("key", required: true)]
         public string Key { get; set; } = null!;
 
@@ -64,6 +117,9 @@ namespace Pulumi.Artifactory
             set => _repositories = value;
         }
 
+        /// <summary>
+        /// (Optional) When enabled, in cases where the same Docker tag exists in two or more of the aggregated repositories, Artifactory will return the tag that has the latest timestamp. Default values is `false`.
+        /// </summary>
         [Input("resolveDockerTagsByTimestamp")]
         public bool? ResolveDockerTagsByTimestamp { get; set; }
 
@@ -90,6 +146,9 @@ namespace Pulumi.Artifactory
         [Input("includesPattern")]
         public Input<string>? IncludesPattern { get; set; }
 
+        /// <summary>
+        /// the identity key of the repo.
+        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
@@ -118,6 +177,9 @@ namespace Pulumi.Artifactory
             set => _repositories = value;
         }
 
+        /// <summary>
+        /// (Optional) When enabled, in cases where the same Docker tag exists in two or more of the aggregated repositories, Artifactory will return the tag that has the latest timestamp. Default values is `false`.
+        /// </summary>
         [Input("resolveDockerTagsByTimestamp")]
         public Input<bool>? ResolveDockerTagsByTimestamp { get; set; }
 
@@ -147,6 +209,9 @@ namespace Pulumi.Artifactory
         public readonly string? ProjectKey;
         public readonly string? RepoLayoutRef;
         public readonly ImmutableArray<string> Repositories;
+        /// <summary>
+        /// (Optional) When enabled, in cases where the same Docker tag exists in two or more of the aggregated repositories, Artifactory will return the tag that has the latest timestamp. Default values is `false`.
+        /// </summary>
         public readonly bool? ResolveDockerTagsByTimestamp;
 
         [OutputConstructor]

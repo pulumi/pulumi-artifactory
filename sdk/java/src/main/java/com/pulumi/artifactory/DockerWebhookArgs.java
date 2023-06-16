@@ -35,14 +35,14 @@ public final class DockerWebhookArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Description of webhook. Max length 1000 characters.
+     * Webhook description. Max length 1000 characters.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return Description of webhook. Max length 1000 characters.
+     * @return Webhook description. Max length 1000 characters.
      * 
      */
     public Optional<Output<String>> description() {
@@ -50,14 +50,14 @@ public final class DockerWebhookArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Status of webhook. Default to &#39;true&#39;
+     * Status of webhook. Default to `true`.
      * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return Status of webhook. Default to &#39;true&#39;
+     * @return Status of webhook. Default to `true`.
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -65,38 +65,44 @@ public final class DockerWebhookArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow
-     * values: pushed, deleted, promoted
+     * List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `pushed`, `deleted`, `promoted`.
      * 
      */
     @Import(name="eventTypes", required=true)
     private Output<List<String>> eventTypes;
 
     /**
-     * @return List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow
-     * values: pushed, deleted, promoted
+     * @return List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `pushed`, `deleted`, `promoted`.
      * 
      */
     public Output<List<String>> eventTypes() {
         return this.eventTypes;
     }
 
+    /**
+     * At least one is required.
+     * 
+     */
     @Import(name="handlers", required=true)
     private Output<List<DockerWebhookHandlerArgs>> handlers;
 
+    /**
+     * @return At least one is required.
+     * 
+     */
     public Output<List<DockerWebhookHandlerArgs>> handlers() {
         return this.handlers;
     }
 
     /**
-     * Key of webhook. Must be between 2 and 200 characters. Cannot contain spaces.
+     * The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
      * 
      */
     @Import(name="key", required=true)
     private Output<String> key;
 
     /**
-     * @return Key of webhook. Must be between 2 and 200 characters. Cannot contain spaces.
+     * @return The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
      * 
      */
     public Output<String> key() {
@@ -154,7 +160,7 @@ public final class DockerWebhookArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description Description of webhook. Max length 1000 characters.
+         * @param description Webhook description. Max length 1000 characters.
          * 
          * @return builder
          * 
@@ -165,7 +171,7 @@ public final class DockerWebhookArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description Description of webhook. Max length 1000 characters.
+         * @param description Webhook description. Max length 1000 characters.
          * 
          * @return builder
          * 
@@ -175,7 +181,7 @@ public final class DockerWebhookArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enabled Status of webhook. Default to &#39;true&#39;
+         * @param enabled Status of webhook. Default to `true`.
          * 
          * @return builder
          * 
@@ -186,7 +192,7 @@ public final class DockerWebhookArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enabled Status of webhook. Default to &#39;true&#39;
+         * @param enabled Status of webhook. Default to `true`.
          * 
          * @return builder
          * 
@@ -196,8 +202,7 @@ public final class DockerWebhookArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param eventTypes List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow
-         * values: pushed, deleted, promoted
+         * @param eventTypes List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `pushed`, `deleted`, `promoted`.
          * 
          * @return builder
          * 
@@ -208,8 +213,7 @@ public final class DockerWebhookArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param eventTypes List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow
-         * values: pushed, deleted, promoted
+         * @param eventTypes List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `pushed`, `deleted`, `promoted`.
          * 
          * @return builder
          * 
@@ -219,8 +223,7 @@ public final class DockerWebhookArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param eventTypes List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow
-         * values: pushed, deleted, promoted
+         * @param eventTypes List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `pushed`, `deleted`, `promoted`.
          * 
          * @return builder
          * 
@@ -229,21 +232,39 @@ public final class DockerWebhookArgs extends com.pulumi.resources.ResourceArgs {
             return eventTypes(List.of(eventTypes));
         }
 
+        /**
+         * @param handlers At least one is required.
+         * 
+         * @return builder
+         * 
+         */
         public Builder handlers(Output<List<DockerWebhookHandlerArgs>> handlers) {
             $.handlers = handlers;
             return this;
         }
 
+        /**
+         * @param handlers At least one is required.
+         * 
+         * @return builder
+         * 
+         */
         public Builder handlers(List<DockerWebhookHandlerArgs> handlers) {
             return handlers(Output.of(handlers));
         }
 
+        /**
+         * @param handlers At least one is required.
+         * 
+         * @return builder
+         * 
+         */
         public Builder handlers(DockerWebhookHandlerArgs... handlers) {
             return handlers(List.of(handlers));
         }
 
         /**
-         * @param key Key of webhook. Must be between 2 and 200 characters. Cannot contain spaces.
+         * @param key The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
          * 
          * @return builder
          * 
@@ -254,7 +275,7 @@ public final class DockerWebhookArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param key Key of webhook. Must be between 2 and 200 characters. Cannot contain spaces.
+         * @param key The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
          * 
          * @return builder
          * 

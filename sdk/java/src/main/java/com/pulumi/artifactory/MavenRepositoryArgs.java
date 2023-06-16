@@ -82,16 +82,14 @@ public final class MavenRepositoryArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * User authentication is required when accessing the repository. An anonymous request will display an HTTP 401 error. This
-     * is also enforced when aggregated repositories support anonymous requests.
+     * Forces authentication when fetching from remote repos.
      * 
      */
     @Import(name="forceMavenAuthentication")
     private @Nullable Output<Boolean> forceMavenAuthentication;
 
     /**
-     * @return User authentication is required when accessing the repository. An anonymous request will display an HTTP 401 error. This
-     * is also enforced when aggregated repositories support anonymous requests.
+     * @return Forces authentication when fetching from remote repos.
      * 
      */
     public Optional<Output<Boolean>> forceMavenAuthentication() {
@@ -116,16 +114,16 @@ public final class MavenRepositoryArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-     * characters. It cannot begin with a number or contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+     * contain spaces or special characters.
      * 
      */
     @Import(name="key", required=true)
     private Output<String> key;
 
     /**
-     * @return A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-     * characters. It cannot begin with a number or contain spaces or special characters.
+     * @return A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+     * contain spaces or special characters.
      * 
      */
     public Output<String> key() {
@@ -163,20 +161,14 @@ public final class MavenRepositoryArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under
-     * project or under a profile in the same POM that is activeByDefault. (2: discard_any_reference) Discard Any References -
-     * Removes all repository elements regardless of whether they are included in an active profile or not. (3: nothing)
-     * Nothing - Does not remove any repository elements declared in the POM.
+     * One of: `&#34;discard_active_reference&#34;, &#34;discard_any_reference&#34;, &#34;nothing&#34;`
      * 
      */
     @Import(name="pomRepositoryReferencesCleanupPolicy")
     private @Nullable Output<String> pomRepositoryReferencesCleanupPolicy;
 
     /**
-     * @return (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under
-     * project or under a profile in the same POM that is activeByDefault. (2: discard_any_reference) Discard Any References -
-     * Removes all repository elements regardless of whether they are included in an active profile or not. (3: nothing)
-     * Nothing - Does not remove any repository elements declared in the POM.
+     * @return One of: `&#34;discard_active_reference&#34;, &#34;discard_any_reference&#34;, &#34;nothing&#34;`
      * 
      */
     public Optional<Output<String>> pomRepositoryReferencesCleanupPolicy() {
@@ -377,8 +369,7 @@ public final class MavenRepositoryArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param forceMavenAuthentication User authentication is required when accessing the repository. An anonymous request will display an HTTP 401 error. This
-         * is also enforced when aggregated repositories support anonymous requests.
+         * @param forceMavenAuthentication Forces authentication when fetching from remote repos.
          * 
          * @return builder
          * 
@@ -389,8 +380,7 @@ public final class MavenRepositoryArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param forceMavenAuthentication User authentication is required when accessing the repository. An anonymous request will display an HTTP 401 error. This
-         * is also enforced when aggregated repositories support anonymous requests.
+         * @param forceMavenAuthentication Forces authentication when fetching from remote repos.
          * 
          * @return builder
          * 
@@ -423,8 +413,8 @@ public final class MavenRepositoryArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param key A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-         * characters. It cannot begin with a number or contain spaces or special characters.
+         * @param key A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+         * contain spaces or special characters.
          * 
          * @return builder
          * 
@@ -435,8 +425,8 @@ public final class MavenRepositoryArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param key A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-         * characters. It cannot begin with a number or contain spaces or special characters.
+         * @param key A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+         * contain spaces or special characters.
          * 
          * @return builder
          * 
@@ -488,10 +478,7 @@ public final class MavenRepositoryArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param pomRepositoryReferencesCleanupPolicy (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under
-         * project or under a profile in the same POM that is activeByDefault. (2: discard_any_reference) Discard Any References -
-         * Removes all repository elements regardless of whether they are included in an active profile or not. (3: nothing)
-         * Nothing - Does not remove any repository elements declared in the POM.
+         * @param pomRepositoryReferencesCleanupPolicy One of: `&#34;discard_active_reference&#34;, &#34;discard_any_reference&#34;, &#34;nothing&#34;`
          * 
          * @return builder
          * 
@@ -502,10 +489,7 @@ public final class MavenRepositoryArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param pomRepositoryReferencesCleanupPolicy (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under
-         * project or under a profile in the same POM that is activeByDefault. (2: discard_any_reference) Discard Any References -
-         * Removes all repository elements regardless of whether they are included in an active profile or not. (3: nothing)
-         * Nothing - Does not remove any repository elements declared in the POM.
+         * @param pomRepositoryReferencesCleanupPolicy One of: `&#34;discard_active_reference&#34;, &#34;discard_any_reference&#34;, &#34;nothing&#34;`
          * 
          * @return builder
          * 

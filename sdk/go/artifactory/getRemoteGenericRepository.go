@@ -10,6 +10,33 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Retrieves a remote Generic repository.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.LookupRemoteGenericRepository(ctx, &artifactory.LookupRemoteGenericRepositoryArgs{
+//				Key: "remote-generic",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupRemoteGenericRepository(ctx *pulumi.Context, args *LookupRemoteGenericRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupRemoteGenericRepositoryResult, error) {
 	var rv LookupRemoteGenericRepositoryResult
 	err := ctx.Invoke("artifactory:index/getRemoteGenericRepository:getRemoteGenericRepository", args, &rv, opts...)
@@ -21,47 +48,49 @@ func LookupRemoteGenericRepository(ctx *pulumi.Context, args *LookupRemoteGeneri
 
 // A collection of arguments for invoking getRemoteGenericRepository.
 type LookupRemoteGenericRepositoryArgs struct {
-	AllowAnyHostAuth                  *bool                                             `pulumi:"allowAnyHostAuth"`
-	AssumedOfflinePeriodSecs          *int                                              `pulumi:"assumedOfflinePeriodSecs"`
-	BlackedOut                        *bool                                             `pulumi:"blackedOut"`
-	BlockMismatchingMimeTypes         *bool                                             `pulumi:"blockMismatchingMimeTypes"`
-	BypassHeadRequests                *bool                                             `pulumi:"bypassHeadRequests"`
-	CdnRedirect                       *bool                                             `pulumi:"cdnRedirect"`
-	ClientTlsCertificate              *string                                           `pulumi:"clientTlsCertificate"`
-	ContentSynchronisation            *GetRemoteGenericRepositoryContentSynchronisation `pulumi:"contentSynchronisation"`
-	Description                       *string                                           `pulumi:"description"`
-	DownloadDirect                    *bool                                             `pulumi:"downloadDirect"`
-	EnableCookieManagement            *bool                                             `pulumi:"enableCookieManagement"`
-	ExcludesPattern                   *string                                           `pulumi:"excludesPattern"`
-	HardFail                          *bool                                             `pulumi:"hardFail"`
-	IncludesPattern                   *string                                           `pulumi:"includesPattern"`
-	Key                               string                                            `pulumi:"key"`
-	ListRemoteFolderItems             *bool                                             `pulumi:"listRemoteFolderItems"`
-	LocalAddress                      *string                                           `pulumi:"localAddress"`
-	MetadataRetrievalTimeoutSecs      *int                                              `pulumi:"metadataRetrievalTimeoutSecs"`
-	MismatchingMimeTypesOverrideList  *string                                           `pulumi:"mismatchingMimeTypesOverrideList"`
-	MissedCachePeriodSeconds          *int                                              `pulumi:"missedCachePeriodSeconds"`
-	Notes                             *string                                           `pulumi:"notes"`
-	Offline                           *bool                                             `pulumi:"offline"`
-	Password                          *string                                           `pulumi:"password"`
-	PriorityResolution                *bool                                             `pulumi:"priorityResolution"`
-	ProjectEnvironments               []string                                          `pulumi:"projectEnvironments"`
-	ProjectKey                        *string                                           `pulumi:"projectKey"`
-	PropagateQueryParams              *bool                                             `pulumi:"propagateQueryParams"`
-	PropertySets                      []string                                          `pulumi:"propertySets"`
-	Proxy                             *string                                           `pulumi:"proxy"`
-	QueryParams                       *string                                           `pulumi:"queryParams"`
-	RemoteRepoLayoutRef               *string                                           `pulumi:"remoteRepoLayoutRef"`
-	RepoLayoutRef                     *string                                           `pulumi:"repoLayoutRef"`
-	RetrievalCachePeriodSeconds       *int                                              `pulumi:"retrievalCachePeriodSeconds"`
-	ShareConfiguration                *bool                                             `pulumi:"shareConfiguration"`
-	SocketTimeoutMillis               *int                                              `pulumi:"socketTimeoutMillis"`
-	StoreArtifactsLocally             *bool                                             `pulumi:"storeArtifactsLocally"`
-	SynchronizeProperties             *bool                                             `pulumi:"synchronizeProperties"`
-	UnusedArtifactsCleanupPeriodHours *int                                              `pulumi:"unusedArtifactsCleanupPeriodHours"`
-	Url                               *string                                           `pulumi:"url"`
-	Username                          *string                                           `pulumi:"username"`
-	XrayIndex                         *bool                                             `pulumi:"xrayIndex"`
+	AllowAnyHostAuth          *bool                                             `pulumi:"allowAnyHostAuth"`
+	AssumedOfflinePeriodSecs  *int                                              `pulumi:"assumedOfflinePeriodSecs"`
+	BlackedOut                *bool                                             `pulumi:"blackedOut"`
+	BlockMismatchingMimeTypes *bool                                             `pulumi:"blockMismatchingMimeTypes"`
+	BypassHeadRequests        *bool                                             `pulumi:"bypassHeadRequests"`
+	CdnRedirect               *bool                                             `pulumi:"cdnRedirect"`
+	ClientTlsCertificate      *string                                           `pulumi:"clientTlsCertificate"`
+	ContentSynchronisation    *GetRemoteGenericRepositoryContentSynchronisation `pulumi:"contentSynchronisation"`
+	Description               *string                                           `pulumi:"description"`
+	DownloadDirect            *bool                                             `pulumi:"downloadDirect"`
+	EnableCookieManagement    *bool                                             `pulumi:"enableCookieManagement"`
+	ExcludesPattern           *string                                           `pulumi:"excludesPattern"`
+	HardFail                  *bool                                             `pulumi:"hardFail"`
+	IncludesPattern           *string                                           `pulumi:"includesPattern"`
+	// the identity key of the repo.
+	Key                              string   `pulumi:"key"`
+	ListRemoteFolderItems            *bool    `pulumi:"listRemoteFolderItems"`
+	LocalAddress                     *string  `pulumi:"localAddress"`
+	MetadataRetrievalTimeoutSecs     *int     `pulumi:"metadataRetrievalTimeoutSecs"`
+	MismatchingMimeTypesOverrideList *string  `pulumi:"mismatchingMimeTypesOverrideList"`
+	MissedCachePeriodSeconds         *int     `pulumi:"missedCachePeriodSeconds"`
+	Notes                            *string  `pulumi:"notes"`
+	Offline                          *bool    `pulumi:"offline"`
+	Password                         *string  `pulumi:"password"`
+	PriorityResolution               *bool    `pulumi:"priorityResolution"`
+	ProjectEnvironments              []string `pulumi:"projectEnvironments"`
+	ProjectKey                       *string  `pulumi:"projectKey"`
+	// (Optional, Default: `false`) When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
+	PropagateQueryParams              *bool    `pulumi:"propagateQueryParams"`
+	PropertySets                      []string `pulumi:"propertySets"`
+	Proxy                             *string  `pulumi:"proxy"`
+	QueryParams                       *string  `pulumi:"queryParams"`
+	RemoteRepoLayoutRef               *string  `pulumi:"remoteRepoLayoutRef"`
+	RepoLayoutRef                     *string  `pulumi:"repoLayoutRef"`
+	RetrievalCachePeriodSeconds       *int     `pulumi:"retrievalCachePeriodSeconds"`
+	ShareConfiguration                *bool    `pulumi:"shareConfiguration"`
+	SocketTimeoutMillis               *int     `pulumi:"socketTimeoutMillis"`
+	StoreArtifactsLocally             *bool    `pulumi:"storeArtifactsLocally"`
+	SynchronizeProperties             *bool    `pulumi:"synchronizeProperties"`
+	UnusedArtifactsCleanupPeriodHours *int     `pulumi:"unusedArtifactsCleanupPeriodHours"`
+	Url                               *string  `pulumi:"url"`
+	Username                          *string  `pulumi:"username"`
+	XrayIndex                         *bool    `pulumi:"xrayIndex"`
 }
 
 // A collection of values returned by getRemoteGenericRepository.
@@ -80,21 +109,22 @@ type LookupRemoteGenericRepositoryResult struct {
 	ExcludesPattern           *string                                          `pulumi:"excludesPattern"`
 	HardFail                  *bool                                            `pulumi:"hardFail"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                                string   `pulumi:"id"`
-	IncludesPattern                   *string  `pulumi:"includesPattern"`
-	Key                               string   `pulumi:"key"`
-	ListRemoteFolderItems             *bool    `pulumi:"listRemoteFolderItems"`
-	LocalAddress                      *string  `pulumi:"localAddress"`
-	MetadataRetrievalTimeoutSecs      *int     `pulumi:"metadataRetrievalTimeoutSecs"`
-	MismatchingMimeTypesOverrideList  *string  `pulumi:"mismatchingMimeTypesOverrideList"`
-	MissedCachePeriodSeconds          *int     `pulumi:"missedCachePeriodSeconds"`
-	Notes                             *string  `pulumi:"notes"`
-	Offline                           *bool    `pulumi:"offline"`
-	PackageType                       string   `pulumi:"packageType"`
-	Password                          *string  `pulumi:"password"`
-	PriorityResolution                *bool    `pulumi:"priorityResolution"`
-	ProjectEnvironments               []string `pulumi:"projectEnvironments"`
-	ProjectKey                        *string  `pulumi:"projectKey"`
+	Id                               string   `pulumi:"id"`
+	IncludesPattern                  *string  `pulumi:"includesPattern"`
+	Key                              string   `pulumi:"key"`
+	ListRemoteFolderItems            *bool    `pulumi:"listRemoteFolderItems"`
+	LocalAddress                     *string  `pulumi:"localAddress"`
+	MetadataRetrievalTimeoutSecs     *int     `pulumi:"metadataRetrievalTimeoutSecs"`
+	MismatchingMimeTypesOverrideList *string  `pulumi:"mismatchingMimeTypesOverrideList"`
+	MissedCachePeriodSeconds         *int     `pulumi:"missedCachePeriodSeconds"`
+	Notes                            *string  `pulumi:"notes"`
+	Offline                          *bool    `pulumi:"offline"`
+	PackageType                      string   `pulumi:"packageType"`
+	Password                         *string  `pulumi:"password"`
+	PriorityResolution               *bool    `pulumi:"priorityResolution"`
+	ProjectEnvironments              []string `pulumi:"projectEnvironments"`
+	ProjectKey                       *string  `pulumi:"projectKey"`
+	// (Optional, Default: `false`) When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
 	PropagateQueryParams              *bool    `pulumi:"propagateQueryParams"`
 	PropertySets                      []string `pulumi:"propertySets"`
 	Proxy                             *string  `pulumi:"proxy"`
@@ -127,47 +157,49 @@ func LookupRemoteGenericRepositoryOutput(ctx *pulumi.Context, args LookupRemoteG
 
 // A collection of arguments for invoking getRemoteGenericRepository.
 type LookupRemoteGenericRepositoryOutputArgs struct {
-	AllowAnyHostAuth                  pulumi.BoolPtrInput                                      `pulumi:"allowAnyHostAuth"`
-	AssumedOfflinePeriodSecs          pulumi.IntPtrInput                                       `pulumi:"assumedOfflinePeriodSecs"`
-	BlackedOut                        pulumi.BoolPtrInput                                      `pulumi:"blackedOut"`
-	BlockMismatchingMimeTypes         pulumi.BoolPtrInput                                      `pulumi:"blockMismatchingMimeTypes"`
-	BypassHeadRequests                pulumi.BoolPtrInput                                      `pulumi:"bypassHeadRequests"`
-	CdnRedirect                       pulumi.BoolPtrInput                                      `pulumi:"cdnRedirect"`
-	ClientTlsCertificate              pulumi.StringPtrInput                                    `pulumi:"clientTlsCertificate"`
-	ContentSynchronisation            GetRemoteGenericRepositoryContentSynchronisationPtrInput `pulumi:"contentSynchronisation"`
-	Description                       pulumi.StringPtrInput                                    `pulumi:"description"`
-	DownloadDirect                    pulumi.BoolPtrInput                                      `pulumi:"downloadDirect"`
-	EnableCookieManagement            pulumi.BoolPtrInput                                      `pulumi:"enableCookieManagement"`
-	ExcludesPattern                   pulumi.StringPtrInput                                    `pulumi:"excludesPattern"`
-	HardFail                          pulumi.BoolPtrInput                                      `pulumi:"hardFail"`
-	IncludesPattern                   pulumi.StringPtrInput                                    `pulumi:"includesPattern"`
-	Key                               pulumi.StringInput                                       `pulumi:"key"`
-	ListRemoteFolderItems             pulumi.BoolPtrInput                                      `pulumi:"listRemoteFolderItems"`
-	LocalAddress                      pulumi.StringPtrInput                                    `pulumi:"localAddress"`
-	MetadataRetrievalTimeoutSecs      pulumi.IntPtrInput                                       `pulumi:"metadataRetrievalTimeoutSecs"`
-	MismatchingMimeTypesOverrideList  pulumi.StringPtrInput                                    `pulumi:"mismatchingMimeTypesOverrideList"`
-	MissedCachePeriodSeconds          pulumi.IntPtrInput                                       `pulumi:"missedCachePeriodSeconds"`
-	Notes                             pulumi.StringPtrInput                                    `pulumi:"notes"`
-	Offline                           pulumi.BoolPtrInput                                      `pulumi:"offline"`
-	Password                          pulumi.StringPtrInput                                    `pulumi:"password"`
-	PriorityResolution                pulumi.BoolPtrInput                                      `pulumi:"priorityResolution"`
-	ProjectEnvironments               pulumi.StringArrayInput                                  `pulumi:"projectEnvironments"`
-	ProjectKey                        pulumi.StringPtrInput                                    `pulumi:"projectKey"`
-	PropagateQueryParams              pulumi.BoolPtrInput                                      `pulumi:"propagateQueryParams"`
-	PropertySets                      pulumi.StringArrayInput                                  `pulumi:"propertySets"`
-	Proxy                             pulumi.StringPtrInput                                    `pulumi:"proxy"`
-	QueryParams                       pulumi.StringPtrInput                                    `pulumi:"queryParams"`
-	RemoteRepoLayoutRef               pulumi.StringPtrInput                                    `pulumi:"remoteRepoLayoutRef"`
-	RepoLayoutRef                     pulumi.StringPtrInput                                    `pulumi:"repoLayoutRef"`
-	RetrievalCachePeriodSeconds       pulumi.IntPtrInput                                       `pulumi:"retrievalCachePeriodSeconds"`
-	ShareConfiguration                pulumi.BoolPtrInput                                      `pulumi:"shareConfiguration"`
-	SocketTimeoutMillis               pulumi.IntPtrInput                                       `pulumi:"socketTimeoutMillis"`
-	StoreArtifactsLocally             pulumi.BoolPtrInput                                      `pulumi:"storeArtifactsLocally"`
-	SynchronizeProperties             pulumi.BoolPtrInput                                      `pulumi:"synchronizeProperties"`
-	UnusedArtifactsCleanupPeriodHours pulumi.IntPtrInput                                       `pulumi:"unusedArtifactsCleanupPeriodHours"`
-	Url                               pulumi.StringPtrInput                                    `pulumi:"url"`
-	Username                          pulumi.StringPtrInput                                    `pulumi:"username"`
-	XrayIndex                         pulumi.BoolPtrInput                                      `pulumi:"xrayIndex"`
+	AllowAnyHostAuth          pulumi.BoolPtrInput                                      `pulumi:"allowAnyHostAuth"`
+	AssumedOfflinePeriodSecs  pulumi.IntPtrInput                                       `pulumi:"assumedOfflinePeriodSecs"`
+	BlackedOut                pulumi.BoolPtrInput                                      `pulumi:"blackedOut"`
+	BlockMismatchingMimeTypes pulumi.BoolPtrInput                                      `pulumi:"blockMismatchingMimeTypes"`
+	BypassHeadRequests        pulumi.BoolPtrInput                                      `pulumi:"bypassHeadRequests"`
+	CdnRedirect               pulumi.BoolPtrInput                                      `pulumi:"cdnRedirect"`
+	ClientTlsCertificate      pulumi.StringPtrInput                                    `pulumi:"clientTlsCertificate"`
+	ContentSynchronisation    GetRemoteGenericRepositoryContentSynchronisationPtrInput `pulumi:"contentSynchronisation"`
+	Description               pulumi.StringPtrInput                                    `pulumi:"description"`
+	DownloadDirect            pulumi.BoolPtrInput                                      `pulumi:"downloadDirect"`
+	EnableCookieManagement    pulumi.BoolPtrInput                                      `pulumi:"enableCookieManagement"`
+	ExcludesPattern           pulumi.StringPtrInput                                    `pulumi:"excludesPattern"`
+	HardFail                  pulumi.BoolPtrInput                                      `pulumi:"hardFail"`
+	IncludesPattern           pulumi.StringPtrInput                                    `pulumi:"includesPattern"`
+	// the identity key of the repo.
+	Key                              pulumi.StringInput      `pulumi:"key"`
+	ListRemoteFolderItems            pulumi.BoolPtrInput     `pulumi:"listRemoteFolderItems"`
+	LocalAddress                     pulumi.StringPtrInput   `pulumi:"localAddress"`
+	MetadataRetrievalTimeoutSecs     pulumi.IntPtrInput      `pulumi:"metadataRetrievalTimeoutSecs"`
+	MismatchingMimeTypesOverrideList pulumi.StringPtrInput   `pulumi:"mismatchingMimeTypesOverrideList"`
+	MissedCachePeriodSeconds         pulumi.IntPtrInput      `pulumi:"missedCachePeriodSeconds"`
+	Notes                            pulumi.StringPtrInput   `pulumi:"notes"`
+	Offline                          pulumi.BoolPtrInput     `pulumi:"offline"`
+	Password                         pulumi.StringPtrInput   `pulumi:"password"`
+	PriorityResolution               pulumi.BoolPtrInput     `pulumi:"priorityResolution"`
+	ProjectEnvironments              pulumi.StringArrayInput `pulumi:"projectEnvironments"`
+	ProjectKey                       pulumi.StringPtrInput   `pulumi:"projectKey"`
+	// (Optional, Default: `false`) When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
+	PropagateQueryParams              pulumi.BoolPtrInput     `pulumi:"propagateQueryParams"`
+	PropertySets                      pulumi.StringArrayInput `pulumi:"propertySets"`
+	Proxy                             pulumi.StringPtrInput   `pulumi:"proxy"`
+	QueryParams                       pulumi.StringPtrInput   `pulumi:"queryParams"`
+	RemoteRepoLayoutRef               pulumi.StringPtrInput   `pulumi:"remoteRepoLayoutRef"`
+	RepoLayoutRef                     pulumi.StringPtrInput   `pulumi:"repoLayoutRef"`
+	RetrievalCachePeriodSeconds       pulumi.IntPtrInput      `pulumi:"retrievalCachePeriodSeconds"`
+	ShareConfiguration                pulumi.BoolPtrInput     `pulumi:"shareConfiguration"`
+	SocketTimeoutMillis               pulumi.IntPtrInput      `pulumi:"socketTimeoutMillis"`
+	StoreArtifactsLocally             pulumi.BoolPtrInput     `pulumi:"storeArtifactsLocally"`
+	SynchronizeProperties             pulumi.BoolPtrInput     `pulumi:"synchronizeProperties"`
+	UnusedArtifactsCleanupPeriodHours pulumi.IntPtrInput      `pulumi:"unusedArtifactsCleanupPeriodHours"`
+	Url                               pulumi.StringPtrInput   `pulumi:"url"`
+	Username                          pulumi.StringPtrInput   `pulumi:"username"`
+	XrayIndex                         pulumi.BoolPtrInput     `pulumi:"xrayIndex"`
 }
 
 func (LookupRemoteGenericRepositoryOutputArgs) ElementType() reflect.Type {
@@ -304,6 +336,7 @@ func (o LookupRemoteGenericRepositoryResultOutput) ProjectKey() pulumi.StringPtr
 	return o.ApplyT(func(v LookupRemoteGenericRepositoryResult) *string { return v.ProjectKey }).(pulumi.StringPtrOutput)
 }
 
+// (Optional, Default: `false`) When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
 func (o LookupRemoteGenericRepositoryResultOutput) PropagateQueryParams() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupRemoteGenericRepositoryResult) *bool { return v.PropagateQueryParams }).(pulumi.BoolPtrOutput)
 }

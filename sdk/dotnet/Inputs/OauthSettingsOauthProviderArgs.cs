@@ -12,17 +12,30 @@ namespace Pulumi.Artifactory.Inputs
 
     public sealed class OauthSettingsOauthProviderArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// OAuth user info endpoint for the IdP.
+        /// </summary>
         [Input("apiUrl", required: true)]
         public Input<string> ApiUrl { get; set; } = null!;
 
+        /// <summary>
+        /// OAuth authorization endpoint for the IdP.
+        /// </summary>
         [Input("authUrl", required: true)]
         public Input<string> AuthUrl { get; set; } = null!;
 
+        /// <summary>
+        /// OAuth client ID configured on the IdP.
+        /// </summary>
         [Input("clientId", required: true)]
         public Input<string> ClientId { get; set; } = null!;
 
         [Input("clientSecret", required: true)]
         private Input<string>? _clientSecret;
+
+        /// <summary>
+        /// OAuth client secret configured on the IdP.
+        /// </summary>
         public Input<string>? ClientSecret
         {
             get => _clientSecret;
@@ -33,15 +46,27 @@ namespace Pulumi.Artifactory.Inputs
             }
         }
 
+        /// <summary>
+        /// Enable the Artifactory OAuth provider.  Default value is `true`.
+        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
+        /// <summary>
+        /// Name of the Artifactory OAuth provider.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// OAuth token endpoint for the IdP.
+        /// </summary>
         [Input("tokenUrl", required: true)]
         public Input<string> TokenUrl { get; set; } = null!;
 
+        /// <summary>
+        /// Type of OAuth provider. (e.g., `github`, `google`, `cloudfoundry`, or `openId`)
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 

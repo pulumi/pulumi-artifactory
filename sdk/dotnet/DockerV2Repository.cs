@@ -9,6 +9,37 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Artifactory
 {
+    /// <summary>
+    /// Creates a local Docker v2 repository.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Artifactory = Pulumi.Artifactory;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var foo = new Artifactory.DockerV2Repository("foo", new()
+    ///     {
+    ///         Key = "foo",
+    ///         MaxUniqueTags = 5,
+    ///         TagRetention = 3,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Local repositories can be imported using their name, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import artifactory:index/dockerV2Repository:DockerV2Repository foo foo
+    /// ```
+    /// </summary>
     [ArtifactoryResourceType("artifactory:index/dockerV2Repository:DockerV2Repository")]
     public partial class DockerV2Repository : global::Pulumi.CustomResource
     {
@@ -33,7 +64,8 @@ namespace Pulumi.Artifactory
         public Output<bool?> BlackedOut { get; private set; } = null!;
 
         /// <summary>
-        /// When set, Artifactory will block the pushing of Docker images with manifest v2 schema 1 to this repository.
+        /// When set, Artifactory will block the pushing of Docker images with manifest 
+        /// v2 schema 1 to this repository.
         /// </summary>
         [Output("blockPushingSchema1")]
         public Output<bool> BlockPushingSchema1 { get; private set; } = null!;
@@ -73,16 +105,15 @@ namespace Pulumi.Artifactory
         public Output<string> IncludesPattern { get; private set; } = null!;
 
         /// <summary>
-        /// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-        /// characters. It cannot begin with a number or contain spaces or special characters.
+        /// the identity key of the repo.
         /// </summary>
         [Output("key")]
         public Output<string> Key { get; private set; } = null!;
 
         /// <summary>
-        /// The maximum number of unique tags of a single Docker image to store in this repository. Once the number tags for an
-        /// image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit. This only
-        /// applies to manifest v2
+        /// The maximum number of unique tags of a single Docker image to store in this 
+        /// repository. Once the number tags for an image exceeds this setting, older tags are removed.
+        /// A value of 0 (default) indicates there is no limit. This only applies to manifest v2.
         /// </summary>
         [Output("maxUniqueTags")]
         public Output<int?> MaxUniqueTags { get; private set; } = null!;
@@ -131,8 +162,8 @@ namespace Pulumi.Artifactory
         public Output<string?> RepoLayoutRef { get; private set; } = null!;
 
         /// <summary>
-        /// If greater than 1, overwritten tags will be saved by their digest, up to the set up number. This only applies to
-        /// manifest V2
+        /// If greater than 1, overwritten tags will be saved by their digest, up to the set up 
+        /// number. This only applies to manifest V2.
         /// </summary>
         [Output("tagRetention")]
         public Output<int?> TagRetention { get; private set; } = null!;
@@ -205,7 +236,8 @@ namespace Pulumi.Artifactory
         public Input<bool>? BlackedOut { get; set; }
 
         /// <summary>
-        /// When set, Artifactory will block the pushing of Docker images with manifest v2 schema 1 to this repository.
+        /// When set, Artifactory will block the pushing of Docker images with manifest 
+        /// v2 schema 1 to this repository.
         /// </summary>
         [Input("blockPushingSchema1")]
         public Input<bool>? BlockPushingSchema1 { get; set; }
@@ -245,16 +277,15 @@ namespace Pulumi.Artifactory
         public Input<string>? IncludesPattern { get; set; }
 
         /// <summary>
-        /// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-        /// characters. It cannot begin with a number or contain spaces or special characters.
+        /// the identity key of the repo.
         /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
         /// <summary>
-        /// The maximum number of unique tags of a single Docker image to store in this repository. Once the number tags for an
-        /// image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit. This only
-        /// applies to manifest v2
+        /// The maximum number of unique tags of a single Docker image to store in this 
+        /// repository. Once the number tags for an image exceeds this setting, older tags are removed.
+        /// A value of 0 (default) indicates there is no limit. This only applies to manifest v2.
         /// </summary>
         [Input("maxUniqueTags")]
         public Input<int>? MaxUniqueTags { get; set; }
@@ -312,8 +343,8 @@ namespace Pulumi.Artifactory
         public Input<string>? RepoLayoutRef { get; set; }
 
         /// <summary>
-        /// If greater than 1, overwritten tags will be saved by their digest, up to the set up number. This only applies to
-        /// manifest V2
+        /// If greater than 1, overwritten tags will be saved by their digest, up to the set up 
+        /// number. This only applies to manifest V2.
         /// </summary>
         [Input("tagRetention")]
         public Input<int>? TagRetention { get; set; }
@@ -354,7 +385,8 @@ namespace Pulumi.Artifactory
         public Input<bool>? BlackedOut { get; set; }
 
         /// <summary>
-        /// When set, Artifactory will block the pushing of Docker images with manifest v2 schema 1 to this repository.
+        /// When set, Artifactory will block the pushing of Docker images with manifest 
+        /// v2 schema 1 to this repository.
         /// </summary>
         [Input("blockPushingSchema1")]
         public Input<bool>? BlockPushingSchema1 { get; set; }
@@ -394,16 +426,15 @@ namespace Pulumi.Artifactory
         public Input<string>? IncludesPattern { get; set; }
 
         /// <summary>
-        /// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-        /// characters. It cannot begin with a number or contain spaces or special characters.
+        /// the identity key of the repo.
         /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
 
         /// <summary>
-        /// The maximum number of unique tags of a single Docker image to store in this repository. Once the number tags for an
-        /// image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit. This only
-        /// applies to manifest v2
+        /// The maximum number of unique tags of a single Docker image to store in this 
+        /// repository. Once the number tags for an image exceeds this setting, older tags are removed.
+        /// A value of 0 (default) indicates there is no limit. This only applies to manifest v2.
         /// </summary>
         [Input("maxUniqueTags")]
         public Input<int>? MaxUniqueTags { get; set; }
@@ -464,8 +495,8 @@ namespace Pulumi.Artifactory
         public Input<string>? RepoLayoutRef { get; set; }
 
         /// <summary>
-        /// If greater than 1, overwritten tags will be saved by their digest, up to the set up number. This only applies to
-        /// manifest V2
+        /// If greater than 1, overwritten tags will be saved by their digest, up to the set up 
+        /// number. This only applies to manifest V2.
         /// </summary>
         [Input("tagRetention")]
         public Input<int>? TagRetention { get; set; }

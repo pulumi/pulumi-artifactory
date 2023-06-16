@@ -235,21 +235,33 @@ class GetRemoteIvyRepositoryResult:
     @property
     @pulumi.getter(name="fetchJarsEagerly")
     def fetch_jars_eagerly(self) -> Optional[bool]:
+        """
+        (Optional, Default: `false`) When set, if a POM is requested, Artifactory attempts to fetch the corresponding jar in the background. This will accelerate first access time to the jar when it is subsequently requested.
+        """
         return pulumi.get(self, "fetch_jars_eagerly")
 
     @property
     @pulumi.getter(name="fetchSourcesEagerly")
     def fetch_sources_eagerly(self) -> Optional[bool]:
+        """
+        (Optional, Default: `false`) When set, if a binaries jar is requested, Artifactory attempts to fetch the corresponding source jar in the background. This will accelerate first access time to the source jar when it is subsequently requested.
+        """
         return pulumi.get(self, "fetch_sources_eagerly")
 
     @property
     @pulumi.getter(name="handleReleases")
     def handle_releases(self) -> Optional[bool]:
+        """
+        (Optional, Default: `true`) If set, Artifactory allows you to deploy release artifacts into this repository.
+        """
         return pulumi.get(self, "handle_releases")
 
     @property
     @pulumi.getter(name="handleSnapshots")
     def handle_snapshots(self) -> Optional[bool]:
+        """
+        (Optional, Default: `true`) If set, Artifactory allows you to deploy snapshot artifacts into this repository.
+        """
         return pulumi.get(self, "handle_snapshots")
 
     @property
@@ -353,11 +365,17 @@ class GetRemoteIvyRepositoryResult:
     @property
     @pulumi.getter(name="rejectInvalidJars")
     def reject_invalid_jars(self) -> Optional[bool]:
+        """
+        (Optional, Default: `false`) Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a "captive portal".
+        """
         return pulumi.get(self, "reject_invalid_jars")
 
     @property
     @pulumi.getter(name="remoteRepoChecksumPolicyType")
     def remote_repo_checksum_policy_type(self) -> Optional[str]:
+        """
+        (Optional, Default: `generate-if-absent`) Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
+        """
         return pulumi.get(self, "remote_repo_checksum_policy_type")
 
     @property
@@ -393,6 +411,9 @@ class GetRemoteIvyRepositoryResult:
     @property
     @pulumi.getter(name="suppressPomConsistencyChecks")
     def suppress_pom_consistency_checks(self) -> Optional[bool]:
+        """
+        (Optional, Default: `true`) - By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error. You can disable this behavior by setting this attribute to `true`'
+        """
         return pulumi.get(self, "suppress_pom_consistency_checks")
 
     @property
@@ -527,7 +548,26 @@ def get_remote_ivy_repository(allow_any_host_auth: Optional[bool] = None,
                               xray_index: Optional[bool] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRemoteIvyRepositoryResult:
     """
-    Use this data source to access information about an existing resource.
+    Retrieves a remote Ivy repository.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_artifactory as artifactory
+
+    remote_ivy = artifactory.get_remote_ivy_repository(key="remote-ivy")
+    ```
+
+
+    :param bool fetch_jars_eagerly: (Optional, Default: `false`) When set, if a POM is requested, Artifactory attempts to fetch the corresponding jar in the background. This will accelerate first access time to the jar when it is subsequently requested.
+    :param bool fetch_sources_eagerly: (Optional, Default: `false`) When set, if a binaries jar is requested, Artifactory attempts to fetch the corresponding source jar in the background. This will accelerate first access time to the source jar when it is subsequently requested.
+    :param bool handle_releases: (Optional, Default: `true`) If set, Artifactory allows you to deploy release artifacts into this repository.
+    :param bool handle_snapshots: (Optional, Default: `true`) If set, Artifactory allows you to deploy snapshot artifacts into this repository.
+    :param str key: the identity key of the repo.
+    :param bool reject_invalid_jars: (Optional, Default: `false`) Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a "captive portal".
+    :param str remote_repo_checksum_policy_type: (Optional, Default: `generate-if-absent`) Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
+    :param bool suppress_pom_consistency_checks: (Optional, Default: `true`) - By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error. You can disable this behavior by setting this attribute to `true`'
     """
     __args__ = dict()
     __args__['allowAnyHostAuth'] = allow_any_host_auth
@@ -682,6 +722,25 @@ def get_remote_ivy_repository_output(allow_any_host_auth: Optional[pulumi.Input[
                                      xray_index: Optional[pulumi.Input[Optional[bool]]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRemoteIvyRepositoryResult]:
     """
-    Use this data source to access information about an existing resource.
+    Retrieves a remote Ivy repository.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_artifactory as artifactory
+
+    remote_ivy = artifactory.get_remote_ivy_repository(key="remote-ivy")
+    ```
+
+
+    :param bool fetch_jars_eagerly: (Optional, Default: `false`) When set, if a POM is requested, Artifactory attempts to fetch the corresponding jar in the background. This will accelerate first access time to the jar when it is subsequently requested.
+    :param bool fetch_sources_eagerly: (Optional, Default: `false`) When set, if a binaries jar is requested, Artifactory attempts to fetch the corresponding source jar in the background. This will accelerate first access time to the source jar when it is subsequently requested.
+    :param bool handle_releases: (Optional, Default: `true`) If set, Artifactory allows you to deploy release artifacts into this repository.
+    :param bool handle_snapshots: (Optional, Default: `true`) If set, Artifactory allows you to deploy snapshot artifacts into this repository.
+    :param str key: the identity key of the repo.
+    :param bool reject_invalid_jars: (Optional, Default: `false`) Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a "captive portal".
+    :param str remote_repo_checksum_policy_type: (Optional, Default: `generate-if-absent`) Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
+    :param bool suppress_pom_consistency_checks: (Optional, Default: `true`) - By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error. You can disable this behavior by setting this attribute to `true`'
     """
     ...

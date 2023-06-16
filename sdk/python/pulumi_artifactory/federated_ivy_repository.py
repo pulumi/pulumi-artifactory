@@ -41,12 +41,10 @@ class FederatedIvyRepositoryArgs:
                  xray_index: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a FederatedIvyRepository resource.
-        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-               characters. It cannot begin with a number or contain spaces or special characters.
-        :param pulumi.Input[Sequence[pulumi.Input['FederatedIvyRepositoryMemberArgs']]] members: The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
-               will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
-               federated members will need to have a base URL set. Please follow the
-               [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+        :param pulumi.Input[str] key: the identity key of the repo.
+        :param pulumi.Input[Sequence[pulumi.Input['FederatedIvyRepositoryMemberArgs']]] members: The list of Federated members and must contain this repository URL (configured base URL
+               `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+               Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
                to set up Federated repositories correctly.
         :param pulumi.Input[bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
                therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
@@ -140,8 +138,7 @@ class FederatedIvyRepositoryArgs:
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
         """
-        A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-        characters. It cannot begin with a number or contain spaces or special characters.
+        the identity key of the repo.
         """
         return pulumi.get(self, "key")
 
@@ -153,10 +150,9 @@ class FederatedIvyRepositoryArgs:
     @pulumi.getter
     def members(self) -> pulumi.Input[Sequence[pulumi.Input['FederatedIvyRepositoryMemberArgs']]]:
         """
-        The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
-        will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
-        federated members will need to have a base URL set. Please follow the
-        [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+        The list of Federated members and must contain this repository URL (configured base URL
+        `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+        Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
         to set up Federated repositories correctly.
         """
         return pulumi.get(self, "members")
@@ -489,14 +485,12 @@ class _FederatedIvyRepositoryState:
         :param pulumi.Input[bool] handle_snapshots: If set, Artifactory allows you to deploy snapshot artifacts into this repository.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-               characters. It cannot begin with a number or contain spaces or special characters.
+        :param pulumi.Input[str] key: the identity key of the repo.
         :param pulumi.Input[int] max_unique_snapshots: The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
                older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
-        :param pulumi.Input[Sequence[pulumi.Input['FederatedIvyRepositoryMemberArgs']]] members: The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
-               will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
-               federated members will need to have a base URL set. Please follow the
-               [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+        :param pulumi.Input[Sequence[pulumi.Input['FederatedIvyRepositoryMemberArgs']]] members: The list of Federated members and must contain this repository URL (configured base URL
+               `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+               Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
                to set up Federated repositories correctly.
         :param pulumi.Input[str] notes: Internal description.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
@@ -713,8 +707,7 @@ class _FederatedIvyRepositoryState:
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
         """
-        A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-        characters. It cannot begin with a number or contain spaces or special characters.
+        the identity key of the repo.
         """
         return pulumi.get(self, "key")
 
@@ -739,10 +732,9 @@ class _FederatedIvyRepositoryState:
     @pulumi.getter
     def members(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FederatedIvyRepositoryMemberArgs']]]]:
         """
-        The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
-        will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
-        federated members will need to have a base URL set. Please follow the
-        [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+        The list of Federated members and must contain this repository URL (configured base URL
+        `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+        Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
         to set up Federated repositories correctly.
         """
         return pulumi.get(self, "members")
@@ -909,7 +901,36 @@ class FederatedIvyRepository(pulumi.CustomResource):
                  xray_index: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        Create a FederatedIvyRepository resource with the given unique name, props, and options.
+        Creates a federated Ivy repository.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        terraform_federated_test_ivy_repo = artifactory.FederatedIvyRepository("terraform-federated-test-ivy-repo",
+            key="terraform-federated-test-ivy-repo",
+            members=[
+                artifactory.FederatedIvyRepositoryMemberArgs(
+                    enabled=True,
+                    url="http://tempurl.org/artifactory/terraform-federated-test-ivy-repo",
+                ),
+                artifactory.FederatedIvyRepositoryMemberArgs(
+                    enabled=True,
+                    url="http://tempurl2.org/artifactory/terraform-federated-test-ivy-repo-2",
+                ),
+            ])
+        ```
+
+        ## Import
+
+        Federated repositories can be imported using their name, e.g.
+
+        ```sh
+         $ pulumi import artifactory:index/federatedIvyRepository:FederatedIvyRepository terraform-federated-test-ivy-repo terraform-federated-test-ivy-repo
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -933,14 +954,12 @@ class FederatedIvyRepository(pulumi.CustomResource):
         :param pulumi.Input[bool] handle_snapshots: If set, Artifactory allows you to deploy snapshot artifacts into this repository.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-               characters. It cannot begin with a number or contain spaces or special characters.
+        :param pulumi.Input[str] key: the identity key of the repo.
         :param pulumi.Input[int] max_unique_snapshots: The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
                older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FederatedIvyRepositoryMemberArgs']]]] members: The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
-               will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
-               federated members will need to have a base URL set. Please follow the
-               [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FederatedIvyRepositoryMemberArgs']]]] members: The list of Federated members and must contain this repository URL (configured base URL
+               `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+               Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
                to set up Federated repositories correctly.
         :param pulumi.Input[str] notes: Internal description.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
@@ -969,7 +988,36 @@ class FederatedIvyRepository(pulumi.CustomResource):
                  args: FederatedIvyRepositoryArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a FederatedIvyRepository resource with the given unique name, props, and options.
+        Creates a federated Ivy repository.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        terraform_federated_test_ivy_repo = artifactory.FederatedIvyRepository("terraform-federated-test-ivy-repo",
+            key="terraform-federated-test-ivy-repo",
+            members=[
+                artifactory.FederatedIvyRepositoryMemberArgs(
+                    enabled=True,
+                    url="http://tempurl.org/artifactory/terraform-federated-test-ivy-repo",
+                ),
+                artifactory.FederatedIvyRepositoryMemberArgs(
+                    enabled=True,
+                    url="http://tempurl2.org/artifactory/terraform-federated-test-ivy-repo-2",
+                ),
+            ])
+        ```
+
+        ## Import
+
+        Federated repositories can be imported using their name, e.g.
+
+        ```sh
+         $ pulumi import artifactory:index/federatedIvyRepository:FederatedIvyRepository terraform-federated-test-ivy-repo terraform-federated-test-ivy-repo
+        ```
+
         :param str resource_name: The name of the resource.
         :param FederatedIvyRepositoryArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1107,14 +1155,12 @@ class FederatedIvyRepository(pulumi.CustomResource):
         :param pulumi.Input[bool] handle_snapshots: If set, Artifactory allows you to deploy snapshot artifacts into this repository.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-               characters. It cannot begin with a number or contain spaces or special characters.
+        :param pulumi.Input[str] key: the identity key of the repo.
         :param pulumi.Input[int] max_unique_snapshots: The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
                older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FederatedIvyRepositoryMemberArgs']]]] members: The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
-               will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
-               federated members will need to have a base URL set. Please follow the
-               [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FederatedIvyRepositoryMemberArgs']]]] members: The list of Federated members and must contain this repository URL (configured base URL
+               `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+               Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
                to set up Federated repositories correctly.
         :param pulumi.Input[str] notes: Internal description.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
@@ -1268,8 +1314,7 @@ class FederatedIvyRepository(pulumi.CustomResource):
     @pulumi.getter
     def key(self) -> pulumi.Output[str]:
         """
-        A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-        characters. It cannot begin with a number or contain spaces or special characters.
+        the identity key of the repo.
         """
         return pulumi.get(self, "key")
 
@@ -1286,10 +1331,9 @@ class FederatedIvyRepository(pulumi.CustomResource):
     @pulumi.getter
     def members(self) -> pulumi.Output[Sequence['outputs.FederatedIvyRepositoryMember']]:
         """
-        The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
-        will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
-        federated members will need to have a base URL set. Please follow the
-        [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+        The list of Federated members and must contain this repository URL (configured base URL
+        `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+        Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
         to set up Federated repositories correctly.
         """
         return pulumi.get(self, "members")

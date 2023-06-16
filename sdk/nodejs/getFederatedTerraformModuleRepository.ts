@@ -6,6 +6,18 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const federated-test-terraformModule-repo = artifactory.getFederatedTerraformModuleRepository({
+ *     key: "federated-test-terraform-module-repo",
+ * });
+ * ```
+ */
 export function getFederatedTerraformModuleRepository(args: GetFederatedTerraformModuleRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetFederatedTerraformModuleRepositoryResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -42,7 +54,16 @@ export interface GetFederatedTerraformModuleRepositoryArgs {
     downloadDirect?: boolean;
     excludesPattern?: string;
     includesPattern?: string;
+    /**
+     * the identity key of the repo.
+     */
     key: string;
+    /**
+     * The list of Federated members and must contain this repository URL (configured base URL
+     * `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+     * Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+     * to set up Federated repositories correctly.
+     */
     members?: inputs.GetFederatedTerraformModuleRepositoryMember[];
     notes?: string;
     priorityResolution?: boolean;
@@ -70,6 +91,12 @@ export interface GetFederatedTerraformModuleRepositoryResult {
     readonly id: string;
     readonly includesPattern: string;
     readonly key: string;
+    /**
+     * The list of Federated members and must contain this repository URL (configured base URL
+     * `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+     * Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+     * to set up Federated repositories correctly.
+     */
     readonly members?: outputs.GetFederatedTerraformModuleRepositoryMember[];
     readonly notes?: string;
     readonly packageType: string;
@@ -80,6 +107,18 @@ export interface GetFederatedTerraformModuleRepositoryResult {
     readonly repoLayoutRef?: string;
     readonly xrayIndex?: boolean;
 }
+/**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const federated-test-terraformModule-repo = artifactory.getFederatedTerraformModuleRepository({
+ *     key: "federated-test-terraform-module-repo",
+ * });
+ * ```
+ */
 export function getFederatedTerraformModuleRepositoryOutput(args: GetFederatedTerraformModuleRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedTerraformModuleRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getFederatedTerraformModuleRepository(a, opts))
 }
@@ -96,7 +135,16 @@ export interface GetFederatedTerraformModuleRepositoryOutputArgs {
     downloadDirect?: pulumi.Input<boolean>;
     excludesPattern?: pulumi.Input<string>;
     includesPattern?: pulumi.Input<string>;
+    /**
+     * the identity key of the repo.
+     */
     key: pulumi.Input<string>;
+    /**
+     * The list of Federated members and must contain this repository URL (configured base URL
+     * `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+     * Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+     * to set up Federated repositories correctly.
+     */
     members?: pulumi.Input<pulumi.Input<inputs.GetFederatedTerraformModuleRepositoryMemberArgs>[]>;
     notes?: pulumi.Input<string>;
     priorityResolution?: pulumi.Input<boolean>;

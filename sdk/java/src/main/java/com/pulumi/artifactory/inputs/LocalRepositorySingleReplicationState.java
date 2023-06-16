@@ -18,18 +18,14 @@ public final class LocalRepositorySingleReplicationState extends com.pulumi.reso
     public static final LocalRepositorySingleReplicationState Empty = new LocalRepositorySingleReplicationState();
 
     /**
-     * Enabling the `check_binary_existence_in_filestore` flag requires an Enterprise+ license. When true, enables distributed
-     * checksum storage. For more information, see [Optimizing Repository Replication with Checksum-Based
-     * Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
+     * Enabling the `check_binary_existence_in_filestore` flag requires an Enterprise Plus license. When true, enables distributed checksum storage. For more information, see [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
      * 
      */
     @Import(name="checkBinaryExistenceInFilestore")
     private @Nullable Output<Boolean> checkBinaryExistenceInFilestore;
 
     /**
-     * @return Enabling the `check_binary_existence_in_filestore` flag requires an Enterprise+ license. When true, enables distributed
-     * checksum storage. For more information, see [Optimizing Repository Replication with Checksum-Based
-     * Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
+     * @return Enabling the `check_binary_existence_in_filestore` flag requires an Enterprise Plus license. When true, enables distributed checksum storage. For more information, see [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
      * 
      */
     public Optional<Output<Boolean>> checkBinaryExistenceInFilestore() {
@@ -37,14 +33,14 @@ public final class LocalRepositorySingleReplicationState extends com.pulumi.reso
     }
 
     /**
-     * The Cron expression that determines when the next replication will be triggered.
+     * A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
      * 
      */
     @Import(name="cronExp")
     private @Nullable Output<String> cronExp;
 
     /**
-     * @return The Cron expression that determines when the next replication will be triggered.
+     * @return A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
      * 
      */
     public Optional<Output<String>> cronExp() {
@@ -52,16 +48,14 @@ public final class LocalRepositorySingleReplicationState extends com.pulumi.reso
     }
 
     /**
-     * When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on
-     * artifact, e.g. add, deleted or property change. Default value is `false`.
+     * When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. add, deleted or property change. Default value is `false`.
      * 
      */
     @Import(name="enableEventReplication")
     private @Nullable Output<Boolean> enableEventReplication;
 
     /**
-     * @return When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on
-     * artifact, e.g. add, deleted or property change. Default value is `false`.
+     * @return When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. add, deleted or property change. Default value is `false`.
      * 
      */
     public Optional<Output<Boolean>> enableEventReplication() {
@@ -84,16 +78,14 @@ public final class LocalRepositorySingleReplicationState extends com.pulumi.reso
     }
 
     /**
-     * List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**{@literal /}z/*. By default no
-     * artifacts are excluded.
+     * List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**{@literal /}z/*`. By default, no artifacts are excluded.
      * 
      */
     @Import(name="excludePathPrefixPattern")
     private @Nullable Output<String> excludePathPrefixPattern;
 
     /**
-     * @return List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**{@literal /}z/*. By default no
-     * artifacts are excluded.
+     * @return List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**{@literal /}z/*`. By default, no artifacts are excluded.
      * 
      */
     public Optional<Output<String>> excludePathPrefixPattern() {
@@ -101,16 +93,14 @@ public final class LocalRepositorySingleReplicationState extends com.pulumi.reso
     }
 
     /**
-     * List of artifact patterns to include when evaluating artifact requests in the form of x/y/**{@literal /}z/*. When used, only
-     * artifacts matching one of the include patterns are served. By default, all artifacts are included (**{@literal /}*).
+     * List of artifact patterns to include when evaluating artifact requests in the form of `x/y/**{@literal /}z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included `(**{@literal /}*)`.
      * 
      */
     @Import(name="includePathPrefixPattern")
     private @Nullable Output<String> includePathPrefixPattern;
 
     /**
-     * @return List of artifact patterns to include when evaluating artifact requests in the form of x/y/**{@literal /}z/*. When used, only
-     * artifacts matching one of the include patterns are served. By default, all artifacts are included (**{@literal /}*).
+     * @return List of artifact patterns to include when evaluating artifact requests in the form of `x/y/**{@literal /}z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included `(**{@literal /}*)`.
      * 
      */
     public Optional<Output<String>> includePathPrefixPattern() {
@@ -118,14 +108,14 @@ public final class LocalRepositorySingleReplicationState extends com.pulumi.reso
     }
 
     /**
-     * Use either the HTTP authentication password or identity token.
+     * Use either the HTTP authentication password or [identity token](https://www.jfrog.com/confluence/display/JFROG/User+Profile#UserProfile-IdentityTokenidentitytoken).
      * 
      */
     @Import(name="password")
     private @Nullable Output<String> password;
 
     /**
-     * @return Use either the HTTP authentication password or identity token.
+     * @return Use either the HTTP authentication password or [identity token](https://www.jfrog.com/confluence/display/JFROG/User+Profile#UserProfile-IdentityTokenidentitytoken).
      * 
      */
     public Optional<Output<String>> password() {
@@ -133,14 +123,14 @@ public final class LocalRepositorySingleReplicationState extends com.pulumi.reso
     }
 
     /**
-     * A proxy configuration to use when communicating with the remote instance.
+     * Proxy key from Artifactory Proxies settings. The proxy configuration will be used when communicating with the remote instance.
      * 
      */
     @Import(name="proxy")
     private @Nullable Output<String> proxy;
 
     /**
-     * @return A proxy configuration to use when communicating with the remote instance.
+     * @return Proxy key from Artifactory Proxies settings. The proxy configuration will be used when communicating with the remote instance.
      * 
      */
     public Optional<Output<String>> proxy() {
@@ -148,16 +138,14 @@ public final class LocalRepositorySingleReplicationState extends com.pulumi.reso
     }
 
     /**
-     * Replication ID. The ID is known only after the replication is created, for this reason it&#39;s `Computed` and can not be
-     * set by the user in HCL.
+     * Replication ID, the value is unknown until the resource is created. Can&#39;t be set or updated.
      * 
      */
     @Import(name="replicationKey")
     private @Nullable Output<String> replicationKey;
 
     /**
-     * @return Replication ID. The ID is known only after the replication is created, for this reason it&#39;s `Computed` and can not be
-     * set by the user in HCL.
+     * @return Replication ID, the value is unknown until the resource is created. Can&#39;t be set or updated.
      * 
      */
     public Optional<Output<String>> replicationKey() {
@@ -180,14 +168,14 @@ public final class LocalRepositorySingleReplicationState extends com.pulumi.reso
     }
 
     /**
-     * The network timeout in milliseconds to use for remote operations.
+     * The network timeout in milliseconds to use for remote operations. Default value is `15000`.
      * 
      */
     @Import(name="socketTimeoutMillis")
     private @Nullable Output<Integer> socketTimeoutMillis;
 
     /**
-     * @return The network timeout in milliseconds to use for remote operations.
+     * @return The network timeout in milliseconds to use for remote operations. Default value is `15000`.
      * 
      */
     public Optional<Output<Integer>> socketTimeoutMillis() {
@@ -195,18 +183,14 @@ public final class LocalRepositorySingleReplicationState extends com.pulumi.reso
     }
 
     /**
-     * When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata). Note
-     * that enabling this option, will delete artifacts on the target that do not exist in the source repository. Default value
-     * is `false`.
+     * When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata). Note that enabling this option, will delete artifacts on the target that do not exist in the source repository. Default value is `false`.
      * 
      */
     @Import(name="syncDeletes")
     private @Nullable Output<Boolean> syncDeletes;
 
     /**
-     * @return When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata). Note
-     * that enabling this option, will delete artifacts on the target that do not exist in the source repository. Default value
-     * is `false`.
+     * @return When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata). Note that enabling this option, will delete artifacts on the target that do not exist in the source repository. Default value is `false`.
      * 
      */
     public Optional<Output<Boolean>> syncDeletes() {
@@ -214,14 +198,14 @@ public final class LocalRepositorySingleReplicationState extends com.pulumi.reso
     }
 
     /**
-     * When set, the task also synchronizes the properties of replicated artifacts. Default value is `true`
+     * When set, the task also synchronizes the properties of replicated artifacts. Default value is `true`.
      * 
      */
     @Import(name="syncProperties")
     private @Nullable Output<Boolean> syncProperties;
 
     /**
-     * @return When set, the task also synchronizes the properties of replicated artifacts. Default value is `true`
+     * @return When set, the task also synchronizes the properties of replicated artifacts. Default value is `true`.
      * 
      */
     public Optional<Output<Boolean>> syncProperties() {
@@ -229,16 +213,14 @@ public final class LocalRepositorySingleReplicationState extends com.pulumi.reso
     }
 
     /**
-     * When set, the task also synchronizes artifact download statistics. Set to avoid inadvertent cleanup at the target
-     * instance when setting up replication for disaster recovery. Default value is `false`
+     * When set, the task also synchronizes artifact download statistics. Set to avoid inadvertent cleanup at the target instance when setting up replication for disaster recovery. Default value is `false`
      * 
      */
     @Import(name="syncStatistics")
     private @Nullable Output<Boolean> syncStatistics;
 
     /**
-     * @return When set, the task also synchronizes artifact download statistics. Set to avoid inadvertent cleanup at the target
-     * instance when setting up replication for disaster recovery. Default value is `false`
+     * @return When set, the task also synchronizes artifact download statistics. Set to avoid inadvertent cleanup at the target instance when setting up replication for disaster recovery. Default value is `false`
      * 
      */
     public Optional<Output<Boolean>> syncStatistics() {
@@ -246,16 +228,14 @@ public final class LocalRepositorySingleReplicationState extends com.pulumi.reso
     }
 
     /**
-     * The URL of the target local repository on a remote Artifactory server. Use the format
-     * `https://&lt;artifactory_url&gt;/artifactory/&lt;repository_name&gt;`.
+     * The URL of the target local repository on a remote Artifactory server. Use the format `https://&lt;artifactory_url&gt;/artifactory/&lt;repository_name&gt;`.
      * 
      */
     @Import(name="url")
     private @Nullable Output<String> url;
 
     /**
-     * @return The URL of the target local repository on a remote Artifactory server. Use the format
-     * `https://&lt;artifactory_url&gt;/artifactory/&lt;repository_name&gt;`.
+     * @return The URL of the target local repository on a remote Artifactory server. Use the format `https://&lt;artifactory_url&gt;/artifactory/&lt;repository_name&gt;`.
      * 
      */
     public Optional<Output<String>> url() {
@@ -263,14 +243,14 @@ public final class LocalRepositorySingleReplicationState extends com.pulumi.reso
     }
 
     /**
-     * The HTTP authentication username.
+     * Username on the remote Artifactory instance.
      * 
      */
     @Import(name="username")
     private @Nullable Output<String> username;
 
     /**
-     * @return The HTTP authentication username.
+     * @return Username on the remote Artifactory instance.
      * 
      */
     public Optional<Output<String>> username() {
@@ -317,9 +297,7 @@ public final class LocalRepositorySingleReplicationState extends com.pulumi.reso
         }
 
         /**
-         * @param checkBinaryExistenceInFilestore Enabling the `check_binary_existence_in_filestore` flag requires an Enterprise+ license. When true, enables distributed
-         * checksum storage. For more information, see [Optimizing Repository Replication with Checksum-Based
-         * Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
+         * @param checkBinaryExistenceInFilestore Enabling the `check_binary_existence_in_filestore` flag requires an Enterprise Plus license. When true, enables distributed checksum storage. For more information, see [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
          * 
          * @return builder
          * 
@@ -330,9 +308,7 @@ public final class LocalRepositorySingleReplicationState extends com.pulumi.reso
         }
 
         /**
-         * @param checkBinaryExistenceInFilestore Enabling the `check_binary_existence_in_filestore` flag requires an Enterprise+ license. When true, enables distributed
-         * checksum storage. For more information, see [Optimizing Repository Replication with Checksum-Based
-         * Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
+         * @param checkBinaryExistenceInFilestore Enabling the `check_binary_existence_in_filestore` flag requires an Enterprise Plus license. When true, enables distributed checksum storage. For more information, see [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
          * 
          * @return builder
          * 
@@ -342,7 +318,7 @@ public final class LocalRepositorySingleReplicationState extends com.pulumi.reso
         }
 
         /**
-         * @param cronExp The Cron expression that determines when the next replication will be triggered.
+         * @param cronExp A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
          * 
          * @return builder
          * 
@@ -353,7 +329,7 @@ public final class LocalRepositorySingleReplicationState extends com.pulumi.reso
         }
 
         /**
-         * @param cronExp The Cron expression that determines when the next replication will be triggered.
+         * @param cronExp A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
          * 
          * @return builder
          * 
@@ -363,8 +339,7 @@ public final class LocalRepositorySingleReplicationState extends com.pulumi.reso
         }
 
         /**
-         * @param enableEventReplication When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on
-         * artifact, e.g. add, deleted or property change. Default value is `false`.
+         * @param enableEventReplication When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. add, deleted or property change. Default value is `false`.
          * 
          * @return builder
          * 
@@ -375,8 +350,7 @@ public final class LocalRepositorySingleReplicationState extends com.pulumi.reso
         }
 
         /**
-         * @param enableEventReplication When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on
-         * artifact, e.g. add, deleted or property change. Default value is `false`.
+         * @param enableEventReplication When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. add, deleted or property change. Default value is `false`.
          * 
          * @return builder
          * 
@@ -407,8 +381,7 @@ public final class LocalRepositorySingleReplicationState extends com.pulumi.reso
         }
 
         /**
-         * @param excludePathPrefixPattern List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**{@literal /}z/*. By default no
-         * artifacts are excluded.
+         * @param excludePathPrefixPattern List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**{@literal /}z/*`. By default, no artifacts are excluded.
          * 
          * @return builder
          * 
@@ -419,8 +392,7 @@ public final class LocalRepositorySingleReplicationState extends com.pulumi.reso
         }
 
         /**
-         * @param excludePathPrefixPattern List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**{@literal /}z/*. By default no
-         * artifacts are excluded.
+         * @param excludePathPrefixPattern List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**{@literal /}z/*`. By default, no artifacts are excluded.
          * 
          * @return builder
          * 
@@ -430,8 +402,7 @@ public final class LocalRepositorySingleReplicationState extends com.pulumi.reso
         }
 
         /**
-         * @param includePathPrefixPattern List of artifact patterns to include when evaluating artifact requests in the form of x/y/**{@literal /}z/*. When used, only
-         * artifacts matching one of the include patterns are served. By default, all artifacts are included (**{@literal /}*).
+         * @param includePathPrefixPattern List of artifact patterns to include when evaluating artifact requests in the form of `x/y/**{@literal /}z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included `(**{@literal /}*)`.
          * 
          * @return builder
          * 
@@ -442,8 +413,7 @@ public final class LocalRepositorySingleReplicationState extends com.pulumi.reso
         }
 
         /**
-         * @param includePathPrefixPattern List of artifact patterns to include when evaluating artifact requests in the form of x/y/**{@literal /}z/*. When used, only
-         * artifacts matching one of the include patterns are served. By default, all artifacts are included (**{@literal /}*).
+         * @param includePathPrefixPattern List of artifact patterns to include when evaluating artifact requests in the form of `x/y/**{@literal /}z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included `(**{@literal /}*)`.
          * 
          * @return builder
          * 
@@ -453,7 +423,7 @@ public final class LocalRepositorySingleReplicationState extends com.pulumi.reso
         }
 
         /**
-         * @param password Use either the HTTP authentication password or identity token.
+         * @param password Use either the HTTP authentication password or [identity token](https://www.jfrog.com/confluence/display/JFROG/User+Profile#UserProfile-IdentityTokenidentitytoken).
          * 
          * @return builder
          * 
@@ -464,7 +434,7 @@ public final class LocalRepositorySingleReplicationState extends com.pulumi.reso
         }
 
         /**
-         * @param password Use either the HTTP authentication password or identity token.
+         * @param password Use either the HTTP authentication password or [identity token](https://www.jfrog.com/confluence/display/JFROG/User+Profile#UserProfile-IdentityTokenidentitytoken).
          * 
          * @return builder
          * 
@@ -474,7 +444,7 @@ public final class LocalRepositorySingleReplicationState extends com.pulumi.reso
         }
 
         /**
-         * @param proxy A proxy configuration to use when communicating with the remote instance.
+         * @param proxy Proxy key from Artifactory Proxies settings. The proxy configuration will be used when communicating with the remote instance.
          * 
          * @return builder
          * 
@@ -485,7 +455,7 @@ public final class LocalRepositorySingleReplicationState extends com.pulumi.reso
         }
 
         /**
-         * @param proxy A proxy configuration to use when communicating with the remote instance.
+         * @param proxy Proxy key from Artifactory Proxies settings. The proxy configuration will be used when communicating with the remote instance.
          * 
          * @return builder
          * 
@@ -495,8 +465,7 @@ public final class LocalRepositorySingleReplicationState extends com.pulumi.reso
         }
 
         /**
-         * @param replicationKey Replication ID. The ID is known only after the replication is created, for this reason it&#39;s `Computed` and can not be
-         * set by the user in HCL.
+         * @param replicationKey Replication ID, the value is unknown until the resource is created. Can&#39;t be set or updated.
          * 
          * @return builder
          * 
@@ -507,8 +476,7 @@ public final class LocalRepositorySingleReplicationState extends com.pulumi.reso
         }
 
         /**
-         * @param replicationKey Replication ID. The ID is known only after the replication is created, for this reason it&#39;s `Computed` and can not be
-         * set by the user in HCL.
+         * @param replicationKey Replication ID, the value is unknown until the resource is created. Can&#39;t be set or updated.
          * 
          * @return builder
          * 
@@ -539,7 +507,7 @@ public final class LocalRepositorySingleReplicationState extends com.pulumi.reso
         }
 
         /**
-         * @param socketTimeoutMillis The network timeout in milliseconds to use for remote operations.
+         * @param socketTimeoutMillis The network timeout in milliseconds to use for remote operations. Default value is `15000`.
          * 
          * @return builder
          * 
@@ -550,7 +518,7 @@ public final class LocalRepositorySingleReplicationState extends com.pulumi.reso
         }
 
         /**
-         * @param socketTimeoutMillis The network timeout in milliseconds to use for remote operations.
+         * @param socketTimeoutMillis The network timeout in milliseconds to use for remote operations. Default value is `15000`.
          * 
          * @return builder
          * 
@@ -560,9 +528,7 @@ public final class LocalRepositorySingleReplicationState extends com.pulumi.reso
         }
 
         /**
-         * @param syncDeletes When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata). Note
-         * that enabling this option, will delete artifacts on the target that do not exist in the source repository. Default value
-         * is `false`.
+         * @param syncDeletes When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata). Note that enabling this option, will delete artifacts on the target that do not exist in the source repository. Default value is `false`.
          * 
          * @return builder
          * 
@@ -573,9 +539,7 @@ public final class LocalRepositorySingleReplicationState extends com.pulumi.reso
         }
 
         /**
-         * @param syncDeletes When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata). Note
-         * that enabling this option, will delete artifacts on the target that do not exist in the source repository. Default value
-         * is `false`.
+         * @param syncDeletes When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata). Note that enabling this option, will delete artifacts on the target that do not exist in the source repository. Default value is `false`.
          * 
          * @return builder
          * 
@@ -585,7 +549,7 @@ public final class LocalRepositorySingleReplicationState extends com.pulumi.reso
         }
 
         /**
-         * @param syncProperties When set, the task also synchronizes the properties of replicated artifacts. Default value is `true`
+         * @param syncProperties When set, the task also synchronizes the properties of replicated artifacts. Default value is `true`.
          * 
          * @return builder
          * 
@@ -596,7 +560,7 @@ public final class LocalRepositorySingleReplicationState extends com.pulumi.reso
         }
 
         /**
-         * @param syncProperties When set, the task also synchronizes the properties of replicated artifacts. Default value is `true`
+         * @param syncProperties When set, the task also synchronizes the properties of replicated artifacts. Default value is `true`.
          * 
          * @return builder
          * 
@@ -606,8 +570,7 @@ public final class LocalRepositorySingleReplicationState extends com.pulumi.reso
         }
 
         /**
-         * @param syncStatistics When set, the task also synchronizes artifact download statistics. Set to avoid inadvertent cleanup at the target
-         * instance when setting up replication for disaster recovery. Default value is `false`
+         * @param syncStatistics When set, the task also synchronizes artifact download statistics. Set to avoid inadvertent cleanup at the target instance when setting up replication for disaster recovery. Default value is `false`
          * 
          * @return builder
          * 
@@ -618,8 +581,7 @@ public final class LocalRepositorySingleReplicationState extends com.pulumi.reso
         }
 
         /**
-         * @param syncStatistics When set, the task also synchronizes artifact download statistics. Set to avoid inadvertent cleanup at the target
-         * instance when setting up replication for disaster recovery. Default value is `false`
+         * @param syncStatistics When set, the task also synchronizes artifact download statistics. Set to avoid inadvertent cleanup at the target instance when setting up replication for disaster recovery. Default value is `false`
          * 
          * @return builder
          * 
@@ -629,8 +591,7 @@ public final class LocalRepositorySingleReplicationState extends com.pulumi.reso
         }
 
         /**
-         * @param url The URL of the target local repository on a remote Artifactory server. Use the format
-         * `https://&lt;artifactory_url&gt;/artifactory/&lt;repository_name&gt;`.
+         * @param url The URL of the target local repository on a remote Artifactory server. Use the format `https://&lt;artifactory_url&gt;/artifactory/&lt;repository_name&gt;`.
          * 
          * @return builder
          * 
@@ -641,8 +602,7 @@ public final class LocalRepositorySingleReplicationState extends com.pulumi.reso
         }
 
         /**
-         * @param url The URL of the target local repository on a remote Artifactory server. Use the format
-         * `https://&lt;artifactory_url&gt;/artifactory/&lt;repository_name&gt;`.
+         * @param url The URL of the target local repository on a remote Artifactory server. Use the format `https://&lt;artifactory_url&gt;/artifactory/&lt;repository_name&gt;`.
          * 
          * @return builder
          * 
@@ -652,7 +612,7 @@ public final class LocalRepositorySingleReplicationState extends com.pulumi.reso
         }
 
         /**
-         * @param username The HTTP authentication username.
+         * @param username Username on the remote Artifactory instance.
          * 
          * @return builder
          * 
@@ -663,7 +623,7 @@ public final class LocalRepositorySingleReplicationState extends com.pulumi.reso
         }
 
         /**
-         * @param username The HTTP authentication username.
+         * @param username Username on the remote Artifactory instance.
          * 
          * @return builder
          * 

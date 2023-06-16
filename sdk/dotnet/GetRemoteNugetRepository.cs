@@ -11,9 +11,59 @@ namespace Pulumi.Artifactory
 {
     public static class GetRemoteNugetRepository
     {
+        /// <summary>
+        /// Retrieves a remote NuGet repository.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var remote_nuget = Artifactory.GetRemoteNugetRepository.Invoke(new()
+        ///     {
+        ///         Key = "remote-nuget",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetRemoteNugetRepositoryResult> InvokeAsync(GetRemoteNugetRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRemoteNugetRepositoryResult>("artifactory:index/getRemoteNugetRepository:getRemoteNugetRepository", args ?? new GetRemoteNugetRepositoryArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Retrieves a remote NuGet repository.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var remote_nuget = Artifactory.GetRemoteNugetRepository.Invoke(new()
+        ///     {
+        ///         Key = "remote-nuget",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetRemoteNugetRepositoryResult> Invoke(GetRemoteNugetRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRemoteNugetRepositoryResult>("artifactory:index/getRemoteNugetRepository:getRemoteNugetRepository", args ?? new GetRemoteNugetRepositoryInvokeArgs(), options.WithDefaults());
     }
@@ -48,6 +98,9 @@ namespace Pulumi.Artifactory
         [Input("description")]
         public string? Description { get; set; }
 
+        /// <summary>
+        /// (Optional) The context path prefix through which NuGet downloads are served. For example, the NuGet Gallery download URL is `https://nuget.org/api/v2/package`, so the repository URL should be configured as `https://nuget.org` and the download context path should be configured as `api/v2/package`. Default value is `api/v2/package`.
+        /// </summary>
         [Input("downloadContextPath")]
         public string? DownloadContextPath { get; set; }
 
@@ -60,9 +113,15 @@ namespace Pulumi.Artifactory
         [Input("excludesPattern")]
         public string? ExcludesPattern { get; set; }
 
+        /// <summary>
+        /// (Optional) When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value is `api/v2`.
+        /// </summary>
         [Input("feedContextPath")]
         public string? FeedContextPath { get; set; }
 
+        /// <summary>
+        /// (Optional) Force basic authentication credentials in order to use this repository. Default value is `false`.
+        /// </summary>
         [Input("forceNugetAuthentication")]
         public bool? ForceNugetAuthentication { get; set; }
 
@@ -72,6 +131,9 @@ namespace Pulumi.Artifactory
         [Input("includesPattern")]
         public string? IncludesPattern { get; set; }
 
+        /// <summary>
+        /// the identity key of the repo.
+        /// </summary>
         [Input("key", required: true)]
         public string Key { get; set; } = null!;
 
@@ -150,6 +212,9 @@ namespace Pulumi.Artifactory
         [Input("storeArtifactsLocally")]
         public bool? StoreArtifactsLocally { get; set; }
 
+        /// <summary>
+        /// (Optional) NuGet symbol server URL. Default value is `https://symbols.nuget.org/download/symbols`.
+        /// </summary>
         [Input("symbolServerUrl")]
         public string? SymbolServerUrl { get; set; }
 
@@ -165,6 +230,9 @@ namespace Pulumi.Artifactory
         [Input("username")]
         public string? Username { get; set; }
 
+        /// <summary>
+        /// (Optional) The URL to the NuGet v3 feed. Default value is `https://api.nuget.org/v3/index.json`.
+        /// </summary>
         [Input("v3FeedUrl")]
         public string? V3FeedUrl { get; set; }
 
@@ -206,6 +274,9 @@ namespace Pulumi.Artifactory
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// (Optional) The context path prefix through which NuGet downloads are served. For example, the NuGet Gallery download URL is `https://nuget.org/api/v2/package`, so the repository URL should be configured as `https://nuget.org` and the download context path should be configured as `api/v2/package`. Default value is `api/v2/package`.
+        /// </summary>
         [Input("downloadContextPath")]
         public Input<string>? DownloadContextPath { get; set; }
 
@@ -218,9 +289,15 @@ namespace Pulumi.Artifactory
         [Input("excludesPattern")]
         public Input<string>? ExcludesPattern { get; set; }
 
+        /// <summary>
+        /// (Optional) When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value is `api/v2`.
+        /// </summary>
         [Input("feedContextPath")]
         public Input<string>? FeedContextPath { get; set; }
 
+        /// <summary>
+        /// (Optional) Force basic authentication credentials in order to use this repository. Default value is `false`.
+        /// </summary>
         [Input("forceNugetAuthentication")]
         public Input<bool>? ForceNugetAuthentication { get; set; }
 
@@ -230,6 +307,9 @@ namespace Pulumi.Artifactory
         [Input("includesPattern")]
         public Input<string>? IncludesPattern { get; set; }
 
+        /// <summary>
+        /// the identity key of the repo.
+        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
@@ -312,6 +392,9 @@ namespace Pulumi.Artifactory
         [Input("storeArtifactsLocally")]
         public Input<bool>? StoreArtifactsLocally { get; set; }
 
+        /// <summary>
+        /// (Optional) NuGet symbol server URL. Default value is `https://symbols.nuget.org/download/symbols`.
+        /// </summary>
         [Input("symbolServerUrl")]
         public Input<string>? SymbolServerUrl { get; set; }
 
@@ -327,6 +410,9 @@ namespace Pulumi.Artifactory
         [Input("username")]
         public Input<string>? Username { get; set; }
 
+        /// <summary>
+        /// (Optional) The URL to the NuGet v3 feed. Default value is `https://api.nuget.org/v3/index.json`.
+        /// </summary>
         [Input("v3FeedUrl")]
         public Input<string>? V3FeedUrl { get; set; }
 
@@ -352,11 +438,20 @@ namespace Pulumi.Artifactory
         public readonly string ClientTlsCertificate;
         public readonly Outputs.GetRemoteNugetRepositoryContentSynchronisationResult ContentSynchronisation;
         public readonly string? Description;
+        /// <summary>
+        /// (Optional) The context path prefix through which NuGet downloads are served. For example, the NuGet Gallery download URL is `https://nuget.org/api/v2/package`, so the repository URL should be configured as `https://nuget.org` and the download context path should be configured as `api/v2/package`. Default value is `api/v2/package`.
+        /// </summary>
         public readonly string? DownloadContextPath;
         public readonly bool? DownloadDirect;
         public readonly bool? EnableCookieManagement;
         public readonly string? ExcludesPattern;
+        /// <summary>
+        /// (Optional) When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value is `api/v2`.
+        /// </summary>
         public readonly string? FeedContextPath;
+        /// <summary>
+        /// (Optional) Force basic authentication credentials in order to use this repository. Default value is `false`.
+        /// </summary>
         public readonly bool? ForceNugetAuthentication;
         public readonly bool? HardFail;
         /// <summary>
@@ -386,11 +481,17 @@ namespace Pulumi.Artifactory
         public readonly bool ShareConfiguration;
         public readonly int? SocketTimeoutMillis;
         public readonly bool? StoreArtifactsLocally;
+        /// <summary>
+        /// (Optional) NuGet symbol server URL. Default value is `https://symbols.nuget.org/download/symbols`.
+        /// </summary>
         public readonly string? SymbolServerUrl;
         public readonly bool? SynchronizeProperties;
         public readonly int? UnusedArtifactsCleanupPeriodHours;
         public readonly string? Url;
         public readonly string? Username;
+        /// <summary>
+        /// (Optional) The URL to the NuGet v3 feed. Default value is `https://api.nuget.org/v3/index.json`.
+        /// </summary>
         public readonly string? V3FeedUrl;
         public readonly bool? XrayIndex;
 

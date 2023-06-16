@@ -4,6 +4,34 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * Creates a virtual Cran repository.
+ * Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/CRAN+Repositories#CRANRepositories-VirtualRepositories).
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const foo_cran = new artifactory.VirtualCranRepository("foo-cran", {
+ *     description: "A test virtual repo",
+ *     excludesPattern: "com/google/**",
+ *     includesPattern: "com/jfrog/**,cloud/jfrog/**",
+ *     key: "foo-cran",
+ *     notes: "Internal description",
+ *     repositories: [],
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * Virtual repositories can be imported using their name, e.g.
+ *
+ * ```sh
+ *  $ pulumi import artifactory:index/virtualCranRepository:VirtualCranRepository foo-cran foo-cran
+ * ```
+ */
 export class VirtualCranRepository extends pulumi.CustomResource {
     /**
      * Get an existing VirtualCranRepository resource's state with the given name, ID, and optional extra
@@ -56,8 +84,8 @@ export class VirtualCranRepository extends pulumi.CustomResource {
      */
     public readonly includesPattern!: pulumi.Output<string | undefined>;
     /**
-     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-     * characters. It cannot begin with a number or contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+     * contain spaces or special characters.
      */
     public readonly key!: pulumi.Output<string>;
     /**
@@ -86,8 +114,7 @@ export class VirtualCranRepository extends pulumi.CustomResource {
      */
     public readonly repositories!: pulumi.Output<string[] | undefined>;
     /**
-     * This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
-     * repositories. A value of 0 indicates no caching.
+     * This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
      */
     public readonly retrievalCachePeriodSeconds!: pulumi.Output<number | undefined>;
 
@@ -169,8 +196,8 @@ export interface VirtualCranRepositoryState {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-     * characters. It cannot begin with a number or contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+     * contain spaces or special characters.
      */
     key?: pulumi.Input<string>;
     /**
@@ -199,8 +226,7 @@ export interface VirtualCranRepositoryState {
      */
     repositories?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
-     * repositories. A value of 0 indicates no caching.
+     * This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
      */
     retrievalCachePeriodSeconds?: pulumi.Input<number>;
 }
@@ -233,8 +259,8 @@ export interface VirtualCranRepositoryArgs {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-     * characters. It cannot begin with a number or contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+     * contain spaces or special characters.
      */
     key: pulumi.Input<string>;
     /**
@@ -262,8 +288,7 @@ export interface VirtualCranRepositoryArgs {
      */
     repositories?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
-     * repositories. A value of 0 indicates no caching.
+     * This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
      */
     retrievalCachePeriodSeconds?: pulumi.Input<number>;
 }

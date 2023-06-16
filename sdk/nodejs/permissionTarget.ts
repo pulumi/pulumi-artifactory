@@ -6,6 +6,90 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * Provides an Artifactory permission target resource. This can be used to create and manage Artifactory permission targets.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * // Create a new Artifactory permission target called testpermission
+ * const test_perm = new artifactory.PermissionTarget("test-perm", {
+ *     build: {
+ *         actions: {
+ *             users: [{
+ *                 name: "anonymous",
+ *                 permissions: [
+ *                     "read",
+ *                     "write",
+ *                 ],
+ *             }],
+ *         },
+ *         includesPatterns: ["**"],
+ *         repositories: ["artifactory-build-info"],
+ *     },
+ *     releaseBundle: {
+ *         actions: {
+ *             users: [{
+ *                 name: "anonymous",
+ *                 permissions: ["read"],
+ *             }],
+ *         },
+ *         includesPatterns: ["**"],
+ *         repositories: ["release-bundles"],
+ *     },
+ *     repo: {
+ *         actions: {
+ *             groups: [{
+ *                 name: "readers",
+ *                 permissions: ["read"],
+ *             }],
+ *             users: [{
+ *                 name: "anonymous",
+ *                 permissions: [
+ *                     "read",
+ *                     "write",
+ *                 ],
+ *             }],
+ *         },
+ *         excludesPatterns: ["bar/**"],
+ *         includesPatterns: ["foo/**"],
+ *         repositories: ["example-repo-local"],
+ *     },
+ * });
+ * ```
+ * ## Permissions
+ *
+ * The provider supports the following `permission` enums:
+ *
+ * * `read`
+ * * `write`
+ * * `annotate`
+ * * `delete`
+ * * `manage`
+ * * `managedXrayMeta`
+ * * `distribute`
+ *
+ * The values can be mapped to the permissions from the official [documentation](https://www.jfrog.com/confluence/display/JFROG/Permissions):
+ *
+ * * `read` - matches `Read` permissions.
+ * * `write` - matches `  Deploy / Cache / Create ` permissions.
+ * * `annotate` - matches `Annotate` permissions.
+ * * `delete` - matches `Delete / Overwrite` permissions.
+ * * `manage` - matches `Manage` permissions.
+ * * `managedXrayMeta` - matches `Manage Xray Metadata` permissions.
+ * * `distribute` - matches `Distribute` permissions.
+ *
+ * ## Import
+ *
+ * Permission targets can be imported using their name, e.g.
+ *
+ * ```sh
+ *  $ pulumi import artifactory:index/permissionTarget:PermissionTarget terraform-test-permission mypermission
+ * ```
+ */
 export class PermissionTarget extends pulumi.CustomResource {
     /**
      * Get an existing PermissionTarget resource's state with the given name, ID, and optional extra

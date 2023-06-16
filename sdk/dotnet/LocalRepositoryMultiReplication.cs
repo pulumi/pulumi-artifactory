@@ -9,22 +9,97 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Artifactory
 {
+    /// <summary>
+    /// Provides a local repository replication resource, also referred to as Artifactory push replication. This can be used to create and manage Artifactory local repository replications using [Multi-push Replication API](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-CreateorReplaceLocalMulti-pushReplication).
+    /// Push replication is used to synchronize Local Repositories, and is implemented by the Artifactory server on the near end invoking a synchronization of artifacts to the far end.
+    /// See the [Official Documentation](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-PushReplication).
+    /// This resource replaces `artifactory.PushReplication` and used to create a replication of one local repository to multiple repositories on the remote server.
+    /// 
+    /// &gt; This resource requires Artifactory Enterprise license. Use `artifactory.LocalRepositorySingleReplication` with other licenses.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Artifactory = Pulumi.Artifactory;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var config = new Config();
+    ///     var artifactoryUrl = config.Require("artifactoryUrl");
+    ///     var artifactoryUsername = config.Require("artifactoryUsername");
+    ///     var artifactoryPassword = config.Require("artifactoryPassword");
+    ///     // Create a replication between two artifactory local repositories
+    ///     var providerTestSource = new Artifactory.LocalMavenRepository("providerTestSource", new()
+    ///     {
+    ///         Key = "provider_test_source",
+    ///     });
+    /// 
+    ///     var providerTestDest = new Artifactory.LocalMavenRepository("providerTestDest", new()
+    ///     {
+    ///         Key = "provider_test_dest",
+    ///     });
+    /// 
+    ///     var providerTestDest1 = new Artifactory.LocalMavenRepository("providerTestDest1", new()
+    ///     {
+    ///         Key = "provider_test_dest1",
+    ///     });
+    /// 
+    ///     var foo_rep = new Artifactory.LocalRepositoryMultiReplication("foo-rep", new()
+    ///     {
+    ///         RepoKey = providerTestSource.Key,
+    ///         CronExp = "0 0 * * * ?",
+    ///         EnableEventReplication = true,
+    ///         Replications = new[]
+    ///         {
+    ///             new Artifactory.Inputs.LocalRepositoryMultiReplicationReplicationArgs
+    ///             {
+    ///                 Url = providerTestDest.Key.Apply(key =&gt; $"{artifactoryUrl}/artifactory/{key}"),
+    ///                 Username = "$var.artifactory_username",
+    ///                 Password = "$var.artifactory_password",
+    ///                 Enabled = true,
+    ///             },
+    ///             new Artifactory.Inputs.LocalRepositoryMultiReplicationReplicationArgs
+    ///             {
+    ///                 Url = providerTestDest1.Key.Apply(key =&gt; $"{artifactoryUrl}/artifactory/{key}"),
+    ///                 Username = "$var.artifactory_username",
+    ///                 Password = "$var.artifactory_password",
+    ///                 Enabled = true,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Push replication configs can be imported using their repo key, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import artifactory:index/localRepositoryMultiReplication:LocalRepositoryMultiReplication foo-rep provider_test_source
+    /// ```
+    /// </summary>
     [ArtifactoryResourceType("artifactory:index/localRepositoryMultiReplication:LocalRepositoryMultiReplication")]
     public partial class LocalRepositoryMultiReplication : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Cron expression to control the operation frequency.
+        /// A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
         /// </summary>
         [Output("cronExp")]
         public Output<string> CronExp { get; private set; } = null!;
 
         /// <summary>
-        /// When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on
-        /// artifact, e.g. add, deleted or property change. Default value is `false`.
+        /// When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. add, deleted or property change. Default value is `false`.
         /// </summary>
         [Output("enableEventReplication")]
         public Output<bool?> EnableEventReplication { get; private set; } = null!;
 
+        /// <summary>
+        /// List of replications minimum 1 element.
+        /// </summary>
         [Output("replications")]
         public Output<ImmutableArray<Outputs.LocalRepositoryMultiReplicationReplication>> Replications { get; private set; } = null!;
 
@@ -81,20 +156,23 @@ namespace Pulumi.Artifactory
     public sealed class LocalRepositoryMultiReplicationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Cron expression to control the operation frequency.
+        /// A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
         /// </summary>
         [Input("cronExp", required: true)]
         public Input<string> CronExp { get; set; } = null!;
 
         /// <summary>
-        /// When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on
-        /// artifact, e.g. add, deleted or property change. Default value is `false`.
+        /// When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. add, deleted or property change. Default value is `false`.
         /// </summary>
         [Input("enableEventReplication")]
         public Input<bool>? EnableEventReplication { get; set; }
 
         [Input("replications")]
         private InputList<Inputs.LocalRepositoryMultiReplicationReplicationArgs>? _replications;
+
+        /// <summary>
+        /// List of replications minimum 1 element.
+        /// </summary>
         public InputList<Inputs.LocalRepositoryMultiReplicationReplicationArgs> Replications
         {
             get => _replications ?? (_replications = new InputList<Inputs.LocalRepositoryMultiReplicationReplicationArgs>());
@@ -116,20 +194,23 @@ namespace Pulumi.Artifactory
     public sealed class LocalRepositoryMultiReplicationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Cron expression to control the operation frequency.
+        /// A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
         /// </summary>
         [Input("cronExp")]
         public Input<string>? CronExp { get; set; }
 
         /// <summary>
-        /// When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on
-        /// artifact, e.g. add, deleted or property change. Default value is `false`.
+        /// When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. add, deleted or property change. Default value is `false`.
         /// </summary>
         [Input("enableEventReplication")]
         public Input<bool>? EnableEventReplication { get; set; }
 
         [Input("replications")]
         private InputList<Inputs.LocalRepositoryMultiReplicationReplicationGetArgs>? _replications;
+
+        /// <summary>
+        /// List of replications minimum 1 element.
+        /// </summary>
         public InputList<Inputs.LocalRepositoryMultiReplicationReplicationGetArgs> Replications
         {
             get => _replications ?? (_replications = new InputList<Inputs.LocalRepositoryMultiReplicationReplicationGetArgs>());

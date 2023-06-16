@@ -33,16 +33,14 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * (Optional, Default: true) When enabled, this user can only access the system through the REST API. This option cannot be
-     * set if the user has Admin privileges.
+     * (Optional, Default: true) When enabled, this user can only access the system through the REST API. This option cannot be set if the user has Admin privileges.
      * 
      */
     @Import(name="disableUiAccess")
     private @Nullable Output<Boolean> disableUiAccess;
 
     /**
-     * @return (Optional, Default: true) When enabled, this user can only access the system through the REST API. This option cannot be
-     * set if the user has Admin privileges.
+     * @return (Optional, Default: true) When enabled, this user can only access the system through the REST API. This option cannot be set if the user has Admin privileges.
      * 
      */
     public Optional<Output<Boolean>> disableUiAccess() {
@@ -65,16 +63,14 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * List of groups this user is a part of. If no groups set, `readers` group will be added by default. If other groups are
-     * assigned, `readers` must be added to the list manually to avoid state drift.
+     * List of groups this user is a part of. If no groups set, `readers` group will be added by default. If other groups are assigned, `readers` must be added to the list manually to avoid state drift.
      * 
      */
     @Import(name="groups")
     private @Nullable Output<List<String>> groups;
 
     /**
-     * @return List of groups this user is a part of. If no groups set, `readers` group will be added by default. If other groups are
-     * assigned, `readers` must be added to the list manually to avoid state drift.
+     * @return List of groups this user is a part of. If no groups set, `readers` group will be added by default. If other groups are assigned, `readers` must be added to the list manually to avoid state drift.
      * 
      */
     public Optional<Output<List<String>>> groups() {
@@ -82,16 +78,14 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * (Optional, Default: false) When enabled, disables the fallback mechanism for using an internal password when external
-     * authentication (such as LDAP) is enabled.
+     * (Optional, Default: false) When enabled, disables the fallback mechanism for using an internal password when external authentication (such as LDAP) is enabled.
      * 
      */
     @Import(name="internalPasswordDisabled")
     private @Nullable Output<Boolean> internalPasswordDisabled;
 
     /**
-     * @return (Optional, Default: false) When enabled, disables the fallback mechanism for using an internal password when external
-     * authentication (such as LDAP) is enabled.
+     * @return (Optional, Default: false) When enabled, disables the fallback mechanism for using an internal password when external authentication (such as LDAP) is enabled.
      * 
      */
     public Optional<Output<Boolean>> internalPasswordDisabled() {
@@ -114,16 +108,14 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * (Optional, Sensitive) Password for the user. When omitted, a random password is generated using the following password
-     * policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters
+     * (Optional, Sensitive) Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters
      * 
      */
     @Import(name="password")
     private @Nullable Output<String> password;
 
     /**
-     * @return (Optional, Sensitive) Password for the user. When omitted, a random password is generated using the following password
-     * policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters
+     * @return (Optional, Sensitive) Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters
      * 
      */
     public Optional<Output<String>> password() {
@@ -131,18 +123,14 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * (Optional, Default: true) When enabled, this user can update their profile details (except for the password. Only an
-     * administrator can update the password). There may be cases in which you want to leave this unset to prevent users from
-     * updating their profile. For example, a departmental user with a single password shared between all department members.
+     * (Optional, Default: true) When enabled, this user can update their profile details (except for the password. Only an administrator can update the password). There may be cases in which you want to leave this unset to prevent users from updating their profile. For example, a departmental user with a single password shared between all department members.
      * 
      */
     @Import(name="profileUpdatable")
     private @Nullable Output<Boolean> profileUpdatable;
 
     /**
-     * @return (Optional, Default: true) When enabled, this user can update their profile details (except for the password. Only an
-     * administrator can update the password). There may be cases in which you want to leave this unset to prevent users from
-     * updating their profile. For example, a departmental user with a single password shared between all department members.
+     * @return (Optional, Default: true) When enabled, this user can update their profile details (except for the password. Only an administrator can update the password). There may be cases in which you want to leave this unset to prevent users from updating their profile. For example, a departmental user with a single password shared between all department members.
      * 
      */
     public Optional<Output<Boolean>> profileUpdatable() {
@@ -202,8 +190,7 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param disableUiAccess (Optional, Default: true) When enabled, this user can only access the system through the REST API. This option cannot be
-         * set if the user has Admin privileges.
+         * @param disableUiAccess (Optional, Default: true) When enabled, this user can only access the system through the REST API. This option cannot be set if the user has Admin privileges.
          * 
          * @return builder
          * 
@@ -214,8 +201,7 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param disableUiAccess (Optional, Default: true) When enabled, this user can only access the system through the REST API. This option cannot be
-         * set if the user has Admin privileges.
+         * @param disableUiAccess (Optional, Default: true) When enabled, this user can only access the system through the REST API. This option cannot be set if the user has Admin privileges.
          * 
          * @return builder
          * 
@@ -246,8 +232,7 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param groups List of groups this user is a part of. If no groups set, `readers` group will be added by default. If other groups are
-         * assigned, `readers` must be added to the list manually to avoid state drift.
+         * @param groups List of groups this user is a part of. If no groups set, `readers` group will be added by default. If other groups are assigned, `readers` must be added to the list manually to avoid state drift.
          * 
          * @return builder
          * 
@@ -258,8 +243,7 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param groups List of groups this user is a part of. If no groups set, `readers` group will be added by default. If other groups are
-         * assigned, `readers` must be added to the list manually to avoid state drift.
+         * @param groups List of groups this user is a part of. If no groups set, `readers` group will be added by default. If other groups are assigned, `readers` must be added to the list manually to avoid state drift.
          * 
          * @return builder
          * 
@@ -269,8 +253,7 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param groups List of groups this user is a part of. If no groups set, `readers` group will be added by default. If other groups are
-         * assigned, `readers` must be added to the list manually to avoid state drift.
+         * @param groups List of groups this user is a part of. If no groups set, `readers` group will be added by default. If other groups are assigned, `readers` must be added to the list manually to avoid state drift.
          * 
          * @return builder
          * 
@@ -280,8 +263,7 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param internalPasswordDisabled (Optional, Default: false) When enabled, disables the fallback mechanism for using an internal password when external
-         * authentication (such as LDAP) is enabled.
+         * @param internalPasswordDisabled (Optional, Default: false) When enabled, disables the fallback mechanism for using an internal password when external authentication (such as LDAP) is enabled.
          * 
          * @return builder
          * 
@@ -292,8 +274,7 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param internalPasswordDisabled (Optional, Default: false) When enabled, disables the fallback mechanism for using an internal password when external
-         * authentication (such as LDAP) is enabled.
+         * @param internalPasswordDisabled (Optional, Default: false) When enabled, disables the fallback mechanism for using an internal password when external authentication (such as LDAP) is enabled.
          * 
          * @return builder
          * 
@@ -324,8 +305,7 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param password (Optional, Sensitive) Password for the user. When omitted, a random password is generated using the following password
-         * policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters
+         * @param password (Optional, Sensitive) Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters
          * 
          * @return builder
          * 
@@ -336,8 +316,7 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param password (Optional, Sensitive) Password for the user. When omitted, a random password is generated using the following password
-         * policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters
+         * @param password (Optional, Sensitive) Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters
          * 
          * @return builder
          * 
@@ -347,9 +326,7 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param profileUpdatable (Optional, Default: true) When enabled, this user can update their profile details (except for the password. Only an
-         * administrator can update the password). There may be cases in which you want to leave this unset to prevent users from
-         * updating their profile. For example, a departmental user with a single password shared between all department members.
+         * @param profileUpdatable (Optional, Default: true) When enabled, this user can update their profile details (except for the password. Only an administrator can update the password). There may be cases in which you want to leave this unset to prevent users from updating their profile. For example, a departmental user with a single password shared between all department members.
          * 
          * @return builder
          * 
@@ -360,9 +337,7 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param profileUpdatable (Optional, Default: true) When enabled, this user can update their profile details (except for the password. Only an
-         * administrator can update the password). There may be cases in which you want to leave this unset to prevent users from
-         * updating their profile. For example, a departmental user with a single password shared between all department members.
+         * @param profileUpdatable (Optional, Default: true) When enabled, this user can update their profile details (except for the password. Only an administrator can update the password). There may be cases in which you want to leave this unset to prevent users from updating their profile. For example, a departmental user with a single password shared between all department members.
          * 
          * @return builder
          * 

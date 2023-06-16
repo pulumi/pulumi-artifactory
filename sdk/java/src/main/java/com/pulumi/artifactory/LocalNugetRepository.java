@@ -17,6 +17,50 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Creates a local Nuget repository.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.artifactory.LocalNugetRepository;
+ * import com.pulumi.artifactory.LocalNugetRepositoryArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var terraform_local_test_nuget_repo_basic = new LocalNugetRepository(&#34;terraform-local-test-nuget-repo-basic&#34;, LocalNugetRepositoryArgs.builder()        
+ *             .forceNugetAuthentication(true)
+ *             .key(&#34;terraform-local-test-nuget-repo-basic&#34;)
+ *             .maxUniqueSnapshots(5)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Local repositories can be imported using their name, e.g.
+ * 
+ * ```sh
+ *  $ pulumi import artifactory:index/localNugetRepository:LocalNugetRepository terraform-local-test-nuget-repo-basic terraform-local-test-nuget-repo-basic
+ * ```
+ * 
+ */
 @ResourceType(type="artifactory:index/localNugetRepository:LocalNugetRepository")
 public class LocalNugetRepository extends com.pulumi.resources.CustomResource {
     /**
@@ -115,6 +159,7 @@ public class LocalNugetRepository extends com.pulumi.resources.CustomResource {
     }
     /**
      * Force basic authentication credentials in order to use this repository.
+     * Default is `false`.
      * 
      */
     @Export(name="forceNugetAuthentication", type=Boolean.class, parameters={})
@@ -122,6 +167,7 @@ public class LocalNugetRepository extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Force basic authentication credentials in order to use this repository.
+     * Default is `false`.
      * 
      */
     public Output<Optional<Boolean>> forceNugetAuthentication() {
@@ -144,32 +190,32 @@ public class LocalNugetRepository extends com.pulumi.resources.CustomResource {
         return this.includesPattern;
     }
     /**
-     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-     * characters. It cannot begin with a number or contain spaces or special characters.
+     * the identity key of the repo.
      * 
      */
     @Export(name="key", type=String.class, parameters={})
     private Output<String> key;
 
     /**
-     * @return A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-     * characters. It cannot begin with a number or contain spaces or special characters.
+     * @return the identity key of the repo.
      * 
      */
     public Output<String> key() {
         return this.key;
     }
     /**
-     * The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
-     * older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+     * The maximum number of unique snapshots of a single artifact to store
+     * Once the number of snapshots exceeds this setting, older versions are removed
+     * A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
      * 
      */
     @Export(name="maxUniqueSnapshots", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> maxUniqueSnapshots;
 
     /**
-     * @return The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
-     * older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+     * @return The maximum number of unique snapshots of a single artifact to store
+     * Once the number of snapshots exceeds this setting, older versions are removed
+     * A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
      * 
      */
     public Output<Optional<Integer>> maxUniqueSnapshots() {

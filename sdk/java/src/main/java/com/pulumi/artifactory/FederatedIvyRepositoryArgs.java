@@ -205,16 +205,14 @@ public final class FederatedIvyRepositoryArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-     * characters. It cannot begin with a number or contain spaces or special characters.
+     * the identity key of the repo.
      * 
      */
     @Import(name="key", required=true)
     private Output<String> key;
 
     /**
-     * @return A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-     * characters. It cannot begin with a number or contain spaces or special characters.
+     * @return the identity key of the repo.
      * 
      */
     public Output<String> key() {
@@ -239,10 +237,9 @@ public final class FederatedIvyRepositoryArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
-     * will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
-     * federated members will need to have a base URL set. Please follow the
-     * [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+     * The list of Federated members and must contain this repository URL (configured base URL
+     * `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+     * Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
      * to set up Federated repositories correctly.
      * 
      */
@@ -250,10 +247,9 @@ public final class FederatedIvyRepositoryArgs extends com.pulumi.resources.Resou
     private Output<List<FederatedIvyRepositoryMemberArgs>> members;
 
     /**
-     * @return The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
-     * will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
-     * federated members will need to have a base URL set. Please follow the
-     * [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+     * @return The list of Federated members and must contain this repository URL (configured base URL
+     * `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+     * Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
      * to set up Federated repositories correctly.
      * 
      */
@@ -714,8 +710,7 @@ public final class FederatedIvyRepositoryArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param key A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-         * characters. It cannot begin with a number or contain spaces or special characters.
+         * @param key the identity key of the repo.
          * 
          * @return builder
          * 
@@ -726,8 +721,7 @@ public final class FederatedIvyRepositoryArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param key A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-         * characters. It cannot begin with a number or contain spaces or special characters.
+         * @param key the identity key of the repo.
          * 
          * @return builder
          * 
@@ -760,10 +754,9 @@ public final class FederatedIvyRepositoryArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param members The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
-         * will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
-         * federated members will need to have a base URL set. Please follow the
-         * [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+         * @param members The list of Federated members and must contain this repository URL (configured base URL
+         * `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+         * Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
          * to set up Federated repositories correctly.
          * 
          * @return builder
@@ -775,10 +768,9 @@ public final class FederatedIvyRepositoryArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param members The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
-         * will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
-         * federated members will need to have a base URL set. Please follow the
-         * [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+         * @param members The list of Federated members and must contain this repository URL (configured base URL
+         * `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+         * Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
          * to set up Federated repositories correctly.
          * 
          * @return builder
@@ -789,10 +781,9 @@ public final class FederatedIvyRepositoryArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param members The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
-         * will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
-         * federated members will need to have a base URL set. Please follow the
-         * [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+         * @param members The list of Federated members and must contain this repository URL (configured base URL
+         * `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+         * Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
          * to set up Federated repositories correctly.
          * 
          * @return builder

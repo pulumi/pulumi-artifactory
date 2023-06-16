@@ -4,6 +4,32 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * Provides an Artifactory Distribution Public Key resource. This can be used to create and manage Artifactory Distribution Public Keys.
+ *
+ * See [API description](https://jfrog.com/help/r/jfrog-rest-apis/set-distributionpublic-gpg-key) in the Artifactory documentation for more details. Also the [UI documentation](https://jfrog.com/help/r/jfrog-platform-administration-documentation/managing-webstart-and-jar-signing) has further details on where to find these keys in Artifactory.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ * import * as fs from "fs";
+ *
+ * const my_key = new artifactory.DistributionPublicKey("my-key", {
+ *     alias: "my-key",
+ *     publicKey: fs.readFileSync("samples/rsa.pub"),
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * Distribution Public Key can be imported using the key id, e.g.
+ *
+ * ```sh
+ *  $ pulumi import artifactory:index/distributionPublicKey:DistributionPublicKey my-key keyid
+ * ```
+ */
 export class DistributionPublicKey extends pulumi.CustomResource {
     /**
      * Get an existing DistributionPublicKey resource's state with the given name, ID, and optional extra
@@ -41,19 +67,21 @@ export class DistributionPublicKey extends pulumi.CustomResource {
      */
     public /*out*/ readonly fingerprint!: pulumi.Output<string>;
     /**
-     * Returns the name and eMail address of issuer.
+     * Returns the name and eMail address of issuer
      */
     public /*out*/ readonly issuedBy!: pulumi.Output<string>;
     /**
-     * Returns the date/time when this GPG key was created.
+     * Returns the date/time when this GPG key was created
      */
     public /*out*/ readonly issuedOn!: pulumi.Output<string>;
     /**
-     * Returns the key id by which this key is referenced in Artifactory.
+     * Returns the key id by which this key is referenced in Artifactory
      */
     public /*out*/ readonly keyId!: pulumi.Output<string>;
     /**
      * The Public key to add as a trusted distribution GPG key.
+     *
+     * The following additional attributes are exported:
      */
     public readonly publicKey!: pulumi.Output<string>;
     /**
@@ -115,19 +143,21 @@ export interface DistributionPublicKeyState {
      */
     fingerprint?: pulumi.Input<string>;
     /**
-     * Returns the name and eMail address of issuer.
+     * Returns the name and eMail address of issuer
      */
     issuedBy?: pulumi.Input<string>;
     /**
-     * Returns the date/time when this GPG key was created.
+     * Returns the date/time when this GPG key was created
      */
     issuedOn?: pulumi.Input<string>;
     /**
-     * Returns the key id by which this key is referenced in Artifactory.
+     * Returns the key id by which this key is referenced in Artifactory
      */
     keyId?: pulumi.Input<string>;
     /**
      * The Public key to add as a trusted distribution GPG key.
+     *
+     * The following additional attributes are exported:
      */
     publicKey?: pulumi.Input<string>;
     /**
@@ -146,6 +176,8 @@ export interface DistributionPublicKeyArgs {
     alias: pulumi.Input<string>;
     /**
      * The Public key to add as a trusted distribution GPG key.
+     *
+     * The following additional attributes are exported:
      */
     publicKey: pulumi.Input<string>;
 }

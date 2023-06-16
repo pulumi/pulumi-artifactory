@@ -17,7 +17,16 @@ public final class GetVirtualGoRepositoryResult {
     private @Nullable String defaultDeploymentRepo;
     private @Nullable String description;
     private @Nullable String excludesPattern;
+    /**
+     * @return (Optional) Shorthand for &#34;Enable &#39;go-import&#39; Meta Tags&#34; on the UI. This must be set to true in order to use the allow list.
+     * When checked (default), Artifactory will automatically follow remote VCS roots in &#39;go-import&#39; meta tags to download remote modules.
+     * 
+     */
     private @Nullable Boolean externalDependenciesEnabled;
+    /**
+     * @return (Optional) &#39;go-import&#39; Allow List on the UI.
+     * 
+     */
     private @Nullable List<String> externalDependenciesPatterns;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -46,9 +55,18 @@ public final class GetVirtualGoRepositoryResult {
     public Optional<String> excludesPattern() {
         return Optional.ofNullable(this.excludesPattern);
     }
+    /**
+     * @return (Optional) Shorthand for &#34;Enable &#39;go-import&#39; Meta Tags&#34; on the UI. This must be set to true in order to use the allow list.
+     * When checked (default), Artifactory will automatically follow remote VCS roots in &#39;go-import&#39; meta tags to download remote modules.
+     * 
+     */
     public Optional<Boolean> externalDependenciesEnabled() {
         return Optional.ofNullable(this.externalDependenciesEnabled);
     }
+    /**
+     * @return (Optional) &#39;go-import&#39; Allow List on the UI.
+     * 
+     */
     public List<String> externalDependenciesPatterns() {
         return this.externalDependenciesPatterns == null ? List.of() : this.externalDependenciesPatterns;
     }

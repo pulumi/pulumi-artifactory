@@ -10,6 +10,33 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Retrieves a virtual Ivy repository.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.LookupVirtualIvyRepository(ctx, &artifactory.LookupVirtualIvyRepositoryArgs{
+//				Key: "virtual-ivy",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupVirtualIvyRepository(ctx *pulumi.Context, args *LookupVirtualIvyRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupVirtualIvyRepositoryResult, error) {
 	var rv LookupVirtualIvyRepositoryResult
 	err := ctx.Invoke("artifactory:index/getVirtualIvyRepository:getVirtualIvyRepository", args, &rv, opts...)
@@ -21,20 +48,26 @@ func LookupVirtualIvyRepository(ctx *pulumi.Context, args *LookupVirtualIvyRepos
 
 // A collection of arguments for invoking getVirtualIvyRepository.
 type LookupVirtualIvyRepositoryArgs struct {
-	ArtifactoryRequestsCanRetrieveRemoteArtifacts *bool    `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`
-	DefaultDeploymentRepo                         *string  `pulumi:"defaultDeploymentRepo"`
-	Description                                   *string  `pulumi:"description"`
-	ExcludesPattern                               *string  `pulumi:"excludesPattern"`
-	ForceMavenAuthentication                      *bool    `pulumi:"forceMavenAuthentication"`
-	IncludesPattern                               *string  `pulumi:"includesPattern"`
-	Key                                           string   `pulumi:"key"`
-	KeyPair                                       *string  `pulumi:"keyPair"`
-	Notes                                         *string  `pulumi:"notes"`
-	PomRepositoryReferencesCleanupPolicy          *string  `pulumi:"pomRepositoryReferencesCleanupPolicy"`
-	ProjectEnvironments                           []string `pulumi:"projectEnvironments"`
-	ProjectKey                                    *string  `pulumi:"projectKey"`
-	RepoLayoutRef                                 *string  `pulumi:"repoLayoutRef"`
-	Repositories                                  []string `pulumi:"repositories"`
+	ArtifactoryRequestsCanRetrieveRemoteArtifacts *bool   `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`
+	DefaultDeploymentRepo                         *string `pulumi:"defaultDeploymentRepo"`
+	Description                                   *string `pulumi:"description"`
+	ExcludesPattern                               *string `pulumi:"excludesPattern"`
+	ForceMavenAuthentication                      *bool   `pulumi:"forceMavenAuthentication"`
+	IncludesPattern                               *string `pulumi:"includesPattern"`
+	// the identity key of the repo.
+	Key string `pulumi:"key"`
+	// (Optional) The keypair used to sign artifacts.
+	KeyPair *string `pulumi:"keyPair"`
+	Notes   *string `pulumi:"notes"`
+	// (Optional)
+	// - (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
+	// - (2: discard_any_reference) Discard Any References - Removes all repository elements regardless of whether they are included in an active profile or not.
+	// - (3: nothing) Nothing - Does not remove any repository elements declared in the POM.
+	PomRepositoryReferencesCleanupPolicy *string  `pulumi:"pomRepositoryReferencesCleanupPolicy"`
+	ProjectEnvironments                  []string `pulumi:"projectEnvironments"`
+	ProjectKey                           *string  `pulumi:"projectKey"`
+	RepoLayoutRef                        *string  `pulumi:"repoLayoutRef"`
+	Repositories                         []string `pulumi:"repositories"`
 }
 
 // A collection of values returned by getVirtualIvyRepository.
@@ -45,12 +78,17 @@ type LookupVirtualIvyRepositoryResult struct {
 	ExcludesPattern                               *string `pulumi:"excludesPattern"`
 	ForceMavenAuthentication                      bool    `pulumi:"forceMavenAuthentication"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                                   string   `pulumi:"id"`
-	IncludesPattern                      *string  `pulumi:"includesPattern"`
-	Key                                  string   `pulumi:"key"`
-	KeyPair                              *string  `pulumi:"keyPair"`
-	Notes                                *string  `pulumi:"notes"`
-	PackageType                          string   `pulumi:"packageType"`
+	Id              string  `pulumi:"id"`
+	IncludesPattern *string `pulumi:"includesPattern"`
+	Key             string  `pulumi:"key"`
+	// (Optional) The keypair used to sign artifacts.
+	KeyPair     *string `pulumi:"keyPair"`
+	Notes       *string `pulumi:"notes"`
+	PackageType string  `pulumi:"packageType"`
+	// (Optional)
+	// - (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
+	// - (2: discard_any_reference) Discard Any References - Removes all repository elements regardless of whether they are included in an active profile or not.
+	// - (3: nothing) Nothing - Does not remove any repository elements declared in the POM.
 	PomRepositoryReferencesCleanupPolicy string   `pulumi:"pomRepositoryReferencesCleanupPolicy"`
 	ProjectEnvironments                  []string `pulumi:"projectEnvironments"`
 	ProjectKey                           *string  `pulumi:"projectKey"`
@@ -73,20 +111,26 @@ func LookupVirtualIvyRepositoryOutput(ctx *pulumi.Context, args LookupVirtualIvy
 
 // A collection of arguments for invoking getVirtualIvyRepository.
 type LookupVirtualIvyRepositoryOutputArgs struct {
-	ArtifactoryRequestsCanRetrieveRemoteArtifacts pulumi.BoolPtrInput     `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`
-	DefaultDeploymentRepo                         pulumi.StringPtrInput   `pulumi:"defaultDeploymentRepo"`
-	Description                                   pulumi.StringPtrInput   `pulumi:"description"`
-	ExcludesPattern                               pulumi.StringPtrInput   `pulumi:"excludesPattern"`
-	ForceMavenAuthentication                      pulumi.BoolPtrInput     `pulumi:"forceMavenAuthentication"`
-	IncludesPattern                               pulumi.StringPtrInput   `pulumi:"includesPattern"`
-	Key                                           pulumi.StringInput      `pulumi:"key"`
-	KeyPair                                       pulumi.StringPtrInput   `pulumi:"keyPair"`
-	Notes                                         pulumi.StringPtrInput   `pulumi:"notes"`
-	PomRepositoryReferencesCleanupPolicy          pulumi.StringPtrInput   `pulumi:"pomRepositoryReferencesCleanupPolicy"`
-	ProjectEnvironments                           pulumi.StringArrayInput `pulumi:"projectEnvironments"`
-	ProjectKey                                    pulumi.StringPtrInput   `pulumi:"projectKey"`
-	RepoLayoutRef                                 pulumi.StringPtrInput   `pulumi:"repoLayoutRef"`
-	Repositories                                  pulumi.StringArrayInput `pulumi:"repositories"`
+	ArtifactoryRequestsCanRetrieveRemoteArtifacts pulumi.BoolPtrInput   `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`
+	DefaultDeploymentRepo                         pulumi.StringPtrInput `pulumi:"defaultDeploymentRepo"`
+	Description                                   pulumi.StringPtrInput `pulumi:"description"`
+	ExcludesPattern                               pulumi.StringPtrInput `pulumi:"excludesPattern"`
+	ForceMavenAuthentication                      pulumi.BoolPtrInput   `pulumi:"forceMavenAuthentication"`
+	IncludesPattern                               pulumi.StringPtrInput `pulumi:"includesPattern"`
+	// the identity key of the repo.
+	Key pulumi.StringInput `pulumi:"key"`
+	// (Optional) The keypair used to sign artifacts.
+	KeyPair pulumi.StringPtrInput `pulumi:"keyPair"`
+	Notes   pulumi.StringPtrInput `pulumi:"notes"`
+	// (Optional)
+	// - (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
+	// - (2: discard_any_reference) Discard Any References - Removes all repository elements regardless of whether they are included in an active profile or not.
+	// - (3: nothing) Nothing - Does not remove any repository elements declared in the POM.
+	PomRepositoryReferencesCleanupPolicy pulumi.StringPtrInput   `pulumi:"pomRepositoryReferencesCleanupPolicy"`
+	ProjectEnvironments                  pulumi.StringArrayInput `pulumi:"projectEnvironments"`
+	ProjectKey                           pulumi.StringPtrInput   `pulumi:"projectKey"`
+	RepoLayoutRef                        pulumi.StringPtrInput   `pulumi:"repoLayoutRef"`
+	Repositories                         pulumi.StringArrayInput `pulumi:"repositories"`
 }
 
 func (LookupVirtualIvyRepositoryOutputArgs) ElementType() reflect.Type {
@@ -141,6 +185,7 @@ func (o LookupVirtualIvyRepositoryResultOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVirtualIvyRepositoryResult) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// (Optional) The keypair used to sign artifacts.
 func (o LookupVirtualIvyRepositoryResultOutput) KeyPair() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupVirtualIvyRepositoryResult) *string { return v.KeyPair }).(pulumi.StringPtrOutput)
 }
@@ -153,6 +198,10 @@ func (o LookupVirtualIvyRepositoryResultOutput) PackageType() pulumi.StringOutpu
 	return o.ApplyT(func(v LookupVirtualIvyRepositoryResult) string { return v.PackageType }).(pulumi.StringOutput)
 }
 
+// (Optional)
+// - (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
+// - (2: discard_any_reference) Discard Any References - Removes all repository elements regardless of whether they are included in an active profile or not.
+// - (3: nothing) Nothing - Does not remove any repository elements declared in the POM.
 func (o LookupVirtualIvyRepositoryResultOutput) PomRepositoryReferencesCleanupPolicy() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVirtualIvyRepositoryResult) string { return v.PomRepositoryReferencesCleanupPolicy }).(pulumi.StringOutput)
 }

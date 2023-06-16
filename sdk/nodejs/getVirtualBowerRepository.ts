@@ -4,6 +4,20 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * Retrieves a virtual Bower repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const virtual-alpine = artifactory.getVirtualBowerRepository({
+ *     key: "virtual-alpine",
+ * });
+ * ```
+ */
 export function getVirtualBowerRepository(args: GetVirtualBowerRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualBowerRepositoryResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -33,10 +47,22 @@ export interface GetVirtualBowerRepositoryArgs {
     defaultDeploymentRepo?: string;
     description?: string;
     excludesPattern?: string;
+    /**
+     * (Optional) When set, external dependencies are rewritten. Default value is false.
+     */
     externalDependenciesEnabled?: boolean;
+    /**
+     * (Optional) An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded from any external source.
+     */
     externalDependenciesPatterns?: string[];
+    /**
+     * (Optional) The remote repository aggregated by this virtual repository in which the external dependency will be cached.
+     */
     externalDependenciesRemoteRepo?: string;
     includesPattern?: string;
+    /**
+     * the identity key of the repo.
+     */
     key: string;
     notes?: string;
     projectEnvironments?: string[];
@@ -53,8 +79,17 @@ export interface GetVirtualBowerRepositoryResult {
     readonly defaultDeploymentRepo?: string;
     readonly description?: string;
     readonly excludesPattern?: string;
+    /**
+     * (Optional) When set, external dependencies are rewritten. Default value is false.
+     */
     readonly externalDependenciesEnabled?: boolean;
+    /**
+     * (Optional) An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded from any external source.
+     */
     readonly externalDependenciesPatterns?: string[];
+    /**
+     * (Optional) The remote repository aggregated by this virtual repository in which the external dependency will be cached.
+     */
     readonly externalDependenciesRemoteRepo?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
@@ -69,6 +104,20 @@ export interface GetVirtualBowerRepositoryResult {
     readonly repoLayoutRef?: string;
     readonly repositories?: string[];
 }
+/**
+ * Retrieves a virtual Bower repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const virtual-alpine = artifactory.getVirtualBowerRepository({
+ *     key: "virtual-alpine",
+ * });
+ * ```
+ */
 export function getVirtualBowerRepositoryOutput(args: GetVirtualBowerRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualBowerRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getVirtualBowerRepository(a, opts))
 }
@@ -81,10 +130,22 @@ export interface GetVirtualBowerRepositoryOutputArgs {
     defaultDeploymentRepo?: pulumi.Input<string>;
     description?: pulumi.Input<string>;
     excludesPattern?: pulumi.Input<string>;
+    /**
+     * (Optional) When set, external dependencies are rewritten. Default value is false.
+     */
     externalDependenciesEnabled?: pulumi.Input<boolean>;
+    /**
+     * (Optional) An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded from any external source.
+     */
     externalDependenciesPatterns?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * (Optional) The remote repository aggregated by this virtual repository in which the external dependency will be cached.
+     */
     externalDependenciesRemoteRepo?: pulumi.Input<string>;
     includesPattern?: pulumi.Input<string>;
+    /**
+     * the identity key of the repo.
+     */
     key: pulumi.Input<string>;
     notes?: pulumi.Input<string>;
     projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;

@@ -4,6 +4,23 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * // Define a new Artifactory 'anonymous' user for import
+ * const anonymous = new artifactory.AnonymousUser("anonymous", {});
+ * ```
+ *
+ * ## Import
+ *
+ * ```sh
+ *  $ pulumi import artifactory:index/anonymousUser:AnonymousUser anonymous-user anonymous
+ * ```
+ */
 export class AnonymousUser extends pulumi.CustomResource {
     /**
      * Get an existing AnonymousUser resource's state with the given name, ID, and optional extra

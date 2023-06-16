@@ -25,9 +25,20 @@ public final class GetVirtualGradleRepositoryResult {
     private String id;
     private @Nullable String includesPattern;
     private String key;
+    /**
+     * @return (Optional) The keypair used to sign artifacts.
+     * 
+     */
     private @Nullable String keyPair;
     private @Nullable String notes;
     private String packageType;
+    /**
+     * @return (Optional)
+     * - (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
+     * - (2: discard_any_reference) Discard Any References - Removes all repository elements regardless of whether they are included in an active profile or not.
+     * - (3: nothing) Nothing - Does not remove any repository elements declared in the POM.
+     * 
+     */
     private String pomRepositoryReferencesCleanupPolicy;
     private List<String> projectEnvironments;
     private @Nullable String projectKey;
@@ -63,6 +74,10 @@ public final class GetVirtualGradleRepositoryResult {
     public String key() {
         return this.key;
     }
+    /**
+     * @return (Optional) The keypair used to sign artifacts.
+     * 
+     */
     public Optional<String> keyPair() {
         return Optional.ofNullable(this.keyPair);
     }
@@ -72,6 +87,13 @@ public final class GetVirtualGradleRepositoryResult {
     public String packageType() {
         return this.packageType;
     }
+    /**
+     * @return (Optional)
+     * - (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
+     * - (2: discard_any_reference) Discard Any References - Removes all repository elements regardless of whether they are included in an active profile or not.
+     * - (3: nothing) Nothing - Does not remove any repository elements declared in the POM.
+     * 
+     */
     public String pomRepositoryReferencesCleanupPolicy() {
         return this.pomRepositoryReferencesCleanupPolicy;
     }

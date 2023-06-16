@@ -10,6 +10,33 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Retrieves a virtual NPM repository.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.LookupVirtualNpmRepository(ctx, &artifactory.LookupVirtualNpmRepositoryArgs{
+//				Key: "virtual-npm",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupVirtualNpmRepository(ctx *pulumi.Context, args *LookupVirtualNpmRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupVirtualNpmRepositoryResult, error) {
 	var rv LookupVirtualNpmRepositoryResult
 	err := ctx.Invoke("artifactory:index/getVirtualNpmRepository:getVirtualNpmRepository", args, &rv, opts...)
@@ -29,13 +56,15 @@ type LookupVirtualNpmRepositoryArgs struct {
 	ExternalDependenciesPatterns                  []string `pulumi:"externalDependenciesPatterns"`
 	ExternalDependenciesRemoteRepo                *string  `pulumi:"externalDependenciesRemoteRepo"`
 	IncludesPattern                               *string  `pulumi:"includesPattern"`
-	Key                                           string   `pulumi:"key"`
-	Notes                                         *string  `pulumi:"notes"`
-	ProjectEnvironments                           []string `pulumi:"projectEnvironments"`
-	ProjectKey                                    *string  `pulumi:"projectKey"`
-	RepoLayoutRef                                 *string  `pulumi:"repoLayoutRef"`
-	Repositories                                  []string `pulumi:"repositories"`
-	RetrievalCachePeriodSeconds                   *int     `pulumi:"retrievalCachePeriodSeconds"`
+	// the identity key of the repo.
+	Key                 string   `pulumi:"key"`
+	Notes               *string  `pulumi:"notes"`
+	ProjectEnvironments []string `pulumi:"projectEnvironments"`
+	ProjectKey          *string  `pulumi:"projectKey"`
+	RepoLayoutRef       *string  `pulumi:"repoLayoutRef"`
+	Repositories        []string `pulumi:"repositories"`
+	// (Optional, Default: `7200`) This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
+	RetrievalCachePeriodSeconds *int `pulumi:"retrievalCachePeriodSeconds"`
 }
 
 // A collection of values returned by getVirtualNpmRepository.
@@ -48,16 +77,17 @@ type LookupVirtualNpmRepositoryResult struct {
 	ExternalDependenciesPatterns                  []string `pulumi:"externalDependenciesPatterns"`
 	ExternalDependenciesRemoteRepo                *string  `pulumi:"externalDependenciesRemoteRepo"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                          string   `pulumi:"id"`
-	IncludesPattern             *string  `pulumi:"includesPattern"`
-	Key                         string   `pulumi:"key"`
-	Notes                       *string  `pulumi:"notes"`
-	PackageType                 string   `pulumi:"packageType"`
-	ProjectEnvironments         []string `pulumi:"projectEnvironments"`
-	ProjectKey                  *string  `pulumi:"projectKey"`
-	RepoLayoutRef               *string  `pulumi:"repoLayoutRef"`
-	Repositories                []string `pulumi:"repositories"`
-	RetrievalCachePeriodSeconds *int     `pulumi:"retrievalCachePeriodSeconds"`
+	Id                  string   `pulumi:"id"`
+	IncludesPattern     *string  `pulumi:"includesPattern"`
+	Key                 string   `pulumi:"key"`
+	Notes               *string  `pulumi:"notes"`
+	PackageType         string   `pulumi:"packageType"`
+	ProjectEnvironments []string `pulumi:"projectEnvironments"`
+	ProjectKey          *string  `pulumi:"projectKey"`
+	RepoLayoutRef       *string  `pulumi:"repoLayoutRef"`
+	Repositories        []string `pulumi:"repositories"`
+	// (Optional, Default: `7200`) This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
+	RetrievalCachePeriodSeconds *int `pulumi:"retrievalCachePeriodSeconds"`
 }
 
 func LookupVirtualNpmRepositoryOutput(ctx *pulumi.Context, args LookupVirtualNpmRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupVirtualNpmRepositoryResultOutput {
@@ -83,13 +113,15 @@ type LookupVirtualNpmRepositoryOutputArgs struct {
 	ExternalDependenciesPatterns                  pulumi.StringArrayInput `pulumi:"externalDependenciesPatterns"`
 	ExternalDependenciesRemoteRepo                pulumi.StringPtrInput   `pulumi:"externalDependenciesRemoteRepo"`
 	IncludesPattern                               pulumi.StringPtrInput   `pulumi:"includesPattern"`
-	Key                                           pulumi.StringInput      `pulumi:"key"`
-	Notes                                         pulumi.StringPtrInput   `pulumi:"notes"`
-	ProjectEnvironments                           pulumi.StringArrayInput `pulumi:"projectEnvironments"`
-	ProjectKey                                    pulumi.StringPtrInput   `pulumi:"projectKey"`
-	RepoLayoutRef                                 pulumi.StringPtrInput   `pulumi:"repoLayoutRef"`
-	Repositories                                  pulumi.StringArrayInput `pulumi:"repositories"`
-	RetrievalCachePeriodSeconds                   pulumi.IntPtrInput      `pulumi:"retrievalCachePeriodSeconds"`
+	// the identity key of the repo.
+	Key                 pulumi.StringInput      `pulumi:"key"`
+	Notes               pulumi.StringPtrInput   `pulumi:"notes"`
+	ProjectEnvironments pulumi.StringArrayInput `pulumi:"projectEnvironments"`
+	ProjectKey          pulumi.StringPtrInput   `pulumi:"projectKey"`
+	RepoLayoutRef       pulumi.StringPtrInput   `pulumi:"repoLayoutRef"`
+	Repositories        pulumi.StringArrayInput `pulumi:"repositories"`
+	// (Optional, Default: `7200`) This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
+	RetrievalCachePeriodSeconds pulumi.IntPtrInput `pulumi:"retrievalCachePeriodSeconds"`
 }
 
 func (LookupVirtualNpmRepositoryOutputArgs) ElementType() reflect.Type {
@@ -176,6 +208,7 @@ func (o LookupVirtualNpmRepositoryResultOutput) Repositories() pulumi.StringArra
 	return o.ApplyT(func(v LookupVirtualNpmRepositoryResult) []string { return v.Repositories }).(pulumi.StringArrayOutput)
 }
 
+// (Optional, Default: `7200`) This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
 func (o LookupVirtualNpmRepositoryResultOutput) RetrievalCachePeriodSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupVirtualNpmRepositoryResult) *int { return v.RetrievalCachePeriodSeconds }).(pulumi.IntPtrOutput)
 }

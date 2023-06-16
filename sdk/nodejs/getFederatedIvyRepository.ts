@@ -6,6 +6,20 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * Retrieves a federated Ivy repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const federated-test-ivy-repo = artifactory.getFederatedIvyRepository({
+ *     key: "federated-test-ivy-repo",
+ * });
+ * ```
+ */
 export function getFederatedIvyRepository(args: GetFederatedIvyRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetFederatedIvyRepositoryResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -51,8 +65,17 @@ export interface GetFederatedIvyRepositoryArgs {
     handleReleases?: boolean;
     handleSnapshots?: boolean;
     includesPattern?: string;
+    /**
+     * the identity key of the repo.
+     */
     key: string;
     maxUniqueSnapshots?: number;
+    /**
+     * The list of Federated members and must contain this repository URL (configured base URL
+     * `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+     * Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+     * to set up Federated repositories correctly.
+     */
     members?: inputs.GetFederatedIvyRepositoryMember[];
     notes?: string;
     priorityResolution?: boolean;
@@ -86,6 +109,12 @@ export interface GetFederatedIvyRepositoryResult {
     readonly includesPattern: string;
     readonly key: string;
     readonly maxUniqueSnapshots?: number;
+    /**
+     * The list of Federated members and must contain this repository URL (configured base URL
+     * `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+     * Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+     * to set up Federated repositories correctly.
+     */
     readonly members?: outputs.GetFederatedIvyRepositoryMember[];
     readonly notes?: string;
     readonly packageType: string;
@@ -98,6 +127,20 @@ export interface GetFederatedIvyRepositoryResult {
     readonly suppressPomConsistencyChecks?: boolean;
     readonly xrayIndex?: boolean;
 }
+/**
+ * Retrieves a federated Ivy repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const federated-test-ivy-repo = artifactory.getFederatedIvyRepository({
+ *     key: "federated-test-ivy-repo",
+ * });
+ * ```
+ */
 export function getFederatedIvyRepositoryOutput(args: GetFederatedIvyRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedIvyRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getFederatedIvyRepository(a, opts))
 }
@@ -117,8 +160,17 @@ export interface GetFederatedIvyRepositoryOutputArgs {
     handleReleases?: pulumi.Input<boolean>;
     handleSnapshots?: pulumi.Input<boolean>;
     includesPattern?: pulumi.Input<string>;
+    /**
+     * the identity key of the repo.
+     */
     key: pulumi.Input<string>;
     maxUniqueSnapshots?: pulumi.Input<number>;
+    /**
+     * The list of Federated members and must contain this repository URL (configured base URL
+     * `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+     * Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+     * to set up Federated repositories correctly.
+     */
     members?: pulumi.Input<pulumi.Input<inputs.GetFederatedIvyRepositoryMemberArgs>[]>;
     notes?: pulumi.Input<string>;
     priorityResolution?: pulumi.Input<boolean>;

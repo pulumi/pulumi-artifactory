@@ -11,6 +11,56 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides an Artifactory Distribution Public Key resource. This can be used to create and manage Artifactory Distribution Public Keys.
+//
+// See [API description](https://jfrog.com/help/r/jfrog-rest-apis/set-distributionpublic-gpg-key) in the Artifactory documentation for more details. Also the [UI documentation](https://jfrog.com/help/r/jfrog-platform-administration-documentation/managing-webstart-and-jar-signing) has further details on where to find these keys in Artifactory.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"os"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func readFileOrPanic(path string) pulumi.StringPtrInput {
+//		data, err := os.ReadFile(path)
+//		if err != nil {
+//			panic(err.Error())
+//		}
+//		return pulumi.String(string(data))
+//	}
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewDistributionPublicKey(ctx, "my-key", &artifactory.DistributionPublicKeyArgs{
+//				Alias:     pulumi.String("my-key"),
+//				PublicKey: readFileOrPanic("samples/rsa.pub"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Distribution Public Key can be imported using the key id, e.g.
+//
+// ```sh
+//
+//	$ pulumi import artifactory:index/distributionPublicKey:DistributionPublicKey my-key keyid
+//
+// ```
 type DistributionPublicKey struct {
 	pulumi.CustomResourceState
 
@@ -18,13 +68,15 @@ type DistributionPublicKey struct {
 	Alias pulumi.StringOutput `pulumi:"alias"`
 	// Returns the computed key fingerprint
 	Fingerprint pulumi.StringOutput `pulumi:"fingerprint"`
-	// Returns the name and eMail address of issuer.
+	// Returns the name and eMail address of issuer
 	IssuedBy pulumi.StringOutput `pulumi:"issuedBy"`
-	// Returns the date/time when this GPG key was created.
+	// Returns the date/time when this GPG key was created
 	IssuedOn pulumi.StringOutput `pulumi:"issuedOn"`
-	// Returns the key id by which this key is referenced in Artifactory.
+	// Returns the key id by which this key is referenced in Artifactory
 	KeyId pulumi.StringOutput `pulumi:"keyId"`
 	// The Public key to add as a trusted distribution GPG key.
+	//
+	// The following additional attributes are exported:
 	PublicKey pulumi.StringOutput `pulumi:"publicKey"`
 	// Returns the date/time when this GPG key expires.
 	ValidUntil pulumi.StringOutput `pulumi:"validUntil"`
@@ -69,13 +121,15 @@ type distributionPublicKeyState struct {
 	Alias *string `pulumi:"alias"`
 	// Returns the computed key fingerprint
 	Fingerprint *string `pulumi:"fingerprint"`
-	// Returns the name and eMail address of issuer.
+	// Returns the name and eMail address of issuer
 	IssuedBy *string `pulumi:"issuedBy"`
-	// Returns the date/time when this GPG key was created.
+	// Returns the date/time when this GPG key was created
 	IssuedOn *string `pulumi:"issuedOn"`
-	// Returns the key id by which this key is referenced in Artifactory.
+	// Returns the key id by which this key is referenced in Artifactory
 	KeyId *string `pulumi:"keyId"`
 	// The Public key to add as a trusted distribution GPG key.
+	//
+	// The following additional attributes are exported:
 	PublicKey *string `pulumi:"publicKey"`
 	// Returns the date/time when this GPG key expires.
 	ValidUntil *string `pulumi:"validUntil"`
@@ -86,13 +140,15 @@ type DistributionPublicKeyState struct {
 	Alias pulumi.StringPtrInput
 	// Returns the computed key fingerprint
 	Fingerprint pulumi.StringPtrInput
-	// Returns the name and eMail address of issuer.
+	// Returns the name and eMail address of issuer
 	IssuedBy pulumi.StringPtrInput
-	// Returns the date/time when this GPG key was created.
+	// Returns the date/time when this GPG key was created
 	IssuedOn pulumi.StringPtrInput
-	// Returns the key id by which this key is referenced in Artifactory.
+	// Returns the key id by which this key is referenced in Artifactory
 	KeyId pulumi.StringPtrInput
 	// The Public key to add as a trusted distribution GPG key.
+	//
+	// The following additional attributes are exported:
 	PublicKey pulumi.StringPtrInput
 	// Returns the date/time when this GPG key expires.
 	ValidUntil pulumi.StringPtrInput
@@ -106,6 +162,8 @@ type distributionPublicKeyArgs struct {
 	// Will be used as an identifier when uploading/retrieving the public key via REST API.
 	Alias string `pulumi:"alias"`
 	// The Public key to add as a trusted distribution GPG key.
+	//
+	// The following additional attributes are exported:
 	PublicKey string `pulumi:"publicKey"`
 }
 
@@ -114,6 +172,8 @@ type DistributionPublicKeyArgs struct {
 	// Will be used as an identifier when uploading/retrieving the public key via REST API.
 	Alias pulumi.StringInput
 	// The Public key to add as a trusted distribution GPG key.
+	//
+	// The following additional attributes are exported:
 	PublicKey pulumi.StringInput
 }
 
@@ -214,22 +274,24 @@ func (o DistributionPublicKeyOutput) Fingerprint() pulumi.StringOutput {
 	return o.ApplyT(func(v *DistributionPublicKey) pulumi.StringOutput { return v.Fingerprint }).(pulumi.StringOutput)
 }
 
-// Returns the name and eMail address of issuer.
+// Returns the name and eMail address of issuer
 func (o DistributionPublicKeyOutput) IssuedBy() pulumi.StringOutput {
 	return o.ApplyT(func(v *DistributionPublicKey) pulumi.StringOutput { return v.IssuedBy }).(pulumi.StringOutput)
 }
 
-// Returns the date/time when this GPG key was created.
+// Returns the date/time when this GPG key was created
 func (o DistributionPublicKeyOutput) IssuedOn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DistributionPublicKey) pulumi.StringOutput { return v.IssuedOn }).(pulumi.StringOutput)
 }
 
-// Returns the key id by which this key is referenced in Artifactory.
+// Returns the key id by which this key is referenced in Artifactory
 func (o DistributionPublicKeyOutput) KeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DistributionPublicKey) pulumi.StringOutput { return v.KeyId }).(pulumi.StringOutput)
 }
 
 // The Public key to add as a trusted distribution GPG key.
+//
+// The following additional attributes are exported:
 func (o DistributionPublicKeyOutput) PublicKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *DistributionPublicKey) pulumi.StringOutput { return v.PublicKey }).(pulumi.StringOutput)
 }

@@ -10,6 +10,33 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Retrieves a virtual Chef repository.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.LookupVirtualChefRepository(ctx, &artifactory.LookupVirtualChefRepositoryArgs{
+//				Key: "virtual-chef",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupVirtualChefRepository(ctx *pulumi.Context, args *LookupVirtualChefRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupVirtualChefRepositoryResult, error) {
 	var rv LookupVirtualChefRepositoryResult
 	err := ctx.Invoke("artifactory:index/getVirtualChefRepository:getVirtualChefRepository", args, &rv, opts...)
@@ -21,18 +48,20 @@ func LookupVirtualChefRepository(ctx *pulumi.Context, args *LookupVirtualChefRep
 
 // A collection of arguments for invoking getVirtualChefRepository.
 type LookupVirtualChefRepositoryArgs struct {
-	ArtifactoryRequestsCanRetrieveRemoteArtifacts *bool    `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`
-	DefaultDeploymentRepo                         *string  `pulumi:"defaultDeploymentRepo"`
-	Description                                   *string  `pulumi:"description"`
-	ExcludesPattern                               *string  `pulumi:"excludesPattern"`
-	IncludesPattern                               *string  `pulumi:"includesPattern"`
-	Key                                           string   `pulumi:"key"`
-	Notes                                         *string  `pulumi:"notes"`
-	ProjectEnvironments                           []string `pulumi:"projectEnvironments"`
-	ProjectKey                                    *string  `pulumi:"projectKey"`
-	RepoLayoutRef                                 *string  `pulumi:"repoLayoutRef"`
-	Repositories                                  []string `pulumi:"repositories"`
-	RetrievalCachePeriodSeconds                   *int     `pulumi:"retrievalCachePeriodSeconds"`
+	ArtifactoryRequestsCanRetrieveRemoteArtifacts *bool   `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`
+	DefaultDeploymentRepo                         *string `pulumi:"defaultDeploymentRepo"`
+	Description                                   *string `pulumi:"description"`
+	ExcludesPattern                               *string `pulumi:"excludesPattern"`
+	IncludesPattern                               *string `pulumi:"includesPattern"`
+	// the identity key of the repo.
+	Key                 string   `pulumi:"key"`
+	Notes               *string  `pulumi:"notes"`
+	ProjectEnvironments []string `pulumi:"projectEnvironments"`
+	ProjectKey          *string  `pulumi:"projectKey"`
+	RepoLayoutRef       *string  `pulumi:"repoLayoutRef"`
+	Repositories        []string `pulumi:"repositories"`
+	// (Optional, Default: `7200`) This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
+	RetrievalCachePeriodSeconds *int `pulumi:"retrievalCachePeriodSeconds"`
 }
 
 // A collection of values returned by getVirtualChefRepository.
@@ -42,16 +71,17 @@ type LookupVirtualChefRepositoryResult struct {
 	Description                                   *string `pulumi:"description"`
 	ExcludesPattern                               *string `pulumi:"excludesPattern"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                          string   `pulumi:"id"`
-	IncludesPattern             *string  `pulumi:"includesPattern"`
-	Key                         string   `pulumi:"key"`
-	Notes                       *string  `pulumi:"notes"`
-	PackageType                 string   `pulumi:"packageType"`
-	ProjectEnvironments         []string `pulumi:"projectEnvironments"`
-	ProjectKey                  *string  `pulumi:"projectKey"`
-	RepoLayoutRef               *string  `pulumi:"repoLayoutRef"`
-	Repositories                []string `pulumi:"repositories"`
-	RetrievalCachePeriodSeconds *int     `pulumi:"retrievalCachePeriodSeconds"`
+	Id                  string   `pulumi:"id"`
+	IncludesPattern     *string  `pulumi:"includesPattern"`
+	Key                 string   `pulumi:"key"`
+	Notes               *string  `pulumi:"notes"`
+	PackageType         string   `pulumi:"packageType"`
+	ProjectEnvironments []string `pulumi:"projectEnvironments"`
+	ProjectKey          *string  `pulumi:"projectKey"`
+	RepoLayoutRef       *string  `pulumi:"repoLayoutRef"`
+	Repositories        []string `pulumi:"repositories"`
+	// (Optional, Default: `7200`) This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
+	RetrievalCachePeriodSeconds *int `pulumi:"retrievalCachePeriodSeconds"`
 }
 
 func LookupVirtualChefRepositoryOutput(ctx *pulumi.Context, args LookupVirtualChefRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupVirtualChefRepositoryResultOutput {
@@ -69,18 +99,20 @@ func LookupVirtualChefRepositoryOutput(ctx *pulumi.Context, args LookupVirtualCh
 
 // A collection of arguments for invoking getVirtualChefRepository.
 type LookupVirtualChefRepositoryOutputArgs struct {
-	ArtifactoryRequestsCanRetrieveRemoteArtifacts pulumi.BoolPtrInput     `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`
-	DefaultDeploymentRepo                         pulumi.StringPtrInput   `pulumi:"defaultDeploymentRepo"`
-	Description                                   pulumi.StringPtrInput   `pulumi:"description"`
-	ExcludesPattern                               pulumi.StringPtrInput   `pulumi:"excludesPattern"`
-	IncludesPattern                               pulumi.StringPtrInput   `pulumi:"includesPattern"`
-	Key                                           pulumi.StringInput      `pulumi:"key"`
-	Notes                                         pulumi.StringPtrInput   `pulumi:"notes"`
-	ProjectEnvironments                           pulumi.StringArrayInput `pulumi:"projectEnvironments"`
-	ProjectKey                                    pulumi.StringPtrInput   `pulumi:"projectKey"`
-	RepoLayoutRef                                 pulumi.StringPtrInput   `pulumi:"repoLayoutRef"`
-	Repositories                                  pulumi.StringArrayInput `pulumi:"repositories"`
-	RetrievalCachePeriodSeconds                   pulumi.IntPtrInput      `pulumi:"retrievalCachePeriodSeconds"`
+	ArtifactoryRequestsCanRetrieveRemoteArtifacts pulumi.BoolPtrInput   `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`
+	DefaultDeploymentRepo                         pulumi.StringPtrInput `pulumi:"defaultDeploymentRepo"`
+	Description                                   pulumi.StringPtrInput `pulumi:"description"`
+	ExcludesPattern                               pulumi.StringPtrInput `pulumi:"excludesPattern"`
+	IncludesPattern                               pulumi.StringPtrInput `pulumi:"includesPattern"`
+	// the identity key of the repo.
+	Key                 pulumi.StringInput      `pulumi:"key"`
+	Notes               pulumi.StringPtrInput   `pulumi:"notes"`
+	ProjectEnvironments pulumi.StringArrayInput `pulumi:"projectEnvironments"`
+	ProjectKey          pulumi.StringPtrInput   `pulumi:"projectKey"`
+	RepoLayoutRef       pulumi.StringPtrInput   `pulumi:"repoLayoutRef"`
+	Repositories        pulumi.StringArrayInput `pulumi:"repositories"`
+	// (Optional, Default: `7200`) This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
+	RetrievalCachePeriodSeconds pulumi.IntPtrInput `pulumi:"retrievalCachePeriodSeconds"`
 }
 
 func (LookupVirtualChefRepositoryOutputArgs) ElementType() reflect.Type {
@@ -157,6 +189,7 @@ func (o LookupVirtualChefRepositoryResultOutput) Repositories() pulumi.StringArr
 	return o.ApplyT(func(v LookupVirtualChefRepositoryResult) []string { return v.Repositories }).(pulumi.StringArrayOutput)
 }
 
+// (Optional, Default: `7200`) This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
 func (o LookupVirtualChefRepositoryResultOutput) RetrievalCachePeriodSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupVirtualChefRepositoryResult) *int { return v.RetrievalCachePeriodSeconds }).(pulumi.IntPtrOutput)
 }

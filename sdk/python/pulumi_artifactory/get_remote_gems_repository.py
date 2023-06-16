@@ -457,7 +457,19 @@ def get_remote_gems_repository(allow_any_host_auth: Optional[bool] = None,
                                xray_index: Optional[bool] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRemoteGemsRepositoryResult:
     """
-    Use this data source to access information about an existing resource.
+    Retrieves a remote Gems repository.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_artifactory as artifactory
+
+    remote_gems = artifactory.get_remote_gems_repository(key="remote-gems")
+    ```
+
+
+    :param str key: the identity key of the repo.
     """
     __args__ = dict()
     __args__['allowAnyHostAuth'] = allow_any_host_auth
@@ -591,6 +603,18 @@ def get_remote_gems_repository_output(allow_any_host_auth: Optional[pulumi.Input
                                       xray_index: Optional[pulumi.Input[Optional[bool]]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRemoteGemsRepositoryResult]:
     """
-    Use this data source to access information about an existing resource.
+    Retrieves a remote Gems repository.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_artifactory as artifactory
+
+    remote_gems = artifactory.get_remote_gems_repository(key="remote-gems")
+    ```
+
+
+    :param str key: the identity key of the repo.
     """
     ...

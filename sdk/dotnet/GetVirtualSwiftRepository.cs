@@ -11,9 +11,59 @@ namespace Pulumi.Artifactory
 {
     public static class GetVirtualSwiftRepository
     {
+        /// <summary>
+        /// Retrieves a virtual Swift repository.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var virtual_swift = Artifactory.GetVirtualSwiftRepository.Invoke(new()
+        ///     {
+        ///         Key = "virtual-swift",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetVirtualSwiftRepositoryResult> InvokeAsync(GetVirtualSwiftRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualSwiftRepositoryResult>("artifactory:index/getVirtualSwiftRepository:getVirtualSwiftRepository", args ?? new GetVirtualSwiftRepositoryArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Retrieves a virtual Swift repository.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var virtual_swift = Artifactory.GetVirtualSwiftRepository.Invoke(new()
+        ///     {
+        ///         Key = "virtual-swift",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetVirtualSwiftRepositoryResult> Invoke(GetVirtualSwiftRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualSwiftRepositoryResult>("artifactory:index/getVirtualSwiftRepository:getVirtualSwiftRepository", args ?? new GetVirtualSwiftRepositoryInvokeArgs(), options.WithDefaults());
     }
@@ -36,6 +86,9 @@ namespace Pulumi.Artifactory
         [Input("includesPattern")]
         public string? IncludesPattern { get; set; }
 
+        /// <summary>
+        /// the identity key of the repo.
+        /// </summary>
         [Input("key", required: true)]
         public string Key { get; set; } = null!;
 
@@ -87,6 +140,9 @@ namespace Pulumi.Artifactory
         [Input("includesPattern")]
         public Input<string>? IncludesPattern { get; set; }
 
+        /// <summary>
+        /// the identity key of the repo.
+        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 

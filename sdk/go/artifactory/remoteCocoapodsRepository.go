@@ -11,6 +11,47 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Creates a remote CocoaPods repository.
+// Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/CocoaPods+Repositories).
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewRemoteCocoapodsRepository(ctx, "my-remote-cocoapods", &artifactory.RemoteCocoapodsRepositoryArgs{
+//				Key:              pulumi.String("my-remote-cocoapods"),
+//				PodsSpecsRepoUrl: pulumi.String("https://github.com/CocoaPods/Spec"),
+//				Url:              pulumi.String("https://github.com/"),
+//				VcsGitProvider:   pulumi.String("GITHUB"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Remote repositories can be imported using their name, e.g.
+//
+// ```sh
+//
+//	$ pulumi import artifactory:index/remoteCocoapodsRepository:RemoteCocoapodsRepository my-remote-cocoapods my-remote-cocoapods
+//
+// ```
 type RemoteCocoapodsRepository struct {
 	pulumi.CustomResourceState
 
@@ -54,8 +95,8 @@ type RemoteCocoapodsRepository struct {
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrOutput `pulumi:"includesPattern"`
-	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-	// characters. It cannot begin with a number or contain spaces or special characters.
+	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+	// contain spaces or special characters.
 	Key pulumi.StringOutput `pulumi:"key"`
 	// Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
 	// the 'Retrieval Cache Period'. Default value is 'true'.
@@ -78,7 +119,7 @@ type RemoteCocoapodsRepository struct {
 	Offline     pulumi.BoolPtrOutput   `pulumi:"offline"`
 	PackageType pulumi.StringOutput    `pulumi:"packageType"`
 	Password    pulumi.StringPtrOutput `pulumi:"password"`
-	// Proxy remote CocoaPods Specs repositories. Default value is "https://github.com/CocoaPods/Specs".
+	// Proxy remote CocoaPods Specs repositories. Default value is `https://github.com/CocoaPods/Specs`.
 	PodsSpecsRepoUrl pulumi.StringPtrOutput `pulumi:"podsSpecsRepoUrl"`
 	// Setting Priority Resolution takes precedence over the resolution order when resolving virtual repositories. Setting
 	// repositories with priority will cause metadata to be merged only from repositories set with a priority. If a package is
@@ -123,10 +164,10 @@ type RemoteCocoapodsRepository struct {
 	// The remote repo URL.
 	Url      pulumi.StringOutput    `pulumi:"url"`
 	Username pulumi.StringPtrOutput `pulumi:"username"`
-	// This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
+	// This attribute is used when vcsGitProvider is set to `CUSTOM`. Provided URL will be used as proxy.
 	VcsGitDownloadUrl pulumi.StringPtrOutput `pulumi:"vcsGitDownloadUrl"`
-	// Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance.
-	// Default value is "GITHUB".
+	// Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`.
+	// Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
 	VcsGitProvider pulumi.StringPtrOutput `pulumi:"vcsGitProvider"`
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.
@@ -215,8 +256,8 @@ type remoteCocoapodsRepositoryState struct {
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
-	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-	// characters. It cannot begin with a number or contain spaces or special characters.
+	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+	// contain spaces or special characters.
 	Key *string `pulumi:"key"`
 	// Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
 	// the 'Retrieval Cache Period'. Default value is 'true'.
@@ -239,7 +280,7 @@ type remoteCocoapodsRepositoryState struct {
 	Offline     *bool   `pulumi:"offline"`
 	PackageType *string `pulumi:"packageType"`
 	Password    *string `pulumi:"password"`
-	// Proxy remote CocoaPods Specs repositories. Default value is "https://github.com/CocoaPods/Specs".
+	// Proxy remote CocoaPods Specs repositories. Default value is `https://github.com/CocoaPods/Specs`.
 	PodsSpecsRepoUrl *string `pulumi:"podsSpecsRepoUrl"`
 	// Setting Priority Resolution takes precedence over the resolution order when resolving virtual repositories. Setting
 	// repositories with priority will cause metadata to be merged only from repositories set with a priority. If a package is
@@ -284,10 +325,10 @@ type remoteCocoapodsRepositoryState struct {
 	// The remote repo URL.
 	Url      *string `pulumi:"url"`
 	Username *string `pulumi:"username"`
-	// This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
+	// This attribute is used when vcsGitProvider is set to `CUSTOM`. Provided URL will be used as proxy.
 	VcsGitDownloadUrl *string `pulumi:"vcsGitDownloadUrl"`
-	// Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance.
-	// Default value is "GITHUB".
+	// Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`.
+	// Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
 	VcsGitProvider *string `pulumi:"vcsGitProvider"`
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.
@@ -335,8 +376,8 @@ type RemoteCocoapodsRepositoryState struct {
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
-	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-	// characters. It cannot begin with a number or contain spaces or special characters.
+	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+	// contain spaces or special characters.
 	Key pulumi.StringPtrInput
 	// Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
 	// the 'Retrieval Cache Period'. Default value is 'true'.
@@ -359,7 +400,7 @@ type RemoteCocoapodsRepositoryState struct {
 	Offline     pulumi.BoolPtrInput
 	PackageType pulumi.StringPtrInput
 	Password    pulumi.StringPtrInput
-	// Proxy remote CocoaPods Specs repositories. Default value is "https://github.com/CocoaPods/Specs".
+	// Proxy remote CocoaPods Specs repositories. Default value is `https://github.com/CocoaPods/Specs`.
 	PodsSpecsRepoUrl pulumi.StringPtrInput
 	// Setting Priority Resolution takes precedence over the resolution order when resolving virtual repositories. Setting
 	// repositories with priority will cause metadata to be merged only from repositories set with a priority. If a package is
@@ -404,10 +445,10 @@ type RemoteCocoapodsRepositoryState struct {
 	// The remote repo URL.
 	Url      pulumi.StringPtrInput
 	Username pulumi.StringPtrInput
-	// This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
+	// This attribute is used when vcsGitProvider is set to `CUSTOM`. Provided URL will be used as proxy.
 	VcsGitDownloadUrl pulumi.StringPtrInput
-	// Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance.
-	// Default value is "GITHUB".
+	// Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`.
+	// Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
 	VcsGitProvider pulumi.StringPtrInput
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.
@@ -459,8 +500,8 @@ type remoteCocoapodsRepositoryArgs struct {
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
-	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-	// characters. It cannot begin with a number or contain spaces or special characters.
+	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+	// contain spaces or special characters.
 	Key string `pulumi:"key"`
 	// Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
 	// the 'Retrieval Cache Period'. Default value is 'true'.
@@ -482,7 +523,7 @@ type remoteCocoapodsRepositoryArgs struct {
 	// If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
 	Offline  *bool   `pulumi:"offline"`
 	Password *string `pulumi:"password"`
-	// Proxy remote CocoaPods Specs repositories. Default value is "https://github.com/CocoaPods/Specs".
+	// Proxy remote CocoaPods Specs repositories. Default value is `https://github.com/CocoaPods/Specs`.
 	PodsSpecsRepoUrl *string `pulumi:"podsSpecsRepoUrl"`
 	// Setting Priority Resolution takes precedence over the resolution order when resolving virtual repositories. Setting
 	// repositories with priority will cause metadata to be merged only from repositories set with a priority. If a package is
@@ -527,10 +568,10 @@ type remoteCocoapodsRepositoryArgs struct {
 	// The remote repo URL.
 	Url      string  `pulumi:"url"`
 	Username *string `pulumi:"username"`
-	// This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
+	// This attribute is used when vcsGitProvider is set to `CUSTOM`. Provided URL will be used as proxy.
 	VcsGitDownloadUrl *string `pulumi:"vcsGitDownloadUrl"`
-	// Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance.
-	// Default value is "GITHUB".
+	// Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`.
+	// Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
 	VcsGitProvider *string `pulumi:"vcsGitProvider"`
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.
@@ -579,8 +620,8 @@ type RemoteCocoapodsRepositoryArgs struct {
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
-	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-	// characters. It cannot begin with a number or contain spaces or special characters.
+	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+	// contain spaces or special characters.
 	Key pulumi.StringInput
 	// Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
 	// the 'Retrieval Cache Period'. Default value is 'true'.
@@ -602,7 +643,7 @@ type RemoteCocoapodsRepositoryArgs struct {
 	// If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
 	Offline  pulumi.BoolPtrInput
 	Password pulumi.StringPtrInput
-	// Proxy remote CocoaPods Specs repositories. Default value is "https://github.com/CocoaPods/Specs".
+	// Proxy remote CocoaPods Specs repositories. Default value is `https://github.com/CocoaPods/Specs`.
 	PodsSpecsRepoUrl pulumi.StringPtrInput
 	// Setting Priority Resolution takes precedence over the resolution order when resolving virtual repositories. Setting
 	// repositories with priority will cause metadata to be merged only from repositories set with a priority. If a package is
@@ -647,10 +688,10 @@ type RemoteCocoapodsRepositoryArgs struct {
 	// The remote repo URL.
 	Url      pulumi.StringInput
 	Username pulumi.StringPtrInput
-	// This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
+	// This attribute is used when vcsGitProvider is set to `CUSTOM`. Provided URL will be used as proxy.
 	VcsGitDownloadUrl pulumi.StringPtrInput
-	// Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance.
-	// Default value is "GITHUB".
+	// Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`.
+	// Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
 	VcsGitProvider pulumi.StringPtrInput
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.
@@ -828,8 +869,8 @@ func (o RemoteCocoapodsRepositoryOutput) IncludesPattern() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v *RemoteCocoapodsRepository) pulumi.StringPtrOutput { return v.IncludesPattern }).(pulumi.StringPtrOutput)
 }
 
-// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-// characters. It cannot begin with a number or contain spaces or special characters.
+// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+// contain spaces or special characters.
 func (o RemoteCocoapodsRepositoryOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v *RemoteCocoapodsRepository) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
 }
@@ -882,7 +923,7 @@ func (o RemoteCocoapodsRepositoryOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RemoteCocoapodsRepository) pulumi.StringPtrOutput { return v.Password }).(pulumi.StringPtrOutput)
 }
 
-// Proxy remote CocoaPods Specs repositories. Default value is "https://github.com/CocoaPods/Specs".
+// Proxy remote CocoaPods Specs repositories. Default value is `https://github.com/CocoaPods/Specs`.
 func (o RemoteCocoapodsRepositoryOutput) PodsSpecsRepoUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RemoteCocoapodsRepository) pulumi.StringPtrOutput { return v.PodsSpecsRepoUrl }).(pulumi.StringPtrOutput)
 }
@@ -978,13 +1019,13 @@ func (o RemoteCocoapodsRepositoryOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RemoteCocoapodsRepository) pulumi.StringPtrOutput { return v.Username }).(pulumi.StringPtrOutput)
 }
 
-// This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
+// This attribute is used when vcsGitProvider is set to `CUSTOM`. Provided URL will be used as proxy.
 func (o RemoteCocoapodsRepositoryOutput) VcsGitDownloadUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RemoteCocoapodsRepository) pulumi.StringPtrOutput { return v.VcsGitDownloadUrl }).(pulumi.StringPtrOutput)
 }
 
-// Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance.
-// Default value is "GITHUB".
+// Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`.
+// Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
 func (o RemoteCocoapodsRepositoryOutput) VcsGitProvider() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RemoteCocoapodsRepository) pulumi.StringPtrOutput { return v.VcsGitProvider }).(pulumi.StringPtrOutput)
 }

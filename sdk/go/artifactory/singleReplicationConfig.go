@@ -11,6 +11,23 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Note: this resource is deprecated in favor of `PullReplication` resource.
+//
+// Provides an Artifactory single replication config resource. This can be used to create and manage a single Artifactory
+// replication. Primarily used when pull replication is needed.
+//
+// **WARNING: This should not be used on a repository with `ReplicationConfig`. Using both together will cause
+// unexpected behaviour and will almost certainly cause your replications to break.**
+//
+// ## Import
+//
+// Replication configs can be imported using their repo key, e.g.
+//
+// ```sh
+//
+//	$ pulumi import artifactory:index/singleReplicationConfig:SingleReplicationConfig foo-rep repository-key
+//
+// ```
 type SingleReplicationConfig struct {
 	pulumi.CustomResourceState
 
@@ -18,11 +35,10 @@ type SingleReplicationConfig struct {
 	CronExp                pulumi.StringOutput `pulumi:"cronExp"`
 	EnableEventReplication pulumi.BoolOutput   `pulumi:"enableEventReplication"`
 	Enabled                pulumi.BoolOutput   `pulumi:"enabled"`
-	// If a password is used to create the resource, it will be returned as encrypted and this will become the new
-	// state.Practically speaking, what this means is that, the password can only be set, not gotten.
+	// Requires password encryption to be turned off `POST /api/system/decrypt`.
 	Password   pulumi.StringOutput    `pulumi:"password"`
 	PathPrefix pulumi.StringPtrOutput `pulumi:"pathPrefix"`
-	// Proxy key from Artifactory Proxies setting
+	// Proxy key from Artifactory Proxies setting.
 	Proxy               pulumi.StringPtrOutput `pulumi:"proxy"`
 	RepoKey             pulumi.StringOutput    `pulumi:"repoKey"`
 	SocketTimeoutMillis pulumi.IntOutput       `pulumi:"socketTimeoutMillis"`
@@ -76,11 +92,10 @@ type singleReplicationConfigState struct {
 	CronExp                *string `pulumi:"cronExp"`
 	EnableEventReplication *bool   `pulumi:"enableEventReplication"`
 	Enabled                *bool   `pulumi:"enabled"`
-	// If a password is used to create the resource, it will be returned as encrypted and this will become the new
-	// state.Practically speaking, what this means is that, the password can only be set, not gotten.
+	// Requires password encryption to be turned off `POST /api/system/decrypt`.
 	Password   *string `pulumi:"password"`
 	PathPrefix *string `pulumi:"pathPrefix"`
-	// Proxy key from Artifactory Proxies setting
+	// Proxy key from Artifactory Proxies setting.
 	Proxy               *string `pulumi:"proxy"`
 	RepoKey             *string `pulumi:"repoKey"`
 	SocketTimeoutMillis *int    `pulumi:"socketTimeoutMillis"`
@@ -96,11 +111,10 @@ type SingleReplicationConfigState struct {
 	CronExp                pulumi.StringPtrInput
 	EnableEventReplication pulumi.BoolPtrInput
 	Enabled                pulumi.BoolPtrInput
-	// If a password is used to create the resource, it will be returned as encrypted and this will become the new
-	// state.Practically speaking, what this means is that, the password can only be set, not gotten.
+	// Requires password encryption to be turned off `POST /api/system/decrypt`.
 	Password   pulumi.StringPtrInput
 	PathPrefix pulumi.StringPtrInput
-	// Proxy key from Artifactory Proxies setting
+	// Proxy key from Artifactory Proxies setting.
 	Proxy               pulumi.StringPtrInput
 	RepoKey             pulumi.StringPtrInput
 	SocketTimeoutMillis pulumi.IntPtrInput
@@ -121,7 +135,7 @@ type singleReplicationConfigArgs struct {
 	EnableEventReplication *bool   `pulumi:"enableEventReplication"`
 	Enabled                *bool   `pulumi:"enabled"`
 	PathPrefix             *string `pulumi:"pathPrefix"`
-	// Proxy key from Artifactory Proxies setting
+	// Proxy key from Artifactory Proxies setting.
 	Proxy               *string `pulumi:"proxy"`
 	RepoKey             string  `pulumi:"repoKey"`
 	SocketTimeoutMillis *int    `pulumi:"socketTimeoutMillis"`
@@ -139,7 +153,7 @@ type SingleReplicationConfigArgs struct {
 	EnableEventReplication pulumi.BoolPtrInput
 	Enabled                pulumi.BoolPtrInput
 	PathPrefix             pulumi.StringPtrInput
-	// Proxy key from Artifactory Proxies setting
+	// Proxy key from Artifactory Proxies setting.
 	Proxy               pulumi.StringPtrInput
 	RepoKey             pulumi.StringInput
 	SocketTimeoutMillis pulumi.IntPtrInput
@@ -250,8 +264,7 @@ func (o SingleReplicationConfigOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *SingleReplicationConfig) pulumi.BoolOutput { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// If a password is used to create the resource, it will be returned as encrypted and this will become the new
-// state.Practically speaking, what this means is that, the password can only be set, not gotten.
+// Requires password encryption to be turned off `POST /api/system/decrypt`.
 func (o SingleReplicationConfigOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v *SingleReplicationConfig) pulumi.StringOutput { return v.Password }).(pulumi.StringOutput)
 }
@@ -260,7 +273,7 @@ func (o SingleReplicationConfigOutput) PathPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SingleReplicationConfig) pulumi.StringPtrOutput { return v.PathPrefix }).(pulumi.StringPtrOutput)
 }
 
-// Proxy key from Artifactory Proxies setting
+// Proxy key from Artifactory Proxies setting.
 func (o SingleReplicationConfigOutput) Proxy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SingleReplicationConfig) pulumi.StringPtrOutput { return v.Proxy }).(pulumi.StringPtrOutput)
 }

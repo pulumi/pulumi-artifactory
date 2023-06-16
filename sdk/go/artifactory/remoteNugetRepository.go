@@ -11,6 +11,49 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Creates a remote Nuget repository.
+// Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/NuGet+Repositories).
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewRemoteNugetRepository(ctx, "my-remote-nuget", &artifactory.RemoteNugetRepositoryArgs{
+//				DownloadContextPath:      pulumi.String("api/v2/package"),
+//				ForceNugetAuthentication: pulumi.Bool(true),
+//				Key:                      pulumi.String("my-remote-nuget"),
+//				SymbolServerUrl:          pulumi.String("https://symbols.nuget.org/download/symbols"),
+//				Url:                      pulumi.String("https://www.nuget.org/"),
+//				V3FeedUrl:                pulumi.String("https://api.nuget.org/v3/index.json"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Remote repositories can be imported using their name, e.g.
+//
+// ```sh
+//
+//	$ pulumi import artifactory:index/remoteNugetRepository:RemoteNugetRepository my-remote-nuget my-remote-nuget
+//
+// ```
 type RemoteNugetRepository struct {
 	pulumi.CustomResourceState
 
@@ -40,7 +83,9 @@ type RemoteNugetRepository struct {
 	ContentSynchronisation RemoteNugetRepositoryContentSynchronisationOutput `pulumi:"contentSynchronisation"`
 	// Public description.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The context path prefix through which NuGet downloads are served. Default value is 'api/v2/package'.
+	// The context path prefix through which NuGet downloads are served.
+	// For example, the NuGet Gallery download URL is `https://nuget.org/api/v2/package`, so the repository
+	// URL should be configured as `https://nuget.org` and the download context path should be configured as `api/v2/package`. Default value is `api/v2/package`.
 	DownloadContextPath pulumi.StringPtrOutput `pulumi:"downloadContextPath"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
 	// storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
@@ -50,10 +95,9 @@ type RemoteNugetRepository struct {
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 	// artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrOutput `pulumi:"excludesPattern"`
-	// When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value is
-	// 'api/v2'.
+	// When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value is `api/v2`.
 	FeedContextPath pulumi.StringPtrOutput `pulumi:"feedContextPath"`
-	// Force basic authentication credentials in order to use this repository. Default value is 'false'.
+	// Force basic authentication credentials in order to use this repository. Default value is `false`.
 	ForceNugetAuthentication pulumi.BoolPtrOutput `pulumi:"forceNugetAuthentication"`
 	// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
 	// communicate with this repository.
@@ -61,8 +105,8 @@ type RemoteNugetRepository struct {
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrOutput `pulumi:"includesPattern"`
-	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-	// characters. It cannot begin with a number or contain spaces or special characters.
+	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+	// contain spaces or special characters.
 	Key pulumi.StringOutput `pulumi:"key"`
 	// Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
 	// the 'Retrieval Cache Period'. Default value is 'true'.
@@ -120,7 +164,7 @@ type RemoteNugetRepository struct {
 	// one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory
 	// servers.
 	StoreArtifactsLocally pulumi.BoolPtrOutput `pulumi:"storeArtifactsLocally"`
-	// NuGet symbol server URL.
+	// NuGet symbol server URL. Default value is `https://symbols.nuget.org/download/symbols`.
 	SymbolServerUrl pulumi.StringPtrOutput `pulumi:"symbolServerUrl"`
 	// When set, remote artifacts are fetched along with their properties.
 	SynchronizeProperties pulumi.BoolPtrOutput `pulumi:"synchronizeProperties"`
@@ -130,7 +174,7 @@ type RemoteNugetRepository struct {
 	// The remote repo URL.
 	Url      pulumi.StringOutput    `pulumi:"url"`
 	Username pulumi.StringPtrOutput `pulumi:"username"`
-	// The URL to the NuGet v3 feed. Default value is 'https://api.nuget.org/v3/index.json'.
+	// The URL to the NuGet v3 feed. Default value is `https://api.nuget.org/v3/index.json`.
 	V3FeedUrl pulumi.StringPtrOutput `pulumi:"v3FeedUrl"`
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.
@@ -205,7 +249,9 @@ type remoteNugetRepositoryState struct {
 	ContentSynchronisation *RemoteNugetRepositoryContentSynchronisation `pulumi:"contentSynchronisation"`
 	// Public description.
 	Description *string `pulumi:"description"`
-	// The context path prefix through which NuGet downloads are served. Default value is 'api/v2/package'.
+	// The context path prefix through which NuGet downloads are served.
+	// For example, the NuGet Gallery download URL is `https://nuget.org/api/v2/package`, so the repository
+	// URL should be configured as `https://nuget.org` and the download context path should be configured as `api/v2/package`. Default value is `api/v2/package`.
 	DownloadContextPath *string `pulumi:"downloadContextPath"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
 	// storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
@@ -215,10 +261,9 @@ type remoteNugetRepositoryState struct {
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 	// artifacts are excluded.
 	ExcludesPattern *string `pulumi:"excludesPattern"`
-	// When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value is
-	// 'api/v2'.
+	// When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value is `api/v2`.
 	FeedContextPath *string `pulumi:"feedContextPath"`
-	// Force basic authentication credentials in order to use this repository. Default value is 'false'.
+	// Force basic authentication credentials in order to use this repository. Default value is `false`.
 	ForceNugetAuthentication *bool `pulumi:"forceNugetAuthentication"`
 	// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
 	// communicate with this repository.
@@ -226,8 +271,8 @@ type remoteNugetRepositoryState struct {
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
-	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-	// characters. It cannot begin with a number or contain spaces or special characters.
+	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+	// contain spaces or special characters.
 	Key *string `pulumi:"key"`
 	// Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
 	// the 'Retrieval Cache Period'. Default value is 'true'.
@@ -285,7 +330,7 @@ type remoteNugetRepositoryState struct {
 	// one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory
 	// servers.
 	StoreArtifactsLocally *bool `pulumi:"storeArtifactsLocally"`
-	// NuGet symbol server URL.
+	// NuGet symbol server URL. Default value is `https://symbols.nuget.org/download/symbols`.
 	SymbolServerUrl *string `pulumi:"symbolServerUrl"`
 	// When set, remote artifacts are fetched along with their properties.
 	SynchronizeProperties *bool `pulumi:"synchronizeProperties"`
@@ -295,7 +340,7 @@ type remoteNugetRepositoryState struct {
 	// The remote repo URL.
 	Url      *string `pulumi:"url"`
 	Username *string `pulumi:"username"`
-	// The URL to the NuGet v3 feed. Default value is 'https://api.nuget.org/v3/index.json'.
+	// The URL to the NuGet v3 feed. Default value is `https://api.nuget.org/v3/index.json`.
 	V3FeedUrl *string `pulumi:"v3FeedUrl"`
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.
@@ -329,7 +374,9 @@ type RemoteNugetRepositoryState struct {
 	ContentSynchronisation RemoteNugetRepositoryContentSynchronisationPtrInput
 	// Public description.
 	Description pulumi.StringPtrInput
-	// The context path prefix through which NuGet downloads are served. Default value is 'api/v2/package'.
+	// The context path prefix through which NuGet downloads are served.
+	// For example, the NuGet Gallery download URL is `https://nuget.org/api/v2/package`, so the repository
+	// URL should be configured as `https://nuget.org` and the download context path should be configured as `api/v2/package`. Default value is `api/v2/package`.
 	DownloadContextPath pulumi.StringPtrInput
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
 	// storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
@@ -339,10 +386,9 @@ type RemoteNugetRepositoryState struct {
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 	// artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrInput
-	// When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value is
-	// 'api/v2'.
+	// When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value is `api/v2`.
 	FeedContextPath pulumi.StringPtrInput
-	// Force basic authentication credentials in order to use this repository. Default value is 'false'.
+	// Force basic authentication credentials in order to use this repository. Default value is `false`.
 	ForceNugetAuthentication pulumi.BoolPtrInput
 	// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
 	// communicate with this repository.
@@ -350,8 +396,8 @@ type RemoteNugetRepositoryState struct {
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
-	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-	// characters. It cannot begin with a number or contain spaces or special characters.
+	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+	// contain spaces or special characters.
 	Key pulumi.StringPtrInput
 	// Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
 	// the 'Retrieval Cache Period'. Default value is 'true'.
@@ -409,7 +455,7 @@ type RemoteNugetRepositoryState struct {
 	// one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory
 	// servers.
 	StoreArtifactsLocally pulumi.BoolPtrInput
-	// NuGet symbol server URL.
+	// NuGet symbol server URL. Default value is `https://symbols.nuget.org/download/symbols`.
 	SymbolServerUrl pulumi.StringPtrInput
 	// When set, remote artifacts are fetched along with their properties.
 	SynchronizeProperties pulumi.BoolPtrInput
@@ -419,7 +465,7 @@ type RemoteNugetRepositoryState struct {
 	// The remote repo URL.
 	Url      pulumi.StringPtrInput
 	Username pulumi.StringPtrInput
-	// The URL to the NuGet v3 feed. Default value is 'https://api.nuget.org/v3/index.json'.
+	// The URL to the NuGet v3 feed. Default value is `https://api.nuget.org/v3/index.json`.
 	V3FeedUrl pulumi.StringPtrInput
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.
@@ -457,7 +503,9 @@ type remoteNugetRepositoryArgs struct {
 	ContentSynchronisation *RemoteNugetRepositoryContentSynchronisation `pulumi:"contentSynchronisation"`
 	// Public description.
 	Description *string `pulumi:"description"`
-	// The context path prefix through which NuGet downloads are served. Default value is 'api/v2/package'.
+	// The context path prefix through which NuGet downloads are served.
+	// For example, the NuGet Gallery download URL is `https://nuget.org/api/v2/package`, so the repository
+	// URL should be configured as `https://nuget.org` and the download context path should be configured as `api/v2/package`. Default value is `api/v2/package`.
 	DownloadContextPath *string `pulumi:"downloadContextPath"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
 	// storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
@@ -467,10 +515,9 @@ type remoteNugetRepositoryArgs struct {
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 	// artifacts are excluded.
 	ExcludesPattern *string `pulumi:"excludesPattern"`
-	// When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value is
-	// 'api/v2'.
+	// When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value is `api/v2`.
 	FeedContextPath *string `pulumi:"feedContextPath"`
-	// Force basic authentication credentials in order to use this repository. Default value is 'false'.
+	// Force basic authentication credentials in order to use this repository. Default value is `false`.
 	ForceNugetAuthentication *bool `pulumi:"forceNugetAuthentication"`
 	// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
 	// communicate with this repository.
@@ -478,8 +525,8 @@ type remoteNugetRepositoryArgs struct {
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
-	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-	// characters. It cannot begin with a number or contain spaces or special characters.
+	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+	// contain spaces or special characters.
 	Key string `pulumi:"key"`
 	// Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
 	// the 'Retrieval Cache Period'. Default value is 'true'.
@@ -536,7 +583,7 @@ type remoteNugetRepositoryArgs struct {
 	// one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory
 	// servers.
 	StoreArtifactsLocally *bool `pulumi:"storeArtifactsLocally"`
-	// NuGet symbol server URL.
+	// NuGet symbol server URL. Default value is `https://symbols.nuget.org/download/symbols`.
 	SymbolServerUrl *string `pulumi:"symbolServerUrl"`
 	// When set, remote artifacts are fetched along with their properties.
 	SynchronizeProperties *bool `pulumi:"synchronizeProperties"`
@@ -546,7 +593,7 @@ type remoteNugetRepositoryArgs struct {
 	// The remote repo URL.
 	Url      string  `pulumi:"url"`
 	Username *string `pulumi:"username"`
-	// The URL to the NuGet v3 feed. Default value is 'https://api.nuget.org/v3/index.json'.
+	// The URL to the NuGet v3 feed. Default value is `https://api.nuget.org/v3/index.json`.
 	V3FeedUrl *string `pulumi:"v3FeedUrl"`
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.
@@ -581,7 +628,9 @@ type RemoteNugetRepositoryArgs struct {
 	ContentSynchronisation RemoteNugetRepositoryContentSynchronisationPtrInput
 	// Public description.
 	Description pulumi.StringPtrInput
-	// The context path prefix through which NuGet downloads are served. Default value is 'api/v2/package'.
+	// The context path prefix through which NuGet downloads are served.
+	// For example, the NuGet Gallery download URL is `https://nuget.org/api/v2/package`, so the repository
+	// URL should be configured as `https://nuget.org` and the download context path should be configured as `api/v2/package`. Default value is `api/v2/package`.
 	DownloadContextPath pulumi.StringPtrInput
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
 	// storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
@@ -591,10 +640,9 @@ type RemoteNugetRepositoryArgs struct {
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 	// artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrInput
-	// When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value is
-	// 'api/v2'.
+	// When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value is `api/v2`.
 	FeedContextPath pulumi.StringPtrInput
-	// Force basic authentication credentials in order to use this repository. Default value is 'false'.
+	// Force basic authentication credentials in order to use this repository. Default value is `false`.
 	ForceNugetAuthentication pulumi.BoolPtrInput
 	// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
 	// communicate with this repository.
@@ -602,8 +650,8 @@ type RemoteNugetRepositoryArgs struct {
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
-	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-	// characters. It cannot begin with a number or contain spaces or special characters.
+	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+	// contain spaces or special characters.
 	Key pulumi.StringInput
 	// Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
 	// the 'Retrieval Cache Period'. Default value is 'true'.
@@ -660,7 +708,7 @@ type RemoteNugetRepositoryArgs struct {
 	// one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory
 	// servers.
 	StoreArtifactsLocally pulumi.BoolPtrInput
-	// NuGet symbol server URL.
+	// NuGet symbol server URL. Default value is `https://symbols.nuget.org/download/symbols`.
 	SymbolServerUrl pulumi.StringPtrInput
 	// When set, remote artifacts are fetched along with their properties.
 	SynchronizeProperties pulumi.BoolPtrInput
@@ -670,7 +718,7 @@ type RemoteNugetRepositoryArgs struct {
 	// The remote repo URL.
 	Url      pulumi.StringInput
 	Username pulumi.StringPtrInput
-	// The URL to the NuGet v3 feed. Default value is 'https://api.nuget.org/v3/index.json'.
+	// The URL to the NuGet v3 feed. Default value is `https://api.nuget.org/v3/index.json`.
 	V3FeedUrl pulumi.StringPtrInput
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.
@@ -819,7 +867,9 @@ func (o RemoteNugetRepositoryOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RemoteNugetRepository) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The context path prefix through which NuGet downloads are served. Default value is 'api/v2/package'.
+// The context path prefix through which NuGet downloads are served.
+// For example, the NuGet Gallery download URL is `https://nuget.org/api/v2/package`, so the repository
+// URL should be configured as `https://nuget.org` and the download context path should be configured as `api/v2/package`. Default value is `api/v2/package`.
 func (o RemoteNugetRepositoryOutput) DownloadContextPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RemoteNugetRepository) pulumi.StringPtrOutput { return v.DownloadContextPath }).(pulumi.StringPtrOutput)
 }
@@ -841,13 +891,12 @@ func (o RemoteNugetRepositoryOutput) ExcludesPattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RemoteNugetRepository) pulumi.StringPtrOutput { return v.ExcludesPattern }).(pulumi.StringPtrOutput)
 }
 
-// When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value is
-// 'api/v2'.
+// When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value is `api/v2`.
 func (o RemoteNugetRepositoryOutput) FeedContextPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RemoteNugetRepository) pulumi.StringPtrOutput { return v.FeedContextPath }).(pulumi.StringPtrOutput)
 }
 
-// Force basic authentication credentials in order to use this repository. Default value is 'false'.
+// Force basic authentication credentials in order to use this repository. Default value is `false`.
 func (o RemoteNugetRepositoryOutput) ForceNugetAuthentication() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteNugetRepository) pulumi.BoolPtrOutput { return v.ForceNugetAuthentication }).(pulumi.BoolPtrOutput)
 }
@@ -864,8 +913,8 @@ func (o RemoteNugetRepositoryOutput) IncludesPattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RemoteNugetRepository) pulumi.StringPtrOutput { return v.IncludesPattern }).(pulumi.StringPtrOutput)
 }
 
-// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-// characters. It cannot begin with a number or contain spaces or special characters.
+// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+// contain spaces or special characters.
 func (o RemoteNugetRepositoryOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v *RemoteNugetRepository) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
 }
@@ -989,7 +1038,7 @@ func (o RemoteNugetRepositoryOutput) StoreArtifactsLocally() pulumi.BoolPtrOutpu
 	return o.ApplyT(func(v *RemoteNugetRepository) pulumi.BoolPtrOutput { return v.StoreArtifactsLocally }).(pulumi.BoolPtrOutput)
 }
 
-// NuGet symbol server URL.
+// NuGet symbol server URL. Default value is `https://symbols.nuget.org/download/symbols`.
 func (o RemoteNugetRepositoryOutput) SymbolServerUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RemoteNugetRepository) pulumi.StringPtrOutput { return v.SymbolServerUrl }).(pulumi.StringPtrOutput)
 }
@@ -1014,7 +1063,7 @@ func (o RemoteNugetRepositoryOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RemoteNugetRepository) pulumi.StringPtrOutput { return v.Username }).(pulumi.StringPtrOutput)
 }
 
-// The URL to the NuGet v3 feed. Default value is 'https://api.nuget.org/v3/index.json'.
+// The URL to the NuGet v3 feed. Default value is `https://api.nuget.org/v3/index.json`.
 func (o RemoteNugetRepositoryOutput) V3FeedUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RemoteNugetRepository) pulumi.StringPtrOutput { return v.V3FeedUrl }).(pulumi.StringPtrOutput)
 }

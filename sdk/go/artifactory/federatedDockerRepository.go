@@ -11,6 +11,55 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Creates a federated Docker repository.
+//
+// ~>This resource has been superseded by the `FederatedDockerV2Repository` resource. This resource will continue to be available in the provider for backward compatibility. For documentation, please refer to the new resource.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewFederatedDockerRepository(ctx, "terraform-federated-test-docker-repo", &artifactory.FederatedDockerRepositoryArgs{
+//				Key: pulumi.String("terraform-federated-test-docker-repo"),
+//				Members: artifactory.FederatedDockerRepositoryMemberArray{
+//					&artifactory.FederatedDockerRepositoryMemberArgs{
+//						Enabled: pulumi.Bool(true),
+//						Url:     pulumi.String("http://tempurl.org/artifactory/terraform-federated-test-docker-repo"),
+//					},
+//					&artifactory.FederatedDockerRepositoryMemberArgs{
+//						Enabled: pulumi.Bool(true),
+//						Url:     pulumi.String("http://tempurl2.org/artifactory/terraform-federated-test-docker-repo-2"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Federated repositories can be imported using their name, e.g.
+//
+// ```sh
+//
+//	$ pulumi import artifactory:index/federatedDockerRepository:FederatedDockerRepository terraform-federated-test-docker-repo terraform-federated-test-docker-repo
+//
+// ```
 type FederatedDockerRepository struct {
 	pulumi.CustomResourceState
 
@@ -41,17 +90,15 @@ type FederatedDockerRepository struct {
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringOutput `pulumi:"includesPattern"`
-	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-	// characters. It cannot begin with a number or contain spaces or special characters.
+	// the identity key of the repo.
 	Key pulumi.StringOutput `pulumi:"key"`
 	// The maximum number of unique tags of a single Docker image to store in this repository. Once the number tags for an
 	// image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit. This only
 	// applies to manifest v2
 	MaxUniqueTags pulumi.IntPtrOutput `pulumi:"maxUniqueTags"`
-	// The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
-	// will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
-	// federated members will need to have a base URL set. Please follow the
-	// [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+	// The list of Federated members and must contain this repository URL (configured base URL
+	// `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+	// Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
 	// to set up Federated repositories correctly.
 	Members FederatedDockerRepositoryMemberArrayOutput `pulumi:"members"`
 	// Internal description.
@@ -141,17 +188,15 @@ type federatedDockerRepositoryState struct {
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
-	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-	// characters. It cannot begin with a number or contain spaces or special characters.
+	// the identity key of the repo.
 	Key *string `pulumi:"key"`
 	// The maximum number of unique tags of a single Docker image to store in this repository. Once the number tags for an
 	// image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit. This only
 	// applies to manifest v2
 	MaxUniqueTags *int `pulumi:"maxUniqueTags"`
-	// The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
-	// will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
-	// federated members will need to have a base URL set. Please follow the
-	// [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+	// The list of Federated members and must contain this repository URL (configured base URL
+	// `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+	// Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
 	// to set up Federated repositories correctly.
 	Members []FederatedDockerRepositoryMember `pulumi:"members"`
 	// Internal description.
@@ -207,17 +252,15 @@ type FederatedDockerRepositoryState struct {
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
-	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-	// characters. It cannot begin with a number or contain spaces or special characters.
+	// the identity key of the repo.
 	Key pulumi.StringPtrInput
 	// The maximum number of unique tags of a single Docker image to store in this repository. Once the number tags for an
 	// image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit. This only
 	// applies to manifest v2
 	MaxUniqueTags pulumi.IntPtrInput
-	// The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
-	// will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
-	// federated members will need to have a base URL set. Please follow the
-	// [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+	// The list of Federated members and must contain this repository URL (configured base URL
+	// `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+	// Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
 	// to set up Federated repositories correctly.
 	Members FederatedDockerRepositoryMemberArrayInput
 	// Internal description.
@@ -275,17 +318,15 @@ type federatedDockerRepositoryArgs struct {
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
-	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-	// characters. It cannot begin with a number or contain spaces or special characters.
+	// the identity key of the repo.
 	Key string `pulumi:"key"`
 	// The maximum number of unique tags of a single Docker image to store in this repository. Once the number tags for an
 	// image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit. This only
 	// applies to manifest v2
 	MaxUniqueTags *int `pulumi:"maxUniqueTags"`
-	// The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
-	// will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
-	// federated members will need to have a base URL set. Please follow the
-	// [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+	// The list of Federated members and must contain this repository URL (configured base URL
+	// `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+	// Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
 	// to set up Federated repositories correctly.
 	Members []FederatedDockerRepositoryMember `pulumi:"members"`
 	// Internal description.
@@ -339,17 +380,15 @@ type FederatedDockerRepositoryArgs struct {
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
-	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-	// characters. It cannot begin with a number or contain spaces or special characters.
+	// the identity key of the repo.
 	Key pulumi.StringInput
 	// The maximum number of unique tags of a single Docker image to store in this repository. Once the number tags for an
 	// image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit. This only
 	// applies to manifest v2
 	MaxUniqueTags pulumi.IntPtrInput
-	// The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
-	// will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
-	// federated members will need to have a base URL set. Please follow the
-	// [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+	// The list of Federated members and must contain this repository URL (configured base URL
+	// `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+	// Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
 	// to set up Federated repositories correctly.
 	Members FederatedDockerRepositoryMemberArrayInput
 	// Internal description.
@@ -520,8 +559,7 @@ func (o FederatedDockerRepositoryOutput) IncludesPattern() pulumi.StringOutput {
 	return o.ApplyT(func(v *FederatedDockerRepository) pulumi.StringOutput { return v.IncludesPattern }).(pulumi.StringOutput)
 }
 
-// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-// characters. It cannot begin with a number or contain spaces or special characters.
+// the identity key of the repo.
 func (o FederatedDockerRepositoryOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v *FederatedDockerRepository) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
 }
@@ -533,10 +571,9 @@ func (o FederatedDockerRepositoryOutput) MaxUniqueTags() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FederatedDockerRepository) pulumi.IntPtrOutput { return v.MaxUniqueTags }).(pulumi.IntPtrOutput)
 }
 
-// The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
-// will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
-// federated members will need to have a base URL set. Please follow the
-// [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+// The list of Federated members and must contain this repository URL (configured base URL
+// `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+// Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
 // to set up Federated repositories correctly.
 func (o FederatedDockerRepositoryOutput) Members() FederatedDockerRepositoryMemberArrayOutput {
 	return o.ApplyT(func(v *FederatedDockerRepository) FederatedDockerRepositoryMemberArrayOutput { return v.Members }).(FederatedDockerRepositoryMemberArrayOutput)

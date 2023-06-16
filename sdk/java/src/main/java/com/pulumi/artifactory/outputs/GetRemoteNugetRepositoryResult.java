@@ -24,11 +24,23 @@ public final class GetRemoteNugetRepositoryResult {
     private String clientTlsCertificate;
     private GetRemoteNugetRepositoryContentSynchronisation contentSynchronisation;
     private @Nullable String description;
+    /**
+     * @return (Optional) The context path prefix through which NuGet downloads are served. For example, the NuGet Gallery download URL is `https://nuget.org/api/v2/package`, so the repository URL should be configured as `https://nuget.org` and the download context path should be configured as `api/v2/package`. Default value is `api/v2/package`.
+     * 
+     */
     private @Nullable String downloadContextPath;
     private @Nullable Boolean downloadDirect;
     private @Nullable Boolean enableCookieManagement;
     private @Nullable String excludesPattern;
+    /**
+     * @return (Optional) When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value is `api/v2`.
+     * 
+     */
     private @Nullable String feedContextPath;
+    /**
+     * @return (Optional) Force basic authentication credentials in order to use this repository. Default value is `false`.
+     * 
+     */
     private @Nullable Boolean forceNugetAuthentication;
     private @Nullable Boolean hardFail;
     /**
@@ -59,11 +71,19 @@ public final class GetRemoteNugetRepositoryResult {
     private Boolean shareConfiguration;
     private @Nullable Integer socketTimeoutMillis;
     private @Nullable Boolean storeArtifactsLocally;
+    /**
+     * @return (Optional) NuGet symbol server URL. Default value is `https://symbols.nuget.org/download/symbols`.
+     * 
+     */
     private @Nullable String symbolServerUrl;
     private @Nullable Boolean synchronizeProperties;
     private @Nullable Integer unusedArtifactsCleanupPeriodHours;
     private @Nullable String url;
     private @Nullable String username;
+    /**
+     * @return (Optional) The URL to the NuGet v3 feed. Default value is `https://api.nuget.org/v3/index.json`.
+     * 
+     */
     private @Nullable String v3FeedUrl;
     private @Nullable Boolean xrayIndex;
 
@@ -95,6 +115,10 @@ public final class GetRemoteNugetRepositoryResult {
     public Optional<String> description() {
         return Optional.ofNullable(this.description);
     }
+    /**
+     * @return (Optional) The context path prefix through which NuGet downloads are served. For example, the NuGet Gallery download URL is `https://nuget.org/api/v2/package`, so the repository URL should be configured as `https://nuget.org` and the download context path should be configured as `api/v2/package`. Default value is `api/v2/package`.
+     * 
+     */
     public Optional<String> downloadContextPath() {
         return Optional.ofNullable(this.downloadContextPath);
     }
@@ -107,9 +131,17 @@ public final class GetRemoteNugetRepositoryResult {
     public Optional<String> excludesPattern() {
         return Optional.ofNullable(this.excludesPattern);
     }
+    /**
+     * @return (Optional) When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value is `api/v2`.
+     * 
+     */
     public Optional<String> feedContextPath() {
         return Optional.ofNullable(this.feedContextPath);
     }
+    /**
+     * @return (Optional) Force basic authentication credentials in order to use this repository. Default value is `false`.
+     * 
+     */
     public Optional<Boolean> forceNugetAuthentication() {
         return Optional.ofNullable(this.forceNugetAuthentication);
     }
@@ -192,6 +224,10 @@ public final class GetRemoteNugetRepositoryResult {
     public Optional<Boolean> storeArtifactsLocally() {
         return Optional.ofNullable(this.storeArtifactsLocally);
     }
+    /**
+     * @return (Optional) NuGet symbol server URL. Default value is `https://symbols.nuget.org/download/symbols`.
+     * 
+     */
     public Optional<String> symbolServerUrl() {
         return Optional.ofNullable(this.symbolServerUrl);
     }
@@ -207,6 +243,10 @@ public final class GetRemoteNugetRepositoryResult {
     public Optional<String> username() {
         return Optional.ofNullable(this.username);
     }
+    /**
+     * @return (Optional) The URL to the NuGet v3 feed. Default value is `https://api.nuget.org/v3/index.json`.
+     * 
+     */
     public Optional<String> v3FeedUrl() {
         return Optional.ofNullable(this.v3FeedUrl);
     }

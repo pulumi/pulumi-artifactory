@@ -11,9 +11,65 @@ namespace Pulumi.Artifactory
 {
     public static class GetGroup
     {
+        /// <summary>
+        /// ## # Artifactory Group Data Source
+        /// 
+        /// Provides an Artifactory group datasource. This can be used to read the configuration of groups in artifactory.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var myGroup = Artifactory.GetGroup.Invoke(new()
+        ///     {
+        ///         IncludeUsers = "true",
+        ///         Name = "my_group",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetGroupResult> InvokeAsync(GetGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGroupResult>("artifactory:index/getGroup:getGroup", args ?? new GetGroupArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// ## # Artifactory Group Data Source
+        /// 
+        /// Provides an Artifactory group datasource. This can be used to read the configuration of groups in artifactory.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var myGroup = Artifactory.GetGroup.Invoke(new()
+        ///     {
+        ///         IncludeUsers = "true",
+        ///         Name = "my_group",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetGroupResult> Invoke(GetGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGroupResult>("artifactory:index/getGroup:getGroup", args ?? new GetGroupInvokeArgs(), options.WithDefaults());
     }
@@ -21,44 +77,81 @@ namespace Pulumi.Artifactory
 
     public sealed class GetGroupArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Any users added to this group will automatically be assigned with admin privileges in the system.
+        /// </summary>
         [Input("adminPrivileges")]
         public bool? AdminPrivileges { get; set; }
 
+        /// <summary>
+        /// When this parameter is set, any new users defined in the system are automatically assigned to this group.
+        /// </summary>
         [Input("autoJoin")]
         public bool? AutoJoin { get; set; }
 
+        /// <summary>
+        /// A description for the group
+        /// </summary>
         [Input("description")]
         public string? Description { get; set; }
 
+        /// <summary>
+        /// New external group ID used to configure the corresponding group in Azure AD.
+        /// </summary>
         [Input("externalId")]
         public string? ExternalId { get; set; }
 
+        /// <summary>
+        /// Determines if the group's associated user list will return as an attribute. Default is `false`.
+        /// </summary>
         [Input("includeUsers")]
         public string? IncludeUsers { get; set; }
 
+        /// <summary>
+        /// Name of the group.
+        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
+        /// <summary>
+        /// When this override is set, User in the group can set Xray security and compliance policies. Default value is `false`.
+        /// </summary>
         [Input("policyManager")]
         public bool? PolicyManager { get; set; }
 
+        /// <summary>
+        /// The realm for the group.
+        /// </summary>
         [Input("realm")]
         public string? Realm { get; set; }
 
+        /// <summary>
+        /// The realm attributes for the group.
+        /// </summary>
         [Input("realmAttributes")]
         public string? RealmAttributes { get; set; }
 
+        /// <summary>
+        /// When this override is set, User in the group can manage Xray Reports on any resource type. Default value is `false`.
+        /// </summary>
         [Input("reportsManager")]
         public bool? ReportsManager { get; set; }
 
         [Input("usersNames")]
         private List<string>? _usersNames;
+
+        /// <summary>
+        /// List of users assigned to the group. Set include_users to `true` to retrieve this list.
+        /// </summary>
         public List<string> UsersNames
         {
             get => _usersNames ?? (_usersNames = new List<string>());
             set => _usersNames = value;
         }
 
+        /// <summary>
+        /// When this override is set, User in the group can manage Xray Watches on any resource type. Default value is `false`.
+        /// </summary>
         [Input("watchManager")]
         public bool? WatchManager { get; set; }
 
@@ -70,44 +163,81 @@ namespace Pulumi.Artifactory
 
     public sealed class GetGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Any users added to this group will automatically be assigned with admin privileges in the system.
+        /// </summary>
         [Input("adminPrivileges")]
         public Input<bool>? AdminPrivileges { get; set; }
 
+        /// <summary>
+        /// When this parameter is set, any new users defined in the system are automatically assigned to this group.
+        /// </summary>
         [Input("autoJoin")]
         public Input<bool>? AutoJoin { get; set; }
 
+        /// <summary>
+        /// A description for the group
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// New external group ID used to configure the corresponding group in Azure AD.
+        /// </summary>
         [Input("externalId")]
         public Input<string>? ExternalId { get; set; }
 
+        /// <summary>
+        /// Determines if the group's associated user list will return as an attribute. Default is `false`.
+        /// </summary>
         [Input("includeUsers")]
         public Input<string>? IncludeUsers { get; set; }
 
+        /// <summary>
+        /// Name of the group.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// When this override is set, User in the group can set Xray security and compliance policies. Default value is `false`.
+        /// </summary>
         [Input("policyManager")]
         public Input<bool>? PolicyManager { get; set; }
 
+        /// <summary>
+        /// The realm for the group.
+        /// </summary>
         [Input("realm")]
         public Input<string>? Realm { get; set; }
 
+        /// <summary>
+        /// The realm attributes for the group.
+        /// </summary>
         [Input("realmAttributes")]
         public Input<string>? RealmAttributes { get; set; }
 
+        /// <summary>
+        /// When this override is set, User in the group can manage Xray Reports on any resource type. Default value is `false`.
+        /// </summary>
         [Input("reportsManager")]
         public Input<bool>? ReportsManager { get; set; }
 
         [Input("usersNames")]
         private InputList<string>? _usersNames;
+
+        /// <summary>
+        /// List of users assigned to the group. Set include_users to `true` to retrieve this list.
+        /// </summary>
         public InputList<string> UsersNames
         {
             get => _usersNames ?? (_usersNames = new InputList<string>());
             set => _usersNames = value;
         }
 
+        /// <summary>
+        /// When this override is set, User in the group can manage Xray Watches on any resource type. Default value is `false`.
+        /// </summary>
         [Input("watchManager")]
         public Input<bool>? WatchManager { get; set; }
 
@@ -121,9 +251,21 @@ namespace Pulumi.Artifactory
     [OutputType]
     public sealed class GetGroupResult
     {
+        /// <summary>
+        /// Any users added to this group will automatically be assigned with admin privileges in the system.
+        /// </summary>
         public readonly bool AdminPrivileges;
+        /// <summary>
+        /// When this parameter is set, any new users defined in the system are automatically assigned to this group.
+        /// </summary>
         public readonly bool AutoJoin;
+        /// <summary>
+        /// A description for the group
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// New external group ID used to configure the corresponding group in Azure AD.
+        /// </summary>
         public readonly string? ExternalId;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
@@ -131,11 +273,29 @@ namespace Pulumi.Artifactory
         public readonly string Id;
         public readonly string? IncludeUsers;
         public readonly string Name;
+        /// <summary>
+        /// When this override is set, User in the group can set Xray security and compliance policies. Default value is `false`.
+        /// </summary>
         public readonly bool? PolicyManager;
+        /// <summary>
+        /// The realm for the group.
+        /// </summary>
         public readonly string Realm;
+        /// <summary>
+        /// The realm attributes for the group.
+        /// </summary>
         public readonly string? RealmAttributes;
+        /// <summary>
+        /// When this override is set, User in the group can manage Xray Reports on any resource type. Default value is `false`.
+        /// </summary>
         public readonly bool? ReportsManager;
+        /// <summary>
+        /// List of users assigned to the group. Set include_users to `true` to retrieve this list.
+        /// </summary>
         public readonly ImmutableArray<string> UsersNames;
+        /// <summary>
+        /// When this override is set, User in the group can manage Xray Watches on any resource type. Default value is `false`.
+        /// </summary>
         public readonly bool? WatchManager;
 
         [OutputConstructor]

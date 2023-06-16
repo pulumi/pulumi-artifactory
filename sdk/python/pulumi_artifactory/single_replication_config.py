@@ -29,7 +29,7 @@ class SingleReplicationConfigArgs:
         """
         The set of arguments for constructing a SingleReplicationConfig resource.
         :param pulumi.Input[str] cron_exp: Cron expression to control the operation frequency.
-        :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies setting
+        :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies setting.
         """
         pulumi.set(__self__, "cron_exp", cron_exp)
         pulumi.set(__self__, "repo_key", repo_key)
@@ -106,7 +106,7 @@ class SingleReplicationConfigArgs:
     @pulumi.getter
     def proxy(self) -> Optional[pulumi.Input[str]]:
         """
-        Proxy key from Artifactory Proxies setting
+        Proxy key from Artifactory Proxies setting.
         """
         return pulumi.get(self, "proxy")
 
@@ -188,9 +188,8 @@ class _SingleReplicationConfigState:
         """
         Input properties used for looking up and filtering SingleReplicationConfig resources.
         :param pulumi.Input[str] cron_exp: Cron expression to control the operation frequency.
-        :param pulumi.Input[str] password: If a password is used to create the resource, it will be returned as encrypted and this will become the new
-               state.Practically speaking, what this means is that, the password can only be set, not gotten.
-        :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies setting
+        :param pulumi.Input[str] password: Requires password encryption to be turned off `POST /api/system/decrypt`.
+        :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies setting.
         """
         if cron_exp is not None:
             pulumi.set(__self__, "cron_exp", cron_exp)
@@ -253,8 +252,7 @@ class _SingleReplicationConfigState:
     @pulumi.getter
     def password(self) -> Optional[pulumi.Input[str]]:
         """
-        If a password is used to create the resource, it will be returned as encrypted and this will become the new
-        state.Practically speaking, what this means is that, the password can only be set, not gotten.
+        Requires password encryption to be turned off `POST /api/system/decrypt`.
         """
         return pulumi.get(self, "password")
 
@@ -275,7 +273,7 @@ class _SingleReplicationConfigState:
     @pulumi.getter
     def proxy(self) -> Optional[pulumi.Input[str]]:
         """
-        Proxy key from Artifactory Proxies setting
+        Proxy key from Artifactory Proxies setting.
         """
         return pulumi.get(self, "proxy")
 
@@ -366,11 +364,26 @@ class SingleReplicationConfig(pulumi.CustomResource):
                  username: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a SingleReplicationConfig resource with the given unique name, props, and options.
+        Note: this resource is deprecated in favor of `PullReplication` resource.
+
+        Provides an Artifactory single replication config resource. This can be used to create and manage a single Artifactory
+        replication. Primarily used when pull replication is needed.
+
+        **WARNING: This should not be used on a repository with `ReplicationConfig`. Using both together will cause
+        unexpected behaviour and will almost certainly cause your replications to break.**
+
+        ## Import
+
+        Replication configs can be imported using their repo key, e.g.
+
+        ```sh
+         $ pulumi import artifactory:index/singleReplicationConfig:SingleReplicationConfig foo-rep repository-key
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cron_exp: Cron expression to control the operation frequency.
-        :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies setting
+        :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies setting.
         """
         ...
     @overload
@@ -379,7 +392,22 @@ class SingleReplicationConfig(pulumi.CustomResource):
                  args: SingleReplicationConfigArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a SingleReplicationConfig resource with the given unique name, props, and options.
+        Note: this resource is deprecated in favor of `PullReplication` resource.
+
+        Provides an Artifactory single replication config resource. This can be used to create and manage a single Artifactory
+        replication. Primarily used when pull replication is needed.
+
+        **WARNING: This should not be used on a repository with `ReplicationConfig`. Using both together will cause
+        unexpected behaviour and will almost certainly cause your replications to break.**
+
+        ## Import
+
+        Replication configs can be imported using their repo key, e.g.
+
+        ```sh
+         $ pulumi import artifactory:index/singleReplicationConfig:SingleReplicationConfig foo-rep repository-key
+        ```
+
         :param str resource_name: The name of the resource.
         :param SingleReplicationConfigArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -466,9 +494,8 @@ class SingleReplicationConfig(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cron_exp: Cron expression to control the operation frequency.
-        :param pulumi.Input[str] password: If a password is used to create the resource, it will be returned as encrypted and this will become the new
-               state.Practically speaking, what this means is that, the password can only be set, not gotten.
-        :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies setting
+        :param pulumi.Input[str] password: Requires password encryption to be turned off `POST /api/system/decrypt`.
+        :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies setting.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -511,8 +538,7 @@ class SingleReplicationConfig(pulumi.CustomResource):
     @pulumi.getter
     def password(self) -> pulumi.Output[str]:
         """
-        If a password is used to create the resource, it will be returned as encrypted and this will become the new
-        state.Practically speaking, what this means is that, the password can only be set, not gotten.
+        Requires password encryption to be turned off `POST /api/system/decrypt`.
         """
         return pulumi.get(self, "password")
 
@@ -525,7 +551,7 @@ class SingleReplicationConfig(pulumi.CustomResource):
     @pulumi.getter
     def proxy(self) -> pulumi.Output[Optional[str]]:
         """
-        Proxy key from Artifactory Proxies setting
+        Proxy key from Artifactory Proxies setting.
         """
         return pulumi.get(self, "proxy")
 

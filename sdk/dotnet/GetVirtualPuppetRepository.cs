@@ -11,9 +11,59 @@ namespace Pulumi.Artifactory
 {
     public static class GetVirtualPuppetRepository
     {
+        /// <summary>
+        /// Retrieves a virtual Puppet repository.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var virtual_puppet = Artifactory.GetVirtualPuppetRepository.Invoke(new()
+        ///     {
+        ///         Key = "virtual-puppet",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetVirtualPuppetRepositoryResult> InvokeAsync(GetVirtualPuppetRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualPuppetRepositoryResult>("artifactory:index/getVirtualPuppetRepository:getVirtualPuppetRepository", args ?? new GetVirtualPuppetRepositoryArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Retrieves a virtual Puppet repository.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var virtual_puppet = Artifactory.GetVirtualPuppetRepository.Invoke(new()
+        ///     {
+        ///         Key = "virtual-puppet",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetVirtualPuppetRepositoryResult> Invoke(GetVirtualPuppetRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualPuppetRepositoryResult>("artifactory:index/getVirtualPuppetRepository:getVirtualPuppetRepository", args ?? new GetVirtualPuppetRepositoryInvokeArgs(), options.WithDefaults());
     }
@@ -36,6 +86,9 @@ namespace Pulumi.Artifactory
         [Input("includesPattern")]
         public string? IncludesPattern { get; set; }
 
+        /// <summary>
+        /// the identity key of the repo.
+        /// </summary>
         [Input("key", required: true)]
         public string Key { get; set; } = null!;
 
@@ -87,6 +140,9 @@ namespace Pulumi.Artifactory
         [Input("includesPattern")]
         public Input<string>? IncludesPattern { get; set; }
 
+        /// <summary>
+        /// the identity key of the repo.
+        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 

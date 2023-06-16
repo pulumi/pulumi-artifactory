@@ -9,6 +9,35 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Artifactory
 {
+    /// <summary>
+    /// Creates a local Vagrant repository.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Artifactory = Pulumi.Artifactory;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var terraform_local_test_vagrant_repo = new Artifactory.LocalVagrantRepository("terraform-local-test-vagrant-repo", new()
+    ///     {
+    ///         Key = "terraform-local-test-vagrant-repo",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Local repositories can be imported using their name, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import artifactory:index/localVagrantRepository:LocalVagrantRepository terraform-local-test-vagrant-repo terraform-local-test-vagrant-repo
+    /// ```
+    /// </summary>
     [ArtifactoryResourceType("artifactory:index/localVagrantRepository:LocalVagrantRepository")]
     public partial class LocalVagrantRepository : global::Pulumi.CustomResource
     {
@@ -61,8 +90,7 @@ namespace Pulumi.Artifactory
         public Output<string> IncludesPattern { get; private set; } = null!;
 
         /// <summary>
-        /// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-        /// characters. It cannot begin with a number or contain spaces or special characters.
+        /// the identity key of the repo.
         /// </summary>
         [Output("key")]
         public Output<string> Key { get; private set; } = null!;
@@ -212,8 +240,7 @@ namespace Pulumi.Artifactory
         public Input<string>? IncludesPattern { get; set; }
 
         /// <summary>
-        /// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-        /// characters. It cannot begin with a number or contain spaces or special characters.
+        /// the identity key of the repo.
         /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -334,8 +361,7 @@ namespace Pulumi.Artifactory
         public Input<string>? IncludesPattern { get; set; }
 
         /// <summary>
-        /// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-        /// characters. It cannot begin with a number or contain spaces or special characters.
+        /// the identity key of the repo.
         /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }

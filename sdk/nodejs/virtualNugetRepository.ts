@@ -4,6 +4,35 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * Creates a virtual Nuget repository.
+ * Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/NuGet+Repositories#NuGetRepositories-VirtualRepositories).
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const foo_nuget = new artifactory.VirtualNugetRepository("foo-nuget", {
+ *     description: "A test virtual repo",
+ *     excludesPattern: "com/google/**",
+ *     forceNugetAuthentication: true,
+ *     includesPattern: "com/jfrog/**,cloud/jfrog/**",
+ *     key: "foo-nuget",
+ *     notes: "Internal description",
+ *     repositories: [],
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * Virtual repositories can be imported using their name, e.g.
+ *
+ * ```sh
+ *  $ pulumi import artifactory:index/virtualNugetRepository:VirtualNugetRepository foo-nuget foo-nuget
+ * ```
+ */
 export class VirtualNugetRepository extends pulumi.CustomResource {
     /**
      * Get an existing VirtualNugetRepository resource's state with the given name, ID, and optional extra
@@ -51,8 +80,7 @@ export class VirtualNugetRepository extends pulumi.CustomResource {
      */
     public readonly excludesPattern!: pulumi.Output<string | undefined>;
     /**
-     * If set, user authentication is required when accessing the repository. An anonymous request will display an HTTP 401
-     * error. This is also enforced when aggregated repositories support anonymous requests.
+     * If set, user authentication is required when accessing the repository. An anonymous request will display an HTTP 401 error. This is also enforced when aggregated repositories support anonymous requests. Default is `false`.
      */
     public readonly forceNugetAuthentication!: pulumi.Output<boolean | undefined>;
     /**
@@ -61,8 +89,8 @@ export class VirtualNugetRepository extends pulumi.CustomResource {
      */
     public readonly includesPattern!: pulumi.Output<string | undefined>;
     /**
-     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-     * characters. It cannot begin with a number or contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+     * contain spaces or special characters.
      */
     public readonly key!: pulumi.Output<string>;
     /**
@@ -164,8 +192,7 @@ export interface VirtualNugetRepositoryState {
      */
     excludesPattern?: pulumi.Input<string>;
     /**
-     * If set, user authentication is required when accessing the repository. An anonymous request will display an HTTP 401
-     * error. This is also enforced when aggregated repositories support anonymous requests.
+     * If set, user authentication is required when accessing the repository. An anonymous request will display an HTTP 401 error. This is also enforced when aggregated repositories support anonymous requests. Default is `false`.
      */
     forceNugetAuthentication?: pulumi.Input<boolean>;
     /**
@@ -174,8 +201,8 @@ export interface VirtualNugetRepositoryState {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-     * characters. It cannot begin with a number or contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+     * contain spaces or special characters.
      */
     key?: pulumi.Input<string>;
     /**
@@ -228,8 +255,7 @@ export interface VirtualNugetRepositoryArgs {
      */
     excludesPattern?: pulumi.Input<string>;
     /**
-     * If set, user authentication is required when accessing the repository. An anonymous request will display an HTTP 401
-     * error. This is also enforced when aggregated repositories support anonymous requests.
+     * If set, user authentication is required when accessing the repository. An anonymous request will display an HTTP 401 error. This is also enforced when aggregated repositories support anonymous requests. Default is `false`.
      */
     forceNugetAuthentication?: pulumi.Input<boolean>;
     /**
@@ -238,8 +264,8 @@ export interface VirtualNugetRepositoryArgs {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-     * characters. It cannot begin with a number or contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+     * contain spaces or special characters.
      */
     key: pulumi.Input<string>;
     /**

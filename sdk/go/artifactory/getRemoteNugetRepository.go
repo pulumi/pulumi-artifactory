@@ -10,6 +10,33 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Retrieves a remote NuGet repository.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.LookupRemoteNugetRepository(ctx, &artifactory.LookupRemoteNugetRepositoryArgs{
+//				Key: "remote-nuget",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupRemoteNugetRepository(ctx *pulumi.Context, args *LookupRemoteNugetRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupRemoteNugetRepositoryResult, error) {
 	var rv LookupRemoteNugetRepositoryResult
 	err := ctx.Invoke("artifactory:index/getRemoteNugetRepository:getRemoteNugetRepository", args, &rv, opts...)
@@ -21,51 +48,57 @@ func LookupRemoteNugetRepository(ctx *pulumi.Context, args *LookupRemoteNugetRep
 
 // A collection of arguments for invoking getRemoteNugetRepository.
 type LookupRemoteNugetRepositoryArgs struct {
-	AllowAnyHostAuth                  *bool                                           `pulumi:"allowAnyHostAuth"`
-	AssumedOfflinePeriodSecs          *int                                            `pulumi:"assumedOfflinePeriodSecs"`
-	BlackedOut                        *bool                                           `pulumi:"blackedOut"`
-	BlockMismatchingMimeTypes         *bool                                           `pulumi:"blockMismatchingMimeTypes"`
-	BypassHeadRequests                *bool                                           `pulumi:"bypassHeadRequests"`
-	CdnRedirect                       *bool                                           `pulumi:"cdnRedirect"`
-	ClientTlsCertificate              *string                                         `pulumi:"clientTlsCertificate"`
-	ContentSynchronisation            *GetRemoteNugetRepositoryContentSynchronisation `pulumi:"contentSynchronisation"`
-	Description                       *string                                         `pulumi:"description"`
-	DownloadContextPath               *string                                         `pulumi:"downloadContextPath"`
-	DownloadDirect                    *bool                                           `pulumi:"downloadDirect"`
-	EnableCookieManagement            *bool                                           `pulumi:"enableCookieManagement"`
-	ExcludesPattern                   *string                                         `pulumi:"excludesPattern"`
-	FeedContextPath                   *string                                         `pulumi:"feedContextPath"`
-	ForceNugetAuthentication          *bool                                           `pulumi:"forceNugetAuthentication"`
-	HardFail                          *bool                                           `pulumi:"hardFail"`
-	IncludesPattern                   *string                                         `pulumi:"includesPattern"`
-	Key                               string                                          `pulumi:"key"`
-	ListRemoteFolderItems             *bool                                           `pulumi:"listRemoteFolderItems"`
-	LocalAddress                      *string                                         `pulumi:"localAddress"`
-	MetadataRetrievalTimeoutSecs      *int                                            `pulumi:"metadataRetrievalTimeoutSecs"`
-	MismatchingMimeTypesOverrideList  *string                                         `pulumi:"mismatchingMimeTypesOverrideList"`
-	MissedCachePeriodSeconds          *int                                            `pulumi:"missedCachePeriodSeconds"`
-	Notes                             *string                                         `pulumi:"notes"`
-	Offline                           *bool                                           `pulumi:"offline"`
-	Password                          *string                                         `pulumi:"password"`
-	PriorityResolution                *bool                                           `pulumi:"priorityResolution"`
-	ProjectEnvironments               []string                                        `pulumi:"projectEnvironments"`
-	ProjectKey                        *string                                         `pulumi:"projectKey"`
-	PropertySets                      []string                                        `pulumi:"propertySets"`
-	Proxy                             *string                                         `pulumi:"proxy"`
-	QueryParams                       *string                                         `pulumi:"queryParams"`
-	RemoteRepoLayoutRef               *string                                         `pulumi:"remoteRepoLayoutRef"`
-	RepoLayoutRef                     *string                                         `pulumi:"repoLayoutRef"`
-	RetrievalCachePeriodSeconds       *int                                            `pulumi:"retrievalCachePeriodSeconds"`
-	ShareConfiguration                *bool                                           `pulumi:"shareConfiguration"`
-	SocketTimeoutMillis               *int                                            `pulumi:"socketTimeoutMillis"`
-	StoreArtifactsLocally             *bool                                           `pulumi:"storeArtifactsLocally"`
-	SymbolServerUrl                   *string                                         `pulumi:"symbolServerUrl"`
-	SynchronizeProperties             *bool                                           `pulumi:"synchronizeProperties"`
-	UnusedArtifactsCleanupPeriodHours *int                                            `pulumi:"unusedArtifactsCleanupPeriodHours"`
-	Url                               *string                                         `pulumi:"url"`
-	Username                          *string                                         `pulumi:"username"`
-	V3FeedUrl                         *string                                         `pulumi:"v3FeedUrl"`
-	XrayIndex                         *bool                                           `pulumi:"xrayIndex"`
+	AllowAnyHostAuth          *bool                                           `pulumi:"allowAnyHostAuth"`
+	AssumedOfflinePeriodSecs  *int                                            `pulumi:"assumedOfflinePeriodSecs"`
+	BlackedOut                *bool                                           `pulumi:"blackedOut"`
+	BlockMismatchingMimeTypes *bool                                           `pulumi:"blockMismatchingMimeTypes"`
+	BypassHeadRequests        *bool                                           `pulumi:"bypassHeadRequests"`
+	CdnRedirect               *bool                                           `pulumi:"cdnRedirect"`
+	ClientTlsCertificate      *string                                         `pulumi:"clientTlsCertificate"`
+	ContentSynchronisation    *GetRemoteNugetRepositoryContentSynchronisation `pulumi:"contentSynchronisation"`
+	Description               *string                                         `pulumi:"description"`
+	// (Optional) The context path prefix through which NuGet downloads are served. For example, the NuGet Gallery download URL is `https://nuget.org/api/v2/package`, so the repository URL should be configured as `https://nuget.org` and the download context path should be configured as `api/v2/package`. Default value is `api/v2/package`.
+	DownloadContextPath    *string `pulumi:"downloadContextPath"`
+	DownloadDirect         *bool   `pulumi:"downloadDirect"`
+	EnableCookieManagement *bool   `pulumi:"enableCookieManagement"`
+	ExcludesPattern        *string `pulumi:"excludesPattern"`
+	// (Optional) When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value is `api/v2`.
+	FeedContextPath *string `pulumi:"feedContextPath"`
+	// (Optional) Force basic authentication credentials in order to use this repository. Default value is `false`.
+	ForceNugetAuthentication *bool   `pulumi:"forceNugetAuthentication"`
+	HardFail                 *bool   `pulumi:"hardFail"`
+	IncludesPattern          *string `pulumi:"includesPattern"`
+	// the identity key of the repo.
+	Key                              string   `pulumi:"key"`
+	ListRemoteFolderItems            *bool    `pulumi:"listRemoteFolderItems"`
+	LocalAddress                     *string  `pulumi:"localAddress"`
+	MetadataRetrievalTimeoutSecs     *int     `pulumi:"metadataRetrievalTimeoutSecs"`
+	MismatchingMimeTypesOverrideList *string  `pulumi:"mismatchingMimeTypesOverrideList"`
+	MissedCachePeriodSeconds         *int     `pulumi:"missedCachePeriodSeconds"`
+	Notes                            *string  `pulumi:"notes"`
+	Offline                          *bool    `pulumi:"offline"`
+	Password                         *string  `pulumi:"password"`
+	PriorityResolution               *bool    `pulumi:"priorityResolution"`
+	ProjectEnvironments              []string `pulumi:"projectEnvironments"`
+	ProjectKey                       *string  `pulumi:"projectKey"`
+	PropertySets                     []string `pulumi:"propertySets"`
+	Proxy                            *string  `pulumi:"proxy"`
+	QueryParams                      *string  `pulumi:"queryParams"`
+	RemoteRepoLayoutRef              *string  `pulumi:"remoteRepoLayoutRef"`
+	RepoLayoutRef                    *string  `pulumi:"repoLayoutRef"`
+	RetrievalCachePeriodSeconds      *int     `pulumi:"retrievalCachePeriodSeconds"`
+	ShareConfiguration               *bool    `pulumi:"shareConfiguration"`
+	SocketTimeoutMillis              *int     `pulumi:"socketTimeoutMillis"`
+	StoreArtifactsLocally            *bool    `pulumi:"storeArtifactsLocally"`
+	// (Optional) NuGet symbol server URL. Default value is `https://symbols.nuget.org/download/symbols`.
+	SymbolServerUrl                   *string `pulumi:"symbolServerUrl"`
+	SynchronizeProperties             *bool   `pulumi:"synchronizeProperties"`
+	UnusedArtifactsCleanupPeriodHours *int    `pulumi:"unusedArtifactsCleanupPeriodHours"`
+	Url                               *string `pulumi:"url"`
+	Username                          *string `pulumi:"username"`
+	// (Optional) The URL to the NuGet v3 feed. Default value is `https://api.nuget.org/v3/index.json`.
+	V3FeedUrl *string `pulumi:"v3FeedUrl"`
+	XrayIndex *bool   `pulumi:"xrayIndex"`
 }
 
 // A collection of values returned by getRemoteNugetRepository.
@@ -79,45 +112,50 @@ type LookupRemoteNugetRepositoryResult struct {
 	ClientTlsCertificate      string                                         `pulumi:"clientTlsCertificate"`
 	ContentSynchronisation    GetRemoteNugetRepositoryContentSynchronisation `pulumi:"contentSynchronisation"`
 	Description               *string                                        `pulumi:"description"`
-	DownloadContextPath       *string                                        `pulumi:"downloadContextPath"`
-	DownloadDirect            *bool                                          `pulumi:"downloadDirect"`
-	EnableCookieManagement    *bool                                          `pulumi:"enableCookieManagement"`
-	ExcludesPattern           *string                                        `pulumi:"excludesPattern"`
-	FeedContextPath           *string                                        `pulumi:"feedContextPath"`
-	ForceNugetAuthentication  *bool                                          `pulumi:"forceNugetAuthentication"`
-	HardFail                  *bool                                          `pulumi:"hardFail"`
+	// (Optional) The context path prefix through which NuGet downloads are served. For example, the NuGet Gallery download URL is `https://nuget.org/api/v2/package`, so the repository URL should be configured as `https://nuget.org` and the download context path should be configured as `api/v2/package`. Default value is `api/v2/package`.
+	DownloadContextPath    *string `pulumi:"downloadContextPath"`
+	DownloadDirect         *bool   `pulumi:"downloadDirect"`
+	EnableCookieManagement *bool   `pulumi:"enableCookieManagement"`
+	ExcludesPattern        *string `pulumi:"excludesPattern"`
+	// (Optional) When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value is `api/v2`.
+	FeedContextPath *string `pulumi:"feedContextPath"`
+	// (Optional) Force basic authentication credentials in order to use this repository. Default value is `false`.
+	ForceNugetAuthentication *bool `pulumi:"forceNugetAuthentication"`
+	HardFail                 *bool `pulumi:"hardFail"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                                string   `pulumi:"id"`
-	IncludesPattern                   *string  `pulumi:"includesPattern"`
-	Key                               string   `pulumi:"key"`
-	ListRemoteFolderItems             *bool    `pulumi:"listRemoteFolderItems"`
-	LocalAddress                      *string  `pulumi:"localAddress"`
-	MetadataRetrievalTimeoutSecs      *int     `pulumi:"metadataRetrievalTimeoutSecs"`
-	MismatchingMimeTypesOverrideList  *string  `pulumi:"mismatchingMimeTypesOverrideList"`
-	MissedCachePeriodSeconds          *int     `pulumi:"missedCachePeriodSeconds"`
-	Notes                             *string  `pulumi:"notes"`
-	Offline                           *bool    `pulumi:"offline"`
-	PackageType                       string   `pulumi:"packageType"`
-	Password                          *string  `pulumi:"password"`
-	PriorityResolution                *bool    `pulumi:"priorityResolution"`
-	ProjectEnvironments               []string `pulumi:"projectEnvironments"`
-	ProjectKey                        *string  `pulumi:"projectKey"`
-	PropertySets                      []string `pulumi:"propertySets"`
-	Proxy                             *string  `pulumi:"proxy"`
-	QueryParams                       *string  `pulumi:"queryParams"`
-	RemoteRepoLayoutRef               *string  `pulumi:"remoteRepoLayoutRef"`
-	RepoLayoutRef                     *string  `pulumi:"repoLayoutRef"`
-	RetrievalCachePeriodSeconds       *int     `pulumi:"retrievalCachePeriodSeconds"`
-	ShareConfiguration                bool     `pulumi:"shareConfiguration"`
-	SocketTimeoutMillis               *int     `pulumi:"socketTimeoutMillis"`
-	StoreArtifactsLocally             *bool    `pulumi:"storeArtifactsLocally"`
-	SymbolServerUrl                   *string  `pulumi:"symbolServerUrl"`
-	SynchronizeProperties             *bool    `pulumi:"synchronizeProperties"`
-	UnusedArtifactsCleanupPeriodHours *int     `pulumi:"unusedArtifactsCleanupPeriodHours"`
-	Url                               *string  `pulumi:"url"`
-	Username                          *string  `pulumi:"username"`
-	V3FeedUrl                         *string  `pulumi:"v3FeedUrl"`
-	XrayIndex                         *bool    `pulumi:"xrayIndex"`
+	Id                               string   `pulumi:"id"`
+	IncludesPattern                  *string  `pulumi:"includesPattern"`
+	Key                              string   `pulumi:"key"`
+	ListRemoteFolderItems            *bool    `pulumi:"listRemoteFolderItems"`
+	LocalAddress                     *string  `pulumi:"localAddress"`
+	MetadataRetrievalTimeoutSecs     *int     `pulumi:"metadataRetrievalTimeoutSecs"`
+	MismatchingMimeTypesOverrideList *string  `pulumi:"mismatchingMimeTypesOverrideList"`
+	MissedCachePeriodSeconds         *int     `pulumi:"missedCachePeriodSeconds"`
+	Notes                            *string  `pulumi:"notes"`
+	Offline                          *bool    `pulumi:"offline"`
+	PackageType                      string   `pulumi:"packageType"`
+	Password                         *string  `pulumi:"password"`
+	PriorityResolution               *bool    `pulumi:"priorityResolution"`
+	ProjectEnvironments              []string `pulumi:"projectEnvironments"`
+	ProjectKey                       *string  `pulumi:"projectKey"`
+	PropertySets                     []string `pulumi:"propertySets"`
+	Proxy                            *string  `pulumi:"proxy"`
+	QueryParams                      *string  `pulumi:"queryParams"`
+	RemoteRepoLayoutRef              *string  `pulumi:"remoteRepoLayoutRef"`
+	RepoLayoutRef                    *string  `pulumi:"repoLayoutRef"`
+	RetrievalCachePeriodSeconds      *int     `pulumi:"retrievalCachePeriodSeconds"`
+	ShareConfiguration               bool     `pulumi:"shareConfiguration"`
+	SocketTimeoutMillis              *int     `pulumi:"socketTimeoutMillis"`
+	StoreArtifactsLocally            *bool    `pulumi:"storeArtifactsLocally"`
+	// (Optional) NuGet symbol server URL. Default value is `https://symbols.nuget.org/download/symbols`.
+	SymbolServerUrl                   *string `pulumi:"symbolServerUrl"`
+	SynchronizeProperties             *bool   `pulumi:"synchronizeProperties"`
+	UnusedArtifactsCleanupPeriodHours *int    `pulumi:"unusedArtifactsCleanupPeriodHours"`
+	Url                               *string `pulumi:"url"`
+	Username                          *string `pulumi:"username"`
+	// (Optional) The URL to the NuGet v3 feed. Default value is `https://api.nuget.org/v3/index.json`.
+	V3FeedUrl *string `pulumi:"v3FeedUrl"`
+	XrayIndex *bool   `pulumi:"xrayIndex"`
 }
 
 func LookupRemoteNugetRepositoryOutput(ctx *pulumi.Context, args LookupRemoteNugetRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupRemoteNugetRepositoryResultOutput {
@@ -135,51 +173,57 @@ func LookupRemoteNugetRepositoryOutput(ctx *pulumi.Context, args LookupRemoteNug
 
 // A collection of arguments for invoking getRemoteNugetRepository.
 type LookupRemoteNugetRepositoryOutputArgs struct {
-	AllowAnyHostAuth                  pulumi.BoolPtrInput                                    `pulumi:"allowAnyHostAuth"`
-	AssumedOfflinePeriodSecs          pulumi.IntPtrInput                                     `pulumi:"assumedOfflinePeriodSecs"`
-	BlackedOut                        pulumi.BoolPtrInput                                    `pulumi:"blackedOut"`
-	BlockMismatchingMimeTypes         pulumi.BoolPtrInput                                    `pulumi:"blockMismatchingMimeTypes"`
-	BypassHeadRequests                pulumi.BoolPtrInput                                    `pulumi:"bypassHeadRequests"`
-	CdnRedirect                       pulumi.BoolPtrInput                                    `pulumi:"cdnRedirect"`
-	ClientTlsCertificate              pulumi.StringPtrInput                                  `pulumi:"clientTlsCertificate"`
-	ContentSynchronisation            GetRemoteNugetRepositoryContentSynchronisationPtrInput `pulumi:"contentSynchronisation"`
-	Description                       pulumi.StringPtrInput                                  `pulumi:"description"`
-	DownloadContextPath               pulumi.StringPtrInput                                  `pulumi:"downloadContextPath"`
-	DownloadDirect                    pulumi.BoolPtrInput                                    `pulumi:"downloadDirect"`
-	EnableCookieManagement            pulumi.BoolPtrInput                                    `pulumi:"enableCookieManagement"`
-	ExcludesPattern                   pulumi.StringPtrInput                                  `pulumi:"excludesPattern"`
-	FeedContextPath                   pulumi.StringPtrInput                                  `pulumi:"feedContextPath"`
-	ForceNugetAuthentication          pulumi.BoolPtrInput                                    `pulumi:"forceNugetAuthentication"`
-	HardFail                          pulumi.BoolPtrInput                                    `pulumi:"hardFail"`
-	IncludesPattern                   pulumi.StringPtrInput                                  `pulumi:"includesPattern"`
-	Key                               pulumi.StringInput                                     `pulumi:"key"`
-	ListRemoteFolderItems             pulumi.BoolPtrInput                                    `pulumi:"listRemoteFolderItems"`
-	LocalAddress                      pulumi.StringPtrInput                                  `pulumi:"localAddress"`
-	MetadataRetrievalTimeoutSecs      pulumi.IntPtrInput                                     `pulumi:"metadataRetrievalTimeoutSecs"`
-	MismatchingMimeTypesOverrideList  pulumi.StringPtrInput                                  `pulumi:"mismatchingMimeTypesOverrideList"`
-	MissedCachePeriodSeconds          pulumi.IntPtrInput                                     `pulumi:"missedCachePeriodSeconds"`
-	Notes                             pulumi.StringPtrInput                                  `pulumi:"notes"`
-	Offline                           pulumi.BoolPtrInput                                    `pulumi:"offline"`
-	Password                          pulumi.StringPtrInput                                  `pulumi:"password"`
-	PriorityResolution                pulumi.BoolPtrInput                                    `pulumi:"priorityResolution"`
-	ProjectEnvironments               pulumi.StringArrayInput                                `pulumi:"projectEnvironments"`
-	ProjectKey                        pulumi.StringPtrInput                                  `pulumi:"projectKey"`
-	PropertySets                      pulumi.StringArrayInput                                `pulumi:"propertySets"`
-	Proxy                             pulumi.StringPtrInput                                  `pulumi:"proxy"`
-	QueryParams                       pulumi.StringPtrInput                                  `pulumi:"queryParams"`
-	RemoteRepoLayoutRef               pulumi.StringPtrInput                                  `pulumi:"remoteRepoLayoutRef"`
-	RepoLayoutRef                     pulumi.StringPtrInput                                  `pulumi:"repoLayoutRef"`
-	RetrievalCachePeriodSeconds       pulumi.IntPtrInput                                     `pulumi:"retrievalCachePeriodSeconds"`
-	ShareConfiguration                pulumi.BoolPtrInput                                    `pulumi:"shareConfiguration"`
-	SocketTimeoutMillis               pulumi.IntPtrInput                                     `pulumi:"socketTimeoutMillis"`
-	StoreArtifactsLocally             pulumi.BoolPtrInput                                    `pulumi:"storeArtifactsLocally"`
-	SymbolServerUrl                   pulumi.StringPtrInput                                  `pulumi:"symbolServerUrl"`
-	SynchronizeProperties             pulumi.BoolPtrInput                                    `pulumi:"synchronizeProperties"`
-	UnusedArtifactsCleanupPeriodHours pulumi.IntPtrInput                                     `pulumi:"unusedArtifactsCleanupPeriodHours"`
-	Url                               pulumi.StringPtrInput                                  `pulumi:"url"`
-	Username                          pulumi.StringPtrInput                                  `pulumi:"username"`
-	V3FeedUrl                         pulumi.StringPtrInput                                  `pulumi:"v3FeedUrl"`
-	XrayIndex                         pulumi.BoolPtrInput                                    `pulumi:"xrayIndex"`
+	AllowAnyHostAuth          pulumi.BoolPtrInput                                    `pulumi:"allowAnyHostAuth"`
+	AssumedOfflinePeriodSecs  pulumi.IntPtrInput                                     `pulumi:"assumedOfflinePeriodSecs"`
+	BlackedOut                pulumi.BoolPtrInput                                    `pulumi:"blackedOut"`
+	BlockMismatchingMimeTypes pulumi.BoolPtrInput                                    `pulumi:"blockMismatchingMimeTypes"`
+	BypassHeadRequests        pulumi.BoolPtrInput                                    `pulumi:"bypassHeadRequests"`
+	CdnRedirect               pulumi.BoolPtrInput                                    `pulumi:"cdnRedirect"`
+	ClientTlsCertificate      pulumi.StringPtrInput                                  `pulumi:"clientTlsCertificate"`
+	ContentSynchronisation    GetRemoteNugetRepositoryContentSynchronisationPtrInput `pulumi:"contentSynchronisation"`
+	Description               pulumi.StringPtrInput                                  `pulumi:"description"`
+	// (Optional) The context path prefix through which NuGet downloads are served. For example, the NuGet Gallery download URL is `https://nuget.org/api/v2/package`, so the repository URL should be configured as `https://nuget.org` and the download context path should be configured as `api/v2/package`. Default value is `api/v2/package`.
+	DownloadContextPath    pulumi.StringPtrInput `pulumi:"downloadContextPath"`
+	DownloadDirect         pulumi.BoolPtrInput   `pulumi:"downloadDirect"`
+	EnableCookieManagement pulumi.BoolPtrInput   `pulumi:"enableCookieManagement"`
+	ExcludesPattern        pulumi.StringPtrInput `pulumi:"excludesPattern"`
+	// (Optional) When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value is `api/v2`.
+	FeedContextPath pulumi.StringPtrInput `pulumi:"feedContextPath"`
+	// (Optional) Force basic authentication credentials in order to use this repository. Default value is `false`.
+	ForceNugetAuthentication pulumi.BoolPtrInput   `pulumi:"forceNugetAuthentication"`
+	HardFail                 pulumi.BoolPtrInput   `pulumi:"hardFail"`
+	IncludesPattern          pulumi.StringPtrInput `pulumi:"includesPattern"`
+	// the identity key of the repo.
+	Key                              pulumi.StringInput      `pulumi:"key"`
+	ListRemoteFolderItems            pulumi.BoolPtrInput     `pulumi:"listRemoteFolderItems"`
+	LocalAddress                     pulumi.StringPtrInput   `pulumi:"localAddress"`
+	MetadataRetrievalTimeoutSecs     pulumi.IntPtrInput      `pulumi:"metadataRetrievalTimeoutSecs"`
+	MismatchingMimeTypesOverrideList pulumi.StringPtrInput   `pulumi:"mismatchingMimeTypesOverrideList"`
+	MissedCachePeriodSeconds         pulumi.IntPtrInput      `pulumi:"missedCachePeriodSeconds"`
+	Notes                            pulumi.StringPtrInput   `pulumi:"notes"`
+	Offline                          pulumi.BoolPtrInput     `pulumi:"offline"`
+	Password                         pulumi.StringPtrInput   `pulumi:"password"`
+	PriorityResolution               pulumi.BoolPtrInput     `pulumi:"priorityResolution"`
+	ProjectEnvironments              pulumi.StringArrayInput `pulumi:"projectEnvironments"`
+	ProjectKey                       pulumi.StringPtrInput   `pulumi:"projectKey"`
+	PropertySets                     pulumi.StringArrayInput `pulumi:"propertySets"`
+	Proxy                            pulumi.StringPtrInput   `pulumi:"proxy"`
+	QueryParams                      pulumi.StringPtrInput   `pulumi:"queryParams"`
+	RemoteRepoLayoutRef              pulumi.StringPtrInput   `pulumi:"remoteRepoLayoutRef"`
+	RepoLayoutRef                    pulumi.StringPtrInput   `pulumi:"repoLayoutRef"`
+	RetrievalCachePeriodSeconds      pulumi.IntPtrInput      `pulumi:"retrievalCachePeriodSeconds"`
+	ShareConfiguration               pulumi.BoolPtrInput     `pulumi:"shareConfiguration"`
+	SocketTimeoutMillis              pulumi.IntPtrInput      `pulumi:"socketTimeoutMillis"`
+	StoreArtifactsLocally            pulumi.BoolPtrInput     `pulumi:"storeArtifactsLocally"`
+	// (Optional) NuGet symbol server URL. Default value is `https://symbols.nuget.org/download/symbols`.
+	SymbolServerUrl                   pulumi.StringPtrInput `pulumi:"symbolServerUrl"`
+	SynchronizeProperties             pulumi.BoolPtrInput   `pulumi:"synchronizeProperties"`
+	UnusedArtifactsCleanupPeriodHours pulumi.IntPtrInput    `pulumi:"unusedArtifactsCleanupPeriodHours"`
+	Url                               pulumi.StringPtrInput `pulumi:"url"`
+	Username                          pulumi.StringPtrInput `pulumi:"username"`
+	// (Optional) The URL to the NuGet v3 feed. Default value is `https://api.nuget.org/v3/index.json`.
+	V3FeedUrl pulumi.StringPtrInput `pulumi:"v3FeedUrl"`
+	XrayIndex pulumi.BoolPtrInput   `pulumi:"xrayIndex"`
 }
 
 func (LookupRemoteNugetRepositoryOutputArgs) ElementType() reflect.Type {
@@ -239,6 +283,7 @@ func (o LookupRemoteNugetRepositoryResultOutput) Description() pulumi.StringPtrO
 	return o.ApplyT(func(v LookupRemoteNugetRepositoryResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// (Optional) The context path prefix through which NuGet downloads are served. For example, the NuGet Gallery download URL is `https://nuget.org/api/v2/package`, so the repository URL should be configured as `https://nuget.org` and the download context path should be configured as `api/v2/package`. Default value is `api/v2/package`.
 func (o LookupRemoteNugetRepositoryResultOutput) DownloadContextPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRemoteNugetRepositoryResult) *string { return v.DownloadContextPath }).(pulumi.StringPtrOutput)
 }
@@ -255,10 +300,12 @@ func (o LookupRemoteNugetRepositoryResultOutput) ExcludesPattern() pulumi.String
 	return o.ApplyT(func(v LookupRemoteNugetRepositoryResult) *string { return v.ExcludesPattern }).(pulumi.StringPtrOutput)
 }
 
+// (Optional) When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value is `api/v2`.
 func (o LookupRemoteNugetRepositoryResultOutput) FeedContextPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRemoteNugetRepositoryResult) *string { return v.FeedContextPath }).(pulumi.StringPtrOutput)
 }
 
+// (Optional) Force basic authentication credentials in order to use this repository. Default value is `false`.
 func (o LookupRemoteNugetRepositoryResultOutput) ForceNugetAuthentication() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupRemoteNugetRepositoryResult) *bool { return v.ForceNugetAuthentication }).(pulumi.BoolPtrOutput)
 }
@@ -364,6 +411,7 @@ func (o LookupRemoteNugetRepositoryResultOutput) StoreArtifactsLocally() pulumi.
 	return o.ApplyT(func(v LookupRemoteNugetRepositoryResult) *bool { return v.StoreArtifactsLocally }).(pulumi.BoolPtrOutput)
 }
 
+// (Optional) NuGet symbol server URL. Default value is `https://symbols.nuget.org/download/symbols`.
 func (o LookupRemoteNugetRepositoryResultOutput) SymbolServerUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRemoteNugetRepositoryResult) *string { return v.SymbolServerUrl }).(pulumi.StringPtrOutput)
 }
@@ -384,6 +432,7 @@ func (o LookupRemoteNugetRepositoryResultOutput) Username() pulumi.StringPtrOutp
 	return o.ApplyT(func(v LookupRemoteNugetRepositoryResult) *string { return v.Username }).(pulumi.StringPtrOutput)
 }
 
+// (Optional) The URL to the NuGet v3 feed. Default value is `https://api.nuget.org/v3/index.json`.
 func (o LookupRemoteNugetRepositoryResultOutput) V3FeedUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRemoteNugetRepositoryResult) *string { return v.V3FeedUrl }).(pulumi.StringPtrOutput)
 }

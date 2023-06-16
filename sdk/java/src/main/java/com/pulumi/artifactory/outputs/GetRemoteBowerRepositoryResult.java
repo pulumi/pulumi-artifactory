@@ -19,6 +19,10 @@ public final class GetRemoteBowerRepositoryResult {
     private @Nullable Integer assumedOfflinePeriodSecs;
     private @Nullable Boolean blackedOut;
     private @Nullable Boolean blockMismatchingMimeTypes;
+    /**
+     * @return (Optional) Proxy remote Bower repository. Default value is `https://registry.bower.io`.
+     * 
+     */
     private @Nullable String bowerRegistryUrl;
     private @Nullable Boolean bypassHeadRequests;
     private @Nullable Boolean cdnRedirect;
@@ -78,6 +82,10 @@ public final class GetRemoteBowerRepositoryResult {
     public Optional<Boolean> blockMismatchingMimeTypes() {
         return Optional.ofNullable(this.blockMismatchingMimeTypes);
     }
+    /**
+     * @return (Optional) Proxy remote Bower repository. Default value is `https://registry.bower.io`.
+     * 
+     */
     public Optional<String> bowerRegistryUrl() {
         return Optional.ofNullable(this.bowerRegistryUrl);
     }

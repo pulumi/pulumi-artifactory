@@ -52,9 +52,17 @@ public final class GetVirtualDockerRepositoryArgs extends com.pulumi.resources.I
         return Optional.ofNullable(this.includesPattern);
     }
 
+    /**
+     * the identity key of the repo.
+     * 
+     */
     @Import(name="key", required=true)
     private Output<String> key;
 
+    /**
+     * @return the identity key of the repo.
+     * 
+     */
     public Output<String> key() {
         return this.key;
     }
@@ -94,9 +102,17 @@ public final class GetVirtualDockerRepositoryArgs extends com.pulumi.resources.I
         return Optional.ofNullable(this.repositories);
     }
 
+    /**
+     * (Optional) When enabled, in cases where the same Docker tag exists in two or more of the aggregated repositories, Artifactory will return the tag that has the latest timestamp. Default values is `false`.
+     * 
+     */
     @Import(name="resolveDockerTagsByTimestamp")
     private @Nullable Output<Boolean> resolveDockerTagsByTimestamp;
 
+    /**
+     * @return (Optional) When enabled, in cases where the same Docker tag exists in two or more of the aggregated repositories, Artifactory will return the tag that has the latest timestamp. Default values is `false`.
+     * 
+     */
     public Optional<Output<Boolean>> resolveDockerTagsByTimestamp() {
         return Optional.ofNullable(this.resolveDockerTagsByTimestamp);
     }
@@ -181,11 +197,23 @@ public final class GetVirtualDockerRepositoryArgs extends com.pulumi.resources.I
             return includesPattern(Output.of(includesPattern));
         }
 
+        /**
+         * @param key the identity key of the repo.
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(Output<String> key) {
             $.key = key;
             return this;
         }
 
+        /**
+         * @param key the identity key of the repo.
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(String key) {
             return key(Output.of(key));
         }
@@ -243,11 +271,23 @@ public final class GetVirtualDockerRepositoryArgs extends com.pulumi.resources.I
             return repositories(List.of(repositories));
         }
 
+        /**
+         * @param resolveDockerTagsByTimestamp (Optional) When enabled, in cases where the same Docker tag exists in two or more of the aggregated repositories, Artifactory will return the tag that has the latest timestamp. Default values is `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder resolveDockerTagsByTimestamp(@Nullable Output<Boolean> resolveDockerTagsByTimestamp) {
             $.resolveDockerTagsByTimestamp = resolveDockerTagsByTimestamp;
             return this;
         }
 
+        /**
+         * @param resolveDockerTagsByTimestamp (Optional) When enabled, in cases where the same Docker tag exists in two or more of the aggregated repositories, Artifactory will return the tag that has the latest timestamp. Default values is `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder resolveDockerTagsByTimestamp(Boolean resolveDockerTagsByTimestamp) {
             return resolveDockerTagsByTimestamp(Output.of(resolveDockerTagsByTimestamp));
         }

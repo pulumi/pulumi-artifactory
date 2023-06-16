@@ -4,6 +4,20 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * Retrieves a virtual Docker repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const virtual-docker = artifactory.getVirtualDockerRepository({
+ *     key: "virtual-docker",
+ * });
+ * ```
+ */
 export function getVirtualDockerRepository(args: GetVirtualDockerRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualDockerRepositoryResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -32,12 +46,18 @@ export interface GetVirtualDockerRepositoryArgs {
     description?: string;
     excludesPattern?: string;
     includesPattern?: string;
+    /**
+     * the identity key of the repo.
+     */
     key: string;
     notes?: string;
     projectEnvironments?: string[];
     projectKey?: string;
     repoLayoutRef?: string;
     repositories?: string[];
+    /**
+     * (Optional) When enabled, in cases where the same Docker tag exists in two or more of the aggregated repositories, Artifactory will return the tag that has the latest timestamp. Default values is `false`.
+     */
     resolveDockerTagsByTimestamp?: boolean;
 }
 
@@ -61,8 +81,25 @@ export interface GetVirtualDockerRepositoryResult {
     readonly projectKey?: string;
     readonly repoLayoutRef?: string;
     readonly repositories?: string[];
+    /**
+     * (Optional) When enabled, in cases where the same Docker tag exists in two or more of the aggregated repositories, Artifactory will return the tag that has the latest timestamp. Default values is `false`.
+     */
     readonly resolveDockerTagsByTimestamp?: boolean;
 }
+/**
+ * Retrieves a virtual Docker repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const virtual-docker = artifactory.getVirtualDockerRepository({
+ *     key: "virtual-docker",
+ * });
+ * ```
+ */
 export function getVirtualDockerRepositoryOutput(args: GetVirtualDockerRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualDockerRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getVirtualDockerRepository(a, opts))
 }
@@ -76,11 +113,17 @@ export interface GetVirtualDockerRepositoryOutputArgs {
     description?: pulumi.Input<string>;
     excludesPattern?: pulumi.Input<string>;
     includesPattern?: pulumi.Input<string>;
+    /**
+     * the identity key of the repo.
+     */
     key: pulumi.Input<string>;
     notes?: pulumi.Input<string>;
     projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
     projectKey?: pulumi.Input<string>;
     repoLayoutRef?: pulumi.Input<string>;
     repositories?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * (Optional) When enabled, in cases where the same Docker tag exists in two or more of the aggregated repositories, Artifactory will return the tag that has the latest timestamp. Default values is `false`.
+     */
     resolveDockerTagsByTimestamp?: pulumi.Input<boolean>;
 }

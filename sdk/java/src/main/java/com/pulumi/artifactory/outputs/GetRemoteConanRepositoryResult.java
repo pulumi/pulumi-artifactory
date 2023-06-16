@@ -27,6 +27,10 @@ public final class GetRemoteConanRepositoryResult {
     private @Nullable Boolean downloadDirect;
     private @Nullable Boolean enableCookieManagement;
     private @Nullable String excludesPattern;
+    /**
+     * @return (Optional) Force basic authentication credentials in order to use this repository. Default value is `false`.
+     * 
+     */
     private @Nullable Boolean forceConanAuthentication;
     private @Nullable Boolean hardFail;
     /**
@@ -100,6 +104,10 @@ public final class GetRemoteConanRepositoryResult {
     public Optional<String> excludesPattern() {
         return Optional.ofNullable(this.excludesPattern);
     }
+    /**
+     * @return (Optional) Force basic authentication credentials in order to use this repository. Default value is `false`.
+     * 
+     */
     public Optional<Boolean> forceConanAuthentication() {
         return Optional.ofNullable(this.forceConanAuthentication);
     }

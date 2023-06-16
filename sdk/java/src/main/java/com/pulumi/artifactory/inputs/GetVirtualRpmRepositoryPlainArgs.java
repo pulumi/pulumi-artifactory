@@ -51,9 +51,17 @@ public final class GetVirtualRpmRepositoryPlainArgs extends com.pulumi.resources
         return Optional.ofNullable(this.includesPattern);
     }
 
+    /**
+     * the identity key of the repo.
+     * 
+     */
     @Import(name="key", required=true)
     private String key;
 
+    /**
+     * @return the identity key of the repo.
+     * 
+     */
     public String key() {
         return this.key;
     }
@@ -65,9 +73,17 @@ public final class GetVirtualRpmRepositoryPlainArgs extends com.pulumi.resources
         return Optional.ofNullable(this.notes);
     }
 
+    /**
+     * (Optional) The primary GPG key to be used to sign packages.
+     * 
+     */
     @Import(name="primaryKeypairRef")
     private @Nullable String primaryKeypairRef;
 
+    /**
+     * @return (Optional) The primary GPG key to be used to sign packages.
+     * 
+     */
     public Optional<String> primaryKeypairRef() {
         return Optional.ofNullable(this.primaryKeypairRef);
     }
@@ -100,9 +116,17 @@ public final class GetVirtualRpmRepositoryPlainArgs extends com.pulumi.resources
         return Optional.ofNullable(this.repositories);
     }
 
+    /**
+     * (Optional) The secondary GPG key to be used to sign packages.
+     * 
+     */
     @Import(name="secondaryKeypairRef")
     private @Nullable String secondaryKeypairRef;
 
+    /**
+     * @return (Optional) The secondary GPG key to be used to sign packages.
+     * 
+     */
     public Optional<String> secondaryKeypairRef() {
         return Optional.ofNullable(this.secondaryKeypairRef);
     }
@@ -168,6 +192,12 @@ public final class GetVirtualRpmRepositoryPlainArgs extends com.pulumi.resources
             return this;
         }
 
+        /**
+         * @param key the identity key of the repo.
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(String key) {
             $.key = key;
             return this;
@@ -178,6 +208,12 @@ public final class GetVirtualRpmRepositoryPlainArgs extends com.pulumi.resources
             return this;
         }
 
+        /**
+         * @param primaryKeypairRef (Optional) The primary GPG key to be used to sign packages.
+         * 
+         * @return builder
+         * 
+         */
         public Builder primaryKeypairRef(@Nullable String primaryKeypairRef) {
             $.primaryKeypairRef = primaryKeypairRef;
             return this;
@@ -211,6 +247,12 @@ public final class GetVirtualRpmRepositoryPlainArgs extends com.pulumi.resources
             return repositories(List.of(repositories));
         }
 
+        /**
+         * @param secondaryKeypairRef (Optional) The secondary GPG key to be used to sign packages.
+         * 
+         * @return builder
+         * 
+         */
         public Builder secondaryKeypairRef(@Nullable String secondaryKeypairRef) {
             $.secondaryKeypairRef = secondaryKeypairRef;
             return this;

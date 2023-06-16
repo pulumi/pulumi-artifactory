@@ -11,6 +11,66 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Note: this resource is deprecated in favor of `PushReplication` resource.
+//
+// Provides an Artifactory replication config resource. This can be used to create and manage Artifactory replications.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			providerTestSource, err := artifactory.NewLocalMavenRepository(ctx, "providerTestSource", &artifactory.LocalMavenRepositoryArgs{
+//				Key: pulumi.String("provider_test_source"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = artifactory.NewLocalMavenRepository(ctx, "providerTestDest", &artifactory.LocalMavenRepositoryArgs{
+//				Key: pulumi.String("provider_test_dest"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = artifactory.NewReplicationConfig(ctx, "foo-rep", &artifactory.ReplicationConfigArgs{
+//				CronExp:                pulumi.String("0 0 * * * ?"),
+//				EnableEventReplication: pulumi.Bool(true),
+//				Replications: artifactory.ReplicationConfigReplicationArray{
+//					&artifactory.ReplicationConfigReplicationArgs{
+//						Password: pulumi.String("$var.artifactory_password"),
+//						Url:      pulumi.String("$var.artifactory_url"),
+//						Username: pulumi.String("$var.artifactory_username"),
+//					},
+//				},
+//				RepoKey: providerTestSource.Key,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Replication configs can be imported using their repo key, e.g.
+//
+// ```sh
+//
+//	$ pulumi import artifactory:index/replicationConfig:ReplicationConfig foo-rep provider_test_source
+//
+// ```
 type ReplicationConfig struct {
 	pulumi.CustomResourceState
 

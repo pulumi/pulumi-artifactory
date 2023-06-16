@@ -4,6 +4,26 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * Creates a local Chef repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const terraform_local_test_chef_repo = new artifactory.LocalChefRepository("terraform-local-test-chef-repo", {key: "terraform-local-test-chef-repo"});
+ * ```
+ *
+ * ## Import
+ *
+ * Local repositories can be imported using their name, e.g.
+ *
+ * ```sh
+ *  $ pulumi import artifactory:index/localChefRepository:LocalChefRepository terraform-local-test-chef-repo terraform-local-test-chef-repo
+ * ```
+ */
 export class LocalChefRepository extends pulumi.CustomResource {
     /**
      * Get an existing LocalChefRepository resource's state with the given name, ID, and optional extra
@@ -67,8 +87,7 @@ export class LocalChefRepository extends pulumi.CustomResource {
      */
     public readonly includesPattern!: pulumi.Output<string>;
     /**
-     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-     * characters. It cannot begin with a number or contain spaces or special characters.
+     * the identity key of the repo.
      */
     public readonly key!: pulumi.Output<string>;
     /**
@@ -201,8 +220,7 @@ export interface LocalChefRepositoryState {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-     * characters. It cannot begin with a number or contain spaces or special characters.
+     * the identity key of the repo.
      */
     key?: pulumi.Input<string>;
     /**
@@ -280,8 +298,7 @@ export interface LocalChefRepositoryArgs {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-     * characters. It cannot begin with a number or contain spaces or special characters.
+     * the identity key of the repo.
      */
     key: pulumi.Input<string>;
     /**

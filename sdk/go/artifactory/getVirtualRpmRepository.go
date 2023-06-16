@@ -10,6 +10,33 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Retrieves a virtual Rpm repository.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.LookupVirtualRpmRepository(ctx, &artifactory.LookupVirtualRpmRepositoryArgs{
+//				Key: "virtual-rpm",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupVirtualRpmRepository(ctx *pulumi.Context, args *LookupVirtualRpmRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupVirtualRpmRepositoryResult, error) {
 	var rv LookupVirtualRpmRepositoryResult
 	err := ctx.Invoke("artifactory:index/getVirtualRpmRepository:getVirtualRpmRepository", args, &rv, opts...)
@@ -21,19 +48,22 @@ func LookupVirtualRpmRepository(ctx *pulumi.Context, args *LookupVirtualRpmRepos
 
 // A collection of arguments for invoking getVirtualRpmRepository.
 type LookupVirtualRpmRepositoryArgs struct {
-	ArtifactoryRequestsCanRetrieveRemoteArtifacts *bool    `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`
-	DefaultDeploymentRepo                         *string  `pulumi:"defaultDeploymentRepo"`
-	Description                                   *string  `pulumi:"description"`
-	ExcludesPattern                               *string  `pulumi:"excludesPattern"`
-	IncludesPattern                               *string  `pulumi:"includesPattern"`
-	Key                                           string   `pulumi:"key"`
-	Notes                                         *string  `pulumi:"notes"`
-	PrimaryKeypairRef                             *string  `pulumi:"primaryKeypairRef"`
-	ProjectEnvironments                           []string `pulumi:"projectEnvironments"`
-	ProjectKey                                    *string  `pulumi:"projectKey"`
-	RepoLayoutRef                                 *string  `pulumi:"repoLayoutRef"`
-	Repositories                                  []string `pulumi:"repositories"`
-	SecondaryKeypairRef                           *string  `pulumi:"secondaryKeypairRef"`
+	ArtifactoryRequestsCanRetrieveRemoteArtifacts *bool   `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`
+	DefaultDeploymentRepo                         *string `pulumi:"defaultDeploymentRepo"`
+	Description                                   *string `pulumi:"description"`
+	ExcludesPattern                               *string `pulumi:"excludesPattern"`
+	IncludesPattern                               *string `pulumi:"includesPattern"`
+	// the identity key of the repo.
+	Key   string  `pulumi:"key"`
+	Notes *string `pulumi:"notes"`
+	// (Optional) The primary GPG key to be used to sign packages.
+	PrimaryKeypairRef   *string  `pulumi:"primaryKeypairRef"`
+	ProjectEnvironments []string `pulumi:"projectEnvironments"`
+	ProjectKey          *string  `pulumi:"projectKey"`
+	RepoLayoutRef       *string  `pulumi:"repoLayoutRef"`
+	Repositories        []string `pulumi:"repositories"`
+	// (Optional) The secondary GPG key to be used to sign packages.
+	SecondaryKeypairRef *string `pulumi:"secondaryKeypairRef"`
 }
 
 // A collection of values returned by getVirtualRpmRepository.
@@ -43,17 +73,19 @@ type LookupVirtualRpmRepositoryResult struct {
 	Description                                   *string `pulumi:"description"`
 	ExcludesPattern                               *string `pulumi:"excludesPattern"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                  string   `pulumi:"id"`
-	IncludesPattern     *string  `pulumi:"includesPattern"`
-	Key                 string   `pulumi:"key"`
-	Notes               *string  `pulumi:"notes"`
-	PackageType         string   `pulumi:"packageType"`
+	Id              string  `pulumi:"id"`
+	IncludesPattern *string `pulumi:"includesPattern"`
+	Key             string  `pulumi:"key"`
+	Notes           *string `pulumi:"notes"`
+	PackageType     string  `pulumi:"packageType"`
+	// (Optional) The primary GPG key to be used to sign packages.
 	PrimaryKeypairRef   *string  `pulumi:"primaryKeypairRef"`
 	ProjectEnvironments []string `pulumi:"projectEnvironments"`
 	ProjectKey          *string  `pulumi:"projectKey"`
 	RepoLayoutRef       *string  `pulumi:"repoLayoutRef"`
 	Repositories        []string `pulumi:"repositories"`
-	SecondaryKeypairRef *string  `pulumi:"secondaryKeypairRef"`
+	// (Optional) The secondary GPG key to be used to sign packages.
+	SecondaryKeypairRef *string `pulumi:"secondaryKeypairRef"`
 }
 
 func LookupVirtualRpmRepositoryOutput(ctx *pulumi.Context, args LookupVirtualRpmRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupVirtualRpmRepositoryResultOutput {
@@ -71,19 +103,22 @@ func LookupVirtualRpmRepositoryOutput(ctx *pulumi.Context, args LookupVirtualRpm
 
 // A collection of arguments for invoking getVirtualRpmRepository.
 type LookupVirtualRpmRepositoryOutputArgs struct {
-	ArtifactoryRequestsCanRetrieveRemoteArtifacts pulumi.BoolPtrInput     `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`
-	DefaultDeploymentRepo                         pulumi.StringPtrInput   `pulumi:"defaultDeploymentRepo"`
-	Description                                   pulumi.StringPtrInput   `pulumi:"description"`
-	ExcludesPattern                               pulumi.StringPtrInput   `pulumi:"excludesPattern"`
-	IncludesPattern                               pulumi.StringPtrInput   `pulumi:"includesPattern"`
-	Key                                           pulumi.StringInput      `pulumi:"key"`
-	Notes                                         pulumi.StringPtrInput   `pulumi:"notes"`
-	PrimaryKeypairRef                             pulumi.StringPtrInput   `pulumi:"primaryKeypairRef"`
-	ProjectEnvironments                           pulumi.StringArrayInput `pulumi:"projectEnvironments"`
-	ProjectKey                                    pulumi.StringPtrInput   `pulumi:"projectKey"`
-	RepoLayoutRef                                 pulumi.StringPtrInput   `pulumi:"repoLayoutRef"`
-	Repositories                                  pulumi.StringArrayInput `pulumi:"repositories"`
-	SecondaryKeypairRef                           pulumi.StringPtrInput   `pulumi:"secondaryKeypairRef"`
+	ArtifactoryRequestsCanRetrieveRemoteArtifacts pulumi.BoolPtrInput   `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`
+	DefaultDeploymentRepo                         pulumi.StringPtrInput `pulumi:"defaultDeploymentRepo"`
+	Description                                   pulumi.StringPtrInput `pulumi:"description"`
+	ExcludesPattern                               pulumi.StringPtrInput `pulumi:"excludesPattern"`
+	IncludesPattern                               pulumi.StringPtrInput `pulumi:"includesPattern"`
+	// the identity key of the repo.
+	Key   pulumi.StringInput    `pulumi:"key"`
+	Notes pulumi.StringPtrInput `pulumi:"notes"`
+	// (Optional) The primary GPG key to be used to sign packages.
+	PrimaryKeypairRef   pulumi.StringPtrInput   `pulumi:"primaryKeypairRef"`
+	ProjectEnvironments pulumi.StringArrayInput `pulumi:"projectEnvironments"`
+	ProjectKey          pulumi.StringPtrInput   `pulumi:"projectKey"`
+	RepoLayoutRef       pulumi.StringPtrInput   `pulumi:"repoLayoutRef"`
+	Repositories        pulumi.StringArrayInput `pulumi:"repositories"`
+	// (Optional) The secondary GPG key to be used to sign packages.
+	SecondaryKeypairRef pulumi.StringPtrInput `pulumi:"secondaryKeypairRef"`
 }
 
 func (LookupVirtualRpmRepositoryOutputArgs) ElementType() reflect.Type {
@@ -142,6 +177,7 @@ func (o LookupVirtualRpmRepositoryResultOutput) PackageType() pulumi.StringOutpu
 	return o.ApplyT(func(v LookupVirtualRpmRepositoryResult) string { return v.PackageType }).(pulumi.StringOutput)
 }
 
+// (Optional) The primary GPG key to be used to sign packages.
 func (o LookupVirtualRpmRepositoryResultOutput) PrimaryKeypairRef() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupVirtualRpmRepositoryResult) *string { return v.PrimaryKeypairRef }).(pulumi.StringPtrOutput)
 }
@@ -162,6 +198,7 @@ func (o LookupVirtualRpmRepositoryResultOutput) Repositories() pulumi.StringArra
 	return o.ApplyT(func(v LookupVirtualRpmRepositoryResult) []string { return v.Repositories }).(pulumi.StringArrayOutput)
 }
 
+// (Optional) The secondary GPG key to be used to sign packages.
 func (o LookupVirtualRpmRepositoryResultOutput) SecondaryKeypairRef() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupVirtualRpmRepositoryResult) *string { return v.SecondaryKeypairRef }).(pulumi.StringPtrOutput)
 }

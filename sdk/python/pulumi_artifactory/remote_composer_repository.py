@@ -61,8 +61,8 @@ class RemoteComposerRepositoryArgs:
                  xray_index: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a RemoteComposerRepository resource.
-        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-               characters. It cannot begin with a number or contain spaces or special characters.
+        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+               contain spaces or special characters.
         :param pulumi.Input[str] url: The remote repo URL.
         :param pulumi.Input[bool] allow_any_host_auth: 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any
                other host.
@@ -80,7 +80,7 @@ class RemoteComposerRepositoryArgs:
         :param pulumi.Input[bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS
                CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         :param pulumi.Input[str] client_tls_certificate: Client TLS certificate name.
-        :param pulumi.Input[str] composer_registry_url: Proxy remote Composer repository. Default value is "https://packagist.org".
+        :param pulumi.Input[str] composer_registry_url: Proxy remote Composer repository. Default value is `https://packagist.org`.
         :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
@@ -129,9 +129,8 @@ class RemoteComposerRepositoryArgs:
         :param pulumi.Input[bool] synchronize_properties: When set, remote artifacts are fetched along with their properties.
         :param pulumi.Input[int] unused_artifacts_cleanup_period_hours: Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed 'unused' and
                eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
-        :param pulumi.Input[str] vcs_git_download_url: This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
-        :param pulumi.Input[str] vcs_git_provider: Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance.
-               Default value is "GITHUB".
+        :param pulumi.Input[str] vcs_git_download_url: This attribute is used when vcs_git_provider is set to `CUSTOM`. Provided URL will be used as proxy.
+        :param pulumi.Input[str] vcs_git_provider: Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`. Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
         :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
                Xray settings.
         """
@@ -224,8 +223,8 @@ class RemoteComposerRepositoryArgs:
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
         """
-        A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-        characters. It cannot begin with a number or contain spaces or special characters.
+        A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+        contain spaces or special characters.
         """
         return pulumi.get(self, "key")
 
@@ -342,7 +341,7 @@ class RemoteComposerRepositoryArgs:
     @pulumi.getter(name="composerRegistryUrl")
     def composer_registry_url(self) -> Optional[pulumi.Input[str]]:
         """
-        Proxy remote Composer repository. Default value is "https://packagist.org".
+        Proxy remote Composer repository. Default value is `https://packagist.org`.
         """
         return pulumi.get(self, "composer_registry_url")
 
@@ -724,7 +723,7 @@ class RemoteComposerRepositoryArgs:
     @pulumi.getter(name="vcsGitDownloadUrl")
     def vcs_git_download_url(self) -> Optional[pulumi.Input[str]]:
         """
-        This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
+        This attribute is used when vcs_git_provider is set to `CUSTOM`. Provided URL will be used as proxy.
         """
         return pulumi.get(self, "vcs_git_download_url")
 
@@ -736,8 +735,7 @@ class RemoteComposerRepositoryArgs:
     @pulumi.getter(name="vcsGitProvider")
     def vcs_git_provider(self) -> Optional[pulumi.Input[str]]:
         """
-        Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance.
-        Default value is "GITHUB".
+        Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`. Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
         """
         return pulumi.get(self, "vcs_git_provider")
 
@@ -824,7 +822,7 @@ class _RemoteComposerRepositoryState:
         :param pulumi.Input[bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS
                CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         :param pulumi.Input[str] client_tls_certificate: Client TLS certificate name.
-        :param pulumi.Input[str] composer_registry_url: Proxy remote Composer repository. Default value is "https://packagist.org".
+        :param pulumi.Input[str] composer_registry_url: Proxy remote Composer repository. Default value is `https://packagist.org`.
         :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
@@ -835,8 +833,8 @@ class _RemoteComposerRepositoryState:
                communicate with this repository.
         :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
                used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-               characters. It cannot begin with a number or contain spaces or special characters.
+        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+               contain spaces or special characters.
         :param pulumi.Input[bool] list_remote_folder_items: Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
                the 'Retrieval Cache Period'. Default value is 'true'.
         :param pulumi.Input[str] local_address: The local address to be used when creating connections. Useful for specifying the interface to use on systems with
@@ -876,9 +874,8 @@ class _RemoteComposerRepositoryState:
         :param pulumi.Input[int] unused_artifacts_cleanup_period_hours: Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed 'unused' and
                eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
         :param pulumi.Input[str] url: The remote repo URL.
-        :param pulumi.Input[str] vcs_git_download_url: This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
-        :param pulumi.Input[str] vcs_git_provider: Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance.
-               Default value is "GITHUB".
+        :param pulumi.Input[str] vcs_git_download_url: This attribute is used when vcs_git_provider is set to `CUSTOM`. Provided URL will be used as proxy.
+        :param pulumi.Input[str] vcs_git_provider: Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`. Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
         :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
                Xray settings.
         """
@@ -1068,7 +1065,7 @@ class _RemoteComposerRepositoryState:
     @pulumi.getter(name="composerRegistryUrl")
     def composer_registry_url(self) -> Optional[pulumi.Input[str]]:
         """
-        Proxy remote Composer repository. Default value is "https://packagist.org".
+        Proxy remote Composer repository. Default value is `https://packagist.org`.
         """
         return pulumi.get(self, "composer_registry_url")
 
@@ -1165,8 +1162,8 @@ class _RemoteComposerRepositoryState:
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
         """
-        A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-        characters. It cannot begin with a number or contain spaces or special characters.
+        A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+        contain spaces or special characters.
         """
         return pulumi.get(self, "key")
 
@@ -1484,7 +1481,7 @@ class _RemoteComposerRepositoryState:
     @pulumi.getter(name="vcsGitDownloadUrl")
     def vcs_git_download_url(self) -> Optional[pulumi.Input[str]]:
         """
-        This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
+        This attribute is used when vcs_git_provider is set to `CUSTOM`. Provided URL will be used as proxy.
         """
         return pulumi.get(self, "vcs_git_download_url")
 
@@ -1496,8 +1493,7 @@ class _RemoteComposerRepositoryState:
     @pulumi.getter(name="vcsGitProvider")
     def vcs_git_provider(self) -> Optional[pulumi.Input[str]]:
         """
-        Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance.
-        Default value is "GITHUB".
+        Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`. Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
         """
         return pulumi.get(self, "vcs_git_provider")
 
@@ -1569,7 +1565,29 @@ class RemoteComposerRepository(pulumi.CustomResource):
                  xray_index: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        Create a RemoteComposerRepository resource with the given unique name, props, and options.
+        Creates a remote PHP Composer repository.
+        Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/PHP+Composer+Repositories).
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        my_remote_composer = artifactory.RemoteComposerRepository("my-remote-composer",
+            key="my-remote-composer",
+            url="https://github.com/",
+            vcs_git_provider="GITHUB")
+        ```
+
+        ## Import
+
+        Remote repositories can be imported using their name, e.g.
+
+        ```sh
+         $ pulumi import artifactory:index/remoteComposerRepository:RemoteComposerRepository my-remote-composer my-remote-composer
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_any_host_auth: 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any
@@ -1588,7 +1606,7 @@ class RemoteComposerRepository(pulumi.CustomResource):
         :param pulumi.Input[bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS
                CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         :param pulumi.Input[str] client_tls_certificate: Client TLS certificate name.
-        :param pulumi.Input[str] composer_registry_url: Proxy remote Composer repository. Default value is "https://packagist.org".
+        :param pulumi.Input[str] composer_registry_url: Proxy remote Composer repository. Default value is `https://packagist.org`.
         :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
@@ -1599,8 +1617,8 @@ class RemoteComposerRepository(pulumi.CustomResource):
                communicate with this repository.
         :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
                used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-               characters. It cannot begin with a number or contain spaces or special characters.
+        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+               contain spaces or special characters.
         :param pulumi.Input[bool] list_remote_folder_items: Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
                the 'Retrieval Cache Period'. Default value is 'true'.
         :param pulumi.Input[str] local_address: The local address to be used when creating connections. Useful for specifying the interface to use on systems with
@@ -1640,9 +1658,8 @@ class RemoteComposerRepository(pulumi.CustomResource):
         :param pulumi.Input[int] unused_artifacts_cleanup_period_hours: Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed 'unused' and
                eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
         :param pulumi.Input[str] url: The remote repo URL.
-        :param pulumi.Input[str] vcs_git_download_url: This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
-        :param pulumi.Input[str] vcs_git_provider: Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance.
-               Default value is "GITHUB".
+        :param pulumi.Input[str] vcs_git_download_url: This attribute is used when vcs_git_provider is set to `CUSTOM`. Provided URL will be used as proxy.
+        :param pulumi.Input[str] vcs_git_provider: Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`. Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
         :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
                Xray settings.
         """
@@ -1653,7 +1670,29 @@ class RemoteComposerRepository(pulumi.CustomResource):
                  args: RemoteComposerRepositoryArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a RemoteComposerRepository resource with the given unique name, props, and options.
+        Creates a remote PHP Composer repository.
+        Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/PHP+Composer+Repositories).
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        my_remote_composer = artifactory.RemoteComposerRepository("my-remote-composer",
+            key="my-remote-composer",
+            url="https://github.com/",
+            vcs_git_provider="GITHUB")
+        ```
+
+        ## Import
+
+        Remote repositories can be imported using their name, e.g.
+
+        ```sh
+         $ pulumi import artifactory:index/remoteComposerRepository:RemoteComposerRepository my-remote-composer my-remote-composer
+        ```
+
         :param str resource_name: The name of the resource.
         :param RemoteComposerRepositoryArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1848,7 +1887,7 @@ class RemoteComposerRepository(pulumi.CustomResource):
         :param pulumi.Input[bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS
                CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         :param pulumi.Input[str] client_tls_certificate: Client TLS certificate name.
-        :param pulumi.Input[str] composer_registry_url: Proxy remote Composer repository. Default value is "https://packagist.org".
+        :param pulumi.Input[str] composer_registry_url: Proxy remote Composer repository. Default value is `https://packagist.org`.
         :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
@@ -1859,8 +1898,8 @@ class RemoteComposerRepository(pulumi.CustomResource):
                communicate with this repository.
         :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
                used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-               characters. It cannot begin with a number or contain spaces or special characters.
+        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+               contain spaces or special characters.
         :param pulumi.Input[bool] list_remote_folder_items: Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
                the 'Retrieval Cache Period'. Default value is 'true'.
         :param pulumi.Input[str] local_address: The local address to be used when creating connections. Useful for specifying the interface to use on systems with
@@ -1900,9 +1939,8 @@ class RemoteComposerRepository(pulumi.CustomResource):
         :param pulumi.Input[int] unused_artifacts_cleanup_period_hours: Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed 'unused' and
                eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
         :param pulumi.Input[str] url: The remote repo URL.
-        :param pulumi.Input[str] vcs_git_download_url: This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
-        :param pulumi.Input[str] vcs_git_provider: Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance.
-               Default value is "GITHUB".
+        :param pulumi.Input[str] vcs_git_download_url: This attribute is used when vcs_git_provider is set to `CUSTOM`. Provided URL will be used as proxy.
+        :param pulumi.Input[str] vcs_git_provider: Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`. Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
         :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
                Xray settings.
         """
@@ -2025,7 +2063,7 @@ class RemoteComposerRepository(pulumi.CustomResource):
     @pulumi.getter(name="composerRegistryUrl")
     def composer_registry_url(self) -> pulumi.Output[Optional[str]]:
         """
-        Proxy remote Composer repository. Default value is "https://packagist.org".
+        Proxy remote Composer repository. Default value is `https://packagist.org`.
         """
         return pulumi.get(self, "composer_registry_url")
 
@@ -2090,8 +2128,8 @@ class RemoteComposerRepository(pulumi.CustomResource):
     @pulumi.getter
     def key(self) -> pulumi.Output[str]:
         """
-        A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-        characters. It cannot begin with a number or contain spaces or special characters.
+        A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+        contain spaces or special characters.
         """
         return pulumi.get(self, "key")
 
@@ -2305,7 +2343,7 @@ class RemoteComposerRepository(pulumi.CustomResource):
     @pulumi.getter(name="vcsGitDownloadUrl")
     def vcs_git_download_url(self) -> pulumi.Output[Optional[str]]:
         """
-        This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
+        This attribute is used when vcs_git_provider is set to `CUSTOM`. Provided URL will be used as proxy.
         """
         return pulumi.get(self, "vcs_git_download_url")
 
@@ -2313,8 +2351,7 @@ class RemoteComposerRepository(pulumi.CustomResource):
     @pulumi.getter(name="vcsGitProvider")
     def vcs_git_provider(self) -> pulumi.Output[Optional[str]]:
         """
-        Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance.
-        Default value is "GITHUB".
+        Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`. Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
         """
         return pulumi.get(self, "vcs_git_provider")
 

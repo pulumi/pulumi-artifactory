@@ -9,6 +9,64 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Artifactory
 {
+    /// <summary>
+    /// Creates a virtual Rpm repository.
+    /// Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/RPM+Repositories).
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.IO;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Artifactory = Pulumi.Artifactory;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var primary_keypair = new Artifactory.Keypair("primary-keypair", new()
+    ///     {
+    ///         PairName = "primary-keypair",
+    ///         PairType = "GPG",
+    ///         Alias = "foo-alias-1",
+    ///         PrivateKey = File.ReadAllText("samples/gpg.priv"),
+    ///         PublicKey = File.ReadAllText("samples/gpg.pub"),
+    ///     });
+    /// 
+    ///     var secondary_keypair = new Artifactory.Keypair("secondary-keypair", new()
+    ///     {
+    ///         PairName = "secondary-keypair",
+    ///         PairType = "GPG",
+    ///         Alias = "foo-alias-2",
+    ///         PrivateKey = File.ReadAllText("samples/gpg.priv"),
+    ///         PublicKey = File.ReadAllText("samples/gpg.pub"),
+    ///     });
+    /// 
+    ///     var foo_rpm_virtual = new Artifactory.VirtualRpmRepository("foo-rpm-virtual", new()
+    ///     {
+    ///         Key = "foo-rpm-virtual",
+    ///         PrimaryKeypairRef = primary_keypair.PairName,
+    ///         SecondaryKeypairRef = secondary_keypair.PairName,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             primary_keypair,
+    ///             secondary_keypair,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Virtual repositories can be imported using their name, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import artifactory:index/virtualRpmRepository:VirtualRpmRepository foo-rpm-virtual foo-rpm-virtual
+    /// ```
+    /// </summary>
     [ArtifactoryResourceType("artifactory:index/virtualRpmRepository:VirtualRpmRepository")]
     public partial class VirtualRpmRepository : global::Pulumi.CustomResource
     {
@@ -46,8 +104,8 @@ namespace Pulumi.Artifactory
         public Output<string?> IncludesPattern { get; private set; } = null!;
 
         /// <summary>
-        /// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-        /// characters. It cannot begin with a number or contain spaces or special characters.
+        /// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+        /// contain spaces or special characters.
         /// </summary>
         [Output("key")]
         public Output<string> Key { get; private set; } = null!;
@@ -62,7 +120,7 @@ namespace Pulumi.Artifactory
         public Output<string> PackageType { get; private set; } = null!;
 
         /// <summary>
-        /// Primary keypair used to sign artifacts.
+        /// The primary GPG key to be used to sign packages.
         /// </summary>
         [Output("primaryKeypairRef")]
         public Output<string?> PrimaryKeypairRef { get; private set; } = null!;
@@ -181,8 +239,8 @@ namespace Pulumi.Artifactory
         public Input<string>? IncludesPattern { get; set; }
 
         /// <summary>
-        /// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-        /// characters. It cannot begin with a number or contain spaces or special characters.
+        /// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+        /// contain spaces or special characters.
         /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -194,7 +252,7 @@ namespace Pulumi.Artifactory
         public Input<string>? Notes { get; set; }
 
         /// <summary>
-        /// Primary keypair used to sign artifacts.
+        /// The primary GPG key to be used to sign packages.
         /// </summary>
         [Input("primaryKeypairRef")]
         public Input<string>? PrimaryKeypairRef { get; set; }
@@ -287,8 +345,8 @@ namespace Pulumi.Artifactory
         public Input<string>? IncludesPattern { get; set; }
 
         /// <summary>
-        /// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-        /// characters. It cannot begin with a number or contain spaces or special characters.
+        /// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+        /// contain spaces or special characters.
         /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
@@ -303,7 +361,7 @@ namespace Pulumi.Artifactory
         public Input<string>? PackageType { get; set; }
 
         /// <summary>
-        /// Primary keypair used to sign artifacts.
+        /// The primary GPG key to be used to sign packages.
         /// </summary>
         [Input("primaryKeypairRef")]
         public Input<string>? PrimaryKeypairRef { get; set; }

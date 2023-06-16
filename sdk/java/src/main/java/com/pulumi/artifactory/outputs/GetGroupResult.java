@@ -13,9 +13,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetGroupResult {
+    /**
+     * @return Any users added to this group will automatically be assigned with admin privileges in the system.
+     * 
+     */
     private Boolean adminPrivileges;
+    /**
+     * @return When this parameter is set, any new users defined in the system are automatically assigned to this group.
+     * 
+     */
     private Boolean autoJoin;
+    /**
+     * @return A description for the group
+     * 
+     */
     private @Nullable String description;
+    /**
+     * @return New external group ID used to configure the corresponding group in Azure AD.
+     * 
+     */
     private @Nullable String externalId;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -24,23 +40,63 @@ public final class GetGroupResult {
     private String id;
     private @Nullable String includeUsers;
     private String name;
+    /**
+     * @return When this override is set, User in the group can set Xray security and compliance policies. Default value is `false`.
+     * 
+     */
     private @Nullable Boolean policyManager;
+    /**
+     * @return The realm for the group.
+     * 
+     */
     private String realm;
+    /**
+     * @return The realm attributes for the group.
+     * 
+     */
     private @Nullable String realmAttributes;
+    /**
+     * @return When this override is set, User in the group can manage Xray Reports on any resource type. Default value is `false`.
+     * 
+     */
     private @Nullable Boolean reportsManager;
+    /**
+     * @return List of users assigned to the group. Set include_users to `true` to retrieve this list.
+     * 
+     */
     private @Nullable List<String> usersNames;
+    /**
+     * @return When this override is set, User in the group can manage Xray Watches on any resource type. Default value is `false`.
+     * 
+     */
     private @Nullable Boolean watchManager;
 
     private GetGroupResult() {}
+    /**
+     * @return Any users added to this group will automatically be assigned with admin privileges in the system.
+     * 
+     */
     public Boolean adminPrivileges() {
         return this.adminPrivileges;
     }
+    /**
+     * @return When this parameter is set, any new users defined in the system are automatically assigned to this group.
+     * 
+     */
     public Boolean autoJoin() {
         return this.autoJoin;
     }
+    /**
+     * @return A description for the group
+     * 
+     */
     public Optional<String> description() {
         return Optional.ofNullable(this.description);
     }
+    /**
+     * @return New external group ID used to configure the corresponding group in Azure AD.
+     * 
+     */
     public Optional<String> externalId() {
         return Optional.ofNullable(this.externalId);
     }
@@ -57,21 +113,45 @@ public final class GetGroupResult {
     public String name() {
         return this.name;
     }
+    /**
+     * @return When this override is set, User in the group can set Xray security and compliance policies. Default value is `false`.
+     * 
+     */
     public Optional<Boolean> policyManager() {
         return Optional.ofNullable(this.policyManager);
     }
+    /**
+     * @return The realm for the group.
+     * 
+     */
     public String realm() {
         return this.realm;
     }
+    /**
+     * @return The realm attributes for the group.
+     * 
+     */
     public Optional<String> realmAttributes() {
         return Optional.ofNullable(this.realmAttributes);
     }
+    /**
+     * @return When this override is set, User in the group can manage Xray Reports on any resource type. Default value is `false`.
+     * 
+     */
     public Optional<Boolean> reportsManager() {
         return Optional.ofNullable(this.reportsManager);
     }
+    /**
+     * @return List of users assigned to the group. Set include_users to `true` to retrieve this list.
+     * 
+     */
     public List<String> usersNames() {
         return this.usersNames == null ? List.of() : this.usersNames;
     }
+    /**
+     * @return When this override is set, User in the group can manage Xray Watches on any resource type. Default value is `false`.
+     * 
+     */
     public Optional<Boolean> watchManager() {
         return Optional.ofNullable(this.watchManager);
     }

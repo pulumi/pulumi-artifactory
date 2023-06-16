@@ -16,6 +16,46 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.artifactory.LocalTerraformProviderRepository;
+ * import com.pulumi.artifactory.LocalTerraformProviderRepositoryArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var terraform_local_test_terraform_provider_repo = new LocalTerraformProviderRepository(&#34;terraform-local-test-terraform-provider-repo&#34;, LocalTerraformProviderRepositoryArgs.builder()        
+ *             .key(&#34;terraform-local-test-terraform-provider-repo&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Local repositories can be imported using their name, e.g.
+ * 
+ * ```sh
+ *  $ pulumi import artifactory:index/localTerraformProviderRepository:LocalTerraformProviderRepository terraform-local-test-terraform-provider-repo terraform-local-test-terraform-provider-repo
+ * ```
+ * 
+ */
 @ResourceType(type="artifactory:index/localTerraformProviderRepository:LocalTerraformProviderRepository")
 public class LocalTerraformProviderRepository extends com.pulumi.resources.CustomResource {
     /**
@@ -129,16 +169,14 @@ public class LocalTerraformProviderRepository extends com.pulumi.resources.Custo
         return this.includesPattern;
     }
     /**
-     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-     * characters. It cannot begin with a number or contain spaces or special characters.
+     * the identity key of the repo.
      * 
      */
     @Export(name="key", type=String.class, parameters={})
     private Output<String> key;
 
     /**
-     * @return A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-     * characters. It cannot begin with a number or contain spaces or special characters.
+     * @return the identity key of the repo.
      * 
      */
     public Output<String> key() {

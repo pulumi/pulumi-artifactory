@@ -17,30 +17,62 @@ public final class OauthSettingsState extends com.pulumi.resources.ResourceArgs 
 
     public static final OauthSettingsState Empty = new OauthSettingsState();
 
+    /**
+     * Allow persisted users to access their profile.  Default value is `false`.
+     * 
+     */
     @Import(name="allowUserToAccessProfile")
     private @Nullable Output<Boolean> allowUserToAccessProfile;
 
+    /**
+     * @return Allow persisted users to access their profile.  Default value is `false`.
+     * 
+     */
     public Optional<Output<Boolean>> allowUserToAccessProfile() {
         return Optional.ofNullable(this.allowUserToAccessProfile);
     }
 
+    /**
+     * Enable OAuth SSO.  Default value is `true`.
+     * 
+     */
     @Import(name="enable")
     private @Nullable Output<Boolean> enable;
 
+    /**
+     * @return Enable OAuth SSO.  Default value is `true`.
+     * 
+     */
     public Optional<Output<Boolean>> enable() {
         return Optional.ofNullable(this.enable);
     }
 
+    /**
+     * OAuth provider settings block. Multiple blocks can be defined, at least one is required.
+     * 
+     */
     @Import(name="oauthProviders")
     private @Nullable Output<List<OauthSettingsOauthProviderArgs>> oauthProviders;
 
+    /**
+     * @return OAuth provider settings block. Multiple blocks can be defined, at least one is required.
+     * 
+     */
     public Optional<Output<List<OauthSettingsOauthProviderArgs>>> oauthProviders() {
         return Optional.ofNullable(this.oauthProviders);
     }
 
+    /**
+     * Enable the creation of local Artifactory users.  Default value is `false`.
+     * 
+     */
     @Import(name="persistUsers")
     private @Nullable Output<Boolean> persistUsers;
 
+    /**
+     * @return Enable the creation of local Artifactory users.  Default value is `false`.
+     * 
+     */
     public Optional<Output<Boolean>> persistUsers() {
         return Optional.ofNullable(this.persistUsers);
     }
@@ -72,42 +104,96 @@ public final class OauthSettingsState extends com.pulumi.resources.ResourceArgs 
             $ = new OauthSettingsState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param allowUserToAccessProfile Allow persisted users to access their profile.  Default value is `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder allowUserToAccessProfile(@Nullable Output<Boolean> allowUserToAccessProfile) {
             $.allowUserToAccessProfile = allowUserToAccessProfile;
             return this;
         }
 
+        /**
+         * @param allowUserToAccessProfile Allow persisted users to access their profile.  Default value is `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder allowUserToAccessProfile(Boolean allowUserToAccessProfile) {
             return allowUserToAccessProfile(Output.of(allowUserToAccessProfile));
         }
 
+        /**
+         * @param enable Enable OAuth SSO.  Default value is `true`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enable(@Nullable Output<Boolean> enable) {
             $.enable = enable;
             return this;
         }
 
+        /**
+         * @param enable Enable OAuth SSO.  Default value is `true`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enable(Boolean enable) {
             return enable(Output.of(enable));
         }
 
+        /**
+         * @param oauthProviders OAuth provider settings block. Multiple blocks can be defined, at least one is required.
+         * 
+         * @return builder
+         * 
+         */
         public Builder oauthProviders(@Nullable Output<List<OauthSettingsOauthProviderArgs>> oauthProviders) {
             $.oauthProviders = oauthProviders;
             return this;
         }
 
+        /**
+         * @param oauthProviders OAuth provider settings block. Multiple blocks can be defined, at least one is required.
+         * 
+         * @return builder
+         * 
+         */
         public Builder oauthProviders(List<OauthSettingsOauthProviderArgs> oauthProviders) {
             return oauthProviders(Output.of(oauthProviders));
         }
 
+        /**
+         * @param oauthProviders OAuth provider settings block. Multiple blocks can be defined, at least one is required.
+         * 
+         * @return builder
+         * 
+         */
         public Builder oauthProviders(OauthSettingsOauthProviderArgs... oauthProviders) {
             return oauthProviders(List.of(oauthProviders));
         }
 
+        /**
+         * @param persistUsers Enable the creation of local Artifactory users.  Default value is `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder persistUsers(@Nullable Output<Boolean> persistUsers) {
             $.persistUsers = persistUsers;
             return this;
         }
 
+        /**
+         * @param persistUsers Enable the creation of local Artifactory users.  Default value is `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder persistUsers(Boolean persistUsers) {
             return persistUsers(Output.of(persistUsers));
         }

@@ -4,6 +4,20 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * Retrieves a virtual NPM repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const virtual-npm = artifactory.getVirtualNpmRepository({
+ *     key: "virtual-npm",
+ * });
+ * ```
+ */
 export function getVirtualNugetRepository(args: GetVirtualNugetRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNugetRepositoryResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -31,8 +45,14 @@ export interface GetVirtualNugetRepositoryArgs {
     defaultDeploymentRepo?: string;
     description?: string;
     excludesPattern?: string;
+    /**
+     * (Optional) If set, user authentication is required when accessing the repository. An anonymous request will display an HTTP 401 error. This is also enforced when aggregated repositories support anonymous requests. Default is `false`.
+     */
     forceNugetAuthentication?: boolean;
     includesPattern?: string;
+    /**
+     * the identity key of the repo.
+     */
     key: string;
     notes?: string;
     projectEnvironments?: string[];
@@ -49,6 +69,9 @@ export interface GetVirtualNugetRepositoryResult {
     readonly defaultDeploymentRepo?: string;
     readonly description?: string;
     readonly excludesPattern?: string;
+    /**
+     * (Optional) If set, user authentication is required when accessing the repository. An anonymous request will display an HTTP 401 error. This is also enforced when aggregated repositories support anonymous requests. Default is `false`.
+     */
     readonly forceNugetAuthentication?: boolean;
     /**
      * The provider-assigned unique ID for this managed resource.
@@ -63,6 +86,20 @@ export interface GetVirtualNugetRepositoryResult {
     readonly repoLayoutRef?: string;
     readonly repositories?: string[];
 }
+/**
+ * Retrieves a virtual NPM repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const virtual-npm = artifactory.getVirtualNpmRepository({
+ *     key: "virtual-npm",
+ * });
+ * ```
+ */
 export function getVirtualNugetRepositoryOutput(args: GetVirtualNugetRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNugetRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getVirtualNugetRepository(a, opts))
 }
@@ -75,8 +112,14 @@ export interface GetVirtualNugetRepositoryOutputArgs {
     defaultDeploymentRepo?: pulumi.Input<string>;
     description?: pulumi.Input<string>;
     excludesPattern?: pulumi.Input<string>;
+    /**
+     * (Optional) If set, user authentication is required when accessing the repository. An anonymous request will display an HTTP 401 error. This is also enforced when aggregated repositories support anonymous requests. Default is `false`.
+     */
     forceNugetAuthentication?: pulumi.Input<boolean>;
     includesPattern?: pulumi.Input<string>;
+    /**
+     * the identity key of the repo.
+     */
     key: pulumi.Input<string>;
     notes?: pulumi.Input<string>;
     projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;

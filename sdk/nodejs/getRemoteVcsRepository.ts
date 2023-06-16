@@ -6,6 +6,20 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * Retrieves a remote VCS repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const remote-vcs = artifactory.getRemoteVcsRepository({
+ *     key: "remote-vcs",
+ * });
+ * ```
+ */
 export function getRemoteVcsRepository(args: GetRemoteVcsRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetRemoteVcsRepositoryResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -74,9 +88,15 @@ export interface GetRemoteVcsRepositoryArgs {
     excludesPattern?: string;
     hardFail?: boolean;
     includesPattern?: string;
+    /**
+     * the identity key of the repo.
+     */
     key: string;
     listRemoteFolderItems?: boolean;
     localAddress?: string;
+    /**
+     * (Optional) The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+     */
     maxUniqueSnapshots?: number;
     metadataRetrievalTimeoutSecs?: number;
     mismatchingMimeTypesOverrideList?: string;
@@ -100,7 +120,13 @@ export interface GetRemoteVcsRepositoryArgs {
     unusedArtifactsCleanupPeriodHours?: number;
     url?: string;
     username?: string;
+    /**
+     * (Optional) This attribute is used when vcsGitProvider is set to `CUSTOM`. Provided URL will be used as proxy.
+     */
     vcsGitDownloadUrl?: string;
+    /**
+     * (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub, Bitbucket, Stash, a remote Artifactory instance or a custom Git repository. Allowed values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`. Default value is `GITHUB`
+     */
     vcsGitProvider?: string;
     xrayIndex?: boolean;
 }
@@ -130,6 +156,9 @@ export interface GetRemoteVcsRepositoryResult {
     readonly key: string;
     readonly listRemoteFolderItems?: boolean;
     readonly localAddress?: string;
+    /**
+     * (Optional) The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+     */
     readonly maxUniqueSnapshots?: number;
     readonly metadataRetrievalTimeoutSecs?: number;
     readonly mismatchingMimeTypesOverrideList?: string;
@@ -154,10 +183,30 @@ export interface GetRemoteVcsRepositoryResult {
     readonly unusedArtifactsCleanupPeriodHours?: number;
     readonly url?: string;
     readonly username?: string;
+    /**
+     * (Optional) This attribute is used when vcsGitProvider is set to `CUSTOM`. Provided URL will be used as proxy.
+     */
     readonly vcsGitDownloadUrl?: string;
+    /**
+     * (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub, Bitbucket, Stash, a remote Artifactory instance or a custom Git repository. Allowed values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`. Default value is `GITHUB`
+     */
     readonly vcsGitProvider?: string;
     readonly xrayIndex?: boolean;
 }
+/**
+ * Retrieves a remote VCS repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const remote-vcs = artifactory.getRemoteVcsRepository({
+ *     key: "remote-vcs",
+ * });
+ * ```
+ */
 export function getRemoteVcsRepositoryOutput(args: GetRemoteVcsRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemoteVcsRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getRemoteVcsRepository(a, opts))
 }
@@ -180,9 +229,15 @@ export interface GetRemoteVcsRepositoryOutputArgs {
     excludesPattern?: pulumi.Input<string>;
     hardFail?: pulumi.Input<boolean>;
     includesPattern?: pulumi.Input<string>;
+    /**
+     * the identity key of the repo.
+     */
     key: pulumi.Input<string>;
     listRemoteFolderItems?: pulumi.Input<boolean>;
     localAddress?: pulumi.Input<string>;
+    /**
+     * (Optional) The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+     */
     maxUniqueSnapshots?: pulumi.Input<number>;
     metadataRetrievalTimeoutSecs?: pulumi.Input<number>;
     mismatchingMimeTypesOverrideList?: pulumi.Input<string>;
@@ -206,7 +261,13 @@ export interface GetRemoteVcsRepositoryOutputArgs {
     unusedArtifactsCleanupPeriodHours?: pulumi.Input<number>;
     url?: pulumi.Input<string>;
     username?: pulumi.Input<string>;
+    /**
+     * (Optional) This attribute is used when vcsGitProvider is set to `CUSTOM`. Provided URL will be used as proxy.
+     */
     vcsGitDownloadUrl?: pulumi.Input<string>;
+    /**
+     * (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub, Bitbucket, Stash, a remote Artifactory instance or a custom Git repository. Allowed values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`. Default value is `GITHUB`
+     */
     vcsGitProvider?: pulumi.Input<string>;
     xrayIndex?: pulumi.Input<boolean>;
 }

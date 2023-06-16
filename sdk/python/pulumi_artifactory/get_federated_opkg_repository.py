@@ -138,6 +138,12 @@ class GetFederatedOpkgRepositoryResult:
     @property
     @pulumi.getter
     def members(self) -> Optional[Sequence['outputs.GetFederatedOpkgRepositoryMemberResult']]:
+        """
+        The list of Federated members and must contain this repository URL (configured base URL
+        `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+        Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+        to set up Federated repositories correctly.
+        """
         return pulumi.get(self, "members")
 
     @property
@@ -227,7 +233,23 @@ def get_federated_opkg_repository(archive_browsing_enabled: Optional[bool] = Non
                                   xray_index: Optional[bool] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFederatedOpkgRepositoryResult:
     """
-    Use this data source to access information about an existing resource.
+    Retrieves a federated Opkg repository.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_artifactory as artifactory
+
+    federated_test_opkg_repo = artifactory.get_federated_opkg_repository(key="federated-test-opkg-repo")
+    ```
+
+
+    :param str key: the identity key of the repo.
+    :param Sequence[pulumi.InputType['GetFederatedOpkgRepositoryMemberArgs']] members: The list of Federated members and must contain this repository URL (configured base URL
+           `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+           Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+           to set up Federated repositories correctly.
     """
     __args__ = dict()
     __args__['archiveBrowsingEnabled'] = archive_browsing_enabled
@@ -292,6 +314,22 @@ def get_federated_opkg_repository_output(archive_browsing_enabled: Optional[pulu
                                          xray_index: Optional[pulumi.Input[Optional[bool]]] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFederatedOpkgRepositoryResult]:
     """
-    Use this data source to access information about an existing resource.
+    Retrieves a federated Opkg repository.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_artifactory as artifactory
+
+    federated_test_opkg_repo = artifactory.get_federated_opkg_repository(key="federated-test-opkg-repo")
+    ```
+
+
+    :param str key: the identity key of the repo.
+    :param Sequence[pulumi.InputType['GetFederatedOpkgRepositoryMemberArgs']] members: The list of Federated members and must contain this repository URL (configured base URL
+           `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+           Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+           to set up Federated repositories correctly.
     """
     ...

@@ -4,6 +4,20 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * Retrieves a virtual Cran repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const virtual-cran = artifactory.getVirtualCranRepository({
+ *     key: "virtual-cran",
+ * });
+ * ```
+ */
 export function getVirtualCranRepository(args: GetVirtualCranRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualCranRepositoryResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -32,12 +46,18 @@ export interface GetVirtualCranRepositoryArgs {
     description?: string;
     excludesPattern?: string;
     includesPattern?: string;
+    /**
+     * the identity key of the repo.
+     */
     key: string;
     notes?: string;
     projectEnvironments?: string[];
     projectKey?: string;
     repoLayoutRef?: string;
     repositories?: string[];
+    /**
+     * (Optional, Default: `7200`) This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
+     */
     retrievalCachePeriodSeconds?: number;
 }
 
@@ -61,8 +81,25 @@ export interface GetVirtualCranRepositoryResult {
     readonly projectKey?: string;
     readonly repoLayoutRef?: string;
     readonly repositories?: string[];
+    /**
+     * (Optional, Default: `7200`) This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
+     */
     readonly retrievalCachePeriodSeconds?: number;
 }
+/**
+ * Retrieves a virtual Cran repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const virtual-cran = artifactory.getVirtualCranRepository({
+ *     key: "virtual-cran",
+ * });
+ * ```
+ */
 export function getVirtualCranRepositoryOutput(args: GetVirtualCranRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualCranRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getVirtualCranRepository(a, opts))
 }
@@ -76,11 +113,17 @@ export interface GetVirtualCranRepositoryOutputArgs {
     description?: pulumi.Input<string>;
     excludesPattern?: pulumi.Input<string>;
     includesPattern?: pulumi.Input<string>;
+    /**
+     * the identity key of the repo.
+     */
     key: pulumi.Input<string>;
     notes?: pulumi.Input<string>;
     projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
     projectKey?: pulumi.Input<string>;
     repoLayoutRef?: pulumi.Input<string>;
     repositories?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * (Optional, Default: `7200`) This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
+     */
     retrievalCachePeriodSeconds?: pulumi.Input<number>;
 }

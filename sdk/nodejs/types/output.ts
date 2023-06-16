@@ -10,299 +10,746 @@ export interface AccessTokenAdminToken {
 }
 
 export interface ArtifactPropertyWebhookCriteria {
+    /**
+     * Trigger on any local repo.
+     */
     anyLocal: boolean;
+    /**
+     * Trigger on any remote repo.
+     */
     anyRemote: boolean;
+    /**
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
+     */
     excludePatterns?: string[];
+    /**
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
+     */
     includePatterns?: string[];
+    /**
+     * Trigger on this list of repo keys.
+     */
     repoKeys: string[];
 }
 
 export interface ArtifactPropertyWebhookHandler {
+    /**
+     * Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
+     */
     customHttpHeaders?: {[key: string]: string};
+    /**
+     * Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+     */
     proxy?: string;
+    /**
+     * Secret authentication token that will be sent to the configured URL. The value will be sent as `x-jfrog-event-auth` header.
+     */
     secret?: string;
+    /**
+     * Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+     */
     url: string;
 }
 
 export interface ArtifactWebhookCriteria {
+    /**
+     * Trigger on any local repo.
+     */
     anyLocal: boolean;
+    /**
+     * Trigger on any remote repo.
+     */
     anyRemote: boolean;
+    /**
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
+     */
     excludePatterns?: string[];
+    /**
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
+     */
     includePatterns?: string[];
+    /**
+     * Trigger on this list of repo keys.
+     */
     repoKeys: string[];
 }
 
 export interface ArtifactWebhookHandler {
+    /**
+     * Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
+     */
     customHttpHeaders?: {[key: string]: string};
+    /**
+     * Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+     */
     proxy?: string;
+    /**
+     * Secret authentication token that will be sent to the configured URL. The value will be sent as `x-jfrog-event-auth` header.
+     */
     secret?: string;
+    /**
+     * Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+     */
     url: string;
 }
 
 export interface ArtifactoryReleaseBundleWebhookCriteria {
+    /**
+     * Trigger on any release bundle
+     */
     anyReleaseBundle: boolean;
+    /**
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`
+     */
     excludePatterns?: string[];
+    /**
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`
+     */
     includePatterns?: string[];
+    /**
+     * Trigger on this list of release bundle names
+     */
     registeredReleaseBundleNames: string[];
 }
 
 export interface ArtifactoryReleaseBundleWebhookHandler {
+    /**
+     * Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
+     */
     customHttpHeaders?: {[key: string]: string};
+    /**
+     * Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+     */
     proxy?: string;
+    /**
+     * Secret authentication token that will be sent to the configured URL. The value will be sent as `x-jfrog-event-auth` header.
+     */
     secret?: string;
+    /**
+     * Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+     */
     url: string;
 }
 
 export interface BuildWebhookCriteria {
+    /**
+     * Trigger on any build.
+     */
     anyBuild: boolean;
+    /**
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
+     */
     excludePatterns?: string[];
+    /**
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
+     */
     includePatterns?: string[];
+    /**
+     * Trigger on this list of build names.
+     */
     selectedBuilds: string[];
 }
 
 export interface BuildWebhookHandler {
+    /**
+     * Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
+     */
     customHttpHeaders?: {[key: string]: string};
+    /**
+     * Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+     */
     proxy?: string;
+    /**
+     * Secret authentication token that will be sent to the configured URL. The value will be sent as `x-jfrog-event-auth` header.
+     */
     secret?: string;
+    /**
+     * Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+     */
     url: string;
 }
 
 export interface DistributionWebhookCriteria {
+    /**
+     * Trigger on any release bundle.
+     */
     anyReleaseBundle: boolean;
+    /**
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
+     */
     excludePatterns?: string[];
+    /**
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
+     */
     includePatterns?: string[];
+    /**
+     * Trigger on this list of release bundle names.
+     */
     registeredReleaseBundleNames: string[];
 }
 
 export interface DistributionWebhookHandler {
+    /**
+     * Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
+     */
     customHttpHeaders?: {[key: string]: string};
+    /**
+     * Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+     */
     proxy?: string;
+    /**
+     * Secret authentication token that will be sent to the configured URL. The value will be sent as `x-jfrog-event-auth` header.
+     */
     secret?: string;
+    /**
+     * Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+     */
     url: string;
 }
 
 export interface DockerWebhookCriteria {
+    /**
+     * Trigger on any local repo.
+     */
     anyLocal: boolean;
+    /**
+     * Trigger on any remote repo.
+     */
     anyRemote: boolean;
+    /**
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
+     */
     excludePatterns?: string[];
+    /**
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
+     */
     includePatterns?: string[];
+    /**
+     * Trigger on this list of repo keys.
+     */
     repoKeys: string[];
 }
 
 export interface DockerWebhookHandler {
+    /**
+     * Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
+     */
     customHttpHeaders?: {[key: string]: string};
+    /**
+     * Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+     */
     proxy?: string;
+    /**
+     * Secret authentication token that will be sent to the configured URL. The value will be sent as `x-jfrog-event-auth` header.
+     */
     secret?: string;
+    /**
+     * Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+     */
     url: string;
 }
 
 export interface FederatedAlpineRepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
     enabled: boolean;
+    /**
+     * Full URL to ending with the repository name.
+     */
     url: string;
 }
 
 export interface FederatedBowerRepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
     enabled: boolean;
+    /**
+     * Full URL to ending with the repository name.
+     */
     url: string;
 }
 
 export interface FederatedCargoRepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
     enabled: boolean;
+    /**
+     * Full URL to ending with the repository name.
+     */
     url: string;
 }
 
 export interface FederatedChefRepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
     enabled: boolean;
+    /**
+     * Full URL to ending with the repository name.
+     */
     url: string;
 }
 
 export interface FederatedCocoapodsRepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
     enabled: boolean;
+    /**
+     * Full URL to ending with the repository name.
+     */
     url: string;
 }
 
 export interface FederatedComposerRepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
     enabled: boolean;
+    /**
+     * Full URL to ending with the repository name.
+     */
     url: string;
 }
 
 export interface FederatedConanRepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
     enabled: boolean;
+    /**
+     * Full URL to ending with the repository name.
+     */
     url: string;
 }
 
 export interface FederatedCondaRepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
     enabled: boolean;
+    /**
+     * Full URL to ending with the repository name.
+     */
     url: string;
 }
 
 export interface FederatedCranRepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
     enabled: boolean;
+    /**
+     * Full URL to ending with the repository name.
+     */
     url: string;
 }
 
 export interface FederatedDebianRepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
     enabled: boolean;
+    /**
+     * Full URL to ending with the repository name.
+     */
     url: string;
 }
 
 export interface FederatedDockerRepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
     enabled: boolean;
+    /**
+     * Full URL to ending with the repository name.
+     */
     url: string;
 }
 
 export interface FederatedDockerV1RepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
     enabled: boolean;
+    /**
+     * Full URL to ending with the repository name.
+     */
     url: string;
 }
 
 export interface FederatedDockerV2RepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
     enabled: boolean;
+    /**
+     * Full URL to ending with the repository name.
+     */
     url: string;
 }
 
 export interface FederatedGemsRepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
     enabled: boolean;
+    /**
+     * Full URL to ending with the repository name.
+     */
     url: string;
 }
 
 export interface FederatedGenericRepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
     enabled: boolean;
+    /**
+     * Full URL to ending with the repository name.
+     */
     url: string;
 }
 
 export interface FederatedGitltfsRepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
     enabled: boolean;
+    /**
+     * Full URL to ending with the repository name.
+     */
     url: string;
 }
 
 export interface FederatedGoRepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
     enabled: boolean;
+    /**
+     * Full URL to ending with the repository name.
+     */
     url: string;
 }
 
 export interface FederatedGradleRepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
     enabled: boolean;
+    /**
+     * Full URL to ending with the repository name.
+     */
     url: string;
 }
 
 export interface FederatedHelmRepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
     enabled: boolean;
+    /**
+     * Full URL to ending with the repository name.
+     */
     url: string;
 }
 
 export interface FederatedIvyRepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
     enabled: boolean;
+    /**
+     * Full URL to ending with the repository name.
+     */
     url: string;
 }
 
 export interface FederatedMavenRepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
     enabled: boolean;
+    /**
+     * Full URL to ending with the repository name.
+     */
     url: string;
 }
 
 export interface FederatedNpmRepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
     enabled: boolean;
+    /**
+     * Full URL to ending with the repository name.
+     */
     url: string;
 }
 
 export interface FederatedNugetRepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
     enabled: boolean;
+    /**
+     * Full URL to ending with the repository name.
+     */
     url: string;
 }
 
 export interface FederatedOpkgRepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
     enabled: boolean;
+    /**
+     * Full URL to ending with the repository name.
+     */
     url: string;
 }
 
 export interface FederatedPuppetRepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
     enabled: boolean;
+    /**
+     * Full URL to ending with the repository name.
+     */
     url: string;
 }
 
 export interface FederatedPypiRepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
     enabled: boolean;
+    /**
+     * Full URL to ending with the repository name.
+     */
     url: string;
 }
 
 export interface FederatedRpmRepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
     enabled: boolean;
+    /**
+     * Full URL to ending with the repository name.
+     */
     url: string;
 }
 
 export interface FederatedSbtRepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
     enabled: boolean;
+    /**
+     * Full URL to ending with the repository name.
+     */
     url: string;
 }
 
 export interface FederatedSwiftRepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
     enabled: boolean;
+    /**
+     * Full URL to ending with the repository name.
+     */
     url: string;
 }
 
 export interface FederatedTerraformModuleRepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
     enabled: boolean;
+    /**
+     * Full URL to ending with the repository name.
+     */
     url: string;
 }
 
 export interface FederatedTerraformProviderRepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
     enabled: boolean;
+    /**
+     * Full URL to ending with the repository name.
+     */
     url: string;
 }
 
 export interface FederatedVagrantRepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
     enabled: boolean;
+    /**
+     * Full URL to ending with the repository name.
+     */
     url: string;
 }
 
 export interface GetFederatedAlpineRepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
     enabled: boolean;
+    /**
+     * Full URL to ending with the repository name.
+     */
     url: string;
 }
 
 export interface GetFederatedBowerRepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
     enabled: boolean;
+    /**
+     * Full URL to ending with the repository name.
+     */
     url: string;
 }
 
 export interface GetFederatedCargoRepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
     enabled: boolean;
+    /**
+     * Full URL to ending with the repository name.
+     */
     url: string;
 }
 
 export interface GetFederatedChefRepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
     enabled: boolean;
+    /**
+     * Full URL to ending with the repository name.
+     */
     url: string;
 }
 
 export interface GetFederatedCocoapodsRepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
     enabled: boolean;
+    /**
+     * Full URL to ending with the repository name.
+     */
     url: string;
 }
 
 export interface GetFederatedComposerRepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
     enabled: boolean;
+    /**
+     * Full URL to ending with the repository name.
+     */
     url: string;
 }
 
 export interface GetFederatedConanRepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
     enabled: boolean;
+    /**
+     * Full URL to ending with the repository name.
+     */
     url: string;
 }
 
 export interface GetFederatedCondaRepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
     enabled: boolean;
+    /**
+     * Full URL to ending with the repository name.
+     */
     url: string;
 }
 
 export interface GetFederatedCranRepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
     enabled: boolean;
+    /**
+     * Full URL to ending with the repository name.
+     */
     url: string;
 }
 
 export interface GetFederatedDebianRepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
     enabled: boolean;
+    /**
+     * Full URL to ending with the repository name.
+     */
     url: string;
 }
 
@@ -312,172 +759,388 @@ export interface GetFederatedDockerRepositoryMember {
 }
 
 export interface GetFederatedDockerV1RepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
     enabled: boolean;
+    /**
+     * Full URL to ending with the repository name.
+     */
     url: string;
 }
 
 export interface GetFederatedDockerV2RepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
     enabled: boolean;
+    /**
+     * Full URL to ending with the repository name.
+     */
     url: string;
 }
 
 export interface GetFederatedGemsRepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
     enabled: boolean;
+    /**
+     * Full URL to ending with the repository name.
+     */
     url: string;
 }
 
 export interface GetFederatedGenericRepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
     enabled: boolean;
+    /**
+     * Full URL to ending with the repository name.
+     */
     url: string;
 }
 
 export interface GetFederatedGitlfsRepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
     enabled: boolean;
+    /**
+     * Full URL to ending with the repository name.
+     */
     url: string;
 }
 
 export interface GetFederatedGoRepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
     enabled: boolean;
+    /**
+     * Full URL to ending with the repository name.
+     */
     url: string;
 }
 
 export interface GetFederatedGradleRepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
     enabled: boolean;
+    /**
+     * Full URL to ending with the repository name.
+     */
     url: string;
 }
 
 export interface GetFederatedHelmRepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
     enabled: boolean;
+    /**
+     * Full URL to ending with the repository name.
+     */
     url: string;
 }
 
 export interface GetFederatedIvyRepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
     enabled: boolean;
+    /**
+     * Full URL to ending with the repository name.
+     */
     url: string;
 }
 
 export interface GetFederatedMavenRepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
     enabled: boolean;
+    /**
+     * Full URL to ending with the repository name.
+     */
     url: string;
 }
 
 export interface GetFederatedNpmRepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
     enabled: boolean;
+    /**
+     * Full URL to ending with the repository name.
+     */
     url: string;
 }
 
 export interface GetFederatedNugetRepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
     enabled: boolean;
+    /**
+     * Full URL to ending with the repository name.
+     */
     url: string;
 }
 
 export interface GetFederatedOpkgRepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
     enabled: boolean;
+    /**
+     * Full URL to ending with the repository name.
+     */
     url: string;
 }
 
 export interface GetFederatedPuppetRepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
     enabled: boolean;
+    /**
+     * Full URL to ending with the repository name.
+     */
     url: string;
 }
 
 export interface GetFederatedPypiRepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
     enabled: boolean;
+    /**
+     * Full URL to ending with the repository name.
+     */
     url: string;
 }
 
 export interface GetFederatedRpmRepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
     enabled: boolean;
+    /**
+     * Full URL to ending with the repository name.
+     */
     url: string;
 }
 
 export interface GetFederatedSbtRepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
     enabled: boolean;
+    /**
+     * Full URL to ending with the repository name.
+     */
     url: string;
 }
 
 export interface GetFederatedSwiftRepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
     enabled: boolean;
+    /**
+     * Full URL to ending with the repository name.
+     */
     url: string;
 }
 
 export interface GetFederatedTerraformModuleRepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
     enabled: boolean;
+    /**
+     * Full URL to ending with the repository name.
+     */
     url: string;
 }
 
 export interface GetFederatedTerraformProviderRepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
     enabled: boolean;
+    /**
+     * Full URL to ending with the repository name.
+     */
     url: string;
 }
 
 export interface GetFederatedVagrantRepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
     enabled: boolean;
+    /**
+     * Full URL to ending with the repository name.
+     */
     url: string;
 }
 
 export interface GetPermissionTargetBuild {
     actions?: outputs.GetPermissionTargetBuildActions;
+    /**
+     * Pattern of artifacts to exclude.
+     */
     excludesPatterns?: string[];
+    /**
+     * Pattern of artifacts to include.
+     */
     includesPatterns?: string[];
+    /**
+     * List of repositories this permission target is applicable for. You can specify the
+     * name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote
+     * repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
+     */
     repositories: string[];
 }
 
 export interface GetPermissionTargetBuildActions {
+    /**
+     * Groups this permission applies for.
+     */
     groups?: outputs.GetPermissionTargetBuildActionsGroup[];
+    /**
+     * Users this permission target applies for.
+     */
     users?: outputs.GetPermissionTargetBuildActionsUser[];
 }
 
 export interface GetPermissionTargetBuildActionsGroup {
+    /**
+     * Name of the permission target.
+     */
     name: string;
     permissions: string[];
 }
 
 export interface GetPermissionTargetBuildActionsUser {
+    /**
+     * Name of the permission target.
+     */
     name: string;
     permissions: string[];
 }
 
 export interface GetPermissionTargetReleaseBundle {
     actions?: outputs.GetPermissionTargetReleaseBundleActions;
+    /**
+     * Pattern of artifacts to exclude.
+     */
     excludesPatterns?: string[];
+    /**
+     * Pattern of artifacts to include.
+     */
     includesPatterns?: string[];
+    /**
+     * List of repositories this permission target is applicable for. You can specify the
+     * name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote
+     * repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
+     */
     repositories: string[];
 }
 
 export interface GetPermissionTargetReleaseBundleActions {
+    /**
+     * Groups this permission applies for.
+     */
     groups?: outputs.GetPermissionTargetReleaseBundleActionsGroup[];
+    /**
+     * Users this permission target applies for.
+     */
     users?: outputs.GetPermissionTargetReleaseBundleActionsUser[];
 }
 
 export interface GetPermissionTargetReleaseBundleActionsGroup {
+    /**
+     * Name of the permission target.
+     */
     name: string;
     permissions: string[];
 }
 
 export interface GetPermissionTargetReleaseBundleActionsUser {
+    /**
+     * Name of the permission target.
+     */
     name: string;
     permissions: string[];
 }
 
 export interface GetPermissionTargetRepo {
     actions?: outputs.GetPermissionTargetRepoActions;
+    /**
+     * Pattern of artifacts to exclude.
+     */
     excludesPatterns?: string[];
+    /**
+     * Pattern of artifacts to include.
+     */
     includesPatterns?: string[];
+    /**
+     * List of repositories this permission target is applicable for. You can specify the
+     * name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote
+     * repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
+     */
     repositories: string[];
 }
 
 export interface GetPermissionTargetRepoActions {
+    /**
+     * Groups this permission applies for.
+     */
     groups?: outputs.GetPermissionTargetRepoActionsGroup[];
+    /**
+     * Users this permission target applies for.
+     */
     users?: outputs.GetPermissionTargetRepoActionsUser[];
 }
 
 export interface GetPermissionTargetRepoActionsGroup {
+    /**
+     * Name of the permission target.
+     */
     name: string;
     permissions: string[];
 }
 
 export interface GetPermissionTargetRepoActionsUser {
+    /**
+     * Name of the permission target.
+     */
     name: string;
     permissions: string[];
 }
@@ -700,135 +1363,338 @@ export interface GetRemoteVcsRepositoryContentSynchronisation {
 }
 
 export interface LocalRepositoryMultiReplicationReplication {
+    /**
+     * Enabling the `checkBinaryExistenceInFilestore` flag requires an Enterprise Plus license. When true, enables distributed checksum storage. For more information, see [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
+     */
     checkBinaryExistenceInFilestore?: boolean;
+    /**
+     * When set, enables replication of this repository to the target specified in `url` attribute. Default value is `true`.
+     */
     enabled?: boolean;
+    /**
+     * List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`. By default, no artifacts are excluded.
+     */
     excludePathPrefixPattern?: string;
+    /**
+     * List of artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included `(**&#47;*)`.
+     */
     includePathPrefixPattern?: string;
+    /**
+     * Use either the HTTP authentication password or [identity token](https://www.jfrog.com/confluence/display/JFROG/User+Profile#UserProfile-IdentityTokenidentitytoken).
+     */
     password?: string;
+    /**
+     * Proxy key from Artifactory Proxies settings. The proxy configuration will be used when communicating with the remote instance.
+     */
     proxy?: string;
+    /**
+     * Replication ID, the value is unknown until the resource is created. Can't be set or updated.
+     */
     replicationKey: string;
+    /**
+     * The network timeout in milliseconds to use for remote operations. Default value is `15000`.
+     */
     socketTimeoutMillis?: number;
+    /**
+     * When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata). Note that enabling this option, will delete artifacts on the target that do not exist in the source repository. Default value is `false`.
+     */
     syncDeletes?: boolean;
+    /**
+     * When set, the task also synchronizes the properties of replicated artifacts. Default value is `true`.
+     */
     syncProperties?: boolean;
+    /**
+     * When set, the task also synchronizes artifact download statistics. Set to avoid inadvertent cleanup at the target instance when setting up replication for disaster recovery. Default value is `false`
+     */
     syncStatistics?: boolean;
+    /**
+     * The URL of the target local repository on a remote Artifactory server. Use the format `https://<artifactory_url>/artifactory/<repository_name>`.
+     */
     url: string;
+    /**
+     * Username on the remote Artifactory instance.
+     */
     username: string;
 }
 
 export interface OauthSettingsOauthProvider {
+    /**
+     * OAuth user info endpoint for the IdP.
+     */
     apiUrl: string;
+    /**
+     * OAuth authorization endpoint for the IdP.
+     */
     authUrl: string;
+    /**
+     * OAuth client ID configured on the IdP.
+     */
     clientId: string;
+    /**
+     * OAuth client secret configured on the IdP.
+     */
     clientSecret: string;
+    /**
+     * Enable the Artifactory OAuth provider.  Default value is `true`.
+     */
     enabled?: boolean;
+    /**
+     * Name of the Artifactory OAuth provider.
+     */
     name: string;
+    /**
+     * OAuth token endpoint for the IdP.
+     */
     tokenUrl: string;
+    /**
+     * Type of OAuth provider. (e.g., `github`, `google`, `cloudfoundry`, or `openId`)
+     */
     type: string;
 }
 
 export interface PermissionTargetBuild {
     actions?: outputs.PermissionTargetBuildActions;
+    /**
+     * Pattern of artifacts to exclude.
+     */
     excludesPatterns: string[];
+    /**
+     * Pattern of artifacts to include.
+     */
     includesPatterns: string[];
+    /**
+     * List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
+     */
     repositories: string[];
 }
 
 export interface PermissionTargetBuildActions {
+    /**
+     * Groups this permission applies for.
+     */
     groups?: outputs.PermissionTargetBuildActionsGroup[];
+    /**
+     * Users this permission target applies for.
+     */
     users?: outputs.PermissionTargetBuildActionsUser[];
 }
 
 export interface PermissionTargetBuildActionsGroup {
+    /**
+     * Name of permission.
+     */
     name: string;
     permissions: string[];
 }
 
 export interface PermissionTargetBuildActionsUser {
+    /**
+     * Name of permission.
+     */
     name: string;
     permissions: string[];
 }
 
 export interface PermissionTargetReleaseBundle {
     actions?: outputs.PermissionTargetReleaseBundleActions;
+    /**
+     * Pattern of artifacts to exclude.
+     */
     excludesPatterns: string[];
+    /**
+     * Pattern of artifacts to include.
+     */
     includesPatterns: string[];
+    /**
+     * List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
+     */
     repositories: string[];
 }
 
 export interface PermissionTargetReleaseBundleActions {
+    /**
+     * Groups this permission applies for.
+     */
     groups?: outputs.PermissionTargetReleaseBundleActionsGroup[];
+    /**
+     * Users this permission target applies for.
+     */
     users?: outputs.PermissionTargetReleaseBundleActionsUser[];
 }
 
 export interface PermissionTargetReleaseBundleActionsGroup {
+    /**
+     * Name of permission.
+     */
     name: string;
     permissions: string[];
 }
 
 export interface PermissionTargetReleaseBundleActionsUser {
+    /**
+     * Name of permission.
+     */
     name: string;
     permissions: string[];
 }
 
 export interface PermissionTargetRepo {
     actions?: outputs.PermissionTargetRepoActions;
+    /**
+     * Pattern of artifacts to exclude.
+     */
     excludesPatterns: string[];
+    /**
+     * Pattern of artifacts to include.
+     */
     includesPatterns: string[];
+    /**
+     * List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
+     */
     repositories: string[];
 }
 
 export interface PermissionTargetRepoActions {
+    /**
+     * Groups this permission applies for.
+     */
     groups?: outputs.PermissionTargetRepoActionsGroup[];
+    /**
+     * Users this permission target applies for.
+     */
     users?: outputs.PermissionTargetRepoActionsUser[];
 }
 
 export interface PermissionTargetRepoActionsGroup {
+    /**
+     * Name of permission.
+     */
     name: string;
     permissions: string[];
 }
 
 export interface PermissionTargetRepoActionsUser {
+    /**
+     * Name of permission.
+     */
     name: string;
     permissions: string[];
 }
 
 export interface PropertySetProperty {
+    /**
+     * Disables `multipleChoice` if set to `false` at the same time with multipleChoice set to `true`. Default value is `false`
+     */
     closedPredefinedValues?: boolean;
+    /**
+     * Defines if user can select multiple values. `closedPredefinedValues` should be set to `true`. Default value is `false`.
+     */
     multipleChoice?: boolean;
+    /**
+     * Predefined property name.
+     */
     name: string;
+    /**
+     * Properties in the property set.
+     */
     predefinedValues: outputs.PropertySetPropertyPredefinedValue[];
 }
 
 export interface PropertySetPropertyPredefinedValue {
+    /**
+     * Whether the value is selected by default in the UI.
+     */
     defaultValue: boolean;
+    /**
+     * Predefined property name.
+     */
     name: string;
 }
 
 export interface PushReplicationReplication {
+    /**
+     * When true, enables distributed checksum storage. For more information, see
+     * [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
+     */
     checkBinaryExistenceInFilestore?: boolean;
+    /**
+     * When set, this replication will be enabled when saved.
+     */
     enabled: boolean;
+    /**
+     * Required for local repository, but not needed for remote repository.
+     */
     password: string;
+    /**
+     * Only artifacts that located in path that matches the subpath within the remote repository will be replicated.
+     */
     pathPrefix?: string;
+    /**
+     * Proxy key from Artifactory Proxies settings. The proxy configuration will be used when communicating with the remote instance.
+     */
     proxy?: string;
+    /**
+     * The network timeout in milliseconds to use for remote operations.
+     */
     socketTimeoutMillis: number;
+    /**
+     * When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata).
+     * Note that enabling this option, will delete artifacts on the target that do not exist in the source repository.
+     */
     syncDeletes: boolean;
+    /**
+     * When set, the task also synchronizes the properties of replicated artifacts.
+     */
     syncProperties: boolean;
+    /**
+     * When set, artifact download statistics will also be replicated. Set to avoid inadvertent cleanup at the target instance when setting up replication for disaster recovery.
+     */
     syncStatistics: boolean;
+    /**
+     * The URL of the target local repository on a remote Artifactory server. Required for local repository, but not needed for remote repository.
+     */
     url: string;
+    /**
+     * Required for local repository, but not needed for remote repository.
+     */
     username: string;
 }
 
 export interface ReleaseBundleWebhookCriteria {
+    /**
+     * Trigger on any release bundle.
+     */
     anyReleaseBundle: boolean;
+    /**
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: "org/apache/**".
+     */
     excludePatterns?: string[];
+    /**
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: "org/apache/**".
+     */
     includePatterns?: string[];
+    /**
+     * Trigger on this list of release bundle names.
+     */
     registeredReleaseBundleNames: string[];
 }
 
 export interface ReleaseBundleWebhookHandler {
+    /**
+     * Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
+     */
     customHttpHeaders?: {[key: string]: string};
+    /**
+     * Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+     */
     proxy?: string;
+    /**
+     * Secret authentication token that will be sent to the configured URL. The value will be sent as `x-jfrog-event-auth` header.
+     */
     secret?: string;
+    /**
+     * Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+     */
     url: string;
 }
 
@@ -1051,8 +1917,14 @@ export interface RemoteVcsRepositoryContentSynchronisation {
 
 export interface ReplicationConfigReplication {
     enabled: boolean;
+    /**
+     * Requires password encryption to be turned off `POST /api/system/decrypt`.
+     */
     password: string;
     pathPrefix?: string;
+    /**
+     * Proxy key from Artifactory Proxies setting
+     */
     proxy?: string;
     socketTimeoutMillis: number;
     syncDeletes: boolean;

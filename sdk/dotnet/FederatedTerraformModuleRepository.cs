@@ -9,6 +9,48 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Artifactory
 {
+    /// <summary>
+    /// Creates a federated Generic repository.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Artifactory = Pulumi.Artifactory;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var terraform_federated_test_terraformModule_repo = new Artifactory.FederatedTerraformModuleRepository("terraform-federated-test-terraformModule-repo", new()
+    ///     {
+    ///         Key = "terraform-federated-test-terraform-module-repo",
+    ///         Members = new[]
+    ///         {
+    ///             new Artifactory.Inputs.FederatedTerraformModuleRepositoryMemberArgs
+    ///             {
+    ///                 Enabled = true,
+    ///                 Url = "http://tempurl.org/artifactory/terraform-federated-test-terraform_module-repo",
+    ///             },
+    ///             new Artifactory.Inputs.FederatedTerraformModuleRepositoryMemberArgs
+    ///             {
+    ///                 Enabled = true,
+    ///                 Url = "http://tempurl2.org/artifactory/terraform-federated-test-terraform_module-repo-2",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Federated repositories can be imported using their name, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import artifactory:index/federatedTerraformModuleRepository:FederatedTerraformModuleRepository terraform-federated-test-terraform_module-repo terraform-federated-test-terraform-module-repo
+    /// ```
+    /// </summary>
     [ArtifactoryResourceType("artifactory:index/federatedTerraformModuleRepository:FederatedTerraformModuleRepository")]
     public partial class FederatedTerraformModuleRepository : global::Pulumi.CustomResource
     {
@@ -68,17 +110,15 @@ namespace Pulumi.Artifactory
         public Output<string> IncludesPattern { get; private set; } = null!;
 
         /// <summary>
-        /// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-        /// characters. It cannot begin with a number or contain spaces or special characters.
+        /// the identity key of the repo.
         /// </summary>
         [Output("key")]
         public Output<string> Key { get; private set; } = null!;
 
         /// <summary>
-        /// The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
-        /// will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
-        /// federated members will need to have a base URL set. Please follow the
-        /// [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+        /// The list of Federated members and must contain this repository URL (configured base URL
+        /// `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+        /// Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
         /// to set up Federated repositories correctly.
         /// </summary>
         [Output("members")]
@@ -236,8 +276,7 @@ namespace Pulumi.Artifactory
         public Input<string>? IncludesPattern { get; set; }
 
         /// <summary>
-        /// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-        /// characters. It cannot begin with a number or contain spaces or special characters.
+        /// the identity key of the repo.
         /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -246,10 +285,9 @@ namespace Pulumi.Artifactory
         private InputList<Inputs.FederatedTerraformModuleRepositoryMemberArgs>? _members;
 
         /// <summary>
-        /// The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
-        /// will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
-        /// federated members will need to have a base URL set. Please follow the
-        /// [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+        /// The list of Federated members and must contain this repository URL (configured base URL
+        /// `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+        /// Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
         /// to set up Federated repositories correctly.
         /// </summary>
         public InputList<Inputs.FederatedTerraformModuleRepositoryMemberArgs> Members
@@ -381,8 +419,7 @@ namespace Pulumi.Artifactory
         public Input<string>? IncludesPattern { get; set; }
 
         /// <summary>
-        /// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-        /// characters. It cannot begin with a number or contain spaces or special characters.
+        /// the identity key of the repo.
         /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
@@ -391,10 +428,9 @@ namespace Pulumi.Artifactory
         private InputList<Inputs.FederatedTerraformModuleRepositoryMemberGetArgs>? _members;
 
         /// <summary>
-        /// The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
-        /// will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
-        /// federated members will need to have a base URL set. Please follow the
-        /// [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+        /// The list of Federated members and must contain this repository URL (configured base URL
+        /// `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+        /// Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
         /// to set up Federated repositories correctly.
         /// </summary>
         public InputList<Inputs.FederatedTerraformModuleRepositoryMemberGetArgs> Members

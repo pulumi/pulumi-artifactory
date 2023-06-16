@@ -59,7 +59,32 @@ class GeneralSecurity(pulumi.CustomResource):
                  enable_anonymous_access: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        Create a GeneralSecurity resource with the given unique name, props, and options.
+        This resource can be used to manage Artifactory's general security settings.
+
+        Only a single `GeneralSecurity` resource is meant to be defined.
+
+        ~>The `GeneralSecurity` resource utilizes endpoints which are blocked/removed in SaaS environments (i.e. in Artifactory online), rendering this resource incompatible with Artifactory SaaS environments.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        # Configure Artifactory general security settings
+        security = artifactory.GeneralSecurity("security", enable_anonymous_access=True)
+        ```
+
+        ## Import
+
+        Current general security settings can be imported using `security` as the `ID`, e.g.
+
+        ```sh
+         $ pulumi import artifactory:index/generalSecurity:GeneralSecurity security security
+        ```
+
+         ~>The `artifactory_general_security` resource uses endpoints that are undocumented and may not work with SaaS environments, or may change without notice.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
@@ -70,7 +95,32 @@ class GeneralSecurity(pulumi.CustomResource):
                  args: Optional[GeneralSecurityArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a GeneralSecurity resource with the given unique name, props, and options.
+        This resource can be used to manage Artifactory's general security settings.
+
+        Only a single `GeneralSecurity` resource is meant to be defined.
+
+        ~>The `GeneralSecurity` resource utilizes endpoints which are blocked/removed in SaaS environments (i.e. in Artifactory online), rendering this resource incompatible with Artifactory SaaS environments.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        # Configure Artifactory general security settings
+        security = artifactory.GeneralSecurity("security", enable_anonymous_access=True)
+        ```
+
+        ## Import
+
+        Current general security settings can be imported using `security` as the `ID`, e.g.
+
+        ```sh
+         $ pulumi import artifactory:index/generalSecurity:GeneralSecurity security security
+        ```
+
+         ~>The `artifactory_general_security` resource uses endpoints that are undocumented and may not work with SaaS environments, or may change without notice.
+
         :param str resource_name: The name of the resource.
         :param GeneralSecurityArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

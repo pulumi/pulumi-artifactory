@@ -30,6 +30,10 @@ public final class GetVirtualDockerRepositoryResult {
     private @Nullable String projectKey;
     private @Nullable String repoLayoutRef;
     private @Nullable List<String> repositories;
+    /**
+     * @return (Optional) When enabled, in cases where the same Docker tag exists in two or more of the aggregated repositories, Artifactory will return the tag that has the latest timestamp. Default values is `false`.
+     * 
+     */
     private @Nullable Boolean resolveDockerTagsByTimestamp;
 
     private GetVirtualDockerRepositoryResult() {}
@@ -76,6 +80,10 @@ public final class GetVirtualDockerRepositoryResult {
     public List<String> repositories() {
         return this.repositories == null ? List.of() : this.repositories;
     }
+    /**
+     * @return (Optional) When enabled, in cases where the same Docker tag exists in two or more of the aggregated repositories, Artifactory will return the tag that has the latest timestamp. Default values is `false`.
+     * 
+     */
     public Optional<Boolean> resolveDockerTagsByTimestamp() {
         return Optional.ofNullable(this.resolveDockerTagsByTimestamp);
     }

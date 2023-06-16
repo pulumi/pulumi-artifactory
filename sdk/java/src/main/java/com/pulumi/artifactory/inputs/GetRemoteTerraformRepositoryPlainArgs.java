@@ -116,9 +116,17 @@ public final class GetRemoteTerraformRepositoryPlainArgs extends com.pulumi.reso
         return Optional.ofNullable(this.includesPattern);
     }
 
+    /**
+     * the identity key of the repo.
+     * 
+     */
     @Import(name="key", required=true)
     private String key;
 
+    /**
+     * @return the identity key of the repo.
+     * 
+     */
     public String key() {
         return this.key;
     }
@@ -447,6 +455,12 @@ public final class GetRemoteTerraformRepositoryPlainArgs extends com.pulumi.reso
             return this;
         }
 
+        /**
+         * @param key the identity key of the repo.
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(String key) {
             $.key = key;
             return this;

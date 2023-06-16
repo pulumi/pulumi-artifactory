@@ -6,6 +6,47 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * This resource can be used to manage Artifactory's OAuth SSO settings.
+ *
+ * Only a single `artifactory.OauthSettings` resource is meant to be defined.
+ *
+ * ~>The `artifactory.OauthSettings` resource utilizes endpoints which are blocked/removed in SaaS environments (i.e. in Artifactory online), rendering this resource incompatible with Artifactory SaaS environments.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * // Configure Artifactory OAuth SSO settings
+ * const oauth = new artifactory.OauthSettings("oauth", {
+ *     allowUserToAccessProfile: true,
+ *     enable: true,
+ *     oauthProviders: [{
+ *         apiUrl: "https://organization.okta.com/oauth2/v1/userinfo",
+ *         authUrl: "https://organization.okta.com/oauth2/v1/authorize",
+ *         clientId: "foo",
+ *         clientSecret: "bar",
+ *         enabled: false,
+ *         name: "okta",
+ *         tokenUrl: "https://organization.okta.com/oauth2/v1/token",
+ *         type: "openId",
+ *     }],
+ *     persistUsers: true,
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * Current OAuth SSO settings can be imported using `oauth_settings` as the `ID`. If the resource is being imported, there will be a state drift, because `client_secret` can't be known. There are two options on how to approach this:
+ *
+ * 1) Don't set `client_secret` initially, import, then update the config with actual secret; 2) Accept that there is a drift initially and run `pulumi up` twice;
+ *
+ * ```sh
+ *  $ pulumi import artifactory:index/oauthSettings:OauthSettings oauth oauth_settings
+ * ```
+ */
 export class OauthSettings extends pulumi.CustomResource {
     /**
      * Get an existing OauthSettings resource's state with the given name, ID, and optional extra
@@ -34,9 +75,21 @@ export class OauthSettings extends pulumi.CustomResource {
         return obj['__pulumiType'] === OauthSettings.__pulumiType;
     }
 
+    /**
+     * Allow persisted users to access their profile.  Default value is `false`.
+     */
     public readonly allowUserToAccessProfile!: pulumi.Output<boolean | undefined>;
+    /**
+     * Enable OAuth SSO.  Default value is `true`.
+     */
     public readonly enable!: pulumi.Output<boolean | undefined>;
+    /**
+     * OAuth provider settings block. Multiple blocks can be defined, at least one is required.
+     */
     public readonly oauthProviders!: pulumi.Output<outputs.OauthSettingsOauthProvider[]>;
+    /**
+     * Enable the creation of local Artifactory users.  Default value is `false`.
+     */
     public readonly persistUsers!: pulumi.Output<boolean | undefined>;
 
     /**
@@ -75,9 +128,21 @@ export class OauthSettings extends pulumi.CustomResource {
  * Input properties used for looking up and filtering OauthSettings resources.
  */
 export interface OauthSettingsState {
+    /**
+     * Allow persisted users to access their profile.  Default value is `false`.
+     */
     allowUserToAccessProfile?: pulumi.Input<boolean>;
+    /**
+     * Enable OAuth SSO.  Default value is `true`.
+     */
     enable?: pulumi.Input<boolean>;
+    /**
+     * OAuth provider settings block. Multiple blocks can be defined, at least one is required.
+     */
     oauthProviders?: pulumi.Input<pulumi.Input<inputs.OauthSettingsOauthProvider>[]>;
+    /**
+     * Enable the creation of local Artifactory users.  Default value is `false`.
+     */
     persistUsers?: pulumi.Input<boolean>;
 }
 
@@ -85,8 +150,20 @@ export interface OauthSettingsState {
  * The set of arguments for constructing a OauthSettings resource.
  */
 export interface OauthSettingsArgs {
+    /**
+     * Allow persisted users to access their profile.  Default value is `false`.
+     */
     allowUserToAccessProfile?: pulumi.Input<boolean>;
+    /**
+     * Enable OAuth SSO.  Default value is `true`.
+     */
     enable?: pulumi.Input<boolean>;
+    /**
+     * OAuth provider settings block. Multiple blocks can be defined, at least one is required.
+     */
     oauthProviders: pulumi.Input<pulumi.Input<inputs.OauthSettingsOauthProvider>[]>;
+    /**
+     * Enable the creation of local Artifactory users.  Default value is `false`.
+     */
     persistUsers?: pulumi.Input<boolean>;
 }

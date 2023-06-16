@@ -165,7 +165,19 @@ def get_virtual_gems_repository(artifactory_requests_can_retrieve_remote_artifac
                                 repositories: Optional[Sequence[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualGemsRepositoryResult:
     """
-    Use this data source to access information about an existing resource.
+    Retrieves a virtual Gems repository.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_artifactory as artifactory
+
+    virtual_gems = artifactory.get_virtual_gems_repository(key="virtual-gems")
+    ```
+
+
+    :param str key: the identity key of the repo.
     """
     __args__ = dict()
     __args__['artifactoryRequestsCanRetrieveRemoteArtifacts'] = artifactory_requests_can_retrieve_remote_artifacts
@@ -212,6 +224,18 @@ def get_virtual_gems_repository_output(artifactory_requests_can_retrieve_remote_
                                        repositories: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualGemsRepositoryResult]:
     """
-    Use this data source to access information about an existing resource.
+    Retrieves a virtual Gems repository.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_artifactory as artifactory
+
+    virtual_gems = artifactory.get_virtual_gems_repository(key="virtual-gems")
+    ```
+
+
+    :param str key: the identity key of the repo.
     """
     ...

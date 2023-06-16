@@ -11,9 +11,59 @@ namespace Pulumi.Artifactory
 {
     public static class GetFederatedIvyRepository
     {
+        /// <summary>
+        /// Retrieves a federated Ivy repository.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var federated_test_ivy_repo = Artifactory.GetFederatedIvyRepository.Invoke(new()
+        ///     {
+        ///         Key = "federated-test-ivy-repo",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetFederatedIvyRepositoryResult> InvokeAsync(GetFederatedIvyRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFederatedIvyRepositoryResult>("artifactory:index/getFederatedIvyRepository:getFederatedIvyRepository", args ?? new GetFederatedIvyRepositoryArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Retrieves a federated Ivy repository.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var federated_test_ivy_repo = Artifactory.GetFederatedIvyRepository.Invoke(new()
+        ///     {
+        ///         Key = "federated-test-ivy-repo",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetFederatedIvyRepositoryResult> Invoke(GetFederatedIvyRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFederatedIvyRepositoryResult>("artifactory:index/getFederatedIvyRepository:getFederatedIvyRepository", args ?? new GetFederatedIvyRepositoryInvokeArgs(), options.WithDefaults());
     }
@@ -54,6 +104,9 @@ namespace Pulumi.Artifactory
         [Input("includesPattern")]
         public string? IncludesPattern { get; set; }
 
+        /// <summary>
+        /// the identity key of the repo.
+        /// </summary>
         [Input("key", required: true)]
         public string Key { get; set; } = null!;
 
@@ -62,6 +115,13 @@ namespace Pulumi.Artifactory
 
         [Input("members")]
         private List<Inputs.GetFederatedIvyRepositoryMemberArgs>? _members;
+
+        /// <summary>
+        /// The list of Federated members and must contain this repository URL (configured base URL
+        /// `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+        /// Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+        /// to set up Federated repositories correctly.
+        /// </summary>
         public List<Inputs.GetFederatedIvyRepositoryMemberArgs> Members
         {
             get => _members ?? (_members = new List<Inputs.GetFederatedIvyRepositoryMemberArgs>());
@@ -146,6 +206,9 @@ namespace Pulumi.Artifactory
         [Input("includesPattern")]
         public Input<string>? IncludesPattern { get; set; }
 
+        /// <summary>
+        /// the identity key of the repo.
+        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
@@ -154,6 +217,13 @@ namespace Pulumi.Artifactory
 
         [Input("members")]
         private InputList<Inputs.GetFederatedIvyRepositoryMemberInputArgs>? _members;
+
+        /// <summary>
+        /// The list of Federated members and must contain this repository URL (configured base URL
+        /// `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+        /// Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+        /// to set up Federated repositories correctly.
+        /// </summary>
         public InputList<Inputs.GetFederatedIvyRepositoryMemberInputArgs> Members
         {
             get => _members ?? (_members = new InputList<Inputs.GetFederatedIvyRepositoryMemberInputArgs>());
@@ -224,6 +294,12 @@ namespace Pulumi.Artifactory
         public readonly string IncludesPattern;
         public readonly string Key;
         public readonly int? MaxUniqueSnapshots;
+        /// <summary>
+        /// The list of Federated members and must contain this repository URL (configured base URL
+        /// `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+        /// Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+        /// to set up Federated repositories correctly.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetFederatedIvyRepositoryMemberResult> Members;
         public readonly string? Notes;
         public readonly string PackageType;

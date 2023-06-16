@@ -13,29 +13,69 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetUserResult {
+    /**
+     * @return When enabled, this user is an administrator with all the ensuing privileges. Default value is `false`.
+     * 
+     */
     private @Nullable Boolean admin;
+    /**
+     * @return When set, this user can only access Artifactory through the REST API. This option cannot be set if the user has Admin privileges. Default value is `true`.
+     * 
+     */
     private @Nullable Boolean disableUiAccess;
+    /**
+     * @return Email for user.
+     * 
+     */
     private @Nullable String email;
+    /**
+     * @return List of groups this user is a part of.
+     * 
+     */
     private @Nullable List<String> groups;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
+    /**
+     * @return When set, disables the fallback of using an internal password when external authentication (such as LDAP) is enabled.
+     * 
+     */
     private @Nullable Boolean internalPasswordDisabled;
     private String name;
+    /**
+     * @return When set, this user can update his profile details (except for the password. Only an administrator can update the password). Default value is `true`.
+     * 
+     */
     private @Nullable Boolean profileUpdatable;
 
     private GetUserResult() {}
+    /**
+     * @return When enabled, this user is an administrator with all the ensuing privileges. Default value is `false`.
+     * 
+     */
     public Optional<Boolean> admin() {
         return Optional.ofNullable(this.admin);
     }
+    /**
+     * @return When set, this user can only access Artifactory through the REST API. This option cannot be set if the user has Admin privileges. Default value is `true`.
+     * 
+     */
     public Optional<Boolean> disableUiAccess() {
         return Optional.ofNullable(this.disableUiAccess);
     }
+    /**
+     * @return Email for user.
+     * 
+     */
     public Optional<String> email() {
         return Optional.ofNullable(this.email);
     }
+    /**
+     * @return List of groups this user is a part of.
+     * 
+     */
     public List<String> groups() {
         return this.groups == null ? List.of() : this.groups;
     }
@@ -46,12 +86,20 @@ public final class GetUserResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return When set, disables the fallback of using an internal password when external authentication (such as LDAP) is enabled.
+     * 
+     */
     public Optional<Boolean> internalPasswordDisabled() {
         return Optional.ofNullable(this.internalPasswordDisabled);
     }
     public String name() {
         return this.name;
     }
+    /**
+     * @return When set, this user can update his profile details (except for the password. Only an administrator can update the password). Default value is `true`.
+     * 
+     */
     public Optional<Boolean> profileUpdatable() {
         return Optional.ofNullable(this.profileUpdatable);
     }

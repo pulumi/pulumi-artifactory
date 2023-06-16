@@ -9,6 +9,42 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Artifactory
 {
+    /// <summary>
+    /// This resource can be used to manage Artifactory's general security settings.
+    /// 
+    /// Only a single `artifactory.GeneralSecurity` resource is meant to be defined.
+    /// 
+    /// ~&gt;The `artifactory.GeneralSecurity` resource utilizes endpoints which are blocked/removed in SaaS environments (i.e. in Artifactory online), rendering this resource incompatible with Artifactory SaaS environments.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Artifactory = Pulumi.Artifactory;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     // Configure Artifactory general security settings
+    ///     var security = new Artifactory.GeneralSecurity("security", new()
+    ///     {
+    ///         EnableAnonymousAccess = true,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Current general security settings can be imported using `security` as the `ID`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import artifactory:index/generalSecurity:GeneralSecurity security security
+    /// ```
+    /// 
+    ///  ~&gt;The `artifactory_general_security` resource uses endpoints that are undocumented and may not work with SaaS environments, or may change without notice.
+    /// </summary>
     [ArtifactoryResourceType("artifactory:index/generalSecurity:GeneralSecurity")]
     public partial class GeneralSecurity : global::Pulumi.CustomResource
     {

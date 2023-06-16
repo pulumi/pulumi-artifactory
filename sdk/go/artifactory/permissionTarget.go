@@ -10,6 +10,130 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides an Artifactory permission target resource. This can be used to create and manage Artifactory permission targets.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewPermissionTarget(ctx, "test-perm", &artifactory.PermissionTargetArgs{
+//				Build: &artifactory.PermissionTargetBuildArgs{
+//					Actions: &artifactory.PermissionTargetBuildActionsArgs{
+//						Users: artifactory.PermissionTargetBuildActionsUserArray{
+//							&artifactory.PermissionTargetBuildActionsUserArgs{
+//								Name: pulumi.String("anonymous"),
+//								Permissions: pulumi.StringArray{
+//									pulumi.String("read"),
+//									pulumi.String("write"),
+//								},
+//							},
+//						},
+//					},
+//					IncludesPatterns: pulumi.StringArray{
+//						pulumi.String("**"),
+//					},
+//					Repositories: pulumi.StringArray{
+//						pulumi.String("artifactory-build-info"),
+//					},
+//				},
+//				ReleaseBundle: &artifactory.PermissionTargetReleaseBundleArgs{
+//					Actions: &artifactory.PermissionTargetReleaseBundleActionsArgs{
+//						Users: artifactory.PermissionTargetReleaseBundleActionsUserArray{
+//							&artifactory.PermissionTargetReleaseBundleActionsUserArgs{
+//								Name: pulumi.String("anonymous"),
+//								Permissions: pulumi.StringArray{
+//									pulumi.String("read"),
+//								},
+//							},
+//						},
+//					},
+//					IncludesPatterns: pulumi.StringArray{
+//						pulumi.String("**"),
+//					},
+//					Repositories: pulumi.StringArray{
+//						pulumi.String("release-bundles"),
+//					},
+//				},
+//				Repo: &artifactory.PermissionTargetRepoArgs{
+//					Actions: &artifactory.PermissionTargetRepoActionsArgs{
+//						Groups: artifactory.PermissionTargetRepoActionsGroupArray{
+//							&artifactory.PermissionTargetRepoActionsGroupArgs{
+//								Name: pulumi.String("readers"),
+//								Permissions: pulumi.StringArray{
+//									pulumi.String("read"),
+//								},
+//							},
+//						},
+//						Users: artifactory.PermissionTargetRepoActionsUserArray{
+//							&artifactory.PermissionTargetRepoActionsUserArgs{
+//								Name: pulumi.String("anonymous"),
+//								Permissions: pulumi.StringArray{
+//									pulumi.String("read"),
+//									pulumi.String("write"),
+//								},
+//							},
+//						},
+//					},
+//					ExcludesPatterns: pulumi.StringArray{
+//						pulumi.String("bar/**"),
+//					},
+//					IncludesPatterns: pulumi.StringArray{
+//						pulumi.String("foo/**"),
+//					},
+//					Repositories: pulumi.StringArray{
+//						pulumi.String("example-repo-local"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ## Permissions
+//
+// The provider supports the following `permission` enums:
+//
+// * `read`
+// * `write`
+// * `annotate`
+// * `delete`
+// * `manage`
+// * `managedXrayMeta`
+// * `distribute`
+//
+// The values can be mapped to the permissions from the official [documentation](https://www.jfrog.com/confluence/display/JFROG/Permissions):
+//
+// * `read` - matches `Read` permissions.
+// * `write` - matches `  Deploy / Cache / Create ` permissions.
+// * `annotate` - matches `Annotate` permissions.
+// * `delete` - matches `Delete / Overwrite` permissions.
+// * `manage` - matches `Manage` permissions.
+// * `managedXrayMeta` - matches `Manage Xray Metadata` permissions.
+// * `distribute` - matches `Distribute` permissions.
+//
+// ## Import
+//
+// Permission targets can be imported using their name, e.g.
+//
+// ```sh
+//
+//	$ pulumi import artifactory:index/permissionTarget:PermissionTarget terraform-test-permission mypermission
+//
+// ```
 type PermissionTarget struct {
 	pulumi.CustomResourceState
 

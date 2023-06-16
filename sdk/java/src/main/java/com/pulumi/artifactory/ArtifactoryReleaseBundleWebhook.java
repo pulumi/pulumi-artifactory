@@ -18,81 +18,145 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides an Artifactory webhook resource. This can be used to register and manage Artifactory webhook subscription which enables you to be notified or notify other users when such events take place in Artifactory.
+ * 
+ * ## Example Usage
+ * 
+ * .
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.artifactory.ArtifactoryReleaseBundleWebhook;
+ * import com.pulumi.artifactory.ArtifactoryReleaseBundleWebhookArgs;
+ * import com.pulumi.artifactory.inputs.ArtifactoryReleaseBundleWebhookCriteriaArgs;
+ * import com.pulumi.artifactory.inputs.ArtifactoryReleaseBundleWebhookHandlerArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var artifactory_release_bundle_webhook = new ArtifactoryReleaseBundleWebhook(&#34;artifactory-release-bundle-webhook&#34;, ArtifactoryReleaseBundleWebhookArgs.builder()        
+ *             .criteria(ArtifactoryReleaseBundleWebhookCriteriaArgs.builder()
+ *                 .anyReleaseBundle(false)
+ *                 .excludePatterns(&#34;bar/**&#34;)
+ *                 .includePatterns(&#34;foo/**&#34;)
+ *                 .registeredReleaseBundleNames(&#34;bundle-name&#34;)
+ *                 .build())
+ *             .eventTypes(            
+ *                 &#34;received&#34;,
+ *                 &#34;delete_started&#34;,
+ *                 &#34;delete_completed&#34;,
+ *                 &#34;delete_failed&#34;)
+ *             .handlers(ArtifactoryReleaseBundleWebhookHandlerArgs.builder()
+ *                 .customHttpHeaders(Map.ofEntries(
+ *                     Map.entry(&#34;header-1&#34;, &#34;value-1&#34;),
+ *                     Map.entry(&#34;header-2&#34;, &#34;value-2&#34;)
+ *                 ))
+ *                 .proxy(&#34;proxy-key&#34;)
+ *                 .secret(&#34;some-secret&#34;)
+ *                 .url(&#34;http://tempurl.org/webhook&#34;)
+ *                 .build())
+ *             .key(&#34;artifactory-release-bundle-webhook&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ */
 @ResourceType(type="artifactory:index/artifactoryReleaseBundleWebhook:ArtifactoryReleaseBundleWebhook")
 public class ArtifactoryReleaseBundleWebhook extends com.pulumi.resources.CustomResource {
     /**
-     * Specifies where the webhook will be applied, on which release bundles or distributions.
+     * Specifies where the webhook will be applied on which repositories.
      * 
      */
     @Export(name="criteria", type=ArtifactoryReleaseBundleWebhookCriteria.class, parameters={})
     private Output<ArtifactoryReleaseBundleWebhookCriteria> criteria;
 
     /**
-     * @return Specifies where the webhook will be applied, on which release bundles or distributions.
+     * @return Specifies where the webhook will be applied on which repositories.
      * 
      */
     public Output<ArtifactoryReleaseBundleWebhookCriteria> criteria() {
         return this.criteria;
     }
     /**
-     * Description of webhook. Max length 1000 characters.
+     * Webhook description. Max length 1000 characters.
      * 
      */
     @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return Description of webhook. Max length 1000 characters.
+     * @return Webhook description. Max length 1000 characters.
      * 
      */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
     /**
-     * Status of webhook. Default to &#39;true&#39;
+     * Status of webhook. Default to `true`
      * 
      */
     @Export(name="enabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
-     * @return Status of webhook. Default to &#39;true&#39;
+     * @return Status of webhook. Default to `true`
      * 
      */
     public Output<Optional<Boolean>> enabled() {
         return Codegen.optional(this.enabled);
     }
     /**
-     * List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow
-     * values: received, delete_started, delete_completed, delete_failed
+     * List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `received`, `delete_started`, `delete_completed`, `delete_failed`
      * 
      */
     @Export(name="eventTypes", type=List.class, parameters={String.class})
     private Output<List<String>> eventTypes;
 
     /**
-     * @return List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow
-     * values: received, delete_started, delete_completed, delete_failed
+     * @return List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `received`, `delete_started`, `delete_completed`, `delete_failed`
      * 
      */
     public Output<List<String>> eventTypes() {
         return this.eventTypes;
     }
+    /**
+     * At least one is required.
+     * 
+     */
     @Export(name="handlers", type=List.class, parameters={ArtifactoryReleaseBundleWebhookHandler.class})
     private Output<List<ArtifactoryReleaseBundleWebhookHandler>> handlers;
 
+    /**
+     * @return At least one is required.
+     * 
+     */
     public Output<List<ArtifactoryReleaseBundleWebhookHandler>> handlers() {
         return this.handlers;
     }
     /**
-     * Key of webhook. Must be between 2 and 200 characters. Cannot contain spaces.
+     * The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
      * 
      */
     @Export(name="key", type=String.class, parameters={})
     private Output<String> key;
 
     /**
-     * @return Key of webhook. Must be between 2 and 200 characters. Cannot contain spaces.
+     * @return The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
      * 
      */
     public Output<String> key() {

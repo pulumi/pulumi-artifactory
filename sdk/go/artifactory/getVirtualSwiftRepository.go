@@ -10,6 +10,33 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Retrieves a virtual Swift repository.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.LookupVirtualSwiftRepository(ctx, &artifactory.LookupVirtualSwiftRepositoryArgs{
+//				Key: "virtual-swift",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupVirtualSwiftRepository(ctx *pulumi.Context, args *LookupVirtualSwiftRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupVirtualSwiftRepositoryResult, error) {
 	var rv LookupVirtualSwiftRepositoryResult
 	err := ctx.Invoke("artifactory:index/getVirtualSwiftRepository:getVirtualSwiftRepository", args, &rv, opts...)
@@ -21,17 +48,18 @@ func LookupVirtualSwiftRepository(ctx *pulumi.Context, args *LookupVirtualSwiftR
 
 // A collection of arguments for invoking getVirtualSwiftRepository.
 type LookupVirtualSwiftRepositoryArgs struct {
-	ArtifactoryRequestsCanRetrieveRemoteArtifacts *bool    `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`
-	DefaultDeploymentRepo                         *string  `pulumi:"defaultDeploymentRepo"`
-	Description                                   *string  `pulumi:"description"`
-	ExcludesPattern                               *string  `pulumi:"excludesPattern"`
-	IncludesPattern                               *string  `pulumi:"includesPattern"`
-	Key                                           string   `pulumi:"key"`
-	Notes                                         *string  `pulumi:"notes"`
-	ProjectEnvironments                           []string `pulumi:"projectEnvironments"`
-	ProjectKey                                    *string  `pulumi:"projectKey"`
-	RepoLayoutRef                                 *string  `pulumi:"repoLayoutRef"`
-	Repositories                                  []string `pulumi:"repositories"`
+	ArtifactoryRequestsCanRetrieveRemoteArtifacts *bool   `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`
+	DefaultDeploymentRepo                         *string `pulumi:"defaultDeploymentRepo"`
+	Description                                   *string `pulumi:"description"`
+	ExcludesPattern                               *string `pulumi:"excludesPattern"`
+	IncludesPattern                               *string `pulumi:"includesPattern"`
+	// the identity key of the repo.
+	Key                 string   `pulumi:"key"`
+	Notes               *string  `pulumi:"notes"`
+	ProjectEnvironments []string `pulumi:"projectEnvironments"`
+	ProjectKey          *string  `pulumi:"projectKey"`
+	RepoLayoutRef       *string  `pulumi:"repoLayoutRef"`
+	Repositories        []string `pulumi:"repositories"`
 }
 
 // A collection of values returned by getVirtualSwiftRepository.
@@ -67,17 +95,18 @@ func LookupVirtualSwiftRepositoryOutput(ctx *pulumi.Context, args LookupVirtualS
 
 // A collection of arguments for invoking getVirtualSwiftRepository.
 type LookupVirtualSwiftRepositoryOutputArgs struct {
-	ArtifactoryRequestsCanRetrieveRemoteArtifacts pulumi.BoolPtrInput     `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`
-	DefaultDeploymentRepo                         pulumi.StringPtrInput   `pulumi:"defaultDeploymentRepo"`
-	Description                                   pulumi.StringPtrInput   `pulumi:"description"`
-	ExcludesPattern                               pulumi.StringPtrInput   `pulumi:"excludesPattern"`
-	IncludesPattern                               pulumi.StringPtrInput   `pulumi:"includesPattern"`
-	Key                                           pulumi.StringInput      `pulumi:"key"`
-	Notes                                         pulumi.StringPtrInput   `pulumi:"notes"`
-	ProjectEnvironments                           pulumi.StringArrayInput `pulumi:"projectEnvironments"`
-	ProjectKey                                    pulumi.StringPtrInput   `pulumi:"projectKey"`
-	RepoLayoutRef                                 pulumi.StringPtrInput   `pulumi:"repoLayoutRef"`
-	Repositories                                  pulumi.StringArrayInput `pulumi:"repositories"`
+	ArtifactoryRequestsCanRetrieveRemoteArtifacts pulumi.BoolPtrInput   `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`
+	DefaultDeploymentRepo                         pulumi.StringPtrInput `pulumi:"defaultDeploymentRepo"`
+	Description                                   pulumi.StringPtrInput `pulumi:"description"`
+	ExcludesPattern                               pulumi.StringPtrInput `pulumi:"excludesPattern"`
+	IncludesPattern                               pulumi.StringPtrInput `pulumi:"includesPattern"`
+	// the identity key of the repo.
+	Key                 pulumi.StringInput      `pulumi:"key"`
+	Notes               pulumi.StringPtrInput   `pulumi:"notes"`
+	ProjectEnvironments pulumi.StringArrayInput `pulumi:"projectEnvironments"`
+	ProjectKey          pulumi.StringPtrInput   `pulumi:"projectKey"`
+	RepoLayoutRef       pulumi.StringPtrInput   `pulumi:"repoLayoutRef"`
+	Repositories        pulumi.StringArrayInput `pulumi:"repositories"`
 }
 
 func (LookupVirtualSwiftRepositoryOutputArgs) ElementType() reflect.Type {

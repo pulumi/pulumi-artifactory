@@ -17,6 +17,48 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Creates a local Sbt repository.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.artifactory.LocalSbtRepository;
+ * import com.pulumi.artifactory.LocalSbtRepositoryArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var terraform_local_test_sbt_repo = new LocalSbtRepository(&#34;terraform-local-test-sbt-repo&#34;, LocalSbtRepositoryArgs.builder()        
+ *             .key(&#34;terraform-local-test-sbt-repo&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Local repositories can be imported using their name, e.g.
+ * 
+ * ```sh
+ *  $ pulumi import artifactory:index/localSbtRepository:LocalSbtRepository terraform-local-test-sbt-repo terraform-local-test-sbt-repo
+ * ```
+ * 
+ */
 @ResourceType(type="artifactory:index/localSbtRepository:LocalSbtRepository")
 public class LocalSbtRepository extends com.pulumi.resources.CustomResource {
     /**
@@ -178,16 +220,14 @@ public class LocalSbtRepository extends com.pulumi.resources.CustomResource {
         return this.includesPattern;
     }
     /**
-     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-     * characters. It cannot begin with a number or contain spaces or special characters.
+     * the identity key of the repo.
      * 
      */
     @Export(name="key", type=String.class, parameters={})
     private Output<String> key;
 
     /**
-     * @return A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-     * characters. It cannot begin with a number or contain spaces or special characters.
+     * @return the identity key of the repo.
      * 
      */
     public Output<String> key() {

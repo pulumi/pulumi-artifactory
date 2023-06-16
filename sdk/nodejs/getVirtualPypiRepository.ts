@@ -4,6 +4,20 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * Retrieves a virtual Pypi repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const virtual-pypi = artifactory.getVirtualPypiRepository({
+ *     key: "virtual-pypi",
+ * });
+ * ```
+ */
 export function getVirtualPypiRepository(args: GetVirtualPypiRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualPypiRepositoryResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -31,6 +45,9 @@ export interface GetVirtualPypiRepositoryArgs {
     description?: string;
     excludesPattern?: string;
     includesPattern?: string;
+    /**
+     * the identity key of the repo.
+     */
     key: string;
     notes?: string;
     projectEnvironments?: string[];
@@ -60,6 +77,20 @@ export interface GetVirtualPypiRepositoryResult {
     readonly repoLayoutRef?: string;
     readonly repositories?: string[];
 }
+/**
+ * Retrieves a virtual Pypi repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const virtual-pypi = artifactory.getVirtualPypiRepository({
+ *     key: "virtual-pypi",
+ * });
+ * ```
+ */
 export function getVirtualPypiRepositoryOutput(args: GetVirtualPypiRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualPypiRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getVirtualPypiRepository(a, opts))
 }
@@ -73,6 +104,9 @@ export interface GetVirtualPypiRepositoryOutputArgs {
     description?: pulumi.Input<string>;
     excludesPattern?: pulumi.Input<string>;
     includesPattern?: pulumi.Input<string>;
+    /**
+     * the identity key of the repo.
+     */
     key: pulumi.Input<string>;
     notes?: pulumi.Input<string>;
     projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;

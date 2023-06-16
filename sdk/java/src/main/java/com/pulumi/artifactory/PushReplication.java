@@ -17,33 +17,103 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * &gt; This resource is deprecated and replaced by `artifactory.LocalRepositoryMultiReplication` for clarity.
+ * 
+ * Provides an Artifactory push replication resource. This can be used to create and manage Artifactory push replications using [Multi-push Replication API](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-CreateorReplaceLocalMulti-pushReplication).
+ * Push replication is used to synchronize Local Repositories, and is implemented by the Artifactory server on the near
+ * end invoking a synchronization of artifacts to the far end.
+ * See the [Official Documentation](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-PushReplication).
+ * 
+ * &gt; This resource requires Artifactory Enterprise license.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.artifactory.LocalMavenRepository;
+ * import com.pulumi.artifactory.LocalMavenRepositoryArgs;
+ * import com.pulumi.artifactory.PushReplication;
+ * import com.pulumi.artifactory.PushReplicationArgs;
+ * import com.pulumi.artifactory.inputs.PushReplicationReplicationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var config = ctx.config();
+ *         final var artifactoryUrl = config.get(&#34;artifactoryUrl&#34;);
+ *         final var artifactoryUsername = config.get(&#34;artifactoryUsername&#34;);
+ *         final var artifactoryPassword = config.get(&#34;artifactoryPassword&#34;);
+ *         var providerTestSource = new LocalMavenRepository(&#34;providerTestSource&#34;, LocalMavenRepositoryArgs.builder()        
+ *             .key(&#34;provider_test_source&#34;)
+ *             .build());
+ * 
+ *         var providerTestDest = new LocalMavenRepository(&#34;providerTestDest&#34;, LocalMavenRepositoryArgs.builder()        
+ *             .key(&#34;provider_test_dest&#34;)
+ *             .build());
+ * 
+ *         var foo_rep = new PushReplication(&#34;foo-rep&#34;, PushReplicationArgs.builder()        
+ *             .repoKey(providerTestSource.key())
+ *             .cronExp(&#34;0 0 * * * ?&#34;)
+ *             .enableEventReplication(true)
+ *             .replications(PushReplicationReplicationArgs.builder()
+ *                 .url(providerTestDest.key().applyValue(key -&gt; String.format(&#34;%s/%s&#34;, artifactoryUrl,key)))
+ *                 .username(&#34;$var.artifactory_username&#34;)
+ *                 .password(&#34;$var.artifactory_password&#34;)
+ *                 .enabled(true)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Push replication configs can be imported using their repo key, e.g.
+ * 
+ * ```sh
+ *  $ pulumi import artifactory:index/pushReplication:PushReplication foo-rep provider_test_source
+ * ```
+ * 
+ */
 @ResourceType(type="artifactory:index/pushReplication:PushReplication")
 public class PushReplication extends com.pulumi.resources.CustomResource {
     /**
-     * Cron expression to control the operation frequency.
+     * A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
      * 
      */
     @Export(name="cronExp", type=String.class, parameters={})
     private Output<String> cronExp;
 
     /**
-     * @return Cron expression to control the operation frequency.
+     * @return A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
      * 
      */
     public Output<String> cronExp() {
         return this.cronExp;
     }
     /**
-     * When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on
-     * artifact, e.g. add, deleted or property change. Default value is `false`.
+     * When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. added, deleted or property change.
      * 
      */
     @Export(name="enableEventReplication", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enableEventReplication;
 
     /**
-     * @return When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on
-     * artifact, e.g. add, deleted or property change. Default value is `false`.
+     * @return When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. added, deleted or property change.
      * 
      */
     public Output<Optional<Boolean>> enableEventReplication() {
@@ -55,9 +125,17 @@ public class PushReplication extends com.pulumi.resources.CustomResource {
     public Output<Optional<List<PushReplicationReplication>>> replications() {
         return Codegen.optional(this.replications);
     }
+    /**
+     * Repository name.
+     * 
+     */
     @Export(name="repoKey", type=String.class, parameters={})
     private Output<String> repoKey;
 
+    /**
+     * @return Repository name.
+     * 
+     */
     public Output<String> repoKey() {
         return this.repoKey;
     }

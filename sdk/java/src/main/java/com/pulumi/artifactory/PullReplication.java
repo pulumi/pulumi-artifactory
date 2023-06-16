@@ -17,79 +17,153 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides an Artifactory pull replication resource. This can be used to create and manage pull replication in Artifactory
+ * for a local or remote repo. Pull replication provides a convenient way to proactively populate a remote cache, and is very useful
+ * when waiting for new artifacts to arrive on demand (when first requested) is not desirable due to network latency.
+ * See the [Official Documentation](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-PullReplication).
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.artifactory.LocalMavenRepository;
+ * import com.pulumi.artifactory.LocalMavenRepositoryArgs;
+ * import com.pulumi.artifactory.RemoteMavenRepository;
+ * import com.pulumi.artifactory.RemoteMavenRepositoryArgs;
+ * import com.pulumi.artifactory.PullReplication;
+ * import com.pulumi.artifactory.PullReplicationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var providerTestSource = new LocalMavenRepository(&#34;providerTestSource&#34;, LocalMavenRepositoryArgs.builder()        
+ *             .key(&#34;provider_test_source&#34;)
+ *             .build());
+ * 
+ *         var providerTestDest = new RemoteMavenRepository(&#34;providerTestDest&#34;, RemoteMavenRepositoryArgs.builder()        
+ *             .key(&#34;provider_test_dest&#34;)
+ *             .password(&#34;bar&#34;)
+ *             .url(String.format(&#34;https://example.com/artifactory/%s&#34;, artifactory_local_maven_repository.artifactory_local_maven_repository().key()))
+ *             .username(&#34;foo&#34;)
+ *             .build());
+ * 
+ *         var remote_rep = new PullReplication(&#34;remote-rep&#34;, PullReplicationArgs.builder()        
+ *             .cronExp(&#34;0 0 * * * ?&#34;)
+ *             .enableEventReplication(true)
+ *             .repoKey(providerTestDest.key())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Pull replication config can be imported using its repo key, e.g.
+ * 
+ * ```sh
+ *  $ pulumi import artifactory:index/pullReplication:PullReplication foo-rep repository-key
+ * ```
+ * 
+ */
 @ResourceType(type="artifactory:index/pullReplication:PullReplication")
 public class PullReplication extends com.pulumi.resources.CustomResource {
     /**
-     * When true, enables distributed checksum storage. For more information, see [Optimizing Repository Replication with
-     * Checksum-Based
-     * Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
+     * When true, enables distributed checksum storage. For more information, see
+     * [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
      * 
      */
     @Export(name="checkBinaryExistenceInFilestore", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> checkBinaryExistenceInFilestore;
 
     /**
-     * @return When true, enables distributed checksum storage. For more information, see [Optimizing Repository Replication with
-     * Checksum-Based
-     * Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
+     * @return When true, enables distributed checksum storage. For more information, see
+     * [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
      * 
      */
     public Output<Optional<Boolean>> checkBinaryExistenceInFilestore() {
         return Codegen.optional(this.checkBinaryExistenceInFilestore);
     }
     /**
-     * The Cron expression that determines when the next replication will be triggered.
+     * A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
      * 
      */
     @Export(name="cronExp", type=String.class, parameters={})
     private Output</* @Nullable */ String> cronExp;
 
     /**
-     * @return The Cron expression that determines when the next replication will be triggered.
+     * @return A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
      * 
      */
     public Output<Optional<String>> cronExp() {
         return Codegen.optional(this.cronExp);
     }
     /**
-     * When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on
-     * artifact, e.g. add, deleted or property change. Default value is `false`.
+     * When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. added, deleted or property change.
      * 
      */
     @Export(name="enableEventReplication", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enableEventReplication;
 
     /**
-     * @return When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on
-     * artifact, e.g. add, deleted or property change. Default value is `false`.
+     * @return When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. added, deleted or property change.
      * 
      */
     public Output<Optional<Boolean>> enableEventReplication() {
         return Codegen.optional(this.enableEventReplication);
     }
+    /**
+     * When set, this replication will be enabled when saved.
+     * 
+     */
     @Export(name="enabled", type=Boolean.class, parameters={})
     private Output<Boolean> enabled;
 
+    /**
+     * @return When set, this replication will be enabled when saved.
+     * 
+     */
     public Output<Boolean> enabled() {
         return this.enabled;
     }
     /**
-     * Password for local repository replication. Required for local repository, but not needed for remote repository.
+     * Required for local repository, but not needed for remote repository.
      * 
      */
     @Export(name="password", type=String.class, parameters={})
     private Output</* @Nullable */ String> password;
 
     /**
-     * @return Password for local repository replication. Required for local repository, but not needed for remote repository.
+     * @return Required for local repository, but not needed for remote repository.
      * 
      */
     public Output<Optional<String>> password() {
         return Codegen.optional(this.password);
     }
+    /**
+     * Only artifacts that located in path that matches the subpath within the remote repository will be replicated.
+     * 
+     */
     @Export(name="pathPrefix", type=String.class, parameters={})
     private Output</* @Nullable */ String> pathPrefix;
 
+    /**
+     * @return Only artifacts that located in path that matches the subpath within the remote repository will be replicated.
+     * 
+     */
     public Output<Optional<String>> pathPrefix() {
         return Codegen.optional(this.pathPrefix);
     }
@@ -127,47 +201,75 @@ public class PullReplication extends com.pulumi.resources.CustomResource {
     public Output<Integer> socketTimeoutMillis() {
         return this.socketTimeoutMillis;
     }
+    /**
+     * When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata).
+     * 
+     */
     @Export(name="syncDeletes", type=Boolean.class, parameters={})
     private Output<Boolean> syncDeletes;
 
+    /**
+     * @return When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata).
+     * 
+     */
     public Output<Boolean> syncDeletes() {
         return this.syncDeletes;
     }
+    /**
+     * When set, the task also synchronizes the properties of replicated artifacts.
+     * 
+     */
     @Export(name="syncProperties", type=Boolean.class, parameters={})
     private Output<Boolean> syncProperties;
 
+    /**
+     * @return When set, the task also synchronizes the properties of replicated artifacts.
+     * 
+     */
     public Output<Boolean> syncProperties() {
         return this.syncProperties;
     }
+    /**
+     * When set, artifact download statistics will also be replicated. Set to avoid inadvertent cleanup at the target instance when setting up replication for disaster recovery.
+     * 
+     */
     @Export(name="syncStatistics", type=Boolean.class, parameters={})
     private Output<Boolean> syncStatistics;
 
+    /**
+     * @return When set, artifact download statistics will also be replicated. Set to avoid inadvertent cleanup at the target instance when setting up replication for disaster recovery.
+     * 
+     */
     public Output<Boolean> syncStatistics() {
         return this.syncStatistics;
     }
     /**
-     * URL for local repository replication. Required for local repository, but not needed for remote repository.
+     * The URL of the target local repository on a remote Artifactory server. For some package types, you need to prefix the repository key in the URL with api/&lt;pkg&gt;.
+     * For a list of package types where this is required, see the [note](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-anchorPREFIX).
+     * Required for local repository, but not needed for remote repository.
      * 
      */
     @Export(name="url", type=String.class, parameters={})
     private Output</* @Nullable */ String> url;
 
     /**
-     * @return URL for local repository replication. Required for local repository, but not needed for remote repository.
+     * @return The URL of the target local repository on a remote Artifactory server. For some package types, you need to prefix the repository key in the URL with api/&lt;pkg&gt;.
+     * For a list of package types where this is required, see the [note](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-anchorPREFIX).
+     * Required for local repository, but not needed for remote repository.
      * 
      */
     public Output<Optional<String>> url() {
         return Codegen.optional(this.url);
     }
     /**
-     * Username for local repository replication. Required for local repository, but not needed for remote repository.
+     * Required for local repository, but not needed for remote repository.
      * 
      */
     @Export(name="username", type=String.class, parameters={})
     private Output</* @Nullable */ String> username;
 
     /**
-     * @return Username for local repository replication. Required for local repository, but not needed for remote repository.
+     * @return Required for local repository, but not needed for remote repository.
      * 
      */
     public Output<Optional<String>> username() {

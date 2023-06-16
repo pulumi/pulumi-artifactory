@@ -4,6 +4,15 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * ## Import
+ *
+ * ```sh
+ *  $ pulumi import artifactory:index/group:Group terraform-group mygroup
+ * ```
+ *
+ *  ~> `users_names` can't be imported due to API limitations.
+ */
 export class Group extends pulumi.CustomResource {
     /**
      * Get an existing Group resource's state with the given name, ID, and optional extra

@@ -14,6 +14,54 @@ import java.lang.Boolean;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * This resource can be used to manage Artifactory&#39;s general security settings.
+ * 
+ * Only a single `artifactory.GeneralSecurity` resource is meant to be defined.
+ * 
+ * ~&gt;The `artifactory.GeneralSecurity` resource utilizes endpoints which are blocked/removed in SaaS environments (i.e. in Artifactory online), rendering this resource incompatible with Artifactory SaaS environments.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.artifactory.GeneralSecurity;
+ * import com.pulumi.artifactory.GeneralSecurityArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var security = new GeneralSecurity(&#34;security&#34;, GeneralSecurityArgs.builder()        
+ *             .enableAnonymousAccess(true)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Current general security settings can be imported using `security` as the `ID`, e.g.
+ * 
+ * ```sh
+ *  $ pulumi import artifactory:index/generalSecurity:GeneralSecurity security security
+ * ```
+ * 
+ *  ~&gt;The `artifactory_general_security` resource uses endpoints that are undocumented and may not work with SaaS environments, or may change without notice.
+ * 
+ */
 @ResourceType(type="artifactory:index/generalSecurity:GeneralSecurity")
 public class GeneralSecurity extends com.pulumi.resources.CustomResource {
     @Export(name="enableAnonymousAccess", type=Boolean.class, parameters={})

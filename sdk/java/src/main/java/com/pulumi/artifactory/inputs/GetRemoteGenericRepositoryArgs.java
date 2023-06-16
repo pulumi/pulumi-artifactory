@@ -117,9 +117,17 @@ public final class GetRemoteGenericRepositoryArgs extends com.pulumi.resources.I
         return Optional.ofNullable(this.includesPattern);
     }
 
+    /**
+     * the identity key of the repo.
+     * 
+     */
     @Import(name="key", required=true)
     private Output<String> key;
 
+    /**
+     * @return the identity key of the repo.
+     * 
+     */
     public Output<String> key() {
         return this.key;
     }
@@ -201,9 +209,17 @@ public final class GetRemoteGenericRepositoryArgs extends com.pulumi.resources.I
         return Optional.ofNullable(this.projectKey);
     }
 
+    /**
+     * (Optional, Default: `false`) When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
+     * 
+     */
     @Import(name="propagateQueryParams")
     private @Nullable Output<Boolean> propagateQueryParams;
 
+    /**
+     * @return (Optional, Default: `false`) When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
+     * 
+     */
     public Optional<Output<Boolean>> propagateQueryParams() {
         return Optional.ofNullable(this.propagateQueryParams);
     }
@@ -496,11 +512,23 @@ public final class GetRemoteGenericRepositoryArgs extends com.pulumi.resources.I
             return includesPattern(Output.of(includesPattern));
         }
 
+        /**
+         * @param key the identity key of the repo.
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(Output<String> key) {
             $.key = key;
             return this;
         }
 
+        /**
+         * @param key the identity key of the repo.
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(String key) {
             return key(Output.of(key));
         }
@@ -608,11 +636,23 @@ public final class GetRemoteGenericRepositoryArgs extends com.pulumi.resources.I
             return projectKey(Output.of(projectKey));
         }
 
+        /**
+         * @param propagateQueryParams (Optional, Default: `false`) When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
+         * 
+         * @return builder
+         * 
+         */
         public Builder propagateQueryParams(@Nullable Output<Boolean> propagateQueryParams) {
             $.propagateQueryParams = propagateQueryParams;
             return this;
         }
 
+        /**
+         * @param propagateQueryParams (Optional, Default: `false`) When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
+         * 
+         * @return builder
+         * 
+         */
         public Builder propagateQueryParams(Boolean propagateQueryParams) {
             return propagateQueryParams(Output.of(propagateQueryParams));
         }

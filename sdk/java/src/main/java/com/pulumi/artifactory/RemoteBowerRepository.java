@@ -18,6 +18,51 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Creates a remote Bower repository.
+ * Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Bower+Repositories).
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.artifactory.RemoteBowerRepository;
+ * import com.pulumi.artifactory.RemoteBowerRepositoryArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var my_remote_bower = new RemoteBowerRepository(&#34;my-remote-bower&#34;, RemoteBowerRepositoryArgs.builder()        
+ *             .key(&#34;my-remote-bower&#34;)
+ *             .url(&#34;https://github.com/&#34;)
+ *             .vcsGitProvider(&#34;GITHUB&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Remote repositories can be imported using their name, e.g.
+ * 
+ * ```sh
+ *  $ pulumi import artifactory:index/remoteBowerRepository:RemoteBowerRepository my-remote-bower my-remote-bower
+ * ```
+ * 
+ */
 @ResourceType(type="artifactory:index/remoteBowerRepository:RemoteBowerRepository")
 public class RemoteBowerRepository extends com.pulumi.resources.CustomResource {
     /**
@@ -89,14 +134,14 @@ public class RemoteBowerRepository extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.blockMismatchingMimeTypes);
     }
     /**
-     * Proxy remote Bower repository. Default value is &#34;https://registry.bower.io&#34;.
+     * Proxy remote Bower repository. Default value is `https://registry.bower.io`.
      * 
      */
     @Export(name="bowerRegistryUrl", type=String.class, parameters={})
     private Output</* @Nullable */ String> bowerRegistryUrl;
 
     /**
-     * @return Proxy remote Bower repository. Default value is &#34;https://registry.bower.io&#34;.
+     * @return Proxy remote Bower repository. Default value is `https://registry.bower.io`.
      * 
      */
     public Output<Optional<String>> bowerRegistryUrl() {
@@ -249,16 +294,16 @@ public class RemoteBowerRepository extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.includesPattern);
     }
     /**
-     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-     * characters. It cannot begin with a number or contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+     * contain spaces or special characters.
      * 
      */
     @Export(name="key", type=String.class, parameters={})
     private Output<String> key;
 
     /**
-     * @return A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-     * characters. It cannot begin with a number or contain spaces or special characters.
+     * @return A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+     * contain spaces or special characters.
      * 
      */
     public Output<String> key() {
@@ -633,16 +678,14 @@ public class RemoteBowerRepository extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.vcsGitDownloadUrl);
     }
     /**
-     * Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance.
-     * Default value is &#34;GITHUB&#34;.
+     * Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`. Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
      * 
      */
     @Export(name="vcsGitProvider", type=String.class, parameters={})
     private Output</* @Nullable */ String> vcsGitProvider;
 
     /**
-     * @return Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance.
-     * Default value is &#34;GITHUB&#34;.
+     * @return Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`. Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
      * 
      */
     public Output<Optional<String>> vcsGitProvider() {

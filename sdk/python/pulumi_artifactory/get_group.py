@@ -65,21 +65,33 @@ class GetGroupResult:
     @property
     @pulumi.getter(name="adminPrivileges")
     def admin_privileges(self) -> bool:
+        """
+        Any users added to this group will automatically be assigned with admin privileges in the system.
+        """
         return pulumi.get(self, "admin_privileges")
 
     @property
     @pulumi.getter(name="autoJoin")
     def auto_join(self) -> bool:
+        """
+        When this parameter is set, any new users defined in the system are automatically assigned to this group.
+        """
         return pulumi.get(self, "auto_join")
 
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        A description for the group
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="externalId")
     def external_id(self) -> Optional[str]:
+        """
+        New external group ID used to configure the corresponding group in Azure AD.
+        """
         return pulumi.get(self, "external_id")
 
     @property
@@ -103,31 +115,49 @@ class GetGroupResult:
     @property
     @pulumi.getter(name="policyManager")
     def policy_manager(self) -> Optional[bool]:
+        """
+        When this override is set, User in the group can set Xray security and compliance policies. Default value is `false`.
+        """
         return pulumi.get(self, "policy_manager")
 
     @property
     @pulumi.getter
     def realm(self) -> str:
+        """
+        The realm for the group.
+        """
         return pulumi.get(self, "realm")
 
     @property
     @pulumi.getter(name="realmAttributes")
     def realm_attributes(self) -> Optional[str]:
+        """
+        The realm attributes for the group.
+        """
         return pulumi.get(self, "realm_attributes")
 
     @property
     @pulumi.getter(name="reportsManager")
     def reports_manager(self) -> Optional[bool]:
+        """
+        When this override is set, User in the group can manage Xray Reports on any resource type. Default value is `false`.
+        """
         return pulumi.get(self, "reports_manager")
 
     @property
     @pulumi.getter(name="usersNames")
     def users_names(self) -> Optional[Sequence[str]]:
+        """
+        List of users assigned to the group. Set include_users to `true` to retrieve this list.
+        """
         return pulumi.get(self, "users_names")
 
     @property
     @pulumi.getter(name="watchManager")
     def watch_manager(self) -> Optional[bool]:
+        """
+        When this override is set, User in the group can manage Xray Watches on any resource type. Default value is `false`.
+        """
         return pulumi.get(self, "watch_manager")
 
 
@@ -166,7 +196,33 @@ def get_group(admin_privileges: Optional[bool] = None,
               watch_manager: Optional[bool] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGroupResult:
     """
-    Use this data source to access information about an existing resource.
+    ## # Artifactory Group Data Source
+
+    Provides an Artifactory group datasource. This can be used to read the configuration of groups in artifactory.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_artifactory as artifactory
+
+    my_group = artifactory.get_group(include_users="true",
+        name="my_group")
+    ```
+
+
+    :param bool admin_privileges: Any users added to this group will automatically be assigned with admin privileges in the system.
+    :param bool auto_join: When this parameter is set, any new users defined in the system are automatically assigned to this group.
+    :param str description: A description for the group
+    :param str external_id: New external group ID used to configure the corresponding group in Azure AD.
+    :param str include_users: Determines if the group's associated user list will return as an attribute. Default is `false`.
+    :param str name: Name of the group.
+    :param bool policy_manager: When this override is set, User in the group can set Xray security and compliance policies. Default value is `false`.
+    :param str realm: The realm for the group.
+    :param str realm_attributes: The realm attributes for the group.
+    :param bool reports_manager: When this override is set, User in the group can manage Xray Reports on any resource type. Default value is `false`.
+    :param Sequence[str] users_names: List of users assigned to the group. Set include_users to `true` to retrieve this list.
+    :param bool watch_manager: When this override is set, User in the group can manage Xray Watches on any resource type. Default value is `false`.
     """
     __args__ = dict()
     __args__['adminPrivileges'] = admin_privileges
@@ -215,6 +271,32 @@ def get_group_output(admin_privileges: Optional[pulumi.Input[Optional[bool]]] = 
                      watch_manager: Optional[pulumi.Input[Optional[bool]]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGroupResult]:
     """
-    Use this data source to access information about an existing resource.
+    ## # Artifactory Group Data Source
+
+    Provides an Artifactory group datasource. This can be used to read the configuration of groups in artifactory.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_artifactory as artifactory
+
+    my_group = artifactory.get_group(include_users="true",
+        name="my_group")
+    ```
+
+
+    :param bool admin_privileges: Any users added to this group will automatically be assigned with admin privileges in the system.
+    :param bool auto_join: When this parameter is set, any new users defined in the system are automatically assigned to this group.
+    :param str description: A description for the group
+    :param str external_id: New external group ID used to configure the corresponding group in Azure AD.
+    :param str include_users: Determines if the group's associated user list will return as an attribute. Default is `false`.
+    :param str name: Name of the group.
+    :param bool policy_manager: When this override is set, User in the group can set Xray security and compliance policies. Default value is `false`.
+    :param str realm: The realm for the group.
+    :param str realm_attributes: The realm attributes for the group.
+    :param bool reports_manager: When this override is set, User in the group can manage Xray Reports on any resource type. Default value is `false`.
+    :param Sequence[str] users_names: List of users assigned to the group. Set include_users to `true` to retrieve this list.
+    :param bool watch_manager: When this override is set, User in the group can manage Xray Watches on any resource type. Default value is `false`.
     """
     ...

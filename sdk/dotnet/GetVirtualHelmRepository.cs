@@ -11,9 +11,59 @@ namespace Pulumi.Artifactory
 {
     public static class GetVirtualHelmRepository
     {
+        /// <summary>
+        /// Retrieves a virtual Helm repository.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var virtual_helm = Artifactory.GetVirtualHelmRepository.Invoke(new()
+        ///     {
+        ///         Key = "virtual-helm",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetVirtualHelmRepositoryResult> InvokeAsync(GetVirtualHelmRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualHelmRepositoryResult>("artifactory:index/getVirtualHelmRepository:getVirtualHelmRepository", args ?? new GetVirtualHelmRepositoryArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Retrieves a virtual Helm repository.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var virtual_helm = Artifactory.GetVirtualHelmRepository.Invoke(new()
+        ///     {
+        ///         Key = "virtual-helm",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetVirtualHelmRepositoryResult> Invoke(GetVirtualHelmRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualHelmRepositoryResult>("artifactory:index/getVirtualHelmRepository:getVirtualHelmRepository", args ?? new GetVirtualHelmRepositoryInvokeArgs(), options.WithDefaults());
     }
@@ -36,6 +86,9 @@ namespace Pulumi.Artifactory
         [Input("includesPattern")]
         public string? IncludesPattern { get; set; }
 
+        /// <summary>
+        /// the identity key of the repo.
+        /// </summary>
         [Input("key", required: true)]
         public string Key { get; set; } = null!;
 
@@ -64,9 +117,15 @@ namespace Pulumi.Artifactory
             set => _repositories = value;
         }
 
+        /// <summary>
+        /// (Optional, Default: `7200`) This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
+        /// </summary>
         [Input("retrievalCachePeriodSeconds")]
         public int? RetrievalCachePeriodSeconds { get; set; }
 
+        /// <summary>
+        /// (Optional) From Artifactory 7.24.1 (SaaS Version), you can explicitly state a specific aggregated local or remote repository to fetch from a virtual by assigning namespaces to local and remote repositories. See the documentation [here](https://www.jfrog.com/confluence/display/JFROG/Kubernetes+Helm+Chart+Repositories#KubernetesHelmChartRepositories-NamespaceSupportforHelmVirtualRepositories). Default is `false`.
+        /// </summary>
         [Input("useNamespaces")]
         public bool? UseNamespaces { get; set; }
 
@@ -93,6 +152,9 @@ namespace Pulumi.Artifactory
         [Input("includesPattern")]
         public Input<string>? IncludesPattern { get; set; }
 
+        /// <summary>
+        /// the identity key of the repo.
+        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
@@ -121,9 +183,15 @@ namespace Pulumi.Artifactory
             set => _repositories = value;
         }
 
+        /// <summary>
+        /// (Optional, Default: `7200`) This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
+        /// </summary>
         [Input("retrievalCachePeriodSeconds")]
         public Input<int>? RetrievalCachePeriodSeconds { get; set; }
 
+        /// <summary>
+        /// (Optional) From Artifactory 7.24.1 (SaaS Version), you can explicitly state a specific aggregated local or remote repository to fetch from a virtual by assigning namespaces to local and remote repositories. See the documentation [here](https://www.jfrog.com/confluence/display/JFROG/Kubernetes+Helm+Chart+Repositories#KubernetesHelmChartRepositories-NamespaceSupportforHelmVirtualRepositories). Default is `false`.
+        /// </summary>
         [Input("useNamespaces")]
         public Input<bool>? UseNamespaces { get; set; }
 
@@ -153,7 +221,13 @@ namespace Pulumi.Artifactory
         public readonly string? ProjectKey;
         public readonly string? RepoLayoutRef;
         public readonly ImmutableArray<string> Repositories;
+        /// <summary>
+        /// (Optional, Default: `7200`) This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
+        /// </summary>
         public readonly int? RetrievalCachePeriodSeconds;
+        /// <summary>
+        /// (Optional) From Artifactory 7.24.1 (SaaS Version), you can explicitly state a specific aggregated local or remote repository to fetch from a virtual by assigning namespaces to local and remote repositories. See the documentation [here](https://www.jfrog.com/confluence/display/JFROG/Kubernetes+Helm+Chart+Repositories#KubernetesHelmChartRepositories-NamespaceSupportforHelmVirtualRepositories). Default is `false`.
+        /// </summary>
         public readonly bool? UseNamespaces;
 
         [OutputConstructor]

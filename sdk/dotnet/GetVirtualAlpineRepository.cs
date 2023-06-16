@@ -11,9 +11,59 @@ namespace Pulumi.Artifactory
 {
     public static class GetVirtualAlpineRepository
     {
+        /// <summary>
+        /// Retrieves a virtual Alpine repository.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var virtual_alpine = Artifactory.GetVirtualAlpineRepository.Invoke(new()
+        ///     {
+        ///         Key = "virtual-alpine",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetVirtualAlpineRepositoryResult> InvokeAsync(GetVirtualAlpineRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualAlpineRepositoryResult>("artifactory:index/getVirtualAlpineRepository:getVirtualAlpineRepository", args ?? new GetVirtualAlpineRepositoryArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Retrieves a virtual Alpine repository.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var virtual_alpine = Artifactory.GetVirtualAlpineRepository.Invoke(new()
+        ///     {
+        ///         Key = "virtual-alpine",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetVirtualAlpineRepositoryResult> Invoke(GetVirtualAlpineRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualAlpineRepositoryResult>("artifactory:index/getVirtualAlpineRepository:getVirtualAlpineRepository", args ?? new GetVirtualAlpineRepositoryInvokeArgs(), options.WithDefaults());
     }
@@ -36,12 +86,18 @@ namespace Pulumi.Artifactory
         [Input("includesPattern")]
         public string? IncludesPattern { get; set; }
 
+        /// <summary>
+        /// the identity key of the repo.
+        /// </summary>
         [Input("key", required: true)]
         public string Key { get; set; } = null!;
 
         [Input("notes")]
         public string? Notes { get; set; }
 
+        /// <summary>
+        /// (Optional) Primary keypair used to sign artifacts. Default value is empty.
+        /// </summary>
         [Input("primaryKeypairRef")]
         public string? PrimaryKeypairRef { get; set; }
 
@@ -67,6 +123,9 @@ namespace Pulumi.Artifactory
             set => _repositories = value;
         }
 
+        /// <summary>
+        /// (Optional, Default: `7200`) This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
+        /// </summary>
         [Input("retrievalCachePeriodSeconds")]
         public int? RetrievalCachePeriodSeconds { get; set; }
 
@@ -93,12 +152,18 @@ namespace Pulumi.Artifactory
         [Input("includesPattern")]
         public Input<string>? IncludesPattern { get; set; }
 
+        /// <summary>
+        /// the identity key of the repo.
+        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
         [Input("notes")]
         public Input<string>? Notes { get; set; }
 
+        /// <summary>
+        /// (Optional) Primary keypair used to sign artifacts. Default value is empty.
+        /// </summary>
         [Input("primaryKeypairRef")]
         public Input<string>? PrimaryKeypairRef { get; set; }
 
@@ -124,6 +189,9 @@ namespace Pulumi.Artifactory
             set => _repositories = value;
         }
 
+        /// <summary>
+        /// (Optional, Default: `7200`) This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
+        /// </summary>
         [Input("retrievalCachePeriodSeconds")]
         public Input<int>? RetrievalCachePeriodSeconds { get; set; }
 
@@ -149,11 +217,17 @@ namespace Pulumi.Artifactory
         public readonly string Key;
         public readonly string? Notes;
         public readonly string PackageType;
+        /// <summary>
+        /// (Optional) Primary keypair used to sign artifacts. Default value is empty.
+        /// </summary>
         public readonly string? PrimaryKeypairRef;
         public readonly ImmutableArray<string> ProjectEnvironments;
         public readonly string? ProjectKey;
         public readonly string? RepoLayoutRef;
         public readonly ImmutableArray<string> Repositories;
+        /// <summary>
+        /// (Optional, Default: `7200`) This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
+        /// </summary>
         public readonly int? RetrievalCachePeriodSeconds;
 
         [OutputConstructor]

@@ -4,6 +4,39 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * Creates a local Alpine repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ * import * as fs from "fs";
+ *
+ * const some_keypairRSA = new artifactory.Keypair("some-keypairRSA", {
+ *     pairName: "some-keypair",
+ *     pairType: "RSA",
+ *     alias: "foo-alias",
+ *     privateKey: fs.readFileSync("samples/rsa.priv"),
+ *     publicKey: fs.readFileSync("samples/rsa.pub"),
+ * });
+ * const terraform_local_test_alpine_repo_basic = new artifactory.AlpineRepository("terraform-local-test-alpine-repo-basic", {
+ *     key: "terraform-local-test-alpine-repo-basic",
+ *     primaryKeypairRef: some_keypairRSA.pairName,
+ * }, {
+ *     dependsOn: [some_keypairRSA],
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * Local repositories can be imported using their name, e.g.
+ *
+ * ```sh
+ *  $ pulumi import artifactory:index/alpineRepository:AlpineRepository terraform-local-test-alpine-repo-basic terraform-local-test-alpine-repo-basic
+ * ```
+ */
 export class AlpineRepository extends pulumi.CustomResource {
     /**
      * Get an existing AlpineRepository resource's state with the given name, ID, and optional extra
@@ -68,8 +101,7 @@ export class AlpineRepository extends pulumi.CustomResource {
     public readonly includesPattern!: pulumi.Output<string>;
     public readonly indexCompressionFormats!: pulumi.Output<string[] | undefined>;
     /**
-     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-     * characters. It cannot begin with a number or contain spaces or special characters.
+     * the identity key of the repo.
      */
     public readonly key!: pulumi.Output<string>;
     /**
@@ -212,8 +244,7 @@ export interface AlpineRepositoryState {
     includesPattern?: pulumi.Input<string>;
     indexCompressionFormats?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-     * characters. It cannot begin with a number or contain spaces or special characters.
+     * the identity key of the repo.
      */
     key?: pulumi.Input<string>;
     /**
@@ -297,8 +328,7 @@ export interface AlpineRepositoryArgs {
     includesPattern?: pulumi.Input<string>;
     indexCompressionFormats?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-     * characters. It cannot begin with a number or contain spaces or special characters.
+     * the identity key of the repo.
      */
     key: pulumi.Input<string>;
     /**

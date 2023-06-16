@@ -18,6 +18,73 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides an Artifactory webhook resource. This can be used to register and manage Artifactory webhook subscription which enables you to be notified or notify other users when such events take place in Artifactory.
+ * 
+ * ## Example Usage
+ * 
+ * .
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.artifactory.DockerV2Repository;
+ * import com.pulumi.artifactory.DockerV2RepositoryArgs;
+ * import com.pulumi.artifactory.DockerWebhook;
+ * import com.pulumi.artifactory.DockerWebhookArgs;
+ * import com.pulumi.artifactory.inputs.DockerWebhookCriteriaArgs;
+ * import com.pulumi.artifactory.inputs.DockerWebhookHandlerArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var my_docker_local = new DockerV2Repository(&#34;my-docker-local&#34;, DockerV2RepositoryArgs.builder()        
+ *             .key(&#34;my-docker-local&#34;)
+ *             .build());
+ * 
+ *         var docker_webhook = new DockerWebhook(&#34;docker-webhook&#34;, DockerWebhookArgs.builder()        
+ *             .key(&#34;docker-webhook&#34;)
+ *             .eventTypes(            
+ *                 &#34;pushed&#34;,
+ *                 &#34;deleted&#34;,
+ *                 &#34;promoted&#34;)
+ *             .criteria(DockerWebhookCriteriaArgs.builder()
+ *                 .anyLocal(true)
+ *                 .anyRemote(false)
+ *                 .repoKeys(my_docker_local.key())
+ *                 .includePatterns(&#34;foo/**&#34;)
+ *                 .excludePatterns(&#34;bar/**&#34;)
+ *                 .build())
+ *             .handlers(DockerWebhookHandlerArgs.builder()
+ *                 .url(&#34;http://tempurl.org/webhook&#34;)
+ *                 .secret(&#34;some-secret&#34;)
+ *                 .proxy(&#34;proxy-key&#34;)
+ *                 .customHttpHeaders(Map.ofEntries(
+ *                     Map.entry(&#34;header-1&#34;, &#34;value-1&#34;),
+ *                     Map.entry(&#34;header-2&#34;, &#34;value-2&#34;)
+ *                 ))
+ *                 .build())
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(my_docker_local)
+ *                 .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ */
 @ResourceType(type="artifactory:index/dockerWebhook:DockerWebhook")
 public class DockerWebhook extends com.pulumi.resources.CustomResource {
     /**
@@ -35,64 +102,70 @@ public class DockerWebhook extends com.pulumi.resources.CustomResource {
         return this.criteria;
     }
     /**
-     * Description of webhook. Max length 1000 characters.
+     * Webhook description. Max length 1000 characters.
      * 
      */
     @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return Description of webhook. Max length 1000 characters.
+     * @return Webhook description. Max length 1000 characters.
      * 
      */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
     /**
-     * Status of webhook. Default to &#39;true&#39;
+     * Status of webhook. Default to `true`.
      * 
      */
     @Export(name="enabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
-     * @return Status of webhook. Default to &#39;true&#39;
+     * @return Status of webhook. Default to `true`.
      * 
      */
     public Output<Optional<Boolean>> enabled() {
         return Codegen.optional(this.enabled);
     }
     /**
-     * List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow
-     * values: pushed, deleted, promoted
+     * List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `pushed`, `deleted`, `promoted`.
      * 
      */
     @Export(name="eventTypes", type=List.class, parameters={String.class})
     private Output<List<String>> eventTypes;
 
     /**
-     * @return List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow
-     * values: pushed, deleted, promoted
+     * @return List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `pushed`, `deleted`, `promoted`.
      * 
      */
     public Output<List<String>> eventTypes() {
         return this.eventTypes;
     }
+    /**
+     * At least one is required.
+     * 
+     */
     @Export(name="handlers", type=List.class, parameters={DockerWebhookHandler.class})
     private Output<List<DockerWebhookHandler>> handlers;
 
+    /**
+     * @return At least one is required.
+     * 
+     */
     public Output<List<DockerWebhookHandler>> handlers() {
         return this.handlers;
     }
     /**
-     * Key of webhook. Must be between 2 and 200 characters. Cannot contain spaces.
+     * The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
      * 
      */
     @Export(name="key", type=String.class, parameters={})
     private Output<String> key;
 
     /**
-     * @return Key of webhook. Must be between 2 and 200 characters. Cannot contain spaces.
+     * @return The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
      * 
      */
     public Output<String> key() {

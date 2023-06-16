@@ -94,16 +94,14 @@ public final class ProxyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * When set, this proxy will be the default proxy for new remote repositories and for internal HTTP requests issued by
-     * Artifactory. Will also be used as proxy for all other services in the platform (for example: Xray, Distribution, etc).
+     * When set, this proxy will be the default proxy for new remote repositories and for internal HTTP requests issued by Artifactory. Will also be used as proxy for all other services in the platform (for example: Xray, Distribution, etc).
      * 
      */
     @Import(name="platformDefault")
     private @Nullable Output<Boolean> platformDefault;
 
     /**
-     * @return When set, this proxy will be the default proxy for new remote repositories and for internal HTTP requests issued by
-     * Artifactory. Will also be used as proxy for all other services in the platform (for example: Xray, Distribution, etc).
+     * @return When set, this proxy will be the default proxy for new remote repositories and for internal HTTP requests issued by Artifactory. Will also be used as proxy for all other services in the platform (for example: Xray, Distribution, etc).
      * 
      */
     public Optional<Output<Boolean>> platformDefault() {
@@ -126,16 +124,14 @@ public final class ProxyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * An optional list of host names to which this proxy may redirect requests. The credentials defined for the proxy are
-     * reused by requests redirected to all of these hosts.
+     * An optional list of host names to which this proxy may redirect requests. The credentials defined for the proxy are reused by requests redirected to all of these hosts.
      * 
      */
     @Import(name="redirectToHosts")
     private @Nullable Output<List<String>> redirectToHosts;
 
     /**
-     * @return An optional list of host names to which this proxy may redirect requests. The credentials defined for the proxy are
-     * reused by requests redirected to all of these hosts.
+     * @return An optional list of host names to which this proxy may redirect requests. The credentials defined for the proxy are reused by requests redirected to all of these hosts.
      * 
      */
     public Optional<Output<List<String>>> redirectToHosts() {
@@ -143,14 +139,14 @@ public final class ProxyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * An optional list of services names to which this proxy be the default of. The options are jfrt, jfmc, jfxr, jfds
+     * An optional list of services names to which this proxy be the default of. The options are `jfrt`, `jfmc`, `jfxr`, `jfds`.
      * 
      */
     @Import(name="services")
     private @Nullable Output<List<String>> services;
 
     /**
-     * @return An optional list of services names to which this proxy be the default of. The options are jfrt, jfmc, jfxr, jfds
+     * @return An optional list of services names to which this proxy be the default of. The options are `jfrt`, `jfmc`, `jfxr`, `jfds`.
      * 
      */
     public Optional<Output<List<String>>> services() {
@@ -311,8 +307,7 @@ public final class ProxyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param platformDefault When set, this proxy will be the default proxy for new remote repositories and for internal HTTP requests issued by
-         * Artifactory. Will also be used as proxy for all other services in the platform (for example: Xray, Distribution, etc).
+         * @param platformDefault When set, this proxy will be the default proxy for new remote repositories and for internal HTTP requests issued by Artifactory. Will also be used as proxy for all other services in the platform (for example: Xray, Distribution, etc).
          * 
          * @return builder
          * 
@@ -323,8 +318,7 @@ public final class ProxyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param platformDefault When set, this proxy will be the default proxy for new remote repositories and for internal HTTP requests issued by
-         * Artifactory. Will also be used as proxy for all other services in the platform (for example: Xray, Distribution, etc).
+         * @param platformDefault When set, this proxy will be the default proxy for new remote repositories and for internal HTTP requests issued by Artifactory. Will also be used as proxy for all other services in the platform (for example: Xray, Distribution, etc).
          * 
          * @return builder
          * 
@@ -355,8 +349,7 @@ public final class ProxyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param redirectToHosts An optional list of host names to which this proxy may redirect requests. The credentials defined for the proxy are
-         * reused by requests redirected to all of these hosts.
+         * @param redirectToHosts An optional list of host names to which this proxy may redirect requests. The credentials defined for the proxy are reused by requests redirected to all of these hosts.
          * 
          * @return builder
          * 
@@ -367,8 +360,7 @@ public final class ProxyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param redirectToHosts An optional list of host names to which this proxy may redirect requests. The credentials defined for the proxy are
-         * reused by requests redirected to all of these hosts.
+         * @param redirectToHosts An optional list of host names to which this proxy may redirect requests. The credentials defined for the proxy are reused by requests redirected to all of these hosts.
          * 
          * @return builder
          * 
@@ -378,8 +370,7 @@ public final class ProxyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param redirectToHosts An optional list of host names to which this proxy may redirect requests. The credentials defined for the proxy are
-         * reused by requests redirected to all of these hosts.
+         * @param redirectToHosts An optional list of host names to which this proxy may redirect requests. The credentials defined for the proxy are reused by requests redirected to all of these hosts.
          * 
          * @return builder
          * 
@@ -389,7 +380,7 @@ public final class ProxyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param services An optional list of services names to which this proxy be the default of. The options are jfrt, jfmc, jfxr, jfds
+         * @param services An optional list of services names to which this proxy be the default of. The options are `jfrt`, `jfmc`, `jfxr`, `jfds`.
          * 
          * @return builder
          * 
@@ -400,7 +391,7 @@ public final class ProxyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param services An optional list of services names to which this proxy be the default of. The options are jfrt, jfmc, jfxr, jfds
+         * @param services An optional list of services names to which this proxy be the default of. The options are `jfrt`, `jfmc`, `jfxr`, `jfds`.
          * 
          * @return builder
          * 
@@ -410,7 +401,7 @@ public final class ProxyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param services An optional list of services names to which this proxy be the default of. The options are jfrt, jfmc, jfxr, jfds
+         * @param services An optional list of services names to which this proxy be the default of. The options are `jfrt`, `jfmc`, `jfxr`, `jfds`.
          * 
          * @return builder
          * 

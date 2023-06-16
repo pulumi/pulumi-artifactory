@@ -18,6 +18,50 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Creates a remote Conda repository.
+ * Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Conda+Repositories).
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.artifactory.RemoteCondaRepository;
+ * import com.pulumi.artifactory.RemoteCondaRepositoryArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var my_remote_conda = new RemoteCondaRepository(&#34;my-remote-conda&#34;, RemoteCondaRepositoryArgs.builder()        
+ *             .key(&#34;my-remote-conda&#34;)
+ *             .url(&#34;https://repo.anaconda.com/pkgs/main&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Remote repositories can be imported using their name, e.g.
+ * 
+ * ```sh
+ *  $ pulumi import artifactory:index/remoteCondaRepository:RemoteCondaRepository my-remote-conda my-remote-conda
+ * ```
+ * 
+ */
 @ResourceType(type="artifactory:index/remoteCondaRepository:RemoteCondaRepository")
 public class RemoteCondaRepository extends com.pulumi.resources.CustomResource {
     /**
@@ -235,16 +279,16 @@ public class RemoteCondaRepository extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.includesPattern);
     }
     /**
-     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-     * characters. It cannot begin with a number or contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+     * contain spaces or special characters.
      * 
      */
     @Export(name="key", type=String.class, parameters={})
     private Output<String> key;
 
     /**
-     * @return A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-     * characters. It cannot begin with a number or contain spaces or special characters.
+     * @return A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+     * contain spaces or special characters.
      * 
      */
     public Output<String> key() {

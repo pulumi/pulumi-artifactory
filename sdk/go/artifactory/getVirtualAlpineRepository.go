@@ -10,6 +10,33 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Retrieves a virtual Alpine repository.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.LookupVirtualAlpineRepository(ctx, &artifactory.LookupVirtualAlpineRepositoryArgs{
+//				Key: "virtual-alpine",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupVirtualAlpineRepository(ctx *pulumi.Context, args *LookupVirtualAlpineRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupVirtualAlpineRepositoryResult, error) {
 	var rv LookupVirtualAlpineRepositoryResult
 	err := ctx.Invoke("artifactory:index/getVirtualAlpineRepository:getVirtualAlpineRepository", args, &rv, opts...)
@@ -21,19 +48,22 @@ func LookupVirtualAlpineRepository(ctx *pulumi.Context, args *LookupVirtualAlpin
 
 // A collection of arguments for invoking getVirtualAlpineRepository.
 type LookupVirtualAlpineRepositoryArgs struct {
-	ArtifactoryRequestsCanRetrieveRemoteArtifacts *bool    `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`
-	DefaultDeploymentRepo                         *string  `pulumi:"defaultDeploymentRepo"`
-	Description                                   *string  `pulumi:"description"`
-	ExcludesPattern                               *string  `pulumi:"excludesPattern"`
-	IncludesPattern                               *string  `pulumi:"includesPattern"`
-	Key                                           string   `pulumi:"key"`
-	Notes                                         *string  `pulumi:"notes"`
-	PrimaryKeypairRef                             *string  `pulumi:"primaryKeypairRef"`
-	ProjectEnvironments                           []string `pulumi:"projectEnvironments"`
-	ProjectKey                                    *string  `pulumi:"projectKey"`
-	RepoLayoutRef                                 *string  `pulumi:"repoLayoutRef"`
-	Repositories                                  []string `pulumi:"repositories"`
-	RetrievalCachePeriodSeconds                   *int     `pulumi:"retrievalCachePeriodSeconds"`
+	ArtifactoryRequestsCanRetrieveRemoteArtifacts *bool   `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`
+	DefaultDeploymentRepo                         *string `pulumi:"defaultDeploymentRepo"`
+	Description                                   *string `pulumi:"description"`
+	ExcludesPattern                               *string `pulumi:"excludesPattern"`
+	IncludesPattern                               *string `pulumi:"includesPattern"`
+	// the identity key of the repo.
+	Key   string  `pulumi:"key"`
+	Notes *string `pulumi:"notes"`
+	// (Optional) Primary keypair used to sign artifacts. Default value is empty.
+	PrimaryKeypairRef   *string  `pulumi:"primaryKeypairRef"`
+	ProjectEnvironments []string `pulumi:"projectEnvironments"`
+	ProjectKey          *string  `pulumi:"projectKey"`
+	RepoLayoutRef       *string  `pulumi:"repoLayoutRef"`
+	Repositories        []string `pulumi:"repositories"`
+	// (Optional, Default: `7200`) This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
+	RetrievalCachePeriodSeconds *int `pulumi:"retrievalCachePeriodSeconds"`
 }
 
 // A collection of values returned by getVirtualAlpineRepository.
@@ -43,17 +73,19 @@ type LookupVirtualAlpineRepositoryResult struct {
 	Description                                   *string `pulumi:"description"`
 	ExcludesPattern                               *string `pulumi:"excludesPattern"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                          string   `pulumi:"id"`
-	IncludesPattern             *string  `pulumi:"includesPattern"`
-	Key                         string   `pulumi:"key"`
-	Notes                       *string  `pulumi:"notes"`
-	PackageType                 string   `pulumi:"packageType"`
-	PrimaryKeypairRef           *string  `pulumi:"primaryKeypairRef"`
-	ProjectEnvironments         []string `pulumi:"projectEnvironments"`
-	ProjectKey                  *string  `pulumi:"projectKey"`
-	RepoLayoutRef               *string  `pulumi:"repoLayoutRef"`
-	Repositories                []string `pulumi:"repositories"`
-	RetrievalCachePeriodSeconds *int     `pulumi:"retrievalCachePeriodSeconds"`
+	Id              string  `pulumi:"id"`
+	IncludesPattern *string `pulumi:"includesPattern"`
+	Key             string  `pulumi:"key"`
+	Notes           *string `pulumi:"notes"`
+	PackageType     string  `pulumi:"packageType"`
+	// (Optional) Primary keypair used to sign artifacts. Default value is empty.
+	PrimaryKeypairRef   *string  `pulumi:"primaryKeypairRef"`
+	ProjectEnvironments []string `pulumi:"projectEnvironments"`
+	ProjectKey          *string  `pulumi:"projectKey"`
+	RepoLayoutRef       *string  `pulumi:"repoLayoutRef"`
+	Repositories        []string `pulumi:"repositories"`
+	// (Optional, Default: `7200`) This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
+	RetrievalCachePeriodSeconds *int `pulumi:"retrievalCachePeriodSeconds"`
 }
 
 func LookupVirtualAlpineRepositoryOutput(ctx *pulumi.Context, args LookupVirtualAlpineRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupVirtualAlpineRepositoryResultOutput {
@@ -71,19 +103,22 @@ func LookupVirtualAlpineRepositoryOutput(ctx *pulumi.Context, args LookupVirtual
 
 // A collection of arguments for invoking getVirtualAlpineRepository.
 type LookupVirtualAlpineRepositoryOutputArgs struct {
-	ArtifactoryRequestsCanRetrieveRemoteArtifacts pulumi.BoolPtrInput     `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`
-	DefaultDeploymentRepo                         pulumi.StringPtrInput   `pulumi:"defaultDeploymentRepo"`
-	Description                                   pulumi.StringPtrInput   `pulumi:"description"`
-	ExcludesPattern                               pulumi.StringPtrInput   `pulumi:"excludesPattern"`
-	IncludesPattern                               pulumi.StringPtrInput   `pulumi:"includesPattern"`
-	Key                                           pulumi.StringInput      `pulumi:"key"`
-	Notes                                         pulumi.StringPtrInput   `pulumi:"notes"`
-	PrimaryKeypairRef                             pulumi.StringPtrInput   `pulumi:"primaryKeypairRef"`
-	ProjectEnvironments                           pulumi.StringArrayInput `pulumi:"projectEnvironments"`
-	ProjectKey                                    pulumi.StringPtrInput   `pulumi:"projectKey"`
-	RepoLayoutRef                                 pulumi.StringPtrInput   `pulumi:"repoLayoutRef"`
-	Repositories                                  pulumi.StringArrayInput `pulumi:"repositories"`
-	RetrievalCachePeriodSeconds                   pulumi.IntPtrInput      `pulumi:"retrievalCachePeriodSeconds"`
+	ArtifactoryRequestsCanRetrieveRemoteArtifacts pulumi.BoolPtrInput   `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`
+	DefaultDeploymentRepo                         pulumi.StringPtrInput `pulumi:"defaultDeploymentRepo"`
+	Description                                   pulumi.StringPtrInput `pulumi:"description"`
+	ExcludesPattern                               pulumi.StringPtrInput `pulumi:"excludesPattern"`
+	IncludesPattern                               pulumi.StringPtrInput `pulumi:"includesPattern"`
+	// the identity key of the repo.
+	Key   pulumi.StringInput    `pulumi:"key"`
+	Notes pulumi.StringPtrInput `pulumi:"notes"`
+	// (Optional) Primary keypair used to sign artifacts. Default value is empty.
+	PrimaryKeypairRef   pulumi.StringPtrInput   `pulumi:"primaryKeypairRef"`
+	ProjectEnvironments pulumi.StringArrayInput `pulumi:"projectEnvironments"`
+	ProjectKey          pulumi.StringPtrInput   `pulumi:"projectKey"`
+	RepoLayoutRef       pulumi.StringPtrInput   `pulumi:"repoLayoutRef"`
+	Repositories        pulumi.StringArrayInput `pulumi:"repositories"`
+	// (Optional, Default: `7200`) This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
+	RetrievalCachePeriodSeconds pulumi.IntPtrInput `pulumi:"retrievalCachePeriodSeconds"`
 }
 
 func (LookupVirtualAlpineRepositoryOutputArgs) ElementType() reflect.Type {
@@ -144,6 +179,7 @@ func (o LookupVirtualAlpineRepositoryResultOutput) PackageType() pulumi.StringOu
 	return o.ApplyT(func(v LookupVirtualAlpineRepositoryResult) string { return v.PackageType }).(pulumi.StringOutput)
 }
 
+// (Optional) Primary keypair used to sign artifacts. Default value is empty.
 func (o LookupVirtualAlpineRepositoryResultOutput) PrimaryKeypairRef() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupVirtualAlpineRepositoryResult) *string { return v.PrimaryKeypairRef }).(pulumi.StringPtrOutput)
 }
@@ -164,6 +200,7 @@ func (o LookupVirtualAlpineRepositoryResultOutput) Repositories() pulumi.StringA
 	return o.ApplyT(func(v LookupVirtualAlpineRepositoryResult) []string { return v.Repositories }).(pulumi.StringArrayOutput)
 }
 
+// (Optional, Default: `7200`) This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
 func (o LookupVirtualAlpineRepositoryResultOutput) RetrievalCachePeriodSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupVirtualAlpineRepositoryResult) *int { return v.RetrievalCachePeriodSeconds }).(pulumi.IntPtrOutput)
 }

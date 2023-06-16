@@ -18,6 +18,50 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Creates a remote Swift repository.
+ * Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Conan+Repositories).
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.artifactory.RemoteSwiftRepository;
+ * import com.pulumi.artifactory.RemoteSwiftRepositoryArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var my_remote_swift = new RemoteSwiftRepository(&#34;my-remote-swift&#34;, RemoteSwiftRepositoryArgs.builder()        
+ *             .key(&#34;my-remote-swift&#34;)
+ *             .url(&#34;https://swift.org/&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Remote repositories can be imported using their name, e.g.
+ * 
+ * ```sh
+ *  $ pulumi import artifactory:index/remoteSwiftRepository:RemoteSwiftRepository my-remote-swift my-remote-swift
+ * ```
+ * 
+ */
 @ResourceType(type="artifactory:index/remoteSwiftRepository:RemoteSwiftRepository")
 public class RemoteSwiftRepository extends com.pulumi.resources.CustomResource {
     /**
@@ -235,16 +279,16 @@ public class RemoteSwiftRepository extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.includesPattern);
     }
     /**
-     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-     * characters. It cannot begin with a number or contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+     * contain spaces or special characters.
      * 
      */
     @Export(name="key", type=String.class, parameters={})
     private Output<String> key;
 
     /**
-     * @return A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-     * characters. It cannot begin with a number or contain spaces or special characters.
+     * @return A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+     * contain spaces or special characters.
      * 
      */
     public Output<String> key() {

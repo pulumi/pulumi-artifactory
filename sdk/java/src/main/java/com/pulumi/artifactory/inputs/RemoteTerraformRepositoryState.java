@@ -248,16 +248,16 @@ public final class RemoteTerraformRepositoryState extends com.pulumi.resources.R
     }
 
     /**
-     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-     * characters. It cannot begin with a number or contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+     * contain spaces or special characters.
      * 
      */
     @Import(name="key")
     private @Nullable Output<String> key;
 
     /**
-     * @return A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-     * characters. It cannot begin with a number or contain spaces or special characters.
+     * @return A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+     * contain spaces or special characters.
      * 
      */
     public Optional<Output<String>> key() {
@@ -656,14 +656,14 @@ public final class RemoteTerraformRepositoryState extends com.pulumi.resources.R
     }
 
     /**
-     * The remote repo URL.
+     * The base URL of the Module storage API.
      * 
      */
     @Import(name="url")
     private @Nullable Output<String> url;
 
     /**
-     * @return The remote repo URL.
+     * @return The base URL of the Module storage API.
      * 
      */
     public Optional<Output<String>> url() {
@@ -1069,8 +1069,8 @@ public final class RemoteTerraformRepositoryState extends com.pulumi.resources.R
         }
 
         /**
-         * @param key A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-         * characters. It cannot begin with a number or contain spaces or special characters.
+         * @param key A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+         * contain spaces or special characters.
          * 
          * @return builder
          * 
@@ -1081,8 +1081,8 @@ public final class RemoteTerraformRepositoryState extends com.pulumi.resources.R
         }
 
         /**
-         * @param key A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-         * characters. It cannot begin with a number or contain spaces or special characters.
+         * @param key A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+         * contain spaces or special characters.
          * 
          * @return builder
          * 
@@ -1644,7 +1644,7 @@ public final class RemoteTerraformRepositoryState extends com.pulumi.resources.R
         }
 
         /**
-         * @param url The remote repo URL.
+         * @param url The base URL of the Module storage API.
          * 
          * @return builder
          * 
@@ -1655,7 +1655,7 @@ public final class RemoteTerraformRepositoryState extends com.pulumi.resources.R
         }
 
         /**
-         * @param url The remote repo URL.
+         * @param url The base URL of the Module storage API.
          * 
          * @return builder
          * 

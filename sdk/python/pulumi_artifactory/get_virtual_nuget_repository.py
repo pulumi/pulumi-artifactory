@@ -88,6 +88,9 @@ class GetVirtualNugetRepositoryResult:
     @property
     @pulumi.getter(name="forceNugetAuthentication")
     def force_nuget_authentication(self) -> Optional[bool]:
+        """
+        (Optional) If set, user authentication is required when accessing the repository. An anonymous request will display an HTTP 401 error. This is also enforced when aggregated repositories support anonymous requests. Default is `false`.
+        """
         return pulumi.get(self, "force_nuget_authentication")
 
     @property
@@ -175,7 +178,20 @@ def get_virtual_nuget_repository(artifactory_requests_can_retrieve_remote_artifa
                                  repositories: Optional[Sequence[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualNugetRepositoryResult:
     """
-    Use this data source to access information about an existing resource.
+    Retrieves a virtual NPM repository.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_artifactory as artifactory
+
+    virtual_npm = artifactory.get_virtual_npm_repository(key="virtual-npm")
+    ```
+
+
+    :param bool force_nuget_authentication: (Optional) If set, user authentication is required when accessing the repository. An anonymous request will display an HTTP 401 error. This is also enforced when aggregated repositories support anonymous requests. Default is `false`.
+    :param str key: the identity key of the repo.
     """
     __args__ = dict()
     __args__['artifactoryRequestsCanRetrieveRemoteArtifacts'] = artifactory_requests_can_retrieve_remote_artifacts
@@ -225,6 +241,19 @@ def get_virtual_nuget_repository_output(artifactory_requests_can_retrieve_remote
                                         repositories: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualNugetRepositoryResult]:
     """
-    Use this data source to access information about an existing resource.
+    Retrieves a virtual NPM repository.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_artifactory as artifactory
+
+    virtual_npm = artifactory.get_virtual_npm_repository(key="virtual-npm")
+    ```
+
+
+    :param bool force_nuget_authentication: (Optional) If set, user authentication is required when accessing the repository. An anonymous request will display an HTTP 401 error. This is also enforced when aggregated repositories support anonymous requests. Default is `false`.
+    :param str key: the identity key of the repo.
     """
     ...

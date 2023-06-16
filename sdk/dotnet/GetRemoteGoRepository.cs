@@ -11,9 +11,59 @@ namespace Pulumi.Artifactory
 {
     public static class GetRemoteGoRepository
     {
+        /// <summary>
+        /// Retrieves a remote Go repository.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var remote_go = Artifactory.GetRemoteGoRepository.Invoke(new()
+        ///     {
+        ///         Key = "remote-go",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetRemoteGoRepositoryResult> InvokeAsync(GetRemoteGoRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRemoteGoRepositoryResult>("artifactory:index/getRemoteGoRepository:getRemoteGoRepository", args ?? new GetRemoteGoRepositoryArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Retrieves a remote Go repository.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var remote_go = Artifactory.GetRemoteGoRepository.Invoke(new()
+        ///     {
+        ///         Key = "remote-go",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetRemoteGoRepositoryResult> Invoke(GetRemoteGoRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRemoteGoRepositoryResult>("artifactory:index/getRemoteGoRepository:getRemoteGoRepository", args ?? new GetRemoteGoRepositoryInvokeArgs(), options.WithDefaults());
     }
@@ -63,6 +113,9 @@ namespace Pulumi.Artifactory
         [Input("includesPattern")]
         public string? IncludesPattern { get; set; }
 
+        /// <summary>
+        /// the identity key of the repo.
+        /// </summary>
         [Input("key", required: true)]
         public string Key { get; set; } = null!;
 
@@ -153,6 +206,9 @@ namespace Pulumi.Artifactory
         [Input("username")]
         public string? Username { get; set; }
 
+        /// <summary>
+        /// (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `ARTIFACTORY`.
+        /// </summary>
         [Input("vcsGitProvider")]
         public string? VcsGitProvider { get; set; }
 
@@ -209,6 +265,9 @@ namespace Pulumi.Artifactory
         [Input("includesPattern")]
         public Input<string>? IncludesPattern { get; set; }
 
+        /// <summary>
+        /// the identity key of the repo.
+        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
@@ -303,6 +362,9 @@ namespace Pulumi.Artifactory
         [Input("username")]
         public Input<string>? Username { get; set; }
 
+        /// <summary>
+        /// (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `ARTIFACTORY`.
+        /// </summary>
         [Input("vcsGitProvider")]
         public Input<string>? VcsGitProvider { get; set; }
 
@@ -363,6 +425,9 @@ namespace Pulumi.Artifactory
         public readonly int? UnusedArtifactsCleanupPeriodHours;
         public readonly string? Url;
         public readonly string? Username;
+        /// <summary>
+        /// (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `ARTIFACTORY`.
+        /// </summary>
         public readonly string? VcsGitProvider;
         public readonly bool? XrayIndex;
 

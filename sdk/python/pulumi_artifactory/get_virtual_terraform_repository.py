@@ -165,7 +165,17 @@ def get_virtual_terraform_repository(artifactory_requests_can_retrieve_remote_ar
                                      repositories: Optional[Sequence[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualTerraformRepositoryResult:
     """
-    Use this data source to access information about an existing resource.
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_artifactory as artifactory
+
+    virtual_terraform = artifactory.get_virtual_terraform_repository(key="virtual-terraform")
+    ```
+
+
+    :param str key: the identity key of the repo.
     """
     __args__ = dict()
     __args__['artifactoryRequestsCanRetrieveRemoteArtifacts'] = artifactory_requests_can_retrieve_remote_artifacts
@@ -212,6 +222,16 @@ def get_virtual_terraform_repository_output(artifactory_requests_can_retrieve_re
                                             repositories: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualTerraformRepositoryResult]:
     """
-    Use this data source to access information about an existing resource.
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_artifactory as artifactory
+
+    virtual_terraform = artifactory.get_virtual_terraform_repository(key="virtual-terraform")
+    ```
+
+
+    :param str key: the identity key of the repo.
     """
     ...

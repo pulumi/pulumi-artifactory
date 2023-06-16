@@ -6,6 +6,20 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * Retrieves a federated Conda repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const federated-test-conda-repo = artifactory.getFederatedCondaRepository({
+ *     key: "federated-test-conda-repo",
+ * });
+ * ```
+ */
 export function getFederatedCondaRepository(args: GetFederatedCondaRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetFederatedCondaRepositoryResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -42,7 +56,16 @@ export interface GetFederatedCondaRepositoryArgs {
     downloadDirect?: boolean;
     excludesPattern?: string;
     includesPattern?: string;
+    /**
+     * the identity key of the repo.
+     */
     key: string;
+    /**
+     * The list of Federated members and must contain this repository URL (configured base URL
+     * `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+     * Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+     * to set up Federated repositories correctly.
+     */
     members?: inputs.GetFederatedCondaRepositoryMember[];
     notes?: string;
     priorityResolution?: boolean;
@@ -70,6 +93,12 @@ export interface GetFederatedCondaRepositoryResult {
     readonly id: string;
     readonly includesPattern: string;
     readonly key: string;
+    /**
+     * The list of Federated members and must contain this repository URL (configured base URL
+     * `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+     * Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+     * to set up Federated repositories correctly.
+     */
     readonly members?: outputs.GetFederatedCondaRepositoryMember[];
     readonly notes?: string;
     readonly packageType: string;
@@ -80,6 +109,20 @@ export interface GetFederatedCondaRepositoryResult {
     readonly repoLayoutRef?: string;
     readonly xrayIndex?: boolean;
 }
+/**
+ * Retrieves a federated Conda repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const federated-test-conda-repo = artifactory.getFederatedCondaRepository({
+ *     key: "federated-test-conda-repo",
+ * });
+ * ```
+ */
 export function getFederatedCondaRepositoryOutput(args: GetFederatedCondaRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedCondaRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getFederatedCondaRepository(a, opts))
 }
@@ -96,7 +139,16 @@ export interface GetFederatedCondaRepositoryOutputArgs {
     downloadDirect?: pulumi.Input<boolean>;
     excludesPattern?: pulumi.Input<string>;
     includesPattern?: pulumi.Input<string>;
+    /**
+     * the identity key of the repo.
+     */
     key: pulumi.Input<string>;
+    /**
+     * The list of Federated members and must contain this repository URL (configured base URL
+     * `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+     * Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+     * to set up Federated repositories correctly.
+     */
     members?: pulumi.Input<pulumi.Input<inputs.GetFederatedCondaRepositoryMemberArgs>[]>;
     notes?: pulumi.Input<string>;
     priorityResolution?: pulumi.Input<boolean>;

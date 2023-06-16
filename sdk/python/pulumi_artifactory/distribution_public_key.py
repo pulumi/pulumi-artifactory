@@ -20,6 +20,8 @@ class DistributionPublicKeyArgs:
         The set of arguments for constructing a DistributionPublicKey resource.
         :param pulumi.Input[str] alias: Will be used as an identifier when uploading/retrieving the public key via REST API.
         :param pulumi.Input[str] public_key: The Public key to add as a trusted distribution GPG key.
+               
+               The following additional attributes are exported:
         """
         pulumi.set(__self__, "alias", alias)
         pulumi.set(__self__, "public_key", public_key)
@@ -41,6 +43,8 @@ class DistributionPublicKeyArgs:
     def public_key(self) -> pulumi.Input[str]:
         """
         The Public key to add as a trusted distribution GPG key.
+
+        The following additional attributes are exported:
         """
         return pulumi.get(self, "public_key")
 
@@ -63,10 +67,12 @@ class _DistributionPublicKeyState:
         Input properties used for looking up and filtering DistributionPublicKey resources.
         :param pulumi.Input[str] alias: Will be used as an identifier when uploading/retrieving the public key via REST API.
         :param pulumi.Input[str] fingerprint: Returns the computed key fingerprint
-        :param pulumi.Input[str] issued_by: Returns the name and eMail address of issuer.
-        :param pulumi.Input[str] issued_on: Returns the date/time when this GPG key was created.
-        :param pulumi.Input[str] key_id: Returns the key id by which this key is referenced in Artifactory.
+        :param pulumi.Input[str] issued_by: Returns the name and eMail address of issuer
+        :param pulumi.Input[str] issued_on: Returns the date/time when this GPG key was created
+        :param pulumi.Input[str] key_id: Returns the key id by which this key is referenced in Artifactory
         :param pulumi.Input[str] public_key: The Public key to add as a trusted distribution GPG key.
+               
+               The following additional attributes are exported:
         :param pulumi.Input[str] valid_until: Returns the date/time when this GPG key expires.
         """
         if alias is not None:
@@ -112,7 +118,7 @@ class _DistributionPublicKeyState:
     @pulumi.getter(name="issuedBy")
     def issued_by(self) -> Optional[pulumi.Input[str]]:
         """
-        Returns the name and eMail address of issuer.
+        Returns the name and eMail address of issuer
         """
         return pulumi.get(self, "issued_by")
 
@@ -124,7 +130,7 @@ class _DistributionPublicKeyState:
     @pulumi.getter(name="issuedOn")
     def issued_on(self) -> Optional[pulumi.Input[str]]:
         """
-        Returns the date/time when this GPG key was created.
+        Returns the date/time when this GPG key was created
         """
         return pulumi.get(self, "issued_on")
 
@@ -136,7 +142,7 @@ class _DistributionPublicKeyState:
     @pulumi.getter(name="keyId")
     def key_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Returns the key id by which this key is referenced in Artifactory.
+        Returns the key id by which this key is referenced in Artifactory
         """
         return pulumi.get(self, "key_id")
 
@@ -149,6 +155,8 @@ class _DistributionPublicKeyState:
     def public_key(self) -> Optional[pulumi.Input[str]]:
         """
         The Public key to add as a trusted distribution GPG key.
+
+        The following additional attributes are exported:
         """
         return pulumi.get(self, "public_key")
 
@@ -178,11 +186,35 @@ class DistributionPublicKey(pulumi.CustomResource):
                  public_key: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a DistributionPublicKey resource with the given unique name, props, and options.
+        Provides an Artifactory Distribution Public Key resource. This can be used to create and manage Artifactory Distribution Public Keys.
+
+        See [API description](https://jfrog.com/help/r/jfrog-rest-apis/set-distributionpublic-gpg-key) in the Artifactory documentation for more details. Also the [UI documentation](https://jfrog.com/help/r/jfrog-platform-administration-documentation/managing-webstart-and-jar-signing) has further details on where to find these keys in Artifactory.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        my_key = artifactory.DistributionPublicKey("my-key",
+            alias="my-key",
+            public_key=(lambda path: open(path).read())("samples/rsa.pub"))
+        ```
+
+        ## Import
+
+        Distribution Public Key can be imported using the key id, e.g.
+
+        ```sh
+         $ pulumi import artifactory:index/distributionPublicKey:DistributionPublicKey my-key keyid
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] alias: Will be used as an identifier when uploading/retrieving the public key via REST API.
         :param pulumi.Input[str] public_key: The Public key to add as a trusted distribution GPG key.
+               
+               The following additional attributes are exported:
         """
         ...
     @overload
@@ -191,7 +223,29 @@ class DistributionPublicKey(pulumi.CustomResource):
                  args: DistributionPublicKeyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a DistributionPublicKey resource with the given unique name, props, and options.
+        Provides an Artifactory Distribution Public Key resource. This can be used to create and manage Artifactory Distribution Public Keys.
+
+        See [API description](https://jfrog.com/help/r/jfrog-rest-apis/set-distributionpublic-gpg-key) in the Artifactory documentation for more details. Also the [UI documentation](https://jfrog.com/help/r/jfrog-platform-administration-documentation/managing-webstart-and-jar-signing) has further details on where to find these keys in Artifactory.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        my_key = artifactory.DistributionPublicKey("my-key",
+            alias="my-key",
+            public_key=(lambda path: open(path).read())("samples/rsa.pub"))
+        ```
+
+        ## Import
+
+        Distribution Public Key can be imported using the key id, e.g.
+
+        ```sh
+         $ pulumi import artifactory:index/distributionPublicKey:DistributionPublicKey my-key keyid
+        ```
+
         :param str resource_name: The name of the resource.
         :param DistributionPublicKeyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -255,10 +309,12 @@ class DistributionPublicKey(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] alias: Will be used as an identifier when uploading/retrieving the public key via REST API.
         :param pulumi.Input[str] fingerprint: Returns the computed key fingerprint
-        :param pulumi.Input[str] issued_by: Returns the name and eMail address of issuer.
-        :param pulumi.Input[str] issued_on: Returns the date/time when this GPG key was created.
-        :param pulumi.Input[str] key_id: Returns the key id by which this key is referenced in Artifactory.
+        :param pulumi.Input[str] issued_by: Returns the name and eMail address of issuer
+        :param pulumi.Input[str] issued_on: Returns the date/time when this GPG key was created
+        :param pulumi.Input[str] key_id: Returns the key id by which this key is referenced in Artifactory
         :param pulumi.Input[str] public_key: The Public key to add as a trusted distribution GPG key.
+               
+               The following additional attributes are exported:
         :param pulumi.Input[str] valid_until: Returns the date/time when this GPG key expires.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -294,7 +350,7 @@ class DistributionPublicKey(pulumi.CustomResource):
     @pulumi.getter(name="issuedBy")
     def issued_by(self) -> pulumi.Output[str]:
         """
-        Returns the name and eMail address of issuer.
+        Returns the name and eMail address of issuer
         """
         return pulumi.get(self, "issued_by")
 
@@ -302,7 +358,7 @@ class DistributionPublicKey(pulumi.CustomResource):
     @pulumi.getter(name="issuedOn")
     def issued_on(self) -> pulumi.Output[str]:
         """
-        Returns the date/time when this GPG key was created.
+        Returns the date/time when this GPG key was created
         """
         return pulumi.get(self, "issued_on")
 
@@ -310,7 +366,7 @@ class DistributionPublicKey(pulumi.CustomResource):
     @pulumi.getter(name="keyId")
     def key_id(self) -> pulumi.Output[str]:
         """
-        Returns the key id by which this key is referenced in Artifactory.
+        Returns the key id by which this key is referenced in Artifactory
         """
         return pulumi.get(self, "key_id")
 
@@ -319,6 +375,8 @@ class DistributionPublicKey(pulumi.CustomResource):
     def public_key(self) -> pulumi.Output[str]:
         """
         The Public key to add as a trusted distribution GPG key.
+
+        The following additional attributes are exported:
         """
         return pulumi.get(self, "public_key")
 

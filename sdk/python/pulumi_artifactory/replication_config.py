@@ -142,7 +142,38 @@ class ReplicationConfig(pulumi.CustomResource):
                  repo_key: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a ReplicationConfig resource with the given unique name, props, and options.
+        Note: this resource is deprecated in favor of `PushReplication` resource.
+
+        Provides an Artifactory replication config resource. This can be used to create and manage Artifactory replications.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        # Create a replication between two artifactory local repositories
+        provider_test_source = artifactory.LocalMavenRepository("providerTestSource", key="provider_test_source")
+        provider_test_dest = artifactory.LocalMavenRepository("providerTestDest", key="provider_test_dest")
+        foo_rep = artifactory.ReplicationConfig("foo-rep",
+            cron_exp="0 0 * * * ?",
+            enable_event_replication=True,
+            replications=[artifactory.ReplicationConfigReplicationArgs(
+                password="$var.artifactory_password",
+                url="$var.artifactory_url",
+                username="$var.artifactory_username",
+            )],
+            repo_key=provider_test_source.key)
+        ```
+
+        ## Import
+
+        Replication configs can be imported using their repo key, e.g.
+
+        ```sh
+         $ pulumi import artifactory:index/replicationConfig:ReplicationConfig foo-rep provider_test_source
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cron_exp: Cron expression to control the operation frequency.
@@ -154,7 +185,38 @@ class ReplicationConfig(pulumi.CustomResource):
                  args: ReplicationConfigArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a ReplicationConfig resource with the given unique name, props, and options.
+        Note: this resource is deprecated in favor of `PushReplication` resource.
+
+        Provides an Artifactory replication config resource. This can be used to create and manage Artifactory replications.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        # Create a replication between two artifactory local repositories
+        provider_test_source = artifactory.LocalMavenRepository("providerTestSource", key="provider_test_source")
+        provider_test_dest = artifactory.LocalMavenRepository("providerTestDest", key="provider_test_dest")
+        foo_rep = artifactory.ReplicationConfig("foo-rep",
+            cron_exp="0 0 * * * ?",
+            enable_event_replication=True,
+            replications=[artifactory.ReplicationConfigReplicationArgs(
+                password="$var.artifactory_password",
+                url="$var.artifactory_url",
+                username="$var.artifactory_username",
+            )],
+            repo_key=provider_test_source.key)
+        ```
+
+        ## Import
+
+        Replication configs can be imported using their repo key, e.g.
+
+        ```sh
+         $ pulumi import artifactory:index/replicationConfig:ReplicationConfig foo-rep provider_test_source
+        ```
+
         :param str resource_name: The name of the resource.
         :param ReplicationConfigArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

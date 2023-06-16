@@ -29,8 +29,8 @@ class VirtualRpmRepositoryArgs:
                  secondary_keypair_ref: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a VirtualRpmRepository resource.
-        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-               characters. It cannot begin with a number or contain spaces or special characters.
+        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+               contain spaces or special characters.
         :param pulumi.Input[bool] artifactory_requests_can_retrieve_remote_artifacts: Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
                another Artifactory instance.
         :param pulumi.Input[str] default_deployment_repo: Default repository to deploy artifacts.
@@ -40,7 +40,7 @@ class VirtualRpmRepositoryArgs:
         :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
                used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         :param pulumi.Input[str] notes: Internal description.
-        :param pulumi.Input[str] primary_keypair_ref: Primary keypair used to sign artifacts.
+        :param pulumi.Input[str] primary_keypair_ref: The primary GPG key to be used to sign packages.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
                Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
                attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
@@ -81,8 +81,8 @@ class VirtualRpmRepositoryArgs:
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
         """
-        A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-        characters. It cannot begin with a number or contain spaces or special characters.
+        A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+        contain spaces or special characters.
         """
         return pulumi.get(self, "key")
 
@@ -169,7 +169,7 @@ class VirtualRpmRepositoryArgs:
     @pulumi.getter(name="primaryKeypairRef")
     def primary_keypair_ref(self) -> Optional[pulumi.Input[str]]:
         """
-        Primary keypair used to sign artifacts.
+        The primary GPG key to be used to sign packages.
         """
         return pulumi.get(self, "primary_keypair_ref")
 
@@ -269,10 +269,10 @@ class _VirtualRpmRepositoryState:
                artifacts are excluded.
         :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
                used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-               characters. It cannot begin with a number or contain spaces or special characters.
+        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+               contain spaces or special characters.
         :param pulumi.Input[str] notes: Internal description.
-        :param pulumi.Input[str] primary_keypair_ref: Primary keypair used to sign artifacts.
+        :param pulumi.Input[str] primary_keypair_ref: The primary GPG key to be used to sign packages.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
                Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
                attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
@@ -379,8 +379,8 @@ class _VirtualRpmRepositoryState:
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
         """
-        A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-        characters. It cannot begin with a number or contain spaces or special characters.
+        A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+        contain spaces or special characters.
         """
         return pulumi.get(self, "key")
 
@@ -413,7 +413,7 @@ class _VirtualRpmRepositoryState:
     @pulumi.getter(name="primaryKeypairRef")
     def primary_keypair_ref(self) -> Optional[pulumi.Input[str]]:
         """
-        Primary keypair used to sign artifacts.
+        The primary GPG key to be used to sign packages.
         """
         return pulumi.get(self, "primary_keypair_ref")
 
@@ -506,7 +506,45 @@ class VirtualRpmRepository(pulumi.CustomResource):
                  secondary_keypair_ref: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a VirtualRpmRepository resource with the given unique name, props, and options.
+        Creates a virtual Rpm repository.
+        Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/RPM+Repositories).
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        primary_keypair = artifactory.Keypair("primary-keypair",
+            pair_name="primary-keypair",
+            pair_type="GPG",
+            alias="foo-alias-1",
+            private_key=(lambda path: open(path).read())("samples/gpg.priv"),
+            public_key=(lambda path: open(path).read())("samples/gpg.pub"))
+        secondary_keypair = artifactory.Keypair("secondary-keypair",
+            pair_name="secondary-keypair",
+            pair_type="GPG",
+            alias="foo-alias-2",
+            private_key=(lambda path: open(path).read())("samples/gpg.priv"),
+            public_key=(lambda path: open(path).read())("samples/gpg.pub"))
+        foo_rpm_virtual = artifactory.VirtualRpmRepository("foo-rpm-virtual",
+            key="foo-rpm-virtual",
+            primary_keypair_ref=primary_keypair.pair_name,
+            secondary_keypair_ref=secondary_keypair.pair_name,
+            opts=pulumi.ResourceOptions(depends_on=[
+                    primary_keypair,
+                    secondary_keypair,
+                ]))
+        ```
+
+        ## Import
+
+        Virtual repositories can be imported using their name, e.g.
+
+        ```sh
+         $ pulumi import artifactory:index/virtualRpmRepository:VirtualRpmRepository foo-rpm-virtual foo-rpm-virtual
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] artifactory_requests_can_retrieve_remote_artifacts: Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
@@ -517,10 +555,10 @@ class VirtualRpmRepository(pulumi.CustomResource):
                artifacts are excluded.
         :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
                used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-               characters. It cannot begin with a number or contain spaces or special characters.
+        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+               contain spaces or special characters.
         :param pulumi.Input[str] notes: Internal description.
-        :param pulumi.Input[str] primary_keypair_ref: Primary keypair used to sign artifacts.
+        :param pulumi.Input[str] primary_keypair_ref: The primary GPG key to be used to sign packages.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
                Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
                attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
@@ -538,7 +576,45 @@ class VirtualRpmRepository(pulumi.CustomResource):
                  args: VirtualRpmRepositoryArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a VirtualRpmRepository resource with the given unique name, props, and options.
+        Creates a virtual Rpm repository.
+        Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/RPM+Repositories).
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        primary_keypair = artifactory.Keypair("primary-keypair",
+            pair_name="primary-keypair",
+            pair_type="GPG",
+            alias="foo-alias-1",
+            private_key=(lambda path: open(path).read())("samples/gpg.priv"),
+            public_key=(lambda path: open(path).read())("samples/gpg.pub"))
+        secondary_keypair = artifactory.Keypair("secondary-keypair",
+            pair_name="secondary-keypair",
+            pair_type="GPG",
+            alias="foo-alias-2",
+            private_key=(lambda path: open(path).read())("samples/gpg.priv"),
+            public_key=(lambda path: open(path).read())("samples/gpg.pub"))
+        foo_rpm_virtual = artifactory.VirtualRpmRepository("foo-rpm-virtual",
+            key="foo-rpm-virtual",
+            primary_keypair_ref=primary_keypair.pair_name,
+            secondary_keypair_ref=secondary_keypair.pair_name,
+            opts=pulumi.ResourceOptions(depends_on=[
+                    primary_keypair,
+                    secondary_keypair,
+                ]))
+        ```
+
+        ## Import
+
+        Virtual repositories can be imported using their name, e.g.
+
+        ```sh
+         $ pulumi import artifactory:index/virtualRpmRepository:VirtualRpmRepository foo-rpm-virtual foo-rpm-virtual
+        ```
+
         :param str resource_name: The name of the resource.
         :param VirtualRpmRepositoryArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -631,10 +707,10 @@ class VirtualRpmRepository(pulumi.CustomResource):
                artifacts are excluded.
         :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
                used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-               characters. It cannot begin with a number or contain spaces or special characters.
+        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+               contain spaces or special characters.
         :param pulumi.Input[str] notes: Internal description.
-        :param pulumi.Input[str] primary_keypair_ref: Primary keypair used to sign artifacts.
+        :param pulumi.Input[str] primary_keypair_ref: The primary GPG key to be used to sign packages.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
                Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
                attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
@@ -712,8 +788,8 @@ class VirtualRpmRepository(pulumi.CustomResource):
     @pulumi.getter
     def key(self) -> pulumi.Output[str]:
         """
-        A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-        characters. It cannot begin with a number or contain spaces or special characters.
+        A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+        contain spaces or special characters.
         """
         return pulumi.get(self, "key")
 
@@ -734,7 +810,7 @@ class VirtualRpmRepository(pulumi.CustomResource):
     @pulumi.getter(name="primaryKeypairRef")
     def primary_keypair_ref(self) -> pulumi.Output[Optional[str]]:
         """
-        Primary keypair used to sign artifacts.
+        The primary GPG key to be used to sign packages.
         """
         return pulumi.get(self, "primary_keypair_ref")
 

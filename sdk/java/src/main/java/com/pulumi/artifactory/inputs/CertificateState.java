@@ -15,16 +15,32 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
 
     public static final CertificateState Empty = new CertificateState();
 
+    /**
+     * Name of certificate.
+     * 
+     */
     @Import(name="alias")
     private @Nullable Output<String> alias;
 
+    /**
+     * @return Name of certificate.
+     * 
+     */
     public Optional<Output<String>> alias() {
         return Optional.ofNullable(this.alias);
     }
 
+    /**
+     * PEM-encoded client certificate and private key.
+     * 
+     */
     @Import(name="content")
     private @Nullable Output<String> content;
 
+    /**
+     * @return PEM-encoded client certificate and private key.
+     * 
+     */
     public Optional<Output<String>> content() {
         return Optional.ofNullable(this.content);
     }
@@ -36,37 +52,77 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.file);
     }
 
+    /**
+     * SHA256 fingerprint of the certificate.
+     * 
+     */
     @Import(name="fingerprint")
     private @Nullable Output<String> fingerprint;
 
+    /**
+     * @return SHA256 fingerprint of the certificate.
+     * 
+     */
     public Optional<Output<String>> fingerprint() {
         return Optional.ofNullable(this.fingerprint);
     }
 
+    /**
+     * Name of the certificate authority that issued the certificate.
+     * 
+     */
     @Import(name="issuedBy")
     private @Nullable Output<String> issuedBy;
 
+    /**
+     * @return Name of the certificate authority that issued the certificate.
+     * 
+     */
     public Optional<Output<String>> issuedBy() {
         return Optional.ofNullable(this.issuedBy);
     }
 
+    /**
+     * The time &amp; date when the certificate is valid from.
+     * 
+     */
     @Import(name="issuedOn")
     private @Nullable Output<String> issuedOn;
 
+    /**
+     * @return The time &amp; date when the certificate is valid from.
+     * 
+     */
     public Optional<Output<String>> issuedOn() {
         return Optional.ofNullable(this.issuedOn);
     }
 
+    /**
+     * Name of whom the certificate has been issued to.
+     * 
+     */
     @Import(name="issuedTo")
     private @Nullable Output<String> issuedTo;
 
+    /**
+     * @return Name of whom the certificate has been issued to.
+     * 
+     */
     public Optional<Output<String>> issuedTo() {
         return Optional.ofNullable(this.issuedTo);
     }
 
+    /**
+     * The time &amp; date when the certificate expires.
+     * 
+     */
     @Import(name="validUntil")
     private @Nullable Output<String> validUntil;
 
+    /**
+     * @return The time &amp; date when the certificate expires.
+     * 
+     */
     public Optional<Output<String>> validUntil() {
         return Optional.ofNullable(this.validUntil);
     }
@@ -102,20 +158,44 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
             $ = new CertificateState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param alias Name of certificate.
+         * 
+         * @return builder
+         * 
+         */
         public Builder alias(@Nullable Output<String> alias) {
             $.alias = alias;
             return this;
         }
 
+        /**
+         * @param alias Name of certificate.
+         * 
+         * @return builder
+         * 
+         */
         public Builder alias(String alias) {
             return alias(Output.of(alias));
         }
 
+        /**
+         * @param content PEM-encoded client certificate and private key.
+         * 
+         * @return builder
+         * 
+         */
         public Builder content(@Nullable Output<String> content) {
             $.content = content;
             return this;
         }
 
+        /**
+         * @param content PEM-encoded client certificate and private key.
+         * 
+         * @return builder
+         * 
+         */
         public Builder content(String content) {
             return content(Output.of(content));
         }
@@ -129,47 +209,107 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
             return file(Output.of(file));
         }
 
+        /**
+         * @param fingerprint SHA256 fingerprint of the certificate.
+         * 
+         * @return builder
+         * 
+         */
         public Builder fingerprint(@Nullable Output<String> fingerprint) {
             $.fingerprint = fingerprint;
             return this;
         }
 
+        /**
+         * @param fingerprint SHA256 fingerprint of the certificate.
+         * 
+         * @return builder
+         * 
+         */
         public Builder fingerprint(String fingerprint) {
             return fingerprint(Output.of(fingerprint));
         }
 
+        /**
+         * @param issuedBy Name of the certificate authority that issued the certificate.
+         * 
+         * @return builder
+         * 
+         */
         public Builder issuedBy(@Nullable Output<String> issuedBy) {
             $.issuedBy = issuedBy;
             return this;
         }
 
+        /**
+         * @param issuedBy Name of the certificate authority that issued the certificate.
+         * 
+         * @return builder
+         * 
+         */
         public Builder issuedBy(String issuedBy) {
             return issuedBy(Output.of(issuedBy));
         }
 
+        /**
+         * @param issuedOn The time &amp; date when the certificate is valid from.
+         * 
+         * @return builder
+         * 
+         */
         public Builder issuedOn(@Nullable Output<String> issuedOn) {
             $.issuedOn = issuedOn;
             return this;
         }
 
+        /**
+         * @param issuedOn The time &amp; date when the certificate is valid from.
+         * 
+         * @return builder
+         * 
+         */
         public Builder issuedOn(String issuedOn) {
             return issuedOn(Output.of(issuedOn));
         }
 
+        /**
+         * @param issuedTo Name of whom the certificate has been issued to.
+         * 
+         * @return builder
+         * 
+         */
         public Builder issuedTo(@Nullable Output<String> issuedTo) {
             $.issuedTo = issuedTo;
             return this;
         }
 
+        /**
+         * @param issuedTo Name of whom the certificate has been issued to.
+         * 
+         * @return builder
+         * 
+         */
         public Builder issuedTo(String issuedTo) {
             return issuedTo(Output.of(issuedTo));
         }
 
+        /**
+         * @param validUntil The time &amp; date when the certificate expires.
+         * 
+         * @return builder
+         * 
+         */
         public Builder validUntil(@Nullable Output<String> validUntil) {
             $.validUntil = validUntil;
             return this;
         }
 
+        /**
+         * @param validUntil The time &amp; date when the certificate expires.
+         * 
+         * @return builder
+         * 
+         */
         public Builder validUntil(String validUntil) {
             return validUntil(Output.of(validUntil));
         }

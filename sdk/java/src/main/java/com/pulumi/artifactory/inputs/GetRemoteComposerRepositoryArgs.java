@@ -68,9 +68,17 @@ public final class GetRemoteComposerRepositoryArgs extends com.pulumi.resources.
         return Optional.ofNullable(this.clientTlsCertificate);
     }
 
+    /**
+     * (Optional) Proxy remote Composer repository. Default value is `https://packagist.org`.
+     * 
+     */
     @Import(name="composerRegistryUrl")
     private @Nullable Output<String> composerRegistryUrl;
 
+    /**
+     * @return (Optional) Proxy remote Composer repository. Default value is `https://packagist.org`.
+     * 
+     */
     public Optional<Output<String>> composerRegistryUrl() {
         return Optional.ofNullable(this.composerRegistryUrl);
     }
@@ -124,9 +132,17 @@ public final class GetRemoteComposerRepositoryArgs extends com.pulumi.resources.
         return Optional.ofNullable(this.includesPattern);
     }
 
+    /**
+     * the identity key of the repo.
+     * 
+     */
     @Import(name="key", required=true)
     private Output<String> key;
 
+    /**
+     * @return the identity key of the repo.
+     * 
+     */
     public Output<String> key() {
         return this.key;
     }
@@ -299,16 +315,32 @@ public final class GetRemoteComposerRepositoryArgs extends com.pulumi.resources.
         return Optional.ofNullable(this.username);
     }
 
+    /**
+     * (Optional) This attribute is used when vcs_git_provider is set to `CUSTOM`. Provided URL will be used as proxy.
+     * 
+     */
     @Import(name="vcsGitDownloadUrl")
     private @Nullable Output<String> vcsGitDownloadUrl;
 
+    /**
+     * @return (Optional) This attribute is used when vcs_git_provider is set to `CUSTOM`. Provided URL will be used as proxy.
+     * 
+     */
     public Optional<Output<String>> vcsGitDownloadUrl() {
         return Optional.ofNullable(this.vcsGitDownloadUrl);
     }
 
+    /**
+     * (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`. Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
+     * 
+     */
     @Import(name="vcsGitProvider")
     private @Nullable Output<String> vcsGitProvider;
 
+    /**
+     * @return (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`. Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
+     * 
+     */
     public Optional<Output<String>> vcsGitProvider() {
         return Optional.ofNullable(this.vcsGitProvider);
     }
@@ -449,11 +481,23 @@ public final class GetRemoteComposerRepositoryArgs extends com.pulumi.resources.
             return clientTlsCertificate(Output.of(clientTlsCertificate));
         }
 
+        /**
+         * @param composerRegistryUrl (Optional) Proxy remote Composer repository. Default value is `https://packagist.org`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder composerRegistryUrl(@Nullable Output<String> composerRegistryUrl) {
             $.composerRegistryUrl = composerRegistryUrl;
             return this;
         }
 
+        /**
+         * @param composerRegistryUrl (Optional) Proxy remote Composer repository. Default value is `https://packagist.org`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder composerRegistryUrl(String composerRegistryUrl) {
             return composerRegistryUrl(Output.of(composerRegistryUrl));
         }
@@ -521,11 +565,23 @@ public final class GetRemoteComposerRepositoryArgs extends com.pulumi.resources.
             return includesPattern(Output.of(includesPattern));
         }
 
+        /**
+         * @param key the identity key of the repo.
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(Output<String> key) {
             $.key = key;
             return this;
         }
 
+        /**
+         * @param key the identity key of the repo.
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(String key) {
             return key(Output.of(key));
         }
@@ -754,20 +810,44 @@ public final class GetRemoteComposerRepositoryArgs extends com.pulumi.resources.
             return username(Output.of(username));
         }
 
+        /**
+         * @param vcsGitDownloadUrl (Optional) This attribute is used when vcs_git_provider is set to `CUSTOM`. Provided URL will be used as proxy.
+         * 
+         * @return builder
+         * 
+         */
         public Builder vcsGitDownloadUrl(@Nullable Output<String> vcsGitDownloadUrl) {
             $.vcsGitDownloadUrl = vcsGitDownloadUrl;
             return this;
         }
 
+        /**
+         * @param vcsGitDownloadUrl (Optional) This attribute is used when vcs_git_provider is set to `CUSTOM`. Provided URL will be used as proxy.
+         * 
+         * @return builder
+         * 
+         */
         public Builder vcsGitDownloadUrl(String vcsGitDownloadUrl) {
             return vcsGitDownloadUrl(Output.of(vcsGitDownloadUrl));
         }
 
+        /**
+         * @param vcsGitProvider (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`. Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder vcsGitProvider(@Nullable Output<String> vcsGitProvider) {
             $.vcsGitProvider = vcsGitProvider;
             return this;
         }
 
+        /**
+         * @param vcsGitProvider (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`. Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder vcsGitProvider(String vcsGitProvider) {
             return vcsGitProvider(Output.of(vcsGitProvider));
         }

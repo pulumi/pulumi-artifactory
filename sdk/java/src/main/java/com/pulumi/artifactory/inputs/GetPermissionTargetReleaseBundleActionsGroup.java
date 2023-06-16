@@ -13,9 +13,17 @@ public final class GetPermissionTargetReleaseBundleActionsGroup extends com.pulu
 
     public static final GetPermissionTargetReleaseBundleActionsGroup Empty = new GetPermissionTargetReleaseBundleActionsGroup();
 
+    /**
+     * Name of the permission target.
+     * 
+     */
     @Import(name="name", required=true)
     private String name;
 
+    /**
+     * @return Name of the permission target.
+     * 
+     */
     public String name() {
         return this.name;
     }
@@ -52,6 +60,12 @@ public final class GetPermissionTargetReleaseBundleActionsGroup extends com.pulu
             $ = new GetPermissionTargetReleaseBundleActionsGroup(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param name Name of the permission target.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             $.name = name;
             return this;

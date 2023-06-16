@@ -4,6 +4,49 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * Creates a virtual Maven repository.
+ * Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Maven+Repository).
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const bar = new artifactory.LocalMavenRepository("bar", {
+ *     key: "bar",
+ *     repoLayoutRef: "maven-2-default",
+ * });
+ * const baz = new artifactory.RemoteMavenRepository("baz", {
+ *     key: "baz",
+ *     repoLayoutRef: "maven-2-default",
+ *     url: "https://search.maven.com/",
+ * });
+ * const maven_virt_repo = new artifactory.MavenRepository("maven-virt-repo", {
+ *     description: "A test virtual repo",
+ *     excludesPattern: "com/google/**",
+ *     forceMavenAuthentication: true,
+ *     includesPattern: "com/jfrog/**,cloud/jfrog/**",
+ *     key: "maven-virt-repo",
+ *     notes: "Internal description",
+ *     pomRepositoryReferencesCleanupPolicy: "discard_active_reference",
+ *     repoLayoutRef: "maven-2-default",
+ *     repositories: [
+ *         bar.key,
+ *         baz.key,
+ *     ],
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * Virtual repositories can be imported using their name, e.g.
+ *
+ * ```sh
+ *  $ pulumi import artifactory:index/mavenRepository:MavenRepository maven-virt-repo maven-virt-repo
+ * ```
+ */
 export class MavenRepository extends pulumi.CustomResource {
     /**
      * Get an existing MavenRepository resource's state with the given name, ID, and optional extra
@@ -51,8 +94,7 @@ export class MavenRepository extends pulumi.CustomResource {
      */
     public readonly excludesPattern!: pulumi.Output<string | undefined>;
     /**
-     * User authentication is required when accessing the repository. An anonymous request will display an HTTP 401 error. This
-     * is also enforced when aggregated repositories support anonymous requests.
+     * Forces authentication when fetching from remote repos.
      */
     public readonly forceMavenAuthentication!: pulumi.Output<boolean>;
     /**
@@ -61,8 +103,8 @@ export class MavenRepository extends pulumi.CustomResource {
      */
     public readonly includesPattern!: pulumi.Output<string | undefined>;
     /**
-     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-     * characters. It cannot begin with a number or contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+     * contain spaces or special characters.
      */
     public readonly key!: pulumi.Output<string>;
     /**
@@ -75,10 +117,7 @@ export class MavenRepository extends pulumi.CustomResource {
     public readonly notes!: pulumi.Output<string | undefined>;
     public /*out*/ readonly packageType!: pulumi.Output<string>;
     /**
-     * (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under
-     * project or under a profile in the same POM that is activeByDefault. (2: discard_any_reference) Discard Any References -
-     * Removes all repository elements regardless of whether they are included in an active profile or not. (3: nothing)
-     * Nothing - Does not remove any repository elements declared in the POM.
+     * One of: `"discardActiveReference", "discardAnyReference", "nothing"`
      */
     public readonly pomRepositoryReferencesCleanupPolicy!: pulumi.Output<string>;
     /**
@@ -179,8 +218,7 @@ export interface MavenRepositoryState {
      */
     excludesPattern?: pulumi.Input<string>;
     /**
-     * User authentication is required when accessing the repository. An anonymous request will display an HTTP 401 error. This
-     * is also enforced when aggregated repositories support anonymous requests.
+     * Forces authentication when fetching from remote repos.
      */
     forceMavenAuthentication?: pulumi.Input<boolean>;
     /**
@@ -189,8 +227,8 @@ export interface MavenRepositoryState {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-     * characters. It cannot begin with a number or contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+     * contain spaces or special characters.
      */
     key?: pulumi.Input<string>;
     /**
@@ -203,10 +241,7 @@ export interface MavenRepositoryState {
     notes?: pulumi.Input<string>;
     packageType?: pulumi.Input<string>;
     /**
-     * (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under
-     * project or under a profile in the same POM that is activeByDefault. (2: discard_any_reference) Discard Any References -
-     * Removes all repository elements regardless of whether they are included in an active profile or not. (3: nothing)
-     * Nothing - Does not remove any repository elements declared in the POM.
+     * One of: `"discardActiveReference", "discardAnyReference", "nothing"`
      */
     pomRepositoryReferencesCleanupPolicy?: pulumi.Input<string>;
     /**
@@ -254,8 +289,7 @@ export interface MavenRepositoryArgs {
      */
     excludesPattern?: pulumi.Input<string>;
     /**
-     * User authentication is required when accessing the repository. An anonymous request will display an HTTP 401 error. This
-     * is also enforced when aggregated repositories support anonymous requests.
+     * Forces authentication when fetching from remote repos.
      */
     forceMavenAuthentication?: pulumi.Input<boolean>;
     /**
@@ -264,8 +298,8 @@ export interface MavenRepositoryArgs {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-     * characters. It cannot begin with a number or contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+     * contain spaces or special characters.
      */
     key: pulumi.Input<string>;
     /**
@@ -277,10 +311,7 @@ export interface MavenRepositoryArgs {
      */
     notes?: pulumi.Input<string>;
     /**
-     * (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under
-     * project or under a profile in the same POM that is activeByDefault. (2: discard_any_reference) Discard Any References -
-     * Removes all repository elements regardless of whether they are included in an active profile or not. (3: nothing)
-     * Nothing - Does not remove any repository elements declared in the POM.
+     * One of: `"discardActiveReference", "discardAnyReference", "nothing"`
      */
     pomRepositoryReferencesCleanupPolicy?: pulumi.Input<string>;
     /**

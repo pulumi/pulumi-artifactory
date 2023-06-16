@@ -11,12 +11,50 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Creates a local Cargo repository.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewLocalCargoRepository(ctx, "terraform-local-test-cargo-repo-basic", &artifactory.LocalCargoRepositoryArgs{
+//				AnonymousAccess:   pulumi.Bool(false),
+//				EnableSparseIndex: pulumi.Bool(true),
+//				Key:               pulumi.String("terraform-local-test-cargo-repo-basic"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Local repositories can be imported using their name, e.g.
+//
+// ```sh
+//
+//	$ pulumi import artifactory:index/localCargoRepository:LocalCargoRepository terraform-local-test-cargo-repo-basic terraform-local-test-cargo-repo-basic
+//
+// ```
 type LocalCargoRepository struct {
 	pulumi.CustomResourceState
 
-	// Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous
-	// access to these resources (only), note that this will override the security anonymous access option. Default value is
-	// 'false'.
+	// Cargo client does not send credentials when performing download and search for crates.
+	// Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
 	AnonymousAccess pulumi.BoolPtrOutput `pulumi:"anonymousAccess"`
 	// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
 	// therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
@@ -32,8 +70,7 @@ type LocalCargoRepository struct {
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
 	// storage provider. Available in Enterprise+ and Edge licenses only.
 	DownloadDirect pulumi.BoolPtrOutput `pulumi:"downloadDirect"`
-	// Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default
-	// value is 'false'.
+	// Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
 	EnableSparseIndex pulumi.BoolPtrOutput `pulumi:"enableSparseIndex"`
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
 	// artifacts are excluded.
@@ -42,8 +79,7 @@ type LocalCargoRepository struct {
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern         pulumi.StringOutput      `pulumi:"includesPattern"`
 	IndexCompressionFormats pulumi.StringArrayOutput `pulumi:"indexCompressionFormats"`
-	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-	// characters. It cannot begin with a number or contain spaces or special characters.
+	// the identity key of the repo.
 	Key pulumi.StringOutput `pulumi:"key"`
 	// Internal description.
 	Notes       pulumi.StringPtrOutput `pulumi:"notes"`
@@ -99,9 +135,8 @@ func GetLocalCargoRepository(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LocalCargoRepository resources.
 type localCargoRepositoryState struct {
-	// Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous
-	// access to these resources (only), note that this will override the security anonymous access option. Default value is
-	// 'false'.
+	// Cargo client does not send credentials when performing download and search for crates.
+	// Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
 	AnonymousAccess *bool `pulumi:"anonymousAccess"`
 	// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
 	// therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
@@ -117,8 +152,7 @@ type localCargoRepositoryState struct {
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
 	// storage provider. Available in Enterprise+ and Edge licenses only.
 	DownloadDirect *bool `pulumi:"downloadDirect"`
-	// Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default
-	// value is 'false'.
+	// Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
 	EnableSparseIndex *bool `pulumi:"enableSparseIndex"`
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
 	// artifacts are excluded.
@@ -127,8 +161,7 @@ type localCargoRepositoryState struct {
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern         *string  `pulumi:"includesPattern"`
 	IndexCompressionFormats []string `pulumi:"indexCompressionFormats"`
-	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-	// characters. It cannot begin with a number or contain spaces or special characters.
+	// the identity key of the repo.
 	Key *string `pulumi:"key"`
 	// Internal description.
 	Notes       *string `pulumi:"notes"`
@@ -153,9 +186,8 @@ type localCargoRepositoryState struct {
 }
 
 type LocalCargoRepositoryState struct {
-	// Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous
-	// access to these resources (only), note that this will override the security anonymous access option. Default value is
-	// 'false'.
+	// Cargo client does not send credentials when performing download and search for crates.
+	// Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
 	AnonymousAccess pulumi.BoolPtrInput
 	// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
 	// therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
@@ -171,8 +203,7 @@ type LocalCargoRepositoryState struct {
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
 	// storage provider. Available in Enterprise+ and Edge licenses only.
 	DownloadDirect pulumi.BoolPtrInput
-	// Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default
-	// value is 'false'.
+	// Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
 	EnableSparseIndex pulumi.BoolPtrInput
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
 	// artifacts are excluded.
@@ -181,8 +212,7 @@ type LocalCargoRepositoryState struct {
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern         pulumi.StringPtrInput
 	IndexCompressionFormats pulumi.StringArrayInput
-	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-	// characters. It cannot begin with a number or contain spaces or special characters.
+	// the identity key of the repo.
 	Key pulumi.StringPtrInput
 	// Internal description.
 	Notes       pulumi.StringPtrInput
@@ -211,9 +241,8 @@ func (LocalCargoRepositoryState) ElementType() reflect.Type {
 }
 
 type localCargoRepositoryArgs struct {
-	// Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous
-	// access to these resources (only), note that this will override the security anonymous access option. Default value is
-	// 'false'.
+	// Cargo client does not send credentials when performing download and search for crates.
+	// Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
 	AnonymousAccess *bool `pulumi:"anonymousAccess"`
 	// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
 	// therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
@@ -229,8 +258,7 @@ type localCargoRepositoryArgs struct {
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
 	// storage provider. Available in Enterprise+ and Edge licenses only.
 	DownloadDirect *bool `pulumi:"downloadDirect"`
-	// Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default
-	// value is 'false'.
+	// Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
 	EnableSparseIndex *bool `pulumi:"enableSparseIndex"`
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
 	// artifacts are excluded.
@@ -239,8 +267,7 @@ type localCargoRepositoryArgs struct {
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern         *string  `pulumi:"includesPattern"`
 	IndexCompressionFormats []string `pulumi:"indexCompressionFormats"`
-	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-	// characters. It cannot begin with a number or contain spaces or special characters.
+	// the identity key of the repo.
 	Key string `pulumi:"key"`
 	// Internal description.
 	Notes *string `pulumi:"notes"`
@@ -265,9 +292,8 @@ type localCargoRepositoryArgs struct {
 
 // The set of arguments for constructing a LocalCargoRepository resource.
 type LocalCargoRepositoryArgs struct {
-	// Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous
-	// access to these resources (only), note that this will override the security anonymous access option. Default value is
-	// 'false'.
+	// Cargo client does not send credentials when performing download and search for crates.
+	// Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
 	AnonymousAccess pulumi.BoolPtrInput
 	// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
 	// therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
@@ -283,8 +309,7 @@ type LocalCargoRepositoryArgs struct {
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
 	// storage provider. Available in Enterprise+ and Edge licenses only.
 	DownloadDirect pulumi.BoolPtrInput
-	// Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default
-	// value is 'false'.
+	// Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
 	EnableSparseIndex pulumi.BoolPtrInput
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
 	// artifacts are excluded.
@@ -293,8 +318,7 @@ type LocalCargoRepositoryArgs struct {
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern         pulumi.StringPtrInput
 	IndexCompressionFormats pulumi.StringArrayInput
-	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-	// characters. It cannot begin with a number or contain spaces or special characters.
+	// the identity key of the repo.
 	Key pulumi.StringInput
 	// Internal description.
 	Notes pulumi.StringPtrInput
@@ -404,9 +428,8 @@ func (o LocalCargoRepositoryOutput) ToLocalCargoRepositoryOutputWithContext(ctx 
 	return o
 }
 
-// Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous
-// access to these resources (only), note that this will override the security anonymous access option. Default value is
-// 'false'.
+// Cargo client does not send credentials when performing download and search for crates.
+// Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
 func (o LocalCargoRepositoryOutput) AnonymousAccess() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LocalCargoRepository) pulumi.BoolPtrOutput { return v.AnonymousAccess }).(pulumi.BoolPtrOutput)
 }
@@ -440,8 +463,7 @@ func (o LocalCargoRepositoryOutput) DownloadDirect() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LocalCargoRepository) pulumi.BoolPtrOutput { return v.DownloadDirect }).(pulumi.BoolPtrOutput)
 }
 
-// Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default
-// value is 'false'.
+// Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
 func (o LocalCargoRepositoryOutput) EnableSparseIndex() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LocalCargoRepository) pulumi.BoolPtrOutput { return v.EnableSparseIndex }).(pulumi.BoolPtrOutput)
 }
@@ -462,8 +484,7 @@ func (o LocalCargoRepositoryOutput) IndexCompressionFormats() pulumi.StringArray
 	return o.ApplyT(func(v *LocalCargoRepository) pulumi.StringArrayOutput { return v.IndexCompressionFormats }).(pulumi.StringArrayOutput)
 }
 
-// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-// characters. It cannot begin with a number or contain spaces or special characters.
+// the identity key of the repo.
 func (o LocalCargoRepositoryOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v *LocalCargoRepository) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
 }

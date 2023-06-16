@@ -99,16 +99,16 @@ public final class VirtualRpmRepositoryArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-     * characters. It cannot begin with a number or contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+     * contain spaces or special characters.
      * 
      */
     @Import(name="key", required=true)
     private Output<String> key;
 
     /**
-     * @return A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-     * characters. It cannot begin with a number or contain spaces or special characters.
+     * @return A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+     * contain spaces or special characters.
      * 
      */
     public Output<String> key() {
@@ -131,14 +131,14 @@ public final class VirtualRpmRepositoryArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Primary keypair used to sign artifacts.
+     * The primary GPG key to be used to sign packages.
      * 
      */
     @Import(name="primaryKeypairRef")
     private @Nullable Output<String> primaryKeypairRef;
 
     /**
-     * @return Primary keypair used to sign artifacts.
+     * @return The primary GPG key to be used to sign packages.
      * 
      */
     public Optional<Output<String>> primaryKeypairRef() {
@@ -376,8 +376,8 @@ public final class VirtualRpmRepositoryArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param key A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-         * characters. It cannot begin with a number or contain spaces or special characters.
+         * @param key A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+         * contain spaces or special characters.
          * 
          * @return builder
          * 
@@ -388,8 +388,8 @@ public final class VirtualRpmRepositoryArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param key A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-         * characters. It cannot begin with a number or contain spaces or special characters.
+         * @param key A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+         * contain spaces or special characters.
          * 
          * @return builder
          * 
@@ -420,7 +420,7 @@ public final class VirtualRpmRepositoryArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param primaryKeypairRef Primary keypair used to sign artifacts.
+         * @param primaryKeypairRef The primary GPG key to be used to sign packages.
          * 
          * @return builder
          * 
@@ -431,7 +431,7 @@ public final class VirtualRpmRepositoryArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param primaryKeypairRef Primary keypair used to sign artifacts.
+         * @param primaryKeypairRef The primary GPG key to be used to sign packages.
          * 
          * @return builder
          * 

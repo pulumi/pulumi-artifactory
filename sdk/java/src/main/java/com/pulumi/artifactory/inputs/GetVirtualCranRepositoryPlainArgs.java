@@ -52,9 +52,17 @@ public final class GetVirtualCranRepositoryPlainArgs extends com.pulumi.resource
         return Optional.ofNullable(this.includesPattern);
     }
 
+    /**
+     * the identity key of the repo.
+     * 
+     */
     @Import(name="key", required=true)
     private String key;
 
+    /**
+     * @return the identity key of the repo.
+     * 
+     */
     public String key() {
         return this.key;
     }
@@ -94,9 +102,17 @@ public final class GetVirtualCranRepositoryPlainArgs extends com.pulumi.resource
         return Optional.ofNullable(this.repositories);
     }
 
+    /**
+     * (Optional, Default: `7200`) This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
+     * 
+     */
     @Import(name="retrievalCachePeriodSeconds")
     private @Nullable Integer retrievalCachePeriodSeconds;
 
+    /**
+     * @return (Optional, Default: `7200`) This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
+     * 
+     */
     public Optional<Integer> retrievalCachePeriodSeconds() {
         return Optional.ofNullable(this.retrievalCachePeriodSeconds);
     }
@@ -161,6 +177,12 @@ public final class GetVirtualCranRepositoryPlainArgs extends com.pulumi.resource
             return this;
         }
 
+        /**
+         * @param key the identity key of the repo.
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(String key) {
             $.key = key;
             return this;
@@ -199,6 +221,12 @@ public final class GetVirtualCranRepositoryPlainArgs extends com.pulumi.resource
             return repositories(List.of(repositories));
         }
 
+        /**
+         * @param retrievalCachePeriodSeconds (Optional, Default: `7200`) This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
+         * 
+         * @return builder
+         * 
+         */
         public Builder retrievalCachePeriodSeconds(@Nullable Integer retrievalCachePeriodSeconds) {
             $.retrievalCachePeriodSeconds = retrievalCachePeriodSeconds;
             return this;

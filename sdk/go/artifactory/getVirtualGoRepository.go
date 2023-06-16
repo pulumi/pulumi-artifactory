@@ -10,6 +10,33 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Retrieves a virtual Go repository.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.GetVirtualGoRepository(ctx, &artifactory.GetVirtualGoRepositoryArgs{
+//				Key: "virtual-go",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetVirtualGoRepository(ctx *pulumi.Context, args *GetVirtualGoRepositoryArgs, opts ...pulumi.InvokeOption) (*GetVirtualGoRepositoryResult, error) {
 	var rv GetVirtualGoRepositoryResult
 	err := ctx.Invoke("artifactory:index/getVirtualGoRepository:getVirtualGoRepository", args, &rv, opts...)
@@ -21,29 +48,36 @@ func GetVirtualGoRepository(ctx *pulumi.Context, args *GetVirtualGoRepositoryArg
 
 // A collection of arguments for invoking getVirtualGoRepository.
 type GetVirtualGoRepositoryArgs struct {
-	ArtifactoryRequestsCanRetrieveRemoteArtifacts *bool    `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`
-	DefaultDeploymentRepo                         *string  `pulumi:"defaultDeploymentRepo"`
-	Description                                   *string  `pulumi:"description"`
-	ExcludesPattern                               *string  `pulumi:"excludesPattern"`
-	ExternalDependenciesEnabled                   *bool    `pulumi:"externalDependenciesEnabled"`
-	ExternalDependenciesPatterns                  []string `pulumi:"externalDependenciesPatterns"`
-	IncludesPattern                               *string  `pulumi:"includesPattern"`
-	Key                                           string   `pulumi:"key"`
-	Notes                                         *string  `pulumi:"notes"`
-	ProjectEnvironments                           []string `pulumi:"projectEnvironments"`
-	ProjectKey                                    *string  `pulumi:"projectKey"`
-	RepoLayoutRef                                 *string  `pulumi:"repoLayoutRef"`
-	Repositories                                  []string `pulumi:"repositories"`
+	ArtifactoryRequestsCanRetrieveRemoteArtifacts *bool   `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`
+	DefaultDeploymentRepo                         *string `pulumi:"defaultDeploymentRepo"`
+	Description                                   *string `pulumi:"description"`
+	ExcludesPattern                               *string `pulumi:"excludesPattern"`
+	// (Optional) Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list.
+	// When checked (default), Artifactory will automatically follow remote VCS roots in 'go-import' meta tags to download remote modules.
+	ExternalDependenciesEnabled *bool `pulumi:"externalDependenciesEnabled"`
+	// (Optional) 'go-import' Allow List on the UI.
+	ExternalDependenciesPatterns []string `pulumi:"externalDependenciesPatterns"`
+	IncludesPattern              *string  `pulumi:"includesPattern"`
+	// the identity key of the repo.
+	Key                 string   `pulumi:"key"`
+	Notes               *string  `pulumi:"notes"`
+	ProjectEnvironments []string `pulumi:"projectEnvironments"`
+	ProjectKey          *string  `pulumi:"projectKey"`
+	RepoLayoutRef       *string  `pulumi:"repoLayoutRef"`
+	Repositories        []string `pulumi:"repositories"`
 }
 
 // A collection of values returned by getVirtualGoRepository.
 type GetVirtualGoRepositoryResult struct {
-	ArtifactoryRequestsCanRetrieveRemoteArtifacts *bool    `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`
-	DefaultDeploymentRepo                         *string  `pulumi:"defaultDeploymentRepo"`
-	Description                                   *string  `pulumi:"description"`
-	ExcludesPattern                               *string  `pulumi:"excludesPattern"`
-	ExternalDependenciesEnabled                   *bool    `pulumi:"externalDependenciesEnabled"`
-	ExternalDependenciesPatterns                  []string `pulumi:"externalDependenciesPatterns"`
+	ArtifactoryRequestsCanRetrieveRemoteArtifacts *bool   `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`
+	DefaultDeploymentRepo                         *string `pulumi:"defaultDeploymentRepo"`
+	Description                                   *string `pulumi:"description"`
+	ExcludesPattern                               *string `pulumi:"excludesPattern"`
+	// (Optional) Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list.
+	// When checked (default), Artifactory will automatically follow remote VCS roots in 'go-import' meta tags to download remote modules.
+	ExternalDependenciesEnabled *bool `pulumi:"externalDependenciesEnabled"`
+	// (Optional) 'go-import' Allow List on the UI.
+	ExternalDependenciesPatterns []string `pulumi:"externalDependenciesPatterns"`
 	// The provider-assigned unique ID for this managed resource.
 	Id                  string   `pulumi:"id"`
 	IncludesPattern     *string  `pulumi:"includesPattern"`
@@ -71,19 +105,23 @@ func GetVirtualGoRepositoryOutput(ctx *pulumi.Context, args GetVirtualGoReposito
 
 // A collection of arguments for invoking getVirtualGoRepository.
 type GetVirtualGoRepositoryOutputArgs struct {
-	ArtifactoryRequestsCanRetrieveRemoteArtifacts pulumi.BoolPtrInput     `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`
-	DefaultDeploymentRepo                         pulumi.StringPtrInput   `pulumi:"defaultDeploymentRepo"`
-	Description                                   pulumi.StringPtrInput   `pulumi:"description"`
-	ExcludesPattern                               pulumi.StringPtrInput   `pulumi:"excludesPattern"`
-	ExternalDependenciesEnabled                   pulumi.BoolPtrInput     `pulumi:"externalDependenciesEnabled"`
-	ExternalDependenciesPatterns                  pulumi.StringArrayInput `pulumi:"externalDependenciesPatterns"`
-	IncludesPattern                               pulumi.StringPtrInput   `pulumi:"includesPattern"`
-	Key                                           pulumi.StringInput      `pulumi:"key"`
-	Notes                                         pulumi.StringPtrInput   `pulumi:"notes"`
-	ProjectEnvironments                           pulumi.StringArrayInput `pulumi:"projectEnvironments"`
-	ProjectKey                                    pulumi.StringPtrInput   `pulumi:"projectKey"`
-	RepoLayoutRef                                 pulumi.StringPtrInput   `pulumi:"repoLayoutRef"`
-	Repositories                                  pulumi.StringArrayInput `pulumi:"repositories"`
+	ArtifactoryRequestsCanRetrieveRemoteArtifacts pulumi.BoolPtrInput   `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`
+	DefaultDeploymentRepo                         pulumi.StringPtrInput `pulumi:"defaultDeploymentRepo"`
+	Description                                   pulumi.StringPtrInput `pulumi:"description"`
+	ExcludesPattern                               pulumi.StringPtrInput `pulumi:"excludesPattern"`
+	// (Optional) Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list.
+	// When checked (default), Artifactory will automatically follow remote VCS roots in 'go-import' meta tags to download remote modules.
+	ExternalDependenciesEnabled pulumi.BoolPtrInput `pulumi:"externalDependenciesEnabled"`
+	// (Optional) 'go-import' Allow List on the UI.
+	ExternalDependenciesPatterns pulumi.StringArrayInput `pulumi:"externalDependenciesPatterns"`
+	IncludesPattern              pulumi.StringPtrInput   `pulumi:"includesPattern"`
+	// the identity key of the repo.
+	Key                 pulumi.StringInput      `pulumi:"key"`
+	Notes               pulumi.StringPtrInput   `pulumi:"notes"`
+	ProjectEnvironments pulumi.StringArrayInput `pulumi:"projectEnvironments"`
+	ProjectKey          pulumi.StringPtrInput   `pulumi:"projectKey"`
+	RepoLayoutRef       pulumi.StringPtrInput   `pulumi:"repoLayoutRef"`
+	Repositories        pulumi.StringArrayInput `pulumi:"repositories"`
 }
 
 func (GetVirtualGoRepositoryOutputArgs) ElementType() reflect.Type {
@@ -121,10 +159,13 @@ func (o GetVirtualGoRepositoryResultOutput) ExcludesPattern() pulumi.StringPtrOu
 	return o.ApplyT(func(v GetVirtualGoRepositoryResult) *string { return v.ExcludesPattern }).(pulumi.StringPtrOutput)
 }
 
+// (Optional) Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list.
+// When checked (default), Artifactory will automatically follow remote VCS roots in 'go-import' meta tags to download remote modules.
 func (o GetVirtualGoRepositoryResultOutput) ExternalDependenciesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetVirtualGoRepositoryResult) *bool { return v.ExternalDependenciesEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// (Optional) 'go-import' Allow List on the UI.
 func (o GetVirtualGoRepositoryResultOutput) ExternalDependenciesPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetVirtualGoRepositoryResult) []string { return v.ExternalDependenciesPatterns }).(pulumi.StringArrayOutput)
 }

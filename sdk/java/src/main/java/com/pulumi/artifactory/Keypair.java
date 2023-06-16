@@ -16,17 +16,68 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * RSA key pairs are used to sign and verify the Alpine Linux index files in JFrog Artifactory, while GPG key pairs are
+ * used to sign and validate packages integrity in JFrog Distribution. The JFrog Platform enables you to manage multiple
+ * RSA and GPG signing keys through the Keys Management UI and REST API. The JFrog Platform supports managing multiple
+ * pairs of GPG signing keys to sign packages for authentication of several package types such as Debian, Opkg, and RPM
+ * through the Keys Management UI and REST API.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.artifactory.Keypair;
+ * import com.pulumi.artifactory.KeypairArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var some_keypair6543461672124900137 = new Keypair(&#34;some-keypair6543461672124900137&#34;, KeypairArgs.builder()        
+ *             .pairName(&#34;some-keypair6543461672124900137&#34;)
+ *             .pairType(&#34;RSA&#34;)
+ *             .alias(&#34;foo-alias6543461672124900137&#34;)
+ *             .privateKey(Files.readString(Paths.get(&#34;samples/rsa.priv&#34;)))
+ *             .publicKey(Files.readString(Paths.get(&#34;samples/rsa.pub&#34;)))
+ *             .passphrase(&#34;PASSPHRASE&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Keypair can be imported using their name, e.g.
+ * 
+ * ```sh
+ *  $ pulumi import artifactory:index/keypair:Keypair my-keypair my-keypair
+ * ```
+ * 
+ */
 @ResourceType(type="artifactory:index/keypair:Keypair")
 public class Keypair extends com.pulumi.resources.CustomResource {
     /**
-     * Will be used as a filename when retrieving the public key via REST API
+     * Will be used as a filename when retrieving the public key via REST API.
      * 
      */
     @Export(name="alias", type=String.class, parameters={})
     private Output<String> alias;
 
     /**
-     * @return Will be used as a filename when retrieving the public key via REST API
+     * @return Will be used as a filename when retrieving the public key via REST API.
      * 
      */
     public Output<String> alias() {
@@ -61,14 +112,14 @@ public class Keypair extends com.pulumi.resources.CustomResource {
         return this.pairType;
     }
     /**
-     * Passphrase will be used to decrypt the private key. Validated server side
+     * Passphrase will be used to decrypt the private key. Validated server side.
      * 
      */
     @Export(name="passphrase", type=String.class, parameters={})
     private Output</* @Nullable */ String> passphrase;
 
     /**
-     * @return Passphrase will be used to decrypt the private key. Validated server side
+     * @return Passphrase will be used to decrypt the private key. Validated server side.
      * 
      */
     public Output<Optional<String>> passphrase() {
@@ -105,12 +156,16 @@ public class Keypair extends com.pulumi.resources.CustomResource {
     /**
      * Unknown usage. Returned in the json payload and cannot be set.
      * 
+     * Artifactory REST API call Get Key Pair doesn&#39;t return keys `private_key` and `passphrase`, but consumes these keys in the POST call.
+     * 
      */
     @Export(name="unavailable", type=Boolean.class, parameters={})
     private Output<Boolean> unavailable;
 
     /**
      * @return Unknown usage. Returned in the json payload and cannot be set.
+     * 
+     * Artifactory REST API call Get Key Pair doesn&#39;t return keys `private_key` and `passphrase`, but consumes these keys in the POST call.
      * 
      */
     public Output<Boolean> unavailable() {

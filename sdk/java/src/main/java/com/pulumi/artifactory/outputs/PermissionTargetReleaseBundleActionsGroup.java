@@ -10,10 +10,18 @@ import java.util.Objects;
 
 @CustomType
 public final class PermissionTargetReleaseBundleActionsGroup {
+    /**
+     * @return Name of permission.
+     * 
+     */
     private String name;
     private List<String> permissions;
 
     private PermissionTargetReleaseBundleActionsGroup() {}
+    /**
+     * @return Name of permission.
+     * 
+     */
     public String name() {
         return this.name;
     }

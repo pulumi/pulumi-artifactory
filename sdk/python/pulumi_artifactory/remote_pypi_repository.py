@@ -60,8 +60,8 @@ class RemotePypiRepositoryArgs:
                  xray_index: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a RemotePypiRepository resource.
-        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-               characters. It cannot begin with a number or contain spaces or special characters.
+        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+               contain spaces or special characters.
         :param pulumi.Input[str] url: The remote repo URL.
         :param pulumi.Input[bool] allow_any_host_auth: 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any
                other host.
@@ -112,10 +112,8 @@ class RemotePypiRepositoryArgs:
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set names
         :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies settings
-        :param pulumi.Input[str] pypi_registry_url: To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another
-               Artifactory server. See JFrog Pypi documentation for the usage details. Default value is 'https://pypi.org'.
-        :param pulumi.Input[str] pypi_repository_suffix: Usually should be left as a default for 'simple', unless the remote is a PyPI server that has custom registry suffix,
-               like +simple in DevPI. Default value is 'simple'.
+        :param pulumi.Input[str] pypi_registry_url: To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another Artifactory server. See JFrog Pypi documentation [here](https://www.jfrog.com/confluence/display/JFROG/PyPI+Repositories) for the usage details. Default value is `https://pypi.org`.
+        :param pulumi.Input[str] pypi_repository_suffix: Usually should be left as a default for `simple`, unless the remote is a PyPI server that has custom registry suffix, like +simple in DevPI. Default value is `simple`.
         :param pulumi.Input[str] query_params: Custom HTTP query parameters that will be automatically included in all remote resource requests. For example:
                `param1=val1&param2=val2&param3=val3`
         :param pulumi.Input[str] remote_repo_layout_ref: Repository layout key for the remote layout mapping.
@@ -221,8 +219,8 @@ class RemotePypiRepositoryArgs:
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
         """
-        A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-        characters. It cannot begin with a number or contain spaces or special characters.
+        A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+        contain spaces or special characters.
         """
         return pulumi.get(self, "key")
 
@@ -588,8 +586,7 @@ class RemotePypiRepositoryArgs:
     @pulumi.getter(name="pypiRegistryUrl")
     def pypi_registry_url(self) -> Optional[pulumi.Input[str]]:
         """
-        To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another
-        Artifactory server. See JFrog Pypi documentation for the usage details. Default value is 'https://pypi.org'.
+        To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another Artifactory server. See JFrog Pypi documentation [here](https://www.jfrog.com/confluence/display/JFROG/PyPI+Repositories) for the usage details. Default value is `https://pypi.org`.
         """
         return pulumi.get(self, "pypi_registry_url")
 
@@ -601,8 +598,7 @@ class RemotePypiRepositoryArgs:
     @pulumi.getter(name="pypiRepositorySuffix")
     def pypi_repository_suffix(self) -> Optional[pulumi.Input[str]]:
         """
-        Usually should be left as a default for 'simple', unless the remote is a PyPI server that has custom registry suffix,
-        like +simple in DevPI. Default value is 'simple'.
+        Usually should be left as a default for `simple`, unless the remote is a PyPI server that has custom registry suffix, like +simple in DevPI. Default value is `simple`.
         """
         return pulumi.get(self, "pypi_repository_suffix")
 
@@ -819,8 +815,8 @@ class _RemotePypiRepositoryState:
                communicate with this repository.
         :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
                used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-               characters. It cannot begin with a number or contain spaces or special characters.
+        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+               contain spaces or special characters.
         :param pulumi.Input[bool] list_remote_folder_items: Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
                the 'Retrieval Cache Period'. Default value is 'true'.
         :param pulumi.Input[str] local_address: The local address to be used when creating connections. Useful for specifying the interface to use on systems with
@@ -844,10 +840,8 @@ class _RemotePypiRepositoryState:
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set names
         :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies settings
-        :param pulumi.Input[str] pypi_registry_url: To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another
-               Artifactory server. See JFrog Pypi documentation for the usage details. Default value is 'https://pypi.org'.
-        :param pulumi.Input[str] pypi_repository_suffix: Usually should be left as a default for 'simple', unless the remote is a PyPI server that has custom registry suffix,
-               like +simple in DevPI. Default value is 'simple'.
+        :param pulumi.Input[str] pypi_registry_url: To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another Artifactory server. See JFrog Pypi documentation [here](https://www.jfrog.com/confluence/display/JFROG/PyPI+Repositories) for the usage details. Default value is `https://pypi.org`.
+        :param pulumi.Input[str] pypi_repository_suffix: Usually should be left as a default for `simple`, unless the remote is a PyPI server that has custom registry suffix, like +simple in DevPI. Default value is `simple`.
         :param pulumi.Input[str] query_params: Custom HTTP query parameters that will be automatically included in all remote resource requests. For example:
                `param1=val1&param2=val2&param3=val3`
         :param pulumi.Input[str] remote_repo_layout_ref: Repository layout key for the remote layout mapping.
@@ -1136,8 +1130,8 @@ class _RemotePypiRepositoryState:
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
         """
-        A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-        characters. It cannot begin with a number or contain spaces or special characters.
+        A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+        contain spaces or special characters.
         """
         return pulumi.get(self, "key")
 
@@ -1322,8 +1316,7 @@ class _RemotePypiRepositoryState:
     @pulumi.getter(name="pypiRegistryUrl")
     def pypi_registry_url(self) -> Optional[pulumi.Input[str]]:
         """
-        To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another
-        Artifactory server. See JFrog Pypi documentation for the usage details. Default value is 'https://pypi.org'.
+        To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another Artifactory server. See JFrog Pypi documentation [here](https://www.jfrog.com/confluence/display/JFROG/PyPI+Repositories) for the usage details. Default value is `https://pypi.org`.
         """
         return pulumi.get(self, "pypi_registry_url")
 
@@ -1335,8 +1328,7 @@ class _RemotePypiRepositoryState:
     @pulumi.getter(name="pypiRepositorySuffix")
     def pypi_repository_suffix(self) -> Optional[pulumi.Input[str]]:
         """
-        Usually should be left as a default for 'simple', unless the remote is a PyPI server that has custom registry suffix,
-        like +simple in DevPI. Default value is 'simple'.
+        Usually should be left as a default for `simple`, unless the remote is a PyPI server that has custom registry suffix, like +simple in DevPI. Default value is `simple`.
         """
         return pulumi.get(self, "pypi_repository_suffix")
 
@@ -1540,7 +1532,30 @@ class RemotePypiRepository(pulumi.CustomResource):
                  xray_index: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        Create a RemotePypiRepository resource with the given unique name, props, and options.
+        Creates a remote Pypi repository.
+        Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/PyPI+Repositories).
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        pypi_remote = artifactory.RemotePypiRepository("pypi-remote",
+            key="pypi-remote-foo",
+            pypi_registry_url="https://pypi.org",
+            pypi_repository_suffix="simple",
+            url="https://files.pythonhosted.org")
+        ```
+
+        ## Import
+
+        Remote repositories can be imported using their name, e.g.
+
+        ```sh
+         $ pulumi import artifactory:index/remotePypiRepository:RemotePypiRepository pypi-remote pypi-remote
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_any_host_auth: 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any
@@ -1569,8 +1584,8 @@ class RemotePypiRepository(pulumi.CustomResource):
                communicate with this repository.
         :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
                used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-               characters. It cannot begin with a number or contain spaces or special characters.
+        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+               contain spaces or special characters.
         :param pulumi.Input[bool] list_remote_folder_items: Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
                the 'Retrieval Cache Period'. Default value is 'true'.
         :param pulumi.Input[str] local_address: The local address to be used when creating connections. Useful for specifying the interface to use on systems with
@@ -1594,10 +1609,8 @@ class RemotePypiRepository(pulumi.CustomResource):
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set names
         :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies settings
-        :param pulumi.Input[str] pypi_registry_url: To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another
-               Artifactory server. See JFrog Pypi documentation for the usage details. Default value is 'https://pypi.org'.
-        :param pulumi.Input[str] pypi_repository_suffix: Usually should be left as a default for 'simple', unless the remote is a PyPI server that has custom registry suffix,
-               like +simple in DevPI. Default value is 'simple'.
+        :param pulumi.Input[str] pypi_registry_url: To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another Artifactory server. See JFrog Pypi documentation [here](https://www.jfrog.com/confluence/display/JFROG/PyPI+Repositories) for the usage details. Default value is `https://pypi.org`.
+        :param pulumi.Input[str] pypi_repository_suffix: Usually should be left as a default for `simple`, unless the remote is a PyPI server that has custom registry suffix, like +simple in DevPI. Default value is `simple`.
         :param pulumi.Input[str] query_params: Custom HTTP query parameters that will be automatically included in all remote resource requests. For example:
                `param1=val1&param2=val2&param3=val3`
         :param pulumi.Input[str] remote_repo_layout_ref: Repository layout key for the remote layout mapping.
@@ -1624,7 +1637,30 @@ class RemotePypiRepository(pulumi.CustomResource):
                  args: RemotePypiRepositoryArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a RemotePypiRepository resource with the given unique name, props, and options.
+        Creates a remote Pypi repository.
+        Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/PyPI+Repositories).
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        pypi_remote = artifactory.RemotePypiRepository("pypi-remote",
+            key="pypi-remote-foo",
+            pypi_registry_url="https://pypi.org",
+            pypi_repository_suffix="simple",
+            url="https://files.pythonhosted.org")
+        ```
+
+        ## Import
+
+        Remote repositories can be imported using their name, e.g.
+
+        ```sh
+         $ pulumi import artifactory:index/remotePypiRepository:RemotePypiRepository pypi-remote pypi-remote
+        ```
+
         :param str resource_name: The name of the resource.
         :param RemotePypiRepositoryArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1826,8 +1862,8 @@ class RemotePypiRepository(pulumi.CustomResource):
                communicate with this repository.
         :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
                used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-               characters. It cannot begin with a number or contain spaces or special characters.
+        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+               contain spaces or special characters.
         :param pulumi.Input[bool] list_remote_folder_items: Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
                the 'Retrieval Cache Period'. Default value is 'true'.
         :param pulumi.Input[str] local_address: The local address to be used when creating connections. Useful for specifying the interface to use on systems with
@@ -1851,10 +1887,8 @@ class RemotePypiRepository(pulumi.CustomResource):
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set names
         :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies settings
-        :param pulumi.Input[str] pypi_registry_url: To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another
-               Artifactory server. See JFrog Pypi documentation for the usage details. Default value is 'https://pypi.org'.
-        :param pulumi.Input[str] pypi_repository_suffix: Usually should be left as a default for 'simple', unless the remote is a PyPI server that has custom registry suffix,
-               like +simple in DevPI. Default value is 'simple'.
+        :param pulumi.Input[str] pypi_registry_url: To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another Artifactory server. See JFrog Pypi documentation [here](https://www.jfrog.com/confluence/display/JFROG/PyPI+Repositories) for the usage details. Default value is `https://pypi.org`.
+        :param pulumi.Input[str] pypi_repository_suffix: Usually should be left as a default for `simple`, unless the remote is a PyPI server that has custom registry suffix, like +simple in DevPI. Default value is `simple`.
         :param pulumi.Input[str] query_params: Custom HTTP query parameters that will be automatically included in all remote resource requests. For example:
                `param1=val1&param2=val2&param3=val3`
         :param pulumi.Input[str] remote_repo_layout_ref: Repository layout key for the remote layout mapping.
@@ -2049,8 +2083,8 @@ class RemotePypiRepository(pulumi.CustomResource):
     @pulumi.getter
     def key(self) -> pulumi.Output[str]:
         """
-        A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-        characters. It cannot begin with a number or contain spaces or special characters.
+        A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+        contain spaces or special characters.
         """
         return pulumi.get(self, "key")
 
@@ -2175,8 +2209,7 @@ class RemotePypiRepository(pulumi.CustomResource):
     @pulumi.getter(name="pypiRegistryUrl")
     def pypi_registry_url(self) -> pulumi.Output[Optional[str]]:
         """
-        To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another
-        Artifactory server. See JFrog Pypi documentation for the usage details. Default value is 'https://pypi.org'.
+        To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another Artifactory server. See JFrog Pypi documentation [here](https://www.jfrog.com/confluence/display/JFROG/PyPI+Repositories) for the usage details. Default value is `https://pypi.org`.
         """
         return pulumi.get(self, "pypi_registry_url")
 
@@ -2184,8 +2217,7 @@ class RemotePypiRepository(pulumi.CustomResource):
     @pulumi.getter(name="pypiRepositorySuffix")
     def pypi_repository_suffix(self) -> pulumi.Output[Optional[str]]:
         """
-        Usually should be left as a default for 'simple', unless the remote is a PyPI server that has custom registry suffix,
-        like +simple in DevPI. Default value is 'simple'.
+        Usually should be left as a default for `simple`, unless the remote is a PyPI server that has custom registry suffix, like +simple in DevPI. Default value is `simple`.
         """
         return pulumi.get(self, "pypi_repository_suffix")
 

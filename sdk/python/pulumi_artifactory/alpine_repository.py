@@ -33,8 +33,7 @@ class AlpineRepositoryArgs:
                  xray_index: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a AlpineRepository resource.
-        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-               characters. It cannot begin with a number or contain spaces or special characters.
+        :param pulumi.Input[str] key: the identity key of the repo.
         :param pulumi.Input[bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
                therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
                security (e.g., cross-site scripting attacks).
@@ -101,8 +100,7 @@ class AlpineRepositoryArgs:
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
         """
-        A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-        characters. It cannot begin with a number or contain spaces or special characters.
+        the identity key of the repo.
         """
         return pulumi.get(self, "key")
 
@@ -348,8 +346,7 @@ class _AlpineRepositoryState:
                artifacts are excluded.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-               characters. It cannot begin with a number or contain spaces or special characters.
+        :param pulumi.Input[str] key: the identity key of the repo.
         :param pulumi.Input[str] notes: Internal description.
         :param pulumi.Input[str] primary_keypair_ref: Used to sign index files in Alpine Linux repositories. See:
                https://www.jfrog.com/confluence/display/JFROG/Alpine+Linux+Repositories#AlpineLinuxRepositories-SigningAlpineLinuxIndex
@@ -505,8 +502,7 @@ class _AlpineRepositoryState:
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
         """
-        A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-        characters. It cannot begin with a number or contain spaces or special characters.
+        the identity key of the repo.
         """
         return pulumi.get(self, "key")
 
@@ -650,7 +646,34 @@ class AlpineRepository(pulumi.CustomResource):
                  xray_index: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        Create a AlpineRepository resource with the given unique name, props, and options.
+        Creates a local Alpine repository.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        some_keypair_rsa = artifactory.Keypair("some-keypairRSA",
+            pair_name="some-keypair",
+            pair_type="RSA",
+            alias="foo-alias",
+            private_key=(lambda path: open(path).read())("samples/rsa.priv"),
+            public_key=(lambda path: open(path).read())("samples/rsa.pub"))
+        terraform_local_test_alpine_repo_basic = artifactory.AlpineRepository("terraform-local-test-alpine-repo-basic",
+            key="terraform-local-test-alpine-repo-basic",
+            primary_keypair_ref=some_keypair_rsa.pair_name,
+            opts=pulumi.ResourceOptions(depends_on=[some_keypair_rsa]))
+        ```
+
+        ## Import
+
+        Local repositories can be imported using their name, e.g.
+
+        ```sh
+         $ pulumi import artifactory:index/alpineRepository:AlpineRepository terraform-local-test-alpine-repo-basic terraform-local-test-alpine-repo-basic
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -666,8 +689,7 @@ class AlpineRepository(pulumi.CustomResource):
                artifacts are excluded.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-               characters. It cannot begin with a number or contain spaces or special characters.
+        :param pulumi.Input[str] key: the identity key of the repo.
         :param pulumi.Input[str] notes: Internal description.
         :param pulumi.Input[str] primary_keypair_ref: Used to sign index files in Alpine Linux repositories. See:
                https://www.jfrog.com/confluence/display/JFROG/Alpine+Linux+Repositories#AlpineLinuxRepositories-SigningAlpineLinuxIndex
@@ -690,7 +712,34 @@ class AlpineRepository(pulumi.CustomResource):
                  args: AlpineRepositoryArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a AlpineRepository resource with the given unique name, props, and options.
+        Creates a local Alpine repository.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        some_keypair_rsa = artifactory.Keypair("some-keypairRSA",
+            pair_name="some-keypair",
+            pair_type="RSA",
+            alias="foo-alias",
+            private_key=(lambda path: open(path).read())("samples/rsa.priv"),
+            public_key=(lambda path: open(path).read())("samples/rsa.pub"))
+        terraform_local_test_alpine_repo_basic = artifactory.AlpineRepository("terraform-local-test-alpine-repo-basic",
+            key="terraform-local-test-alpine-repo-basic",
+            primary_keypair_ref=some_keypair_rsa.pair_name,
+            opts=pulumi.ResourceOptions(depends_on=[some_keypair_rsa]))
+        ```
+
+        ## Import
+
+        Local repositories can be imported using their name, e.g.
+
+        ```sh
+         $ pulumi import artifactory:index/alpineRepository:AlpineRepository terraform-local-test-alpine-repo-basic terraform-local-test-alpine-repo-basic
+        ```
+
         :param str resource_name: The name of the resource.
         :param AlpineRepositoryArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -800,8 +849,7 @@ class AlpineRepository(pulumi.CustomResource):
                artifacts are excluded.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-               characters. It cannot begin with a number or contain spaces or special characters.
+        :param pulumi.Input[str] key: the identity key of the repo.
         :param pulumi.Input[str] notes: Internal description.
         :param pulumi.Input[str] primary_keypair_ref: Used to sign index files in Alpine Linux repositories. See:
                https://www.jfrog.com/confluence/display/JFROG/Alpine+Linux+Repositories#AlpineLinuxRepositories-SigningAlpineLinuxIndex
@@ -912,8 +960,7 @@ class AlpineRepository(pulumi.CustomResource):
     @pulumi.getter
     def key(self) -> pulumi.Output[str]:
         """
-        A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-        characters. It cannot begin with a number or contain spaces or special characters.
+        the identity key of the repo.
         """
         return pulumi.get(self, "key")
 

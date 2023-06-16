@@ -12,17 +12,30 @@ namespace Pulumi.Artifactory.Inputs
 
     public sealed class PropertySetPropertyGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Disables `multiple_choice` if set to `false` at the same time with multiple_choice set to `true`. Default value is `false`
+        /// </summary>
         [Input("closedPredefinedValues")]
         public Input<bool>? ClosedPredefinedValues { get; set; }
 
+        /// <summary>
+        /// Defines if user can select multiple values. `closed_predefined_values` should be set to `true`. Default value is `false`.
+        /// </summary>
         [Input("multipleChoice")]
         public Input<bool>? MultipleChoice { get; set; }
 
+        /// <summary>
+        /// Predefined property name.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         [Input("predefinedValues", required: true)]
         private InputList<Inputs.PropertySetPropertyPredefinedValueGetArgs>? _predefinedValues;
+
+        /// <summary>
+        /// Properties in the property set.
+        /// </summary>
         public InputList<Inputs.PropertySetPropertyPredefinedValueGetArgs> PredefinedValues
         {
             get => _predefinedValues ?? (_predefinedValues = new InputList<Inputs.PropertySetPropertyPredefinedValueGetArgs>());

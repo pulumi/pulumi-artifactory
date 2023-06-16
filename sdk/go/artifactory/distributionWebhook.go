@@ -11,21 +11,80 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides an Artifactory webhook resource. This can be used to register and manage Artifactory webhook subscription which enables you to be notified or notify other users when such events take place in Artifactory.
+//
+// ## Example Usage
+//
+// .
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewDistributionWebhook(ctx, "distribution-webhook", &artifactory.DistributionWebhookArgs{
+//				Criteria: &artifactory.DistributionWebhookCriteriaArgs{
+//					AnyReleaseBundle: pulumi.Bool(false),
+//					ExcludePatterns: pulumi.StringArray{
+//						pulumi.String("bar/**"),
+//					},
+//					IncludePatterns: pulumi.StringArray{
+//						pulumi.String("foo/**"),
+//					},
+//					RegisteredReleaseBundleNames: pulumi.StringArray{
+//						pulumi.String("bundle-name"),
+//					},
+//				},
+//				EventTypes: pulumi.StringArray{
+//					pulumi.String("distribute_started"),
+//					pulumi.String("distribute_completed"),
+//					pulumi.String("distribute_aborted"),
+//					pulumi.String("distribute_failed"),
+//					pulumi.String("delete_started"),
+//					pulumi.String("delete_completed"),
+//					pulumi.String("delete_failed"),
+//				},
+//				Handlers: artifactory.DistributionWebhookHandlerArray{
+//					&artifactory.DistributionWebhookHandlerArgs{
+//						CustomHttpHeaders: pulumi.StringMap{
+//							"header-1": pulumi.String("value-1"),
+//							"header-2": pulumi.String("value-2"),
+//						},
+//						Proxy:  pulumi.String("proxy-key"),
+//						Secret: pulumi.String("some-secret"),
+//						Url:    pulumi.String("http://tempurl.org/webhook"),
+//					},
+//				},
+//				Key: pulumi.String("distribution-webhook"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 type DistributionWebhook struct {
 	pulumi.CustomResourceState
 
-	// Specifies where the webhook will be applied, on which release bundles or distributions.
+	// Specifies where the webhook will be applied on which repositories.
 	Criteria DistributionWebhookCriteriaOutput `pulumi:"criteria"`
-	// Description of webhook. Max length 1000 characters.
+	// Webhook description. Max length 1000 characters.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Status of webhook. Default to 'true'
+	// Status of webhook. Default to `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
-	// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow
-	// values: distribute_started, distribute_completed, distribute_aborted, distribute_failed, delete_started,
-	// delete_completed, delete_failed
-	EventTypes pulumi.StringArrayOutput              `pulumi:"eventTypes"`
-	Handlers   DistributionWebhookHandlerArrayOutput `pulumi:"handlers"`
-	// Key of webhook. Must be between 2 and 200 characters. Cannot contain spaces.
+	// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `distributeStarted`, `distributeCompleted`, `distributeAborted`, ` distribute_failed,  `deleteStarted` ,  `deleteCompleted` ,  `deleteFailed`
+	EventTypes pulumi.StringArrayOutput `pulumi:"eventTypes"`
+	// At least one is required.
+	Handlers DistributionWebhookHandlerArrayOutput `pulumi:"handlers"`
+	// The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
 	Key pulumi.StringOutput `pulumi:"key"`
 }
 
@@ -70,34 +129,32 @@ func GetDistributionWebhook(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DistributionWebhook resources.
 type distributionWebhookState struct {
-	// Specifies where the webhook will be applied, on which release bundles or distributions.
+	// Specifies where the webhook will be applied on which repositories.
 	Criteria *DistributionWebhookCriteria `pulumi:"criteria"`
-	// Description of webhook. Max length 1000 characters.
+	// Webhook description. Max length 1000 characters.
 	Description *string `pulumi:"description"`
-	// Status of webhook. Default to 'true'
+	// Status of webhook. Default to `true`.
 	Enabled *bool `pulumi:"enabled"`
-	// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow
-	// values: distribute_started, distribute_completed, distribute_aborted, distribute_failed, delete_started,
-	// delete_completed, delete_failed
-	EventTypes []string                     `pulumi:"eventTypes"`
-	Handlers   []DistributionWebhookHandler `pulumi:"handlers"`
-	// Key of webhook. Must be between 2 and 200 characters. Cannot contain spaces.
+	// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `distributeStarted`, `distributeCompleted`, `distributeAborted`, ` distribute_failed,  `deleteStarted` ,  `deleteCompleted` ,  `deleteFailed`
+	EventTypes []string `pulumi:"eventTypes"`
+	// At least one is required.
+	Handlers []DistributionWebhookHandler `pulumi:"handlers"`
+	// The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
 	Key *string `pulumi:"key"`
 }
 
 type DistributionWebhookState struct {
-	// Specifies where the webhook will be applied, on which release bundles or distributions.
+	// Specifies where the webhook will be applied on which repositories.
 	Criteria DistributionWebhookCriteriaPtrInput
-	// Description of webhook. Max length 1000 characters.
+	// Webhook description. Max length 1000 characters.
 	Description pulumi.StringPtrInput
-	// Status of webhook. Default to 'true'
+	// Status of webhook. Default to `true`.
 	Enabled pulumi.BoolPtrInput
-	// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow
-	// values: distribute_started, distribute_completed, distribute_aborted, distribute_failed, delete_started,
-	// delete_completed, delete_failed
+	// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `distributeStarted`, `distributeCompleted`, `distributeAborted`, ` distribute_failed,  `deleteStarted` ,  `deleteCompleted` ,  `deleteFailed`
 	EventTypes pulumi.StringArrayInput
-	Handlers   DistributionWebhookHandlerArrayInput
-	// Key of webhook. Must be between 2 and 200 characters. Cannot contain spaces.
+	// At least one is required.
+	Handlers DistributionWebhookHandlerArrayInput
+	// The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
 	Key pulumi.StringPtrInput
 }
 
@@ -106,35 +163,33 @@ func (DistributionWebhookState) ElementType() reflect.Type {
 }
 
 type distributionWebhookArgs struct {
-	// Specifies where the webhook will be applied, on which release bundles or distributions.
+	// Specifies where the webhook will be applied on which repositories.
 	Criteria DistributionWebhookCriteria `pulumi:"criteria"`
-	// Description of webhook. Max length 1000 characters.
+	// Webhook description. Max length 1000 characters.
 	Description *string `pulumi:"description"`
-	// Status of webhook. Default to 'true'
+	// Status of webhook. Default to `true`.
 	Enabled *bool `pulumi:"enabled"`
-	// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow
-	// values: distribute_started, distribute_completed, distribute_aborted, distribute_failed, delete_started,
-	// delete_completed, delete_failed
-	EventTypes []string                     `pulumi:"eventTypes"`
-	Handlers   []DistributionWebhookHandler `pulumi:"handlers"`
-	// Key of webhook. Must be between 2 and 200 characters. Cannot contain spaces.
+	// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `distributeStarted`, `distributeCompleted`, `distributeAborted`, ` distribute_failed,  `deleteStarted` ,  `deleteCompleted` ,  `deleteFailed`
+	EventTypes []string `pulumi:"eventTypes"`
+	// At least one is required.
+	Handlers []DistributionWebhookHandler `pulumi:"handlers"`
+	// The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
 	Key string `pulumi:"key"`
 }
 
 // The set of arguments for constructing a DistributionWebhook resource.
 type DistributionWebhookArgs struct {
-	// Specifies where the webhook will be applied, on which release bundles or distributions.
+	// Specifies where the webhook will be applied on which repositories.
 	Criteria DistributionWebhookCriteriaInput
-	// Description of webhook. Max length 1000 characters.
+	// Webhook description. Max length 1000 characters.
 	Description pulumi.StringPtrInput
-	// Status of webhook. Default to 'true'
+	// Status of webhook. Default to `true`.
 	Enabled pulumi.BoolPtrInput
-	// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow
-	// values: distribute_started, distribute_completed, distribute_aborted, distribute_failed, delete_started,
-	// delete_completed, delete_failed
+	// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `distributeStarted`, `distributeCompleted`, `distributeAborted`, ` distribute_failed,  `deleteStarted` ,  `deleteCompleted` ,  `deleteFailed`
 	EventTypes pulumi.StringArrayInput
-	Handlers   DistributionWebhookHandlerArrayInput
-	// Key of webhook. Must be between 2 and 200 characters. Cannot contain spaces.
+	// At least one is required.
+	Handlers DistributionWebhookHandlerArrayInput
+	// The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
 	Key pulumi.StringInput
 }
 
@@ -225,33 +280,32 @@ func (o DistributionWebhookOutput) ToDistributionWebhookOutputWithContext(ctx co
 	return o
 }
 
-// Specifies where the webhook will be applied, on which release bundles or distributions.
+// Specifies where the webhook will be applied on which repositories.
 func (o DistributionWebhookOutput) Criteria() DistributionWebhookCriteriaOutput {
 	return o.ApplyT(func(v *DistributionWebhook) DistributionWebhookCriteriaOutput { return v.Criteria }).(DistributionWebhookCriteriaOutput)
 }
 
-// Description of webhook. Max length 1000 characters.
+// Webhook description. Max length 1000 characters.
 func (o DistributionWebhookOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DistributionWebhook) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Status of webhook. Default to 'true'
+// Status of webhook. Default to `true`.
 func (o DistributionWebhookOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DistributionWebhook) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow
-// values: distribute_started, distribute_completed, distribute_aborted, distribute_failed, delete_started,
-// delete_completed, delete_failed
+// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `distributeStarted`, `distributeCompleted`, `distributeAborted`, ` distribute_failed,  `deleteStarted` ,  `deleteCompleted` ,  `deleteFailed`
 func (o DistributionWebhookOutput) EventTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DistributionWebhook) pulumi.StringArrayOutput { return v.EventTypes }).(pulumi.StringArrayOutput)
 }
 
+// At least one is required.
 func (o DistributionWebhookOutput) Handlers() DistributionWebhookHandlerArrayOutput {
 	return o.ApplyT(func(v *DistributionWebhook) DistributionWebhookHandlerArrayOutput { return v.Handlers }).(DistributionWebhookHandlerArrayOutput)
 }
 
-// Key of webhook. Must be between 2 and 200 characters. Cannot contain spaces.
+// The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
 func (o DistributionWebhookOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v *DistributionWebhook) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
 }

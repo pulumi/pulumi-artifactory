@@ -13,6 +13,51 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
+/**
+ * Provides an Artifactory Distribution Public Key resource. This can be used to create and manage Artifactory Distribution Public Keys.
+ * 
+ * See [API description](https://jfrog.com/help/r/jfrog-rest-apis/set-distributionpublic-gpg-key) in the Artifactory documentation for more details. Also the [UI documentation](https://jfrog.com/help/r/jfrog-platform-administration-documentation/managing-webstart-and-jar-signing) has further details on where to find these keys in Artifactory.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.artifactory.DistributionPublicKey;
+ * import com.pulumi.artifactory.DistributionPublicKeyArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var my_key = new DistributionPublicKey(&#34;my-key&#34;, DistributionPublicKeyArgs.builder()        
+ *             .alias(&#34;my-key&#34;)
+ *             .publicKey(Files.readString(Paths.get(&#34;samples/rsa.pub&#34;)))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Distribution Public Key can be imported using the key id, e.g.
+ * 
+ * ```sh
+ *  $ pulumi import artifactory:index/distributionPublicKey:DistributionPublicKey my-key keyid
+ * ```
+ * 
+ */
 @ResourceType(type="artifactory:index/distributionPublicKey:DistributionPublicKey")
 public class DistributionPublicKey extends com.pulumi.resources.CustomResource {
     /**
@@ -44,42 +89,42 @@ public class DistributionPublicKey extends com.pulumi.resources.CustomResource {
         return this.fingerprint;
     }
     /**
-     * Returns the name and eMail address of issuer.
+     * Returns the name and eMail address of issuer
      * 
      */
     @Export(name="issuedBy", type=String.class, parameters={})
     private Output<String> issuedBy;
 
     /**
-     * @return Returns the name and eMail address of issuer.
+     * @return Returns the name and eMail address of issuer
      * 
      */
     public Output<String> issuedBy() {
         return this.issuedBy;
     }
     /**
-     * Returns the date/time when this GPG key was created.
+     * Returns the date/time when this GPG key was created
      * 
      */
     @Export(name="issuedOn", type=String.class, parameters={})
     private Output<String> issuedOn;
 
     /**
-     * @return Returns the date/time when this GPG key was created.
+     * @return Returns the date/time when this GPG key was created
      * 
      */
     public Output<String> issuedOn() {
         return this.issuedOn;
     }
     /**
-     * Returns the key id by which this key is referenced in Artifactory.
+     * Returns the key id by which this key is referenced in Artifactory
      * 
      */
     @Export(name="keyId", type=String.class, parameters={})
     private Output<String> keyId;
 
     /**
-     * @return Returns the key id by which this key is referenced in Artifactory.
+     * @return Returns the key id by which this key is referenced in Artifactory
      * 
      */
     public Output<String> keyId() {
@@ -88,12 +133,16 @@ public class DistributionPublicKey extends com.pulumi.resources.CustomResource {
     /**
      * The Public key to add as a trusted distribution GPG key.
      * 
+     * The following additional attributes are exported:
+     * 
      */
     @Export(name="publicKey", type=String.class, parameters={})
     private Output<String> publicKey;
 
     /**
      * @return The Public key to add as a trusted distribution GPG key.
+     * 
+     * The following additional attributes are exported:
      * 
      */
     public Output<String> publicKey() {

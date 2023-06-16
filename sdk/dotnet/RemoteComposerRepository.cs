@@ -9,6 +9,38 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Artifactory
 {
+    /// <summary>
+    /// Creates a remote PHP Composer repository.
+    /// Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/PHP+Composer+Repositories).
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Artifactory = Pulumi.Artifactory;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var my_remote_composer = new Artifactory.RemoteComposerRepository("my-remote-composer", new()
+    ///     {
+    ///         Key = "my-remote-composer",
+    ///         Url = "https://github.com/",
+    ///         VcsGitProvider = "GITHUB",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Remote repositories can be imported using their name, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import artifactory:index/remoteComposerRepository:RemoteComposerRepository my-remote-composer my-remote-composer
+    /// ```
+    /// </summary>
     [ArtifactoryResourceType("artifactory:index/remoteComposerRepository:RemoteComposerRepository")]
     public partial class RemoteComposerRepository : global::Pulumi.CustomResource
     {
@@ -64,7 +96,7 @@ namespace Pulumi.Artifactory
         public Output<string> ClientTlsCertificate { get; private set; } = null!;
 
         /// <summary>
-        /// Proxy remote Composer repository. Default value is "https://packagist.org".
+        /// Proxy remote Composer repository. Default value is `https://packagist.org`.
         /// </summary>
         [Output("composerRegistryUrl")]
         public Output<string?> ComposerRegistryUrl { get; private set; } = null!;
@@ -113,8 +145,8 @@ namespace Pulumi.Artifactory
         public Output<string?> IncludesPattern { get; private set; } = null!;
 
         /// <summary>
-        /// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-        /// characters. It cannot begin with a number or contain spaces or special characters.
+        /// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+        /// contain spaces or special characters.
         /// </summary>
         [Output("key")]
         public Output<string> Key { get; private set; } = null!;
@@ -276,14 +308,13 @@ namespace Pulumi.Artifactory
         public Output<string?> Username { get; private set; } = null!;
 
         /// <summary>
-        /// This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
+        /// This attribute is used when vcs_git_provider is set to `CUSTOM`. Provided URL will be used as proxy.
         /// </summary>
         [Output("vcsGitDownloadUrl")]
         public Output<string?> VcsGitDownloadUrl { get; private set; } = null!;
 
         /// <summary>
-        /// Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance.
-        /// Default value is "GITHUB".
+        /// Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`. Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
         /// </summary>
         [Output("vcsGitProvider")]
         public Output<string?> VcsGitProvider { get; private set; } = null!;
@@ -397,7 +428,7 @@ namespace Pulumi.Artifactory
         public Input<string>? ClientTlsCertificate { get; set; }
 
         /// <summary>
-        /// Proxy remote Composer repository. Default value is "https://packagist.org".
+        /// Proxy remote Composer repository. Default value is `https://packagist.org`.
         /// </summary>
         [Input("composerRegistryUrl")]
         public Input<string>? ComposerRegistryUrl { get; set; }
@@ -446,8 +477,8 @@ namespace Pulumi.Artifactory
         public Input<string>? IncludesPattern { get; set; }
 
         /// <summary>
-        /// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-        /// characters. It cannot begin with a number or contain spaces or special characters.
+        /// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+        /// contain spaces or special characters.
         /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -627,14 +658,13 @@ namespace Pulumi.Artifactory
         public Input<string>? Username { get; set; }
 
         /// <summary>
-        /// This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
+        /// This attribute is used when vcs_git_provider is set to `CUSTOM`. Provided URL will be used as proxy.
         /// </summary>
         [Input("vcsGitDownloadUrl")]
         public Input<string>? VcsGitDownloadUrl { get; set; }
 
         /// <summary>
-        /// Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance.
-        /// Default value is "GITHUB".
+        /// Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`. Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
         /// </summary>
         [Input("vcsGitProvider")]
         public Input<string>? VcsGitProvider { get; set; }
@@ -706,7 +736,7 @@ namespace Pulumi.Artifactory
         public Input<string>? ClientTlsCertificate { get; set; }
 
         /// <summary>
-        /// Proxy remote Composer repository. Default value is "https://packagist.org".
+        /// Proxy remote Composer repository. Default value is `https://packagist.org`.
         /// </summary>
         [Input("composerRegistryUrl")]
         public Input<string>? ComposerRegistryUrl { get; set; }
@@ -755,8 +785,8 @@ namespace Pulumi.Artifactory
         public Input<string>? IncludesPattern { get; set; }
 
         /// <summary>
-        /// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-        /// characters. It cannot begin with a number or contain spaces or special characters.
+        /// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+        /// contain spaces or special characters.
         /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
@@ -939,14 +969,13 @@ namespace Pulumi.Artifactory
         public Input<string>? Username { get; set; }
 
         /// <summary>
-        /// This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
+        /// This attribute is used when vcs_git_provider is set to `CUSTOM`. Provided URL will be used as proxy.
         /// </summary>
         [Input("vcsGitDownloadUrl")]
         public Input<string>? VcsGitDownloadUrl { get; set; }
 
         /// <summary>
-        /// Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance.
-        /// Default value is "GITHUB".
+        /// Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`. Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
         /// </summary>
         [Input("vcsGitProvider")]
         public Input<string>? VcsGitProvider { get; set; }

@@ -17,30 +17,62 @@ public final class GetPermissionTargetPlainArgs extends com.pulumi.resources.Inv
 
     public static final GetPermissionTargetPlainArgs Empty = new GetPermissionTargetPlainArgs();
 
+    /**
+     * Same as repo but for artifactory-build-info permissions.
+     * 
+     */
     @Import(name="build")
     private @Nullable GetPermissionTargetBuild build;
 
+    /**
+     * @return Same as repo but for artifactory-build-info permissions.
+     * 
+     */
     public Optional<GetPermissionTargetBuild> build() {
         return Optional.ofNullable(this.build);
     }
 
+    /**
+     * Name of the permission target.
+     * 
+     */
     @Import(name="name", required=true)
     private String name;
 
+    /**
+     * @return Name of the permission target.
+     * 
+     */
     public String name() {
         return this.name;
     }
 
+    /**
+     * Same as repo but for release-bundles permissions.
+     * 
+     */
     @Import(name="releaseBundle")
     private @Nullable GetPermissionTargetReleaseBundle releaseBundle;
 
+    /**
+     * @return Same as repo but for release-bundles permissions.
+     * 
+     */
     public Optional<GetPermissionTargetReleaseBundle> releaseBundle() {
         return Optional.ofNullable(this.releaseBundle);
     }
 
+    /**
+     * Repository permission configuration.
+     * 
+     */
     @Import(name="repo")
     private @Nullable GetPermissionTargetRepo repo;
 
+    /**
+     * @return Repository permission configuration.
+     * 
+     */
     public Optional<GetPermissionTargetRepo> repo() {
         return Optional.ofNullable(this.repo);
     }
@@ -72,21 +104,45 @@ public final class GetPermissionTargetPlainArgs extends com.pulumi.resources.Inv
             $ = new GetPermissionTargetPlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param build Same as repo but for artifactory-build-info permissions.
+         * 
+         * @return builder
+         * 
+         */
         public Builder build(@Nullable GetPermissionTargetBuild build) {
             $.build = build;
             return this;
         }
 
+        /**
+         * @param name Name of the permission target.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param releaseBundle Same as repo but for release-bundles permissions.
+         * 
+         * @return builder
+         * 
+         */
         public Builder releaseBundle(@Nullable GetPermissionTargetReleaseBundle releaseBundle) {
             $.releaseBundle = releaseBundle;
             return this;
         }
 
+        /**
+         * @param repo Repository permission configuration.
+         * 
+         * @return builder
+         * 
+         */
         public Builder repo(@Nullable GetPermissionTargetRepo repo) {
             $.repo = repo;
             return this;

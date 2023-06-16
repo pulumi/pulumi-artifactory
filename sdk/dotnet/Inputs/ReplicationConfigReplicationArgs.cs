@@ -17,6 +17,10 @@ namespace Pulumi.Artifactory.Inputs
 
         [Input("password")]
         private Input<string>? _password;
+
+        /// <summary>
+        /// Requires password encryption to be turned off `POST /api/system/decrypt`.
+        /// </summary>
         public Input<string>? Password
         {
             get => _password;
@@ -30,6 +34,9 @@ namespace Pulumi.Artifactory.Inputs
         [Input("pathPrefix")]
         public Input<string>? PathPrefix { get; set; }
 
+        /// <summary>
+        /// Proxy key from Artifactory Proxies setting
+        /// </summary>
         [Input("proxy")]
         public Input<string>? Proxy { get; set; }
 

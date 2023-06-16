@@ -11,6 +11,46 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Creates a remote Bower repository.
+// Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Bower+Repositories).
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewRemoteBowerRepository(ctx, "my-remote-bower", &artifactory.RemoteBowerRepositoryArgs{
+//				Key:            pulumi.String("my-remote-bower"),
+//				Url:            pulumi.String("https://github.com/"),
+//				VcsGitProvider: pulumi.String("GITHUB"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Remote repositories can be imported using their name, e.g.
+//
+// ```sh
+//
+//	$ pulumi import artifactory:index/remoteBowerRepository:RemoteBowerRepository my-remote-bower my-remote-bower
+//
+// ```
 type RemoteBowerRepository struct {
 	pulumi.CustomResourceState
 
@@ -28,7 +68,7 @@ type RemoteBowerRepository struct {
 	// the list specified in the system properties file under blockedMismatchingMimeTypes. You can override by adding mimetypes
 	// to the override list 'mismatching_mime_types_override_list'.
 	BlockMismatchingMimeTypes pulumi.BoolPtrOutput `pulumi:"blockMismatchingMimeTypes"`
-	// Proxy remote Bower repository. Default value is "https://registry.bower.io".
+	// Proxy remote Bower repository. Default value is `https://registry.bower.io`.
 	BowerRegistryUrl pulumi.StringPtrOutput `pulumi:"bowerRegistryUrl"`
 	// Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
 	// HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
@@ -56,8 +96,8 @@ type RemoteBowerRepository struct {
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrOutput `pulumi:"includesPattern"`
-	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-	// characters. It cannot begin with a number or contain spaces or special characters.
+	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+	// contain spaces or special characters.
 	Key pulumi.StringOutput `pulumi:"key"`
 	// Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
 	// the 'Retrieval Cache Period'. Default value is 'true'.
@@ -123,10 +163,9 @@ type RemoteBowerRepository struct {
 	// The remote repo URL.
 	Url      pulumi.StringOutput    `pulumi:"url"`
 	Username pulumi.StringPtrOutput `pulumi:"username"`
-	// This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
+	// This attribute is used when vcsGitProvider is set to 'CUSTOM'. Provided URL will be used as proxy.
 	VcsGitDownloadUrl pulumi.StringPtrOutput `pulumi:"vcsGitDownloadUrl"`
-	// Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance.
-	// Default value is "GITHUB".
+	// Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`. Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
 	VcsGitProvider pulumi.StringPtrOutput `pulumi:"vcsGitProvider"`
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.
@@ -189,7 +228,7 @@ type remoteBowerRepositoryState struct {
 	// the list specified in the system properties file under blockedMismatchingMimeTypes. You can override by adding mimetypes
 	// to the override list 'mismatching_mime_types_override_list'.
 	BlockMismatchingMimeTypes *bool `pulumi:"blockMismatchingMimeTypes"`
-	// Proxy remote Bower repository. Default value is "https://registry.bower.io".
+	// Proxy remote Bower repository. Default value is `https://registry.bower.io`.
 	BowerRegistryUrl *string `pulumi:"bowerRegistryUrl"`
 	// Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
 	// HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
@@ -217,8 +256,8 @@ type remoteBowerRepositoryState struct {
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
-	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-	// characters. It cannot begin with a number or contain spaces or special characters.
+	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+	// contain spaces or special characters.
 	Key *string `pulumi:"key"`
 	// Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
 	// the 'Retrieval Cache Period'. Default value is 'true'.
@@ -284,10 +323,9 @@ type remoteBowerRepositoryState struct {
 	// The remote repo URL.
 	Url      *string `pulumi:"url"`
 	Username *string `pulumi:"username"`
-	// This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
+	// This attribute is used when vcsGitProvider is set to 'CUSTOM'. Provided URL will be used as proxy.
 	VcsGitDownloadUrl *string `pulumi:"vcsGitDownloadUrl"`
-	// Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance.
-	// Default value is "GITHUB".
+	// Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`. Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
 	VcsGitProvider *string `pulumi:"vcsGitProvider"`
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.
@@ -309,7 +347,7 @@ type RemoteBowerRepositoryState struct {
 	// the list specified in the system properties file under blockedMismatchingMimeTypes. You can override by adding mimetypes
 	// to the override list 'mismatching_mime_types_override_list'.
 	BlockMismatchingMimeTypes pulumi.BoolPtrInput
-	// Proxy remote Bower repository. Default value is "https://registry.bower.io".
+	// Proxy remote Bower repository. Default value is `https://registry.bower.io`.
 	BowerRegistryUrl pulumi.StringPtrInput
 	// Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
 	// HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
@@ -337,8 +375,8 @@ type RemoteBowerRepositoryState struct {
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
-	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-	// characters. It cannot begin with a number or contain spaces or special characters.
+	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+	// contain spaces or special characters.
 	Key pulumi.StringPtrInput
 	// Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
 	// the 'Retrieval Cache Period'. Default value is 'true'.
@@ -404,10 +442,9 @@ type RemoteBowerRepositoryState struct {
 	// The remote repo URL.
 	Url      pulumi.StringPtrInput
 	Username pulumi.StringPtrInput
-	// This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
+	// This attribute is used when vcsGitProvider is set to 'CUSTOM'. Provided URL will be used as proxy.
 	VcsGitDownloadUrl pulumi.StringPtrInput
-	// Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance.
-	// Default value is "GITHUB".
+	// Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`. Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
 	VcsGitProvider pulumi.StringPtrInput
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.
@@ -433,7 +470,7 @@ type remoteBowerRepositoryArgs struct {
 	// the list specified in the system properties file under blockedMismatchingMimeTypes. You can override by adding mimetypes
 	// to the override list 'mismatching_mime_types_override_list'.
 	BlockMismatchingMimeTypes *bool `pulumi:"blockMismatchingMimeTypes"`
-	// Proxy remote Bower repository. Default value is "https://registry.bower.io".
+	// Proxy remote Bower repository. Default value is `https://registry.bower.io`.
 	BowerRegistryUrl *string `pulumi:"bowerRegistryUrl"`
 	// Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
 	// HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
@@ -461,8 +498,8 @@ type remoteBowerRepositoryArgs struct {
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
-	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-	// characters. It cannot begin with a number or contain spaces or special characters.
+	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+	// contain spaces or special characters.
 	Key string `pulumi:"key"`
 	// Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
 	// the 'Retrieval Cache Period'. Default value is 'true'.
@@ -527,10 +564,9 @@ type remoteBowerRepositoryArgs struct {
 	// The remote repo URL.
 	Url      string  `pulumi:"url"`
 	Username *string `pulumi:"username"`
-	// This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
+	// This attribute is used when vcsGitProvider is set to 'CUSTOM'. Provided URL will be used as proxy.
 	VcsGitDownloadUrl *string `pulumi:"vcsGitDownloadUrl"`
-	// Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance.
-	// Default value is "GITHUB".
+	// Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`. Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
 	VcsGitProvider *string `pulumi:"vcsGitProvider"`
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.
@@ -553,7 +589,7 @@ type RemoteBowerRepositoryArgs struct {
 	// the list specified in the system properties file under blockedMismatchingMimeTypes. You can override by adding mimetypes
 	// to the override list 'mismatching_mime_types_override_list'.
 	BlockMismatchingMimeTypes pulumi.BoolPtrInput
-	// Proxy remote Bower repository. Default value is "https://registry.bower.io".
+	// Proxy remote Bower repository. Default value is `https://registry.bower.io`.
 	BowerRegistryUrl pulumi.StringPtrInput
 	// Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
 	// HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
@@ -581,8 +617,8 @@ type RemoteBowerRepositoryArgs struct {
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
-	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-	// characters. It cannot begin with a number or contain spaces or special characters.
+	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+	// contain spaces or special characters.
 	Key pulumi.StringInput
 	// Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
 	// the 'Retrieval Cache Period'. Default value is 'true'.
@@ -647,10 +683,9 @@ type RemoteBowerRepositoryArgs struct {
 	// The remote repo URL.
 	Url      pulumi.StringInput
 	Username pulumi.StringPtrInput
-	// This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
+	// This attribute is used when vcsGitProvider is set to 'CUSTOM'. Provided URL will be used as proxy.
 	VcsGitDownloadUrl pulumi.StringPtrInput
-	// Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance.
-	// Default value is "GITHUB".
+	// Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`. Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
 	VcsGitProvider pulumi.StringPtrInput
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.
@@ -770,7 +805,7 @@ func (o RemoteBowerRepositoryOutput) BlockMismatchingMimeTypes() pulumi.BoolPtrO
 	return o.ApplyT(func(v *RemoteBowerRepository) pulumi.BoolPtrOutput { return v.BlockMismatchingMimeTypes }).(pulumi.BoolPtrOutput)
 }
 
-// Proxy remote Bower repository. Default value is "https://registry.bower.io".
+// Proxy remote Bower repository. Default value is `https://registry.bower.io`.
 func (o RemoteBowerRepositoryOutput) BowerRegistryUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RemoteBowerRepository) pulumi.StringPtrOutput { return v.BowerRegistryUrl }).(pulumi.StringPtrOutput)
 }
@@ -833,8 +868,8 @@ func (o RemoteBowerRepositoryOutput) IncludesPattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RemoteBowerRepository) pulumi.StringPtrOutput { return v.IncludesPattern }).(pulumi.StringPtrOutput)
 }
 
-// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-// characters. It cannot begin with a number or contain spaces or special characters.
+// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+// contain spaces or special characters.
 func (o RemoteBowerRepositoryOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v *RemoteBowerRepository) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
 }
@@ -978,13 +1013,12 @@ func (o RemoteBowerRepositoryOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RemoteBowerRepository) pulumi.StringPtrOutput { return v.Username }).(pulumi.StringPtrOutput)
 }
 
-// This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
+// This attribute is used when vcsGitProvider is set to 'CUSTOM'. Provided URL will be used as proxy.
 func (o RemoteBowerRepositoryOutput) VcsGitDownloadUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RemoteBowerRepository) pulumi.StringPtrOutput { return v.VcsGitDownloadUrl }).(pulumi.StringPtrOutput)
 }
 
-// Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance.
-// Default value is "GITHUB".
+// Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`. Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
 func (o RemoteBowerRepositoryOutput) VcsGitProvider() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RemoteBowerRepository) pulumi.StringPtrOutput { return v.VcsGitProvider }).(pulumi.StringPtrOutput)
 }

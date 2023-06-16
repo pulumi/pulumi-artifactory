@@ -52,9 +52,17 @@ public final class GetVirtualHelmRepositoryPlainArgs extends com.pulumi.resource
         return Optional.ofNullable(this.includesPattern);
     }
 
+    /**
+     * the identity key of the repo.
+     * 
+     */
     @Import(name="key", required=true)
     private String key;
 
+    /**
+     * @return the identity key of the repo.
+     * 
+     */
     public String key() {
         return this.key;
     }
@@ -94,16 +102,32 @@ public final class GetVirtualHelmRepositoryPlainArgs extends com.pulumi.resource
         return Optional.ofNullable(this.repositories);
     }
 
+    /**
+     * (Optional, Default: `7200`) This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
+     * 
+     */
     @Import(name="retrievalCachePeriodSeconds")
     private @Nullable Integer retrievalCachePeriodSeconds;
 
+    /**
+     * @return (Optional, Default: `7200`) This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
+     * 
+     */
     public Optional<Integer> retrievalCachePeriodSeconds() {
         return Optional.ofNullable(this.retrievalCachePeriodSeconds);
     }
 
+    /**
+     * (Optional) From Artifactory 7.24.1 (SaaS Version), you can explicitly state a specific aggregated local or remote repository to fetch from a virtual by assigning namespaces to local and remote repositories. See the documentation [here](https://www.jfrog.com/confluence/display/JFROG/Kubernetes+Helm+Chart+Repositories#KubernetesHelmChartRepositories-NamespaceSupportforHelmVirtualRepositories). Default is `false`.
+     * 
+     */
     @Import(name="useNamespaces")
     private @Nullable Boolean useNamespaces;
 
+    /**
+     * @return (Optional) From Artifactory 7.24.1 (SaaS Version), you can explicitly state a specific aggregated local or remote repository to fetch from a virtual by assigning namespaces to local and remote repositories. See the documentation [here](https://www.jfrog.com/confluence/display/JFROG/Kubernetes+Helm+Chart+Repositories#KubernetesHelmChartRepositories-NamespaceSupportforHelmVirtualRepositories). Default is `false`.
+     * 
+     */
     public Optional<Boolean> useNamespaces() {
         return Optional.ofNullable(this.useNamespaces);
     }
@@ -169,6 +193,12 @@ public final class GetVirtualHelmRepositoryPlainArgs extends com.pulumi.resource
             return this;
         }
 
+        /**
+         * @param key the identity key of the repo.
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(String key) {
             $.key = key;
             return this;
@@ -207,11 +237,23 @@ public final class GetVirtualHelmRepositoryPlainArgs extends com.pulumi.resource
             return repositories(List.of(repositories));
         }
 
+        /**
+         * @param retrievalCachePeriodSeconds (Optional, Default: `7200`) This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
+         * 
+         * @return builder
+         * 
+         */
         public Builder retrievalCachePeriodSeconds(@Nullable Integer retrievalCachePeriodSeconds) {
             $.retrievalCachePeriodSeconds = retrievalCachePeriodSeconds;
             return this;
         }
 
+        /**
+         * @param useNamespaces (Optional) From Artifactory 7.24.1 (SaaS Version), you can explicitly state a specific aggregated local or remote repository to fetch from a virtual by assigning namespaces to local and remote repositories. See the documentation [here](https://www.jfrog.com/confluence/display/JFROG/Kubernetes+Helm+Chart+Repositories#KubernetesHelmChartRepositories-NamespaceSupportforHelmVirtualRepositories). Default is `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder useNamespaces(@Nullable Boolean useNamespaces) {
             $.useNamespaces = useNamespaces;
             return this;

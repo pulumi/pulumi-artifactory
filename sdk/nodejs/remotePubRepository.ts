@@ -6,6 +6,30 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * Creates a remote Pub repository.
+ * Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Pub+Repositories).
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const my_remote_pub = new artifactory.RemotePubRepository("my-remote-pub", {
+ *     key: "my-remote-pub",
+ *     url: "https://pub.dartlang.org",
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * Remote repositories can be imported using their name, e.g.
+ *
+ * ```sh
+ *  $ pulumi import artifactory:index/remotePubRepository:RemotePubRepository my-remote-pub my-remote-pub
+ * ```
+ */
 export class RemotePubRepository extends pulumi.CustomResource {
     /**
      * Get an existing RemotePubRepository resource's state with the given name, ID, and optional extra
@@ -101,8 +125,8 @@ export class RemotePubRepository extends pulumi.CustomResource {
      */
     public readonly includesPattern!: pulumi.Output<string | undefined>;
     /**
-     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-     * characters. It cannot begin with a number or contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+     * contain spaces or special characters.
      */
     public readonly key!: pulumi.Output<string>;
     /**
@@ -207,7 +231,7 @@ export class RemotePubRepository extends pulumi.CustomResource {
      */
     public readonly unusedArtifactsCleanupPeriodHours!: pulumi.Output<number | undefined>;
     /**
-     * The remote repo URL.
+     * The remote repository URL.
      */
     public readonly url!: pulumi.Output<string>;
     public readonly username!: pulumi.Output<string | undefined>;
@@ -399,8 +423,8 @@ export interface RemotePubRepositoryState {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-     * characters. It cannot begin with a number or contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+     * contain spaces or special characters.
      */
     key?: pulumi.Input<string>;
     /**
@@ -505,7 +529,7 @@ export interface RemotePubRepositoryState {
      */
     unusedArtifactsCleanupPeriodHours?: pulumi.Input<number>;
     /**
-     * The remote repo URL.
+     * The remote repository URL.
      */
     url?: pulumi.Input<string>;
     username?: pulumi.Input<string>;
@@ -587,8 +611,8 @@ export interface RemotePubRepositoryArgs {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-     * characters. It cannot begin with a number or contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+     * contain spaces or special characters.
      */
     key: pulumi.Input<string>;
     /**
@@ -692,7 +716,7 @@ export interface RemotePubRepositoryArgs {
      */
     unusedArtifactsCleanupPeriodHours?: pulumi.Input<number>;
     /**
-     * The remote repo URL.
+     * The remote repository URL.
      */
     url: pulumi.Input<string>;
     username?: pulumi.Input<string>;

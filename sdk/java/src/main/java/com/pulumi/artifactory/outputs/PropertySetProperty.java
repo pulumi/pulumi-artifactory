@@ -14,21 +14,53 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PropertySetProperty {
+    /**
+     * @return Disables `multiple_choice` if set to `false` at the same time with multiple_choice set to `true`. Default value is `false`
+     * 
+     */
     private @Nullable Boolean closedPredefinedValues;
+    /**
+     * @return Defines if user can select multiple values. `closed_predefined_values` should be set to `true`. Default value is `false`.
+     * 
+     */
     private @Nullable Boolean multipleChoice;
+    /**
+     * @return Predefined property name.
+     * 
+     */
     private String name;
+    /**
+     * @return Properties in the property set.
+     * 
+     */
     private List<PropertySetPropertyPredefinedValue> predefinedValues;
 
     private PropertySetProperty() {}
+    /**
+     * @return Disables `multiple_choice` if set to `false` at the same time with multiple_choice set to `true`. Default value is `false`
+     * 
+     */
     public Optional<Boolean> closedPredefinedValues() {
         return Optional.ofNullable(this.closedPredefinedValues);
     }
+    /**
+     * @return Defines if user can select multiple values. `closed_predefined_values` should be set to `true`. Default value is `false`.
+     * 
+     */
     public Optional<Boolean> multipleChoice() {
         return Optional.ofNullable(this.multipleChoice);
     }
+    /**
+     * @return Predefined property name.
+     * 
+     */
     public String name() {
         return this.name;
     }
+    /**
+     * @return Properties in the property set.
+     * 
+     */
     public List<PropertySetPropertyPredefinedValue> predefinedValues() {
         return this.predefinedValues;
     }

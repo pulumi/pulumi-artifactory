@@ -300,6 +300,9 @@ class GetRemoteGenericRepositoryResult:
     @property
     @pulumi.getter(name="propagateQueryParams")
     def propagate_query_params(self) -> Optional[bool]:
+        """
+        (Optional, Default: `false`) When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
+        """
         return pulumi.get(self, "propagate_query_params")
 
     @property
@@ -467,7 +470,20 @@ def get_remote_generic_repository(allow_any_host_auth: Optional[bool] = None,
                                   xray_index: Optional[bool] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRemoteGenericRepositoryResult:
     """
-    Use this data source to access information about an existing resource.
+    Retrieves a remote Generic repository.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_artifactory as artifactory
+
+    remote_generic = artifactory.get_remote_generic_repository(key="remote-generic")
+    ```
+
+
+    :param str key: the identity key of the repo.
+    :param bool propagate_query_params: (Optional, Default: `false`) When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
     """
     __args__ = dict()
     __args__['allowAnyHostAuth'] = allow_any_host_auth
@@ -604,6 +620,19 @@ def get_remote_generic_repository_output(allow_any_host_auth: Optional[pulumi.In
                                          xray_index: Optional[pulumi.Input[Optional[bool]]] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRemoteGenericRepositoryResult]:
     """
-    Use this data source to access information about an existing resource.
+    Retrieves a remote Generic repository.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_artifactory as artifactory
+
+    remote_generic = artifactory.get_remote_generic_repository(key="remote-generic")
+    ```
+
+
+    :param str key: the identity key of the repo.
+    :param bool propagate_query_params: (Optional, Default: `false`) When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
     """
     ...

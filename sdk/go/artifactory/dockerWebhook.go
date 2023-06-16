@@ -11,20 +11,85 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides an Artifactory webhook resource. This can be used to register and manage Artifactory webhook subscription which enables you to be notified or notify other users when such events take place in Artifactory.
+//
+// ## Example Usage
+//
+// .
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewDockerV2Repository(ctx, "my-docker-local", &artifactory.DockerV2RepositoryArgs{
+//				Key: pulumi.String("my-docker-local"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = artifactory.NewDockerWebhook(ctx, "docker-webhook", &artifactory.DockerWebhookArgs{
+//				Key: pulumi.String("docker-webhook"),
+//				EventTypes: pulumi.StringArray{
+//					pulumi.String("pushed"),
+//					pulumi.String("deleted"),
+//					pulumi.String("promoted"),
+//				},
+//				Criteria: &artifactory.DockerWebhookCriteriaArgs{
+//					AnyLocal:  pulumi.Bool(true),
+//					AnyRemote: pulumi.Bool(false),
+//					RepoKeys: pulumi.StringArray{
+//						my_docker_local.Key,
+//					},
+//					IncludePatterns: pulumi.StringArray{
+//						pulumi.String("foo/**"),
+//					},
+//					ExcludePatterns: pulumi.StringArray{
+//						pulumi.String("bar/**"),
+//					},
+//				},
+//				Handlers: artifactory.DockerWebhookHandlerArray{
+//					&artifactory.DockerWebhookHandlerArgs{
+//						Url:    pulumi.String("http://tempurl.org/webhook"),
+//						Secret: pulumi.String("some-secret"),
+//						Proxy:  pulumi.String("proxy-key"),
+//						CustomHttpHeaders: pulumi.StringMap{
+//							"header-1": pulumi.String("value-1"),
+//							"header-2": pulumi.String("value-2"),
+//						},
+//					},
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				my_docker_local,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 type DockerWebhook struct {
 	pulumi.CustomResourceState
 
 	// Specifies where the webhook will be applied on which repositories.
 	Criteria DockerWebhookCriteriaOutput `pulumi:"criteria"`
-	// Description of webhook. Max length 1000 characters.
+	// Webhook description. Max length 1000 characters.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Status of webhook. Default to 'true'
+	// Status of webhook. Default to `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
-	// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow
-	// values: pushed, deleted, promoted
-	EventTypes pulumi.StringArrayOutput        `pulumi:"eventTypes"`
-	Handlers   DockerWebhookHandlerArrayOutput `pulumi:"handlers"`
-	// Key of webhook. Must be between 2 and 200 characters. Cannot contain spaces.
+	// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `pushed`, `deleted`, `promoted`.
+	EventTypes pulumi.StringArrayOutput `pulumi:"eventTypes"`
+	// At least one is required.
+	Handlers DockerWebhookHandlerArrayOutput `pulumi:"handlers"`
+	// The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
 	Key pulumi.StringOutput `pulumi:"key"`
 }
 
@@ -71,30 +136,30 @@ func GetDockerWebhook(ctx *pulumi.Context,
 type dockerWebhookState struct {
 	// Specifies where the webhook will be applied on which repositories.
 	Criteria *DockerWebhookCriteria `pulumi:"criteria"`
-	// Description of webhook. Max length 1000 characters.
+	// Webhook description. Max length 1000 characters.
 	Description *string `pulumi:"description"`
-	// Status of webhook. Default to 'true'
+	// Status of webhook. Default to `true`.
 	Enabled *bool `pulumi:"enabled"`
-	// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow
-	// values: pushed, deleted, promoted
-	EventTypes []string               `pulumi:"eventTypes"`
-	Handlers   []DockerWebhookHandler `pulumi:"handlers"`
-	// Key of webhook. Must be between 2 and 200 characters. Cannot contain spaces.
+	// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `pushed`, `deleted`, `promoted`.
+	EventTypes []string `pulumi:"eventTypes"`
+	// At least one is required.
+	Handlers []DockerWebhookHandler `pulumi:"handlers"`
+	// The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
 	Key *string `pulumi:"key"`
 }
 
 type DockerWebhookState struct {
 	// Specifies where the webhook will be applied on which repositories.
 	Criteria DockerWebhookCriteriaPtrInput
-	// Description of webhook. Max length 1000 characters.
+	// Webhook description. Max length 1000 characters.
 	Description pulumi.StringPtrInput
-	// Status of webhook. Default to 'true'
+	// Status of webhook. Default to `true`.
 	Enabled pulumi.BoolPtrInput
-	// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow
-	// values: pushed, deleted, promoted
+	// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `pushed`, `deleted`, `promoted`.
 	EventTypes pulumi.StringArrayInput
-	Handlers   DockerWebhookHandlerArrayInput
-	// Key of webhook. Must be between 2 and 200 characters. Cannot contain spaces.
+	// At least one is required.
+	Handlers DockerWebhookHandlerArrayInput
+	// The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
 	Key pulumi.StringPtrInput
 }
 
@@ -105,15 +170,15 @@ func (DockerWebhookState) ElementType() reflect.Type {
 type dockerWebhookArgs struct {
 	// Specifies where the webhook will be applied on which repositories.
 	Criteria DockerWebhookCriteria `pulumi:"criteria"`
-	// Description of webhook. Max length 1000 characters.
+	// Webhook description. Max length 1000 characters.
 	Description *string `pulumi:"description"`
-	// Status of webhook. Default to 'true'
+	// Status of webhook. Default to `true`.
 	Enabled *bool `pulumi:"enabled"`
-	// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow
-	// values: pushed, deleted, promoted
-	EventTypes []string               `pulumi:"eventTypes"`
-	Handlers   []DockerWebhookHandler `pulumi:"handlers"`
-	// Key of webhook. Must be between 2 and 200 characters. Cannot contain spaces.
+	// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `pushed`, `deleted`, `promoted`.
+	EventTypes []string `pulumi:"eventTypes"`
+	// At least one is required.
+	Handlers []DockerWebhookHandler `pulumi:"handlers"`
+	// The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
 	Key string `pulumi:"key"`
 }
 
@@ -121,15 +186,15 @@ type dockerWebhookArgs struct {
 type DockerWebhookArgs struct {
 	// Specifies where the webhook will be applied on which repositories.
 	Criteria DockerWebhookCriteriaInput
-	// Description of webhook. Max length 1000 characters.
+	// Webhook description. Max length 1000 characters.
 	Description pulumi.StringPtrInput
-	// Status of webhook. Default to 'true'
+	// Status of webhook. Default to `true`.
 	Enabled pulumi.BoolPtrInput
-	// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow
-	// values: pushed, deleted, promoted
+	// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `pushed`, `deleted`, `promoted`.
 	EventTypes pulumi.StringArrayInput
-	Handlers   DockerWebhookHandlerArrayInput
-	// Key of webhook. Must be between 2 and 200 characters. Cannot contain spaces.
+	// At least one is required.
+	Handlers DockerWebhookHandlerArrayInput
+	// The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
 	Key pulumi.StringInput
 }
 
@@ -225,27 +290,27 @@ func (o DockerWebhookOutput) Criteria() DockerWebhookCriteriaOutput {
 	return o.ApplyT(func(v *DockerWebhook) DockerWebhookCriteriaOutput { return v.Criteria }).(DockerWebhookCriteriaOutput)
 }
 
-// Description of webhook. Max length 1000 characters.
+// Webhook description. Max length 1000 characters.
 func (o DockerWebhookOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DockerWebhook) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Status of webhook. Default to 'true'
+// Status of webhook. Default to `true`.
 func (o DockerWebhookOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DockerWebhook) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow
-// values: pushed, deleted, promoted
+// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `pushed`, `deleted`, `promoted`.
 func (o DockerWebhookOutput) EventTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DockerWebhook) pulumi.StringArrayOutput { return v.EventTypes }).(pulumi.StringArrayOutput)
 }
 
+// At least one is required.
 func (o DockerWebhookOutput) Handlers() DockerWebhookHandlerArrayOutput {
 	return o.ApplyT(func(v *DockerWebhook) DockerWebhookHandlerArrayOutput { return v.Handlers }).(DockerWebhookHandlerArrayOutput)
 }
 
-// Key of webhook. Must be between 2 and 200 characters. Cannot contain spaces.
+// The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
 func (o DockerWebhookOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v *DockerWebhook) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
 }

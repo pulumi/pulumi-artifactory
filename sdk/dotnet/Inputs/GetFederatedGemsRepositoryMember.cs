@@ -12,9 +12,16 @@ namespace Pulumi.Artifactory.Inputs
 
     public sealed class GetFederatedGemsRepositoryMemberArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Represents the active state of the federated member. It is supported to change the enabled
+        /// status of my own member. The config will be updated on the other federated members automatically.
+        /// </summary>
         [Input("enabled", required: true)]
         public bool Enabled { get; set; }
 
+        /// <summary>
+        /// Full URL to ending with the repository name.
+        /// </summary>
         [Input("url", required: true)]
         public string Url { get; set; } = null!;
 

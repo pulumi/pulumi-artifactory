@@ -18,6 +18,49 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.artifactory.RemoteTerraformRepository;
+ * import com.pulumi.artifactory.RemoteTerraformRepositoryArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var terraform_remote = new RemoteTerraformRepository(&#34;terraform-remote&#34;, RemoteTerraformRepositoryArgs.builder()        
+ *             .key(&#34;terraform-remote&#34;)
+ *             .terraformProvidersUrl(&#34;https://releases.hashicorp.com&#34;)
+ *             .terraformRegistryUrl(&#34;https://registry.terraform.io&#34;)
+ *             .url(&#34;https://github.com/&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Remote repositories can be imported using their name, e.g.
+ * 
+ * ```sh
+ *  $ pulumi import artifactory:index/remoteTerraformRepository:RemoteTerraformRepository terraform-remote terraform-remote
+ * ```
+ * 
+ */
 @ResourceType(type="artifactory:index/remoteTerraformRepository:RemoteTerraformRepository")
 public class RemoteTerraformRepository extends com.pulumi.resources.CustomResource {
     /**
@@ -235,16 +278,16 @@ public class RemoteTerraformRepository extends com.pulumi.resources.CustomResour
         return Codegen.optional(this.includesPattern);
     }
     /**
-     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-     * characters. It cannot begin with a number or contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+     * contain spaces or special characters.
      * 
      */
     @Export(name="key", type=String.class, parameters={})
     private Output<String> key;
 
     /**
-     * @return A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-     * characters. It cannot begin with a number or contain spaces or special characters.
+     * @return A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+     * contain spaces or special characters.
      * 
      */
     public Output<String> key() {
@@ -617,14 +660,14 @@ public class RemoteTerraformRepository extends com.pulumi.resources.CustomResour
         return Codegen.optional(this.unusedArtifactsCleanupPeriodHours);
     }
     /**
-     * The remote repo URL.
+     * The base URL of the Module storage API.
      * 
      */
     @Export(name="url", type=String.class, parameters={})
     private Output<String> url;
 
     /**
-     * @return The remote repo URL.
+     * @return The base URL of the Module storage API.
      * 
      */
     public Output<String> url() {

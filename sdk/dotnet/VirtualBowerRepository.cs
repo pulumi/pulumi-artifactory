@@ -9,6 +9,41 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Artifactory
 {
+    /// <summary>
+    /// Creates a virtual Bower repository.
+    /// Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Bower+Repositories#BowerRepositories-VirtualRepositories).
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Artifactory = Pulumi.Artifactory;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var foo_bower = new Artifactory.VirtualBowerRepository("foo-bower", new()
+    ///     {
+    ///         Description = "A test virtual repo",
+    ///         ExcludesPattern = "com/google/**",
+    ///         ExternalDependenciesEnabled = false,
+    ///         IncludesPattern = "com/jfrog/**,cloud/jfrog/**",
+    ///         Key = "foo-bower",
+    ///         Notes = "Internal description",
+    ///         Repositories = new[] {},
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Virtual repositories can be imported using their name, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import artifactory:index/virtualBowerRepository:VirtualBowerRepository foo-bower foo-bower
+    /// ```
+    /// </summary>
     [ArtifactoryResourceType("artifactory:index/virtualBowerRepository:VirtualBowerRepository")]
     public partial class VirtualBowerRepository : global::Pulumi.CustomResource
     {
@@ -45,8 +80,7 @@ namespace Pulumi.Artifactory
         public Output<bool?> ExternalDependenciesEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default,
-        /// this is set to ** which means that dependencies may be downloaded from any external source.
+        /// An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded from any external source.
         /// </summary>
         [Output("externalDependenciesPatterns")]
         public Output<ImmutableArray<string>> ExternalDependenciesPatterns { get; private set; } = null!;
@@ -65,8 +99,8 @@ namespace Pulumi.Artifactory
         public Output<string?> IncludesPattern { get; private set; } = null!;
 
         /// <summary>
-        /// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-        /// characters. It cannot begin with a number or contain spaces or special characters.
+        /// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+        /// contain spaces or special characters.
         /// </summary>
         [Output("key")]
         public Output<string> Key { get; private set; } = null!;
@@ -190,8 +224,7 @@ namespace Pulumi.Artifactory
         private InputList<string>? _externalDependenciesPatterns;
 
         /// <summary>
-        /// An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default,
-        /// this is set to ** which means that dependencies may be downloaded from any external source.
+        /// An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded from any external source.
         /// </summary>
         public InputList<string> ExternalDependenciesPatterns
         {
@@ -213,8 +246,8 @@ namespace Pulumi.Artifactory
         public Input<string>? IncludesPattern { get; set; }
 
         /// <summary>
-        /// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-        /// characters. It cannot begin with a number or contain spaces or special characters.
+        /// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+        /// contain spaces or special characters.
         /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -309,8 +342,7 @@ namespace Pulumi.Artifactory
         private InputList<string>? _externalDependenciesPatterns;
 
         /// <summary>
-        /// An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default,
-        /// this is set to ** which means that dependencies may be downloaded from any external source.
+        /// An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded from any external source.
         /// </summary>
         public InputList<string> ExternalDependenciesPatterns
         {
@@ -332,8 +364,8 @@ namespace Pulumi.Artifactory
         public Input<string>? IncludesPattern { get; set; }
 
         /// <summary>
-        /// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-        /// characters. It cannot begin with a number or contain spaces or special characters.
+        /// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+        /// contain spaces or special characters.
         /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }

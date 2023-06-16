@@ -16,33 +16,86 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides an Artifactory unmanaged user resource. This can be used to create and manage Artifactory users.
+ * The password is a required field by the [Artifactory API](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-CreateorReplaceUser), but we made it optional in this resource to accommodate the scenario where the password is not needed and will be reset by the actual user later.\
+ * When the optional attribute `password` is omitted, a random password is generated according to current Artifactory password policy.
+ * 
+ * &gt; The generated password won&#39;t be stored in the TF state and can not be recovered. The user must reset the password to be able to log in. An admin can always generate the access key for the user as well. The password change won&#39;t trigger state drift.
+ * 
+ * &gt; This resource is an alias for `artifactory.User` resource, it is identical and was added for clarity and compatibility purposes. We don&#39;t recommend to use this resource unless there is a specific use case for it. Recommended resource is `artifactory.ManagedUser`.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.artifactory.UnmanagedUser;
+ * import com.pulumi.artifactory.UnmanagedUserArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var test_user = new UnmanagedUser(&#34;test-user&#34;, UnmanagedUserArgs.builder()        
+ *             .email(&#34;test-user@artifactory-terraform.com&#34;)
+ *             .groups(            
+ *                 &#34;logged-in-users&#34;,
+ *                 &#34;readers&#34;)
+ *             .password(&#34;my super secret password&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ## Managing groups relationship
+ * 
+ * See our recommendation on how to manage user-group relationship.
+ * 
+ * ## Import
+ * 
+ * Users can be imported using their name, e.g.
+ * 
+ * ```sh
+ *  $ pulumi import artifactory:index/unmanagedUser:UnmanagedUser test-user myusername
+ * ```
+ * 
+ */
 @ResourceType(type="artifactory:index/unmanagedUser:UnmanagedUser")
 public class UnmanagedUser extends com.pulumi.resources.CustomResource {
     /**
-     * (Optional, Default: false) When enabled, this user is an administrator with all the ensuing privileges.
+     * When enabled, this user is an administrator with all the ensuing privileges. Default value is `false`.
      * 
      */
     @Export(name="admin", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> admin;
 
     /**
-     * @return (Optional, Default: false) When enabled, this user is an administrator with all the ensuing privileges.
+     * @return When enabled, this user is an administrator with all the ensuing privileges. Default value is `false`.
      * 
      */
     public Output<Optional<Boolean>> admin() {
         return Codegen.optional(this.admin);
     }
     /**
-     * (Optional, Default: true) When enabled, this user can only access the system through the REST API. This option cannot be
-     * set if the user has Admin privileges.
+     * When set, this user can only access Artifactory through the REST API. This option cannot be set if the user has Admin privileges. Default value is `true`.
      * 
      */
     @Export(name="disableUiAccess", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> disableUiAccess;
 
     /**
-     * @return (Optional, Default: true) When enabled, this user can only access the system through the REST API. This option cannot be
-     * set if the user has Admin privileges.
+     * @return When set, this user can only access Artifactory through the REST API. This option cannot be set if the user has Admin privileges. Default value is `true`.
      * 
      */
     public Output<Optional<Boolean>> disableUiAccess() {
@@ -63,30 +116,28 @@ public class UnmanagedUser extends com.pulumi.resources.CustomResource {
         return this.email;
     }
     /**
-     * List of groups this user is a part of.
+     * List of groups this user is a part of. **Notes:** If this attribute is not specified then user&#39;s group membership is set to empty. User will not be part of default &#34;readers&#34; group automatically.
      * 
      */
     @Export(name="groups", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> groups;
 
     /**
-     * @return List of groups this user is a part of.
+     * @return List of groups this user is a part of. **Notes:** If this attribute is not specified then user&#39;s group membership is set to empty. User will not be part of default &#34;readers&#34; group automatically.
      * 
      */
     public Output<Optional<List<String>>> groups() {
         return Codegen.optional(this.groups);
     }
     /**
-     * (Optional, Default: false) When enabled, disables the fallback mechanism for using an internal password when external
-     * authentication (such as LDAP) is enabled.
+     * When set, disables the fallback of using an internal password when external authentication (such as LDAP) is enabled.
      * 
      */
     @Export(name="internalPasswordDisabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> internalPasswordDisabled;
 
     /**
-     * @return (Optional, Default: false) When enabled, disables the fallback mechanism for using an internal password when external
-     * authentication (such as LDAP) is enabled.
+     * @return When set, disables the fallback of using an internal password when external authentication (such as LDAP) is enabled.
      * 
      */
     public Output<Optional<Boolean>> internalPasswordDisabled() {
@@ -107,34 +158,28 @@ public class UnmanagedUser extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * (Optional, Sensitive) Password for the user. When omitted, a random password is generated using the following password
-     * policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters
+     * Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters.
      * 
      */
     @Export(name="password", type=String.class, parameters={})
     private Output</* @Nullable */ String> password;
 
     /**
-     * @return (Optional, Sensitive) Password for the user. When omitted, a random password is generated using the following password
-     * policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters
+     * @return Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters.
      * 
      */
     public Output<Optional<String>> password() {
         return Codegen.optional(this.password);
     }
     /**
-     * (Optional, Default: true) When enabled, this user can update their profile details (except for the password. Only an
-     * administrator can update the password). There may be cases in which you want to leave this unset to prevent users from
-     * updating their profile. For example, a departmental user with a single password shared between all department members.
+     * When set, this user can update his profile details (except for the password. Only an administrator can update the password). Default value is `true`.
      * 
      */
     @Export(name="profileUpdatable", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> profileUpdatable;
 
     /**
-     * @return (Optional, Default: true) When enabled, this user can update their profile details (except for the password. Only an
-     * administrator can update the password). There may be cases in which you want to leave this unset to prevent users from
-     * updating their profile. For example, a departmental user with a single password shared between all department members.
+     * @return When set, this user can update his profile details (except for the password. Only an administrator can update the password). Default value is `true`.
      * 
      */
     public Output<Optional<Boolean>> profileUpdatable() {

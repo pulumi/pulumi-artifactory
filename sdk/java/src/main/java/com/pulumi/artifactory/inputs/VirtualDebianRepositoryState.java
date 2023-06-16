@@ -36,16 +36,14 @@ public final class VirtualDebianRepositoryState extends com.pulumi.resources.Res
     }
 
     /**
-     * Specifying architectures will speed up Artifactory&#39;s initial metadata indexing process. The default architecture values
-     * are amd64 and i386.
+     * Specifying  architectures will speed up Artifactory&#39;s initial metadata indexing process. The default architecture values are amd64 and i386.
      * 
      */
     @Import(name="debianDefaultArchitectures")
     private @Nullable Output<String> debianDefaultArchitectures;
 
     /**
-     * @return Specifying architectures will speed up Artifactory&#39;s initial metadata indexing process. The default architecture values
-     * are amd64 and i386.
+     * @return Specifying  architectures will speed up Artifactory&#39;s initial metadata indexing process. The default architecture values are amd64 and i386.
      * 
      */
     public Optional<Output<String>> debianDefaultArchitectures() {
@@ -117,16 +115,16 @@ public final class VirtualDebianRepositoryState extends com.pulumi.resources.Res
     }
 
     /**
-     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-     * characters. It cannot begin with a number or contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+     * contain spaces or special characters.
      * 
      */
     @Import(name="key")
     private @Nullable Output<String> key;
 
     /**
-     * @return A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-     * characters. It cannot begin with a number or contain spaces or special characters.
+     * @return A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+     * contain spaces or special characters.
      * 
      */
     public Optional<Output<String>> key() {
@@ -149,16 +147,14 @@ public final class VirtualDebianRepositoryState extends com.pulumi.resources.Res
     }
 
     /**
-     * Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are
-     * &#39;bz2&#39;,&#39;lzma&#39; and &#39;xz&#39;. Default value is &#39;bz2&#39;.
+     * Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are `bz2`,`lzma` and `xz`. Default value is `bz2`.
      * 
      */
     @Import(name="optionalIndexCompressionFormats")
     private @Nullable Output<List<String>> optionalIndexCompressionFormats;
 
     /**
-     * @return Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are
-     * &#39;bz2&#39;,&#39;lzma&#39; and &#39;xz&#39;. Default value is &#39;bz2&#39;.
+     * @return Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are `bz2`,`lzma` and `xz`. Default value is `bz2`.
      * 
      */
     public Optional<Output<List<String>>> optionalIndexCompressionFormats() {
@@ -256,16 +252,14 @@ public final class VirtualDebianRepositoryState extends com.pulumi.resources.Res
     }
 
     /**
-     * This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
-     * repositories. A value of 0 indicates no caching.
+     * This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
      * 
      */
     @Import(name="retrievalCachePeriodSeconds")
     private @Nullable Output<Integer> retrievalCachePeriodSeconds;
 
     /**
-     * @return This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
-     * repositories. A value of 0 indicates no caching.
+     * @return This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
      * 
      */
     public Optional<Output<Integer>> retrievalCachePeriodSeconds() {
@@ -351,8 +345,7 @@ public final class VirtualDebianRepositoryState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param debianDefaultArchitectures Specifying architectures will speed up Artifactory&#39;s initial metadata indexing process. The default architecture values
-         * are amd64 and i386.
+         * @param debianDefaultArchitectures Specifying  architectures will speed up Artifactory&#39;s initial metadata indexing process. The default architecture values are amd64 and i386.
          * 
          * @return builder
          * 
@@ -363,8 +356,7 @@ public final class VirtualDebianRepositoryState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param debianDefaultArchitectures Specifying architectures will speed up Artifactory&#39;s initial metadata indexing process. The default architecture values
-         * are amd64 and i386.
+         * @param debianDefaultArchitectures Specifying  architectures will speed up Artifactory&#39;s initial metadata indexing process. The default architecture values are amd64 and i386.
          * 
          * @return builder
          * 
@@ -462,8 +454,8 @@ public final class VirtualDebianRepositoryState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param key A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-         * characters. It cannot begin with a number or contain spaces or special characters.
+         * @param key A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+         * contain spaces or special characters.
          * 
          * @return builder
          * 
@@ -474,8 +466,8 @@ public final class VirtualDebianRepositoryState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param key A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-         * characters. It cannot begin with a number or contain spaces or special characters.
+         * @param key A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+         * contain spaces or special characters.
          * 
          * @return builder
          * 
@@ -506,8 +498,7 @@ public final class VirtualDebianRepositoryState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param optionalIndexCompressionFormats Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are
-         * &#39;bz2&#39;,&#39;lzma&#39; and &#39;xz&#39;. Default value is &#39;bz2&#39;.
+         * @param optionalIndexCompressionFormats Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are `bz2`,`lzma` and `xz`. Default value is `bz2`.
          * 
          * @return builder
          * 
@@ -518,8 +509,7 @@ public final class VirtualDebianRepositoryState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param optionalIndexCompressionFormats Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are
-         * &#39;bz2&#39;,&#39;lzma&#39; and &#39;xz&#39;. Default value is &#39;bz2&#39;.
+         * @param optionalIndexCompressionFormats Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are `bz2`,`lzma` and `xz`. Default value is `bz2`.
          * 
          * @return builder
          * 
@@ -529,8 +519,7 @@ public final class VirtualDebianRepositoryState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param optionalIndexCompressionFormats Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are
-         * &#39;bz2&#39;,&#39;lzma&#39; and &#39;xz&#39;. Default value is &#39;bz2&#39;.
+         * @param optionalIndexCompressionFormats Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are `bz2`,`lzma` and `xz`. Default value is `bz2`.
          * 
          * @return builder
          * 
@@ -685,8 +674,7 @@ public final class VirtualDebianRepositoryState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param retrievalCachePeriodSeconds This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
-         * repositories. A value of 0 indicates no caching.
+         * @param retrievalCachePeriodSeconds This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
          * 
          * @return builder
          * 
@@ -697,8 +685,7 @@ public final class VirtualDebianRepositoryState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param retrievalCachePeriodSeconds This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
-         * repositories. A value of 0 indicates no caching.
+         * @param retrievalCachePeriodSeconds This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
          * 
          * @return builder
          * 

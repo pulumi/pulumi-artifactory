@@ -6,6 +6,20 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * Retrieves a remote Helm repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const remote-helm = artifactory.getRemoteHelmRepository({
+ *     key: "remote-helm",
+ * });
+ * ```
+ */
 export function getRemoteHelmRepository(args: GetRemoteHelmRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetRemoteHelmRepositoryResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -72,11 +86,23 @@ export interface GetRemoteHelmRepositoryArgs {
     downloadDirect?: boolean;
     enableCookieManagement?: boolean;
     excludesPattern?: string;
+    /**
+     * (Optional) When set, external dependencies are rewritten. `External Dependency Rewrite` in the UI.
+     */
     externalDependenciesEnabled?: boolean;
+    /**
+     * (Optional) An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response. By default, this is set to `[**]` in the UI, which means that remote modules may be downloaded from any external VCS source. Due to SDKv2 limitations, we can't set the default value for the list. This value `[**]` must be assigned to the attribute manually, if user don't specify any other non-default values. We don't want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns `[**]` on update if HCL doesn't have the attribute set or the list is empty.
+     */
     externalDependenciesPatterns?: string[];
     hardFail?: boolean;
+    /**
+     * (Optional) No documentation is available. Hopefully you know what this means.
+     */
     helmChartsBaseUrl?: string;
     includesPattern?: string;
+    /**
+     * the identity key of the repo.
+     */
     key: string;
     listRemoteFolderItems?: boolean;
     localAddress?: string;
@@ -121,9 +147,18 @@ export interface GetRemoteHelmRepositoryResult {
     readonly downloadDirect?: boolean;
     readonly enableCookieManagement?: boolean;
     readonly excludesPattern?: string;
+    /**
+     * (Optional) When set, external dependencies are rewritten. `External Dependency Rewrite` in the UI.
+     */
     readonly externalDependenciesEnabled?: boolean;
+    /**
+     * (Optional) An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response. By default, this is set to `[**]` in the UI, which means that remote modules may be downloaded from any external VCS source. Due to SDKv2 limitations, we can't set the default value for the list. This value `[**]` must be assigned to the attribute manually, if user don't specify any other non-default values. We don't want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns `[**]` on update if HCL doesn't have the attribute set or the list is empty.
+     */
     readonly externalDependenciesPatterns?: string[];
     readonly hardFail?: boolean;
+    /**
+     * (Optional) No documentation is available. Hopefully you know what this means.
+     */
     readonly helmChartsBaseUrl?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
@@ -158,6 +193,20 @@ export interface GetRemoteHelmRepositoryResult {
     readonly username?: string;
     readonly xrayIndex?: boolean;
 }
+/**
+ * Retrieves a remote Helm repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const remote-helm = artifactory.getRemoteHelmRepository({
+ *     key: "remote-helm",
+ * });
+ * ```
+ */
 export function getRemoteHelmRepositoryOutput(args: GetRemoteHelmRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemoteHelmRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getRemoteHelmRepository(a, opts))
 }
@@ -178,11 +227,23 @@ export interface GetRemoteHelmRepositoryOutputArgs {
     downloadDirect?: pulumi.Input<boolean>;
     enableCookieManagement?: pulumi.Input<boolean>;
     excludesPattern?: pulumi.Input<string>;
+    /**
+     * (Optional) When set, external dependencies are rewritten. `External Dependency Rewrite` in the UI.
+     */
     externalDependenciesEnabled?: pulumi.Input<boolean>;
+    /**
+     * (Optional) An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response. By default, this is set to `[**]` in the UI, which means that remote modules may be downloaded from any external VCS source. Due to SDKv2 limitations, we can't set the default value for the list. This value `[**]` must be assigned to the attribute manually, if user don't specify any other non-default values. We don't want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns `[**]` on update if HCL doesn't have the attribute set or the list is empty.
+     */
     externalDependenciesPatterns?: pulumi.Input<pulumi.Input<string>[]>;
     hardFail?: pulumi.Input<boolean>;
+    /**
+     * (Optional) No documentation is available. Hopefully you know what this means.
+     */
     helmChartsBaseUrl?: pulumi.Input<string>;
     includesPattern?: pulumi.Input<string>;
+    /**
+     * the identity key of the repo.
+     */
     key: pulumi.Input<string>;
     listRemoteFolderItems?: pulumi.Input<boolean>;
     localAddress?: pulumi.Input<string>;

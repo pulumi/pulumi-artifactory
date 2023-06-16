@@ -33,31 +33,21 @@ class LocalRepositorySingleReplicationArgs:
         """
         The set of arguments for constructing a LocalRepositorySingleReplication resource.
         :param pulumi.Input[str] repo_key: Repository name.
-        :param pulumi.Input[str] url: The URL of the target local repository on a remote Artifactory server. Use the format
-               `https://<artifactory_url>/artifactory/<repository_name>`.
-        :param pulumi.Input[str] username: The HTTP authentication username.
-        :param pulumi.Input[bool] check_binary_existence_in_filestore: Enabling the `check_binary_existence_in_filestore` flag requires an Enterprise+ license. When true, enables distributed
-               checksum storage. For more information, see [Optimizing Repository Replication with Checksum-Based
-               Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
-        :param pulumi.Input[str] cron_exp: The Cron expression that determines when the next replication will be triggered.
-        :param pulumi.Input[bool] enable_event_replication: When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on
-               artifact, e.g. add, deleted or property change. Default value is `false`.
+        :param pulumi.Input[str] url: The URL of the target local repository on a remote Artifactory server. Use the format `https://<artifactory_url>/artifactory/<repository_name>`.
+        :param pulumi.Input[str] username: Username on the remote Artifactory instance.
+        :param pulumi.Input[bool] check_binary_existence_in_filestore: Enabling the `check_binary_existence_in_filestore` flag requires an Enterprise Plus license. When true, enables distributed checksum storage. For more information, see [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
+        :param pulumi.Input[str] cron_exp: A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
+        :param pulumi.Input[bool] enable_event_replication: When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. add, deleted or property change. Default value is `false`.
         :param pulumi.Input[bool] enabled: When set, enables replication of this repository to the target specified in `url` attribute. Default value is `true`.
-        :param pulumi.Input[str] exclude_path_prefix_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
-               artifacts are excluded.
-        :param pulumi.Input[str] include_path_prefix_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-               artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] password: Use either the HTTP authentication password or identity token.
-        :param pulumi.Input[str] proxy: A proxy configuration to use when communicating with the remote instance.
-        :param pulumi.Input[str] replication_key: Replication ID. The ID is known only after the replication is created, for this reason it's `Computed` and can not be
-               set by the user in HCL.
-        :param pulumi.Input[int] socket_timeout_millis: The network timeout in milliseconds to use for remote operations.
-        :param pulumi.Input[bool] sync_deletes: When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata). Note
-               that enabling this option, will delete artifacts on the target that do not exist in the source repository. Default value
-               is `false`.
-        :param pulumi.Input[bool] sync_properties: When set, the task also synchronizes the properties of replicated artifacts. Default value is `true`
-        :param pulumi.Input[bool] sync_statistics: When set, the task also synchronizes artifact download statistics. Set to avoid inadvertent cleanup at the target
-               instance when setting up replication for disaster recovery. Default value is `false`
+        :param pulumi.Input[str] exclude_path_prefix_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. By default, no artifacts are excluded.
+        :param pulumi.Input[str] include_path_prefix_pattern: List of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included `(**/*)`.
+        :param pulumi.Input[str] password: Use either the HTTP authentication password or [identity token](https://www.jfrog.com/confluence/display/JFROG/User+Profile#UserProfile-IdentityTokenidentitytoken).
+        :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies settings. The proxy configuration will be used when communicating with the remote instance.
+        :param pulumi.Input[str] replication_key: Replication ID, the value is unknown until the resource is created. Can't be set or updated.
+        :param pulumi.Input[int] socket_timeout_millis: The network timeout in milliseconds to use for remote operations. Default value is `15000`.
+        :param pulumi.Input[bool] sync_deletes: When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata). Note that enabling this option, will delete artifacts on the target that do not exist in the source repository. Default value is `false`.
+        :param pulumi.Input[bool] sync_properties: When set, the task also synchronizes the properties of replicated artifacts. Default value is `true`.
+        :param pulumi.Input[bool] sync_statistics: When set, the task also synchronizes artifact download statistics. Set to avoid inadvertent cleanup at the target instance when setting up replication for disaster recovery. Default value is `false`
         """
         pulumi.set(__self__, "repo_key", repo_key)
         pulumi.set(__self__, "url", url)
@@ -105,8 +95,7 @@ class LocalRepositorySingleReplicationArgs:
     @pulumi.getter
     def url(self) -> pulumi.Input[str]:
         """
-        The URL of the target local repository on a remote Artifactory server. Use the format
-        `https://<artifactory_url>/artifactory/<repository_name>`.
+        The URL of the target local repository on a remote Artifactory server. Use the format `https://<artifactory_url>/artifactory/<repository_name>`.
         """
         return pulumi.get(self, "url")
 
@@ -118,7 +107,7 @@ class LocalRepositorySingleReplicationArgs:
     @pulumi.getter
     def username(self) -> pulumi.Input[str]:
         """
-        The HTTP authentication username.
+        Username on the remote Artifactory instance.
         """
         return pulumi.get(self, "username")
 
@@ -130,9 +119,7 @@ class LocalRepositorySingleReplicationArgs:
     @pulumi.getter(name="checkBinaryExistenceInFilestore")
     def check_binary_existence_in_filestore(self) -> Optional[pulumi.Input[bool]]:
         """
-        Enabling the `check_binary_existence_in_filestore` flag requires an Enterprise+ license. When true, enables distributed
-        checksum storage. For more information, see [Optimizing Repository Replication with Checksum-Based
-        Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
+        Enabling the `check_binary_existence_in_filestore` flag requires an Enterprise Plus license. When true, enables distributed checksum storage. For more information, see [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
         """
         return pulumi.get(self, "check_binary_existence_in_filestore")
 
@@ -144,7 +131,7 @@ class LocalRepositorySingleReplicationArgs:
     @pulumi.getter(name="cronExp")
     def cron_exp(self) -> Optional[pulumi.Input[str]]:
         """
-        The Cron expression that determines when the next replication will be triggered.
+        A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
         """
         return pulumi.get(self, "cron_exp")
 
@@ -156,8 +143,7 @@ class LocalRepositorySingleReplicationArgs:
     @pulumi.getter(name="enableEventReplication")
     def enable_event_replication(self) -> Optional[pulumi.Input[bool]]:
         """
-        When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on
-        artifact, e.g. add, deleted or property change. Default value is `false`.
+        When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. add, deleted or property change. Default value is `false`.
         """
         return pulumi.get(self, "enable_event_replication")
 
@@ -181,8 +167,7 @@ class LocalRepositorySingleReplicationArgs:
     @pulumi.getter(name="excludePathPrefixPattern")
     def exclude_path_prefix_pattern(self) -> Optional[pulumi.Input[str]]:
         """
-        List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
-        artifacts are excluded.
+        List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. By default, no artifacts are excluded.
         """
         return pulumi.get(self, "exclude_path_prefix_pattern")
 
@@ -194,8 +179,7 @@ class LocalRepositorySingleReplicationArgs:
     @pulumi.getter(name="includePathPrefixPattern")
     def include_path_prefix_pattern(self) -> Optional[pulumi.Input[str]]:
         """
-        List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-        artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        List of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included `(**/*)`.
         """
         return pulumi.get(self, "include_path_prefix_pattern")
 
@@ -207,7 +191,7 @@ class LocalRepositorySingleReplicationArgs:
     @pulumi.getter
     def password(self) -> Optional[pulumi.Input[str]]:
         """
-        Use either the HTTP authentication password or identity token.
+        Use either the HTTP authentication password or [identity token](https://www.jfrog.com/confluence/display/JFROG/User+Profile#UserProfile-IdentityTokenidentitytoken).
         """
         return pulumi.get(self, "password")
 
@@ -219,7 +203,7 @@ class LocalRepositorySingleReplicationArgs:
     @pulumi.getter
     def proxy(self) -> Optional[pulumi.Input[str]]:
         """
-        A proxy configuration to use when communicating with the remote instance.
+        Proxy key from Artifactory Proxies settings. The proxy configuration will be used when communicating with the remote instance.
         """
         return pulumi.get(self, "proxy")
 
@@ -231,8 +215,7 @@ class LocalRepositorySingleReplicationArgs:
     @pulumi.getter(name="replicationKey")
     def replication_key(self) -> Optional[pulumi.Input[str]]:
         """
-        Replication ID. The ID is known only after the replication is created, for this reason it's `Computed` and can not be
-        set by the user in HCL.
+        Replication ID, the value is unknown until the resource is created. Can't be set or updated.
         """
         return pulumi.get(self, "replication_key")
 
@@ -244,7 +227,7 @@ class LocalRepositorySingleReplicationArgs:
     @pulumi.getter(name="socketTimeoutMillis")
     def socket_timeout_millis(self) -> Optional[pulumi.Input[int]]:
         """
-        The network timeout in milliseconds to use for remote operations.
+        The network timeout in milliseconds to use for remote operations. Default value is `15000`.
         """
         return pulumi.get(self, "socket_timeout_millis")
 
@@ -256,9 +239,7 @@ class LocalRepositorySingleReplicationArgs:
     @pulumi.getter(name="syncDeletes")
     def sync_deletes(self) -> Optional[pulumi.Input[bool]]:
         """
-        When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata). Note
-        that enabling this option, will delete artifacts on the target that do not exist in the source repository. Default value
-        is `false`.
+        When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata). Note that enabling this option, will delete artifacts on the target that do not exist in the source repository. Default value is `false`.
         """
         return pulumi.get(self, "sync_deletes")
 
@@ -270,7 +251,7 @@ class LocalRepositorySingleReplicationArgs:
     @pulumi.getter(name="syncProperties")
     def sync_properties(self) -> Optional[pulumi.Input[bool]]:
         """
-        When set, the task also synchronizes the properties of replicated artifacts. Default value is `true`
+        When set, the task also synchronizes the properties of replicated artifacts. Default value is `true`.
         """
         return pulumi.get(self, "sync_properties")
 
@@ -282,8 +263,7 @@ class LocalRepositorySingleReplicationArgs:
     @pulumi.getter(name="syncStatistics")
     def sync_statistics(self) -> Optional[pulumi.Input[bool]]:
         """
-        When set, the task also synchronizes artifact download statistics. Set to avoid inadvertent cleanup at the target
-        instance when setting up replication for disaster recovery. Default value is `false`
+        When set, the task also synchronizes artifact download statistics. Set to avoid inadvertent cleanup at the target instance when setting up replication for disaster recovery. Default value is `false`
         """
         return pulumi.get(self, "sync_statistics")
 
@@ -313,32 +293,22 @@ class _LocalRepositorySingleReplicationState:
                  username: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering LocalRepositorySingleReplication resources.
-        :param pulumi.Input[bool] check_binary_existence_in_filestore: Enabling the `check_binary_existence_in_filestore` flag requires an Enterprise+ license. When true, enables distributed
-               checksum storage. For more information, see [Optimizing Repository Replication with Checksum-Based
-               Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
-        :param pulumi.Input[str] cron_exp: The Cron expression that determines when the next replication will be triggered.
-        :param pulumi.Input[bool] enable_event_replication: When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on
-               artifact, e.g. add, deleted or property change. Default value is `false`.
+        :param pulumi.Input[bool] check_binary_existence_in_filestore: Enabling the `check_binary_existence_in_filestore` flag requires an Enterprise Plus license. When true, enables distributed checksum storage. For more information, see [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
+        :param pulumi.Input[str] cron_exp: A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
+        :param pulumi.Input[bool] enable_event_replication: When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. add, deleted or property change. Default value is `false`.
         :param pulumi.Input[bool] enabled: When set, enables replication of this repository to the target specified in `url` attribute. Default value is `true`.
-        :param pulumi.Input[str] exclude_path_prefix_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
-               artifacts are excluded.
-        :param pulumi.Input[str] include_path_prefix_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-               artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] password: Use either the HTTP authentication password or identity token.
-        :param pulumi.Input[str] proxy: A proxy configuration to use when communicating with the remote instance.
-        :param pulumi.Input[str] replication_key: Replication ID. The ID is known only after the replication is created, for this reason it's `Computed` and can not be
-               set by the user in HCL.
+        :param pulumi.Input[str] exclude_path_prefix_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. By default, no artifacts are excluded.
+        :param pulumi.Input[str] include_path_prefix_pattern: List of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included `(**/*)`.
+        :param pulumi.Input[str] password: Use either the HTTP authentication password or [identity token](https://www.jfrog.com/confluence/display/JFROG/User+Profile#UserProfile-IdentityTokenidentitytoken).
+        :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies settings. The proxy configuration will be used when communicating with the remote instance.
+        :param pulumi.Input[str] replication_key: Replication ID, the value is unknown until the resource is created. Can't be set or updated.
         :param pulumi.Input[str] repo_key: Repository name.
-        :param pulumi.Input[int] socket_timeout_millis: The network timeout in milliseconds to use for remote operations.
-        :param pulumi.Input[bool] sync_deletes: When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata). Note
-               that enabling this option, will delete artifacts on the target that do not exist in the source repository. Default value
-               is `false`.
-        :param pulumi.Input[bool] sync_properties: When set, the task also synchronizes the properties of replicated artifacts. Default value is `true`
-        :param pulumi.Input[bool] sync_statistics: When set, the task also synchronizes artifact download statistics. Set to avoid inadvertent cleanup at the target
-               instance when setting up replication for disaster recovery. Default value is `false`
-        :param pulumi.Input[str] url: The URL of the target local repository on a remote Artifactory server. Use the format
-               `https://<artifactory_url>/artifactory/<repository_name>`.
-        :param pulumi.Input[str] username: The HTTP authentication username.
+        :param pulumi.Input[int] socket_timeout_millis: The network timeout in milliseconds to use for remote operations. Default value is `15000`.
+        :param pulumi.Input[bool] sync_deletes: When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata). Note that enabling this option, will delete artifacts on the target that do not exist in the source repository. Default value is `false`.
+        :param pulumi.Input[bool] sync_properties: When set, the task also synchronizes the properties of replicated artifacts. Default value is `true`.
+        :param pulumi.Input[bool] sync_statistics: When set, the task also synchronizes artifact download statistics. Set to avoid inadvertent cleanup at the target instance when setting up replication for disaster recovery. Default value is `false`
+        :param pulumi.Input[str] url: The URL of the target local repository on a remote Artifactory server. Use the format `https://<artifactory_url>/artifactory/<repository_name>`.
+        :param pulumi.Input[str] username: Username on the remote Artifactory instance.
         """
         if check_binary_existence_in_filestore is not None:
             pulumi.set(__self__, "check_binary_existence_in_filestore", check_binary_existence_in_filestore)
@@ -377,9 +347,7 @@ class _LocalRepositorySingleReplicationState:
     @pulumi.getter(name="checkBinaryExistenceInFilestore")
     def check_binary_existence_in_filestore(self) -> Optional[pulumi.Input[bool]]:
         """
-        Enabling the `check_binary_existence_in_filestore` flag requires an Enterprise+ license. When true, enables distributed
-        checksum storage. For more information, see [Optimizing Repository Replication with Checksum-Based
-        Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
+        Enabling the `check_binary_existence_in_filestore` flag requires an Enterprise Plus license. When true, enables distributed checksum storage. For more information, see [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
         """
         return pulumi.get(self, "check_binary_existence_in_filestore")
 
@@ -391,7 +359,7 @@ class _LocalRepositorySingleReplicationState:
     @pulumi.getter(name="cronExp")
     def cron_exp(self) -> Optional[pulumi.Input[str]]:
         """
-        The Cron expression that determines when the next replication will be triggered.
+        A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
         """
         return pulumi.get(self, "cron_exp")
 
@@ -403,8 +371,7 @@ class _LocalRepositorySingleReplicationState:
     @pulumi.getter(name="enableEventReplication")
     def enable_event_replication(self) -> Optional[pulumi.Input[bool]]:
         """
-        When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on
-        artifact, e.g. add, deleted or property change. Default value is `false`.
+        When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. add, deleted or property change. Default value is `false`.
         """
         return pulumi.get(self, "enable_event_replication")
 
@@ -428,8 +395,7 @@ class _LocalRepositorySingleReplicationState:
     @pulumi.getter(name="excludePathPrefixPattern")
     def exclude_path_prefix_pattern(self) -> Optional[pulumi.Input[str]]:
         """
-        List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
-        artifacts are excluded.
+        List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. By default, no artifacts are excluded.
         """
         return pulumi.get(self, "exclude_path_prefix_pattern")
 
@@ -441,8 +407,7 @@ class _LocalRepositorySingleReplicationState:
     @pulumi.getter(name="includePathPrefixPattern")
     def include_path_prefix_pattern(self) -> Optional[pulumi.Input[str]]:
         """
-        List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-        artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        List of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included `(**/*)`.
         """
         return pulumi.get(self, "include_path_prefix_pattern")
 
@@ -454,7 +419,7 @@ class _LocalRepositorySingleReplicationState:
     @pulumi.getter
     def password(self) -> Optional[pulumi.Input[str]]:
         """
-        Use either the HTTP authentication password or identity token.
+        Use either the HTTP authentication password or [identity token](https://www.jfrog.com/confluence/display/JFROG/User+Profile#UserProfile-IdentityTokenidentitytoken).
         """
         return pulumi.get(self, "password")
 
@@ -466,7 +431,7 @@ class _LocalRepositorySingleReplicationState:
     @pulumi.getter
     def proxy(self) -> Optional[pulumi.Input[str]]:
         """
-        A proxy configuration to use when communicating with the remote instance.
+        Proxy key from Artifactory Proxies settings. The proxy configuration will be used when communicating with the remote instance.
         """
         return pulumi.get(self, "proxy")
 
@@ -478,8 +443,7 @@ class _LocalRepositorySingleReplicationState:
     @pulumi.getter(name="replicationKey")
     def replication_key(self) -> Optional[pulumi.Input[str]]:
         """
-        Replication ID. The ID is known only after the replication is created, for this reason it's `Computed` and can not be
-        set by the user in HCL.
+        Replication ID, the value is unknown until the resource is created. Can't be set or updated.
         """
         return pulumi.get(self, "replication_key")
 
@@ -503,7 +467,7 @@ class _LocalRepositorySingleReplicationState:
     @pulumi.getter(name="socketTimeoutMillis")
     def socket_timeout_millis(self) -> Optional[pulumi.Input[int]]:
         """
-        The network timeout in milliseconds to use for remote operations.
+        The network timeout in milliseconds to use for remote operations. Default value is `15000`.
         """
         return pulumi.get(self, "socket_timeout_millis")
 
@@ -515,9 +479,7 @@ class _LocalRepositorySingleReplicationState:
     @pulumi.getter(name="syncDeletes")
     def sync_deletes(self) -> Optional[pulumi.Input[bool]]:
         """
-        When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata). Note
-        that enabling this option, will delete artifacts on the target that do not exist in the source repository. Default value
-        is `false`.
+        When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata). Note that enabling this option, will delete artifacts on the target that do not exist in the source repository. Default value is `false`.
         """
         return pulumi.get(self, "sync_deletes")
 
@@ -529,7 +491,7 @@ class _LocalRepositorySingleReplicationState:
     @pulumi.getter(name="syncProperties")
     def sync_properties(self) -> Optional[pulumi.Input[bool]]:
         """
-        When set, the task also synchronizes the properties of replicated artifacts. Default value is `true`
+        When set, the task also synchronizes the properties of replicated artifacts. Default value is `true`.
         """
         return pulumi.get(self, "sync_properties")
 
@@ -541,8 +503,7 @@ class _LocalRepositorySingleReplicationState:
     @pulumi.getter(name="syncStatistics")
     def sync_statistics(self) -> Optional[pulumi.Input[bool]]:
         """
-        When set, the task also synchronizes artifact download statistics. Set to avoid inadvertent cleanup at the target
-        instance when setting up replication for disaster recovery. Default value is `false`
+        When set, the task also synchronizes artifact download statistics. Set to avoid inadvertent cleanup at the target instance when setting up replication for disaster recovery. Default value is `false`
         """
         return pulumi.get(self, "sync_statistics")
 
@@ -554,8 +515,7 @@ class _LocalRepositorySingleReplicationState:
     @pulumi.getter
     def url(self) -> Optional[pulumi.Input[str]]:
         """
-        The URL of the target local repository on a remote Artifactory server. Use the format
-        `https://<artifactory_url>/artifactory/<repository_name>`.
+        The URL of the target local repository on a remote Artifactory server. Use the format `https://<artifactory_url>/artifactory/<repository_name>`.
         """
         return pulumi.get(self, "url")
 
@@ -567,7 +527,7 @@ class _LocalRepositorySingleReplicationState:
     @pulumi.getter
     def username(self) -> Optional[pulumi.Input[str]]:
         """
-        The HTTP authentication username.
+        Username on the remote Artifactory instance.
         """
         return pulumi.get(self, "username")
 
@@ -599,35 +559,37 @@ class LocalRepositorySingleReplication(pulumi.CustomResource):
                  username: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a LocalRepositorySingleReplication resource with the given unique name, props, and options.
+        Provides a local repository replication resource, also referred to as Artifactory push replication. This can be used to create and manage Artifactory local repository replications using [Push Replication API](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-SetRepositoryReplicationConfiguration).
+        Push replication is used to synchronize Local Repositories, and is implemented by the Artifactory server on the near end invoking a synchronization of artifacts to the far end.
+        See the [Official Documentation](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-PushReplication).
+        This resource can create the replication of local repository to single repository on the remote server.
+
+        ## Import
+
+        Push replication configs can be imported using their repo key, e.g.
+
+        ```sh
+         $ pulumi import artifactory:index/localRepositorySingleReplication:LocalRepositorySingleReplication foo-rep provider_test_source
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] check_binary_existence_in_filestore: Enabling the `check_binary_existence_in_filestore` flag requires an Enterprise+ license. When true, enables distributed
-               checksum storage. For more information, see [Optimizing Repository Replication with Checksum-Based
-               Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
-        :param pulumi.Input[str] cron_exp: The Cron expression that determines when the next replication will be triggered.
-        :param pulumi.Input[bool] enable_event_replication: When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on
-               artifact, e.g. add, deleted or property change. Default value is `false`.
+        :param pulumi.Input[bool] check_binary_existence_in_filestore: Enabling the `check_binary_existence_in_filestore` flag requires an Enterprise Plus license. When true, enables distributed checksum storage. For more information, see [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
+        :param pulumi.Input[str] cron_exp: A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
+        :param pulumi.Input[bool] enable_event_replication: When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. add, deleted or property change. Default value is `false`.
         :param pulumi.Input[bool] enabled: When set, enables replication of this repository to the target specified in `url` attribute. Default value is `true`.
-        :param pulumi.Input[str] exclude_path_prefix_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
-               artifacts are excluded.
-        :param pulumi.Input[str] include_path_prefix_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-               artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] password: Use either the HTTP authentication password or identity token.
-        :param pulumi.Input[str] proxy: A proxy configuration to use when communicating with the remote instance.
-        :param pulumi.Input[str] replication_key: Replication ID. The ID is known only after the replication is created, for this reason it's `Computed` and can not be
-               set by the user in HCL.
+        :param pulumi.Input[str] exclude_path_prefix_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. By default, no artifacts are excluded.
+        :param pulumi.Input[str] include_path_prefix_pattern: List of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included `(**/*)`.
+        :param pulumi.Input[str] password: Use either the HTTP authentication password or [identity token](https://www.jfrog.com/confluence/display/JFROG/User+Profile#UserProfile-IdentityTokenidentitytoken).
+        :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies settings. The proxy configuration will be used when communicating with the remote instance.
+        :param pulumi.Input[str] replication_key: Replication ID, the value is unknown until the resource is created. Can't be set or updated.
         :param pulumi.Input[str] repo_key: Repository name.
-        :param pulumi.Input[int] socket_timeout_millis: The network timeout in milliseconds to use for remote operations.
-        :param pulumi.Input[bool] sync_deletes: When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata). Note
-               that enabling this option, will delete artifacts on the target that do not exist in the source repository. Default value
-               is `false`.
-        :param pulumi.Input[bool] sync_properties: When set, the task also synchronizes the properties of replicated artifacts. Default value is `true`
-        :param pulumi.Input[bool] sync_statistics: When set, the task also synchronizes artifact download statistics. Set to avoid inadvertent cleanup at the target
-               instance when setting up replication for disaster recovery. Default value is `false`
-        :param pulumi.Input[str] url: The URL of the target local repository on a remote Artifactory server. Use the format
-               `https://<artifactory_url>/artifactory/<repository_name>`.
-        :param pulumi.Input[str] username: The HTTP authentication username.
+        :param pulumi.Input[int] socket_timeout_millis: The network timeout in milliseconds to use for remote operations. Default value is `15000`.
+        :param pulumi.Input[bool] sync_deletes: When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata). Note that enabling this option, will delete artifacts on the target that do not exist in the source repository. Default value is `false`.
+        :param pulumi.Input[bool] sync_properties: When set, the task also synchronizes the properties of replicated artifacts. Default value is `true`.
+        :param pulumi.Input[bool] sync_statistics: When set, the task also synchronizes artifact download statistics. Set to avoid inadvertent cleanup at the target instance when setting up replication for disaster recovery. Default value is `false`
+        :param pulumi.Input[str] url: The URL of the target local repository on a remote Artifactory server. Use the format `https://<artifactory_url>/artifactory/<repository_name>`.
+        :param pulumi.Input[str] username: Username on the remote Artifactory instance.
         """
         ...
     @overload
@@ -636,7 +598,19 @@ class LocalRepositorySingleReplication(pulumi.CustomResource):
                  args: LocalRepositorySingleReplicationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a LocalRepositorySingleReplication resource with the given unique name, props, and options.
+        Provides a local repository replication resource, also referred to as Artifactory push replication. This can be used to create and manage Artifactory local repository replications using [Push Replication API](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-SetRepositoryReplicationConfiguration).
+        Push replication is used to synchronize Local Repositories, and is implemented by the Artifactory server on the near end invoking a synchronization of artifacts to the far end.
+        See the [Official Documentation](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-PushReplication).
+        This resource can create the replication of local repository to single repository on the remote server.
+
+        ## Import
+
+        Push replication configs can be imported using their repo key, e.g.
+
+        ```sh
+         $ pulumi import artifactory:index/localRepositorySingleReplication:LocalRepositorySingleReplication foo-rep provider_test_source
+        ```
+
         :param str resource_name: The name of the resource.
         :param LocalRepositorySingleReplicationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -734,32 +708,22 @@ class LocalRepositorySingleReplication(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] check_binary_existence_in_filestore: Enabling the `check_binary_existence_in_filestore` flag requires an Enterprise+ license. When true, enables distributed
-               checksum storage. For more information, see [Optimizing Repository Replication with Checksum-Based
-               Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
-        :param pulumi.Input[str] cron_exp: The Cron expression that determines when the next replication will be triggered.
-        :param pulumi.Input[bool] enable_event_replication: When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on
-               artifact, e.g. add, deleted or property change. Default value is `false`.
+        :param pulumi.Input[bool] check_binary_existence_in_filestore: Enabling the `check_binary_existence_in_filestore` flag requires an Enterprise Plus license. When true, enables distributed checksum storage. For more information, see [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
+        :param pulumi.Input[str] cron_exp: A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
+        :param pulumi.Input[bool] enable_event_replication: When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. add, deleted or property change. Default value is `false`.
         :param pulumi.Input[bool] enabled: When set, enables replication of this repository to the target specified in `url` attribute. Default value is `true`.
-        :param pulumi.Input[str] exclude_path_prefix_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
-               artifacts are excluded.
-        :param pulumi.Input[str] include_path_prefix_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-               artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] password: Use either the HTTP authentication password or identity token.
-        :param pulumi.Input[str] proxy: A proxy configuration to use when communicating with the remote instance.
-        :param pulumi.Input[str] replication_key: Replication ID. The ID is known only after the replication is created, for this reason it's `Computed` and can not be
-               set by the user in HCL.
+        :param pulumi.Input[str] exclude_path_prefix_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. By default, no artifacts are excluded.
+        :param pulumi.Input[str] include_path_prefix_pattern: List of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included `(**/*)`.
+        :param pulumi.Input[str] password: Use either the HTTP authentication password or [identity token](https://www.jfrog.com/confluence/display/JFROG/User+Profile#UserProfile-IdentityTokenidentitytoken).
+        :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies settings. The proxy configuration will be used when communicating with the remote instance.
+        :param pulumi.Input[str] replication_key: Replication ID, the value is unknown until the resource is created. Can't be set or updated.
         :param pulumi.Input[str] repo_key: Repository name.
-        :param pulumi.Input[int] socket_timeout_millis: The network timeout in milliseconds to use for remote operations.
-        :param pulumi.Input[bool] sync_deletes: When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata). Note
-               that enabling this option, will delete artifacts on the target that do not exist in the source repository. Default value
-               is `false`.
-        :param pulumi.Input[bool] sync_properties: When set, the task also synchronizes the properties of replicated artifacts. Default value is `true`
-        :param pulumi.Input[bool] sync_statistics: When set, the task also synchronizes artifact download statistics. Set to avoid inadvertent cleanup at the target
-               instance when setting up replication for disaster recovery. Default value is `false`
-        :param pulumi.Input[str] url: The URL of the target local repository on a remote Artifactory server. Use the format
-               `https://<artifactory_url>/artifactory/<repository_name>`.
-        :param pulumi.Input[str] username: The HTTP authentication username.
+        :param pulumi.Input[int] socket_timeout_millis: The network timeout in milliseconds to use for remote operations. Default value is `15000`.
+        :param pulumi.Input[bool] sync_deletes: When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata). Note that enabling this option, will delete artifacts on the target that do not exist in the source repository. Default value is `false`.
+        :param pulumi.Input[bool] sync_properties: When set, the task also synchronizes the properties of replicated artifacts. Default value is `true`.
+        :param pulumi.Input[bool] sync_statistics: When set, the task also synchronizes artifact download statistics. Set to avoid inadvertent cleanup at the target instance when setting up replication for disaster recovery. Default value is `false`
+        :param pulumi.Input[str] url: The URL of the target local repository on a remote Artifactory server. Use the format `https://<artifactory_url>/artifactory/<repository_name>`.
+        :param pulumi.Input[str] username: Username on the remote Artifactory instance.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -787,9 +751,7 @@ class LocalRepositorySingleReplication(pulumi.CustomResource):
     @pulumi.getter(name="checkBinaryExistenceInFilestore")
     def check_binary_existence_in_filestore(self) -> pulumi.Output[Optional[bool]]:
         """
-        Enabling the `check_binary_existence_in_filestore` flag requires an Enterprise+ license. When true, enables distributed
-        checksum storage. For more information, see [Optimizing Repository Replication with Checksum-Based
-        Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
+        Enabling the `check_binary_existence_in_filestore` flag requires an Enterprise Plus license. When true, enables distributed checksum storage. For more information, see [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
         """
         return pulumi.get(self, "check_binary_existence_in_filestore")
 
@@ -797,7 +759,7 @@ class LocalRepositorySingleReplication(pulumi.CustomResource):
     @pulumi.getter(name="cronExp")
     def cron_exp(self) -> pulumi.Output[Optional[str]]:
         """
-        The Cron expression that determines when the next replication will be triggered.
+        A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
         """
         return pulumi.get(self, "cron_exp")
 
@@ -805,8 +767,7 @@ class LocalRepositorySingleReplication(pulumi.CustomResource):
     @pulumi.getter(name="enableEventReplication")
     def enable_event_replication(self) -> pulumi.Output[Optional[bool]]:
         """
-        When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on
-        artifact, e.g. add, deleted or property change. Default value is `false`.
+        When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. add, deleted or property change. Default value is `false`.
         """
         return pulumi.get(self, "enable_event_replication")
 
@@ -822,8 +783,7 @@ class LocalRepositorySingleReplication(pulumi.CustomResource):
     @pulumi.getter(name="excludePathPrefixPattern")
     def exclude_path_prefix_pattern(self) -> pulumi.Output[Optional[str]]:
         """
-        List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
-        artifacts are excluded.
+        List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. By default, no artifacts are excluded.
         """
         return pulumi.get(self, "exclude_path_prefix_pattern")
 
@@ -831,8 +791,7 @@ class LocalRepositorySingleReplication(pulumi.CustomResource):
     @pulumi.getter(name="includePathPrefixPattern")
     def include_path_prefix_pattern(self) -> pulumi.Output[Optional[str]]:
         """
-        List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-        artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        List of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included `(**/*)`.
         """
         return pulumi.get(self, "include_path_prefix_pattern")
 
@@ -840,7 +799,7 @@ class LocalRepositorySingleReplication(pulumi.CustomResource):
     @pulumi.getter
     def password(self) -> pulumi.Output[Optional[str]]:
         """
-        Use either the HTTP authentication password or identity token.
+        Use either the HTTP authentication password or [identity token](https://www.jfrog.com/confluence/display/JFROG/User+Profile#UserProfile-IdentityTokenidentitytoken).
         """
         return pulumi.get(self, "password")
 
@@ -848,7 +807,7 @@ class LocalRepositorySingleReplication(pulumi.CustomResource):
     @pulumi.getter
     def proxy(self) -> pulumi.Output[Optional[str]]:
         """
-        A proxy configuration to use when communicating with the remote instance.
+        Proxy key from Artifactory Proxies settings. The proxy configuration will be used when communicating with the remote instance.
         """
         return pulumi.get(self, "proxy")
 
@@ -856,8 +815,7 @@ class LocalRepositorySingleReplication(pulumi.CustomResource):
     @pulumi.getter(name="replicationKey")
     def replication_key(self) -> pulumi.Output[str]:
         """
-        Replication ID. The ID is known only after the replication is created, for this reason it's `Computed` and can not be
-        set by the user in HCL.
+        Replication ID, the value is unknown until the resource is created. Can't be set or updated.
         """
         return pulumi.get(self, "replication_key")
 
@@ -873,7 +831,7 @@ class LocalRepositorySingleReplication(pulumi.CustomResource):
     @pulumi.getter(name="socketTimeoutMillis")
     def socket_timeout_millis(self) -> pulumi.Output[Optional[int]]:
         """
-        The network timeout in milliseconds to use for remote operations.
+        The network timeout in milliseconds to use for remote operations. Default value is `15000`.
         """
         return pulumi.get(self, "socket_timeout_millis")
 
@@ -881,9 +839,7 @@ class LocalRepositorySingleReplication(pulumi.CustomResource):
     @pulumi.getter(name="syncDeletes")
     def sync_deletes(self) -> pulumi.Output[Optional[bool]]:
         """
-        When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata). Note
-        that enabling this option, will delete artifacts on the target that do not exist in the source repository. Default value
-        is `false`.
+        When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata). Note that enabling this option, will delete artifacts on the target that do not exist in the source repository. Default value is `false`.
         """
         return pulumi.get(self, "sync_deletes")
 
@@ -891,7 +847,7 @@ class LocalRepositorySingleReplication(pulumi.CustomResource):
     @pulumi.getter(name="syncProperties")
     def sync_properties(self) -> pulumi.Output[Optional[bool]]:
         """
-        When set, the task also synchronizes the properties of replicated artifacts. Default value is `true`
+        When set, the task also synchronizes the properties of replicated artifacts. Default value is `true`.
         """
         return pulumi.get(self, "sync_properties")
 
@@ -899,8 +855,7 @@ class LocalRepositorySingleReplication(pulumi.CustomResource):
     @pulumi.getter(name="syncStatistics")
     def sync_statistics(self) -> pulumi.Output[Optional[bool]]:
         """
-        When set, the task also synchronizes artifact download statistics. Set to avoid inadvertent cleanup at the target
-        instance when setting up replication for disaster recovery. Default value is `false`
+        When set, the task also synchronizes artifact download statistics. Set to avoid inadvertent cleanup at the target instance when setting up replication for disaster recovery. Default value is `false`
         """
         return pulumi.get(self, "sync_statistics")
 
@@ -908,8 +863,7 @@ class LocalRepositorySingleReplication(pulumi.CustomResource):
     @pulumi.getter
     def url(self) -> pulumi.Output[str]:
         """
-        The URL of the target local repository on a remote Artifactory server. Use the format
-        `https://<artifactory_url>/artifactory/<repository_name>`.
+        The URL of the target local repository on a remote Artifactory server. Use the format `https://<artifactory_url>/artifactory/<repository_name>`.
         """
         return pulumi.get(self, "url")
 
@@ -917,7 +871,7 @@ class LocalRepositorySingleReplication(pulumi.CustomResource):
     @pulumi.getter
     def username(self) -> pulumi.Output[str]:
         """
-        The HTTP authentication username.
+        Username on the remote Artifactory instance.
         """
         return pulumi.get(self, "username")
 

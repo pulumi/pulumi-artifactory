@@ -6,6 +6,20 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * Retrieves a remote Opkg repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const remote-opkg = artifactory.getRemoteOpkgRepository({
+ *     key: "remote-opkg",
+ * });
+ * ```
+ */
 export function getRemoteOpkgRepository(args: GetRemoteOpkgRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetRemoteOpkgRepositoryResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -71,6 +85,9 @@ export interface GetRemoteOpkgRepositoryArgs {
     excludesPattern?: string;
     hardFail?: boolean;
     includesPattern?: string;
+    /**
+     * the identity key of the repo.
+     */
     key: string;
     listRemoteFolderItems?: boolean;
     localAddress?: string;
@@ -149,6 +166,20 @@ export interface GetRemoteOpkgRepositoryResult {
     readonly username?: string;
     readonly xrayIndex?: boolean;
 }
+/**
+ * Retrieves a remote Opkg repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const remote-opkg = artifactory.getRemoteOpkgRepository({
+ *     key: "remote-opkg",
+ * });
+ * ```
+ */
 export function getRemoteOpkgRepositoryOutput(args: GetRemoteOpkgRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemoteOpkgRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getRemoteOpkgRepository(a, opts))
 }
@@ -171,6 +202,9 @@ export interface GetRemoteOpkgRepositoryOutputArgs {
     excludesPattern?: pulumi.Input<string>;
     hardFail?: pulumi.Input<boolean>;
     includesPattern?: pulumi.Input<string>;
+    /**
+     * the identity key of the repo.
+     */
     key: pulumi.Input<string>;
     listRemoteFolderItems?: pulumi.Input<boolean>;
     localAddress?: pulumi.Input<string>;

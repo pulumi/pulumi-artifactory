@@ -198,6 +198,9 @@ class GetRemoteComposerRepositoryResult:
     @property
     @pulumi.getter(name="composerRegistryUrl")
     def composer_registry_url(self) -> Optional[str]:
+        """
+        (Optional) Proxy remote Composer repository. Default value is `https://packagist.org`.
+        """
         return pulumi.get(self, "composer_registry_url")
 
     @property
@@ -376,11 +379,17 @@ class GetRemoteComposerRepositoryResult:
     @property
     @pulumi.getter(name="vcsGitDownloadUrl")
     def vcs_git_download_url(self) -> Optional[str]:
+        """
+        (Optional) This attribute is used when vcs_git_provider is set to `CUSTOM`. Provided URL will be used as proxy.
+        """
         return pulumi.get(self, "vcs_git_download_url")
 
     @property
     @pulumi.getter(name="vcsGitProvider")
     def vcs_git_provider(self) -> Optional[str]:
+        """
+        (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`. Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
+        """
         return pulumi.get(self, "vcs_git_provider")
 
     @property
@@ -487,7 +496,22 @@ def get_remote_composer_repository(allow_any_host_auth: Optional[bool] = None,
                                    xray_index: Optional[bool] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRemoteComposerRepositoryResult:
     """
-    Use this data source to access information about an existing resource.
+    Retrieves a remote Composer repository.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_artifactory as artifactory
+
+    remote_composer = artifactory.get_remote_composer_repository(key="remote-composer")
+    ```
+
+
+    :param str composer_registry_url: (Optional) Proxy remote Composer repository. Default value is `https://packagist.org`.
+    :param str key: the identity key of the repo.
+    :param str vcs_git_download_url: (Optional) This attribute is used when vcs_git_provider is set to `CUSTOM`. Provided URL will be used as proxy.
+    :param str vcs_git_provider: (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`. Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
     """
     __args__ = dict()
     __args__['allowAnyHostAuth'] = allow_any_host_auth
@@ -630,6 +654,21 @@ def get_remote_composer_repository_output(allow_any_host_auth: Optional[pulumi.I
                                           xray_index: Optional[pulumi.Input[Optional[bool]]] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRemoteComposerRepositoryResult]:
     """
-    Use this data source to access information about an existing resource.
+    Retrieves a remote Composer repository.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_artifactory as artifactory
+
+    remote_composer = artifactory.get_remote_composer_repository(key="remote-composer")
+    ```
+
+
+    :param str composer_registry_url: (Optional) Proxy remote Composer repository. Default value is `https://packagist.org`.
+    :param str key: the identity key of the repo.
+    :param str vcs_git_download_url: (Optional) This attribute is used when vcs_git_provider is set to `CUSTOM`. Provided URL will be used as proxy.
+    :param str vcs_git_provider: (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`. Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
     """
     ...

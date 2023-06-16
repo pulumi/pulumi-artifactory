@@ -457,7 +457,19 @@ def get_remote_p2_repository(allow_any_host_auth: Optional[bool] = None,
                              xray_index: Optional[bool] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRemoteP2RepositoryResult:
     """
-    Use this data source to access information about an existing resource.
+    Retrieves a remote P2 repository.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_artifactory as artifactory
+
+    remote_p2 = artifactory.get_remote_p2_repository(key="remote-p2")
+    ```
+
+
+    :param str key: the identity key of the repo.
     """
     __args__ = dict()
     __args__['allowAnyHostAuth'] = allow_any_host_auth
@@ -591,6 +603,18 @@ def get_remote_p2_repository_output(allow_any_host_auth: Optional[pulumi.Input[O
                                     xray_index: Optional[pulumi.Input[Optional[bool]]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRemoteP2RepositoryResult]:
     """
-    Use this data source to access information about an existing resource.
+    Retrieves a remote P2 repository.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_artifactory as artifactory
+
+    remote_p2 = artifactory.get_remote_p2_repository(key="remote-p2")
+    ```
+
+
+    :param str key: the identity key of the repo.
     """
     ...

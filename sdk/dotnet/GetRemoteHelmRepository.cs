@@ -11,9 +11,59 @@ namespace Pulumi.Artifactory
 {
     public static class GetRemoteHelmRepository
     {
+        /// <summary>
+        /// Retrieves a remote Helm repository.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var remote_helm = Artifactory.GetRemoteHelmRepository.Invoke(new()
+        ///     {
+        ///         Key = "remote-helm",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetRemoteHelmRepositoryResult> InvokeAsync(GetRemoteHelmRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRemoteHelmRepositoryResult>("artifactory:index/getRemoteHelmRepository:getRemoteHelmRepository", args ?? new GetRemoteHelmRepositoryArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Retrieves a remote Helm repository.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var remote_helm = Artifactory.GetRemoteHelmRepository.Invoke(new()
+        ///     {
+        ///         Key = "remote-helm",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetRemoteHelmRepositoryResult> Invoke(GetRemoteHelmRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRemoteHelmRepositoryResult>("artifactory:index/getRemoteHelmRepository:getRemoteHelmRepository", args ?? new GetRemoteHelmRepositoryInvokeArgs(), options.WithDefaults());
     }
@@ -57,11 +107,18 @@ namespace Pulumi.Artifactory
         [Input("excludesPattern")]
         public string? ExcludesPattern { get; set; }
 
+        /// <summary>
+        /// (Optional) When set, external dependencies are rewritten. `External Dependency Rewrite` in the UI.
+        /// </summary>
         [Input("externalDependenciesEnabled")]
         public bool? ExternalDependenciesEnabled { get; set; }
 
         [Input("externalDependenciesPatterns")]
         private List<string>? _externalDependenciesPatterns;
+
+        /// <summary>
+        /// (Optional) An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response. By default, this is set to `[**]` in the UI, which means that remote modules may be downloaded from any external VCS source. Due to SDKv2 limitations, we can't set the default value for the list. This value `[**]` must be assigned to the attribute manually, if user don't specify any other non-default values. We don't want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns `[**]` on update if HCL doesn't have the attribute set or the list is empty.
+        /// </summary>
         public List<string> ExternalDependenciesPatterns
         {
             get => _externalDependenciesPatterns ?? (_externalDependenciesPatterns = new List<string>());
@@ -71,12 +128,18 @@ namespace Pulumi.Artifactory
         [Input("hardFail")]
         public bool? HardFail { get; set; }
 
+        /// <summary>
+        /// (Optional) No documentation is available. Hopefully you know what this means.
+        /// </summary>
         [Input("helmChartsBaseUrl")]
         public string? HelmChartsBaseUrl { get; set; }
 
         [Input("includesPattern")]
         public string? IncludesPattern { get; set; }
 
+        /// <summary>
+        /// the identity key of the repo.
+        /// </summary>
         [Input("key", required: true)]
         public string Key { get; set; } = null!;
 
@@ -214,11 +277,18 @@ namespace Pulumi.Artifactory
         [Input("excludesPattern")]
         public Input<string>? ExcludesPattern { get; set; }
 
+        /// <summary>
+        /// (Optional) When set, external dependencies are rewritten. `External Dependency Rewrite` in the UI.
+        /// </summary>
         [Input("externalDependenciesEnabled")]
         public Input<bool>? ExternalDependenciesEnabled { get; set; }
 
         [Input("externalDependenciesPatterns")]
         private InputList<string>? _externalDependenciesPatterns;
+
+        /// <summary>
+        /// (Optional) An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response. By default, this is set to `[**]` in the UI, which means that remote modules may be downloaded from any external VCS source. Due to SDKv2 limitations, we can't set the default value for the list. This value `[**]` must be assigned to the attribute manually, if user don't specify any other non-default values. We don't want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns `[**]` on update if HCL doesn't have the attribute set or the list is empty.
+        /// </summary>
         public InputList<string> ExternalDependenciesPatterns
         {
             get => _externalDependenciesPatterns ?? (_externalDependenciesPatterns = new InputList<string>());
@@ -228,12 +298,18 @@ namespace Pulumi.Artifactory
         [Input("hardFail")]
         public Input<bool>? HardFail { get; set; }
 
+        /// <summary>
+        /// (Optional) No documentation is available. Hopefully you know what this means.
+        /// </summary>
         [Input("helmChartsBaseUrl")]
         public Input<string>? HelmChartsBaseUrl { get; set; }
 
         [Input("includesPattern")]
         public Input<string>? IncludesPattern { get; set; }
 
+        /// <summary>
+        /// the identity key of the repo.
+        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
@@ -353,9 +429,18 @@ namespace Pulumi.Artifactory
         public readonly bool? DownloadDirect;
         public readonly bool? EnableCookieManagement;
         public readonly string? ExcludesPattern;
+        /// <summary>
+        /// (Optional) When set, external dependencies are rewritten. `External Dependency Rewrite` in the UI.
+        /// </summary>
         public readonly bool? ExternalDependenciesEnabled;
+        /// <summary>
+        /// (Optional) An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response. By default, this is set to `[**]` in the UI, which means that remote modules may be downloaded from any external VCS source. Due to SDKv2 limitations, we can't set the default value for the list. This value `[**]` must be assigned to the attribute manually, if user don't specify any other non-default values. We don't want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns `[**]` on update if HCL doesn't have the attribute set or the list is empty.
+        /// </summary>
         public readonly ImmutableArray<string> ExternalDependenciesPatterns;
         public readonly bool? HardFail;
+        /// <summary>
+        /// (Optional) No documentation is available. Hopefully you know what this means.
+        /// </summary>
         public readonly string? HelmChartsBaseUrl;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.

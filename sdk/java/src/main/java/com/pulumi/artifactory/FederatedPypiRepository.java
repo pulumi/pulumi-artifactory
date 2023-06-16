@@ -17,6 +17,58 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Creates a federated Pypi repository.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.artifactory.FederatedPypiRepository;
+ * import com.pulumi.artifactory.FederatedPypiRepositoryArgs;
+ * import com.pulumi.artifactory.inputs.FederatedPypiRepositoryMemberArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var terraform_federated_test_pypi_repo = new FederatedPypiRepository(&#34;terraform-federated-test-pypi-repo&#34;, FederatedPypiRepositoryArgs.builder()        
+ *             .key(&#34;terraform-federated-test-pypi-repo&#34;)
+ *             .members(            
+ *                 FederatedPypiRepositoryMemberArgs.builder()
+ *                     .enabled(true)
+ *                     .url(&#34;http://tempurl.org/artifactory/terraform-federated-test-pypi-repo&#34;)
+ *                     .build(),
+ *                 FederatedPypiRepositoryMemberArgs.builder()
+ *                     .enabled(true)
+ *                     .url(&#34;http://tempurl2.org/artifactory/terraform-federated-test-pypi-repo-2&#34;)
+ *                     .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Federated repositories can be imported using their name, e.g.
+ * 
+ * ```sh
+ *  $ pulumi import artifactory:index/federatedPypiRepository:FederatedPypiRepository terraform-federated-test-pypi-repo terraform-federated-test-pypi-repo
+ * ```
+ * 
+ */
 @ResourceType(type="artifactory:index/federatedPypiRepository:FederatedPypiRepository")
 public class FederatedPypiRepository extends com.pulumi.resources.CustomResource {
     /**
@@ -146,26 +198,23 @@ public class FederatedPypiRepository extends com.pulumi.resources.CustomResource
         return this.includesPattern;
     }
     /**
-     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-     * characters. It cannot begin with a number or contain spaces or special characters.
+     * the identity key of the repo.
      * 
      */
     @Export(name="key", type=String.class, parameters={})
     private Output<String> key;
 
     /**
-     * @return A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-     * characters. It cannot begin with a number or contain spaces or special characters.
+     * @return the identity key of the repo.
      * 
      */
     public Output<String> key() {
         return this.key;
     }
     /**
-     * The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
-     * will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
-     * federated members will need to have a base URL set. Please follow the
-     * [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+     * The list of Federated members and must contain this repository URL (configured base URL
+     * `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+     * Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
      * to set up Federated repositories correctly.
      * 
      */
@@ -173,10 +222,9 @@ public class FederatedPypiRepository extends com.pulumi.resources.CustomResource
     private Output<List<FederatedPypiRepositoryMember>> members;
 
     /**
-     * @return The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
-     * will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
-     * federated members will need to have a base URL set. Please follow the
-     * [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+     * @return The list of Federated members and must contain this repository URL (configured base URL
+     * `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+     * Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
      * to set up Federated repositories correctly.
      * 
      */

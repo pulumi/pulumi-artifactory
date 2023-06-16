@@ -165,7 +165,19 @@ def get_virtual_puppet_repository(artifactory_requests_can_retrieve_remote_artif
                                   repositories: Optional[Sequence[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualPuppetRepositoryResult:
     """
-    Use this data source to access information about an existing resource.
+    Retrieves a virtual Puppet repository.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_artifactory as artifactory
+
+    virtual_puppet = artifactory.get_virtual_puppet_repository(key="virtual-puppet")
+    ```
+
+
+    :param str key: the identity key of the repo.
     """
     __args__ = dict()
     __args__['artifactoryRequestsCanRetrieveRemoteArtifacts'] = artifactory_requests_can_retrieve_remote_artifacts
@@ -212,6 +224,18 @@ def get_virtual_puppet_repository_output(artifactory_requests_can_retrieve_remot
                                          repositories: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualPuppetRepositoryResult]:
     """
-    Use this data source to access information about an existing resource.
+    Retrieves a virtual Puppet repository.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_artifactory as artifactory
+
+    virtual_puppet = artifactory.get_virtual_puppet_repository(key="virtual-puppet")
+    ```
+
+
+    :param str key: the identity key of the repo.
     """
     ...

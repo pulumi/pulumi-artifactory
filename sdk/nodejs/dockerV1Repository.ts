@@ -4,6 +4,26 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * Creates a local Docker v1 repository - By choosing a V1 repository, you don't really have many options.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const foo = new artifactory.DockerV1Repository("foo", {key: "foo"});
+ * ```
+ *
+ * ## Import
+ *
+ * Local repositories can be imported using their name, e.g.
+ *
+ * ```sh
+ *  $ pulumi import artifactory:index/dockerV1Repository:DockerV1Repository foo foo
+ * ```
+ */
 export class DockerV1Repository extends pulumi.CustomResource {
     /**
      * Get an existing DockerV1Repository resource's state with the given name, ID, and optional extra
@@ -69,8 +89,7 @@ export class DockerV1Repository extends pulumi.CustomResource {
      */
     public readonly includesPattern!: pulumi.Output<string>;
     /**
-     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-     * characters. It cannot begin with a number or contain spaces or special characters.
+     * the identity key of the repo.
      */
     public readonly key!: pulumi.Output<string>;
     public readonly maxUniqueTags!: pulumi.Output<number>;
@@ -215,8 +234,7 @@ export interface DockerV1RepositoryState {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-     * characters. It cannot begin with a number or contain spaces or special characters.
+     * the identity key of the repo.
      */
     key?: pulumi.Input<string>;
     maxUniqueTags?: pulumi.Input<number>;
@@ -296,8 +314,7 @@ export interface DockerV1RepositoryArgs {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-     * characters. It cannot begin with a number or contain spaces or special characters.
+     * the identity key of the repo.
      */
     key: pulumi.Input<string>;
     maxUniqueTags?: pulumi.Input<number>;

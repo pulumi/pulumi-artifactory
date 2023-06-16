@@ -9,6 +9,41 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Artifactory
 {
+    /// <summary>
+    /// Creates a virtual Conda repository.
+    /// Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Conda+Repositories#CondaRepositories-VirtualRepositories).
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Artifactory = Pulumi.Artifactory;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var foo_conda = new Artifactory.VirtualCondaRepository("foo-conda", new()
+    ///     {
+    ///         Description = "A test virtual repo",
+    ///         ExcludesPattern = "com/google/**",
+    ///         IncludesPattern = "com/jfrog/**,cloud/jfrog/**",
+    ///         Key = "foo-conda",
+    ///         Notes = "Internal description",
+    ///         Repositories = new[] {},
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Virtual repositories can be imported using their name, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import artifactory:index/virtualCondaRepository:VirtualCondaRepository foo-conda foo-conda
+    /// ```
+    /// </summary>
     [ArtifactoryResourceType("artifactory:index/virtualCondaRepository:VirtualCondaRepository")]
     public partial class VirtualCondaRepository : global::Pulumi.CustomResource
     {
@@ -46,8 +81,8 @@ namespace Pulumi.Artifactory
         public Output<string?> IncludesPattern { get; private set; } = null!;
 
         /// <summary>
-        /// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-        /// characters. It cannot begin with a number or contain spaces or special characters.
+        /// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+        /// contain spaces or special characters.
         /// </summary>
         [Output("key")]
         public Output<string> Key { get; private set; } = null!;
@@ -90,8 +125,7 @@ namespace Pulumi.Artifactory
         public Output<ImmutableArray<string>> Repositories { get; private set; } = null!;
 
         /// <summary>
-        /// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
-        /// repositories. A value of 0 indicates no caching.
+        /// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
         /// </summary>
         [Output("retrievalCachePeriodSeconds")]
         public Output<int?> RetrievalCachePeriodSeconds { get; private set; } = null!;
@@ -176,8 +210,8 @@ namespace Pulumi.Artifactory
         public Input<string>? IncludesPattern { get; set; }
 
         /// <summary>
-        /// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-        /// characters. It cannot begin with a number or contain spaces or special characters.
+        /// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+        /// contain spaces or special characters.
         /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -229,8 +263,7 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
-        /// repositories. A value of 0 indicates no caching.
+        /// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
         /// </summary>
         [Input("retrievalCachePeriodSeconds")]
         public Input<int>? RetrievalCachePeriodSeconds { get; set; }
@@ -277,8 +310,8 @@ namespace Pulumi.Artifactory
         public Input<string>? IncludesPattern { get; set; }
 
         /// <summary>
-        /// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-        /// characters. It cannot begin with a number or contain spaces or special characters.
+        /// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+        /// contain spaces or special characters.
         /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
@@ -333,8 +366,7 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
-        /// repositories. A value of 0 indicates no caching.
+        /// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
         /// </summary>
         [Input("retrievalCachePeriodSeconds")]
         public Input<int>? RetrievalCachePeriodSeconds { get; set; }

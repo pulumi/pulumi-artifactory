@@ -16,16 +16,32 @@ public final class GetPermissionTargetReleaseBundleActions extends com.pulumi.re
 
     public static final GetPermissionTargetReleaseBundleActions Empty = new GetPermissionTargetReleaseBundleActions();
 
+    /**
+     * Groups this permission applies for.
+     * 
+     */
     @Import(name="groups")
     private @Nullable List<GetPermissionTargetReleaseBundleActionsGroup> groups;
 
+    /**
+     * @return Groups this permission applies for.
+     * 
+     */
     public Optional<List<GetPermissionTargetReleaseBundleActionsGroup>> groups() {
         return Optional.ofNullable(this.groups);
     }
 
+    /**
+     * Users this permission target applies for.
+     * 
+     */
     @Import(name="users")
     private @Nullable List<GetPermissionTargetReleaseBundleActionsUser> users;
 
+    /**
+     * @return Users this permission target applies for.
+     * 
+     */
     public Optional<List<GetPermissionTargetReleaseBundleActionsUser>> users() {
         return Optional.ofNullable(this.users);
     }
@@ -55,20 +71,44 @@ public final class GetPermissionTargetReleaseBundleActions extends com.pulumi.re
             $ = new GetPermissionTargetReleaseBundleActions(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param groups Groups this permission applies for.
+         * 
+         * @return builder
+         * 
+         */
         public Builder groups(@Nullable List<GetPermissionTargetReleaseBundleActionsGroup> groups) {
             $.groups = groups;
             return this;
         }
 
+        /**
+         * @param groups Groups this permission applies for.
+         * 
+         * @return builder
+         * 
+         */
         public Builder groups(GetPermissionTargetReleaseBundleActionsGroup... groups) {
             return groups(List.of(groups));
         }
 
+        /**
+         * @param users Users this permission target applies for.
+         * 
+         * @return builder
+         * 
+         */
         public Builder users(@Nullable List<GetPermissionTargetReleaseBundleActionsUser> users) {
             $.users = users;
             return this;
         }
 
+        /**
+         * @param users Users this permission target applies for.
+         * 
+         * @return builder
+         * 
+         */
         public Builder users(GetPermissionTargetReleaseBundleActionsUser... users) {
             return users(List.of(users));
         }

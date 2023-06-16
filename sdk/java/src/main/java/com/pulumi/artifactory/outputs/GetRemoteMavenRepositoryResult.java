@@ -27,9 +27,25 @@ public final class GetRemoteMavenRepositoryResult {
     private @Nullable Boolean downloadDirect;
     private @Nullable Boolean enableCookieManagement;
     private @Nullable String excludesPattern;
+    /**
+     * @return (Optional, Default: `false`) When set, if a POM is requested, Artifactory attempts to fetch the corresponding jar in the background. This will accelerate first access time to the jar when it is subsequently requested.
+     * 
+     */
     private @Nullable Boolean fetchJarsEagerly;
+    /**
+     * @return (Optional, Default: `false`) When set, if a binaries jar is requested, Artifactory attempts to fetch the corresponding source jar in the background. This will accelerate first access time to the source jar when it is subsequently requested.
+     * 
+     */
     private @Nullable Boolean fetchSourcesEagerly;
+    /**
+     * @return (Optional, Default: `true`) If set, Artifactory allows you to deploy release artifacts into this repository.
+     * 
+     */
     private @Nullable Boolean handleReleases;
+    /**
+     * @return (Optional, Default: `true`) If set, Artifactory allows you to deploy snapshot artifacts into this repository.
+     * 
+     */
     private @Nullable Boolean handleSnapshots;
     private @Nullable Boolean hardFail;
     /**
@@ -41,6 +57,10 @@ public final class GetRemoteMavenRepositoryResult {
     private String key;
     private @Nullable Boolean listRemoteFolderItems;
     private @Nullable String localAddress;
+    /**
+     * @return (Optional, Default: 60) This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrieval_cache_period_seconds` attribute.
+     * 
+     */
     private @Nullable Integer metadataRetrievalTimeoutSecs;
     private @Nullable String mismatchingMimeTypesOverrideList;
     private @Nullable Integer missedCachePeriodSeconds;
@@ -54,7 +74,15 @@ public final class GetRemoteMavenRepositoryResult {
     private @Nullable List<String> propertySets;
     private @Nullable String proxy;
     private @Nullable String queryParams;
+    /**
+     * @return (Optional, Default: `false`) Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a &#34;captive portal&#34;.
+     * 
+     */
     private @Nullable Boolean rejectInvalidJars;
+    /**
+     * @return (Optional, Default: `generate-if-absent`) Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
+     * 
+     */
     private @Nullable String remoteRepoChecksumPolicyType;
     private @Nullable String remoteRepoLayoutRef;
     private @Nullable String repoLayoutRef;
@@ -62,6 +90,10 @@ public final class GetRemoteMavenRepositoryResult {
     private Boolean shareConfiguration;
     private @Nullable Integer socketTimeoutMillis;
     private @Nullable Boolean storeArtifactsLocally;
+    /**
+     * @return (Optional, Default: `true`) By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a &#34;409 Conflict&#34; error. You can disable this behavior by setting this attribute to `true`.
+     * 
+     */
     private @Nullable Boolean suppressPomConsistencyChecks;
     private @Nullable Boolean synchronizeProperties;
     private @Nullable Integer unusedArtifactsCleanupPeriodHours;
@@ -106,15 +138,31 @@ public final class GetRemoteMavenRepositoryResult {
     public Optional<String> excludesPattern() {
         return Optional.ofNullable(this.excludesPattern);
     }
+    /**
+     * @return (Optional, Default: `false`) When set, if a POM is requested, Artifactory attempts to fetch the corresponding jar in the background. This will accelerate first access time to the jar when it is subsequently requested.
+     * 
+     */
     public Optional<Boolean> fetchJarsEagerly() {
         return Optional.ofNullable(this.fetchJarsEagerly);
     }
+    /**
+     * @return (Optional, Default: `false`) When set, if a binaries jar is requested, Artifactory attempts to fetch the corresponding source jar in the background. This will accelerate first access time to the source jar when it is subsequently requested.
+     * 
+     */
     public Optional<Boolean> fetchSourcesEagerly() {
         return Optional.ofNullable(this.fetchSourcesEagerly);
     }
+    /**
+     * @return (Optional, Default: `true`) If set, Artifactory allows you to deploy release artifacts into this repository.
+     * 
+     */
     public Optional<Boolean> handleReleases() {
         return Optional.ofNullable(this.handleReleases);
     }
+    /**
+     * @return (Optional, Default: `true`) If set, Artifactory allows you to deploy snapshot artifacts into this repository.
+     * 
+     */
     public Optional<Boolean> handleSnapshots() {
         return Optional.ofNullable(this.handleSnapshots);
     }
@@ -140,6 +188,10 @@ public final class GetRemoteMavenRepositoryResult {
     public Optional<String> localAddress() {
         return Optional.ofNullable(this.localAddress);
     }
+    /**
+     * @return (Optional, Default: 60) This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrieval_cache_period_seconds` attribute.
+     * 
+     */
     public Optional<Integer> metadataRetrievalTimeoutSecs() {
         return Optional.ofNullable(this.metadataRetrievalTimeoutSecs);
     }
@@ -179,9 +231,17 @@ public final class GetRemoteMavenRepositoryResult {
     public Optional<String> queryParams() {
         return Optional.ofNullable(this.queryParams);
     }
+    /**
+     * @return (Optional, Default: `false`) Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a &#34;captive portal&#34;.
+     * 
+     */
     public Optional<Boolean> rejectInvalidJars() {
         return Optional.ofNullable(this.rejectInvalidJars);
     }
+    /**
+     * @return (Optional, Default: `generate-if-absent`) Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
+     * 
+     */
     public Optional<String> remoteRepoChecksumPolicyType() {
         return Optional.ofNullable(this.remoteRepoChecksumPolicyType);
     }
@@ -203,6 +263,10 @@ public final class GetRemoteMavenRepositoryResult {
     public Optional<Boolean> storeArtifactsLocally() {
         return Optional.ofNullable(this.storeArtifactsLocally);
     }
+    /**
+     * @return (Optional, Default: `true`) By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a &#34;409 Conflict&#34; error. You can disable this behavior by setting this attribute to `true`.
+     * 
+     */
     public Optional<Boolean> suppressPomConsistencyChecks() {
         return Optional.ofNullable(this.suppressPomConsistencyChecks);
     }

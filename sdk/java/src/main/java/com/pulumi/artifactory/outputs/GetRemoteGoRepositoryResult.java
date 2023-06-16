@@ -60,6 +60,10 @@ public final class GetRemoteGoRepositoryResult {
     private @Nullable Integer unusedArtifactsCleanupPeriodHours;
     private @Nullable String url;
     private @Nullable String username;
+    /**
+     * @return (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `ARTIFACTORY`.
+     * 
+     */
     private @Nullable String vcsGitProvider;
     private @Nullable Boolean xrayIndex;
 
@@ -191,6 +195,10 @@ public final class GetRemoteGoRepositoryResult {
     public Optional<String> username() {
         return Optional.ofNullable(this.username);
     }
+    /**
+     * @return (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `ARTIFACTORY`.
+     * 
+     */
     public Optional<String> vcsGitProvider() {
         return Optional.ofNullable(this.vcsGitProvider);
     }

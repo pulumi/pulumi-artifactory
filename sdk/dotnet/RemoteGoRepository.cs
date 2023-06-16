@@ -9,6 +9,38 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Artifactory
 {
+    /// <summary>
+    /// Creates a remote Go repository.
+    /// Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Go+Registry).
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Artifactory = Pulumi.Artifactory;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var my_remote_go = new Artifactory.RemoteGoRepository("my-remote-go", new()
+    ///     {
+    ///         Key = "my-remote-go",
+    ///         Url = "https://proxy.golang.org/",
+    ///         VcsGitProvider = "ARTIFACTORY",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Remote repositories can be imported using their name, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import artifactory:index/remoteGoRepository:RemoteGoRepository my-remote-go my-remote-go
+    /// ```
+    /// </summary>
     [ArtifactoryResourceType("artifactory:index/remoteGoRepository:RemoteGoRepository")]
     public partial class RemoteGoRepository : global::Pulumi.CustomResource
     {
@@ -107,8 +139,8 @@ namespace Pulumi.Artifactory
         public Output<string?> IncludesPattern { get; private set; } = null!;
 
         /// <summary>
-        /// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-        /// characters. It cannot begin with a number or contain spaces or special characters.
+        /// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+        /// contain spaces or special characters.
         /// </summary>
         [Output("key")]
         public Output<string> Key { get; private set; } = null!;
@@ -270,8 +302,7 @@ namespace Pulumi.Artifactory
         public Output<string?> Username { get; private set; } = null!;
 
         /// <summary>
-        /// Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance.
-        /// Default value is "ARTIFACTORY".
+        /// Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `ARTIFACTORY`.
         /// </summary>
         [Output("vcsGitProvider")]
         public Output<string?> VcsGitProvider { get; private set; } = null!;
@@ -428,8 +459,8 @@ namespace Pulumi.Artifactory
         public Input<string>? IncludesPattern { get; set; }
 
         /// <summary>
-        /// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-        /// characters. It cannot begin with a number or contain spaces or special characters.
+        /// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+        /// contain spaces or special characters.
         /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -609,8 +640,7 @@ namespace Pulumi.Artifactory
         public Input<string>? Username { get; set; }
 
         /// <summary>
-        /// Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance.
-        /// Default value is "ARTIFACTORY".
+        /// Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `ARTIFACTORY`.
         /// </summary>
         [Input("vcsGitProvider")]
         public Input<string>? VcsGitProvider { get; set; }
@@ -725,8 +755,8 @@ namespace Pulumi.Artifactory
         public Input<string>? IncludesPattern { get; set; }
 
         /// <summary>
-        /// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-        /// characters. It cannot begin with a number or contain spaces or special characters.
+        /// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+        /// contain spaces or special characters.
         /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
@@ -909,8 +939,7 @@ namespace Pulumi.Artifactory
         public Input<string>? Username { get; set; }
 
         /// <summary>
-        /// Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance.
-        /// Default value is "ARTIFACTORY".
+        /// Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `ARTIFACTORY`.
         /// </summary>
         [Input("vcsGitProvider")]
         public Input<string>? VcsGitProvider { get; set; }

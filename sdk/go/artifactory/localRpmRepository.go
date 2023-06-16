@@ -11,6 +11,83 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Creates a local RPM repository.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//	"os"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func readFileOrPanic(path string) pulumi.StringPtrInput {
+//		data, err := os.ReadFile(path)
+//		if err != nil {
+//			panic(err.Error())
+//		}
+//		return pulumi.String(string(data))
+//	}
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewKeypair(ctx, "some-keypair-gpg-1", &artifactory.KeypairArgs{
+//				PairName:   pulumi.String(fmt.Sprintf("some-keypair%v", random_id.Randid.Id)),
+//				PairType:   pulumi.String("GPG"),
+//				Alias:      pulumi.String("foo-alias1"),
+//				PrivateKey: readFileOrPanic("samples/gpg.priv"),
+//				PublicKey:  readFileOrPanic("samples/gpg.pub"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = artifactory.NewKeypair(ctx, "some-keypair-gpg-2", &artifactory.KeypairArgs{
+//				PairName:   pulumi.String(fmt.Sprintf("some-keypair%v", random_id.Randid.Id)),
+//				PairType:   pulumi.String("GPG"),
+//				Alias:      pulumi.String("foo-alias2"),
+//				PrivateKey: readFileOrPanic("samples/gpg.priv"),
+//				PublicKey:  readFileOrPanic("samples/gpg.pub"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = artifactory.NewLocalRpmRepository(ctx, "terraform-local-test-rpm-repo-basic", &artifactory.LocalRpmRepositoryArgs{
+//				Key:                     pulumi.String("terraform-local-test-rpm-repo-basic"),
+//				YumRootDepth:            pulumi.Int(5),
+//				CalculateYumMetadata:    pulumi.Bool(true),
+//				EnableFileListsIndexing: pulumi.Bool(true),
+//				YumGroupFileNames:       pulumi.String("file-1.xml,file-2.xml"),
+//				PrimaryKeypairRef:       pulumi.Any(artifactory_keypair.SomeKeypairGPG1.Pair_name),
+//				SecondaryKeypairRef:     pulumi.Any(artifactory_keypair.SomeKeypairGPG2.Pair_name),
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				some_keypair_gpg_1,
+//				some_keypair_gpg_2,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Local repositories can be imported using their name, e.g.
+//
+// ```sh
+//
+//	$ pulumi import artifactory:index/localRpmRepository:LocalRpmRepository terraform-local-test-rpm-repo-basic terraform-local-test-rpm-repo-basic
+//
+// ```
 type LocalRpmRepository struct {
 	pulumi.CustomResourceState
 
@@ -19,7 +96,8 @@ type LocalRpmRepository struct {
 	// security (e.g., cross-site scripting attacks).
 	ArchiveBrowsingEnabled pulumi.BoolPtrOutput `pulumi:"archiveBrowsingEnabled"`
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
-	BlackedOut           pulumi.BoolPtrOutput `pulumi:"blackedOut"`
+	BlackedOut pulumi.BoolPtrOutput `pulumi:"blackedOut"`
+	// Default: `false`.
 	CalculateYumMetadata pulumi.BoolPtrOutput `pulumi:"calculateYumMetadata"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
 	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
@@ -28,7 +106,8 @@ type LocalRpmRepository struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
 	// storage provider. Available in Enterprise+ and Edge licenses only.
-	DownloadDirect          pulumi.BoolPtrOutput `pulumi:"downloadDirect"`
+	DownloadDirect pulumi.BoolPtrOutput `pulumi:"downloadDirect"`
+	// Default: `false`.
 	EnableFileListsIndexing pulumi.BoolPtrOutput `pulumi:"enableFileListsIndexing"`
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
 	// artifacts are excluded.
@@ -36,13 +115,12 @@ type LocalRpmRepository struct {
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringOutput `pulumi:"includesPattern"`
-	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-	// characters. It cannot begin with a number or contain spaces or special characters.
+	// the identity key of the repo.
 	Key pulumi.StringOutput `pulumi:"key"`
 	// Internal description.
 	Notes       pulumi.StringPtrOutput `pulumi:"notes"`
 	PackageType pulumi.StringOutput    `pulumi:"packageType"`
-	// Primary keypair used to sign artifacts.
+	// The primary GPG key to be used to sign packages.
 	PrimaryKeypairRef pulumi.StringPtrOutput `pulumi:"primaryKeypairRef"`
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution pulumi.BoolPtrOutput `pulumi:"priorityResolution"`
@@ -58,18 +136,20 @@ type LocalRpmRepository struct {
 	PropertySets pulumi.StringArrayOutput `pulumi:"propertySets"`
 	// Repository layout key for the local repository
 	RepoLayoutRef pulumi.StringPtrOutput `pulumi:"repoLayoutRef"`
-	// Secondary keypair used to sign artifacts.
+	// The secondary GPG key to be used to sign packages.
 	SecondaryKeypairRef pulumi.StringPtrOutput `pulumi:"secondaryKeypairRef"`
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.
 	XrayIndex pulumi.BoolPtrOutput `pulumi:"xrayIndex"`
-	// A comma separated list of XML file names containing RPM group component definitions. Artifactory includes the group
-	// definitions as part of the calculated RPM metadata, as well as automatically generating a gzipped version of the group
-	// files, if required.
+	// A comma separated list of XML file names containing RPM group component definitions.
+	// Artifactory includes the group definitions as part of the calculated RPM metadata, as well as automatically
+	// generating a gzipped version of the group files, if required. Default is empty string.
 	YumGroupFileNames pulumi.StringPtrOutput `pulumi:"yumGroupFileNames"`
-	// The depth, relative to the repository's root folder, where RPM metadata is created. This is useful when your repository
-	// contains multiple RPM repositories under parallel hierarchies. For example, if your RPMs are stored under
-	// 'fedora/linux/$releasever/$basearch', specify a depth of 4.
+	// The depth, relative to the repository's root folder, where RPM metadata is created.
+	// This is useful when your repository contains multiple RPM repositories under parallel hierarchies. For example, if
+	// your RPMs are stored under 'fedora/linux/$releasever/$basearch', specify a depth of 4. Once the number of snapshots
+	// exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique
+	// snapshots are not cleaned up.
 	YumRootDepth pulumi.IntPtrOutput `pulumi:"yumRootDepth"`
 }
 
@@ -110,7 +190,8 @@ type localRpmRepositoryState struct {
 	// security (e.g., cross-site scripting attacks).
 	ArchiveBrowsingEnabled *bool `pulumi:"archiveBrowsingEnabled"`
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
-	BlackedOut           *bool `pulumi:"blackedOut"`
+	BlackedOut *bool `pulumi:"blackedOut"`
+	// Default: `false`.
 	CalculateYumMetadata *bool `pulumi:"calculateYumMetadata"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
 	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
@@ -119,7 +200,8 @@ type localRpmRepositoryState struct {
 	Description *string `pulumi:"description"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
 	// storage provider. Available in Enterprise+ and Edge licenses only.
-	DownloadDirect          *bool `pulumi:"downloadDirect"`
+	DownloadDirect *bool `pulumi:"downloadDirect"`
+	// Default: `false`.
 	EnableFileListsIndexing *bool `pulumi:"enableFileListsIndexing"`
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
 	// artifacts are excluded.
@@ -127,13 +209,12 @@ type localRpmRepositoryState struct {
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
-	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-	// characters. It cannot begin with a number or contain spaces or special characters.
+	// the identity key of the repo.
 	Key *string `pulumi:"key"`
 	// Internal description.
 	Notes       *string `pulumi:"notes"`
 	PackageType *string `pulumi:"packageType"`
-	// Primary keypair used to sign artifacts.
+	// The primary GPG key to be used to sign packages.
 	PrimaryKeypairRef *string `pulumi:"primaryKeypairRef"`
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution *bool `pulumi:"priorityResolution"`
@@ -149,18 +230,20 @@ type localRpmRepositoryState struct {
 	PropertySets []string `pulumi:"propertySets"`
 	// Repository layout key for the local repository
 	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
-	// Secondary keypair used to sign artifacts.
+	// The secondary GPG key to be used to sign packages.
 	SecondaryKeypairRef *string `pulumi:"secondaryKeypairRef"`
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.
 	XrayIndex *bool `pulumi:"xrayIndex"`
-	// A comma separated list of XML file names containing RPM group component definitions. Artifactory includes the group
-	// definitions as part of the calculated RPM metadata, as well as automatically generating a gzipped version of the group
-	// files, if required.
+	// A comma separated list of XML file names containing RPM group component definitions.
+	// Artifactory includes the group definitions as part of the calculated RPM metadata, as well as automatically
+	// generating a gzipped version of the group files, if required. Default is empty string.
 	YumGroupFileNames *string `pulumi:"yumGroupFileNames"`
-	// The depth, relative to the repository's root folder, where RPM metadata is created. This is useful when your repository
-	// contains multiple RPM repositories under parallel hierarchies. For example, if your RPMs are stored under
-	// 'fedora/linux/$releasever/$basearch', specify a depth of 4.
+	// The depth, relative to the repository's root folder, where RPM metadata is created.
+	// This is useful when your repository contains multiple RPM repositories under parallel hierarchies. For example, if
+	// your RPMs are stored under 'fedora/linux/$releasever/$basearch', specify a depth of 4. Once the number of snapshots
+	// exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique
+	// snapshots are not cleaned up.
 	YumRootDepth *int `pulumi:"yumRootDepth"`
 }
 
@@ -170,7 +253,8 @@ type LocalRpmRepositoryState struct {
 	// security (e.g., cross-site scripting attacks).
 	ArchiveBrowsingEnabled pulumi.BoolPtrInput
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
-	BlackedOut           pulumi.BoolPtrInput
+	BlackedOut pulumi.BoolPtrInput
+	// Default: `false`.
 	CalculateYumMetadata pulumi.BoolPtrInput
 	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
 	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
@@ -179,7 +263,8 @@ type LocalRpmRepositoryState struct {
 	Description pulumi.StringPtrInput
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
 	// storage provider. Available in Enterprise+ and Edge licenses only.
-	DownloadDirect          pulumi.BoolPtrInput
+	DownloadDirect pulumi.BoolPtrInput
+	// Default: `false`.
 	EnableFileListsIndexing pulumi.BoolPtrInput
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
 	// artifacts are excluded.
@@ -187,13 +272,12 @@ type LocalRpmRepositoryState struct {
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
-	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-	// characters. It cannot begin with a number or contain spaces or special characters.
+	// the identity key of the repo.
 	Key pulumi.StringPtrInput
 	// Internal description.
 	Notes       pulumi.StringPtrInput
 	PackageType pulumi.StringPtrInput
-	// Primary keypair used to sign artifacts.
+	// The primary GPG key to be used to sign packages.
 	PrimaryKeypairRef pulumi.StringPtrInput
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution pulumi.BoolPtrInput
@@ -209,18 +293,20 @@ type LocalRpmRepositoryState struct {
 	PropertySets pulumi.StringArrayInput
 	// Repository layout key for the local repository
 	RepoLayoutRef pulumi.StringPtrInput
-	// Secondary keypair used to sign artifacts.
+	// The secondary GPG key to be used to sign packages.
 	SecondaryKeypairRef pulumi.StringPtrInput
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.
 	XrayIndex pulumi.BoolPtrInput
-	// A comma separated list of XML file names containing RPM group component definitions. Artifactory includes the group
-	// definitions as part of the calculated RPM metadata, as well as automatically generating a gzipped version of the group
-	// files, if required.
+	// A comma separated list of XML file names containing RPM group component definitions.
+	// Artifactory includes the group definitions as part of the calculated RPM metadata, as well as automatically
+	// generating a gzipped version of the group files, if required. Default is empty string.
 	YumGroupFileNames pulumi.StringPtrInput
-	// The depth, relative to the repository's root folder, where RPM metadata is created. This is useful when your repository
-	// contains multiple RPM repositories under parallel hierarchies. For example, if your RPMs are stored under
-	// 'fedora/linux/$releasever/$basearch', specify a depth of 4.
+	// The depth, relative to the repository's root folder, where RPM metadata is created.
+	// This is useful when your repository contains multiple RPM repositories under parallel hierarchies. For example, if
+	// your RPMs are stored under 'fedora/linux/$releasever/$basearch', specify a depth of 4. Once the number of snapshots
+	// exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique
+	// snapshots are not cleaned up.
 	YumRootDepth pulumi.IntPtrInput
 }
 
@@ -234,7 +320,8 @@ type localRpmRepositoryArgs struct {
 	// security (e.g., cross-site scripting attacks).
 	ArchiveBrowsingEnabled *bool `pulumi:"archiveBrowsingEnabled"`
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
-	BlackedOut           *bool `pulumi:"blackedOut"`
+	BlackedOut *bool `pulumi:"blackedOut"`
+	// Default: `false`.
 	CalculateYumMetadata *bool `pulumi:"calculateYumMetadata"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
 	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
@@ -243,7 +330,8 @@ type localRpmRepositoryArgs struct {
 	Description *string `pulumi:"description"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
 	// storage provider. Available in Enterprise+ and Edge licenses only.
-	DownloadDirect          *bool `pulumi:"downloadDirect"`
+	DownloadDirect *bool `pulumi:"downloadDirect"`
+	// Default: `false`.
 	EnableFileListsIndexing *bool `pulumi:"enableFileListsIndexing"`
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
 	// artifacts are excluded.
@@ -251,12 +339,11 @@ type localRpmRepositoryArgs struct {
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
-	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-	// characters. It cannot begin with a number or contain spaces or special characters.
+	// the identity key of the repo.
 	Key string `pulumi:"key"`
 	// Internal description.
 	Notes *string `pulumi:"notes"`
-	// Primary keypair used to sign artifacts.
+	// The primary GPG key to be used to sign packages.
 	PrimaryKeypairRef *string `pulumi:"primaryKeypairRef"`
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution *bool `pulumi:"priorityResolution"`
@@ -272,18 +359,20 @@ type localRpmRepositoryArgs struct {
 	PropertySets []string `pulumi:"propertySets"`
 	// Repository layout key for the local repository
 	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
-	// Secondary keypair used to sign artifacts.
+	// The secondary GPG key to be used to sign packages.
 	SecondaryKeypairRef *string `pulumi:"secondaryKeypairRef"`
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.
 	XrayIndex *bool `pulumi:"xrayIndex"`
-	// A comma separated list of XML file names containing RPM group component definitions. Artifactory includes the group
-	// definitions as part of the calculated RPM metadata, as well as automatically generating a gzipped version of the group
-	// files, if required.
+	// A comma separated list of XML file names containing RPM group component definitions.
+	// Artifactory includes the group definitions as part of the calculated RPM metadata, as well as automatically
+	// generating a gzipped version of the group files, if required. Default is empty string.
 	YumGroupFileNames *string `pulumi:"yumGroupFileNames"`
-	// The depth, relative to the repository's root folder, where RPM metadata is created. This is useful when your repository
-	// contains multiple RPM repositories under parallel hierarchies. For example, if your RPMs are stored under
-	// 'fedora/linux/$releasever/$basearch', specify a depth of 4.
+	// The depth, relative to the repository's root folder, where RPM metadata is created.
+	// This is useful when your repository contains multiple RPM repositories under parallel hierarchies. For example, if
+	// your RPMs are stored under 'fedora/linux/$releasever/$basearch', specify a depth of 4. Once the number of snapshots
+	// exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique
+	// snapshots are not cleaned up.
 	YumRootDepth *int `pulumi:"yumRootDepth"`
 }
 
@@ -294,7 +383,8 @@ type LocalRpmRepositoryArgs struct {
 	// security (e.g., cross-site scripting attacks).
 	ArchiveBrowsingEnabled pulumi.BoolPtrInput
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
-	BlackedOut           pulumi.BoolPtrInput
+	BlackedOut pulumi.BoolPtrInput
+	// Default: `false`.
 	CalculateYumMetadata pulumi.BoolPtrInput
 	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
 	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
@@ -303,7 +393,8 @@ type LocalRpmRepositoryArgs struct {
 	Description pulumi.StringPtrInput
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
 	// storage provider. Available in Enterprise+ and Edge licenses only.
-	DownloadDirect          pulumi.BoolPtrInput
+	DownloadDirect pulumi.BoolPtrInput
+	// Default: `false`.
 	EnableFileListsIndexing pulumi.BoolPtrInput
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
 	// artifacts are excluded.
@@ -311,12 +402,11 @@ type LocalRpmRepositoryArgs struct {
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
-	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-	// characters. It cannot begin with a number or contain spaces or special characters.
+	// the identity key of the repo.
 	Key pulumi.StringInput
 	// Internal description.
 	Notes pulumi.StringPtrInput
-	// Primary keypair used to sign artifacts.
+	// The primary GPG key to be used to sign packages.
 	PrimaryKeypairRef pulumi.StringPtrInput
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution pulumi.BoolPtrInput
@@ -332,18 +422,20 @@ type LocalRpmRepositoryArgs struct {
 	PropertySets pulumi.StringArrayInput
 	// Repository layout key for the local repository
 	RepoLayoutRef pulumi.StringPtrInput
-	// Secondary keypair used to sign artifacts.
+	// The secondary GPG key to be used to sign packages.
 	SecondaryKeypairRef pulumi.StringPtrInput
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.
 	XrayIndex pulumi.BoolPtrInput
-	// A comma separated list of XML file names containing RPM group component definitions. Artifactory includes the group
-	// definitions as part of the calculated RPM metadata, as well as automatically generating a gzipped version of the group
-	// files, if required.
+	// A comma separated list of XML file names containing RPM group component definitions.
+	// Artifactory includes the group definitions as part of the calculated RPM metadata, as well as automatically
+	// generating a gzipped version of the group files, if required. Default is empty string.
 	YumGroupFileNames pulumi.StringPtrInput
-	// The depth, relative to the repository's root folder, where RPM metadata is created. This is useful when your repository
-	// contains multiple RPM repositories under parallel hierarchies. For example, if your RPMs are stored under
-	// 'fedora/linux/$releasever/$basearch', specify a depth of 4.
+	// The depth, relative to the repository's root folder, where RPM metadata is created.
+	// This is useful when your repository contains multiple RPM repositories under parallel hierarchies. For example, if
+	// your RPMs are stored under 'fedora/linux/$releasever/$basearch', specify a depth of 4. Once the number of snapshots
+	// exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique
+	// snapshots are not cleaned up.
 	YumRootDepth pulumi.IntPtrInput
 }
 
@@ -446,6 +538,7 @@ func (o LocalRpmRepositoryOutput) BlackedOut() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LocalRpmRepository) pulumi.BoolPtrOutput { return v.BlackedOut }).(pulumi.BoolPtrOutput)
 }
 
+// Default: `false`.
 func (o LocalRpmRepositoryOutput) CalculateYumMetadata() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LocalRpmRepository) pulumi.BoolPtrOutput { return v.CalculateYumMetadata }).(pulumi.BoolPtrOutput)
 }
@@ -467,6 +560,7 @@ func (o LocalRpmRepositoryOutput) DownloadDirect() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LocalRpmRepository) pulumi.BoolPtrOutput { return v.DownloadDirect }).(pulumi.BoolPtrOutput)
 }
 
+// Default: `false`.
 func (o LocalRpmRepositoryOutput) EnableFileListsIndexing() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LocalRpmRepository) pulumi.BoolPtrOutput { return v.EnableFileListsIndexing }).(pulumi.BoolPtrOutput)
 }
@@ -483,8 +577,7 @@ func (o LocalRpmRepositoryOutput) IncludesPattern() pulumi.StringOutput {
 	return o.ApplyT(func(v *LocalRpmRepository) pulumi.StringOutput { return v.IncludesPattern }).(pulumi.StringOutput)
 }
 
-// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-// characters. It cannot begin with a number or contain spaces or special characters.
+// the identity key of the repo.
 func (o LocalRpmRepositoryOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v *LocalRpmRepository) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
 }
@@ -498,7 +591,7 @@ func (o LocalRpmRepositoryOutput) PackageType() pulumi.StringOutput {
 	return o.ApplyT(func(v *LocalRpmRepository) pulumi.StringOutput { return v.PackageType }).(pulumi.StringOutput)
 }
 
-// Primary keypair used to sign artifacts.
+// The primary GPG key to be used to sign packages.
 func (o LocalRpmRepositoryOutput) PrimaryKeypairRef() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LocalRpmRepository) pulumi.StringPtrOutput { return v.PrimaryKeypairRef }).(pulumi.StringPtrOutput)
 }
@@ -532,7 +625,7 @@ func (o LocalRpmRepositoryOutput) RepoLayoutRef() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LocalRpmRepository) pulumi.StringPtrOutput { return v.RepoLayoutRef }).(pulumi.StringPtrOutput)
 }
 
-// Secondary keypair used to sign artifacts.
+// The secondary GPG key to be used to sign packages.
 func (o LocalRpmRepositoryOutput) SecondaryKeypairRef() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LocalRpmRepository) pulumi.StringPtrOutput { return v.SecondaryKeypairRef }).(pulumi.StringPtrOutput)
 }
@@ -543,16 +636,18 @@ func (o LocalRpmRepositoryOutput) XrayIndex() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LocalRpmRepository) pulumi.BoolPtrOutput { return v.XrayIndex }).(pulumi.BoolPtrOutput)
 }
 
-// A comma separated list of XML file names containing RPM group component definitions. Artifactory includes the group
-// definitions as part of the calculated RPM metadata, as well as automatically generating a gzipped version of the group
-// files, if required.
+// A comma separated list of XML file names containing RPM group component definitions.
+// Artifactory includes the group definitions as part of the calculated RPM metadata, as well as automatically
+// generating a gzipped version of the group files, if required. Default is empty string.
 func (o LocalRpmRepositoryOutput) YumGroupFileNames() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LocalRpmRepository) pulumi.StringPtrOutput { return v.YumGroupFileNames }).(pulumi.StringPtrOutput)
 }
 
-// The depth, relative to the repository's root folder, where RPM metadata is created. This is useful when your repository
-// contains multiple RPM repositories under parallel hierarchies. For example, if your RPMs are stored under
-// 'fedora/linux/$releasever/$basearch', specify a depth of 4.
+// The depth, relative to the repository's root folder, where RPM metadata is created.
+// This is useful when your repository contains multiple RPM repositories under parallel hierarchies. For example, if
+// your RPMs are stored under 'fedora/linux/$releasever/$basearch', specify a depth of 4. Once the number of snapshots
+// exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique
+// snapshots are not cleaned up.
 func (o LocalRpmRepositoryOutput) YumRootDepth() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LocalRpmRepository) pulumi.IntPtrOutput { return v.YumRootDepth }).(pulumi.IntPtrOutput)
 }

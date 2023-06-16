@@ -4,6 +4,20 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * Retrieves a virtual Rpm repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const virtual-rpm = artifactory.getVirtualRpmRepository({
+ *     key: "virtual-rpm",
+ * });
+ * ```
+ */
 export function getVirtualRpmRepository(args: GetVirtualRpmRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualRpmRepositoryResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -33,13 +47,22 @@ export interface GetVirtualRpmRepositoryArgs {
     description?: string;
     excludesPattern?: string;
     includesPattern?: string;
+    /**
+     * the identity key of the repo.
+     */
     key: string;
     notes?: string;
+    /**
+     * (Optional) The primary GPG key to be used to sign packages.
+     */
     primaryKeypairRef?: string;
     projectEnvironments?: string[];
     projectKey?: string;
     repoLayoutRef?: string;
     repositories?: string[];
+    /**
+     * (Optional) The secondary GPG key to be used to sign packages.
+     */
     secondaryKeypairRef?: string;
 }
 
@@ -59,13 +82,33 @@ export interface GetVirtualRpmRepositoryResult {
     readonly key: string;
     readonly notes?: string;
     readonly packageType: string;
+    /**
+     * (Optional) The primary GPG key to be used to sign packages.
+     */
     readonly primaryKeypairRef?: string;
     readonly projectEnvironments: string[];
     readonly projectKey?: string;
     readonly repoLayoutRef?: string;
     readonly repositories?: string[];
+    /**
+     * (Optional) The secondary GPG key to be used to sign packages.
+     */
     readonly secondaryKeypairRef?: string;
 }
+/**
+ * Retrieves a virtual Rpm repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const virtual-rpm = artifactory.getVirtualRpmRepository({
+ *     key: "virtual-rpm",
+ * });
+ * ```
+ */
 export function getVirtualRpmRepositoryOutput(args: GetVirtualRpmRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualRpmRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getVirtualRpmRepository(a, opts))
 }
@@ -79,12 +122,21 @@ export interface GetVirtualRpmRepositoryOutputArgs {
     description?: pulumi.Input<string>;
     excludesPattern?: pulumi.Input<string>;
     includesPattern?: pulumi.Input<string>;
+    /**
+     * the identity key of the repo.
+     */
     key: pulumi.Input<string>;
     notes?: pulumi.Input<string>;
+    /**
+     * (Optional) The primary GPG key to be used to sign packages.
+     */
     primaryKeypairRef?: pulumi.Input<string>;
     projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
     projectKey?: pulumi.Input<string>;
     repoLayoutRef?: pulumi.Input<string>;
     repositories?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * (Optional) The secondary GPG key to be used to sign packages.
+     */
     secondaryKeypairRef?: pulumi.Input<string>;
 }

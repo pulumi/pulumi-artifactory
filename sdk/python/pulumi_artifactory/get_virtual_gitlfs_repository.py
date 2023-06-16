@@ -165,7 +165,19 @@ def get_virtual_gitlfs_repository(artifactory_requests_can_retrieve_remote_artif
                                   repositories: Optional[Sequence[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualGitlfsRepositoryResult:
     """
-    Use this data source to access information about an existing resource.
+    Retrieves a virtual Git LFS repository.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_artifactory as artifactory
+
+    virtual_gitlfs = artifactory.get_virtual_gitlfs_repository(key="virtual-gitlfs")
+    ```
+
+
+    :param str key: the identity key of the repo.
     """
     __args__ = dict()
     __args__['artifactoryRequestsCanRetrieveRemoteArtifacts'] = artifactory_requests_can_retrieve_remote_artifacts
@@ -212,6 +224,18 @@ def get_virtual_gitlfs_repository_output(artifactory_requests_can_retrieve_remot
                                          repositories: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualGitlfsRepositoryResult]:
     """
-    Use this data source to access information about an existing resource.
+    Retrieves a virtual Git LFS repository.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_artifactory as artifactory
+
+    virtual_gitlfs = artifactory.get_virtual_gitlfs_repository(key="virtual-gitlfs")
+    ```
+
+
+    :param str key: the identity key of the repo.
     """
     ...

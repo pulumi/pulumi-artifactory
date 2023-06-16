@@ -11,9 +11,59 @@ namespace Pulumi.Artifactory
 {
     public static class GetFederatedPypiRepository
     {
+        /// <summary>
+        /// Retrieves a federated Pypi repository.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var federated_test_pypi_repo = Artifactory.GetFederatedPypiRepository.Invoke(new()
+        ///     {
+        ///         Key = "federated-test-pypi-repo",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetFederatedPypiRepositoryResult> InvokeAsync(GetFederatedPypiRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFederatedPypiRepositoryResult>("artifactory:index/getFederatedPypiRepository:getFederatedPypiRepository", args ?? new GetFederatedPypiRepositoryArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Retrieves a federated Pypi repository.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var federated_test_pypi_repo = Artifactory.GetFederatedPypiRepository.Invoke(new()
+        ///     {
+        ///         Key = "federated-test-pypi-repo",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetFederatedPypiRepositoryResult> Invoke(GetFederatedPypiRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFederatedPypiRepositoryResult>("artifactory:index/getFederatedPypiRepository:getFederatedPypiRepository", args ?? new GetFederatedPypiRepositoryInvokeArgs(), options.WithDefaults());
     }
@@ -45,11 +95,21 @@ namespace Pulumi.Artifactory
         [Input("includesPattern")]
         public string? IncludesPattern { get; set; }
 
+        /// <summary>
+        /// the identity key of the repo.
+        /// </summary>
         [Input("key", required: true)]
         public string Key { get; set; } = null!;
 
         [Input("members")]
         private List<Inputs.GetFederatedPypiRepositoryMemberArgs>? _members;
+
+        /// <summary>
+        /// The list of Federated members and must contain this repository URL (configured base URL
+        /// `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+        /// Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+        /// to set up Federated repositories correctly.
+        /// </summary>
         public List<Inputs.GetFederatedPypiRepositoryMemberArgs> Members
         {
             get => _members ?? (_members = new List<Inputs.GetFederatedPypiRepositoryMemberArgs>());
@@ -119,11 +179,21 @@ namespace Pulumi.Artifactory
         [Input("includesPattern")]
         public Input<string>? IncludesPattern { get; set; }
 
+        /// <summary>
+        /// the identity key of the repo.
+        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
         [Input("members")]
         private InputList<Inputs.GetFederatedPypiRepositoryMemberInputArgs>? _members;
+
+        /// <summary>
+        /// The list of Federated members and must contain this repository URL (configured base URL
+        /// `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+        /// Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+        /// to set up Federated repositories correctly.
+        /// </summary>
         public InputList<Inputs.GetFederatedPypiRepositoryMemberInputArgs> Members
         {
             get => _members ?? (_members = new InputList<Inputs.GetFederatedPypiRepositoryMemberInputArgs>());
@@ -184,6 +254,12 @@ namespace Pulumi.Artifactory
         public readonly string Id;
         public readonly string IncludesPattern;
         public readonly string Key;
+        /// <summary>
+        /// The list of Federated members and must contain this repository URL (configured base URL
+        /// `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+        /// Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+        /// to set up Federated repositories correctly.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetFederatedPypiRepositoryMemberResult> Members;
         public readonly string? Notes;
         public readonly string PackageType;

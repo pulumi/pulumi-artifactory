@@ -54,14 +54,14 @@ public final class SingleReplicationConfigArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * Proxy key from Artifactory Proxies setting
+     * Proxy key from Artifactory Proxies setting.
      * 
      */
     @Import(name="proxy")
     private @Nullable Output<String> proxy;
 
     /**
-     * @return Proxy key from Artifactory Proxies setting
+     * @return Proxy key from Artifactory Proxies setting.
      * 
      */
     public Optional<Output<String>> proxy() {
@@ -201,7 +201,7 @@ public final class SingleReplicationConfigArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param proxy Proxy key from Artifactory Proxies setting
+         * @param proxy Proxy key from Artifactory Proxies setting.
          * 
          * @return builder
          * 
@@ -212,7 +212,7 @@ public final class SingleReplicationConfigArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param proxy Proxy key from Artifactory Proxies setting
+         * @param proxy Proxy key from Artifactory Proxies setting.
          * 
          * @return builder
          * 

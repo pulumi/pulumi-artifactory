@@ -27,9 +27,21 @@ public final class GetRemoteHelmRepositoryResult {
     private @Nullable Boolean downloadDirect;
     private @Nullable Boolean enableCookieManagement;
     private @Nullable String excludesPattern;
+    /**
+     * @return (Optional) When set, external dependencies are rewritten. `External Dependency Rewrite` in the UI.
+     * 
+     */
     private @Nullable Boolean externalDependenciesEnabled;
+    /**
+     * @return (Optional) An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download remote modules from, when presented with &#39;go-import&#39; meta tags in the remote repository response. By default, this is set to `[**]` in the UI, which means that remote modules may be downloaded from any external VCS source. Due to SDKv2 limitations, we can&#39;t set the default value for the list. This value `[**]` must be assigned to the attribute manually, if user don&#39;t specify any other non-default values. We don&#39;t want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns `[**]` on update if HCL doesn&#39;t have the attribute set or the list is empty.
+     * 
+     */
     private @Nullable List<String> externalDependenciesPatterns;
     private @Nullable Boolean hardFail;
+    /**
+     * @return (Optional) No documentation is available. Hopefully you know what this means.
+     * 
+     */
     private @Nullable String helmChartsBaseUrl;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -102,15 +114,27 @@ public final class GetRemoteHelmRepositoryResult {
     public Optional<String> excludesPattern() {
         return Optional.ofNullable(this.excludesPattern);
     }
+    /**
+     * @return (Optional) When set, external dependencies are rewritten. `External Dependency Rewrite` in the UI.
+     * 
+     */
     public Optional<Boolean> externalDependenciesEnabled() {
         return Optional.ofNullable(this.externalDependenciesEnabled);
     }
+    /**
+     * @return (Optional) An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download remote modules from, when presented with &#39;go-import&#39; meta tags in the remote repository response. By default, this is set to `[**]` in the UI, which means that remote modules may be downloaded from any external VCS source. Due to SDKv2 limitations, we can&#39;t set the default value for the list. This value `[**]` must be assigned to the attribute manually, if user don&#39;t specify any other non-default values. We don&#39;t want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns `[**]` on update if HCL doesn&#39;t have the attribute set or the list is empty.
+     * 
+     */
     public List<String> externalDependenciesPatterns() {
         return this.externalDependenciesPatterns == null ? List.of() : this.externalDependenciesPatterns;
     }
     public Optional<Boolean> hardFail() {
         return Optional.ofNullable(this.hardFail);
     }
+    /**
+     * @return (Optional) No documentation is available. Hopefully you know what this means.
+     * 
+     */
     public Optional<String> helmChartsBaseUrl() {
         return Optional.ofNullable(this.helmChartsBaseUrl);
     }

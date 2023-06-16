@@ -11,9 +11,59 @@ namespace Pulumi.Artifactory
 {
     public static class GetRemoteBowerRepository
     {
+        /// <summary>
+        /// Retrieves a remote Bower repository.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var remote_bower = Artifactory.GetRemoteBowerRepository.Invoke(new()
+        ///     {
+        ///         Key = "remote-bower",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetRemoteBowerRepositoryResult> InvokeAsync(GetRemoteBowerRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRemoteBowerRepositoryResult>("artifactory:index/getRemoteBowerRepository:getRemoteBowerRepository", args ?? new GetRemoteBowerRepositoryArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Retrieves a remote Bower repository.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var remote_bower = Artifactory.GetRemoteBowerRepository.Invoke(new()
+        ///     {
+        ///         Key = "remote-bower",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetRemoteBowerRepositoryResult> Invoke(GetRemoteBowerRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRemoteBowerRepositoryResult>("artifactory:index/getRemoteBowerRepository:getRemoteBowerRepository", args ?? new GetRemoteBowerRepositoryInvokeArgs(), options.WithDefaults());
     }
@@ -33,6 +83,9 @@ namespace Pulumi.Artifactory
         [Input("blockMismatchingMimeTypes")]
         public bool? BlockMismatchingMimeTypes { get; set; }
 
+        /// <summary>
+        /// (Optional) Proxy remote Bower repository. Default value is `https://registry.bower.io`.
+        /// </summary>
         [Input("bowerRegistryUrl")]
         public string? BowerRegistryUrl { get; set; }
 
@@ -66,6 +119,9 @@ namespace Pulumi.Artifactory
         [Input("includesPattern")]
         public string? IncludesPattern { get; set; }
 
+        /// <summary>
+        /// the identity key of the repo.
+        /// </summary>
         [Input("key", required: true)]
         public string Key { get; set; } = null!;
 
@@ -185,6 +241,9 @@ namespace Pulumi.Artifactory
         [Input("blockMismatchingMimeTypes")]
         public Input<bool>? BlockMismatchingMimeTypes { get; set; }
 
+        /// <summary>
+        /// (Optional) Proxy remote Bower repository. Default value is `https://registry.bower.io`.
+        /// </summary>
         [Input("bowerRegistryUrl")]
         public Input<string>? BowerRegistryUrl { get; set; }
 
@@ -218,6 +277,9 @@ namespace Pulumi.Artifactory
         [Input("includesPattern")]
         public Input<string>? IncludesPattern { get; set; }
 
+        /// <summary>
+        /// the identity key of the repo.
+        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
@@ -335,6 +397,9 @@ namespace Pulumi.Artifactory
         public readonly int? AssumedOfflinePeriodSecs;
         public readonly bool? BlackedOut;
         public readonly bool? BlockMismatchingMimeTypes;
+        /// <summary>
+        /// (Optional) Proxy remote Bower repository. Default value is `https://registry.bower.io`.
+        /// </summary>
         public readonly string? BowerRegistryUrl;
         public readonly bool? BypassHeadRequests;
         public readonly bool? CdnRedirect;

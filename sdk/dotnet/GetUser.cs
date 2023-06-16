@@ -11,9 +11,63 @@ namespace Pulumi.Artifactory
 {
     public static class GetUser
     {
+        /// <summary>
+        /// ## # Artifactory User Data Source
+        /// 
+        /// Provides an Artifactory user data source. This can be used to read the configuration of users in artifactory.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var user1 = Artifactory.GetUser.Invoke(new()
+        ///     {
+        ///         Name = "user1",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetUserResult> InvokeAsync(GetUserArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetUserResult>("artifactory:index/getUser:getUser", args ?? new GetUserArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// ## # Artifactory User Data Source
+        /// 
+        /// Provides an Artifactory user data source. This can be used to read the configuration of users in artifactory.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var user1 = Artifactory.GetUser.Invoke(new()
+        ///     {
+        ///         Name = "user1",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetUserResult> Invoke(GetUserInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUserResult>("artifactory:index/getUser:getUser", args ?? new GetUserInvokeArgs(), options.WithDefaults());
     }
@@ -21,29 +75,51 @@ namespace Pulumi.Artifactory
 
     public sealed class GetUserArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// When enabled, this user is an administrator with all the ensuing privileges. Default value is `false`.
+        /// </summary>
         [Input("admin")]
         public bool? Admin { get; set; }
 
+        /// <summary>
+        /// When set, this user can only access Artifactory through the REST API. This option cannot be set if the user has Admin privileges. Default value is `true`.
+        /// </summary>
         [Input("disableUiAccess")]
         public bool? DisableUiAccess { get; set; }
 
+        /// <summary>
+        /// Email for user.
+        /// </summary>
         [Input("email")]
         public string? Email { get; set; }
 
         [Input("groups")]
         private List<string>? _groups;
+
+        /// <summary>
+        /// List of groups this user is a part of.
+        /// </summary>
         public List<string> Groups
         {
             get => _groups ?? (_groups = new List<string>());
             set => _groups = value;
         }
 
+        /// <summary>
+        /// When set, disables the fallback of using an internal password when external authentication (such as LDAP) is enabled.
+        /// </summary>
         [Input("internalPasswordDisabled")]
         public bool? InternalPasswordDisabled { get; set; }
 
+        /// <summary>
+        /// Name of the user.
+        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
+        /// <summary>
+        /// When set, this user can update his profile details (except for the password. Only an administrator can update the password). Default value is `true`.
+        /// </summary>
         [Input("profileUpdatable")]
         public bool? ProfileUpdatable { get; set; }
 
@@ -55,29 +131,51 @@ namespace Pulumi.Artifactory
 
     public sealed class GetUserInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// When enabled, this user is an administrator with all the ensuing privileges. Default value is `false`.
+        /// </summary>
         [Input("admin")]
         public Input<bool>? Admin { get; set; }
 
+        /// <summary>
+        /// When set, this user can only access Artifactory through the REST API. This option cannot be set if the user has Admin privileges. Default value is `true`.
+        /// </summary>
         [Input("disableUiAccess")]
         public Input<bool>? DisableUiAccess { get; set; }
 
+        /// <summary>
+        /// Email for user.
+        /// </summary>
         [Input("email")]
         public Input<string>? Email { get; set; }
 
         [Input("groups")]
         private InputList<string>? _groups;
+
+        /// <summary>
+        /// List of groups this user is a part of.
+        /// </summary>
         public InputList<string> Groups
         {
             get => _groups ?? (_groups = new InputList<string>());
             set => _groups = value;
         }
 
+        /// <summary>
+        /// When set, disables the fallback of using an internal password when external authentication (such as LDAP) is enabled.
+        /// </summary>
         [Input("internalPasswordDisabled")]
         public Input<bool>? InternalPasswordDisabled { get; set; }
 
+        /// <summary>
+        /// Name of the user.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// When set, this user can update his profile details (except for the password. Only an administrator can update the password). Default value is `true`.
+        /// </summary>
         [Input("profileUpdatable")]
         public Input<bool>? ProfileUpdatable { get; set; }
 
@@ -91,16 +189,34 @@ namespace Pulumi.Artifactory
     [OutputType]
     public sealed class GetUserResult
     {
+        /// <summary>
+        /// When enabled, this user is an administrator with all the ensuing privileges. Default value is `false`.
+        /// </summary>
         public readonly bool? Admin;
+        /// <summary>
+        /// When set, this user can only access Artifactory through the REST API. This option cannot be set if the user has Admin privileges. Default value is `true`.
+        /// </summary>
         public readonly bool? DisableUiAccess;
+        /// <summary>
+        /// Email for user.
+        /// </summary>
         public readonly string? Email;
+        /// <summary>
+        /// List of groups this user is a part of.
+        /// </summary>
         public readonly ImmutableArray<string> Groups;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// When set, disables the fallback of using an internal password when external authentication (such as LDAP) is enabled.
+        /// </summary>
         public readonly bool? InternalPasswordDisabled;
         public readonly string Name;
+        /// <summary>
+        /// When set, this user can update his profile details (except for the password. Only an administrator can update the password). Default value is `true`.
+        /// </summary>
         public readonly bool? ProfileUpdatable;
 
         [OutputConstructor]

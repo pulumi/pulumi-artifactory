@@ -6,6 +6,20 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * Retrieves a remote CocoaPods repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const remote-cocoapods = artifactory.getRemoteCocoapodsRepository({
+ *     key: "remote-cocoapods",
+ * });
+ * ```
+ */
 export function getRemoteCocoapodsRepository(args: GetRemoteCocoapodsRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetRemoteCocoapodsRepositoryResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -74,6 +88,9 @@ export interface GetRemoteCocoapodsRepositoryArgs {
     excludesPattern?: string;
     hardFail?: boolean;
     includesPattern?: string;
+    /**
+     * the identity key of the repo.
+     */
     key: string;
     listRemoteFolderItems?: boolean;
     localAddress?: string;
@@ -83,6 +100,9 @@ export interface GetRemoteCocoapodsRepositoryArgs {
     notes?: string;
     offline?: boolean;
     password?: string;
+    /**
+     * (Optional) Proxy remote CocoaPods Specs repositories. Default value is `https://github.com/CocoaPods/Specs`.
+     */
     podsSpecsRepoUrl?: string;
     priorityResolution?: boolean;
     projectEnvironments?: string[];
@@ -100,7 +120,13 @@ export interface GetRemoteCocoapodsRepositoryArgs {
     unusedArtifactsCleanupPeriodHours?: number;
     url?: string;
     username?: string;
+    /**
+     * (Optional) This attribute is used when vcsGitProvider is set to `CUSTOM`. Provided URL will be used as proxy.
+     */
     vcsGitDownloadUrl?: string;
+    /**
+     * (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`. Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
+     */
     vcsGitProvider?: string;
     xrayIndex?: boolean;
 }
@@ -137,6 +163,9 @@ export interface GetRemoteCocoapodsRepositoryResult {
     readonly offline?: boolean;
     readonly packageType: string;
     readonly password?: string;
+    /**
+     * (Optional) Proxy remote CocoaPods Specs repositories. Default value is `https://github.com/CocoaPods/Specs`.
+     */
     readonly podsSpecsRepoUrl?: string;
     readonly priorityResolution?: boolean;
     readonly projectEnvironments: string[];
@@ -154,10 +183,30 @@ export interface GetRemoteCocoapodsRepositoryResult {
     readonly unusedArtifactsCleanupPeriodHours?: number;
     readonly url?: string;
     readonly username?: string;
+    /**
+     * (Optional) This attribute is used when vcsGitProvider is set to `CUSTOM`. Provided URL will be used as proxy.
+     */
     readonly vcsGitDownloadUrl?: string;
+    /**
+     * (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`. Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
+     */
     readonly vcsGitProvider?: string;
     readonly xrayIndex?: boolean;
 }
+/**
+ * Retrieves a remote CocoaPods repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const remote-cocoapods = artifactory.getRemoteCocoapodsRepository({
+ *     key: "remote-cocoapods",
+ * });
+ * ```
+ */
 export function getRemoteCocoapodsRepositoryOutput(args: GetRemoteCocoapodsRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemoteCocoapodsRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getRemoteCocoapodsRepository(a, opts))
 }
@@ -180,6 +229,9 @@ export interface GetRemoteCocoapodsRepositoryOutputArgs {
     excludesPattern?: pulumi.Input<string>;
     hardFail?: pulumi.Input<boolean>;
     includesPattern?: pulumi.Input<string>;
+    /**
+     * the identity key of the repo.
+     */
     key: pulumi.Input<string>;
     listRemoteFolderItems?: pulumi.Input<boolean>;
     localAddress?: pulumi.Input<string>;
@@ -189,6 +241,9 @@ export interface GetRemoteCocoapodsRepositoryOutputArgs {
     notes?: pulumi.Input<string>;
     offline?: pulumi.Input<boolean>;
     password?: pulumi.Input<string>;
+    /**
+     * (Optional) Proxy remote CocoaPods Specs repositories. Default value is `https://github.com/CocoaPods/Specs`.
+     */
     podsSpecsRepoUrl?: pulumi.Input<string>;
     priorityResolution?: pulumi.Input<boolean>;
     projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
@@ -206,7 +261,13 @@ export interface GetRemoteCocoapodsRepositoryOutputArgs {
     unusedArtifactsCleanupPeriodHours?: pulumi.Input<number>;
     url?: pulumi.Input<string>;
     username?: pulumi.Input<string>;
+    /**
+     * (Optional) This attribute is used when vcsGitProvider is set to `CUSTOM`. Provided URL will be used as proxy.
+     */
     vcsGitDownloadUrl?: pulumi.Input<string>;
+    /**
+     * (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`. Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
+     */
     vcsGitProvider?: pulumi.Input<string>;
     xrayIndex?: pulumi.Input<boolean>;
 }

@@ -134,24 +134,32 @@ public final class DebianRepositoryState extends com.pulumi.resources.ResourceAr
         return Optional.ofNullable(this.includesPattern);
     }
 
+    /**
+     * The options are Bzip2 (.bz2 extension) (default), LZMA (.lzma extension)
+     * and XZ (.xz extension).
+     * 
+     */
     @Import(name="indexCompressionFormats")
     private @Nullable Output<List<String>> indexCompressionFormats;
 
+    /**
+     * @return The options are Bzip2 (.bz2 extension) (default), LZMA (.lzma extension)
+     * and XZ (.xz extension).
+     * 
+     */
     public Optional<Output<List<String>>> indexCompressionFormats() {
         return Optional.ofNullable(this.indexCompressionFormats);
     }
 
     /**
-     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-     * characters. It cannot begin with a number or contain spaces or special characters.
+     * the identity key of the repo.
      * 
      */
     @Import(name="key")
     private @Nullable Output<String> key;
 
     /**
-     * @return A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-     * characters. It cannot begin with a number or contain spaces or special characters.
+     * @return the identity key of the repo.
      * 
      */
     public Optional<Output<String>> key() {
@@ -181,14 +189,14 @@ public final class DebianRepositoryState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Used to sign index files in Debian artifacts.
+     * The primary RSA key to be used to sign packages.
      * 
      */
     @Import(name="primaryKeypairRef")
     private @Nullable Output<String> primaryKeypairRef;
 
     /**
-     * @return Used to sign index files in Debian artifacts.
+     * @return The primary RSA key to be used to sign packages.
      * 
      */
     public Optional<Output<String>> primaryKeypairRef() {
@@ -279,14 +287,14 @@ public final class DebianRepositoryState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Used to sign index files in Debian artifacts.
+     * The secondary RSA key to be used to sign packages.
      * 
      */
     @Import(name="secondaryKeypairRef")
     private @Nullable Output<String> secondaryKeypairRef;
 
     /**
-     * @return Used to sign index files in Debian artifacts.
+     * @return The secondary RSA key to be used to sign packages.
      * 
      */
     public Optional<Output<String>> secondaryKeypairRef() {
@@ -535,22 +543,42 @@ public final class DebianRepositoryState extends com.pulumi.resources.ResourceAr
             return includesPattern(Output.of(includesPattern));
         }
 
+        /**
+         * @param indexCompressionFormats The options are Bzip2 (.bz2 extension) (default), LZMA (.lzma extension)
+         * and XZ (.xz extension).
+         * 
+         * @return builder
+         * 
+         */
         public Builder indexCompressionFormats(@Nullable Output<List<String>> indexCompressionFormats) {
             $.indexCompressionFormats = indexCompressionFormats;
             return this;
         }
 
+        /**
+         * @param indexCompressionFormats The options are Bzip2 (.bz2 extension) (default), LZMA (.lzma extension)
+         * and XZ (.xz extension).
+         * 
+         * @return builder
+         * 
+         */
         public Builder indexCompressionFormats(List<String> indexCompressionFormats) {
             return indexCompressionFormats(Output.of(indexCompressionFormats));
         }
 
+        /**
+         * @param indexCompressionFormats The options are Bzip2 (.bz2 extension) (default), LZMA (.lzma extension)
+         * and XZ (.xz extension).
+         * 
+         * @return builder
+         * 
+         */
         public Builder indexCompressionFormats(String... indexCompressionFormats) {
             return indexCompressionFormats(List.of(indexCompressionFormats));
         }
 
         /**
-         * @param key A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-         * characters. It cannot begin with a number or contain spaces or special characters.
+         * @param key the identity key of the repo.
          * 
          * @return builder
          * 
@@ -561,8 +589,7 @@ public final class DebianRepositoryState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param key A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-         * characters. It cannot begin with a number or contain spaces or special characters.
+         * @param key the identity key of the repo.
          * 
          * @return builder
          * 
@@ -602,7 +629,7 @@ public final class DebianRepositoryState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param primaryKeypairRef Used to sign index files in Debian artifacts.
+         * @param primaryKeypairRef The primary RSA key to be used to sign packages.
          * 
          * @return builder
          * 
@@ -613,7 +640,7 @@ public final class DebianRepositoryState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param primaryKeypairRef Used to sign index files in Debian artifacts.
+         * @param primaryKeypairRef The primary RSA key to be used to sign packages.
          * 
          * @return builder
          * 
@@ -759,7 +786,7 @@ public final class DebianRepositoryState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param secondaryKeypairRef Used to sign index files in Debian artifacts.
+         * @param secondaryKeypairRef The secondary RSA key to be used to sign packages.
          * 
          * @return builder
          * 
@@ -770,7 +797,7 @@ public final class DebianRepositoryState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param secondaryKeypairRef Used to sign index files in Debian artifacts.
+         * @param secondaryKeypairRef The secondary RSA key to be used to sign packages.
          * 
          * @return builder
          * 

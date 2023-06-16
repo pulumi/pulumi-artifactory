@@ -430,7 +430,14 @@ class Group(pulumi.CustomResource):
                  watch_manager: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        Create a Group resource with the given unique name, props, and options.
+        ## Import
+
+        ```sh
+         $ pulumi import artifactory:index/group:Group terraform-group mygroup
+        ```
+
+         ~> `users_names` can't be imported due to API limitations.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] admin_privileges: Any users added to this group will automatically be assigned with admin privileges in the system.
@@ -453,7 +460,14 @@ class Group(pulumi.CustomResource):
                  args: Optional[GroupArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a Group resource with the given unique name, props, and options.
+        ## Import
+
+        ```sh
+         $ pulumi import artifactory:index/group:Group terraform-group mygroup
+        ```
+
+         ~> `users_names` can't be imported due to API limitations.
+
         :param str resource_name: The name of the resource.
         :param GroupArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

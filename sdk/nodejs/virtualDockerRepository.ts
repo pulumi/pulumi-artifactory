@@ -4,6 +4,35 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * Creates a virtual Docker repository.
+ * Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Docker+Registry#DockerRegistry-VirtualDockerRepositories).
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const foo_docker = new artifactory.VirtualDockerRepository("foo-docker", {
+ *     description: "A test virtual repo",
+ *     excludesPattern: "com/google/**",
+ *     includesPattern: "com/jfrog/**,cloud/jfrog/**",
+ *     key: "foo-docker",
+ *     notes: "Internal description",
+ *     repositories: [],
+ *     resolveDockerTagsByTimestamp: true,
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * Virtual repositories can be imported using their name, e.g.
+ *
+ * ```sh
+ *  $ pulumi import artifactory:index/virtualDockerRepository:VirtualDockerRepository foo-docker foo-docker
+ * ```
+ */
 export class VirtualDockerRepository extends pulumi.CustomResource {
     /**
      * Get an existing VirtualDockerRepository resource's state with the given name, ID, and optional extra
@@ -56,8 +85,8 @@ export class VirtualDockerRepository extends pulumi.CustomResource {
      */
     public readonly includesPattern!: pulumi.Output<string | undefined>;
     /**
-     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-     * characters. It cannot begin with a number or contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+     * contain spaces or special characters.
      */
     public readonly key!: pulumi.Output<string>;
     /**
@@ -86,8 +115,7 @@ export class VirtualDockerRepository extends pulumi.CustomResource {
      */
     public readonly repositories!: pulumi.Output<string[] | undefined>;
     /**
-     * When enabled, in cases where the same Docker tag exists in two or more of the aggregated repositories, Artifactory will
-     * return the tag that has the latest timestamp.
+     * When enabled, in cases where the same Docker tag exists in two or more of the aggregated repositories, Artifactory will return the tag that has the latest timestamp. Default values is `false`.
      */
     public readonly resolveDockerTagsByTimestamp!: pulumi.Output<boolean | undefined>;
 
@@ -169,8 +197,8 @@ export interface VirtualDockerRepositoryState {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-     * characters. It cannot begin with a number or contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+     * contain spaces or special characters.
      */
     key?: pulumi.Input<string>;
     /**
@@ -199,8 +227,7 @@ export interface VirtualDockerRepositoryState {
      */
     repositories?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * When enabled, in cases where the same Docker tag exists in two or more of the aggregated repositories, Artifactory will
-     * return the tag that has the latest timestamp.
+     * When enabled, in cases where the same Docker tag exists in two or more of the aggregated repositories, Artifactory will return the tag that has the latest timestamp. Default values is `false`.
      */
     resolveDockerTagsByTimestamp?: pulumi.Input<boolean>;
 }
@@ -233,8 +260,8 @@ export interface VirtualDockerRepositoryArgs {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-     * characters. It cannot begin with a number or contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+     * contain spaces or special characters.
      */
     key: pulumi.Input<string>;
     /**
@@ -262,8 +289,7 @@ export interface VirtualDockerRepositoryArgs {
      */
     repositories?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * When enabled, in cases where the same Docker tag exists in two or more of the aggregated repositories, Artifactory will
-     * return the tag that has the latest timestamp.
+     * When enabled, in cases where the same Docker tag exists in two or more of the aggregated repositories, Artifactory will return the tag that has the latest timestamp. Default values is `false`.
      */
     resolveDockerTagsByTimestamp?: pulumi.Input<boolean>;
 }

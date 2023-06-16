@@ -20,14 +20,14 @@ public final class ReleaseBundleWebhookState extends com.pulumi.resources.Resour
     public static final ReleaseBundleWebhookState Empty = new ReleaseBundleWebhookState();
 
     /**
-     * Specifies where the webhook will be applied, on which release bundles or distributions.
+     * Specifies where the webhook will be applied on which repositories.
      * 
      */
     @Import(name="criteria")
     private @Nullable Output<ReleaseBundleWebhookCriteriaArgs> criteria;
 
     /**
-     * @return Specifies where the webhook will be applied, on which release bundles or distributions.
+     * @return Specifies where the webhook will be applied on which repositories.
      * 
      */
     public Optional<Output<ReleaseBundleWebhookCriteriaArgs>> criteria() {
@@ -35,14 +35,14 @@ public final class ReleaseBundleWebhookState extends com.pulumi.resources.Resour
     }
 
     /**
-     * Description of webhook. Max length 1000 characters.
+     * Webhook description. Max length 1000 characters.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return Description of webhook. Max length 1000 characters.
+     * @return Webhook description. Max length 1000 characters.
      * 
      */
     public Optional<Output<String>> description() {
@@ -50,14 +50,14 @@ public final class ReleaseBundleWebhookState extends com.pulumi.resources.Resour
     }
 
     /**
-     * Status of webhook. Default to &#39;true&#39;
+     * Status of webhook. Default to `true`.
      * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return Status of webhook. Default to &#39;true&#39;
+     * @return Status of webhook. Default to `true`.
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -65,38 +65,44 @@ public final class ReleaseBundleWebhookState extends com.pulumi.resources.Resour
     }
 
     /**
-     * List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow
-     * values: created, signed, deleted
+     * List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `created`, `signed`, `deleted`.
      * 
      */
     @Import(name="eventTypes")
     private @Nullable Output<List<String>> eventTypes;
 
     /**
-     * @return List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow
-     * values: created, signed, deleted
+     * @return List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `created`, `signed`, `deleted`.
      * 
      */
     public Optional<Output<List<String>>> eventTypes() {
         return Optional.ofNullable(this.eventTypes);
     }
 
+    /**
+     * At least one is required.
+     * 
+     */
     @Import(name="handlers")
     private @Nullable Output<List<ReleaseBundleWebhookHandlerArgs>> handlers;
 
+    /**
+     * @return At least one is required.
+     * 
+     */
     public Optional<Output<List<ReleaseBundleWebhookHandlerArgs>>> handlers() {
         return Optional.ofNullable(this.handlers);
     }
 
     /**
-     * Key of webhook. Must be between 2 and 200 characters. Cannot contain spaces.
+     * The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
      * 
      */
     @Import(name="key")
     private @Nullable Output<String> key;
 
     /**
-     * @return Key of webhook. Must be between 2 and 200 characters. Cannot contain spaces.
+     * @return The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
      * 
      */
     public Optional<Output<String>> key() {
@@ -133,7 +139,7 @@ public final class ReleaseBundleWebhookState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param criteria Specifies where the webhook will be applied, on which release bundles or distributions.
+         * @param criteria Specifies where the webhook will be applied on which repositories.
          * 
          * @return builder
          * 
@@ -144,7 +150,7 @@ public final class ReleaseBundleWebhookState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param criteria Specifies where the webhook will be applied, on which release bundles or distributions.
+         * @param criteria Specifies where the webhook will be applied on which repositories.
          * 
          * @return builder
          * 
@@ -154,7 +160,7 @@ public final class ReleaseBundleWebhookState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param description Description of webhook. Max length 1000 characters.
+         * @param description Webhook description. Max length 1000 characters.
          * 
          * @return builder
          * 
@@ -165,7 +171,7 @@ public final class ReleaseBundleWebhookState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param description Description of webhook. Max length 1000 characters.
+         * @param description Webhook description. Max length 1000 characters.
          * 
          * @return builder
          * 
@@ -175,7 +181,7 @@ public final class ReleaseBundleWebhookState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param enabled Status of webhook. Default to &#39;true&#39;
+         * @param enabled Status of webhook. Default to `true`.
          * 
          * @return builder
          * 
@@ -186,7 +192,7 @@ public final class ReleaseBundleWebhookState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param enabled Status of webhook. Default to &#39;true&#39;
+         * @param enabled Status of webhook. Default to `true`.
          * 
          * @return builder
          * 
@@ -196,8 +202,7 @@ public final class ReleaseBundleWebhookState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param eventTypes List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow
-         * values: created, signed, deleted
+         * @param eventTypes List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `created`, `signed`, `deleted`.
          * 
          * @return builder
          * 
@@ -208,8 +213,7 @@ public final class ReleaseBundleWebhookState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param eventTypes List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow
-         * values: created, signed, deleted
+         * @param eventTypes List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `created`, `signed`, `deleted`.
          * 
          * @return builder
          * 
@@ -219,8 +223,7 @@ public final class ReleaseBundleWebhookState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param eventTypes List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow
-         * values: created, signed, deleted
+         * @param eventTypes List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `created`, `signed`, `deleted`.
          * 
          * @return builder
          * 
@@ -229,21 +232,39 @@ public final class ReleaseBundleWebhookState extends com.pulumi.resources.Resour
             return eventTypes(List.of(eventTypes));
         }
 
+        /**
+         * @param handlers At least one is required.
+         * 
+         * @return builder
+         * 
+         */
         public Builder handlers(@Nullable Output<List<ReleaseBundleWebhookHandlerArgs>> handlers) {
             $.handlers = handlers;
             return this;
         }
 
+        /**
+         * @param handlers At least one is required.
+         * 
+         * @return builder
+         * 
+         */
         public Builder handlers(List<ReleaseBundleWebhookHandlerArgs> handlers) {
             return handlers(Output.of(handlers));
         }
 
+        /**
+         * @param handlers At least one is required.
+         * 
+         * @return builder
+         * 
+         */
         public Builder handlers(ReleaseBundleWebhookHandlerArgs... handlers) {
             return handlers(List.of(handlers));
         }
 
         /**
-         * @param key Key of webhook. Must be between 2 and 200 characters. Cannot contain spaces.
+         * @param key The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
          * 
          * @return builder
          * 
@@ -254,7 +275,7 @@ public final class ReleaseBundleWebhookState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param key Key of webhook. Must be between 2 and 200 characters. Cannot contain spaces.
+         * @param key The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
          * 
          * @return builder
          * 

@@ -9,6 +9,52 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Artifactory
 {
+    /// <summary>
+    /// Creates a local Alpine repository.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.IO;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Artifactory = Pulumi.Artifactory;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var some_keypairRSA = new Artifactory.Keypair("some-keypairRSA", new()
+    ///     {
+    ///         PairName = "some-keypair",
+    ///         PairType = "RSA",
+    ///         Alias = "foo-alias",
+    ///         PrivateKey = File.ReadAllText("samples/rsa.priv"),
+    ///         PublicKey = File.ReadAllText("samples/rsa.pub"),
+    ///     });
+    /// 
+    ///     var terraform_local_test_alpine_repo_basic = new Artifactory.AlpineRepository("terraform-local-test-alpine-repo-basic", new()
+    ///     {
+    ///         Key = "terraform-local-test-alpine-repo-basic",
+    ///         PrimaryKeypairRef = some_keypairRSA.PairName,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             some_keypairRSA,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Local repositories can be imported using their name, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import artifactory:index/alpineRepository:AlpineRepository terraform-local-test-alpine-repo-basic terraform-local-test-alpine-repo-basic
+    /// ```
+    /// </summary>
     [ArtifactoryResourceType("artifactory:index/alpineRepository:AlpineRepository")]
     public partial class AlpineRepository : global::Pulumi.CustomResource
     {
@@ -64,8 +110,7 @@ namespace Pulumi.Artifactory
         public Output<ImmutableArray<string>> IndexCompressionFormats { get; private set; } = null!;
 
         /// <summary>
-        /// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-        /// characters. It cannot begin with a number or contain spaces or special characters.
+        /// the identity key of the repo.
         /// </summary>
         [Output("key")]
         public Output<string> Key { get; private set; } = null!;
@@ -230,8 +275,7 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-        /// characters. It cannot begin with a number or contain spaces or special characters.
+        /// the identity key of the repo.
         /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -367,8 +411,7 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-        /// characters. It cannot begin with a number or contain spaces or special characters.
+        /// the identity key of the repo.
         /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }

@@ -13,49 +13,141 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PushReplicationReplication {
+    /**
+     * @return When true, enables distributed checksum storage. For more information, see
+     * [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
+     * 
+     */
     private @Nullable Boolean checkBinaryExistenceInFilestore;
+    /**
+     * @return When set, this replication will be enabled when saved.
+     * 
+     */
     private @Nullable Boolean enabled;
+    /**
+     * @return Required for local repository, but not needed for remote repository.
+     * 
+     */
     private String password;
+    /**
+     * @return Only artifacts that located in path that matches the subpath within the remote repository will be replicated.
+     * 
+     */
     private @Nullable String pathPrefix;
+    /**
+     * @return Proxy key from Artifactory Proxies settings. The proxy configuration will be used when communicating with the remote instance.
+     * 
+     */
     private @Nullable String proxy;
+    /**
+     * @return The network timeout in milliseconds to use for remote operations.
+     * 
+     */
     private @Nullable Integer socketTimeoutMillis;
+    /**
+     * @return When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata).
+     * Note that enabling this option, will delete artifacts on the target that do not exist in the source repository.
+     * 
+     */
     private @Nullable Boolean syncDeletes;
+    /**
+     * @return When set, the task also synchronizes the properties of replicated artifacts.
+     * 
+     */
     private @Nullable Boolean syncProperties;
+    /**
+     * @return When set, artifact download statistics will also be replicated. Set to avoid inadvertent cleanup at the target instance when setting up replication for disaster recovery.
+     * 
+     */
     private @Nullable Boolean syncStatistics;
+    /**
+     * @return The URL of the target local repository on a remote Artifactory server. Required for local repository, but not needed for remote repository.
+     * 
+     */
     private String url;
+    /**
+     * @return Required for local repository, but not needed for remote repository.
+     * 
+     */
     private String username;
 
     private PushReplicationReplication() {}
+    /**
+     * @return When true, enables distributed checksum storage. For more information, see
+     * [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
+     * 
+     */
     public Optional<Boolean> checkBinaryExistenceInFilestore() {
         return Optional.ofNullable(this.checkBinaryExistenceInFilestore);
     }
+    /**
+     * @return When set, this replication will be enabled when saved.
+     * 
+     */
     public Optional<Boolean> enabled() {
         return Optional.ofNullable(this.enabled);
     }
+    /**
+     * @return Required for local repository, but not needed for remote repository.
+     * 
+     */
     public String password() {
         return this.password;
     }
+    /**
+     * @return Only artifacts that located in path that matches the subpath within the remote repository will be replicated.
+     * 
+     */
     public Optional<String> pathPrefix() {
         return Optional.ofNullable(this.pathPrefix);
     }
+    /**
+     * @return Proxy key from Artifactory Proxies settings. The proxy configuration will be used when communicating with the remote instance.
+     * 
+     */
     public Optional<String> proxy() {
         return Optional.ofNullable(this.proxy);
     }
+    /**
+     * @return The network timeout in milliseconds to use for remote operations.
+     * 
+     */
     public Optional<Integer> socketTimeoutMillis() {
         return Optional.ofNullable(this.socketTimeoutMillis);
     }
+    /**
+     * @return When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata).
+     * Note that enabling this option, will delete artifacts on the target that do not exist in the source repository.
+     * 
+     */
     public Optional<Boolean> syncDeletes() {
         return Optional.ofNullable(this.syncDeletes);
     }
+    /**
+     * @return When set, the task also synchronizes the properties of replicated artifacts.
+     * 
+     */
     public Optional<Boolean> syncProperties() {
         return Optional.ofNullable(this.syncProperties);
     }
+    /**
+     * @return When set, artifact download statistics will also be replicated. Set to avoid inadvertent cleanup at the target instance when setting up replication for disaster recovery.
+     * 
+     */
     public Optional<Boolean> syncStatistics() {
         return Optional.ofNullable(this.syncStatistics);
     }
+    /**
+     * @return The URL of the target local repository on a remote Artifactory server. Required for local repository, but not needed for remote repository.
+     * 
+     */
     public String url() {
         return this.url;
     }
+    /**
+     * @return Required for local repository, but not needed for remote repository.
+     * 
+     */
     public String username() {
         return this.username;
     }

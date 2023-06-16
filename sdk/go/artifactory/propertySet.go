@@ -11,14 +11,87 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides an Artifactory Property Set resource.
+// This resource configuration corresponds to 'propertySets' config block in system configuration XML
+// (REST endpoint: artifactory/api/system/configuration).
+//
+// ~>The `PropertySet` resource utilizes endpoints which are blocked/removed in SaaS environments (i.e. in Artifactory online), rendering this resource incompatible with Artifactory SaaS environments.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewPropertySet(ctx, "foo", &artifactory.PropertySetArgs{
+//				Properties: artifactory.PropertySetPropertyArray{
+//					&artifactory.PropertySetPropertyArgs{
+//						ClosedPredefinedValues: pulumi.Bool(true),
+//						MultipleChoice:         pulumi.Bool(true),
+//						Name:                   pulumi.String("set1property1"),
+//						PredefinedValues: artifactory.PropertySetPropertyPredefinedValueArray{
+//							&artifactory.PropertySetPropertyPredefinedValueArgs{
+//								DefaultValue: pulumi.Bool(true),
+//								Name:         pulumi.String("passed-QA"),
+//							},
+//							&artifactory.PropertySetPropertyPredefinedValueArgs{
+//								DefaultValue: pulumi.Bool(false),
+//								Name:         pulumi.String("failed-QA"),
+//							},
+//						},
+//					},
+//					&artifactory.PropertySetPropertyArgs{
+//						ClosedPredefinedValues: pulumi.Bool(false),
+//						MultipleChoice:         pulumi.Bool(false),
+//						Name:                   pulumi.String("set1property2"),
+//						PredefinedValues: artifactory.PropertySetPropertyPredefinedValueArray{
+//							&artifactory.PropertySetPropertyPredefinedValueArgs{
+//								DefaultValue: pulumi.Bool(true),
+//								Name:         pulumi.String("passed-QA"),
+//							},
+//							&artifactory.PropertySetPropertyPredefinedValueArgs{
+//								DefaultValue: pulumi.Bool(false),
+//								Name:         pulumi.String("failed-QA"),
+//							},
+//						},
+//					},
+//				},
+//				Visible: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Current Property Set can be imported using `property-set1` as the `ID`, e.g.
+//
+// ```sh
+//
+//	$ pulumi import artifactory:index/propertySet:PropertySet foo property-set1
+//
+// ```
 type PropertySet struct {
 	pulumi.CustomResourceState
 
-	// Property set name.
+	// Predefined property name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A list of properties that will be part of the property set.
 	Properties PropertySetPropertyArrayOutput `pulumi:"properties"`
-	// Defines if the list visible and assignable to the repository or artifact.
+	// Defines if the list visible and assignable to the repository or artifact. Default value is `true`.
 	Visible pulumi.BoolPtrOutput `pulumi:"visible"`
 }
 
@@ -54,20 +127,20 @@ func GetPropertySet(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PropertySet resources.
 type propertySetState struct {
-	// Property set name.
+	// Predefined property name.
 	Name *string `pulumi:"name"`
 	// A list of properties that will be part of the property set.
 	Properties []PropertySetProperty `pulumi:"properties"`
-	// Defines if the list visible and assignable to the repository or artifact.
+	// Defines if the list visible and assignable to the repository or artifact. Default value is `true`.
 	Visible *bool `pulumi:"visible"`
 }
 
 type PropertySetState struct {
-	// Property set name.
+	// Predefined property name.
 	Name pulumi.StringPtrInput
 	// A list of properties that will be part of the property set.
 	Properties PropertySetPropertyArrayInput
-	// Defines if the list visible and assignable to the repository or artifact.
+	// Defines if the list visible and assignable to the repository or artifact. Default value is `true`.
 	Visible pulumi.BoolPtrInput
 }
 
@@ -76,21 +149,21 @@ func (PropertySetState) ElementType() reflect.Type {
 }
 
 type propertySetArgs struct {
-	// Property set name.
+	// Predefined property name.
 	Name *string `pulumi:"name"`
 	// A list of properties that will be part of the property set.
 	Properties []PropertySetProperty `pulumi:"properties"`
-	// Defines if the list visible and assignable to the repository or artifact.
+	// Defines if the list visible and assignable to the repository or artifact. Default value is `true`.
 	Visible *bool `pulumi:"visible"`
 }
 
 // The set of arguments for constructing a PropertySet resource.
 type PropertySetArgs struct {
-	// Property set name.
+	// Predefined property name.
 	Name pulumi.StringPtrInput
 	// A list of properties that will be part of the property set.
 	Properties PropertySetPropertyArrayInput
-	// Defines if the list visible and assignable to the repository or artifact.
+	// Defines if the list visible and assignable to the repository or artifact. Default value is `true`.
 	Visible pulumi.BoolPtrInput
 }
 
@@ -181,7 +254,7 @@ func (o PropertySetOutput) ToPropertySetOutputWithContext(ctx context.Context) P
 	return o
 }
 
-// Property set name.
+// Predefined property name.
 func (o PropertySetOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *PropertySet) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -191,7 +264,7 @@ func (o PropertySetOutput) Properties() PropertySetPropertyArrayOutput {
 	return o.ApplyT(func(v *PropertySet) PropertySetPropertyArrayOutput { return v.Properties }).(PropertySetPropertyArrayOutput)
 }
 
-// Defines if the list visible and assignable to the repository or artifact.
+// Defines if the list visible and assignable to the repository or artifact. Default value is `true`.
 func (o PropertySetOutput) Visible() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *PropertySet) pulumi.BoolPtrOutput { return v.Visible }).(pulumi.BoolPtrOutput)
 }

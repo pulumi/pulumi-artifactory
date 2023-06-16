@@ -17,6 +17,54 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Creates a local Maven repository.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.artifactory.LocalMavenRepository;
+ * import com.pulumi.artifactory.LocalMavenRepositoryArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var terraform_local_test_maven_repo_basic = new LocalMavenRepository(&#34;terraform-local-test-maven-repo-basic&#34;, LocalMavenRepositoryArgs.builder()        
+ *             .checksumPolicyType(&#34;client-checksums&#34;)
+ *             .handleReleases(true)
+ *             .handleSnapshots(true)
+ *             .key(&#34;terraform-local-test-maven-repo-basic&#34;)
+ *             .maxUniqueSnapshots(10)
+ *             .snapshotVersionBehavior(&#34;unique&#34;)
+ *             .suppressPomConsistencyChecks(false)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Local repositories can be imported using their name, e.g.
+ * 
+ * ```sh
+ *  $ pulumi import artifactory:index/localMavenRepository:LocalMavenRepository terraform-local-test-maven-repo-basic terraform-local-test-maven-repo-basic
+ * ```
+ * 
+ */
 @ResourceType(type="artifactory:index/localMavenRepository:LocalMavenRepository")
 public class LocalMavenRepository extends com.pulumi.resources.CustomResource {
     /**
@@ -68,20 +116,20 @@ public class LocalMavenRepository extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.cdnRedirect);
     }
     /**
-     * Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or
-     * conflicts with the locally calculated checksum (bad checksum). Options are: &#34;client-checksums&#34;, or
-     * &#34;server-generated-checksums&#34;. Default: &#34;client-checksums&#34;\n For more details, please refer to Checksum Policy -
-     * https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy
+     * Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or conflicts with the locally calculated checksum (bad checksum). The options are:
+     * - `client-checksums`
+     * - `server-generated-checksums`.
+     *   For more details, please refer to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy).
      * 
      */
     @Export(name="checksumPolicyType", type=String.class, parameters={})
     private Output</* @Nullable */ String> checksumPolicyType;
 
     /**
-     * @return Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or
-     * conflicts with the locally calculated checksum (bad checksum). Options are: &#34;client-checksums&#34;, or
-     * &#34;server-generated-checksums&#34;. Default: &#34;client-checksums&#34;\n For more details, please refer to Checksum Policy -
-     * https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy
+     * @return Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or conflicts with the locally calculated checksum (bad checksum). The options are:
+     * - `client-checksums`
+     * - `server-generated-checksums`.
+     *   For more details, please refer to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy).
      * 
      */
     public Output<Optional<String>> checksumPolicyType() {
@@ -134,28 +182,28 @@ public class LocalMavenRepository extends com.pulumi.resources.CustomResource {
         return this.excludesPattern;
     }
     /**
-     * If set, Artifactory allows you to deploy release artifacts into this repository.
+     * If set, Artifactory allows you to deploy release artifacts into this repository. Default is `true`.
      * 
      */
     @Export(name="handleReleases", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> handleReleases;
 
     /**
-     * @return If set, Artifactory allows you to deploy release artifacts into this repository.
+     * @return If set, Artifactory allows you to deploy release artifacts into this repository. Default is `true`.
      * 
      */
     public Output<Optional<Boolean>> handleReleases() {
         return Codegen.optional(this.handleReleases);
     }
     /**
-     * If set, Artifactory allows you to deploy snapshot artifacts into this repository.
+     * If set, Artifactory allows you to deploy snapshot artifacts into this repository. Default is `true`.
      * 
      */
     @Export(name="handleSnapshots", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> handleSnapshots;
 
     /**
-     * @return If set, Artifactory allows you to deploy snapshot artifacts into this repository.
+     * @return If set, Artifactory allows you to deploy snapshot artifacts into this repository. Default is `true`.
      * 
      */
     public Output<Optional<Boolean>> handleSnapshots() {
@@ -178,32 +226,32 @@ public class LocalMavenRepository extends com.pulumi.resources.CustomResource {
         return this.includesPattern;
     }
     /**
-     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-     * characters. It cannot begin with a number or contain spaces or special characters.
+     * the identity key of the repo.
      * 
      */
     @Export(name="key", type=String.class, parameters={})
     private Output<String> key;
 
     /**
-     * @return A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-     * characters. It cannot begin with a number or contain spaces or special characters.
+     * @return the identity key of the repo.
      * 
      */
     public Output<String> key() {
         return this.key;
     }
     /**
-     * The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
-     * older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+     * The maximum number of unique snapshots of a single artifact to store.
+     * Once the number of snapshots exceeds this setting, older versions are removed.
+     * A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
      * 
      */
     @Export(name="maxUniqueSnapshots", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> maxUniqueSnapshots;
 
     /**
-     * @return The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
-     * older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+     * @return The maximum number of unique snapshots of a single artifact to store.
+     * Once the number of snapshots exceeds this setting, older versions are removed.
+     * A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
      * 
      */
     public Output<Optional<Integer>> maxUniqueSnapshots() {
@@ -308,38 +356,34 @@ public class LocalMavenRepository extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.repoLayoutRef);
     }
     /**
-     * Specifies the naming convention for Maven SNAPSHOT versions. The options are - unique: Version number is based on a
-     * time-stamp (default) non-unique: Version number uses a self-overriding naming pattern of
-     * artifactId-version-SNAPSHOT.type deployer: Respects the settings in the Maven client that is deploying the artifact.
+     * Specifies the naming convention for Maven SNAPSHOT versions.
+     * The options are -
      * 
      */
     @Export(name="snapshotVersionBehavior", type=String.class, parameters={})
     private Output</* @Nullable */ String> snapshotVersionBehavior;
 
     /**
-     * @return Specifies the naming convention for Maven SNAPSHOT versions. The options are - unique: Version number is based on a
-     * time-stamp (default) non-unique: Version number uses a self-overriding naming pattern of
-     * artifactId-version-SNAPSHOT.type deployer: Respects the settings in the Maven client that is deploying the artifact.
+     * @return Specifies the naming convention for Maven SNAPSHOT versions.
+     * The options are -
      * 
      */
     public Output<Optional<String>> snapshotVersionBehavior() {
         return Codegen.optional(this.snapshotVersionBehavior);
     }
     /**
-     * By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the
-     * groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the
-     * deployment with a &#34;409 Conflict&#34; error. You can disable this behavior by setting the Suppress POM Consistency Checks
-     * checkbox.
+     * By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path).
+     * If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a &#34;409 Conflict&#34; error.
+     * You can disable this behavior by setting the Suppress POM Consistency Checks checkbox. False by default for Maven repository.
      * 
      */
     @Export(name="suppressPomConsistencyChecks", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> suppressPomConsistencyChecks;
 
     /**
-     * @return By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the
-     * groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the
-     * deployment with a &#34;409 Conflict&#34; error. You can disable this behavior by setting the Suppress POM Consistency Checks
-     * checkbox.
+     * @return By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path).
+     * If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a &#34;409 Conflict&#34; error.
+     * You can disable this behavior by setting the Suppress POM Consistency Checks checkbox. False by default for Maven repository.
      * 
      */
     public Output<Optional<Boolean>> suppressPomConsistencyChecks() {

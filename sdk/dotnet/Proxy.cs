@@ -9,6 +9,56 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Artifactory
 {
+    /// <summary>
+    /// Provides an Artifactory Proxy resource.
+    /// 
+    /// This resource configuration corresponds to 'proxies' config block in system configuration XML
+    /// (REST endpoint: [artifactory/api/system/configuration](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-GeneralConfiguration)).
+    /// 
+    /// ~&gt;The `artifactory.Proxy` resource utilizes endpoints which are blocked/removed in SaaS environments (i.e. in Artifactory online), rendering this resource incompatible with Artifactory SaaS environments.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Artifactory = Pulumi.Artifactory;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var my_proxy = new Artifactory.Proxy("my-proxy", new()
+    ///     {
+    ///         Host = "my-proxy.mycompany.com",
+    ///         Key = "my-proxy",
+    ///         NtDomain = "MYCOMPANY",
+    ///         NtHost = "MYCOMPANY.COM",
+    ///         Password = "password",
+    ///         PlatformDefault = false,
+    ///         Port = 8888,
+    ///         RedirectToHosts = new[]
+    ///         {
+    ///             "redirec-host.mycompany.com",
+    ///         },
+    ///         Services = new[]
+    ///         {
+    ///             "jfrt",
+    ///             "jfxr",
+    ///         },
+    ///         Username = "user1",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Current Proxy can be imported using `proxy-key` from Artifactory as the `ID`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import artifactory:index/proxy:Proxy my-proxy proxy-key
+    /// ```
+    /// </summary>
     [ArtifactoryResourceType("artifactory:index/proxy:Proxy")]
     public partial class Proxy : global::Pulumi.CustomResource
     {
@@ -43,8 +93,7 @@ namespace Pulumi.Artifactory
         public Output<string?> Password { get; private set; } = null!;
 
         /// <summary>
-        /// When set, this proxy will be the default proxy for new remote repositories and for internal HTTP requests issued by
-        /// Artifactory. Will also be used as proxy for all other services in the platform (for example: Xray, Distribution, etc).
+        /// When set, this proxy will be the default proxy for new remote repositories and for internal HTTP requests issued by Artifactory. Will also be used as proxy for all other services in the platform (for example: Xray, Distribution, etc).
         /// </summary>
         [Output("platformDefault")]
         public Output<bool?> PlatformDefault { get; private set; } = null!;
@@ -56,14 +105,13 @@ namespace Pulumi.Artifactory
         public Output<int> Port { get; private set; } = null!;
 
         /// <summary>
-        /// An optional list of host names to which this proxy may redirect requests. The credentials defined for the proxy are
-        /// reused by requests redirected to all of these hosts.
+        /// An optional list of host names to which this proxy may redirect requests. The credentials defined for the proxy are reused by requests redirected to all of these hosts.
         /// </summary>
         [Output("redirectToHosts")]
         public Output<ImmutableArray<string>> RedirectToHosts { get; private set; } = null!;
 
         /// <summary>
-        /// An optional list of services names to which this proxy be the default of. The options are jfrt, jfmc, jfxr, jfds
+        /// An optional list of services names to which this proxy be the default of. The options are `jfrt`, `jfmc`, `jfxr`, `jfds`.
         /// </summary>
         [Output("services")]
         public Output<ImmutableArray<string>> Services { get; private set; } = null!;
@@ -165,8 +213,7 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// When set, this proxy will be the default proxy for new remote repositories and for internal HTTP requests issued by
-        /// Artifactory. Will also be used as proxy for all other services in the platform (for example: Xray, Distribution, etc).
+        /// When set, this proxy will be the default proxy for new remote repositories and for internal HTTP requests issued by Artifactory. Will also be used as proxy for all other services in the platform (for example: Xray, Distribution, etc).
         /// </summary>
         [Input("platformDefault")]
         public Input<bool>? PlatformDefault { get; set; }
@@ -181,8 +228,7 @@ namespace Pulumi.Artifactory
         private InputList<string>? _redirectToHosts;
 
         /// <summary>
-        /// An optional list of host names to which this proxy may redirect requests. The credentials defined for the proxy are
-        /// reused by requests redirected to all of these hosts.
+        /// An optional list of host names to which this proxy may redirect requests. The credentials defined for the proxy are reused by requests redirected to all of these hosts.
         /// </summary>
         public InputList<string> RedirectToHosts
         {
@@ -194,7 +240,7 @@ namespace Pulumi.Artifactory
         private InputList<string>? _services;
 
         /// <summary>
-        /// An optional list of services names to which this proxy be the default of. The options are jfrt, jfmc, jfxr, jfds
+        /// An optional list of services names to which this proxy be the default of. The options are `jfrt`, `jfmc`, `jfxr`, `jfds`.
         /// </summary>
         public InputList<string> Services
         {
@@ -257,8 +303,7 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// When set, this proxy will be the default proxy for new remote repositories and for internal HTTP requests issued by
-        /// Artifactory. Will also be used as proxy for all other services in the platform (for example: Xray, Distribution, etc).
+        /// When set, this proxy will be the default proxy for new remote repositories and for internal HTTP requests issued by Artifactory. Will also be used as proxy for all other services in the platform (for example: Xray, Distribution, etc).
         /// </summary>
         [Input("platformDefault")]
         public Input<bool>? PlatformDefault { get; set; }
@@ -273,8 +318,7 @@ namespace Pulumi.Artifactory
         private InputList<string>? _redirectToHosts;
 
         /// <summary>
-        /// An optional list of host names to which this proxy may redirect requests. The credentials defined for the proxy are
-        /// reused by requests redirected to all of these hosts.
+        /// An optional list of host names to which this proxy may redirect requests. The credentials defined for the proxy are reused by requests redirected to all of these hosts.
         /// </summary>
         public InputList<string> RedirectToHosts
         {
@@ -286,7 +330,7 @@ namespace Pulumi.Artifactory
         private InputList<string>? _services;
 
         /// <summary>
-        /// An optional list of services names to which this proxy be the default of. The options are jfrt, jfmc, jfxr, jfds
+        /// An optional list of services names to which this proxy be the default of. The options are `jfrt`, `jfmc`, `jfxr`, `jfds`.
         /// </summary>
         public InputList<string> Services
         {

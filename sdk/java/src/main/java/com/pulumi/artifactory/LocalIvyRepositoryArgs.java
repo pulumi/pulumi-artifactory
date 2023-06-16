@@ -187,16 +187,14 @@ public final class LocalIvyRepositoryArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-     * characters. It cannot begin with a number or contain spaces or special characters.
+     * the identity key of the repo.
      * 
      */
     @Import(name="key", required=true)
     private Output<String> key;
 
     /**
-     * @return A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-     * characters. It cannot begin with a number or contain spaces or special characters.
+     * @return the identity key of the repo.
      * 
      */
     public Output<String> key() {
@@ -648,8 +646,7 @@ public final class LocalIvyRepositoryArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param key A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-         * characters. It cannot begin with a number or contain spaces or special characters.
+         * @param key the identity key of the repo.
          * 
          * @return builder
          * 
@@ -660,8 +657,7 @@ public final class LocalIvyRepositoryArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param key A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-         * characters. It cannot begin with a number or contain spaces or special characters.
+         * @param key the identity key of the repo.
          * 
          * @return builder
          * 

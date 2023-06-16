@@ -4,6 +4,40 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * Creates a virtual Go repository.
+ * Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Go+Registry#GoRegistry-VirtualRepositories).
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const baz_go = new artifactory.GoRepository("baz-go", {
+ *     description: "A test virtual repo",
+ *     excludesPattern: "com/google/**",
+ *     externalDependenciesEnabled: true,
+ *     externalDependenciesPatterns: [
+ *         "**&#47;github.com/**",
+ *         "**&#47;go.googlesource.com/**",
+ *     ],
+ *     includesPattern: "com/jfrog/**,cloud/jfrog/**",
+ *     key: "baz-go",
+ *     notes: "Internal description",
+ *     repoLayoutRef: "go-default",
+ *     repositories: [],
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * Virtual repositories can be imported using their name, e.g.
+ *
+ * ```sh
+ *  $ pulumi import artifactory:index/goRepository:GoRepository baz-go baz-go
+ * ```
+ */
 export class GoRepository extends pulumi.CustomResource {
     /**
      * Get an existing GoRepository resource's state with the given name, ID, and optional extra
@@ -51,13 +85,12 @@ export class GoRepository extends pulumi.CustomResource {
      */
     public readonly excludesPattern!: pulumi.Output<string | undefined>;
     /**
-     * When set (default), Artifactory will automatically follow remote VCS roots in 'go-import' meta tags to download remote
-     * modules.
+     * Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list. 
+     * When checked (default), Artifactory will automatically follow remote VCS roots in 'go-import' meta tags to download remote modules.
      */
     public readonly externalDependenciesEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download
-     * remote modules from, when presented with 'go-import' meta tags in the remote repository response.
+     * 'go-import' Allow List on the UI.
      */
     public readonly externalDependenciesPatterns!: pulumi.Output<string[] | undefined>;
     /**
@@ -66,8 +99,8 @@ export class GoRepository extends pulumi.CustomResource {
      */
     public readonly includesPattern!: pulumi.Output<string | undefined>;
     /**
-     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-     * characters. It cannot begin with a number or contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+     * contain spaces or special characters.
      */
     public readonly key!: pulumi.Output<string>;
     /**
@@ -171,13 +204,12 @@ export interface GoRepositoryState {
      */
     excludesPattern?: pulumi.Input<string>;
     /**
-     * When set (default), Artifactory will automatically follow remote VCS roots in 'go-import' meta tags to download remote
-     * modules.
+     * Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list. 
+     * When checked (default), Artifactory will automatically follow remote VCS roots in 'go-import' meta tags to download remote modules.
      */
     externalDependenciesEnabled?: pulumi.Input<boolean>;
     /**
-     * An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download
-     * remote modules from, when presented with 'go-import' meta tags in the remote repository response.
+     * 'go-import' Allow List on the UI.
      */
     externalDependenciesPatterns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -186,8 +218,8 @@ export interface GoRepositoryState {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-     * characters. It cannot begin with a number or contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+     * contain spaces or special characters.
      */
     key?: pulumi.Input<string>;
     /**
@@ -240,13 +272,12 @@ export interface GoRepositoryArgs {
      */
     excludesPattern?: pulumi.Input<string>;
     /**
-     * When set (default), Artifactory will automatically follow remote VCS roots in 'go-import' meta tags to download remote
-     * modules.
+     * Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list. 
+     * When checked (default), Artifactory will automatically follow remote VCS roots in 'go-import' meta tags to download remote modules.
      */
     externalDependenciesEnabled?: pulumi.Input<boolean>;
     /**
-     * An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download
-     * remote modules from, when presented with 'go-import' meta tags in the remote repository response.
+     * 'go-import' Allow List on the UI.
      */
     externalDependenciesPatterns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -255,8 +286,8 @@ export interface GoRepositoryArgs {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-     * characters. It cannot begin with a number or contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+     * contain spaces or special characters.
      */
     key: pulumi.Input<string>;
     /**

@@ -13,6 +13,9 @@ namespace Pulumi.Artifactory.Outputs
     [OutputType]
     public sealed class GetPermissionTargetBuildActionsGroupResult
     {
+        /// <summary>
+        /// Name of the permission target.
+        /// </summary>
         public readonly string Name;
         public readonly ImmutableArray<string> Permissions;
 

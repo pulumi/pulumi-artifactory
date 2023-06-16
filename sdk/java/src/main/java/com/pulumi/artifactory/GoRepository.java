@@ -16,6 +16,59 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Creates a virtual Go repository.
+ * Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Go+Registry#GoRegistry-VirtualRepositories).
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.artifactory.GoRepository;
+ * import com.pulumi.artifactory.GoRepositoryArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var baz_go = new GoRepository(&#34;baz-go&#34;, GoRepositoryArgs.builder()        
+ *             .description(&#34;A test virtual repo&#34;)
+ *             .excludesPattern(&#34;com/google/**&#34;)
+ *             .externalDependenciesEnabled(true)
+ *             .externalDependenciesPatterns(            
+ *                 &#34;**{@literal /}github.com/**&#34;,
+ *                 &#34;**{@literal /}go.googlesource.com/**&#34;)
+ *             .includesPattern(&#34;com/jfrog/**,cloud/jfrog/**&#34;)
+ *             .key(&#34;baz-go&#34;)
+ *             .notes(&#34;Internal description&#34;)
+ *             .repoLayoutRef(&#34;go-default&#34;)
+ *             .repositories()
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Virtual repositories can be imported using their name, e.g.
+ * 
+ * ```sh
+ *  $ pulumi import artifactory:index/goRepository:GoRepository baz-go baz-go
+ * ```
+ * 
+ */
 @ResourceType(type="artifactory:index/goRepository:GoRepository")
 public class GoRepository extends com.pulumi.resources.CustomResource {
     /**
@@ -79,32 +132,30 @@ public class GoRepository extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.excludesPattern);
     }
     /**
-     * When set (default), Artifactory will automatically follow remote VCS roots in &#39;go-import&#39; meta tags to download remote
-     * modules.
+     * Shorthand for &#34;Enable &#39;go-import&#39; Meta Tags&#34; on the UI. This must be set to true in order to use the allow list.
+     * When checked (default), Artifactory will automatically follow remote VCS roots in &#39;go-import&#39; meta tags to download remote modules.
      * 
      */
     @Export(name="externalDependenciesEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> externalDependenciesEnabled;
 
     /**
-     * @return When set (default), Artifactory will automatically follow remote VCS roots in &#39;go-import&#39; meta tags to download remote
-     * modules.
+     * @return Shorthand for &#34;Enable &#39;go-import&#39; Meta Tags&#34; on the UI. This must be set to true in order to use the allow list.
+     * When checked (default), Artifactory will automatically follow remote VCS roots in &#39;go-import&#39; meta tags to download remote modules.
      * 
      */
     public Output<Optional<Boolean>> externalDependenciesEnabled() {
         return Codegen.optional(this.externalDependenciesEnabled);
     }
     /**
-     * An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download
-     * remote modules from, when presented with &#39;go-import&#39; meta tags in the remote repository response.
+     * &#39;go-import&#39; Allow List on the UI.
      * 
      */
     @Export(name="externalDependenciesPatterns", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> externalDependenciesPatterns;
 
     /**
-     * @return An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download
-     * remote modules from, when presented with &#39;go-import&#39; meta tags in the remote repository response.
+     * @return &#39;go-import&#39; Allow List on the UI.
      * 
      */
     public Output<Optional<List<String>>> externalDependenciesPatterns() {
@@ -127,16 +178,16 @@ public class GoRepository extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.includesPattern);
     }
     /**
-     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-     * characters. It cannot begin with a number or contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+     * contain spaces or special characters.
      * 
      */
     @Export(name="key", type=String.class, parameters={})
     private Output<String> key;
 
     /**
-     * @return A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-     * characters. It cannot begin with a number or contain spaces or special characters.
+     * @return A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+     * contain spaces or special characters.
      * 
      */
     public Output<String> key() {

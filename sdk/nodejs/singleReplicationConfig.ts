@@ -4,6 +4,23 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * Note: this resource is deprecated in favor of `artifactory.PullReplication` resource.
+ *
+ * Provides an Artifactory single replication config resource. This can be used to create and manage a single Artifactory
+ * replication. Primarily used when pull replication is needed.
+ *
+ * **WARNING: This should not be used on a repository with `artifactory.ReplicationConfig`. Using both together will cause
+ * unexpected behaviour and will almost certainly cause your replications to break.**
+ *
+ * ## Import
+ *
+ * Replication configs can be imported using their repo key, e.g.
+ *
+ * ```sh
+ *  $ pulumi import artifactory:index/singleReplicationConfig:SingleReplicationConfig foo-rep repository-key
+ * ```
+ */
 export class SingleReplicationConfig extends pulumi.CustomResource {
     /**
      * Get an existing SingleReplicationConfig resource's state with the given name, ID, and optional extra
@@ -39,13 +56,12 @@ export class SingleReplicationConfig extends pulumi.CustomResource {
     public readonly enableEventReplication!: pulumi.Output<boolean>;
     public readonly enabled!: pulumi.Output<boolean>;
     /**
-     * If a password is used to create the resource, it will be returned as encrypted and this will become the new
-     * state.Practically speaking, what this means is that, the password can only be set, not gotten.
+     * Requires password encryption to be turned off `POST /api/system/decrypt`.
      */
     public /*out*/ readonly password!: pulumi.Output<string>;
     public readonly pathPrefix!: pulumi.Output<string | undefined>;
     /**
-     * Proxy key from Artifactory Proxies setting
+     * Proxy key from Artifactory Proxies setting.
      */
     public readonly proxy!: pulumi.Output<string | undefined>;
     public readonly repoKey!: pulumi.Output<string>;
@@ -122,13 +138,12 @@ export interface SingleReplicationConfigState {
     enableEventReplication?: pulumi.Input<boolean>;
     enabled?: pulumi.Input<boolean>;
     /**
-     * If a password is used to create the resource, it will be returned as encrypted and this will become the new
-     * state.Practically speaking, what this means is that, the password can only be set, not gotten.
+     * Requires password encryption to be turned off `POST /api/system/decrypt`.
      */
     password?: pulumi.Input<string>;
     pathPrefix?: pulumi.Input<string>;
     /**
-     * Proxy key from Artifactory Proxies setting
+     * Proxy key from Artifactory Proxies setting.
      */
     proxy?: pulumi.Input<string>;
     repoKey?: pulumi.Input<string>;
@@ -152,7 +167,7 @@ export interface SingleReplicationConfigArgs {
     enabled?: pulumi.Input<boolean>;
     pathPrefix?: pulumi.Input<string>;
     /**
-     * Proxy key from Artifactory Proxies setting
+     * Proxy key from Artifactory Proxies setting.
      */
     proxy?: pulumi.Input<string>;
     repoKey: pulumi.Input<string>;

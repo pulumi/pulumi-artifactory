@@ -313,11 +313,17 @@ class GetRemotePypiRepositoryResult:
     @property
     @pulumi.getter(name="pypiRegistryUrl")
     def pypi_registry_url(self) -> Optional[str]:
+        """
+        (Optional) To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another Artifactory server. See JFrog Pypi documentation [here](https://www.jfrog.com/confluence/display/JFROG/PyPI+Repositories) for the usage details. Default value is `https://pypi.org`.
+        """
         return pulumi.get(self, "pypi_registry_url")
 
     @property
     @pulumi.getter(name="pypiRepositorySuffix")
     def pypi_repository_suffix(self) -> Optional[str]:
+        """
+        (Optional) Usually should be left as a default for `simple`, unless the remote is a PyPI server that has custom registry suffix, like +simple in DevPI. Default value is `simple`.
+        """
         return pulumi.get(self, "pypi_repository_suffix")
 
     @property
@@ -477,7 +483,21 @@ def get_remote_pypi_repository(allow_any_host_auth: Optional[bool] = None,
                                xray_index: Optional[bool] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRemotePypiRepositoryResult:
     """
-    Use this data source to access information about an existing resource.
+    Retrieves a remote Pypi repository.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_artifactory as artifactory
+
+    remote_pypi = artifactory.get_remote_pypi_repository(key="remote-pypi")
+    ```
+
+
+    :param str key: the identity key of the repo.
+    :param str pypi_registry_url: (Optional) To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another Artifactory server. See JFrog Pypi documentation [here](https://www.jfrog.com/confluence/display/JFROG/PyPI+Repositories) for the usage details. Default value is `https://pypi.org`.
+    :param str pypi_repository_suffix: (Optional) Usually should be left as a default for `simple`, unless the remote is a PyPI server that has custom registry suffix, like +simple in DevPI. Default value is `simple`.
     """
     __args__ = dict()
     __args__['allowAnyHostAuth'] = allow_any_host_auth
@@ -617,6 +637,20 @@ def get_remote_pypi_repository_output(allow_any_host_auth: Optional[pulumi.Input
                                       xray_index: Optional[pulumi.Input[Optional[bool]]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRemotePypiRepositoryResult]:
     """
-    Use this data source to access information about an existing resource.
+    Retrieves a remote Pypi repository.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_artifactory as artifactory
+
+    remote_pypi = artifactory.get_remote_pypi_repository(key="remote-pypi")
+    ```
+
+
+    :param str key: the identity key of the repo.
+    :param str pypi_registry_url: (Optional) To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another Artifactory server. See JFrog Pypi documentation [here](https://www.jfrog.com/confluence/display/JFROG/PyPI+Repositories) for the usage details. Default value is `https://pypi.org`.
+    :param str pypi_repository_suffix: (Optional) Usually should be left as a default for `simple`, unless the remote is a PyPI server that has custom registry suffix, like +simple in DevPI. Default value is `simple`.
     """
     ...

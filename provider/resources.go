@@ -78,7 +78,7 @@ func Provider() tfbridge.ProviderInfo {
 		Homepage:                "https://pulumi.io",
 		Repository:              "https://github.com/pulumi/pulumi-artifactory",
 		GitHubOrg:               "jfrog",
-		TFProviderModuleVersion: "v7",
+		TFProviderModuleVersion: "v8",
 		Version:                 version.Version,
 		Config: map[string]*tfbridge.SchemaInfo{
 			"check_license": {

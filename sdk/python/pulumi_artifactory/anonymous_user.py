@@ -71,7 +71,22 @@ class AnonymousUser(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a AnonymousUser resource with the given unique name, props, and options.
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        # Define a new Artifactory 'anonymous' user for import
+        anonymous = artifactory.AnonymousUser("anonymous")
+        ```
+
+        ## Import
+
+        ```sh
+         $ pulumi import artifactory:index/anonymousUser:AnonymousUser anonymous-user anonymous
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: Username for anonymous user. This is only for ensuring resource schema is valid for Terraform. This is not meant to be
@@ -84,7 +99,22 @@ class AnonymousUser(pulumi.CustomResource):
                  args: Optional[AnonymousUserArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a AnonymousUser resource with the given unique name, props, and options.
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        # Define a new Artifactory 'anonymous' user for import
+        anonymous = artifactory.AnonymousUser("anonymous")
+        ```
+
+        ## Import
+
+        ```sh
+         $ pulumi import artifactory:index/anonymousUser:AnonymousUser anonymous-user anonymous
+        ```
+
         :param str resource_name: The name of the resource.
         :param AnonymousUserArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

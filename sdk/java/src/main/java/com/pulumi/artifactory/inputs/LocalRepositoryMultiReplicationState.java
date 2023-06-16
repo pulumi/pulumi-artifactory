@@ -19,14 +19,14 @@ public final class LocalRepositoryMultiReplicationState extends com.pulumi.resou
     public static final LocalRepositoryMultiReplicationState Empty = new LocalRepositoryMultiReplicationState();
 
     /**
-     * Cron expression to control the operation frequency.
+     * A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
      * 
      */
     @Import(name="cronExp")
     private @Nullable Output<String> cronExp;
 
     /**
-     * @return Cron expression to control the operation frequency.
+     * @return A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
      * 
      */
     public Optional<Output<String>> cronExp() {
@@ -34,25 +34,31 @@ public final class LocalRepositoryMultiReplicationState extends com.pulumi.resou
     }
 
     /**
-     * When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on
-     * artifact, e.g. add, deleted or property change. Default value is `false`.
+     * When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. add, deleted or property change. Default value is `false`.
      * 
      */
     @Import(name="enableEventReplication")
     private @Nullable Output<Boolean> enableEventReplication;
 
     /**
-     * @return When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on
-     * artifact, e.g. add, deleted or property change. Default value is `false`.
+     * @return When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. add, deleted or property change. Default value is `false`.
      * 
      */
     public Optional<Output<Boolean>> enableEventReplication() {
         return Optional.ofNullable(this.enableEventReplication);
     }
 
+    /**
+     * List of replications minimum 1 element.
+     * 
+     */
     @Import(name="replications")
     private @Nullable Output<List<LocalRepositoryMultiReplicationReplicationArgs>> replications;
 
+    /**
+     * @return List of replications minimum 1 element.
+     * 
+     */
     public Optional<Output<List<LocalRepositoryMultiReplicationReplicationArgs>>> replications() {
         return Optional.ofNullable(this.replications);
     }
@@ -100,7 +106,7 @@ public final class LocalRepositoryMultiReplicationState extends com.pulumi.resou
         }
 
         /**
-         * @param cronExp Cron expression to control the operation frequency.
+         * @param cronExp A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
          * 
          * @return builder
          * 
@@ -111,7 +117,7 @@ public final class LocalRepositoryMultiReplicationState extends com.pulumi.resou
         }
 
         /**
-         * @param cronExp Cron expression to control the operation frequency.
+         * @param cronExp A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
          * 
          * @return builder
          * 
@@ -121,8 +127,7 @@ public final class LocalRepositoryMultiReplicationState extends com.pulumi.resou
         }
 
         /**
-         * @param enableEventReplication When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on
-         * artifact, e.g. add, deleted or property change. Default value is `false`.
+         * @param enableEventReplication When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. add, deleted or property change. Default value is `false`.
          * 
          * @return builder
          * 
@@ -133,8 +138,7 @@ public final class LocalRepositoryMultiReplicationState extends com.pulumi.resou
         }
 
         /**
-         * @param enableEventReplication When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on
-         * artifact, e.g. add, deleted or property change. Default value is `false`.
+         * @param enableEventReplication When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. add, deleted or property change. Default value is `false`.
          * 
          * @return builder
          * 
@@ -143,15 +147,33 @@ public final class LocalRepositoryMultiReplicationState extends com.pulumi.resou
             return enableEventReplication(Output.of(enableEventReplication));
         }
 
+        /**
+         * @param replications List of replications minimum 1 element.
+         * 
+         * @return builder
+         * 
+         */
         public Builder replications(@Nullable Output<List<LocalRepositoryMultiReplicationReplicationArgs>> replications) {
             $.replications = replications;
             return this;
         }
 
+        /**
+         * @param replications List of replications minimum 1 element.
+         * 
+         * @return builder
+         * 
+         */
         public Builder replications(List<LocalRepositoryMultiReplicationReplicationArgs> replications) {
             return replications(Output.of(replications));
         }
 
+        /**
+         * @param replications List of replications minimum 1 element.
+         * 
+         * @return builder
+         * 
+         */
         public Builder replications(LocalRepositoryMultiReplicationReplicationArgs... replications) {
             return replications(List.of(replications));
         }

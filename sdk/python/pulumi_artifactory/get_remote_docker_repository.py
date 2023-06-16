@@ -186,6 +186,9 @@ class GetRemoteDockerRepositoryResult:
     @property
     @pulumi.getter(name="blockPushingSchema1")
     def block_pushing_schema1(self) -> bool:
+        """
+        (Optional) When set, Artifactory will block the pulling of Docker images with manifest v2 schema 1 from the remote repository (i.e. the upstream). It will be possible to pull images with manifest v2 schema 1 that exist in the cache.
+        """
         return pulumi.get(self, "block_pushing_schema1")
 
     @property
@@ -226,6 +229,9 @@ class GetRemoteDockerRepositoryResult:
     @property
     @pulumi.getter(name="enableTokenAuthentication")
     def enable_token_authentication(self) -> bool:
+        """
+        (Optional) Enable token (Bearer) based authentication.
+        """
         return pulumi.get(self, "enable_token_authentication")
 
     @property
@@ -236,11 +242,17 @@ class GetRemoteDockerRepositoryResult:
     @property
     @pulumi.getter(name="externalDependenciesEnabled")
     def external_dependencies_enabled(self) -> Optional[bool]:
+        """
+        (Optional) Also known as 'Foreign Layers Caching' on the UI.
+        """
         return pulumi.get(self, "external_dependencies_enabled")
 
     @property
     @pulumi.getter(name="externalDependenciesPatterns")
     def external_dependencies_patterns(self) -> Optional[Sequence[str]]:
+        """
+        (Optional) An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response. By default, this is set to `[**]` in the UI, which means that remote modules may be downloaded from any external VCS source. Due to SDKv2 limitations, we can't set the default value for the list. This value `[**]` must be assigned to the attribute manually, if user don't specify any other non-default values. We don't want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns `[**]` on update if HCL doesn't have the attribute set or the list is empty.
+        """
         return pulumi.get(self, "external_dependencies_patterns")
 
     @property
@@ -497,7 +509,23 @@ def get_remote_docker_repository(allow_any_host_auth: Optional[bool] = None,
                                  xray_index: Optional[bool] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRemoteDockerRepositoryResult:
     """
-    Use this data source to access information about an existing resource.
+    Retrieves a remote Docker repository.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_artifactory as artifactory
+
+    remote_docker = artifactory.get_remote_docker_repository(key="remote-docker")
+    ```
+
+
+    :param bool block_pushing_schema1: (Optional) When set, Artifactory will block the pulling of Docker images with manifest v2 schema 1 from the remote repository (i.e. the upstream). It will be possible to pull images with manifest v2 schema 1 that exist in the cache.
+    :param bool enable_token_authentication: (Optional) Enable token (Bearer) based authentication.
+    :param bool external_dependencies_enabled: (Optional) Also known as 'Foreign Layers Caching' on the UI.
+    :param Sequence[str] external_dependencies_patterns: (Optional) An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response. By default, this is set to `[**]` in the UI, which means that remote modules may be downloaded from any external VCS source. Due to SDKv2 limitations, we can't set the default value for the list. This value `[**]` must be assigned to the attribute manually, if user don't specify any other non-default values. We don't want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns `[**]` on update if HCL doesn't have the attribute set or the list is empty.
+    :param str key: the identity key of the repo.
     """
     __args__ = dict()
     __args__['allowAnyHostAuth'] = allow_any_host_auth
@@ -643,6 +671,22 @@ def get_remote_docker_repository_output(allow_any_host_auth: Optional[pulumi.Inp
                                         xray_index: Optional[pulumi.Input[Optional[bool]]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRemoteDockerRepositoryResult]:
     """
-    Use this data source to access information about an existing resource.
+    Retrieves a remote Docker repository.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_artifactory as artifactory
+
+    remote_docker = artifactory.get_remote_docker_repository(key="remote-docker")
+    ```
+
+
+    :param bool block_pushing_schema1: (Optional) When set, Artifactory will block the pulling of Docker images with manifest v2 schema 1 from the remote repository (i.e. the upstream). It will be possible to pull images with manifest v2 schema 1 that exist in the cache.
+    :param bool enable_token_authentication: (Optional) Enable token (Bearer) based authentication.
+    :param bool external_dependencies_enabled: (Optional) Also known as 'Foreign Layers Caching' on the UI.
+    :param Sequence[str] external_dependencies_patterns: (Optional) An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response. By default, this is set to `[**]` in the UI, which means that remote modules may be downloaded from any external VCS source. Due to SDKv2 limitations, we can't set the default value for the list. This value `[**]` must be assigned to the attribute manually, if user don't specify any other non-default values. We don't want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns `[**]` on update if HCL doesn't have the attribute set or the list is empty.
+    :param str key: the identity key of the repo.
     """
     ...

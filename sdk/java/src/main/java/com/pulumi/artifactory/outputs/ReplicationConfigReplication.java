@@ -14,8 +14,16 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ReplicationConfigReplication {
     private @Nullable Boolean enabled;
+    /**
+     * @return Requires password encryption to be turned off `POST /api/system/decrypt`.
+     * 
+     */
     private @Nullable String password;
     private @Nullable String pathPrefix;
+    /**
+     * @return Proxy key from Artifactory Proxies setting
+     * 
+     */
     private @Nullable String proxy;
     private @Nullable Integer socketTimeoutMillis;
     private @Nullable Boolean syncDeletes;
@@ -28,12 +36,20 @@ public final class ReplicationConfigReplication {
     public Optional<Boolean> enabled() {
         return Optional.ofNullable(this.enabled);
     }
+    /**
+     * @return Requires password encryption to be turned off `POST /api/system/decrypt`.
+     * 
+     */
     public Optional<String> password() {
         return Optional.ofNullable(this.password);
     }
     public Optional<String> pathPrefix() {
         return Optional.ofNullable(this.pathPrefix);
     }
+    /**
+     * @return Proxy key from Artifactory Proxies setting
+     * 
+     */
     public Optional<String> proxy() {
         return Optional.ofNullable(this.proxy);
     }

@@ -103,9 +103,17 @@ public final class GetRemoteConanRepositoryArgs extends com.pulumi.resources.Inv
         return Optional.ofNullable(this.excludesPattern);
     }
 
+    /**
+     * (Optional) Force basic authentication credentials in order to use this repository. Default value is `false`.
+     * 
+     */
     @Import(name="forceConanAuthentication")
     private @Nullable Output<Boolean> forceConanAuthentication;
 
+    /**
+     * @return (Optional) Force basic authentication credentials in order to use this repository. Default value is `false`.
+     * 
+     */
     public Optional<Output<Boolean>> forceConanAuthentication() {
         return Optional.ofNullable(this.forceConanAuthentication);
     }
@@ -124,9 +132,17 @@ public final class GetRemoteConanRepositoryArgs extends com.pulumi.resources.Inv
         return Optional.ofNullable(this.includesPattern);
     }
 
+    /**
+     * the identity key of the repo.
+     * 
+     */
     @Import(name="key", required=true)
     private Output<String> key;
 
+    /**
+     * @return the identity key of the repo.
+     * 
+     */
     public Output<String> key() {
         return this.key;
     }
@@ -478,11 +494,23 @@ public final class GetRemoteConanRepositoryArgs extends com.pulumi.resources.Inv
             return excludesPattern(Output.of(excludesPattern));
         }
 
+        /**
+         * @param forceConanAuthentication (Optional) Force basic authentication credentials in order to use this repository. Default value is `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder forceConanAuthentication(@Nullable Output<Boolean> forceConanAuthentication) {
             $.forceConanAuthentication = forceConanAuthentication;
             return this;
         }
 
+        /**
+         * @param forceConanAuthentication (Optional) Force basic authentication credentials in order to use this repository. Default value is `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder forceConanAuthentication(Boolean forceConanAuthentication) {
             return forceConanAuthentication(Output.of(forceConanAuthentication));
         }
@@ -505,11 +533,23 @@ public final class GetRemoteConanRepositoryArgs extends com.pulumi.resources.Inv
             return includesPattern(Output.of(includesPattern));
         }
 
+        /**
+         * @param key the identity key of the repo.
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(Output<String> key) {
             $.key = key;
             return this;
         }
 
+        /**
+         * @param key the identity key of the repo.
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(String key) {
             return key(Output.of(key));
         }

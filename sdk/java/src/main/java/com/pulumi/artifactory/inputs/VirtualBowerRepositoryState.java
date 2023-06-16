@@ -97,16 +97,14 @@ public final class VirtualBowerRepositoryState extends com.pulumi.resources.Reso
     }
 
     /**
-     * An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default,
-     * this is set to ** which means that dependencies may be downloaded from any external source.
+     * An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded from any external source.
      * 
      */
     @Import(name="externalDependenciesPatterns")
     private @Nullable Output<List<String>> externalDependenciesPatterns;
 
     /**
-     * @return An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default,
-     * this is set to ** which means that dependencies may be downloaded from any external source.
+     * @return An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded from any external source.
      * 
      */
     public Optional<Output<List<String>>> externalDependenciesPatterns() {
@@ -146,16 +144,16 @@ public final class VirtualBowerRepositoryState extends com.pulumi.resources.Reso
     }
 
     /**
-     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-     * characters. It cannot begin with a number or contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+     * contain spaces or special characters.
      * 
      */
     @Import(name="key")
     private @Nullable Output<String> key;
 
     /**
-     * @return A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-     * characters. It cannot begin with a number or contain spaces or special characters.
+     * @return A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+     * contain spaces or special characters.
      * 
      */
     public Optional<Output<String>> key() {
@@ -400,8 +398,7 @@ public final class VirtualBowerRepositoryState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param externalDependenciesPatterns An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default,
-         * this is set to ** which means that dependencies may be downloaded from any external source.
+         * @param externalDependenciesPatterns An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded from any external source.
          * 
          * @return builder
          * 
@@ -412,8 +409,7 @@ public final class VirtualBowerRepositoryState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param externalDependenciesPatterns An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default,
-         * this is set to ** which means that dependencies may be downloaded from any external source.
+         * @param externalDependenciesPatterns An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded from any external source.
          * 
          * @return builder
          * 
@@ -423,8 +419,7 @@ public final class VirtualBowerRepositoryState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param externalDependenciesPatterns An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default,
-         * this is set to ** which means that dependencies may be downloaded from any external source.
+         * @param externalDependenciesPatterns An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded from any external source.
          * 
          * @return builder
          * 
@@ -478,8 +473,8 @@ public final class VirtualBowerRepositoryState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param key A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-         * characters. It cannot begin with a number or contain spaces or special characters.
+         * @param key A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+         * contain spaces or special characters.
          * 
          * @return builder
          * 
@@ -490,8 +485,8 @@ public final class VirtualBowerRepositoryState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param key A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-         * characters. It cannot begin with a number or contain spaces or special characters.
+         * @param key A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+         * contain spaces or special characters.
          * 
          * @return builder
          * 

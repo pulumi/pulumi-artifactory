@@ -11,9 +11,59 @@ namespace Pulumi.Artifactory
 {
     public static class GetVirtualDebianRepository
     {
+        /// <summary>
+        /// Retrieves a virtual Debian repository.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var virtual_debian = Artifactory.GetVirtualDebianRepository.Invoke(new()
+        ///     {
+        ///         Key = "virtual-debian",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetVirtualDebianRepositoryResult> InvokeAsync(GetVirtualDebianRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualDebianRepositoryResult>("artifactory:index/getVirtualDebianRepository:getVirtualDebianRepository", args ?? new GetVirtualDebianRepositoryArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Retrieves a virtual Debian repository.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var virtual_debian = Artifactory.GetVirtualDebianRepository.Invoke(new()
+        ///     {
+        ///         Key = "virtual-debian",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetVirtualDebianRepositoryResult> Invoke(GetVirtualDebianRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualDebianRepositoryResult>("artifactory:index/getVirtualDebianRepository:getVirtualDebianRepository", args ?? new GetVirtualDebianRepositoryInvokeArgs(), options.WithDefaults());
     }
@@ -24,6 +74,9 @@ namespace Pulumi.Artifactory
         [Input("artifactoryRequestsCanRetrieveRemoteArtifacts")]
         public bool? ArtifactoryRequestsCanRetrieveRemoteArtifacts { get; set; }
 
+        /// <summary>
+        /// (Optional) Specifying  architectures will speed up Artifactory's initial metadata indexing process. The default architecture values are amd64 and i386.
+        /// </summary>
         [Input("debianDefaultArchitectures")]
         public string? DebianDefaultArchitectures { get; set; }
 
@@ -39,6 +92,9 @@ namespace Pulumi.Artifactory
         [Input("includesPattern")]
         public string? IncludesPattern { get; set; }
 
+        /// <summary>
+        /// the identity key of the repo.
+        /// </summary>
         [Input("key", required: true)]
         public string Key { get; set; } = null!;
 
@@ -47,12 +103,19 @@ namespace Pulumi.Artifactory
 
         [Input("optionalIndexCompressionFormats")]
         private List<string>? _optionalIndexCompressionFormats;
+
+        /// <summary>
+        /// (Optional) Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are `bz2`,`lzma` and `xz`. Default value is `bz2`.
+        /// </summary>
         public List<string> OptionalIndexCompressionFormats
         {
             get => _optionalIndexCompressionFormats ?? (_optionalIndexCompressionFormats = new List<string>());
             set => _optionalIndexCompressionFormats = value;
         }
 
+        /// <summary>
+        /// (Optional) Primary keypair used to sign artifacts. Default is empty.
+        /// </summary>
         [Input("primaryKeypairRef")]
         public string? PrimaryKeypairRef { get; set; }
 
@@ -78,9 +141,15 @@ namespace Pulumi.Artifactory
             set => _repositories = value;
         }
 
+        /// <summary>
+        /// (Optional, Default: `7200`) This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
+        /// </summary>
         [Input("retrievalCachePeriodSeconds")]
         public int? RetrievalCachePeriodSeconds { get; set; }
 
+        /// <summary>
+        /// (Optional) Secondary keypair used to sign artifacts. Default is empty.
+        /// </summary>
         [Input("secondaryKeypairRef")]
         public string? SecondaryKeypairRef { get; set; }
 
@@ -95,6 +164,9 @@ namespace Pulumi.Artifactory
         [Input("artifactoryRequestsCanRetrieveRemoteArtifacts")]
         public Input<bool>? ArtifactoryRequestsCanRetrieveRemoteArtifacts { get; set; }
 
+        /// <summary>
+        /// (Optional) Specifying  architectures will speed up Artifactory's initial metadata indexing process. The default architecture values are amd64 and i386.
+        /// </summary>
         [Input("debianDefaultArchitectures")]
         public Input<string>? DebianDefaultArchitectures { get; set; }
 
@@ -110,6 +182,9 @@ namespace Pulumi.Artifactory
         [Input("includesPattern")]
         public Input<string>? IncludesPattern { get; set; }
 
+        /// <summary>
+        /// the identity key of the repo.
+        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
@@ -118,12 +193,19 @@ namespace Pulumi.Artifactory
 
         [Input("optionalIndexCompressionFormats")]
         private InputList<string>? _optionalIndexCompressionFormats;
+
+        /// <summary>
+        /// (Optional) Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are `bz2`,`lzma` and `xz`. Default value is `bz2`.
+        /// </summary>
         public InputList<string> OptionalIndexCompressionFormats
         {
             get => _optionalIndexCompressionFormats ?? (_optionalIndexCompressionFormats = new InputList<string>());
             set => _optionalIndexCompressionFormats = value;
         }
 
+        /// <summary>
+        /// (Optional) Primary keypair used to sign artifacts. Default is empty.
+        /// </summary>
         [Input("primaryKeypairRef")]
         public Input<string>? PrimaryKeypairRef { get; set; }
 
@@ -149,9 +231,15 @@ namespace Pulumi.Artifactory
             set => _repositories = value;
         }
 
+        /// <summary>
+        /// (Optional, Default: `7200`) This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
+        /// </summary>
         [Input("retrievalCachePeriodSeconds")]
         public Input<int>? RetrievalCachePeriodSeconds { get; set; }
 
+        /// <summary>
+        /// (Optional) Secondary keypair used to sign artifacts. Default is empty.
+        /// </summary>
         [Input("secondaryKeypairRef")]
         public Input<string>? SecondaryKeypairRef { get; set; }
 
@@ -166,6 +254,9 @@ namespace Pulumi.Artifactory
     public sealed class GetVirtualDebianRepositoryResult
     {
         public readonly bool? ArtifactoryRequestsCanRetrieveRemoteArtifacts;
+        /// <summary>
+        /// (Optional) Specifying  architectures will speed up Artifactory's initial metadata indexing process. The default architecture values are amd64 and i386.
+        /// </summary>
         public readonly string? DebianDefaultArchitectures;
         public readonly string? DefaultDeploymentRepo;
         public readonly string? Description;
@@ -177,14 +268,26 @@ namespace Pulumi.Artifactory
         public readonly string? IncludesPattern;
         public readonly string Key;
         public readonly string? Notes;
+        /// <summary>
+        /// (Optional) Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are `bz2`,`lzma` and `xz`. Default value is `bz2`.
+        /// </summary>
         public readonly ImmutableArray<string> OptionalIndexCompressionFormats;
         public readonly string PackageType;
+        /// <summary>
+        /// (Optional) Primary keypair used to sign artifacts. Default is empty.
+        /// </summary>
         public readonly string? PrimaryKeypairRef;
         public readonly ImmutableArray<string> ProjectEnvironments;
         public readonly string? ProjectKey;
         public readonly string? RepoLayoutRef;
         public readonly ImmutableArray<string> Repositories;
+        /// <summary>
+        /// (Optional, Default: `7200`) This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
+        /// </summary>
         public readonly int? RetrievalCachePeriodSeconds;
+        /// <summary>
+        /// (Optional) Secondary keypair used to sign artifacts. Default is empty.
+        /// </summary>
         public readonly string? SecondaryKeypairRef;
 
         [OutputConstructor]

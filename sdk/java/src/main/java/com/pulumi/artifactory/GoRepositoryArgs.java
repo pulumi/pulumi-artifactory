@@ -82,16 +82,16 @@ public final class GoRepositoryArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * When set (default), Artifactory will automatically follow remote VCS roots in &#39;go-import&#39; meta tags to download remote
-     * modules.
+     * Shorthand for &#34;Enable &#39;go-import&#39; Meta Tags&#34; on the UI. This must be set to true in order to use the allow list.
+     * When checked (default), Artifactory will automatically follow remote VCS roots in &#39;go-import&#39; meta tags to download remote modules.
      * 
      */
     @Import(name="externalDependenciesEnabled")
     private @Nullable Output<Boolean> externalDependenciesEnabled;
 
     /**
-     * @return When set (default), Artifactory will automatically follow remote VCS roots in &#39;go-import&#39; meta tags to download remote
-     * modules.
+     * @return Shorthand for &#34;Enable &#39;go-import&#39; Meta Tags&#34; on the UI. This must be set to true in order to use the allow list.
+     * When checked (default), Artifactory will automatically follow remote VCS roots in &#39;go-import&#39; meta tags to download remote modules.
      * 
      */
     public Optional<Output<Boolean>> externalDependenciesEnabled() {
@@ -99,16 +99,14 @@ public final class GoRepositoryArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download
-     * remote modules from, when presented with &#39;go-import&#39; meta tags in the remote repository response.
+     * &#39;go-import&#39; Allow List on the UI.
      * 
      */
     @Import(name="externalDependenciesPatterns")
     private @Nullable Output<List<String>> externalDependenciesPatterns;
 
     /**
-     * @return An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download
-     * remote modules from, when presented with &#39;go-import&#39; meta tags in the remote repository response.
+     * @return &#39;go-import&#39; Allow List on the UI.
      * 
      */
     public Optional<Output<List<String>>> externalDependenciesPatterns() {
@@ -133,16 +131,16 @@ public final class GoRepositoryArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-     * characters. It cannot begin with a number or contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+     * contain spaces or special characters.
      * 
      */
     @Import(name="key", required=true)
     private Output<String> key;
 
     /**
-     * @return A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-     * characters. It cannot begin with a number or contain spaces or special characters.
+     * @return A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+     * contain spaces or special characters.
      * 
      */
     public Output<String> key() {
@@ -357,8 +355,8 @@ public final class GoRepositoryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param externalDependenciesEnabled When set (default), Artifactory will automatically follow remote VCS roots in &#39;go-import&#39; meta tags to download remote
-         * modules.
+         * @param externalDependenciesEnabled Shorthand for &#34;Enable &#39;go-import&#39; Meta Tags&#34; on the UI. This must be set to true in order to use the allow list.
+         * When checked (default), Artifactory will automatically follow remote VCS roots in &#39;go-import&#39; meta tags to download remote modules.
          * 
          * @return builder
          * 
@@ -369,8 +367,8 @@ public final class GoRepositoryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param externalDependenciesEnabled When set (default), Artifactory will automatically follow remote VCS roots in &#39;go-import&#39; meta tags to download remote
-         * modules.
+         * @param externalDependenciesEnabled Shorthand for &#34;Enable &#39;go-import&#39; Meta Tags&#34; on the UI. This must be set to true in order to use the allow list.
+         * When checked (default), Artifactory will automatically follow remote VCS roots in &#39;go-import&#39; meta tags to download remote modules.
          * 
          * @return builder
          * 
@@ -380,8 +378,7 @@ public final class GoRepositoryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param externalDependenciesPatterns An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download
-         * remote modules from, when presented with &#39;go-import&#39; meta tags in the remote repository response.
+         * @param externalDependenciesPatterns &#39;go-import&#39; Allow List on the UI.
          * 
          * @return builder
          * 
@@ -392,8 +389,7 @@ public final class GoRepositoryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param externalDependenciesPatterns An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download
-         * remote modules from, when presented with &#39;go-import&#39; meta tags in the remote repository response.
+         * @param externalDependenciesPatterns &#39;go-import&#39; Allow List on the UI.
          * 
          * @return builder
          * 
@@ -403,8 +399,7 @@ public final class GoRepositoryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param externalDependenciesPatterns An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download
-         * remote modules from, when presented with &#39;go-import&#39; meta tags in the remote repository response.
+         * @param externalDependenciesPatterns &#39;go-import&#39; Allow List on the UI.
          * 
          * @return builder
          * 
@@ -437,8 +432,8 @@ public final class GoRepositoryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param key A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-         * characters. It cannot begin with a number or contain spaces or special characters.
+         * @param key A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+         * contain spaces or special characters.
          * 
          * @return builder
          * 
@@ -449,8 +444,8 @@ public final class GoRepositoryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param key A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-         * characters. It cannot begin with a number or contain spaces or special characters.
+         * @param key A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+         * contain spaces or special characters.
          * 
          * @return builder
          * 

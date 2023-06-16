@@ -6,6 +6,20 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * Retrieves a remote Docker repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const remote-docker = artifactory.getRemoteDockerRepository({
+ *     key: "remote-docker",
+ * });
+ * ```
+ */
 export function getRemoteDockerRepository(args: GetRemoteDockerRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetRemoteDockerRepositoryResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -65,6 +79,9 @@ export interface GetRemoteDockerRepositoryArgs {
     assumedOfflinePeriodSecs?: number;
     blackedOut?: boolean;
     blockMismatchingMimeTypes?: boolean;
+    /**
+     * (Optional) When set, Artifactory will block the pulling of Docker images with manifest v2 schema 1 from the remote repository (i.e. the upstream). It will be possible to pull images with manifest v2 schema 1 that exist in the cache.
+     */
     blockPushingSchema1?: boolean;
     bypassHeadRequests?: boolean;
     cdnRedirect?: boolean;
@@ -73,12 +90,24 @@ export interface GetRemoteDockerRepositoryArgs {
     description?: string;
     downloadDirect?: boolean;
     enableCookieManagement?: boolean;
+    /**
+     * (Optional) Enable token (Bearer) based authentication.
+     */
     enableTokenAuthentication?: boolean;
     excludesPattern?: string;
+    /**
+     * (Optional) Also known as 'Foreign Layers Caching' on the UI.
+     */
     externalDependenciesEnabled?: boolean;
+    /**
+     * (Optional) An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response. By default, this is set to `[**]` in the UI, which means that remote modules may be downloaded from any external VCS source. Due to SDKv2 limitations, we can't set the default value for the list. This value `[**]` must be assigned to the attribute manually, if user don't specify any other non-default values. We don't want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns `[**]` on update if HCL doesn't have the attribute set or the list is empty.
+     */
     externalDependenciesPatterns?: string[];
     hardFail?: boolean;
     includesPattern?: string;
+    /**
+     * the identity key of the repo.
+     */
     key: string;
     listRemoteFolderItems?: boolean;
     localAddress?: string;
@@ -115,6 +144,9 @@ export interface GetRemoteDockerRepositoryResult {
     readonly assumedOfflinePeriodSecs?: number;
     readonly blackedOut?: boolean;
     readonly blockMismatchingMimeTypes?: boolean;
+    /**
+     * (Optional) When set, Artifactory will block the pulling of Docker images with manifest v2 schema 1 from the remote repository (i.e. the upstream). It will be possible to pull images with manifest v2 schema 1 that exist in the cache.
+     */
     readonly blockPushingSchema1: boolean;
     readonly bypassHeadRequests?: boolean;
     readonly cdnRedirect?: boolean;
@@ -123,9 +155,18 @@ export interface GetRemoteDockerRepositoryResult {
     readonly description?: string;
     readonly downloadDirect?: boolean;
     readonly enableCookieManagement?: boolean;
+    /**
+     * (Optional) Enable token (Bearer) based authentication.
+     */
     readonly enableTokenAuthentication: boolean;
     readonly excludesPattern?: string;
+    /**
+     * (Optional) Also known as 'Foreign Layers Caching' on the UI.
+     */
     readonly externalDependenciesEnabled?: boolean;
+    /**
+     * (Optional) An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response. By default, this is set to `[**]` in the UI, which means that remote modules may be downloaded from any external VCS source. Due to SDKv2 limitations, we can't set the default value for the list. This value `[**]` must be assigned to the attribute manually, if user don't specify any other non-default values. We don't want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns `[**]` on update if HCL doesn't have the attribute set or the list is empty.
+     */
     readonly externalDependenciesPatterns?: string[];
     readonly hardFail?: boolean;
     /**
@@ -161,6 +202,20 @@ export interface GetRemoteDockerRepositoryResult {
     readonly username?: string;
     readonly xrayIndex?: boolean;
 }
+/**
+ * Retrieves a remote Docker repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const remote-docker = artifactory.getRemoteDockerRepository({
+ *     key: "remote-docker",
+ * });
+ * ```
+ */
 export function getRemoteDockerRepositoryOutput(args: GetRemoteDockerRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemoteDockerRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getRemoteDockerRepository(a, opts))
 }
@@ -173,6 +228,9 @@ export interface GetRemoteDockerRepositoryOutputArgs {
     assumedOfflinePeriodSecs?: pulumi.Input<number>;
     blackedOut?: pulumi.Input<boolean>;
     blockMismatchingMimeTypes?: pulumi.Input<boolean>;
+    /**
+     * (Optional) When set, Artifactory will block the pulling of Docker images with manifest v2 schema 1 from the remote repository (i.e. the upstream). It will be possible to pull images with manifest v2 schema 1 that exist in the cache.
+     */
     blockPushingSchema1?: pulumi.Input<boolean>;
     bypassHeadRequests?: pulumi.Input<boolean>;
     cdnRedirect?: pulumi.Input<boolean>;
@@ -181,12 +239,24 @@ export interface GetRemoteDockerRepositoryOutputArgs {
     description?: pulumi.Input<string>;
     downloadDirect?: pulumi.Input<boolean>;
     enableCookieManagement?: pulumi.Input<boolean>;
+    /**
+     * (Optional) Enable token (Bearer) based authentication.
+     */
     enableTokenAuthentication?: pulumi.Input<boolean>;
     excludesPattern?: pulumi.Input<string>;
+    /**
+     * (Optional) Also known as 'Foreign Layers Caching' on the UI.
+     */
     externalDependenciesEnabled?: pulumi.Input<boolean>;
+    /**
+     * (Optional) An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response. By default, this is set to `[**]` in the UI, which means that remote modules may be downloaded from any external VCS source. Due to SDKv2 limitations, we can't set the default value for the list. This value `[**]` must be assigned to the attribute manually, if user don't specify any other non-default values. We don't want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns `[**]` on update if HCL doesn't have the attribute set or the list is empty.
+     */
     externalDependenciesPatterns?: pulumi.Input<pulumi.Input<string>[]>;
     hardFail?: pulumi.Input<boolean>;
     includesPattern?: pulumi.Input<string>;
+    /**
+     * the identity key of the repo.
+     */
     key: pulumi.Input<string>;
     listRemoteFolderItems?: pulumi.Input<boolean>;
     localAddress?: pulumi.Input<string>;

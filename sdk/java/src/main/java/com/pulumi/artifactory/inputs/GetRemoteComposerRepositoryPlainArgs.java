@@ -67,9 +67,17 @@ public final class GetRemoteComposerRepositoryPlainArgs extends com.pulumi.resou
         return Optional.ofNullable(this.clientTlsCertificate);
     }
 
+    /**
+     * (Optional) Proxy remote Composer repository. Default value is `https://packagist.org`.
+     * 
+     */
     @Import(name="composerRegistryUrl")
     private @Nullable String composerRegistryUrl;
 
+    /**
+     * @return (Optional) Proxy remote Composer repository. Default value is `https://packagist.org`.
+     * 
+     */
     public Optional<String> composerRegistryUrl() {
         return Optional.ofNullable(this.composerRegistryUrl);
     }
@@ -123,9 +131,17 @@ public final class GetRemoteComposerRepositoryPlainArgs extends com.pulumi.resou
         return Optional.ofNullable(this.includesPattern);
     }
 
+    /**
+     * the identity key of the repo.
+     * 
+     */
     @Import(name="key", required=true)
     private String key;
 
+    /**
+     * @return the identity key of the repo.
+     * 
+     */
     public String key() {
         return this.key;
     }
@@ -298,16 +314,32 @@ public final class GetRemoteComposerRepositoryPlainArgs extends com.pulumi.resou
         return Optional.ofNullable(this.username);
     }
 
+    /**
+     * (Optional) This attribute is used when vcs_git_provider is set to `CUSTOM`. Provided URL will be used as proxy.
+     * 
+     */
     @Import(name="vcsGitDownloadUrl")
     private @Nullable String vcsGitDownloadUrl;
 
+    /**
+     * @return (Optional) This attribute is used when vcs_git_provider is set to `CUSTOM`. Provided URL will be used as proxy.
+     * 
+     */
     public Optional<String> vcsGitDownloadUrl() {
         return Optional.ofNullable(this.vcsGitDownloadUrl);
     }
 
+    /**
+     * (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`. Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
+     * 
+     */
     @Import(name="vcsGitProvider")
     private @Nullable String vcsGitProvider;
 
+    /**
+     * @return (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`. Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
+     * 
+     */
     public Optional<String> vcsGitProvider() {
         return Optional.ofNullable(this.vcsGitProvider);
     }
@@ -420,6 +452,12 @@ public final class GetRemoteComposerRepositoryPlainArgs extends com.pulumi.resou
             return this;
         }
 
+        /**
+         * @param composerRegistryUrl (Optional) Proxy remote Composer repository. Default value is `https://packagist.org`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder composerRegistryUrl(@Nullable String composerRegistryUrl) {
             $.composerRegistryUrl = composerRegistryUrl;
             return this;
@@ -460,6 +498,12 @@ public final class GetRemoteComposerRepositoryPlainArgs extends com.pulumi.resou
             return this;
         }
 
+        /**
+         * @param key the identity key of the repo.
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(String key) {
             $.key = key;
             return this;
@@ -593,11 +637,23 @@ public final class GetRemoteComposerRepositoryPlainArgs extends com.pulumi.resou
             return this;
         }
 
+        /**
+         * @param vcsGitDownloadUrl (Optional) This attribute is used when vcs_git_provider is set to `CUSTOM`. Provided URL will be used as proxy.
+         * 
+         * @return builder
+         * 
+         */
         public Builder vcsGitDownloadUrl(@Nullable String vcsGitDownloadUrl) {
             $.vcsGitDownloadUrl = vcsGitDownloadUrl;
             return this;
         }
 
+        /**
+         * @param vcsGitProvider (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`. Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder vcsGitProvider(@Nullable String vcsGitProvider) {
             $.vcsGitProvider = vcsGitProvider;
             return this;

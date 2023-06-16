@@ -95,16 +95,38 @@ public final class GetFederatedCargoRepositoryArgs extends com.pulumi.resources.
         return Optional.ofNullable(this.indexCompressionFormats);
     }
 
+    /**
+     * the identity key of the repo.
+     * 
+     */
     @Import(name="key", required=true)
     private Output<String> key;
 
+    /**
+     * @return the identity key of the repo.
+     * 
+     */
     public Output<String> key() {
         return this.key;
     }
 
+    /**
+     * The list of Federated members and must contain this repository URL (configured base URL
+     * `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+     * Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+     * to set up Federated repositories correctly.
+     * 
+     */
     @Import(name="members")
     private @Nullable Output<List<GetFederatedCargoRepositoryMemberArgs>> members;
 
+    /**
+     * @return The list of Federated members and must contain this repository URL (configured base URL
+     * `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+     * Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+     * to set up Federated repositories correctly.
+     * 
+     */
     public Optional<Output<List<GetFederatedCargoRepositoryMemberArgs>>> members() {
         return Optional.ofNullable(this.members);
     }
@@ -304,24 +326,63 @@ public final class GetFederatedCargoRepositoryArgs extends com.pulumi.resources.
             return indexCompressionFormats(List.of(indexCompressionFormats));
         }
 
+        /**
+         * @param key the identity key of the repo.
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(Output<String> key) {
             $.key = key;
             return this;
         }
 
+        /**
+         * @param key the identity key of the repo.
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(String key) {
             return key(Output.of(key));
         }
 
+        /**
+         * @param members The list of Federated members and must contain this repository URL (configured base URL
+         * `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+         * Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+         * to set up Federated repositories correctly.
+         * 
+         * @return builder
+         * 
+         */
         public Builder members(@Nullable Output<List<GetFederatedCargoRepositoryMemberArgs>> members) {
             $.members = members;
             return this;
         }
 
+        /**
+         * @param members The list of Federated members and must contain this repository URL (configured base URL
+         * `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+         * Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+         * to set up Federated repositories correctly.
+         * 
+         * @return builder
+         * 
+         */
         public Builder members(List<GetFederatedCargoRepositoryMemberArgs> members) {
             return members(Output.of(members));
         }
 
+        /**
+         * @param members The list of Federated members and must contain this repository URL (configured base URL
+         * `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+         * Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+         * to set up Federated repositories correctly.
+         * 
+         * @return builder
+         * 
+         */
         public Builder members(GetFederatedCargoRepositoryMemberArgs... members) {
             return members(List.of(members));
         }

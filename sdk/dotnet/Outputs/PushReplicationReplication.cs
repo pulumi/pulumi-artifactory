@@ -13,16 +13,51 @@ namespace Pulumi.Artifactory.Outputs
     [OutputType]
     public sealed class PushReplicationReplication
     {
+        /// <summary>
+        /// When true, enables distributed checksum storage. For more information, see
+        /// [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
+        /// </summary>
         public readonly bool? CheckBinaryExistenceInFilestore;
+        /// <summary>
+        /// When set, this replication will be enabled when saved.
+        /// </summary>
         public readonly bool? Enabled;
+        /// <summary>
+        /// Required for local repository, but not needed for remote repository.
+        /// </summary>
         public readonly string Password;
+        /// <summary>
+        /// Only artifacts that located in path that matches the subpath within the remote repository will be replicated.
+        /// </summary>
         public readonly string? PathPrefix;
+        /// <summary>
+        /// Proxy key from Artifactory Proxies settings. The proxy configuration will be used when communicating with the remote instance.
+        /// </summary>
         public readonly string? Proxy;
+        /// <summary>
+        /// The network timeout in milliseconds to use for remote operations.
+        /// </summary>
         public readonly int? SocketTimeoutMillis;
+        /// <summary>
+        /// When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata).
+        /// Note that enabling this option, will delete artifacts on the target that do not exist in the source repository.
+        /// </summary>
         public readonly bool? SyncDeletes;
+        /// <summary>
+        /// When set, the task also synchronizes the properties of replicated artifacts.
+        /// </summary>
         public readonly bool? SyncProperties;
+        /// <summary>
+        /// When set, artifact download statistics will also be replicated. Set to avoid inadvertent cleanup at the target instance when setting up replication for disaster recovery.
+        /// </summary>
         public readonly bool? SyncStatistics;
+        /// <summary>
+        /// The URL of the target local repository on a remote Artifactory server. Required for local repository, but not needed for remote repository.
+        /// </summary>
         public readonly string Url;
+        /// <summary>
+        /// Required for local repository, but not needed for remote repository.
+        /// </summary>
         public readonly string Username;
 
         [OutputConstructor]

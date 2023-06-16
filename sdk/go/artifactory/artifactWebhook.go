@@ -11,20 +11,86 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides an Artifactory webhook resource. This can be used to register and manage Artifactory webhook subscription which enables you to be notified or notify other users when such events take place in Artifactory.
+//
+// ## Example Usage
+//
+// .
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewLocalGenericRepository(ctx, "my-generic-local", &artifactory.LocalGenericRepositoryArgs{
+//				Key: pulumi.String("my-generic-local"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = artifactory.NewArtifactWebhook(ctx, "artifact-webhook", &artifactory.ArtifactWebhookArgs{
+//				Key: pulumi.String("artifact-webhook"),
+//				EventTypes: pulumi.StringArray{
+//					pulumi.String("deployed"),
+//					pulumi.String("deleted"),
+//					pulumi.String("moved"),
+//					pulumi.String("copied"),
+//				},
+//				Criteria: &artifactory.ArtifactWebhookCriteriaArgs{
+//					AnyLocal:  pulumi.Bool(true),
+//					AnyRemote: pulumi.Bool(false),
+//					RepoKeys: pulumi.StringArray{
+//						my_generic_local.Key,
+//					},
+//					IncludePatterns: pulumi.StringArray{
+//						pulumi.String("foo/**"),
+//					},
+//					ExcludePatterns: pulumi.StringArray{
+//						pulumi.String("bar/**"),
+//					},
+//				},
+//				Handlers: artifactory.ArtifactWebhookHandlerArray{
+//					&artifactory.ArtifactWebhookHandlerArgs{
+//						Url:    pulumi.String("http://tempurl.org/webhook"),
+//						Secret: pulumi.String("some-secret"),
+//						Proxy:  pulumi.String("proxy-key"),
+//						CustomHttpHeaders: pulumi.StringMap{
+//							"header-1": pulumi.String("value-1"),
+//							"header-2": pulumi.String("value-2"),
+//						},
+//					},
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				my_generic_local,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 type ArtifactWebhook struct {
 	pulumi.CustomResourceState
 
 	// Specifies where the webhook will be applied on which repositories.
 	Criteria ArtifactWebhookCriteriaOutput `pulumi:"criteria"`
-	// Description of webhook. Max length 1000 characters.
+	// Webhook description. Max length 1000 characters.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Status of webhook. Default to 'true'
+	// Status of webhook. Default to `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
-	// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow
-	// values: deployed, deleted, moved, copied, cached
-	EventTypes pulumi.StringArrayOutput          `pulumi:"eventTypes"`
-	Handlers   ArtifactWebhookHandlerArrayOutput `pulumi:"handlers"`
-	// Key of webhook. Must be between 2 and 200 characters. Cannot contain spaces.
+	// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `deployed`, `deleted`, `moved`, `copied`, `cached`.
+	EventTypes pulumi.StringArrayOutput `pulumi:"eventTypes"`
+	// At least one is required.
+	Handlers ArtifactWebhookHandlerArrayOutput `pulumi:"handlers"`
+	// The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
 	Key pulumi.StringOutput `pulumi:"key"`
 }
 
@@ -71,30 +137,30 @@ func GetArtifactWebhook(ctx *pulumi.Context,
 type artifactWebhookState struct {
 	// Specifies where the webhook will be applied on which repositories.
 	Criteria *ArtifactWebhookCriteria `pulumi:"criteria"`
-	// Description of webhook. Max length 1000 characters.
+	// Webhook description. Max length 1000 characters.
 	Description *string `pulumi:"description"`
-	// Status of webhook. Default to 'true'
+	// Status of webhook. Default to `true`.
 	Enabled *bool `pulumi:"enabled"`
-	// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow
-	// values: deployed, deleted, moved, copied, cached
-	EventTypes []string                 `pulumi:"eventTypes"`
-	Handlers   []ArtifactWebhookHandler `pulumi:"handlers"`
-	// Key of webhook. Must be between 2 and 200 characters. Cannot contain spaces.
+	// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `deployed`, `deleted`, `moved`, `copied`, `cached`.
+	EventTypes []string `pulumi:"eventTypes"`
+	// At least one is required.
+	Handlers []ArtifactWebhookHandler `pulumi:"handlers"`
+	// The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
 	Key *string `pulumi:"key"`
 }
 
 type ArtifactWebhookState struct {
 	// Specifies where the webhook will be applied on which repositories.
 	Criteria ArtifactWebhookCriteriaPtrInput
-	// Description of webhook. Max length 1000 characters.
+	// Webhook description. Max length 1000 characters.
 	Description pulumi.StringPtrInput
-	// Status of webhook. Default to 'true'
+	// Status of webhook. Default to `true`.
 	Enabled pulumi.BoolPtrInput
-	// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow
-	// values: deployed, deleted, moved, copied, cached
+	// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `deployed`, `deleted`, `moved`, `copied`, `cached`.
 	EventTypes pulumi.StringArrayInput
-	Handlers   ArtifactWebhookHandlerArrayInput
-	// Key of webhook. Must be between 2 and 200 characters. Cannot contain spaces.
+	// At least one is required.
+	Handlers ArtifactWebhookHandlerArrayInput
+	// The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
 	Key pulumi.StringPtrInput
 }
 
@@ -105,15 +171,15 @@ func (ArtifactWebhookState) ElementType() reflect.Type {
 type artifactWebhookArgs struct {
 	// Specifies where the webhook will be applied on which repositories.
 	Criteria ArtifactWebhookCriteria `pulumi:"criteria"`
-	// Description of webhook. Max length 1000 characters.
+	// Webhook description. Max length 1000 characters.
 	Description *string `pulumi:"description"`
-	// Status of webhook. Default to 'true'
+	// Status of webhook. Default to `true`.
 	Enabled *bool `pulumi:"enabled"`
-	// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow
-	// values: deployed, deleted, moved, copied, cached
-	EventTypes []string                 `pulumi:"eventTypes"`
-	Handlers   []ArtifactWebhookHandler `pulumi:"handlers"`
-	// Key of webhook. Must be between 2 and 200 characters. Cannot contain spaces.
+	// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `deployed`, `deleted`, `moved`, `copied`, `cached`.
+	EventTypes []string `pulumi:"eventTypes"`
+	// At least one is required.
+	Handlers []ArtifactWebhookHandler `pulumi:"handlers"`
+	// The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
 	Key string `pulumi:"key"`
 }
 
@@ -121,15 +187,15 @@ type artifactWebhookArgs struct {
 type ArtifactWebhookArgs struct {
 	// Specifies where the webhook will be applied on which repositories.
 	Criteria ArtifactWebhookCriteriaInput
-	// Description of webhook. Max length 1000 characters.
+	// Webhook description. Max length 1000 characters.
 	Description pulumi.StringPtrInput
-	// Status of webhook. Default to 'true'
+	// Status of webhook. Default to `true`.
 	Enabled pulumi.BoolPtrInput
-	// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow
-	// values: deployed, deleted, moved, copied, cached
+	// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `deployed`, `deleted`, `moved`, `copied`, `cached`.
 	EventTypes pulumi.StringArrayInput
-	Handlers   ArtifactWebhookHandlerArrayInput
-	// Key of webhook. Must be between 2 and 200 characters. Cannot contain spaces.
+	// At least one is required.
+	Handlers ArtifactWebhookHandlerArrayInput
+	// The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
 	Key pulumi.StringInput
 }
 
@@ -225,27 +291,27 @@ func (o ArtifactWebhookOutput) Criteria() ArtifactWebhookCriteriaOutput {
 	return o.ApplyT(func(v *ArtifactWebhook) ArtifactWebhookCriteriaOutput { return v.Criteria }).(ArtifactWebhookCriteriaOutput)
 }
 
-// Description of webhook. Max length 1000 characters.
+// Webhook description. Max length 1000 characters.
 func (o ArtifactWebhookOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ArtifactWebhook) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Status of webhook. Default to 'true'
+// Status of webhook. Default to `true`.
 func (o ArtifactWebhookOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ArtifactWebhook) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow
-// values: deployed, deleted, moved, copied, cached
+// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `deployed`, `deleted`, `moved`, `copied`, `cached`.
 func (o ArtifactWebhookOutput) EventTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ArtifactWebhook) pulumi.StringArrayOutput { return v.EventTypes }).(pulumi.StringArrayOutput)
 }
 
+// At least one is required.
 func (o ArtifactWebhookOutput) Handlers() ArtifactWebhookHandlerArrayOutput {
 	return o.ApplyT(func(v *ArtifactWebhook) ArtifactWebhookHandlerArrayOutput { return v.Handlers }).(ArtifactWebhookHandlerArrayOutput)
 }
 
-// Key of webhook. Must be between 2 and 200 characters. Cannot contain spaces.
+// The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
 func (o ArtifactWebhookOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v *ArtifactWebhook) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
 }

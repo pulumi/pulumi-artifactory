@@ -165,7 +165,19 @@ def get_virtual_pub_repository(artifactory_requests_can_retrieve_remote_artifact
                                repositories: Optional[Sequence[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualPubRepositoryResult:
     """
-    Use this data source to access information about an existing resource.
+    Retrieves a virtual Pub repository.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_artifactory as artifactory
+
+    virtual_pub = artifactory.get_virtual_pub_repository(key="virtual-pub")
+    ```
+
+
+    :param str key: the identity key of the repo.
     """
     __args__ = dict()
     __args__['artifactoryRequestsCanRetrieveRemoteArtifacts'] = artifactory_requests_can_retrieve_remote_artifacts
@@ -212,6 +224,18 @@ def get_virtual_pub_repository_output(artifactory_requests_can_retrieve_remote_a
                                       repositories: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualPubRepositoryResult]:
     """
-    Use this data source to access information about an existing resource.
+    Retrieves a virtual Pub repository.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_artifactory as artifactory
+
+    virtual_pub = artifactory.get_virtual_pub_repository(key="virtual-pub")
+    ```
+
+
+    :param str key: the identity key of the repo.
     """
     ...

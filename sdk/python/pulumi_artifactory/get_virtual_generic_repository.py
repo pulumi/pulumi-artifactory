@@ -165,7 +165,19 @@ def get_virtual_generic_repository(artifactory_requests_can_retrieve_remote_arti
                                    repositories: Optional[Sequence[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualGenericRepositoryResult:
     """
-    Use this data source to access information about an existing resource.
+    Retrieves a virtual Generic repository.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_artifactory as artifactory
+
+    virtual_generic = artifactory.get_virtual_generic_repository(key="virtual-generic")
+    ```
+
+
+    :param str key: the identity key of the repo.
     """
     __args__ = dict()
     __args__['artifactoryRequestsCanRetrieveRemoteArtifacts'] = artifactory_requests_can_retrieve_remote_artifacts
@@ -212,6 +224,18 @@ def get_virtual_generic_repository_output(artifactory_requests_can_retrieve_remo
                                           repositories: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualGenericRepositoryResult]:
     """
-    Use this data source to access information about an existing resource.
+    Retrieves a virtual Generic repository.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_artifactory as artifactory
+
+    virtual_generic = artifactory.get_virtual_generic_repository(key="virtual-generic")
+    ```
+
+
+    :param str key: the identity key of the repo.
     """
     ...

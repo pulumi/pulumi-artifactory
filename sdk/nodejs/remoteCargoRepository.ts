@@ -6,6 +6,37 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * Creates a remote Cargo repository.
+ * Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Cargo+Registry).
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const my_remote_cargo = new artifactory.RemoteCargoRepository("my-remote-cargo", {
+ *     anonymousAccess: true,
+ *     enableSparseIndex: true,
+ *     gitRegistryUrl: "https://github.com/rust-lang/foo.index",
+ *     key: "my-remote-cargo",
+ *     url: "https://github.com/rust-lang/crates.io-index",
+ * });
+ * ```
+ * ## Note
+ *
+ * If you get a 400 error: `"Custom Base URL should be defined prior to creating a Cargo repository"`,
+ * you must set the base url at: `http://${host}/ui/admin/configuration/general`
+ *
+ * ## Import
+ *
+ * Remote repositories can be imported using their name, e.g.
+ *
+ * ```sh
+ *  $ pulumi import artifactory:index/remoteCargoRepository:RemoteCargoRepository my-remote-cargo my-remote-cargo
+ * ```
+ */
 export class RemoteCargoRepository extends pulumi.CustomResource {
     /**
      * Get an existing RemoteCargoRepository resource's state with the given name, ID, and optional extra
@@ -40,9 +71,7 @@ export class RemoteCargoRepository extends pulumi.CustomResource {
      */
     public readonly allowAnyHostAuth!: pulumi.Output<boolean | undefined>;
     /**
-     * (On the UI: Anonymous download and search) Cargo client does not send credentials when performing download and search
-     * for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security
-     * anonymous access option.
+     * Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
      */
     public readonly anonymousAccess!: pulumi.Output<boolean | undefined>;
     /**
@@ -92,8 +121,7 @@ export class RemoteCargoRepository extends pulumi.CustomResource {
      */
     public readonly enableCookieManagement!: pulumi.Output<boolean | undefined>;
     /**
-     * Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default
-     * value is 'false'.
+     * Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
      */
     public readonly enableSparseIndex!: pulumi.Output<boolean | undefined>;
     /**
@@ -102,8 +130,7 @@ export class RemoteCargoRepository extends pulumi.CustomResource {
      */
     public readonly excludesPattern!: pulumi.Output<string | undefined>;
     /**
-     * This is the index url, expected to be a git repository. Default value in UI is
-     * "https://github.com/rust-lang/crates.io-index"
+     * This is the index url, expected to be a git repository. Default value is `https://github.com/rust-lang/crates.io-index`.
      */
     public readonly gitRegistryUrl!: pulumi.Output<string>;
     /**
@@ -117,8 +144,8 @@ export class RemoteCargoRepository extends pulumi.CustomResource {
      */
     public readonly includesPattern!: pulumi.Output<string | undefined>;
     /**
-     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-     * characters. It cannot begin with a number or contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+     * contain spaces or special characters.
      */
     public readonly key!: pulumi.Output<string>;
     /**
@@ -363,9 +390,7 @@ export interface RemoteCargoRepositoryState {
      */
     allowAnyHostAuth?: pulumi.Input<boolean>;
     /**
-     * (On the UI: Anonymous download and search) Cargo client does not send credentials when performing download and search
-     * for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security
-     * anonymous access option.
+     * Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
      */
     anonymousAccess?: pulumi.Input<boolean>;
     /**
@@ -415,8 +440,7 @@ export interface RemoteCargoRepositoryState {
      */
     enableCookieManagement?: pulumi.Input<boolean>;
     /**
-     * Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default
-     * value is 'false'.
+     * Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
      */
     enableSparseIndex?: pulumi.Input<boolean>;
     /**
@@ -425,8 +449,7 @@ export interface RemoteCargoRepositoryState {
      */
     excludesPattern?: pulumi.Input<string>;
     /**
-     * This is the index url, expected to be a git repository. Default value in UI is
-     * "https://github.com/rust-lang/crates.io-index"
+     * This is the index url, expected to be a git repository. Default value is `https://github.com/rust-lang/crates.io-index`.
      */
     gitRegistryUrl?: pulumi.Input<string>;
     /**
@@ -440,8 +463,8 @@ export interface RemoteCargoRepositoryState {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-     * characters. It cannot begin with a number or contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+     * contain spaces or special characters.
      */
     key?: pulumi.Input<string>;
     /**
@@ -567,9 +590,7 @@ export interface RemoteCargoRepositoryArgs {
      */
     allowAnyHostAuth?: pulumi.Input<boolean>;
     /**
-     * (On the UI: Anonymous download and search) Cargo client does not send credentials when performing download and search
-     * for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security
-     * anonymous access option.
+     * Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
      */
     anonymousAccess?: pulumi.Input<boolean>;
     /**
@@ -619,8 +640,7 @@ export interface RemoteCargoRepositoryArgs {
      */
     enableCookieManagement?: pulumi.Input<boolean>;
     /**
-     * Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default
-     * value is 'false'.
+     * Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
      */
     enableSparseIndex?: pulumi.Input<boolean>;
     /**
@@ -629,8 +649,7 @@ export interface RemoteCargoRepositoryArgs {
      */
     excludesPattern?: pulumi.Input<string>;
     /**
-     * This is the index url, expected to be a git repository. Default value in UI is
-     * "https://github.com/rust-lang/crates.io-index"
+     * This is the index url, expected to be a git repository. Default value is `https://github.com/rust-lang/crates.io-index`.
      */
     gitRegistryUrl: pulumi.Input<string>;
     /**
@@ -644,8 +663,8 @@ export interface RemoteCargoRepositoryArgs {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-     * characters. It cannot begin with a number or contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+     * contain spaces or special characters.
      */
     key: pulumi.Input<string>;
     /**

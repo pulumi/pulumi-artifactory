@@ -13,16 +13,32 @@ public final class GetFileinfoArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetFileinfoArgs Empty = new GetFileinfoArgs();
 
+    /**
+     * The path to the file within the repository.
+     * 
+     */
     @Import(name="path", required=true)
     private Output<String> path;
 
+    /**
+     * @return The path to the file within the repository.
+     * 
+     */
     public Output<String> path() {
         return this.path;
     }
 
+    /**
+     * Name of the repository where the file is stored.
+     * 
+     */
     @Import(name="repository", required=true)
     private Output<String> repository;
 
+    /**
+     * @return Name of the repository where the file is stored.
+     * 
+     */
     public Output<String> repository() {
         return this.repository;
     }
@@ -52,20 +68,44 @@ public final class GetFileinfoArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetFileinfoArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param path The path to the file within the repository.
+         * 
+         * @return builder
+         * 
+         */
         public Builder path(Output<String> path) {
             $.path = path;
             return this;
         }
 
+        /**
+         * @param path The path to the file within the repository.
+         * 
+         * @return builder
+         * 
+         */
         public Builder path(String path) {
             return path(Output.of(path));
         }
 
+        /**
+         * @param repository Name of the repository where the file is stored.
+         * 
+         * @return builder
+         * 
+         */
         public Builder repository(Output<String> repository) {
             $.repository = repository;
             return this;
         }
 
+        /**
+         * @param repository Name of the repository where the file is stored.
+         * 
+         * @return builder
+         * 
+         */
         public Builder repository(String repository) {
             return repository(Output.of(repository));
         }

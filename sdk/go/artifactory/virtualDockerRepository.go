@@ -11,6 +11,50 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Creates a virtual Docker repository.
+// Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Docker+Registry#DockerRegistry-VirtualDockerRepositories).
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewVirtualDockerRepository(ctx, "foo-docker", &artifactory.VirtualDockerRepositoryArgs{
+//				Description:                  pulumi.String("A test virtual repo"),
+//				ExcludesPattern:              pulumi.String("com/google/**"),
+//				IncludesPattern:              pulumi.String("com/jfrog/**,cloud/jfrog/**"),
+//				Key:                          pulumi.String("foo-docker"),
+//				Notes:                        pulumi.String("Internal description"),
+//				Repositories:                 pulumi.StringArray{},
+//				ResolveDockerTagsByTimestamp: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Virtual repositories can be imported using their name, e.g.
+//
+// ```sh
+//
+//	$ pulumi import artifactory:index/virtualDockerRepository:VirtualDockerRepository foo-docker foo-docker
+//
+// ```
 type VirtualDockerRepository struct {
 	pulumi.CustomResourceState
 
@@ -27,8 +71,8 @@ type VirtualDockerRepository struct {
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrOutput `pulumi:"includesPattern"`
-	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-	// characters. It cannot begin with a number or contain spaces or special characters.
+	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+	// contain spaces or special characters.
 	Key pulumi.StringOutput `pulumi:"key"`
 	// Internal description.
 	Notes       pulumi.StringPtrOutput `pulumi:"notes"`
@@ -45,8 +89,7 @@ type VirtualDockerRepository struct {
 	RepoLayoutRef pulumi.StringPtrOutput `pulumi:"repoLayoutRef"`
 	// The effective list of actual repositories included in this virtual repository.
 	Repositories pulumi.StringArrayOutput `pulumi:"repositories"`
-	// When enabled, in cases where the same Docker tag exists in two or more of the aggregated repositories, Artifactory will
-	// return the tag that has the latest timestamp.
+	// When enabled, in cases where the same Docker tag exists in two or more of the aggregated repositories, Artifactory will return the tag that has the latest timestamp. Default values is `false`.
 	ResolveDockerTagsByTimestamp pulumi.BoolPtrOutput `pulumi:"resolveDockerTagsByTimestamp"`
 }
 
@@ -95,8 +138,8 @@ type virtualDockerRepositoryState struct {
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
-	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-	// characters. It cannot begin with a number or contain spaces or special characters.
+	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+	// contain spaces or special characters.
 	Key *string `pulumi:"key"`
 	// Internal description.
 	Notes       *string `pulumi:"notes"`
@@ -113,8 +156,7 @@ type virtualDockerRepositoryState struct {
 	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
 	// The effective list of actual repositories included in this virtual repository.
 	Repositories []string `pulumi:"repositories"`
-	// When enabled, in cases where the same Docker tag exists in two or more of the aggregated repositories, Artifactory will
-	// return the tag that has the latest timestamp.
+	// When enabled, in cases where the same Docker tag exists in two or more of the aggregated repositories, Artifactory will return the tag that has the latest timestamp. Default values is `false`.
 	ResolveDockerTagsByTimestamp *bool `pulumi:"resolveDockerTagsByTimestamp"`
 }
 
@@ -132,8 +174,8 @@ type VirtualDockerRepositoryState struct {
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
-	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-	// characters. It cannot begin with a number or contain spaces or special characters.
+	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+	// contain spaces or special characters.
 	Key pulumi.StringPtrInput
 	// Internal description.
 	Notes       pulumi.StringPtrInput
@@ -150,8 +192,7 @@ type VirtualDockerRepositoryState struct {
 	RepoLayoutRef pulumi.StringPtrInput
 	// The effective list of actual repositories included in this virtual repository.
 	Repositories pulumi.StringArrayInput
-	// When enabled, in cases where the same Docker tag exists in two or more of the aggregated repositories, Artifactory will
-	// return the tag that has the latest timestamp.
+	// When enabled, in cases where the same Docker tag exists in two or more of the aggregated repositories, Artifactory will return the tag that has the latest timestamp. Default values is `false`.
 	ResolveDockerTagsByTimestamp pulumi.BoolPtrInput
 }
 
@@ -173,8 +214,8 @@ type virtualDockerRepositoryArgs struct {
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
-	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-	// characters. It cannot begin with a number or contain spaces or special characters.
+	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+	// contain spaces or special characters.
 	Key string `pulumi:"key"`
 	// Internal description.
 	Notes *string `pulumi:"notes"`
@@ -190,8 +231,7 @@ type virtualDockerRepositoryArgs struct {
 	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
 	// The effective list of actual repositories included in this virtual repository.
 	Repositories []string `pulumi:"repositories"`
-	// When enabled, in cases where the same Docker tag exists in two or more of the aggregated repositories, Artifactory will
-	// return the tag that has the latest timestamp.
+	// When enabled, in cases where the same Docker tag exists in two or more of the aggregated repositories, Artifactory will return the tag that has the latest timestamp. Default values is `false`.
 	ResolveDockerTagsByTimestamp *bool `pulumi:"resolveDockerTagsByTimestamp"`
 }
 
@@ -210,8 +250,8 @@ type VirtualDockerRepositoryArgs struct {
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
-	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-	// characters. It cannot begin with a number or contain spaces or special characters.
+	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+	// contain spaces or special characters.
 	Key pulumi.StringInput
 	// Internal description.
 	Notes pulumi.StringPtrInput
@@ -227,8 +267,7 @@ type VirtualDockerRepositoryArgs struct {
 	RepoLayoutRef pulumi.StringPtrInput
 	// The effective list of actual repositories included in this virtual repository.
 	Repositories pulumi.StringArrayInput
-	// When enabled, in cases where the same Docker tag exists in two or more of the aggregated repositories, Artifactory will
-	// return the tag that has the latest timestamp.
+	// When enabled, in cases where the same Docker tag exists in two or more of the aggregated repositories, Artifactory will return the tag that has the latest timestamp. Default values is `false`.
 	ResolveDockerTagsByTimestamp pulumi.BoolPtrInput
 }
 
@@ -349,8 +388,8 @@ func (o VirtualDockerRepositoryOutput) IncludesPattern() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v *VirtualDockerRepository) pulumi.StringPtrOutput { return v.IncludesPattern }).(pulumi.StringPtrOutput)
 }
 
-// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-// characters. It cannot begin with a number or contain spaces or special characters.
+// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+// contain spaces or special characters.
 func (o VirtualDockerRepositoryOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualDockerRepository) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
 }
@@ -388,8 +427,7 @@ func (o VirtualDockerRepositoryOutput) Repositories() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VirtualDockerRepository) pulumi.StringArrayOutput { return v.Repositories }).(pulumi.StringArrayOutput)
 }
 
-// When enabled, in cases where the same Docker tag exists in two or more of the aggregated repositories, Artifactory will
-// return the tag that has the latest timestamp.
+// When enabled, in cases where the same Docker tag exists in two or more of the aggregated repositories, Artifactory will return the tag that has the latest timestamp. Default values is `false`.
 func (o VirtualDockerRepositoryOutput) ResolveDockerTagsByTimestamp() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VirtualDockerRepository) pulumi.BoolPtrOutput { return v.ResolveDockerTagsByTimestamp }).(pulumi.BoolPtrOutput)
 }

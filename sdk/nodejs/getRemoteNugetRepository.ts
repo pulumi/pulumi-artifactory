@@ -6,6 +6,20 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * Retrieves a remote NuGet repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const remote-nuget = artifactory.getRemoteNugetRepository({
+ *     key: "remote-nuget",
+ * });
+ * ```
+ */
 export function getRemoteNugetRepository(args: GetRemoteNugetRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetRemoteNugetRepositoryResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -71,14 +85,26 @@ export interface GetRemoteNugetRepositoryArgs {
     clientTlsCertificate?: string;
     contentSynchronisation?: inputs.GetRemoteNugetRepositoryContentSynchronisation;
     description?: string;
+    /**
+     * (Optional) The context path prefix through which NuGet downloads are served. For example, the NuGet Gallery download URL is `https://nuget.org/api/v2/package`, so the repository URL should be configured as `https://nuget.org` and the download context path should be configured as `api/v2/package`. Default value is `api/v2/package`.
+     */
     downloadContextPath?: string;
     downloadDirect?: boolean;
     enableCookieManagement?: boolean;
     excludesPattern?: string;
+    /**
+     * (Optional) When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value is `api/v2`.
+     */
     feedContextPath?: string;
+    /**
+     * (Optional) Force basic authentication credentials in order to use this repository. Default value is `false`.
+     */
     forceNugetAuthentication?: boolean;
     hardFail?: boolean;
     includesPattern?: string;
+    /**
+     * the identity key of the repo.
+     */
     key: string;
     listRemoteFolderItems?: boolean;
     localAddress?: string;
@@ -100,11 +126,17 @@ export interface GetRemoteNugetRepositoryArgs {
     shareConfiguration?: boolean;
     socketTimeoutMillis?: number;
     storeArtifactsLocally?: boolean;
+    /**
+     * (Optional) NuGet symbol server URL. Default value is `https://symbols.nuget.org/download/symbols`.
+     */
     symbolServerUrl?: string;
     synchronizeProperties?: boolean;
     unusedArtifactsCleanupPeriodHours?: number;
     url?: string;
     username?: string;
+    /**
+     * (Optional) The URL to the NuGet v3 feed. Default value is `https://api.nuget.org/v3/index.json`.
+     */
     v3FeedUrl?: string;
     xrayIndex?: boolean;
 }
@@ -122,11 +154,20 @@ export interface GetRemoteNugetRepositoryResult {
     readonly clientTlsCertificate: string;
     readonly contentSynchronisation: outputs.GetRemoteNugetRepositoryContentSynchronisation;
     readonly description?: string;
+    /**
+     * (Optional) The context path prefix through which NuGet downloads are served. For example, the NuGet Gallery download URL is `https://nuget.org/api/v2/package`, so the repository URL should be configured as `https://nuget.org` and the download context path should be configured as `api/v2/package`. Default value is `api/v2/package`.
+     */
     readonly downloadContextPath?: string;
     readonly downloadDirect?: boolean;
     readonly enableCookieManagement?: boolean;
     readonly excludesPattern?: string;
+    /**
+     * (Optional) When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value is `api/v2`.
+     */
     readonly feedContextPath?: string;
+    /**
+     * (Optional) Force basic authentication credentials in order to use this repository. Default value is `false`.
+     */
     readonly forceNugetAuthentication?: boolean;
     readonly hardFail?: boolean;
     /**
@@ -156,14 +197,34 @@ export interface GetRemoteNugetRepositoryResult {
     readonly shareConfiguration: boolean;
     readonly socketTimeoutMillis?: number;
     readonly storeArtifactsLocally?: boolean;
+    /**
+     * (Optional) NuGet symbol server URL. Default value is `https://symbols.nuget.org/download/symbols`.
+     */
     readonly symbolServerUrl?: string;
     readonly synchronizeProperties?: boolean;
     readonly unusedArtifactsCleanupPeriodHours?: number;
     readonly url?: string;
     readonly username?: string;
+    /**
+     * (Optional) The URL to the NuGet v3 feed. Default value is `https://api.nuget.org/v3/index.json`.
+     */
     readonly v3FeedUrl?: string;
     readonly xrayIndex?: boolean;
 }
+/**
+ * Retrieves a remote NuGet repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const remote-nuget = artifactory.getRemoteNugetRepository({
+ *     key: "remote-nuget",
+ * });
+ * ```
+ */
 export function getRemoteNugetRepositoryOutput(args: GetRemoteNugetRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemoteNugetRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getRemoteNugetRepository(a, opts))
 }
@@ -181,14 +242,26 @@ export interface GetRemoteNugetRepositoryOutputArgs {
     clientTlsCertificate?: pulumi.Input<string>;
     contentSynchronisation?: pulumi.Input<inputs.GetRemoteNugetRepositoryContentSynchronisationArgs>;
     description?: pulumi.Input<string>;
+    /**
+     * (Optional) The context path prefix through which NuGet downloads are served. For example, the NuGet Gallery download URL is `https://nuget.org/api/v2/package`, so the repository URL should be configured as `https://nuget.org` and the download context path should be configured as `api/v2/package`. Default value is `api/v2/package`.
+     */
     downloadContextPath?: pulumi.Input<string>;
     downloadDirect?: pulumi.Input<boolean>;
     enableCookieManagement?: pulumi.Input<boolean>;
     excludesPattern?: pulumi.Input<string>;
+    /**
+     * (Optional) When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value is `api/v2`.
+     */
     feedContextPath?: pulumi.Input<string>;
+    /**
+     * (Optional) Force basic authentication credentials in order to use this repository. Default value is `false`.
+     */
     forceNugetAuthentication?: pulumi.Input<boolean>;
     hardFail?: pulumi.Input<boolean>;
     includesPattern?: pulumi.Input<string>;
+    /**
+     * the identity key of the repo.
+     */
     key: pulumi.Input<string>;
     listRemoteFolderItems?: pulumi.Input<boolean>;
     localAddress?: pulumi.Input<string>;
@@ -210,11 +283,17 @@ export interface GetRemoteNugetRepositoryOutputArgs {
     shareConfiguration?: pulumi.Input<boolean>;
     socketTimeoutMillis?: pulumi.Input<number>;
     storeArtifactsLocally?: pulumi.Input<boolean>;
+    /**
+     * (Optional) NuGet symbol server URL. Default value is `https://symbols.nuget.org/download/symbols`.
+     */
     symbolServerUrl?: pulumi.Input<string>;
     synchronizeProperties?: pulumi.Input<boolean>;
     unusedArtifactsCleanupPeriodHours?: pulumi.Input<number>;
     url?: pulumi.Input<string>;
     username?: pulumi.Input<string>;
+    /**
+     * (Optional) The URL to the NuGet v3 feed. Default value is `https://api.nuget.org/v3/index.json`.
+     */
     v3FeedUrl?: pulumi.Input<string>;
     xrayIndex?: pulumi.Input<boolean>;
 }

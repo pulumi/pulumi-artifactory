@@ -10,6 +10,33 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Retrieves a remote Pypi repository.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.LookupRemotePypiRepository(ctx, &artifactory.LookupRemotePypiRepositoryArgs{
+//				Key: "remote-pypi",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupRemotePypiRepository(ctx *pulumi.Context, args *LookupRemotePypiRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupRemotePypiRepositoryResult, error) {
 	var rv LookupRemotePypiRepositoryResult
 	err := ctx.Invoke("artifactory:index/getRemotePypiRepository:getRemotePypiRepository", args, &rv, opts...)
@@ -21,48 +48,51 @@ func LookupRemotePypiRepository(ctx *pulumi.Context, args *LookupRemotePypiRepos
 
 // A collection of arguments for invoking getRemotePypiRepository.
 type LookupRemotePypiRepositoryArgs struct {
-	AllowAnyHostAuth                  *bool                                          `pulumi:"allowAnyHostAuth"`
-	AssumedOfflinePeriodSecs          *int                                           `pulumi:"assumedOfflinePeriodSecs"`
-	BlackedOut                        *bool                                          `pulumi:"blackedOut"`
-	BlockMismatchingMimeTypes         *bool                                          `pulumi:"blockMismatchingMimeTypes"`
-	BypassHeadRequests                *bool                                          `pulumi:"bypassHeadRequests"`
-	CdnRedirect                       *bool                                          `pulumi:"cdnRedirect"`
-	ClientTlsCertificate              *string                                        `pulumi:"clientTlsCertificate"`
-	ContentSynchronisation            *GetRemotePypiRepositoryContentSynchronisation `pulumi:"contentSynchronisation"`
-	Description                       *string                                        `pulumi:"description"`
-	DownloadDirect                    *bool                                          `pulumi:"downloadDirect"`
-	EnableCookieManagement            *bool                                          `pulumi:"enableCookieManagement"`
-	ExcludesPattern                   *string                                        `pulumi:"excludesPattern"`
-	HardFail                          *bool                                          `pulumi:"hardFail"`
-	IncludesPattern                   *string                                        `pulumi:"includesPattern"`
-	Key                               string                                         `pulumi:"key"`
-	ListRemoteFolderItems             *bool                                          `pulumi:"listRemoteFolderItems"`
-	LocalAddress                      *string                                        `pulumi:"localAddress"`
-	MetadataRetrievalTimeoutSecs      *int                                           `pulumi:"metadataRetrievalTimeoutSecs"`
-	MismatchingMimeTypesOverrideList  *string                                        `pulumi:"mismatchingMimeTypesOverrideList"`
-	MissedCachePeriodSeconds          *int                                           `pulumi:"missedCachePeriodSeconds"`
-	Notes                             *string                                        `pulumi:"notes"`
-	Offline                           *bool                                          `pulumi:"offline"`
-	Password                          *string                                        `pulumi:"password"`
-	PriorityResolution                *bool                                          `pulumi:"priorityResolution"`
-	ProjectEnvironments               []string                                       `pulumi:"projectEnvironments"`
-	ProjectKey                        *string                                        `pulumi:"projectKey"`
-	PropertySets                      []string                                       `pulumi:"propertySets"`
-	Proxy                             *string                                        `pulumi:"proxy"`
-	PypiRegistryUrl                   *string                                        `pulumi:"pypiRegistryUrl"`
-	PypiRepositorySuffix              *string                                        `pulumi:"pypiRepositorySuffix"`
-	QueryParams                       *string                                        `pulumi:"queryParams"`
-	RemoteRepoLayoutRef               *string                                        `pulumi:"remoteRepoLayoutRef"`
-	RepoLayoutRef                     *string                                        `pulumi:"repoLayoutRef"`
-	RetrievalCachePeriodSeconds       *int                                           `pulumi:"retrievalCachePeriodSeconds"`
-	ShareConfiguration                *bool                                          `pulumi:"shareConfiguration"`
-	SocketTimeoutMillis               *int                                           `pulumi:"socketTimeoutMillis"`
-	StoreArtifactsLocally             *bool                                          `pulumi:"storeArtifactsLocally"`
-	SynchronizeProperties             *bool                                          `pulumi:"synchronizeProperties"`
-	UnusedArtifactsCleanupPeriodHours *int                                           `pulumi:"unusedArtifactsCleanupPeriodHours"`
-	Url                               *string                                        `pulumi:"url"`
-	Username                          *string                                        `pulumi:"username"`
-	XrayIndex                         *bool                                          `pulumi:"xrayIndex"`
+	AllowAnyHostAuth          *bool                                          `pulumi:"allowAnyHostAuth"`
+	AssumedOfflinePeriodSecs  *int                                           `pulumi:"assumedOfflinePeriodSecs"`
+	BlackedOut                *bool                                          `pulumi:"blackedOut"`
+	BlockMismatchingMimeTypes *bool                                          `pulumi:"blockMismatchingMimeTypes"`
+	BypassHeadRequests        *bool                                          `pulumi:"bypassHeadRequests"`
+	CdnRedirect               *bool                                          `pulumi:"cdnRedirect"`
+	ClientTlsCertificate      *string                                        `pulumi:"clientTlsCertificate"`
+	ContentSynchronisation    *GetRemotePypiRepositoryContentSynchronisation `pulumi:"contentSynchronisation"`
+	Description               *string                                        `pulumi:"description"`
+	DownloadDirect            *bool                                          `pulumi:"downloadDirect"`
+	EnableCookieManagement    *bool                                          `pulumi:"enableCookieManagement"`
+	ExcludesPattern           *string                                        `pulumi:"excludesPattern"`
+	HardFail                  *bool                                          `pulumi:"hardFail"`
+	IncludesPattern           *string                                        `pulumi:"includesPattern"`
+	// the identity key of the repo.
+	Key                              string   `pulumi:"key"`
+	ListRemoteFolderItems            *bool    `pulumi:"listRemoteFolderItems"`
+	LocalAddress                     *string  `pulumi:"localAddress"`
+	MetadataRetrievalTimeoutSecs     *int     `pulumi:"metadataRetrievalTimeoutSecs"`
+	MismatchingMimeTypesOverrideList *string  `pulumi:"mismatchingMimeTypesOverrideList"`
+	MissedCachePeriodSeconds         *int     `pulumi:"missedCachePeriodSeconds"`
+	Notes                            *string  `pulumi:"notes"`
+	Offline                          *bool    `pulumi:"offline"`
+	Password                         *string  `pulumi:"password"`
+	PriorityResolution               *bool    `pulumi:"priorityResolution"`
+	ProjectEnvironments              []string `pulumi:"projectEnvironments"`
+	ProjectKey                       *string  `pulumi:"projectKey"`
+	PropertySets                     []string `pulumi:"propertySets"`
+	Proxy                            *string  `pulumi:"proxy"`
+	// (Optional) To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another Artifactory server. See JFrog Pypi documentation [here](https://www.jfrog.com/confluence/display/JFROG/PyPI+Repositories) for the usage details. Default value is `https://pypi.org`.
+	PypiRegistryUrl *string `pulumi:"pypiRegistryUrl"`
+	// (Optional) Usually should be left as a default for `simple`, unless the remote is a PyPI server that has custom registry suffix, like +simple in DevPI. Default value is `simple`.
+	PypiRepositorySuffix              *string `pulumi:"pypiRepositorySuffix"`
+	QueryParams                       *string `pulumi:"queryParams"`
+	RemoteRepoLayoutRef               *string `pulumi:"remoteRepoLayoutRef"`
+	RepoLayoutRef                     *string `pulumi:"repoLayoutRef"`
+	RetrievalCachePeriodSeconds       *int    `pulumi:"retrievalCachePeriodSeconds"`
+	ShareConfiguration                *bool   `pulumi:"shareConfiguration"`
+	SocketTimeoutMillis               *int    `pulumi:"socketTimeoutMillis"`
+	StoreArtifactsLocally             *bool   `pulumi:"storeArtifactsLocally"`
+	SynchronizeProperties             *bool   `pulumi:"synchronizeProperties"`
+	UnusedArtifactsCleanupPeriodHours *int    `pulumi:"unusedArtifactsCleanupPeriodHours"`
+	Url                               *string `pulumi:"url"`
+	Username                          *string `pulumi:"username"`
+	XrayIndex                         *bool   `pulumi:"xrayIndex"`
 }
 
 // A collection of values returned by getRemotePypiRepository.
@@ -81,37 +111,39 @@ type LookupRemotePypiRepositoryResult struct {
 	ExcludesPattern           *string                                       `pulumi:"excludesPattern"`
 	HardFail                  *bool                                         `pulumi:"hardFail"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                                string   `pulumi:"id"`
-	IncludesPattern                   *string  `pulumi:"includesPattern"`
-	Key                               string   `pulumi:"key"`
-	ListRemoteFolderItems             *bool    `pulumi:"listRemoteFolderItems"`
-	LocalAddress                      *string  `pulumi:"localAddress"`
-	MetadataRetrievalTimeoutSecs      *int     `pulumi:"metadataRetrievalTimeoutSecs"`
-	MismatchingMimeTypesOverrideList  *string  `pulumi:"mismatchingMimeTypesOverrideList"`
-	MissedCachePeriodSeconds          *int     `pulumi:"missedCachePeriodSeconds"`
-	Notes                             *string  `pulumi:"notes"`
-	Offline                           *bool    `pulumi:"offline"`
-	PackageType                       string   `pulumi:"packageType"`
-	Password                          *string  `pulumi:"password"`
-	PriorityResolution                *bool    `pulumi:"priorityResolution"`
-	ProjectEnvironments               []string `pulumi:"projectEnvironments"`
-	ProjectKey                        *string  `pulumi:"projectKey"`
-	PropertySets                      []string `pulumi:"propertySets"`
-	Proxy                             *string  `pulumi:"proxy"`
-	PypiRegistryUrl                   *string  `pulumi:"pypiRegistryUrl"`
-	PypiRepositorySuffix              *string  `pulumi:"pypiRepositorySuffix"`
-	QueryParams                       *string  `pulumi:"queryParams"`
-	RemoteRepoLayoutRef               *string  `pulumi:"remoteRepoLayoutRef"`
-	RepoLayoutRef                     *string  `pulumi:"repoLayoutRef"`
-	RetrievalCachePeriodSeconds       *int     `pulumi:"retrievalCachePeriodSeconds"`
-	ShareConfiguration                bool     `pulumi:"shareConfiguration"`
-	SocketTimeoutMillis               *int     `pulumi:"socketTimeoutMillis"`
-	StoreArtifactsLocally             *bool    `pulumi:"storeArtifactsLocally"`
-	SynchronizeProperties             *bool    `pulumi:"synchronizeProperties"`
-	UnusedArtifactsCleanupPeriodHours *int     `pulumi:"unusedArtifactsCleanupPeriodHours"`
-	Url                               *string  `pulumi:"url"`
-	Username                          *string  `pulumi:"username"`
-	XrayIndex                         *bool    `pulumi:"xrayIndex"`
+	Id                               string   `pulumi:"id"`
+	IncludesPattern                  *string  `pulumi:"includesPattern"`
+	Key                              string   `pulumi:"key"`
+	ListRemoteFolderItems            *bool    `pulumi:"listRemoteFolderItems"`
+	LocalAddress                     *string  `pulumi:"localAddress"`
+	MetadataRetrievalTimeoutSecs     *int     `pulumi:"metadataRetrievalTimeoutSecs"`
+	MismatchingMimeTypesOverrideList *string  `pulumi:"mismatchingMimeTypesOverrideList"`
+	MissedCachePeriodSeconds         *int     `pulumi:"missedCachePeriodSeconds"`
+	Notes                            *string  `pulumi:"notes"`
+	Offline                          *bool    `pulumi:"offline"`
+	PackageType                      string   `pulumi:"packageType"`
+	Password                         *string  `pulumi:"password"`
+	PriorityResolution               *bool    `pulumi:"priorityResolution"`
+	ProjectEnvironments              []string `pulumi:"projectEnvironments"`
+	ProjectKey                       *string  `pulumi:"projectKey"`
+	PropertySets                     []string `pulumi:"propertySets"`
+	Proxy                            *string  `pulumi:"proxy"`
+	// (Optional) To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another Artifactory server. See JFrog Pypi documentation [here](https://www.jfrog.com/confluence/display/JFROG/PyPI+Repositories) for the usage details. Default value is `https://pypi.org`.
+	PypiRegistryUrl *string `pulumi:"pypiRegistryUrl"`
+	// (Optional) Usually should be left as a default for `simple`, unless the remote is a PyPI server that has custom registry suffix, like +simple in DevPI. Default value is `simple`.
+	PypiRepositorySuffix              *string `pulumi:"pypiRepositorySuffix"`
+	QueryParams                       *string `pulumi:"queryParams"`
+	RemoteRepoLayoutRef               *string `pulumi:"remoteRepoLayoutRef"`
+	RepoLayoutRef                     *string `pulumi:"repoLayoutRef"`
+	RetrievalCachePeriodSeconds       *int    `pulumi:"retrievalCachePeriodSeconds"`
+	ShareConfiguration                bool    `pulumi:"shareConfiguration"`
+	SocketTimeoutMillis               *int    `pulumi:"socketTimeoutMillis"`
+	StoreArtifactsLocally             *bool   `pulumi:"storeArtifactsLocally"`
+	SynchronizeProperties             *bool   `pulumi:"synchronizeProperties"`
+	UnusedArtifactsCleanupPeriodHours *int    `pulumi:"unusedArtifactsCleanupPeriodHours"`
+	Url                               *string `pulumi:"url"`
+	Username                          *string `pulumi:"username"`
+	XrayIndex                         *bool   `pulumi:"xrayIndex"`
 }
 
 func LookupRemotePypiRepositoryOutput(ctx *pulumi.Context, args LookupRemotePypiRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupRemotePypiRepositoryResultOutput {
@@ -129,48 +161,51 @@ func LookupRemotePypiRepositoryOutput(ctx *pulumi.Context, args LookupRemotePypi
 
 // A collection of arguments for invoking getRemotePypiRepository.
 type LookupRemotePypiRepositoryOutputArgs struct {
-	AllowAnyHostAuth                  pulumi.BoolPtrInput                                   `pulumi:"allowAnyHostAuth"`
-	AssumedOfflinePeriodSecs          pulumi.IntPtrInput                                    `pulumi:"assumedOfflinePeriodSecs"`
-	BlackedOut                        pulumi.BoolPtrInput                                   `pulumi:"blackedOut"`
-	BlockMismatchingMimeTypes         pulumi.BoolPtrInput                                   `pulumi:"blockMismatchingMimeTypes"`
-	BypassHeadRequests                pulumi.BoolPtrInput                                   `pulumi:"bypassHeadRequests"`
-	CdnRedirect                       pulumi.BoolPtrInput                                   `pulumi:"cdnRedirect"`
-	ClientTlsCertificate              pulumi.StringPtrInput                                 `pulumi:"clientTlsCertificate"`
-	ContentSynchronisation            GetRemotePypiRepositoryContentSynchronisationPtrInput `pulumi:"contentSynchronisation"`
-	Description                       pulumi.StringPtrInput                                 `pulumi:"description"`
-	DownloadDirect                    pulumi.BoolPtrInput                                   `pulumi:"downloadDirect"`
-	EnableCookieManagement            pulumi.BoolPtrInput                                   `pulumi:"enableCookieManagement"`
-	ExcludesPattern                   pulumi.StringPtrInput                                 `pulumi:"excludesPattern"`
-	HardFail                          pulumi.BoolPtrInput                                   `pulumi:"hardFail"`
-	IncludesPattern                   pulumi.StringPtrInput                                 `pulumi:"includesPattern"`
-	Key                               pulumi.StringInput                                    `pulumi:"key"`
-	ListRemoteFolderItems             pulumi.BoolPtrInput                                   `pulumi:"listRemoteFolderItems"`
-	LocalAddress                      pulumi.StringPtrInput                                 `pulumi:"localAddress"`
-	MetadataRetrievalTimeoutSecs      pulumi.IntPtrInput                                    `pulumi:"metadataRetrievalTimeoutSecs"`
-	MismatchingMimeTypesOverrideList  pulumi.StringPtrInput                                 `pulumi:"mismatchingMimeTypesOverrideList"`
-	MissedCachePeriodSeconds          pulumi.IntPtrInput                                    `pulumi:"missedCachePeriodSeconds"`
-	Notes                             pulumi.StringPtrInput                                 `pulumi:"notes"`
-	Offline                           pulumi.BoolPtrInput                                   `pulumi:"offline"`
-	Password                          pulumi.StringPtrInput                                 `pulumi:"password"`
-	PriorityResolution                pulumi.BoolPtrInput                                   `pulumi:"priorityResolution"`
-	ProjectEnvironments               pulumi.StringArrayInput                               `pulumi:"projectEnvironments"`
-	ProjectKey                        pulumi.StringPtrInput                                 `pulumi:"projectKey"`
-	PropertySets                      pulumi.StringArrayInput                               `pulumi:"propertySets"`
-	Proxy                             pulumi.StringPtrInput                                 `pulumi:"proxy"`
-	PypiRegistryUrl                   pulumi.StringPtrInput                                 `pulumi:"pypiRegistryUrl"`
-	PypiRepositorySuffix              pulumi.StringPtrInput                                 `pulumi:"pypiRepositorySuffix"`
-	QueryParams                       pulumi.StringPtrInput                                 `pulumi:"queryParams"`
-	RemoteRepoLayoutRef               pulumi.StringPtrInput                                 `pulumi:"remoteRepoLayoutRef"`
-	RepoLayoutRef                     pulumi.StringPtrInput                                 `pulumi:"repoLayoutRef"`
-	RetrievalCachePeriodSeconds       pulumi.IntPtrInput                                    `pulumi:"retrievalCachePeriodSeconds"`
-	ShareConfiguration                pulumi.BoolPtrInput                                   `pulumi:"shareConfiguration"`
-	SocketTimeoutMillis               pulumi.IntPtrInput                                    `pulumi:"socketTimeoutMillis"`
-	StoreArtifactsLocally             pulumi.BoolPtrInput                                   `pulumi:"storeArtifactsLocally"`
-	SynchronizeProperties             pulumi.BoolPtrInput                                   `pulumi:"synchronizeProperties"`
-	UnusedArtifactsCleanupPeriodHours pulumi.IntPtrInput                                    `pulumi:"unusedArtifactsCleanupPeriodHours"`
-	Url                               pulumi.StringPtrInput                                 `pulumi:"url"`
-	Username                          pulumi.StringPtrInput                                 `pulumi:"username"`
-	XrayIndex                         pulumi.BoolPtrInput                                   `pulumi:"xrayIndex"`
+	AllowAnyHostAuth          pulumi.BoolPtrInput                                   `pulumi:"allowAnyHostAuth"`
+	AssumedOfflinePeriodSecs  pulumi.IntPtrInput                                    `pulumi:"assumedOfflinePeriodSecs"`
+	BlackedOut                pulumi.BoolPtrInput                                   `pulumi:"blackedOut"`
+	BlockMismatchingMimeTypes pulumi.BoolPtrInput                                   `pulumi:"blockMismatchingMimeTypes"`
+	BypassHeadRequests        pulumi.BoolPtrInput                                   `pulumi:"bypassHeadRequests"`
+	CdnRedirect               pulumi.BoolPtrInput                                   `pulumi:"cdnRedirect"`
+	ClientTlsCertificate      pulumi.StringPtrInput                                 `pulumi:"clientTlsCertificate"`
+	ContentSynchronisation    GetRemotePypiRepositoryContentSynchronisationPtrInput `pulumi:"contentSynchronisation"`
+	Description               pulumi.StringPtrInput                                 `pulumi:"description"`
+	DownloadDirect            pulumi.BoolPtrInput                                   `pulumi:"downloadDirect"`
+	EnableCookieManagement    pulumi.BoolPtrInput                                   `pulumi:"enableCookieManagement"`
+	ExcludesPattern           pulumi.StringPtrInput                                 `pulumi:"excludesPattern"`
+	HardFail                  pulumi.BoolPtrInput                                   `pulumi:"hardFail"`
+	IncludesPattern           pulumi.StringPtrInput                                 `pulumi:"includesPattern"`
+	// the identity key of the repo.
+	Key                              pulumi.StringInput      `pulumi:"key"`
+	ListRemoteFolderItems            pulumi.BoolPtrInput     `pulumi:"listRemoteFolderItems"`
+	LocalAddress                     pulumi.StringPtrInput   `pulumi:"localAddress"`
+	MetadataRetrievalTimeoutSecs     pulumi.IntPtrInput      `pulumi:"metadataRetrievalTimeoutSecs"`
+	MismatchingMimeTypesOverrideList pulumi.StringPtrInput   `pulumi:"mismatchingMimeTypesOverrideList"`
+	MissedCachePeriodSeconds         pulumi.IntPtrInput      `pulumi:"missedCachePeriodSeconds"`
+	Notes                            pulumi.StringPtrInput   `pulumi:"notes"`
+	Offline                          pulumi.BoolPtrInput     `pulumi:"offline"`
+	Password                         pulumi.StringPtrInput   `pulumi:"password"`
+	PriorityResolution               pulumi.BoolPtrInput     `pulumi:"priorityResolution"`
+	ProjectEnvironments              pulumi.StringArrayInput `pulumi:"projectEnvironments"`
+	ProjectKey                       pulumi.StringPtrInput   `pulumi:"projectKey"`
+	PropertySets                     pulumi.StringArrayInput `pulumi:"propertySets"`
+	Proxy                            pulumi.StringPtrInput   `pulumi:"proxy"`
+	// (Optional) To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another Artifactory server. See JFrog Pypi documentation [here](https://www.jfrog.com/confluence/display/JFROG/PyPI+Repositories) for the usage details. Default value is `https://pypi.org`.
+	PypiRegistryUrl pulumi.StringPtrInput `pulumi:"pypiRegistryUrl"`
+	// (Optional) Usually should be left as a default for `simple`, unless the remote is a PyPI server that has custom registry suffix, like +simple in DevPI. Default value is `simple`.
+	PypiRepositorySuffix              pulumi.StringPtrInput `pulumi:"pypiRepositorySuffix"`
+	QueryParams                       pulumi.StringPtrInput `pulumi:"queryParams"`
+	RemoteRepoLayoutRef               pulumi.StringPtrInput `pulumi:"remoteRepoLayoutRef"`
+	RepoLayoutRef                     pulumi.StringPtrInput `pulumi:"repoLayoutRef"`
+	RetrievalCachePeriodSeconds       pulumi.IntPtrInput    `pulumi:"retrievalCachePeriodSeconds"`
+	ShareConfiguration                pulumi.BoolPtrInput   `pulumi:"shareConfiguration"`
+	SocketTimeoutMillis               pulumi.IntPtrInput    `pulumi:"socketTimeoutMillis"`
+	StoreArtifactsLocally             pulumi.BoolPtrInput   `pulumi:"storeArtifactsLocally"`
+	SynchronizeProperties             pulumi.BoolPtrInput   `pulumi:"synchronizeProperties"`
+	UnusedArtifactsCleanupPeriodHours pulumi.IntPtrInput    `pulumi:"unusedArtifactsCleanupPeriodHours"`
+	Url                               pulumi.StringPtrInput `pulumi:"url"`
+	Username                          pulumi.StringPtrInput `pulumi:"username"`
+	XrayIndex                         pulumi.BoolPtrInput   `pulumi:"xrayIndex"`
 }
 
 func (LookupRemotePypiRepositoryOutputArgs) ElementType() reflect.Type {
@@ -315,10 +350,12 @@ func (o LookupRemotePypiRepositoryResultOutput) Proxy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRemotePypiRepositoryResult) *string { return v.Proxy }).(pulumi.StringPtrOutput)
 }
 
+// (Optional) To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another Artifactory server. See JFrog Pypi documentation [here](https://www.jfrog.com/confluence/display/JFROG/PyPI+Repositories) for the usage details. Default value is `https://pypi.org`.
 func (o LookupRemotePypiRepositoryResultOutput) PypiRegistryUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRemotePypiRepositoryResult) *string { return v.PypiRegistryUrl }).(pulumi.StringPtrOutput)
 }
 
+// (Optional) Usually should be left as a default for `simple`, unless the remote is a PyPI server that has custom registry suffix, like +simple in DevPI. Default value is `simple`.
 func (o LookupRemotePypiRepositoryResultOutput) PypiRepositorySuffix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRemotePypiRepositoryResult) *string { return v.PypiRepositorySuffix }).(pulumi.StringPtrOutput)
 }

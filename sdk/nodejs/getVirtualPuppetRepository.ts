@@ -4,6 +4,20 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * Retrieves a virtual Puppet repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const virtual-puppet = artifactory.getVirtualPuppetRepository({
+ *     key: "virtual-puppet",
+ * });
+ * ```
+ */
 export function getVirtualPuppetRepository(args: GetVirtualPuppetRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualPuppetRepositoryResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -31,6 +45,9 @@ export interface GetVirtualPuppetRepositoryArgs {
     description?: string;
     excludesPattern?: string;
     includesPattern?: string;
+    /**
+     * the identity key of the repo.
+     */
     key: string;
     notes?: string;
     projectEnvironments?: string[];
@@ -60,6 +77,20 @@ export interface GetVirtualPuppetRepositoryResult {
     readonly repoLayoutRef?: string;
     readonly repositories?: string[];
 }
+/**
+ * Retrieves a virtual Puppet repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const virtual-puppet = artifactory.getVirtualPuppetRepository({
+ *     key: "virtual-puppet",
+ * });
+ * ```
+ */
 export function getVirtualPuppetRepositoryOutput(args: GetVirtualPuppetRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualPuppetRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getVirtualPuppetRepository(a, opts))
 }
@@ -73,6 +104,9 @@ export interface GetVirtualPuppetRepositoryOutputArgs {
     description?: pulumi.Input<string>;
     excludesPattern?: pulumi.Input<string>;
     includesPattern?: pulumi.Input<string>;
+    /**
+     * the identity key of the repo.
+     */
     key: pulumi.Input<string>;
     notes?: pulumi.Input<string>;
     projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;

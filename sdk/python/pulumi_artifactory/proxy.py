@@ -32,11 +32,9 @@ class ProxyArgs:
         :param pulumi.Input[str] nt_domain: The proxy domain/realm name.
         :param pulumi.Input[str] nt_host: The computer name of the machine (the machine connecting to the NTLM proxy).
         :param pulumi.Input[str] password: The proxy password when authentication credentials are required.
-        :param pulumi.Input[bool] platform_default: When set, this proxy will be the default proxy for new remote repositories and for internal HTTP requests issued by
-               Artifactory. Will also be used as proxy for all other services in the platform (for example: Xray, Distribution, etc).
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] redirect_to_hosts: An optional list of host names to which this proxy may redirect requests. The credentials defined for the proxy are
-               reused by requests redirected to all of these hosts.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] services: An optional list of services names to which this proxy be the default of. The options are jfrt, jfmc, jfxr, jfds
+        :param pulumi.Input[bool] platform_default: When set, this proxy will be the default proxy for new remote repositories and for internal HTTP requests issued by Artifactory. Will also be used as proxy for all other services in the platform (for example: Xray, Distribution, etc).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] redirect_to_hosts: An optional list of host names to which this proxy may redirect requests. The credentials defined for the proxy are reused by requests redirected to all of these hosts.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] services: An optional list of services names to which this proxy be the default of. The options are `jfrt`, `jfmc`, `jfxr`, `jfds`.
         :param pulumi.Input[str] username: The proxy username when authentication credentials are required.
         """
         pulumi.set(__self__, "host", host)
@@ -133,8 +131,7 @@ class ProxyArgs:
     @pulumi.getter(name="platformDefault")
     def platform_default(self) -> Optional[pulumi.Input[bool]]:
         """
-        When set, this proxy will be the default proxy for new remote repositories and for internal HTTP requests issued by
-        Artifactory. Will also be used as proxy for all other services in the platform (for example: Xray, Distribution, etc).
+        When set, this proxy will be the default proxy for new remote repositories and for internal HTTP requests issued by Artifactory. Will also be used as proxy for all other services in the platform (for example: Xray, Distribution, etc).
         """
         return pulumi.get(self, "platform_default")
 
@@ -146,8 +143,7 @@ class ProxyArgs:
     @pulumi.getter(name="redirectToHosts")
     def redirect_to_hosts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        An optional list of host names to which this proxy may redirect requests. The credentials defined for the proxy are
-        reused by requests redirected to all of these hosts.
+        An optional list of host names to which this proxy may redirect requests. The credentials defined for the proxy are reused by requests redirected to all of these hosts.
         """
         return pulumi.get(self, "redirect_to_hosts")
 
@@ -159,7 +155,7 @@ class ProxyArgs:
     @pulumi.getter
     def services(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        An optional list of services names to which this proxy be the default of. The options are jfrt, jfmc, jfxr, jfds
+        An optional list of services names to which this proxy be the default of. The options are `jfrt`, `jfmc`, `jfxr`, `jfds`.
         """
         return pulumi.get(self, "services")
 
@@ -200,12 +196,10 @@ class _ProxyState:
         :param pulumi.Input[str] nt_domain: The proxy domain/realm name.
         :param pulumi.Input[str] nt_host: The computer name of the machine (the machine connecting to the NTLM proxy).
         :param pulumi.Input[str] password: The proxy password when authentication credentials are required.
-        :param pulumi.Input[bool] platform_default: When set, this proxy will be the default proxy for new remote repositories and for internal HTTP requests issued by
-               Artifactory. Will also be used as proxy for all other services in the platform (for example: Xray, Distribution, etc).
+        :param pulumi.Input[bool] platform_default: When set, this proxy will be the default proxy for new remote repositories and for internal HTTP requests issued by Artifactory. Will also be used as proxy for all other services in the platform (for example: Xray, Distribution, etc).
         :param pulumi.Input[int] port: The proxy port number.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] redirect_to_hosts: An optional list of host names to which this proxy may redirect requests. The credentials defined for the proxy are
-               reused by requests redirected to all of these hosts.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] services: An optional list of services names to which this proxy be the default of. The options are jfrt, jfmc, jfxr, jfds
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] redirect_to_hosts: An optional list of host names to which this proxy may redirect requests. The credentials defined for the proxy are reused by requests redirected to all of these hosts.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] services: An optional list of services names to which this proxy be the default of. The options are `jfrt`, `jfmc`, `jfxr`, `jfds`.
         :param pulumi.Input[str] username: The proxy username when authentication credentials are required.
         """
         if host is not None:
@@ -293,8 +287,7 @@ class _ProxyState:
     @pulumi.getter(name="platformDefault")
     def platform_default(self) -> Optional[pulumi.Input[bool]]:
         """
-        When set, this proxy will be the default proxy for new remote repositories and for internal HTTP requests issued by
-        Artifactory. Will also be used as proxy for all other services in the platform (for example: Xray, Distribution, etc).
+        When set, this proxy will be the default proxy for new remote repositories and for internal HTTP requests issued by Artifactory. Will also be used as proxy for all other services in the platform (for example: Xray, Distribution, etc).
         """
         return pulumi.get(self, "platform_default")
 
@@ -318,8 +311,7 @@ class _ProxyState:
     @pulumi.getter(name="redirectToHosts")
     def redirect_to_hosts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        An optional list of host names to which this proxy may redirect requests. The credentials defined for the proxy are
-        reused by requests redirected to all of these hosts.
+        An optional list of host names to which this proxy may redirect requests. The credentials defined for the proxy are reused by requests redirected to all of these hosts.
         """
         return pulumi.get(self, "redirect_to_hosts")
 
@@ -331,7 +323,7 @@ class _ProxyState:
     @pulumi.getter
     def services(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        An optional list of services names to which this proxy be the default of. The options are jfrt, jfmc, jfxr, jfds
+        An optional list of services names to which this proxy be the default of. The options are `jfrt`, `jfmc`, `jfxr`, `jfds`.
         """
         return pulumi.get(self, "services")
 
@@ -369,7 +361,43 @@ class Proxy(pulumi.CustomResource):
                  username: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a Proxy resource with the given unique name, props, and options.
+        Provides an Artifactory Proxy resource.
+
+        This resource configuration corresponds to 'proxies' config block in system configuration XML
+        (REST endpoint: [artifactory/api/system/configuration](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-GeneralConfiguration)).
+
+        ~>The `Proxy` resource utilizes endpoints which are blocked/removed in SaaS environments (i.e. in Artifactory online), rendering this resource incompatible with Artifactory SaaS environments.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        my_proxy = artifactory.Proxy("my-proxy",
+            host="my-proxy.mycompany.com",
+            key="my-proxy",
+            nt_domain="MYCOMPANY",
+            nt_host="MYCOMPANY.COM",
+            password="password",
+            platform_default=False,
+            port=8888,
+            redirect_to_hosts=["redirec-host.mycompany.com"],
+            services=[
+                "jfrt",
+                "jfxr",
+            ],
+            username="user1")
+        ```
+
+        ## Import
+
+        Current Proxy can be imported using `proxy-key` from Artifactory as the `ID`, e.g.
+
+        ```sh
+         $ pulumi import artifactory:index/proxy:Proxy my-proxy proxy-key
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] host: The name of the proxy host.
@@ -377,12 +405,10 @@ class Proxy(pulumi.CustomResource):
         :param pulumi.Input[str] nt_domain: The proxy domain/realm name.
         :param pulumi.Input[str] nt_host: The computer name of the machine (the machine connecting to the NTLM proxy).
         :param pulumi.Input[str] password: The proxy password when authentication credentials are required.
-        :param pulumi.Input[bool] platform_default: When set, this proxy will be the default proxy for new remote repositories and for internal HTTP requests issued by
-               Artifactory. Will also be used as proxy for all other services in the platform (for example: Xray, Distribution, etc).
+        :param pulumi.Input[bool] platform_default: When set, this proxy will be the default proxy for new remote repositories and for internal HTTP requests issued by Artifactory. Will also be used as proxy for all other services in the platform (for example: Xray, Distribution, etc).
         :param pulumi.Input[int] port: The proxy port number.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] redirect_to_hosts: An optional list of host names to which this proxy may redirect requests. The credentials defined for the proxy are
-               reused by requests redirected to all of these hosts.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] services: An optional list of services names to which this proxy be the default of. The options are jfrt, jfmc, jfxr, jfds
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] redirect_to_hosts: An optional list of host names to which this proxy may redirect requests. The credentials defined for the proxy are reused by requests redirected to all of these hosts.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] services: An optional list of services names to which this proxy be the default of. The options are `jfrt`, `jfmc`, `jfxr`, `jfds`.
         :param pulumi.Input[str] username: The proxy username when authentication credentials are required.
         """
         ...
@@ -392,7 +418,43 @@ class Proxy(pulumi.CustomResource):
                  args: ProxyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a Proxy resource with the given unique name, props, and options.
+        Provides an Artifactory Proxy resource.
+
+        This resource configuration corresponds to 'proxies' config block in system configuration XML
+        (REST endpoint: [artifactory/api/system/configuration](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-GeneralConfiguration)).
+
+        ~>The `Proxy` resource utilizes endpoints which are blocked/removed in SaaS environments (i.e. in Artifactory online), rendering this resource incompatible with Artifactory SaaS environments.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        my_proxy = artifactory.Proxy("my-proxy",
+            host="my-proxy.mycompany.com",
+            key="my-proxy",
+            nt_domain="MYCOMPANY",
+            nt_host="MYCOMPANY.COM",
+            password="password",
+            platform_default=False,
+            port=8888,
+            redirect_to_hosts=["redirec-host.mycompany.com"],
+            services=[
+                "jfrt",
+                "jfxr",
+            ],
+            username="user1")
+        ```
+
+        ## Import
+
+        Current Proxy can be imported using `proxy-key` from Artifactory as the `ID`, e.g.
+
+        ```sh
+         $ pulumi import artifactory:index/proxy:Proxy my-proxy proxy-key
+        ```
+
         :param str resource_name: The name of the resource.
         :param ProxyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -477,12 +539,10 @@ class Proxy(pulumi.CustomResource):
         :param pulumi.Input[str] nt_domain: The proxy domain/realm name.
         :param pulumi.Input[str] nt_host: The computer name of the machine (the machine connecting to the NTLM proxy).
         :param pulumi.Input[str] password: The proxy password when authentication credentials are required.
-        :param pulumi.Input[bool] platform_default: When set, this proxy will be the default proxy for new remote repositories and for internal HTTP requests issued by
-               Artifactory. Will also be used as proxy for all other services in the platform (for example: Xray, Distribution, etc).
+        :param pulumi.Input[bool] platform_default: When set, this proxy will be the default proxy for new remote repositories and for internal HTTP requests issued by Artifactory. Will also be used as proxy for all other services in the platform (for example: Xray, Distribution, etc).
         :param pulumi.Input[int] port: The proxy port number.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] redirect_to_hosts: An optional list of host names to which this proxy may redirect requests. The credentials defined for the proxy are
-               reused by requests redirected to all of these hosts.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] services: An optional list of services names to which this proxy be the default of. The options are jfrt, jfmc, jfxr, jfds
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] redirect_to_hosts: An optional list of host names to which this proxy may redirect requests. The credentials defined for the proxy are reused by requests redirected to all of these hosts.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] services: An optional list of services names to which this proxy be the default of. The options are `jfrt`, `jfmc`, `jfxr`, `jfds`.
         :param pulumi.Input[str] username: The proxy username when authentication credentials are required.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -545,8 +605,7 @@ class Proxy(pulumi.CustomResource):
     @pulumi.getter(name="platformDefault")
     def platform_default(self) -> pulumi.Output[Optional[bool]]:
         """
-        When set, this proxy will be the default proxy for new remote repositories and for internal HTTP requests issued by
-        Artifactory. Will also be used as proxy for all other services in the platform (for example: Xray, Distribution, etc).
+        When set, this proxy will be the default proxy for new remote repositories and for internal HTTP requests issued by Artifactory. Will also be used as proxy for all other services in the platform (for example: Xray, Distribution, etc).
         """
         return pulumi.get(self, "platform_default")
 
@@ -562,8 +621,7 @@ class Proxy(pulumi.CustomResource):
     @pulumi.getter(name="redirectToHosts")
     def redirect_to_hosts(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        An optional list of host names to which this proxy may redirect requests. The credentials defined for the proxy are
-        reused by requests redirected to all of these hosts.
+        An optional list of host names to which this proxy may redirect requests. The credentials defined for the proxy are reused by requests redirected to all of these hosts.
         """
         return pulumi.get(self, "redirect_to_hosts")
 
@@ -571,7 +629,7 @@ class Proxy(pulumi.CustomResource):
     @pulumi.getter
     def services(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        An optional list of services names to which this proxy be the default of. The options are jfrt, jfmc, jfxr, jfds
+        An optional list of services names to which this proxy be the default of. The options are `jfrt`, `jfmc`, `jfxr`, `jfds`.
         """
         return pulumi.get(self, "services")
 

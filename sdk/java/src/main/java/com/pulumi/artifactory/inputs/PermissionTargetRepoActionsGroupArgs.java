@@ -14,9 +14,17 @@ public final class PermissionTargetRepoActionsGroupArgs extends com.pulumi.resou
 
     public static final PermissionTargetRepoActionsGroupArgs Empty = new PermissionTargetRepoActionsGroupArgs();
 
+    /**
+     * Name of permission.
+     * 
+     */
     @Import(name="name", required=true)
     private Output<String> name;
 
+    /**
+     * @return Name of permission.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
@@ -53,11 +61,23 @@ public final class PermissionTargetRepoActionsGroupArgs extends com.pulumi.resou
             $ = new PermissionTargetRepoActionsGroupArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param name Name of permission.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name Name of permission.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

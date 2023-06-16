@@ -6,6 +6,20 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * Retrieves a remote Cargo repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const remote-cargo = artifactory.getRemoteCargoRepository({
+ *     key: "remote-cargo",
+ * });
+ * ```
+ */
 export function getRemoteCargoRepository(args: GetRemoteCargoRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetRemoteCargoRepositoryResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -61,6 +75,9 @@ export function getRemoteCargoRepository(args: GetRemoteCargoRepositoryArgs, opt
  */
 export interface GetRemoteCargoRepositoryArgs {
     allowAnyHostAuth?: boolean;
+    /**
+     * (Required) Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
+     */
     anonymousAccess?: boolean;
     assumedOfflinePeriodSecs?: number;
     blackedOut?: boolean;
@@ -72,11 +89,20 @@ export interface GetRemoteCargoRepositoryArgs {
     description?: string;
     downloadDirect?: boolean;
     enableCookieManagement?: boolean;
+    /**
+     * (Optional) Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
+     */
     enableSparseIndex?: boolean;
     excludesPattern?: string;
+    /**
+     * (Optional) This is the index url, expected to be a git repository. Default value is `https://github.com/rust-lang/crates.io-index`.
+     */
     gitRegistryUrl?: string;
     hardFail?: boolean;
     includesPattern?: string;
+    /**
+     * the identity key of the repo.
+     */
     key: string;
     listRemoteFolderItems?: boolean;
     localAddress?: string;
@@ -110,6 +136,9 @@ export interface GetRemoteCargoRepositoryArgs {
  */
 export interface GetRemoteCargoRepositoryResult {
     readonly allowAnyHostAuth?: boolean;
+    /**
+     * (Required) Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
+     */
     readonly anonymousAccess?: boolean;
     readonly assumedOfflinePeriodSecs?: number;
     readonly blackedOut?: boolean;
@@ -121,8 +150,14 @@ export interface GetRemoteCargoRepositoryResult {
     readonly description?: string;
     readonly downloadDirect?: boolean;
     readonly enableCookieManagement?: boolean;
+    /**
+     * (Optional) Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
+     */
     readonly enableSparseIndex?: boolean;
     readonly excludesPattern?: string;
+    /**
+     * (Optional) This is the index url, expected to be a git repository. Default value is `https://github.com/rust-lang/crates.io-index`.
+     */
     readonly gitRegistryUrl?: string;
     readonly hardFail?: boolean;
     /**
@@ -158,6 +193,20 @@ export interface GetRemoteCargoRepositoryResult {
     readonly username?: string;
     readonly xrayIndex?: boolean;
 }
+/**
+ * Retrieves a remote Cargo repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const remote-cargo = artifactory.getRemoteCargoRepository({
+ *     key: "remote-cargo",
+ * });
+ * ```
+ */
 export function getRemoteCargoRepositoryOutput(args: GetRemoteCargoRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemoteCargoRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getRemoteCargoRepository(a, opts))
 }
@@ -167,6 +216,9 @@ export function getRemoteCargoRepositoryOutput(args: GetRemoteCargoRepositoryOut
  */
 export interface GetRemoteCargoRepositoryOutputArgs {
     allowAnyHostAuth?: pulumi.Input<boolean>;
+    /**
+     * (Required) Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
+     */
     anonymousAccess?: pulumi.Input<boolean>;
     assumedOfflinePeriodSecs?: pulumi.Input<number>;
     blackedOut?: pulumi.Input<boolean>;
@@ -178,11 +230,20 @@ export interface GetRemoteCargoRepositoryOutputArgs {
     description?: pulumi.Input<string>;
     downloadDirect?: pulumi.Input<boolean>;
     enableCookieManagement?: pulumi.Input<boolean>;
+    /**
+     * (Optional) Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
+     */
     enableSparseIndex?: pulumi.Input<boolean>;
     excludesPattern?: pulumi.Input<string>;
+    /**
+     * (Optional) This is the index url, expected to be a git repository. Default value is `https://github.com/rust-lang/crates.io-index`.
+     */
     gitRegistryUrl?: pulumi.Input<string>;
     hardFail?: pulumi.Input<boolean>;
     includesPattern?: pulumi.Input<string>;
+    /**
+     * the identity key of the repo.
+     */
     key: pulumi.Input<string>;
     listRemoteFolderItems?: pulumi.Input<boolean>;
     localAddress?: pulumi.Input<string>;

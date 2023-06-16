@@ -117,9 +117,17 @@ public final class GetRemoteGoRepositoryArgs extends com.pulumi.resources.Invoke
         return Optional.ofNullable(this.includesPattern);
     }
 
+    /**
+     * the identity key of the repo.
+     * 
+     */
     @Import(name="key", required=true)
     private Output<String> key;
 
+    /**
+     * @return the identity key of the repo.
+     * 
+     */
     public Output<String> key() {
         return this.key;
     }
@@ -292,9 +300,17 @@ public final class GetRemoteGoRepositoryArgs extends com.pulumi.resources.Invoke
         return Optional.ofNullable(this.username);
     }
 
+    /**
+     * (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `ARTIFACTORY`.
+     * 
+     */
     @Import(name="vcsGitProvider")
     private @Nullable Output<String> vcsGitProvider;
 
+    /**
+     * @return (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `ARTIFACTORY`.
+     * 
+     */
     public Optional<Output<String>> vcsGitProvider() {
         return Optional.ofNullable(this.vcsGitProvider);
     }
@@ -496,11 +512,23 @@ public final class GetRemoteGoRepositoryArgs extends com.pulumi.resources.Invoke
             return includesPattern(Output.of(includesPattern));
         }
 
+        /**
+         * @param key the identity key of the repo.
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(Output<String> key) {
             $.key = key;
             return this;
         }
 
+        /**
+         * @param key the identity key of the repo.
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(String key) {
             return key(Output.of(key));
         }
@@ -729,11 +757,23 @@ public final class GetRemoteGoRepositoryArgs extends com.pulumi.resources.Invoke
             return username(Output.of(username));
         }
 
+        /**
+         * @param vcsGitProvider (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `ARTIFACTORY`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder vcsGitProvider(@Nullable Output<String> vcsGitProvider) {
             $.vcsGitProvider = vcsGitProvider;
             return this;
         }
 
+        /**
+         * @param vcsGitProvider (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `ARTIFACTORY`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder vcsGitProvider(String vcsGitProvider) {
             return vcsGitProvider(Output.of(vcsGitProvider));
         }

@@ -59,16 +59,32 @@ public final class GetVirtualSbtRepositoryArgs extends com.pulumi.resources.Invo
         return Optional.ofNullable(this.includesPattern);
     }
 
+    /**
+     * the identity key of the repo.
+     * 
+     */
     @Import(name="key", required=true)
     private Output<String> key;
 
+    /**
+     * @return the identity key of the repo.
+     * 
+     */
     public Output<String> key() {
         return this.key;
     }
 
+    /**
+     * (Optional) The keypair used to sign artifacts.
+     * 
+     */
     @Import(name="keyPair")
     private @Nullable Output<String> keyPair;
 
+    /**
+     * @return (Optional) The keypair used to sign artifacts.
+     * 
+     */
     public Optional<Output<String>> keyPair() {
         return Optional.ofNullable(this.keyPair);
     }
@@ -80,9 +96,23 @@ public final class GetVirtualSbtRepositoryArgs extends com.pulumi.resources.Invo
         return Optional.ofNullable(this.notes);
     }
 
+    /**
+     * (Optional)
+     * - (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
+     * - (2: discard_any_reference) Discard Any References - Removes all repository elements regardless of whether they are included in an active profile or not.
+     * - (3: nothing) Nothing - Does not remove any repository elements declared in the POM.
+     * 
+     */
     @Import(name="pomRepositoryReferencesCleanupPolicy")
     private @Nullable Output<String> pomRepositoryReferencesCleanupPolicy;
 
+    /**
+     * @return (Optional)
+     * - (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
+     * - (2: discard_any_reference) Discard Any References - Removes all repository elements regardless of whether they are included in an active profile or not.
+     * - (3: nothing) Nothing - Does not remove any repository elements declared in the POM.
+     * 
+     */
     public Optional<Output<String>> pomRepositoryReferencesCleanupPolicy() {
         return Optional.ofNullable(this.pomRepositoryReferencesCleanupPolicy);
     }
@@ -206,20 +236,44 @@ public final class GetVirtualSbtRepositoryArgs extends com.pulumi.resources.Invo
             return includesPattern(Output.of(includesPattern));
         }
 
+        /**
+         * @param key the identity key of the repo.
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(Output<String> key) {
             $.key = key;
             return this;
         }
 
+        /**
+         * @param key the identity key of the repo.
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(String key) {
             return key(Output.of(key));
         }
 
+        /**
+         * @param keyPair (Optional) The keypair used to sign artifacts.
+         * 
+         * @return builder
+         * 
+         */
         public Builder keyPair(@Nullable Output<String> keyPair) {
             $.keyPair = keyPair;
             return this;
         }
 
+        /**
+         * @param keyPair (Optional) The keypair used to sign artifacts.
+         * 
+         * @return builder
+         * 
+         */
         public Builder keyPair(String keyPair) {
             return keyPair(Output.of(keyPair));
         }
@@ -233,11 +287,29 @@ public final class GetVirtualSbtRepositoryArgs extends com.pulumi.resources.Invo
             return notes(Output.of(notes));
         }
 
+        /**
+         * @param pomRepositoryReferencesCleanupPolicy (Optional)
+         * - (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
+         * - (2: discard_any_reference) Discard Any References - Removes all repository elements regardless of whether they are included in an active profile or not.
+         * - (3: nothing) Nothing - Does not remove any repository elements declared in the POM.
+         * 
+         * @return builder
+         * 
+         */
         public Builder pomRepositoryReferencesCleanupPolicy(@Nullable Output<String> pomRepositoryReferencesCleanupPolicy) {
             $.pomRepositoryReferencesCleanupPolicy = pomRepositoryReferencesCleanupPolicy;
             return this;
         }
 
+        /**
+         * @param pomRepositoryReferencesCleanupPolicy (Optional)
+         * - (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
+         * - (2: discard_any_reference) Discard Any References - Removes all repository elements regardless of whether they are included in an active profile or not.
+         * - (3: nothing) Nothing - Does not remove any repository elements declared in the POM.
+         * 
+         * @return builder
+         * 
+         */
         public Builder pomRepositoryReferencesCleanupPolicy(String pomRepositoryReferencesCleanupPolicy) {
             return pomRepositoryReferencesCleanupPolicy(Output.of(pomRepositoryReferencesCleanupPolicy));
         }

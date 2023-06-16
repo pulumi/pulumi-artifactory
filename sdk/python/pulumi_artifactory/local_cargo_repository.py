@@ -34,11 +34,9 @@ class LocalCargoRepositoryArgs:
                  xray_index: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a LocalCargoRepository resource.
-        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-               characters. It cannot begin with a number or contain spaces or special characters.
-        :param pulumi.Input[bool] anonymous_access: Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous
-               access to these resources (only), note that this will override the security anonymous access option. Default value is
-               'false'.
+        :param pulumi.Input[str] key: the identity key of the repo.
+        :param pulumi.Input[bool] anonymous_access: Cargo client does not send credentials when performing download and search for crates. 
+               Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
         :param pulumi.Input[bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
                therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
                security (e.g., cross-site scripting attacks).
@@ -48,8 +46,7 @@ class LocalCargoRepositoryArgs:
         :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only.
-        :param pulumi.Input[bool] enable_sparse_index: Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default
-               value is 'false'.
+        :param pulumi.Input[bool] enable_sparse_index: Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
                artifacts are excluded.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
@@ -107,8 +104,7 @@ class LocalCargoRepositoryArgs:
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
         """
-        A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-        characters. It cannot begin with a number or contain spaces or special characters.
+        the identity key of the repo.
         """
         return pulumi.get(self, "key")
 
@@ -120,9 +116,8 @@ class LocalCargoRepositoryArgs:
     @pulumi.getter(name="anonymousAccess")
     def anonymous_access(self) -> Optional[pulumi.Input[bool]]:
         """
-        Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous
-        access to these resources (only), note that this will override the security anonymous access option. Default value is
-        'false'.
+        Cargo client does not send credentials when performing download and search for crates. 
+        Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
         """
         return pulumi.get(self, "anonymous_access")
 
@@ -198,8 +193,7 @@ class LocalCargoRepositoryArgs:
     @pulumi.getter(name="enableSparseIndex")
     def enable_sparse_index(self) -> Optional[pulumi.Input[bool]]:
         """
-        Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default
-        value is 'false'.
+        Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
         """
         return pulumi.get(self, "enable_sparse_index")
 
@@ -356,9 +350,8 @@ class _LocalCargoRepositoryState:
                  xray_index: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering LocalCargoRepository resources.
-        :param pulumi.Input[bool] anonymous_access: Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous
-               access to these resources (only), note that this will override the security anonymous access option. Default value is
-               'false'.
+        :param pulumi.Input[bool] anonymous_access: Cargo client does not send credentials when performing download and search for crates. 
+               Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
         :param pulumi.Input[bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
                therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
                security (e.g., cross-site scripting attacks).
@@ -368,14 +361,12 @@ class _LocalCargoRepositoryState:
         :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only.
-        :param pulumi.Input[bool] enable_sparse_index: Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default
-               value is 'false'.
+        :param pulumi.Input[bool] enable_sparse_index: Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
                artifacts are excluded.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-               characters. It cannot begin with a number or contain spaces or special characters.
+        :param pulumi.Input[str] key: the identity key of the repo.
         :param pulumi.Input[str] notes: Internal description.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
@@ -432,9 +423,8 @@ class _LocalCargoRepositoryState:
     @pulumi.getter(name="anonymousAccess")
     def anonymous_access(self) -> Optional[pulumi.Input[bool]]:
         """
-        Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous
-        access to these resources (only), note that this will override the security anonymous access option. Default value is
-        'false'.
+        Cargo client does not send credentials when performing download and search for crates. 
+        Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
         """
         return pulumi.get(self, "anonymous_access")
 
@@ -510,8 +500,7 @@ class _LocalCargoRepositoryState:
     @pulumi.getter(name="enableSparseIndex")
     def enable_sparse_index(self) -> Optional[pulumi.Input[bool]]:
         """
-        Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default
-        value is 'false'.
+        Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
         """
         return pulumi.get(self, "enable_sparse_index")
 
@@ -558,8 +547,7 @@ class _LocalCargoRepositoryState:
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
         """
-        A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-        characters. It cannot begin with a number or contain spaces or special characters.
+        the identity key of the repo.
         """
         return pulumi.get(self, "key")
 
@@ -691,12 +679,32 @@ class LocalCargoRepository(pulumi.CustomResource):
                  xray_index: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        Create a LocalCargoRepository resource with the given unique name, props, and options.
+        Creates a local Cargo repository.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        terraform_local_test_cargo_repo_basic = artifactory.LocalCargoRepository("terraform-local-test-cargo-repo-basic",
+            anonymous_access=False,
+            enable_sparse_index=True,
+            key="terraform-local-test-cargo-repo-basic")
+        ```
+
+        ## Import
+
+        Local repositories can be imported using their name, e.g.
+
+        ```sh
+         $ pulumi import artifactory:index/localCargoRepository:LocalCargoRepository terraform-local-test-cargo-repo-basic terraform-local-test-cargo-repo-basic
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] anonymous_access: Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous
-               access to these resources (only), note that this will override the security anonymous access option. Default value is
-               'false'.
+        :param pulumi.Input[bool] anonymous_access: Cargo client does not send credentials when performing download and search for crates. 
+               Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
         :param pulumi.Input[bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
                therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
                security (e.g., cross-site scripting attacks).
@@ -706,14 +714,12 @@ class LocalCargoRepository(pulumi.CustomResource):
         :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only.
-        :param pulumi.Input[bool] enable_sparse_index: Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default
-               value is 'false'.
+        :param pulumi.Input[bool] enable_sparse_index: Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
                artifacts are excluded.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-               characters. It cannot begin with a number or contain spaces or special characters.
+        :param pulumi.Input[str] key: the identity key of the repo.
         :param pulumi.Input[str] notes: Internal description.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
@@ -734,7 +740,28 @@ class LocalCargoRepository(pulumi.CustomResource):
                  args: LocalCargoRepositoryArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a LocalCargoRepository resource with the given unique name, props, and options.
+        Creates a local Cargo repository.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        terraform_local_test_cargo_repo_basic = artifactory.LocalCargoRepository("terraform-local-test-cargo-repo-basic",
+            anonymous_access=False,
+            enable_sparse_index=True,
+            key="terraform-local-test-cargo-repo-basic")
+        ```
+
+        ## Import
+
+        Local repositories can be imported using their name, e.g.
+
+        ```sh
+         $ pulumi import artifactory:index/localCargoRepository:LocalCargoRepository terraform-local-test-cargo-repo-basic terraform-local-test-cargo-repo-basic
+        ```
+
         :param str resource_name: The name of the resource.
         :param LocalCargoRepositoryArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -834,9 +861,8 @@ class LocalCargoRepository(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] anonymous_access: Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous
-               access to these resources (only), note that this will override the security anonymous access option. Default value is
-               'false'.
+        :param pulumi.Input[bool] anonymous_access: Cargo client does not send credentials when performing download and search for crates. 
+               Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
         :param pulumi.Input[bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
                therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
                security (e.g., cross-site scripting attacks).
@@ -846,14 +872,12 @@ class LocalCargoRepository(pulumi.CustomResource):
         :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only.
-        :param pulumi.Input[bool] enable_sparse_index: Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default
-               value is 'false'.
+        :param pulumi.Input[bool] enable_sparse_index: Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
                artifacts are excluded.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-               characters. It cannot begin with a number or contain spaces or special characters.
+        :param pulumi.Input[str] key: the identity key of the repo.
         :param pulumi.Input[str] notes: Internal description.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
@@ -896,9 +920,8 @@ class LocalCargoRepository(pulumi.CustomResource):
     @pulumi.getter(name="anonymousAccess")
     def anonymous_access(self) -> pulumi.Output[Optional[bool]]:
         """
-        Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous
-        access to these resources (only), note that this will override the security anonymous access option. Default value is
-        'false'.
+        Cargo client does not send credentials when performing download and search for crates. 
+        Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
         """
         return pulumi.get(self, "anonymous_access")
 
@@ -950,8 +973,7 @@ class LocalCargoRepository(pulumi.CustomResource):
     @pulumi.getter(name="enableSparseIndex")
     def enable_sparse_index(self) -> pulumi.Output[Optional[bool]]:
         """
-        Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default
-        value is 'false'.
+        Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
         """
         return pulumi.get(self, "enable_sparse_index")
 
@@ -982,8 +1004,7 @@ class LocalCargoRepository(pulumi.CustomResource):
     @pulumi.getter
     def key(self) -> pulumi.Output[str]:
         """
-        A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-        characters. It cannot begin with a number or contain spaces or special characters.
+        the identity key of the repo.
         """
         return pulumi.get(self, "key")
 

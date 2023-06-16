@@ -6,6 +6,29 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const terraform_remote = new artifactory.RemoteTerraformRepository("terraform-remote", {
+ *     key: "terraform-remote",
+ *     terraformProvidersUrl: "https://releases.hashicorp.com",
+ *     terraformRegistryUrl: "https://registry.terraform.io",
+ *     url: "https://github.com/",
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * Remote repositories can be imported using their name, e.g.
+ *
+ * ```sh
+ *  $ pulumi import artifactory:index/remoteTerraformRepository:RemoteTerraformRepository terraform-remote terraform-remote
+ * ```
+ */
 export class RemoteTerraformRepository extends pulumi.CustomResource {
     /**
      * Get an existing RemoteTerraformRepository resource's state with the given name, ID, and optional extra
@@ -101,8 +124,8 @@ export class RemoteTerraformRepository extends pulumi.CustomResource {
      */
     public readonly includesPattern!: pulumi.Output<string | undefined>;
     /**
-     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-     * characters. It cannot begin with a number or contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+     * contain spaces or special characters.
      */
     public readonly key!: pulumi.Output<string>;
     /**
@@ -217,7 +240,7 @@ export class RemoteTerraformRepository extends pulumi.CustomResource {
      */
     public readonly unusedArtifactsCleanupPeriodHours!: pulumi.Output<number | undefined>;
     /**
-     * The remote repo URL.
+     * The base URL of the Module storage API.
      */
     public readonly url!: pulumi.Output<string>;
     public readonly username!: pulumi.Output<string | undefined>;
@@ -413,8 +436,8 @@ export interface RemoteTerraformRepositoryState {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-     * characters. It cannot begin with a number or contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+     * contain spaces or special characters.
      */
     key?: pulumi.Input<string>;
     /**
@@ -529,7 +552,7 @@ export interface RemoteTerraformRepositoryState {
      */
     unusedArtifactsCleanupPeriodHours?: pulumi.Input<number>;
     /**
-     * The remote repo URL.
+     * The base URL of the Module storage API.
      */
     url?: pulumi.Input<string>;
     username?: pulumi.Input<string>;
@@ -611,8 +634,8 @@ export interface RemoteTerraformRepositoryArgs {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-     * characters. It cannot begin with a number or contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+     * contain spaces or special characters.
      */
     key: pulumi.Input<string>;
     /**
@@ -726,7 +749,7 @@ export interface RemoteTerraformRepositoryArgs {
      */
     unusedArtifactsCleanupPeriodHours?: pulumi.Input<number>;
     /**
-     * The remote repo URL.
+     * The base URL of the Module storage API.
      */
     url: pulumi.Input<string>;
     username?: pulumi.Input<string>;

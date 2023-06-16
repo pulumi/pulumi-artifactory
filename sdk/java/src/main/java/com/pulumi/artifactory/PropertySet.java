@@ -17,17 +17,93 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Provides an Artifactory Property Set resource.
+ * This resource configuration corresponds to &#39;propertySets&#39; config block in system configuration XML
+ * (REST endpoint: artifactory/api/system/configuration).
+ * 
+ * ~&gt;The `artifactory.PropertySet` resource utilizes endpoints which are blocked/removed in SaaS environments (i.e. in Artifactory online), rendering this resource incompatible with Artifactory SaaS environments.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.artifactory.PropertySet;
+ * import com.pulumi.artifactory.PropertySetArgs;
+ * import com.pulumi.artifactory.inputs.PropertySetPropertyArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var foo = new PropertySet(&#34;foo&#34;, PropertySetArgs.builder()        
+ *             .properties(            
+ *                 PropertySetPropertyArgs.builder()
+ *                     .closedPredefinedValues(true)
+ *                     .multipleChoice(true)
+ *                     .name(&#34;set1property1&#34;)
+ *                     .predefinedValues(                    
+ *                         PropertySetPropertyPredefinedValueArgs.builder()
+ *                             .defaultValue(true)
+ *                             .name(&#34;passed-QA&#34;)
+ *                             .build(),
+ *                         PropertySetPropertyPredefinedValueArgs.builder()
+ *                             .defaultValue(false)
+ *                             .name(&#34;failed-QA&#34;)
+ *                             .build())
+ *                     .build(),
+ *                 PropertySetPropertyArgs.builder()
+ *                     .closedPredefinedValues(false)
+ *                     .multipleChoice(false)
+ *                     .name(&#34;set1property2&#34;)
+ *                     .predefinedValues(                    
+ *                         PropertySetPropertyPredefinedValueArgs.builder()
+ *                             .defaultValue(true)
+ *                             .name(&#34;passed-QA&#34;)
+ *                             .build(),
+ *                         PropertySetPropertyPredefinedValueArgs.builder()
+ *                             .defaultValue(false)
+ *                             .name(&#34;failed-QA&#34;)
+ *                             .build())
+ *                     .build())
+ *             .visible(true)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Current Property Set can be imported using `property-set1` as the `ID`, e.g.
+ * 
+ * ```sh
+ *  $ pulumi import artifactory:index/propertySet:PropertySet foo property-set1
+ * ```
+ * 
+ */
 @ResourceType(type="artifactory:index/propertySet:PropertySet")
 public class PropertySet extends com.pulumi.resources.CustomResource {
     /**
-     * Property set name.
+     * Predefined property name.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return Property set name.
+     * @return Predefined property name.
      * 
      */
     public Output<String> name() {
@@ -48,14 +124,14 @@ public class PropertySet extends com.pulumi.resources.CustomResource {
         return this.properties;
     }
     /**
-     * Defines if the list visible and assignable to the repository or artifact.
+     * Defines if the list visible and assignable to the repository or artifact. Default value is `true`.
      * 
      */
     @Export(name="visible", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> visible;
 
     /**
-     * @return Defines if the list visible and assignable to the repository or artifact.
+     * @return Defines if the list visible and assignable to the repository or artifact. Default value is `true`.
      * 
      */
     public Output<Optional<Boolean>> visible() {

@@ -82,16 +82,14 @@ public final class VirtualNugetRepositoryArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * If set, user authentication is required when accessing the repository. An anonymous request will display an HTTP 401
-     * error. This is also enforced when aggregated repositories support anonymous requests.
+     * If set, user authentication is required when accessing the repository. An anonymous request will display an HTTP 401 error. This is also enforced when aggregated repositories support anonymous requests. Default is `false`.
      * 
      */
     @Import(name="forceNugetAuthentication")
     private @Nullable Output<Boolean> forceNugetAuthentication;
 
     /**
-     * @return If set, user authentication is required when accessing the repository. An anonymous request will display an HTTP 401
-     * error. This is also enforced when aggregated repositories support anonymous requests.
+     * @return If set, user authentication is required when accessing the repository. An anonymous request will display an HTTP 401 error. This is also enforced when aggregated repositories support anonymous requests. Default is `false`.
      * 
      */
     public Optional<Output<Boolean>> forceNugetAuthentication() {
@@ -116,16 +114,16 @@ public final class VirtualNugetRepositoryArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-     * characters. It cannot begin with a number or contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+     * contain spaces or special characters.
      * 
      */
     @Import(name="key", required=true)
     private Output<String> key;
 
     /**
-     * @return A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-     * characters. It cannot begin with a number or contain spaces or special characters.
+     * @return A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+     * contain spaces or special characters.
      * 
      */
     public Output<String> key() {
@@ -339,8 +337,7 @@ public final class VirtualNugetRepositoryArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param forceNugetAuthentication If set, user authentication is required when accessing the repository. An anonymous request will display an HTTP 401
-         * error. This is also enforced when aggregated repositories support anonymous requests.
+         * @param forceNugetAuthentication If set, user authentication is required when accessing the repository. An anonymous request will display an HTTP 401 error. This is also enforced when aggregated repositories support anonymous requests. Default is `false`.
          * 
          * @return builder
          * 
@@ -351,8 +348,7 @@ public final class VirtualNugetRepositoryArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param forceNugetAuthentication If set, user authentication is required when accessing the repository. An anonymous request will display an HTTP 401
-         * error. This is also enforced when aggregated repositories support anonymous requests.
+         * @param forceNugetAuthentication If set, user authentication is required when accessing the repository. An anonymous request will display an HTTP 401 error. This is also enforced when aggregated repositories support anonymous requests. Default is `false`.
          * 
          * @return builder
          * 
@@ -385,8 +381,8 @@ public final class VirtualNugetRepositoryArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param key A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-         * characters. It cannot begin with a number or contain spaces or special characters.
+         * @param key A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+         * contain spaces or special characters.
          * 
          * @return builder
          * 
@@ -397,8 +393,8 @@ public final class VirtualNugetRepositoryArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param key A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-         * characters. It cannot begin with a number or contain spaces or special characters.
+         * @param key A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+         * contain spaces or special characters.
          * 
          * @return builder
          * 

@@ -11,6 +11,49 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Creates a remote Sbt repository.
+// Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/SBT+Repositories).
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewRemoteSbtRepository(ctx, "sbt-remote", &artifactory.RemoteSbtRepositoryArgs{
+//				FetchJarsEagerly:             pulumi.Bool(true),
+//				FetchSourcesEagerly:          pulumi.Bool(false),
+//				Key:                          pulumi.String("sbt-remote-foo"),
+//				RejectInvalidJars:            pulumi.Bool(true),
+//				SuppressPomConsistencyChecks: pulumi.Bool(true),
+//				Url:                          pulumi.String("https://repo1.maven.org/maven2/"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Remote repositories can be imported using their name, e.g.
+//
+// ```sh
+//
+//	$ pulumi import artifactory:index/remoteSbtRepository:RemoteSbtRepository sbt-remote sbt-remote
+//
+// ```
 type RemoteSbtRepository struct {
 	pulumi.CustomResourceState
 
@@ -48,15 +91,13 @@ type RemoteSbtRepository struct {
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 	// artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrOutput `pulumi:"excludesPattern"`
-	// When set, if a POM is requested, Artifactory attempts to fetch the corresponding jar in the background. This will
-	// accelerate first access time to the jar when it is subsequently requested. Default value is 'false'.
+	// When set, if a POM is requested, Artifactory attempts to fetch the corresponding jar in the background. This will accelerate first access time to the jar when it is subsequently requested.
 	FetchJarsEagerly pulumi.BoolPtrOutput `pulumi:"fetchJarsEagerly"`
-	// When set, if a binaries jar is requested, Artifactory attempts to fetch the corresponding source jar in the background.
-	// This will accelerate first access time to the source jar when it is subsequently requested. Default value is 'false'.
+	// When set, if a binaries jar is requested, Artifactory attempts to fetch the corresponding source jar in the background. This will accelerate first access time to the source jar when it is subsequently requested.
 	FetchSourcesEagerly pulumi.BoolPtrOutput `pulumi:"fetchSourcesEagerly"`
-	// If set, Artifactory allows you to deploy release artifacts into this repository. Default value is 'true'.
+	// If set, Artifactory allows you to deploy release artifacts into this repository.
 	HandleReleases pulumi.BoolPtrOutput `pulumi:"handleReleases"`
-	// If set, Artifactory allows you to deploy snapshot artifacts into this repository. Default value is 'true'.
+	// If set, Artifactory allows you to deploy snapshot artifacts into this repository.
 	HandleSnapshots pulumi.BoolPtrOutput `pulumi:"handleSnapshots"`
 	// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
 	// communicate with this repository.
@@ -64,8 +105,8 @@ type RemoteSbtRepository struct {
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrOutput `pulumi:"includesPattern"`
-	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-	// characters. It cannot begin with a number or contain spaces or special characters.
+	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+	// contain spaces or special characters.
 	Key pulumi.StringOutput `pulumi:"key"`
 	// Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
 	// the 'Retrieval Cache Period'. Default value is 'true'.
@@ -107,12 +148,9 @@ type RemoteSbtRepository struct {
 	// Custom HTTP query parameters that will be automatically included in all remote resource requests. For example:
 	// `param1=val1&param2=val2&param3=val3`
 	QueryParams pulumi.StringPtrOutput `pulumi:"queryParams"`
-	// Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a "captive
-	// portal". Default value is 'false'.
+	// Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a "captive portal".
 	RejectInvalidJars pulumi.BoolPtrOutput `pulumi:"rejectInvalidJars"`
-	// Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the
-	// system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated
-	// checksum. Default value is 'generate-if-absent'.
+	// Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
 	RemoteRepoChecksumPolicyType pulumi.StringPtrOutput `pulumi:"remoteRepoChecksumPolicyType"`
 	// Repository layout key for the remote layout mapping.
 	RemoteRepoLayoutRef pulumi.StringPtrOutput `pulumi:"remoteRepoLayoutRef"`
@@ -130,10 +168,7 @@ type RemoteSbtRepository struct {
 	// one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory
 	// servers.
 	StoreArtifactsLocally pulumi.BoolPtrOutput `pulumi:"storeArtifactsLocally"`
-	// By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the
-	// groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the
-	// deployment with a "409 Conflict" error. You can disable this behavior by setting this attribute to 'true'. Default value
-	// is 'false'.
+	// By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error. You can disable this behavior by setting this attribute to `true`.
 	SuppressPomConsistencyChecks pulumi.BoolPtrOutput `pulumi:"suppressPomConsistencyChecks"`
 	// When set, remote artifacts are fetched along with their properties.
 	SynchronizeProperties pulumi.BoolPtrOutput `pulumi:"synchronizeProperties"`
@@ -224,15 +259,13 @@ type remoteSbtRepositoryState struct {
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 	// artifacts are excluded.
 	ExcludesPattern *string `pulumi:"excludesPattern"`
-	// When set, if a POM is requested, Artifactory attempts to fetch the corresponding jar in the background. This will
-	// accelerate first access time to the jar when it is subsequently requested. Default value is 'false'.
+	// When set, if a POM is requested, Artifactory attempts to fetch the corresponding jar in the background. This will accelerate first access time to the jar when it is subsequently requested.
 	FetchJarsEagerly *bool `pulumi:"fetchJarsEagerly"`
-	// When set, if a binaries jar is requested, Artifactory attempts to fetch the corresponding source jar in the background.
-	// This will accelerate first access time to the source jar when it is subsequently requested. Default value is 'false'.
+	// When set, if a binaries jar is requested, Artifactory attempts to fetch the corresponding source jar in the background. This will accelerate first access time to the source jar when it is subsequently requested.
 	FetchSourcesEagerly *bool `pulumi:"fetchSourcesEagerly"`
-	// If set, Artifactory allows you to deploy release artifacts into this repository. Default value is 'true'.
+	// If set, Artifactory allows you to deploy release artifacts into this repository.
 	HandleReleases *bool `pulumi:"handleReleases"`
-	// If set, Artifactory allows you to deploy snapshot artifacts into this repository. Default value is 'true'.
+	// If set, Artifactory allows you to deploy snapshot artifacts into this repository.
 	HandleSnapshots *bool `pulumi:"handleSnapshots"`
 	// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
 	// communicate with this repository.
@@ -240,8 +273,8 @@ type remoteSbtRepositoryState struct {
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
-	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-	// characters. It cannot begin with a number or contain spaces or special characters.
+	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+	// contain spaces or special characters.
 	Key *string `pulumi:"key"`
 	// Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
 	// the 'Retrieval Cache Period'. Default value is 'true'.
@@ -283,12 +316,9 @@ type remoteSbtRepositoryState struct {
 	// Custom HTTP query parameters that will be automatically included in all remote resource requests. For example:
 	// `param1=val1&param2=val2&param3=val3`
 	QueryParams *string `pulumi:"queryParams"`
-	// Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a "captive
-	// portal". Default value is 'false'.
+	// Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a "captive portal".
 	RejectInvalidJars *bool `pulumi:"rejectInvalidJars"`
-	// Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the
-	// system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated
-	// checksum. Default value is 'generate-if-absent'.
+	// Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
 	RemoteRepoChecksumPolicyType *string `pulumi:"remoteRepoChecksumPolicyType"`
 	// Repository layout key for the remote layout mapping.
 	RemoteRepoLayoutRef *string `pulumi:"remoteRepoLayoutRef"`
@@ -306,10 +336,7 @@ type remoteSbtRepositoryState struct {
 	// one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory
 	// servers.
 	StoreArtifactsLocally *bool `pulumi:"storeArtifactsLocally"`
-	// By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the
-	// groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the
-	// deployment with a "409 Conflict" error. You can disable this behavior by setting this attribute to 'true'. Default value
-	// is 'false'.
+	// By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error. You can disable this behavior by setting this attribute to `true`.
 	SuppressPomConsistencyChecks *bool `pulumi:"suppressPomConsistencyChecks"`
 	// When set, remote artifacts are fetched along with their properties.
 	SynchronizeProperties *bool `pulumi:"synchronizeProperties"`
@@ -359,15 +386,13 @@ type RemoteSbtRepositoryState struct {
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 	// artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrInput
-	// When set, if a POM is requested, Artifactory attempts to fetch the corresponding jar in the background. This will
-	// accelerate first access time to the jar when it is subsequently requested. Default value is 'false'.
+	// When set, if a POM is requested, Artifactory attempts to fetch the corresponding jar in the background. This will accelerate first access time to the jar when it is subsequently requested.
 	FetchJarsEagerly pulumi.BoolPtrInput
-	// When set, if a binaries jar is requested, Artifactory attempts to fetch the corresponding source jar in the background.
-	// This will accelerate first access time to the source jar when it is subsequently requested. Default value is 'false'.
+	// When set, if a binaries jar is requested, Artifactory attempts to fetch the corresponding source jar in the background. This will accelerate first access time to the source jar when it is subsequently requested.
 	FetchSourcesEagerly pulumi.BoolPtrInput
-	// If set, Artifactory allows you to deploy release artifacts into this repository. Default value is 'true'.
+	// If set, Artifactory allows you to deploy release artifacts into this repository.
 	HandleReleases pulumi.BoolPtrInput
-	// If set, Artifactory allows you to deploy snapshot artifacts into this repository. Default value is 'true'.
+	// If set, Artifactory allows you to deploy snapshot artifacts into this repository.
 	HandleSnapshots pulumi.BoolPtrInput
 	// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
 	// communicate with this repository.
@@ -375,8 +400,8 @@ type RemoteSbtRepositoryState struct {
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
-	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-	// characters. It cannot begin with a number or contain spaces or special characters.
+	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+	// contain spaces or special characters.
 	Key pulumi.StringPtrInput
 	// Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
 	// the 'Retrieval Cache Period'. Default value is 'true'.
@@ -418,12 +443,9 @@ type RemoteSbtRepositoryState struct {
 	// Custom HTTP query parameters that will be automatically included in all remote resource requests. For example:
 	// `param1=val1&param2=val2&param3=val3`
 	QueryParams pulumi.StringPtrInput
-	// Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a "captive
-	// portal". Default value is 'false'.
+	// Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a "captive portal".
 	RejectInvalidJars pulumi.BoolPtrInput
-	// Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the
-	// system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated
-	// checksum. Default value is 'generate-if-absent'.
+	// Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
 	RemoteRepoChecksumPolicyType pulumi.StringPtrInput
 	// Repository layout key for the remote layout mapping.
 	RemoteRepoLayoutRef pulumi.StringPtrInput
@@ -441,10 +463,7 @@ type RemoteSbtRepositoryState struct {
 	// one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory
 	// servers.
 	StoreArtifactsLocally pulumi.BoolPtrInput
-	// By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the
-	// groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the
-	// deployment with a "409 Conflict" error. You can disable this behavior by setting this attribute to 'true'. Default value
-	// is 'false'.
+	// By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error. You can disable this behavior by setting this attribute to `true`.
 	SuppressPomConsistencyChecks pulumi.BoolPtrInput
 	// When set, remote artifacts are fetched along with their properties.
 	SynchronizeProperties pulumi.BoolPtrInput
@@ -498,15 +517,13 @@ type remoteSbtRepositoryArgs struct {
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 	// artifacts are excluded.
 	ExcludesPattern *string `pulumi:"excludesPattern"`
-	// When set, if a POM is requested, Artifactory attempts to fetch the corresponding jar in the background. This will
-	// accelerate first access time to the jar when it is subsequently requested. Default value is 'false'.
+	// When set, if a POM is requested, Artifactory attempts to fetch the corresponding jar in the background. This will accelerate first access time to the jar when it is subsequently requested.
 	FetchJarsEagerly *bool `pulumi:"fetchJarsEagerly"`
-	// When set, if a binaries jar is requested, Artifactory attempts to fetch the corresponding source jar in the background.
-	// This will accelerate first access time to the source jar when it is subsequently requested. Default value is 'false'.
+	// When set, if a binaries jar is requested, Artifactory attempts to fetch the corresponding source jar in the background. This will accelerate first access time to the source jar when it is subsequently requested.
 	FetchSourcesEagerly *bool `pulumi:"fetchSourcesEagerly"`
-	// If set, Artifactory allows you to deploy release artifacts into this repository. Default value is 'true'.
+	// If set, Artifactory allows you to deploy release artifacts into this repository.
 	HandleReleases *bool `pulumi:"handleReleases"`
-	// If set, Artifactory allows you to deploy snapshot artifacts into this repository. Default value is 'true'.
+	// If set, Artifactory allows you to deploy snapshot artifacts into this repository.
 	HandleSnapshots *bool `pulumi:"handleSnapshots"`
 	// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
 	// communicate with this repository.
@@ -514,8 +531,8 @@ type remoteSbtRepositoryArgs struct {
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
-	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-	// characters. It cannot begin with a number or contain spaces or special characters.
+	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+	// contain spaces or special characters.
 	Key string `pulumi:"key"`
 	// Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
 	// the 'Retrieval Cache Period'. Default value is 'true'.
@@ -556,12 +573,9 @@ type remoteSbtRepositoryArgs struct {
 	// Custom HTTP query parameters that will be automatically included in all remote resource requests. For example:
 	// `param1=val1&param2=val2&param3=val3`
 	QueryParams *string `pulumi:"queryParams"`
-	// Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a "captive
-	// portal". Default value is 'false'.
+	// Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a "captive portal".
 	RejectInvalidJars *bool `pulumi:"rejectInvalidJars"`
-	// Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the
-	// system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated
-	// checksum. Default value is 'generate-if-absent'.
+	// Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
 	RemoteRepoChecksumPolicyType *string `pulumi:"remoteRepoChecksumPolicyType"`
 	// Repository layout key for the remote layout mapping.
 	RemoteRepoLayoutRef *string `pulumi:"remoteRepoLayoutRef"`
@@ -579,10 +593,7 @@ type remoteSbtRepositoryArgs struct {
 	// one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory
 	// servers.
 	StoreArtifactsLocally *bool `pulumi:"storeArtifactsLocally"`
-	// By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the
-	// groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the
-	// deployment with a "409 Conflict" error. You can disable this behavior by setting this attribute to 'true'. Default value
-	// is 'false'.
+	// By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error. You can disable this behavior by setting this attribute to `true`.
 	SuppressPomConsistencyChecks *bool `pulumi:"suppressPomConsistencyChecks"`
 	// When set, remote artifacts are fetched along with their properties.
 	SynchronizeProperties *bool `pulumi:"synchronizeProperties"`
@@ -633,15 +644,13 @@ type RemoteSbtRepositoryArgs struct {
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 	// artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrInput
-	// When set, if a POM is requested, Artifactory attempts to fetch the corresponding jar in the background. This will
-	// accelerate first access time to the jar when it is subsequently requested. Default value is 'false'.
+	// When set, if a POM is requested, Artifactory attempts to fetch the corresponding jar in the background. This will accelerate first access time to the jar when it is subsequently requested.
 	FetchJarsEagerly pulumi.BoolPtrInput
-	// When set, if a binaries jar is requested, Artifactory attempts to fetch the corresponding source jar in the background.
-	// This will accelerate first access time to the source jar when it is subsequently requested. Default value is 'false'.
+	// When set, if a binaries jar is requested, Artifactory attempts to fetch the corresponding source jar in the background. This will accelerate first access time to the source jar when it is subsequently requested.
 	FetchSourcesEagerly pulumi.BoolPtrInput
-	// If set, Artifactory allows you to deploy release artifacts into this repository. Default value is 'true'.
+	// If set, Artifactory allows you to deploy release artifacts into this repository.
 	HandleReleases pulumi.BoolPtrInput
-	// If set, Artifactory allows you to deploy snapshot artifacts into this repository. Default value is 'true'.
+	// If set, Artifactory allows you to deploy snapshot artifacts into this repository.
 	HandleSnapshots pulumi.BoolPtrInput
 	// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
 	// communicate with this repository.
@@ -649,8 +658,8 @@ type RemoteSbtRepositoryArgs struct {
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
-	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-	// characters. It cannot begin with a number or contain spaces or special characters.
+	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+	// contain spaces or special characters.
 	Key pulumi.StringInput
 	// Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
 	// the 'Retrieval Cache Period'. Default value is 'true'.
@@ -691,12 +700,9 @@ type RemoteSbtRepositoryArgs struct {
 	// Custom HTTP query parameters that will be automatically included in all remote resource requests. For example:
 	// `param1=val1&param2=val2&param3=val3`
 	QueryParams pulumi.StringPtrInput
-	// Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a "captive
-	// portal". Default value is 'false'.
+	// Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a "captive portal".
 	RejectInvalidJars pulumi.BoolPtrInput
-	// Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the
-	// system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated
-	// checksum. Default value is 'generate-if-absent'.
+	// Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
 	RemoteRepoChecksumPolicyType pulumi.StringPtrInput
 	// Repository layout key for the remote layout mapping.
 	RemoteRepoLayoutRef pulumi.StringPtrInput
@@ -714,10 +720,7 @@ type RemoteSbtRepositoryArgs struct {
 	// one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory
 	// servers.
 	StoreArtifactsLocally pulumi.BoolPtrInput
-	// By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the
-	// groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the
-	// deployment with a "409 Conflict" error. You can disable this behavior by setting this attribute to 'true'. Default value
-	// is 'false'.
+	// By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error. You can disable this behavior by setting this attribute to `true`.
 	SuppressPomConsistencyChecks pulumi.BoolPtrInput
 	// When set, remote artifacts are fetched along with their properties.
 	SynchronizeProperties pulumi.BoolPtrInput
@@ -891,24 +894,22 @@ func (o RemoteSbtRepositoryOutput) ExcludesPattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RemoteSbtRepository) pulumi.StringPtrOutput { return v.ExcludesPattern }).(pulumi.StringPtrOutput)
 }
 
-// When set, if a POM is requested, Artifactory attempts to fetch the corresponding jar in the background. This will
-// accelerate first access time to the jar when it is subsequently requested. Default value is 'false'.
+// When set, if a POM is requested, Artifactory attempts to fetch the corresponding jar in the background. This will accelerate first access time to the jar when it is subsequently requested.
 func (o RemoteSbtRepositoryOutput) FetchJarsEagerly() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteSbtRepository) pulumi.BoolPtrOutput { return v.FetchJarsEagerly }).(pulumi.BoolPtrOutput)
 }
 
-// When set, if a binaries jar is requested, Artifactory attempts to fetch the corresponding source jar in the background.
-// This will accelerate first access time to the source jar when it is subsequently requested. Default value is 'false'.
+// When set, if a binaries jar is requested, Artifactory attempts to fetch the corresponding source jar in the background. This will accelerate first access time to the source jar when it is subsequently requested.
 func (o RemoteSbtRepositoryOutput) FetchSourcesEagerly() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteSbtRepository) pulumi.BoolPtrOutput { return v.FetchSourcesEagerly }).(pulumi.BoolPtrOutput)
 }
 
-// If set, Artifactory allows you to deploy release artifacts into this repository. Default value is 'true'.
+// If set, Artifactory allows you to deploy release artifacts into this repository.
 func (o RemoteSbtRepositoryOutput) HandleReleases() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteSbtRepository) pulumi.BoolPtrOutput { return v.HandleReleases }).(pulumi.BoolPtrOutput)
 }
 
-// If set, Artifactory allows you to deploy snapshot artifacts into this repository. Default value is 'true'.
+// If set, Artifactory allows you to deploy snapshot artifacts into this repository.
 func (o RemoteSbtRepositoryOutput) HandleSnapshots() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteSbtRepository) pulumi.BoolPtrOutput { return v.HandleSnapshots }).(pulumi.BoolPtrOutput)
 }
@@ -925,8 +926,8 @@ func (o RemoteSbtRepositoryOutput) IncludesPattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RemoteSbtRepository) pulumi.StringPtrOutput { return v.IncludesPattern }).(pulumi.StringPtrOutput)
 }
 
-// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-// characters. It cannot begin with a number or contain spaces or special characters.
+// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+// contain spaces or special characters.
 func (o RemoteSbtRepositoryOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v *RemoteSbtRepository) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
 }
@@ -1016,15 +1017,12 @@ func (o RemoteSbtRepositoryOutput) QueryParams() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RemoteSbtRepository) pulumi.StringPtrOutput { return v.QueryParams }).(pulumi.StringPtrOutput)
 }
 
-// Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a "captive
-// portal". Default value is 'false'.
+// Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a "captive portal".
 func (o RemoteSbtRepositoryOutput) RejectInvalidJars() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteSbtRepository) pulumi.BoolPtrOutput { return v.RejectInvalidJars }).(pulumi.BoolPtrOutput)
 }
 
-// Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the
-// system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated
-// checksum. Default value is 'generate-if-absent'.
+// Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
 func (o RemoteSbtRepositoryOutput) RemoteRepoChecksumPolicyType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RemoteSbtRepository) pulumi.StringPtrOutput { return v.RemoteRepoChecksumPolicyType }).(pulumi.StringPtrOutput)
 }
@@ -1063,10 +1061,7 @@ func (o RemoteSbtRepositoryOutput) StoreArtifactsLocally() pulumi.BoolPtrOutput 
 	return o.ApplyT(func(v *RemoteSbtRepository) pulumi.BoolPtrOutput { return v.StoreArtifactsLocally }).(pulumi.BoolPtrOutput)
 }
 
-// By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the
-// groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the
-// deployment with a "409 Conflict" error. You can disable this behavior by setting this attribute to 'true'. Default value
-// is 'false'.
+// By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error. You can disable this behavior by setting this attribute to `true`.
 func (o RemoteSbtRepositoryOutput) SuppressPomConsistencyChecks() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteSbtRepository) pulumi.BoolPtrOutput { return v.SuppressPomConsistencyChecks }).(pulumi.BoolPtrOutput)
 }

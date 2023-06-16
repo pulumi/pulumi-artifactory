@@ -16,6 +16,74 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Creates a virtual Maven repository.
+ * Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Maven+Repository).
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.artifactory.LocalMavenRepository;
+ * import com.pulumi.artifactory.LocalMavenRepositoryArgs;
+ * import com.pulumi.artifactory.RemoteMavenRepository;
+ * import com.pulumi.artifactory.RemoteMavenRepositoryArgs;
+ * import com.pulumi.artifactory.MavenRepository;
+ * import com.pulumi.artifactory.MavenRepositoryArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var bar = new LocalMavenRepository(&#34;bar&#34;, LocalMavenRepositoryArgs.builder()        
+ *             .key(&#34;bar&#34;)
+ *             .repoLayoutRef(&#34;maven-2-default&#34;)
+ *             .build());
+ * 
+ *         var baz = new RemoteMavenRepository(&#34;baz&#34;, RemoteMavenRepositoryArgs.builder()        
+ *             .key(&#34;baz&#34;)
+ *             .repoLayoutRef(&#34;maven-2-default&#34;)
+ *             .url(&#34;https://search.maven.com/&#34;)
+ *             .build());
+ * 
+ *         var maven_virt_repo = new MavenRepository(&#34;maven-virt-repo&#34;, MavenRepositoryArgs.builder()        
+ *             .description(&#34;A test virtual repo&#34;)
+ *             .excludesPattern(&#34;com/google/**&#34;)
+ *             .forceMavenAuthentication(true)
+ *             .includesPattern(&#34;com/jfrog/**,cloud/jfrog/**&#34;)
+ *             .key(&#34;maven-virt-repo&#34;)
+ *             .notes(&#34;Internal description&#34;)
+ *             .pomRepositoryReferencesCleanupPolicy(&#34;discard_active_reference&#34;)
+ *             .repoLayoutRef(&#34;maven-2-default&#34;)
+ *             .repositories(            
+ *                 bar.key(),
+ *                 baz.key())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Virtual repositories can be imported using their name, e.g.
+ * 
+ * ```sh
+ *  $ pulumi import artifactory:index/mavenRepository:MavenRepository maven-virt-repo maven-virt-repo
+ * ```
+ * 
+ */
 @ResourceType(type="artifactory:index/mavenRepository:MavenRepository")
 public class MavenRepository extends com.pulumi.resources.CustomResource {
     /**
@@ -79,16 +147,14 @@ public class MavenRepository extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.excludesPattern);
     }
     /**
-     * User authentication is required when accessing the repository. An anonymous request will display an HTTP 401 error. This
-     * is also enforced when aggregated repositories support anonymous requests.
+     * Forces authentication when fetching from remote repos.
      * 
      */
     @Export(name="forceMavenAuthentication", type=Boolean.class, parameters={})
     private Output<Boolean> forceMavenAuthentication;
 
     /**
-     * @return User authentication is required when accessing the repository. An anonymous request will display an HTTP 401 error. This
-     * is also enforced when aggregated repositories support anonymous requests.
+     * @return Forces authentication when fetching from remote repos.
      * 
      */
     public Output<Boolean> forceMavenAuthentication() {
@@ -111,16 +177,16 @@ public class MavenRepository extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.includesPattern);
     }
     /**
-     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-     * characters. It cannot begin with a number or contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+     * contain spaces or special characters.
      * 
      */
     @Export(name="key", type=String.class, parameters={})
     private Output<String> key;
 
     /**
-     * @return A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-     * characters. It cannot begin with a number or contain spaces or special characters.
+     * @return A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+     * contain spaces or special characters.
      * 
      */
     public Output<String> key() {
@@ -161,20 +227,14 @@ public class MavenRepository extends com.pulumi.resources.CustomResource {
         return this.packageType;
     }
     /**
-     * (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under
-     * project or under a profile in the same POM that is activeByDefault. (2: discard_any_reference) Discard Any References -
-     * Removes all repository elements regardless of whether they are included in an active profile or not. (3: nothing)
-     * Nothing - Does not remove any repository elements declared in the POM.
+     * One of: `&#34;discard_active_reference&#34;, &#34;discard_any_reference&#34;, &#34;nothing&#34;`
      * 
      */
     @Export(name="pomRepositoryReferencesCleanupPolicy", type=String.class, parameters={})
     private Output<String> pomRepositoryReferencesCleanupPolicy;
 
     /**
-     * @return (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under
-     * project or under a profile in the same POM that is activeByDefault. (2: discard_any_reference) Discard Any References -
-     * Removes all repository elements regardless of whether they are included in an active profile or not. (3: nothing)
-     * Nothing - Does not remove any repository elements declared in the POM.
+     * @return One of: `&#34;discard_active_reference&#34;, &#34;discard_any_reference&#34;, &#34;nothing&#34;`
      * 
      */
     public Output<String> pomRepositoryReferencesCleanupPolicy() {

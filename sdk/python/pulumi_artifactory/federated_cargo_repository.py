@@ -38,12 +38,10 @@ class FederatedCargoRepositoryArgs:
                  xray_index: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a FederatedCargoRepository resource.
-        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-               characters. It cannot begin with a number or contain spaces or special characters.
-        :param pulumi.Input[Sequence[pulumi.Input['FederatedCargoRepositoryMemberArgs']]] members: The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
-               will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
-               federated members will need to have a base URL set. Please follow the
-               [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+        :param pulumi.Input[str] key: the identity key of the repo.
+        :param pulumi.Input[Sequence[pulumi.Input['FederatedCargoRepositoryMemberArgs']]] members: The list of Federated members and must contain this repository URL (configured base URL
+               `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+               Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
                to set up Federated repositories correctly.
         :param pulumi.Input[bool] anonymous_access: Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous
                access to these resources (only), note that this will override the security anonymous access option. Default value is
@@ -121,8 +119,7 @@ class FederatedCargoRepositoryArgs:
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
         """
-        A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-        characters. It cannot begin with a number or contain spaces or special characters.
+        the identity key of the repo.
         """
         return pulumi.get(self, "key")
 
@@ -134,10 +131,9 @@ class FederatedCargoRepositoryArgs:
     @pulumi.getter
     def members(self) -> pulumi.Input[Sequence[pulumi.Input['FederatedCargoRepositoryMemberArgs']]]:
         """
-        The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
-        will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
-        federated members will need to have a base URL set. Please follow the
-        [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+        The list of Federated members and must contain this repository URL (configured base URL
+        `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+        Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
         to set up Federated repositories correctly.
         """
         return pulumi.get(self, "members")
@@ -421,12 +417,10 @@ class _FederatedCargoRepositoryState:
                artifacts are excluded.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-               characters. It cannot begin with a number or contain spaces or special characters.
-        :param pulumi.Input[Sequence[pulumi.Input['FederatedCargoRepositoryMemberArgs']]] members: The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
-               will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
-               federated members will need to have a base URL set. Please follow the
-               [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+        :param pulumi.Input[str] key: the identity key of the repo.
+        :param pulumi.Input[Sequence[pulumi.Input['FederatedCargoRepositoryMemberArgs']]] members: The list of Federated members and must contain this repository URL (configured base URL
+               `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+               Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
                to set up Federated repositories correctly.
         :param pulumi.Input[str] notes: Internal description.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
@@ -627,8 +621,7 @@ class _FederatedCargoRepositoryState:
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
         """
-        A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-        characters. It cannot begin with a number or contain spaces or special characters.
+        the identity key of the repo.
         """
         return pulumi.get(self, "key")
 
@@ -640,10 +633,9 @@ class _FederatedCargoRepositoryState:
     @pulumi.getter
     def members(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FederatedCargoRepositoryMemberArgs']]]]:
         """
-        The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
-        will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
-        federated members will need to have a base URL set. Please follow the
-        [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+        The list of Federated members and must contain this repository URL (configured base URL
+        `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+        Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
         to set up Federated repositories correctly.
         """
         return pulumi.get(self, "members")
@@ -778,7 +770,36 @@ class FederatedCargoRepository(pulumi.CustomResource):
                  xray_index: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        Create a FederatedCargoRepository resource with the given unique name, props, and options.
+        Creates a federated Cargo repository.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        terraform_federated_test_cargo_repo = artifactory.FederatedCargoRepository("terraform-federated-test-cargo-repo",
+            key="terraform-federated-test-cargo-repo",
+            members=[
+                artifactory.FederatedCargoRepositoryMemberArgs(
+                    enabled=True,
+                    url="http://tempurl.org/artifactory/terraform-federated-test-cargo-repo",
+                ),
+                artifactory.FederatedCargoRepositoryMemberArgs(
+                    enabled=True,
+                    url="http://tempurl2.org/artifactory/terraform-federated-test-cargo-repo-2",
+                ),
+            ])
+        ```
+
+        ## Import
+
+        Federated repositories can be imported using their name, e.g.
+
+        ```sh
+         $ pulumi import artifactory:index/federatedCargoRepository:FederatedCargoRepository terraform-federated-test-cargo-repo terraform-federated-test-cargo-repo
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] anonymous_access: Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous
@@ -801,12 +822,10 @@ class FederatedCargoRepository(pulumi.CustomResource):
                artifacts are excluded.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-               characters. It cannot begin with a number or contain spaces or special characters.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FederatedCargoRepositoryMemberArgs']]]] members: The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
-               will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
-               federated members will need to have a base URL set. Please follow the
-               [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+        :param pulumi.Input[str] key: the identity key of the repo.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FederatedCargoRepositoryMemberArgs']]]] members: The list of Federated members and must contain this repository URL (configured base URL
+               `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+               Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
                to set up Federated repositories correctly.
         :param pulumi.Input[str] notes: Internal description.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
@@ -828,7 +847,36 @@ class FederatedCargoRepository(pulumi.CustomResource):
                  args: FederatedCargoRepositoryArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a FederatedCargoRepository resource with the given unique name, props, and options.
+        Creates a federated Cargo repository.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        terraform_federated_test_cargo_repo = artifactory.FederatedCargoRepository("terraform-federated-test-cargo-repo",
+            key="terraform-federated-test-cargo-repo",
+            members=[
+                artifactory.FederatedCargoRepositoryMemberArgs(
+                    enabled=True,
+                    url="http://tempurl.org/artifactory/terraform-federated-test-cargo-repo",
+                ),
+                artifactory.FederatedCargoRepositoryMemberArgs(
+                    enabled=True,
+                    url="http://tempurl2.org/artifactory/terraform-federated-test-cargo-repo-2",
+                ),
+            ])
+        ```
+
+        ## Import
+
+        Federated repositories can be imported using their name, e.g.
+
+        ```sh
+         $ pulumi import artifactory:index/federatedCargoRepository:FederatedCargoRepository terraform-federated-test-cargo-repo terraform-federated-test-cargo-repo
+        ```
+
         :param str resource_name: The name of the resource.
         :param FederatedCargoRepositoryArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -956,12 +1004,10 @@ class FederatedCargoRepository(pulumi.CustomResource):
                artifacts are excluded.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-               characters. It cannot begin with a number or contain spaces or special characters.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FederatedCargoRepositoryMemberArgs']]]] members: The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
-               will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
-               federated members will need to have a base URL set. Please follow the
-               [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+        :param pulumi.Input[str] key: the identity key of the repo.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FederatedCargoRepositoryMemberArgs']]]] members: The list of Federated members and must contain this repository URL (configured base URL
+               `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+               Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
                to set up Federated repositories correctly.
         :param pulumi.Input[str] notes: Internal description.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
@@ -1102,8 +1148,7 @@ class FederatedCargoRepository(pulumi.CustomResource):
     @pulumi.getter
     def key(self) -> pulumi.Output[str]:
         """
-        A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-        characters. It cannot begin with a number or contain spaces or special characters.
+        the identity key of the repo.
         """
         return pulumi.get(self, "key")
 
@@ -1111,10 +1156,9 @@ class FederatedCargoRepository(pulumi.CustomResource):
     @pulumi.getter
     def members(self) -> pulumi.Output[Sequence['outputs.FederatedCargoRepositoryMember']]:
         """
-        The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
-        will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
-        federated members will need to have a base URL set. Please follow the
-        [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+        The list of Federated members and must contain this repository URL (configured base URL
+        `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+        Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
         to set up Federated repositories correctly.
         """
         return pulumi.get(self, "members")

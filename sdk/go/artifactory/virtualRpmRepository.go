@@ -11,6 +11,79 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Creates a virtual Rpm repository.
+// Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/RPM+Repositories).
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"os"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func readFileOrPanic(path string) pulumi.StringPtrInput {
+//		data, err := os.ReadFile(path)
+//		if err != nil {
+//			panic(err.Error())
+//		}
+//		return pulumi.String(string(data))
+//	}
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewKeypair(ctx, "primary-keypair", &artifactory.KeypairArgs{
+//				PairName:   pulumi.String("primary-keypair"),
+//				PairType:   pulumi.String("GPG"),
+//				Alias:      pulumi.String("foo-alias-1"),
+//				PrivateKey: readFileOrPanic("samples/gpg.priv"),
+//				PublicKey:  readFileOrPanic("samples/gpg.pub"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = artifactory.NewKeypair(ctx, "secondary-keypair", &artifactory.KeypairArgs{
+//				PairName:   pulumi.String("secondary-keypair"),
+//				PairType:   pulumi.String("GPG"),
+//				Alias:      pulumi.String("foo-alias-2"),
+//				PrivateKey: readFileOrPanic("samples/gpg.priv"),
+//				PublicKey:  readFileOrPanic("samples/gpg.pub"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = artifactory.NewVirtualRpmRepository(ctx, "foo-rpm-virtual", &artifactory.VirtualRpmRepositoryArgs{
+//				Key:                 pulumi.String("foo-rpm-virtual"),
+//				PrimaryKeypairRef:   primary_keypair.PairName,
+//				SecondaryKeypairRef: secondary_keypair.PairName,
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				primary_keypair,
+//				secondary_keypair,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Virtual repositories can be imported using their name, e.g.
+//
+// ```sh
+//
+//	$ pulumi import artifactory:index/virtualRpmRepository:VirtualRpmRepository foo-rpm-virtual foo-rpm-virtual
+//
+// ```
 type VirtualRpmRepository struct {
 	pulumi.CustomResourceState
 
@@ -27,13 +100,13 @@ type VirtualRpmRepository struct {
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrOutput `pulumi:"includesPattern"`
-	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-	// characters. It cannot begin with a number or contain spaces or special characters.
+	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+	// contain spaces or special characters.
 	Key pulumi.StringOutput `pulumi:"key"`
 	// Internal description.
 	Notes       pulumi.StringPtrOutput `pulumi:"notes"`
 	PackageType pulumi.StringOutput    `pulumi:"packageType"`
-	// Primary keypair used to sign artifacts.
+	// The primary GPG key to be used to sign packages.
 	PrimaryKeypairRef pulumi.StringPtrOutput `pulumi:"primaryKeypairRef"`
 	// Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
 	// Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
@@ -96,13 +169,13 @@ type virtualRpmRepositoryState struct {
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
-	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-	// characters. It cannot begin with a number or contain spaces or special characters.
+	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+	// contain spaces or special characters.
 	Key *string `pulumi:"key"`
 	// Internal description.
 	Notes       *string `pulumi:"notes"`
 	PackageType *string `pulumi:"packageType"`
-	// Primary keypair used to sign artifacts.
+	// The primary GPG key to be used to sign packages.
 	PrimaryKeypairRef *string `pulumi:"primaryKeypairRef"`
 	// Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
 	// Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
@@ -134,13 +207,13 @@ type VirtualRpmRepositoryState struct {
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
-	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-	// characters. It cannot begin with a number or contain spaces or special characters.
+	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+	// contain spaces or special characters.
 	Key pulumi.StringPtrInput
 	// Internal description.
 	Notes       pulumi.StringPtrInput
 	PackageType pulumi.StringPtrInput
-	// Primary keypair used to sign artifacts.
+	// The primary GPG key to be used to sign packages.
 	PrimaryKeypairRef pulumi.StringPtrInput
 	// Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
 	// Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
@@ -176,12 +249,12 @@ type virtualRpmRepositoryArgs struct {
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
-	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-	// characters. It cannot begin with a number or contain spaces or special characters.
+	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+	// contain spaces or special characters.
 	Key string `pulumi:"key"`
 	// Internal description.
 	Notes *string `pulumi:"notes"`
-	// Primary keypair used to sign artifacts.
+	// The primary GPG key to be used to sign packages.
 	PrimaryKeypairRef *string `pulumi:"primaryKeypairRef"`
 	// Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
 	// Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
@@ -214,12 +287,12 @@ type VirtualRpmRepositoryArgs struct {
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
-	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-	// characters. It cannot begin with a number or contain spaces or special characters.
+	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+	// contain spaces or special characters.
 	Key pulumi.StringInput
 	// Internal description.
 	Notes pulumi.StringPtrInput
-	// Primary keypair used to sign artifacts.
+	// The primary GPG key to be used to sign packages.
 	PrimaryKeypairRef pulumi.StringPtrInput
 	// Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
 	// Artifactory 7.53.1, up to 2 values ("DEV" and "PROD") are allowed. From 7.53.1 onward, only one value is allowed. The
@@ -354,8 +427,8 @@ func (o VirtualRpmRepositoryOutput) IncludesPattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualRpmRepository) pulumi.StringPtrOutput { return v.IncludesPattern }).(pulumi.StringPtrOutput)
 }
 
-// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-// characters. It cannot begin with a number or contain spaces or special characters.
+// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+// contain spaces or special characters.
 func (o VirtualRpmRepositoryOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualRpmRepository) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
 }
@@ -369,7 +442,7 @@ func (o VirtualRpmRepositoryOutput) PackageType() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualRpmRepository) pulumi.StringOutput { return v.PackageType }).(pulumi.StringOutput)
 }
 
-// Primary keypair used to sign artifacts.
+// The primary GPG key to be used to sign packages.
 func (o VirtualRpmRepositoryOutput) PrimaryKeypairRef() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualRpmRepository) pulumi.StringPtrOutput { return v.PrimaryKeypairRef }).(pulumi.StringPtrOutput)
 }

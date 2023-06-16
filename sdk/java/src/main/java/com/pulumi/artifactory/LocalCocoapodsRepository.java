@@ -16,6 +16,48 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Creates a local Cocoapods repository.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.artifactory.LocalCocoapodsRepository;
+ * import com.pulumi.artifactory.LocalCocoapodsRepositoryArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var terraform_local_test_cocoapods_repo = new LocalCocoapodsRepository(&#34;terraform-local-test-cocoapods-repo&#34;, LocalCocoapodsRepositoryArgs.builder()        
+ *             .key(&#34;terraform-local-test-cocoapods-repo&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Local repositories can be imported using their name, e.g.
+ * 
+ * ```sh
+ *  $ pulumi import artifactory:index/localCocoapodsRepository:LocalCocoapodsRepository terraform-local-test-cocoapods-repo terraform-local-test-cocoapods-repo
+ * ```
+ * 
+ */
 @ResourceType(type="artifactory:index/localCocoapodsRepository:LocalCocoapodsRepository")
 public class LocalCocoapodsRepository extends com.pulumi.resources.CustomResource {
     /**
@@ -129,16 +171,14 @@ public class LocalCocoapodsRepository extends com.pulumi.resources.CustomResourc
         return this.includesPattern;
     }
     /**
-     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-     * characters. It cannot begin with a number or contain spaces or special characters.
+     * the identity key of the repo.
      * 
      */
     @Export(name="key", type=String.class, parameters={})
     private Output<String> key;
 
     /**
-     * @return A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-     * characters. It cannot begin with a number or contain spaces or special characters.
+     * @return the identity key of the repo.
      * 
      */
     public Output<String> key() {

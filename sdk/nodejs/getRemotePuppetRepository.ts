@@ -6,6 +6,9 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * Retrieves a remote Peppet repository.
+ */
 export function getRemotePuppetRepository(args: GetRemotePuppetRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetRemotePuppetRepositoryResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -71,6 +74,9 @@ export interface GetRemotePuppetRepositoryArgs {
     excludesPattern?: string;
     hardFail?: boolean;
     includesPattern?: string;
+    /**
+     * the identity key of the repo.
+     */
     key: string;
     listRemoteFolderItems?: boolean;
     localAddress?: string;
@@ -149,6 +155,9 @@ export interface GetRemotePuppetRepositoryResult {
     readonly username?: string;
     readonly xrayIndex?: boolean;
 }
+/**
+ * Retrieves a remote Peppet repository.
+ */
 export function getRemotePuppetRepositoryOutput(args: GetRemotePuppetRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemotePuppetRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getRemotePuppetRepository(a, opts))
 }
@@ -171,6 +180,9 @@ export interface GetRemotePuppetRepositoryOutputArgs {
     excludesPattern?: pulumi.Input<string>;
     hardFail?: pulumi.Input<boolean>;
     includesPattern?: pulumi.Input<string>;
+    /**
+     * the identity key of the repo.
+     */
     key: pulumi.Input<string>;
     listRemoteFolderItems?: pulumi.Input<boolean>;
     localAddress?: pulumi.Input<string>;

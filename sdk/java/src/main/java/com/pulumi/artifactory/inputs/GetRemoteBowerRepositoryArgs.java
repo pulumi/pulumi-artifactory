@@ -47,9 +47,17 @@ public final class GetRemoteBowerRepositoryArgs extends com.pulumi.resources.Inv
         return Optional.ofNullable(this.blockMismatchingMimeTypes);
     }
 
+    /**
+     * (Optional) Proxy remote Bower repository. Default value is `https://registry.bower.io`.
+     * 
+     */
     @Import(name="bowerRegistryUrl")
     private @Nullable Output<String> bowerRegistryUrl;
 
+    /**
+     * @return (Optional) Proxy remote Bower repository. Default value is `https://registry.bower.io`.
+     * 
+     */
     public Optional<Output<String>> bowerRegistryUrl() {
         return Optional.ofNullable(this.bowerRegistryUrl);
     }
@@ -124,9 +132,17 @@ public final class GetRemoteBowerRepositoryArgs extends com.pulumi.resources.Inv
         return Optional.ofNullable(this.includesPattern);
     }
 
+    /**
+     * the identity key of the repo.
+     * 
+     */
     @Import(name="key", required=true)
     private Output<String> key;
 
+    /**
+     * @return the identity key of the repo.
+     * 
+     */
     public Output<String> key() {
         return this.key;
     }
@@ -422,11 +438,23 @@ public final class GetRemoteBowerRepositoryArgs extends com.pulumi.resources.Inv
             return blockMismatchingMimeTypes(Output.of(blockMismatchingMimeTypes));
         }
 
+        /**
+         * @param bowerRegistryUrl (Optional) Proxy remote Bower repository. Default value is `https://registry.bower.io`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder bowerRegistryUrl(@Nullable Output<String> bowerRegistryUrl) {
             $.bowerRegistryUrl = bowerRegistryUrl;
             return this;
         }
 
+        /**
+         * @param bowerRegistryUrl (Optional) Proxy remote Bower repository. Default value is `https://registry.bower.io`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder bowerRegistryUrl(String bowerRegistryUrl) {
             return bowerRegistryUrl(Output.of(bowerRegistryUrl));
         }
@@ -521,11 +549,23 @@ public final class GetRemoteBowerRepositoryArgs extends com.pulumi.resources.Inv
             return includesPattern(Output.of(includesPattern));
         }
 
+        /**
+         * @param key the identity key of the repo.
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(Output<String> key) {
             $.key = key;
             return this;
         }
 
+        /**
+         * @param key the identity key of the repo.
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(String key) {
             return key(Output.of(key));
         }

@@ -11,22 +11,80 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// RSA key pairs are used to sign and verify the Alpine Linux index files in JFrog Artifactory, while GPG key pairs are
+// used to sign and validate packages integrity in JFrog Distribution. The JFrog Platform enables you to manage multiple
+// RSA and GPG signing keys through the Keys Management UI and REST API. The JFrog Platform supports managing multiple
+// pairs of GPG signing keys to sign packages for authentication of several package types such as Debian, Opkg, and RPM
+// through the Keys Management UI and REST API.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"os"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func readFileOrPanic(path string) pulumi.StringPtrInput {
+//		data, err := os.ReadFile(path)
+//		if err != nil {
+//			panic(err.Error())
+//		}
+//		return pulumi.String(string(data))
+//	}
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewKeypair(ctx, "some-keypair6543461672124900137", &artifactory.KeypairArgs{
+//				PairName:   pulumi.String("some-keypair6543461672124900137"),
+//				PairType:   pulumi.String("RSA"),
+//				Alias:      pulumi.String("foo-alias6543461672124900137"),
+//				PrivateKey: readFileOrPanic("samples/rsa.priv"),
+//				PublicKey:  readFileOrPanic("samples/rsa.pub"),
+//				Passphrase: pulumi.String("PASSPHRASE"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Keypair can be imported using their name, e.g.
+//
+// ```sh
+//
+//	$ pulumi import artifactory:index/keypair:Keypair my-keypair my-keypair
+//
+// ```
 type Keypair struct {
 	pulumi.CustomResourceState
 
-	// Will be used as a filename when retrieving the public key via REST API
+	// Will be used as a filename when retrieving the public key via REST API.
 	Alias pulumi.StringOutput `pulumi:"alias"`
 	// A unique identifier for the Key Pair record.
 	PairName pulumi.StringOutput `pulumi:"pairName"`
 	// Key Pair type. Supported types - GPG and RSA.
 	PairType pulumi.StringOutput `pulumi:"pairType"`
-	// Passphrase will be used to decrypt the private key. Validated server side
+	// Passphrase will be used to decrypt the private key. Validated server side.
 	Passphrase pulumi.StringPtrOutput `pulumi:"passphrase"`
 	// Private key. PEM format will be validated.
 	PrivateKey pulumi.StringOutput `pulumi:"privateKey"`
 	// Public key. PEM format will be validated.
 	PublicKey pulumi.StringOutput `pulumi:"publicKey"`
 	// Unknown usage. Returned in the json payload and cannot be set.
+	//
+	// Artifactory REST API call Get Key Pair doesn't return keys `privateKey` and `passphrase`, but consumes these keys in the POST call.
 	Unavailable pulumi.BoolOutput `pulumi:"unavailable"`
 }
 
@@ -85,36 +143,40 @@ func GetKeypair(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Keypair resources.
 type keypairState struct {
-	// Will be used as a filename when retrieving the public key via REST API
+	// Will be used as a filename when retrieving the public key via REST API.
 	Alias *string `pulumi:"alias"`
 	// A unique identifier for the Key Pair record.
 	PairName *string `pulumi:"pairName"`
 	// Key Pair type. Supported types - GPG and RSA.
 	PairType *string `pulumi:"pairType"`
-	// Passphrase will be used to decrypt the private key. Validated server side
+	// Passphrase will be used to decrypt the private key. Validated server side.
 	Passphrase *string `pulumi:"passphrase"`
 	// Private key. PEM format will be validated.
 	PrivateKey *string `pulumi:"privateKey"`
 	// Public key. PEM format will be validated.
 	PublicKey *string `pulumi:"publicKey"`
 	// Unknown usage. Returned in the json payload and cannot be set.
+	//
+	// Artifactory REST API call Get Key Pair doesn't return keys `privateKey` and `passphrase`, but consumes these keys in the POST call.
 	Unavailable *bool `pulumi:"unavailable"`
 }
 
 type KeypairState struct {
-	// Will be used as a filename when retrieving the public key via REST API
+	// Will be used as a filename when retrieving the public key via REST API.
 	Alias pulumi.StringPtrInput
 	// A unique identifier for the Key Pair record.
 	PairName pulumi.StringPtrInput
 	// Key Pair type. Supported types - GPG and RSA.
 	PairType pulumi.StringPtrInput
-	// Passphrase will be used to decrypt the private key. Validated server side
+	// Passphrase will be used to decrypt the private key. Validated server side.
 	Passphrase pulumi.StringPtrInput
 	// Private key. PEM format will be validated.
 	PrivateKey pulumi.StringPtrInput
 	// Public key. PEM format will be validated.
 	PublicKey pulumi.StringPtrInput
 	// Unknown usage. Returned in the json payload and cannot be set.
+	//
+	// Artifactory REST API call Get Key Pair doesn't return keys `privateKey` and `passphrase`, but consumes these keys in the POST call.
 	Unavailable pulumi.BoolPtrInput
 }
 
@@ -123,13 +185,13 @@ func (KeypairState) ElementType() reflect.Type {
 }
 
 type keypairArgs struct {
-	// Will be used as a filename when retrieving the public key via REST API
+	// Will be used as a filename when retrieving the public key via REST API.
 	Alias string `pulumi:"alias"`
 	// A unique identifier for the Key Pair record.
 	PairName string `pulumi:"pairName"`
 	// Key Pair type. Supported types - GPG and RSA.
 	PairType string `pulumi:"pairType"`
-	// Passphrase will be used to decrypt the private key. Validated server side
+	// Passphrase will be used to decrypt the private key. Validated server side.
 	Passphrase *string `pulumi:"passphrase"`
 	// Private key. PEM format will be validated.
 	PrivateKey string `pulumi:"privateKey"`
@@ -139,13 +201,13 @@ type keypairArgs struct {
 
 // The set of arguments for constructing a Keypair resource.
 type KeypairArgs struct {
-	// Will be used as a filename when retrieving the public key via REST API
+	// Will be used as a filename when retrieving the public key via REST API.
 	Alias pulumi.StringInput
 	// A unique identifier for the Key Pair record.
 	PairName pulumi.StringInput
 	// Key Pair type. Supported types - GPG and RSA.
 	PairType pulumi.StringInput
-	// Passphrase will be used to decrypt the private key. Validated server side
+	// Passphrase will be used to decrypt the private key. Validated server side.
 	Passphrase pulumi.StringPtrInput
 	// Private key. PEM format will be validated.
 	PrivateKey pulumi.StringInput
@@ -240,7 +302,7 @@ func (o KeypairOutput) ToKeypairOutputWithContext(ctx context.Context) KeypairOu
 	return o
 }
 
-// Will be used as a filename when retrieving the public key via REST API
+// Will be used as a filename when retrieving the public key via REST API.
 func (o KeypairOutput) Alias() pulumi.StringOutput {
 	return o.ApplyT(func(v *Keypair) pulumi.StringOutput { return v.Alias }).(pulumi.StringOutput)
 }
@@ -255,7 +317,7 @@ func (o KeypairOutput) PairType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Keypair) pulumi.StringOutput { return v.PairType }).(pulumi.StringOutput)
 }
 
-// Passphrase will be used to decrypt the private key. Validated server side
+// Passphrase will be used to decrypt the private key. Validated server side.
 func (o KeypairOutput) Passphrase() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Keypair) pulumi.StringPtrOutput { return v.Passphrase }).(pulumi.StringPtrOutput)
 }
@@ -271,6 +333,8 @@ func (o KeypairOutput) PublicKey() pulumi.StringOutput {
 }
 
 // Unknown usage. Returned in the json payload and cannot be set.
+//
+// Artifactory REST API call Get Key Pair doesn't return keys `privateKey` and `passphrase`, but consumes these keys in the POST call.
 func (o KeypairOutput) Unavailable() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Keypair) pulumi.BoolOutput { return v.Unavailable }).(pulumi.BoolOutput)
 }

@@ -117,6 +117,9 @@ class GetVirtualSbtRepositoryResult:
     @property
     @pulumi.getter(name="keyPair")
     def key_pair(self) -> Optional[str]:
+        """
+        (Optional) The keypair used to sign artifacts.
+        """
         return pulumi.get(self, "key_pair")
 
     @property
@@ -132,6 +135,12 @@ class GetVirtualSbtRepositoryResult:
     @property
     @pulumi.getter(name="pomRepositoryReferencesCleanupPolicy")
     def pom_repository_references_cleanup_policy(self) -> str:
+        """
+        (Optional)
+        - (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
+        - (2: discard_any_reference) Discard Any References - Removes all repository elements regardless of whether they are included in an active profile or not.
+        - (3: nothing) Nothing - Does not remove any repository elements declared in the POM.
+        """
         return pulumi.get(self, "pom_repository_references_cleanup_policy")
 
     @property
@@ -195,7 +204,24 @@ def get_virtual_sbt_repository(artifactory_requests_can_retrieve_remote_artifact
                                repositories: Optional[Sequence[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualSbtRepositoryResult:
     """
-    Use this data source to access information about an existing resource.
+    Retrieves a virtual SBT repository.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_artifactory as artifactory
+
+    virtual_sbt = artifactory.get_virtual_sbt_repository(key="virtual-sbt")
+    ```
+
+
+    :param str key: the identity key of the repo.
+    :param str key_pair: (Optional) The keypair used to sign artifacts.
+    :param str pom_repository_references_cleanup_policy: (Optional)
+           - (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
+           - (2: discard_any_reference) Discard Any References - Removes all repository elements regardless of whether they are included in an active profile or not.
+           - (3: nothing) Nothing - Does not remove any repository elements declared in the POM.
     """
     __args__ = dict()
     __args__['artifactoryRequestsCanRetrieveRemoteArtifacts'] = artifactory_requests_can_retrieve_remote_artifacts
@@ -251,6 +277,23 @@ def get_virtual_sbt_repository_output(artifactory_requests_can_retrieve_remote_a
                                       repositories: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualSbtRepositoryResult]:
     """
-    Use this data source to access information about an existing resource.
+    Retrieves a virtual SBT repository.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_artifactory as artifactory
+
+    virtual_sbt = artifactory.get_virtual_sbt_repository(key="virtual-sbt")
+    ```
+
+
+    :param str key: the identity key of the repo.
+    :param str key_pair: (Optional) The keypair used to sign artifacts.
+    :param str pom_repository_references_cleanup_policy: (Optional)
+           - (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
+           - (2: discard_any_reference) Discard Any References - Removes all repository elements regardless of whether they are included in an active profile or not.
+           - (3: nothing) Nothing - Does not remove any repository elements declared in the POM.
     """
     ...

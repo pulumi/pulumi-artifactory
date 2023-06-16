@@ -4,6 +4,20 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * Retrieves a virtual Git LFS repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const virtual-gitlfs = artifactory.getVirtualGitlfsRepository({
+ *     key: "virtual-gitlfs",
+ * });
+ * ```
+ */
 export function getVirtualGitlfsRepository(args: GetVirtualGitlfsRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualGitlfsRepositoryResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -31,6 +45,9 @@ export interface GetVirtualGitlfsRepositoryArgs {
     description?: string;
     excludesPattern?: string;
     includesPattern?: string;
+    /**
+     * the identity key of the repo.
+     */
     key: string;
     notes?: string;
     projectEnvironments?: string[];
@@ -60,6 +77,20 @@ export interface GetVirtualGitlfsRepositoryResult {
     readonly repoLayoutRef?: string;
     readonly repositories?: string[];
 }
+/**
+ * Retrieves a virtual Git LFS repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const virtual-gitlfs = artifactory.getVirtualGitlfsRepository({
+ *     key: "virtual-gitlfs",
+ * });
+ * ```
+ */
 export function getVirtualGitlfsRepositoryOutput(args: GetVirtualGitlfsRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualGitlfsRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getVirtualGitlfsRepository(a, opts))
 }
@@ -73,6 +104,9 @@ export interface GetVirtualGitlfsRepositoryOutputArgs {
     description?: pulumi.Input<string>;
     excludesPattern?: pulumi.Input<string>;
     includesPattern?: pulumi.Input<string>;
+    /**
+     * the identity key of the repo.
+     */
     key: pulumi.Input<string>;
     notes?: pulumi.Input<string>;
     projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;

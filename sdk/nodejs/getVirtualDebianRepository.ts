@@ -4,6 +4,20 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * Retrieves a virtual Debian repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const virtual-debian = artifactory.getVirtualDebianRepository({
+ *     key: "virtual-debian",
+ * });
+ * ```
+ */
 export function getVirtualDebianRepository(args: GetVirtualDebianRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualDebianRepositoryResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -32,20 +46,38 @@ export function getVirtualDebianRepository(args: GetVirtualDebianRepositoryArgs,
  */
 export interface GetVirtualDebianRepositoryArgs {
     artifactoryRequestsCanRetrieveRemoteArtifacts?: boolean;
+    /**
+     * (Optional) Specifying  architectures will speed up Artifactory's initial metadata indexing process. The default architecture values are amd64 and i386.
+     */
     debianDefaultArchitectures?: string;
     defaultDeploymentRepo?: string;
     description?: string;
     excludesPattern?: string;
     includesPattern?: string;
+    /**
+     * the identity key of the repo.
+     */
     key: string;
     notes?: string;
+    /**
+     * (Optional) Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are `bz2`,`lzma` and `xz`. Default value is `bz2`.
+     */
     optionalIndexCompressionFormats?: string[];
+    /**
+     * (Optional) Primary keypair used to sign artifacts. Default is empty.
+     */
     primaryKeypairRef?: string;
     projectEnvironments?: string[];
     projectKey?: string;
     repoLayoutRef?: string;
     repositories?: string[];
+    /**
+     * (Optional, Default: `7200`) This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
+     */
     retrievalCachePeriodSeconds?: number;
+    /**
+     * (Optional) Secondary keypair used to sign artifacts. Default is empty.
+     */
     secondaryKeypairRef?: string;
 }
 
@@ -54,6 +86,9 @@ export interface GetVirtualDebianRepositoryArgs {
  */
 export interface GetVirtualDebianRepositoryResult {
     readonly artifactoryRequestsCanRetrieveRemoteArtifacts?: boolean;
+    /**
+     * (Optional) Specifying  architectures will speed up Artifactory's initial metadata indexing process. The default architecture values are amd64 and i386.
+     */
     readonly debianDefaultArchitectures?: string;
     readonly defaultDeploymentRepo?: string;
     readonly description?: string;
@@ -65,16 +100,42 @@ export interface GetVirtualDebianRepositoryResult {
     readonly includesPattern?: string;
     readonly key: string;
     readonly notes?: string;
+    /**
+     * (Optional) Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are `bz2`,`lzma` and `xz`. Default value is `bz2`.
+     */
     readonly optionalIndexCompressionFormats: string[];
     readonly packageType: string;
+    /**
+     * (Optional) Primary keypair used to sign artifacts. Default is empty.
+     */
     readonly primaryKeypairRef?: string;
     readonly projectEnvironments: string[];
     readonly projectKey?: string;
     readonly repoLayoutRef?: string;
     readonly repositories?: string[];
+    /**
+     * (Optional, Default: `7200`) This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
+     */
     readonly retrievalCachePeriodSeconds?: number;
+    /**
+     * (Optional) Secondary keypair used to sign artifacts. Default is empty.
+     */
     readonly secondaryKeypairRef?: string;
 }
+/**
+ * Retrieves a virtual Debian repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const virtual-debian = artifactory.getVirtualDebianRepository({
+ *     key: "virtual-debian",
+ * });
+ * ```
+ */
 export function getVirtualDebianRepositoryOutput(args: GetVirtualDebianRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualDebianRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getVirtualDebianRepository(a, opts))
 }
@@ -84,19 +145,37 @@ export function getVirtualDebianRepositoryOutput(args: GetVirtualDebianRepositor
  */
 export interface GetVirtualDebianRepositoryOutputArgs {
     artifactoryRequestsCanRetrieveRemoteArtifacts?: pulumi.Input<boolean>;
+    /**
+     * (Optional) Specifying  architectures will speed up Artifactory's initial metadata indexing process. The default architecture values are amd64 and i386.
+     */
     debianDefaultArchitectures?: pulumi.Input<string>;
     defaultDeploymentRepo?: pulumi.Input<string>;
     description?: pulumi.Input<string>;
     excludesPattern?: pulumi.Input<string>;
     includesPattern?: pulumi.Input<string>;
+    /**
+     * the identity key of the repo.
+     */
     key: pulumi.Input<string>;
     notes?: pulumi.Input<string>;
+    /**
+     * (Optional) Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are `bz2`,`lzma` and `xz`. Default value is `bz2`.
+     */
     optionalIndexCompressionFormats?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * (Optional) Primary keypair used to sign artifacts. Default is empty.
+     */
     primaryKeypairRef?: pulumi.Input<string>;
     projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
     projectKey?: pulumi.Input<string>;
     repoLayoutRef?: pulumi.Input<string>;
     repositories?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * (Optional, Default: `7200`) This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
+     */
     retrievalCachePeriodSeconds?: pulumi.Input<number>;
+    /**
+     * (Optional) Secondary keypair used to sign artifacts. Default is empty.
+     */
     secondaryKeypairRef?: pulumi.Input<string>;
 }

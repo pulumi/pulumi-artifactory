@@ -81,9 +81,17 @@ public final class GetRemoteNugetRepositoryPlainArgs extends com.pulumi.resource
         return Optional.ofNullable(this.description);
     }
 
+    /**
+     * (Optional) The context path prefix through which NuGet downloads are served. For example, the NuGet Gallery download URL is `https://nuget.org/api/v2/package`, so the repository URL should be configured as `https://nuget.org` and the download context path should be configured as `api/v2/package`. Default value is `api/v2/package`.
+     * 
+     */
     @Import(name="downloadContextPath")
     private @Nullable String downloadContextPath;
 
+    /**
+     * @return (Optional) The context path prefix through which NuGet downloads are served. For example, the NuGet Gallery download URL is `https://nuget.org/api/v2/package`, so the repository URL should be configured as `https://nuget.org` and the download context path should be configured as `api/v2/package`. Default value is `api/v2/package`.
+     * 
+     */
     public Optional<String> downloadContextPath() {
         return Optional.ofNullable(this.downloadContextPath);
     }
@@ -109,16 +117,32 @@ public final class GetRemoteNugetRepositoryPlainArgs extends com.pulumi.resource
         return Optional.ofNullable(this.excludesPattern);
     }
 
+    /**
+     * (Optional) When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value is `api/v2`.
+     * 
+     */
     @Import(name="feedContextPath")
     private @Nullable String feedContextPath;
 
+    /**
+     * @return (Optional) When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value is `api/v2`.
+     * 
+     */
     public Optional<String> feedContextPath() {
         return Optional.ofNullable(this.feedContextPath);
     }
 
+    /**
+     * (Optional) Force basic authentication credentials in order to use this repository. Default value is `false`.
+     * 
+     */
     @Import(name="forceNugetAuthentication")
     private @Nullable Boolean forceNugetAuthentication;
 
+    /**
+     * @return (Optional) Force basic authentication credentials in order to use this repository. Default value is `false`.
+     * 
+     */
     public Optional<Boolean> forceNugetAuthentication() {
         return Optional.ofNullable(this.forceNugetAuthentication);
     }
@@ -137,9 +161,17 @@ public final class GetRemoteNugetRepositoryPlainArgs extends com.pulumi.resource
         return Optional.ofNullable(this.includesPattern);
     }
 
+    /**
+     * the identity key of the repo.
+     * 
+     */
     @Import(name="key", required=true)
     private String key;
 
+    /**
+     * @return the identity key of the repo.
+     * 
+     */
     public String key() {
         return this.key;
     }
@@ -284,9 +316,17 @@ public final class GetRemoteNugetRepositoryPlainArgs extends com.pulumi.resource
         return Optional.ofNullable(this.storeArtifactsLocally);
     }
 
+    /**
+     * (Optional) NuGet symbol server URL. Default value is `https://symbols.nuget.org/download/symbols`.
+     * 
+     */
     @Import(name="symbolServerUrl")
     private @Nullable String symbolServerUrl;
 
+    /**
+     * @return (Optional) NuGet symbol server URL. Default value is `https://symbols.nuget.org/download/symbols`.
+     * 
+     */
     public Optional<String> symbolServerUrl() {
         return Optional.ofNullable(this.symbolServerUrl);
     }
@@ -319,9 +359,17 @@ public final class GetRemoteNugetRepositoryPlainArgs extends com.pulumi.resource
         return Optional.ofNullable(this.username);
     }
 
+    /**
+     * (Optional) The URL to the NuGet v3 feed. Default value is `https://api.nuget.org/v3/index.json`.
+     * 
+     */
     @Import(name="v3FeedUrl")
     private @Nullable String v3FeedUrl;
 
+    /**
+     * @return (Optional) The URL to the NuGet v3 feed. Default value is `https://api.nuget.org/v3/index.json`.
+     * 
+     */
     public Optional<String> v3FeedUrl() {
         return Optional.ofNullable(this.v3FeedUrl);
     }
@@ -446,6 +494,12 @@ public final class GetRemoteNugetRepositoryPlainArgs extends com.pulumi.resource
             return this;
         }
 
+        /**
+         * @param downloadContextPath (Optional) The context path prefix through which NuGet downloads are served. For example, the NuGet Gallery download URL is `https://nuget.org/api/v2/package`, so the repository URL should be configured as `https://nuget.org` and the download context path should be configured as `api/v2/package`. Default value is `api/v2/package`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder downloadContextPath(@Nullable String downloadContextPath) {
             $.downloadContextPath = downloadContextPath;
             return this;
@@ -466,11 +520,23 @@ public final class GetRemoteNugetRepositoryPlainArgs extends com.pulumi.resource
             return this;
         }
 
+        /**
+         * @param feedContextPath (Optional) When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value is `api/v2`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder feedContextPath(@Nullable String feedContextPath) {
             $.feedContextPath = feedContextPath;
             return this;
         }
 
+        /**
+         * @param forceNugetAuthentication (Optional) Force basic authentication credentials in order to use this repository. Default value is `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder forceNugetAuthentication(@Nullable Boolean forceNugetAuthentication) {
             $.forceNugetAuthentication = forceNugetAuthentication;
             return this;
@@ -486,6 +552,12 @@ public final class GetRemoteNugetRepositoryPlainArgs extends com.pulumi.resource
             return this;
         }
 
+        /**
+         * @param key the identity key of the repo.
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(String key) {
             $.key = key;
             return this;
@@ -599,6 +671,12 @@ public final class GetRemoteNugetRepositoryPlainArgs extends com.pulumi.resource
             return this;
         }
 
+        /**
+         * @param symbolServerUrl (Optional) NuGet symbol server URL. Default value is `https://symbols.nuget.org/download/symbols`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder symbolServerUrl(@Nullable String symbolServerUrl) {
             $.symbolServerUrl = symbolServerUrl;
             return this;
@@ -624,6 +702,12 @@ public final class GetRemoteNugetRepositoryPlainArgs extends com.pulumi.resource
             return this;
         }
 
+        /**
+         * @param v3FeedUrl (Optional) The URL to the NuGet v3 feed. Default value is `https://api.nuget.org/v3/index.json`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder v3FeedUrl(@Nullable String v3FeedUrl) {
             $.v3FeedUrl = v3FeedUrl;
             return this;

@@ -11,9 +11,59 @@ namespace Pulumi.Artifactory
 {
     public static class GetRemoteRpmRepository
     {
+        /// <summary>
+        /// Retrieves a remote Rpm repository.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var remote_rpm = Artifactory.GetRemoteRpmRepository.Invoke(new()
+        ///     {
+        ///         Key = "remote-rpm",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetRemoteRpmRepositoryResult> InvokeAsync(GetRemoteRpmRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRemoteRpmRepositoryResult>("artifactory:index/getRemoteRpmRepository:getRemoteRpmRepository", args ?? new GetRemoteRpmRepositoryArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Retrieves a remote Rpm repository.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var remote_rpm = Artifactory.GetRemoteRpmRepository.Invoke(new()
+        ///     {
+        ///         Key = "remote-rpm",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetRemoteRpmRepositoryResult> Invoke(GetRemoteRpmRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRemoteRpmRepositoryResult>("artifactory:index/getRemoteRpmRepository:getRemoteRpmRepository", args ?? new GetRemoteRpmRepositoryInvokeArgs(), options.WithDefaults());
     }
@@ -63,6 +113,9 @@ namespace Pulumi.Artifactory
         [Input("includesPattern")]
         public string? IncludesPattern { get; set; }
 
+        /// <summary>
+        /// the identity key of the repo.
+        /// </summary>
         [Input("key", required: true)]
         public string Key { get; set; } = null!;
 
@@ -206,6 +259,9 @@ namespace Pulumi.Artifactory
         [Input("includesPattern")]
         public Input<string>? IncludesPattern { get; set; }
 
+        /// <summary>
+        /// the identity key of the repo.
+        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 

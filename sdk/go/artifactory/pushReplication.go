@@ -11,16 +11,91 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// > This resource is deprecated and replaced by `LocalRepositoryMultiReplication` for clarity.
+//
+// Provides an Artifactory push replication resource. This can be used to create and manage Artifactory push replications using [Multi-push Replication API](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-CreateorReplaceLocalMulti-pushReplication).
+// Push replication is used to synchronize Local Repositories, and is implemented by the Artifactory server on the near
+// end invoking a synchronization of artifacts to the far end.
+// See the [Official Documentation](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-PushReplication).
+//
+// > This resource requires Artifactory Enterprise license.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			cfg := config.New(ctx, "")
+//			artifactoryUrl := cfg.Require("artifactoryUrl")
+//			artifactoryUsername := cfg.Require("artifactoryUsername")
+//			artifactoryPassword := cfg.Require("artifactoryPassword")
+//			providerTestSource, err := artifactory.NewLocalMavenRepository(ctx, "providerTestSource", &artifactory.LocalMavenRepositoryArgs{
+//				Key: pulumi.String("provider_test_source"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			providerTestDest, err := artifactory.NewLocalMavenRepository(ctx, "providerTestDest", &artifactory.LocalMavenRepositoryArgs{
+//				Key: pulumi.String("provider_test_dest"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = artifactory.NewPushReplication(ctx, "foo-rep", &artifactory.PushReplicationArgs{
+//				RepoKey:                providerTestSource.Key,
+//				CronExp:                pulumi.String("0 0 * * * ?"),
+//				EnableEventReplication: pulumi.Bool(true),
+//				Replications: artifactory.PushReplicationReplicationArray{
+//					&artifactory.PushReplicationReplicationArgs{
+//						Url: providerTestDest.Key.ApplyT(func(key string) (string, error) {
+//							return fmt.Sprintf("%v/%v", artifactoryUrl, key), nil
+//						}).(pulumi.StringOutput),
+//						Username: pulumi.String("$var.artifactory_username"),
+//						Password: pulumi.String("$var.artifactory_password"),
+//						Enabled:  pulumi.Bool(true),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Push replication configs can be imported using their repo key, e.g.
+//
+// ```sh
+//
+//	$ pulumi import artifactory:index/pushReplication:PushReplication foo-rep provider_test_source
+//
+// ```
 type PushReplication struct {
 	pulumi.CustomResourceState
 
-	// Cron expression to control the operation frequency.
+	// A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
 	CronExp pulumi.StringOutput `pulumi:"cronExp"`
-	// When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on
-	// artifact, e.g. add, deleted or property change. Default value is `false`.
+	// When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. added, deleted or property change.
 	EnableEventReplication pulumi.BoolPtrOutput                  `pulumi:"enableEventReplication"`
 	Replications           PushReplicationReplicationArrayOutput `pulumi:"replications"`
-	RepoKey                pulumi.StringOutput                   `pulumi:"repoKey"`
+	// Repository name.
+	RepoKey pulumi.StringOutput `pulumi:"repoKey"`
 }
 
 // NewPushReplication registers a new resource with the given unique name, arguments, and options.
@@ -58,23 +133,23 @@ func GetPushReplication(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PushReplication resources.
 type pushReplicationState struct {
-	// Cron expression to control the operation frequency.
+	// A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
 	CronExp *string `pulumi:"cronExp"`
-	// When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on
-	// artifact, e.g. add, deleted or property change. Default value is `false`.
+	// When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. added, deleted or property change.
 	EnableEventReplication *bool                        `pulumi:"enableEventReplication"`
 	Replications           []PushReplicationReplication `pulumi:"replications"`
-	RepoKey                *string                      `pulumi:"repoKey"`
+	// Repository name.
+	RepoKey *string `pulumi:"repoKey"`
 }
 
 type PushReplicationState struct {
-	// Cron expression to control the operation frequency.
+	// A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
 	CronExp pulumi.StringPtrInput
-	// When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on
-	// artifact, e.g. add, deleted or property change. Default value is `false`.
+	// When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. added, deleted or property change.
 	EnableEventReplication pulumi.BoolPtrInput
 	Replications           PushReplicationReplicationArrayInput
-	RepoKey                pulumi.StringPtrInput
+	// Repository name.
+	RepoKey pulumi.StringPtrInput
 }
 
 func (PushReplicationState) ElementType() reflect.Type {
@@ -82,24 +157,24 @@ func (PushReplicationState) ElementType() reflect.Type {
 }
 
 type pushReplicationArgs struct {
-	// Cron expression to control the operation frequency.
+	// A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
 	CronExp string `pulumi:"cronExp"`
-	// When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on
-	// artifact, e.g. add, deleted or property change. Default value is `false`.
+	// When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. added, deleted or property change.
 	EnableEventReplication *bool                        `pulumi:"enableEventReplication"`
 	Replications           []PushReplicationReplication `pulumi:"replications"`
-	RepoKey                string                       `pulumi:"repoKey"`
+	// Repository name.
+	RepoKey string `pulumi:"repoKey"`
 }
 
 // The set of arguments for constructing a PushReplication resource.
 type PushReplicationArgs struct {
-	// Cron expression to control the operation frequency.
+	// A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
 	CronExp pulumi.StringInput
-	// When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on
-	// artifact, e.g. add, deleted or property change. Default value is `false`.
+	// When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. added, deleted or property change.
 	EnableEventReplication pulumi.BoolPtrInput
 	Replications           PushReplicationReplicationArrayInput
-	RepoKey                pulumi.StringInput
+	// Repository name.
+	RepoKey pulumi.StringInput
 }
 
 func (PushReplicationArgs) ElementType() reflect.Type {
@@ -189,13 +264,12 @@ func (o PushReplicationOutput) ToPushReplicationOutputWithContext(ctx context.Co
 	return o
 }
 
-// Cron expression to control the operation frequency.
+// A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
 func (o PushReplicationOutput) CronExp() pulumi.StringOutput {
 	return o.ApplyT(func(v *PushReplication) pulumi.StringOutput { return v.CronExp }).(pulumi.StringOutput)
 }
 
-// When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on
-// artifact, e.g. add, deleted or property change. Default value is `false`.
+// When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. added, deleted or property change.
 func (o PushReplicationOutput) EnableEventReplication() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *PushReplication) pulumi.BoolPtrOutput { return v.EnableEventReplication }).(pulumi.BoolPtrOutput)
 }
@@ -204,6 +278,7 @@ func (o PushReplicationOutput) Replications() PushReplicationReplicationArrayOut
 	return o.ApplyT(func(v *PushReplication) PushReplicationReplicationArrayOutput { return v.Replications }).(PushReplicationReplicationArrayOutput)
 }
 
+// Repository name.
 func (o PushReplicationOutput) RepoKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *PushReplication) pulumi.StringOutput { return v.RepoKey }).(pulumi.StringOutput)
 }

@@ -18,6 +18,58 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Creates a federated Docker repository.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.artifactory.FederatedDockerV2Repository;
+ * import com.pulumi.artifactory.FederatedDockerV2RepositoryArgs;
+ * import com.pulumi.artifactory.inputs.FederatedDockerV2RepositoryMemberArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var terraform_federated_test_docker_repo = new FederatedDockerV2Repository(&#34;terraform-federated-test-docker-repo&#34;, FederatedDockerV2RepositoryArgs.builder()        
+ *             .key(&#34;terraform-federated-test-docker-repo&#34;)
+ *             .members(            
+ *                 FederatedDockerV2RepositoryMemberArgs.builder()
+ *                     .enabled(true)
+ *                     .url(&#34;http://tempurl.org/artifactory/terraform-federated-test-docker-repo&#34;)
+ *                     .build(),
+ *                 FederatedDockerV2RepositoryMemberArgs.builder()
+ *                     .enabled(true)
+ *                     .url(&#34;http://tempurl2.org/artifactory/terraform-federated-test-docker-repo-2&#34;)
+ *                     .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Federated repositories can be imported using their name, e.g.
+ * 
+ * ```sh
+ *  $ pulumi import artifactory:index/federatedDockerV2Repository:FederatedDockerV2Repository terraform-federated-test-docker-repo terraform-federated-test-docker-repo
+ * ```
+ * 
+ */
 @ResourceType(type="artifactory:index/federatedDockerV2Repository:FederatedDockerV2Repository")
 public class FederatedDockerV2Repository extends com.pulumi.resources.CustomResource {
     /**
@@ -175,16 +227,14 @@ public class FederatedDockerV2Repository extends com.pulumi.resources.CustomReso
         return this.includesPattern;
     }
     /**
-     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-     * characters. It cannot begin with a number or contain spaces or special characters.
+     * the identity key of the repo.
      * 
      */
     @Export(name="key", type=String.class, parameters={})
     private Output<String> key;
 
     /**
-     * @return A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-     * characters. It cannot begin with a number or contain spaces or special characters.
+     * @return the identity key of the repo.
      * 
      */
     public Output<String> key() {
@@ -209,10 +259,9 @@ public class FederatedDockerV2Repository extends com.pulumi.resources.CustomReso
         return Codegen.optional(this.maxUniqueTags);
     }
     /**
-     * The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
-     * will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
-     * federated members will need to have a base URL set. Please follow the
-     * [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+     * The list of Federated members and must contain this repository URL (configured base URL
+     * `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+     * Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
      * to set up Federated repositories correctly.
      * 
      */
@@ -220,10 +269,9 @@ public class FederatedDockerV2Repository extends com.pulumi.resources.CustomReso
     private Output<List<FederatedDockerV2RepositoryMember>> members;
 
     /**
-     * @return The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
-     * will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
-     * federated members will need to have a base URL set. Please follow the
-     * [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+     * @return The list of Federated members and must contain this repository URL (configured base URL
+     * `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+     * Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
      * to set up Federated repositories correctly.
      * 
      */

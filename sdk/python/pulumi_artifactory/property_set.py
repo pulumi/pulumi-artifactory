@@ -22,8 +22,8 @@ class PropertySetArgs:
         """
         The set of arguments for constructing a PropertySet resource.
         :param pulumi.Input[Sequence[pulumi.Input['PropertySetPropertyArgs']]] properties: A list of properties that will be part of the property set.
-        :param pulumi.Input[str] name: Property set name.
-        :param pulumi.Input[bool] visible: Defines if the list visible and assignable to the repository or artifact.
+        :param pulumi.Input[str] name: Predefined property name.
+        :param pulumi.Input[bool] visible: Defines if the list visible and assignable to the repository or artifact. Default value is `true`.
         """
         pulumi.set(__self__, "properties", properties)
         if name is not None:
@@ -47,7 +47,7 @@ class PropertySetArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Property set name.
+        Predefined property name.
         """
         return pulumi.get(self, "name")
 
@@ -59,7 +59,7 @@ class PropertySetArgs:
     @pulumi.getter
     def visible(self) -> Optional[pulumi.Input[bool]]:
         """
-        Defines if the list visible and assignable to the repository or artifact.
+        Defines if the list visible and assignable to the repository or artifact. Default value is `true`.
         """
         return pulumi.get(self, "visible")
 
@@ -76,9 +76,9 @@ class _PropertySetState:
                  visible: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering PropertySet resources.
-        :param pulumi.Input[str] name: Property set name.
+        :param pulumi.Input[str] name: Predefined property name.
         :param pulumi.Input[Sequence[pulumi.Input['PropertySetPropertyArgs']]] properties: A list of properties that will be part of the property set.
-        :param pulumi.Input[bool] visible: Defines if the list visible and assignable to the repository or artifact.
+        :param pulumi.Input[bool] visible: Defines if the list visible and assignable to the repository or artifact. Default value is `true`.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -91,7 +91,7 @@ class _PropertySetState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Property set name.
+        Predefined property name.
         """
         return pulumi.get(self, "name")
 
@@ -115,7 +115,7 @@ class _PropertySetState:
     @pulumi.getter
     def visible(self) -> Optional[pulumi.Input[bool]]:
         """
-        Defines if the list visible and assignable to the repository or artifact.
+        Defines if the list visible and assignable to the repository or artifact. Default value is `true`.
         """
         return pulumi.get(self, "visible")
 
@@ -134,12 +134,67 @@ class PropertySet(pulumi.CustomResource):
                  visible: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        Create a PropertySet resource with the given unique name, props, and options.
+        Provides an Artifactory Property Set resource.
+        This resource configuration corresponds to 'propertySets' config block in system configuration XML
+        (REST endpoint: artifactory/api/system/configuration).
+
+        ~>The `PropertySet` resource utilizes endpoints which are blocked/removed in SaaS environments (i.e. in Artifactory online), rendering this resource incompatible with Artifactory SaaS environments.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        foo = artifactory.PropertySet("foo",
+            properties=[
+                artifactory.PropertySetPropertyArgs(
+                    closed_predefined_values=True,
+                    multiple_choice=True,
+                    name="set1property1",
+                    predefined_values=[
+                        artifactory.PropertySetPropertyPredefinedValueArgs(
+                            default_value=True,
+                            name="passed-QA",
+                        ),
+                        artifactory.PropertySetPropertyPredefinedValueArgs(
+                            default_value=False,
+                            name="failed-QA",
+                        ),
+                    ],
+                ),
+                artifactory.PropertySetPropertyArgs(
+                    closed_predefined_values=False,
+                    multiple_choice=False,
+                    name="set1property2",
+                    predefined_values=[
+                        artifactory.PropertySetPropertyPredefinedValueArgs(
+                            default_value=True,
+                            name="passed-QA",
+                        ),
+                        artifactory.PropertySetPropertyPredefinedValueArgs(
+                            default_value=False,
+                            name="failed-QA",
+                        ),
+                    ],
+                ),
+            ],
+            visible=True)
+        ```
+
+        ## Import
+
+        Current Property Set can be imported using `property-set1` as the `ID`, e.g.
+
+        ```sh
+         $ pulumi import artifactory:index/propertySet:PropertySet foo property-set1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: Property set name.
+        :param pulumi.Input[str] name: Predefined property name.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PropertySetPropertyArgs']]]] properties: A list of properties that will be part of the property set.
-        :param pulumi.Input[bool] visible: Defines if the list visible and assignable to the repository or artifact.
+        :param pulumi.Input[bool] visible: Defines if the list visible and assignable to the repository or artifact. Default value is `true`.
         """
         ...
     @overload
@@ -148,7 +203,62 @@ class PropertySet(pulumi.CustomResource):
                  args: PropertySetArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a PropertySet resource with the given unique name, props, and options.
+        Provides an Artifactory Property Set resource.
+        This resource configuration corresponds to 'propertySets' config block in system configuration XML
+        (REST endpoint: artifactory/api/system/configuration).
+
+        ~>The `PropertySet` resource utilizes endpoints which are blocked/removed in SaaS environments (i.e. in Artifactory online), rendering this resource incompatible with Artifactory SaaS environments.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        foo = artifactory.PropertySet("foo",
+            properties=[
+                artifactory.PropertySetPropertyArgs(
+                    closed_predefined_values=True,
+                    multiple_choice=True,
+                    name="set1property1",
+                    predefined_values=[
+                        artifactory.PropertySetPropertyPredefinedValueArgs(
+                            default_value=True,
+                            name="passed-QA",
+                        ),
+                        artifactory.PropertySetPropertyPredefinedValueArgs(
+                            default_value=False,
+                            name="failed-QA",
+                        ),
+                    ],
+                ),
+                artifactory.PropertySetPropertyArgs(
+                    closed_predefined_values=False,
+                    multiple_choice=False,
+                    name="set1property2",
+                    predefined_values=[
+                        artifactory.PropertySetPropertyPredefinedValueArgs(
+                            default_value=True,
+                            name="passed-QA",
+                        ),
+                        artifactory.PropertySetPropertyPredefinedValueArgs(
+                            default_value=False,
+                            name="failed-QA",
+                        ),
+                    ],
+                ),
+            ],
+            visible=True)
+        ```
+
+        ## Import
+
+        Current Property Set can be imported using `property-set1` as the `ID`, e.g.
+
+        ```sh
+         $ pulumi import artifactory:index/propertySet:PropertySet foo property-set1
+        ```
+
         :param str resource_name: The name of the resource.
         :param PropertySetArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -201,9 +311,9 @@ class PropertySet(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: Property set name.
+        :param pulumi.Input[str] name: Predefined property name.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PropertySetPropertyArgs']]]] properties: A list of properties that will be part of the property set.
-        :param pulumi.Input[bool] visible: Defines if the list visible and assignable to the repository or artifact.
+        :param pulumi.Input[bool] visible: Defines if the list visible and assignable to the repository or artifact. Default value is `true`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -218,7 +328,7 @@ class PropertySet(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Property set name.
+        Predefined property name.
         """
         return pulumi.get(self, "name")
 
@@ -234,7 +344,7 @@ class PropertySet(pulumi.CustomResource):
     @pulumi.getter
     def visible(self) -> pulumi.Output[Optional[bool]]:
         """
-        Defines if the list visible and assignable to the repository or artifact.
+        Defines if the list visible and assignable to the repository or artifact. Default value is `true`.
         """
         return pulumi.get(self, "visible")
 

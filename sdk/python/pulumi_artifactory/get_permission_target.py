@@ -43,6 +43,9 @@ class GetPermissionTargetResult:
     @property
     @pulumi.getter
     def build(self) -> Optional['outputs.GetPermissionTargetBuildResult']:
+        """
+        Same as repo but for artifactory-build-info permissions.
+        """
         return pulumi.get(self, "build")
 
     @property
@@ -61,11 +64,17 @@ class GetPermissionTargetResult:
     @property
     @pulumi.getter(name="releaseBundle")
     def release_bundle(self) -> Optional['outputs.GetPermissionTargetReleaseBundleResult']:
+        """
+        Same as repo but for release-bundles permissions.
+        """
         return pulumi.get(self, "release_bundle")
 
     @property
     @pulumi.getter
     def repo(self) -> Optional['outputs.GetPermissionTargetRepoResult']:
+        """
+        Repository permission configuration.
+        """
         return pulumi.get(self, "repo")
 
 
@@ -88,7 +97,24 @@ def get_permission_target(build: Optional[pulumi.InputType['GetPermissionTargetB
                           repo: Optional[pulumi.InputType['GetPermissionTargetRepoArgs']] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPermissionTargetResult:
     """
-    Use this data source to access information about an existing resource.
+    ## # Artifactory Permission Target Data Source
+
+    Provides an Artifactory permission target data source. This can be used to read the configuration of permission targets in artifactory.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_artifactory as artifactory
+
+    target1 = artifactory.get_permission_target(name="my_permission")
+    ```
+
+
+    :param pulumi.InputType['GetPermissionTargetBuildArgs'] build: Same as repo but for artifactory-build-info permissions.
+    :param str name: Name of the permission target.
+    :param pulumi.InputType['GetPermissionTargetReleaseBundleArgs'] release_bundle: Same as repo but for release-bundles permissions.
+    :param pulumi.InputType['GetPermissionTargetRepoArgs'] repo: Repository permission configuration.
     """
     __args__ = dict()
     __args__['build'] = build
@@ -113,6 +139,23 @@ def get_permission_target_output(build: Optional[pulumi.Input[Optional[pulumi.In
                                  repo: Optional[pulumi.Input[Optional[pulumi.InputType['GetPermissionTargetRepoArgs']]]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPermissionTargetResult]:
     """
-    Use this data source to access information about an existing resource.
+    ## # Artifactory Permission Target Data Source
+
+    Provides an Artifactory permission target data source. This can be used to read the configuration of permission targets in artifactory.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_artifactory as artifactory
+
+    target1 = artifactory.get_permission_target(name="my_permission")
+    ```
+
+
+    :param pulumi.InputType['GetPermissionTargetBuildArgs'] build: Same as repo but for artifactory-build-info permissions.
+    :param str name: Name of the permission target.
+    :param pulumi.InputType['GetPermissionTargetReleaseBundleArgs'] release_bundle: Same as repo but for release-bundles permissions.
+    :param pulumi.InputType['GetPermissionTargetRepoArgs'] repo: Repository permission configuration.
     """
     ...

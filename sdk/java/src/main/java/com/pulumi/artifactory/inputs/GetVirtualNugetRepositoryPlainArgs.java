@@ -44,9 +44,17 @@ public final class GetVirtualNugetRepositoryPlainArgs extends com.pulumi.resourc
         return Optional.ofNullable(this.excludesPattern);
     }
 
+    /**
+     * (Optional) If set, user authentication is required when accessing the repository. An anonymous request will display an HTTP 401 error. This is also enforced when aggregated repositories support anonymous requests. Default is `false`.
+     * 
+     */
     @Import(name="forceNugetAuthentication")
     private @Nullable Boolean forceNugetAuthentication;
 
+    /**
+     * @return (Optional) If set, user authentication is required when accessing the repository. An anonymous request will display an HTTP 401 error. This is also enforced when aggregated repositories support anonymous requests. Default is `false`.
+     * 
+     */
     public Optional<Boolean> forceNugetAuthentication() {
         return Optional.ofNullable(this.forceNugetAuthentication);
     }
@@ -58,9 +66,17 @@ public final class GetVirtualNugetRepositoryPlainArgs extends com.pulumi.resourc
         return Optional.ofNullable(this.includesPattern);
     }
 
+    /**
+     * the identity key of the repo.
+     * 
+     */
     @Import(name="key", required=true)
     private String key;
 
+    /**
+     * @return the identity key of the repo.
+     * 
+     */
     public String key() {
         return this.key;
     }
@@ -155,6 +171,12 @@ public final class GetVirtualNugetRepositoryPlainArgs extends com.pulumi.resourc
             return this;
         }
 
+        /**
+         * @param forceNugetAuthentication (Optional) If set, user authentication is required when accessing the repository. An anonymous request will display an HTTP 401 error. This is also enforced when aggregated repositories support anonymous requests. Default is `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder forceNugetAuthentication(@Nullable Boolean forceNugetAuthentication) {
             $.forceNugetAuthentication = forceNugetAuthentication;
             return this;
@@ -165,6 +187,12 @@ public final class GetVirtualNugetRepositoryPlainArgs extends com.pulumi.resourc
             return this;
         }
 
+        /**
+         * @param key the identity key of the repo.
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(String key) {
             $.key = key;
             return this;

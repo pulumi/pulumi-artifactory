@@ -16,6 +16,10 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetRemoteCargoRepositoryResult {
     private @Nullable Boolean allowAnyHostAuth;
+    /**
+     * @return (Required) Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
+     * 
+     */
     private @Nullable Boolean anonymousAccess;
     private @Nullable Integer assumedOfflinePeriodSecs;
     private @Nullable Boolean blackedOut;
@@ -27,8 +31,16 @@ public final class GetRemoteCargoRepositoryResult {
     private @Nullable String description;
     private @Nullable Boolean downloadDirect;
     private @Nullable Boolean enableCookieManagement;
+    /**
+     * @return (Optional) Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
+     * 
+     */
     private @Nullable Boolean enableSparseIndex;
     private @Nullable String excludesPattern;
+    /**
+     * @return (Optional) This is the index url, expected to be a git repository. Default value is `https://github.com/rust-lang/crates.io-index`.
+     * 
+     */
     private @Nullable String gitRegistryUrl;
     private @Nullable Boolean hardFail;
     /**
@@ -69,6 +81,10 @@ public final class GetRemoteCargoRepositoryResult {
     public Optional<Boolean> allowAnyHostAuth() {
         return Optional.ofNullable(this.allowAnyHostAuth);
     }
+    /**
+     * @return (Required) Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
+     * 
+     */
     public Optional<Boolean> anonymousAccess() {
         return Optional.ofNullable(this.anonymousAccess);
     }
@@ -102,12 +118,20 @@ public final class GetRemoteCargoRepositoryResult {
     public Optional<Boolean> enableCookieManagement() {
         return Optional.ofNullable(this.enableCookieManagement);
     }
+    /**
+     * @return (Optional) Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
+     * 
+     */
     public Optional<Boolean> enableSparseIndex() {
         return Optional.ofNullable(this.enableSparseIndex);
     }
     public Optional<String> excludesPattern() {
         return Optional.ofNullable(this.excludesPattern);
     }
+    /**
+     * @return (Optional) This is the index url, expected to be a git repository. Default value is `https://github.com/rust-lang/crates.io-index`.
+     * 
+     */
     public Optional<String> gitRegistryUrl() {
         return Optional.ofNullable(this.gitRegistryUrl);
     }

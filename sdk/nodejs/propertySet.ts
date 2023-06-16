@@ -6,6 +6,64 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * Provides an Artifactory Property Set resource.
+ * This resource configuration corresponds to 'propertySets' config block in system configuration XML
+ * (REST endpoint: artifactory/api/system/configuration).
+ *
+ * ~>The `artifactory.PropertySet` resource utilizes endpoints which are blocked/removed in SaaS environments (i.e. in Artifactory online), rendering this resource incompatible with Artifactory SaaS environments.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const foo = new artifactory.PropertySet("foo", {
+ *     properties: [
+ *         {
+ *             closedPredefinedValues: true,
+ *             multipleChoice: true,
+ *             name: "set1property1",
+ *             predefinedValues: [
+ *                 {
+ *                     defaultValue: true,
+ *                     name: "passed-QA",
+ *                 },
+ *                 {
+ *                     defaultValue: false,
+ *                     name: "failed-QA",
+ *                 },
+ *             ],
+ *         },
+ *         {
+ *             closedPredefinedValues: false,
+ *             multipleChoice: false,
+ *             name: "set1property2",
+ *             predefinedValues: [
+ *                 {
+ *                     defaultValue: true,
+ *                     name: "passed-QA",
+ *                 },
+ *                 {
+ *                     defaultValue: false,
+ *                     name: "failed-QA",
+ *                 },
+ *             ],
+ *         },
+ *     ],
+ *     visible: true,
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * Current Property Set can be imported using `property-set1` as the `ID`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import artifactory:index/propertySet:PropertySet foo property-set1
+ * ```
+ */
 export class PropertySet extends pulumi.CustomResource {
     /**
      * Get an existing PropertySet resource's state with the given name, ID, and optional extra
@@ -35,7 +93,7 @@ export class PropertySet extends pulumi.CustomResource {
     }
 
     /**
-     * Property set name.
+     * Predefined property name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -43,7 +101,7 @@ export class PropertySet extends pulumi.CustomResource {
      */
     public readonly properties!: pulumi.Output<outputs.PropertySetProperty[]>;
     /**
-     * Defines if the list visible and assignable to the repository or artifact.
+     * Defines if the list visible and assignable to the repository or artifact. Default value is `true`.
      */
     public readonly visible!: pulumi.Output<boolean | undefined>;
 
@@ -82,7 +140,7 @@ export class PropertySet extends pulumi.CustomResource {
  */
 export interface PropertySetState {
     /**
-     * Property set name.
+     * Predefined property name.
      */
     name?: pulumi.Input<string>;
     /**
@@ -90,7 +148,7 @@ export interface PropertySetState {
      */
     properties?: pulumi.Input<pulumi.Input<inputs.PropertySetProperty>[]>;
     /**
-     * Defines if the list visible and assignable to the repository or artifact.
+     * Defines if the list visible and assignable to the repository or artifact. Default value is `true`.
      */
     visible?: pulumi.Input<boolean>;
 }
@@ -100,7 +158,7 @@ export interface PropertySetState {
  */
 export interface PropertySetArgs {
     /**
-     * Property set name.
+     * Predefined property name.
      */
     name?: pulumi.Input<string>;
     /**
@@ -108,7 +166,7 @@ export interface PropertySetArgs {
      */
     properties: pulumi.Input<pulumi.Input<inputs.PropertySetProperty>[]>;
     /**
-     * Defines if the list visible and assignable to the repository or artifact.
+     * Defines if the list visible and assignable to the repository or artifact. Default value is `true`.
      */
     visible?: pulumi.Input<boolean>;
 }

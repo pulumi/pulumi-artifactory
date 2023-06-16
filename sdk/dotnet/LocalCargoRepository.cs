@@ -9,13 +9,43 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Artifactory
 {
+    /// <summary>
+    /// Creates a local Cargo repository.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Artifactory = Pulumi.Artifactory;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var terraform_local_test_cargo_repo_basic = new Artifactory.LocalCargoRepository("terraform-local-test-cargo-repo-basic", new()
+    ///     {
+    ///         AnonymousAccess = false,
+    ///         EnableSparseIndex = true,
+    ///         Key = "terraform-local-test-cargo-repo-basic",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Local repositories can be imported using their name, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import artifactory:index/localCargoRepository:LocalCargoRepository terraform-local-test-cargo-repo-basic terraform-local-test-cargo-repo-basic
+    /// ```
+    /// </summary>
     [ArtifactoryResourceType("artifactory:index/localCargoRepository:LocalCargoRepository")]
     public partial class LocalCargoRepository : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous
-        /// access to these resources (only), note that this will override the security anonymous access option. Default value is
-        /// 'false'.
+        /// Cargo client does not send credentials when performing download and search for crates. 
+        /// Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
         /// </summary>
         [Output("anonymousAccess")]
         public Output<bool?> AnonymousAccess { get; private set; } = null!;
@@ -55,8 +85,7 @@ namespace Pulumi.Artifactory
         public Output<bool?> DownloadDirect { get; private set; } = null!;
 
         /// <summary>
-        /// Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default
-        /// value is 'false'.
+        /// Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
         /// </summary>
         [Output("enableSparseIndex")]
         public Output<bool?> EnableSparseIndex { get; private set; } = null!;
@@ -79,8 +108,7 @@ namespace Pulumi.Artifactory
         public Output<ImmutableArray<string>> IndexCompressionFormats { get; private set; } = null!;
 
         /// <summary>
-        /// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-        /// characters. It cannot begin with a number or contain spaces or special characters.
+        /// the identity key of the repo.
         /// </summary>
         [Output("key")]
         public Output<string> Key { get; private set; } = null!;
@@ -182,9 +210,8 @@ namespace Pulumi.Artifactory
     public sealed class LocalCargoRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous
-        /// access to these resources (only), note that this will override the security anonymous access option. Default value is
-        /// 'false'.
+        /// Cargo client does not send credentials when performing download and search for crates. 
+        /// Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
         /// </summary>
         [Input("anonymousAccess")]
         public Input<bool>? AnonymousAccess { get; set; }
@@ -224,8 +251,7 @@ namespace Pulumi.Artifactory
         public Input<bool>? DownloadDirect { get; set; }
 
         /// <summary>
-        /// Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default
-        /// value is 'false'.
+        /// Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
         /// </summary>
         [Input("enableSparseIndex")]
         public Input<bool>? EnableSparseIndex { get; set; }
@@ -253,8 +279,7 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-        /// characters. It cannot begin with a number or contain spaces or special characters.
+        /// the identity key of the repo.
         /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -327,9 +352,8 @@ namespace Pulumi.Artifactory
     public sealed class LocalCargoRepositoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous
-        /// access to these resources (only), note that this will override the security anonymous access option. Default value is
-        /// 'false'.
+        /// Cargo client does not send credentials when performing download and search for crates. 
+        /// Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
         /// </summary>
         [Input("anonymousAccess")]
         public Input<bool>? AnonymousAccess { get; set; }
@@ -369,8 +393,7 @@ namespace Pulumi.Artifactory
         public Input<bool>? DownloadDirect { get; set; }
 
         /// <summary>
-        /// Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default
-        /// value is 'false'.
+        /// Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
         /// </summary>
         [Input("enableSparseIndex")]
         public Input<bool>? EnableSparseIndex { get; set; }
@@ -398,8 +421,7 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-        /// characters. It cannot begin with a number or contain spaces or special characters.
+        /// the identity key of the repo.
         /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }

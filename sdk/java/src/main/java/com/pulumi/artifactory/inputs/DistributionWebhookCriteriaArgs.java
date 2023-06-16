@@ -17,30 +17,62 @@ public final class DistributionWebhookCriteriaArgs extends com.pulumi.resources.
 
     public static final DistributionWebhookCriteriaArgs Empty = new DistributionWebhookCriteriaArgs();
 
+    /**
+     * Trigger on any release bundle.
+     * 
+     */
     @Import(name="anyReleaseBundle", required=true)
     private Output<Boolean> anyReleaseBundle;
 
+    /**
+     * @return Trigger on any release bundle.
+     * 
+     */
     public Output<Boolean> anyReleaseBundle() {
         return this.anyReleaseBundle;
     }
 
+    /**
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
+     * 
+     */
     @Import(name="excludePatterns")
     private @Nullable Output<List<String>> excludePatterns;
 
+    /**
+     * @return Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
+     * 
+     */
     public Optional<Output<List<String>>> excludePatterns() {
         return Optional.ofNullable(this.excludePatterns);
     }
 
+    /**
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
+     * 
+     */
     @Import(name="includePatterns")
     private @Nullable Output<List<String>> includePatterns;
 
+    /**
+     * @return Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
+     * 
+     */
     public Optional<Output<List<String>>> includePatterns() {
         return Optional.ofNullable(this.includePatterns);
     }
 
+    /**
+     * Trigger on this list of release bundle names.
+     * 
+     */
     @Import(name="registeredReleaseBundleNames", required=true)
     private Output<List<String>> registeredReleaseBundleNames;
 
+    /**
+     * @return Trigger on this list of release bundle names.
+     * 
+     */
     public Output<List<String>> registeredReleaseBundleNames() {
         return this.registeredReleaseBundleNames;
     }
@@ -72,50 +104,116 @@ public final class DistributionWebhookCriteriaArgs extends com.pulumi.resources.
             $ = new DistributionWebhookCriteriaArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param anyReleaseBundle Trigger on any release bundle.
+         * 
+         * @return builder
+         * 
+         */
         public Builder anyReleaseBundle(Output<Boolean> anyReleaseBundle) {
             $.anyReleaseBundle = anyReleaseBundle;
             return this;
         }
 
+        /**
+         * @param anyReleaseBundle Trigger on any release bundle.
+         * 
+         * @return builder
+         * 
+         */
         public Builder anyReleaseBundle(Boolean anyReleaseBundle) {
             return anyReleaseBundle(Output.of(anyReleaseBundle));
         }
 
+        /**
+         * @param excludePatterns Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder excludePatterns(@Nullable Output<List<String>> excludePatterns) {
             $.excludePatterns = excludePatterns;
             return this;
         }
 
+        /**
+         * @param excludePatterns Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder excludePatterns(List<String> excludePatterns) {
             return excludePatterns(Output.of(excludePatterns));
         }
 
+        /**
+         * @param excludePatterns Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder excludePatterns(String... excludePatterns) {
             return excludePatterns(List.of(excludePatterns));
         }
 
+        /**
+         * @param includePatterns Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder includePatterns(@Nullable Output<List<String>> includePatterns) {
             $.includePatterns = includePatterns;
             return this;
         }
 
+        /**
+         * @param includePatterns Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder includePatterns(List<String> includePatterns) {
             return includePatterns(Output.of(includePatterns));
         }
 
+        /**
+         * @param includePatterns Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder includePatterns(String... includePatterns) {
             return includePatterns(List.of(includePatterns));
         }
 
+        /**
+         * @param registeredReleaseBundleNames Trigger on this list of release bundle names.
+         * 
+         * @return builder
+         * 
+         */
         public Builder registeredReleaseBundleNames(Output<List<String>> registeredReleaseBundleNames) {
             $.registeredReleaseBundleNames = registeredReleaseBundleNames;
             return this;
         }
 
+        /**
+         * @param registeredReleaseBundleNames Trigger on this list of release bundle names.
+         * 
+         * @return builder
+         * 
+         */
         public Builder registeredReleaseBundleNames(List<String> registeredReleaseBundleNames) {
             return registeredReleaseBundleNames(Output.of(registeredReleaseBundleNames));
         }
 
+        /**
+         * @param registeredReleaseBundleNames Trigger on this list of release bundle names.
+         * 
+         * @return builder
+         * 
+         */
         public Builder registeredReleaseBundleNames(String... registeredReleaseBundleNames) {
             return registeredReleaseBundleNames(List.of(registeredReleaseBundleNames));
         }

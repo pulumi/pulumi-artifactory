@@ -6,6 +6,31 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * Creates a remote Go repository.
+ * Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Go+Registry).
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const my_remote_go = new artifactory.RemoteGoRepository("my-remote-go", {
+ *     key: "my-remote-go",
+ *     url: "https://proxy.golang.org/",
+ *     vcsGitProvider: "ARTIFACTORY",
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * Remote repositories can be imported using their name, e.g.
+ *
+ * ```sh
+ *  $ pulumi import artifactory:index/remoteGoRepository:RemoteGoRepository my-remote-go my-remote-go
+ * ```
+ */
 export class RemoteGoRepository extends pulumi.CustomResource {
     /**
      * Get an existing RemoteGoRepository resource's state with the given name, ID, and optional extra
@@ -101,8 +126,8 @@ export class RemoteGoRepository extends pulumi.CustomResource {
      */
     public readonly includesPattern!: pulumi.Output<string | undefined>;
     /**
-     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-     * characters. It cannot begin with a number or contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+     * contain spaces or special characters.
      */
     public readonly key!: pulumi.Output<string>;
     /**
@@ -212,8 +237,7 @@ export class RemoteGoRepository extends pulumi.CustomResource {
     public readonly url!: pulumi.Output<string>;
     public readonly username!: pulumi.Output<string | undefined>;
     /**
-     * Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance.
-     * Default value is "ARTIFACTORY".
+     * Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `ARTIFACTORY`.
      */
     public readonly vcsGitProvider!: pulumi.Output<string | undefined>;
     /**
@@ -406,8 +430,8 @@ export interface RemoteGoRepositoryState {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-     * characters. It cannot begin with a number or contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+     * contain spaces or special characters.
      */
     key?: pulumi.Input<string>;
     /**
@@ -517,8 +541,7 @@ export interface RemoteGoRepositoryState {
     url?: pulumi.Input<string>;
     username?: pulumi.Input<string>;
     /**
-     * Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance.
-     * Default value is "ARTIFACTORY".
+     * Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `ARTIFACTORY`.
      */
     vcsGitProvider?: pulumi.Input<string>;
     /**
@@ -599,8 +622,8 @@ export interface RemoteGoRepositoryArgs {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-     * characters. It cannot begin with a number or contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+     * contain spaces or special characters.
      */
     key: pulumi.Input<string>;
     /**
@@ -709,8 +732,7 @@ export interface RemoteGoRepositoryArgs {
     url: pulumi.Input<string>;
     username?: pulumi.Input<string>;
     /**
-     * Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance.
-     * Default value is "ARTIFACTORY".
+     * Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `ARTIFACTORY`.
      */
     vcsGitProvider?: pulumi.Input<string>;
     /**

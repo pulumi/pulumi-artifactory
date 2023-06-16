@@ -26,11 +26,19 @@ public final class GetVirtualRpmRepositoryResult {
     private String key;
     private @Nullable String notes;
     private String packageType;
+    /**
+     * @return (Optional) The primary GPG key to be used to sign packages.
+     * 
+     */
     private @Nullable String primaryKeypairRef;
     private List<String> projectEnvironments;
     private @Nullable String projectKey;
     private @Nullable String repoLayoutRef;
     private @Nullable List<String> repositories;
+    /**
+     * @return (Optional) The secondary GPG key to be used to sign packages.
+     * 
+     */
     private @Nullable String secondaryKeypairRef;
 
     private GetVirtualRpmRepositoryResult() {}
@@ -65,6 +73,10 @@ public final class GetVirtualRpmRepositoryResult {
     public String packageType() {
         return this.packageType;
     }
+    /**
+     * @return (Optional) The primary GPG key to be used to sign packages.
+     * 
+     */
     public Optional<String> primaryKeypairRef() {
         return Optional.ofNullable(this.primaryKeypairRef);
     }
@@ -80,6 +92,10 @@ public final class GetVirtualRpmRepositoryResult {
     public List<String> repositories() {
         return this.repositories == null ? List.of() : this.repositories;
     }
+    /**
+     * @return (Optional) The secondary GPG key to be used to sign packages.
+     * 
+     */
     public Optional<String> secondaryKeypairRef() {
         return Optional.ofNullable(this.secondaryKeypairRef);
     }

@@ -12,21 +12,53 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DistributionWebhookCriteria {
+    /**
+     * @return Trigger on any release bundle.
+     * 
+     */
     private Boolean anyReleaseBundle;
+    /**
+     * @return Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
+     * 
+     */
     private @Nullable List<String> excludePatterns;
+    /**
+     * @return Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
+     * 
+     */
     private @Nullable List<String> includePatterns;
+    /**
+     * @return Trigger on this list of release bundle names.
+     * 
+     */
     private List<String> registeredReleaseBundleNames;
 
     private DistributionWebhookCriteria() {}
+    /**
+     * @return Trigger on any release bundle.
+     * 
+     */
     public Boolean anyReleaseBundle() {
         return this.anyReleaseBundle;
     }
+    /**
+     * @return Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
+     * 
+     */
     public List<String> excludePatterns() {
         return this.excludePatterns == null ? List.of() : this.excludePatterns;
     }
+    /**
+     * @return Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
+     * 
+     */
     public List<String> includePatterns() {
         return this.includePatterns == null ? List.of() : this.includePatterns;
     }
+    /**
+     * @return Trigger on this list of release bundle names.
+     * 
+     */
     public List<String> registeredReleaseBundleNames() {
         return this.registeredReleaseBundleNames;
     }

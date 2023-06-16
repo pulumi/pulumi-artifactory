@@ -46,14 +46,14 @@ public final class DistributionPublicKeyState extends com.pulumi.resources.Resou
     }
 
     /**
-     * Returns the name and eMail address of issuer.
+     * Returns the name and eMail address of issuer
      * 
      */
     @Import(name="issuedBy")
     private @Nullable Output<String> issuedBy;
 
     /**
-     * @return Returns the name and eMail address of issuer.
+     * @return Returns the name and eMail address of issuer
      * 
      */
     public Optional<Output<String>> issuedBy() {
@@ -61,14 +61,14 @@ public final class DistributionPublicKeyState extends com.pulumi.resources.Resou
     }
 
     /**
-     * Returns the date/time when this GPG key was created.
+     * Returns the date/time when this GPG key was created
      * 
      */
     @Import(name="issuedOn")
     private @Nullable Output<String> issuedOn;
 
     /**
-     * @return Returns the date/time when this GPG key was created.
+     * @return Returns the date/time when this GPG key was created
      * 
      */
     public Optional<Output<String>> issuedOn() {
@@ -76,14 +76,14 @@ public final class DistributionPublicKeyState extends com.pulumi.resources.Resou
     }
 
     /**
-     * Returns the key id by which this key is referenced in Artifactory.
+     * Returns the key id by which this key is referenced in Artifactory
      * 
      */
     @Import(name="keyId")
     private @Nullable Output<String> keyId;
 
     /**
-     * @return Returns the key id by which this key is referenced in Artifactory.
+     * @return Returns the key id by which this key is referenced in Artifactory
      * 
      */
     public Optional<Output<String>> keyId() {
@@ -93,12 +93,16 @@ public final class DistributionPublicKeyState extends com.pulumi.resources.Resou
     /**
      * The Public key to add as a trusted distribution GPG key.
      * 
+     * The following additional attributes are exported:
+     * 
      */
     @Import(name="publicKey")
     private @Nullable Output<String> publicKey;
 
     /**
      * @return The Public key to add as a trusted distribution GPG key.
+     * 
+     * The following additional attributes are exported:
      * 
      */
     public Optional<Output<String>> publicKey() {
@@ -193,7 +197,7 @@ public final class DistributionPublicKeyState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param issuedBy Returns the name and eMail address of issuer.
+         * @param issuedBy Returns the name and eMail address of issuer
          * 
          * @return builder
          * 
@@ -204,7 +208,7 @@ public final class DistributionPublicKeyState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param issuedBy Returns the name and eMail address of issuer.
+         * @param issuedBy Returns the name and eMail address of issuer
          * 
          * @return builder
          * 
@@ -214,7 +218,7 @@ public final class DistributionPublicKeyState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param issuedOn Returns the date/time when this GPG key was created.
+         * @param issuedOn Returns the date/time when this GPG key was created
          * 
          * @return builder
          * 
@@ -225,7 +229,7 @@ public final class DistributionPublicKeyState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param issuedOn Returns the date/time when this GPG key was created.
+         * @param issuedOn Returns the date/time when this GPG key was created
          * 
          * @return builder
          * 
@@ -235,7 +239,7 @@ public final class DistributionPublicKeyState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param keyId Returns the key id by which this key is referenced in Artifactory.
+         * @param keyId Returns the key id by which this key is referenced in Artifactory
          * 
          * @return builder
          * 
@@ -246,7 +250,7 @@ public final class DistributionPublicKeyState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param keyId Returns the key id by which this key is referenced in Artifactory.
+         * @param keyId Returns the key id by which this key is referenced in Artifactory
          * 
          * @return builder
          * 
@@ -258,6 +262,8 @@ public final class DistributionPublicKeyState extends com.pulumi.resources.Resou
         /**
          * @param publicKey The Public key to add as a trusted distribution GPG key.
          * 
+         * The following additional attributes are exported:
+         * 
          * @return builder
          * 
          */
@@ -268,6 +274,8 @@ public final class DistributionPublicKeyState extends com.pulumi.resources.Resou
 
         /**
          * @param publicKey The Public key to add as a trusted distribution GPG key.
+         * 
+         * The following additional attributes are exported:
          * 
          * @return builder
          * 

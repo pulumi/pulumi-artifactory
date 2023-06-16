@@ -6,6 +6,34 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * Creates remote Docker repository resource.
+ * Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Docker+Registry)
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const my_remote_docker = new artifactory.RemoteDockerRepository("my-remote-docker", {
+ *     blockPushingSchema1: true,
+ *     enableTokenAuthentication: true,
+ *     externalDependenciesEnabled: true,
+ *     externalDependenciesPatterns: ["**&#47;registry-1.docker.io/**"],
+ *     key: "my-remote-docker",
+ *     url: "https://registry-1.docker.io/",
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * Remote repositories can be imported using their name, e.g.
+ *
+ * ```sh
+ *  $ pulumi import artifactory:index/remoteDockerRepository:RemoteDockerRepository my-remote-docker my-remote-docker
+ * ```
+ */
 export class RemoteDockerRepository extends pulumi.CustomResource {
     /**
      * Get an existing RemoteDockerRepository resource's state with the given name, ID, and optional extra
@@ -57,8 +85,9 @@ export class RemoteDockerRepository extends pulumi.CustomResource {
      */
     public readonly blockMismatchingMimeTypes!: pulumi.Output<boolean | undefined>;
     /**
-     * When set, Artifactory will block the pulling of Docker images with manifest v2 schema 1 from the remote repository (i.e.
-     * the upstream). It will be possible to pull images with manifest v2 schema 1 that exist in the cache.
+     * When set, Artifactory will block the pulling of Docker images with manifest v2
+     * schema 1 from the remote repository (i.e. the upstream). It will be possible to pull images with manifest v2 schema 1
+     * that exist in the cache.
      */
     public readonly blockPushingSchema1!: pulumi.Output<boolean>;
     /**
@@ -100,16 +129,17 @@ export class RemoteDockerRepository extends pulumi.CustomResource {
      */
     public readonly excludesPattern!: pulumi.Output<string | undefined>;
     /**
-     * Also known as 'Foreign Layers Caching' on the UI, default is `false`.
+     * Also known as 'Foreign Layers Caching' on the UI.
      */
     public readonly externalDependenciesEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download
-     * remote modules from, when presented with 'go-import' meta tags in the remote repository response. By default, this is
-     * set to '**' in the UI, which means that remote modules may be downloaded from any external VCS source.Due to SDKv2
-     * limitations, we can't set the default value for the list.This value must be assigned to the attribute manually, if user
-     * don't specify any other non-default values.This attribute must be set together with `external_dependencies_enabled =
-     * true`
+     * An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will
+     * follow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response.
+     * By default, this is set to `[**]` in the UI, which means that remote modules may be downloaded from any external VCS source.
+     * Due to SDKv2 limitations, we can't set the default value for the list.
+     * This value `[**]` must be assigned to the attribute manually, if user don't specify any other non-default values.
+     * We don't want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns
+     * `[**]` on update if HCL doesn't have the attribute set or the list is empty.
      */
     public readonly externalDependenciesPatterns!: pulumi.Output<string[] | undefined>;
     /**
@@ -123,8 +153,8 @@ export class RemoteDockerRepository extends pulumi.CustomResource {
      */
     public readonly includesPattern!: pulumi.Output<string | undefined>;
     /**
-     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-     * characters. It cannot begin with a number or contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+     * contain spaces or special characters.
      */
     public readonly key!: pulumi.Output<string>;
     /**
@@ -385,8 +415,9 @@ export interface RemoteDockerRepositoryState {
      */
     blockMismatchingMimeTypes?: pulumi.Input<boolean>;
     /**
-     * When set, Artifactory will block the pulling of Docker images with manifest v2 schema 1 from the remote repository (i.e.
-     * the upstream). It will be possible to pull images with manifest v2 schema 1 that exist in the cache.
+     * When set, Artifactory will block the pulling of Docker images with manifest v2
+     * schema 1 from the remote repository (i.e. the upstream). It will be possible to pull images with manifest v2 schema 1
+     * that exist in the cache.
      */
     blockPushingSchema1?: pulumi.Input<boolean>;
     /**
@@ -428,16 +459,17 @@ export interface RemoteDockerRepositoryState {
      */
     excludesPattern?: pulumi.Input<string>;
     /**
-     * Also known as 'Foreign Layers Caching' on the UI, default is `false`.
+     * Also known as 'Foreign Layers Caching' on the UI.
      */
     externalDependenciesEnabled?: pulumi.Input<boolean>;
     /**
-     * An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download
-     * remote modules from, when presented with 'go-import' meta tags in the remote repository response. By default, this is
-     * set to '**' in the UI, which means that remote modules may be downloaded from any external VCS source.Due to SDKv2
-     * limitations, we can't set the default value for the list.This value must be assigned to the attribute manually, if user
-     * don't specify any other non-default values.This attribute must be set together with `external_dependencies_enabled =
-     * true`
+     * An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will
+     * follow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response.
+     * By default, this is set to `[**]` in the UI, which means that remote modules may be downloaded from any external VCS source.
+     * Due to SDKv2 limitations, we can't set the default value for the list.
+     * This value `[**]` must be assigned to the attribute manually, if user don't specify any other non-default values.
+     * We don't want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns
+     * `[**]` on update if HCL doesn't have the attribute set or the list is empty.
      */
     externalDependenciesPatterns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -451,8 +483,8 @@ export interface RemoteDockerRepositoryState {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-     * characters. It cannot begin with a number or contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+     * contain spaces or special characters.
      */
     key?: pulumi.Input<string>;
     /**
@@ -595,8 +627,9 @@ export interface RemoteDockerRepositoryArgs {
      */
     blockMismatchingMimeTypes?: pulumi.Input<boolean>;
     /**
-     * When set, Artifactory will block the pulling of Docker images with manifest v2 schema 1 from the remote repository (i.e.
-     * the upstream). It will be possible to pull images with manifest v2 schema 1 that exist in the cache.
+     * When set, Artifactory will block the pulling of Docker images with manifest v2
+     * schema 1 from the remote repository (i.e. the upstream). It will be possible to pull images with manifest v2 schema 1
+     * that exist in the cache.
      */
     blockPushingSchema1?: pulumi.Input<boolean>;
     /**
@@ -638,16 +671,17 @@ export interface RemoteDockerRepositoryArgs {
      */
     excludesPattern?: pulumi.Input<string>;
     /**
-     * Also known as 'Foreign Layers Caching' on the UI, default is `false`.
+     * Also known as 'Foreign Layers Caching' on the UI.
      */
     externalDependenciesEnabled?: pulumi.Input<boolean>;
     /**
-     * An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download
-     * remote modules from, when presented with 'go-import' meta tags in the remote repository response. By default, this is
-     * set to '**' in the UI, which means that remote modules may be downloaded from any external VCS source.Due to SDKv2
-     * limitations, we can't set the default value for the list.This value must be assigned to the attribute manually, if user
-     * don't specify any other non-default values.This attribute must be set together with `external_dependencies_enabled =
-     * true`
+     * An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will
+     * follow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response.
+     * By default, this is set to `[**]` in the UI, which means that remote modules may be downloaded from any external VCS source.
+     * Due to SDKv2 limitations, we can't set the default value for the list.
+     * This value `[**]` must be assigned to the attribute manually, if user don't specify any other non-default values.
+     * We don't want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns
+     * `[**]` on update if HCL doesn't have the attribute set or the list is empty.
      */
     externalDependenciesPatterns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -661,8 +695,8 @@ export interface RemoteDockerRepositoryArgs {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen
-     * characters. It cannot begin with a number or contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+     * contain spaces or special characters.
      */
     key: pulumi.Input<string>;
     /**
