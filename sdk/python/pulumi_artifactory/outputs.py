@@ -59,17 +59,17 @@ __all__ = [
     'LocalRepositoryMultiReplicationReplication',
     'OauthSettingsOauthProvider',
     'PermissionTargetBuild',
-    'PermissionTargetBuildActions',
-    'PermissionTargetBuildActionsGroup',
-    'PermissionTargetBuildActionsUser',
+    'PermissionTargetBuildAction',
+    'PermissionTargetBuildActionGroup',
+    'PermissionTargetBuildActionUser',
     'PermissionTargetReleaseBundle',
-    'PermissionTargetReleaseBundleActions',
-    'PermissionTargetReleaseBundleActionsGroup',
-    'PermissionTargetReleaseBundleActionsUser',
+    'PermissionTargetReleaseBundleAction',
+    'PermissionTargetReleaseBundleActionGroup',
+    'PermissionTargetReleaseBundleActionUser',
     'PermissionTargetRepo',
-    'PermissionTargetRepoActions',
-    'PermissionTargetRepoActionsGroup',
-    'PermissionTargetRepoActionsUser',
+    'PermissionTargetRepoAction',
+    'PermissionTargetRepoActionGroup',
+    'PermissionTargetRepoActionUser',
     'PropertySetProperty',
     'PropertySetPropertyPredefinedValue',
     'PushReplicationReplication',
@@ -2462,7 +2462,7 @@ class PermissionTargetBuild(dict):
 
     def __init__(__self__, *,
                  repositories: Sequence[str],
-                 actions: Optional['outputs.PermissionTargetBuildActions'] = None,
+                 actions: Optional[Sequence['outputs.PermissionTargetBuildAction']] = None,
                  excludes_patterns: Optional[Sequence[str]] = None,
                  includes_patterns: Optional[Sequence[str]] = None):
         """
@@ -2488,7 +2488,7 @@ class PermissionTargetBuild(dict):
 
     @property
     @pulumi.getter
-    def actions(self) -> Optional['outputs.PermissionTargetBuildActions']:
+    def actions(self) -> Optional[Sequence['outputs.PermissionTargetBuildAction']]:
         return pulumi.get(self, "actions")
 
     @property
@@ -2509,13 +2509,13 @@ class PermissionTargetBuild(dict):
 
 
 @pulumi.output_type
-class PermissionTargetBuildActions(dict):
+class PermissionTargetBuildAction(dict):
     def __init__(__self__, *,
-                 groups: Optional[Sequence['outputs.PermissionTargetBuildActionsGroup']] = None,
-                 users: Optional[Sequence['outputs.PermissionTargetBuildActionsUser']] = None):
+                 groups: Optional[Sequence['outputs.PermissionTargetBuildActionGroup']] = None,
+                 users: Optional[Sequence['outputs.PermissionTargetBuildActionUser']] = None):
         """
-        :param Sequence['PermissionTargetBuildActionsGroupArgs'] groups: Groups this permission applies for.
-        :param Sequence['PermissionTargetBuildActionsUserArgs'] users: Users this permission target applies for.
+        :param Sequence['PermissionTargetBuildActionGroupArgs'] groups: Groups this permission applies for.
+        :param Sequence['PermissionTargetBuildActionUserArgs'] users: Users this permission target applies for.
         """
         if groups is not None:
             pulumi.set(__self__, "groups", groups)
@@ -2524,7 +2524,7 @@ class PermissionTargetBuildActions(dict):
 
     @property
     @pulumi.getter
-    def groups(self) -> Optional[Sequence['outputs.PermissionTargetBuildActionsGroup']]:
+    def groups(self) -> Optional[Sequence['outputs.PermissionTargetBuildActionGroup']]:
         """
         Groups this permission applies for.
         """
@@ -2532,7 +2532,7 @@ class PermissionTargetBuildActions(dict):
 
     @property
     @pulumi.getter
-    def users(self) -> Optional[Sequence['outputs.PermissionTargetBuildActionsUser']]:
+    def users(self) -> Optional[Sequence['outputs.PermissionTargetBuildActionUser']]:
         """
         Users this permission target applies for.
         """
@@ -2540,7 +2540,7 @@ class PermissionTargetBuildActions(dict):
 
 
 @pulumi.output_type
-class PermissionTargetBuildActionsGroup(dict):
+class PermissionTargetBuildActionGroup(dict):
     def __init__(__self__, *,
                  name: str,
                  permissions: Sequence[str]):
@@ -2565,7 +2565,7 @@ class PermissionTargetBuildActionsGroup(dict):
 
 
 @pulumi.output_type
-class PermissionTargetBuildActionsUser(dict):
+class PermissionTargetBuildActionUser(dict):
     def __init__(__self__, *,
                  name: str,
                  permissions: Sequence[str]):
@@ -2612,7 +2612,7 @@ class PermissionTargetReleaseBundle(dict):
 
     def __init__(__self__, *,
                  repositories: Sequence[str],
-                 actions: Optional['outputs.PermissionTargetReleaseBundleActions'] = None,
+                 actions: Optional[Sequence['outputs.PermissionTargetReleaseBundleAction']] = None,
                  excludes_patterns: Optional[Sequence[str]] = None,
                  includes_patterns: Optional[Sequence[str]] = None):
         """
@@ -2638,7 +2638,7 @@ class PermissionTargetReleaseBundle(dict):
 
     @property
     @pulumi.getter
-    def actions(self) -> Optional['outputs.PermissionTargetReleaseBundleActions']:
+    def actions(self) -> Optional[Sequence['outputs.PermissionTargetReleaseBundleAction']]:
         return pulumi.get(self, "actions")
 
     @property
@@ -2659,13 +2659,13 @@ class PermissionTargetReleaseBundle(dict):
 
 
 @pulumi.output_type
-class PermissionTargetReleaseBundleActions(dict):
+class PermissionTargetReleaseBundleAction(dict):
     def __init__(__self__, *,
-                 groups: Optional[Sequence['outputs.PermissionTargetReleaseBundleActionsGroup']] = None,
-                 users: Optional[Sequence['outputs.PermissionTargetReleaseBundleActionsUser']] = None):
+                 groups: Optional[Sequence['outputs.PermissionTargetReleaseBundleActionGroup']] = None,
+                 users: Optional[Sequence['outputs.PermissionTargetReleaseBundleActionUser']] = None):
         """
-        :param Sequence['PermissionTargetReleaseBundleActionsGroupArgs'] groups: Groups this permission applies for.
-        :param Sequence['PermissionTargetReleaseBundleActionsUserArgs'] users: Users this permission target applies for.
+        :param Sequence['PermissionTargetReleaseBundleActionGroupArgs'] groups: Groups this permission applies for.
+        :param Sequence['PermissionTargetReleaseBundleActionUserArgs'] users: Users this permission target applies for.
         """
         if groups is not None:
             pulumi.set(__self__, "groups", groups)
@@ -2674,7 +2674,7 @@ class PermissionTargetReleaseBundleActions(dict):
 
     @property
     @pulumi.getter
-    def groups(self) -> Optional[Sequence['outputs.PermissionTargetReleaseBundleActionsGroup']]:
+    def groups(self) -> Optional[Sequence['outputs.PermissionTargetReleaseBundleActionGroup']]:
         """
         Groups this permission applies for.
         """
@@ -2682,7 +2682,7 @@ class PermissionTargetReleaseBundleActions(dict):
 
     @property
     @pulumi.getter
-    def users(self) -> Optional[Sequence['outputs.PermissionTargetReleaseBundleActionsUser']]:
+    def users(self) -> Optional[Sequence['outputs.PermissionTargetReleaseBundleActionUser']]:
         """
         Users this permission target applies for.
         """
@@ -2690,7 +2690,7 @@ class PermissionTargetReleaseBundleActions(dict):
 
 
 @pulumi.output_type
-class PermissionTargetReleaseBundleActionsGroup(dict):
+class PermissionTargetReleaseBundleActionGroup(dict):
     def __init__(__self__, *,
                  name: str,
                  permissions: Sequence[str]):
@@ -2715,7 +2715,7 @@ class PermissionTargetReleaseBundleActionsGroup(dict):
 
 
 @pulumi.output_type
-class PermissionTargetReleaseBundleActionsUser(dict):
+class PermissionTargetReleaseBundleActionUser(dict):
     def __init__(__self__, *,
                  name: str,
                  permissions: Sequence[str]):
@@ -2762,7 +2762,7 @@ class PermissionTargetRepo(dict):
 
     def __init__(__self__, *,
                  repositories: Sequence[str],
-                 actions: Optional['outputs.PermissionTargetRepoActions'] = None,
+                 actions: Optional[Sequence['outputs.PermissionTargetRepoAction']] = None,
                  excludes_patterns: Optional[Sequence[str]] = None,
                  includes_patterns: Optional[Sequence[str]] = None):
         """
@@ -2788,7 +2788,7 @@ class PermissionTargetRepo(dict):
 
     @property
     @pulumi.getter
-    def actions(self) -> Optional['outputs.PermissionTargetRepoActions']:
+    def actions(self) -> Optional[Sequence['outputs.PermissionTargetRepoAction']]:
         return pulumi.get(self, "actions")
 
     @property
@@ -2809,13 +2809,13 @@ class PermissionTargetRepo(dict):
 
 
 @pulumi.output_type
-class PermissionTargetRepoActions(dict):
+class PermissionTargetRepoAction(dict):
     def __init__(__self__, *,
-                 groups: Optional[Sequence['outputs.PermissionTargetRepoActionsGroup']] = None,
-                 users: Optional[Sequence['outputs.PermissionTargetRepoActionsUser']] = None):
+                 groups: Optional[Sequence['outputs.PermissionTargetRepoActionGroup']] = None,
+                 users: Optional[Sequence['outputs.PermissionTargetRepoActionUser']] = None):
         """
-        :param Sequence['PermissionTargetRepoActionsGroupArgs'] groups: Groups this permission applies for.
-        :param Sequence['PermissionTargetRepoActionsUserArgs'] users: Users this permission target applies for.
+        :param Sequence['PermissionTargetRepoActionGroupArgs'] groups: Groups this permission applies for.
+        :param Sequence['PermissionTargetRepoActionUserArgs'] users: Users this permission target applies for.
         """
         if groups is not None:
             pulumi.set(__self__, "groups", groups)
@@ -2824,7 +2824,7 @@ class PermissionTargetRepoActions(dict):
 
     @property
     @pulumi.getter
-    def groups(self) -> Optional[Sequence['outputs.PermissionTargetRepoActionsGroup']]:
+    def groups(self) -> Optional[Sequence['outputs.PermissionTargetRepoActionGroup']]:
         """
         Groups this permission applies for.
         """
@@ -2832,7 +2832,7 @@ class PermissionTargetRepoActions(dict):
 
     @property
     @pulumi.getter
-    def users(self) -> Optional[Sequence['outputs.PermissionTargetRepoActionsUser']]:
+    def users(self) -> Optional[Sequence['outputs.PermissionTargetRepoActionUser']]:
         """
         Users this permission target applies for.
         """
@@ -2840,7 +2840,7 @@ class PermissionTargetRepoActions(dict):
 
 
 @pulumi.output_type
-class PermissionTargetRepoActionsGroup(dict):
+class PermissionTargetRepoActionGroup(dict):
     def __init__(__self__, *,
                  name: str,
                  permissions: Sequence[str]):
@@ -2865,7 +2865,7 @@ class PermissionTargetRepoActionsGroup(dict):
 
 
 @pulumi.output_type
-class PermissionTargetRepoActionsUser(dict):
+class PermissionTargetRepoActionUser(dict):
     def __init__(__self__, *,
                  name: str,
                  permissions: Sequence[str]):

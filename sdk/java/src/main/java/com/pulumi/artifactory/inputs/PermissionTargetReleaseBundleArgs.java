@@ -3,7 +3,7 @@
 
 package com.pulumi.artifactory.inputs;
 
-import com.pulumi.artifactory.inputs.PermissionTargetReleaseBundleActionsArgs;
+import com.pulumi.artifactory.inputs.PermissionTargetReleaseBundleActionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -18,9 +18,9 @@ public final class PermissionTargetReleaseBundleArgs extends com.pulumi.resource
     public static final PermissionTargetReleaseBundleArgs Empty = new PermissionTargetReleaseBundleArgs();
 
     @Import(name="actions")
-    private @Nullable Output<PermissionTargetReleaseBundleActionsArgs> actions;
+    private @Nullable Output<List<PermissionTargetReleaseBundleActionArgs>> actions;
 
-    public Optional<Output<PermissionTargetReleaseBundleActionsArgs>> actions() {
+    public Optional<Output<List<PermissionTargetReleaseBundleActionArgs>>> actions() {
         return Optional.ofNullable(this.actions);
     }
 
@@ -96,13 +96,17 @@ public final class PermissionTargetReleaseBundleArgs extends com.pulumi.resource
             $ = new PermissionTargetReleaseBundleArgs(Objects.requireNonNull(defaults));
         }
 
-        public Builder actions(@Nullable Output<PermissionTargetReleaseBundleActionsArgs> actions) {
+        public Builder actions(@Nullable Output<List<PermissionTargetReleaseBundleActionArgs>> actions) {
             $.actions = actions;
             return this;
         }
 
-        public Builder actions(PermissionTargetReleaseBundleActionsArgs actions) {
+        public Builder actions(List<PermissionTargetReleaseBundleActionArgs> actions) {
             return actions(Output.of(actions));
+        }
+
+        public Builder actions(PermissionTargetReleaseBundleActionArgs... actions) {
+            return actions(List.of(actions));
         }
 
         /**

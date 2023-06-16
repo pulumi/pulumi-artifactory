@@ -3,7 +3,7 @@
 
 package com.pulumi.artifactory.inputs;
 
-import com.pulumi.artifactory.inputs.PermissionTargetRepoActionsArgs;
+import com.pulumi.artifactory.inputs.PermissionTargetRepoActionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -18,9 +18,9 @@ public final class PermissionTargetRepoArgs extends com.pulumi.resources.Resourc
     public static final PermissionTargetRepoArgs Empty = new PermissionTargetRepoArgs();
 
     @Import(name="actions")
-    private @Nullable Output<PermissionTargetRepoActionsArgs> actions;
+    private @Nullable Output<List<PermissionTargetRepoActionArgs>> actions;
 
-    public Optional<Output<PermissionTargetRepoActionsArgs>> actions() {
+    public Optional<Output<List<PermissionTargetRepoActionArgs>>> actions() {
         return Optional.ofNullable(this.actions);
     }
 
@@ -96,13 +96,17 @@ public final class PermissionTargetRepoArgs extends com.pulumi.resources.Resourc
             $ = new PermissionTargetRepoArgs(Objects.requireNonNull(defaults));
         }
 
-        public Builder actions(@Nullable Output<PermissionTargetRepoActionsArgs> actions) {
+        public Builder actions(@Nullable Output<List<PermissionTargetRepoActionArgs>> actions) {
             $.actions = actions;
             return this;
         }
 
-        public Builder actions(PermissionTargetRepoActionsArgs actions) {
+        public Builder actions(List<PermissionTargetRepoActionArgs> actions) {
             return actions(Output.of(actions));
+        }
+
+        public Builder actions(PermissionTargetRepoActionArgs... actions) {
+            return actions(List.of(actions));
         }
 
         /**

@@ -13,7 +13,12 @@ namespace Pulumi.Artifactory.Inputs
     public sealed class PermissionTargetBuildGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("actions")]
-        public Input<Inputs.PermissionTargetBuildActionsGetArgs>? Actions { get; set; }
+        private InputList<Inputs.PermissionTargetBuildActionGetArgs>? _actions;
+        public InputList<Inputs.PermissionTargetBuildActionGetArgs> Actions
+        {
+            get => _actions ?? (_actions = new InputList<Inputs.PermissionTargetBuildActionGetArgs>());
+            set => _actions = value;
+        }
 
         [Input("excludesPatterns")]
         private InputList<string>? _excludesPatterns;
