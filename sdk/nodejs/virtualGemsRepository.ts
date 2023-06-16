@@ -14,7 +14,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const foo_gems = new artifactory.VirtualGemsRepository("foo-gems", {
+ * const foo_gems = new artifactory.index/virtualGemsRepository.VirtualGemsRepository("foo-gems", {
  *     description: "A test virtual repo",
  *     excludesPattern: "com/google/**",
  *     includesPattern: "com/jfrog/**,cloud/jfrog/**",

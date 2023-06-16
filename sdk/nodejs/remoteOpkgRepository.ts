@@ -16,7 +16,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const my_remote_opkg = new artifactory.RemoteOpkgRepository("my-remote-opkg", {
+ * const my_remote_opkg = new artifactory.index/remoteOpkgRepository.RemoteOpkgRepository("my-remote-opkg", {
  *     key: "my-remote-opkg",
  *     url: "http://testartifactory.io/artifactory/example-opkg/",
  * });

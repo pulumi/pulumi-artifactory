@@ -18,6 +18,40 @@ namespace Pulumi.Artifactory
     /// **WARNING: This should not be used on a repository with `artifactory.ReplicationConfig`. Using both together will cause
     /// unexpected behaviour and will almost certainly cause your replications to break.**
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Artifactory = Pulumi.Artifactory;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     // Create a replication between two artifactory local repositories
+    ///     var providerTestSource = new Artifactory.Index.LocalMavenRepository.LocalMavenRepository("providerTestSource", new()
+    ///     {
+    ///         Key = "provider_test_source",
+    ///     });
+    /// 
+    ///     var providerTestDest = new Artifactory.Index.LocalMavenRepository.LocalMavenRepository("providerTestDest", new()
+    ///     {
+    ///         Key = "provider_test_dest",
+    ///     });
+    /// 
+    ///     var foo_rep = new Artifactory.Index.SingleReplicationConfig.SingleReplicationConfig("foo-rep", new()
+    ///     {
+    ///         CronExp = "0 0 * * * ?",
+    ///         EnableEventReplication = true,
+    ///         Password = @var.Artifactory_password,
+    ///         RepoKey = providerTestSource.Key,
+    ///         Url = @var.Artifactory_url,
+    ///         Username = @var.Artifactory_username,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Replication configs can be imported using their repo key, e.g.

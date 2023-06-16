@@ -13,7 +13,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const terraform_local_test_gems_repo = new artifactory.LocalGemsRepository("terraform-local-test-gems-repo", {key: "terraform-local-test-gems-repo"});
+ * const terraform_local_test_gems_repo = new artifactory.index/localGemsRepository.LocalGemsRepository("terraform-local-test-gems-repo", {key: "terraform-local-test-gems-repo"});
  * ```
  *
  * ## Import

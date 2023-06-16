@@ -235,15 +235,6 @@ def get_federated_cocoapods_repository(archive_browsing_enabled: Optional[bool] 
     """
     Retrieves a federated Cocoapods repository.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    federated_test_cocoapods_repo = artifactory.get_federated_cocoapods_repository(key="federated-test-cocoapods-repo")
-    ```
-
 
     :param str key: the identity key of the repo.
     :param Sequence[pulumi.InputType['GetFederatedCocoapodsRepositoryMemberArgs']] members: The list of Federated members and must contain this repository URL (configured base URL
@@ -315,15 +306,6 @@ def get_federated_cocoapods_repository_output(archive_browsing_enabled: Optional
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFederatedCocoapodsRepositoryResult]:
     """
     Retrieves a federated Cocoapods repository.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    federated_test_cocoapods_repo = artifactory.get_federated_cocoapods_repository(key="federated-test-cocoapods-repo")
-    ```
 
 
     :param str key: the identity key of the repo.

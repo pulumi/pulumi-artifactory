@@ -20,7 +20,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var terraform_virtual = new Artifactory.VirtualTerraformRepository("terraform-virtual", new()
+    ///     var terraform_virtual = new Artifactory.Index.VirtualTerraformRepository.VirtualTerraformRepository("terraform-virtual", new()
     ///     {
     ///         Description = "A test virtual repo",
     ///         ExcludesPattern = "com/google/**",

@@ -515,8 +515,8 @@ class VirtualHelmRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        foo_helm_virtual = artifactory.VirtualHelmRepository("foo-helm-virtual",
-            key="foo-helm-virtual",
+        foo_helm_virtual = artifactory.index.virtual_helm_repository.VirtualHelmRepository("foo-helm-virtual",
+            key=foo-helm-virtual,
             use_namespaces=True)
         ```
 
@@ -568,8 +568,8 @@ class VirtualHelmRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        foo_helm_virtual = artifactory.VirtualHelmRepository("foo-helm-virtual",
-            key="foo-helm-virtual",
+        foo_helm_virtual = artifactory.index.virtual_helm_repository.VirtualHelmRepository("foo-helm-virtual",
+            key=foo-helm-virtual,
             use_namespaces=True)
         ```
 

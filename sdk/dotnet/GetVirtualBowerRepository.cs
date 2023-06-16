@@ -13,56 +13,12 @@ namespace Pulumi.Artifactory
     {
         /// <summary>
         /// Retrieves a virtual Bower repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var virtual_alpine = Artifactory.GetVirtualBowerRepository.Invoke(new()
-        ///     {
-        ///         Key = "virtual-alpine",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetVirtualBowerRepositoryResult> InvokeAsync(GetVirtualBowerRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualBowerRepositoryResult>("artifactory:index/getVirtualBowerRepository:getVirtualBowerRepository", args ?? new GetVirtualBowerRepositoryArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves a virtual Bower repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var virtual_alpine = Artifactory.GetVirtualBowerRepository.Invoke(new()
-        ///     {
-        ///         Key = "virtual-alpine",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetVirtualBowerRepositoryResult> Invoke(GetVirtualBowerRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualBowerRepositoryResult>("artifactory:index/getVirtualBowerRepository:getVirtualBowerRepository", args ?? new GetVirtualBowerRepositoryInvokeArgs(), options.WithDefaults());

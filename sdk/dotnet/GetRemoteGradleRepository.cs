@@ -13,56 +13,12 @@ namespace Pulumi.Artifactory
     {
         /// <summary>
         /// Retrieves a remote Gradle repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var remote_gradle = Artifactory.GetRemoteGradleRepository.Invoke(new()
-        ///     {
-        ///         Key = "remote-gradle",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetRemoteGradleRepositoryResult> InvokeAsync(GetRemoteGradleRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRemoteGradleRepositoryResult>("artifactory:index/getRemoteGradleRepository:getRemoteGradleRepository", args ?? new GetRemoteGradleRepositoryArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves a remote Gradle repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var remote_gradle = Artifactory.GetRemoteGradleRepository.Invoke(new()
-        ///     {
-        ///         Key = "remote-gradle",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetRemoteGradleRepositoryResult> Invoke(GetRemoteGradleRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRemoteGradleRepositoryResult>("artifactory:index/getRemoteGradleRepository:getRemoteGradleRepository", args ?? new GetRemoteGradleRepositoryInvokeArgs(), options.WithDefaults());

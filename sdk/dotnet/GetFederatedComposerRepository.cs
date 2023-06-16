@@ -13,56 +13,12 @@ namespace Pulumi.Artifactory
     {
         /// <summary>
         /// Retrieves a federated Composer repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var federated_test_composer_repo = Artifactory.GetFederatedComposerRepository.Invoke(new()
-        ///     {
-        ///         Key = "federated-test-composer-repo",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetFederatedComposerRepositoryResult> InvokeAsync(GetFederatedComposerRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFederatedComposerRepositoryResult>("artifactory:index/getFederatedComposerRepository:getFederatedComposerRepository", args ?? new GetFederatedComposerRepositoryArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves a federated Composer repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var federated_test_composer_repo = Artifactory.GetFederatedComposerRepository.Invoke(new()
-        ///     {
-        ///         Key = "federated-test-composer-repo",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetFederatedComposerRepositoryResult> Invoke(GetFederatedComposerRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFederatedComposerRepositoryResult>("artifactory:index/getFederatedComposerRepository:getFederatedComposerRepository", args ?? new GetFederatedComposerRepositoryInvokeArgs(), options.WithDefaults());

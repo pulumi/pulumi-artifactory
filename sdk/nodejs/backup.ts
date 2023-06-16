@@ -19,7 +19,7 @@ import * as utilities from "./utilities";
  * import * as artifactory from "@pulumi/artifactory";
  *
  * // Configure Artifactory Backup system config
- * const backupConfigName = new artifactory.Backup("backupConfigName", {
+ * const backupConfigName = new artifactory.index/backup.Backup("backupConfigName", {
  *     createArchive: false,
  *     cronExp: "0 0 12 * * ? *",
  *     enabled: true,

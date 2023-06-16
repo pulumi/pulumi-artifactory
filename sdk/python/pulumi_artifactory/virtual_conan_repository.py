@@ -482,13 +482,13 @@ class VirtualConanRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        foo_conan = artifactory.VirtualConanRepository("foo-conan",
-            description="A test virtual repo",
-            excludes_pattern="com/google/**",
-            includes_pattern="com/jfrog/**,cloud/jfrog/**",
-            key="foo-conan",
-            notes="Internal description",
-            repo_layout_ref="conan-default",
+        foo_conan = artifactory.index.virtual_conan_repository.VirtualConanRepository("foo-conan",
+            description=A test virtual repo,
+            excludes_pattern=com/google/**,
+            includes_pattern=com/jfrog/**,cloud/jfrog/**,
+            key=foo-conan,
+            notes=Internal description,
+            repo_layout_ref=conan-default,
             repositories=[])
         ```
 
@@ -539,13 +539,13 @@ class VirtualConanRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        foo_conan = artifactory.VirtualConanRepository("foo-conan",
-            description="A test virtual repo",
-            excludes_pattern="com/google/**",
-            includes_pattern="com/jfrog/**,cloud/jfrog/**",
-            key="foo-conan",
-            notes="Internal description",
-            repo_layout_ref="conan-default",
+        foo_conan = artifactory.index.virtual_conan_repository.VirtualConanRepository("foo-conan",
+            description=A test virtual repo,
+            excludes_pattern=com/google/**,
+            includes_pattern=com/jfrog/**,cloud/jfrog/**,
+            key=foo-conan,
+            notes=Internal description,
+            repo_layout_ref=conan-default,
             repositories=[])
         ```
 

@@ -449,12 +449,12 @@ class VirtualGemsRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        foo_gems = artifactory.VirtualGemsRepository("foo-gems",
-            description="A test virtual repo",
-            excludes_pattern="com/google/**",
-            includes_pattern="com/jfrog/**,cloud/jfrog/**",
-            key="foo-gems",
-            notes="Internal description",
+        foo_gems = artifactory.index.virtual_gems_repository.VirtualGemsRepository("foo-gems",
+            description=A test virtual repo,
+            excludes_pattern=com/google/**,
+            includes_pattern=com/jfrog/**,cloud/jfrog/**,
+            key=foo-gems,
+            notes=Internal description,
             repositories=[])
         ```
 
@@ -504,12 +504,12 @@ class VirtualGemsRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        foo_gems = artifactory.VirtualGemsRepository("foo-gems",
-            description="A test virtual repo",
-            excludes_pattern="com/google/**",
-            includes_pattern="com/jfrog/**,cloud/jfrog/**",
-            key="foo-gems",
-            notes="Internal description",
+        foo_gems = artifactory.index.virtual_gems_repository.VirtualGemsRepository("foo-gems",
+            description=A test virtual repo,
+            excludes_pattern=com/google/**,
+            includes_pattern=com/jfrog/**,cloud/jfrog/**,
+            key=foo-gems,
+            notes=Internal description,
             repositories=[])
         ```
 

@@ -1574,10 +1574,10 @@ class RemoteBowerRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        my_remote_bower = artifactory.RemoteBowerRepository("my-remote-bower",
-            key="my-remote-bower",
-            url="https://github.com/",
-            vcs_git_provider="GITHUB")
+        my_remote_bower = artifactory.index.remote_bower_repository.RemoteBowerRepository("my-remote-bower",
+            key=my-remote-bower,
+            url=https://github.com/,
+            vcs_git_provider=GITHUB)
         ```
 
         ## Import
@@ -1679,10 +1679,10 @@ class RemoteBowerRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        my_remote_bower = artifactory.RemoteBowerRepository("my-remote-bower",
-            key="my-remote-bower",
-            url="https://github.com/",
-            vcs_git_provider="GITHUB")
+        my_remote_bower = artifactory.index.remote_bower_repository.RemoteBowerRepository("my-remote-bower",
+            key=my-remote-bower,
+            url=https://github.com/,
+            vcs_git_provider=GITHUB)
         ```
 
         ## Import

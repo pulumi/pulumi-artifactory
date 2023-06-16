@@ -20,7 +20,7 @@ import * as utilities from "./utilities";
  * import * as artifactory from "@pulumi/artifactory";
  *
  * // Create a new Artifactory user called terraform
- * const test_user = new artifactory.UnmanagedUser("test-user", {
+ * const test_user = new artifactory.index/unmanagedUser.UnmanagedUser("test-user", {
  *     email: "test-user@artifactory-terraform.com",
  *     groups: [
  *         "logged-in-users",

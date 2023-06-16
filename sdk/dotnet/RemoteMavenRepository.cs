@@ -23,7 +23,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var maven_remote = new Artifactory.RemoteMavenRepository("maven-remote", new()
+    ///     var maven_remote = new Artifactory.Index.RemoteMavenRepository.RemoteMavenRepository("maven-remote", new()
     ///     {
     ///         FetchJarsEagerly = true,
     ///         FetchSourcesEagerly = false,

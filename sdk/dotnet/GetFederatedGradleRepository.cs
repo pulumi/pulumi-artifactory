@@ -13,56 +13,12 @@ namespace Pulumi.Artifactory
     {
         /// <summary>
         /// Retrieves a federated Gradle repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var federated_test_gradle_repo = Artifactory.GetFederatedGradleRepository.Invoke(new()
-        ///     {
-        ///         Key = "federated-test-gradle-repo",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetFederatedGradleRepositoryResult> InvokeAsync(GetFederatedGradleRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFederatedGradleRepositoryResult>("artifactory:index/getFederatedGradleRepository:getFederatedGradleRepository", args ?? new GetFederatedGradleRepositoryArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves a federated Gradle repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var federated_test_gradle_repo = Artifactory.GetFederatedGradleRepository.Invoke(new()
-        ///     {
-        ///         Key = "federated-test-gradle-repo",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetFederatedGradleRepositoryResult> Invoke(GetFederatedGradleRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFederatedGradleRepositoryResult>("artifactory:index/getFederatedGradleRepository:getFederatedGradleRepository", args ?? new GetFederatedGradleRepositoryInvokeArgs(), options.WithDefaults());

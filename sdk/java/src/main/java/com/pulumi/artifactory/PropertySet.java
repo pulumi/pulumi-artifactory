@@ -33,7 +33,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.artifactory.PropertySet;
  * import com.pulumi.artifactory.PropertySetArgs;
- * import com.pulumi.artifactory.inputs.PropertySetPropertyArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -49,34 +48,8 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var foo = new PropertySet(&#34;foo&#34;, PropertySetArgs.builder()        
  *             .properties(            
- *                 PropertySetPropertyArgs.builder()
- *                     .closedPredefinedValues(true)
- *                     .multipleChoice(true)
- *                     .name(&#34;set1property1&#34;)
- *                     .predefinedValues(                    
- *                         PropertySetPropertyPredefinedValueArgs.builder()
- *                             .defaultValue(true)
- *                             .name(&#34;passed-QA&#34;)
- *                             .build(),
- *                         PropertySetPropertyPredefinedValueArgs.builder()
- *                             .defaultValue(false)
- *                             .name(&#34;failed-QA&#34;)
- *                             .build())
- *                     .build(),
- *                 PropertySetPropertyArgs.builder()
- *                     .closedPredefinedValues(false)
- *                     .multipleChoice(false)
- *                     .name(&#34;set1property2&#34;)
- *                     .predefinedValues(                    
- *                         PropertySetPropertyPredefinedValueArgs.builder()
- *                             .defaultValue(true)
- *                             .name(&#34;passed-QA&#34;)
- *                             .build(),
- *                         PropertySetPropertyPredefinedValueArgs.builder()
- *                             .defaultValue(false)
- *                             .name(&#34;failed-QA&#34;)
- *                             .build())
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .visible(true)
  *             .build());
  * 

@@ -8,18 +8,6 @@ import * as utilities from "./utilities";
  * ## # Artifactory File Info Data Source
  *
  * Provides an Artifactory fileinfo datasource. This can be used to read metadata of files stored in Artifactory repositories.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const my-file = artifactory.getFileinfo({
- *     path: "/path/to/the/artifact.zip",
- *     repository: "repo-key",
- * });
- * ```
  */
 export function getFileinfo(args: GetFileinfoArgs, opts?: pulumi.InvokeOptions): Promise<GetFileinfoResult> {
 
@@ -103,18 +91,6 @@ export interface GetFileinfoResult {
  * ## # Artifactory File Info Data Source
  *
  * Provides an Artifactory fileinfo datasource. This can be used to read metadata of files stored in Artifactory repositories.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const my-file = artifactory.getFileinfo({
- *     path: "/path/to/the/artifact.zip",
- *     repository: "repo-key",
- * });
- * ```
  */
 export function getFileinfoOutput(args: GetFileinfoOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFileinfoResult> {
     return pulumi.output(args).apply((a: any) => getFileinfo(a, opts))

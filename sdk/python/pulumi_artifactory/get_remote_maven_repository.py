@@ -553,15 +553,6 @@ def get_remote_maven_repository(allow_any_host_auth: Optional[bool] = None,
     """
     Retrieves a remote Maven repository.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    remote_maven = artifactory.get_remote_maven_repository(key="remote-maven")
-    ```
-
 
     :param bool fetch_jars_eagerly: (Optional, Default: `false`) When set, if a POM is requested, Artifactory attempts to fetch the corresponding jar in the background. This will accelerate first access time to the jar when it is subsequently requested.
     :param bool fetch_sources_eagerly: (Optional, Default: `false`) When set, if a binaries jar is requested, Artifactory attempts to fetch the corresponding source jar in the background. This will accelerate first access time to the source jar when it is subsequently requested.
@@ -727,15 +718,6 @@ def get_remote_maven_repository_output(allow_any_host_auth: Optional[pulumi.Inpu
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRemoteMavenRepositoryResult]:
     """
     Retrieves a remote Maven repository.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    remote_maven = artifactory.get_remote_maven_repository(key="remote-maven")
-    ```
 
 
     :param bool fetch_jars_eagerly: (Optional, Default: `false`) When set, if a POM is requested, Artifactory attempts to fetch the corresponding jar in the background. This will accelerate first access time to the jar when it is subsequently requested.

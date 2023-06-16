@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const terraform_federated_test_go_repo = new artifactory.FederatedGoRepository("terraform-federated-test-go-repo", {
+ * const terraform_federated_test_go_repo = new artifactory.index/federatedGoRepository.FederatedGoRepository("terraform-federated-test-go-repo", {
  *     key: "terraform-federated-test-go-repo",
  *     members: [
  *         {

@@ -675,17 +675,17 @@ class FederatedPypiRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_federated_test_pypi_repo = artifactory.FederatedPypiRepository("terraform-federated-test-pypi-repo",
-            key="terraform-federated-test-pypi-repo",
+        terraform_federated_test_pypi_repo = artifactory.index.federated_pypi_repository.FederatedPypiRepository("terraform-federated-test-pypi-repo",
+            key=terraform-federated-test-pypi-repo,
             members=[
-                artifactory.FederatedPypiRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl.org/artifactory/terraform-federated-test-pypi-repo",
-                ),
-                artifactory.FederatedPypiRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl2.org/artifactory/terraform-federated-test-pypi-repo-2",
-                ),
+                {
+                    enabled: True,
+                    url: http://tempurl.org/artifactory/terraform-federated-test-pypi-repo,
+                },
+                {
+                    enabled: True,
+                    url: http://tempurl2.org/artifactory/terraform-federated-test-pypi-repo-2,
+                },
             ])
         ```
 
@@ -747,17 +747,17 @@ class FederatedPypiRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_federated_test_pypi_repo = artifactory.FederatedPypiRepository("terraform-federated-test-pypi-repo",
-            key="terraform-federated-test-pypi-repo",
+        terraform_federated_test_pypi_repo = artifactory.index.federated_pypi_repository.FederatedPypiRepository("terraform-federated-test-pypi-repo",
+            key=terraform-federated-test-pypi-repo,
             members=[
-                artifactory.FederatedPypiRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl.org/artifactory/terraform-federated-test-pypi-repo",
-                ),
-                artifactory.FederatedPypiRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl2.org/artifactory/terraform-federated-test-pypi-repo-2",
-                ),
+                {
+                    enabled: True,
+                    url: http://tempurl.org/artifactory/terraform-federated-test-pypi-repo,
+                },
+                {
+                    enabled: True,
+                    url: http://tempurl2.org/artifactory/terraform-federated-test-pypi-repo-2,
+                },
             ])
         ```
 

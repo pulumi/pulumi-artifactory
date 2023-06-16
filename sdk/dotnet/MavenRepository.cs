@@ -23,20 +23,20 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var bar = new Artifactory.LocalMavenRepository("bar", new()
+    ///     var bar = new Artifactory.Index.LocalMavenRepository.LocalMavenRepository("bar", new()
     ///     {
     ///         Key = "bar",
     ///         RepoLayoutRef = "maven-2-default",
     ///     });
     /// 
-    ///     var baz = new Artifactory.RemoteMavenRepository("baz", new()
+    ///     var baz = new Artifactory.Index.RemoteMavenRepository.RemoteMavenRepository("baz", new()
     ///     {
     ///         Key = "baz",
     ///         RepoLayoutRef = "maven-2-default",
     ///         Url = "https://search.maven.com/",
     ///     });
     /// 
-    ///     var maven_virt_repo = new Artifactory.MavenRepository("maven-virt-repo", new()
+    ///     var maven_virt_repo = new Artifactory.Index.MavenRepository.MavenRepository("maven-virt-repo", new()
     ///     {
     ///         Description = "A test virtual repo",
     ///         ExcludesPattern = "com/google/**",

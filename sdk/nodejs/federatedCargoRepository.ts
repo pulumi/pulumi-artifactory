@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const terraform_federated_test_cargo_repo = new artifactory.FederatedCargoRepository("terraform-federated-test-cargo-repo", {
+ * const terraform_federated_test_cargo_repo = new artifactory.index/federatedCargoRepository.FederatedCargoRepository("terraform-federated-test-cargo-repo", {
  *     key: "terraform-federated-test-cargo-repo",
  *     members: [
  *         {

@@ -11,32 +11,6 @@ import (
 )
 
 // Retrieves a remote SBT repository.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupRemoteSbtRepository(ctx, &artifactory.LookupRemoteSbtRepositoryArgs{
-//				Key: "remote-sbt",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupRemoteSbtRepository(ctx *pulumi.Context, args *LookupRemoteSbtRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupRemoteSbtRepositoryResult, error) {
 	var rv LookupRemoteSbtRepositoryResult
 	err := ctx.Invoke("artifactory:index/getRemoteSbtRepository:getRemoteSbtRepository", args, &rv, opts...)

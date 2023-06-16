@@ -13,56 +13,12 @@ namespace Pulumi.Artifactory
     {
         /// <summary>
         /// Retrieves a virtual Conda repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var virtual_conda = Artifactory.GetVirtualCondaRepository.Invoke(new()
-        ///     {
-        ///         Key = "virtual-conda",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetVirtualCondaRepositoryResult> InvokeAsync(GetVirtualCondaRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualCondaRepositoryResult>("artifactory:index/getVirtualCondaRepository:getVirtualCondaRepository", args ?? new GetVirtualCondaRepositoryArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves a virtual Conda repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var virtual_conda = Artifactory.GetVirtualCondaRepository.Invoke(new()
-        ///     {
-        ///         Key = "virtual-conda",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetVirtualCondaRepositoryResult> Invoke(GetVirtualCondaRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualCondaRepositoryResult>("artifactory:index/getVirtualCondaRepository:getVirtualCondaRepository", args ?? new GetVirtualCondaRepositoryInvokeArgs(), options.WithDefaults());

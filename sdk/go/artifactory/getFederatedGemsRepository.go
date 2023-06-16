@@ -11,32 +11,6 @@ import (
 )
 
 // Retrieves a federated Gems repository.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupFederatedGemsRepository(ctx, &artifactory.LookupFederatedGemsRepositoryArgs{
-//				Key: "federated-test-gems-repo",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupFederatedGemsRepository(ctx *pulumi.Context, args *LookupFederatedGemsRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupFederatedGemsRepositoryResult, error) {
 	var rv LookupFederatedGemsRepositoryResult
 	err := ctx.Invoke("artifactory:index/getFederatedGemsRepository:getFederatedGemsRepository", args, &rv, opts...)

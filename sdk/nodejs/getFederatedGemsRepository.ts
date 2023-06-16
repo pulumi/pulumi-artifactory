@@ -8,17 +8,6 @@ import * as utilities from "./utilities";
 
 /**
  * Retrieves a federated Gems repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const federated-test-gems-repo = artifactory.getFederatedGemsRepository({
- *     key: "federated-test-gems-repo",
- * });
- * ```
  */
 export function getFederatedGemsRepository(args: GetFederatedGemsRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetFederatedGemsRepositoryResult> {
 
@@ -111,17 +100,6 @@ export interface GetFederatedGemsRepositoryResult {
 }
 /**
  * Retrieves a federated Gems repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const federated-test-gems-repo = artifactory.getFederatedGemsRepository({
- *     key: "federated-test-gems-repo",
- * });
- * ```
  */
 export function getFederatedGemsRepositoryOutput(args: GetFederatedGemsRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedGemsRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getFederatedGemsRepository(a, opts))

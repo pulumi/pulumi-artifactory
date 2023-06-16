@@ -25,7 +25,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
+//	"github.com/pulumi/pulumi-artifactory/sdk/v1/go/artifactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -33,16 +33,16 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewBackup(ctx, "backupConfigName", &artifactory.BackupArgs{
-//				CreateArchive:          pulumi.Bool(false),
-//				CronExp:                pulumi.String("0 0 12 * * ? *"),
-//				Enabled:                pulumi.Bool(true),
-//				ExcludeNewRepositories: pulumi.Bool(true),
-//				ExcludedRepositories:   pulumi.StringArray{},
-//				ExportMissionControl:   pulumi.Bool(true),
-//				Key:                    pulumi.String("backup_config_name"),
-//				RetentionPeriodHours:   pulumi.Int(1000),
-//				SendMailOnError:        pulumi.Bool(true),
-//				VerifyDiskSpace:        pulumi.Bool(true),
+//				CreateArchive:          false,
+//				CronExp:                "0 0 12 * * ? *",
+//				Enabled:                true,
+//				ExcludeNewRepositories: true,
+//				ExcludedRepositories:   []interface{}{},
+//				ExportMissionControl:   true,
+//				Key:                    "backup_config_name",
+//				RetentionPeriodHours:   1000,
+//				SendMailOnError:        true,
+//				VerifyDiskSpace:        true,
 //			})
 //			if err != nil {
 //				return err

@@ -23,7 +23,7 @@ import (
 //	"fmt"
 //	"os"
 //
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
+//	"github.com/pulumi/pulumi-artifactory/sdk/v1/go/artifactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -39,9 +39,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewKeypair(ctx, "some-keypair-gpg-1", &artifactory.KeypairArgs{
-//				PairName:   pulumi.String(fmt.Sprintf("some-keypair%v", random_id.Randid.Id)),
-//				PairType:   pulumi.String("GPG"),
-//				Alias:      pulumi.String("foo-alias1"),
+//				PairName:   fmt.Sprintf("some-keypair%v", random_id.Randid.Id),
+//				PairType:   "GPG",
+//				Alias:      "foo-alias1",
 //				PrivateKey: readFileOrPanic("samples/gpg.priv"),
 //				PublicKey:  readFileOrPanic("samples/gpg.pub"),
 //			})
@@ -49,9 +49,9 @@ import (
 //				return err
 //			}
 //			_, err = artifactory.NewKeypair(ctx, "some-keypair-gpg-2", &artifactory.KeypairArgs{
-//				PairName:   pulumi.String(fmt.Sprintf("some-keypair%v", random_id.Randid.Id)),
-//				PairType:   pulumi.String("GPG"),
-//				Alias:      pulumi.String("foo-alias2"),
+//				PairName:   fmt.Sprintf("some-keypair%v", random_id.Randid.Id),
+//				PairType:   "GPG",
+//				Alias:      "foo-alias2",
 //				PrivateKey: readFileOrPanic("samples/gpg.priv"),
 //				PublicKey:  readFileOrPanic("samples/gpg.pub"),
 //			})
@@ -59,13 +59,13 @@ import (
 //				return err
 //			}
 //			_, err = artifactory.NewLocalRpmRepository(ctx, "terraform-local-test-rpm-repo-basic", &artifactory.LocalRpmRepositoryArgs{
-//				Key:                     pulumi.String("terraform-local-test-rpm-repo-basic"),
-//				YumRootDepth:            pulumi.Int(5),
-//				CalculateYumMetadata:    pulumi.Bool(true),
-//				EnableFileListsIndexing: pulumi.Bool(true),
-//				YumGroupFileNames:       pulumi.String("file-1.xml,file-2.xml"),
-//				PrimaryKeypairRef:       pulumi.Any(artifactory_keypair.SomeKeypairGPG1.Pair_name),
-//				SecondaryKeypairRef:     pulumi.Any(artifactory_keypair.SomeKeypairGPG2.Pair_name),
+//				Key:                     "terraform-local-test-rpm-repo-basic",
+//				YumRootDepth:            5,
+//				CalculateYumMetadata:    true,
+//				EnableFileListsIndexing: true,
+//				YumGroupFileNames:       "file-1.xml,file-2.xml",
+//				PrimaryKeypairRef:       artifactory_keypair.SomeKeypairGPG1.Pair_name,
+//				SecondaryKeypairRef:     artifactory_keypair.SomeKeypairGPG2.Pair_name,
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				some_keypair_gpg_1,
 //				some_keypair_gpg_2,

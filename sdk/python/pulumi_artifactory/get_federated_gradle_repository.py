@@ -295,15 +295,6 @@ def get_federated_gradle_repository(archive_browsing_enabled: Optional[bool] = N
     """
     Retrieves a federated Gradle repository.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    federated_test_gradle_repo = artifactory.get_federated_gradle_repository(key="federated-test-gradle-repo")
-    ```
-
 
     :param str key: the identity key of the repo.
     :param Sequence[pulumi.InputType['GetFederatedGradleRepositoryMemberArgs']] members: The list of Federated members and must contain this repository URL (configured base URL
@@ -393,15 +384,6 @@ def get_federated_gradle_repository_output(archive_browsing_enabled: Optional[pu
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFederatedGradleRepositoryResult]:
     """
     Retrieves a federated Gradle repository.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    federated_test_gradle_repo = artifactory.get_federated_gradle_repository(key="federated-test-gradle-repo")
-    ```
 
 
     :param str key: the identity key of the repo.

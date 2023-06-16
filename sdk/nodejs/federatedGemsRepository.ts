@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const terraform_federated_test_gems_repo = new artifactory.FederatedGemsRepository("terraform-federated-test-gems-repo", {
+ * const terraform_federated_test_gems_repo = new artifactory.index/federatedGemsRepository.FederatedGemsRepository("terraform-federated-test-gems-repo", {
  *     key: "terraform-federated-test-gems-repo",
  *     members: [
  *         {

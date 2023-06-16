@@ -22,20 +22,20 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var terraform_federated_test_terraformProvider_repo = new Artifactory.FederatedTerraformProviderRepository("terraform-federated-test-terraformProvider-repo", new()
+    ///     var terraform_federated_test_terraformProvider_repo = new Artifactory.Index.FederatedTerraformProviderRepository.FederatedTerraformProviderRepository("terraform-federated-test-terraformProvider-repo", new()
     ///     {
     ///         Key = "terraform-federated-test-terraform-provider-repo",
     ///         Members = new[]
     ///         {
-    ///             new Artifactory.Inputs.FederatedTerraformProviderRepositoryMemberArgs
+    ///             
     ///             {
-    ///                 Enabled = true,
-    ///                 Url = "http://tempurl.org/artifactory/terraform-federated-test-terraform_provider-repo",
+    ///                 { "enabled", true },
+    ///                 { "url", "http://tempurl.org/artifactory/terraform-federated-test-terraform_provider-repo" },
     ///             },
-    ///             new Artifactory.Inputs.FederatedTerraformProviderRepositoryMemberArgs
+    ///             
     ///             {
-    ///                 Enabled = true,
-    ///                 Url = "http://tempurl2.org/artifactory/terraform-federated-test-terraform_provider-repo-2",
+    ///                 { "enabled", true },
+    ///                 { "url", "http://tempurl2.org/artifactory/terraform-federated-test-terraform_provider-repo-2" },
     ///             },
     ///         },
     ///     });

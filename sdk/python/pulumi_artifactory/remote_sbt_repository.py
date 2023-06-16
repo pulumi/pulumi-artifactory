@@ -1706,13 +1706,13 @@ class RemoteSbtRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        sbt_remote = artifactory.RemoteSbtRepository("sbt-remote",
+        sbt_remote = artifactory.index.remote_sbt_repository.RemoteSbtRepository("sbt-remote",
             fetch_jars_eagerly=True,
             fetch_sources_eagerly=False,
-            key="sbt-remote-foo",
+            key=sbt-remote-foo,
             reject_invalid_jars=True,
             suppress_pom_consistency_checks=True,
-            url="https://repo1.maven.org/maven2/")
+            url=https://repo1.maven.org/maven2/)
         ```
 
         ## Import
@@ -1818,13 +1818,13 @@ class RemoteSbtRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        sbt_remote = artifactory.RemoteSbtRepository("sbt-remote",
+        sbt_remote = artifactory.index.remote_sbt_repository.RemoteSbtRepository("sbt-remote",
             fetch_jars_eagerly=True,
             fetch_sources_eagerly=False,
-            key="sbt-remote-foo",
+            key=sbt-remote-foo,
             reject_invalid_jars=True,
             suppress_pom_consistency_checks=True,
-            url="https://repo1.maven.org/maven2/")
+            url=https://repo1.maven.org/maven2/)
         ```
 
         ## Import

@@ -675,17 +675,17 @@ class FederatedCocoapodsRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_federated_test_cocoapods_repo = artifactory.FederatedCocoapodsRepository("terraform-federated-test-cocoapods-repo",
-            key="terraform-federated-test-cocoapods-repo",
+        terraform_federated_test_cocoapods_repo = artifactory.index.federated_cocoapods_repository.FederatedCocoapodsRepository("terraform-federated-test-cocoapods-repo",
+            key=terraform-federated-test-cocoapods-repo,
             members=[
-                artifactory.FederatedCocoapodsRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl.org/artifactory/terraform-federated-test-cocoapods-repo",
-                ),
-                artifactory.FederatedCocoapodsRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl2.org/artifactory/terraform-federated-test-cocoapods-repo-2",
-                ),
+                {
+                    enabled: True,
+                    url: http://tempurl.org/artifactory/terraform-federated-test-cocoapods-repo,
+                },
+                {
+                    enabled: True,
+                    url: http://tempurl2.org/artifactory/terraform-federated-test-cocoapods-repo-2,
+                },
             ])
         ```
 
@@ -747,17 +747,17 @@ class FederatedCocoapodsRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_federated_test_cocoapods_repo = artifactory.FederatedCocoapodsRepository("terraform-federated-test-cocoapods-repo",
-            key="terraform-federated-test-cocoapods-repo",
+        terraform_federated_test_cocoapods_repo = artifactory.index.federated_cocoapods_repository.FederatedCocoapodsRepository("terraform-federated-test-cocoapods-repo",
+            key=terraform-federated-test-cocoapods-repo,
             members=[
-                artifactory.FederatedCocoapodsRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl.org/artifactory/terraform-federated-test-cocoapods-repo",
-                ),
-                artifactory.FederatedCocoapodsRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl2.org/artifactory/terraform-federated-test-cocoapods-repo-2",
-                ),
+                {
+                    enabled: True,
+                    url: http://tempurl.org/artifactory/terraform-federated-test-cocoapods-repo,
+                },
+                {
+                    enabled: True,
+                    url: http://tempurl2.org/artifactory/terraform-federated-test-cocoapods-repo-2,
+                },
             ])
         ```
 

@@ -13,56 +13,12 @@ namespace Pulumi.Artifactory
     {
         /// <summary>
         /// Retrieves a virtual Cran repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var virtual_cran = Artifactory.GetVirtualCranRepository.Invoke(new()
-        ///     {
-        ///         Key = "virtual-cran",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetVirtualCranRepositoryResult> InvokeAsync(GetVirtualCranRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualCranRepositoryResult>("artifactory:index/getVirtualCranRepository:getVirtualCranRepository", args ?? new GetVirtualCranRepositoryArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves a virtual Cran repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var virtual_cran = Artifactory.GetVirtualCranRepository.Invoke(new()
-        ///     {
-        ///         Key = "virtual-cran",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetVirtualCranRepositoryResult> Invoke(GetVirtualCranRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualCranRepositoryResult>("artifactory:index/getVirtualCranRepository:getVirtualCranRepository", args ?? new GetVirtualCranRepositoryInvokeArgs(), options.WithDefaults());

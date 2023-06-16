@@ -11,32 +11,6 @@ import (
 )
 
 // Retrieves a remote Composer repository.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupRemoteComposerRepository(ctx, &artifactory.LookupRemoteComposerRepositoryArgs{
-//				Key: "remote-composer",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupRemoteComposerRepository(ctx *pulumi.Context, args *LookupRemoteComposerRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupRemoteComposerRepositoryResult, error) {
 	var rv LookupRemoteComposerRepositoryResult
 	err := ctx.Invoke("artifactory:index/getRemoteComposerRepository:getRemoteComposerRepository", args, &rv, opts...)

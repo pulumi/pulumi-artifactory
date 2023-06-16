@@ -8,17 +8,6 @@ import * as utilities from "./utilities";
 
 /**
  * Retrieves a federated Cocoapods repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const federated-test-cocoapods-repo = artifactory.getFederatedCocoapodsRepository({
- *     key: "federated-test-cocoapods-repo",
- * });
- * ```
  */
 export function getFederatedCocoapodsRepository(args: GetFederatedCocoapodsRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetFederatedCocoapodsRepositoryResult> {
 
@@ -111,17 +100,6 @@ export interface GetFederatedCocoapodsRepositoryResult {
 }
 /**
  * Retrieves a federated Cocoapods repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const federated-test-cocoapods-repo = artifactory.getFederatedCocoapodsRepository({
- *     key: "federated-test-cocoapods-repo",
- * });
- * ```
  */
 export function getFederatedCocoapodsRepositoryOutput(args: GetFederatedCocoapodsRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedCocoapodsRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getFederatedCocoapodsRepository(a, opts))

@@ -14,7 +14,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const foo_conda = new artifactory.VirtualCondaRepository("foo-conda", {
+ * const foo_conda = new artifactory.index/virtualCondaRepository.VirtualCondaRepository("foo-conda", {
  *     description: "A test virtual repo",
  *     excludesPattern: "com/google/**",
  *     includesPattern: "com/jfrog/**,cloud/jfrog/**",

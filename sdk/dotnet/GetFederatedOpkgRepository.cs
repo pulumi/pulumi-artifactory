@@ -13,56 +13,12 @@ namespace Pulumi.Artifactory
     {
         /// <summary>
         /// Retrieves a federated Opkg repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var federated_test_opkg_repo = Artifactory.GetFederatedOpkgRepository.Invoke(new()
-        ///     {
-        ///         Key = "federated-test-opkg-repo",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetFederatedOpkgRepositoryResult> InvokeAsync(GetFederatedOpkgRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFederatedOpkgRepositoryResult>("artifactory:index/getFederatedOpkgRepository:getFederatedOpkgRepository", args ?? new GetFederatedOpkgRepositoryArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves a federated Opkg repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var federated_test_opkg_repo = Artifactory.GetFederatedOpkgRepository.Invoke(new()
-        ///     {
-        ///         Key = "federated-test-opkg-repo",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetFederatedOpkgRepositoryResult> Invoke(GetFederatedOpkgRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFederatedOpkgRepositoryResult>("artifactory:index/getFederatedOpkgRepository:getFederatedOpkgRepository", args ?? new GetFederatedOpkgRepositoryInvokeArgs(), options.WithDefaults());

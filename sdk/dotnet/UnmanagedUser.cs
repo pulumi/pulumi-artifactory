@@ -29,7 +29,7 @@ namespace Pulumi.Artifactory
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Create a new Artifactory user called terraform
-    ///     var test_user = new Artifactory.UnmanagedUser("test-user", new()
+    ///     var test_user = new Artifactory.Index.UnmanagedUser.UnmanagedUser("test-user", new()
     ///     {
     ///         Email = "test-user@artifactory-terraform.com",
     ///         Groups = new[]

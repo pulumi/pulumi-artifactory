@@ -13,56 +13,12 @@ namespace Pulumi.Artifactory
     {
         /// <summary>
         /// Retrieves a remote Swift repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var remote_swift = Artifactory.GetRemoteSwiftRepository.Invoke(new()
-        ///     {
-        ///         Key = "remote-swift",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetRemoteSwiftRepositoryResult> InvokeAsync(GetRemoteSwiftRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRemoteSwiftRepositoryResult>("artifactory:index/getRemoteSwiftRepository:getRemoteSwiftRepository", args ?? new GetRemoteSwiftRepositoryArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves a remote Swift repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var remote_swift = Artifactory.GetRemoteSwiftRepository.Invoke(new()
-        ///     {
-        ///         Key = "remote-swift",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetRemoteSwiftRepositoryResult> Invoke(GetRemoteSwiftRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRemoteSwiftRepositoryResult>("artifactory:index/getRemoteSwiftRepository:getRemoteSwiftRepository", args ?? new GetRemoteSwiftRepositoryInvokeArgs(), options.WithDefaults());

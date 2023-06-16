@@ -675,17 +675,17 @@ class FederatedCondaRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_federated_test_conda_repo = artifactory.FederatedCondaRepository("terraform-federated-test-conda-repo",
-            key="terraform-federated-test-conda-repo",
+        terraform_federated_test_conda_repo = artifactory.index.federated_conda_repository.FederatedCondaRepository("terraform-federated-test-conda-repo",
+            key=terraform-federated-test-conda-repo,
             members=[
-                artifactory.FederatedCondaRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl.org/artifactory/terraform-federated-test-conda-repo",
-                ),
-                artifactory.FederatedCondaRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl2.org/artifactory/terraform-federated-test-conda-repo-2",
-                ),
+                {
+                    enabled: True,
+                    url: http://tempurl.org/artifactory/terraform-federated-test-conda-repo,
+                },
+                {
+                    enabled: True,
+                    url: http://tempurl2.org/artifactory/terraform-federated-test-conda-repo-2,
+                },
             ])
         ```
 
@@ -747,17 +747,17 @@ class FederatedCondaRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_federated_test_conda_repo = artifactory.FederatedCondaRepository("terraform-federated-test-conda-repo",
-            key="terraform-federated-test-conda-repo",
+        terraform_federated_test_conda_repo = artifactory.index.federated_conda_repository.FederatedCondaRepository("terraform-federated-test-conda-repo",
+            key=terraform-federated-test-conda-repo,
             members=[
-                artifactory.FederatedCondaRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl.org/artifactory/terraform-federated-test-conda-repo",
-                ),
-                artifactory.FederatedCondaRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl2.org/artifactory/terraform-federated-test-conda-repo-2",
-                ),
+                {
+                    enabled: True,
+                    url: http://tempurl.org/artifactory/terraform-federated-test-conda-repo,
+                },
+                {
+                    enabled: True,
+                    url: http://tempurl2.org/artifactory/terraform-federated-test-conda-repo-2,
+                },
             ])
         ```
 

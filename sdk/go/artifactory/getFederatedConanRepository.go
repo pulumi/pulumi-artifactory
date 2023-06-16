@@ -11,32 +11,6 @@ import (
 )
 
 // Retrieves a federated Conan repository.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupFederatedConanRepository(ctx, &artifactory.LookupFederatedConanRepositoryArgs{
-//				Key: "federated-test-conan-repo",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupFederatedConanRepository(ctx *pulumi.Context, args *LookupFederatedConanRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupFederatedConanRepositoryResult, error) {
 	var rv LookupFederatedConanRepositoryResult
 	err := ctx.Invoke("artifactory:index/getFederatedConanRepository:getFederatedConanRepository", args, &rv, opts...)

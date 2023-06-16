@@ -482,12 +482,12 @@ class VirtualChefRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        foo_chef = artifactory.VirtualChefRepository("foo-chef",
-            description="A test virtual repo",
-            excludes_pattern="com/google/**",
-            includes_pattern="com/jfrog/**,cloud/jfrog/**",
-            key="foo-chef",
-            notes="Internal description",
+        foo_chef = artifactory.index.virtual_chef_repository.VirtualChefRepository("foo-chef",
+            description=A test virtual repo,
+            excludes_pattern=com/google/**,
+            includes_pattern=com/jfrog/**,cloud/jfrog/**,
+            key=foo-chef,
+            notes=Internal description,
             repositories=[])
         ```
 
@@ -538,12 +538,12 @@ class VirtualChefRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        foo_chef = artifactory.VirtualChefRepository("foo-chef",
-            description="A test virtual repo",
-            excludes_pattern="com/google/**",
-            includes_pattern="com/jfrog/**,cloud/jfrog/**",
-            key="foo-chef",
-            notes="Internal description",
+        foo_chef = artifactory.index.virtual_chef_repository.VirtualChefRepository("foo-chef",
+            description=A test virtual repo,
+            excludes_pattern=com/google/**,
+            includes_pattern=com/jfrog/**,cloud/jfrog/**,
+            key=foo-chef,
+            notes=Internal description,
             repositories=[])
         ```
 

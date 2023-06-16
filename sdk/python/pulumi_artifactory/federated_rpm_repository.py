@@ -873,17 +873,17 @@ class FederatedRpmRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_federated_test_rpm_repo = artifactory.FederatedRpmRepository("terraform-federated-test-rpm-repo",
-            key="terraform-federated-test-rpm-repo",
+        terraform_federated_test_rpm_repo = artifactory.index.federated_rpm_repository.FederatedRpmRepository("terraform-federated-test-rpm-repo",
+            key=terraform-federated-test-rpm-repo,
             members=[
-                artifactory.FederatedRpmRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl.org/artifactory/terraform-federated-test-rpm-repo",
-                ),
-                artifactory.FederatedRpmRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl2.org/artifactory/terraform-federated-test-rpm-repo-2",
-                ),
+                {
+                    enabled: True,
+                    url: http://tempurl.org/artifactory/terraform-federated-test-rpm-repo,
+                },
+                {
+                    enabled: True,
+                    url: http://tempurl2.org/artifactory/terraform-federated-test-rpm-repo-2,
+                },
             ])
         ```
 
@@ -953,17 +953,17 @@ class FederatedRpmRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_federated_test_rpm_repo = artifactory.FederatedRpmRepository("terraform-federated-test-rpm-repo",
-            key="terraform-federated-test-rpm-repo",
+        terraform_federated_test_rpm_repo = artifactory.index.federated_rpm_repository.FederatedRpmRepository("terraform-federated-test-rpm-repo",
+            key=terraform-federated-test-rpm-repo,
             members=[
-                artifactory.FederatedRpmRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl.org/artifactory/terraform-federated-test-rpm-repo",
-                ),
-                artifactory.FederatedRpmRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl2.org/artifactory/terraform-federated-test-rpm-repo-2",
-                ),
+                {
+                    enabled: True,
+                    url: http://tempurl.org/artifactory/terraform-federated-test-rpm-repo,
+                },
+                {
+                    enabled: True,
+                    url: http://tempurl2.org/artifactory/terraform-federated-test-rpm-repo-2,
+                },
             ])
         ```
 

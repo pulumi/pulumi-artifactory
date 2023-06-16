@@ -14,7 +14,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const foo_p2 = new artifactory.VirtualP2Repository("foo-p2", {
+ * const foo_p2 = new artifactory.index/virtualP2Repository.VirtualP2Repository("foo-p2", {
  *     description: "A test virtual repo",
  *     excludesPattern: "com/google/**",
  *     includesPattern: "com/jfrog/**,cloud/jfrog/**",

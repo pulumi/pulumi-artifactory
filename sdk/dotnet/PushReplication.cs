@@ -34,29 +34,29 @@ namespace Pulumi.Artifactory
     ///     var artifactoryUsername = config.Require("artifactoryUsername");
     ///     var artifactoryPassword = config.Require("artifactoryPassword");
     ///     // Create a replication between two artifactory local repositories
-    ///     var providerTestSource = new Artifactory.LocalMavenRepository("providerTestSource", new()
+    ///     var providerTestSource = new Artifactory.Index.LocalMavenRepository.LocalMavenRepository("providerTestSource", new()
     ///     {
     ///         Key = "provider_test_source",
     ///     });
     /// 
-    ///     var providerTestDest = new Artifactory.LocalMavenRepository("providerTestDest", new()
+    ///     var providerTestDest = new Artifactory.Index.LocalMavenRepository.LocalMavenRepository("providerTestDest", new()
     ///     {
     ///         Key = "provider_test_dest",
     ///     });
     /// 
-    ///     var foo_rep = new Artifactory.PushReplication("foo-rep", new()
+    ///     var foo_rep = new Artifactory.Index.PushReplication.PushReplication("foo-rep", new()
     ///     {
     ///         RepoKey = providerTestSource.Key,
     ///         CronExp = "0 0 * * * ?",
     ///         EnableEventReplication = true,
     ///         Replications = new[]
     ///         {
-    ///             new Artifactory.Inputs.PushReplicationReplicationArgs
+    ///             
     ///             {
-    ///                 Url = providerTestDest.Key.Apply(key =&gt; $"{artifactoryUrl}/{key}"),
-    ///                 Username = "$var.artifactory_username",
-    ///                 Password = "$var.artifactory_password",
-    ///                 Enabled = true,
+    ///                 { "url", $"{artifactoryUrl}/{providerTestDest.Key}" },
+    ///                 { "username", "$var.artifactory_username" },
+    ///                 { "password", "$var.artifactory_password" },
+    ///                 { "enabled", true },
     ///             },
     ///         },
     ///     });

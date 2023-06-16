@@ -1475,9 +1475,9 @@ class RemoteGemsRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        my_remote_gems = artifactory.RemoteGemsRepository("my-remote-gems",
-            key="my-remote-gems",
-            url="https://rubygems.org/")
+        my_remote_gems = artifactory.index.remote_gems_repository.RemoteGemsRepository("my-remote-gems",
+            key=my-remote-gems,
+            url=https://rubygems.org/)
         ```
 
         ## Import
@@ -1576,9 +1576,9 @@ class RemoteGemsRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        my_remote_gems = artifactory.RemoteGemsRepository("my-remote-gems",
-            key="my-remote-gems",
-            url="https://rubygems.org/")
+        my_remote_gems = artifactory.index.remote_gems_repository.RemoteGemsRepository("my-remote-gems",
+            key=my-remote-gems,
+            url=https://rubygems.org/)
         ```
 
         ## Import

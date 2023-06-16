@@ -6,17 +6,6 @@ import * as utilities from "./utilities";
 
 /**
  * Retrieves a virtual Git LFS repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const virtual-gitlfs = artifactory.getVirtualGitlfsRepository({
- *     key: "virtual-gitlfs",
- * });
- * ```
  */
 export function getVirtualGitlfsRepository(args: GetVirtualGitlfsRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualGitlfsRepositoryResult> {
 
@@ -79,17 +68,6 @@ export interface GetVirtualGitlfsRepositoryResult {
 }
 /**
  * Retrieves a virtual Git LFS repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const virtual-gitlfs = artifactory.getVirtualGitlfsRepository({
- *     key: "virtual-gitlfs",
- * });
- * ```
  */
 export function getVirtualGitlfsRepositoryOutput(args: GetVirtualGitlfsRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualGitlfsRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getVirtualGitlfsRepository(a, opts))

@@ -449,12 +449,12 @@ class VirtualPypiRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        foo_pypi = artifactory.VirtualPypiRepository("foo-pypi",
-            description="A test virtual repo",
-            excludes_pattern="com/google/**",
-            includes_pattern="com/jfrog/**,cloud/jfrog/**",
-            key="foo-pypi",
-            notes="Internal description",
+        foo_pypi = artifactory.index.virtual_pypi_repository.VirtualPypiRepository("foo-pypi",
+            description=A test virtual repo,
+            excludes_pattern=com/google/**,
+            includes_pattern=com/jfrog/**,cloud/jfrog/**,
+            key=foo-pypi,
+            notes=Internal description,
             repositories=[])
         ```
 
@@ -504,12 +504,12 @@ class VirtualPypiRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        foo_pypi = artifactory.VirtualPypiRepository("foo-pypi",
-            description="A test virtual repo",
-            excludes_pattern="com/google/**",
-            includes_pattern="com/jfrog/**,cloud/jfrog/**",
-            key="foo-pypi",
-            notes="Internal description",
+        foo_pypi = artifactory.index.virtual_pypi_repository.VirtualPypiRepository("foo-pypi",
+            description=A test virtual repo,
+            excludes_pattern=com/google/**,
+            includes_pattern=com/jfrog/**,cloud/jfrog/**,
+            key=foo-pypi,
+            notes=Internal description,
             repositories=[])
         ```
 

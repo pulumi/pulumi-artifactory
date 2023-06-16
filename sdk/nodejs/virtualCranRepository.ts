@@ -14,7 +14,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const foo_cran = new artifactory.VirtualCranRepository("foo-cran", {
+ * const foo_cran = new artifactory.index/virtualCranRepository.VirtualCranRepository("foo-cran", {
  *     description: "A test virtual repo",
  *     excludesPattern: "com/google/**",
  *     includesPattern: "com/jfrog/**,cloud/jfrog/**",

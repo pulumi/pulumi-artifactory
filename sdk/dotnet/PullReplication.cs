@@ -26,12 +26,12 @@ namespace Pulumi.Artifactory
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Create a replication between two artifactory local repositories
-    ///     var providerTestSource = new Artifactory.LocalMavenRepository("providerTestSource", new()
+    ///     var providerTestSource = new Artifactory.Index.LocalMavenRepository.LocalMavenRepository("providerTestSource", new()
     ///     {
     ///         Key = "provider_test_source",
     ///     });
     /// 
-    ///     var providerTestDest = new Artifactory.RemoteMavenRepository("providerTestDest", new()
+    ///     var providerTestDest = new Artifactory.Index.RemoteMavenRepository.RemoteMavenRepository("providerTestDest", new()
     ///     {
     ///         Key = "provider_test_dest",
     ///         Password = "bar",
@@ -39,7 +39,7 @@ namespace Pulumi.Artifactory
     ///         Username = "foo",
     ///     });
     /// 
-    ///     var remote_rep = new Artifactory.PullReplication("remote-rep", new()
+    ///     var remote_rep = new Artifactory.Index.PullReplication.PullReplication("remote-rep", new()
     ///     {
     ///         CronExp = "0 0 * * * ?",
     ///         EnableEventReplication = true,

@@ -22,7 +22,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var terraform_local_test_gitlfs_repo = new Artifactory.LocalGitltfsRepository("terraform-local-test-gitlfs-repo", new()
+    ///     var terraform_local_test_gitlfs_repo = new Artifactory.Index.LocalGitltfsRepository.LocalGitltfsRepository("terraform-local-test-gitlfs-repo", new()
     ///     {
     ///         Key = "terraform-local-test-gitlfs-repo",
     ///     });

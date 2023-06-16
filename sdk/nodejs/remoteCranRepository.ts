@@ -16,7 +16,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const my_remote_cran = new artifactory.RemoteCranRepository("my-remote-cran", {
+ * const my_remote_cran = new artifactory.index/remoteCranRepository.RemoteCranRepository("my-remote-cran", {
  *     key: "my-remote-cran",
  *     url: "https://cran.r-project.org/",
  * });

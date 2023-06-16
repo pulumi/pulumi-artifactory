@@ -235,15 +235,6 @@ def get_federated_conan_repository(archive_browsing_enabled: Optional[bool] = No
     """
     Retrieves a federated Conan repository.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    federated_test_conan_repo = artifactory.get_federated_conan_repository(key="federated-test-conan-repo")
-    ```
-
 
     :param str key: the identity key of the repo.
     :param Sequence[pulumi.InputType['GetFederatedConanRepositoryMemberArgs']] members: The list of Federated members and must contain this repository URL (configured base URL
@@ -315,15 +306,6 @@ def get_federated_conan_repository_output(archive_browsing_enabled: Optional[pul
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFederatedConanRepositoryResult]:
     """
     Retrieves a federated Conan repository.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    federated_test_conan_repo = artifactory.get_federated_conan_repository(key="federated-test-conan-repo")
-    ```
 
 
     :param str key: the identity key of the repo.

@@ -24,14 +24,14 @@ namespace Pulumi.Artifactory
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Create a new Artifactory certificate called my-cert
-    ///     var my_cert = new Artifactory.Certificate("my-cert", new()
+    ///     var my_cert = new Artifactory.Index.Certificate.Certificate("my-cert", new()
     ///     {
     ///         Alias = "my-cert",
     ///         Content = File.ReadAllText("/path/to/bundle.pem"),
     ///     });
     /// 
     ///     // This can then be used by a remote repository
-    ///     var my_remote = new Artifactory.RemoteMavenRepository("my-remote", new()
+    ///     var my_remote = new Artifactory.Index.RemoteMavenRepository.RemoteMavenRepository("my-remote", new()
     ///     {
     ///         ClientTlsCertificate = my_cert.Alias,
     ///     });

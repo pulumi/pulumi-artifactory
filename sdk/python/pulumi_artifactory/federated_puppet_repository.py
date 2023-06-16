@@ -675,17 +675,17 @@ class FederatedPuppetRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_federated_test_puppet_repo = artifactory.FederatedPuppetRepository("terraform-federated-test-puppet-repo",
-            key="terraform-federated-test-puppet-repo",
+        terraform_federated_test_puppet_repo = artifactory.index.federated_puppet_repository.FederatedPuppetRepository("terraform-federated-test-puppet-repo",
+            key=terraform-federated-test-puppet-repo,
             members=[
-                artifactory.FederatedPuppetRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl.org/artifactory/terraform-federated-test-puppet-repo",
-                ),
-                artifactory.FederatedPuppetRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl2.org/artifactory/terraform-federated-test-puppet-repo-2",
-                ),
+                {
+                    enabled: True,
+                    url: http://tempurl.org/artifactory/terraform-federated-test-puppet-repo,
+                },
+                {
+                    enabled: True,
+                    url: http://tempurl2.org/artifactory/terraform-federated-test-puppet-repo-2,
+                },
             ])
         ```
 
@@ -747,17 +747,17 @@ class FederatedPuppetRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_federated_test_puppet_repo = artifactory.FederatedPuppetRepository("terraform-federated-test-puppet-repo",
-            key="terraform-federated-test-puppet-repo",
+        terraform_federated_test_puppet_repo = artifactory.index.federated_puppet_repository.FederatedPuppetRepository("terraform-federated-test-puppet-repo",
+            key=terraform-federated-test-puppet-repo,
             members=[
-                artifactory.FederatedPuppetRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl.org/artifactory/terraform-federated-test-puppet-repo",
-                ),
-                artifactory.FederatedPuppetRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl2.org/artifactory/terraform-federated-test-puppet-repo-2",
-                ),
+                {
+                    enabled: True,
+                    url: http://tempurl.org/artifactory/terraform-federated-test-puppet-repo,
+                },
+                {
+                    enabled: True,
+                    url: http://tempurl2.org/artifactory/terraform-federated-test-puppet-repo-2,
+                },
             ])
         ```
 

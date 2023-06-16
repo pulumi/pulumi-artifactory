@@ -255,15 +255,6 @@ def get_federated_nuget_repository(archive_browsing_enabled: Optional[bool] = No
     """
     Retrieves a federated Nuget repository.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    federated_test_nuget_repo = artifactory.get_federated_nuget_repository(key="federated-test-nuget-repo")
-    ```
-
 
     :param str key: the identity key of the repo.
     :param Sequence[pulumi.InputType['GetFederatedNugetRepositoryMemberArgs']] members: The list of Federated members and must contain this repository URL (configured base URL
@@ -341,15 +332,6 @@ def get_federated_nuget_repository_output(archive_browsing_enabled: Optional[pul
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFederatedNugetRepositoryResult]:
     """
     Retrieves a federated Nuget repository.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    federated_test_nuget_repo = artifactory.get_federated_nuget_repository(key="federated-test-nuget-repo")
-    ```
 
 
     :param str key: the identity key of the repo.

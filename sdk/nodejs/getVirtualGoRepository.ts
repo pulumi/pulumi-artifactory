@@ -6,17 +6,6 @@ import * as utilities from "./utilities";
 
 /**
  * Retrieves a virtual Go repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const virtual-go = artifactory.getVirtualGoRepository({
- *     key: "virtual-go",
- * });
- * ```
  */
 export function getVirtualGoRepository(args: GetVirtualGoRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualGoRepositoryResult> {
 
@@ -99,17 +88,6 @@ export interface GetVirtualGoRepositoryResult {
 }
 /**
  * Retrieves a virtual Go repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const virtual-go = artifactory.getVirtualGoRepository({
- *     key: "virtual-go",
- * });
- * ```
  */
 export function getVirtualGoRepositoryOutput(args: GetVirtualGoRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualGoRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getVirtualGoRepository(a, opts))

@@ -675,17 +675,17 @@ class FederatedBowerRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_federated_test_bower_repo = artifactory.FederatedBowerRepository("terraform-federated-test-bower-repo",
-            key="terraform-federated-test-bower-repo",
+        terraform_federated_test_bower_repo = artifactory.index.federated_bower_repository.FederatedBowerRepository("terraform-federated-test-bower-repo",
+            key=terraform-federated-test-bower-repo,
             members=[
-                artifactory.FederatedBowerRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl.org/artifactory/terraform-federated-test-bower-repo",
-                ),
-                artifactory.FederatedBowerRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl2.org/artifactory/terraform-federated-test-bower-repo-2",
-                ),
+                {
+                    enabled: True,
+                    url: http://tempurl.org/artifactory/terraform-federated-test-bower-repo,
+                },
+                {
+                    enabled: True,
+                    url: http://tempurl2.org/artifactory/terraform-federated-test-bower-repo-2,
+                },
             ])
         ```
 
@@ -747,17 +747,17 @@ class FederatedBowerRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_federated_test_bower_repo = artifactory.FederatedBowerRepository("terraform-federated-test-bower-repo",
-            key="terraform-federated-test-bower-repo",
+        terraform_federated_test_bower_repo = artifactory.index.federated_bower_repository.FederatedBowerRepository("terraform-federated-test-bower-repo",
+            key=terraform-federated-test-bower-repo,
             members=[
-                artifactory.FederatedBowerRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl.org/artifactory/terraform-federated-test-bower-repo",
-                ),
-                artifactory.FederatedBowerRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl2.org/artifactory/terraform-federated-test-bower-repo-2",
-                ),
+                {
+                    enabled: True,
+                    url: http://tempurl.org/artifactory/terraform-federated-test-bower-repo,
+                },
+                {
+                    enabled: True,
+                    url: http://tempurl2.org/artifactory/terraform-federated-test-bower-repo-2,
+                },
             ])
         ```
 

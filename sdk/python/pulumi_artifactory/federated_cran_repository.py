@@ -675,17 +675,17 @@ class FederatedCranRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_federated_test_cran_repo = artifactory.FederatedCranRepository("terraform-federated-test-cran-repo",
-            key="terraform-federated-test-cran-repo",
+        terraform_federated_test_cran_repo = artifactory.index.federated_cran_repository.FederatedCranRepository("terraform-federated-test-cran-repo",
+            key=terraform-federated-test-cran-repo,
             members=[
-                artifactory.FederatedCranRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl.org/artifactory/terraform-federated-test-cran-repo",
-                ),
-                artifactory.FederatedCranRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl2.org/artifactory/terraform-federated-test-cran-repo-2",
-                ),
+                {
+                    enabled: True,
+                    url: http://tempurl.org/artifactory/terraform-federated-test-cran-repo,
+                },
+                {
+                    enabled: True,
+                    url: http://tempurl2.org/artifactory/terraform-federated-test-cran-repo-2,
+                },
             ])
         ```
 
@@ -747,17 +747,17 @@ class FederatedCranRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_federated_test_cran_repo = artifactory.FederatedCranRepository("terraform-federated-test-cran-repo",
-            key="terraform-federated-test-cran-repo",
+        terraform_federated_test_cran_repo = artifactory.index.federated_cran_repository.FederatedCranRepository("terraform-federated-test-cran-repo",
+            key=terraform-federated-test-cran-repo,
             members=[
-                artifactory.FederatedCranRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl.org/artifactory/terraform-federated-test-cran-repo",
-                ),
-                artifactory.FederatedCranRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl2.org/artifactory/terraform-federated-test-cran-repo-2",
-                ),
+                {
+                    enabled: True,
+                    url: http://tempurl.org/artifactory/terraform-federated-test-cran-repo,
+                },
+                {
+                    enabled: True,
+                    url: http://tempurl2.org/artifactory/terraform-federated-test-cran-repo-2,
+                },
             ])
         ```
 

@@ -449,12 +449,12 @@ class VirtualPuppetRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        foo_puppet = artifactory.VirtualPuppetRepository("foo-puppet",
-            description="A test virtual repo",
-            excludes_pattern="com/google/**",
-            includes_pattern="com/jfrog/**,cloud/jfrog/**",
-            key="foo-puppet",
-            notes="Internal description",
+        foo_puppet = artifactory.index.virtual_puppet_repository.VirtualPuppetRepository("foo-puppet",
+            description=A test virtual repo,
+            excludes_pattern=com/google/**,
+            includes_pattern=com/jfrog/**,cloud/jfrog/**,
+            key=foo-puppet,
+            notes=Internal description,
             repositories=[])
         ```
 
@@ -504,12 +504,12 @@ class VirtualPuppetRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        foo_puppet = artifactory.VirtualPuppetRepository("foo-puppet",
-            description="A test virtual repo",
-            excludes_pattern="com/google/**",
-            includes_pattern="com/jfrog/**,cloud/jfrog/**",
-            key="foo-puppet",
-            notes="Internal description",
+        foo_puppet = artifactory.index.virtual_puppet_repository.VirtualPuppetRepository("foo-puppet",
+            description=A test virtual repo,
+            excludes_pattern=com/google/**,
+            includes_pattern=com/jfrog/**,cloud/jfrog/**,
+            key=foo-puppet,
+            notes=Internal description,
             repositories=[])
         ```
 

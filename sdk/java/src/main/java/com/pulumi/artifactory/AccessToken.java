@@ -198,7 +198,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.artifactory.AccessToken;
  * import com.pulumi.artifactory.AccessTokenArgs;
- * import com.pulumi.artifactory.inputs.AccessTokenAdminTokenArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -213,9 +212,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var admin = new AccessToken(&#34;admin&#34;, AccessTokenArgs.builder()        
- *             .adminToken(AccessTokenAdminTokenArgs.builder()
- *                 .instanceId(&#34;&lt;instance id&gt;&#34;)
- *                 .build())
+ *             .adminToken(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .endDateRelative(&#34;1m&#34;)
  *             .username(&#34;admin&#34;)
  *             .build());
@@ -297,8 +294,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.time.Rotating;
- * import com.pulumi.time.RotatingArgs;
+ * import com.pulumi.time.time_rotating;
+ * import com.pulumi.time.Time_rotatingArgs;
  * import com.pulumi.artifactory.AccessToken;
  * import com.pulumi.artifactory.AccessTokenArgs;
  * import java.util.List;
@@ -314,7 +311,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var nowPlus1Hours = new Rotating(&#34;nowPlus1Hours&#34;, RotatingArgs.builder()        
+ *         var nowPlus1Hours = new Time_rotating(&#34;nowPlus1Hours&#34;, Time_rotatingArgs.builder()        
  *             .rotationHours(&#34;1&#34;)
  *             .build());
  * 

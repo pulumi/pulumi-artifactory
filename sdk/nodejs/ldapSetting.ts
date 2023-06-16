@@ -19,7 +19,7 @@ import * as utilities from "./utilities";
  * import * as artifactory from "@pulumi/artifactory";
  *
  * // Configure Artifactory LDAP setting
- * const ldapName = new artifactory.LdapSetting("ldapName", {
+ * const ldapName = new artifactory.index/ldapSetting.LdapSetting("ldapName", {
  *     allowUserToAccessProfile: false,
  *     autoCreateUser: true,
  *     emailAttribute: "mail",

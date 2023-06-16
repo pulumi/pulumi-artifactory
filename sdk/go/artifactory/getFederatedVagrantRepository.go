@@ -11,32 +11,6 @@ import (
 )
 
 // Retrieves a federated Vagrant repository.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupFederatedVagrantRepository(ctx, &artifactory.LookupFederatedVagrantRepositoryArgs{
-//				Key: "federated-test-vagrant-repo",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupFederatedVagrantRepository(ctx *pulumi.Context, args *LookupFederatedVagrantRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupFederatedVagrantRepositoryResult, error) {
 	var rv LookupFederatedVagrantRepositoryResult
 	err := ctx.Invoke("artifactory:index/getFederatedVagrantRepository:getFederatedVagrantRepository", args, &rv, opts...)

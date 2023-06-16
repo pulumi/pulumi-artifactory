@@ -18,7 +18,7 @@ import * as utilities from "./utilities";
  * import * as artifactory from "@pulumi/artifactory";
  *
  * // Configure Artifactory general security settings
- * const security = new artifactory.GeneralSecurity("security", {enableAnonymousAccess: true});
+ * const security = new artifactory.index/generalSecurity.GeneralSecurity("security", {enableAnonymousAccess: true});
  * ```
  *
  * ## Import

@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const terraform_federated_test_gitlfs_repo = new artifactory.FederatedGitltfsRepository("terraform-federated-test-gitlfs-repo", {
+ * const terraform_federated_test_gitlfs_repo = new artifactory.index/federatedGitltfsRepository.FederatedGitltfsRepository("terraform-federated-test-gitlfs-repo", {
  *     key: "terraform-federated-test-gitlfs-repo",
  *     members: [
  *         {

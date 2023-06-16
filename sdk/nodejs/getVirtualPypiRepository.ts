@@ -6,17 +6,6 @@ import * as utilities from "./utilities";
 
 /**
  * Retrieves a virtual Pypi repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const virtual-pypi = artifactory.getVirtualPypiRepository({
- *     key: "virtual-pypi",
- * });
- * ```
  */
 export function getVirtualPypiRepository(args: GetVirtualPypiRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualPypiRepositoryResult> {
 
@@ -79,17 +68,6 @@ export interface GetVirtualPypiRepositoryResult {
 }
 /**
  * Retrieves a virtual Pypi repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const virtual-pypi = artifactory.getVirtualPypiRepository({
- *     key: "virtual-pypi",
- * });
- * ```
  */
 export function getVirtualPypiRepositoryOutput(args: GetVirtualPypiRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualPypiRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getVirtualPypiRepository(a, opts))

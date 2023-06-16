@@ -11,32 +11,6 @@ import (
 )
 
 // Retrieves a remote Bower repository.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupRemoteBowerRepository(ctx, &artifactory.LookupRemoteBowerRepositoryArgs{
-//				Key: "remote-bower",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupRemoteBowerRepository(ctx *pulumi.Context, args *LookupRemoteBowerRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupRemoteBowerRepositoryResult, error) {
 	var rv LookupRemoteBowerRepositoryResult
 	err := ctx.Invoke("artifactory:index/getRemoteBowerRepository:getRemoteBowerRepository", args, &rv, opts...)

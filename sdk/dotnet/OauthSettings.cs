@@ -27,22 +27,22 @@ namespace Pulumi.Artifactory
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Configure Artifactory OAuth SSO settings
-    ///     var oauth = new Artifactory.OauthSettings("oauth", new()
+    ///     var oauth = new Artifactory.Index.OauthSettings.OauthSettings("oauth", new()
     ///     {
     ///         AllowUserToAccessProfile = true,
     ///         Enable = true,
     ///         OauthProviders = new[]
     ///         {
-    ///             new Artifactory.Inputs.OauthSettingsOauthProviderArgs
+    ///             
     ///             {
-    ///                 ApiUrl = "https://organization.okta.com/oauth2/v1/userinfo",
-    ///                 AuthUrl = "https://organization.okta.com/oauth2/v1/authorize",
-    ///                 ClientId = "foo",
-    ///                 ClientSecret = "bar",
-    ///                 Enabled = false,
-    ///                 Name = "okta",
-    ///                 TokenUrl = "https://organization.okta.com/oauth2/v1/token",
-    ///                 Type = "openId",
+    ///                 { "apiUrl", "https://organization.okta.com/oauth2/v1/userinfo" },
+    ///                 { "authUrl", "https://organization.okta.com/oauth2/v1/authorize" },
+    ///                 { "clientId", "foo" },
+    ///                 { "clientSecret", "bar" },
+    ///                 { "enabled", false },
+    ///                 { "name", "okta" },
+    ///                 { "tokenUrl", "https://organization.okta.com/oauth2/v1/token" },
+    ///                 { "type", "openId" },
     ///             },
     ///         },
     ///         PersistUsers = true,

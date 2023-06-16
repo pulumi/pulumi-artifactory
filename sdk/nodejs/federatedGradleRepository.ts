@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const terraform_federated_test_gradle_repo = new artifactory.FederatedGradleRepository("terraform-federated-test-gradle-repo", {
+ * const terraform_federated_test_gradle_repo = new artifactory.index/federatedGradleRepository.FederatedGradleRepository("terraform-federated-test-gradle-repo", {
  *     key: "terraform-federated-test-gradle-repo",
  *     members: [
  *         {

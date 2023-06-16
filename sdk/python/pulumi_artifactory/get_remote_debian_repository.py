@@ -459,15 +459,6 @@ def get_remote_debian_repository(allow_any_host_auth: Optional[bool] = None,
     """
     Retrieves a remote Debian repository.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    remote_debian = artifactory.get_remote_debian_repository(key="remote-debian")
-    ```
-
 
     :param str key: the identity key of the repo.
     """
@@ -604,15 +595,6 @@ def get_remote_debian_repository_output(allow_any_host_auth: Optional[pulumi.Inp
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRemoteDebianRepositoryResult]:
     """
     Retrieves a remote Debian repository.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    remote_debian = artifactory.get_remote_debian_repository(key="remote-debian")
-    ```
 
 
     :param str key: the identity key of the repo.

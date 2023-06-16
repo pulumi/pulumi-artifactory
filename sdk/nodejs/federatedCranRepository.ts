@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const terraform_federated_test_cran_repo = new artifactory.FederatedCranRepository("terraform-federated-test-cran-repo", {
+ * const terraform_federated_test_cran_repo = new artifactory.index/federatedCranRepository.FederatedCranRepository("terraform-federated-test-cran-repo", {
  *     key: "terraform-federated-test-cran-repo",
  *     members: [
  *         {

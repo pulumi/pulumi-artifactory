@@ -180,19 +180,19 @@ class OauthSettings(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         # Configure Artifactory OAuth SSO settings
-        oauth = artifactory.OauthSettings("oauth",
+        oauth = artifactory.index.oauth_settings.OauthSettings("oauth",
             allow_user_to_access_profile=True,
             enable=True,
-            oauth_providers=[artifactory.OauthSettingsOauthProviderArgs(
-                api_url="https://organization.okta.com/oauth2/v1/userinfo",
-                auth_url="https://organization.okta.com/oauth2/v1/authorize",
-                client_id="foo",
-                client_secret="bar",
-                enabled=False,
-                name="okta",
-                token_url="https://organization.okta.com/oauth2/v1/token",
-                type="openId",
-            )],
+            oauth_providers=[{
+                apiUrl: https://organization.okta.com/oauth2/v1/userinfo,
+                authUrl: https://organization.okta.com/oauth2/v1/authorize,
+                clientId: foo,
+                clientSecret: bar,
+                enabled: False,
+                name: okta,
+                tokenUrl: https://organization.okta.com/oauth2/v1/token,
+                type: openId,
+            }],
             persist_users=True)
         ```
 
@@ -233,19 +233,19 @@ class OauthSettings(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         # Configure Artifactory OAuth SSO settings
-        oauth = artifactory.OauthSettings("oauth",
+        oauth = artifactory.index.oauth_settings.OauthSettings("oauth",
             allow_user_to_access_profile=True,
             enable=True,
-            oauth_providers=[artifactory.OauthSettingsOauthProviderArgs(
-                api_url="https://organization.okta.com/oauth2/v1/userinfo",
-                auth_url="https://organization.okta.com/oauth2/v1/authorize",
-                client_id="foo",
-                client_secret="bar",
-                enabled=False,
-                name="okta",
-                token_url="https://organization.okta.com/oauth2/v1/token",
-                type="openId",
-            )],
+            oauth_providers=[{
+                apiUrl: https://organization.okta.com/oauth2/v1/userinfo,
+                authUrl: https://organization.okta.com/oauth2/v1/authorize,
+                clientId: foo,
+                clientSecret: bar,
+                enabled: False,
+                name: okta,
+                tokenUrl: https://organization.okta.com/oauth2/v1/token,
+                type: openId,
+            }],
             persist_users=True)
         ```
 

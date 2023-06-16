@@ -13,56 +13,12 @@ namespace Pulumi.Artifactory
     {
         /// <summary>
         /// Retrieves a remote Generic repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var remote_generic = Artifactory.GetRemoteGenericRepository.Invoke(new()
-        ///     {
-        ///         Key = "remote-generic",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetRemoteGenericRepositoryResult> InvokeAsync(GetRemoteGenericRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRemoteGenericRepositoryResult>("artifactory:index/getRemoteGenericRepository:getRemoteGenericRepository", args ?? new GetRemoteGenericRepositoryArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves a remote Generic repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var remote_generic = Artifactory.GetRemoteGenericRepository.Invoke(new()
-        ///     {
-        ///         Key = "remote-generic",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetRemoteGenericRepositoryResult> Invoke(GetRemoteGenericRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRemoteGenericRepositoryResult>("artifactory:index/getRemoteGenericRepository:getRemoteGenericRepository", args ?? new GetRemoteGenericRepositoryInvokeArgs(), options.WithDefaults());

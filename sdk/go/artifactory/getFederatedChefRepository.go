@@ -11,32 +11,6 @@ import (
 )
 
 // Retrieves a federated Chef repository.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupFederatedChefRepository(ctx, &artifactory.LookupFederatedChefRepositoryArgs{
-//				Key: "federated-test-chef-repo",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupFederatedChefRepository(ctx *pulumi.Context, args *LookupFederatedChefRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupFederatedChefRepositoryResult, error) {
 	var rv LookupFederatedChefRepositoryResult
 	err := ctx.Invoke("artifactory:index/getFederatedChefRepository:getFederatedChefRepository", args, &rv, opts...)

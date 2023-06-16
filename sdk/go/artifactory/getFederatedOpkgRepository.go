@@ -11,32 +11,6 @@ import (
 )
 
 // Retrieves a federated Opkg repository.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupFederatedOpkgRepository(ctx, &artifactory.LookupFederatedOpkgRepositoryArgs{
-//				Key: "federated-test-opkg-repo",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupFederatedOpkgRepository(ctx *pulumi.Context, args *LookupFederatedOpkgRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupFederatedOpkgRepositoryResult, error) {
 	var rv LookupFederatedOpkgRepositoryResult
 	err := ctx.Invoke("artifactory:index/getFederatedOpkgRepository:getFederatedOpkgRepository", args, &rv, opts...)

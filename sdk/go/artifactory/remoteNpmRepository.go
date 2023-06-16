@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
+//	"github.com/pulumi/pulumi-artifactory/sdk/v1/go/artifactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -29,10 +29,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewRemoteNpmRepository(ctx, "npm-remote", &artifactory.RemoteNpmRepositoryArgs{
-//				Key:                              pulumi.String("npm-remote"),
-//				ListRemoteFolderItems:            pulumi.Bool(true),
-//				MismatchingMimeTypesOverrideList: pulumi.String("application/json,application/xml"),
-//				Url:                              pulumi.String("https://registry.npmjs.org"),
+//				Key:                              "npm-remote",
+//				ListRemoteFolderItems:            true,
+//				MismatchingMimeTypesOverrideList: "application/json,application/xml",
+//				Url:                              "https://registry.npmjs.org",
 //			})
 //			if err != nil {
 //				return err

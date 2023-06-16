@@ -29,7 +29,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.artifactory.FederatedGemsRepository;
  * import com.pulumi.artifactory.FederatedGemsRepositoryArgs;
- * import com.pulumi.artifactory.inputs.FederatedGemsRepositoryMemberArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -46,14 +45,8 @@ import javax.annotation.Nullable;
  *         var terraform_federated_test_gems_repo = new FederatedGemsRepository(&#34;terraform-federated-test-gems-repo&#34;, FederatedGemsRepositoryArgs.builder()        
  *             .key(&#34;terraform-federated-test-gems-repo&#34;)
  *             .members(            
- *                 FederatedGemsRepositoryMemberArgs.builder()
- *                     .enabled(true)
- *                     .url(&#34;http://tempurl.org/artifactory/terraform-federated-test-gems-repo&#34;)
- *                     .build(),
- *                 FederatedGemsRepositoryMemberArgs.builder()
- *                     .enabled(true)
- *                     .url(&#34;http://tempurl2.org/artifactory/terraform-federated-test-gems-repo-2&#34;)
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const terraform_federated_test_puppet_repo = new artifactory.FederatedPuppetRepository("terraform-federated-test-puppet-repo", {
+ * const terraform_federated_test_puppet_repo = new artifactory.index/federatedPuppetRepository.FederatedPuppetRepository("terraform-federated-test-puppet-repo", {
  *     key: "terraform-federated-test-puppet-repo",
  *     members: [
  *         {

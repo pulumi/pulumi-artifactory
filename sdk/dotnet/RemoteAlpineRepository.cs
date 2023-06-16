@@ -23,7 +23,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var my_remote_alpine = new Artifactory.RemoteAlpineRepository("my-remote-alpine", new()
+    ///     var my_remote_alpine = new Artifactory.Index.RemoteAlpineRepository.RemoteAlpineRepository("my-remote-alpine", new()
     ///     {
     ///         Key = "my-remote-alpine",
     ///         Url = "http://dl-cdn.alpinelinux.org/alpine",

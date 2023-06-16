@@ -723,8 +723,8 @@ class DockerV2Repository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        foo = artifactory.DockerV2Repository("foo",
-            key="foo",
+        foo = artifactory.index.docker_v2_repository.DockerV2Repository("foo",
+            key=foo,
             max_unique_tags=5,
             tag_retention=3)
         ```
@@ -788,8 +788,8 @@ class DockerV2Repository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        foo = artifactory.DockerV2Repository("foo",
-            key="foo",
+        foo = artifactory.index.docker_v2_repository.DockerV2Repository("foo",
+            key=foo,
             max_unique_tags=5,
             tag_retention=3)
         ```

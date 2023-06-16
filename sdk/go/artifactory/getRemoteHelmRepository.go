@@ -11,32 +11,6 @@ import (
 )
 
 // Retrieves a remote Helm repository.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupRemoteHelmRepository(ctx, &artifactory.LookupRemoteHelmRepositoryArgs{
-//				Key: "remote-helm",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupRemoteHelmRepository(ctx *pulumi.Context, args *LookupRemoteHelmRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupRemoteHelmRepositoryResult, error) {
 	var rv LookupRemoteHelmRepositoryResult
 	err := ctx.Invoke("artifactory:index/getRemoteHelmRepository:getRemoteHelmRepository", args, &rv, opts...)

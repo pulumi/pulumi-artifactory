@@ -909,17 +909,17 @@ class FederatedSbtRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_federated_test_sbt_repo = artifactory.FederatedSbtRepository("terraform-federated-test-sbt-repo",
-            key="terraform-federated-test-sbt-repo",
+        terraform_federated_test_sbt_repo = artifactory.index.federated_sbt_repository.FederatedSbtRepository("terraform-federated-test-sbt-repo",
+            key=terraform-federated-test-sbt-repo,
             members=[
-                artifactory.FederatedSbtRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl.org/artifactory/terraform-federated-test-sbt-repo",
-                ),
-                artifactory.FederatedSbtRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl2.org/artifactory/terraform-federated-test-sbt-repo-2",
-                ),
+                {
+                    enabled: True,
+                    url: http://tempurl.org/artifactory/terraform-federated-test-sbt-repo,
+                },
+                {
+                    enabled: True,
+                    url: http://tempurl2.org/artifactory/terraform-federated-test-sbt-repo-2,
+                },
             ])
         ```
 
@@ -996,17 +996,17 @@ class FederatedSbtRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_federated_test_sbt_repo = artifactory.FederatedSbtRepository("terraform-federated-test-sbt-repo",
-            key="terraform-federated-test-sbt-repo",
+        terraform_federated_test_sbt_repo = artifactory.index.federated_sbt_repository.FederatedSbtRepository("terraform-federated-test-sbt-repo",
+            key=terraform-federated-test-sbt-repo,
             members=[
-                artifactory.FederatedSbtRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl.org/artifactory/terraform-federated-test-sbt-repo",
-                ),
-                artifactory.FederatedSbtRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl2.org/artifactory/terraform-federated-test-sbt-repo-2",
-                ),
+                {
+                    enabled: True,
+                    url: http://tempurl.org/artifactory/terraform-federated-test-sbt-repo,
+                },
+                {
+                    enabled: True,
+                    url: http://tempurl2.org/artifactory/terraform-federated-test-sbt-repo-2,
+                },
             ])
         ```
 

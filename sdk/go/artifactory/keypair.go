@@ -26,7 +26,7 @@ import (
 //
 //	"os"
 //
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
+//	"github.com/pulumi/pulumi-artifactory/sdk/v1/go/artifactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -42,12 +42,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewKeypair(ctx, "some-keypair6543461672124900137", &artifactory.KeypairArgs{
-//				PairName:   pulumi.String("some-keypair6543461672124900137"),
-//				PairType:   pulumi.String("RSA"),
-//				Alias:      pulumi.String("foo-alias6543461672124900137"),
+//				PairName:   "some-keypair6543461672124900137",
+//				PairType:   "RSA",
+//				Alias:      "foo-alias6543461672124900137",
 //				PrivateKey: readFileOrPanic("samples/rsa.priv"),
 //				PublicKey:  readFileOrPanic("samples/rsa.pub"),
-//				Passphrase: pulumi.String("PASSPHRASE"),
+//				Passphrase: "PASSPHRASE",
 //			})
 //			if err != nil {
 //				return err

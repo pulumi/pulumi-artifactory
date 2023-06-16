@@ -16,7 +16,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const distribution_webhook = new artifactory.DistributionWebhook("distribution-webhook", {
+ * const distribution_webhook = new artifactory.index/distributionWebhook.DistributionWebhook("distribution-webhook", {
  *     criteria: {
  *         anyReleaseBundle: false,
  *         excludePatterns: ["bar/**"],

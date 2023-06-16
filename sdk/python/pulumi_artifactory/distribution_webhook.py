@@ -239,32 +239,32 @@ class DistributionWebhook(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        distribution_webhook = artifactory.DistributionWebhook("distribution-webhook",
-            criteria=artifactory.DistributionWebhookCriteriaArgs(
-                any_release_bundle=False,
-                exclude_patterns=["bar/**"],
-                include_patterns=["foo/**"],
-                registered_release_bundle_names=["bundle-name"],
-            ),
+        distribution_webhook = artifactory.index.distribution_webhook.DistributionWebhook("distribution-webhook",
+            criteria={
+                anyReleaseBundle: False,
+                excludePatterns: [bar/**],
+                includePatterns: [foo/**],
+                registeredReleaseBundleNames: [bundle-name],
+            },
             event_types=[
-                "distribute_started",
-                "distribute_completed",
-                "distribute_aborted",
-                "distribute_failed",
-                "delete_started",
-                "delete_completed",
-                "delete_failed",
+                distribute_started,
+                distribute_completed,
+                distribute_aborted,
+                distribute_failed,
+                delete_started,
+                delete_completed,
+                delete_failed,
             ],
-            handlers=[artifactory.DistributionWebhookHandlerArgs(
-                custom_http_headers={
-                    "header-1": "value-1",
-                    "header-2": "value-2",
+            handlers=[{
+                customHttpHeaders: {
+                    header-1: value-1,
+                    header-2: value-2,
                 },
-                proxy="proxy-key",
-                secret="some-secret",
-                url="http://tempurl.org/webhook",
-            )],
-            key="distribution-webhook")
+                proxy: proxy-key,
+                secret: some-secret,
+                url: http://tempurl.org/webhook,
+            }],
+            key=distribution-webhook)
         ```
 
         :param str resource_name: The name of the resource.
@@ -292,32 +292,32 @@ class DistributionWebhook(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        distribution_webhook = artifactory.DistributionWebhook("distribution-webhook",
-            criteria=artifactory.DistributionWebhookCriteriaArgs(
-                any_release_bundle=False,
-                exclude_patterns=["bar/**"],
-                include_patterns=["foo/**"],
-                registered_release_bundle_names=["bundle-name"],
-            ),
+        distribution_webhook = artifactory.index.distribution_webhook.DistributionWebhook("distribution-webhook",
+            criteria={
+                anyReleaseBundle: False,
+                excludePatterns: [bar/**],
+                includePatterns: [foo/**],
+                registeredReleaseBundleNames: [bundle-name],
+            },
             event_types=[
-                "distribute_started",
-                "distribute_completed",
-                "distribute_aborted",
-                "distribute_failed",
-                "delete_started",
-                "delete_completed",
-                "delete_failed",
+                distribute_started,
+                distribute_completed,
+                distribute_aborted,
+                distribute_failed,
+                delete_started,
+                delete_completed,
+                delete_failed,
             ],
-            handlers=[artifactory.DistributionWebhookHandlerArgs(
-                custom_http_headers={
-                    "header-1": "value-1",
-                    "header-2": "value-2",
+            handlers=[{
+                customHttpHeaders: {
+                    header-1: value-1,
+                    header-2: value-2,
                 },
-                proxy="proxy-key",
-                secret="some-secret",
-                url="http://tempurl.org/webhook",
-            )],
-            key="distribution-webhook")
+                proxy: proxy-key,
+                secret: some-secret,
+                url: http://tempurl.org/webhook,
+            }],
+            key=distribution-webhook)
         ```
 
         :param str resource_name: The name of the resource.

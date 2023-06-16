@@ -13,7 +13,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const terraform_local_test_puppet_repo = new artifactory.LocalPuppetRepository("terraform-local-test-puppet-repo", {key: "terraform-local-test-puppet-repo"});
+ * const terraform_local_test_puppet_repo = new artifactory.index/localPuppetRepository.LocalPuppetRepository("terraform-local-test-puppet-repo", {key: "terraform-local-test-puppet-repo"});
  * ```
  *
  * ## Import

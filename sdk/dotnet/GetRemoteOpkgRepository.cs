@@ -13,56 +13,12 @@ namespace Pulumi.Artifactory
     {
         /// <summary>
         /// Retrieves a remote Opkg repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var remote_opkg = Artifactory.GetRemoteOpkgRepository.Invoke(new()
-        ///     {
-        ///         Key = "remote-opkg",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetRemoteOpkgRepositoryResult> InvokeAsync(GetRemoteOpkgRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRemoteOpkgRepositoryResult>("artifactory:index/getRemoteOpkgRepository:getRemoteOpkgRepository", args ?? new GetRemoteOpkgRepositoryArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves a remote Opkg repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var remote_opkg = Artifactory.GetRemoteOpkgRepository.Invoke(new()
-        ///     {
-        ///         Key = "remote-opkg",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetRemoteOpkgRepositoryResult> Invoke(GetRemoteOpkgRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRemoteOpkgRepositoryResult>("artifactory:index/getRemoteOpkgRepository:getRemoteOpkgRepository", args ?? new GetRemoteOpkgRepositoryInvokeArgs(), options.WithDefaults());

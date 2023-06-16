@@ -13,56 +13,12 @@ namespace Pulumi.Artifactory
     {
         /// <summary>
         /// Retrieves a remote Ivy repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var remote_ivy = Artifactory.GetRemoteIvyRepository.Invoke(new()
-        ///     {
-        ///         Key = "remote-ivy",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetRemoteIvyRepositoryResult> InvokeAsync(GetRemoteIvyRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRemoteIvyRepositoryResult>("artifactory:index/getRemoteIvyRepository:getRemoteIvyRepository", args ?? new GetRemoteIvyRepositoryArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves a remote Ivy repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var remote_ivy = Artifactory.GetRemoteIvyRepository.Invoke(new()
-        ///     {
-        ///         Key = "remote-ivy",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetRemoteIvyRepositoryResult> Invoke(GetRemoteIvyRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRemoteIvyRepositoryResult>("artifactory:index/getRemoteIvyRepository:getRemoteIvyRepository", args ?? new GetRemoteIvyRepositoryInvokeArgs(), options.WithDefaults());

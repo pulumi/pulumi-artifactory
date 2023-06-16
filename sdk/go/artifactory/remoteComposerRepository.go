@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
+//	"github.com/pulumi/pulumi-artifactory/sdk/v1/go/artifactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -29,9 +29,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewRemoteComposerRepository(ctx, "my-remote-composer", &artifactory.RemoteComposerRepositoryArgs{
-//				Key:            pulumi.String("my-remote-composer"),
-//				Url:            pulumi.String("https://github.com/"),
-//				VcsGitProvider: pulumi.String("GITHUB"),
+//				Key:            "my-remote-composer",
+//				Url:            "https://github.com/",
+//				VcsGitProvider: "GITHUB",
 //			})
 //			if err != nil {
 //				return err

@@ -13,56 +13,12 @@ namespace Pulumi.Artifactory
     {
         /// <summary>
         /// Retrieves a federated SBT repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var federated_test_sbt_repo = Artifactory.GetFederatedSbtRepository.Invoke(new()
-        ///     {
-        ///         Key = "federated-test-sbt-repo",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetFederatedSbtRepositoryResult> InvokeAsync(GetFederatedSbtRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFederatedSbtRepositoryResult>("artifactory:index/getFederatedSbtRepository:getFederatedSbtRepository", args ?? new GetFederatedSbtRepositoryArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves a federated SBT repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var federated_test_sbt_repo = Artifactory.GetFederatedSbtRepository.Invoke(new()
-        ///     {
-        ///         Key = "federated-test-sbt-repo",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetFederatedSbtRepositoryResult> Invoke(GetFederatedSbtRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFederatedSbtRepositoryResult>("artifactory:index/getFederatedSbtRepository:getFederatedSbtRepository", args ?? new GetFederatedSbtRepositoryInvokeArgs(), options.WithDefaults());

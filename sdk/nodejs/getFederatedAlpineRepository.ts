@@ -8,17 +8,6 @@ import * as utilities from "./utilities";
 
 /**
  * Retrieves a federated Alpine repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const federated-test-alpine-repo = artifactory.getFederatedAlpineRepository({
- *     key: "federated-test-alpine-repo",
- * });
- * ```
  */
 export function getFederatedAlpineRepository(args: GetFederatedAlpineRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetFederatedAlpineRepositoryResult> {
 
@@ -117,17 +106,6 @@ export interface GetFederatedAlpineRepositoryResult {
 }
 /**
  * Retrieves a federated Alpine repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const federated-test-alpine-repo = artifactory.getFederatedAlpineRepository({
- *     key: "federated-test-alpine-repo",
- * });
- * ```
  */
 export function getFederatedAlpineRepositoryOutput(args: GetFederatedAlpineRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedAlpineRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getFederatedAlpineRepository(a, opts))

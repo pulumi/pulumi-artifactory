@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
+//	"github.com/pulumi/pulumi-artifactory/sdk/v1/go/artifactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -29,35 +29,35 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewBuildWebhook(ctx, "build-webhook", &artifactory.BuildWebhookArgs{
-//				Criteria: &artifactory.BuildWebhookCriteriaArgs{
-//					AnyBuild: pulumi.Bool(true),
-//					ExcludePatterns: pulumi.StringArray{
-//						pulumi.String("bar/**"),
+//				Criteria: map[string]interface{}{
+//					"anyBuild": true,
+//					"excludePatterns": []string{
+//						"bar/**",
 //					},
-//					IncludePatterns: pulumi.StringArray{
-//						pulumi.String("foo/**"),
+//					"includePatterns": []string{
+//						"foo/**",
 //					},
-//					SelectedBuilds: pulumi.StringArray{
-//						pulumi.String("build-id"),
+//					"selectedBuilds": []string{
+//						"build-id",
 //					},
 //				},
-//				EventTypes: pulumi.StringArray{
-//					pulumi.String("uploaded"),
-//					pulumi.String("deleted"),
-//					pulumi.String("promoted"),
+//				EventTypes: []string{
+//					"uploaded",
+//					"deleted",
+//					"promoted",
 //				},
-//				Handlers: artifactory.BuildWebhookHandlerArray{
-//					&artifactory.BuildWebhookHandlerArgs{
-//						CustomHttpHeaders: pulumi.StringMap{
-//							"header-1": pulumi.String("value-1"),
-//							"header-2": pulumi.String("value-2"),
+//				Handlers: []map[string]interface{}{
+//					map[string]interface{}{
+//						"customHttpHeaders": map[string]interface{}{
+//							"header-1": "value-1",
+//							"header-2": "value-2",
 //						},
-//						Proxy:  pulumi.String("proxy-key"),
-//						Secret: pulumi.String("some-secret"),
-//						Url:    pulumi.String("http://tempurl.org/webhook"),
+//						"proxy":  "proxy-key",
+//						"secret": "some-secret",
+//						"url":    "http://tempurl.org/webhook",
 //					},
 //				},
-//				Key: pulumi.String("build-webhook"),
+//				Key: "build-webhook",
 //			})
 //			if err != nil {
 //				return err

@@ -14,7 +14,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const foo_generic = new artifactory.VirtualGenericRepository("foo-generic", {
+ * const foo_generic = new artifactory.index/virtualGenericRepository.VirtualGenericRepository("foo-generic", {
  *     description: "A test virtual repo",
  *     excludesPattern: "com/google/**",
  *     includesPattern: "com/jfrog/**,cloud/jfrog/**",

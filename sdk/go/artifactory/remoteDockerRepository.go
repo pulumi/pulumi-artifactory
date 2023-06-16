@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
+//	"github.com/pulumi/pulumi-artifactory/sdk/v1/go/artifactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -29,14 +29,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewRemoteDockerRepository(ctx, "my-remote-docker", &artifactory.RemoteDockerRepositoryArgs{
-//				BlockPushingSchema1:         pulumi.Bool(true),
-//				EnableTokenAuthentication:   pulumi.Bool(true),
-//				ExternalDependenciesEnabled: pulumi.Bool(true),
-//				ExternalDependenciesPatterns: pulumi.StringArray{
-//					pulumi.String("**/registry-1.docker.io/**"),
+//				BlockPushingSchema1:         true,
+//				EnableTokenAuthentication:   true,
+//				ExternalDependenciesEnabled: true,
+//				ExternalDependenciesPatterns: []string{
+//					"**/registry-1.docker.io/**",
 //				},
-//				Key: pulumi.String("my-remote-docker"),
-//				Url: pulumi.String("https://registry-1.docker.io/"),
+//				Key: "my-remote-docker",
+//				Url: "https://registry-1.docker.io/",
 //			})
 //			if err != nil {
 //				return err

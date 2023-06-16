@@ -29,7 +29,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.artifactory.FederatedPuppetRepository;
  * import com.pulumi.artifactory.FederatedPuppetRepositoryArgs;
- * import com.pulumi.artifactory.inputs.FederatedPuppetRepositoryMemberArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -46,14 +45,8 @@ import javax.annotation.Nullable;
  *         var terraform_federated_test_puppet_repo = new FederatedPuppetRepository(&#34;terraform-federated-test-puppet-repo&#34;, FederatedPuppetRepositoryArgs.builder()        
  *             .key(&#34;terraform-federated-test-puppet-repo&#34;)
  *             .members(            
- *                 FederatedPuppetRepositoryMemberArgs.builder()
- *                     .enabled(true)
- *                     .url(&#34;http://tempurl.org/artifactory/terraform-federated-test-puppet-repo&#34;)
- *                     .build(),
- *                 FederatedPuppetRepositoryMemberArgs.builder()
- *                     .enabled(true)
- *                     .url(&#34;http://tempurl2.org/artifactory/terraform-federated-test-puppet-repo-2&#34;)
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

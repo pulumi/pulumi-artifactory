@@ -193,15 +193,6 @@ def get_virtual_alpine_repository(artifactory_requests_can_retrieve_remote_artif
     """
     Retrieves a virtual Alpine repository.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    virtual_alpine = artifactory.get_virtual_alpine_repository(key="virtual-alpine")
-    ```
-
 
     :param str key: the identity key of the repo.
     :param str primary_keypair_ref: (Optional) Primary keypair used to sign artifacts. Default value is empty.
@@ -259,15 +250,6 @@ def get_virtual_alpine_repository_output(artifactory_requests_can_retrieve_remot
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualAlpineRepositoryResult]:
     """
     Retrieves a virtual Alpine repository.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    virtual_alpine = artifactory.get_virtual_alpine_repository(key="virtual-alpine")
-    ```
 
 
     :param str key: the identity key of the repo.

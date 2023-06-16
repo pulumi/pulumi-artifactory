@@ -11,32 +11,6 @@ import (
 )
 
 // Retrieves a remote Ivy repository.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupRemoteIvyRepository(ctx, &artifactory.LookupRemoteIvyRepositoryArgs{
-//				Key: "remote-ivy",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupRemoteIvyRepository(ctx *pulumi.Context, args *LookupRemoteIvyRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupRemoteIvyRepositoryResult, error) {
 	var rv LookupRemoteIvyRepositoryResult
 	err := ctx.Invoke("artifactory:index/getRemoteIvyRepository:getRemoteIvyRepository", args, &rv, opts...)

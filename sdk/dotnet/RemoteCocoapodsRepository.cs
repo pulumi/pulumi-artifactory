@@ -23,7 +23,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var my_remote_cocoapods = new Artifactory.RemoteCocoapodsRepository("my-remote-cocoapods", new()
+    ///     var my_remote_cocoapods = new Artifactory.Index.RemoteCocoapodsRepository.RemoteCocoapodsRepository("my-remote-cocoapods", new()
     ///     {
     ///         Key = "my-remote-cocoapods",
     ///         PodsSpecsRepoUrl = "https://github.com/CocoaPods/Spec",

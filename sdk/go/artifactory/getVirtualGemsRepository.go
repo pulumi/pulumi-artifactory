@@ -11,32 +11,6 @@ import (
 )
 
 // Retrieves a virtual Gems repository.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupVirtualGemsRepository(ctx, &artifactory.LookupVirtualGemsRepositoryArgs{
-//				Key: "virtual-gems",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupVirtualGemsRepository(ctx *pulumi.Context, args *LookupVirtualGemsRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupVirtualGemsRepositoryResult, error) {
 	var rv LookupVirtualGemsRepositoryResult
 	err := ctx.Invoke("artifactory:index/getVirtualGemsRepository:getVirtualGemsRepository", args, &rv, opts...)

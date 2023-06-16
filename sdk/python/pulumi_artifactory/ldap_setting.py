@@ -520,21 +520,21 @@ class LdapSetting(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         # Configure Artifactory LDAP setting
-        ldap_name = artifactory.LdapSetting("ldapName",
+        ldap_name = artifactory.index.ldap_setting.LdapSetting("ldapName",
             allow_user_to_access_profile=False,
             auto_create_user=True,
-            email_attribute="mail",
+            email_attribute=mail,
             enabled=True,
-            key="ldap_name",
+            key=ldap_name,
             ldap_poisoning_protection=True,
-            ldap_url="ldap://ldap_server_url",
-            manager_dn="mgr_dn",
-            manager_password="mgr_passwd_random",
+            ldap_url=ldap://ldap_server_url,
+            manager_dn=mgr_dn,
+            manager_password=mgr_passwd_random,
             paging_support_enabled=False,
-            search_base="ou=users",
-            search_filter="(uid={0})",
+            search_base=ou=users,
+            search_filter=(uid={0}),
             search_sub_tree=True,
-            user_dn_pattern="uid={0},ou=People")
+            user_dn_pattern=uid={0},ou=People)
         ```
         Note: `Key` argument has to match to the resource name.\\
         Reference Link: [JFrog LDAP](https://www.jfrog.com/confluence/display/JFROG/LDAP)
@@ -588,21 +588,21 @@ class LdapSetting(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         # Configure Artifactory LDAP setting
-        ldap_name = artifactory.LdapSetting("ldapName",
+        ldap_name = artifactory.index.ldap_setting.LdapSetting("ldapName",
             allow_user_to_access_profile=False,
             auto_create_user=True,
-            email_attribute="mail",
+            email_attribute=mail,
             enabled=True,
-            key="ldap_name",
+            key=ldap_name,
             ldap_poisoning_protection=True,
-            ldap_url="ldap://ldap_server_url",
-            manager_dn="mgr_dn",
-            manager_password="mgr_passwd_random",
+            ldap_url=ldap://ldap_server_url,
+            manager_dn=mgr_dn,
+            manager_password=mgr_passwd_random,
             paging_support_enabled=False,
-            search_base="ou=users",
-            search_filter="(uid={0})",
+            search_base=ou=users,
+            search_filter=(uid={0}),
             search_sub_tree=True,
-            user_dn_pattern="uid={0},ou=People")
+            user_dn_pattern=uid={0},ou=People)
         ```
         Note: `Key` argument has to match to the resource name.\\
         Reference Link: [JFrog LDAP](https://www.jfrog.com/confluence/display/JFROG/LDAP)

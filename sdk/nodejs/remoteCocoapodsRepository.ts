@@ -16,7 +16,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const my_remote_cocoapods = new artifactory.RemoteCocoapodsRepository("my-remote-cocoapods", {
+ * const my_remote_cocoapods = new artifactory.index/remoteCocoapodsRepository.RemoteCocoapodsRepository("my-remote-cocoapods", {
  *     key: "my-remote-cocoapods",
  *     podsSpecsRepoUrl: "https://github.com/CocoaPods/Spec",
  *     url: "https://github.com/",

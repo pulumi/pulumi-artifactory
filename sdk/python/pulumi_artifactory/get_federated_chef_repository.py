@@ -238,15 +238,6 @@ def get_federated_chef_repository(archive_browsing_enabled: Optional[bool] = Non
     """
     Retrieves a federated Chef repository.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    federated_test_chef_repo = artifactory.get_federated_chef_repository(key="federated-test-chef-repo")
-    ```
-
 
     :param str key: the identity key of the repo.
     :param Sequence[pulumi.InputType['GetFederatedChefRepositoryMemberArgs']] members: The list of Federated members and must contain this repository URL (configured base URL
@@ -318,15 +309,6 @@ def get_federated_chef_repository_output(archive_browsing_enabled: Optional[pulu
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFederatedChefRepositoryResult]:
     """
     Retrieves a federated Chef repository.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    federated_test_chef_repo = artifactory.get_federated_chef_repository(key="federated-test-chef-repo")
-    ```
 
 
     :param str key: the identity key of the repo.

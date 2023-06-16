@@ -8,17 +8,6 @@ import * as utilities from "./utilities";
 
 /**
  * Retrieves a federated Ivy repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const federated-test-ivy-repo = artifactory.getFederatedIvyRepository({
- *     key: "federated-test-ivy-repo",
- * });
- * ```
  */
 export function getFederatedIvyRepository(args: GetFederatedIvyRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetFederatedIvyRepositoryResult> {
 
@@ -129,17 +118,6 @@ export interface GetFederatedIvyRepositoryResult {
 }
 /**
  * Retrieves a federated Ivy repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const federated-test-ivy-repo = artifactory.getFederatedIvyRepository({
- *     key: "federated-test-ivy-repo",
- * });
- * ```
  */
 export function getFederatedIvyRepositoryOutput(args: GetFederatedIvyRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedIvyRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getFederatedIvyRepository(a, opts))

@@ -14,7 +14,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const foo_npm = new artifactory.VirtualNpmRepository("foo-npm", {
+ * const foo_npm = new artifactory.index/virtualNpmRepository.VirtualNpmRepository("foo-npm", {
  *     description: "A test virtual repo",
  *     excludesPattern: "com/google/**",
  *     includesPattern: "com/jfrog/**,cloud/jfrog/**",

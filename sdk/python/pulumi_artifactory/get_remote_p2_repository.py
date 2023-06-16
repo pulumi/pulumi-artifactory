@@ -459,15 +459,6 @@ def get_remote_p2_repository(allow_any_host_auth: Optional[bool] = None,
     """
     Retrieves a remote P2 repository.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    remote_p2 = artifactory.get_remote_p2_repository(key="remote-p2")
-    ```
-
 
     :param str key: the identity key of the repo.
     """
@@ -604,15 +595,6 @@ def get_remote_p2_repository_output(allow_any_host_auth: Optional[pulumi.Input[O
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRemoteP2RepositoryResult]:
     """
     Retrieves a remote P2 repository.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    remote_p2 = artifactory.get_remote_p2_repository(key="remote-p2")
-    ```
 
 
     :param str key: the identity key of the repo.

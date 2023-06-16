@@ -11,32 +11,6 @@ import (
 )
 
 // Retrieves a federated Generic repository.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupFederatedGenericRepository(ctx, &artifactory.LookupFederatedGenericRepositoryArgs{
-//				Key: "terraform-federated-test-generic-repo",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupFederatedGenericRepository(ctx *pulumi.Context, args *LookupFederatedGenericRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupFederatedGenericRepositoryResult, error) {
 	var rv LookupFederatedGenericRepositoryResult
 	err := ctx.Invoke("artifactory:index/getFederatedGenericRepository:getFederatedGenericRepository", args, &rv, opts...)

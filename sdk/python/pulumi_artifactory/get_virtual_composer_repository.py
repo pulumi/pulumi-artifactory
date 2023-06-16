@@ -167,15 +167,6 @@ def get_virtual_composer_repository(artifactory_requests_can_retrieve_remote_art
     """
     Retrieves a virtual PHP Composer repository.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    virtual_composer = artifactory.get_virtual_composer_repository(key="virtual-composer")
-    ```
-
 
     :param str key: the identity key of the repo.
     """
@@ -225,15 +216,6 @@ def get_virtual_composer_repository_output(artifactory_requests_can_retrieve_rem
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualComposerRepositoryResult]:
     """
     Retrieves a virtual PHP Composer repository.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    virtual_composer = artifactory.get_virtual_composer_repository(key="virtual-composer")
-    ```
 
 
     :param str key: the identity key of the repo.

@@ -675,17 +675,17 @@ class FederatedTerraformProviderRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_federated_test_terraform_provider_repo = artifactory.FederatedTerraformProviderRepository("terraform-federated-test-terraformProvider-repo",
-            key="terraform-federated-test-terraform-provider-repo",
+        terraform_federated_test_terraform_provider_repo = artifactory.index.federated_terraform_provider_repository.FederatedTerraformProviderRepository("terraform-federated-test-terraformProvider-repo",
+            key=terraform-federated-test-terraform-provider-repo,
             members=[
-                artifactory.FederatedTerraformProviderRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl.org/artifactory/terraform-federated-test-terraform_provider-repo",
-                ),
-                artifactory.FederatedTerraformProviderRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl2.org/artifactory/terraform-federated-test-terraform_provider-repo-2",
-                ),
+                {
+                    enabled: True,
+                    url: http://tempurl.org/artifactory/terraform-federated-test-terraform_provider-repo,
+                },
+                {
+                    enabled: True,
+                    url: http://tempurl2.org/artifactory/terraform-federated-test-terraform_provider-repo-2,
+                },
             ])
         ```
 
@@ -747,17 +747,17 @@ class FederatedTerraformProviderRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_federated_test_terraform_provider_repo = artifactory.FederatedTerraformProviderRepository("terraform-federated-test-terraformProvider-repo",
-            key="terraform-federated-test-terraform-provider-repo",
+        terraform_federated_test_terraform_provider_repo = artifactory.index.federated_terraform_provider_repository.FederatedTerraformProviderRepository("terraform-federated-test-terraformProvider-repo",
+            key=terraform-federated-test-terraform-provider-repo,
             members=[
-                artifactory.FederatedTerraformProviderRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl.org/artifactory/terraform-federated-test-terraform_provider-repo",
-                ),
-                artifactory.FederatedTerraformProviderRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl2.org/artifactory/terraform-federated-test-terraform_provider-repo-2",
-                ),
+                {
+                    enabled: True,
+                    url: http://tempurl.org/artifactory/terraform-federated-test-terraform_provider-repo,
+                },
+                {
+                    enabled: True,
+                    url: http://tempurl2.org/artifactory/terraform-federated-test-terraform_provider-repo-2,
+                },
             ])
         ```
 

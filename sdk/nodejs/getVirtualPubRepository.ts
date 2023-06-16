@@ -6,17 +6,6 @@ import * as utilities from "./utilities";
 
 /**
  * Retrieves a virtual Pub repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const virtual-pub = artifactory.getVirtualPubRepository({
- *     key: "virtual-pub",
- * });
- * ```
  */
 export function getVirtualPubRepository(args: GetVirtualPubRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualPubRepositoryResult> {
 
@@ -79,17 +68,6 @@ export interface GetVirtualPubRepositoryResult {
 }
 /**
  * Retrieves a virtual Pub repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const virtual-pub = artifactory.getVirtualPubRepository({
- *     key: "virtual-pub",
- * });
- * ```
  */
 export function getVirtualPubRepositoryOutput(args: GetVirtualPubRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualPubRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getVirtualPubRepository(a, opts))

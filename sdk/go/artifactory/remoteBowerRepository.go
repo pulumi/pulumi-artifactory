@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
+//	"github.com/pulumi/pulumi-artifactory/sdk/v1/go/artifactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -29,9 +29,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewRemoteBowerRepository(ctx, "my-remote-bower", &artifactory.RemoteBowerRepositoryArgs{
-//				Key:            pulumi.String("my-remote-bower"),
-//				Url:            pulumi.String("https://github.com/"),
-//				VcsGitProvider: pulumi.String("GITHUB"),
+//				Key:            "my-remote-bower",
+//				Url:            "https://github.com/",
+//				VcsGitProvider: "GITHUB",
 //			})
 //			if err != nil {
 //				return err

@@ -374,20 +374,20 @@ class Proxy(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        my_proxy = artifactory.Proxy("my-proxy",
-            host="my-proxy.mycompany.com",
-            key="my-proxy",
-            nt_domain="MYCOMPANY",
-            nt_host="MYCOMPANY.COM",
-            password="password",
+        my_proxy = artifactory.index.proxy.Proxy("my-proxy",
+            host=my-proxy.mycompany.com,
+            key=my-proxy,
+            nt_domain=MYCOMPANY,
+            nt_host=MYCOMPANY.COM,
+            password=password,
             platform_default=False,
             port=8888,
-            redirect_to_hosts=["redirec-host.mycompany.com"],
+            redirect_to_hosts=[redirec-host.mycompany.com],
             services=[
-                "jfrt",
-                "jfxr",
+                jfrt,
+                jfxr,
             ],
-            username="user1")
+            username=user1)
         ```
 
         ## Import
@@ -431,20 +431,20 @@ class Proxy(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        my_proxy = artifactory.Proxy("my-proxy",
-            host="my-proxy.mycompany.com",
-            key="my-proxy",
-            nt_domain="MYCOMPANY",
-            nt_host="MYCOMPANY.COM",
-            password="password",
+        my_proxy = artifactory.index.proxy.Proxy("my-proxy",
+            host=my-proxy.mycompany.com,
+            key=my-proxy,
+            nt_domain=MYCOMPANY,
+            nt_host=MYCOMPANY.COM,
+            password=password,
             platform_default=False,
             port=8888,
-            redirect_to_hosts=["redirec-host.mycompany.com"],
+            redirect_to_hosts=[redirec-host.mycompany.com],
             services=[
-                "jfrt",
-                "jfxr",
+                jfrt,
+                jfxr,
             ],
-            username="user1")
+            username=user1)
         ```
 
         ## Import

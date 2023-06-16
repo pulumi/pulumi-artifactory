@@ -8,17 +8,6 @@ import * as utilities from "./utilities";
 
 /**
  * Retrieves a remote Pypi repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const remote-pypi = artifactory.getRemotePypiRepository({
- *     key: "remote-pypi",
- * });
- * ```
  */
 export function getRemotePypiRepository(args: GetRemotePypiRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetRemotePypiRepositoryResult> {
 
@@ -186,17 +175,6 @@ export interface GetRemotePypiRepositoryResult {
 }
 /**
  * Retrieves a remote Pypi repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const remote-pypi = artifactory.getRemotePypiRepository({
- *     key: "remote-pypi",
- * });
- * ```
  */
 export function getRemotePypiRepositoryOutput(args: GetRemotePypiRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemotePypiRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getRemotePypiRepository(a, opts))

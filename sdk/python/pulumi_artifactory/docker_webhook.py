@@ -239,30 +239,30 @@ class DockerWebhook(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        my_docker_local = artifactory.DockerV2Repository("my-docker-local", key="my-docker-local")
-        docker_webhook = artifactory.DockerWebhook("docker-webhook",
-            key="docker-webhook",
+        my_docker_local = artifactory.index.docker_v2_repository.DockerV2Repository("my-docker-local", key=my-docker-local)
+        docker_webhook = artifactory.index.docker_webhook.DockerWebhook("docker-webhook",
+            key=docker-webhook,
             event_types=[
-                "pushed",
-                "deleted",
-                "promoted",
+                pushed,
+                deleted,
+                promoted,
             ],
-            criteria=artifactory.DockerWebhookCriteriaArgs(
-                any_local=True,
-                any_remote=False,
-                repo_keys=[my_docker_local.key],
-                include_patterns=["foo/**"],
-                exclude_patterns=["bar/**"],
-            ),
-            handlers=[artifactory.DockerWebhookHandlerArgs(
-                url="http://tempurl.org/webhook",
-                secret="some-secret",
-                proxy="proxy-key",
-                custom_http_headers={
-                    "header-1": "value-1",
-                    "header-2": "value-2",
+            criteria={
+                anyLocal: True,
+                anyRemote: False,
+                repoKeys: [my_docker_local.key],
+                includePatterns: [foo/**],
+                excludePatterns: [bar/**],
+            },
+            handlers=[{
+                url: http://tempurl.org/webhook,
+                secret: some-secret,
+                proxy: proxy-key,
+                customHttpHeaders: {
+                    header-1: value-1,
+                    header-2: value-2,
                 },
-            )],
+            }],
             opts=pulumi.ResourceOptions(depends_on=[my_docker_local]))
         ```
 
@@ -291,30 +291,30 @@ class DockerWebhook(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        my_docker_local = artifactory.DockerV2Repository("my-docker-local", key="my-docker-local")
-        docker_webhook = artifactory.DockerWebhook("docker-webhook",
-            key="docker-webhook",
+        my_docker_local = artifactory.index.docker_v2_repository.DockerV2Repository("my-docker-local", key=my-docker-local)
+        docker_webhook = artifactory.index.docker_webhook.DockerWebhook("docker-webhook",
+            key=docker-webhook,
             event_types=[
-                "pushed",
-                "deleted",
-                "promoted",
+                pushed,
+                deleted,
+                promoted,
             ],
-            criteria=artifactory.DockerWebhookCriteriaArgs(
-                any_local=True,
-                any_remote=False,
-                repo_keys=[my_docker_local.key],
-                include_patterns=["foo/**"],
-                exclude_patterns=["bar/**"],
-            ),
-            handlers=[artifactory.DockerWebhookHandlerArgs(
-                url="http://tempurl.org/webhook",
-                secret="some-secret",
-                proxy="proxy-key",
-                custom_http_headers={
-                    "header-1": "value-1",
-                    "header-2": "value-2",
+            criteria={
+                anyLocal: True,
+                anyRemote: False,
+                repoKeys: [my_docker_local.key],
+                includePatterns: [foo/**],
+                excludePatterns: [bar/**],
+            },
+            handlers=[{
+                url: http://tempurl.org/webhook,
+                secret: some-secret,
+                proxy: proxy-key,
+                customHttpHeaders: {
+                    header-1: value-1,
+                    header-2: value-2,
                 },
-            )],
+            }],
             opts=pulumi.ResourceOptions(depends_on=[my_docker_local]))
         ```
 

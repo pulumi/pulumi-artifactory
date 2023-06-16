@@ -8,17 +8,6 @@ import * as utilities from "./utilities";
 
 /**
  * Retrieves a remote Alpine repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const remote-alpine = artifactory.getRemoteAlpineRepository({
- *     key: "remote-alpine",
- * });
- * ```
  */
 export function getRemoteAlpineRepository(args: GetRemoteAlpineRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetRemoteAlpineRepositoryResult> {
 
@@ -168,17 +157,6 @@ export interface GetRemoteAlpineRepositoryResult {
 }
 /**
  * Retrieves a remote Alpine repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const remote-alpine = artifactory.getRemoteAlpineRepository({
- *     key: "remote-alpine",
- * });
- * ```
  */
 export function getRemoteAlpineRepositoryOutput(args: GetRemoteAlpineRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemoteAlpineRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getRemoteAlpineRepository(a, opts))

@@ -473,17 +473,17 @@ class SamlSettings(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         # Configure Artifactory SAML SSO settings
-        saml = artifactory.SamlSettings("saml",
+        saml = artifactory.index.saml_settings.SamlSettings("saml",
             allow_user_to_access_profile=True,
             auto_redirect=True,
-            certificate="test-certificate",
-            email_attribute="email",
+            certificate=test-certificate,
+            email_attribute=email,
             enable=True,
-            group_attribute="groups",
-            login_url="test-login-url",
-            logout_url="test-logout-url",
+            group_attribute=groups,
+            login_url=test-login-url,
+            logout_url=test-logout-url,
             no_auto_user_creation=False,
-            service_provider_name="okta",
+            service_provider_name=okta,
             sync_groups=True,
             use_encrypted_assertion=False,
             verify_audience_restriction=True)
@@ -533,17 +533,17 @@ class SamlSettings(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         # Configure Artifactory SAML SSO settings
-        saml = artifactory.SamlSettings("saml",
+        saml = artifactory.index.saml_settings.SamlSettings("saml",
             allow_user_to_access_profile=True,
             auto_redirect=True,
-            certificate="test-certificate",
-            email_attribute="email",
+            certificate=test-certificate,
+            email_attribute=email,
             enable=True,
-            group_attribute="groups",
-            login_url="test-login-url",
-            logout_url="test-logout-url",
+            group_attribute=groups,
+            login_url=test-login-url,
+            logout_url=test-logout-url,
             no_auto_user_creation=False,
-            service_provider_name="okta",
+            service_provider_name=okta,
             sync_groups=True,
             use_encrypted_assertion=False,
             verify_audience_restriction=True)

@@ -13,7 +13,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const terraform_local_test_conan_repo = new artifactory.LocalConanRepository("terraform-local-test-conan-repo", {key: "terraform-local-test-conan-repo"});
+ * const terraform_local_test_conan_repo = new artifactory.index/localConanRepository.LocalConanRepository("terraform-local-test-conan-repo", {key: "terraform-local-test-conan-repo"});
  * ```
  *
  * ## Import

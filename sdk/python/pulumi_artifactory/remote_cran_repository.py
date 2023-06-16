@@ -1475,9 +1475,9 @@ class RemoteCranRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        my_remote_cran = artifactory.RemoteCranRepository("my-remote-cran",
-            key="my-remote-cran",
-            url="https://cran.r-project.org/")
+        my_remote_cran = artifactory.index.remote_cran_repository.RemoteCranRepository("my-remote-cran",
+            key=my-remote-cran,
+            url=https://cran.r-project.org/)
         ```
 
         ## Import
@@ -1576,9 +1576,9 @@ class RemoteCranRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        my_remote_cran = artifactory.RemoteCranRepository("my-remote-cran",
-            key="my-remote-cran",
-            url="https://cran.r-project.org/")
+        my_remote_cran = artifactory.index.remote_cran_repository.RemoteCranRepository("my-remote-cran",
+            key=my-remote-cran,
+            url=https://cran.r-project.org/)
         ```
 
         ## Import

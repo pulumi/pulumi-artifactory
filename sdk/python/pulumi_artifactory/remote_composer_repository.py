@@ -1574,10 +1574,10 @@ class RemoteComposerRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        my_remote_composer = artifactory.RemoteComposerRepository("my-remote-composer",
-            key="my-remote-composer",
-            url="https://github.com/",
-            vcs_git_provider="GITHUB")
+        my_remote_composer = artifactory.index.remote_composer_repository.RemoteComposerRepository("my-remote-composer",
+            key=my-remote-composer,
+            url=https://github.com/,
+            vcs_git_provider=GITHUB)
         ```
 
         ## Import
@@ -1679,10 +1679,10 @@ class RemoteComposerRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        my_remote_composer = artifactory.RemoteComposerRepository("my-remote-composer",
-            key="my-remote-composer",
-            url="https://github.com/",
-            vcs_git_provider="GITHUB")
+        my_remote_composer = artifactory.index.remote_composer_repository.RemoteComposerRepository("my-remote-composer",
+            key=my-remote-composer,
+            url=https://github.com/,
+            vcs_git_provider=GITHUB)
         ```
 
         ## Import

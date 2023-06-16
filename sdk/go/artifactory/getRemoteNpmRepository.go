@@ -11,32 +11,6 @@ import (
 )
 
 // Retrieves a remote Npm repository.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupRemoteNpmRepository(ctx, &artifactory.LookupRemoteNpmRepositoryArgs{
-//				Key: "remote-npm",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupRemoteNpmRepository(ctx *pulumi.Context, args *LookupRemoteNpmRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupRemoteNpmRepositoryResult, error) {
 	var rv LookupRemoteNpmRepositoryResult
 	err := ctx.Invoke("artifactory:index/getRemoteNpmRepository:getRemoteNpmRepository", args, &rv, opts...)

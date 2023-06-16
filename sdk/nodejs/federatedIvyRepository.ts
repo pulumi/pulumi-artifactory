@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const terraform_federated_test_ivy_repo = new artifactory.FederatedIvyRepository("terraform-federated-test-ivy-repo", {
+ * const terraform_federated_test_ivy_repo = new artifactory.index/federatedIvyRepository.FederatedIvyRepository("terraform-federated-test-ivy-repo", {
  *     key: "terraform-federated-test-ivy-repo",
  *     members: [
  *         {

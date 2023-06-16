@@ -23,7 +23,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var my_remote_gems = new Artifactory.RemoteGemsRepository("my-remote-gems", new()
+    ///     var my_remote_gems = new Artifactory.Index.RemoteGemsRepository.RemoteGemsRepository("my-remote-gems", new()
     ///     {
     ///         Key = "my-remote-gems",
     ///         Url = "https://rubygems.org/",

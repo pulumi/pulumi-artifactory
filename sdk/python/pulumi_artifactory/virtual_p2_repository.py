@@ -449,12 +449,12 @@ class VirtualP2Repository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        foo_p2 = artifactory.VirtualP2Repository("foo-p2",
-            description="A test virtual repo",
-            excludes_pattern="com/google/**",
-            includes_pattern="com/jfrog/**,cloud/jfrog/**",
-            key="foo-p2",
-            notes="Internal description",
+        foo_p2 = artifactory.index.virtual_p2_repository.VirtualP2Repository("foo-p2",
+            description=A test virtual repo,
+            excludes_pattern=com/google/**,
+            includes_pattern=com/jfrog/**,cloud/jfrog/**,
+            key=foo-p2,
+            notes=Internal description,
             repositories=[])
         ```
 
@@ -504,12 +504,12 @@ class VirtualP2Repository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        foo_p2 = artifactory.VirtualP2Repository("foo-p2",
-            description="A test virtual repo",
-            excludes_pattern="com/google/**",
-            includes_pattern="com/jfrog/**,cloud/jfrog/**",
-            key="foo-p2",
-            notes="Internal description",
+        foo_p2 = artifactory.index.virtual_p2_repository.VirtualP2Repository("foo-p2",
+            description=A test virtual repo,
+            excludes_pattern=com/google/**,
+            includes_pattern=com/jfrog/**,cloud/jfrog/**,
+            key=foo-p2,
+            notes=Internal description,
             repositories=[])
         ```
 

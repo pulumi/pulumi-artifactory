@@ -29,7 +29,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.artifactory.FederatedComposerRepository;
  * import com.pulumi.artifactory.FederatedComposerRepositoryArgs;
- * import com.pulumi.artifactory.inputs.FederatedComposerRepositoryMemberArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -46,14 +45,8 @@ import javax.annotation.Nullable;
  *         var terraform_federated_test_composer_repo = new FederatedComposerRepository(&#34;terraform-federated-test-composer-repo&#34;, FederatedComposerRepositoryArgs.builder()        
  *             .key(&#34;terraform-federated-test-composer-repo&#34;)
  *             .members(            
- *                 FederatedComposerRepositoryMemberArgs.builder()
- *                     .enabled(true)
- *                     .url(&#34;http://tempurl.org/artifactory/terraform-federated-test-composer-repo&#34;)
- *                     .build(),
- *                 FederatedComposerRepositoryMemberArgs.builder()
- *                     .enabled(true)
- *                     .url(&#34;http://tempurl2.org/artifactory/terraform-federated-test-composer-repo-2&#34;)
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

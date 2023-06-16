@@ -13,56 +13,12 @@ namespace Pulumi.Artifactory
     {
         /// <summary>
         /// Retrieves a virtual Rpm repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var virtual_rpm = Artifactory.GetVirtualRpmRepository.Invoke(new()
-        ///     {
-        ///         Key = "virtual-rpm",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetVirtualRpmRepositoryResult> InvokeAsync(GetVirtualRpmRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualRpmRepositoryResult>("artifactory:index/getVirtualRpmRepository:getVirtualRpmRepository", args ?? new GetVirtualRpmRepositoryArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves a virtual Rpm repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var virtual_rpm = Artifactory.GetVirtualRpmRepository.Invoke(new()
-        ///     {
-        ///         Key = "virtual-rpm",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetVirtualRpmRepositoryResult> Invoke(GetVirtualRpmRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualRpmRepositoryResult>("artifactory:index/getVirtualRpmRepository:getVirtualRpmRepository", args ?? new GetVirtualRpmRepositoryInvokeArgs(), options.WithDefaults());

@@ -13,7 +13,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const terraform_local_test_pub_repo = new artifactory.LocalPubRepository("terraform-local-test-pub-repo", {key: "terraform-local-test-pub-repo"});
+ * const terraform_local_test_pub_repo = new artifactory.index/localPubRepository.LocalPubRepository("terraform-local-test-pub-repo", {key: "terraform-local-test-pub-repo"});
  * ```
  *
  * ## Import

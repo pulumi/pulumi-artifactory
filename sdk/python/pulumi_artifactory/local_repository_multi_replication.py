@@ -184,26 +184,26 @@ class LocalRepositoryMultiReplication(pulumi.CustomResource):
         artifactory_username = config.require("artifactoryUsername")
         artifactory_password = config.require("artifactoryPassword")
         # Create a replication between two artifactory local repositories
-        provider_test_source = artifactory.LocalMavenRepository("providerTestSource", key="provider_test_source")
-        provider_test_dest = artifactory.LocalMavenRepository("providerTestDest", key="provider_test_dest")
-        provider_test_dest1 = artifactory.LocalMavenRepository("providerTestDest1", key="provider_test_dest1")
-        foo_rep = artifactory.LocalRepositoryMultiReplication("foo-rep",
+        provider_test_source = artifactory.index.local_maven_repository.LocalMavenRepository("providerTestSource", key=provider_test_source)
+        provider_test_dest = artifactory.index.local_maven_repository.LocalMavenRepository("providerTestDest", key=provider_test_dest)
+        provider_test_dest1 = artifactory.index.local_maven_repository.LocalMavenRepository("providerTestDest1", key=provider_test_dest1)
+        foo_rep = artifactory.index.local_repository_multi_replication.LocalRepositoryMultiReplication("foo-rep",
             repo_key=provider_test_source.key,
-            cron_exp="0 0 * * * ?",
+            cron_exp=0 0 * * * ?,
             enable_event_replication=True,
             replications=[
-                artifactory.LocalRepositoryMultiReplicationReplicationArgs(
-                    url=provider_test_dest.key.apply(lambda key: f"{artifactory_url}/artifactory/{key}"),
-                    username="$var.artifactory_username",
-                    password="$var.artifactory_password",
-                    enabled=True,
-                ),
-                artifactory.LocalRepositoryMultiReplicationReplicationArgs(
-                    url=provider_test_dest1.key.apply(lambda key: f"{artifactory_url}/artifactory/{key}"),
-                    username="$var.artifactory_username",
-                    password="$var.artifactory_password",
-                    enabled=True,
-                ),
+                {
+                    url: f{artifactory_url}/artifactory/{provider_test_dest.key},
+                    username: $var.artifactory_username,
+                    password: $var.artifactory_password,
+                    enabled: True,
+                },
+                {
+                    url: f{artifactory_url}/artifactory/{provider_test_dest1.key},
+                    username: $var.artifactory_username,
+                    password: $var.artifactory_password,
+                    enabled: True,
+                },
             ])
         ```
 
@@ -247,26 +247,26 @@ class LocalRepositoryMultiReplication(pulumi.CustomResource):
         artifactory_username = config.require("artifactoryUsername")
         artifactory_password = config.require("artifactoryPassword")
         # Create a replication between two artifactory local repositories
-        provider_test_source = artifactory.LocalMavenRepository("providerTestSource", key="provider_test_source")
-        provider_test_dest = artifactory.LocalMavenRepository("providerTestDest", key="provider_test_dest")
-        provider_test_dest1 = artifactory.LocalMavenRepository("providerTestDest1", key="provider_test_dest1")
-        foo_rep = artifactory.LocalRepositoryMultiReplication("foo-rep",
+        provider_test_source = artifactory.index.local_maven_repository.LocalMavenRepository("providerTestSource", key=provider_test_source)
+        provider_test_dest = artifactory.index.local_maven_repository.LocalMavenRepository("providerTestDest", key=provider_test_dest)
+        provider_test_dest1 = artifactory.index.local_maven_repository.LocalMavenRepository("providerTestDest1", key=provider_test_dest1)
+        foo_rep = artifactory.index.local_repository_multi_replication.LocalRepositoryMultiReplication("foo-rep",
             repo_key=provider_test_source.key,
-            cron_exp="0 0 * * * ?",
+            cron_exp=0 0 * * * ?,
             enable_event_replication=True,
             replications=[
-                artifactory.LocalRepositoryMultiReplicationReplicationArgs(
-                    url=provider_test_dest.key.apply(lambda key: f"{artifactory_url}/artifactory/{key}"),
-                    username="$var.artifactory_username",
-                    password="$var.artifactory_password",
-                    enabled=True,
-                ),
-                artifactory.LocalRepositoryMultiReplicationReplicationArgs(
-                    url=provider_test_dest1.key.apply(lambda key: f"{artifactory_url}/artifactory/{key}"),
-                    username="$var.artifactory_username",
-                    password="$var.artifactory_password",
-                    enabled=True,
-                ),
+                {
+                    url: f{artifactory_url}/artifactory/{provider_test_dest.key},
+                    username: $var.artifactory_username,
+                    password: $var.artifactory_password,
+                    enabled: True,
+                },
+                {
+                    url: f{artifactory_url}/artifactory/{provider_test_dest1.key},
+                    username: $var.artifactory_username,
+                    password: $var.artifactory_password,
+                    enabled: True,
+                },
             ])
         ```
 

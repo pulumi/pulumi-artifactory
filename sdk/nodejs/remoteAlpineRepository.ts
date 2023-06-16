@@ -16,7 +16,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const my_remote_alpine = new artifactory.RemoteAlpineRepository("my-remote-alpine", {
+ * const my_remote_alpine = new artifactory.index/remoteAlpineRepository.RemoteAlpineRepository("my-remote-alpine", {
  *     key: "my-remote-alpine",
  *     url: "http://dl-cdn.alpinelinux.org/alpine",
  * });

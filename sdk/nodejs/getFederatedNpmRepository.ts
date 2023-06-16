@@ -8,17 +8,6 @@ import * as utilities from "./utilities";
 
 /**
  * Retrieves a federated Npm repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const federated-test-npm-repo = artifactory.getFederatedNpmRepository({
- *     key: "federated-test-npm-repo",
- * });
- * ```
  */
 export function getFederatedNpmRepository(args: GetFederatedNpmRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetFederatedNpmRepositoryResult> {
 
@@ -111,17 +100,6 @@ export interface GetFederatedNpmRepositoryResult {
 }
 /**
  * Retrieves a federated Npm repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const federated-test-npm-repo = artifactory.getFederatedNpmRepository({
- *     key: "federated-test-npm-repo",
- * });
- * ```
  */
 export function getFederatedNpmRepositoryOutput(args: GetFederatedNpmRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedNpmRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getFederatedNpmRepository(a, opts))

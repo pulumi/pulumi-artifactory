@@ -16,7 +16,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const my_remote_composer = new artifactory.RemoteComposerRepository("my-remote-composer", {
+ * const my_remote_composer = new artifactory.index/remoteComposerRepository.RemoteComposerRepository("my-remote-composer", {
  *     key: "my-remote-composer",
  *     url: "https://github.com/",
  *     vcsGitProvider: "GITHUB",

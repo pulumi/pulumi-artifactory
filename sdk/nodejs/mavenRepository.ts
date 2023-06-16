@@ -14,16 +14,16 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const bar = new artifactory.LocalMavenRepository("bar", {
+ * const bar = new artifactory.index/localMavenRepository.LocalMavenRepository("bar", {
  *     key: "bar",
  *     repoLayoutRef: "maven-2-default",
  * });
- * const baz = new artifactory.RemoteMavenRepository("baz", {
+ * const baz = new artifactory.index/remoteMavenRepository.RemoteMavenRepository("baz", {
  *     key: "baz",
  *     repoLayoutRef: "maven-2-default",
  *     url: "https://search.maven.com/",
  * });
- * const maven_virt_repo = new artifactory.MavenRepository("maven-virt-repo", {
+ * const maven_virt_repo = new artifactory.index/mavenRepository.MavenRepository("maven-virt-repo", {
  *     description: "A test virtual repo",
  *     excludesPattern: "com/google/**",
  *     forceMavenAuthentication: true,

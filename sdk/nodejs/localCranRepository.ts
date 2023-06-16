@@ -13,7 +13,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const terraform_local_test_cran_repo = new artifactory.LocalCranRepository("terraform-local-test-cran-repo", {key: "terraform-local-test-cran-repo"});
+ * const terraform_local_test_cran_repo = new artifactory.index/localCranRepository.LocalCranRepository("terraform-local-test-cran-repo", {key: "terraform-local-test-cran-repo"});
  * ```
  *
  * ## Import

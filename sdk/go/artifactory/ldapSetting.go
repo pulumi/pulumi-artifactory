@@ -25,7 +25,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
+//	"github.com/pulumi/pulumi-artifactory/sdk/v1/go/artifactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -33,20 +33,20 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewLdapSetting(ctx, "ldapName", &artifactory.LdapSettingArgs{
-//				AllowUserToAccessProfile: pulumi.Bool(false),
-//				AutoCreateUser:           pulumi.Bool(true),
-//				EmailAttribute:           pulumi.String("mail"),
-//				Enabled:                  pulumi.Bool(true),
-//				Key:                      pulumi.String("ldap_name"),
-//				LdapPoisoningProtection:  pulumi.Bool(true),
-//				LdapUrl:                  pulumi.String("ldap://ldap_server_url"),
-//				ManagerDn:                pulumi.String("mgr_dn"),
-//				ManagerPassword:          pulumi.String("mgr_passwd_random"),
-//				PagingSupportEnabled:     pulumi.Bool(false),
-//				SearchBase:               pulumi.String("ou=users"),
-//				SearchFilter:             pulumi.String("(uid={0})"),
-//				SearchSubTree:            pulumi.Bool(true),
-//				UserDnPattern:            pulumi.String("uid={0},ou=People"),
+//				AllowUserToAccessProfile: false,
+//				AutoCreateUser:           true,
+//				EmailAttribute:           "mail",
+//				Enabled:                  true,
+//				Key:                      "ldap_name",
+//				LdapPoisoningProtection:  true,
+//				LdapUrl:                  "ldap://ldap_server_url",
+//				ManagerDn:                "mgr_dn",
+//				ManagerPassword:          "mgr_passwd_random",
+//				PagingSupportEnabled:     false,
+//				SearchBase:               "ou=users",
+//				SearchFilter:             "(uid={0})",
+//				SearchSubTree:            true,
+//				UserDnPattern:            "uid={0},ou=People",
 //			})
 //			if err != nil {
 //				return err

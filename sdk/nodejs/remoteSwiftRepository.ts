@@ -16,7 +16,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const my_remote_swift = new artifactory.RemoteSwiftRepository("my-remote-swift", {
+ * const my_remote_swift = new artifactory.index/remoteSwiftRepository.RemoteSwiftRepository("my-remote-swift", {
  *     key: "my-remote-swift",
  *     url: "https://swift.org/",
  * });

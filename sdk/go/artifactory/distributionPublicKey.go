@@ -24,7 +24,7 @@ import (
 //
 //	"os"
 //
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
+//	"github.com/pulumi/pulumi-artifactory/sdk/v1/go/artifactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -40,7 +40,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewDistributionPublicKey(ctx, "my-key", &artifactory.DistributionPublicKeyArgs{
-//				Alias:     pulumi.String("my-key"),
+//				Alias:     "my-key",
 //				PublicKey: readFileOrPanic("samples/rsa.pub"),
 //			})
 //			if err != nil {

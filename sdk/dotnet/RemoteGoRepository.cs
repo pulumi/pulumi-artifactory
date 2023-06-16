@@ -23,7 +23,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var my_remote_go = new Artifactory.RemoteGoRepository("my-remote-go", new()
+    ///     var my_remote_go = new Artifactory.Index.RemoteGoRepository.RemoteGoRepository("my-remote-go", new()
     ///     {
     ///         Key = "my-remote-go",
     ///         Url = "https://proxy.golang.org/",

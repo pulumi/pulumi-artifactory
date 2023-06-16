@@ -23,7 +23,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var my_remote_pub = new Artifactory.RemotePubRepository("my-remote-pub", new()
+    ///     var my_remote_pub = new Artifactory.Index.RemotePubRepository.RemotePubRepository("my-remote-pub", new()
     ///     {
     ///         Key = "my-remote-pub",
     ///         Url = "https://pub.dartlang.org",

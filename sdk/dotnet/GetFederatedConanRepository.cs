@@ -13,56 +13,12 @@ namespace Pulumi.Artifactory
     {
         /// <summary>
         /// Retrieves a federated Conan repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var federated_test_conan_repo = Artifactory.GetFederatedConanRepository.Invoke(new()
-        ///     {
-        ///         Key = "federated-test-conan-repo",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetFederatedConanRepositoryResult> InvokeAsync(GetFederatedConanRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFederatedConanRepositoryResult>("artifactory:index/getFederatedConanRepository:getFederatedConanRepository", args ?? new GetFederatedConanRepositoryArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves a federated Conan repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var federated_test_conan_repo = Artifactory.GetFederatedConanRepository.Invoke(new()
-        ///     {
-        ///         Key = "federated-test-conan-repo",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetFederatedConanRepositoryResult> Invoke(GetFederatedConanRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFederatedConanRepositoryResult>("artifactory:index/getFederatedConanRepository:getFederatedConanRepository", args ?? new GetFederatedConanRepositoryInvokeArgs(), options.WithDefaults());

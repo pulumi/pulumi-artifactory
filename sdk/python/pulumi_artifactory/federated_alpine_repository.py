@@ -737,17 +737,17 @@ class FederatedAlpineRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_federated_test_alpine_repo = artifactory.FederatedAlpineRepository("terraform-federated-test-alpine-repo",
-            key="terraform-federated-test-alpine-repo",
+        terraform_federated_test_alpine_repo = artifactory.index.federated_alpine_repository.FederatedAlpineRepository("terraform-federated-test-alpine-repo",
+            key=terraform-federated-test-alpine-repo,
             members=[
-                artifactory.FederatedAlpineRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl.org/artifactory/terraform-federated-test-alpine-repo",
-                ),
-                artifactory.FederatedAlpineRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl2.org/artifactory/terraform-federated-test-alpine-repo-2",
-                ),
+                {
+                    enabled: True,
+                    url: http://tempurl.org/artifactory/terraform-federated-test-alpine-repo,
+                },
+                {
+                    enabled: True,
+                    url: http://tempurl2.org/artifactory/terraform-federated-test-alpine-repo-2,
+                },
             ])
         ```
 
@@ -811,17 +811,17 @@ class FederatedAlpineRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_federated_test_alpine_repo = artifactory.FederatedAlpineRepository("terraform-federated-test-alpine-repo",
-            key="terraform-federated-test-alpine-repo",
+        terraform_federated_test_alpine_repo = artifactory.index.federated_alpine_repository.FederatedAlpineRepository("terraform-federated-test-alpine-repo",
+            key=terraform-federated-test-alpine-repo,
             members=[
-                artifactory.FederatedAlpineRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl.org/artifactory/terraform-federated-test-alpine-repo",
-                ),
-                artifactory.FederatedAlpineRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl2.org/artifactory/terraform-federated-test-alpine-repo-2",
-                ),
+                {
+                    enabled: True,
+                    url: http://tempurl.org/artifactory/terraform-federated-test-alpine-repo,
+                },
+                {
+                    enabled: True,
+                    url: http://tempurl2.org/artifactory/terraform-federated-test-alpine-repo-2,
+                },
             ])
         ```
 

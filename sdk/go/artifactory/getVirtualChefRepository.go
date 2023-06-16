@@ -11,32 +11,6 @@ import (
 )
 
 // Retrieves a virtual Chef repository.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupVirtualChefRepository(ctx, &artifactory.LookupVirtualChefRepositoryArgs{
-//				Key: "virtual-chef",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupVirtualChefRepository(ctx *pulumi.Context, args *LookupVirtualChefRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupVirtualChefRepositoryResult, error) {
 	var rv LookupVirtualChefRepositoryResult
 	err := ctx.Invoke("artifactory:index/getVirtualChefRepository:getVirtualChefRepository", args, &rv, opts...)

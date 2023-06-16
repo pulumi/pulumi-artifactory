@@ -11,32 +11,6 @@ import (
 )
 
 // Retrieves a federated Docker repository.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupFederatedDockerV1Repository(ctx, &artifactory.LookupFederatedDockerV1RepositoryArgs{
-//				Key: "federated-test-docker-repo",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupFederatedDockerV1Repository(ctx *pulumi.Context, args *LookupFederatedDockerV1RepositoryArgs, opts ...pulumi.InvokeOption) (*LookupFederatedDockerV1RepositoryResult, error) {
 	var rv LookupFederatedDockerV1RepositoryResult
 	err := ctx.Invoke("artifactory:index/getFederatedDockerV1Repository:getFederatedDockerV1Repository", args, &rv, opts...)

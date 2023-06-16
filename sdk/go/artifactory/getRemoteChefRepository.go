@@ -11,32 +11,6 @@ import (
 )
 
 // Retrieves a remote Chef repository.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupRemoteChefRepository(ctx, &artifactory.LookupRemoteChefRepositoryArgs{
-//				Key: "remote-chef",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupRemoteChefRepository(ctx *pulumi.Context, args *LookupRemoteChefRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupRemoteChefRepositoryResult, error) {
 	var rv LookupRemoteChefRepositoryResult
 	err := ctx.Invoke("artifactory:index/getRemoteChefRepository:getRemoteChefRepository", args, &rv, opts...)

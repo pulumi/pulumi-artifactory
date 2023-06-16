@@ -25,22 +25,22 @@ import * as utilities from "./utilities";
  * const artifactoryUsername = config.require("artifactoryUsername");
  * const artifactoryPassword = config.require("artifactoryPassword");
  * // Create a replication between two artifactory local repositories
- * const providerTestSource = new artifactory.LocalMavenRepository("providerTestSource", {key: "provider_test_source"});
- * const providerTestDest = new artifactory.LocalMavenRepository("providerTestDest", {key: "provider_test_dest"});
- * const providerTestDest1 = new artifactory.LocalMavenRepository("providerTestDest1", {key: "provider_test_dest1"});
- * const foo_rep = new artifactory.LocalRepositoryMultiReplication("foo-rep", {
+ * const providerTestSource = new artifactory.index/localMavenRepository.LocalMavenRepository("providerTestSource", {key: "provider_test_source"});
+ * const providerTestDest = new artifactory.index/localMavenRepository.LocalMavenRepository("providerTestDest", {key: "provider_test_dest"});
+ * const providerTestDest1 = new artifactory.index/localMavenRepository.LocalMavenRepository("providerTestDest1", {key: "provider_test_dest1"});
+ * const foo_rep = new artifactory.index/localRepositoryMultiReplication.LocalRepositoryMultiReplication("foo-rep", {
  *     repoKey: providerTestSource.key,
  *     cronExp: "0 0 * * * ?",
  *     enableEventReplication: true,
  *     replications: [
  *         {
- *             url: pulumi.interpolate`${artifactoryUrl}/artifactory/${providerTestDest.key}`,
+ *             url: `${artifactoryUrl}/artifactory/${providerTestDest.key}`,
  *             username: "$var.artifactory_username",
  *             password: "$var.artifactory_password",
  *             enabled: true,
  *         },
  *         {
- *             url: pulumi.interpolate`${artifactoryUrl}/artifactory/${providerTestDest1.key}`,
+ *             url: `${artifactoryUrl}/artifactory/${providerTestDest1.key}`,
  *             username: "$var.artifactory_username",
  *             password: "$var.artifactory_password",
  *             enabled: true,

@@ -22,20 +22,20 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var terraform_federated_test_conan_repo = new Artifactory.FederatedConanRepository("terraform-federated-test-conan-repo", new()
+    ///     var terraform_federated_test_conan_repo = new Artifactory.Index.FederatedConanRepository.FederatedConanRepository("terraform-federated-test-conan-repo", new()
     ///     {
     ///         Key = "terraform-federated-test-conan-repo",
     ///         Members = new[]
     ///         {
-    ///             new Artifactory.Inputs.FederatedConanRepositoryMemberArgs
+    ///             
     ///             {
-    ///                 Enabled = true,
-    ///                 Url = "http://tempurl.org/artifactory/terraform-federated-test-conan-repo",
+    ///                 { "enabled", true },
+    ///                 { "url", "http://tempurl.org/artifactory/terraform-federated-test-conan-repo" },
     ///             },
-    ///             new Artifactory.Inputs.FederatedConanRepositoryMemberArgs
+    ///             
     ///             {
-    ///                 Enabled = true,
-    ///                 Url = "http://tempurl2.org/artifactory/terraform-federated-test-conan-repo-2",
+    ///                 { "enabled", true },
+    ///                 { "url", "http://tempurl2.org/artifactory/terraform-federated-test-conan-repo-2" },
     ///             },
     ///         },
     ///     });

@@ -8,17 +8,6 @@ import * as utilities from "./utilities";
 
 /**
  * Retrieves a federated Nuget repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const federated-test-nuget-repo = artifactory.getFederatedNugetRepository({
- *     key: "federated-test-nuget-repo",
- * });
- * ```
  */
 export function getFederatedNugetRepository(args: GetFederatedNugetRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetFederatedNugetRepositoryResult> {
 
@@ -117,17 +106,6 @@ export interface GetFederatedNugetRepositoryResult {
 }
 /**
  * Retrieves a federated Nuget repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const federated-test-nuget-repo = artifactory.getFederatedNugetRepository({
- *     key: "federated-test-nuget-repo",
- * });
- * ```
  */
 export function getFederatedNugetRepositoryOutput(args: GetFederatedNugetRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedNugetRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getFederatedNugetRepository(a, opts))

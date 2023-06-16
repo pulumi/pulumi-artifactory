@@ -23,7 +23,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo_generic = new Artifactory.VirtualGenericRepository("foo-generic", new()
+    ///     var foo_generic = new Artifactory.Index.VirtualGenericRepository.VirtualGenericRepository("foo-generic", new()
     ///     {
     ///         Description = "A test virtual repo",
     ///         ExcludesPattern = "com/google/**",

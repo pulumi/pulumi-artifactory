@@ -32,8 +32,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.artifactory.DistributionWebhook;
  * import com.pulumi.artifactory.DistributionWebhookArgs;
- * import com.pulumi.artifactory.inputs.DistributionWebhookCriteriaArgs;
- * import com.pulumi.artifactory.inputs.DistributionWebhookHandlerArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -48,12 +46,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var distribution_webhook = new DistributionWebhook(&#34;distribution-webhook&#34;, DistributionWebhookArgs.builder()        
- *             .criteria(DistributionWebhookCriteriaArgs.builder()
- *                 .anyReleaseBundle(false)
- *                 .excludePatterns(&#34;bar/**&#34;)
- *                 .includePatterns(&#34;foo/**&#34;)
- *                 .registeredReleaseBundleNames(&#34;bundle-name&#34;)
- *                 .build())
+ *             .criteria(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .eventTypes(            
  *                 &#34;distribute_started&#34;,
  *                 &#34;distribute_completed&#34;,
@@ -62,15 +55,7 @@ import javax.annotation.Nullable;
  *                 &#34;delete_started&#34;,
  *                 &#34;delete_completed&#34;,
  *                 &#34;delete_failed&#34;)
- *             .handlers(DistributionWebhookHandlerArgs.builder()
- *                 .customHttpHeaders(Map.ofEntries(
- *                     Map.entry(&#34;header-1&#34;, &#34;value-1&#34;),
- *                     Map.entry(&#34;header-2&#34;, &#34;value-2&#34;)
- *                 ))
- *                 .proxy(&#34;proxy-key&#34;)
- *                 .secret(&#34;some-secret&#34;)
- *                 .url(&#34;http://tempurl.org/webhook&#34;)
- *                 .build())
+ *             .handlers(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .key(&#34;distribution-webhook&#34;)
  *             .build());
  * 

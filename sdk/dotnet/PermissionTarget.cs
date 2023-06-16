@@ -23,116 +23,116 @@ namespace Pulumi.Artifactory
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Create a new Artifactory permission target called testpermission
-    ///     var test_perm = new Artifactory.PermissionTarget("test-perm", new()
+    ///     var test_perm = new Artifactory.Index.PermissionTarget.PermissionTarget("test-perm", new()
     ///     {
     ///         Builds = new[]
     ///         {
-    ///             new Artifactory.Inputs.PermissionTargetBuildArgs
+    ///             
     ///             {
-    ///                 Actions = new[]
+    ///                 { "actions", new[]
     ///                 {
-    ///                     new Artifactory.Inputs.PermissionTargetBuildActionArgs
+    ///                     
     ///                     {
-    ///                         Users = new[]
+    ///                         { "users", new[]
     ///                         {
-    ///                             new Artifactory.Inputs.PermissionTargetBuildActionUserArgs
+    ///                             
     ///                             {
-    ///                                 Name = "anonymous",
-    ///                                 Permissions = new[]
+    ///                                 { "name", "anonymous" },
+    ///                                 { "permissions", new[]
     ///                                 {
     ///                                     "read",
     ///                                     "write",
-    ///                                 },
+    ///                                 } },
     ///                             },
-    ///                         },
+    ///                         } },
     ///                     },
-    ///                 },
-    ///                 IncludesPatterns = new[]
+    ///                 } },
+    ///                 { "includesPatterns", new[]
     ///                 {
     ///                     "**",
-    ///                 },
-    ///                 Repositories = new[]
+    ///                 } },
+    ///                 { "repositories", new[]
     ///                 {
     ///                     "artifactory-build-info",
-    ///                 },
+    ///                 } },
     ///             },
     ///         },
     ///         ReleaseBundles = new[]
     ///         {
-    ///             new Artifactory.Inputs.PermissionTargetReleaseBundleArgs
+    ///             
     ///             {
-    ///                 Actions = new[]
+    ///                 { "actions", new[]
     ///                 {
-    ///                     new Artifactory.Inputs.PermissionTargetReleaseBundleActionArgs
+    ///                     
     ///                     {
-    ///                         Users = new[]
+    ///                         { "users", new[]
     ///                         {
-    ///                             new Artifactory.Inputs.PermissionTargetReleaseBundleActionUserArgs
+    ///                             
     ///                             {
-    ///                                 Name = "anonymous",
-    ///                                 Permissions = new[]
+    ///                                 { "name", "anonymous" },
+    ///                                 { "permissions", new[]
     ///                                 {
     ///                                     "read",
-    ///                                 },
+    ///                                 } },
     ///                             },
-    ///                         },
+    ///                         } },
     ///                     },
-    ///                 },
-    ///                 IncludesPatterns = new[]
+    ///                 } },
+    ///                 { "includesPatterns", new[]
     ///                 {
     ///                     "**",
-    ///                 },
-    ///                 Repositories = new[]
+    ///                 } },
+    ///                 { "repositories", new[]
     ///                 {
     ///                     "release-bundles",
-    ///                 },
+    ///                 } },
     ///             },
     ///         },
     ///         Repos = new[]
     ///         {
-    ///             new Artifactory.Inputs.PermissionTargetRepoArgs
+    ///             
     ///             {
-    ///                 Actions = new[]
+    ///                 { "actions", new[]
     ///                 {
-    ///                     new Artifactory.Inputs.PermissionTargetRepoActionArgs
+    ///                     
     ///                     {
-    ///                         Groups = new[]
+    ///                         { "groups", new[]
     ///                         {
-    ///                             new Artifactory.Inputs.PermissionTargetRepoActionGroupArgs
+    ///                             
     ///                             {
-    ///                                 Name = "readers",
-    ///                                 Permissions = new[]
+    ///                                 { "name", "readers" },
+    ///                                 { "permissions", new[]
     ///                                 {
     ///                                     "read",
-    ///                                 },
+    ///                                 } },
     ///                             },
-    ///                         },
-    ///                         Users = new[]
+    ///                         } },
+    ///                         { "users", new[]
     ///                         {
-    ///                             new Artifactory.Inputs.PermissionTargetRepoActionUserArgs
+    ///                             
     ///                             {
-    ///                                 Name = "anonymous",
-    ///                                 Permissions = new[]
+    ///                                 { "name", "anonymous" },
+    ///                                 { "permissions", new[]
     ///                                 {
     ///                                     "read",
     ///                                     "write",
-    ///                                 },
+    ///                                 } },
     ///                             },
-    ///                         },
+    ///                         } },
     ///                     },
-    ///                 },
-    ///                 ExcludesPatterns = new[]
+    ///                 } },
+    ///                 { "excludesPatterns", new[]
     ///                 {
     ///                     "bar/**",
-    ///                 },
-    ///                 IncludesPatterns = new[]
+    ///                 } },
+    ///                 { "includesPatterns", new[]
     ///                 {
     ///                     "foo/**",
-    ///                 },
-    ///                 Repositories = new[]
+    ///                 } },
+    ///                 { "repositories", new[]
     ///                 {
     ///                     "example-repo-local",
-    ///                 },
+    ///                 } },
     ///             },
     ///         },
     ///     });

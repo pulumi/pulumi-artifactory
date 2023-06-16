@@ -8,17 +8,6 @@ import * as utilities from "./utilities";
 
 /**
  * Retrieves a remote Ivy repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const remote-ivy = artifactory.getRemoteIvyRepository({
- *     key: "remote-ivy",
- * });
- * ```
  */
 export function getRemoteIvyRepository(args: GetRemoteIvyRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetRemoteIvyRepositoryResult> {
 
@@ -231,17 +220,6 @@ export interface GetRemoteIvyRepositoryResult {
 }
 /**
  * Retrieves a remote Ivy repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const remote-ivy = artifactory.getRemoteIvyRepository({
- *     key: "remote-ivy",
- * });
- * ```
  */
 export function getRemoteIvyRepositoryOutput(args: GetRemoteIvyRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemoteIvyRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getRemoteIvyRepository(a, opts))

@@ -8,17 +8,6 @@ import * as utilities from "./utilities";
 
 /**
  * Retrieves a remote Generic repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const remote-generic = artifactory.getRemoteGenericRepository({
- *     key: "remote-generic",
- * });
- * ```
  */
 export function getRemoteGenericRepository(args: GetRemoteGenericRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetRemoteGenericRepositoryResult> {
 
@@ -177,17 +166,6 @@ export interface GetRemoteGenericRepositoryResult {
 }
 /**
  * Retrieves a remote Generic repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const remote-generic = artifactory.getRemoteGenericRepository({
- *     key: "remote-generic",
- * });
- * ```
  */
 export function getRemoteGenericRepositoryOutput(args: GetRemoteGenericRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemoteGenericRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getRemoteGenericRepository(a, opts))

@@ -213,11 +213,11 @@ class Certificate(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         # Create a new Artifactory certificate called my-cert
-        my_cert = artifactory.Certificate("my-cert",
-            alias="my-cert",
-            content=(lambda path: open(path).read())("/path/to/bundle.pem"))
+        my_cert = artifactory.index.certificate.Certificate("my-cert",
+            alias=my-cert,
+            content=(lambda path: open(path).read())(/path/to/bundle.pem))
         # This can then be used by a remote repository
-        my_remote = artifactory.RemoteMavenRepository("my-remote", client_tls_certificate=my_cert.alias)
+        my_remote = artifactory.index.remote_maven_repository.RemoteMavenRepository("my-remote", client_tls_certificate=my_cert.alias)
         ```
 
         ## Import
@@ -249,11 +249,11 @@ class Certificate(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         # Create a new Artifactory certificate called my-cert
-        my_cert = artifactory.Certificate("my-cert",
-            alias="my-cert",
-            content=(lambda path: open(path).read())("/path/to/bundle.pem"))
+        my_cert = artifactory.index.certificate.Certificate("my-cert",
+            alias=my-cert,
+            content=(lambda path: open(path).read())(/path/to/bundle.pem))
         # This can then be used by a remote repository
-        my_remote = artifactory.RemoteMavenRepository("my-remote", client_tls_certificate=my_cert.alias)
+        my_remote = artifactory.index.remote_maven_repository.RemoteMavenRepository("my-remote", client_tls_certificate=my_cert.alias)
         ```
 
         ## Import

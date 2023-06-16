@@ -22,7 +22,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var terraform_local_test_go_repo = new Artifactory.LocalGoRepository("terraform-local-test-go-repo", new()
+    ///     var terraform_local_test_go_repo = new Artifactory.Index.LocalGoRepository.LocalGoRepository("terraform-local-test-go-repo", new()
     ///     {
     ///         Key = "terraform-local-test-go-repo",
     ///     });

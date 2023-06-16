@@ -29,7 +29,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.artifactory.FederatedCranRepository;
  * import com.pulumi.artifactory.FederatedCranRepositoryArgs;
- * import com.pulumi.artifactory.inputs.FederatedCranRepositoryMemberArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -46,14 +45,8 @@ import javax.annotation.Nullable;
  *         var terraform_federated_test_cran_repo = new FederatedCranRepository(&#34;terraform-federated-test-cran-repo&#34;, FederatedCranRepositoryArgs.builder()        
  *             .key(&#34;terraform-federated-test-cran-repo&#34;)
  *             .members(            
- *                 FederatedCranRepositoryMemberArgs.builder()
- *                     .enabled(true)
- *                     .url(&#34;http://tempurl.org/artifactory/terraform-federated-test-cran-repo&#34;)
- *                     .build(),
- *                 FederatedCranRepositoryMemberArgs.builder()
- *                     .enabled(true)
- *                     .url(&#34;http://tempurl2.org/artifactory/terraform-federated-test-cran-repo-2&#34;)
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

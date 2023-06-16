@@ -22,7 +22,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var my_remote_generic = new Artifactory.RemoteGenericRepository("my-remote-generic", new()
+    ///     var my_remote_generic = new Artifactory.Index.RemoteGenericRepository.RemoteGenericRepository("my-remote-generic", new()
     ///     {
     ///         Key = "my-remote-generic",
     ///         Url = "http://testartifactory.io/artifactory/example-generic/",

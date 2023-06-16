@@ -13,7 +13,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const terraform_local_test_conda_repo = new artifactory.LocalCondaRepository("terraform-local-test-conda-repo", {key: "terraform-local-test-conda-repo"});
+ * const terraform_local_test_conda_repo = new artifactory.index/localCondaRepository.LocalCondaRepository("terraform-local-test-conda-repo", {key: "terraform-local-test-conda-repo"});
  * ```
  *
  * ## Import

@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
+//	"github.com/pulumi/pulumi-artifactory/sdk/v1/go/artifactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -28,15 +28,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewFederatedIvyRepository(ctx, "terraform-federated-test-ivy-repo", &artifactory.FederatedIvyRepositoryArgs{
-//				Key: pulumi.String("terraform-federated-test-ivy-repo"),
-//				Members: artifactory.FederatedIvyRepositoryMemberArray{
-//					&artifactory.FederatedIvyRepositoryMemberArgs{
-//						Enabled: pulumi.Bool(true),
-//						Url:     pulumi.String("http://tempurl.org/artifactory/terraform-federated-test-ivy-repo"),
+//				Key: "terraform-federated-test-ivy-repo",
+//				Members: []map[string]interface{}{
+//					map[string]interface{}{
+//						"enabled": true,
+//						"url":     "http://tempurl.org/artifactory/terraform-federated-test-ivy-repo",
 //					},
-//					&artifactory.FederatedIvyRepositoryMemberArgs{
-//						Enabled: pulumi.Bool(true),
-//						Url:     pulumi.String("http://tempurl2.org/artifactory/terraform-federated-test-ivy-repo-2"),
+//					map[string]interface{}{
+//						"enabled": true,
+//						"url":     "http://tempurl2.org/artifactory/terraform-federated-test-ivy-repo-2",
 //					},
 //				},
 //			})

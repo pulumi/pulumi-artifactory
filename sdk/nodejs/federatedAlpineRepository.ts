@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const terraform_federated_test_alpine_repo = new artifactory.FederatedAlpineRepository("terraform-federated-test-alpine-repo", {
+ * const terraform_federated_test_alpine_repo = new artifactory.index/federatedAlpineRepository.FederatedAlpineRepository("terraform-federated-test-alpine-repo", {
  *     key: "terraform-federated-test-alpine-repo",
  *     members: [
  *         {

@@ -180,15 +180,6 @@ def get_virtual_cran_repository(artifactory_requests_can_retrieve_remote_artifac
     """
     Retrieves a virtual Cran repository.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    virtual_cran = artifactory.get_virtual_cran_repository(key="virtual-cran")
-    ```
-
 
     :param str key: the identity key of the repo.
     :param int retrieval_cache_period_seconds: (Optional, Default: `7200`) This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
@@ -242,15 +233,6 @@ def get_virtual_cran_repository_output(artifactory_requests_can_retrieve_remote_
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualCranRepositoryResult]:
     """
     Retrieves a virtual Cran repository.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    virtual_cran = artifactory.get_virtual_cran_repository(key="virtual-cran")
-    ```
 
 
     :param str key: the identity key of the repo.

@@ -23,7 +23,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var my_remote_chef = new Artifactory.RemoteChefRepository("my-remote-chef", new()
+    ///     var my_remote_chef = new Artifactory.Index.RemoteChefRepository.RemoteChefRepository("my-remote-chef", new()
     ///     {
     ///         Key = "my-remote-chef",
     ///         Url = "https://supermarket.chef.io",

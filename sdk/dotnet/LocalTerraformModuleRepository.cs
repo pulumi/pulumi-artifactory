@@ -20,7 +20,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var terraform_local_test_terraform_module_repo = new Artifactory.LocalTerraformModuleRepository("terraform-local-test-terraform-module-repo", new()
+    ///     var terraform_local_test_terraform_module_repo = new Artifactory.Index.LocalTerraformModuleRepository.LocalTerraformModuleRepository("terraform-local-test-terraform-module-repo", new()
     ///     {
     ///         Key = "terraform-local-test-terraform-module-repo",
     ///     });

@@ -11,32 +11,6 @@ import (
 )
 
 // Retrieves a federated Swift repository.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupFederatedSwiftRepository(ctx, &artifactory.LookupFederatedSwiftRepositoryArgs{
-//				Key: "federated-test-swift-repo",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupFederatedSwiftRepository(ctx *pulumi.Context, args *LookupFederatedSwiftRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupFederatedSwiftRepositoryResult, error) {
 	var rv LookupFederatedSwiftRepositoryResult
 	err := ctx.Invoke("artifactory:index/getFederatedSwiftRepository:getFederatedSwiftRepository", args, &rv, opts...)

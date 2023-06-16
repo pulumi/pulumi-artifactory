@@ -16,7 +16,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const my_remote_chef = new artifactory.RemoteChefRepository("my-remote-chef", {
+ * const my_remote_chef = new artifactory.index/remoteChefRepository.RemoteChefRepository("my-remote-chef", {
  *     key: "my-remote-chef",
  *     url: "https://supermarket.chef.io",
  * });

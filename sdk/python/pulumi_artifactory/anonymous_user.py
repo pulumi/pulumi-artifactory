@@ -78,7 +78,7 @@ class AnonymousUser(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         # Define a new Artifactory 'anonymous' user for import
-        anonymous = artifactory.AnonymousUser("anonymous")
+        anonymous = artifactory.index.anonymous_user.AnonymousUser("anonymous")
         ```
 
         ## Import
@@ -106,7 +106,7 @@ class AnonymousUser(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         # Define a new Artifactory 'anonymous' user for import
-        anonymous = artifactory.AnonymousUser("anonymous")
+        anonymous = artifactory.index.anonymous_user.AnonymousUser("anonymous")
         ```
 
         ## Import

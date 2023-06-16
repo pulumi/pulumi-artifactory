@@ -101,15 +101,6 @@ def get_permission_target(build: Optional[pulumi.InputType['GetPermissionTargetB
 
     Provides an Artifactory permission target data source. This can be used to read the configuration of permission targets in artifactory.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    target1 = artifactory.get_permission_target(name="my_permission")
-    ```
-
 
     :param pulumi.InputType['GetPermissionTargetBuildArgs'] build: Same as repo but for artifactory-build-info permissions.
     :param str name: Name of the permission target.
@@ -142,15 +133,6 @@ def get_permission_target_output(build: Optional[pulumi.Input[Optional[pulumi.In
     ## # Artifactory Permission Target Data Source
 
     Provides an Artifactory permission target data source. This can be used to read the configuration of permission targets in artifactory.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    target1 = artifactory.get_permission_target(name="my_permission")
-    ```
 
 
     :param pulumi.InputType['GetPermissionTargetBuildArgs'] build: Same as repo but for artifactory-build-info permissions.

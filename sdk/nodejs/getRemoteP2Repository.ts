@@ -8,17 +8,6 @@ import * as utilities from "./utilities";
 
 /**
  * Retrieves a remote P2 repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const remote-p2 = artifactory.getRemoteP2Repository({
- *     key: "remote-p2",
- * });
- * ```
  */
 export function getRemoteP2Repository(args: GetRemoteP2RepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetRemoteP2RepositoryResult> {
 
@@ -168,17 +157,6 @@ export interface GetRemoteP2RepositoryResult {
 }
 /**
  * Retrieves a remote P2 repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const remote-p2 = artifactory.getRemoteP2Repository({
- *     key: "remote-p2",
- * });
- * ```
  */
 export function getRemoteP2RepositoryOutput(args: GetRemoteP2RepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemoteP2RepositoryResult> {
     return pulumi.output(args).apply((a: any) => getRemoteP2Repository(a, opts))

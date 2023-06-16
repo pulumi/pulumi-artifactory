@@ -16,7 +16,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const my_remote_pub = new artifactory.RemotePubRepository("my-remote-pub", {
+ * const my_remote_pub = new artifactory.index/remotePubRepository.RemotePubRepository("my-remote-pub", {
  *     key: "my-remote-pub",
  *     url: "https://pub.dartlang.org",
  * });

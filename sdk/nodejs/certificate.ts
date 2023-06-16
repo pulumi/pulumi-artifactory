@@ -15,12 +15,12 @@ import * as utilities from "./utilities";
  * import * as fs from "fs";
  *
  * // Create a new Artifactory certificate called my-cert
- * const my_cert = new artifactory.Certificate("my-cert", {
+ * const my_cert = new artifactory.index/certificate.Certificate("my-cert", {
  *     alias: "my-cert",
  *     content: fs.readFileSync("/path/to/bundle.pem"),
  * });
  * // This can then be used by a remote repository
- * const my_remote = new artifactory.RemoteMavenRepository("my-remote", {clientTlsCertificate: my_cert.alias});
+ * const my_remote = new artifactory.index/remoteMavenRepository.RemoteMavenRepository("my-remote", {clientTlsCertificate: my_cert.alias});
  * ```
  *
  * ## Import

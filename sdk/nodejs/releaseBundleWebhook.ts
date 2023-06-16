@@ -16,7 +16,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const release_bundle_webhook = new artifactory.ReleaseBundleWebhook("release-bundle-webhook", {
+ * const release_bundle_webhook = new artifactory.index/releaseBundleWebhook.ReleaseBundleWebhook("release-bundle-webhook", {
  *     criteria: {
  *         anyReleaseBundle: false,
  *         excludePatterns: ["bar/**"],

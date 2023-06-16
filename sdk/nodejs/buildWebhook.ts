@@ -16,7 +16,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const build_webhook = new artifactory.BuildWebhook("build-webhook", {
+ * const build_webhook = new artifactory.index/buildWebhook.BuildWebhook("build-webhook", {
  *     criteria: {
  *         anyBuild: true,
  *         excludePatterns: ["bar/**"],

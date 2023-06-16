@@ -32,8 +32,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.artifactory.ReleaseBundleWebhook;
  * import com.pulumi.artifactory.ReleaseBundleWebhookArgs;
- * import com.pulumi.artifactory.inputs.ReleaseBundleWebhookCriteriaArgs;
- * import com.pulumi.artifactory.inputs.ReleaseBundleWebhookHandlerArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -48,25 +46,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var release_bundle_webhook = new ReleaseBundleWebhook(&#34;release-bundle-webhook&#34;, ReleaseBundleWebhookArgs.builder()        
- *             .criteria(ReleaseBundleWebhookCriteriaArgs.builder()
- *                 .anyReleaseBundle(false)
- *                 .excludePatterns(&#34;bar/**&#34;)
- *                 .includePatterns(&#34;foo/**&#34;)
- *                 .registeredReleaseBundleNames(&#34;bundle-name&#34;)
- *                 .build())
+ *             .criteria(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .eventTypes(            
  *                 &#34;created&#34;,
  *                 &#34;signed&#34;,
  *                 &#34;deleted&#34;)
- *             .handlers(ReleaseBundleWebhookHandlerArgs.builder()
- *                 .customHttpHeaders(Map.ofEntries(
- *                     Map.entry(&#34;header-1&#34;, &#34;value-1&#34;),
- *                     Map.entry(&#34;header-2&#34;, &#34;value-2&#34;)
- *                 ))
- *                 .proxy(&#34;proxy-key&#34;)
- *                 .secret(&#34;some-secret&#34;)
- *                 .url(&#34;http://tempurl.org/webhook&#34;)
- *                 .build())
+ *             .handlers(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .key(&#34;release-bundle-webhook&#34;)
  *             .build());
  * 

@@ -23,7 +23,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var my_remote_swift = new Artifactory.RemoteSwiftRepository("my-remote-swift", new()
+    ///     var my_remote_swift = new Artifactory.Index.RemoteSwiftRepository.RemoteSwiftRepository("my-remote-swift", new()
     ///     {
     ///         Key = "my-remote-swift",
     ///         Url = "https://swift.org/",

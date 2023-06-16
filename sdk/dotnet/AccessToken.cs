@@ -28,7 +28,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exisingUser = new Artifactory.AccessToken("exisingUser", new()
+    ///     var exisingUser = new Artifactory.Index.AccessToken.AccessToken("exisingUser", new()
     ///     {
     ///         EndDateRelative = "5m",
     ///         Username = "existing-user",
@@ -47,7 +47,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var newUserUser = new Artifactory.User("newUserUser", new()
+    ///     var newUserUser = new Artifactory.Index.User.User("newUserUser", new()
     ///     {
     ///         Email = "new_user@somewhere.com",
     ///         Groups = new[]
@@ -56,7 +56,7 @@ namespace Pulumi.Artifactory
     ///         },
     ///     });
     /// 
-    ///     var newUserAccessToken = new Artifactory.AccessToken("newUserAccessToken", new()
+    ///     var newUserAccessToken = new Artifactory.Index.AccessToken.AccessToken("newUserAccessToken", new()
     ///     {
     ///         Username = newUserUser.Name,
     ///         EndDateRelative = "5m",
@@ -74,7 +74,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var temporaryUser = new Artifactory.AccessToken("temporaryUser", new()
+    ///     var temporaryUser = new Artifactory.Index.AccessToken.AccessToken("temporaryUser", new()
     ///     {
     ///         EndDateRelative = "1h",
     ///         Groups = new[]
@@ -95,7 +95,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var noExpiry = new Artifactory.AccessToken("noExpiry", new()
+    ///     var noExpiry = new Artifactory.Index.AccessToken.AccessToken("noExpiry", new()
     ///     {
     ///         EndDateRelative = "0s",
     ///         Username = "existing-user",
@@ -112,7 +112,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var refreshable = new Artifactory.AccessToken("refreshable", new()
+    ///     var refreshable = new Artifactory.Index.AccessToken.AccessToken("refreshable", new()
     ///     {
     ///         EndDateRelative = "1m",
     ///         Groups = new[]
@@ -134,11 +134,11 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var admin = new Artifactory.AccessToken("admin", new()
+    ///     var admin = new Artifactory.Index.AccessToken.AccessToken("admin", new()
     ///     {
-    ///         AdminToken = new Artifactory.Inputs.AccessTokenAdminTokenArgs
+    ///         AdminToken = 
     ///         {
-    ///             InstanceId = "&lt;instance id&gt;",
+    ///             { "instanceId", "&lt;instance id&gt;" },
     ///         },
     ///         EndDateRelative = "1m",
     ///         Username = "admin",
@@ -155,7 +155,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var audience = new Artifactory.AccessToken("audience", new()
+    ///     var audience = new Artifactory.Index.AccessToken.AccessToken("audience", new()
     ///     {
     ///         Audience = "jfrt@*",
     ///         EndDateRelative = "1m",
@@ -174,7 +174,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var fixeddate = new Artifactory.AccessToken("fixeddate", new()
+    ///     var fixeddate = new Artifactory.Index.AccessToken.AccessToken("fixeddate", new()
     ///     {
     ///         EndDate = "2018-01-01T01:02:03Z",
     ///         Groups = new[]
@@ -197,16 +197,16 @@ namespace Pulumi.Artifactory
     /// using System.Linq;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
-    /// using Time = Pulumiverse.Time;
+    /// using Time = Pulumi.Time;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var nowPlus1Hours = new Time.Rotating("nowPlus1Hours", new()
+    ///     var nowPlus1Hours = new Time.Index.Time_rotating("nowPlus1Hours", new()
     ///     {
-    ///         RotationHours = 1,
+    ///         RotationHours = "1",
     ///     });
     /// 
-    ///     var rotating = new Artifactory.AccessToken("rotating", new()
+    ///     var rotating = new Artifactory.Index.AccessToken.AccessToken("rotating", new()
     ///     {
     ///         Username = "rotating",
     ///         EndDate = time_rotating.Now_plus_1_hour.Rotation_rfc3339,

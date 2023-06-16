@@ -459,15 +459,6 @@ def get_remote_swift_repository(allow_any_host_auth: Optional[bool] = None,
     """
     Retrieves a remote Swift repository.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    remote_swift = artifactory.get_remote_swift_repository(key="remote-swift")
-    ```
-
 
     :param str key: the identity key of the repo.
     """
@@ -604,15 +595,6 @@ def get_remote_swift_repository_output(allow_any_host_auth: Optional[pulumi.Inpu
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRemoteSwiftRepositoryResult]:
     """
     Retrieves a remote Swift repository.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    remote_swift = artifactory.get_remote_swift_repository(key="remote-swift")
-    ```
 
 
     :param str key: the identity key of the repo.

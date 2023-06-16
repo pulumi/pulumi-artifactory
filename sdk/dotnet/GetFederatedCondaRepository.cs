@@ -13,56 +13,12 @@ namespace Pulumi.Artifactory
     {
         /// <summary>
         /// Retrieves a federated Conda repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var federated_test_conda_repo = Artifactory.GetFederatedCondaRepository.Invoke(new()
-        ///     {
-        ///         Key = "federated-test-conda-repo",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetFederatedCondaRepositoryResult> InvokeAsync(GetFederatedCondaRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFederatedCondaRepositoryResult>("artifactory:index/getFederatedCondaRepository:getFederatedCondaRepository", args ?? new GetFederatedCondaRepositoryArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves a federated Conda repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var federated_test_conda_repo = Artifactory.GetFederatedCondaRepository.Invoke(new()
-        ///     {
-        ///         Key = "federated-test-conda-repo",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetFederatedCondaRepositoryResult> Invoke(GetFederatedCondaRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFederatedCondaRepositoryResult>("artifactory:index/getFederatedCondaRepository:getFederatedCondaRepository", args ?? new GetFederatedCondaRepositoryInvokeArgs(), options.WithDefaults());

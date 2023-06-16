@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
+//	"github.com/pulumi/pulumi-artifactory/sdk/v1/go/artifactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -29,8 +29,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewRemoteOpkgRepository(ctx, "my-remote-opkg", &artifactory.RemoteOpkgRepositoryArgs{
-//				Key: pulumi.String("my-remote-opkg"),
-//				Url: pulumi.String("http://testartifactory.io/artifactory/example-opkg/"),
+//				Key: "my-remote-opkg",
+//				Url: "http://testartifactory.io/artifactory/example-opkg/",
 //			})
 //			if err != nil {
 //				return err

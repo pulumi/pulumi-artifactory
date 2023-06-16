@@ -8,17 +8,6 @@ import * as utilities from "./utilities";
 
 /**
  * Retrieves a federated Vagrant repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const federated-test-vagrant-repo = artifactory.getFederatedVagrantRepository({
- *     key: "federated-test-vagrant-repo",
- * });
- * ```
  */
 export function getFederatedVagrantRepository(args: GetFederatedVagrantRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetFederatedVagrantRepositoryResult> {
 
@@ -111,17 +100,6 @@ export interface GetFederatedVagrantRepositoryResult {
 }
 /**
  * Retrieves a federated Vagrant repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const federated-test-vagrant-repo = artifactory.getFederatedVagrantRepository({
- *     key: "federated-test-vagrant-repo",
- * });
- * ```
  */
 export function getFederatedVagrantRepositoryOutput(args: GetFederatedVagrantRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedVagrantRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getFederatedVagrantRepository(a, opts))

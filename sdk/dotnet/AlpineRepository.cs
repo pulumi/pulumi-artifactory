@@ -23,7 +23,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var some_keypairRSA = new Artifactory.Keypair("some-keypairRSA", new()
+    ///     var some_keypairRSA = new Artifactory.Index.Keypair.Keypair("some-keypairRSA", new()
     ///     {
     ///         PairName = "some-keypair",
     ///         PairType = "RSA",
@@ -32,7 +32,7 @@ namespace Pulumi.Artifactory
     ///         PublicKey = File.ReadAllText("samples/rsa.pub"),
     ///     });
     /// 
-    ///     var terraform_local_test_alpine_repo_basic = new Artifactory.AlpineRepository("terraform-local-test-alpine-repo-basic", new()
+    ///     var terraform_local_test_alpine_repo_basic = new Artifactory.Index.AlpineRepository.AlpineRepository("terraform-local-test-alpine-repo-basic", new()
     ///     {
     ///         Key = "terraform-local-test-alpine-repo-basic",
     ///         PrimaryKeypairRef = some_keypairRSA.PairName,

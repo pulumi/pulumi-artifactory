@@ -8,17 +8,6 @@ import * as utilities from "./utilities";
 
 /**
  * Retrieves a remote Cargo repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const remote-cargo = artifactory.getRemoteCargoRepository({
- *     key: "remote-cargo",
- * });
- * ```
  */
 export function getRemoteCargoRepository(args: GetRemoteCargoRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetRemoteCargoRepositoryResult> {
 
@@ -195,17 +184,6 @@ export interface GetRemoteCargoRepositoryResult {
 }
 /**
  * Retrieves a remote Cargo repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const remote-cargo = artifactory.getRemoteCargoRepository({
- *     key: "remote-cargo",
- * });
- * ```
  */
 export function getRemoteCargoRepositoryOutput(args: GetRemoteCargoRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemoteCargoRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getRemoteCargoRepository(a, opts))

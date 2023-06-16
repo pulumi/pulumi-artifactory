@@ -13,56 +13,12 @@ namespace Pulumi.Artifactory
     {
         /// <summary>
         /// Retrieves a federated Vagrant repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var federated_test_vagrant_repo = Artifactory.GetFederatedVagrantRepository.Invoke(new()
-        ///     {
-        ///         Key = "federated-test-vagrant-repo",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetFederatedVagrantRepositoryResult> InvokeAsync(GetFederatedVagrantRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFederatedVagrantRepositoryResult>("artifactory:index/getFederatedVagrantRepository:getFederatedVagrantRepository", args ?? new GetFederatedVagrantRepositoryArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves a federated Vagrant repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var federated_test_vagrant_repo = Artifactory.GetFederatedVagrantRepository.Invoke(new()
-        ///     {
-        ///         Key = "federated-test-vagrant-repo",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetFederatedVagrantRepositoryResult> Invoke(GetFederatedVagrantRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFederatedVagrantRepositoryResult>("artifactory:index/getFederatedVagrantRepository:getFederatedVagrantRepository", args ?? new GetFederatedVagrantRepositoryInvokeArgs(), options.WithDefaults());

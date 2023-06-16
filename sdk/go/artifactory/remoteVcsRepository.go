@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
+//	"github.com/pulumi/pulumi-artifactory/sdk/v1/go/artifactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -30,10 +30,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewRemoteVcsRepository(ctx, "my-remote-vcs", &artifactory.RemoteVcsRepositoryArgs{
-//				Key:                pulumi.String("my-remote-vcs"),
-//				MaxUniqueSnapshots: pulumi.Int(5),
-//				Url:                pulumi.String("https://github.com/"),
-//				VcsGitProvider:     pulumi.String("GITHUB"),
+//				Key:                "my-remote-vcs",
+//				MaxUniqueSnapshots: 5,
+//				Url:                "https://github.com/",
+//				VcsGitProvider:     "GITHUB",
 //			})
 //			if err != nil {
 //				return err

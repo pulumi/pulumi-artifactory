@@ -675,17 +675,17 @@ class FederatedSwiftRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_federated_test_swift_repo = artifactory.FederatedSwiftRepository("terraform-federated-test-swift-repo",
-            key="terraform-federated-test-swift-repo",
+        terraform_federated_test_swift_repo = artifactory.index.federated_swift_repository.FederatedSwiftRepository("terraform-federated-test-swift-repo",
+            key=terraform-federated-test-swift-repo,
             members=[
-                artifactory.FederatedSwiftRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl.org/artifactory/terraform-federated-test-swift-repo",
-                ),
-                artifactory.FederatedSwiftRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl2.org/artifactory/terraform-federated-test-swift-repo-2",
-                ),
+                {
+                    enabled: True,
+                    url: http://tempurl.org/artifactory/terraform-federated-test-swift-repo,
+                },
+                {
+                    enabled: True,
+                    url: http://tempurl2.org/artifactory/terraform-federated-test-swift-repo-2,
+                },
             ])
         ```
 
@@ -747,17 +747,17 @@ class FederatedSwiftRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_federated_test_swift_repo = artifactory.FederatedSwiftRepository("terraform-federated-test-swift-repo",
-            key="terraform-federated-test-swift-repo",
+        terraform_federated_test_swift_repo = artifactory.index.federated_swift_repository.FederatedSwiftRepository("terraform-federated-test-swift-repo",
+            key=terraform-federated-test-swift-repo,
             members=[
-                artifactory.FederatedSwiftRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl.org/artifactory/terraform-federated-test-swift-repo",
-                ),
-                artifactory.FederatedSwiftRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl2.org/artifactory/terraform-federated-test-swift-repo-2",
-                ),
+                {
+                    enabled: True,
+                    url: http://tempurl.org/artifactory/terraform-federated-test-swift-repo,
+                },
+                {
+                    enabled: True,
+                    url: http://tempurl2.org/artifactory/terraform-federated-test-swift-repo-2,
+                },
             ])
         ```
 

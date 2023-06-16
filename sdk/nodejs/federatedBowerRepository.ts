@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const terraform_federated_test_bower_repo = new artifactory.FederatedBowerRepository("terraform-federated-test-bower-repo", {
+ * const terraform_federated_test_bower_repo = new artifactory.index/federatedBowerRepository.FederatedBowerRepository("terraform-federated-test-bower-repo", {
  *     key: "terraform-federated-test-bower-repo",
  *     members: [
  *         {

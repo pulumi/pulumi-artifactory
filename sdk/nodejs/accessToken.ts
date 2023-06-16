@@ -21,7 +21,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const exisingUser = new artifactory.AccessToken("exisingUser", {
+ * const exisingUser = new artifactory.index/accessToken.AccessToken("exisingUser", {
  *     endDateRelative: "5m",
  *     username: "existing-user",
  * });
@@ -33,11 +33,11 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const newUserUser = new artifactory.User("newUserUser", {
+ * const newUserUser = new artifactory.index/user.User("newUserUser", {
  *     email: "new_user@somewhere.com",
  *     groups: ["readers"],
  * });
- * const newUserAccessToken = new artifactory.AccessToken("newUserAccessToken", {
+ * const newUserAccessToken = new artifactory.index/accessToken.AccessToken("newUserAccessToken", {
  *     username: newUserUser.name,
  *     endDateRelative: "5m",
  * });
@@ -48,7 +48,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const temporaryUser = new artifactory.AccessToken("temporaryUser", {
+ * const temporaryUser = new artifactory.index/accessToken.AccessToken("temporaryUser", {
  *     endDateRelative: "1h",
  *     groups: ["readers"],
  *     username: "temporary-user",
@@ -59,7 +59,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const noExpiry = new artifactory.AccessToken("noExpiry", {
+ * const noExpiry = new artifactory.index/accessToken.AccessToken("noExpiry", {
  *     endDateRelative: "0s",
  *     username: "existing-user",
  * });
@@ -69,7 +69,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const refreshable = new artifactory.AccessToken("refreshable", {
+ * const refreshable = new artifactory.index/accessToken.AccessToken("refreshable", {
  *     endDateRelative: "1m",
  *     groups: ["readers"],
  *     refreshable: true,
@@ -81,7 +81,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const admin = new artifactory.AccessToken("admin", {
+ * const admin = new artifactory.index/accessToken.AccessToken("admin", {
  *     adminToken: {
  *         instanceId: "<instance id>",
  *     },
@@ -94,7 +94,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const audience = new artifactory.AccessToken("audience", {
+ * const audience = new artifactory.index/accessToken.AccessToken("audience", {
  *     audience: "jfrt@*",
  *     endDateRelative: "1m",
  *     refreshable: true,
@@ -106,7 +106,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const fixeddate = new artifactory.AccessToken("fixeddate", {
+ * const fixeddate = new artifactory.index/accessToken.AccessToken("fixeddate", {
  *     endDate: "2018-01-01T01:02:03Z",
  *     groups: ["readers"],
  *     username: "fixeddate",
@@ -121,10 +121,10 @@ import * as utilities from "./utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
- * import * as time from "@pulumiverse/time";
+ * import * as time from "@pulumi/time";
  *
- * const nowPlus1Hours = new time.Rotating("nowPlus1Hours", {rotationHours: 1});
- * const rotating = new artifactory.AccessToken("rotating", {
+ * const nowPlus1Hours = new time.index.Time_rotating("nowPlus1Hours", {rotationHours: "1"});
+ * const rotating = new artifactory.index/accessToken.AccessToken("rotating", {
  *     username: "rotating",
  *     endDate: time_rotating.now_plus_1_hour.rotation_rfc3339,
  *     groups: ["readers"],

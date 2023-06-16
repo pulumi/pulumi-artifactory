@@ -167,15 +167,6 @@ def get_virtual_pub_repository(artifactory_requests_can_retrieve_remote_artifact
     """
     Retrieves a virtual Pub repository.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    virtual_pub = artifactory.get_virtual_pub_repository(key="virtual-pub")
-    ```
-
 
     :param str key: the identity key of the repo.
     """
@@ -225,15 +216,6 @@ def get_virtual_pub_repository_output(artifactory_requests_can_retrieve_remote_a
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualPubRepositoryResult]:
     """
     Retrieves a virtual Pub repository.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    virtual_pub = artifactory.get_virtual_pub_repository(key="virtual-pub")
-    ```
 
 
     :param str key: the identity key of the repo.

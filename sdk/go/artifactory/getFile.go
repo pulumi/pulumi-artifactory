@@ -13,34 +13,6 @@ import (
 // ## # Artifactory File Data Source
 //
 // Provides an Artifactory file datasource. This can be used to download a file from a given Artifactory repository.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.GetFile(ctx, &artifactory.GetFileArgs{
-//				OutputPath: "tmp/artifact.zip",
-//				Path:       "/path/to/the/artifact.zip",
-//				Repository: "repo-key",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetFile(ctx *pulumi.Context, args *GetFileArgs, opts ...pulumi.InvokeOption) (*GetFileResult, error) {
 	var rv GetFileResult
 	err := ctx.Invoke("artifactory:index/getFile:getFile", args, &rv, opts...)

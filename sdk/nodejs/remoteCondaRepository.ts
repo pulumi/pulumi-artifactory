@@ -16,7 +16,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const my_remote_conda = new artifactory.RemoteCondaRepository("my-remote-conda", {
+ * const my_remote_conda = new artifactory.index/remoteCondaRepository.RemoteCondaRepository("my-remote-conda", {
  *     key: "my-remote-conda",
  *     url: "https://repo.anaconda.com/pkgs/main",
  * });

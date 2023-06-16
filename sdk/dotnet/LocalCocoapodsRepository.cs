@@ -22,7 +22,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var terraform_local_test_cocoapods_repo = new Artifactory.LocalCocoapodsRepository("terraform-local-test-cocoapods-repo", new()
+    ///     var terraform_local_test_cocoapods_repo = new Artifactory.Index.LocalCocoapodsRepository.LocalCocoapodsRepository("terraform-local-test-cocoapods-repo", new()
     ///     {
     ///         Key = "terraform-local-test-cocoapods-repo",
     ///     });

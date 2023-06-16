@@ -167,15 +167,6 @@ def get_virtual_generic_repository(artifactory_requests_can_retrieve_remote_arti
     """
     Retrieves a virtual Generic repository.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    virtual_generic = artifactory.get_virtual_generic_repository(key="virtual-generic")
-    ```
-
 
     :param str key: the identity key of the repo.
     """
@@ -225,15 +216,6 @@ def get_virtual_generic_repository_output(artifactory_requests_can_retrieve_remo
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualGenericRepositoryResult]:
     """
     Retrieves a virtual Generic repository.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    virtual_generic = artifactory.get_virtual_generic_repository(key="virtual-generic")
-    ```
 
 
     :param str key: the identity key of the repo.

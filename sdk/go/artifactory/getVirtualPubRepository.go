@@ -11,32 +11,6 @@ import (
 )
 
 // Retrieves a virtual Pub repository.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupVirtualPubRepository(ctx, &artifactory.LookupVirtualPubRepositoryArgs{
-//				Key: "virtual-pub",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupVirtualPubRepository(ctx *pulumi.Context, args *LookupVirtualPubRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupVirtualPubRepositoryResult, error) {
 	var rv LookupVirtualPubRepositoryResult
 	err := ctx.Invoke("artifactory:index/getVirtualPubRepository:getVirtualPubRepository", args, &rv, opts...)

@@ -30,7 +30,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.artifactory.FederatedGradleRepository;
  * import com.pulumi.artifactory.FederatedGradleRepositoryArgs;
- * import com.pulumi.artifactory.inputs.FederatedGradleRepositoryMemberArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -47,14 +46,8 @@ import javax.annotation.Nullable;
  *         var terraform_federated_test_gradle_repo = new FederatedGradleRepository(&#34;terraform-federated-test-gradle-repo&#34;, FederatedGradleRepositoryArgs.builder()        
  *             .key(&#34;terraform-federated-test-gradle-repo&#34;)
  *             .members(            
- *                 FederatedGradleRepositoryMemberArgs.builder()
- *                     .enabled(true)
- *                     .url(&#34;http://tempurl.org/artifactory/terraform-federated-test-gradle-repo&#34;)
- *                     .build(),
- *                 FederatedGradleRepositoryMemberArgs.builder()
- *                     .enabled(true)
- *                     .url(&#34;http://tempurl2.org/artifactory/terraform-federated-test-gradle-repo-2&#34;)
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

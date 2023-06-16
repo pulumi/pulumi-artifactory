@@ -23,7 +23,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo_alpine = new Artifactory.VirtualAlpineRepository("foo-alpine", new()
+    ///     var foo_alpine = new Artifactory.Index.VirtualAlpineRepository.VirtualAlpineRepository("foo-alpine", new()
     ///     {
     ///         Description = "A test virtual repo",
     ///         ExcludesPattern = "com/google/**",

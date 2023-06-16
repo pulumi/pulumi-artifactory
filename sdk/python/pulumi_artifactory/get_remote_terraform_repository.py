@@ -477,15 +477,7 @@ def get_remote_terraform_repository(allow_any_host_auth: Optional[bool] = None,
                                     xray_index: Optional[bool] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRemoteTerraformRepositoryResult:
     """
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    remote_terraform = artifactory.get_remote_terraform_repository(key="remote-terraform")
-    ```
-
+    Use this data source to access information about an existing resource.
 
     :param str key: the identity key of the repo.
     """
@@ -627,15 +619,7 @@ def get_remote_terraform_repository_output(allow_any_host_auth: Optional[pulumi.
                                            xray_index: Optional[pulumi.Input[Optional[bool]]] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRemoteTerraformRepositoryResult]:
     """
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    remote_terraform = artifactory.get_remote_terraform_repository(key="remote-terraform")
-    ```
-
+    Use this data source to access information about an existing resource.
 
     :param str key: the identity key of the repo.
     """

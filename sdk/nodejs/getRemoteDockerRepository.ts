@@ -8,17 +8,6 @@ import * as utilities from "./utilities";
 
 /**
  * Retrieves a remote Docker repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const remote-docker = artifactory.getRemoteDockerRepository({
- *     key: "remote-docker",
- * });
- * ```
  */
 export function getRemoteDockerRepository(args: GetRemoteDockerRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetRemoteDockerRepositoryResult> {
 
@@ -204,17 +193,6 @@ export interface GetRemoteDockerRepositoryResult {
 }
 /**
  * Retrieves a remote Docker repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const remote-docker = artifactory.getRemoteDockerRepository({
- *     key: "remote-docker",
- * });
- * ```
  */
 export function getRemoteDockerRepositoryOutput(args: GetRemoteDockerRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemoteDockerRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getRemoteDockerRepository(a, opts))

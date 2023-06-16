@@ -8,17 +8,6 @@ import * as utilities from "./utilities";
 
 /**
  * Retrieves a remote CocoaPods repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const remote-cocoapods = artifactory.getRemoteCocoapodsRepository({
- *     key: "remote-cocoapods",
- * });
- * ```
  */
 export function getRemoteCocoapodsRepository(args: GetRemoteCocoapodsRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetRemoteCocoapodsRepositoryResult> {
 
@@ -195,17 +184,6 @@ export interface GetRemoteCocoapodsRepositoryResult {
 }
 /**
  * Retrieves a remote CocoaPods repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const remote-cocoapods = artifactory.getRemoteCocoapodsRepository({
- *     key: "remote-cocoapods",
- * });
- * ```
  */
 export function getRemoteCocoapodsRepositoryOutput(args: GetRemoteCocoapodsRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemoteCocoapodsRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getRemoteCocoapodsRepository(a, opts))

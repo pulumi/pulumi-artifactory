@@ -26,7 +26,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test_user = new Artifactory.User("test-user", new()
+    ///     var test_user = new Artifactory.Index.User.User("test-user", new()
     ///     {
     ///         Admin = false,
     ///         DisableUiAccess = false,

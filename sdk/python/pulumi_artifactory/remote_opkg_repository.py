@@ -1475,9 +1475,9 @@ class RemoteOpkgRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        my_remote_opkg = artifactory.RemoteOpkgRepository("my-remote-opkg",
-            key="my-remote-opkg",
-            url="http://testartifactory.io/artifactory/example-opkg/")
+        my_remote_opkg = artifactory.index.remote_opkg_repository.RemoteOpkgRepository("my-remote-opkg",
+            key=my-remote-opkg,
+            url=http://testartifactory.io/artifactory/example-opkg/)
         ```
 
         ## Import
@@ -1576,9 +1576,9 @@ class RemoteOpkgRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        my_remote_opkg = artifactory.RemoteOpkgRepository("my-remote-opkg",
-            key="my-remote-opkg",
-            url="http://testartifactory.io/artifactory/example-opkg/")
+        my_remote_opkg = artifactory.index.remote_opkg_repository.RemoteOpkgRepository("my-remote-opkg",
+            key=my-remote-opkg,
+            url=http://testartifactory.io/artifactory/example-opkg/)
         ```
 
         ## Import

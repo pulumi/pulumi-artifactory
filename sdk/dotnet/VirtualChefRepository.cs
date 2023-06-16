@@ -23,7 +23,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo_chef = new Artifactory.VirtualChefRepository("foo-chef", new()
+    ///     var foo_chef = new Artifactory.Index.VirtualChefRepository.VirtualChefRepository("foo-chef", new()
     ///     {
     ///         Description = "A test virtual repo",
     ///         ExcludesPattern = "com/google/**",

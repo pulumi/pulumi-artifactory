@@ -14,7 +14,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const foo_conan = new artifactory.VirtualConanRepository("foo-conan", {
+ * const foo_conan = new artifactory.index/virtualConanRepository.VirtualConanRepository("foo-conan", {
  *     description: "A test virtual repo",
  *     excludesPattern: "com/google/**",
  *     includesPattern: "com/jfrog/**,cloud/jfrog/**",

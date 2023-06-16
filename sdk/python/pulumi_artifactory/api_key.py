@@ -70,7 +70,7 @@ class ApiKey(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         # Create a new Artifactory API key for the configured user
-        ci = artifactory.ApiKey("ci")
+        ci = artifactory.index.api_key.ApiKey("ci")
         ```
 
         ## Import
@@ -102,7 +102,7 @@ class ApiKey(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         # Create a new Artifactory API key for the configured user
-        ci = artifactory.ApiKey("ci")
+        ci = artifactory.index.api_key.ApiKey("ci")
         ```
 
         ## Import

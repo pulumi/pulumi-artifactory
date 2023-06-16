@@ -235,15 +235,6 @@ def get_federated_opkg_repository(archive_browsing_enabled: Optional[bool] = Non
     """
     Retrieves a federated Opkg repository.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    federated_test_opkg_repo = artifactory.get_federated_opkg_repository(key="federated-test-opkg-repo")
-    ```
-
 
     :param str key: the identity key of the repo.
     :param Sequence[pulumi.InputType['GetFederatedOpkgRepositoryMemberArgs']] members: The list of Federated members and must contain this repository URL (configured base URL
@@ -315,15 +306,6 @@ def get_federated_opkg_repository_output(archive_browsing_enabled: Optional[pulu
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFederatedOpkgRepositoryResult]:
     """
     Retrieves a federated Opkg repository.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    federated_test_opkg_repo = artifactory.get_federated_opkg_repository(key="federated-test-opkg-repo")
-    ```
 
 
     :param str key: the identity key of the repo.

@@ -1475,9 +1475,9 @@ class RemoteRpmRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        my_remote_rpm = artifactory.RemoteRpmRepository("my-remote-rpm",
-            key="my-remote-rpm",
-            url="http://mirror.centos.org/centos/")
+        my_remote_rpm = artifactory.index.remote_rpm_repository.RemoteRpmRepository("my-remote-rpm",
+            key=my-remote-rpm,
+            url=http://mirror.centos.org/centos/)
         ```
 
         ## Import
@@ -1576,9 +1576,9 @@ class RemoteRpmRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        my_remote_rpm = artifactory.RemoteRpmRepository("my-remote-rpm",
-            key="my-remote-rpm",
-            url="http://mirror.centos.org/centos/")
+        my_remote_rpm = artifactory.index.remote_rpm_repository.RemoteRpmRepository("my-remote-rpm",
+            key=my-remote-rpm,
+            url=http://mirror.centos.org/centos/)
         ```
 
         ## Import

@@ -29,7 +29,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.artifactory.FederatedCocoapodsRepository;
  * import com.pulumi.artifactory.FederatedCocoapodsRepositoryArgs;
- * import com.pulumi.artifactory.inputs.FederatedCocoapodsRepositoryMemberArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -46,14 +45,8 @@ import javax.annotation.Nullable;
  *         var terraform_federated_test_cocoapods_repo = new FederatedCocoapodsRepository(&#34;terraform-federated-test-cocoapods-repo&#34;, FederatedCocoapodsRepositoryArgs.builder()        
  *             .key(&#34;terraform-federated-test-cocoapods-repo&#34;)
  *             .members(            
- *                 FederatedCocoapodsRepositoryMemberArgs.builder()
- *                     .enabled(true)
- *                     .url(&#34;http://tempurl.org/artifactory/terraform-federated-test-cocoapods-repo&#34;)
- *                     .build(),
- *                 FederatedCocoapodsRepositoryMemberArgs.builder()
- *                     .enabled(true)
- *                     .url(&#34;http://tempurl2.org/artifactory/terraform-federated-test-cocoapods-repo-2&#34;)
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

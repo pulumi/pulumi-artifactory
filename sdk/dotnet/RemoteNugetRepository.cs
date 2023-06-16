@@ -23,7 +23,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var my_remote_nuget = new Artifactory.RemoteNugetRepository("my-remote-nuget", new()
+    ///     var my_remote_nuget = new Artifactory.Index.RemoteNugetRepository.RemoteNugetRepository("my-remote-nuget", new()
     ///     {
     ///         DownloadContextPath = "api/v2/package",
     ///         ForceNugetAuthentication = true,

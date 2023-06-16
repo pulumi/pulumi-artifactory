@@ -675,17 +675,17 @@ class FederatedGenericRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_federated_test_generic_repo = artifactory.FederatedGenericRepository("terraform-federated-test-generic-repo",
-            key="terraform-federated-test-generic-repo",
+        terraform_federated_test_generic_repo = artifactory.index.federated_generic_repository.FederatedGenericRepository("terraform-federated-test-generic-repo",
+            key=terraform-federated-test-generic-repo,
             members=[
-                artifactory.FederatedGenericRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl.org/artifactory/terraform-federated-test-generic-repo",
-                ),
-                artifactory.FederatedGenericRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl2.org/artifactory/terraform-federated-test-generic-repo-2",
-                ),
+                {
+                    enabled: True,
+                    url: http://tempurl.org/artifactory/terraform-federated-test-generic-repo,
+                },
+                {
+                    enabled: True,
+                    url: http://tempurl2.org/artifactory/terraform-federated-test-generic-repo-2,
+                },
             ])
         ```
 
@@ -747,17 +747,17 @@ class FederatedGenericRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_federated_test_generic_repo = artifactory.FederatedGenericRepository("terraform-federated-test-generic-repo",
-            key="terraform-federated-test-generic-repo",
+        terraform_federated_test_generic_repo = artifactory.index.federated_generic_repository.FederatedGenericRepository("terraform-federated-test-generic-repo",
+            key=terraform-federated-test-generic-repo,
             members=[
-                artifactory.FederatedGenericRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl.org/artifactory/terraform-federated-test-generic-repo",
-                ),
-                artifactory.FederatedGenericRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl2.org/artifactory/terraform-federated-test-generic-repo-2",
-                ),
+                {
+                    enabled: True,
+                    url: http://tempurl.org/artifactory/terraform-federated-test-generic-repo,
+                },
+                {
+                    enabled: True,
+                    url: http://tempurl2.org/artifactory/terraform-federated-test-generic-repo-2,
+                },
             ])
         ```
 

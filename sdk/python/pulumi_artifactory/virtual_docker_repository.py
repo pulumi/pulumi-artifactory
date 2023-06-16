@@ -482,12 +482,12 @@ class VirtualDockerRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        foo_docker = artifactory.VirtualDockerRepository("foo-docker",
-            description="A test virtual repo",
-            excludes_pattern="com/google/**",
-            includes_pattern="com/jfrog/**,cloud/jfrog/**",
-            key="foo-docker",
-            notes="Internal description",
+        foo_docker = artifactory.index.virtual_docker_repository.VirtualDockerRepository("foo-docker",
+            description=A test virtual repo,
+            excludes_pattern=com/google/**,
+            includes_pattern=com/jfrog/**,cloud/jfrog/**,
+            key=foo-docker,
+            notes=Internal description,
             repositories=[],
             resolve_docker_tags_by_timestamp=True)
         ```
@@ -539,12 +539,12 @@ class VirtualDockerRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        foo_docker = artifactory.VirtualDockerRepository("foo-docker",
-            description="A test virtual repo",
-            excludes_pattern="com/google/**",
-            includes_pattern="com/jfrog/**,cloud/jfrog/**",
-            key="foo-docker",
-            notes="Internal description",
+        foo_docker = artifactory.index.virtual_docker_repository.VirtualDockerRepository("foo-docker",
+            description=A test virtual repo,
+            excludes_pattern=com/google/**,
+            includes_pattern=com/jfrog/**,cloud/jfrog/**,
+            key=foo-docker,
+            notes=Internal description,
             repositories=[],
             resolve_docker_tags_by_timestamp=True)
         ```

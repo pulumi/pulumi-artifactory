@@ -11,55 +11,9 @@ namespace Pulumi.Artifactory
 {
     public static class GetFederatedTerraformProviderRepository
     {
-        /// <summary>
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var federated_test_terraformProvider_repo = Artifactory.GetFederatedTerraformProviderRepository.Invoke(new()
-        ///     {
-        ///         Key = "federated-test-terraform-provider-repo",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetFederatedTerraformProviderRepositoryResult> InvokeAsync(GetFederatedTerraformProviderRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFederatedTerraformProviderRepositoryResult>("artifactory:index/getFederatedTerraformProviderRepository:getFederatedTerraformProviderRepository", args ?? new GetFederatedTerraformProviderRepositoryArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var federated_test_terraformProvider_repo = Artifactory.GetFederatedTerraformProviderRepository.Invoke(new()
-        ///     {
-        ///         Key = "federated-test-terraform-provider-repo",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Output<GetFederatedTerraformProviderRepositoryResult> Invoke(GetFederatedTerraformProviderRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFederatedTerraformProviderRepositoryResult>("artifactory:index/getFederatedTerraformProviderRepository:getFederatedTerraformProviderRepository", args ?? new GetFederatedTerraformProviderRepositoryInvokeArgs(), options.WithDefaults());
     }

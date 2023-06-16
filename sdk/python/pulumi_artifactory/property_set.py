@@ -146,38 +146,38 @@ class PropertySet(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        foo = artifactory.PropertySet("foo",
+        foo = artifactory.index.property_set.PropertySet("foo",
             properties=[
-                artifactory.PropertySetPropertyArgs(
-                    closed_predefined_values=True,
-                    multiple_choice=True,
-                    name="set1property1",
-                    predefined_values=[
-                        artifactory.PropertySetPropertyPredefinedValueArgs(
-                            default_value=True,
-                            name="passed-QA",
-                        ),
-                        artifactory.PropertySetPropertyPredefinedValueArgs(
-                            default_value=False,
-                            name="failed-QA",
-                        ),
+                {
+                    closedPredefinedValues: True,
+                    multipleChoice: True,
+                    name: set1property1,
+                    predefinedValues: [
+                        {
+                            defaultValue: True,
+                            name: passed-QA,
+                        },
+                        {
+                            defaultValue: False,
+                            name: failed-QA,
+                        },
                     ],
-                ),
-                artifactory.PropertySetPropertyArgs(
-                    closed_predefined_values=False,
-                    multiple_choice=False,
-                    name="set1property2",
-                    predefined_values=[
-                        artifactory.PropertySetPropertyPredefinedValueArgs(
-                            default_value=True,
-                            name="passed-QA",
-                        ),
-                        artifactory.PropertySetPropertyPredefinedValueArgs(
-                            default_value=False,
-                            name="failed-QA",
-                        ),
+                },
+                {
+                    closedPredefinedValues: False,
+                    multipleChoice: False,
+                    name: set1property2,
+                    predefinedValues: [
+                        {
+                            defaultValue: True,
+                            name: passed-QA,
+                        },
+                        {
+                            defaultValue: False,
+                            name: failed-QA,
+                        },
                     ],
-                ),
+                },
             ],
             visible=True)
         ```
@@ -215,38 +215,38 @@ class PropertySet(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        foo = artifactory.PropertySet("foo",
+        foo = artifactory.index.property_set.PropertySet("foo",
             properties=[
-                artifactory.PropertySetPropertyArgs(
-                    closed_predefined_values=True,
-                    multiple_choice=True,
-                    name="set1property1",
-                    predefined_values=[
-                        artifactory.PropertySetPropertyPredefinedValueArgs(
-                            default_value=True,
-                            name="passed-QA",
-                        ),
-                        artifactory.PropertySetPropertyPredefinedValueArgs(
-                            default_value=False,
-                            name="failed-QA",
-                        ),
+                {
+                    closedPredefinedValues: True,
+                    multipleChoice: True,
+                    name: set1property1,
+                    predefinedValues: [
+                        {
+                            defaultValue: True,
+                            name: passed-QA,
+                        },
+                        {
+                            defaultValue: False,
+                            name: failed-QA,
+                        },
                     ],
-                ),
-                artifactory.PropertySetPropertyArgs(
-                    closed_predefined_values=False,
-                    multiple_choice=False,
-                    name="set1property2",
-                    predefined_values=[
-                        artifactory.PropertySetPropertyPredefinedValueArgs(
-                            default_value=True,
-                            name="passed-QA",
-                        ),
-                        artifactory.PropertySetPropertyPredefinedValueArgs(
-                            default_value=False,
-                            name="failed-QA",
-                        ),
+                },
+                {
+                    closedPredefinedValues: False,
+                    multipleChoice: False,
+                    name: set1property2,
+                    predefinedValues: [
+                        {
+                            defaultValue: True,
+                            name: passed-QA,
+                        },
+                        {
+                            defaultValue: False,
+                            name: failed-QA,
+                        },
                     ],
-                ),
+                },
             ],
             visible=True)
         ```

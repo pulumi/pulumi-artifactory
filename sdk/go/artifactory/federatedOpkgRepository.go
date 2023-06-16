@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
+//	"github.com/pulumi/pulumi-artifactory/sdk/v1/go/artifactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -28,15 +28,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewFederatedOpkgRepository(ctx, "terraform-federated-test-opkg-repo", &artifactory.FederatedOpkgRepositoryArgs{
-//				Key: pulumi.String("terraform-federated-test-opkg-repo"),
-//				Members: artifactory.FederatedOpkgRepositoryMemberArray{
-//					&artifactory.FederatedOpkgRepositoryMemberArgs{
-//						Enabled: pulumi.Bool(true),
-//						Url:     pulumi.String("http://tempurl.org/artifactory/terraform-federated-test-opkg-repo"),
+//				Key: "terraform-federated-test-opkg-repo",
+//				Members: []map[string]interface{}{
+//					map[string]interface{}{
+//						"enabled": true,
+//						"url":     "http://tempurl.org/artifactory/terraform-federated-test-opkg-repo",
 //					},
-//					&artifactory.FederatedOpkgRepositoryMemberArgs{
-//						Enabled: pulumi.Bool(true),
-//						Url:     pulumi.String("http://tempurl2.org/artifactory/terraform-federated-test-opkg-repo-2"),
+//					map[string]interface{}{
+//						"enabled": true,
+//						"url":     "http://tempurl2.org/artifactory/terraform-federated-test-opkg-repo-2",
 //					},
 //				},
 //			})

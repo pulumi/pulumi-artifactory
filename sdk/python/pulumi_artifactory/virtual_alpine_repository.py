@@ -515,12 +515,12 @@ class VirtualAlpineRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        foo_alpine = artifactory.VirtualAlpineRepository("foo-alpine",
-            description="A test virtual repo",
-            excludes_pattern="com/google/**",
-            includes_pattern="com/jfrog/**,cloud/jfrog/**",
-            key="foo-alpine",
-            notes="Internal description",
+        foo_alpine = artifactory.index.virtual_alpine_repository.VirtualAlpineRepository("foo-alpine",
+            description=A test virtual repo,
+            excludes_pattern=com/google/**,
+            includes_pattern=com/jfrog/**,cloud/jfrog/**,
+            key=foo-alpine,
+            notes=Internal description,
             repositories=[])
         ```
 
@@ -572,12 +572,12 @@ class VirtualAlpineRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        foo_alpine = artifactory.VirtualAlpineRepository("foo-alpine",
-            description="A test virtual repo",
-            excludes_pattern="com/google/**",
-            includes_pattern="com/jfrog/**,cloud/jfrog/**",
-            key="foo-alpine",
-            notes="Internal description",
+        foo_alpine = artifactory.index.virtual_alpine_repository.VirtualAlpineRepository("foo-alpine",
+            description=A test virtual repo,
+            excludes_pattern=com/google/**,
+            includes_pattern=com/jfrog/**,cloud/jfrog/**,
+            key=foo-alpine,
+            notes=Internal description,
             repositories=[])
         ```
 

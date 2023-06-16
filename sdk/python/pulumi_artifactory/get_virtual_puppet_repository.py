@@ -167,15 +167,6 @@ def get_virtual_puppet_repository(artifactory_requests_can_retrieve_remote_artif
     """
     Retrieves a virtual Puppet repository.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    virtual_puppet = artifactory.get_virtual_puppet_repository(key="virtual-puppet")
-    ```
-
 
     :param str key: the identity key of the repo.
     """
@@ -225,15 +216,6 @@ def get_virtual_puppet_repository_output(artifactory_requests_can_retrieve_remot
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualPuppetRepositoryResult]:
     """
     Retrieves a virtual Puppet repository.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    virtual_puppet = artifactory.get_virtual_puppet_repository(key="virtual-puppet")
-    ```
 
 
     :param str key: the identity key of the repo.

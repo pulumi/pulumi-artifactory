@@ -18,7 +18,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const my_proxy = new artifactory.Proxy("my-proxy", {
+ * const my_proxy = new artifactory.index/proxy.Proxy("my-proxy", {
  *     host: "my-proxy.mycompany.com",
  *     key: "my-proxy",
  *     ntDomain: "MYCOMPANY",

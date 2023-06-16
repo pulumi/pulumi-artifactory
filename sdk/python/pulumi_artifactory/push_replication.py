@@ -178,18 +178,18 @@ class PushReplication(pulumi.CustomResource):
         artifactory_username = config.require("artifactoryUsername")
         artifactory_password = config.require("artifactoryPassword")
         # Create a replication between two artifactory local repositories
-        provider_test_source = artifactory.LocalMavenRepository("providerTestSource", key="provider_test_source")
-        provider_test_dest = artifactory.LocalMavenRepository("providerTestDest", key="provider_test_dest")
-        foo_rep = artifactory.PushReplication("foo-rep",
+        provider_test_source = artifactory.index.local_maven_repository.LocalMavenRepository("providerTestSource", key=provider_test_source)
+        provider_test_dest = artifactory.index.local_maven_repository.LocalMavenRepository("providerTestDest", key=provider_test_dest)
+        foo_rep = artifactory.index.push_replication.PushReplication("foo-rep",
             repo_key=provider_test_source.key,
-            cron_exp="0 0 * * * ?",
+            cron_exp=0 0 * * * ?,
             enable_event_replication=True,
-            replications=[artifactory.PushReplicationReplicationArgs(
-                url=provider_test_dest.key.apply(lambda key: f"{artifactory_url}/{key}"),
-                username="$var.artifactory_username",
-                password="$var.artifactory_password",
-                enabled=True,
-            )])
+            replications=[{
+                url: f{artifactory_url}/{provider_test_dest.key},
+                username: $var.artifactory_username,
+                password: $var.artifactory_password,
+                enabled: True,
+            }])
         ```
 
         ## Import
@@ -233,18 +233,18 @@ class PushReplication(pulumi.CustomResource):
         artifactory_username = config.require("artifactoryUsername")
         artifactory_password = config.require("artifactoryPassword")
         # Create a replication between two artifactory local repositories
-        provider_test_source = artifactory.LocalMavenRepository("providerTestSource", key="provider_test_source")
-        provider_test_dest = artifactory.LocalMavenRepository("providerTestDest", key="provider_test_dest")
-        foo_rep = artifactory.PushReplication("foo-rep",
+        provider_test_source = artifactory.index.local_maven_repository.LocalMavenRepository("providerTestSource", key=provider_test_source)
+        provider_test_dest = artifactory.index.local_maven_repository.LocalMavenRepository("providerTestDest", key=provider_test_dest)
+        foo_rep = artifactory.index.push_replication.PushReplication("foo-rep",
             repo_key=provider_test_source.key,
-            cron_exp="0 0 * * * ?",
+            cron_exp=0 0 * * * ?,
             enable_event_replication=True,
-            replications=[artifactory.PushReplicationReplicationArgs(
-                url=provider_test_dest.key.apply(lambda key: f"{artifactory_url}/{key}"),
-                username="$var.artifactory_username",
-                password="$var.artifactory_password",
-                enabled=True,
-            )])
+            replications=[{
+                url: f{artifactory_url}/{provider_test_dest.key},
+                username: $var.artifactory_username,
+                password: $var.artifactory_password,
+                enabled: True,
+            }])
         ```
 
         ## Import

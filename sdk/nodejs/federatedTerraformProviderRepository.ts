@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const terraform_federated_test_terraformProvider_repo = new artifactory.FederatedTerraformProviderRepository("terraform-federated-test-terraformProvider-repo", {
+ * const terraform_federated_test_terraformProvider_repo = new artifactory.index/federatedTerraformProviderRepository.FederatedTerraformProviderRepository("terraform-federated-test-terraformProvider-repo", {
  *     key: "terraform-federated-test-terraform-provider-repo",
  *     members: [
  *         {

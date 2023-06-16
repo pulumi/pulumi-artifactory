@@ -14,7 +14,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const foo_pypi = new artifactory.VirtualPypiRepository("foo-pypi", {
+ * const foo_pypi = new artifactory.index/virtualPypiRepository.VirtualPypiRepository("foo-pypi", {
  *     description: "A test virtual repo",
  *     excludesPattern: "com/google/**",
  *     includesPattern: "com/jfrog/**,cloud/jfrog/**",

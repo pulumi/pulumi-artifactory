@@ -13,7 +13,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const terraform_local_test_cargo_repo_basic = new artifactory.LocalCargoRepository("terraform-local-test-cargo-repo-basic", {
+ * const terraform_local_test_cargo_repo_basic = new artifactory.index/localCargoRepository.LocalCargoRepository("terraform-local-test-cargo-repo-basic", {
  *     anonymousAccess: false,
  *     enableSparseIndex: true,
  *     key: "terraform-local-test-cargo-repo-basic",

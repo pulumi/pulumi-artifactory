@@ -255,15 +255,6 @@ def get_federated_alpine_repository(archive_browsing_enabled: Optional[bool] = N
     """
     Retrieves a federated Alpine repository.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    federated_test_alpine_repo = artifactory.get_federated_alpine_repository(key="federated-test-alpine-repo")
-    ```
-
 
     :param str key: the identity key of the repo.
     :param Sequence[pulumi.InputType['GetFederatedAlpineRepositoryMemberArgs']] members: The list of Federated members and must contain this repository URL (configured base URL
@@ -341,15 +332,6 @@ def get_federated_alpine_repository_output(archive_browsing_enabled: Optional[pu
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFederatedAlpineRepositoryResult]:
     """
     Retrieves a federated Alpine repository.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    federated_test_alpine_repo = artifactory.get_federated_alpine_repository(key="federated-test-alpine-repo")
-    ```
 
 
     :param str key: the identity key of the repo.

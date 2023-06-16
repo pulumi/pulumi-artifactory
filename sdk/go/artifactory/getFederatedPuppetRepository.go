@@ -11,32 +11,6 @@ import (
 )
 
 // Retrieves a federated Puppet repository.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupFederatedPuppetRepository(ctx, &artifactory.LookupFederatedPuppetRepositoryArgs{
-//				Key: "federated-test-puppet-repo",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupFederatedPuppetRepository(ctx *pulumi.Context, args *LookupFederatedPuppetRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupFederatedPuppetRepositoryResult, error) {
 	var rv LookupFederatedPuppetRepositoryResult
 	err := ctx.Invoke("artifactory:index/getFederatedPuppetRepository:getFederatedPuppetRepository", args, &rv, opts...)

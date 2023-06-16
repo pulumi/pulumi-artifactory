@@ -11,32 +11,6 @@ import (
 )
 
 // Retrieves a virtual NPM repository.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupVirtualNpmRepository(ctx, &artifactory.LookupVirtualNpmRepositoryArgs{
-//				Key: "virtual-npm",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupVirtualNugetRepository(ctx *pulumi.Context, args *LookupVirtualNugetRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupVirtualNugetRepositoryResult, error) {
 	var rv LookupVirtualNugetRepositoryResult
 	err := ctx.Invoke("artifactory:index/getVirtualNugetRepository:getVirtualNugetRepository", args, &rv, opts...)

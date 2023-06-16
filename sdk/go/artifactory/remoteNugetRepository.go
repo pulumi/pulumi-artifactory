@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
+//	"github.com/pulumi/pulumi-artifactory/sdk/v1/go/artifactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -29,12 +29,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewRemoteNugetRepository(ctx, "my-remote-nuget", &artifactory.RemoteNugetRepositoryArgs{
-//				DownloadContextPath:      pulumi.String("api/v2/package"),
-//				ForceNugetAuthentication: pulumi.Bool(true),
-//				Key:                      pulumi.String("my-remote-nuget"),
-//				SymbolServerUrl:          pulumi.String("https://symbols.nuget.org/download/symbols"),
-//				Url:                      pulumi.String("https://www.nuget.org/"),
-//				V3FeedUrl:                pulumi.String("https://api.nuget.org/v3/index.json"),
+//				DownloadContextPath:      "api/v2/package",
+//				ForceNugetAuthentication: true,
+//				Key:                      "my-remote-nuget",
+//				SymbolServerUrl:          "https://symbols.nuget.org/download/symbols",
+//				Url:                      "https://www.nuget.org/",
+//				V3FeedUrl:                "https://api.nuget.org/v3/index.json",
 //			})
 //			if err != nil {
 //				return err

@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
+//	"github.com/pulumi/pulumi-artifactory/sdk/v1/go/artifactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -29,8 +29,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewRemotePuppetRepository(ctx, "my-remote-puppet", &artifactory.RemotePuppetRepositoryArgs{
-//				Key: pulumi.String("my-remote-puppet"),
-//				Url: pulumi.String("https://forgeapi.puppetlabs.com/"),
+//				Key: "my-remote-puppet",
+//				Url: "https://forgeapi.puppetlabs.com/",
 //			})
 //			if err != nil {
 //				return err

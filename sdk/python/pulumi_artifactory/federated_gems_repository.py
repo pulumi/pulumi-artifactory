@@ -675,17 +675,17 @@ class FederatedGemsRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_federated_test_gems_repo = artifactory.FederatedGemsRepository("terraform-federated-test-gems-repo",
-            key="terraform-federated-test-gems-repo",
+        terraform_federated_test_gems_repo = artifactory.index.federated_gems_repository.FederatedGemsRepository("terraform-federated-test-gems-repo",
+            key=terraform-federated-test-gems-repo,
             members=[
-                artifactory.FederatedGemsRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl.org/artifactory/terraform-federated-test-gems-repo",
-                ),
-                artifactory.FederatedGemsRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl2.org/artifactory/terraform-federated-test-gems-repo-2",
-                ),
+                {
+                    enabled: True,
+                    url: http://tempurl.org/artifactory/terraform-federated-test-gems-repo,
+                },
+                {
+                    enabled: True,
+                    url: http://tempurl2.org/artifactory/terraform-federated-test-gems-repo-2,
+                },
             ])
         ```
 
@@ -747,17 +747,17 @@ class FederatedGemsRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_federated_test_gems_repo = artifactory.FederatedGemsRepository("terraform-federated-test-gems-repo",
-            key="terraform-federated-test-gems-repo",
+        terraform_federated_test_gems_repo = artifactory.index.federated_gems_repository.FederatedGemsRepository("terraform-federated-test-gems-repo",
+            key=terraform-federated-test-gems-repo,
             members=[
-                artifactory.FederatedGemsRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl.org/artifactory/terraform-federated-test-gems-repo",
-                ),
-                artifactory.FederatedGemsRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl2.org/artifactory/terraform-federated-test-gems-repo-2",
-                ),
+                {
+                    enabled: True,
+                    url: http://tempurl.org/artifactory/terraform-federated-test-gems-repo,
+                },
+                {
+                    enabled: True,
+                    url: http://tempurl2.org/artifactory/terraform-federated-test-gems-repo-2,
+                },
             ])
         ```
 

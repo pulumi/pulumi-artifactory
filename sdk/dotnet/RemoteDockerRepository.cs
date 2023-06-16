@@ -23,7 +23,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var my_remote_docker = new Artifactory.RemoteDockerRepository("my-remote-docker", new()
+    ///     var my_remote_docker = new Artifactory.Index.RemoteDockerRepository.RemoteDockerRepository("my-remote-docker", new()
     ///     {
     ///         BlockPushingSchema1 = true,
     ///         EnableTokenAuthentication = true,

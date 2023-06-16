@@ -11,32 +11,6 @@ import (
 )
 
 // Retrieves a virtual SBT repository.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupVirtualSbtRepository(ctx, &artifactory.LookupVirtualSbtRepositoryArgs{
-//				Key: "virtual-sbt",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupVirtualSbtRepository(ctx *pulumi.Context, args *LookupVirtualSbtRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupVirtualSbtRepositoryResult, error) {
 	var rv LookupVirtualSbtRepositoryResult
 	err := ctx.Invoke("artifactory:index/getVirtualSbtRepository:getVirtualSbtRepository", args, &rv, opts...)

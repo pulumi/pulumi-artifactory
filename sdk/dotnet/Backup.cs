@@ -28,7 +28,7 @@ namespace Pulumi.Artifactory
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Configure Artifactory Backup system config
-    ///     var backupConfigName = new Artifactory.Backup("backupConfigName", new()
+    ///     var backupConfigName = new Artifactory.Index.Backup.Backup("backupConfigName", new()
     ///     {
     ///         CreateArchive = false,
     ///         CronExp = "0 0 12 * * ? *",

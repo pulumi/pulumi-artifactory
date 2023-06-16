@@ -909,17 +909,17 @@ class FederatedMavenRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_federated_test_maven_repo = artifactory.FederatedMavenRepository("terraform-federated-test-maven-repo",
-            key="terraform-federated-test-maven-repo",
+        terraform_federated_test_maven_repo = artifactory.index.federated_maven_repository.FederatedMavenRepository("terraform-federated-test-maven-repo",
+            key=terraform-federated-test-maven-repo,
             members=[
-                artifactory.FederatedMavenRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl.org/artifactory/terraform-federated-test-maven-repo",
-                ),
-                artifactory.FederatedMavenRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl2.org/artifactory/terraform-federated-test-maven-repo-2",
-                ),
+                {
+                    enabled: True,
+                    url: http://tempurl.org/artifactory/terraform-federated-test-maven-repo,
+                },
+                {
+                    enabled: True,
+                    url: http://tempurl2.org/artifactory/terraform-federated-test-maven-repo-2,
+                },
             ])
         ```
 
@@ -996,17 +996,17 @@ class FederatedMavenRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_federated_test_maven_repo = artifactory.FederatedMavenRepository("terraform-federated-test-maven-repo",
-            key="terraform-federated-test-maven-repo",
+        terraform_federated_test_maven_repo = artifactory.index.federated_maven_repository.FederatedMavenRepository("terraform-federated-test-maven-repo",
+            key=terraform-federated-test-maven-repo,
             members=[
-                artifactory.FederatedMavenRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl.org/artifactory/terraform-federated-test-maven-repo",
-                ),
-                artifactory.FederatedMavenRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl2.org/artifactory/terraform-federated-test-maven-repo-2",
-                ),
+                {
+                    enabled: True,
+                    url: http://tempurl.org/artifactory/terraform-federated-test-maven-repo,
+                },
+                {
+                    enabled: True,
+                    url: http://tempurl2.org/artifactory/terraform-federated-test-maven-repo-2,
+                },
             ])
         ```
 

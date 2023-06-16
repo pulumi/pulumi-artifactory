@@ -16,7 +16,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const my_remote_puppet = new artifactory.RemotePuppetRepository("my-remote-puppet", {
+ * const my_remote_puppet = new artifactory.index/remotePuppetRepository.RemotePuppetRepository("my-remote-puppet", {
  *     key: "my-remote-puppet",
  *     url: "https://forgeapi.puppetlabs.com/",
  * });

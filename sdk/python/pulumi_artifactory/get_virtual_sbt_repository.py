@@ -206,15 +206,6 @@ def get_virtual_sbt_repository(artifactory_requests_can_retrieve_remote_artifact
     """
     Retrieves a virtual SBT repository.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    virtual_sbt = artifactory.get_virtual_sbt_repository(key="virtual-sbt")
-    ```
-
 
     :param str key: the identity key of the repo.
     :param str key_pair: (Optional) The keypair used to sign artifacts.
@@ -278,15 +269,6 @@ def get_virtual_sbt_repository_output(artifactory_requests_can_retrieve_remote_a
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualSbtRepositoryResult]:
     """
     Retrieves a virtual SBT repository.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    virtual_sbt = artifactory.get_virtual_sbt_repository(key="virtual-sbt")
-    ```
 
 
     :param str key: the identity key of the repo.

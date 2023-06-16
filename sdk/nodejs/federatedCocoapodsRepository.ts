@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const terraform_federated_test_cocoapods_repo = new artifactory.FederatedCocoapodsRepository("terraform-federated-test-cocoapods-repo", {
+ * const terraform_federated_test_cocoapods_repo = new artifactory.index/federatedCocoapodsRepository.FederatedCocoapodsRepository("terraform-federated-test-cocoapods-repo", {
  *     key: "terraform-federated-test-cocoapods-repo",
  *     members: [
  *         {

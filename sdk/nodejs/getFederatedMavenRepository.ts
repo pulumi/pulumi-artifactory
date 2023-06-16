@@ -8,17 +8,6 @@ import * as utilities from "./utilities";
 
 /**
  * Retrieves a federated Maven repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const federated-test-maven-repo = artifactory.getFederatedMavenRepository({
- *     key: "federated-test-maven-repo",
- * });
- * ```
  */
 export function getFederatedMavenRepository(args: GetFederatedMavenRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetFederatedMavenRepositoryResult> {
 
@@ -129,17 +118,6 @@ export interface GetFederatedMavenRepositoryResult {
 }
 /**
  * Retrieves a federated Maven repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const federated-test-maven-repo = artifactory.getFederatedMavenRepository({
- *     key: "federated-test-maven-repo",
- * });
- * ```
  */
 export function getFederatedMavenRepositoryOutput(args: GetFederatedMavenRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedMavenRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getFederatedMavenRepository(a, opts))

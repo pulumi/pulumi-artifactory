@@ -11,32 +11,6 @@ import (
 )
 
 // Retrieves a virtual Helm repository.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupVirtualHelmRepository(ctx, &artifactory.LookupVirtualHelmRepositoryArgs{
-//				Key: "virtual-helm",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupVirtualHelmRepository(ctx *pulumi.Context, args *LookupVirtualHelmRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupVirtualHelmRepositoryResult, error) {
 	var rv LookupVirtualHelmRepositoryResult
 	err := ctx.Invoke("artifactory:index/getVirtualHelmRepository:getVirtualHelmRepository", args, &rv, opts...)

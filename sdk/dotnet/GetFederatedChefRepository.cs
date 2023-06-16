@@ -13,56 +13,12 @@ namespace Pulumi.Artifactory
     {
         /// <summary>
         /// Retrieves a federated Chef repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var federated_test_chef_repo = Artifactory.GetFederatedChefRepository.Invoke(new()
-        ///     {
-        ///         Key = "federated-test-chef-repo",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetFederatedChefRepositoryResult> InvokeAsync(GetFederatedChefRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFederatedChefRepositoryResult>("artifactory:index/getFederatedChefRepository:getFederatedChefRepository", args ?? new GetFederatedChefRepositoryArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves a federated Chef repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var federated_test_chef_repo = Artifactory.GetFederatedChefRepository.Invoke(new()
-        ///     {
-        ///         Key = "federated-test-chef-repo",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetFederatedChefRepositoryResult> Invoke(GetFederatedChefRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFederatedChefRepositoryResult>("artifactory:index/getFederatedChefRepository:getFederatedChefRepository", args ?? new GetFederatedChefRepositoryInvokeArgs(), options.WithDefaults());

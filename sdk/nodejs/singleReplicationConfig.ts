@@ -13,6 +13,25 @@ import * as utilities from "./utilities";
  * **WARNING: This should not be used on a repository with `artifactory.ReplicationConfig`. Using both together will cause
  * unexpected behaviour and will almost certainly cause your replications to break.**
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * // Create a replication between two artifactory local repositories
+ * const providerTestSource = new artifactory.index/localMavenRepository.LocalMavenRepository("providerTestSource", {key: "provider_test_source"});
+ * const providerTestDest = new artifactory.index/localMavenRepository.LocalMavenRepository("providerTestDest", {key: "provider_test_dest"});
+ * const foo_rep = new artifactory.index/singleReplicationConfig.SingleReplicationConfig("foo-rep", {
+ *     cronExp: "0 0 * * * ?",
+ *     enableEventReplication: true,
+ *     password: _var.artifactory_password,
+ *     repoKey: providerTestSource.key,
+ *     url: _var.artifactory_url,
+ *     username: _var.artifactory_username,
+ * });
+ * ```
+ *
  * ## Import
  *
  * Replication configs can be imported using their repo key, e.g.

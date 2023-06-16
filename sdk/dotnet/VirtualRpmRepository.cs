@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var primary_keypair = new Artifactory.Keypair("primary-keypair", new()
+    ///     var primary_keypair = new Artifactory.Index.Keypair.Keypair("primary-keypair", new()
     ///     {
     ///         PairName = "primary-keypair",
     ///         PairType = "GPG",
@@ -33,7 +33,7 @@ namespace Pulumi.Artifactory
     ///         PublicKey = File.ReadAllText("samples/gpg.pub"),
     ///     });
     /// 
-    ///     var secondary_keypair = new Artifactory.Keypair("secondary-keypair", new()
+    ///     var secondary_keypair = new Artifactory.Index.Keypair.Keypair("secondary-keypair", new()
     ///     {
     ///         PairName = "secondary-keypair",
     ///         PairType = "GPG",
@@ -42,7 +42,7 @@ namespace Pulumi.Artifactory
     ///         PublicKey = File.ReadAllText("samples/gpg.pub"),
     ///     });
     /// 
-    ///     var foo_rpm_virtual = new Artifactory.VirtualRpmRepository("foo-rpm-virtual", new()
+    ///     var foo_rpm_virtual = new Artifactory.Index.VirtualRpmRepository.VirtualRpmRepository("foo-rpm-virtual", new()
     ///     {
     ///         Key = "foo-rpm-virtual",
     ///         PrimaryKeypairRef = primary_keypair.PairName,

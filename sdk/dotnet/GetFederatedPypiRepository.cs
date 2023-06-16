@@ -13,56 +13,12 @@ namespace Pulumi.Artifactory
     {
         /// <summary>
         /// Retrieves a federated Pypi repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var federated_test_pypi_repo = Artifactory.GetFederatedPypiRepository.Invoke(new()
-        ///     {
-        ///         Key = "federated-test-pypi-repo",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetFederatedPypiRepositoryResult> InvokeAsync(GetFederatedPypiRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFederatedPypiRepositoryResult>("artifactory:index/getFederatedPypiRepository:getFederatedPypiRepository", args ?? new GetFederatedPypiRepositoryArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves a federated Pypi repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var federated_test_pypi_repo = Artifactory.GetFederatedPypiRepository.Invoke(new()
-        ///     {
-        ///         Key = "federated-test-pypi-repo",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetFederatedPypiRepositoryResult> Invoke(GetFederatedPypiRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFederatedPypiRepositoryResult>("artifactory:index/getFederatedPypiRepository:getFederatedPypiRepository", args ?? new GetFederatedPypiRepositoryInvokeArgs(), options.WithDefaults());

@@ -16,7 +16,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const my_remote_debian = new artifactory.RemoteDebianRepository("my-remote-debian", {
+ * const my_remote_debian = new artifactory.index/remoteDebianRepository.RemoteDebianRepository("my-remote-debian", {
  *     key: "my-remote-Debian",
  *     url: "http://archive.ubuntu.com/ubuntu/",
  * });

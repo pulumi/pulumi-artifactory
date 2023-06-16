@@ -153,16 +153,16 @@ class ReplicationConfig(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         # Create a replication between two artifactory local repositories
-        provider_test_source = artifactory.LocalMavenRepository("providerTestSource", key="provider_test_source")
-        provider_test_dest = artifactory.LocalMavenRepository("providerTestDest", key="provider_test_dest")
-        foo_rep = artifactory.ReplicationConfig("foo-rep",
-            cron_exp="0 0 * * * ?",
+        provider_test_source = artifactory.index.local_maven_repository.LocalMavenRepository("providerTestSource", key=provider_test_source)
+        provider_test_dest = artifactory.index.local_maven_repository.LocalMavenRepository("providerTestDest", key=provider_test_dest)
+        foo_rep = artifactory.index.replication_config.ReplicationConfig("foo-rep",
+            cron_exp=0 0 * * * ?,
             enable_event_replication=True,
-            replications=[artifactory.ReplicationConfigReplicationArgs(
-                password="$var.artifactory_password",
-                url="$var.artifactory_url",
-                username="$var.artifactory_username",
-            )],
+            replications=[{
+                password: $var.artifactory_password,
+                url: $var.artifactory_url,
+                username: $var.artifactory_username,
+            }],
             repo_key=provider_test_source.key)
         ```
 
@@ -196,16 +196,16 @@ class ReplicationConfig(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         # Create a replication between two artifactory local repositories
-        provider_test_source = artifactory.LocalMavenRepository("providerTestSource", key="provider_test_source")
-        provider_test_dest = artifactory.LocalMavenRepository("providerTestDest", key="provider_test_dest")
-        foo_rep = artifactory.ReplicationConfig("foo-rep",
-            cron_exp="0 0 * * * ?",
+        provider_test_source = artifactory.index.local_maven_repository.LocalMavenRepository("providerTestSource", key=provider_test_source)
+        provider_test_dest = artifactory.index.local_maven_repository.LocalMavenRepository("providerTestDest", key=provider_test_dest)
+        foo_rep = artifactory.index.replication_config.ReplicationConfig("foo-rep",
+            cron_exp=0 0 * * * ?,
             enable_event_replication=True,
-            replications=[artifactory.ReplicationConfigReplicationArgs(
-                password="$var.artifactory_password",
-                url="$var.artifactory_url",
-                username="$var.artifactory_username",
-            )],
+            replications=[{
+                password: $var.artifactory_password,
+                url: $var.artifactory_url,
+                username: $var.artifactory_username,
+            }],
             repo_key=provider_test_source.key)
         ```
 

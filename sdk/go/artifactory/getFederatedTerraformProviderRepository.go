@@ -10,31 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupFederatedTerraformProviderRepository(ctx, &artifactory.LookupFederatedTerraformProviderRepositoryArgs{
-//				Key: "federated-test-terraform-provider-repo",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupFederatedTerraformProviderRepository(ctx *pulumi.Context, args *LookupFederatedTerraformProviderRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupFederatedTerraformProviderRepositoryResult, error) {
 	var rv LookupFederatedTerraformProviderRepositoryResult
 	err := ctx.Invoke("artifactory:index/getFederatedTerraformProviderRepository:getFederatedTerraformProviderRepository", args, &rv, opts...)

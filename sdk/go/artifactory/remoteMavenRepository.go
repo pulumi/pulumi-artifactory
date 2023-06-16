@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
+//	"github.com/pulumi/pulumi-artifactory/sdk/v1/go/artifactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -29,13 +29,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewRemoteMavenRepository(ctx, "maven-remote", &artifactory.RemoteMavenRepositoryArgs{
-//				FetchJarsEagerly:             pulumi.Bool(true),
-//				FetchSourcesEagerly:          pulumi.Bool(false),
-//				Key:                          pulumi.String("maven-remote-foo"),
-//				MetadataRetrievalTimeoutSecs: pulumi.Int(120),
-//				RejectInvalidJars:            pulumi.Bool(true),
-//				SuppressPomConsistencyChecks: pulumi.Bool(false),
-//				Url:                          pulumi.String("https://repo1.maven.org/maven2/"),
+//				FetchJarsEagerly:             true,
+//				FetchSourcesEagerly:          false,
+//				Key:                          "maven-remote-foo",
+//				MetadataRetrievalTimeoutSecs: 120,
+//				RejectInvalidJars:            true,
+//				SuppressPomConsistencyChecks: false,
+//				Url:                          "https://repo1.maven.org/maven2/",
 //			})
 //			if err != nil {
 //				return err

@@ -23,7 +23,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var my_remote_opkg = new Artifactory.RemoteOpkgRepository("my-remote-opkg", new()
+    ///     var my_remote_opkg = new Artifactory.Index.RemoteOpkgRepository.RemoteOpkgRepository("my-remote-opkg", new()
     ///     {
     ///         Key = "my-remote-opkg",
     ///         Url = "http://testartifactory.io/artifactory/example-opkg/",

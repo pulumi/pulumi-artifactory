@@ -11,32 +11,6 @@ import (
 )
 
 // Retrieves a federated SBT repository.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupFederatedSbtRepository(ctx, &artifactory.LookupFederatedSbtRepositoryArgs{
-//				Key: "federated-test-sbt-repo",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupFederatedSbtRepository(ctx *pulumi.Context, args *LookupFederatedSbtRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupFederatedSbtRepositoryResult, error) {
 	var rv LookupFederatedSbtRepositoryResult
 	err := ctx.Invoke("artifactory:index/getFederatedSbtRepository:getFederatedSbtRepository", args, &rv, opts...)

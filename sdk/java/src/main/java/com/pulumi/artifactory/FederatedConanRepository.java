@@ -29,7 +29,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.artifactory.FederatedConanRepository;
  * import com.pulumi.artifactory.FederatedConanRepositoryArgs;
- * import com.pulumi.artifactory.inputs.FederatedConanRepositoryMemberArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -46,14 +45,8 @@ import javax.annotation.Nullable;
  *         var terraform_federated_test_conan_repo = new FederatedConanRepository(&#34;terraform-federated-test-conan-repo&#34;, FederatedConanRepositoryArgs.builder()        
  *             .key(&#34;terraform-federated-test-conan-repo&#34;)
  *             .members(            
- *                 FederatedConanRepositoryMemberArgs.builder()
- *                     .enabled(true)
- *                     .url(&#34;http://tempurl.org/artifactory/terraform-federated-test-conan-repo&#34;)
- *                     .build(),
- *                 FederatedConanRepositoryMemberArgs.builder()
- *                     .enabled(true)
- *                     .url(&#34;http://tempurl2.org/artifactory/terraform-federated-test-conan-repo-2&#34;)
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

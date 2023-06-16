@@ -16,8 +16,8 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const my_generic_local = new artifactory.LocalGenericRepository("my-generic-local", {key: "my-generic-local"});
- * const artifact_webhook = new artifactory.ArtifactWebhook("artifact-webhook", {
+ * const my_generic_local = new artifactory.index/localGenericRepository.LocalGenericRepository("my-generic-local", {key: "my-generic-local"});
+ * const artifact_webhook = new artifactory.index/artifactWebhook.ArtifactWebhook("artifact-webhook", {
  *     key: "artifact-webhook",
  *     eventTypes: [
  *         "deployed",

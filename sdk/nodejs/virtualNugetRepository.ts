@@ -14,7 +14,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const foo_nuget = new artifactory.VirtualNugetRepository("foo-nuget", {
+ * const foo_nuget = new artifactory.index/virtualNugetRepository.VirtualNugetRepository("foo-nuget", {
  *     description: "A test virtual repo",
  *     excludesPattern: "com/google/**",
  *     forceNugetAuthentication: true,

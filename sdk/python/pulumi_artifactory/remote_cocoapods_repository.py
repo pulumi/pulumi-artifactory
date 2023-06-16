@@ -1578,11 +1578,11 @@ class RemoteCocoapodsRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        my_remote_cocoapods = artifactory.RemoteCocoapodsRepository("my-remote-cocoapods",
-            key="my-remote-cocoapods",
-            pods_specs_repo_url="https://github.com/CocoaPods/Spec",
-            url="https://github.com/",
-            vcs_git_provider="GITHUB")
+        my_remote_cocoapods = artifactory.index.remote_cocoapods_repository.RemoteCocoapodsRepository("my-remote-cocoapods",
+            key=my-remote-cocoapods,
+            pods_specs_repo_url=https://github.com/CocoaPods/Spec,
+            url=https://github.com/,
+            vcs_git_provider=GITHUB)
         ```
 
         ## Import
@@ -1685,11 +1685,11 @@ class RemoteCocoapodsRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        my_remote_cocoapods = artifactory.RemoteCocoapodsRepository("my-remote-cocoapods",
-            key="my-remote-cocoapods",
-            pods_specs_repo_url="https://github.com/CocoaPods/Spec",
-            url="https://github.com/",
-            vcs_git_provider="GITHUB")
+        my_remote_cocoapods = artifactory.index.remote_cocoapods_repository.RemoteCocoapodsRepository("my-remote-cocoapods",
+            key=my-remote-cocoapods,
+            pods_specs_repo_url=https://github.com/CocoaPods/Spec,
+            url=https://github.com/,
+            vcs_git_provider=GITHUB)
         ```
 
         ## Import

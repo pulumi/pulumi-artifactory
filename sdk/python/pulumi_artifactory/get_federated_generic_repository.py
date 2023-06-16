@@ -235,15 +235,6 @@ def get_federated_generic_repository(archive_browsing_enabled: Optional[bool] = 
     """
     Retrieves a federated Generic repository.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    terraform_federated_test_generic_repo = artifactory.get_federated_generic_repository(key="terraform-federated-test-generic-repo")
-    ```
-
 
     :param str key: the identity key of the repo.
     :param Sequence[pulumi.InputType['GetFederatedGenericRepositoryMemberArgs']] members: The list of Federated members and must contain this repository URL (configured base URL
@@ -315,15 +306,6 @@ def get_federated_generic_repository_output(archive_browsing_enabled: Optional[p
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFederatedGenericRepositoryResult]:
     """
     Retrieves a federated Generic repository.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    terraform_federated_test_generic_repo = artifactory.get_federated_generic_repository(key="terraform-federated-test-generic-repo")
-    ```
 
 
     :param str key: the identity key of the repo.

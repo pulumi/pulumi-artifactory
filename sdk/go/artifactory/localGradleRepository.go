@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
+//	"github.com/pulumi/pulumi-artifactory/sdk/v1/go/artifactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -28,13 +28,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewLocalGradleRepository(ctx, "terraform-local-test-gradle-repo-basic", &artifactory.LocalGradleRepositoryArgs{
-//				ChecksumPolicyType:           pulumi.String("client-checksums"),
-//				HandleReleases:               pulumi.Bool(true),
-//				HandleSnapshots:              pulumi.Bool(true),
-//				Key:                          pulumi.String("terraform-local-test-gradle-repo-basic"),
-//				MaxUniqueSnapshots:           pulumi.Int(10),
-//				SnapshotVersionBehavior:      pulumi.String("unique"),
-//				SuppressPomConsistencyChecks: pulumi.Bool(true),
+//				ChecksumPolicyType:           "client-checksums",
+//				HandleReleases:               true,
+//				HandleSnapshots:              true,
+//				Key:                          "terraform-local-test-gradle-repo-basic",
+//				MaxUniqueSnapshots:           10,
+//				SnapshotVersionBehavior:      "unique",
+//				SuppressPomConsistencyChecks: true,
 //			})
 //			if err != nil {
 //				return err

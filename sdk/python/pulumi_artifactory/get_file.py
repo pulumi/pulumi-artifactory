@@ -232,17 +232,6 @@ def get_file(force_overwrite: Optional[bool] = None,
 
     Provides an Artifactory file datasource. This can be used to download a file from a given Artifactory repository.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    my_file = artifactory.get_file(output_path="tmp/artifact.zip",
-        path="/path/to/the/artifact.zip",
-        repository="repo-key")
-    ```
-
 
     :param bool force_overwrite: If set to true, an existing file in the output_path will be overwritten. Default: `false`
     :param str output_path: The local path the file should be downloaded to.
@@ -291,17 +280,6 @@ def get_file_output(force_overwrite: Optional[pulumi.Input[Optional[bool]]] = No
     ## # Artifactory File Data Source
 
     Provides an Artifactory file datasource. This can be used to download a file from a given Artifactory repository.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    my_file = artifactory.get_file(output_path="tmp/artifact.zip",
-        path="/path/to/the/artifact.zip",
-        repository="repo-key")
-    ```
 
 
     :param bool force_overwrite: If set to true, an existing file in the output_path will be overwritten. Default: `false`

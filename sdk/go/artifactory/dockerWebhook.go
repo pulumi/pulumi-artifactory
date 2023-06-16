@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
+//	"github.com/pulumi/pulumi-artifactory/sdk/v1/go/artifactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -29,39 +29,39 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewDockerV2Repository(ctx, "my-docker-local", &artifactory.DockerV2RepositoryArgs{
-//				Key: pulumi.String("my-docker-local"),
+//				Key: "my-docker-local",
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = artifactory.NewDockerWebhook(ctx, "docker-webhook", &artifactory.DockerWebhookArgs{
-//				Key: pulumi.String("docker-webhook"),
-//				EventTypes: pulumi.StringArray{
-//					pulumi.String("pushed"),
-//					pulumi.String("deleted"),
-//					pulumi.String("promoted"),
+//				Key: "docker-webhook",
+//				EventTypes: []string{
+//					"pushed",
+//					"deleted",
+//					"promoted",
 //				},
-//				Criteria: &artifactory.DockerWebhookCriteriaArgs{
-//					AnyLocal:  pulumi.Bool(true),
-//					AnyRemote: pulumi.Bool(false),
-//					RepoKeys: pulumi.StringArray{
+//				Criteria: map[string]interface{}{
+//					"anyLocal":  true,
+//					"anyRemote": false,
+//					"repoKeys": []interface{}{
 //						my_docker_local.Key,
 //					},
-//					IncludePatterns: pulumi.StringArray{
-//						pulumi.String("foo/**"),
+//					"includePatterns": []string{
+//						"foo/**",
 //					},
-//					ExcludePatterns: pulumi.StringArray{
-//						pulumi.String("bar/**"),
+//					"excludePatterns": []string{
+//						"bar/**",
 //					},
 //				},
-//				Handlers: artifactory.DockerWebhookHandlerArray{
-//					&artifactory.DockerWebhookHandlerArgs{
-//						Url:    pulumi.String("http://tempurl.org/webhook"),
-//						Secret: pulumi.String("some-secret"),
-//						Proxy:  pulumi.String("proxy-key"),
-//						CustomHttpHeaders: pulumi.StringMap{
-//							"header-1": pulumi.String("value-1"),
-//							"header-2": pulumi.String("value-2"),
+//				Handlers: []map[string]interface{}{
+//					map[string]interface{}{
+//						"url":    "http://tempurl.org/webhook",
+//						"secret": "some-secret",
+//						"proxy":  "proxy-key",
+//						"customHttpHeaders": map[string]interface{}{
+//							"header-1": "value-1",
+//							"header-2": "value-2",
 //						},
 //					},
 //				},

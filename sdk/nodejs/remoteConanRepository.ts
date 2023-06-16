@@ -16,7 +16,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const my_remote_conan = new artifactory.RemoteConanRepository("my-remote-conan", {
+ * const my_remote_conan = new artifactory.index/remoteConanRepository.RemoteConanRepository("my-remote-conan", {
  *     forceConanAuthentication: true,
  *     key: "my-remote-conan",
  *     url: "https://conan.io/center/",

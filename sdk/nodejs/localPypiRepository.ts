@@ -13,7 +13,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const terraform_local_test_pypi_repo = new artifactory.LocalPypiRepository("terraform-local-test-pypi-repo", {key: "terraform-local-test-pypi-repo"});
+ * const terraform_local_test_pypi_repo = new artifactory.index/localPypiRepository.LocalPypiRepository("terraform-local-test-pypi-repo", {key: "terraform-local-test-pypi-repo"});
  * ```
  *
  * ## Import

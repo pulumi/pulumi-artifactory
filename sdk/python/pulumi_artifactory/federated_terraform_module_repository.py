@@ -675,17 +675,17 @@ class FederatedTerraformModuleRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_federated_test_terraform_module_repo = artifactory.FederatedTerraformModuleRepository("terraform-federated-test-terraformModule-repo",
-            key="terraform-federated-test-terraform-module-repo",
+        terraform_federated_test_terraform_module_repo = artifactory.index.federated_terraform_module_repository.FederatedTerraformModuleRepository("terraform-federated-test-terraformModule-repo",
+            key=terraform-federated-test-terraform-module-repo,
             members=[
-                artifactory.FederatedTerraformModuleRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl.org/artifactory/terraform-federated-test-terraform_module-repo",
-                ),
-                artifactory.FederatedTerraformModuleRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl2.org/artifactory/terraform-federated-test-terraform_module-repo-2",
-                ),
+                {
+                    enabled: True,
+                    url: http://tempurl.org/artifactory/terraform-federated-test-terraform_module-repo,
+                },
+                {
+                    enabled: True,
+                    url: http://tempurl2.org/artifactory/terraform-federated-test-terraform_module-repo-2,
+                },
             ])
         ```
 
@@ -747,17 +747,17 @@ class FederatedTerraformModuleRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_federated_test_terraform_module_repo = artifactory.FederatedTerraformModuleRepository("terraform-federated-test-terraformModule-repo",
-            key="terraform-federated-test-terraform-module-repo",
+        terraform_federated_test_terraform_module_repo = artifactory.index.federated_terraform_module_repository.FederatedTerraformModuleRepository("terraform-federated-test-terraformModule-repo",
+            key=terraform-federated-test-terraform-module-repo,
             members=[
-                artifactory.FederatedTerraformModuleRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl.org/artifactory/terraform-federated-test-terraform_module-repo",
-                ),
-                artifactory.FederatedTerraformModuleRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl2.org/artifactory/terraform-federated-test-terraform_module-repo-2",
-                ),
+                {
+                    enabled: True,
+                    url: http://tempurl.org/artifactory/terraform-federated-test-terraform_module-repo,
+                },
+                {
+                    enabled: True,
+                    url: http://tempurl2.org/artifactory/terraform-federated-test-terraform_module-repo-2,
+                },
             ])
         ```
 

@@ -23,7 +23,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var my_remote_composer = new Artifactory.RemoteComposerRepository("my-remote-composer", new()
+    ///     var my_remote_composer = new Artifactory.Index.RemoteComposerRepository.RemoteComposerRepository("my-remote-composer", new()
     ///     {
     ///         Key = "my-remote-composer",
     ///         Url = "https://github.com/",

@@ -1475,9 +1475,9 @@ class RemoteAlpineRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        my_remote_alpine = artifactory.RemoteAlpineRepository("my-remote-alpine",
-            key="my-remote-alpine",
-            url="http://dl-cdn.alpinelinux.org/alpine")
+        my_remote_alpine = artifactory.index.remote_alpine_repository.RemoteAlpineRepository("my-remote-alpine",
+            key=my-remote-alpine,
+            url=http://dl-cdn.alpinelinux.org/alpine)
         ```
 
         ## Import
@@ -1576,9 +1576,9 @@ class RemoteAlpineRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        my_remote_alpine = artifactory.RemoteAlpineRepository("my-remote-alpine",
-            key="my-remote-alpine",
-            url="http://dl-cdn.alpinelinux.org/alpine")
+        my_remote_alpine = artifactory.index.remote_alpine_repository.RemoteAlpineRepository("my-remote-alpine",
+            key=my-remote-alpine,
+            url=http://dl-cdn.alpinelinux.org/alpine)
         ```
 
         ## Import

@@ -8,17 +8,6 @@ import * as utilities from "./utilities";
 
 /**
  * Retrieves a remote NuGet repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const remote-nuget = artifactory.getRemoteNugetRepository({
- *     key: "remote-nuget",
- * });
- * ```
  */
 export function getRemoteNugetRepository(args: GetRemoteNugetRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetRemoteNugetRepositoryResult> {
 
@@ -213,17 +202,6 @@ export interface GetRemoteNugetRepositoryResult {
 }
 /**
  * Retrieves a remote NuGet repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const remote-nuget = artifactory.getRemoteNugetRepository({
- *     key: "remote-nuget",
- * });
- * ```
  */
 export function getRemoteNugetRepositoryOutput(args: GetRemoteNugetRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemoteNugetRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getRemoteNugetRepository(a, opts))

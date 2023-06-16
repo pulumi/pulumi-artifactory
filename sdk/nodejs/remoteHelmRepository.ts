@@ -16,7 +16,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const helm_remote = new artifactory.RemoteHelmRepository("helm-remote", {
+ * const helm_remote = new artifactory.index/remoteHelmRepository.RemoteHelmRepository("helm-remote", {
  *     externalDependenciesEnabled: true,
  *     externalDependenciesPatterns: ["**github.com**"],
  *     helmChartsBaseUrl: "https://foo.com",

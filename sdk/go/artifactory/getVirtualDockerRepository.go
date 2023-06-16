@@ -11,32 +11,6 @@ import (
 )
 
 // Retrieves a virtual Docker repository.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupVirtualDockerRepository(ctx, &artifactory.LookupVirtualDockerRepositoryArgs{
-//				Key: "virtual-docker",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupVirtualDockerRepository(ctx *pulumi.Context, args *LookupVirtualDockerRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupVirtualDockerRepositoryResult, error) {
 	var rv LookupVirtualDockerRepositoryResult
 	err := ctx.Invoke("artifactory:index/getVirtualDockerRepository:getVirtualDockerRepository", args, &rv, opts...)

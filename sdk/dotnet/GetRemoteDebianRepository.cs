@@ -13,56 +13,12 @@ namespace Pulumi.Artifactory
     {
         /// <summary>
         /// Retrieves a remote Debian repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var remote_debian = Artifactory.GetRemoteDebianRepository.Invoke(new()
-        ///     {
-        ///         Key = "remote-debian",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetRemoteDebianRepositoryResult> InvokeAsync(GetRemoteDebianRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRemoteDebianRepositoryResult>("artifactory:index/getRemoteDebianRepository:getRemoteDebianRepository", args ?? new GetRemoteDebianRepositoryArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves a remote Debian repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var remote_debian = Artifactory.GetRemoteDebianRepository.Invoke(new()
-        ///     {
-        ///         Key = "remote-debian",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetRemoteDebianRepositoryResult> Invoke(GetRemoteDebianRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRemoteDebianRepositoryResult>("artifactory:index/getRemoteDebianRepository:getRemoteDebianRepository", args ?? new GetRemoteDebianRepositoryInvokeArgs(), options.WithDefaults());

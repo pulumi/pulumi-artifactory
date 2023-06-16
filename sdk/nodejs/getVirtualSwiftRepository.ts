@@ -6,17 +6,6 @@ import * as utilities from "./utilities";
 
 /**
  * Retrieves a virtual Swift repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const virtual-swift = artifactory.getVirtualSwiftRepository({
- *     key: "virtual-swift",
- * });
- * ```
  */
 export function getVirtualSwiftRepository(args: GetVirtualSwiftRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualSwiftRepositoryResult> {
 
@@ -79,17 +68,6 @@ export interface GetVirtualSwiftRepositoryResult {
 }
 /**
  * Retrieves a virtual Swift repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const virtual-swift = artifactory.getVirtualSwiftRepository({
- *     key: "virtual-swift",
- * });
- * ```
  */
 export function getVirtualSwiftRepositoryOutput(args: GetVirtualSwiftRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualSwiftRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getVirtualSwiftRepository(a, opts))

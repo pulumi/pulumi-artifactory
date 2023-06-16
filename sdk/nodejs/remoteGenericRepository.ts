@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const my_remote_generic = new artifactory.RemoteGenericRepository("my-remote-generic", {
+ * const my_remote_generic = new artifactory.index/remoteGenericRepository.RemoteGenericRepository("my-remote-generic", {
  *     key: "my-remote-generic",
  *     url: "http://testartifactory.io/artifactory/example-generic/",
  * });

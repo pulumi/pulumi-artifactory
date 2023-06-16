@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var my_remote_vcs = new Artifactory.RemoteVcsRepository("my-remote-vcs", new()
+    ///     var my_remote_vcs = new Artifactory.Index.RemoteVcsRepository.RemoteVcsRepository("my-remote-vcs", new()
     ///     {
     ///         Key = "my-remote-vcs",
     ///         MaxUniqueSnapshots = 5,

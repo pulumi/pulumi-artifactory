@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const terraform_federated_test_chef_repo = new artifactory.FederatedChefRepository("terraform-federated-test-chef-repo", {
+ * const terraform_federated_test_chef_repo = new artifactory.index/federatedChefRepository.FederatedChefRepository("terraform-federated-test-chef-repo", {
  *     key: "terraform-federated-test-chef-repo",
  *     members: [
  *         {

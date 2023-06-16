@@ -20,7 +20,7 @@ import * as utilities from "./utilities";
  * import * as artifactory from "@pulumi/artifactory";
  *
  * // Configure Artifactory OAuth SSO settings
- * const oauth = new artifactory.OauthSettings("oauth", {
+ * const oauth = new artifactory.index/oauthSettings.OauthSettings("oauth", {
  *     allowUserToAccessProfile: true,
  *     enable: true,
  *     oauthProviders: [{

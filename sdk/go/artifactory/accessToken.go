@@ -26,7 +26,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
+//	"github.com/pulumi/pulumi-artifactory/sdk/v1/go/artifactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -34,8 +34,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewAccessToken(ctx, "exisingUser", &artifactory.AccessTokenArgs{
-//				EndDateRelative: pulumi.String("5m"),
-//				Username:        pulumi.String("existing-user"),
+//				EndDateRelative: "5m",
+//				Username:        "existing-user",
 //			})
 //			if err != nil {
 //				return err
@@ -53,7 +53,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
+//	"github.com/pulumi/pulumi-artifactory/sdk/v1/go/artifactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -61,9 +61,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			newUserUser, err := artifactory.NewUser(ctx, "newUserUser", &artifactory.UserArgs{
-//				Email: pulumi.String("new_user@somewhere.com"),
-//				Groups: pulumi.StringArray{
-//					pulumi.String("readers"),
+//				Email: "new_user@somewhere.com",
+//				Groups: []string{
+//					"readers",
 //				},
 //			})
 //			if err != nil {
@@ -71,7 +71,7 @@ import (
 //			}
 //			_, err = artifactory.NewAccessToken(ctx, "newUserAccessToken", &artifactory.AccessTokenArgs{
 //				Username:        newUserUser.Name,
-//				EndDateRelative: pulumi.String("5m"),
+//				EndDateRelative: "5m",
 //			})
 //			if err != nil {
 //				return err
@@ -88,7 +88,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
+//	"github.com/pulumi/pulumi-artifactory/sdk/v1/go/artifactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -96,11 +96,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewAccessToken(ctx, "temporaryUser", &artifactory.AccessTokenArgs{
-//				EndDateRelative: pulumi.String("1h"),
-//				Groups: pulumi.StringArray{
-//					pulumi.String("readers"),
+//				EndDateRelative: "1h",
+//				Groups: []string{
+//					"readers",
 //				},
-//				Username: pulumi.String("temporary-user"),
+//				Username: "temporary-user",
 //			})
 //			if err != nil {
 //				return err
@@ -116,7 +116,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
+//	"github.com/pulumi/pulumi-artifactory/sdk/v1/go/artifactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -124,8 +124,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewAccessToken(ctx, "noExpiry", &artifactory.AccessTokenArgs{
-//				EndDateRelative: pulumi.String("0s"),
-//				Username:        pulumi.String("existing-user"),
+//				EndDateRelative: "0s",
+//				Username:        "existing-user",
 //			})
 //			if err != nil {
 //				return err
@@ -141,7 +141,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
+//	"github.com/pulumi/pulumi-artifactory/sdk/v1/go/artifactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -149,12 +149,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewAccessToken(ctx, "refreshable", &artifactory.AccessTokenArgs{
-//				EndDateRelative: pulumi.String("1m"),
-//				Groups: pulumi.StringArray{
-//					pulumi.String("readers"),
+//				EndDateRelative: "1m",
+//				Groups: []string{
+//					"readers",
 //				},
-//				Refreshable: pulumi.Bool(true),
-//				Username:    pulumi.String("refreshable"),
+//				Refreshable: true,
+//				Username:    "refreshable",
 //			})
 //			if err != nil {
 //				return err
@@ -170,7 +170,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
+//	"github.com/pulumi/pulumi-artifactory/sdk/v1/go/artifactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -178,11 +178,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewAccessToken(ctx, "admin", &artifactory.AccessTokenArgs{
-//				AdminToken: &artifactory.AccessTokenAdminTokenArgs{
-//					InstanceId: pulumi.String("<instance id>"),
+//				AdminToken: map[string]interface{}{
+//					"instanceId": "<instance id>",
 //				},
-//				EndDateRelative: pulumi.String("1m"),
-//				Username:        pulumi.String("admin"),
+//				EndDateRelative: "1m",
+//				Username:        "admin",
 //			})
 //			if err != nil {
 //				return err
@@ -198,7 +198,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
+//	"github.com/pulumi/pulumi-artifactory/sdk/v1/go/artifactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -206,10 +206,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewAccessToken(ctx, "audience", &artifactory.AccessTokenArgs{
-//				Audience:        pulumi.String("jfrt@*"),
-//				EndDateRelative: pulumi.String("1m"),
-//				Refreshable:     pulumi.Bool(true),
-//				Username:        pulumi.String("audience"),
+//				Audience:        "jfrt@*",
+//				EndDateRelative: "1m",
+//				Refreshable:     true,
+//				Username:        "audience",
 //			})
 //			if err != nil {
 //				return err
@@ -225,7 +225,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
+//	"github.com/pulumi/pulumi-artifactory/sdk/v1/go/artifactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -233,11 +233,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewAccessToken(ctx, "fixeddate", &artifactory.AccessTokenArgs{
-//				EndDate: pulumi.String("2018-01-01T01:02:03Z"),
-//				Groups: pulumi.StringArray{
-//					pulumi.String("readers"),
+//				EndDate: "2018-01-01T01:02:03Z",
+//				Groups: []string{
+//					"readers",
 //				},
-//				Username: pulumi.String("fixeddate"),
+//				Username: "fixeddate",
 //			})
 //			if err != nil {
 //				return err
@@ -258,25 +258,25 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
-//	"github.com/pulumi/pulumi-time/sdk/go/time"
+//	"github.com/pulumi/pulumi-artifactory/sdk/v1/go/artifactory"
+//	"github.com/pulumi/pulumi-time/sdk/v1/go/time"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := time.NewRotating(ctx, "nowPlus1Hours", &time.RotatingArgs{
-//				RotationHours: pulumi.Int(1),
+//			_, err := index.NewTime_rotating(ctx, "nowPlus1Hours", &index.Time_rotatingArgs{
+//				RotationHours: "1",
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = artifactory.NewAccessToken(ctx, "rotating", &artifactory.AccessTokenArgs{
-//				Username: pulumi.String("rotating"),
-//				EndDate:  pulumi.Any(time_rotating.Now_plus_1_hour.Rotation_rfc3339),
-//				Groups: pulumi.StringArray{
-//					pulumi.String("readers"),
+//				Username: "rotating",
+//				EndDate:  time_rotating.Now_plus_1_hour.Rotation_rfc3339,
+//				Groups: []string{
+//					"readers",
 //				},
 //			})
 //			if err != nil {

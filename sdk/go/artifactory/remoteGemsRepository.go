@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
+//	"github.com/pulumi/pulumi-artifactory/sdk/v1/go/artifactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -29,8 +29,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewRemoteGemsRepository(ctx, "my-remote-gems", &artifactory.RemoteGemsRepositoryArgs{
-//				Key: pulumi.String("my-remote-gems"),
-//				Url: pulumi.String("https://rubygems.org/"),
+//				Key: "my-remote-gems",
+//				Url: "https://rubygems.org/",
 //			})
 //			if err != nil {
 //				return err

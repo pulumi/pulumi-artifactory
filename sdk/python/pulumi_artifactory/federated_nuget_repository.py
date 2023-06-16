@@ -745,17 +745,17 @@ class FederatedNugetRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_federated_test_nuget_repo = artifactory.FederatedNugetRepository("terraform-federated-test-nuget-repo",
-            key="terraform-federated-test-nuget-repo",
+        terraform_federated_test_nuget_repo = artifactory.index.federated_nuget_repository.FederatedNugetRepository("terraform-federated-test-nuget-repo",
+            key=terraform-federated-test-nuget-repo,
             members=[
-                artifactory.FederatedNugetRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl.org/artifactory/terraform-federated-test-nuget-repo",
-                ),
-                artifactory.FederatedNugetRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl2.org/artifactory/terraform-federated-test-nuget-repo-2",
-                ),
+                {
+                    enabled: True,
+                    url: http://tempurl.org/artifactory/terraform-federated-test-nuget-repo,
+                },
+                {
+                    enabled: True,
+                    url: http://tempurl2.org/artifactory/terraform-federated-test-nuget-repo-2,
+                },
             ])
         ```
 
@@ -820,17 +820,17 @@ class FederatedNugetRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_federated_test_nuget_repo = artifactory.FederatedNugetRepository("terraform-federated-test-nuget-repo",
-            key="terraform-federated-test-nuget-repo",
+        terraform_federated_test_nuget_repo = artifactory.index.federated_nuget_repository.FederatedNugetRepository("terraform-federated-test-nuget-repo",
+            key=terraform-federated-test-nuget-repo,
             members=[
-                artifactory.FederatedNugetRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl.org/artifactory/terraform-federated-test-nuget-repo",
-                ),
-                artifactory.FederatedNugetRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl2.org/artifactory/terraform-federated-test-nuget-repo-2",
-                ),
+                {
+                    enabled: True,
+                    url: http://tempurl.org/artifactory/terraform-federated-test-nuget-repo,
+                },
+                {
+                    enabled: True,
+                    url: http://tempurl2.org/artifactory/terraform-federated-test-nuget-repo-2,
+                },
             ])
         ```
 

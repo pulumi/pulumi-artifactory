@@ -13,56 +13,12 @@ namespace Pulumi.Artifactory
     {
         /// <summary>
         /// Retrieves a federated Puppet repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var federated_test_puppet_repo = Artifactory.GetFederatedPuppetRepository.Invoke(new()
-        ///     {
-        ///         Key = "federated-test-puppet-repo",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetFederatedPuppetRepositoryResult> InvokeAsync(GetFederatedPuppetRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFederatedPuppetRepositoryResult>("artifactory:index/getFederatedPuppetRepository:getFederatedPuppetRepository", args ?? new GetFederatedPuppetRepositoryArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves a federated Puppet repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var federated_test_puppet_repo = Artifactory.GetFederatedPuppetRepository.Invoke(new()
-        ///     {
-        ///         Key = "federated-test-puppet-repo",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetFederatedPuppetRepositoryResult> Invoke(GetFederatedPuppetRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFederatedPuppetRepositoryResult>("artifactory:index/getFederatedPuppetRepository:getFederatedPuppetRepository", args ?? new GetFederatedPuppetRepositoryInvokeArgs(), options.WithDefaults());

@@ -13,56 +13,12 @@ namespace Pulumi.Artifactory
     {
         /// <summary>
         /// Retrieves a remote Maven repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var remote_maven = Artifactory.GetRemoteMavenRepository.Invoke(new()
-        ///     {
-        ///         Key = "remote-maven",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetRemoteMavenRepositoryResult> InvokeAsync(GetRemoteMavenRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRemoteMavenRepositoryResult>("artifactory:index/getRemoteMavenRepository:getRemoteMavenRepository", args ?? new GetRemoteMavenRepositoryArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves a remote Maven repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var remote_maven = Artifactory.GetRemoteMavenRepository.Invoke(new()
-        ///     {
-        ///         Key = "remote-maven",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetRemoteMavenRepositoryResult> Invoke(GetRemoteMavenRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRemoteMavenRepositoryResult>("artifactory:index/getRemoteMavenRepository:getRemoteMavenRepository", args ?? new GetRemoteMavenRepositoryInvokeArgs(), options.WithDefaults());

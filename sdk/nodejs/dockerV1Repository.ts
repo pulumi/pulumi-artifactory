@@ -13,7 +13,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const foo = new artifactory.DockerV1Repository("foo", {key: "foo"});
+ * const foo = new artifactory.index/dockerV1Repository.DockerV1Repository("foo", {key: "foo"});
  * ```
  *
  * ## Import

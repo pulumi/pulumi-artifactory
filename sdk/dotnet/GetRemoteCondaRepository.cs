@@ -13,56 +13,12 @@ namespace Pulumi.Artifactory
     {
         /// <summary>
         /// Retrieves a remote Conda repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var remote_conda = Artifactory.GetRemoteCondaRepository.Invoke(new()
-        ///     {
-        ///         Key = "remote-conda",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetRemoteCondaRepositoryResult> InvokeAsync(GetRemoteCondaRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRemoteCondaRepositoryResult>("artifactory:index/getRemoteCondaRepository:getRemoteCondaRepository", args ?? new GetRemoteCondaRepositoryArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves a remote Conda repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var remote_conda = Artifactory.GetRemoteCondaRepository.Invoke(new()
-        ///     {
-        ///         Key = "remote-conda",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetRemoteCondaRepositoryResult> Invoke(GetRemoteCondaRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRemoteCondaRepositoryResult>("artifactory:index/getRemoteCondaRepository:getRemoteCondaRepository", args ?? new GetRemoteCondaRepositoryInvokeArgs(), options.WithDefaults());

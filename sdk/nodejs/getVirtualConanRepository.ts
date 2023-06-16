@@ -6,17 +6,6 @@ import * as utilities from "./utilities";
 
 /**
  * Retrieves a virtual Conan repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const virtual-conan = artifactory.getVirtualConanRepository({
- *     key: "virtual-conan",
- * });
- * ```
  */
 export function getVirtualConanRepository(args: GetVirtualConanRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualConanRepositoryResult> {
 
@@ -88,17 +77,6 @@ export interface GetVirtualConanRepositoryResult {
 }
 /**
  * Retrieves a virtual Conan repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const virtual-conan = artifactory.getVirtualConanRepository({
- *     key: "virtual-conan",
- * });
- * ```
  */
 export function getVirtualConanRepositoryOutput(args: GetVirtualConanRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualConanRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getVirtualConanRepository(a, opts))

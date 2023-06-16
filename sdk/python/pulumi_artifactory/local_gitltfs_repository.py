@@ -592,7 +592,7 @@ class LocalGitltfsRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_local_test_gitlfs_repo = artifactory.LocalGitltfsRepository("terraform-local-test-gitlfs-repo", key="terraform-local-test-gitlfs-repo")
+        terraform_local_test_gitlfs_repo = artifactory.index.local_gitltfs_repository.LocalGitltfsRepository("terraform-local-test-gitlfs-repo", key=terraform-local-test-gitlfs-repo)
         ```
 
         ## Import
@@ -647,7 +647,7 @@ class LocalGitltfsRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_local_test_gitlfs_repo = artifactory.LocalGitltfsRepository("terraform-local-test-gitlfs-repo", key="terraform-local-test-gitlfs-repo")
+        terraform_local_test_gitlfs_repo = artifactory.index.local_gitltfs_repository.LocalGitltfsRepository("terraform-local-test-gitlfs-repo", key=terraform-local-test-gitlfs-repo)
         ```
 
         ## Import

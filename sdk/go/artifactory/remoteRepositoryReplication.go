@@ -23,7 +23,7 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
+//	"github.com/pulumi/pulumi-artifactory/sdk/v1/go/artifactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
 //
@@ -34,30 +34,30 @@ import (
 //			cfg := config.New(ctx, "")
 //			artifactoryUrl := cfg.Require("artifactoryUrl")
 //			_, err := artifactory.NewLocalMavenRepository(ctx, "providerTestSource", &artifactory.LocalMavenRepositoryArgs{
-//				Key: pulumi.String("provider_test_source"),
+//				Key: "provider_test_source",
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			providerTestDest, err := artifactory.NewRemoteMavenRepository(ctx, "providerTestDest", &artifactory.RemoteMavenRepositoryArgs{
-//				Key:      pulumi.String("provider_test_dest"),
-//				Url:      pulumi.String(fmt.Sprintf("%v/artifactory/%v", artifactoryUrl, artifactory_local_maven_repository.Artifactory_local_maven_repository.Key)),
-//				Username: pulumi.String("foo"),
-//				Password: pulumi.String("bar"),
+//				Key:      "provider_test_dest",
+//				Url:      fmt.Sprintf("%v/artifactory/%v", artifactoryUrl, artifactory_local_maven_repository.Artifactory_local_maven_repository.Key),
+//				Username: "foo",
+//				Password: "bar",
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = artifactory.NewRemoteRepositoryReplication(ctx, "remote-rep", &artifactory.RemoteRepositoryReplicationArgs{
 //				RepoKey:                         providerTestDest.Key,
-//				CronExp:                         pulumi.String("0 0 * * * ?"),
-//				EnableEventReplication:          pulumi.Bool(true),
-//				Enabled:                         pulumi.Bool(true),
-//				SyncDeletes:                     pulumi.Bool(false),
-//				SyncProperties:                  pulumi.Bool(true),
-//				IncludePathPrefixPattern:        pulumi.String("/some-repo/"),
-//				ExcludePathPrefixPattern:        pulumi.String("/some-other-repo/"),
-//				CheckBinaryExistenceInFilestore: pulumi.Bool(false),
+//				CronExp:                         "0 0 * * * ?",
+//				EnableEventReplication:          true,
+//				Enabled:                         true,
+//				SyncDeletes:                     false,
+//				SyncProperties:                  true,
+//				IncludePathPrefixPattern:        "/some-repo/",
+//				ExcludePathPrefixPattern:        "/some-other-repo/",
+//				CheckBinaryExistenceInFilestore: false,
 //			})
 //			if err != nil {
 //				return err

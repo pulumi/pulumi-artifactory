@@ -16,7 +16,7 @@ import * as utilities from "./utilities";
  * import * as artifactory from "@pulumi/artifactory";
  * import * as fs from "fs";
  *
- * const my_key = new artifactory.DistributionPublicKey("my-key", {
+ * const my_key = new artifactory.index/distributionPublicKey.DistributionPublicKey("my-key", {
  *     alias: "my-key",
  *     publicKey: fs.readFileSync("samples/rsa.pub"),
  * });

@@ -13,56 +13,12 @@ namespace Pulumi.Artifactory
     {
         /// <summary>
         /// Retrieves a remote VCS repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var remote_vcs = Artifactory.GetRemoteVcsRepository.Invoke(new()
-        ///     {
-        ///         Key = "remote-vcs",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetRemoteVcsRepositoryResult> InvokeAsync(GetRemoteVcsRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRemoteVcsRepositoryResult>("artifactory:index/getRemoteVcsRepository:getRemoteVcsRepository", args ?? new GetRemoteVcsRepositoryArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves a remote VCS repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var remote_vcs = Artifactory.GetRemoteVcsRepository.Invoke(new()
-        ///     {
-        ///         Key = "remote-vcs",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetRemoteVcsRepositoryResult> Invoke(GetRemoteVcsRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRemoteVcsRepositoryResult>("artifactory:index/getRemoteVcsRepository:getRemoteVcsRepository", args ?? new GetRemoteVcsRepositoryInvokeArgs(), options.WithDefaults());

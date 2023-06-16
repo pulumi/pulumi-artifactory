@@ -8,17 +8,6 @@ import * as utilities from "./utilities";
 
 /**
  * Retrieves a remote Bower repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const remote-bower = artifactory.getRemoteBowerRepository({
- *     key: "remote-bower",
- * });
- * ```
  */
 export function getRemoteBowerRepository(args: GetRemoteBowerRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetRemoteBowerRepositoryResult> {
 
@@ -183,17 +172,6 @@ export interface GetRemoteBowerRepositoryResult {
 }
 /**
  * Retrieves a remote Bower repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const remote-bower = artifactory.getRemoteBowerRepository({
- *     key: "remote-bower",
- * });
- * ```
  */
 export function getRemoteBowerRepositoryOutput(args: GetRemoteBowerRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemoteBowerRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getRemoteBowerRepository(a, opts))

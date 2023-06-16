@@ -909,17 +909,17 @@ class FederatedGradleRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_federated_test_gradle_repo = artifactory.FederatedGradleRepository("terraform-federated-test-gradle-repo",
-            key="terraform-federated-test-gradle-repo",
+        terraform_federated_test_gradle_repo = artifactory.index.federated_gradle_repository.FederatedGradleRepository("terraform-federated-test-gradle-repo",
+            key=terraform-federated-test-gradle-repo,
             members=[
-                artifactory.FederatedGradleRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl.org/artifactory/terraform-federated-test-gradle-repo",
-                ),
-                artifactory.FederatedGradleRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl2.org/artifactory/terraform-federated-test-gradle-repo-2",
-                ),
+                {
+                    enabled: True,
+                    url: http://tempurl.org/artifactory/terraform-federated-test-gradle-repo,
+                },
+                {
+                    enabled: True,
+                    url: http://tempurl2.org/artifactory/terraform-federated-test-gradle-repo-2,
+                },
             ])
         ```
 
@@ -996,17 +996,17 @@ class FederatedGradleRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_federated_test_gradle_repo = artifactory.FederatedGradleRepository("terraform-federated-test-gradle-repo",
-            key="terraform-federated-test-gradle-repo",
+        terraform_federated_test_gradle_repo = artifactory.index.federated_gradle_repository.FederatedGradleRepository("terraform-federated-test-gradle-repo",
+            key=terraform-federated-test-gradle-repo,
             members=[
-                artifactory.FederatedGradleRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl.org/artifactory/terraform-federated-test-gradle-repo",
-                ),
-                artifactory.FederatedGradleRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl2.org/artifactory/terraform-federated-test-gradle-repo-2",
-                ),
+                {
+                    enabled: True,
+                    url: http://tempurl.org/artifactory/terraform-federated-test-gradle-repo,
+                },
+                {
+                    enabled: True,
+                    url: http://tempurl2.org/artifactory/terraform-federated-test-gradle-repo-2,
+                },
             ])
         ```
 

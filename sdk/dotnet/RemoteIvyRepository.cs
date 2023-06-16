@@ -23,7 +23,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var ivy_remote = new Artifactory.RemoteIvyRepository("ivy-remote", new()
+    ///     var ivy_remote = new Artifactory.Index.RemoteIvyRepository.RemoteIvyRepository("ivy-remote", new()
     ///     {
     ///         FetchJarsEagerly = true,
     ///         FetchSourcesEagerly = false,

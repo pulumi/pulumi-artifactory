@@ -23,12 +23,12 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var my_docker_local = new Artifactory.DockerV2Repository("my-docker-local", new()
+    ///     var my_docker_local = new Artifactory.Index.DockerV2Repository.DockerV2Repository("my-docker-local", new()
     ///     {
     ///         Key = "my-docker-local",
     ///     });
     /// 
-    ///     var docker_webhook = new Artifactory.DockerWebhook("docker-webhook", new()
+    ///     var docker_webhook = new Artifactory.Index.DockerWebhook.DockerWebhook("docker-webhook", new()
     ///     {
     ///         Key = "docker-webhook",
     ///         EventTypes = new[]
@@ -37,35 +37,35 @@ namespace Pulumi.Artifactory
     ///             "deleted",
     ///             "promoted",
     ///         },
-    ///         Criteria = new Artifactory.Inputs.DockerWebhookCriteriaArgs
+    ///         Criteria = 
     ///         {
-    ///             AnyLocal = true,
-    ///             AnyRemote = false,
-    ///             RepoKeys = new[]
+    ///             { "anyLocal", true },
+    ///             { "anyRemote", false },
+    ///             { "repoKeys", new[]
     ///             {
     ///                 my_docker_local.Key,
-    ///             },
-    ///             IncludePatterns = new[]
+    ///             } },
+    ///             { "includePatterns", new[]
     ///             {
     ///                 "foo/**",
-    ///             },
-    ///             ExcludePatterns = new[]
+    ///             } },
+    ///             { "excludePatterns", new[]
     ///             {
     ///                 "bar/**",
-    ///             },
+    ///             } },
     ///         },
     ///         Handlers = new[]
     ///         {
-    ///             new Artifactory.Inputs.DockerWebhookHandlerArgs
+    ///             
     ///             {
-    ///                 Url = "http://tempurl.org/webhook",
-    ///                 Secret = "some-secret",
-    ///                 Proxy = "proxy-key",
-    ///                 CustomHttpHeaders = 
+    ///                 { "url", "http://tempurl.org/webhook" },
+    ///                 { "secret", "some-secret" },
+    ///                 { "proxy", "proxy-key" },
+    ///                 { "customHttpHeaders", 
     ///                 {
     ///                     { "header-1", "value-1" },
     ///                     { "header-2", "value-2" },
-    ///                 },
+    ///                 } },
     ///             },
     ///         },
     ///     }, new CustomResourceOptions

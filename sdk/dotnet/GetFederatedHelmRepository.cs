@@ -13,56 +13,12 @@ namespace Pulumi.Artifactory
     {
         /// <summary>
         /// Retrieves a federated Helm repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var federated_test_helm_repo = Artifactory.GetFederatedHelmRepository.Invoke(new()
-        ///     {
-        ///         Key = "federated-test-helm-repo",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetFederatedHelmRepositoryResult> InvokeAsync(GetFederatedHelmRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFederatedHelmRepositoryResult>("artifactory:index/getFederatedHelmRepository:getFederatedHelmRepository", args ?? new GetFederatedHelmRepositoryArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves a federated Helm repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var federated_test_helm_repo = Artifactory.GetFederatedHelmRepository.Invoke(new()
-        ///     {
-        ///         Key = "federated-test-helm-repo",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetFederatedHelmRepositoryResult> Invoke(GetFederatedHelmRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFederatedHelmRepositoryResult>("artifactory:index/getFederatedHelmRepository:getFederatedHelmRepository", args ?? new GetFederatedHelmRepositoryInvokeArgs(), options.WithDefaults());

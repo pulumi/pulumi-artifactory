@@ -23,7 +23,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo_conda = new Artifactory.VirtualCondaRepository("foo-conda", new()
+    ///     var foo_conda = new Artifactory.Index.VirtualCondaRepository.VirtualCondaRepository("foo-conda", new()
     ///     {
     ///         Description = "A test virtual repo",
     ///         ExcludesPattern = "com/google/**",

@@ -25,7 +25,7 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
+//	"github.com/pulumi/pulumi-artifactory/sdk/v1/go/artifactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -33,23 +33,23 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewLocalMavenRepository(ctx, "providerTestSource", &artifactory.LocalMavenRepositoryArgs{
-//				Key: pulumi.String("provider_test_source"),
+//				Key: "provider_test_source",
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			providerTestDest, err := artifactory.NewRemoteMavenRepository(ctx, "providerTestDest", &artifactory.RemoteMavenRepositoryArgs{
-//				Key:      pulumi.String("provider_test_dest"),
-//				Password: pulumi.String("bar"),
-//				Url:      pulumi.String(fmt.Sprintf("https://example.com/artifactory/%v", artifactory_local_maven_repository.Artifactory_local_maven_repository.Key)),
-//				Username: pulumi.String("foo"),
+//				Key:      "provider_test_dest",
+//				Password: "bar",
+//				Url:      fmt.Sprintf("https://example.com/artifactory/%v", artifactory_local_maven_repository.Artifactory_local_maven_repository.Key),
+//				Username: "foo",
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = artifactory.NewPullReplication(ctx, "remote-rep", &artifactory.PullReplicationArgs{
-//				CronExp:                pulumi.String("0 0 * * * ?"),
-//				EnableEventReplication: pulumi.Bool(true),
+//				CronExp:                "0 0 * * * ?",
+//				EnableEventReplication: true,
 //				RepoKey:                providerTestDest.Key,
 //			})
 //			if err != nil {

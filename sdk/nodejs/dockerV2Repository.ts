@@ -13,7 +13,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const foo = new artifactory.DockerV2Repository("foo", {
+ * const foo = new artifactory.index/dockerV2Repository.DockerV2Repository("foo", {
  *     key: "foo",
  *     maxUniqueTags: 5,
  *     tagRetention: 3,

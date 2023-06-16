@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const terraform_federated_test_swift_repo = new artifactory.FederatedSwiftRepository("terraform-federated-test-swift-repo", {
+ * const terraform_federated_test_swift_repo = new artifactory.index/federatedSwiftRepository.FederatedSwiftRepository("terraform-federated-test-swift-repo", {
  *     key: "terraform-federated-test-swift-repo",
  *     members: [
  *         {

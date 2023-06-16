@@ -8,17 +8,6 @@ import * as utilities from "./utilities";
 
 /**
  * Retrieves a federated Pypi repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const federated-test-pypi-repo = artifactory.getFederatedPypiRepository({
- *     key: "federated-test-pypi-repo",
- * });
- * ```
  */
 export function getFederatedPypiRepository(args: GetFederatedPypiRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetFederatedPypiRepositoryResult> {
 
@@ -111,17 +100,6 @@ export interface GetFederatedPypiRepositoryResult {
 }
 /**
  * Retrieves a federated Pypi repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const federated-test-pypi-repo = artifactory.getFederatedPypiRepository({
- *     key: "federated-test-pypi-repo",
- * });
- * ```
  */
 export function getFederatedPypiRepositoryOutput(args: GetFederatedPypiRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedPypiRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getFederatedPypiRepository(a, opts))

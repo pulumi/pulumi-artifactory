@@ -11,32 +11,6 @@ import (
 )
 
 // Retrieves a remote Docker repository.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupRemoteDockerRepository(ctx, &artifactory.LookupRemoteDockerRepositoryArgs{
-//				Key: "remote-docker",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupRemoteDockerRepository(ctx *pulumi.Context, args *LookupRemoteDockerRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupRemoteDockerRepositoryResult, error) {
 	var rv LookupRemoteDockerRepositoryResult
 	err := ctx.Invoke("artifactory:index/getRemoteDockerRepository:getRemoteDockerRepository", args, &rv, opts...)

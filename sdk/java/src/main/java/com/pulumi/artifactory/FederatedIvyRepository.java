@@ -30,7 +30,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.artifactory.FederatedIvyRepository;
  * import com.pulumi.artifactory.FederatedIvyRepositoryArgs;
- * import com.pulumi.artifactory.inputs.FederatedIvyRepositoryMemberArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -47,14 +46,8 @@ import javax.annotation.Nullable;
  *         var terraform_federated_test_ivy_repo = new FederatedIvyRepository(&#34;terraform-federated-test-ivy-repo&#34;, FederatedIvyRepositoryArgs.builder()        
  *             .key(&#34;terraform-federated-test-ivy-repo&#34;)
  *             .members(            
- *                 FederatedIvyRepositoryMemberArgs.builder()
- *                     .enabled(true)
- *                     .url(&#34;http://tempurl.org/artifactory/terraform-federated-test-ivy-repo&#34;)
- *                     .build(),
- *                 FederatedIvyRepositoryMemberArgs.builder()
- *                     .enabled(true)
- *                     .url(&#34;http://tempurl2.org/artifactory/terraform-federated-test-ivy-repo-2&#34;)
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

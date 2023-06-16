@@ -29,7 +29,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.artifactory.FederatedOpkgRepository;
  * import com.pulumi.artifactory.FederatedOpkgRepositoryArgs;
- * import com.pulumi.artifactory.inputs.FederatedOpkgRepositoryMemberArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -46,14 +45,8 @@ import javax.annotation.Nullable;
  *         var terraform_federated_test_opkg_repo = new FederatedOpkgRepository(&#34;terraform-federated-test-opkg-repo&#34;, FederatedOpkgRepositoryArgs.builder()        
  *             .key(&#34;terraform-federated-test-opkg-repo&#34;)
  *             .members(            
- *                 FederatedOpkgRepositoryMemberArgs.builder()
- *                     .enabled(true)
- *                     .url(&#34;http://tempurl.org/artifactory/terraform-federated-test-opkg-repo&#34;)
- *                     .build(),
- *                 FederatedOpkgRepositoryMemberArgs.builder()
- *                     .enabled(true)
- *                     .url(&#34;http://tempurl2.org/artifactory/terraform-federated-test-opkg-repo-2&#34;)
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

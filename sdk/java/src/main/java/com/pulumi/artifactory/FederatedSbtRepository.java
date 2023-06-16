@@ -30,7 +30,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.artifactory.FederatedSbtRepository;
  * import com.pulumi.artifactory.FederatedSbtRepositoryArgs;
- * import com.pulumi.artifactory.inputs.FederatedSbtRepositoryMemberArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -47,14 +46,8 @@ import javax.annotation.Nullable;
  *         var terraform_federated_test_sbt_repo = new FederatedSbtRepository(&#34;terraform-federated-test-sbt-repo&#34;, FederatedSbtRepositoryArgs.builder()        
  *             .key(&#34;terraform-federated-test-sbt-repo&#34;)
  *             .members(            
- *                 FederatedSbtRepositoryMemberArgs.builder()
- *                     .enabled(true)
- *                     .url(&#34;http://tempurl.org/artifactory/terraform-federated-test-sbt-repo&#34;)
- *                     .build(),
- *                 FederatedSbtRepositoryMemberArgs.builder()
- *                     .enabled(true)
- *                     .url(&#34;http://tempurl2.org/artifactory/terraform-federated-test-sbt-repo-2&#34;)
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

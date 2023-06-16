@@ -8,17 +8,6 @@ import * as utilities from "./utilities";
 
 /**
  * Retrieves a federated Cran repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const federated-test-cran-repo = artifactory.getFederatedCranRepository({
- *     key: "federated-test-cran-repo",
- * });
- * ```
  */
 export function getFederatedCranRepository(args: GetFederatedCranRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetFederatedCranRepositoryResult> {
 
@@ -111,17 +100,6 @@ export interface GetFederatedCranRepositoryResult {
 }
 /**
  * Retrieves a federated Cran repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const federated-test-cran-repo = artifactory.getFederatedCranRepository({
- *     key: "federated-test-cran-repo",
- * });
- * ```
  */
 export function getFederatedCranRepositoryOutput(args: GetFederatedCranRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedCranRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getFederatedCranRepository(a, opts))

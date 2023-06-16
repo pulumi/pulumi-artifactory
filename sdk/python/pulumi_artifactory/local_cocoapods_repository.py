@@ -592,7 +592,7 @@ class LocalCocoapodsRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_local_test_cocoapods_repo = artifactory.LocalCocoapodsRepository("terraform-local-test-cocoapods-repo", key="terraform-local-test-cocoapods-repo")
+        terraform_local_test_cocoapods_repo = artifactory.index.local_cocoapods_repository.LocalCocoapodsRepository("terraform-local-test-cocoapods-repo", key=terraform-local-test-cocoapods-repo)
         ```
 
         ## Import
@@ -647,7 +647,7 @@ class LocalCocoapodsRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_local_test_cocoapods_repo = artifactory.LocalCocoapodsRepository("terraform-local-test-cocoapods-repo", key="terraform-local-test-cocoapods-repo")
+        terraform_local_test_cocoapods_repo = artifactory.index.local_cocoapods_repository.LocalCocoapodsRepository("terraform-local-test-cocoapods-repo", key=terraform-local-test-cocoapods-repo)
         ```
 
         ## Import

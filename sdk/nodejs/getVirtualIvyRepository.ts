@@ -6,17 +6,6 @@ import * as utilities from "./utilities";
 
 /**
  * Retrieves a virtual Ivy repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const virtual-ivy = artifactory.getVirtualIvyRepository({
- *     key: "virtual-ivy",
- * });
- * ```
  */
 export function getVirtualIvyRepository(args: GetVirtualIvyRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualIvyRepositoryResult> {
 
@@ -106,17 +95,6 @@ export interface GetVirtualIvyRepositoryResult {
 }
 /**
  * Retrieves a virtual Ivy repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const virtual-ivy = artifactory.getVirtualIvyRepository({
- *     key: "virtual-ivy",
- * });
- * ```
  */
 export function getVirtualIvyRepositoryOutput(args: GetVirtualIvyRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualIvyRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getVirtualIvyRepository(a, opts))

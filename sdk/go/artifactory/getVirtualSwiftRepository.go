@@ -11,32 +11,6 @@ import (
 )
 
 // Retrieves a virtual Swift repository.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupVirtualSwiftRepository(ctx, &artifactory.LookupVirtualSwiftRepositoryArgs{
-//				Key: "virtual-swift",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupVirtualSwiftRepository(ctx *pulumi.Context, args *LookupVirtualSwiftRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupVirtualSwiftRepositoryResult, error) {
 	var rv LookupVirtualSwiftRepositoryResult
 	err := ctx.Invoke("artifactory:index/getVirtualSwiftRepository:getVirtualSwiftRepository", args, &rv, opts...)

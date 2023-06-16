@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
+//	"github.com/pulumi/pulumi-artifactory/sdk/v1/go/artifactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -28,15 +28,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewFederatedCondaRepository(ctx, "terraform-federated-test-conda-repo", &artifactory.FederatedCondaRepositoryArgs{
-//				Key: pulumi.String("terraform-federated-test-conda-repo"),
-//				Members: artifactory.FederatedCondaRepositoryMemberArray{
-//					&artifactory.FederatedCondaRepositoryMemberArgs{
-//						Enabled: pulumi.Bool(true),
-//						Url:     pulumi.String("http://tempurl.org/artifactory/terraform-federated-test-conda-repo"),
+//				Key: "terraform-federated-test-conda-repo",
+//				Members: []map[string]interface{}{
+//					map[string]interface{}{
+//						"enabled": true,
+//						"url":     "http://tempurl.org/artifactory/terraform-federated-test-conda-repo",
 //					},
-//					&artifactory.FederatedCondaRepositoryMemberArgs{
-//						Enabled: pulumi.Bool(true),
-//						Url:     pulumi.String("http://tempurl2.org/artifactory/terraform-federated-test-conda-repo-2"),
+//					map[string]interface{}{
+//						"enabled": true,
+//						"url":     "http://tempurl2.org/artifactory/terraform-federated-test-conda-repo-2",
 //					},
 //				},
 //			})

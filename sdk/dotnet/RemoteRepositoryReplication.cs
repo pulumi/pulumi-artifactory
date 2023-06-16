@@ -25,12 +25,12 @@ namespace Pulumi.Artifactory
     /// {
     ///     var config = new Config();
     ///     var artifactoryUrl = config.Require("artifactoryUrl");
-    ///     var providerTestSource = new Artifactory.LocalMavenRepository("providerTestSource", new()
+    ///     var providerTestSource = new Artifactory.Index.LocalMavenRepository.LocalMavenRepository("providerTestSource", new()
     ///     {
     ///         Key = "provider_test_source",
     ///     });
     /// 
-    ///     var providerTestDest = new Artifactory.RemoteMavenRepository("providerTestDest", new()
+    ///     var providerTestDest = new Artifactory.Index.RemoteMavenRepository.RemoteMavenRepository("providerTestDest", new()
     ///     {
     ///         Key = "provider_test_dest",
     ///         Url = $"{artifactoryUrl}/artifactory/{artifactory_local_maven_repository.Artifactory_local_maven_repository.Key}",
@@ -38,7 +38,7 @@ namespace Pulumi.Artifactory
     ///         Password = "bar",
     ///     });
     /// 
-    ///     var remote_rep = new Artifactory.RemoteRepositoryReplication("remote-rep", new()
+    ///     var remote_rep = new Artifactory.Index.RemoteRepositoryReplication.RemoteRepositoryReplication("remote-rep", new()
     ///     {
     ///         RepoKey = providerTestDest.Key,
     ///         CronExp = "0 0 * * * ?",

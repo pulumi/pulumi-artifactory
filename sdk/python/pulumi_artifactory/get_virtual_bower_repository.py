@@ -206,15 +206,6 @@ def get_virtual_bower_repository(artifactory_requests_can_retrieve_remote_artifa
     """
     Retrieves a virtual Bower repository.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    virtual_alpine = artifactory.get_virtual_bower_repository(key="virtual-alpine")
-    ```
-
 
     :param bool external_dependencies_enabled: (Optional) When set, external dependencies are rewritten. Default value is false.
     :param Sequence[str] external_dependencies_patterns: (Optional) An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded from any external source.
@@ -276,15 +267,6 @@ def get_virtual_bower_repository_output(artifactory_requests_can_retrieve_remote
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualBowerRepositoryResult]:
     """
     Retrieves a virtual Bower repository.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    virtual_alpine = artifactory.get_virtual_bower_repository(key="virtual-alpine")
-    ```
 
 
     :param bool external_dependencies_enabled: (Optional) When set, external dependencies are rewritten. Default value is false.

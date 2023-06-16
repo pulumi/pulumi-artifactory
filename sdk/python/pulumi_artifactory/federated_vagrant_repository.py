@@ -675,17 +675,17 @@ class FederatedVagrantRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_federated_test_vagrant_repo = artifactory.FederatedVagrantRepository("terraform-federated-test-vagrant-repo",
-            key="terraform-federated-test-vagrant-repo",
+        terraform_federated_test_vagrant_repo = artifactory.index.federated_vagrant_repository.FederatedVagrantRepository("terraform-federated-test-vagrant-repo",
+            key=terraform-federated-test-vagrant-repo,
             members=[
-                artifactory.FederatedVagrantRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl.org/artifactory/terraform-federated-test-vagrant-repo",
-                ),
-                artifactory.FederatedVagrantRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl2.org/artifactory/terraform-federated-test-vagrant-repo-2",
-                ),
+                {
+                    enabled: True,
+                    url: http://tempurl.org/artifactory/terraform-federated-test-vagrant-repo,
+                },
+                {
+                    enabled: True,
+                    url: http://tempurl2.org/artifactory/terraform-federated-test-vagrant-repo-2,
+                },
             ])
         ```
 
@@ -747,17 +747,17 @@ class FederatedVagrantRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_federated_test_vagrant_repo = artifactory.FederatedVagrantRepository("terraform-federated-test-vagrant-repo",
-            key="terraform-federated-test-vagrant-repo",
+        terraform_federated_test_vagrant_repo = artifactory.index.federated_vagrant_repository.FederatedVagrantRepository("terraform-federated-test-vagrant-repo",
+            key=terraform-federated-test-vagrant-repo,
             members=[
-                artifactory.FederatedVagrantRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl.org/artifactory/terraform-federated-test-vagrant-repo",
-                ),
-                artifactory.FederatedVagrantRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl2.org/artifactory/terraform-federated-test-vagrant-repo-2",
-                ),
+                {
+                    enabled: True,
+                    url: http://tempurl.org/artifactory/terraform-federated-test-vagrant-repo,
+                },
+                {
+                    enabled: True,
+                    url: http://tempurl2.org/artifactory/terraform-federated-test-vagrant-repo-2,
+                },
             ])
         ```
 

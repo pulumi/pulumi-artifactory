@@ -16,7 +16,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const pypi_remote = new artifactory.RemotePypiRepository("pypi-remote", {
+ * const pypi_remote = new artifactory.index/remotePypiRepository.RemotePypiRepository("pypi-remote", {
  *     key: "pypi-remote-foo",
  *     pypiRegistryUrl: "https://pypi.org",
  *     pypiRepositorySuffix: "simple",

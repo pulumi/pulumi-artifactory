@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const terraform_federated_test_conan_repo = new artifactory.FederatedConanRepository("terraform-federated-test-conan-repo", {
+ * const terraform_federated_test_conan_repo = new artifactory.index/federatedConanRepository.FederatedConanRepository("terraform-federated-test-conan-repo", {
  *     key: "terraform-federated-test-conan-repo",
  *     members: [
  *         {

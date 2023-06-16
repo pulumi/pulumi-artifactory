@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
+//	"github.com/pulumi/pulumi-artifactory/sdk/v1/go/artifactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -29,11 +29,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewRemoteCargoRepository(ctx, "my-remote-cargo", &artifactory.RemoteCargoRepositoryArgs{
-//				AnonymousAccess:   pulumi.Bool(true),
-//				EnableSparseIndex: pulumi.Bool(true),
-//				GitRegistryUrl:    pulumi.String("https://github.com/rust-lang/foo.index"),
-//				Key:               pulumi.String("my-remote-cargo"),
-//				Url:               pulumi.String("https://github.com/rust-lang/crates.io-index"),
+//				AnonymousAccess:   true,
+//				EnableSparseIndex: true,
+//				GitRegistryUrl:    "https://github.com/rust-lang/foo.index",
+//				Key:               "my-remote-cargo",
+//				Url:               "https://github.com/rust-lang/crates.io-index",
 //			})
 //			if err != nil {
 //				return err

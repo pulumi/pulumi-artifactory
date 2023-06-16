@@ -23,7 +23,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var my_remote_debian = new Artifactory.RemoteDebianRepository("my-remote-debian", new()
+    ///     var my_remote_debian = new Artifactory.Index.RemoteDebianRepository.RemoteDebianRepository("my-remote-debian", new()
     ///     {
     ///         Key = "my-remote-Debian",
     ///         Url = "http://archive.ubuntu.com/ubuntu/",

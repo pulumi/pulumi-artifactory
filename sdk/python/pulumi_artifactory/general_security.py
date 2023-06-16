@@ -72,7 +72,7 @@ class GeneralSecurity(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         # Configure Artifactory general security settings
-        security = artifactory.GeneralSecurity("security", enable_anonymous_access=True)
+        security = artifactory.index.general_security.GeneralSecurity("security", enable_anonymous_access=True)
         ```
 
         ## Import
@@ -108,7 +108,7 @@ class GeneralSecurity(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         # Configure Artifactory general security settings
-        security = artifactory.GeneralSecurity("security", enable_anonymous_access=True)
+        security = artifactory.index.general_security.GeneralSecurity("security", enable_anonymous_access=True)
         ```
 
         ## Import

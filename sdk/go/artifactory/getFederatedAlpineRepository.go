@@ -11,32 +11,6 @@ import (
 )
 
 // Retrieves a federated Alpine repository.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupFederatedAlpineRepository(ctx, &artifactory.LookupFederatedAlpineRepositoryArgs{
-//				Key: "federated-test-alpine-repo",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupFederatedAlpineRepository(ctx *pulumi.Context, args *LookupFederatedAlpineRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupFederatedAlpineRepositoryResult, error) {
 	var rv LookupFederatedAlpineRepositoryResult
 	err := ctx.Invoke("artifactory:index/getFederatedAlpineRepository:getFederatedAlpineRepository", args, &rv, opts...)

@@ -596,7 +596,7 @@ class LocalGenericRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_local_test_generic_repo = artifactory.LocalGenericRepository("terraform-local-test-generic-repo", key="terraform-local-test-generic-repo")
+        terraform_local_test_generic_repo = artifactory.index.local_generic_repository.LocalGenericRepository("terraform-local-test-generic-repo", key=terraform-local-test-generic-repo)
         ```
 
         ## Import
@@ -652,7 +652,7 @@ class LocalGenericRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_local_test_generic_repo = artifactory.LocalGenericRepository("terraform-local-test-generic-repo", key="terraform-local-test-generic-repo")
+        terraform_local_test_generic_repo = artifactory.index.local_generic_repository.LocalGenericRepository("terraform-local-test-generic-repo", key=terraform-local-test-generic-repo)
         ```
 
         ## Import

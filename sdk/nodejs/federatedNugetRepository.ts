@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const terraform_federated_test_nuget_repo = new artifactory.FederatedNugetRepository("terraform-federated-test-nuget-repo", {
+ * const terraform_federated_test_nuget_repo = new artifactory.index/federatedNugetRepository.FederatedNugetRepository("terraform-federated-test-nuget-repo", {
  *     key: "terraform-federated-test-nuget-repo",
  *     members: [
  *         {

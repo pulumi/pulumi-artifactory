@@ -8,18 +8,6 @@ import * as utilities from "./utilities";
  * ## # Artifactory Group Data Source
  *
  * Provides an Artifactory group datasource. This can be used to read the configuration of groups in artifactory.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const myGroup = artifactory.getGroup({
- *     includeUsers: "true",
- *     name: "my_group",
- * });
- * ```
  */
 export function getGroup(args: GetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetGroupResult> {
 
@@ -149,18 +137,6 @@ export interface GetGroupResult {
  * ## # Artifactory Group Data Source
  *
  * Provides an Artifactory group datasource. This can be used to read the configuration of groups in artifactory.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const myGroup = artifactory.getGroup({
- *     includeUsers: "true",
- *     name: "my_group",
- * });
- * ```
  */
 export function getGroupOutput(args: GetGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGroupResult> {
     return pulumi.output(args).apply((a: any) => getGroup(a, opts))

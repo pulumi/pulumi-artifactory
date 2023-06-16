@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const terraform_federated_test_maven_repo = new artifactory.FederatedMavenRepository("terraform-federated-test-maven-repo", {
+ * const terraform_federated_test_maven_repo = new artifactory.index/federatedMavenRepository.FederatedMavenRepository("terraform-federated-test-maven-repo", {
  *     key: "terraform-federated-test-maven-repo",
  *     members: [
  *         {

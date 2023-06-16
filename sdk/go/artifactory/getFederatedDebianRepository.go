@@ -11,32 +11,6 @@ import (
 )
 
 // Retrieves a federated Debian repository.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupFederatedDebianRepository(ctx, &artifactory.LookupFederatedDebianRepositoryArgs{
-//				Key: "federated-test-debian-repo",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupFederatedDebianRepository(ctx *pulumi.Context, args *LookupFederatedDebianRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupFederatedDebianRepositoryResult, error) {
 	var rv LookupFederatedDebianRepositoryResult
 	err := ctx.Invoke("artifactory:index/getFederatedDebianRepository:getFederatedDebianRepository", args, &rv, opts...)

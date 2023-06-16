@@ -34,8 +34,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.artifactory.LocalGenericRepositoryArgs;
  * import com.pulumi.artifactory.ArtifactPropertyWebhook;
  * import com.pulumi.artifactory.ArtifactPropertyWebhookArgs;
- * import com.pulumi.artifactory.inputs.ArtifactPropertyWebhookCriteriaArgs;
- * import com.pulumi.artifactory.inputs.ArtifactPropertyWebhookHandlerArgs;
  * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -59,22 +57,8 @@ import javax.annotation.Nullable;
  *             .eventTypes(            
  *                 &#34;added&#34;,
  *                 &#34;deleted&#34;)
- *             .criteria(ArtifactPropertyWebhookCriteriaArgs.builder()
- *                 .anyLocal(true)
- *                 .anyRemote(false)
- *                 .repoKeys(my_generic_local.key())
- *                 .includePatterns(&#34;foo/**&#34;)
- *                 .excludePatterns(&#34;bar/**&#34;)
- *                 .build())
- *             .handlers(ArtifactPropertyWebhookHandlerArgs.builder()
- *                 .url(&#34;http://tempurl.org/webhook&#34;)
- *                 .secret(&#34;some-secret&#34;)
- *                 .proxy(&#34;proxy-key&#34;)
- *                 .customHttpHeaders(Map.ofEntries(
- *                     Map.entry(&#34;header-1&#34;, &#34;value-1&#34;),
- *                     Map.entry(&#34;header-2&#34;, &#34;value-2&#34;)
- *                 ))
- *                 .build())
+ *             .criteria(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .handlers(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(my_generic_local)
  *                 .build());

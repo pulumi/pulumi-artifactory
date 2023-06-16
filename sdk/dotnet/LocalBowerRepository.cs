@@ -22,7 +22,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var terraform_local_test_bower_repo = new Artifactory.LocalBowerRepository("terraform-local-test-bower-repo", new()
+    ///     var terraform_local_test_bower_repo = new Artifactory.Index.LocalBowerRepository.LocalBowerRepository("terraform-local-test-bower-repo", new()
     ///     {
     ///         Key = "terraform-local-test-bower-repo",
     ///     });

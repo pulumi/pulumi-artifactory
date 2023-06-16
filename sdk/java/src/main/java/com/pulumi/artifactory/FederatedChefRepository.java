@@ -29,7 +29,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.artifactory.FederatedChefRepository;
  * import com.pulumi.artifactory.FederatedChefRepositoryArgs;
- * import com.pulumi.artifactory.inputs.FederatedChefRepositoryMemberArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -46,14 +45,8 @@ import javax.annotation.Nullable;
  *         var terraform_federated_test_chef_repo = new FederatedChefRepository(&#34;terraform-federated-test-chef-repo&#34;, FederatedChefRepositoryArgs.builder()        
  *             .key(&#34;terraform-federated-test-chef-repo&#34;)
  *             .members(            
- *                 FederatedChefRepositoryMemberArgs.builder()
- *                     .enabled(true)
- *                     .url(&#34;http://tempurl.org/artifactory/terraform-federated-test-chef-repo&#34;)
- *                     .build(),
- *                 FederatedChefRepositoryMemberArgs.builder()
- *                     .enabled(true)
- *                     .url(&#34;http://tempurl2.org/artifactory/terraform-federated-test-chef-repo-2&#34;)
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

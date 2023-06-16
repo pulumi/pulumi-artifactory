@@ -309,16 +309,16 @@ class User(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        test_user = artifactory.User("test-user",
+        test_user = artifactory.index.user.User("test-user",
             admin=False,
             disable_ui_access=False,
-            email="test-user@artifactory-terraform.com",
+            email=test-user@artifactory-terraform.com,
             groups=[
-                "readers",
-                "logged-in-users",
+                readers,
+                logged-in-users,
             ],
             internal_password_disabled=False,
-            password="my super secret password",
+            password=my super secret password,
             profile_updatable=True)
         ```
         ## Managing groups relationship
@@ -361,16 +361,16 @@ class User(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        test_user = artifactory.User("test-user",
+        test_user = artifactory.index.user.User("test-user",
             admin=False,
             disable_ui_access=False,
-            email="test-user@artifactory-terraform.com",
+            email=test-user@artifactory-terraform.com,
             groups=[
-                "readers",
-                "logged-in-users",
+                readers,
+                logged-in-users,
             ],
             internal_password_disabled=False,
-            password="my super secret password",
+            password=my super secret password,
             profile_updatable=True)
         ```
         ## Managing groups relationship

@@ -11,32 +11,6 @@ import (
 )
 
 // Retrieves a virtual Puppet repository.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupVirtualPuppetRepository(ctx, &artifactory.LookupVirtualPuppetRepositoryArgs{
-//				Key: "virtual-puppet",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupVirtualPuppetRepository(ctx *pulumi.Context, args *LookupVirtualPuppetRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupVirtualPuppetRepositoryResult, error) {
 	var rv LookupVirtualPuppetRepositoryResult
 	err := ctx.Invoke("artifactory:index/getVirtualPuppetRepository:getVirtualPuppetRepository", args, &rv, opts...)

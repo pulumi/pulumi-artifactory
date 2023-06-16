@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
+//	"github.com/pulumi/pulumi-artifactory/sdk/v1/go/artifactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -29,8 +29,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewVirtualHelmRepository(ctx, "foo-helm-virtual", &artifactory.VirtualHelmRepositoryArgs{
-//				Key:           pulumi.String("foo-helm-virtual"),
-//				UseNamespaces: pulumi.Bool(true),
+//				Key:           "foo-helm-virtual",
+//				UseNamespaces: true,
 //			})
 //			if err != nil {
 //				return err

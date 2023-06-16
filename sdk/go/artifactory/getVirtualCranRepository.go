@@ -11,32 +11,6 @@ import (
 )
 
 // Retrieves a virtual Cran repository.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupVirtualCranRepository(ctx, &artifactory.LookupVirtualCranRepositoryArgs{
-//				Key: "virtual-cran",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupVirtualCranRepository(ctx *pulumi.Context, args *LookupVirtualCranRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupVirtualCranRepositoryResult, error) {
 	var rv LookupVirtualCranRepositoryResult
 	err := ctx.Invoke("artifactory:index/getVirtualCranRepository:getVirtualCranRepository", args, &rv, opts...)

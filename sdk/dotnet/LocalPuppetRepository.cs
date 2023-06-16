@@ -22,7 +22,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var terraform_local_test_puppet_repo = new Artifactory.LocalPuppetRepository("terraform-local-test-puppet-repo", new()
+    ///     var terraform_local_test_puppet_repo = new Artifactory.Index.LocalPuppetRepository.LocalPuppetRepository("terraform-local-test-puppet-repo", new()
     ///     {
     ///         Key = "terraform-local-test-puppet-repo",
     ///     });

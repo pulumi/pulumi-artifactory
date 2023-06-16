@@ -22,7 +22,7 @@ import (
 //
 //	"os"
 //
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
+//	"github.com/pulumi/pulumi-artifactory/sdk/v1/go/artifactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -38,9 +38,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewKeypair(ctx, "some-keypairRSA", &artifactory.KeypairArgs{
-//				PairName:   pulumi.String("some-keypair"),
-//				PairType:   pulumi.String("RSA"),
-//				Alias:      pulumi.String("foo-alias"),
+//				PairName:   "some-keypair",
+//				PairType:   "RSA",
+//				Alias:      "foo-alias",
 //				PrivateKey: readFileOrPanic("samples/rsa.priv"),
 //				PublicKey:  readFileOrPanic("samples/rsa.pub"),
 //			})
@@ -48,7 +48,7 @@ import (
 //				return err
 //			}
 //			_, err = artifactory.NewAlpineRepository(ctx, "terraform-local-test-alpine-repo-basic", &artifactory.AlpineRepositoryArgs{
-//				Key:               pulumi.String("terraform-local-test-alpine-repo-basic"),
+//				Key:               "terraform-local-test-alpine-repo-basic",
 //				PrimaryKeypairRef: some_keypairRSA.PairName,
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				some_keypairRSA,

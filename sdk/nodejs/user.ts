@@ -17,7 +17,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const test_user = new artifactory.User("test-user", {
+ * const test_user = new artifactory.index/user.User("test-user", {
  *     admin: false,
  *     disableUiAccess: false,
  *     email: "test-user@artifactory-terraform.com",

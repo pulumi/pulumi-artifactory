@@ -138,15 +138,6 @@ def get_user(admin: Optional[bool] = None,
 
     Provides an Artifactory user data source. This can be used to read the configuration of users in artifactory.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    user1 = artifactory.get_user(name="user1")
-    ```
-
 
     :param bool admin: When enabled, this user is an administrator with all the ensuing privileges. Default value is `false`.
     :param bool disable_ui_access: When set, this user can only access Artifactory through the REST API. This option cannot be set if the user has Admin privileges. Default value is `true`.
@@ -191,15 +182,6 @@ def get_user_output(admin: Optional[pulumi.Input[Optional[bool]]] = None,
     ## # Artifactory User Data Source
 
     Provides an Artifactory user data source. This can be used to read the configuration of users in artifactory.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    user1 = artifactory.get_user(name="user1")
-    ```
 
 
     :param bool admin: When enabled, this user is an administrator with all the ensuing privileges. Default value is `false`.

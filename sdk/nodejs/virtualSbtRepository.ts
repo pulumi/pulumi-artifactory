@@ -14,7 +14,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const foo_sbt = new artifactory.VirtualSbtRepository("foo-sbt", {
+ * const foo_sbt = new artifactory.index/virtualSbtRepository.VirtualSbtRepository("foo-sbt", {
  *     description: "A test virtual repo",
  *     excludesPattern: "com/google/**",
  *     includesPattern: "com/jfrog/**,cloud/jfrog/**",

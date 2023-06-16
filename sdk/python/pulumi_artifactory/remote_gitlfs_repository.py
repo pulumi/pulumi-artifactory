@@ -1475,9 +1475,9 @@ class RemoteGitlfsRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        my_remote_gitlfs = artifactory.RemoteGitlfsRepository("my-remote-gitlfs",
-            key="my-remote-gitlfs",
-            url="http://testartifactory.io/artifactory/example-gitlfs/")
+        my_remote_gitlfs = artifactory.index.remote_gitlfs_repository.RemoteGitlfsRepository("my-remote-gitlfs",
+            key=my-remote-gitlfs,
+            url=http://testartifactory.io/artifactory/example-gitlfs/)
         ```
 
         ## Import
@@ -1576,9 +1576,9 @@ class RemoteGitlfsRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        my_remote_gitlfs = artifactory.RemoteGitlfsRepository("my-remote-gitlfs",
-            key="my-remote-gitlfs",
-            url="http://testartifactory.io/artifactory/example-gitlfs/")
+        my_remote_gitlfs = artifactory.index.remote_gitlfs_repository.RemoteGitlfsRepository("my-remote-gitlfs",
+            key=my-remote-gitlfs,
+            url=http://testartifactory.io/artifactory/example-gitlfs/)
         ```
 
         ## Import

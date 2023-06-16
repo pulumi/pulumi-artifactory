@@ -23,7 +23,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var my_remote_puppet = new Artifactory.RemotePuppetRepository("my-remote-puppet", new()
+    ///     var my_remote_puppet = new Artifactory.Index.RemotePuppetRepository.RemotePuppetRepository("my-remote-puppet", new()
     ///     {
     ///         Key = "my-remote-puppet",
     ///         Url = "https://forgeapi.puppetlabs.com/",

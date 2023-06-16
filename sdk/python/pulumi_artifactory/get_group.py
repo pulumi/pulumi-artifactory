@@ -200,16 +200,6 @@ def get_group(admin_privileges: Optional[bool] = None,
 
     Provides an Artifactory group datasource. This can be used to read the configuration of groups in artifactory.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    my_group = artifactory.get_group(include_users="true",
-        name="my_group")
-    ```
-
 
     :param bool admin_privileges: Any users added to this group will automatically be assigned with admin privileges in the system.
     :param bool auto_join: When this parameter is set, any new users defined in the system are automatically assigned to this group.
@@ -274,16 +264,6 @@ def get_group_output(admin_privileges: Optional[pulumi.Input[Optional[bool]]] = 
     ## # Artifactory Group Data Source
 
     Provides an Artifactory group datasource. This can be used to read the configuration of groups in artifactory.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    my_group = artifactory.get_group(include_users="true",
-        name="my_group")
-    ```
 
 
     :param bool admin_privileges: Any users added to this group will automatically be assigned with admin privileges in the system.

@@ -498,15 +498,6 @@ def get_remote_composer_repository(allow_any_host_auth: Optional[bool] = None,
     """
     Retrieves a remote Composer repository.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    remote_composer = artifactory.get_remote_composer_repository(key="remote-composer")
-    ```
-
 
     :param str composer_registry_url: (Optional) Proxy remote Composer repository. Default value is `https://packagist.org`.
     :param str key: the identity key of the repo.
@@ -655,15 +646,6 @@ def get_remote_composer_repository_output(allow_any_host_auth: Optional[pulumi.I
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRemoteComposerRepositoryResult]:
     """
     Retrieves a remote Composer repository.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    remote_composer = artifactory.get_remote_composer_repository(key="remote-composer")
-    ```
 
 
     :param str composer_registry_url: (Optional) Proxy remote Composer repository. Default value is `https://packagist.org`.

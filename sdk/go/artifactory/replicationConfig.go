@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
+//	"github.com/pulumi/pulumi-artifactory/sdk/v1/go/artifactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -30,25 +30,25 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			providerTestSource, err := artifactory.NewLocalMavenRepository(ctx, "providerTestSource", &artifactory.LocalMavenRepositoryArgs{
-//				Key: pulumi.String("provider_test_source"),
+//				Key: "provider_test_source",
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = artifactory.NewLocalMavenRepository(ctx, "providerTestDest", &artifactory.LocalMavenRepositoryArgs{
-//				Key: pulumi.String("provider_test_dest"),
+//				Key: "provider_test_dest",
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = artifactory.NewReplicationConfig(ctx, "foo-rep", &artifactory.ReplicationConfigArgs{
-//				CronExp:                pulumi.String("0 0 * * * ?"),
-//				EnableEventReplication: pulumi.Bool(true),
-//				Replications: artifactory.ReplicationConfigReplicationArray{
-//					&artifactory.ReplicationConfigReplicationArgs{
-//						Password: pulumi.String("$var.artifactory_password"),
-//						Url:      pulumi.String("$var.artifactory_url"),
-//						Username: pulumi.String("$var.artifactory_username"),
+//				CronExp:                "0 0 * * * ?",
+//				EnableEventReplication: true,
+//				Replications: []map[string]interface{}{
+//					map[string]interface{}{
+//						"password": "$var.artifactory_password",
+//						"url":      "$var.artifactory_url",
+//						"username": "$var.artifactory_username",
 //					},
 //				},
 //				RepoKey: providerTestSource.Key,

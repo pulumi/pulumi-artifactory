@@ -8,17 +8,6 @@ import * as utilities from "./utilities";
 
 /**
  * Retrieves a remote Gems repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const remote-gems = artifactory.getRemoteGemsRepository({
- *     key: "remote-gems",
- * });
- * ```
  */
 export function getRemoteGemsRepository(args: GetRemoteGemsRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetRemoteGemsRepositoryResult> {
 
@@ -168,17 +157,6 @@ export interface GetRemoteGemsRepositoryResult {
 }
 /**
  * Retrieves a remote Gems repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const remote-gems = artifactory.getRemoteGemsRepository({
- *     key: "remote-gems",
- * });
- * ```
  */
 export function getRemoteGemsRepositoryOutput(args: GetRemoteGemsRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemoteGemsRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getRemoteGemsRepository(a, opts))

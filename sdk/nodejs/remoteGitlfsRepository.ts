@@ -16,7 +16,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const my_remote_gitlfs = new artifactory.RemoteGitlfsRepository("my-remote-gitlfs", {
+ * const my_remote_gitlfs = new artifactory.index/remoteGitlfsRepository.RemoteGitlfsRepository("my-remote-gitlfs", {
  *     key: "my-remote-gitlfs",
  *     url: "http://testartifactory.io/artifactory/example-gitlfs/",
  * });

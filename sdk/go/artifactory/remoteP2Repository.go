@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
+//	"github.com/pulumi/pulumi-artifactory/sdk/v1/go/artifactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -29,8 +29,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewRemoteP2Repository(ctx, "my-remote-p2", &artifactory.RemoteP2RepositoryArgs{
-//				Key: pulumi.String("my-remote-p2"),
-//				Url: pulumi.String("http://testartifactory.io/artifactory/example-p2/"),
+//				Key: "my-remote-p2",
+//				Url: "http://testartifactory.io/artifactory/example-p2/",
 //			})
 //			if err != nil {
 //				return err

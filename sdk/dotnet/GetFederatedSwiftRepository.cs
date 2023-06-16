@@ -13,56 +13,12 @@ namespace Pulumi.Artifactory
     {
         /// <summary>
         /// Retrieves a federated Swift repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var federated_test_swift_repo = Artifactory.GetFederatedSwiftRepository.Invoke(new()
-        ///     {
-        ///         Key = "federated-test-swift-repo",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetFederatedSwiftRepositoryResult> InvokeAsync(GetFederatedSwiftRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFederatedSwiftRepositoryResult>("artifactory:index/getFederatedSwiftRepository:getFederatedSwiftRepository", args ?? new GetFederatedSwiftRepositoryArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves a federated Swift repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var federated_test_swift_repo = Artifactory.GetFederatedSwiftRepository.Invoke(new()
-        ///     {
-        ///         Key = "federated-test-swift-repo",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetFederatedSwiftRepositoryResult> Invoke(GetFederatedSwiftRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFederatedSwiftRepositoryResult>("artifactory:index/getFederatedSwiftRepository:getFederatedSwiftRepository", args ?? new GetFederatedSwiftRepositoryInvokeArgs(), options.WithDefaults());

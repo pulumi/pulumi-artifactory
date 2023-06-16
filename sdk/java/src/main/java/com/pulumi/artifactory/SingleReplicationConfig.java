@@ -27,7 +27,6 @@ import javax.annotation.Nullable;
  * unexpected behaviour and will almost certainly cause your replications to break.**
  * 
  * ## Example Usage
- * 
  * ```java
  * package generated_program;
  * 

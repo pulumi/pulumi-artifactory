@@ -11,32 +11,6 @@ import (
 )
 
 // Retrieves a remote CRAN repository.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupRemoteCranRepository(ctx, &artifactory.LookupRemoteCranRepositoryArgs{
-//				Key: "remote-cran",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupRemoteCranRepository(ctx *pulumi.Context, args *LookupRemoteCranRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupRemoteCranRepositoryResult, error) {
 	var rv LookupRemoteCranRepositoryResult
 	err := ctx.Invoke("artifactory:index/getRemoteCranRepository:getRemoteCranRepository", args, &rv, opts...)

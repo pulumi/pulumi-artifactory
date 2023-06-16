@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
+//	"github.com/pulumi/pulumi-artifactory/sdk/v1/go/artifactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -28,7 +28,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewLocalGenericRepository(ctx, "terraform-local-test-generic-repo", &artifactory.LocalGenericRepositoryArgs{
-//				Key: pulumi.String("terraform-local-test-generic-repo"),
+//				Key: "terraform-local-test-generic-repo",
 //			})
 //			if err != nil {
 //				return err

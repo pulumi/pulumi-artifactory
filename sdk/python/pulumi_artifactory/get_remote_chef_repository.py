@@ -459,15 +459,6 @@ def get_remote_chef_repository(allow_any_host_auth: Optional[bool] = None,
     """
     Retrieves a remote Chef repository.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    remote_chef = artifactory.get_remote_chef_repository(key="remote-chef")
-    ```
-
 
     :param str key: the identity key of the repo.
     """
@@ -604,15 +595,6 @@ def get_remote_chef_repository_output(allow_any_host_auth: Optional[pulumi.Input
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRemoteChefRepositoryResult]:
     """
     Retrieves a remote Chef repository.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    remote_chef = artifactory.get_remote_chef_repository(key="remote-chef")
-    ```
 
 
     :param str key: the identity key of the repo.

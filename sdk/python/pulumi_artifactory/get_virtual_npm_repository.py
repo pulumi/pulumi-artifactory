@@ -210,15 +210,6 @@ def get_virtual_npm_repository(artifactory_requests_can_retrieve_remote_artifact
     """
     Retrieves a virtual NPM repository.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    virtual_npm = artifactory.get_virtual_npm_repository(key="virtual-npm")
-    ```
-
 
     :param str key: the identity key of the repo.
     :param int retrieval_cache_period_seconds: (Optional, Default: `7200`) This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
@@ -281,15 +272,6 @@ def get_virtual_npm_repository_output(artifactory_requests_can_retrieve_remote_a
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualNpmRepositoryResult]:
     """
     Retrieves a virtual NPM repository.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    virtual_npm = artifactory.get_virtual_npm_repository(key="virtual-npm")
-    ```
 
 
     :param str key: the identity key of the repo.

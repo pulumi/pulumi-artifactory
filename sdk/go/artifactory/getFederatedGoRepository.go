@@ -11,32 +11,6 @@ import (
 )
 
 // Retrieves a federated Go repository.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupFederatedGoRepository(ctx, &artifactory.LookupFederatedGoRepositoryArgs{
-//				Key: "federated-test-go-repo",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupFederatedGoRepository(ctx *pulumi.Context, args *LookupFederatedGoRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupFederatedGoRepositoryResult, error) {
 	var rv LookupFederatedGoRepositoryResult
 	err := ctx.Invoke("artifactory:index/getFederatedGoRepository:getFederatedGoRepository", args, &rv, opts...)

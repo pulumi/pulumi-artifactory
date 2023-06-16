@@ -13,56 +13,12 @@ namespace Pulumi.Artifactory
     {
         /// <summary>
         /// Retrieves a virtual SBT repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var virtual_sbt = Artifactory.GetVirtualSbtRepository.Invoke(new()
-        ///     {
-        ///         Key = "virtual-sbt",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetVirtualSbtRepositoryResult> InvokeAsync(GetVirtualSbtRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualSbtRepositoryResult>("artifactory:index/getVirtualSbtRepository:getVirtualSbtRepository", args ?? new GetVirtualSbtRepositoryArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves a virtual SBT repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var virtual_sbt = Artifactory.GetVirtualSbtRepository.Invoke(new()
-        ///     {
-        ///         Key = "virtual-sbt",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetVirtualSbtRepositoryResult> Invoke(GetVirtualSbtRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualSbtRepositoryResult>("artifactory:index/getVirtualSbtRepository:getVirtualSbtRepository", args ?? new GetVirtualSbtRepositoryInvokeArgs(), options.WithDefaults());

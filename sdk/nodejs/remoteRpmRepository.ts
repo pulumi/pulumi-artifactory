@@ -16,7 +16,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const my_remote_rpm = new artifactory.RemoteRpmRepository("my-remote-rpm", {
+ * const my_remote_rpm = new artifactory.index/remoteRpmRepository.RemoteRpmRepository("my-remote-rpm", {
  *     key: "my-remote-rpm",
  *     url: "http://mirror.centos.org/centos/",
  * });

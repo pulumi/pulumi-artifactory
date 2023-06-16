@@ -11,32 +11,6 @@ import (
 )
 
 // Retrieves a remote Swift repository.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupRemoteSwiftRepository(ctx, &artifactory.LookupRemoteSwiftRepositoryArgs{
-//				Key: "remote-swift",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupRemoteSwiftRepository(ctx *pulumi.Context, args *LookupRemoteSwiftRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupRemoteSwiftRepositoryResult, error) {
 	var rv LookupRemoteSwiftRepositoryResult
 	err := ctx.Invoke("artifactory:index/getRemoteSwiftRepository:getRemoteSwiftRepository", args, &rv, opts...)

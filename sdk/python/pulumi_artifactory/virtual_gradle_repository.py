@@ -560,13 +560,13 @@ class VirtualGradleRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        foo_gradle = artifactory.VirtualGradleRepository("foo-gradle",
-            description="A test virtual repo",
-            excludes_pattern="com/google/**",
-            includes_pattern="com/jfrog/**,cloud/jfrog/**",
-            key="foo-gradle",
-            notes="Internal description",
-            pom_repository_references_cleanup_policy="discard_active_reference",
+        foo_gradle = artifactory.index.virtual_gradle_repository.VirtualGradleRepository("foo-gradle",
+            description=A test virtual repo,
+            excludes_pattern=com/google/**,
+            includes_pattern=com/jfrog/**,cloud/jfrog/**,
+            key=foo-gradle,
+            notes=Internal description,
+            pom_repository_references_cleanup_policy=discard_active_reference,
             repositories=[])
         ```
 
@@ -622,13 +622,13 @@ class VirtualGradleRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        foo_gradle = artifactory.VirtualGradleRepository("foo-gradle",
-            description="A test virtual repo",
-            excludes_pattern="com/google/**",
-            includes_pattern="com/jfrog/**,cloud/jfrog/**",
-            key="foo-gradle",
-            notes="Internal description",
-            pom_repository_references_cleanup_policy="discard_active_reference",
+        foo_gradle = artifactory.index.virtual_gradle_repository.VirtualGradleRepository("foo-gradle",
+            description=A test virtual repo,
+            excludes_pattern=com/google/**,
+            includes_pattern=com/jfrog/**,cloud/jfrog/**,
+            key=foo-gradle,
+            notes=Internal description,
+            pom_repository_references_cleanup_policy=discard_active_reference,
             repositories=[])
         ```
 

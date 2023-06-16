@@ -18,7 +18,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
+//	"github.com/pulumi/pulumi-artifactory/sdk/v1/go/artifactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -26,12 +26,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewVirtualTerraformRepository(ctx, "terraform-virtual", &artifactory.VirtualTerraformRepositoryArgs{
-//				Description:     pulumi.String("A test virtual repo"),
-//				ExcludesPattern: pulumi.String("com/google/**"),
-//				IncludesPattern: pulumi.String("com/jfrog/**,cloud/jfrog/**"),
-//				Key:             pulumi.String("terraform-remote"),
-//				Notes:           pulumi.String("Internal description"),
-//				Repositories:    pulumi.StringArray{},
+//				Description:     "A test virtual repo",
+//				ExcludesPattern: "com/google/**",
+//				IncludesPattern: "com/jfrog/**,cloud/jfrog/**",
+//				Key:             "terraform-remote",
+//				Notes:           "Internal description",
+//				Repositories:    []interface{}{},
 //			})
 //			if err != nil {
 //				return err

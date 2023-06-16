@@ -16,7 +16,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const maven_remote = new artifactory.RemoteMavenRepository("maven-remote", {
+ * const maven_remote = new artifactory.index/remoteMavenRepository.RemoteMavenRepository("maven-remote", {
  *     fetchJarsEagerly: true,
  *     fetchSourcesEagerly: false,
  *     key: "maven-remote-foo",

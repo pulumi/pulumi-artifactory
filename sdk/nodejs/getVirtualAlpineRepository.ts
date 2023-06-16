@@ -6,17 +6,6 @@ import * as utilities from "./utilities";
 
 /**
  * Retrieves a virtual Alpine repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const virtual-alpine = artifactory.getVirtualAlpineRepository({
- *     key: "virtual-alpine",
- * });
- * ```
  */
 export function getVirtualAlpineRepository(args: GetVirtualAlpineRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualAlpineRepositoryResult> {
 
@@ -97,17 +86,6 @@ export interface GetVirtualAlpineRepositoryResult {
 }
 /**
  * Retrieves a virtual Alpine repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const virtual-alpine = artifactory.getVirtualAlpineRepository({
- *     key: "virtual-alpine",
- * });
- * ```
  */
 export function getVirtualAlpineRepositoryOutput(args: GetVirtualAlpineRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualAlpineRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getVirtualAlpineRepository(a, opts))

@@ -675,17 +675,17 @@ class FederatedGitltfsRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_federated_test_gitlfs_repo = artifactory.FederatedGitltfsRepository("terraform-federated-test-gitlfs-repo",
-            key="terraform-federated-test-gitlfs-repo",
+        terraform_federated_test_gitlfs_repo = artifactory.index.federated_gitltfs_repository.FederatedGitltfsRepository("terraform-federated-test-gitlfs-repo",
+            key=terraform-federated-test-gitlfs-repo,
             members=[
-                artifactory.FederatedGitltfsRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl.org/artifactory/terraform-federated-test-gitlfs-repo",
-                ),
-                artifactory.FederatedGitltfsRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl2.org/artifactory/terraform-federated-test-gitlfs-repo-2",
-                ),
+                {
+                    enabled: True,
+                    url: http://tempurl.org/artifactory/terraform-federated-test-gitlfs-repo,
+                },
+                {
+                    enabled: True,
+                    url: http://tempurl2.org/artifactory/terraform-federated-test-gitlfs-repo-2,
+                },
             ])
         ```
 
@@ -747,17 +747,17 @@ class FederatedGitltfsRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_federated_test_gitlfs_repo = artifactory.FederatedGitltfsRepository("terraform-federated-test-gitlfs-repo",
-            key="terraform-federated-test-gitlfs-repo",
+        terraform_federated_test_gitlfs_repo = artifactory.index.federated_gitltfs_repository.FederatedGitltfsRepository("terraform-federated-test-gitlfs-repo",
+            key=terraform-federated-test-gitlfs-repo,
             members=[
-                artifactory.FederatedGitltfsRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl.org/artifactory/terraform-federated-test-gitlfs-repo",
-                ),
-                artifactory.FederatedGitltfsRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl2.org/artifactory/terraform-federated-test-gitlfs-repo-2",
-                ),
+                {
+                    enabled: True,
+                    url: http://tempurl.org/artifactory/terraform-federated-test-gitlfs-repo,
+                },
+                {
+                    enabled: True,
+                    url: http://tempurl2.org/artifactory/terraform-federated-test-gitlfs-repo-2,
+                },
             ])
         ```
 

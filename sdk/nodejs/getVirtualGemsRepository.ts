@@ -6,17 +6,6 @@ import * as utilities from "./utilities";
 
 /**
  * Retrieves a virtual Gems repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const virtual-gems = artifactory.getVirtualGemsRepository({
- *     key: "virtual-gems",
- * });
- * ```
  */
 export function getVirtualGemsRepository(args: GetVirtualGemsRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualGemsRepositoryResult> {
 
@@ -79,17 +68,6 @@ export interface GetVirtualGemsRepositoryResult {
 }
 /**
  * Retrieves a virtual Gems repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const virtual-gems = artifactory.getVirtualGemsRepository({
- *     key: "virtual-gems",
- * });
- * ```
  */
 export function getVirtualGemsRepositoryOutput(args: GetVirtualGemsRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualGemsRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getVirtualGemsRepository(a, opts))

@@ -16,7 +16,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const my_remote_docker = new artifactory.RemoteDockerRepository("my-remote-docker", {
+ * const my_remote_docker = new artifactory.index/remoteDockerRepository.RemoteDockerRepository("my-remote-docker", {
  *     blockPushingSchema1: true,
  *     enableTokenAuthentication: true,
  *     externalDependenciesEnabled: true,

@@ -13,56 +13,12 @@ namespace Pulumi.Artifactory
     {
         /// <summary>
         /// Retrieves a virtual Pypi repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var virtual_pypi = Artifactory.GetVirtualPypiRepository.Invoke(new()
-        ///     {
-        ///         Key = "virtual-pypi",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetVirtualPypiRepositoryResult> InvokeAsync(GetVirtualPypiRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualPypiRepositoryResult>("artifactory:index/getVirtualPypiRepository:getVirtualPypiRepository", args ?? new GetVirtualPypiRepositoryArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves a virtual Pypi repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var virtual_pypi = Artifactory.GetVirtualPypiRepository.Invoke(new()
-        ///     {
-        ///         Key = "virtual-pypi",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetVirtualPypiRepositoryResult> Invoke(GetVirtualPypiRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualPypiRepositoryResult>("artifactory:index/getVirtualPypiRepository:getVirtualPypiRepository", args ?? new GetVirtualPypiRepositoryInvokeArgs(), options.WithDefaults());

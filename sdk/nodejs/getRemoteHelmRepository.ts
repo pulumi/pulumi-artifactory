@@ -8,17 +8,6 @@ import * as utilities from "./utilities";
 
 /**
  * Retrieves a remote Helm repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const remote-helm = artifactory.getRemoteHelmRepository({
- *     key: "remote-helm",
- * });
- * ```
  */
 export function getRemoteHelmRepository(args: GetRemoteHelmRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetRemoteHelmRepositoryResult> {
 
@@ -195,17 +184,6 @@ export interface GetRemoteHelmRepositoryResult {
 }
 /**
  * Retrieves a remote Helm repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const remote-helm = artifactory.getRemoteHelmRepository({
- *     key: "remote-helm",
- * });
- * ```
  */
 export function getRemoteHelmRepositoryOutput(args: GetRemoteHelmRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemoteHelmRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getRemoteHelmRepository(a, opts))

@@ -11,7 +11,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const terraform_virtual = new artifactory.VirtualTerraformRepository("terraform-virtual", {
+ * const terraform_virtual = new artifactory.index/virtualTerraformRepository.VirtualTerraformRepository("terraform-virtual", {
  *     description: "A test virtual repo",
  *     excludesPattern: "com/google/**",
  *     includesPattern: "com/jfrog/**,cloud/jfrog/**",

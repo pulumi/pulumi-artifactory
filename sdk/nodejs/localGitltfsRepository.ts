@@ -13,7 +13,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const terraform_local_test_gitlfs_repo = new artifactory.LocalGitltfsRepository("terraform-local-test-gitlfs-repo", {key: "terraform-local-test-gitlfs-repo"});
+ * const terraform_local_test_gitlfs_repo = new artifactory.index/localGitltfsRepository.LocalGitltfsRepository("terraform-local-test-gitlfs-repo", {key: "terraform-local-test-gitlfs-repo"});
  * ```
  *
  * ## Import

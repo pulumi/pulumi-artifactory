@@ -13,56 +13,12 @@ namespace Pulumi.Artifactory
     {
         /// <summary>
         /// Retrieves a federated Cran repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var federated_test_cran_repo = Artifactory.GetFederatedCranRepository.Invoke(new()
-        ///     {
-        ///         Key = "federated-test-cran-repo",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetFederatedCranRepositoryResult> InvokeAsync(GetFederatedCranRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFederatedCranRepositoryResult>("artifactory:index/getFederatedCranRepository:getFederatedCranRepository", args ?? new GetFederatedCranRepositoryArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves a federated Cran repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var federated_test_cran_repo = Artifactory.GetFederatedCranRepository.Invoke(new()
-        ///     {
-        ///         Key = "federated-test-cran-repo",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetFederatedCranRepositoryResult> Invoke(GetFederatedCranRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFederatedCranRepositoryResult>("artifactory:index/getFederatedCranRepository:getFederatedCranRepository", args ?? new GetFederatedCranRepositoryInvokeArgs(), options.WithDefaults());

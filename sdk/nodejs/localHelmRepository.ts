@@ -13,7 +13,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const terraform_local_test_helm_repo = new artifactory.LocalHelmRepository("terraform-local-test-helm-repo", {key: "terraform-local-test-helm-repo"});
+ * const terraform_local_test_helm_repo = new artifactory.index/localHelmRepository.LocalHelmRepository("terraform-local-test-helm-repo", {key: "terraform-local-test-helm-repo"});
  * ```
  *
  * ## Import

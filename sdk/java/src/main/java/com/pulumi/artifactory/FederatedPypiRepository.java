@@ -29,7 +29,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.artifactory.FederatedPypiRepository;
  * import com.pulumi.artifactory.FederatedPypiRepositoryArgs;
- * import com.pulumi.artifactory.inputs.FederatedPypiRepositoryMemberArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -46,14 +45,8 @@ import javax.annotation.Nullable;
  *         var terraform_federated_test_pypi_repo = new FederatedPypiRepository(&#34;terraform-federated-test-pypi-repo&#34;, FederatedPypiRepositoryArgs.builder()        
  *             .key(&#34;terraform-federated-test-pypi-repo&#34;)
  *             .members(            
- *                 FederatedPypiRepositoryMemberArgs.builder()
- *                     .enabled(true)
- *                     .url(&#34;http://tempurl.org/artifactory/terraform-federated-test-pypi-repo&#34;)
- *                     .build(),
- *                 FederatedPypiRepositoryMemberArgs.builder()
- *                     .enabled(true)
- *                     .url(&#34;http://tempurl2.org/artifactory/terraform-federated-test-pypi-repo-2&#34;)
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

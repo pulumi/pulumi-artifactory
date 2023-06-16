@@ -16,7 +16,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const npm_remote = new artifactory.RemoteNpmRepository("npm-remote", {
+ * const npm_remote = new artifactory.index/remoteNpmRepository.RemoteNpmRepository("npm-remote", {
  *     key: "npm-remote",
  *     listRemoteFolderItems: true,
  *     mismatchingMimeTypesOverrideList: "application/json,application/xml",

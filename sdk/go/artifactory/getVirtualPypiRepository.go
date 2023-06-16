@@ -11,32 +11,6 @@ import (
 )
 
 // Retrieves a virtual Pypi repository.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupVirtualPypiRepository(ctx, &artifactory.LookupVirtualPypiRepositoryArgs{
-//				Key: "virtual-pypi",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupVirtualPypiRepository(ctx *pulumi.Context, args *LookupVirtualPypiRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupVirtualPypiRepositoryResult, error) {
 	var rv LookupVirtualPypiRepositoryResult
 	err := ctx.Invoke("artifactory:index/getVirtualPypiRepository:getVirtualPypiRepository", args, &rv, opts...)

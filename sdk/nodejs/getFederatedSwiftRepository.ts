@@ -8,17 +8,6 @@ import * as utilities from "./utilities";
 
 /**
  * Retrieves a federated Swift repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const federated-test-swift-repo = artifactory.getFederatedSwiftRepository({
- *     key: "federated-test-swift-repo",
- * });
- * ```
  */
 export function getFederatedSwiftRepository(args: GetFederatedSwiftRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetFederatedSwiftRepositoryResult> {
 
@@ -111,17 +100,6 @@ export interface GetFederatedSwiftRepositoryResult {
 }
 /**
  * Retrieves a federated Swift repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const federated-test-swift-repo = artifactory.getFederatedSwiftRepository({
- *     key: "federated-test-swift-repo",
- * });
- * ```
  */
 export function getFederatedSwiftRepositoryOutput(args: GetFederatedSwiftRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedSwiftRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getFederatedSwiftRepository(a, opts))

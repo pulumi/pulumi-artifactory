@@ -23,7 +23,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var my_remote_cran = new Artifactory.RemoteCranRepository("my-remote-cran", new()
+    ///     var my_remote_cran = new Artifactory.Index.RemoteCranRepository.RemoteCranRepository("my-remote-cran", new()
     ///     {
     ///         Key = "my-remote-cran",
     ///         Url = "https://cran.r-project.org/",

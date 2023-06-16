@@ -20,7 +20,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var terraform_remote = new Artifactory.RemoteTerraformRepository("terraform-remote", new()
+    ///     var terraform_remote = new Artifactory.Index.RemoteTerraformRepository.RemoteTerraformRepository("terraform-remote", new()
     ///     {
     ///         Key = "terraform-remote",
     ///         TerraformProvidersUrl = "https://releases.hashicorp.com",

@@ -21,7 +21,7 @@ namespace Pulumi.Artifactory
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Define a new Artifactory 'anonymous' user for import
-    ///     var anonymous = new Artifactory.AnonymousUser("anonymous");
+    ///     var anonymous = new Artifactory.Index.AnonymousUser.AnonymousUser("anonymous");
     /// 
     /// });
     /// ```

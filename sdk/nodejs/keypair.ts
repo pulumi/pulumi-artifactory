@@ -18,7 +18,7 @@ import * as utilities from "./utilities";
  * import * as artifactory from "@pulumi/artifactory";
  * import * as fs from "fs";
  *
- * const some_keypair6543461672124900137 = new artifactory.Keypair("some-keypair6543461672124900137", {
+ * const some_keypair6543461672124900137 = new artifactory.index/keypair.Keypair("some-keypair6543461672124900137", {
  *     pairName: "some-keypair6543461672124900137",
  *     pairType: "RSA",
  *     alias: "foo-alias6543461672124900137",

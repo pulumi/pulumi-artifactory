@@ -19,6 +19,49 @@ import (
 // **WARNING: This should not be used on a repository with `ReplicationConfig`. Using both together will cause
 // unexpected behaviour and will almost certainly cause your replications to break.**
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v1/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			providerTestSource, err := artifactory.NewLocalMavenRepository(ctx, "providerTestSource", &artifactory.LocalMavenRepositoryArgs{
+//				Key: "provider_test_source",
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = artifactory.NewLocalMavenRepository(ctx, "providerTestDest", &artifactory.LocalMavenRepositoryArgs{
+//				Key: "provider_test_dest",
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = artifactory.NewSingleReplicationConfig(ctx, "foo-rep", &artifactory.SingleReplicationConfigArgs{
+//				CronExp:                "0 0 * * * ?",
+//				EnableEventReplication: true,
+//				Password:               _var.Artifactory_password,
+//				RepoKey:                providerTestSource.Key,
+//				Url:                    _var.Artifactory_url,
+//				Username:               _var.Artifactory_username,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Replication configs can be imported using their repo key, e.g.

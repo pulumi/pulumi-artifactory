@@ -472,15 +472,6 @@ def get_remote_generic_repository(allow_any_host_auth: Optional[bool] = None,
     """
     Retrieves a remote Generic repository.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    remote_generic = artifactory.get_remote_generic_repository(key="remote-generic")
-    ```
-
 
     :param str key: the identity key of the repo.
     :param bool propagate_query_params: (Optional, Default: `false`) When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
@@ -621,15 +612,6 @@ def get_remote_generic_repository_output(allow_any_host_auth: Optional[pulumi.In
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRemoteGenericRepositoryResult]:
     """
     Retrieves a remote Generic repository.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    remote_generic = artifactory.get_remote_generic_repository(key="remote-generic")
-    ```
 
 
     :param str key: the identity key of the repo.

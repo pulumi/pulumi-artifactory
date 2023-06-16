@@ -14,21 +14,21 @@ import * as utilities from "./utilities";
  * import * as artifactory from "@pulumi/artifactory";
  * import * as fs from "fs";
  *
- * const some_keypair_gpg_1 = new artifactory.Keypair("some-keypair-gpg-1", {
+ * const some_keypair_gpg_1 = new artifactory.index/keypair.Keypair("some-keypair-gpg-1", {
  *     pairName: `some-keypair${random_id.randid.id}`,
  *     pairType: "GPG",
  *     alias: "foo-alias1",
  *     privateKey: fs.readFileSync("samples/gpg.priv"),
  *     publicKey: fs.readFileSync("samples/gpg.pub"),
  * });
- * const some_keypair_gpg_2 = new artifactory.Keypair("some-keypair-gpg-2", {
+ * const some_keypair_gpg_2 = new artifactory.index/keypair.Keypair("some-keypair-gpg-2", {
  *     pairName: `some-keypair${random_id.randid.id}`,
  *     pairType: "GPG",
  *     alias: "foo-alias2",
  *     privateKey: fs.readFileSync("samples/gpg.priv"),
  *     publicKey: fs.readFileSync("samples/gpg.pub"),
  * });
- * const terraform_local_test_rpm_repo_basic = new artifactory.LocalRpmRepository("terraform-local-test-rpm-repo-basic", {
+ * const terraform_local_test_rpm_repo_basic = new artifactory.index/localRpmRepository.LocalRpmRepository("terraform-local-test-rpm-repo-basic", {
  *     key: "terraform-local-test-rpm-repo-basic",
  *     yumRootDepth: 5,
  *     calculateYumMetadata: true,

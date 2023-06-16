@@ -498,15 +498,6 @@ def get_remote_helm_repository(allow_any_host_auth: Optional[bool] = None,
     """
     Retrieves a remote Helm repository.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    remote_helm = artifactory.get_remote_helm_repository(key="remote-helm")
-    ```
-
 
     :param bool external_dependencies_enabled: (Optional) When set, external dependencies are rewritten. `External Dependency Rewrite` in the UI.
     :param Sequence[str] external_dependencies_patterns: (Optional) An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response. By default, this is set to `[**]` in the UI, which means that remote modules may be downloaded from any external VCS source. Due to SDKv2 limitations, we can't set the default value for the list. This value `[**]` must be assigned to the attribute manually, if user don't specify any other non-default values. We don't want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns `[**]` on update if HCL doesn't have the attribute set or the list is empty.
@@ -655,15 +646,6 @@ def get_remote_helm_repository_output(allow_any_host_auth: Optional[pulumi.Input
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRemoteHelmRepositoryResult]:
     """
     Retrieves a remote Helm repository.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    remote_helm = artifactory.get_remote_helm_repository(key="remote-helm")
-    ```
 
 
     :param bool external_dependencies_enabled: (Optional) When set, external dependencies are rewritten. `External Dependency Rewrite` in the UI.

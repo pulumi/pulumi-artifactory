@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
+//	"github.com/pulumi/pulumi-artifactory/sdk/v1/go/artifactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -29,36 +29,36 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewArtifactoryReleaseBundleWebhook(ctx, "artifactory-release-bundle-webhook", &artifactory.ArtifactoryReleaseBundleWebhookArgs{
-//				Criteria: &artifactory.ArtifactoryReleaseBundleWebhookCriteriaArgs{
-//					AnyReleaseBundle: pulumi.Bool(false),
-//					ExcludePatterns: pulumi.StringArray{
-//						pulumi.String("bar/**"),
+//				Criteria: map[string]interface{}{
+//					"anyReleaseBundle": false,
+//					"excludePatterns": []string{
+//						"bar/**",
 //					},
-//					IncludePatterns: pulumi.StringArray{
-//						pulumi.String("foo/**"),
+//					"includePatterns": []string{
+//						"foo/**",
 //					},
-//					RegisteredReleaseBundleNames: pulumi.StringArray{
-//						pulumi.String("bundle-name"),
+//					"registeredReleaseBundleNames": []string{
+//						"bundle-name",
 //					},
 //				},
-//				EventTypes: pulumi.StringArray{
-//					pulumi.String("received"),
-//					pulumi.String("delete_started"),
-//					pulumi.String("delete_completed"),
-//					pulumi.String("delete_failed"),
+//				EventTypes: []string{
+//					"received",
+//					"delete_started",
+//					"delete_completed",
+//					"delete_failed",
 //				},
-//				Handlers: artifactory.ArtifactoryReleaseBundleWebhookHandlerArray{
-//					&artifactory.ArtifactoryReleaseBundleWebhookHandlerArgs{
-//						CustomHttpHeaders: pulumi.StringMap{
-//							"header-1": pulumi.String("value-1"),
-//							"header-2": pulumi.String("value-2"),
+//				Handlers: []map[string]interface{}{
+//					map[string]interface{}{
+//						"customHttpHeaders": map[string]interface{}{
+//							"header-1": "value-1",
+//							"header-2": "value-2",
 //						},
-//						Proxy:  pulumi.String("proxy-key"),
-//						Secret: pulumi.String("some-secret"),
-//						Url:    pulumi.String("http://tempurl.org/webhook"),
+//						"proxy":  "proxy-key",
+//						"secret": "some-secret",
+//						"url":    "http://tempurl.org/webhook",
 //					},
 //				},
-//				Key: pulumi.String("artifactory-release-bundle-webhook"),
+//				Key: "artifactory-release-bundle-webhook",
 //			})
 //			if err != nil {
 //				return err

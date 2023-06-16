@@ -592,7 +592,7 @@ class LocalPuppetRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_local_test_puppet_repo = artifactory.LocalPuppetRepository("terraform-local-test-puppet-repo", key="terraform-local-test-puppet-repo")
+        terraform_local_test_puppet_repo = artifactory.index.local_puppet_repository.LocalPuppetRepository("terraform-local-test-puppet-repo", key=terraform-local-test-puppet-repo)
         ```
 
         ## Import
@@ -647,7 +647,7 @@ class LocalPuppetRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_local_test_puppet_repo = artifactory.LocalPuppetRepository("terraform-local-test-puppet-repo", key="terraform-local-test-puppet-repo")
+        terraform_local_test_puppet_repo = artifactory.index.local_puppet_repository.LocalPuppetRepository("terraform-local-test-puppet-repo", key=terraform-local-test-puppet-repo)
         ```
 
         ## Import

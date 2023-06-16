@@ -492,15 +492,6 @@ def get_remote_bower_repository(allow_any_host_auth: Optional[bool] = None,
     """
     Retrieves a remote Bower repository.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    remote_bower = artifactory.get_remote_bower_repository(key="remote-bower")
-    ```
-
 
     :param str bower_registry_url: (Optional) Proxy remote Bower repository. Default value is `https://registry.bower.io`.
     :param str key: the identity key of the repo.
@@ -647,15 +638,6 @@ def get_remote_bower_repository_output(allow_any_host_auth: Optional[pulumi.Inpu
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRemoteBowerRepositoryResult]:
     """
     Retrieves a remote Bower repository.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    remote_bower = artifactory.get_remote_bower_repository(key="remote-bower")
-    ```
 
 
     :param str bower_registry_url: (Optional) Proxy remote Bower repository. Default value is `https://registry.bower.io`.

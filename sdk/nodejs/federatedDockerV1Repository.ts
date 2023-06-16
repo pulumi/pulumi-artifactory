@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const terraform_federated_test_docker_repo = new artifactory.FederatedDockerV1Repository("terraform-federated-test-docker-repo", {
+ * const terraform_federated_test_docker_repo = new artifactory.index/federatedDockerV1Repository.FederatedDockerV1Repository("terraform-federated-test-docker-repo", {
  *     key: "terraform-federated-test-docker-repo",
  *     members: [
  *         {

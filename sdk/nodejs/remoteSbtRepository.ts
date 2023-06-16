@@ -16,7 +16,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const sbt_remote = new artifactory.RemoteSbtRepository("sbt-remote", {
+ * const sbt_remote = new artifactory.index/remoteSbtRepository.RemoteSbtRepository("sbt-remote", {
  *     fetchJarsEagerly: true,
  *     fetchSourcesEagerly: false,
  *     key: "sbt-remote-foo",

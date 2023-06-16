@@ -32,7 +32,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.artifactory.OauthSettings;
  * import com.pulumi.artifactory.OauthSettingsArgs;
- * import com.pulumi.artifactory.inputs.OauthSettingsOauthProviderArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -49,16 +48,7 @@ import javax.annotation.Nullable;
  *         var oauth = new OauthSettings(&#34;oauth&#34;, OauthSettingsArgs.builder()        
  *             .allowUserToAccessProfile(true)
  *             .enable(true)
- *             .oauthProviders(OauthSettingsOauthProviderArgs.builder()
- *                 .apiUrl(&#34;https://organization.okta.com/oauth2/v1/userinfo&#34;)
- *                 .authUrl(&#34;https://organization.okta.com/oauth2/v1/authorize&#34;)
- *                 .clientId(&#34;foo&#34;)
- *                 .clientSecret(&#34;bar&#34;)
- *                 .enabled(false)
- *                 .name(&#34;okta&#34;)
- *                 .tokenUrl(&#34;https://organization.okta.com/oauth2/v1/token&#34;)
- *                 .type(&#34;openId&#34;)
- *                 .build())
+ *             .oauthProviders(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .persistUsers(true)
  *             .build());
  * 

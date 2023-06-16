@@ -23,23 +23,23 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var build_webhook = new Artifactory.BuildWebhook("build-webhook", new()
+    ///     var build_webhook = new Artifactory.Index.BuildWebhook.BuildWebhook("build-webhook", new()
     ///     {
-    ///         Criteria = new Artifactory.Inputs.BuildWebhookCriteriaArgs
+    ///         Criteria = 
     ///         {
-    ///             AnyBuild = true,
-    ///             ExcludePatterns = new[]
+    ///             { "anyBuild", true },
+    ///             { "excludePatterns", new[]
     ///             {
     ///                 "bar/**",
-    ///             },
-    ///             IncludePatterns = new[]
+    ///             } },
+    ///             { "includePatterns", new[]
     ///             {
     ///                 "foo/**",
-    ///             },
-    ///             SelectedBuilds = new[]
+    ///             } },
+    ///             { "selectedBuilds", new[]
     ///             {
     ///                 "build-id",
-    ///             },
+    ///             } },
     ///         },
     ///         EventTypes = new[]
     ///         {
@@ -49,16 +49,16 @@ namespace Pulumi.Artifactory
     ///         },
     ///         Handlers = new[]
     ///         {
-    ///             new Artifactory.Inputs.BuildWebhookHandlerArgs
+    ///             
     ///             {
-    ///                 CustomHttpHeaders = 
+    ///                 { "customHttpHeaders", 
     ///                 {
     ///                     { "header-1", "value-1" },
     ///                     { "header-2", "value-2" },
-    ///                 },
-    ///                 Proxy = "proxy-key",
-    ///                 Secret = "some-secret",
-    ///                 Url = "http://tempurl.org/webhook",
+    ///                 } },
+    ///                 { "proxy", "proxy-key" },
+    ///                 { "secret", "some-secret" },
+    ///                 { "url", "http://tempurl.org/webhook" },
     ///             },
     ///         },
     ///         Key = "build-webhook",

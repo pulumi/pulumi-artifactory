@@ -14,7 +14,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const foo_helm_virtual = new artifactory.VirtualHelmRepository("foo-helm-virtual", {
+ * const foo_helm_virtual = new artifactory.index/virtualHelmRepository.VirtualHelmRepository("foo-helm-virtual", {
  *     key: "foo-helm-virtual",
  *     useNamespaces: true,
  * });

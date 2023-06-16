@@ -519,18 +519,18 @@ class GoRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        baz_go = artifactory.GoRepository("baz-go",
-            description="A test virtual repo",
-            excludes_pattern="com/google/**",
+        baz_go = artifactory.index.go_repository.GoRepository("baz-go",
+            description=A test virtual repo,
+            excludes_pattern=com/google/**,
             external_dependencies_enabled=True,
             external_dependencies_patterns=[
-                "**/github.com/**",
-                "**/go.googlesource.com/**",
+                **/github.com/**,
+                **/go.googlesource.com/**,
             ],
-            includes_pattern="com/jfrog/**,cloud/jfrog/**",
-            key="baz-go",
-            notes="Internal description",
-            repo_layout_ref="go-default",
+            includes_pattern=com/jfrog/**,cloud/jfrog/**,
+            key=baz-go,
+            notes=Internal description,
+            repo_layout_ref=go-default,
             repositories=[])
         ```
 
@@ -583,18 +583,18 @@ class GoRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        baz_go = artifactory.GoRepository("baz-go",
-            description="A test virtual repo",
-            excludes_pattern="com/google/**",
+        baz_go = artifactory.index.go_repository.GoRepository("baz-go",
+            description=A test virtual repo,
+            excludes_pattern=com/google/**,
             external_dependencies_enabled=True,
             external_dependencies_patterns=[
-                "**/github.com/**",
-                "**/go.googlesource.com/**",
+                **/github.com/**,
+                **/go.googlesource.com/**,
             ],
-            includes_pattern="com/jfrog/**,cloud/jfrog/**",
-            key="baz-go",
-            notes="Internal description",
-            repo_layout_ref="go-default",
+            includes_pattern=com/jfrog/**,cloud/jfrog/**,
+            key=baz-go,
+            notes=Internal description,
+            repo_layout_ref=go-default,
             repositories=[])
         ```
 

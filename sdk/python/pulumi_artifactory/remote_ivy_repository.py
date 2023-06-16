@@ -1706,13 +1706,13 @@ class RemoteIvyRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        ivy_remote = artifactory.RemoteIvyRepository("ivy-remote",
+        ivy_remote = artifactory.index.remote_ivy_repository.RemoteIvyRepository("ivy-remote",
             fetch_jars_eagerly=True,
             fetch_sources_eagerly=False,
-            key="ivy-remote-foo",
+            key=ivy-remote-foo,
             reject_invalid_jars=True,
             suppress_pom_consistency_checks=True,
-            url="https://repo1.maven.org/maven2/")
+            url=https://repo1.maven.org/maven2/)
         ```
 
         ## Import
@@ -1818,13 +1818,13 @@ class RemoteIvyRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        ivy_remote = artifactory.RemoteIvyRepository("ivy-remote",
+        ivy_remote = artifactory.index.remote_ivy_repository.RemoteIvyRepository("ivy-remote",
             fetch_jars_eagerly=True,
             fetch_sources_eagerly=False,
-            key="ivy-remote-foo",
+            key=ivy-remote-foo,
             reject_invalid_jars=True,
             suppress_pom_consistency_checks=True,
-            url="https://repo1.maven.org/maven2/")
+            url=https://repo1.maven.org/maven2/)
         ```
 
         ## Import

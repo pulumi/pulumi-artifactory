@@ -13,56 +13,12 @@ namespace Pulumi.Artifactory
     {
         /// <summary>
         /// Retrieves a virtual Gradle repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var virtual_gradle = Artifactory.GetVirtualGradleRepository.Invoke(new()
-        ///     {
-        ///         Key = "virtual-gradle",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetVirtualGradleRepositoryResult> InvokeAsync(GetVirtualGradleRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualGradleRepositoryResult>("artifactory:index/getVirtualGradleRepository:getVirtualGradleRepository", args ?? new GetVirtualGradleRepositoryArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves a virtual Gradle repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var virtual_gradle = Artifactory.GetVirtualGradleRepository.Invoke(new()
-        ///     {
-        ///         Key = "virtual-gradle",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetVirtualGradleRepositoryResult> Invoke(GetVirtualGradleRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualGradleRepositoryResult>("artifactory:index/getVirtualGradleRepository:getVirtualGradleRepository", args ?? new GetVirtualGradleRepositoryInvokeArgs(), options.WithDefaults());

@@ -498,15 +498,6 @@ def get_remote_cocoapods_repository(allow_any_host_auth: Optional[bool] = None,
     """
     Retrieves a remote CocoaPods repository.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    remote_cocoapods = artifactory.get_remote_cocoapods_repository(key="remote-cocoapods")
-    ```
-
 
     :param str key: the identity key of the repo.
     :param str pods_specs_repo_url: (Optional) Proxy remote CocoaPods Specs repositories. Default value is `https://github.com/CocoaPods/Specs`.
@@ -655,15 +646,6 @@ def get_remote_cocoapods_repository_output(allow_any_host_auth: Optional[pulumi.
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRemoteCocoapodsRepositoryResult]:
     """
     Retrieves a remote CocoaPods repository.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    remote_cocoapods = artifactory.get_remote_cocoapods_repository(key="remote-cocoapods")
-    ```
 
 
     :param str key: the identity key of the repo.

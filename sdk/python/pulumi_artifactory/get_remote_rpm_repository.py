@@ -459,15 +459,6 @@ def get_remote_rpm_repository(allow_any_host_auth: Optional[bool] = None,
     """
     Retrieves a remote Rpm repository.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    remote_rpm = artifactory.get_remote_rpm_repository(key="remote-rpm")
-    ```
-
 
     :param str key: the identity key of the repo.
     """
@@ -604,15 +595,6 @@ def get_remote_rpm_repository_output(allow_any_host_auth: Optional[pulumi.Input[
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRemoteRpmRepositoryResult]:
     """
     Retrieves a remote Rpm repository.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    remote_rpm = artifactory.get_remote_rpm_repository(key="remote-rpm")
-    ```
 
 
     :param str key: the identity key of the repo.

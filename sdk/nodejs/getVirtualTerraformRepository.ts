@@ -4,18 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-/**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const virtual-terraform = artifactory.getVirtualTerraformRepository({
- *     key: "virtual-terraform",
- * });
- * ```
- */
 export function getVirtualTerraformRepository(args: GetVirtualTerraformRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualTerraformRepositoryResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -75,18 +63,6 @@ export interface GetVirtualTerraformRepositoryResult {
     readonly repoLayoutRef?: string;
     readonly repositories?: string[];
 }
-/**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const virtual-terraform = artifactory.getVirtualTerraformRepository({
- *     key: "virtual-terraform",
- * });
- * ```
- */
 export function getVirtualTerraformRepositoryOutput(args: GetVirtualTerraformRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualTerraformRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getVirtualTerraformRepository(a, opts))
 }

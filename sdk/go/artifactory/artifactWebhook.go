@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
+//	"github.com/pulumi/pulumi-artifactory/sdk/v1/go/artifactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -29,40 +29,40 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewLocalGenericRepository(ctx, "my-generic-local", &artifactory.LocalGenericRepositoryArgs{
-//				Key: pulumi.String("my-generic-local"),
+//				Key: "my-generic-local",
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = artifactory.NewArtifactWebhook(ctx, "artifact-webhook", &artifactory.ArtifactWebhookArgs{
-//				Key: pulumi.String("artifact-webhook"),
-//				EventTypes: pulumi.StringArray{
-//					pulumi.String("deployed"),
-//					pulumi.String("deleted"),
-//					pulumi.String("moved"),
-//					pulumi.String("copied"),
+//				Key: "artifact-webhook",
+//				EventTypes: []string{
+//					"deployed",
+//					"deleted",
+//					"moved",
+//					"copied",
 //				},
-//				Criteria: &artifactory.ArtifactWebhookCriteriaArgs{
-//					AnyLocal:  pulumi.Bool(true),
-//					AnyRemote: pulumi.Bool(false),
-//					RepoKeys: pulumi.StringArray{
+//				Criteria: map[string]interface{}{
+//					"anyLocal":  true,
+//					"anyRemote": false,
+//					"repoKeys": []interface{}{
 //						my_generic_local.Key,
 //					},
-//					IncludePatterns: pulumi.StringArray{
-//						pulumi.String("foo/**"),
+//					"includePatterns": []string{
+//						"foo/**",
 //					},
-//					ExcludePatterns: pulumi.StringArray{
-//						pulumi.String("bar/**"),
+//					"excludePatterns": []string{
+//						"bar/**",
 //					},
 //				},
-//				Handlers: artifactory.ArtifactWebhookHandlerArray{
-//					&artifactory.ArtifactWebhookHandlerArgs{
-//						Url:    pulumi.String("http://tempurl.org/webhook"),
-//						Secret: pulumi.String("some-secret"),
-//						Proxy:  pulumi.String("proxy-key"),
-//						CustomHttpHeaders: pulumi.StringMap{
-//							"header-1": pulumi.String("value-1"),
-//							"header-2": pulumi.String("value-2"),
+//				Handlers: []map[string]interface{}{
+//					map[string]interface{}{
+//						"url":    "http://tempurl.org/webhook",
+//						"secret": "some-secret",
+//						"proxy":  "proxy-key",
+//						"customHttpHeaders": map[string]interface{}{
+//							"header-1": "value-1",
+//							"header-2": "value-2",
 //						},
 //					},
 //				},

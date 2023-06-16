@@ -13,56 +13,12 @@ namespace Pulumi.Artifactory
     {
         /// <summary>
         /// Retrieves a federated Npm repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var federated_test_npm_repo = Artifactory.GetFederatedNpmRepository.Invoke(new()
-        ///     {
-        ///         Key = "federated-test-npm-repo",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetFederatedNpmRepositoryResult> InvokeAsync(GetFederatedNpmRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFederatedNpmRepositoryResult>("artifactory:index/getFederatedNpmRepository:getFederatedNpmRepository", args ?? new GetFederatedNpmRepositoryArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves a federated Npm repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var federated_test_npm_repo = Artifactory.GetFederatedNpmRepository.Invoke(new()
-        ///     {
-        ///         Key = "federated-test-npm-repo",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetFederatedNpmRepositoryResult> Invoke(GetFederatedNpmRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFederatedNpmRepositoryResult>("artifactory:index/getFederatedNpmRepository:getFederatedNpmRepository", args ?? new GetFederatedNpmRepositoryInvokeArgs(), options.WithDefaults());

@@ -6,17 +6,6 @@ import * as utilities from "./utilities";
 
 /**
  * Retrieves a virtual Puppet repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const virtual-puppet = artifactory.getVirtualPuppetRepository({
- *     key: "virtual-puppet",
- * });
- * ```
  */
 export function getVirtualPuppetRepository(args: GetVirtualPuppetRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualPuppetRepositoryResult> {
 
@@ -79,17 +68,6 @@ export interface GetVirtualPuppetRepositoryResult {
 }
 /**
  * Retrieves a virtual Puppet repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const virtual-puppet = artifactory.getVirtualPuppetRepository({
- *     key: "virtual-puppet",
- * });
- * ```
  */
 export function getVirtualPuppetRepositoryOutput(args: GetVirtualPuppetRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualPuppetRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getVirtualPuppetRepository(a, opts))

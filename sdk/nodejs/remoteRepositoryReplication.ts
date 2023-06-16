@@ -16,14 +16,14 @@ import * as utilities from "./utilities";
  *
  * const config = new pulumi.Config();
  * const artifactoryUrl = config.require("artifactoryUrl");
- * const providerTestSource = new artifactory.LocalMavenRepository("providerTestSource", {key: "provider_test_source"});
- * const providerTestDest = new artifactory.RemoteMavenRepository("providerTestDest", {
+ * const providerTestSource = new artifactory.index/localMavenRepository.LocalMavenRepository("providerTestSource", {key: "provider_test_source"});
+ * const providerTestDest = new artifactory.index/remoteMavenRepository.RemoteMavenRepository("providerTestDest", {
  *     key: "provider_test_dest",
  *     url: `${artifactoryUrl}/artifactory/${artifactory_local_maven_repository.artifactory_local_maven_repository.key}`,
  *     username: "foo",
  *     password: "bar",
  * });
- * const remote_rep = new artifactory.RemoteRepositoryReplication("remote-rep", {
+ * const remote_rep = new artifactory.index/remoteRepositoryReplication.RemoteRepositoryReplication("remote-rep", {
  *     repoKey: providerTestDest.key,
  *     cronExp: "0 0 * * * ?",
  *     enableEventReplication: true,

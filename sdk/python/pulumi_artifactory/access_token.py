@@ -312,9 +312,9 @@ class AccessToken(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        exising_user = artifactory.AccessToken("exisingUser",
-            end_date_relative="5m",
-            username="existing-user")
+        exising_user = artifactory.index.access_token.AccessToken("exisingUser",
+            end_date_relative=5m,
+            username=existing-user)
         ```
 
         Note: This assumes that the user `existing-user` has already been created in Artifactory by different means, i.e. manually or in a separate pulumi up.
@@ -323,12 +323,12 @@ class AccessToken(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        new_user_user = artifactory.User("newUserUser",
-            email="new_user@somewhere.com",
-            groups=["readers"])
-        new_user_access_token = artifactory.AccessToken("newUserAccessToken",
+        new_user_user = artifactory.index.user.User("newUserUser",
+            email=new_user@somewhere.com,
+            groups=[readers])
+        new_user_access_token = artifactory.index.access_token.AccessToken("newUserAccessToken",
             username=new_user_user.name,
-            end_date_relative="5m")
+            end_date_relative=5m)
         ```
         ### Creates a new token for groups
         This creates a transient user called `temporary-user`.
@@ -336,63 +336,63 @@ class AccessToken(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        temporary_user = artifactory.AccessToken("temporaryUser",
-            end_date_relative="1h",
-            groups=["readers"],
-            username="temporary-user")
+        temporary_user = artifactory.index.access_token.AccessToken("temporaryUser",
+            end_date_relative=1h,
+            groups=[readers],
+            username=temporary-user)
         ```
         ### Create token with no expiry
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
 
-        no_expiry = artifactory.AccessToken("noExpiry",
-            end_date_relative="0s",
-            username="existing-user")
+        no_expiry = artifactory.index.access_token.AccessToken("noExpiry",
+            end_date_relative=0s,
+            username=existing-user)
         ```
         ### Creates a refreshable token
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
 
-        refreshable = artifactory.AccessToken("refreshable",
-            end_date_relative="1m",
-            groups=["readers"],
+        refreshable = artifactory.index.access_token.AccessToken("refreshable",
+            end_date_relative=1m,
+            groups=[readers],
             refreshable=True,
-            username="refreshable")
+            username=refreshable)
         ```
         ### Creates an administrator token
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
 
-        admin = artifactory.AccessToken("admin",
-            admin_token=artifactory.AccessTokenAdminTokenArgs(
-                instance_id="<instance id>",
-            ),
-            end_date_relative="1m",
-            username="admin")
+        admin = artifactory.index.access_token.AccessToken("admin",
+            admin_token={
+                instanceId: <instance id>,
+            },
+            end_date_relative=1m,
+            username=admin)
         ```
         ### Creates a token with an audience
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
 
-        audience = artifactory.AccessToken("audience",
-            audience="jfrt@*",
-            end_date_relative="1m",
+        audience = artifactory.index.access_token.AccessToken("audience",
+            audience=jfrt@*,
+            end_date_relative=1m,
             refreshable=True,
-            username="audience")
+            username=audience)
         ```
         ### Creates a token with a fixed end date
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
 
-        fixeddate = artifactory.AccessToken("fixeddate",
-            end_date="2018-01-01T01:02:03Z",
-            groups=["readers"],
-            username="fixeddate")
+        fixeddate = artifactory.index.access_token.AccessToken("fixeddate",
+            end_date=2018-01-01T01:02:03Z,
+            groups=[readers],
+            username=fixeddate)
         ```
         ### Rotate token after it expires
         This example will generate a token that will expire in 1 hour.
@@ -403,13 +403,13 @@ class AccessToken(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
-        import pulumiverse_time as time
+        import pulumi_time as time
 
-        now_plus1_hours = time.Rotating("nowPlus1Hours", rotation_hours=1)
-        rotating = artifactory.AccessToken("rotating",
-            username="rotating",
-            end_date=time_rotating["now_plus_1_hour"]["rotation_rfc3339"],
-            groups=["readers"])
+        now_plus1_hours = time.index.Time_rotating("nowPlus1Hours", rotation_hours=1)
+        rotating = artifactory.index.access_token.AccessToken("rotating",
+            username=rotating,
+            end_date=time_rotating.now_plus_1_hour.rotation_rfc3339,
+            groups=[readers])
         ```
         ## References
 
@@ -451,9 +451,9 @@ class AccessToken(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        exising_user = artifactory.AccessToken("exisingUser",
-            end_date_relative="5m",
-            username="existing-user")
+        exising_user = artifactory.index.access_token.AccessToken("exisingUser",
+            end_date_relative=5m,
+            username=existing-user)
         ```
 
         Note: This assumes that the user `existing-user` has already been created in Artifactory by different means, i.e. manually or in a separate pulumi up.
@@ -462,12 +462,12 @@ class AccessToken(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        new_user_user = artifactory.User("newUserUser",
-            email="new_user@somewhere.com",
-            groups=["readers"])
-        new_user_access_token = artifactory.AccessToken("newUserAccessToken",
+        new_user_user = artifactory.index.user.User("newUserUser",
+            email=new_user@somewhere.com,
+            groups=[readers])
+        new_user_access_token = artifactory.index.access_token.AccessToken("newUserAccessToken",
             username=new_user_user.name,
-            end_date_relative="5m")
+            end_date_relative=5m)
         ```
         ### Creates a new token for groups
         This creates a transient user called `temporary-user`.
@@ -475,63 +475,63 @@ class AccessToken(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        temporary_user = artifactory.AccessToken("temporaryUser",
-            end_date_relative="1h",
-            groups=["readers"],
-            username="temporary-user")
+        temporary_user = artifactory.index.access_token.AccessToken("temporaryUser",
+            end_date_relative=1h,
+            groups=[readers],
+            username=temporary-user)
         ```
         ### Create token with no expiry
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
 
-        no_expiry = artifactory.AccessToken("noExpiry",
-            end_date_relative="0s",
-            username="existing-user")
+        no_expiry = artifactory.index.access_token.AccessToken("noExpiry",
+            end_date_relative=0s,
+            username=existing-user)
         ```
         ### Creates a refreshable token
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
 
-        refreshable = artifactory.AccessToken("refreshable",
-            end_date_relative="1m",
-            groups=["readers"],
+        refreshable = artifactory.index.access_token.AccessToken("refreshable",
+            end_date_relative=1m,
+            groups=[readers],
             refreshable=True,
-            username="refreshable")
+            username=refreshable)
         ```
         ### Creates an administrator token
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
 
-        admin = artifactory.AccessToken("admin",
-            admin_token=artifactory.AccessTokenAdminTokenArgs(
-                instance_id="<instance id>",
-            ),
-            end_date_relative="1m",
-            username="admin")
+        admin = artifactory.index.access_token.AccessToken("admin",
+            admin_token={
+                instanceId: <instance id>,
+            },
+            end_date_relative=1m,
+            username=admin)
         ```
         ### Creates a token with an audience
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
 
-        audience = artifactory.AccessToken("audience",
-            audience="jfrt@*",
-            end_date_relative="1m",
+        audience = artifactory.index.access_token.AccessToken("audience",
+            audience=jfrt@*,
+            end_date_relative=1m,
             refreshable=True,
-            username="audience")
+            username=audience)
         ```
         ### Creates a token with a fixed end date
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
 
-        fixeddate = artifactory.AccessToken("fixeddate",
-            end_date="2018-01-01T01:02:03Z",
-            groups=["readers"],
-            username="fixeddate")
+        fixeddate = artifactory.index.access_token.AccessToken("fixeddate",
+            end_date=2018-01-01T01:02:03Z,
+            groups=[readers],
+            username=fixeddate)
         ```
         ### Rotate token after it expires
         This example will generate a token that will expire in 1 hour.
@@ -542,13 +542,13 @@ class AccessToken(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
-        import pulumiverse_time as time
+        import pulumi_time as time
 
-        now_plus1_hours = time.Rotating("nowPlus1Hours", rotation_hours=1)
-        rotating = artifactory.AccessToken("rotating",
-            username="rotating",
-            end_date=time_rotating["now_plus_1_hour"]["rotation_rfc3339"],
-            groups=["readers"])
+        now_plus1_hours = time.index.Time_rotating("nowPlus1Hours", rotation_hours=1)
+        rotating = artifactory.index.access_token.AccessToken("rotating",
+            username=rotating,
+            end_date=time_rotating.now_plus_1_hour.rotation_rfc3339,
+            groups=[readers])
         ```
         ## References
 

@@ -36,7 +36,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.artifactory.LocalMavenRepositoryArgs;
  * import com.pulumi.artifactory.LocalRepositoryMultiReplication;
  * import com.pulumi.artifactory.LocalRepositoryMultiReplicationArgs;
- * import com.pulumi.artifactory.inputs.LocalRepositoryMultiReplicationReplicationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -71,18 +70,8 @@ import javax.annotation.Nullable;
  *             .cronExp(&#34;0 0 * * * ?&#34;)
  *             .enableEventReplication(true)
  *             .replications(            
- *                 LocalRepositoryMultiReplicationReplicationArgs.builder()
- *                     .url(providerTestDest.key().applyValue(key -&gt; String.format(&#34;%s/artifactory/%s&#34;, artifactoryUrl,key)))
- *                     .username(&#34;$var.artifactory_username&#34;)
- *                     .password(&#34;$var.artifactory_password&#34;)
- *                     .enabled(true)
- *                     .build(),
- *                 LocalRepositoryMultiReplicationReplicationArgs.builder()
- *                     .url(providerTestDest1.key().applyValue(key -&gt; String.format(&#34;%s/artifactory/%s&#34;, artifactoryUrl,key)))
- *                     .username(&#34;$var.artifactory_username&#34;)
- *                     .password(&#34;$var.artifactory_password&#34;)
- *                     .enabled(true)
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

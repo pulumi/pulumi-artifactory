@@ -560,13 +560,13 @@ class VirtualSbtRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        foo_sbt = artifactory.VirtualSbtRepository("foo-sbt",
-            description="A test virtual repo",
-            excludes_pattern="com/google/**",
-            includes_pattern="com/jfrog/**,cloud/jfrog/**",
-            key="foo-sbt",
-            notes="Internal description",
-            pom_repository_references_cleanup_policy="discard_active_reference",
+        foo_sbt = artifactory.index.virtual_sbt_repository.VirtualSbtRepository("foo-sbt",
+            description=A test virtual repo,
+            excludes_pattern=com/google/**,
+            includes_pattern=com/jfrog/**,cloud/jfrog/**,
+            key=foo-sbt,
+            notes=Internal description,
+            pom_repository_references_cleanup_policy=discard_active_reference,
             repositories=[])
         ```
 
@@ -622,13 +622,13 @@ class VirtualSbtRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        foo_sbt = artifactory.VirtualSbtRepository("foo-sbt",
-            description="A test virtual repo",
-            excludes_pattern="com/google/**",
-            includes_pattern="com/jfrog/**,cloud/jfrog/**",
-            key="foo-sbt",
-            notes="Internal description",
-            pom_repository_references_cleanup_policy="discard_active_reference",
+        foo_sbt = artifactory.index.virtual_sbt_repository.VirtualSbtRepository("foo-sbt",
+            description=A test virtual repo,
+            excludes_pattern=com/google/**,
+            includes_pattern=com/jfrog/**,cloud/jfrog/**,
+            key=foo-sbt,
+            notes=Internal description,
+            pom_repository_references_cleanup_policy=discard_active_reference,
             repositories=[])
         ```
 

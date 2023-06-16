@@ -802,17 +802,17 @@ class FederatedDockerV2Repository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_federated_test_docker_repo = artifactory.FederatedDockerV2Repository("terraform-federated-test-docker-repo",
-            key="terraform-federated-test-docker-repo",
+        terraform_federated_test_docker_repo = artifactory.index.federated_docker_v2_repository.FederatedDockerV2Repository("terraform-federated-test-docker-repo",
+            key=terraform-federated-test-docker-repo,
             members=[
-                artifactory.FederatedDockerV2RepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl.org/artifactory/terraform-federated-test-docker-repo",
-                ),
-                artifactory.FederatedDockerV2RepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl2.org/artifactory/terraform-federated-test-docker-repo-2",
-                ),
+                {
+                    enabled: True,
+                    url: http://tempurl.org/artifactory/terraform-federated-test-docker-repo,
+                },
+                {
+                    enabled: True,
+                    url: http://tempurl2.org/artifactory/terraform-federated-test-docker-repo-2,
+                },
             ])
         ```
 
@@ -880,17 +880,17 @@ class FederatedDockerV2Repository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_federated_test_docker_repo = artifactory.FederatedDockerV2Repository("terraform-federated-test-docker-repo",
-            key="terraform-federated-test-docker-repo",
+        terraform_federated_test_docker_repo = artifactory.index.federated_docker_v2_repository.FederatedDockerV2Repository("terraform-federated-test-docker-repo",
+            key=terraform-federated-test-docker-repo,
             members=[
-                artifactory.FederatedDockerV2RepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl.org/artifactory/terraform-federated-test-docker-repo",
-                ),
-                artifactory.FederatedDockerV2RepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl2.org/artifactory/terraform-federated-test-docker-repo-2",
-                ),
+                {
+                    enabled: True,
+                    url: http://tempurl.org/artifactory/terraform-federated-test-docker-repo,
+                },
+                {
+                    enabled: True,
+                    url: http://tempurl2.org/artifactory/terraform-federated-test-docker-repo-2,
+                },
             ])
         ```
 

@@ -279,15 +279,6 @@ def get_federated_debian_repository(archive_browsing_enabled: Optional[bool] = N
     """
     Retrieves a federated Debian repository.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    federated_test_debian_repo = artifactory.get_federated_debian_repository(key="federated-test-debian-repo")
-    ```
-
 
     :param str key: the identity key of the repo.
     :param Sequence[pulumi.InputType['GetFederatedDebianRepositoryMemberArgs']] members: The list of Federated members and must contain this repository URL (configured base URL
@@ -371,15 +362,6 @@ def get_federated_debian_repository_output(archive_browsing_enabled: Optional[pu
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFederatedDebianRepositoryResult]:
     """
     Retrieves a federated Debian repository.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    federated_test_debian_repo = artifactory.get_federated_debian_repository(key="federated-test-debian-repo")
-    ```
 
 
     :param str key: the identity key of the repo.

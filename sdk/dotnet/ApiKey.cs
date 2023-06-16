@@ -25,7 +25,7 @@ namespace Pulumi.Artifactory
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Create a new Artifactory API key for the configured user
-    ///     var ci = new Artifactory.ApiKey("ci");
+    ///     var ci = new Artifactory.Index.ApiKey.ApiKey("ci");
     /// 
     /// });
     /// ```

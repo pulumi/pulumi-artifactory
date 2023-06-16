@@ -19,7 +19,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
+//	"github.com/pulumi/pulumi-artifactory/sdk/v1/go/artifactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -27,82 +27,82 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewPermissionTarget(ctx, "test-perm", &artifactory.PermissionTargetArgs{
-//				Builds: artifactory.PermissionTargetBuildArray{
-//					&artifactory.PermissionTargetBuildArgs{
-//						Actions: artifactory.PermissionTargetBuildActionArray{
-//							&artifactory.PermissionTargetBuildActionArgs{
-//								Users: artifactory.PermissionTargetBuildActionUserArray{
-//									&artifactory.PermissionTargetBuildActionUserArgs{
-//										Name: pulumi.String("anonymous"),
-//										Permissions: pulumi.StringArray{
-//											pulumi.String("read"),
-//											pulumi.String("write"),
+//				Builds: []map[string]interface{}{
+//					map[string]interface{}{
+//						"actions": []map[string]interface{}{
+//							map[string]interface{}{
+//								"users": []map[string]interface{}{
+//									map[string]interface{}{
+//										"name": "anonymous",
+//										"permissions": []string{
+//											"read",
+//											"write",
 //										},
 //									},
 //								},
 //							},
 //						},
-//						IncludesPatterns: pulumi.StringArray{
-//							pulumi.String("**"),
+//						"includesPatterns": []string{
+//							"**",
 //						},
-//						Repositories: pulumi.StringArray{
-//							pulumi.String("artifactory-build-info"),
+//						"repositories": []string{
+//							"artifactory-build-info",
 //						},
 //					},
 //				},
-//				ReleaseBundles: artifactory.PermissionTargetReleaseBundleArray{
-//					&artifactory.PermissionTargetReleaseBundleArgs{
-//						Actions: artifactory.PermissionTargetReleaseBundleActionArray{
-//							&artifactory.PermissionTargetReleaseBundleActionArgs{
-//								Users: artifactory.PermissionTargetReleaseBundleActionUserArray{
-//									&artifactory.PermissionTargetReleaseBundleActionUserArgs{
-//										Name: pulumi.String("anonymous"),
-//										Permissions: pulumi.StringArray{
-//											pulumi.String("read"),
+//				ReleaseBundles: []map[string]interface{}{
+//					map[string]interface{}{
+//						"actions": []map[string]interface{}{
+//							map[string]interface{}{
+//								"users": []map[string]interface{}{
+//									map[string]interface{}{
+//										"name": "anonymous",
+//										"permissions": []string{
+//											"read",
 //										},
 //									},
 //								},
 //							},
 //						},
-//						IncludesPatterns: pulumi.StringArray{
-//							pulumi.String("**"),
+//						"includesPatterns": []string{
+//							"**",
 //						},
-//						Repositories: pulumi.StringArray{
-//							pulumi.String("release-bundles"),
+//						"repositories": []string{
+//							"release-bundles",
 //						},
 //					},
 //				},
-//				Repos: artifactory.PermissionTargetRepoArray{
-//					&artifactory.PermissionTargetRepoArgs{
-//						Actions: artifactory.PermissionTargetRepoActionArray{
-//							&artifactory.PermissionTargetRepoActionArgs{
-//								Groups: artifactory.PermissionTargetRepoActionGroupArray{
-//									&artifactory.PermissionTargetRepoActionGroupArgs{
-//										Name: pulumi.String("readers"),
-//										Permissions: pulumi.StringArray{
-//											pulumi.String("read"),
+//				Repos: []map[string]interface{}{
+//					map[string]interface{}{
+//						"actions": []map[string]interface{}{
+//							map[string]interface{}{
+//								"groups": []map[string]interface{}{
+//									map[string]interface{}{
+//										"name": "readers",
+//										"permissions": []string{
+//											"read",
 //										},
 //									},
 //								},
-//								Users: artifactory.PermissionTargetRepoActionUserArray{
-//									&artifactory.PermissionTargetRepoActionUserArgs{
-//										Name: pulumi.String("anonymous"),
-//										Permissions: pulumi.StringArray{
-//											pulumi.String("read"),
-//											pulumi.String("write"),
+//								"users": []map[string]interface{}{
+//									map[string]interface{}{
+//										"name": "anonymous",
+//										"permissions": []string{
+//											"read",
+//											"write",
 //										},
 //									},
 //								},
 //							},
 //						},
-//						ExcludesPatterns: pulumi.StringArray{
-//							pulumi.String("bar/**"),
+//						"excludesPatterns": []string{
+//							"bar/**",
 //						},
-//						IncludesPatterns: pulumi.StringArray{
-//							pulumi.String("foo/**"),
+//						"includesPatterns": []string{
+//							"foo/**",
 //						},
-//						Repositories: pulumi.StringArray{
-//							pulumi.String("example-repo-local"),
+//						"repositories": []string{
+//							"example-repo-local",
 //						},
 //					},
 //				},

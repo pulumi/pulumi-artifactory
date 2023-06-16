@@ -16,8 +16,8 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const my_docker_local = new artifactory.DockerV2Repository("my-docker-local", {key: "my-docker-local"});
- * const docker_webhook = new artifactory.DockerWebhook("docker-webhook", {
+ * const my_docker_local = new artifactory.index/dockerV2Repository.DockerV2Repository("my-docker-local", {key: "my-docker-local"});
+ * const docker_webhook = new artifactory.index/dockerWebhook.DockerWebhook("docker-webhook", {
  *     key: "docker-webhook",
  *     eventTypes: [
  *         "pushed",

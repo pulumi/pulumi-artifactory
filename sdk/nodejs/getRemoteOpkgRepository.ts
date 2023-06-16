@@ -8,17 +8,6 @@ import * as utilities from "./utilities";
 
 /**
  * Retrieves a remote Opkg repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const remote-opkg = artifactory.getRemoteOpkgRepository({
- *     key: "remote-opkg",
- * });
- * ```
  */
 export function getRemoteOpkgRepository(args: GetRemoteOpkgRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetRemoteOpkgRepositoryResult> {
 
@@ -168,17 +157,6 @@ export interface GetRemoteOpkgRepositoryResult {
 }
 /**
  * Retrieves a remote Opkg repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const remote-opkg = artifactory.getRemoteOpkgRepository({
- *     key: "remote-opkg",
- * });
- * ```
  */
 export function getRemoteOpkgRepositoryOutput(args: GetRemoteOpkgRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemoteOpkgRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getRemoteOpkgRepository(a, opts))

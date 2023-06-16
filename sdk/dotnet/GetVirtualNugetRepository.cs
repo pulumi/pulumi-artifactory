@@ -13,56 +13,12 @@ namespace Pulumi.Artifactory
     {
         /// <summary>
         /// Retrieves a virtual NPM repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var virtual_npm = Artifactory.GetVirtualNpmRepository.Invoke(new()
-        ///     {
-        ///         Key = "virtual-npm",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetVirtualNugetRepositoryResult> InvokeAsync(GetVirtualNugetRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNugetRepositoryResult>("artifactory:index/getVirtualNugetRepository:getVirtualNugetRepository", args ?? new GetVirtualNugetRepositoryArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves a virtual NPM repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var virtual_npm = Artifactory.GetVirtualNpmRepository.Invoke(new()
-        ///     {
-        ///         Key = "virtual-npm",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetVirtualNugetRepositoryResult> Invoke(GetVirtualNugetRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualNugetRepositoryResult>("artifactory:index/getVirtualNugetRepository:getVirtualNugetRepository", args ?? new GetVirtualNugetRepositoryInvokeArgs(), options.WithDefaults());

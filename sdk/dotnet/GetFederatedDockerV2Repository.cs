@@ -13,56 +13,12 @@ namespace Pulumi.Artifactory
     {
         /// <summary>
         /// Retrieves a federated Docker repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var federated_test_docker_repo = Artifactory.GetFederatedDockerV2Repository.Invoke(new()
-        ///     {
-        ///         Key = "federated-test-docker-repo",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetFederatedDockerV2RepositoryResult> InvokeAsync(GetFederatedDockerV2RepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFederatedDockerV2RepositoryResult>("artifactory:index/getFederatedDockerV2Repository:getFederatedDockerV2Repository", args ?? new GetFederatedDockerV2RepositoryArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves a federated Docker repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var federated_test_docker_repo = Artifactory.GetFederatedDockerV2Repository.Invoke(new()
-        ///     {
-        ///         Key = "federated-test-docker-repo",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetFederatedDockerV2RepositoryResult> Invoke(GetFederatedDockerV2RepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFederatedDockerV2RepositoryResult>("artifactory:index/getFederatedDockerV2Repository:getFederatedDockerV2Repository", args ?? new GetFederatedDockerV2RepositoryInvokeArgs(), options.WithDefaults());

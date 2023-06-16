@@ -235,15 +235,6 @@ def get_federated_composer_repository(archive_browsing_enabled: Optional[bool] =
     """
     Retrieves a federated Composer repository.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    federated_test_composer_repo = artifactory.get_federated_composer_repository(key="federated-test-composer-repo")
-    ```
-
 
     :param str key: the identity key of the repo.
     :param Sequence[pulumi.InputType['GetFederatedComposerRepositoryMemberArgs']] members: The list of Federated members and must contain this repository URL (configured base URL
@@ -315,15 +306,6 @@ def get_federated_composer_repository_output(archive_browsing_enabled: Optional[
                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFederatedComposerRepositoryResult]:
     """
     Retrieves a federated Composer repository.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    federated_test_composer_repo = artifactory.get_federated_composer_repository(key="federated-test-composer-repo")
-    ```
 
 
     :param str key: the identity key of the repo.

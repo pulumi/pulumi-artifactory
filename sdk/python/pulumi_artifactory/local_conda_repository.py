@@ -592,7 +592,7 @@ class LocalCondaRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_local_test_conda_repo = artifactory.LocalCondaRepository("terraform-local-test-conda-repo", key="terraform-local-test-conda-repo")
+        terraform_local_test_conda_repo = artifactory.index.local_conda_repository.LocalCondaRepository("terraform-local-test-conda-repo", key=terraform-local-test-conda-repo)
         ```
 
         ## Import
@@ -647,7 +647,7 @@ class LocalCondaRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_local_test_conda_repo = artifactory.LocalCondaRepository("terraform-local-test-conda-repo", key="terraform-local-test-conda-repo")
+        terraform_local_test_conda_repo = artifactory.index.local_conda_repository.LocalCondaRepository("terraform-local-test-conda-repo", key=terraform-local-test-conda-repo)
         ```
 
         ## Import

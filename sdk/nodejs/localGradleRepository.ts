@@ -13,7 +13,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const terraform_local_test_gradle_repo_basic = new artifactory.LocalGradleRepository("terraform-local-test-gradle-repo-basic", {
+ * const terraform_local_test_gradle_repo_basic = new artifactory.index/localGradleRepository.LocalGradleRepository("terraform-local-test-gradle-repo-basic", {
  *     checksumPolicyType: "client-checksums",
  *     handleReleases: true,
  *     handleSnapshots: true,

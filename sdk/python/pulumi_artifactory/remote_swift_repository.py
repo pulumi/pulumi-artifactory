@@ -1475,9 +1475,9 @@ class RemoteSwiftRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        my_remote_swift = artifactory.RemoteSwiftRepository("my-remote-swift",
-            key="my-remote-swift",
-            url="https://swift.org/")
+        my_remote_swift = artifactory.index.remote_swift_repository.RemoteSwiftRepository("my-remote-swift",
+            key=my-remote-swift,
+            url=https://swift.org/)
         ```
 
         ## Import
@@ -1576,9 +1576,9 @@ class RemoteSwiftRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        my_remote_swift = artifactory.RemoteSwiftRepository("my-remote-swift",
-            key="my-remote-swift",
-            url="https://swift.org/")
+        my_remote_swift = artifactory.index.remote_swift_repository.RemoteSwiftRepository("my-remote-swift",
+            key=my-remote-swift,
+            url=https://swift.org/)
         ```
 
         ## Import

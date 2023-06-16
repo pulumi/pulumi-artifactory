@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const terraform_federated_test_vagrant_repo = new artifactory.FederatedVagrantRepository("terraform-federated-test-vagrant-repo", {
+ * const terraform_federated_test_vagrant_repo = new artifactory.index/federatedVagrantRepository.FederatedVagrantRepository("terraform-federated-test-vagrant-repo", {
  *     key: "terraform-federated-test-vagrant-repo",
  *     members: [
  *         {

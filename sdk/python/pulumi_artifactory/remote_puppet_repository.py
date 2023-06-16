@@ -1475,9 +1475,9 @@ class RemotePuppetRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        my_remote_puppet = artifactory.RemotePuppetRepository("my-remote-puppet",
-            key="my-remote-puppet",
-            url="https://forgeapi.puppetlabs.com/")
+        my_remote_puppet = artifactory.index.remote_puppet_repository.RemotePuppetRepository("my-remote-puppet",
+            key=my-remote-puppet,
+            url=https://forgeapi.puppetlabs.com/)
         ```
 
         ## Import
@@ -1576,9 +1576,9 @@ class RemotePuppetRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        my_remote_puppet = artifactory.RemotePuppetRepository("my-remote-puppet",
-            key="my-remote-puppet",
-            url="https://forgeapi.puppetlabs.com/")
+        my_remote_puppet = artifactory.index.remote_puppet_repository.RemotePuppetRepository("my-remote-puppet",
+            key=my-remote-puppet,
+            url=https://forgeapi.puppetlabs.com/)
         ```
 
         ## Import

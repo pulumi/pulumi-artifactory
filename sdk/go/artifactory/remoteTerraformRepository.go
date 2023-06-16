@@ -18,7 +18,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
+//	"github.com/pulumi/pulumi-artifactory/sdk/v1/go/artifactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -26,10 +26,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewRemoteTerraformRepository(ctx, "terraform-remote", &artifactory.RemoteTerraformRepositoryArgs{
-//				Key:                   pulumi.String("terraform-remote"),
-//				TerraformProvidersUrl: pulumi.String("https://releases.hashicorp.com"),
-//				TerraformRegistryUrl:  pulumi.String("https://registry.terraform.io"),
-//				Url:                   pulumi.String("https://github.com/"),
+//				Key:                   "terraform-remote",
+//				TerraformProvidersUrl: "https://releases.hashicorp.com",
+//				TerraformRegistryUrl:  "https://registry.terraform.io",
+//				Url:                   "https://github.com/",
 //			})
 //			if err != nil {
 //				return err

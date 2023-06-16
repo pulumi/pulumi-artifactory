@@ -472,15 +472,6 @@ def get_remote_go_repository(allow_any_host_auth: Optional[bool] = None,
     """
     Retrieves a remote Go repository.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    remote_go = artifactory.get_remote_go_repository(key="remote-go")
-    ```
-
 
     :param str key: the identity key of the repo.
     :param str vcs_git_provider: (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `ARTIFACTORY`.
@@ -621,15 +612,6 @@ def get_remote_go_repository_output(allow_any_host_auth: Optional[pulumi.Input[O
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRemoteGoRepositoryResult]:
     """
     Retrieves a remote Go repository.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    remote_go = artifactory.get_remote_go_repository(key="remote-go")
-    ```
 
 
     :param str key: the identity key of the repo.

@@ -16,7 +16,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const my_remote_p2 = new artifactory.RemoteP2Repository("my-remote-p2", {
+ * const my_remote_p2 = new artifactory.index/remoteP2Repository.RemoteP2Repository("my-remote-p2", {
  *     key: "my-remote-p2",
  *     url: "http://testartifactory.io/artifactory/example-p2/",
  * });

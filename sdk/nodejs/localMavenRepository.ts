@@ -13,7 +13,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const terraform_local_test_maven_repo_basic = new artifactory.LocalMavenRepository("terraform-local-test-maven-repo-basic", {
+ * const terraform_local_test_maven_repo_basic = new artifactory.index/localMavenRepository.LocalMavenRepository("terraform-local-test-maven-repo-basic", {
  *     checksumPolicyType: "client-checksums",
  *     handleReleases: true,
  *     handleSnapshots: true,

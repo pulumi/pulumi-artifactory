@@ -675,17 +675,17 @@ class FederatedHelmRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_federated_test_helm_repo = artifactory.FederatedHelmRepository("terraform-federated-test-helm-repo",
-            key="terraform-federated-test-helm-repo",
+        terraform_federated_test_helm_repo = artifactory.index.federated_helm_repository.FederatedHelmRepository("terraform-federated-test-helm-repo",
+            key=terraform-federated-test-helm-repo,
             members=[
-                artifactory.FederatedHelmRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl.org/artifactory/terraform-federated-test-helm-repo",
-                ),
-                artifactory.FederatedHelmRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl2.org/artifactory/terraform-federated-test-helm-repo-2",
-                ),
+                {
+                    enabled: True,
+                    url: http://tempurl.org/artifactory/terraform-federated-test-helm-repo,
+                },
+                {
+                    enabled: True,
+                    url: http://tempurl2.org/artifactory/terraform-federated-test-helm-repo-2,
+                },
             ])
         ```
 
@@ -747,17 +747,17 @@ class FederatedHelmRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_federated_test_helm_repo = artifactory.FederatedHelmRepository("terraform-federated-test-helm-repo",
-            key="terraform-federated-test-helm-repo",
+        terraform_federated_test_helm_repo = artifactory.index.federated_helm_repository.FederatedHelmRepository("terraform-federated-test-helm-repo",
+            key=terraform-federated-test-helm-repo,
             members=[
-                artifactory.FederatedHelmRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl.org/artifactory/terraform-federated-test-helm-repo",
-                ),
-                artifactory.FederatedHelmRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl2.org/artifactory/terraform-federated-test-helm-repo-2",
-                ),
+                {
+                    enabled: True,
+                    url: http://tempurl.org/artifactory/terraform-federated-test-helm-repo,
+                },
+                {
+                    enabled: True,
+                    url: http://tempurl2.org/artifactory/terraform-federated-test-helm-repo-2,
+                },
             ])
         ```
 

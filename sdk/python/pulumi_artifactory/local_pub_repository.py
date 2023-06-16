@@ -592,7 +592,7 @@ class LocalPubRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_local_test_pub_repo = artifactory.LocalPubRepository("terraform-local-test-pub-repo", key="terraform-local-test-pub-repo")
+        terraform_local_test_pub_repo = artifactory.index.local_pub_repository.LocalPubRepository("terraform-local-test-pub-repo", key=terraform-local-test-pub-repo)
         ```
 
         ## Import
@@ -647,7 +647,7 @@ class LocalPubRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_local_test_pub_repo = artifactory.LocalPubRepository("terraform-local-test-pub-repo", key="terraform-local-test-pub-repo")
+        terraform_local_test_pub_repo = artifactory.index.local_pub_repository.LocalPubRepository("terraform-local-test-pub-repo", key=terraform-local-test-pub-repo)
         ```
 
         ## Import

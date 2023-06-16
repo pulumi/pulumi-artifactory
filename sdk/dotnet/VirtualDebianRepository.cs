@@ -23,7 +23,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo_debian = new Artifactory.VirtualDebianRepository("foo-debian", new()
+    ///     var foo_debian = new Artifactory.Index.VirtualDebianRepository.VirtualDebianRepository("foo-debian", new()
     ///     {
     ///         DebianDefaultArchitectures = "amd64,i386",
     ///         Description = "A test virtual repo",

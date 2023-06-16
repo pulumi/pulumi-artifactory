@@ -206,15 +206,6 @@ def get_virtual_gradle_repository(artifactory_requests_can_retrieve_remote_artif
     """
     Retrieves a virtual Gradle repository.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    virtual_gradle = artifactory.get_virtual_gradle_repository(key="virtual-gradle")
-    ```
-
 
     :param str key: the identity key of the repo.
     :param str key_pair: (Optional) The keypair used to sign artifacts.
@@ -278,15 +269,6 @@ def get_virtual_gradle_repository_output(artifactory_requests_can_retrieve_remot
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualGradleRepositoryResult]:
     """
     Retrieves a virtual Gradle repository.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    virtual_gradle = artifactory.get_virtual_gradle_repository(key="virtual-gradle")
-    ```
 
 
     :param str key: the identity key of the repo.

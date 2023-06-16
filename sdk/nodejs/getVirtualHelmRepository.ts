@@ -6,17 +6,6 @@ import * as utilities from "./utilities";
 
 /**
  * Retrieves a virtual Helm repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const virtual-helm = artifactory.getVirtualHelmRepository({
- *     key: "virtual-helm",
- * });
- * ```
  */
 export function getVirtualHelmRepository(args: GetVirtualHelmRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualHelmRepositoryResult> {
 
@@ -97,17 +86,6 @@ export interface GetVirtualHelmRepositoryResult {
 }
 /**
  * Retrieves a virtual Helm repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const virtual-helm = artifactory.getVirtualHelmRepository({
- *     key: "virtual-helm",
- * });
- * ```
  */
 export function getVirtualHelmRepositoryOutput(args: GetVirtualHelmRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualHelmRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getVirtualHelmRepository(a, opts))

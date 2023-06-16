@@ -271,7 +271,7 @@ def get_federated_cargo_repository(anonymous_access: Optional[bool] = None,
     import pulumi
     import pulumi_artifactory as artifactory
 
-    federated_test_cargo_repo = artifactory.FederatedCargoRepository("federated-test-cargo-repo", key="federated-test-cargo-repo")
+    federated_test_cargo_repo = artifactory.index.federated_cargo_repository.FederatedCargoRepository("federated-test-cargo-repo", key=federated-test-cargo-repo)
     ```
 
 
@@ -361,7 +361,7 @@ def get_federated_cargo_repository_output(anonymous_access: Optional[pulumi.Inpu
     import pulumi
     import pulumi_artifactory as artifactory
 
-    federated_test_cargo_repo = artifactory.FederatedCargoRepository("federated-test-cargo-repo", key="federated-test-cargo-repo")
+    federated_test_cargo_repo = artifactory.index.federated_cargo_repository.FederatedCargoRepository("federated-test-cargo-repo", key=federated-test-cargo-repo)
     ```
 
 

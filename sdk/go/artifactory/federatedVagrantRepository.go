@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
+//	"github.com/pulumi/pulumi-artifactory/sdk/v1/go/artifactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -28,15 +28,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewFederatedVagrantRepository(ctx, "terraform-federated-test-vagrant-repo", &artifactory.FederatedVagrantRepositoryArgs{
-//				Key: pulumi.String("terraform-federated-test-vagrant-repo"),
-//				Members: artifactory.FederatedVagrantRepositoryMemberArray{
-//					&artifactory.FederatedVagrantRepositoryMemberArgs{
-//						Enabled: pulumi.Bool(true),
-//						Url:     pulumi.String("http://tempurl.org/artifactory/terraform-federated-test-vagrant-repo"),
+//				Key: "terraform-federated-test-vagrant-repo",
+//				Members: []map[string]interface{}{
+//					map[string]interface{}{
+//						"enabled": true,
+//						"url":     "http://tempurl.org/artifactory/terraform-federated-test-vagrant-repo",
 //					},
-//					&artifactory.FederatedVagrantRepositoryMemberArgs{
-//						Enabled: pulumi.Bool(true),
-//						Url:     pulumi.String("http://tempurl2.org/artifactory/terraform-federated-test-vagrant-repo-2"),
+//					map[string]interface{}{
+//						"enabled": true,
+//						"url":     "http://tempurl2.org/artifactory/terraform-federated-test-vagrant-repo-2",
 //					},
 //				},
 //			})

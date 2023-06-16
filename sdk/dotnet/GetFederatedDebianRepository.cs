@@ -13,56 +13,12 @@ namespace Pulumi.Artifactory
     {
         /// <summary>
         /// Retrieves a federated Debian repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var federated_test_debian_repo = Artifactory.GetFederatedDebianRepository.Invoke(new()
-        ///     {
-        ///         Key = "federated-test-debian-repo",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetFederatedDebianRepositoryResult> InvokeAsync(GetFederatedDebianRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFederatedDebianRepositoryResult>("artifactory:index/getFederatedDebianRepository:getFederatedDebianRepository", args ?? new GetFederatedDebianRepositoryArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves a federated Debian repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var federated_test_debian_repo = Artifactory.GetFederatedDebianRepository.Invoke(new()
-        ///     {
-        ///         Key = "federated-test-debian-repo",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetFederatedDebianRepositoryResult> Invoke(GetFederatedDebianRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFederatedDebianRepositoryResult>("artifactory:index/getFederatedDebianRepository:getFederatedDebianRepository", args ?? new GetFederatedDebianRepositoryInvokeArgs(), options.WithDefaults());

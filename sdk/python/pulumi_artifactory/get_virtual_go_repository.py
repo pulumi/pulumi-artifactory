@@ -194,15 +194,6 @@ def get_virtual_go_repository(artifactory_requests_can_retrieve_remote_artifacts
     """
     Retrieves a virtual Go repository.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    virtual_go = artifactory.get_virtual_go_repository(key="virtual-go")
-    ```
-
 
     :param bool external_dependencies_enabled: (Optional) Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list. 
            When checked (default), Artifactory will automatically follow remote VCS roots in 'go-import' meta tags to download remote modules.
@@ -261,15 +252,6 @@ def get_virtual_go_repository_output(artifactory_requests_can_retrieve_remote_ar
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualGoRepositoryResult]:
     """
     Retrieves a virtual Go repository.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    virtual_go = artifactory.get_virtual_go_repository(key="virtual-go")
-    ```
 
 
     :param bool external_dependencies_enabled: (Optional) Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list. 

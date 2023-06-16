@@ -13,56 +13,12 @@ namespace Pulumi.Artifactory
     {
         /// <summary>
         /// Retrieves a federated Gems repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var federated_test_gems_repo = Artifactory.GetFederatedGemsRepository.Invoke(new()
-        ///     {
-        ///         Key = "federated-test-gems-repo",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetFederatedGemsRepositoryResult> InvokeAsync(GetFederatedGemsRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFederatedGemsRepositoryResult>("artifactory:index/getFederatedGemsRepository:getFederatedGemsRepository", args ?? new GetFederatedGemsRepositoryArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves a federated Gems repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var federated_test_gems_repo = Artifactory.GetFederatedGemsRepository.Invoke(new()
-        ///     {
-        ///         Key = "federated-test-gems-repo",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetFederatedGemsRepositoryResult> Invoke(GetFederatedGemsRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFederatedGemsRepositoryResult>("artifactory:index/getFederatedGemsRepository:getFederatedGemsRepository", args ?? new GetFederatedGemsRepositoryInvokeArgs(), options.WithDefaults());

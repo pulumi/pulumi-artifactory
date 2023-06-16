@@ -235,15 +235,6 @@ def get_federated_vagrant_repository(archive_browsing_enabled: Optional[bool] = 
     """
     Retrieves a federated Vagrant repository.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    federated_test_vagrant_repo = artifactory.get_federated_vagrant_repository(key="federated-test-vagrant-repo")
-    ```
-
 
     :param str key: the identity key of the repo.
     :param Sequence[pulumi.InputType['GetFederatedVagrantRepositoryMemberArgs']] members: The list of Federated members and must contain this repository URL (configured base URL
@@ -315,15 +306,6 @@ def get_federated_vagrant_repository_output(archive_browsing_enabled: Optional[p
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFederatedVagrantRepositoryResult]:
     """
     Retrieves a federated Vagrant repository.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    federated_test_vagrant_repo = artifactory.get_federated_vagrant_repository(key="federated-test-vagrant-repo")
-    ```
 
 
     :param str key: the identity key of the repo.

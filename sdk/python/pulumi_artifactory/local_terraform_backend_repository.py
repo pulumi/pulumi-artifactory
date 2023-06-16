@@ -590,7 +590,7 @@ class LocalTerraformBackendRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_local_test_terraformbackend_repo = artifactory.LocalTerraformBackendRepository("terraform-local-test-terraformbackend-repo", key="terraform-local-test-terraformbackend-repo")
+        terraform_local_test_terraformbackend_repo = artifactory.index.local_terraform_backend_repository.LocalTerraformBackendRepository("terraform-local-test-terraformbackend-repo", key=terraform-local-test-terraformbackend-repo)
         ```
 
         ## Import
@@ -643,7 +643,7 @@ class LocalTerraformBackendRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_local_test_terraformbackend_repo = artifactory.LocalTerraformBackendRepository("terraform-local-test-terraformbackend-repo", key="terraform-local-test-terraformbackend-repo")
+        terraform_local_test_terraformbackend_repo = artifactory.index.local_terraform_backend_repository.LocalTerraformBackendRepository("terraform-local-test-terraformbackend-repo", key=terraform-local-test-terraformbackend-repo)
         ```
 
         ## Import

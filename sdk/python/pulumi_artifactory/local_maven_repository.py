@@ -822,13 +822,13 @@ class LocalMavenRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_local_test_maven_repo_basic = artifactory.LocalMavenRepository("terraform-local-test-maven-repo-basic",
-            checksum_policy_type="client-checksums",
+        terraform_local_test_maven_repo_basic = artifactory.index.local_maven_repository.LocalMavenRepository("terraform-local-test-maven-repo-basic",
+            checksum_policy_type=client-checksums,
             handle_releases=True,
             handle_snapshots=True,
-            key="terraform-local-test-maven-repo-basic",
+            key=terraform-local-test-maven-repo-basic,
             max_unique_snapshots=10,
-            snapshot_version_behavior="unique",
+            snapshot_version_behavior=unique,
             suppress_pom_consistency_checks=False)
         ```
 
@@ -898,13 +898,13 @@ class LocalMavenRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_local_test_maven_repo_basic = artifactory.LocalMavenRepository("terraform-local-test-maven-repo-basic",
-            checksum_policy_type="client-checksums",
+        terraform_local_test_maven_repo_basic = artifactory.index.local_maven_repository.LocalMavenRepository("terraform-local-test-maven-repo-basic",
+            checksum_policy_type=client-checksums,
             handle_releases=True,
             handle_snapshots=True,
-            key="terraform-local-test-maven-repo-basic",
+            key=terraform-local-test-maven-repo-basic,
             max_unique_snapshots=10,
-            snapshot_version_behavior="unique",
+            snapshot_version_behavior=unique,
             suppress_pom_consistency_checks=False)
         ```
 

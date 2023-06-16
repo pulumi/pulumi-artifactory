@@ -909,17 +909,17 @@ class FederatedIvyRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_federated_test_ivy_repo = artifactory.FederatedIvyRepository("terraform-federated-test-ivy-repo",
-            key="terraform-federated-test-ivy-repo",
+        terraform_federated_test_ivy_repo = artifactory.index.federated_ivy_repository.FederatedIvyRepository("terraform-federated-test-ivy-repo",
+            key=terraform-federated-test-ivy-repo,
             members=[
-                artifactory.FederatedIvyRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl.org/artifactory/terraform-federated-test-ivy-repo",
-                ),
-                artifactory.FederatedIvyRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl2.org/artifactory/terraform-federated-test-ivy-repo-2",
-                ),
+                {
+                    enabled: True,
+                    url: http://tempurl.org/artifactory/terraform-federated-test-ivy-repo,
+                },
+                {
+                    enabled: True,
+                    url: http://tempurl2.org/artifactory/terraform-federated-test-ivy-repo-2,
+                },
             ])
         ```
 
@@ -996,17 +996,17 @@ class FederatedIvyRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_federated_test_ivy_repo = artifactory.FederatedIvyRepository("terraform-federated-test-ivy-repo",
-            key="terraform-federated-test-ivy-repo",
+        terraform_federated_test_ivy_repo = artifactory.index.federated_ivy_repository.FederatedIvyRepository("terraform-federated-test-ivy-repo",
+            key=terraform-federated-test-ivy-repo,
             members=[
-                artifactory.FederatedIvyRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl.org/artifactory/terraform-federated-test-ivy-repo",
-                ),
-                artifactory.FederatedIvyRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl2.org/artifactory/terraform-federated-test-ivy-repo-2",
-                ),
+                {
+                    enabled: True,
+                    url: http://tempurl.org/artifactory/terraform-federated-test-ivy-repo,
+                },
+                {
+                    enabled: True,
+                    url: http://tempurl2.org/artifactory/terraform-federated-test-ivy-repo-2,
+                },
             ])
         ```
 

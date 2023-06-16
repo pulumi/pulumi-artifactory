@@ -592,7 +592,7 @@ class LocalPypiRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_local_test_pypi_repo = artifactory.LocalPypiRepository("terraform-local-test-pypi-repo", key="terraform-local-test-pypi-repo")
+        terraform_local_test_pypi_repo = artifactory.index.local_pypi_repository.LocalPypiRepository("terraform-local-test-pypi-repo", key=terraform-local-test-pypi-repo)
         ```
 
         ## Import
@@ -647,7 +647,7 @@ class LocalPypiRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_local_test_pypi_repo = artifactory.LocalPypiRepository("terraform-local-test-pypi-repo", key="terraform-local-test-pypi-repo")
+        terraform_local_test_pypi_repo = artifactory.index.local_pypi_repository.LocalPypiRepository("terraform-local-test-pypi-repo", key=terraform-local-test-pypi-repo)
         ```
 
         ## Import

@@ -1508,10 +1508,10 @@ class RemoteGoRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        my_remote_go = artifactory.RemoteGoRepository("my-remote-go",
-            key="my-remote-go",
-            url="https://proxy.golang.org/",
-            vcs_git_provider="ARTIFACTORY")
+        my_remote_go = artifactory.index.remote_go_repository.RemoteGoRepository("my-remote-go",
+            key=my-remote-go,
+            url=https://proxy.golang.org/,
+            vcs_git_provider=ARTIFACTORY)
         ```
 
         ## Import
@@ -1611,10 +1611,10 @@ class RemoteGoRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        my_remote_go = artifactory.RemoteGoRepository("my-remote-go",
-            key="my-remote-go",
-            url="https://proxy.golang.org/",
-            vcs_git_provider="ARTIFACTORY")
+        my_remote_go = artifactory.index.remote_go_repository.RemoteGoRepository("my-remote-go",
+            key=my-remote-go,
+            url=https://proxy.golang.org/,
+            vcs_git_provider=ARTIFACTORY)
         ```
 
         ## Import

@@ -6,17 +6,6 @@ import * as utilities from "./utilities";
 
 /**
  * Retrieves a virtual Gradle repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const virtual-gradle = artifactory.getVirtualGradleRepository({
- *     key: "virtual-gradle",
- * });
- * ```
  */
 export function getVirtualGradleRepository(args: GetVirtualGradleRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualGradleRepositoryResult> {
 
@@ -106,17 +95,6 @@ export interface GetVirtualGradleRepositoryResult {
 }
 /**
  * Retrieves a virtual Gradle repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const virtual-gradle = artifactory.getVirtualGradleRepository({
- *     key: "virtual-gradle",
- * });
- * ```
  */
 export function getVirtualGradleRepositoryOutput(args: GetVirtualGradleRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualGradleRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getVirtualGradleRepository(a, opts))

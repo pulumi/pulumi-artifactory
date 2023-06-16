@@ -13,56 +13,12 @@ namespace Pulumi.Artifactory
     {
         /// <summary>
         /// Retrieves a federated Ivy repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var federated_test_ivy_repo = Artifactory.GetFederatedIvyRepository.Invoke(new()
-        ///     {
-        ///         Key = "federated-test-ivy-repo",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetFederatedIvyRepositoryResult> InvokeAsync(GetFederatedIvyRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFederatedIvyRepositoryResult>("artifactory:index/getFederatedIvyRepository:getFederatedIvyRepository", args ?? new GetFederatedIvyRepositoryArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves a federated Ivy repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var federated_test_ivy_repo = Artifactory.GetFederatedIvyRepository.Invoke(new()
-        ///     {
-        ///         Key = "federated-test-ivy-repo",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetFederatedIvyRepositoryResult> Invoke(GetFederatedIvyRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFederatedIvyRepositoryResult>("artifactory:index/getFederatedIvyRepository:getFederatedIvyRepository", args ?? new GetFederatedIvyRepositoryInvokeArgs(), options.WithDefaults());

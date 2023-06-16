@@ -239,28 +239,28 @@ class BuildWebhook(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        build_webhook = artifactory.BuildWebhook("build-webhook",
-            criteria=artifactory.BuildWebhookCriteriaArgs(
-                any_build=True,
-                exclude_patterns=["bar/**"],
-                include_patterns=["foo/**"],
-                selected_builds=["build-id"],
-            ),
+        build_webhook = artifactory.index.build_webhook.BuildWebhook("build-webhook",
+            criteria={
+                anyBuild: True,
+                excludePatterns: [bar/**],
+                includePatterns: [foo/**],
+                selectedBuilds: [build-id],
+            },
             event_types=[
-                "uploaded",
-                "deleted",
-                "promoted",
+                uploaded,
+                deleted,
+                promoted,
             ],
-            handlers=[artifactory.BuildWebhookHandlerArgs(
-                custom_http_headers={
-                    "header-1": "value-1",
-                    "header-2": "value-2",
+            handlers=[{
+                customHttpHeaders: {
+                    header-1: value-1,
+                    header-2: value-2,
                 },
-                proxy="proxy-key",
-                secret="some-secret",
-                url="http://tempurl.org/webhook",
-            )],
-            key="build-webhook")
+                proxy: proxy-key,
+                secret: some-secret,
+                url: http://tempurl.org/webhook,
+            }],
+            key=build-webhook)
         ```
 
         :param str resource_name: The name of the resource.
@@ -288,28 +288,28 @@ class BuildWebhook(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        build_webhook = artifactory.BuildWebhook("build-webhook",
-            criteria=artifactory.BuildWebhookCriteriaArgs(
-                any_build=True,
-                exclude_patterns=["bar/**"],
-                include_patterns=["foo/**"],
-                selected_builds=["build-id"],
-            ),
+        build_webhook = artifactory.index.build_webhook.BuildWebhook("build-webhook",
+            criteria={
+                anyBuild: True,
+                excludePatterns: [bar/**],
+                includePatterns: [foo/**],
+                selectedBuilds: [build-id],
+            },
             event_types=[
-                "uploaded",
-                "deleted",
-                "promoted",
+                uploaded,
+                deleted,
+                promoted,
             ],
-            handlers=[artifactory.BuildWebhookHandlerArgs(
-                custom_http_headers={
-                    "header-1": "value-1",
-                    "header-2": "value-2",
+            handlers=[{
+                customHttpHeaders: {
+                    header-1: value-1,
+                    header-2: value-2,
                 },
-                proxy="proxy-key",
-                secret="some-secret",
-                url="http://tempurl.org/webhook",
-            )],
-            key="build-webhook")
+                proxy: proxy-key,
+                secret: some-secret,
+                url: http://tempurl.org/webhook,
+            }],
+            key=build-webhook)
         ```
 
         :param str resource_name: The name of the resource.

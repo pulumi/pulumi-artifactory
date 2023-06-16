@@ -22,7 +22,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var terraform_local_test_conan_repo = new Artifactory.LocalConanRepository("terraform-local-test-conan-repo", new()
+    ///     var terraform_local_test_conan_repo = new Artifactory.Index.LocalConanRepository.LocalConanRepository("terraform-local-test-conan-repo", new()
     ///     {
     ///         Key = "terraform-local-test-conan-repo",
     ///     });

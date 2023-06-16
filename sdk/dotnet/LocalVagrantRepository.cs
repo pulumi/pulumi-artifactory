@@ -22,7 +22,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var terraform_local_test_vagrant_repo = new Artifactory.LocalVagrantRepository("terraform-local-test-vagrant-repo", new()
+    ///     var terraform_local_test_vagrant_repo = new Artifactory.Index.LocalVagrantRepository.LocalVagrantRepository("terraform-local-test-vagrant-repo", new()
     ///     {
     ///         Key = "terraform-local-test-vagrant-repo",
     ///     });

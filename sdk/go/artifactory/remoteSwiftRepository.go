@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
+//	"github.com/pulumi/pulumi-artifactory/sdk/v1/go/artifactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -29,8 +29,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewRemoteSwiftRepository(ctx, "my-remote-swift", &artifactory.RemoteSwiftRepositoryArgs{
-//				Key: pulumi.String("my-remote-swift"),
-//				Url: pulumi.String("https://swift.org/"),
+//				Key: "my-remote-swift",
+//				Url: "https://swift.org/",
 //			})
 //			if err != nil {
 //				return err

@@ -18,9 +18,9 @@ import * as utilities from "./utilities";
  * import * as artifactory from "@pulumi/artifactory";
  *
  * // Create a replication between two artifactory local repositories
- * const providerTestSource = new artifactory.LocalMavenRepository("providerTestSource", {key: "provider_test_source"});
- * const providerTestDest = new artifactory.LocalMavenRepository("providerTestDest", {key: "provider_test_dest"});
- * const foo_rep = new artifactory.ReplicationConfig("foo-rep", {
+ * const providerTestSource = new artifactory.index/localMavenRepository.LocalMavenRepository("providerTestSource", {key: "provider_test_source"});
+ * const providerTestDest = new artifactory.index/localMavenRepository.LocalMavenRepository("providerTestDest", {key: "provider_test_dest"});
+ * const foo_rep = new artifactory.index/replicationConfig.ReplicationConfig("foo-rep", {
  *     cronExp: "0 0 * * * ?",
  *     enableEventReplication: true,
  *     replications: [{

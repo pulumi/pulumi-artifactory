@@ -826,7 +826,7 @@ class LocalIvyRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_local_test_ivy_repo = artifactory.LocalIvyRepository("terraform-local-test-ivy-repo", key="terraform-local-test-ivy-repo")
+        terraform_local_test_ivy_repo = artifactory.index.local_ivy_repository.LocalIvyRepository("terraform-local-test-ivy-repo", key=terraform-local-test-ivy-repo)
         ```
 
         ## Import
@@ -896,7 +896,7 @@ class LocalIvyRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_local_test_ivy_repo = artifactory.LocalIvyRepository("terraform-local-test-ivy-repo", key="terraform-local-test-ivy-repo")
+        terraform_local_test_ivy_repo = artifactory.index.local_ivy_repository.LocalIvyRepository("terraform-local-test-ivy-repo", key=terraform-local-test-ivy-repo)
         ```
 
         ## Import

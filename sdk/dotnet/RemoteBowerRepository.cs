@@ -23,7 +23,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var my_remote_bower = new Artifactory.RemoteBowerRepository("my-remote-bower", new()
+    ///     var my_remote_bower = new Artifactory.Index.RemoteBowerRepository.RemoteBowerRepository("my-remote-bower", new()
     ///     {
     ///         Key = "my-remote-bower",
     ///         Url = "https://github.com/",

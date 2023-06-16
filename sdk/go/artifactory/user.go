@@ -24,7 +24,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
+//	"github.com/pulumi/pulumi-artifactory/sdk/v1/go/artifactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -32,16 +32,16 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewUser(ctx, "test-user", &artifactory.UserArgs{
-//				Admin:           pulumi.Bool(false),
-//				DisableUiAccess: pulumi.Bool(false),
-//				Email:           pulumi.String("test-user@artifactory-terraform.com"),
-//				Groups: pulumi.StringArray{
-//					pulumi.String("readers"),
-//					pulumi.String("logged-in-users"),
+//				Admin:           false,
+//				DisableUiAccess: false,
+//				Email:           "test-user@artifactory-terraform.com",
+//				Groups: []string{
+//					"readers",
+//					"logged-in-users",
 //				},
-//				InternalPasswordDisabled: pulumi.Bool(false),
-//				Password:                 pulumi.String("my super secret password"),
-//				ProfileUpdatable:         pulumi.Bool(true),
+//				InternalPasswordDisabled: false,
+//				Password:                 "my super secret password",
+//				ProfileUpdatable:         true,
 //			})
 //			if err != nil {
 //				return err

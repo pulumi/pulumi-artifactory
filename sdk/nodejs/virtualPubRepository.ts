@@ -14,7 +14,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const foo_pub = new artifactory.VirtualPubRepository("foo-pub", {
+ * const foo_pub = new artifactory.index/virtualPubRepository.VirtualPubRepository("foo-pub", {
  *     description: "A test virtual repo",
  *     excludesPattern: "com/google/**",
  *     includesPattern: "com/jfrog/**,cloud/jfrog/**",

@@ -19,7 +19,7 @@ import * as utilities from "./utilities";
  * import * as artifactory from "@pulumi/artifactory";
  *
  * // Configure Artifactory LDAP setting
- * const ldapGroupName = new artifactory.LdapGroupSetting("ldapGroupName", {
+ * const ldapGroupName = new artifactory.index/ldapGroupSetting.LdapGroupSetting("ldapGroupName", {
  *     descriptionAttribute: "description",
  *     filter: "(objectClass=groupOfNames)",
  *     groupBaseDn: "",

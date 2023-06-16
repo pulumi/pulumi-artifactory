@@ -16,7 +16,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const my_remote_nuget = new artifactory.RemoteNugetRepository("my-remote-nuget", {
+ * const my_remote_nuget = new artifactory.index/remoteNugetRepository.RemoteNugetRepository("my-remote-nuget", {
  *     downloadContextPath: "api/v2/package",
  *     forceNugetAuthentication: true,
  *     key: "my-remote-nuget",

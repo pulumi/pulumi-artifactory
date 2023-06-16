@@ -202,16 +202,6 @@ def get_fileinfo(path: Optional[str] = None,
 
     Provides an Artifactory fileinfo datasource. This can be used to read metadata of files stored in Artifactory repositories.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    my_file = artifactory.get_fileinfo(path="/path/to/the/artifact.zip",
-        repository="repo-key")
-    ```
-
 
     :param str path: The path to the file within the repository.
     :param str repository: Name of the repository where the file is stored.
@@ -247,16 +237,6 @@ def get_fileinfo_output(path: Optional[pulumi.Input[str]] = None,
     ## # Artifactory File Info Data Source
 
     Provides an Artifactory fileinfo datasource. This can be used to read metadata of files stored in Artifactory repositories.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    my_file = artifactory.get_fileinfo(path="/path/to/the/artifact.zip",
-        repository="repo-key")
-    ```
 
 
     :param str path: The path to the file within the repository.

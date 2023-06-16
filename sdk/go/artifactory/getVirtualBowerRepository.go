@@ -11,32 +11,6 @@ import (
 )
 
 // Retrieves a virtual Bower repository.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupVirtualBowerRepository(ctx, &artifactory.LookupVirtualBowerRepositoryArgs{
-//				Key: "virtual-alpine",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupVirtualBowerRepository(ctx *pulumi.Context, args *LookupVirtualBowerRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupVirtualBowerRepositoryResult, error) {
 	var rv LookupVirtualBowerRepositoryResult
 	err := ctx.Invoke("artifactory:index/getVirtualBowerRepository:getVirtualBowerRepository", args, &rv, opts...)

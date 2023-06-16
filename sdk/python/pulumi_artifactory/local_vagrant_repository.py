@@ -592,7 +592,7 @@ class LocalVagrantRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_local_test_vagrant_repo = artifactory.LocalVagrantRepository("terraform-local-test-vagrant-repo", key="terraform-local-test-vagrant-repo")
+        terraform_local_test_vagrant_repo = artifactory.index.local_vagrant_repository.LocalVagrantRepository("terraform-local-test-vagrant-repo", key=terraform-local-test-vagrant-repo)
         ```
 
         ## Import
@@ -647,7 +647,7 @@ class LocalVagrantRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_local_test_vagrant_repo = artifactory.LocalVagrantRepository("terraform-local-test-vagrant-repo", key="terraform-local-test-vagrant-repo")
+        terraform_local_test_vagrant_repo = artifactory.index.local_vagrant_repository.LocalVagrantRepository("terraform-local-test-vagrant-repo", key=terraform-local-test-vagrant-repo)
         ```
 
         ## Import

@@ -22,7 +22,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var terraform_local_test_maven_repo_basic = new Artifactory.LocalMavenRepository("terraform-local-test-maven-repo-basic", new()
+    ///     var terraform_local_test_maven_repo_basic = new Artifactory.Index.LocalMavenRepository.LocalMavenRepository("terraform-local-test-maven-repo-basic", new()
     ///     {
     ///         ChecksumPolicyType = "client-checksums",
     ///         HandleReleases = true,

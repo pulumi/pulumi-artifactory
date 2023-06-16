@@ -11,32 +11,6 @@ import (
 )
 
 // Retrieves a virtual P2 repository.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupVirtualP2Repository(ctx, &artifactory.LookupVirtualP2RepositoryArgs{
-//				Key: "virtual-p2",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupVirtualP2Repository(ctx *pulumi.Context, args *LookupVirtualP2RepositoryArgs, opts ...pulumi.InvokeOption) (*LookupVirtualP2RepositoryResult, error) {
 	var rv LookupVirtualP2RepositoryResult
 	err := ctx.Invoke("artifactory:index/getVirtualP2Repository:getVirtualP2Repository", args, &rv, opts...)

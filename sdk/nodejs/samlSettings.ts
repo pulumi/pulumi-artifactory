@@ -18,7 +18,7 @@ import * as utilities from "./utilities";
  * import * as artifactory from "@pulumi/artifactory";
  *
  * // Configure Artifactory SAML SSO settings
- * const saml = new artifactory.SamlSettings("saml", {
+ * const saml = new artifactory.index/samlSettings.SamlSettings("saml", {
  *     allowUserToAccessProfile: true,
  *     autoRedirect: true,
  *     certificate: "test-certificate",

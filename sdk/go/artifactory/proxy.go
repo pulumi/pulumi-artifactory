@@ -25,7 +25,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
+//	"github.com/pulumi/pulumi-artifactory/sdk/v1/go/artifactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -33,21 +33,21 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewProxy(ctx, "my-proxy", &artifactory.ProxyArgs{
-//				Host:            pulumi.String("my-proxy.mycompany.com"),
-//				Key:             pulumi.String("my-proxy"),
-//				NtDomain:        pulumi.String("MYCOMPANY"),
-//				NtHost:          pulumi.String("MYCOMPANY.COM"),
-//				Password:        pulumi.String("password"),
-//				PlatformDefault: pulumi.Bool(false),
-//				Port:            pulumi.Int(8888),
-//				RedirectToHosts: pulumi.StringArray{
-//					pulumi.String("redirec-host.mycompany.com"),
+//				Host:            "my-proxy.mycompany.com",
+//				Key:             "my-proxy",
+//				NtDomain:        "MYCOMPANY",
+//				NtHost:          "MYCOMPANY.COM",
+//				Password:        "password",
+//				PlatformDefault: false,
+//				Port:            8888,
+//				RedirectToHosts: []string{
+//					"redirec-host.mycompany.com",
 //				},
-//				Services: pulumi.StringArray{
-//					pulumi.String("jfrt"),
-//					pulumi.String("jfxr"),
+//				Services: []string{
+//					"jfrt",
+//					"jfxr",
 //				},
-//				Username: pulumi.String("user1"),
+//				Username: "user1",
 //			})
 //			if err != nil {
 //				return err

@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const terraform_federated_test_composer_repo = new artifactory.FederatedComposerRepository("terraform-federated-test-composer-repo", {
+ * const terraform_federated_test_composer_repo = new artifactory.index/federatedComposerRepository.FederatedComposerRepository("terraform-federated-test-composer-repo", {
  *     key: "terraform-federated-test-composer-repo",
  *     members: [
  *         {

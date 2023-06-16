@@ -312,13 +312,13 @@ class UnmanagedUser(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         # Create a new Artifactory user called terraform
-        test_user = artifactory.UnmanagedUser("test-user",
-            email="test-user@artifactory-terraform.com",
+        test_user = artifactory.index.unmanaged_user.UnmanagedUser("test-user",
+            email=test-user@artifactory-terraform.com,
             groups=[
-                "logged-in-users",
-                "readers",
+                logged-in-users,
+                readers,
             ],
-            password="my super secret password")
+            password=my super secret password)
         ```
         ## Managing groups relationship
 
@@ -365,13 +365,13 @@ class UnmanagedUser(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         # Create a new Artifactory user called terraform
-        test_user = artifactory.UnmanagedUser("test-user",
-            email="test-user@artifactory-terraform.com",
+        test_user = artifactory.index.unmanaged_user.UnmanagedUser("test-user",
+            email=test-user@artifactory-terraform.com,
             groups=[
-                "logged-in-users",
-                "readers",
+                logged-in-users,
+                readers,
             ],
-            password="my super secret password")
+            password=my super secret password)
         ```
         ## Managing groups relationship
 

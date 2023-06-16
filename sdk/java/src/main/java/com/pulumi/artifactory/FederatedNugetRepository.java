@@ -30,7 +30,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.artifactory.FederatedNugetRepository;
  * import com.pulumi.artifactory.FederatedNugetRepositoryArgs;
- * import com.pulumi.artifactory.inputs.FederatedNugetRepositoryMemberArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -47,14 +46,8 @@ import javax.annotation.Nullable;
  *         var terraform_federated_test_nuget_repo = new FederatedNugetRepository(&#34;terraform-federated-test-nuget-repo&#34;, FederatedNugetRepositoryArgs.builder()        
  *             .key(&#34;terraform-federated-test-nuget-repo&#34;)
  *             .members(            
- *                 FederatedNugetRepositoryMemberArgs.builder()
- *                     .enabled(true)
- *                     .url(&#34;http://tempurl.org/artifactory/terraform-federated-test-nuget-repo&#34;)
- *                     .build(),
- *                 FederatedNugetRepositoryMemberArgs.builder()
- *                     .enabled(true)
- *                     .url(&#34;http://tempurl2.org/artifactory/terraform-federated-test-nuget-repo-2&#34;)
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

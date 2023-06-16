@@ -16,7 +16,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const gradle_remote = new artifactory.RemoteGradleRepository("gradle-remote", {
+ * const gradle_remote = new artifactory.index/remoteGradleRepository.RemoteGradleRepository("gradle-remote", {
  *     fetchJarsEagerly: true,
  *     fetchSourcesEagerly: false,
  *     key: "gradle-remote-foo",

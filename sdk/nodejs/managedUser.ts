@@ -11,7 +11,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const test_user = new artifactory.ManagedUser("test-user", {
+ * const test_user = new artifactory.index/managedUser.ManagedUser("test-user", {
  *     email: "test-user@artifactory-terraform.com",
  *     groups: [
  *         "readers",

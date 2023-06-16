@@ -8,17 +8,6 @@ import * as utilities from "./utilities";
 
 /**
  * Retrieves a federated Go repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const federated-test-go-repo = artifactory.getFederatedGoRepository({
- *     key: "federated-test-go-repo",
- * });
- * ```
  */
 export function getFederatedGoRepository(args: GetFederatedGoRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetFederatedGoRepositoryResult> {
 
@@ -111,17 +100,6 @@ export interface GetFederatedGoRepositoryResult {
 }
 /**
  * Retrieves a federated Go repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const federated-test-go-repo = artifactory.getFederatedGoRepository({
- *     key: "federated-test-go-repo",
- * });
- * ```
  */
 export function getFederatedGoRepositoryOutput(args: GetFederatedGoRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedGoRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getFederatedGoRepository(a, opts))

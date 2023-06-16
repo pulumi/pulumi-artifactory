@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
+//	"github.com/pulumi/pulumi-artifactory/sdk/v1/go/artifactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -29,8 +29,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewRemotePubRepository(ctx, "my-remote-pub", &artifactory.RemotePubRepositoryArgs{
-//				Key: pulumi.String("my-remote-pub"),
-//				Url: pulumi.String("https://pub.dartlang.org"),
+//				Key: "my-remote-pub",
+//				Url: "https://pub.dartlang.org",
 //			})
 //			if err != nil {
 //				return err

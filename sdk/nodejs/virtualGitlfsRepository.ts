@@ -14,7 +14,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const foo_gitlfs = new artifactory.VirtualGitlfsRepository("foo-gitlfs", {
+ * const foo_gitlfs = new artifactory.index/virtualGitlfsRepository.VirtualGitlfsRepository("foo-gitlfs", {
  *     description: "A test virtual repo",
  *     excludesPattern: "com/google/**",
  *     includesPattern: "com/jfrog/**,cloud/jfrog/**",

@@ -8,17 +8,6 @@ import * as utilities from "./utilities";
 
 /**
  * Retrieves a remote Swift repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const remote-swift = artifactory.getRemoteSwiftRepository({
- *     key: "remote-swift",
- * });
- * ```
  */
 export function getRemoteSwiftRepository(args: GetRemoteSwiftRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetRemoteSwiftRepositoryResult> {
 
@@ -168,17 +157,6 @@ export interface GetRemoteSwiftRepositoryResult {
 }
 /**
  * Retrieves a remote Swift repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const remote-swift = artifactory.getRemoteSwiftRepository({
- *     key: "remote-swift",
- * });
- * ```
  */
 export function getRemoteSwiftRepositoryOutput(args: GetRemoteSwiftRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemoteSwiftRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getRemoteSwiftRepository(a, opts))

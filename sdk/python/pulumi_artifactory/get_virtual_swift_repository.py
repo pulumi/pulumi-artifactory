@@ -167,15 +167,6 @@ def get_virtual_swift_repository(artifactory_requests_can_retrieve_remote_artifa
     """
     Retrieves a virtual Swift repository.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    virtual_swift = artifactory.get_virtual_swift_repository(key="virtual-swift")
-    ```
-
 
     :param str key: the identity key of the repo.
     """
@@ -225,15 +216,6 @@ def get_virtual_swift_repository_output(artifactory_requests_can_retrieve_remote
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualSwiftRepositoryResult]:
     """
     Retrieves a virtual Swift repository.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    virtual_swift = artifactory.get_virtual_swift_repository(key="virtual-swift")
-    ```
 
 
     :param str key: the identity key of the repo.

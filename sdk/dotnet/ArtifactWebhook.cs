@@ -23,12 +23,12 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var my_generic_local = new Artifactory.LocalGenericRepository("my-generic-local", new()
+    ///     var my_generic_local = new Artifactory.Index.LocalGenericRepository.LocalGenericRepository("my-generic-local", new()
     ///     {
     ///         Key = "my-generic-local",
     ///     });
     /// 
-    ///     var artifact_webhook = new Artifactory.ArtifactWebhook("artifact-webhook", new()
+    ///     var artifact_webhook = new Artifactory.Index.ArtifactWebhook.ArtifactWebhook("artifact-webhook", new()
     ///     {
     ///         Key = "artifact-webhook",
     ///         EventTypes = new[]
@@ -38,35 +38,35 @@ namespace Pulumi.Artifactory
     ///             "moved",
     ///             "copied",
     ///         },
-    ///         Criteria = new Artifactory.Inputs.ArtifactWebhookCriteriaArgs
+    ///         Criteria = 
     ///         {
-    ///             AnyLocal = true,
-    ///             AnyRemote = false,
-    ///             RepoKeys = new[]
+    ///             { "anyLocal", true },
+    ///             { "anyRemote", false },
+    ///             { "repoKeys", new[]
     ///             {
     ///                 my_generic_local.Key,
-    ///             },
-    ///             IncludePatterns = new[]
+    ///             } },
+    ///             { "includePatterns", new[]
     ///             {
     ///                 "foo/**",
-    ///             },
-    ///             ExcludePatterns = new[]
+    ///             } },
+    ///             { "excludePatterns", new[]
     ///             {
     ///                 "bar/**",
-    ///             },
+    ///             } },
     ///         },
     ///         Handlers = new[]
     ///         {
-    ///             new Artifactory.Inputs.ArtifactWebhookHandlerArgs
+    ///             
     ///             {
-    ///                 Url = "http://tempurl.org/webhook",
-    ///                 Secret = "some-secret",
-    ///                 Proxy = "proxy-key",
-    ///                 CustomHttpHeaders = 
+    ///                 { "url", "http://tempurl.org/webhook" },
+    ///                 { "secret", "some-secret" },
+    ///                 { "proxy", "proxy-key" },
+    ///                 { "customHttpHeaders", 
     ///                 {
     ///                     { "header-1", "value-1" },
     ///                     { "header-2", "value-2" },
-    ///                 },
+    ///                 } },
     ///             },
     ///         },
     ///     }, new CustomResourceOptions

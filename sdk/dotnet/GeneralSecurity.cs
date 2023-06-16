@@ -27,7 +27,7 @@ namespace Pulumi.Artifactory
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     // Configure Artifactory general security settings
-    ///     var security = new Artifactory.GeneralSecurity("security", new()
+    ///     var security = new Artifactory.Index.GeneralSecurity.GeneralSecurity("security", new()
     ///     {
     ///         EnableAnonymousAccess = true,
     ///     });

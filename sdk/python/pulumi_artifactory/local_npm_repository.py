@@ -592,7 +592,7 @@ class LocalNpmRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_local_test_npm_repo = artifactory.LocalNpmRepository("terraform-local-test-npm-repo", key="terraform-local-test-npm-repo")
+        terraform_local_test_npm_repo = artifactory.index.local_npm_repository.LocalNpmRepository("terraform-local-test-npm-repo", key=terraform-local-test-npm-repo)
         ```
 
         ## Import
@@ -647,7 +647,7 @@ class LocalNpmRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_local_test_npm_repo = artifactory.LocalNpmRepository("terraform-local-test-npm-repo", key="terraform-local-test-npm-repo")
+        terraform_local_test_npm_repo = artifactory.index.local_npm_repository.LocalNpmRepository("terraform-local-test-npm-repo", key=terraform-local-test-npm-repo)
         ```
 
         ## Import

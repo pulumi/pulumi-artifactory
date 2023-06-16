@@ -6,17 +6,6 @@ import * as utilities from "./utilities";
 
 /**
  * Retrieves a virtual NPM repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const virtual-npm = artifactory.getVirtualNpmRepository({
- *     key: "virtual-npm",
- * });
- * ```
  */
 export function getVirtualNugetRepository(args: GetVirtualNugetRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNugetRepositoryResult> {
 
@@ -88,17 +77,6 @@ export interface GetVirtualNugetRepositoryResult {
 }
 /**
  * Retrieves a virtual NPM repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const virtual-npm = artifactory.getVirtualNpmRepository({
- *     key: "virtual-npm",
- * });
- * ```
  */
 export function getVirtualNugetRepositoryOutput(args: GetVirtualNugetRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNugetRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getVirtualNugetRepository(a, opts))

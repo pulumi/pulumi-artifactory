@@ -805,17 +805,17 @@ class FederatedDebianRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_federated_test_debian_repo = artifactory.FederatedDebianRepository("terraform-federated-test-debian-repo",
-            key="terraform-federated-test-debian-repo",
+        terraform_federated_test_debian_repo = artifactory.index.federated_debian_repository.FederatedDebianRepository("terraform-federated-test-debian-repo",
+            key=terraform-federated-test-debian-repo,
             members=[
-                artifactory.FederatedDebianRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl.org/artifactory/terraform-federated-test-debian-repo",
-                ),
-                artifactory.FederatedDebianRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl2.org/artifactory/terraform-federated-test-debian-repo-2",
-                ),
+                {
+                    enabled: True,
+                    url: http://tempurl.org/artifactory/terraform-federated-test-debian-repo,
+                },
+                {
+                    enabled: True,
+                    url: http://tempurl2.org/artifactory/terraform-federated-test-debian-repo-2,
+                },
             ])
         ```
 
@@ -880,17 +880,17 @@ class FederatedDebianRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_federated_test_debian_repo = artifactory.FederatedDebianRepository("terraform-federated-test-debian-repo",
-            key="terraform-federated-test-debian-repo",
+        terraform_federated_test_debian_repo = artifactory.index.federated_debian_repository.FederatedDebianRepository("terraform-federated-test-debian-repo",
+            key=terraform-federated-test-debian-repo,
             members=[
-                artifactory.FederatedDebianRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl.org/artifactory/terraform-federated-test-debian-repo",
-                ),
-                artifactory.FederatedDebianRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl2.org/artifactory/terraform-federated-test-debian-repo-2",
-                ),
+                {
+                    enabled: True,
+                    url: http://tempurl.org/artifactory/terraform-federated-test-debian-repo,
+                },
+                {
+                    enabled: True,
+                    url: http://tempurl2.org/artifactory/terraform-federated-test-debian-repo-2,
+                },
             ])
         ```
 

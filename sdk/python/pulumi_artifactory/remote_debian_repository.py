@@ -1475,9 +1475,9 @@ class RemoteDebianRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        my_remote_debian = artifactory.RemoteDebianRepository("my-remote-debian",
-            key="my-remote-Debian",
-            url="http://archive.ubuntu.com/ubuntu/")
+        my_remote_debian = artifactory.index.remote_debian_repository.RemoteDebianRepository("my-remote-debian",
+            key=my-remote-Debian,
+            url=http://archive.ubuntu.com/ubuntu/)
         ```
 
         ## Import
@@ -1576,9 +1576,9 @@ class RemoteDebianRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        my_remote_debian = artifactory.RemoteDebianRepository("my-remote-debian",
-            key="my-remote-Debian",
-            url="http://archive.ubuntu.com/ubuntu/")
+        my_remote_debian = artifactory.index.remote_debian_repository.RemoteDebianRepository("my-remote-debian",
+            key=my-remote-Debian,
+            url=http://archive.ubuntu.com/ubuntu/)
         ```
 
         ## Import

@@ -11,32 +11,6 @@ import (
 )
 
 // Retrieves a virtual Generic repository.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupVirtualGenericRepository(ctx, &artifactory.LookupVirtualGenericRepositoryArgs{
-//				Key: "virtual-generic",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupVirtualGenericRepository(ctx *pulumi.Context, args *LookupVirtualGenericRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupVirtualGenericRepositoryResult, error) {
 	var rv LookupVirtualGenericRepositoryResult
 	err := ctx.Invoke("artifactory:index/getVirtualGenericRepository:getVirtualGenericRepository", args, &rv, opts...)

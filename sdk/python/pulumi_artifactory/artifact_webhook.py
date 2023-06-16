@@ -239,31 +239,31 @@ class ArtifactWebhook(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        my_generic_local = artifactory.LocalGenericRepository("my-generic-local", key="my-generic-local")
-        artifact_webhook = artifactory.ArtifactWebhook("artifact-webhook",
-            key="artifact-webhook",
+        my_generic_local = artifactory.index.local_generic_repository.LocalGenericRepository("my-generic-local", key=my-generic-local)
+        artifact_webhook = artifactory.index.artifact_webhook.ArtifactWebhook("artifact-webhook",
+            key=artifact-webhook,
             event_types=[
-                "deployed",
-                "deleted",
-                "moved",
-                "copied",
+                deployed,
+                deleted,
+                moved,
+                copied,
             ],
-            criteria=artifactory.ArtifactWebhookCriteriaArgs(
-                any_local=True,
-                any_remote=False,
-                repo_keys=[my_generic_local.key],
-                include_patterns=["foo/**"],
-                exclude_patterns=["bar/**"],
-            ),
-            handlers=[artifactory.ArtifactWebhookHandlerArgs(
-                url="http://tempurl.org/webhook",
-                secret="some-secret",
-                proxy="proxy-key",
-                custom_http_headers={
-                    "header-1": "value-1",
-                    "header-2": "value-2",
+            criteria={
+                anyLocal: True,
+                anyRemote: False,
+                repoKeys: [my_generic_local.key],
+                includePatterns: [foo/**],
+                excludePatterns: [bar/**],
+            },
+            handlers=[{
+                url: http://tempurl.org/webhook,
+                secret: some-secret,
+                proxy: proxy-key,
+                customHttpHeaders: {
+                    header-1: value-1,
+                    header-2: value-2,
                 },
-            )],
+            }],
             opts=pulumi.ResourceOptions(depends_on=[my_generic_local]))
         ```
 
@@ -292,31 +292,31 @@ class ArtifactWebhook(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        my_generic_local = artifactory.LocalGenericRepository("my-generic-local", key="my-generic-local")
-        artifact_webhook = artifactory.ArtifactWebhook("artifact-webhook",
-            key="artifact-webhook",
+        my_generic_local = artifactory.index.local_generic_repository.LocalGenericRepository("my-generic-local", key=my-generic-local)
+        artifact_webhook = artifactory.index.artifact_webhook.ArtifactWebhook("artifact-webhook",
+            key=artifact-webhook,
             event_types=[
-                "deployed",
-                "deleted",
-                "moved",
-                "copied",
+                deployed,
+                deleted,
+                moved,
+                copied,
             ],
-            criteria=artifactory.ArtifactWebhookCriteriaArgs(
-                any_local=True,
-                any_remote=False,
-                repo_keys=[my_generic_local.key],
-                include_patterns=["foo/**"],
-                exclude_patterns=["bar/**"],
-            ),
-            handlers=[artifactory.ArtifactWebhookHandlerArgs(
-                url="http://tempurl.org/webhook",
-                secret="some-secret",
-                proxy="proxy-key",
-                custom_http_headers={
-                    "header-1": "value-1",
-                    "header-2": "value-2",
+            criteria={
+                anyLocal: True,
+                anyRemote: False,
+                repoKeys: [my_generic_local.key],
+                includePatterns: [foo/**],
+                excludePatterns: [bar/**],
+            },
+            handlers=[{
+                url: http://tempurl.org/webhook,
+                secret: some-secret,
+                proxy: proxy-key,
+                customHttpHeaders: {
+                    header-1: value-1,
+                    header-2: value-2,
                 },
-            )],
+            }],
             opts=pulumi.ResourceOptions(depends_on=[my_generic_local]))
         ```
 

@@ -14,7 +14,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const baz_go = new artifactory.GoRepository("baz-go", {
+ * const baz_go = new artifactory.index/goRepository.GoRepository("baz-go", {
  *     description: "A test virtual repo",
  *     excludesPattern: "com/google/**",
  *     externalDependenciesEnabled: true,

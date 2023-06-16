@@ -6,17 +6,6 @@ import * as utilities from "./utilities";
 
 /**
  * Retrieves a virtual Rpm repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const virtual-rpm = artifactory.getVirtualRpmRepository({
- *     key: "virtual-rpm",
- * });
- * ```
  */
 export function getVirtualRpmRepository(args: GetVirtualRpmRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualRpmRepositoryResult> {
 
@@ -97,17 +86,6 @@ export interface GetVirtualRpmRepositoryResult {
 }
 /**
  * Retrieves a virtual Rpm repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const virtual-rpm = artifactory.getVirtualRpmRepository({
- *     key: "virtual-rpm",
- * });
- * ```
  */
 export function getVirtualRpmRepositoryOutput(args: GetVirtualRpmRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualRpmRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getVirtualRpmRepository(a, opts))

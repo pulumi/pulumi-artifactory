@@ -592,7 +592,7 @@ class LocalComposerRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_local_test_composer_repo = artifactory.LocalComposerRepository("terraform-local-test-composer-repo", key="terraform-local-test-composer-repo")
+        terraform_local_test_composer_repo = artifactory.index.local_composer_repository.LocalComposerRepository("terraform-local-test-composer-repo", key=terraform-local-test-composer-repo)
         ```
 
         ## Import
@@ -647,7 +647,7 @@ class LocalComposerRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_local_test_composer_repo = artifactory.LocalComposerRepository("terraform-local-test-composer-repo", key="terraform-local-test-composer-repo")
+        terraform_local_test_composer_repo = artifactory.index.local_composer_repository.LocalComposerRepository("terraform-local-test-composer-repo", key=terraform-local-test-composer-repo)
         ```
 
         ## Import

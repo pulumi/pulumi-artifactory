@@ -8,17 +8,6 @@ import * as utilities from "./utilities";
 
 /**
  * Retrieves a federated Bower repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const federated-test-bower-repo = artifactory.getFederatedBowerRepository({
- *     key: "federated-test-bower-repo",
- * });
- * ```
  */
 export function getFederatedBowerRepository(args: GetFederatedBowerRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetFederatedBowerRepositoryResult> {
 
@@ -111,17 +100,6 @@ export interface GetFederatedBowerRepositoryResult {
 }
 /**
  * Retrieves a federated Bower repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const federated-test-bower-repo = artifactory.getFederatedBowerRepository({
- *     key: "federated-test-bower-repo",
- * });
- * ```
  */
 export function getFederatedBowerRepositoryOutput(args: GetFederatedBowerRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedBowerRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getFederatedBowerRepository(a, opts))

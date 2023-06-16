@@ -22,7 +22,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var terraform_local_test_chef_repo = new Artifactory.LocalChefRepository("terraform-local-test-chef-repo", new()
+    ///     var terraform_local_test_chef_repo = new Artifactory.Index.LocalChefRepository.LocalChefRepository("terraform-local-test-chef-repo", new()
     ///     {
     ///         Key = "terraform-local-test-chef-repo",
     ///     });

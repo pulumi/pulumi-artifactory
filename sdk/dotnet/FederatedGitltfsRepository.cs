@@ -22,20 +22,20 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var terraform_federated_test_gitlfs_repo = new Artifactory.FederatedGitltfsRepository("terraform-federated-test-gitlfs-repo", new()
+    ///     var terraform_federated_test_gitlfs_repo = new Artifactory.Index.FederatedGitltfsRepository.FederatedGitltfsRepository("terraform-federated-test-gitlfs-repo", new()
     ///     {
     ///         Key = "terraform-federated-test-gitlfs-repo",
     ///         Members = new[]
     ///         {
-    ///             new Artifactory.Inputs.FederatedGitltfsRepositoryMemberArgs
+    ///             
     ///             {
-    ///                 Enabled = true,
-    ///                 Url = "http://tempurl.org/artifactory/terraform-federated-test-gitlfs-repo",
+    ///                 { "enabled", true },
+    ///                 { "url", "http://tempurl.org/artifactory/terraform-federated-test-gitlfs-repo" },
     ///             },
-    ///             new Artifactory.Inputs.FederatedGitltfsRepositoryMemberArgs
+    ///             
     ///             {
-    ///                 Enabled = true,
-    ///                 Url = "http://tempurl2.org/artifactory/terraform-federated-test-gitlfs-repo-2",
+    ///                 { "enabled", true },
+    ///                 { "url", "http://tempurl2.org/artifactory/terraform-federated-test-gitlfs-repo-2" },
     ///             },
     ///         },
     ///     });

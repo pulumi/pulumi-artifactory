@@ -592,7 +592,7 @@ class LocalCranRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_local_test_cran_repo = artifactory.LocalCranRepository("terraform-local-test-cran-repo", key="terraform-local-test-cran-repo")
+        terraform_local_test_cran_repo = artifactory.index.local_cran_repository.LocalCranRepository("terraform-local-test-cran-repo", key=terraform-local-test-cran-repo)
         ```
 
         ## Import
@@ -647,7 +647,7 @@ class LocalCranRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_local_test_cran_repo = artifactory.LocalCranRepository("terraform-local-test-cran-repo", key="terraform-local-test-cran-repo")
+        terraform_local_test_cran_repo = artifactory.index.local_cran_repository.LocalCranRepository("terraform-local-test-cran-repo", key=terraform-local-test-cran-repo)
         ```
 
         ## Import

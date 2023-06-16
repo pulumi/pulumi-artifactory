@@ -23,7 +23,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var some_keypair_gpg_1 = new Artifactory.Keypair("some-keypair-gpg-1", new()
+    ///     var some_keypair_gpg_1 = new Artifactory.Index.Keypair.Keypair("some-keypair-gpg-1", new()
     ///     {
     ///         PairName = $"some-keypair{random_id.Randid.Id}",
     ///         PairType = "GPG",
@@ -32,7 +32,7 @@ namespace Pulumi.Artifactory
     ///         PublicKey = File.ReadAllText("samples/gpg.pub"),
     ///     });
     /// 
-    ///     var some_keypair_gpg_2 = new Artifactory.Keypair("some-keypair-gpg-2", new()
+    ///     var some_keypair_gpg_2 = new Artifactory.Index.Keypair.Keypair("some-keypair-gpg-2", new()
     ///     {
     ///         PairName = $"some-keypair{random_id.Randid.Id}",
     ///         PairType = "GPG",
@@ -41,7 +41,7 @@ namespace Pulumi.Artifactory
     ///         PublicKey = File.ReadAllText("samples/gpg.pub"),
     ///     });
     /// 
-    ///     var terraform_local_test_rpm_repo_basic = new Artifactory.LocalRpmRepository("terraform-local-test-rpm-repo-basic", new()
+    ///     var terraform_local_test_rpm_repo_basic = new Artifactory.Index.LocalRpmRepository.LocalRpmRepository("terraform-local-test-rpm-repo-basic", new()
     ///     {
     ///         Key = "terraform-local-test-rpm-repo-basic",
     ///         YumRootDepth = 5,

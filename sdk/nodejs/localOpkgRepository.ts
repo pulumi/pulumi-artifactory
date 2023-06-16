@@ -13,7 +13,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const terraform_local_test_opkg_repo = new artifactory.LocalOpkgRepository("terraform-local-test-opkg-repo", {key: "terraform-local-test-opkg-repo"});
+ * const terraform_local_test_opkg_repo = new artifactory.index/localOpkgRepository.LocalOpkgRepository("terraform-local-test-opkg-repo", {key: "terraform-local-test-opkg-repo"});
  * ```
  *
  * ## Import

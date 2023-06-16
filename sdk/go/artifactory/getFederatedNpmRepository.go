@@ -11,32 +11,6 @@ import (
 )
 
 // Retrieves a federated Npm repository.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupFederatedNpmRepository(ctx, &artifactory.LookupFederatedNpmRepositoryArgs{
-//				Key: "federated-test-npm-repo",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupFederatedNpmRepository(ctx *pulumi.Context, args *LookupFederatedNpmRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupFederatedNpmRepositoryResult, error) {
 	var rv LookupFederatedNpmRepositoryResult
 	err := ctx.Invoke("artifactory:index/getFederatedNpmRepository:getFederatedNpmRepository", args, &rv, opts...)

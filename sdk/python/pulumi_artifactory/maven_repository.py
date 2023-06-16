@@ -548,22 +548,22 @@ class MavenRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        bar = artifactory.LocalMavenRepository("bar",
-            key="bar",
-            repo_layout_ref="maven-2-default")
-        baz = artifactory.RemoteMavenRepository("baz",
-            key="baz",
-            repo_layout_ref="maven-2-default",
-            url="https://search.maven.com/")
-        maven_virt_repo = artifactory.MavenRepository("maven-virt-repo",
-            description="A test virtual repo",
-            excludes_pattern="com/google/**",
+        bar = artifactory.index.local_maven_repository.LocalMavenRepository("bar",
+            key=bar,
+            repo_layout_ref=maven-2-default)
+        baz = artifactory.index.remote_maven_repository.RemoteMavenRepository("baz",
+            key=baz,
+            repo_layout_ref=maven-2-default,
+            url=https://search.maven.com/)
+        maven_virt_repo = artifactory.index.maven_repository.MavenRepository("maven-virt-repo",
+            description=A test virtual repo,
+            excludes_pattern=com/google/**,
             force_maven_authentication=True,
-            includes_pattern="com/jfrog/**,cloud/jfrog/**",
-            key="maven-virt-repo",
-            notes="Internal description",
-            pom_repository_references_cleanup_policy="discard_active_reference",
-            repo_layout_ref="maven-2-default",
+            includes_pattern=com/jfrog/**,cloud/jfrog/**,
+            key=maven-virt-repo,
+            notes=Internal description,
+            pom_repository_references_cleanup_policy=discard_active_reference,
+            repo_layout_ref=maven-2-default,
             repositories=[
                 bar.key,
                 baz.key,
@@ -619,22 +619,22 @@ class MavenRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        bar = artifactory.LocalMavenRepository("bar",
-            key="bar",
-            repo_layout_ref="maven-2-default")
-        baz = artifactory.RemoteMavenRepository("baz",
-            key="baz",
-            repo_layout_ref="maven-2-default",
-            url="https://search.maven.com/")
-        maven_virt_repo = artifactory.MavenRepository("maven-virt-repo",
-            description="A test virtual repo",
-            excludes_pattern="com/google/**",
+        bar = artifactory.index.local_maven_repository.LocalMavenRepository("bar",
+            key=bar,
+            repo_layout_ref=maven-2-default)
+        baz = artifactory.index.remote_maven_repository.RemoteMavenRepository("baz",
+            key=baz,
+            repo_layout_ref=maven-2-default,
+            url=https://search.maven.com/)
+        maven_virt_repo = artifactory.index.maven_repository.MavenRepository("maven-virt-repo",
+            description=A test virtual repo,
+            excludes_pattern=com/google/**,
             force_maven_authentication=True,
-            includes_pattern="com/jfrog/**,cloud/jfrog/**",
-            key="maven-virt-repo",
-            notes="Internal description",
-            pom_repository_references_cleanup_policy="discard_active_reference",
-            repo_layout_ref="maven-2-default",
+            includes_pattern=com/jfrog/**,cloud/jfrog/**,
+            key=maven-virt-repo,
+            notes=Internal description,
+            pom_repository_references_cleanup_policy=discard_active_reference,
+            repo_layout_ref=maven-2-default,
             repositories=[
                 bar.key,
                 baz.key,

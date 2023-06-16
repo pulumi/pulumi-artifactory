@@ -13,56 +13,12 @@ namespace Pulumi.Artifactory
     {
         /// <summary>
         /// Retrieves a remote Helm repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var remote_helm = Artifactory.GetRemoteHelmRepository.Invoke(new()
-        ///     {
-        ///         Key = "remote-helm",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetRemoteHelmRepositoryResult> InvokeAsync(GetRemoteHelmRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRemoteHelmRepositoryResult>("artifactory:index/getRemoteHelmRepository:getRemoteHelmRepository", args ?? new GetRemoteHelmRepositoryArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves a remote Helm repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var remote_helm = Artifactory.GetRemoteHelmRepository.Invoke(new()
-        ///     {
-        ///         Key = "remote-helm",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetRemoteHelmRepositoryResult> Invoke(GetRemoteHelmRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRemoteHelmRepositoryResult>("artifactory:index/getRemoteHelmRepository:getRemoteHelmRepository", args ?? new GetRemoteHelmRepositoryInvokeArgs(), options.WithDefaults());

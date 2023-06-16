@@ -826,7 +826,7 @@ class LocalSbtRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_local_test_sbt_repo = artifactory.LocalSbtRepository("terraform-local-test-sbt-repo", key="terraform-local-test-sbt-repo")
+        terraform_local_test_sbt_repo = artifactory.index.local_sbt_repository.LocalSbtRepository("terraform-local-test-sbt-repo", key=terraform-local-test-sbt-repo)
         ```
 
         ## Import
@@ -896,7 +896,7 @@ class LocalSbtRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_local_test_sbt_repo = artifactory.LocalSbtRepository("terraform-local-test-sbt-repo", key="terraform-local-test-sbt-repo")
+        terraform_local_test_sbt_repo = artifactory.index.local_sbt_repository.LocalSbtRepository("terraform-local-test-sbt-repo", key=terraform-local-test-sbt-repo)
         ```
 
         ## Import

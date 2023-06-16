@@ -8,17 +8,6 @@ import * as utilities from "./utilities";
 
 /**
  * Retrieves a federated Composer repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const federated-test-composer-repo = artifactory.getFederatedComposerRepository({
- *     key: "federated-test-composer-repo",
- * });
- * ```
  */
 export function getFederatedComposerRepository(args: GetFederatedComposerRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetFederatedComposerRepositoryResult> {
 
@@ -111,17 +100,6 @@ export interface GetFederatedComposerRepositoryResult {
 }
 /**
  * Retrieves a federated Composer repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const federated-test-composer-repo = artifactory.getFederatedComposerRepository({
- *     key: "federated-test-composer-repo",
- * });
- * ```
  */
 export function getFederatedComposerRepositoryOutput(args: GetFederatedComposerRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedComposerRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getFederatedComposerRepository(a, opts))

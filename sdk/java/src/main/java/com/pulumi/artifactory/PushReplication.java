@@ -38,7 +38,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.artifactory.LocalMavenRepositoryArgs;
  * import com.pulumi.artifactory.PushReplication;
  * import com.pulumi.artifactory.PushReplicationArgs;
- * import com.pulumi.artifactory.inputs.PushReplicationReplicationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -68,12 +67,7 @@ import javax.annotation.Nullable;
  *             .repoKey(providerTestSource.key())
  *             .cronExp(&#34;0 0 * * * ?&#34;)
  *             .enableEventReplication(true)
- *             .replications(PushReplicationReplicationArgs.builder()
- *                 .url(providerTestDest.key().applyValue(key -&gt; String.format(&#34;%s/%s&#34;, artifactoryUrl,key)))
- *                 .username(&#34;$var.artifactory_username&#34;)
- *                 .password(&#34;$var.artifactory_password&#34;)
- *                 .enabled(true)
- *                 .build())
+ *             .replications(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

@@ -482,12 +482,12 @@ class VirtualCranRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        foo_cran = artifactory.VirtualCranRepository("foo-cran",
-            description="A test virtual repo",
-            excludes_pattern="com/google/**",
-            includes_pattern="com/jfrog/**,cloud/jfrog/**",
-            key="foo-cran",
-            notes="Internal description",
+        foo_cran = artifactory.index.virtual_cran_repository.VirtualCranRepository("foo-cran",
+            description=A test virtual repo,
+            excludes_pattern=com/google/**,
+            includes_pattern=com/jfrog/**,cloud/jfrog/**,
+            key=foo-cran,
+            notes=Internal description,
             repositories=[])
         ```
 
@@ -538,12 +538,12 @@ class VirtualCranRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        foo_cran = artifactory.VirtualCranRepository("foo-cran",
-            description="A test virtual repo",
-            excludes_pattern="com/google/**",
-            includes_pattern="com/jfrog/**,cloud/jfrog/**",
-            key="foo-cran",
-            notes="Internal description",
+        foo_cran = artifactory.index.virtual_cran_repository.VirtualCranRepository("foo-cran",
+            description=A test virtual repo,
+            excludes_pattern=com/google/**,
+            includes_pattern=com/jfrog/**,cloud/jfrog/**,
+            key=foo-cran,
+            notes=Internal description,
             repositories=[])
         ```
 

@@ -560,13 +560,13 @@ class VirtualIvyRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        foo_ivy = artifactory.VirtualIvyRepository("foo-ivy",
-            description="A test virtual repo",
-            excludes_pattern="com/google/**",
-            includes_pattern="com/jfrog/**,cloud/jfrog/**",
-            key="foo-ivy",
-            notes="Internal description",
-            pom_repository_references_cleanup_policy="discard_active_reference",
+        foo_ivy = artifactory.index.virtual_ivy_repository.VirtualIvyRepository("foo-ivy",
+            description=A test virtual repo,
+            excludes_pattern=com/google/**,
+            includes_pattern=com/jfrog/**,cloud/jfrog/**,
+            key=foo-ivy,
+            notes=Internal description,
+            pom_repository_references_cleanup_policy=discard_active_reference,
             repositories=[])
         ```
 
@@ -622,13 +622,13 @@ class VirtualIvyRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        foo_ivy = artifactory.VirtualIvyRepository("foo-ivy",
-            description="A test virtual repo",
-            excludes_pattern="com/google/**",
-            includes_pattern="com/jfrog/**,cloud/jfrog/**",
-            key="foo-ivy",
-            notes="Internal description",
-            pom_repository_references_cleanup_policy="discard_active_reference",
+        foo_ivy = artifactory.index.virtual_ivy_repository.VirtualIvyRepository("foo-ivy",
+            description=A test virtual repo,
+            excludes_pattern=com/google/**,
+            includes_pattern=com/jfrog/**,cloud/jfrog/**,
+            key=foo-ivy,
+            notes=Internal description,
+            pom_repository_references_cleanup_policy=discard_active_reference,
             repositories=[])
         ```
 

@@ -22,7 +22,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var terraform_local_test_cran_repo = new Artifactory.LocalCranRepository("terraform-local-test-cran-repo", new()
+    ///     var terraform_local_test_cran_repo = new Artifactory.Index.LocalCranRepository.LocalCranRepository("terraform-local-test-cran-repo", new()
     ///     {
     ///         Key = "terraform-local-test-cran-repo",
     ///     });

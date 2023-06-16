@@ -15,21 +15,21 @@ import * as utilities from "./utilities";
  * import * as artifactory from "@pulumi/artifactory";
  * import * as fs from "fs";
  *
- * const primary_keypair = new artifactory.Keypair("primary-keypair", {
+ * const primary_keypair = new artifactory.index/keypair.Keypair("primary-keypair", {
  *     pairName: "primary-keypair",
  *     pairType: "GPG",
  *     alias: "foo-alias-1",
  *     privateKey: fs.readFileSync("samples/gpg.priv"),
  *     publicKey: fs.readFileSync("samples/gpg.pub"),
  * });
- * const secondary_keypair = new artifactory.Keypair("secondary-keypair", {
+ * const secondary_keypair = new artifactory.index/keypair.Keypair("secondary-keypair", {
  *     pairName: "secondary-keypair",
  *     pairType: "GPG",
  *     alias: "foo-alias-2",
  *     privateKey: fs.readFileSync("samples/gpg.priv"),
  *     publicKey: fs.readFileSync("samples/gpg.pub"),
  * });
- * const foo_rpm_virtual = new artifactory.VirtualRpmRepository("foo-rpm-virtual", {
+ * const foo_rpm_virtual = new artifactory.index/virtualRpmRepository.VirtualRpmRepository("foo-rpm-virtual", {
  *     key: "foo-rpm-virtual",
  *     primaryKeypairRef: primary_keypair.pairName,
  *     secondaryKeypairRef: secondary_keypair.pairName,

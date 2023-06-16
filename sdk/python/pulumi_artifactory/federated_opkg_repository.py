@@ -675,17 +675,17 @@ class FederatedOpkgRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_federated_test_opkg_repo = artifactory.FederatedOpkgRepository("terraform-federated-test-opkg-repo",
-            key="terraform-federated-test-opkg-repo",
+        terraform_federated_test_opkg_repo = artifactory.index.federated_opkg_repository.FederatedOpkgRepository("terraform-federated-test-opkg-repo",
+            key=terraform-federated-test-opkg-repo,
             members=[
-                artifactory.FederatedOpkgRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl.org/artifactory/terraform-federated-test-opkg-repo",
-                ),
-                artifactory.FederatedOpkgRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl2.org/artifactory/terraform-federated-test-opkg-repo-2",
-                ),
+                {
+                    enabled: True,
+                    url: http://tempurl.org/artifactory/terraform-federated-test-opkg-repo,
+                },
+                {
+                    enabled: True,
+                    url: http://tempurl2.org/artifactory/terraform-federated-test-opkg-repo-2,
+                },
             ])
         ```
 
@@ -747,17 +747,17 @@ class FederatedOpkgRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_federated_test_opkg_repo = artifactory.FederatedOpkgRepository("terraform-federated-test-opkg-repo",
-            key="terraform-federated-test-opkg-repo",
+        terraform_federated_test_opkg_repo = artifactory.index.federated_opkg_repository.FederatedOpkgRepository("terraform-federated-test-opkg-repo",
+            key=terraform-federated-test-opkg-repo,
             members=[
-                artifactory.FederatedOpkgRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl.org/artifactory/terraform-federated-test-opkg-repo",
-                ),
-                artifactory.FederatedOpkgRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl2.org/artifactory/terraform-federated-test-opkg-repo-2",
-                ),
+                {
+                    enabled: True,
+                    url: http://tempurl.org/artifactory/terraform-federated-test-opkg-repo,
+                },
+                {
+                    enabled: True,
+                    url: http://tempurl2.org/artifactory/terraform-federated-test-opkg-repo-2,
+                },
             ])
         ```
 

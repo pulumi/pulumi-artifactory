@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
+//	"github.com/pulumi/pulumi-artifactory/sdk/v1/go/artifactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -29,8 +29,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewRemoteCondaRepository(ctx, "my-remote-conda", &artifactory.RemoteCondaRepositoryArgs{
-//				Key: pulumi.String("my-remote-conda"),
-//				Url: pulumi.String("https://repo.anaconda.com/pkgs/main"),
+//				Key: "my-remote-conda",
+//				Url: "https://repo.anaconda.com/pkgs/main",
 //			})
 //			if err != nil {
 //				return err

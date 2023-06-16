@@ -675,17 +675,17 @@ class FederatedChefRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_federated_test_chef_repo = artifactory.FederatedChefRepository("terraform-federated-test-chef-repo",
-            key="terraform-federated-test-chef-repo",
+        terraform_federated_test_chef_repo = artifactory.index.federated_chef_repository.FederatedChefRepository("terraform-federated-test-chef-repo",
+            key=terraform-federated-test-chef-repo,
             members=[
-                artifactory.FederatedChefRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl.org/artifactory/terraform-federated-test-chef-repo",
-                ),
-                artifactory.FederatedChefRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl2.org/artifactory/terraform-federated-test-chef-repo-2",
-                ),
+                {
+                    enabled: True,
+                    url: http://tempurl.org/artifactory/terraform-federated-test-chef-repo,
+                },
+                {
+                    enabled: True,
+                    url: http://tempurl2.org/artifactory/terraform-federated-test-chef-repo-2,
+                },
             ])
         ```
 
@@ -747,17 +747,17 @@ class FederatedChefRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_federated_test_chef_repo = artifactory.FederatedChefRepository("terraform-federated-test-chef-repo",
-            key="terraform-federated-test-chef-repo",
+        terraform_federated_test_chef_repo = artifactory.index.federated_chef_repository.FederatedChefRepository("terraform-federated-test-chef-repo",
+            key=terraform-federated-test-chef-repo,
             members=[
-                artifactory.FederatedChefRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl.org/artifactory/terraform-federated-test-chef-repo",
-                ),
-                artifactory.FederatedChefRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl2.org/artifactory/terraform-federated-test-chef-repo-2",
-                ),
+                {
+                    enabled: True,
+                    url: http://tempurl.org/artifactory/terraform-federated-test-chef-repo,
+                },
+                {
+                    enabled: True,
+                    url: http://tempurl2.org/artifactory/terraform-federated-test-chef-repo-2,
+                },
             ])
         ```
 

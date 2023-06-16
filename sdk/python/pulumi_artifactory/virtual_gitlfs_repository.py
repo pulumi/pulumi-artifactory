@@ -449,12 +449,12 @@ class VirtualGitlfsRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        foo_gitlfs = artifactory.VirtualGitlfsRepository("foo-gitlfs",
-            description="A test virtual repo",
-            excludes_pattern="com/google/**",
-            includes_pattern="com/jfrog/**,cloud/jfrog/**",
-            key="foo-gitlfs",
-            notes="Internal description",
+        foo_gitlfs = artifactory.index.virtual_gitlfs_repository.VirtualGitlfsRepository("foo-gitlfs",
+            description=A test virtual repo,
+            excludes_pattern=com/google/**,
+            includes_pattern=com/jfrog/**,cloud/jfrog/**,
+            key=foo-gitlfs,
+            notes=Internal description,
             repositories=[])
         ```
 
@@ -504,12 +504,12 @@ class VirtualGitlfsRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        foo_gitlfs = artifactory.VirtualGitlfsRepository("foo-gitlfs",
-            description="A test virtual repo",
-            excludes_pattern="com/google/**",
-            includes_pattern="com/jfrog/**,cloud/jfrog/**",
-            key="foo-gitlfs",
-            notes="Internal description",
+        foo_gitlfs = artifactory.index.virtual_gitlfs_repository.VirtualGitlfsRepository("foo-gitlfs",
+            description=A test virtual repo,
+            excludes_pattern=com/google/**,
+            includes_pattern=com/jfrog/**,cloud/jfrog/**,
+            key=foo-gitlfs,
+            notes=Internal description,
             repositories=[])
         ```
 

@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
+//	"github.com/pulumi/pulumi-artifactory/sdk/v1/go/artifactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -29,30 +29,30 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			bar, err := artifactory.NewLocalMavenRepository(ctx, "bar", &artifactory.LocalMavenRepositoryArgs{
-//				Key:           pulumi.String("bar"),
-//				RepoLayoutRef: pulumi.String("maven-2-default"),
+//				Key:           "bar",
+//				RepoLayoutRef: "maven-2-default",
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			baz, err := artifactory.NewRemoteMavenRepository(ctx, "baz", &artifactory.RemoteMavenRepositoryArgs{
-//				Key:           pulumi.String("baz"),
-//				RepoLayoutRef: pulumi.String("maven-2-default"),
-//				Url:           pulumi.String("https://search.maven.com/"),
+//				Key:           "baz",
+//				RepoLayoutRef: "maven-2-default",
+//				Url:           "https://search.maven.com/",
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = artifactory.NewMavenRepository(ctx, "maven-virt-repo", &artifactory.MavenRepositoryArgs{
-//				Description:                          pulumi.String("A test virtual repo"),
-//				ExcludesPattern:                      pulumi.String("com/google/**"),
-//				ForceMavenAuthentication:             pulumi.Bool(true),
-//				IncludesPattern:                      pulumi.String("com/jfrog/**,cloud/jfrog/**"),
-//				Key:                                  pulumi.String("maven-virt-repo"),
-//				Notes:                                pulumi.String("Internal description"),
-//				PomRepositoryReferencesCleanupPolicy: pulumi.String("discard_active_reference"),
-//				RepoLayoutRef:                        pulumi.String("maven-2-default"),
-//				Repositories: pulumi.StringArray{
+//				Description:                          "A test virtual repo",
+//				ExcludesPattern:                      "com/google/**",
+//				ForceMavenAuthentication:             true,
+//				IncludesPattern:                      "com/jfrog/**,cloud/jfrog/**",
+//				Key:                                  "maven-virt-repo",
+//				Notes:                                "Internal description",
+//				PomRepositoryReferencesCleanupPolicy: "discard_active_reference",
+//				RepoLayoutRef:                        "maven-2-default",
+//				Repositories: []interface{}{
 //					bar.Key,
 //					baz.Key,
 //				},

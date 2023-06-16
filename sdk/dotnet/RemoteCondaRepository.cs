@@ -23,7 +23,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var my_remote_conda = new Artifactory.RemoteCondaRepository("my-remote-conda", new()
+    ///     var my_remote_conda = new Artifactory.Index.RemoteCondaRepository.RemoteCondaRepository("my-remote-conda", new()
     ///     {
     ///         Key = "my-remote-conda",
     ///         Url = "https://repo.anaconda.com/pkgs/main",

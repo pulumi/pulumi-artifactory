@@ -23,23 +23,23 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var release_bundle_webhook = new Artifactory.ReleaseBundleWebhook("release-bundle-webhook", new()
+    ///     var release_bundle_webhook = new Artifactory.Index.ReleaseBundleWebhook.ReleaseBundleWebhook("release-bundle-webhook", new()
     ///     {
-    ///         Criteria = new Artifactory.Inputs.ReleaseBundleWebhookCriteriaArgs
+    ///         Criteria = 
     ///         {
-    ///             AnyReleaseBundle = false,
-    ///             ExcludePatterns = new[]
+    ///             { "anyReleaseBundle", false },
+    ///             { "excludePatterns", new[]
     ///             {
     ///                 "bar/**",
-    ///             },
-    ///             IncludePatterns = new[]
+    ///             } },
+    ///             { "includePatterns", new[]
     ///             {
     ///                 "foo/**",
-    ///             },
-    ///             RegisteredReleaseBundleNames = new[]
+    ///             } },
+    ///             { "registeredReleaseBundleNames", new[]
     ///             {
     ///                 "bundle-name",
-    ///             },
+    ///             } },
     ///         },
     ///         EventTypes = new[]
     ///         {
@@ -49,16 +49,16 @@ namespace Pulumi.Artifactory
     ///         },
     ///         Handlers = new[]
     ///         {
-    ///             new Artifactory.Inputs.ReleaseBundleWebhookHandlerArgs
+    ///             
     ///             {
-    ///                 CustomHttpHeaders = 
+    ///                 { "customHttpHeaders", 
     ///                 {
     ///                     { "header-1", "value-1" },
     ///                     { "header-2", "value-2" },
-    ///                 },
-    ///                 Proxy = "proxy-key",
-    ///                 Secret = "some-secret",
-    ///                 Url = "http://tempurl.org/webhook",
+    ///                 } },
+    ///                 { "proxy", "proxy-key" },
+    ///                 { "secret", "some-secret" },
+    ///                 { "url", "http://tempurl.org/webhook" },
     ///             },
     ///         },
     ///         Key = "release-bundle-webhook",

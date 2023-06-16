@@ -23,7 +23,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var pypi_remote = new Artifactory.RemotePypiRepository("pypi-remote", new()
+    ///     var pypi_remote = new Artifactory.Index.RemotePypiRepository.RemotePypiRepository("pypi-remote", new()
     ///     {
     ///         Key = "pypi-remote-foo",
     ///         PypiRegistryUrl = "https://pypi.org",

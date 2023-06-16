@@ -13,56 +13,12 @@ namespace Pulumi.Artifactory
     {
         /// <summary>
         /// Retrieves a remote P2 repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var remote_p2 = Artifactory.GetRemoteP2Repository.Invoke(new()
-        ///     {
-        ///         Key = "remote-p2",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetRemoteP2RepositoryResult> InvokeAsync(GetRemoteP2RepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRemoteP2RepositoryResult>("artifactory:index/getRemoteP2Repository:getRemoteP2Repository", args ?? new GetRemoteP2RepositoryArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves a remote P2 repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var remote_p2 = Artifactory.GetRemoteP2Repository.Invoke(new()
-        ///     {
-        ///         Key = "remote-p2",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetRemoteP2RepositoryResult> Invoke(GetRemoteP2RepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRemoteP2RepositoryResult>("artifactory:index/getRemoteP2Repository:getRemoteP2Repository", args ?? new GetRemoteP2RepositoryInvokeArgs(), options.WithDefaults());

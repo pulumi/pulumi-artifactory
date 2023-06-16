@@ -11,32 +11,6 @@ import (
 )
 
 // Retrieves a remote Gradle repository.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupRemoteGradleRepository(ctx, &artifactory.LookupRemoteGradleRepositoryArgs{
-//				Key: "remote-gradle",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupRemoteGradleRepository(ctx *pulumi.Context, args *LookupRemoteGradleRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupRemoteGradleRepositoryResult, error) {
 	var rv LookupRemoteGradleRepositoryResult
 	err := ctx.Invoke("artifactory:index/getRemoteGradleRepository:getRemoteGradleRepository", args, &rv, opts...)

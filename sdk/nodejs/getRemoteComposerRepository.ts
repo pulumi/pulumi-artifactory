@@ -8,17 +8,6 @@ import * as utilities from "./utilities";
 
 /**
  * Retrieves a remote Composer repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const remote-composer = artifactory.getRemoteComposerRepository({
- *     key: "remote-composer",
- * });
- * ```
  */
 export function getRemoteComposerRepository(args: GetRemoteComposerRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetRemoteComposerRepositoryResult> {
 
@@ -195,17 +184,6 @@ export interface GetRemoteComposerRepositoryResult {
 }
 /**
  * Retrieves a remote Composer repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const remote-composer = artifactory.getRemoteComposerRepository({
- *     key: "remote-composer",
- * });
- * ```
  */
 export function getRemoteComposerRepositoryOutput(args: GetRemoteComposerRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemoteComposerRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getRemoteComposerRepository(a, opts))

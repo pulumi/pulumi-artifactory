@@ -8,17 +8,6 @@ import * as utilities from "./utilities";
 
 /**
  * Retrieves a remote Pub repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const remote-pub = artifactory.getRemotePubRepository({
- *     key: "remote-pub",
- * });
- * ```
  */
 export function getRemotePubRepository(args: GetRemotePubRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetRemotePubRepositoryResult> {
 
@@ -168,17 +157,6 @@ export interface GetRemotePubRepositoryResult {
 }
 /**
  * Retrieves a remote Pub repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const remote-pub = artifactory.getRemotePubRepository({
- *     key: "remote-pub",
- * });
- * ```
  */
 export function getRemotePubRepositoryOutput(args: GetRemotePubRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemotePubRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getRemotePubRepository(a, opts))

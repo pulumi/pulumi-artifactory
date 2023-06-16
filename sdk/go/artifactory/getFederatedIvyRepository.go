@@ -11,32 +11,6 @@ import (
 )
 
 // Retrieves a federated Ivy repository.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupFederatedIvyRepository(ctx, &artifactory.LookupFederatedIvyRepositoryArgs{
-//				Key: "federated-test-ivy-repo",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupFederatedIvyRepository(ctx *pulumi.Context, args *LookupFederatedIvyRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupFederatedIvyRepositoryResult, error) {
 	var rv LookupFederatedIvyRepositoryResult
 	err := ctx.Invoke("artifactory:index/getFederatedIvyRepository:getFederatedIvyRepository", args, &rv, opts...)

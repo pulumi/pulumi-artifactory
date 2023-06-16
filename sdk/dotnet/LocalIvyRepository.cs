@@ -22,7 +22,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var terraform_local_test_ivy_repo = new Artifactory.LocalIvyRepository("terraform-local-test-ivy-repo", new()
+    ///     var terraform_local_test_ivy_repo = new Artifactory.Index.LocalIvyRepository.LocalIvyRepository("terraform-local-test-ivy-repo", new()
     ///     {
     ///         Key = "terraform-local-test-ivy-repo",
     ///     });

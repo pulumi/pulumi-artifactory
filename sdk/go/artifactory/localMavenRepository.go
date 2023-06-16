@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
+//	"github.com/pulumi/pulumi-artifactory/sdk/v1/go/artifactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -28,13 +28,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewLocalMavenRepository(ctx, "terraform-local-test-maven-repo-basic", &artifactory.LocalMavenRepositoryArgs{
-//				ChecksumPolicyType:           pulumi.String("client-checksums"),
-//				HandleReleases:               pulumi.Bool(true),
-//				HandleSnapshots:              pulumi.Bool(true),
-//				Key:                          pulumi.String("terraform-local-test-maven-repo-basic"),
-//				MaxUniqueSnapshots:           pulumi.Int(10),
-//				SnapshotVersionBehavior:      pulumi.String("unique"),
-//				SuppressPomConsistencyChecks: pulumi.Bool(false),
+//				ChecksumPolicyType:           "client-checksums",
+//				HandleReleases:               true,
+//				HandleSnapshots:              true,
+//				Key:                          "terraform-local-test-maven-repo-basic",
+//				MaxUniqueSnapshots:           10,
+//				SnapshotVersionBehavior:      "unique",
+//				SuppressPomConsistencyChecks: false,
 //			})
 //			if err != nil {
 //				return err

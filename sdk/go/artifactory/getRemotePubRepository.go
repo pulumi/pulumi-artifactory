@@ -11,32 +11,6 @@ import (
 )
 
 // Retrieves a remote Pub repository.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupRemotePubRepository(ctx, &artifactory.LookupRemotePubRepositoryArgs{
-//				Key: "remote-pub",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupRemotePubRepository(ctx *pulumi.Context, args *LookupRemotePubRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupRemotePubRepositoryResult, error) {
 	var rv LookupRemotePubRepositoryResult
 	err := ctx.Invoke("artifactory:index/getRemotePubRepository:getRemotePubRepository", args, &rv, opts...)

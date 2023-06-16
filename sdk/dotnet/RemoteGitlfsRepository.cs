@@ -23,7 +23,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var my_remote_gitlfs = new Artifactory.RemoteGitlfsRepository("my-remote-gitlfs", new()
+    ///     var my_remote_gitlfs = new Artifactory.Index.RemoteGitlfsRepository.RemoteGitlfsRepository("my-remote-gitlfs", new()
     ///     {
     ///         Key = "my-remote-gitlfs",
     ///         Url = "http://testartifactory.io/artifactory/example-gitlfs/",

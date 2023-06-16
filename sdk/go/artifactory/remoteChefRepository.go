@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
+//	"github.com/pulumi/pulumi-artifactory/sdk/v1/go/artifactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -29,8 +29,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewRemoteChefRepository(ctx, "my-remote-chef", &artifactory.RemoteChefRepositoryArgs{
-//				Key: pulumi.String("my-remote-chef"),
-//				Url: pulumi.String("https://supermarket.chef.io"),
+//				Key: "my-remote-chef",
+//				Url: "https://supermarket.chef.io",
 //			})
 //			if err != nil {
 //				return err

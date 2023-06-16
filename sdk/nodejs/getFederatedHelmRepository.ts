@@ -8,17 +8,6 @@ import * as utilities from "./utilities";
 
 /**
  * Retrieves a federated Helm repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const federated-test-helm-repo = artifactory.getFederatedHelmRepository({
- *     key: "federated-test-helm-repo",
- * });
- * ```
  */
 export function getFederatedHelmRepository(args: GetFederatedHelmRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetFederatedHelmRepositoryResult> {
 
@@ -111,17 +100,6 @@ export interface GetFederatedHelmRepositoryResult {
 }
 /**
  * Retrieves a federated Helm repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const federated-test-helm-repo = artifactory.getFederatedHelmRepository({
- *     key: "federated-test-helm-repo",
- * });
- * ```
  */
 export function getFederatedHelmRepositoryOutput(args: GetFederatedHelmRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedHelmRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getFederatedHelmRepository(a, opts))

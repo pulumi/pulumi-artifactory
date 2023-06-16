@@ -472,15 +472,6 @@ def get_remote_conan_repository(allow_any_host_auth: Optional[bool] = None,
     """
     Retrieves a remote Conan repository.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    remote_conan = artifactory.get_remote_conan_repository(key="remote-conan")
-    ```
-
 
     :param bool force_conan_authentication: (Optional) Force basic authentication credentials in order to use this repository. Default value is `false`.
     :param str key: the identity key of the repo.
@@ -621,15 +612,6 @@ def get_remote_conan_repository_output(allow_any_host_auth: Optional[pulumi.Inpu
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRemoteConanRepositoryResult]:
     """
     Retrieves a remote Conan repository.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    remote_conan = artifactory.get_remote_conan_repository(key="remote-conan")
-    ```
 
 
     :param bool force_conan_authentication: (Optional) Force basic authentication credentials in order to use this repository. Default value is `false`.

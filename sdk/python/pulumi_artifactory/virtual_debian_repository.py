@@ -614,16 +614,16 @@ class VirtualDebianRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        foo_debian = artifactory.VirtualDebianRepository("foo-debian",
-            debian_default_architectures="amd64,i386",
-            description="A test virtual repo",
-            excludes_pattern="com/google/**",
-            includes_pattern="com/jfrog/**,cloud/jfrog/**",
-            key="foo-debian",
-            notes="Internal description",
+        foo_debian = artifactory.index.virtual_debian_repository.VirtualDebianRepository("foo-debian",
+            debian_default_architectures=amd64,i386,
+            description=A test virtual repo,
+            excludes_pattern=com/google/**,
+            includes_pattern=com/jfrog/**,cloud/jfrog/**,
+            key=foo-debian,
+            notes=Internal description,
             optional_index_compression_formats=[
-                "bz2",
-                "xz",
+                bz2,
+                xz,
             ],
             repositories=[])
         ```
@@ -679,16 +679,16 @@ class VirtualDebianRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        foo_debian = artifactory.VirtualDebianRepository("foo-debian",
-            debian_default_architectures="amd64,i386",
-            description="A test virtual repo",
-            excludes_pattern="com/google/**",
-            includes_pattern="com/jfrog/**,cloud/jfrog/**",
-            key="foo-debian",
-            notes="Internal description",
+        foo_debian = artifactory.index.virtual_debian_repository.VirtualDebianRepository("foo-debian",
+            debian_default_architectures=amd64,i386,
+            description=A test virtual repo,
+            excludes_pattern=com/google/**,
+            includes_pattern=com/jfrog/**,cloud/jfrog/**,
+            key=foo-debian,
+            notes=Internal description,
             optional_index_compression_formats=[
-                "bz2",
-                "xz",
+                bz2,
+                xz,
             ],
             repositories=[])
         ```

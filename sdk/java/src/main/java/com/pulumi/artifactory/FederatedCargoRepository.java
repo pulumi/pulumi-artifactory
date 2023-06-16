@@ -29,7 +29,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.artifactory.FederatedCargoRepository;
  * import com.pulumi.artifactory.FederatedCargoRepositoryArgs;
- * import com.pulumi.artifactory.inputs.FederatedCargoRepositoryMemberArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -46,14 +45,8 @@ import javax.annotation.Nullable;
  *         var terraform_federated_test_cargo_repo = new FederatedCargoRepository(&#34;terraform-federated-test-cargo-repo&#34;, FederatedCargoRepositoryArgs.builder()        
  *             .key(&#34;terraform-federated-test-cargo-repo&#34;)
  *             .members(            
- *                 FederatedCargoRepositoryMemberArgs.builder()
- *                     .enabled(true)
- *                     .url(&#34;http://tempurl.org/artifactory/terraform-federated-test-cargo-repo&#34;)
- *                     .build(),
- *                 FederatedCargoRepositoryMemberArgs.builder()
- *                     .enabled(true)
- *                     .url(&#34;http://tempurl2.org/artifactory/terraform-federated-test-cargo-repo-2&#34;)
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

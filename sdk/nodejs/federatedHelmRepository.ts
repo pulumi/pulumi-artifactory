@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const terraform_federated_test_helm_repo = new artifactory.FederatedHelmRepository("terraform-federated-test-helm-repo", {
+ * const terraform_federated_test_helm_repo = new artifactory.index/federatedHelmRepository.FederatedHelmRepository("terraform-federated-test-helm-repo", {
  *     key: "terraform-federated-test-helm-repo",
  *     members: [
  *         {

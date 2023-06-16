@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
+//	"github.com/pulumi/pulumi-artifactory/sdk/v1/go/artifactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -29,17 +29,17 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewVirtualDebianRepository(ctx, "foo-debian", &artifactory.VirtualDebianRepositoryArgs{
-//				DebianDefaultArchitectures: pulumi.String("amd64,i386"),
-//				Description:                pulumi.String("A test virtual repo"),
-//				ExcludesPattern:            pulumi.String("com/google/**"),
-//				IncludesPattern:            pulumi.String("com/jfrog/**,cloud/jfrog/**"),
-//				Key:                        pulumi.String("foo-debian"),
-//				Notes:                      pulumi.String("Internal description"),
-//				OptionalIndexCompressionFormats: pulumi.StringArray{
-//					pulumi.String("bz2"),
-//					pulumi.String("xz"),
+//				DebianDefaultArchitectures: "amd64,i386",
+//				Description:                "A test virtual repo",
+//				ExcludesPattern:            "com/google/**",
+//				IncludesPattern:            "com/jfrog/**,cloud/jfrog/**",
+//				Key:                        "foo-debian",
+//				Notes:                      "Internal description",
+//				OptionalIndexCompressionFormats: []string{
+//					"bz2",
+//					"xz",
 //				},
-//				Repositories: pulumi.StringArray{},
+//				Repositories: []interface{}{},
 //			})
 //			if err != nil {
 //				return err

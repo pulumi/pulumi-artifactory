@@ -16,7 +16,7 @@ import * as utilities from "./utilities";
  * import * as artifactory from "@pulumi/artifactory";
  *
  * // Create a new Artifactory API key for the configured user
- * const ci = new artifactory.ApiKey("ci", {});
+ * const ci = new artifactory.index/apiKey.ApiKey("ci", {});
  * ```
  *
  * ## Import

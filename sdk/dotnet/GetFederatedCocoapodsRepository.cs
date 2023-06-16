@@ -13,56 +13,12 @@ namespace Pulumi.Artifactory
     {
         /// <summary>
         /// Retrieves a federated Cocoapods repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var federated_test_cocoapods_repo = Artifactory.GetFederatedCocoapodsRepository.Invoke(new()
-        ///     {
-        ///         Key = "federated-test-cocoapods-repo",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetFederatedCocoapodsRepositoryResult> InvokeAsync(GetFederatedCocoapodsRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFederatedCocoapodsRepositoryResult>("artifactory:index/getFederatedCocoapodsRepository:getFederatedCocoapodsRepository", args ?? new GetFederatedCocoapodsRepositoryArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves a federated Cocoapods repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var federated_test_cocoapods_repo = Artifactory.GetFederatedCocoapodsRepository.Invoke(new()
-        ///     {
-        ///         Key = "federated-test-cocoapods-repo",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetFederatedCocoapodsRepositoryResult> Invoke(GetFederatedCocoapodsRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFederatedCocoapodsRepositoryResult>("artifactory:index/getFederatedCocoapodsRepository:getFederatedCocoapodsRepository", args ?? new GetFederatedCocoapodsRepositoryInvokeArgs(), options.WithDefaults());

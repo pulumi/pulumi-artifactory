@@ -459,15 +459,6 @@ def get_remote_gitlfs_repository(allow_any_host_auth: Optional[bool] = None,
     """
     Retrieves a remote GitLfs repository.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    remote_gitlfs = artifactory.get_remote_gitlfs_repository(key="remote-gitlfs")
-    ```
-
 
     :param str key: the identity key of the repo.
     """
@@ -604,15 +595,6 @@ def get_remote_gitlfs_repository_output(allow_any_host_auth: Optional[pulumi.Inp
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRemoteGitlfsRepositoryResult]:
     """
     Retrieves a remote GitLfs repository.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    remote_gitlfs = artifactory.get_remote_gitlfs_repository(key="remote-gitlfs")
-    ```
 
 
     :param str key: the identity key of the repo.

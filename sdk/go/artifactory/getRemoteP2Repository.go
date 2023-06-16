@@ -11,32 +11,6 @@ import (
 )
 
 // Retrieves a remote P2 repository.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupRemoteP2Repository(ctx, &artifactory.LookupRemoteP2RepositoryArgs{
-//				Key: "remote-p2",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupRemoteP2Repository(ctx *pulumi.Context, args *LookupRemoteP2RepositoryArgs, opts ...pulumi.InvokeOption) (*LookupRemoteP2RepositoryResult, error) {
 	var rv LookupRemoteP2RepositoryResult
 	err := ctx.Invoke("artifactory:index/getRemoteP2Repository:getRemoteP2Repository", args, &rv, opts...)

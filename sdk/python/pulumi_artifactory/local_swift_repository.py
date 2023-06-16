@@ -592,7 +592,7 @@ class LocalSwiftRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_local_test_swift_repo = artifactory.LocalSwiftRepository("terraform-local-test-swift-repo", key="terraform-local-test-swift-repo")
+        terraform_local_test_swift_repo = artifactory.index.local_swift_repository.LocalSwiftRepository("terraform-local-test-swift-repo", key=terraform-local-test-swift-repo)
         ```
 
         ## Import
@@ -647,7 +647,7 @@ class LocalSwiftRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_local_test_swift_repo = artifactory.LocalSwiftRepository("terraform-local-test-swift-repo", key="terraform-local-test-swift-repo")
+        terraform_local_test_swift_repo = artifactory.index.local_swift_repository.LocalSwiftRepository("terraform-local-test-swift-repo", key=terraform-local-test-swift-repo)
         ```
 
         ## Import

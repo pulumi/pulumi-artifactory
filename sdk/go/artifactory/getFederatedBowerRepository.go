@@ -11,32 +11,6 @@ import (
 )
 
 // Retrieves a federated Bower repository.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupFederatedBowerRepository(ctx, &artifactory.LookupFederatedBowerRepositoryArgs{
-//				Key: "federated-test-bower-repo",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupFederatedBowerRepository(ctx *pulumi.Context, args *LookupFederatedBowerRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupFederatedBowerRepositoryResult, error) {
 	var rv LookupFederatedBowerRepositoryResult
 	err := ctx.Invoke("artifactory:index/getFederatedBowerRepository:getFederatedBowerRepository", args, &rv, opts...)

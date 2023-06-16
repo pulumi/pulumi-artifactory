@@ -11,32 +11,6 @@ import (
 )
 
 // Retrieves a federated Maven repository.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupFederatedMavenRepository(ctx, &artifactory.LookupFederatedMavenRepositoryArgs{
-//				Key: "federated-test-maven-repo",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupFederatedMavenRepository(ctx *pulumi.Context, args *LookupFederatedMavenRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupFederatedMavenRepositoryResult, error) {
 	var rv LookupFederatedMavenRepositoryResult
 	err := ctx.Invoke("artifactory:index/getFederatedMavenRepository:getFederatedMavenRepository", args, &rv, opts...)

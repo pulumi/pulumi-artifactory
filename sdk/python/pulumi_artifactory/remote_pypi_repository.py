@@ -1541,11 +1541,11 @@ class RemotePypiRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        pypi_remote = artifactory.RemotePypiRepository("pypi-remote",
-            key="pypi-remote-foo",
-            pypi_registry_url="https://pypi.org",
-            pypi_repository_suffix="simple",
-            url="https://files.pythonhosted.org")
+        pypi_remote = artifactory.index.remote_pypi_repository.RemotePypiRepository("pypi-remote",
+            key=pypi-remote-foo,
+            pypi_registry_url=https://pypi.org,
+            pypi_repository_suffix=simple,
+            url=https://files.pythonhosted.org)
         ```
 
         ## Import
@@ -1646,11 +1646,11 @@ class RemotePypiRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        pypi_remote = artifactory.RemotePypiRepository("pypi-remote",
-            key="pypi-remote-foo",
-            pypi_registry_url="https://pypi.org",
-            pypi_repository_suffix="simple",
-            url="https://files.pythonhosted.org")
+        pypi_remote = artifactory.index.remote_pypi_repository.RemotePypiRepository("pypi-remote",
+            key=pypi-remote-foo,
+            pypi_registry_url=https://pypi.org,
+            pypi_repository_suffix=simple,
+            url=https://files.pythonhosted.org)
         ```
 
         ## Import

@@ -11,32 +11,6 @@ import (
 )
 
 // Retrieves a virtual Ivy repository.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupVirtualIvyRepository(ctx, &artifactory.LookupVirtualIvyRepositoryArgs{
-//				Key: "virtual-ivy",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupVirtualIvyRepository(ctx *pulumi.Context, args *LookupVirtualIvyRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupVirtualIvyRepositoryResult, error) {
 	var rv LookupVirtualIvyRepositoryResult
 	err := ctx.Invoke("artifactory:index/getVirtualIvyRepository:getVirtualIvyRepository", args, &rv, opts...)

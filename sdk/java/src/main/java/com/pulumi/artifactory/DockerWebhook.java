@@ -34,8 +34,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.artifactory.DockerV2RepositoryArgs;
  * import com.pulumi.artifactory.DockerWebhook;
  * import com.pulumi.artifactory.DockerWebhookArgs;
- * import com.pulumi.artifactory.inputs.DockerWebhookCriteriaArgs;
- * import com.pulumi.artifactory.inputs.DockerWebhookHandlerArgs;
  * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -60,22 +58,8 @@ import javax.annotation.Nullable;
  *                 &#34;pushed&#34;,
  *                 &#34;deleted&#34;,
  *                 &#34;promoted&#34;)
- *             .criteria(DockerWebhookCriteriaArgs.builder()
- *                 .anyLocal(true)
- *                 .anyRemote(false)
- *                 .repoKeys(my_docker_local.key())
- *                 .includePatterns(&#34;foo/**&#34;)
- *                 .excludePatterns(&#34;bar/**&#34;)
- *                 .build())
- *             .handlers(DockerWebhookHandlerArgs.builder()
- *                 .url(&#34;http://tempurl.org/webhook&#34;)
- *                 .secret(&#34;some-secret&#34;)
- *                 .proxy(&#34;proxy-key&#34;)
- *                 .customHttpHeaders(Map.ofEntries(
- *                     Map.entry(&#34;header-1&#34;, &#34;value-1&#34;),
- *                     Map.entry(&#34;header-2&#34;, &#34;value-2&#34;)
- *                 ))
- *                 .build())
+ *             .criteria(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .handlers(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(my_docker_local)
  *                 .build());

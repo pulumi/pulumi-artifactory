@@ -14,7 +14,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const foo_puppet = new artifactory.VirtualPuppetRepository("foo-puppet", {
+ * const foo_puppet = new artifactory.index/virtualPuppetRepository.VirtualPuppetRepository("foo-puppet", {
  *     description: "A test virtual repo",
  *     excludesPattern: "com/google/**",
  *     includesPattern: "com/jfrog/**,cloud/jfrog/**",

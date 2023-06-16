@@ -13,56 +13,12 @@ namespace Pulumi.Artifactory
     {
         /// <summary>
         /// Retrieves a virtual Chef repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var virtual_chef = Artifactory.GetVirtualChefRepository.Invoke(new()
-        ///     {
-        ///         Key = "virtual-chef",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetVirtualChefRepositoryResult> InvokeAsync(GetVirtualChefRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualChefRepositoryResult>("artifactory:index/getVirtualChefRepository:getVirtualChefRepository", args ?? new GetVirtualChefRepositoryArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves a virtual Chef repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var virtual_chef = Artifactory.GetVirtualChefRepository.Invoke(new()
-        ///     {
-        ///         Key = "virtual-chef",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetVirtualChefRepositoryResult> Invoke(GetVirtualChefRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualChefRepositoryResult>("artifactory:index/getVirtualChefRepository:getVirtualChefRepository", args ?? new GetVirtualChefRepositoryInvokeArgs(), options.WithDefaults());

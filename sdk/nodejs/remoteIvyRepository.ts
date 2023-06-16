@@ -16,7 +16,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const ivy_remote = new artifactory.RemoteIvyRepository("ivy-remote", {
+ * const ivy_remote = new artifactory.index/remoteIvyRepository.RemoteIvyRepository("ivy-remote", {
  *     fetchJarsEagerly: true,
  *     fetchSourcesEagerly: false,
  *     key: "ivy-remote-foo",

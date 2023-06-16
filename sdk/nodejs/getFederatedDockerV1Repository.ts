@@ -8,17 +8,6 @@ import * as utilities from "./utilities";
 
 /**
  * Retrieves a federated Docker repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const federated-test-docker-repo = artifactory.getFederatedDockerV1Repository({
- *     key: "federated-test-docker-repo",
- * });
- * ```
  */
 export function getFederatedDockerV1Repository(args: GetFederatedDockerV1RepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetFederatedDockerV1RepositoryResult> {
 
@@ -117,17 +106,6 @@ export interface GetFederatedDockerV1RepositoryResult {
 }
 /**
  * Retrieves a federated Docker repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const federated-test-docker-repo = artifactory.getFederatedDockerV1Repository({
- *     key: "federated-test-docker-repo",
- * });
- * ```
  */
 export function getFederatedDockerV1RepositoryOutput(args: GetFederatedDockerV1RepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedDockerV1RepositoryResult> {
     return pulumi.output(args).apply((a: any) => getFederatedDockerV1Repository(a, opts))

@@ -1648,13 +1648,13 @@ class RemoteNugetRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        my_remote_nuget = artifactory.RemoteNugetRepository("my-remote-nuget",
-            download_context_path="api/v2/package",
+        my_remote_nuget = artifactory.index.remote_nuget_repository.RemoteNugetRepository("my-remote-nuget",
+            download_context_path=api/v2/package,
             force_nuget_authentication=True,
-            key="my-remote-nuget",
-            symbol_server_url="https://symbols.nuget.org/download/symbols",
-            url="https://www.nuget.org/",
-            v3_feed_url="https://api.nuget.org/v3/index.json")
+            key=my-remote-nuget,
+            symbol_server_url=https://symbols.nuget.org/download/symbols,
+            url=https://www.nuget.org/,
+            v3_feed_url=https://api.nuget.org/v3/index.json)
         ```
 
         ## Import
@@ -1760,13 +1760,13 @@ class RemoteNugetRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        my_remote_nuget = artifactory.RemoteNugetRepository("my-remote-nuget",
-            download_context_path="api/v2/package",
+        my_remote_nuget = artifactory.index.remote_nuget_repository.RemoteNugetRepository("my-remote-nuget",
+            download_context_path=api/v2/package,
             force_nuget_authentication=True,
-            key="my-remote-nuget",
-            symbol_server_url="https://symbols.nuget.org/download/symbols",
-            url="https://www.nuget.org/",
-            v3_feed_url="https://api.nuget.org/v3/index.json")
+            key=my-remote-nuget,
+            symbol_server_url=https://symbols.nuget.org/download/symbols,
+            url=https://www.nuget.org/,
+            v3_feed_url=https://api.nuget.org/v3/index.json)
         ```
 
         ## Import

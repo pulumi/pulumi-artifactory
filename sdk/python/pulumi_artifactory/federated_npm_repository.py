@@ -675,17 +675,17 @@ class FederatedNpmRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_federated_test_npm_repo = artifactory.FederatedNpmRepository("terraform-federated-test-npm-repo",
-            key="terraform-federated-test-npm-repo",
+        terraform_federated_test_npm_repo = artifactory.index.federated_npm_repository.FederatedNpmRepository("terraform-federated-test-npm-repo",
+            key=terraform-federated-test-npm-repo,
             members=[
-                artifactory.FederatedNpmRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl.org/artifactory/terraform-federated-test-npm-repo",
-                ),
-                artifactory.FederatedNpmRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl2.org/artifactory/terraform-federated-test-npm-repo-2",
-                ),
+                {
+                    enabled: True,
+                    url: http://tempurl.org/artifactory/terraform-federated-test-npm-repo,
+                },
+                {
+                    enabled: True,
+                    url: http://tempurl2.org/artifactory/terraform-federated-test-npm-repo-2,
+                },
             ])
         ```
 
@@ -747,17 +747,17 @@ class FederatedNpmRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_federated_test_npm_repo = artifactory.FederatedNpmRepository("terraform-federated-test-npm-repo",
-            key="terraform-federated-test-npm-repo",
+        terraform_federated_test_npm_repo = artifactory.index.federated_npm_repository.FederatedNpmRepository("terraform-federated-test-npm-repo",
+            key=terraform-federated-test-npm-repo,
             members=[
-                artifactory.FederatedNpmRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl.org/artifactory/terraform-federated-test-npm-repo",
-                ),
-                artifactory.FederatedNpmRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl2.org/artifactory/terraform-federated-test-npm-repo-2",
-                ),
+                {
+                    enabled: True,
+                    url: http://tempurl.org/artifactory/terraform-federated-test-npm-repo,
+                },
+                {
+                    enabled: True,
+                    url: http://tempurl2.org/artifactory/terraform-federated-test-npm-repo-2,
+                },
             ])
         ```
 

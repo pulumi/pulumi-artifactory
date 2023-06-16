@@ -22,20 +22,20 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var terraform_federated_test_cocoapods_repo = new Artifactory.FederatedCocoapodsRepository("terraform-federated-test-cocoapods-repo", new()
+    ///     var terraform_federated_test_cocoapods_repo = new Artifactory.Index.FederatedCocoapodsRepository.FederatedCocoapodsRepository("terraform-federated-test-cocoapods-repo", new()
     ///     {
     ///         Key = "terraform-federated-test-cocoapods-repo",
     ///         Members = new[]
     ///         {
-    ///             new Artifactory.Inputs.FederatedCocoapodsRepositoryMemberArgs
+    ///             
     ///             {
-    ///                 Enabled = true,
-    ///                 Url = "http://tempurl.org/artifactory/terraform-federated-test-cocoapods-repo",
+    ///                 { "enabled", true },
+    ///                 { "url", "http://tempurl.org/artifactory/terraform-federated-test-cocoapods-repo" },
     ///             },
-    ///             new Artifactory.Inputs.FederatedCocoapodsRepositoryMemberArgs
+    ///             
     ///             {
-    ///                 Enabled = true,
-    ///                 Url = "http://tempurl2.org/artifactory/terraform-federated-test-cocoapods-repo-2",
+    ///                 { "enabled", true },
+    ///                 { "url", "http://tempurl2.org/artifactory/terraform-federated-test-cocoapods-repo-2" },
     ///             },
     ///         },
     ///     });

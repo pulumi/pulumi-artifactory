@@ -675,17 +675,17 @@ class FederatedConanRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_federated_test_conan_repo = artifactory.FederatedConanRepository("terraform-federated-test-conan-repo",
-            key="terraform-federated-test-conan-repo",
+        terraform_federated_test_conan_repo = artifactory.index.federated_conan_repository.FederatedConanRepository("terraform-federated-test-conan-repo",
+            key=terraform-federated-test-conan-repo,
             members=[
-                artifactory.FederatedConanRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl.org/artifactory/terraform-federated-test-conan-repo",
-                ),
-                artifactory.FederatedConanRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl2.org/artifactory/terraform-federated-test-conan-repo-2",
-                ),
+                {
+                    enabled: True,
+                    url: http://tempurl.org/artifactory/terraform-federated-test-conan-repo,
+                },
+                {
+                    enabled: True,
+                    url: http://tempurl2.org/artifactory/terraform-federated-test-conan-repo-2,
+                },
             ])
         ```
 
@@ -749,17 +749,17 @@ class FederatedConanRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_federated_test_conan_repo = artifactory.FederatedConanRepository("terraform-federated-test-conan-repo",
-            key="terraform-federated-test-conan-repo",
+        terraform_federated_test_conan_repo = artifactory.index.federated_conan_repository.FederatedConanRepository("terraform-federated-test-conan-repo",
+            key=terraform-federated-test-conan-repo,
             members=[
-                artifactory.FederatedConanRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl.org/artifactory/terraform-federated-test-conan-repo",
-                ),
-                artifactory.FederatedConanRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl2.org/artifactory/terraform-federated-test-conan-repo-2",
-                ),
+                {
+                    enabled: True,
+                    url: http://tempurl.org/artifactory/terraform-federated-test-conan-repo,
+                },
+                {
+                    enabled: True,
+                    url: http://tempurl2.org/artifactory/terraform-federated-test-conan-repo-2,
+                },
             ])
         ```
 

@@ -24,7 +24,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
+//	"github.com/pulumi/pulumi-artifactory/sdk/v1/go/artifactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -32,19 +32,19 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewSamlSettings(ctx, "saml", &artifactory.SamlSettingsArgs{
-//				AllowUserToAccessProfile:  pulumi.Bool(true),
-//				AutoRedirect:              pulumi.Bool(true),
-//				Certificate:               pulumi.String("test-certificate"),
-//				EmailAttribute:            pulumi.String("email"),
-//				Enable:                    pulumi.Bool(true),
-//				GroupAttribute:            pulumi.String("groups"),
-//				LoginUrl:                  pulumi.String("test-login-url"),
-//				LogoutUrl:                 pulumi.String("test-logout-url"),
-//				NoAutoUserCreation:        pulumi.Bool(false),
-//				ServiceProviderName:       pulumi.String("okta"),
-//				SyncGroups:                pulumi.Bool(true),
-//				UseEncryptedAssertion:     pulumi.Bool(false),
-//				VerifyAudienceRestriction: pulumi.Bool(true),
+//				AllowUserToAccessProfile:  true,
+//				AutoRedirect:              true,
+//				Certificate:               "test-certificate",
+//				EmailAttribute:            "email",
+//				Enable:                    true,
+//				GroupAttribute:            "groups",
+//				LoginUrl:                  "test-login-url",
+//				LogoutUrl:                 "test-logout-url",
+//				NoAutoUserCreation:        false,
+//				ServiceProviderName:       "okta",
+//				SyncGroups:                true,
+//				UseEncryptedAssertion:     false,
+//				VerifyAudienceRestriction: true,
 //			})
 //			if err != nil {
 //				return err

@@ -8,17 +8,6 @@ import * as utilities from "./utilities";
 
 /**
  * Retrieves a remote Go repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const remote-go = artifactory.getRemoteGoRepository({
- *     key: "remote-go",
- * });
- * ```
  */
 export function getRemoteGoRepository(args: GetRemoteGoRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetRemoteGoRepositoryResult> {
 
@@ -177,17 +166,6 @@ export interface GetRemoteGoRepositoryResult {
 }
 /**
  * Retrieves a remote Go repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const remote-go = artifactory.getRemoteGoRepository({
- *     key: "remote-go",
- * });
- * ```
  */
 export function getRemoteGoRepositoryOutput(args: GetRemoteGoRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemoteGoRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getRemoteGoRepository(a, opts))

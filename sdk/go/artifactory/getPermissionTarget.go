@@ -13,32 +13,6 @@ import (
 // ## # Artifactory Permission Target Data Source
 //
 // Provides an Artifactory permission target data source. This can be used to read the configuration of permission targets in artifactory.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupPermissionTarget(ctx, &artifactory.LookupPermissionTargetArgs{
-//				Name: "my_permission",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupPermissionTarget(ctx *pulumi.Context, args *LookupPermissionTargetArgs, opts ...pulumi.InvokeOption) (*LookupPermissionTargetResult, error) {
 	var rv LookupPermissionTargetResult
 	err := ctx.Invoke("artifactory:index/getPermissionTarget:getPermissionTarget", args, &rv, opts...)

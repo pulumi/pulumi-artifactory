@@ -1598,12 +1598,12 @@ class RemoteHelmRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        helm_remote = artifactory.RemoteHelmRepository("helm-remote",
+        helm_remote = artifactory.index.remote_helm_repository.RemoteHelmRepository("helm-remote",
             external_dependencies_enabled=True,
-            external_dependencies_patterns=["**github.com**"],
-            helm_charts_base_url="https://foo.com",
-            key="helm-remote-foo25",
-            url="https://repo.chartcenter.io/")
+            external_dependencies_patterns=[**github.com**],
+            helm_charts_base_url=https://foo.com,
+            key=helm-remote-foo25,
+            url=https://repo.chartcenter.io/)
         ```
 
         ## Import
@@ -1711,12 +1711,12 @@ class RemoteHelmRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        helm_remote = artifactory.RemoteHelmRepository("helm-remote",
+        helm_remote = artifactory.index.remote_helm_repository.RemoteHelmRepository("helm-remote",
             external_dependencies_enabled=True,
-            external_dependencies_patterns=["**github.com**"],
-            helm_charts_base_url="https://foo.com",
-            key="helm-remote-foo25",
-            url="https://repo.chartcenter.io/")
+            external_dependencies_patterns=[**github.com**],
+            helm_charts_base_url=https://foo.com,
+            key=helm-remote-foo25,
+            url=https://repo.chartcenter.io/)
         ```
 
         ## Import

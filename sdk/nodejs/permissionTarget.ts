@@ -16,7 +16,7 @@ import * as utilities from "./utilities";
  * import * as artifactory from "@pulumi/artifactory";
  *
  * // Create a new Artifactory permission target called testpermission
- * const test_perm = new artifactory.PermissionTarget("test-perm", {
+ * const test_perm = new artifactory.index/permissionTarget.PermissionTarget("test-perm", {
  *     builds: [{
  *         actions: [{
  *             users: [{

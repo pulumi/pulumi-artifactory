@@ -295,15 +295,6 @@ def get_federated_ivy_repository(archive_browsing_enabled: Optional[bool] = None
     """
     Retrieves a federated Ivy repository.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    federated_test_ivy_repo = artifactory.get_federated_ivy_repository(key="federated-test-ivy-repo")
-    ```
-
 
     :param str key: the identity key of the repo.
     :param Sequence[pulumi.InputType['GetFederatedIvyRepositoryMemberArgs']] members: The list of Federated members and must contain this repository URL (configured base URL
@@ -393,15 +384,6 @@ def get_federated_ivy_repository_output(archive_browsing_enabled: Optional[pulum
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFederatedIvyRepositoryResult]:
     """
     Retrieves a federated Ivy repository.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    federated_test_ivy_repo = artifactory.get_federated_ivy_repository(key="federated-test-ivy-repo")
-    ```
 
 
     :param str key: the identity key of the repo.

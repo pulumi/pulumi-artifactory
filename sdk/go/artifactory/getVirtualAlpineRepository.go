@@ -11,32 +11,6 @@ import (
 )
 
 // Retrieves a virtual Alpine repository.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupVirtualAlpineRepository(ctx, &artifactory.LookupVirtualAlpineRepositoryArgs{
-//				Key: "virtual-alpine",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupVirtualAlpineRepository(ctx *pulumi.Context, args *LookupVirtualAlpineRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupVirtualAlpineRepositoryResult, error) {
 	var rv LookupVirtualAlpineRepositoryResult
 	err := ctx.Invoke("artifactory:index/getVirtualAlpineRepository:getVirtualAlpineRepository", args, &rv, opts...)

@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
+//	"github.com/pulumi/pulumi-artifactory/sdk/v1/go/artifactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -28,9 +28,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewLocalNugetRepository(ctx, "terraform-local-test-nuget-repo-basic", &artifactory.LocalNugetRepositoryArgs{
-//				ForceNugetAuthentication: pulumi.Bool(true),
-//				Key:                      pulumi.String("terraform-local-test-nuget-repo-basic"),
-//				MaxUniqueSnapshots:       pulumi.Int(5),
+//				ForceNugetAuthentication: true,
+//				Key:                      "terraform-local-test-nuget-repo-basic",
+//				MaxUniqueSnapshots:       5,
 //			})
 //			if err != nil {
 //				return err

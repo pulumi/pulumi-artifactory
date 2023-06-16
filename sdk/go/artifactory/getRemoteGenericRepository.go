@@ -11,32 +11,6 @@ import (
 )
 
 // Retrieves a remote Generic repository.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupRemoteGenericRepository(ctx, &artifactory.LookupRemoteGenericRepositoryArgs{
-//				Key: "remote-generic",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupRemoteGenericRepository(ctx *pulumi.Context, args *LookupRemoteGenericRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupRemoteGenericRepositoryResult, error) {
 	var rv LookupRemoteGenericRepositoryResult
 	err := ctx.Invoke("artifactory:index/getRemoteGenericRepository:getRemoteGenericRepository", args, &rv, opts...)

@@ -6,18 +6,6 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
-/**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const federated-test-terraformProvider-repo = artifactory.getFederatedTerraformProviderRepository({
- *     key: "federated-test-terraform-provider-repo",
- * });
- * ```
- */
 export function getFederatedTerraformProviderRepository(args: GetFederatedTerraformProviderRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetFederatedTerraformProviderRepositoryResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -107,18 +95,6 @@ export interface GetFederatedTerraformProviderRepositoryResult {
     readonly repoLayoutRef?: string;
     readonly xrayIndex?: boolean;
 }
-/**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const federated-test-terraformProvider-repo = artifactory.getFederatedTerraformProviderRepository({
- *     key: "federated-test-terraform-provider-repo",
- * });
- * ```
- */
 export function getFederatedTerraformProviderRepositoryOutput(args: GetFederatedTerraformProviderRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedTerraformProviderRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getFederatedTerraformProviderRepository(a, opts))
 }

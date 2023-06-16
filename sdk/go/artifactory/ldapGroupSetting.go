@@ -25,7 +25,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
+//	"github.com/pulumi/pulumi-artifactory/sdk/v1/go/artifactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -33,14 +33,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewLdapGroupSetting(ctx, "ldapGroupName", &artifactory.LdapGroupSettingArgs{
-//				DescriptionAttribute: pulumi.String("description"),
-//				Filter:               pulumi.String("(objectClass=groupOfNames)"),
-//				GroupBaseDn:          pulumi.String(""),
-//				GroupMemberAttribute: pulumi.String("uniqueMember"),
-//				GroupNameAttribute:   pulumi.String("cn"),
-//				LdapSettingKey:       pulumi.String("ldap_name"),
-//				Strategy:             pulumi.String("STATIC"),
-//				SubTree:              pulumi.Bool(true),
+//				DescriptionAttribute: "description",
+//				Filter:               "(objectClass=groupOfNames)",
+//				GroupBaseDn:          "",
+//				GroupMemberAttribute: "uniqueMember",
+//				GroupNameAttribute:   "cn",
+//				LdapSettingKey:       "ldap_name",
+//				Strategy:             "STATIC",
+//				SubTree:              true,
 //			})
 //			if err != nil {
 //				return err

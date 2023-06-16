@@ -13,56 +13,12 @@ namespace Pulumi.Artifactory
     {
         /// <summary>
         /// Retrieves a virtual Debian repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var virtual_debian = Artifactory.GetVirtualDebianRepository.Invoke(new()
-        ///     {
-        ///         Key = "virtual-debian",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetVirtualDebianRepositoryResult> InvokeAsync(GetVirtualDebianRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualDebianRepositoryResult>("artifactory:index/getVirtualDebianRepository:getVirtualDebianRepository", args ?? new GetVirtualDebianRepositoryArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves a virtual Debian repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var virtual_debian = Artifactory.GetVirtualDebianRepository.Invoke(new()
-        ///     {
-        ///         Key = "virtual-debian",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetVirtualDebianRepositoryResult> Invoke(GetVirtualDebianRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualDebianRepositoryResult>("artifactory:index/getVirtualDebianRepository:getVirtualDebianRepository", args ?? new GetVirtualDebianRepositoryInvokeArgs(), options.WithDefaults());

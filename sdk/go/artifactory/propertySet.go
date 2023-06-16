@@ -24,7 +24,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
+//	"github.com/pulumi/pulumi-artifactory/sdk/v1/go/artifactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -32,39 +32,39 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewPropertySet(ctx, "foo", &artifactory.PropertySetArgs{
-//				Properties: artifactory.PropertySetPropertyArray{
-//					&artifactory.PropertySetPropertyArgs{
-//						ClosedPredefinedValues: pulumi.Bool(true),
-//						MultipleChoice:         pulumi.Bool(true),
-//						Name:                   pulumi.String("set1property1"),
-//						PredefinedValues: artifactory.PropertySetPropertyPredefinedValueArray{
-//							&artifactory.PropertySetPropertyPredefinedValueArgs{
-//								DefaultValue: pulumi.Bool(true),
-//								Name:         pulumi.String("passed-QA"),
+//				Properties: []interface{}{
+//					map[string]interface{}{
+//						"closedPredefinedValues": true,
+//						"multipleChoice":         true,
+//						"name":                   "set1property1",
+//						"predefinedValues": []interface{}{
+//							map[string]interface{}{
+//								"defaultValue": true,
+//								"name":         "passed-QA",
 //							},
-//							&artifactory.PropertySetPropertyPredefinedValueArgs{
-//								DefaultValue: pulumi.Bool(false),
-//								Name:         pulumi.String("failed-QA"),
+//							map[string]interface{}{
+//								"defaultValue": false,
+//								"name":         "failed-QA",
 //							},
 //						},
 //					},
-//					&artifactory.PropertySetPropertyArgs{
-//						ClosedPredefinedValues: pulumi.Bool(false),
-//						MultipleChoice:         pulumi.Bool(false),
-//						Name:                   pulumi.String("set1property2"),
-//						PredefinedValues: artifactory.PropertySetPropertyPredefinedValueArray{
-//							&artifactory.PropertySetPropertyPredefinedValueArgs{
-//								DefaultValue: pulumi.Bool(true),
-//								Name:         pulumi.String("passed-QA"),
+//					map[string]interface{}{
+//						"closedPredefinedValues": false,
+//						"multipleChoice":         false,
+//						"name":                   "set1property2",
+//						"predefinedValues": []interface{}{
+//							map[string]interface{}{
+//								"defaultValue": true,
+//								"name":         "passed-QA",
 //							},
-//							&artifactory.PropertySetPropertyPredefinedValueArgs{
-//								DefaultValue: pulumi.Bool(false),
-//								Name:         pulumi.String("failed-QA"),
+//							map[string]interface{}{
+//								"defaultValue": false,
+//								"name":         "failed-QA",
 //							},
 //						},
 //					},
 //				},
-//				Visible: pulumi.Bool(true),
+//				Visible: true,
 //			})
 //			if err != nil {
 //				return err

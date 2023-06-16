@@ -378,21 +378,21 @@ class RemoteRepositoryReplication(pulumi.CustomResource):
 
         config = pulumi.Config()
         artifactory_url = config.require("artifactoryUrl")
-        provider_test_source = artifactory.LocalMavenRepository("providerTestSource", key="provider_test_source")
-        provider_test_dest = artifactory.RemoteMavenRepository("providerTestDest",
-            key="provider_test_dest",
-            url=f"{artifactory_url}/artifactory/{artifactory_local_maven_repository['artifactory_local_maven_repository']['key']}",
-            username="foo",
-            password="bar")
-        remote_rep = artifactory.RemoteRepositoryReplication("remote-rep",
+        provider_test_source = artifactory.index.local_maven_repository.LocalMavenRepository("providerTestSource", key=provider_test_source)
+        provider_test_dest = artifactory.index.remote_maven_repository.RemoteMavenRepository("providerTestDest",
+            key=provider_test_dest,
+            url=f{artifactory_url}/artifactory/{artifactory_local_maven_repository.artifactory_local_maven_repository.key},
+            username=foo,
+            password=bar)
+        remote_rep = artifactory.index.remote_repository_replication.RemoteRepositoryReplication("remote-rep",
             repo_key=provider_test_dest.key,
-            cron_exp="0 0 * * * ?",
+            cron_exp=0 0 * * * ?,
             enable_event_replication=True,
             enabled=True,
             sync_deletes=False,
             sync_properties=True,
-            include_path_prefix_pattern="/some-repo/",
-            exclude_path_prefix_pattern="/some-other-repo/",
+            include_path_prefix_pattern=/some-repo/,
+            exclude_path_prefix_pattern=/some-other-repo/,
             check_binary_existence_in_filestore=False)
         ```
 
@@ -436,21 +436,21 @@ class RemoteRepositoryReplication(pulumi.CustomResource):
 
         config = pulumi.Config()
         artifactory_url = config.require("artifactoryUrl")
-        provider_test_source = artifactory.LocalMavenRepository("providerTestSource", key="provider_test_source")
-        provider_test_dest = artifactory.RemoteMavenRepository("providerTestDest",
-            key="provider_test_dest",
-            url=f"{artifactory_url}/artifactory/{artifactory_local_maven_repository['artifactory_local_maven_repository']['key']}",
-            username="foo",
-            password="bar")
-        remote_rep = artifactory.RemoteRepositoryReplication("remote-rep",
+        provider_test_source = artifactory.index.local_maven_repository.LocalMavenRepository("providerTestSource", key=provider_test_source)
+        provider_test_dest = artifactory.index.remote_maven_repository.RemoteMavenRepository("providerTestDest",
+            key=provider_test_dest,
+            url=f{artifactory_url}/artifactory/{artifactory_local_maven_repository.artifactory_local_maven_repository.key},
+            username=foo,
+            password=bar)
+        remote_rep = artifactory.index.remote_repository_replication.RemoteRepositoryReplication("remote-rep",
             repo_key=provider_test_dest.key,
-            cron_exp="0 0 * * * ?",
+            cron_exp=0 0 * * * ?,
             enable_event_replication=True,
             enabled=True,
             sync_deletes=False,
             sync_properties=True,
-            include_path_prefix_pattern="/some-repo/",
-            exclude_path_prefix_pattern="/some-other-repo/",
+            include_path_prefix_pattern=/some-repo/,
+            exclude_path_prefix_pattern=/some-other-repo/,
             check_binary_existence_in_filestore=False)
         ```
 

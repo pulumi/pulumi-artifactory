@@ -23,7 +23,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo_helm_virtual = new Artifactory.VirtualHelmRepository("foo-helm-virtual", new()
+    ///     var foo_helm_virtual = new Artifactory.Index.VirtualHelmRepository.VirtualHelmRepository("foo-helm-virtual", new()
     ///     {
     ///         Key = "foo-helm-virtual",
     ///         UseNamespaces = true,

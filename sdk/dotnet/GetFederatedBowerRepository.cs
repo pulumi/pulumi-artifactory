@@ -13,56 +13,12 @@ namespace Pulumi.Artifactory
     {
         /// <summary>
         /// Retrieves a federated Bower repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var federated_test_bower_repo = Artifactory.GetFederatedBowerRepository.Invoke(new()
-        ///     {
-        ///         Key = "federated-test-bower-repo",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetFederatedBowerRepositoryResult> InvokeAsync(GetFederatedBowerRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFederatedBowerRepositoryResult>("artifactory:index/getFederatedBowerRepository:getFederatedBowerRepository", args ?? new GetFederatedBowerRepositoryArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves a federated Bower repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var federated_test_bower_repo = Artifactory.GetFederatedBowerRepository.Invoke(new()
-        ///     {
-        ///         Key = "federated-test-bower-repo",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetFederatedBowerRepositoryResult> Invoke(GetFederatedBowerRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFederatedBowerRepositoryResult>("artifactory:index/getFederatedBowerRepository:getFederatedBowerRepository", args ?? new GetFederatedBowerRepositoryInvokeArgs(), options.WithDefaults());

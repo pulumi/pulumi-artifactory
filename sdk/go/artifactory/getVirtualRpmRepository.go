@@ -11,32 +11,6 @@ import (
 )
 
 // Retrieves a virtual Rpm repository.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupVirtualRpmRepository(ctx, &artifactory.LookupVirtualRpmRepositoryArgs{
-//				Key: "virtual-rpm",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupVirtualRpmRepository(ctx *pulumi.Context, args *LookupVirtualRpmRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupVirtualRpmRepositoryResult, error) {
 	var rv LookupVirtualRpmRepositoryResult
 	err := ctx.Invoke("artifactory:index/getVirtualRpmRepository:getVirtualRpmRepository", args, &rv, opts...)

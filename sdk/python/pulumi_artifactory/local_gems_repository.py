@@ -592,7 +592,7 @@ class LocalGemsRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_local_test_gems_repo = artifactory.LocalGemsRepository("terraform-local-test-gems-repo", key="terraform-local-test-gems-repo")
+        terraform_local_test_gems_repo = artifactory.index.local_gems_repository.LocalGemsRepository("terraform-local-test-gems-repo", key=terraform-local-test-gems-repo)
         ```
 
         ## Import
@@ -647,7 +647,7 @@ class LocalGemsRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_local_test_gems_repo = artifactory.LocalGemsRepository("terraform-local-test-gems-repo", key="terraform-local-test-gems-repo")
+        terraform_local_test_gems_repo = artifactory.index.local_gems_repository.LocalGemsRepository("terraform-local-test-gems-repo", key=terraform-local-test-gems-repo)
         ```
 
         ## Import

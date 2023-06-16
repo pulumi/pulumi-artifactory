@@ -6,18 +6,6 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
-/**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const remote-terraform = artifactory.getRemoteTerraformRepository({
- *     key: "remote-terraform",
- * });
- * ```
- */
 export function getRemoteTerraformRepository(args: GetRemoteTerraformRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetRemoteTerraformRepositoryResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -170,18 +158,6 @@ export interface GetRemoteTerraformRepositoryResult {
     readonly username?: string;
     readonly xrayIndex?: boolean;
 }
-/**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const remote-terraform = artifactory.getRemoteTerraformRepository({
- *     key: "remote-terraform",
- * });
- * ```
- */
 export function getRemoteTerraformRepositoryOutput(args: GetRemoteTerraformRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemoteTerraformRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getRemoteTerraformRepository(a, opts))
 }

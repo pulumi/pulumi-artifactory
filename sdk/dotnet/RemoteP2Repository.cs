@@ -23,7 +23,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var my_remote_p2 = new Artifactory.RemoteP2Repository("my-remote-p2", new()
+    ///     var my_remote_p2 = new Artifactory.Index.RemoteP2Repository.RemoteP2Repository("my-remote-p2", new()
     ///     {
     ///         Key = "my-remote-p2",
     ///         Url = "http://testartifactory.io/artifactory/example-p2/",

@@ -8,17 +8,6 @@ import * as utilities from "./utilities";
 
 /**
  * Retrieves a remote Npm repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const remote-npm = artifactory.getRemoteNpmRepository({
- *     key: "remote-npm",
- * });
- * ```
  */
 export function getRemoteNpmRepository(args: GetRemoteNpmRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetRemoteNpmRepositoryResult> {
 
@@ -168,17 +157,6 @@ export interface GetRemoteNpmRepositoryResult {
 }
 /**
  * Retrieves a remote Npm repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const remote-npm = artifactory.getRemoteNpmRepository({
- *     key: "remote-npm",
- * });
- * ```
  */
 export function getRemoteNpmRepositoryOutput(args: GetRemoteNpmRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemoteNpmRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getRemoteNpmRepository(a, opts))

@@ -778,17 +778,17 @@ class FederatedCargoRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_federated_test_cargo_repo = artifactory.FederatedCargoRepository("terraform-federated-test-cargo-repo",
-            key="terraform-federated-test-cargo-repo",
+        terraform_federated_test_cargo_repo = artifactory.index.federated_cargo_repository.FederatedCargoRepository("terraform-federated-test-cargo-repo",
+            key=terraform-federated-test-cargo-repo,
             members=[
-                artifactory.FederatedCargoRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl.org/artifactory/terraform-federated-test-cargo-repo",
-                ),
-                artifactory.FederatedCargoRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl2.org/artifactory/terraform-federated-test-cargo-repo-2",
-                ),
+                {
+                    enabled: True,
+                    url: http://tempurl.org/artifactory/terraform-federated-test-cargo-repo,
+                },
+                {
+                    enabled: True,
+                    url: http://tempurl2.org/artifactory/terraform-federated-test-cargo-repo-2,
+                },
             ])
         ```
 
@@ -855,17 +855,17 @@ class FederatedCargoRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_federated_test_cargo_repo = artifactory.FederatedCargoRepository("terraform-federated-test-cargo-repo",
-            key="terraform-federated-test-cargo-repo",
+        terraform_federated_test_cargo_repo = artifactory.index.federated_cargo_repository.FederatedCargoRepository("terraform-federated-test-cargo-repo",
+            key=terraform-federated-test-cargo-repo,
             members=[
-                artifactory.FederatedCargoRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl.org/artifactory/terraform-federated-test-cargo-repo",
-                ),
-                artifactory.FederatedCargoRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl2.org/artifactory/terraform-federated-test-cargo-repo-2",
-                ),
+                {
+                    enabled: True,
+                    url: http://tempurl.org/artifactory/terraform-federated-test-cargo-repo,
+                },
+                {
+                    enabled: True,
+                    url: http://tempurl2.org/artifactory/terraform-federated-test-cargo-repo-2,
+                },
             ])
         ```
 

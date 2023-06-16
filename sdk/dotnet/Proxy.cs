@@ -27,7 +27,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var my_proxy = new Artifactory.Proxy("my-proxy", new()
+    ///     var my_proxy = new Artifactory.Index.Proxy.Proxy("my-proxy", new()
     ///     {
     ///         Host = "my-proxy.mycompany.com",
     ///         Key = "my-proxy",

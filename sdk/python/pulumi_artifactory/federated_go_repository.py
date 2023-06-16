@@ -675,17 +675,17 @@ class FederatedGoRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_federated_test_go_repo = artifactory.FederatedGoRepository("terraform-federated-test-go-repo",
-            key="terraform-federated-test-go-repo",
+        terraform_federated_test_go_repo = artifactory.index.federated_go_repository.FederatedGoRepository("terraform-federated-test-go-repo",
+            key=terraform-federated-test-go-repo,
             members=[
-                artifactory.FederatedGoRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl.org/artifactory/terraform-federated-test-go-repo",
-                ),
-                artifactory.FederatedGoRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl2.org/artifactory/terraform-federated-test-go-repo-2",
-                ),
+                {
+                    enabled: True,
+                    url: http://tempurl.org/artifactory/terraform-federated-test-go-repo,
+                },
+                {
+                    enabled: True,
+                    url: http://tempurl2.org/artifactory/terraform-federated-test-go-repo-2,
+                },
             ])
         ```
 
@@ -747,17 +747,17 @@ class FederatedGoRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_federated_test_go_repo = artifactory.FederatedGoRepository("terraform-federated-test-go-repo",
-            key="terraform-federated-test-go-repo",
+        terraform_federated_test_go_repo = artifactory.index.federated_go_repository.FederatedGoRepository("terraform-federated-test-go-repo",
+            key=terraform-federated-test-go-repo,
             members=[
-                artifactory.FederatedGoRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl.org/artifactory/terraform-federated-test-go-repo",
-                ),
-                artifactory.FederatedGoRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl2.org/artifactory/terraform-federated-test-go-repo-2",
-                ),
+                {
+                    enabled: True,
+                    url: http://tempurl.org/artifactory/terraform-federated-test-go-repo,
+                },
+                {
+                    enabled: True,
+                    url: http://tempurl2.org/artifactory/terraform-federated-test-go-repo-2,
+                },
             ])
         ```
 

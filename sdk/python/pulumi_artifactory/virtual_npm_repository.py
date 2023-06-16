@@ -585,12 +585,12 @@ class VirtualNpmRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        foo_npm = artifactory.VirtualNpmRepository("foo-npm",
-            description="A test virtual repo",
-            excludes_pattern="com/google/**",
-            includes_pattern="com/jfrog/**,cloud/jfrog/**",
-            key="foo-npm",
-            notes="Internal description",
+        foo_npm = artifactory.index.virtual_npm_repository.VirtualNpmRepository("foo-npm",
+            description=A test virtual repo,
+            excludes_pattern=com/google/**,
+            includes_pattern=com/jfrog/**,cloud/jfrog/**,
+            key=foo-npm,
+            notes=Internal description,
             repositories=[])
         ```
 
@@ -645,12 +645,12 @@ class VirtualNpmRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        foo_npm = artifactory.VirtualNpmRepository("foo-npm",
-            description="A test virtual repo",
-            excludes_pattern="com/google/**",
-            includes_pattern="com/jfrog/**,cloud/jfrog/**",
-            key="foo-npm",
-            notes="Internal description",
+        foo_npm = artifactory.index.virtual_npm_repository.VirtualNpmRepository("foo-npm",
+            description=A test virtual repo,
+            excludes_pattern=com/google/**,
+            includes_pattern=com/jfrog/**,cloud/jfrog/**,
+            key=foo-npm,
+            notes=Internal description,
             repositories=[])
         ```
 

@@ -1475,9 +1475,9 @@ class RemoteChefRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        my_remote_chef = artifactory.RemoteChefRepository("my-remote-chef",
-            key="my-remote-chef",
-            url="https://supermarket.chef.io")
+        my_remote_chef = artifactory.index.remote_chef_repository.RemoteChefRepository("my-remote-chef",
+            key=my-remote-chef,
+            url=https://supermarket.chef.io)
         ```
 
         ## Import
@@ -1576,9 +1576,9 @@ class RemoteChefRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        my_remote_chef = artifactory.RemoteChefRepository("my-remote-chef",
-            key="my-remote-chef",
-            url="https://supermarket.chef.io")
+        my_remote_chef = artifactory.index.remote_chef_repository.RemoteChefRepository("my-remote-chef",
+            key=my-remote-chef,
+            url=https://supermarket.chef.io)
         ```
 
         ## Import

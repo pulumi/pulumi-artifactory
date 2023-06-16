@@ -1475,9 +1475,9 @@ class RemoteP2Repository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        my_remote_p2 = artifactory.RemoteP2Repository("my-remote-p2",
-            key="my-remote-p2",
-            url="http://testartifactory.io/artifactory/example-p2/")
+        my_remote_p2 = artifactory.index.remote_p2_repository.RemoteP2Repository("my-remote-p2",
+            key=my-remote-p2,
+            url=http://testartifactory.io/artifactory/example-p2/)
         ```
 
         ## Import
@@ -1576,9 +1576,9 @@ class RemoteP2Repository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        my_remote_p2 = artifactory.RemoteP2Repository("my-remote-p2",
-            key="my-remote-p2",
-            url="http://testartifactory.io/artifactory/example-p2/")
+        my_remote_p2 = artifactory.index.remote_p2_repository.RemoteP2Repository("my-remote-p2",
+            key=my-remote-p2,
+            url=http://testartifactory.io/artifactory/example-p2/)
         ```
 
         ## Import

@@ -17,7 +17,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const my_remote_vcs = new artifactory.RemoteVcsRepository("my-remote-vcs", {
+ * const my_remote_vcs = new artifactory.index/remoteVcsRepository.RemoteVcsRepository("my-remote-vcs", {
  *     key: "my-remote-vcs",
  *     maxUniqueSnapshots: 5,
  *     url: "https://github.com/",

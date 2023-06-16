@@ -193,15 +193,6 @@ def get_virtual_rpm_repository(artifactory_requests_can_retrieve_remote_artifact
     """
     Retrieves a virtual Rpm repository.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    virtual_rpm = artifactory.get_virtual_rpm_repository(key="virtual-rpm")
-    ```
-
 
     :param str key: the identity key of the repo.
     :param str primary_keypair_ref: (Optional) The primary GPG key to be used to sign packages.
@@ -259,15 +250,6 @@ def get_virtual_rpm_repository_output(artifactory_requests_can_retrieve_remote_a
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualRpmRepositoryResult]:
     """
     Retrieves a virtual Rpm repository.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    virtual_rpm = artifactory.get_virtual_rpm_repository(key="virtual-rpm")
-    ```
 
 
     :param str key: the identity key of the repo.

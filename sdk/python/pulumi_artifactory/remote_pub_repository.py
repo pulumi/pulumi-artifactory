@@ -1475,9 +1475,9 @@ class RemotePubRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        my_remote_pub = artifactory.RemotePubRepository("my-remote-pub",
-            key="my-remote-pub",
-            url="https://pub.dartlang.org")
+        my_remote_pub = artifactory.index.remote_pub_repository.RemotePubRepository("my-remote-pub",
+            key=my-remote-pub,
+            url=https://pub.dartlang.org)
         ```
 
         ## Import
@@ -1576,9 +1576,9 @@ class RemotePubRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        my_remote_pub = artifactory.RemotePubRepository("my-remote-pub",
-            key="my-remote-pub",
-            url="https://pub.dartlang.org")
+        my_remote_pub = artifactory.index.remote_pub_repository.RemotePubRepository("my-remote-pub",
+            key=my-remote-pub,
+            url=https://pub.dartlang.org)
         ```
 
         ## Import

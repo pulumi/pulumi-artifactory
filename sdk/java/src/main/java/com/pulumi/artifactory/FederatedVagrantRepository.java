@@ -29,7 +29,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.artifactory.FederatedVagrantRepository;
  * import com.pulumi.artifactory.FederatedVagrantRepositoryArgs;
- * import com.pulumi.artifactory.inputs.FederatedVagrantRepositoryMemberArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -46,14 +45,8 @@ import javax.annotation.Nullable;
  *         var terraform_federated_test_vagrant_repo = new FederatedVagrantRepository(&#34;terraform-federated-test-vagrant-repo&#34;, FederatedVagrantRepositoryArgs.builder()        
  *             .key(&#34;terraform-federated-test-vagrant-repo&#34;)
  *             .members(            
- *                 FederatedVagrantRepositoryMemberArgs.builder()
- *                     .enabled(true)
- *                     .url(&#34;http://tempurl.org/artifactory/terraform-federated-test-vagrant-repo&#34;)
- *                     .build(),
- *                 FederatedVagrantRepositoryMemberArgs.builder()
- *                     .enabled(true)
- *                     .url(&#34;http://tempurl2.org/artifactory/terraform-federated-test-vagrant-repo-2&#34;)
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

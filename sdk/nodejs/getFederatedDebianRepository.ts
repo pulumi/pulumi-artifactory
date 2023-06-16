@@ -8,17 +8,6 @@ import * as utilities from "./utilities";
 
 /**
  * Retrieves a federated Debian repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const federated-test-debian-repo = artifactory.getFederatedDebianRepository({
- *     key: "federated-test-debian-repo",
- * });
- * ```
  */
 export function getFederatedDebianRepository(args: GetFederatedDebianRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetFederatedDebianRepositoryResult> {
 
@@ -129,17 +118,6 @@ export interface GetFederatedDebianRepositoryResult {
 }
 /**
  * Retrieves a federated Debian repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const federated-test-debian-repo = artifactory.getFederatedDebianRepository({
- *     key: "federated-test-debian-repo",
- * });
- * ```
  */
 export function getFederatedDebianRepositoryOutput(args: GetFederatedDebianRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedDebianRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getFederatedDebianRepository(a, opts))

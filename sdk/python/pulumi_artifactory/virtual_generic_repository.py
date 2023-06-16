@@ -449,13 +449,13 @@ class VirtualGenericRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        foo_generic = artifactory.VirtualGenericRepository("foo-generic",
-            description="A test virtual repo",
-            excludes_pattern="com/google/**",
-            includes_pattern="com/jfrog/**,cloud/jfrog/**",
-            key="foo-generic",
-            notes="Internal description",
-            repo_layout_ref="simple-default",
+        foo_generic = artifactory.index.virtual_generic_repository.VirtualGenericRepository("foo-generic",
+            description=A test virtual repo,
+            excludes_pattern=com/google/**,
+            includes_pattern=com/jfrog/**,cloud/jfrog/**,
+            key=foo-generic,
+            notes=Internal description,
+            repo_layout_ref=simple-default,
             repositories=[])
         ```
 
@@ -505,13 +505,13 @@ class VirtualGenericRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        foo_generic = artifactory.VirtualGenericRepository("foo-generic",
-            description="A test virtual repo",
-            excludes_pattern="com/google/**",
-            includes_pattern="com/jfrog/**,cloud/jfrog/**",
-            key="foo-generic",
-            notes="Internal description",
-            repo_layout_ref="simple-default",
+        foo_generic = artifactory.index.virtual_generic_repository.VirtualGenericRepository("foo-generic",
+            description=A test virtual repo,
+            excludes_pattern=com/google/**,
+            includes_pattern=com/jfrog/**,cloud/jfrog/**,
+            key=foo-generic,
+            notes=Internal description,
+            repo_layout_ref=simple-default,
             repositories=[])
         ```
 

@@ -13,7 +13,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const terraform_local_test_go_repo = new artifactory.LocalGoRepository("terraform-local-test-go-repo", {key: "terraform-local-test-go-repo"});
+ * const terraform_local_test_go_repo = new artifactory.index/localGoRepository.LocalGoRepository("terraform-local-test-go-repo", {key: "terraform-local-test-go-repo"});
  * ```
  *
  * ## Import

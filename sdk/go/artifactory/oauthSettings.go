@@ -24,7 +24,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
+//	"github.com/pulumi/pulumi-artifactory/sdk/v1/go/artifactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -32,21 +32,21 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewOauthSettings(ctx, "oauth", &artifactory.OauthSettingsArgs{
-//				AllowUserToAccessProfile: pulumi.Bool(true),
-//				Enable:                   pulumi.Bool(true),
-//				OauthProviders: artifactory.OauthSettingsOauthProviderArray{
-//					&artifactory.OauthSettingsOauthProviderArgs{
-//						ApiUrl:       pulumi.String("https://organization.okta.com/oauth2/v1/userinfo"),
-//						AuthUrl:      pulumi.String("https://organization.okta.com/oauth2/v1/authorize"),
-//						ClientId:     pulumi.String("foo"),
-//						ClientSecret: pulumi.String("bar"),
-//						Enabled:      pulumi.Bool(false),
-//						Name:         pulumi.String("okta"),
-//						TokenUrl:     pulumi.String("https://organization.okta.com/oauth2/v1/token"),
-//						Type:         pulumi.String("openId"),
+//				AllowUserToAccessProfile: true,
+//				Enable:                   true,
+//				OauthProviders: []map[string]interface{}{
+//					map[string]interface{}{
+//						"apiUrl":       "https://organization.okta.com/oauth2/v1/userinfo",
+//						"authUrl":      "https://organization.okta.com/oauth2/v1/authorize",
+//						"clientId":     "foo",
+//						"clientSecret": "bar",
+//						"enabled":      false,
+//						"name":         "okta",
+//						"tokenUrl":     "https://organization.okta.com/oauth2/v1/token",
+//						"type":         "openId",
 //					},
 //				},
-//				PersistUsers: pulumi.Bool(true),
+//				PersistUsers: true,
 //			})
 //			if err != nil {
 //				return err

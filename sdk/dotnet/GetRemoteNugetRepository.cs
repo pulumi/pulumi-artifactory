@@ -13,56 +13,12 @@ namespace Pulumi.Artifactory
     {
         /// <summary>
         /// Retrieves a remote NuGet repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var remote_nuget = Artifactory.GetRemoteNugetRepository.Invoke(new()
-        ///     {
-        ///         Key = "remote-nuget",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetRemoteNugetRepositoryResult> InvokeAsync(GetRemoteNugetRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRemoteNugetRepositoryResult>("artifactory:index/getRemoteNugetRepository:getRemoteNugetRepository", args ?? new GetRemoteNugetRepositoryArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves a remote NuGet repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var remote_nuget = Artifactory.GetRemoteNugetRepository.Invoke(new()
-        ///     {
-        ///         Key = "remote-nuget",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetRemoteNugetRepositoryResult> Invoke(GetRemoteNugetRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRemoteNugetRepositoryResult>("artifactory:index/getRemoteNugetRepository:getRemoteNugetRepository", args ?? new GetRemoteNugetRepositoryInvokeArgs(), options.WithDefaults());

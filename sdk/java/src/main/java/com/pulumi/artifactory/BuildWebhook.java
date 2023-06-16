@@ -32,8 +32,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.artifactory.BuildWebhook;
  * import com.pulumi.artifactory.BuildWebhookArgs;
- * import com.pulumi.artifactory.inputs.BuildWebhookCriteriaArgs;
- * import com.pulumi.artifactory.inputs.BuildWebhookHandlerArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -48,25 +46,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var build_webhook = new BuildWebhook(&#34;build-webhook&#34;, BuildWebhookArgs.builder()        
- *             .criteria(BuildWebhookCriteriaArgs.builder()
- *                 .anyBuild(true)
- *                 .excludePatterns(&#34;bar/**&#34;)
- *                 .includePatterns(&#34;foo/**&#34;)
- *                 .selectedBuilds(&#34;build-id&#34;)
- *                 .build())
+ *             .criteria(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .eventTypes(            
  *                 &#34;uploaded&#34;,
  *                 &#34;deleted&#34;,
  *                 &#34;promoted&#34;)
- *             .handlers(BuildWebhookHandlerArgs.builder()
- *                 .customHttpHeaders(Map.ofEntries(
- *                     Map.entry(&#34;header-1&#34;, &#34;value-1&#34;),
- *                     Map.entry(&#34;header-2&#34;, &#34;value-2&#34;)
- *                 ))
- *                 .proxy(&#34;proxy-key&#34;)
- *                 .secret(&#34;some-secret&#34;)
- *                 .url(&#34;http://tempurl.org/webhook&#34;)
- *                 .build())
+ *             .handlers(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .key(&#34;build-webhook&#34;)
  *             .build());
  * 

@@ -13,7 +13,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const terraform_local_test_vagrant_repo = new artifactory.LocalVagrantRepository("terraform-local-test-vagrant-repo", {key: "terraform-local-test-vagrant-repo"});
+ * const terraform_local_test_vagrant_repo = new artifactory.index/localVagrantRepository.LocalVagrantRepository("terraform-local-test-vagrant-repo", {key: "terraform-local-test-vagrant-repo"});
  * ```
  *
  * ## Import

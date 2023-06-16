@@ -16,7 +16,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const my_remote_go = new artifactory.RemoteGoRepository("my-remote-go", {
+ * const my_remote_go = new artifactory.index/remoteGoRepository.RemoteGoRepository("my-remote-go", {
  *     key: "my-remote-go",
  *     url: "https://proxy.golang.org/",
  *     vcsGitProvider: "ARTIFACTORY",

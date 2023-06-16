@@ -16,7 +16,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const my_remote_gems = new artifactory.RemoteGemsRepository("my-remote-gems", {
+ * const my_remote_gems = new artifactory.index/remoteGemsRepository.RemoteGemsRepository("my-remote-gems", {
  *     key: "my-remote-gems",
  *     url: "https://rubygems.org/",
  * });

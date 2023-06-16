@@ -1507,9 +1507,9 @@ class RemoteGenericRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        my_remote_generic = artifactory.RemoteGenericRepository("my-remote-generic",
-            key="my-remote-generic",
-            url="http://testartifactory.io/artifactory/example-generic/")
+        my_remote_generic = artifactory.index.remote_generic_repository.RemoteGenericRepository("my-remote-generic",
+            key=my-remote-generic,
+            url=http://testartifactory.io/artifactory/example-generic/)
         ```
 
         ## Import
@@ -1608,9 +1608,9 @@ class RemoteGenericRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        my_remote_generic = artifactory.RemoteGenericRepository("my-remote-generic",
-            key="my-remote-generic",
-            url="http://testartifactory.io/artifactory/example-generic/")
+        my_remote_generic = artifactory.index.remote_generic_repository.RemoteGenericRepository("my-remote-generic",
+            key=my-remote-generic,
+            url=http://testartifactory.io/artifactory/example-generic/)
         ```
 
         ## Import

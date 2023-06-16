@@ -33,7 +33,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.artifactory.LocalMavenRepositoryArgs;
  * import com.pulumi.artifactory.ReplicationConfig;
  * import com.pulumi.artifactory.ReplicationConfigArgs;
- * import com.pulumi.artifactory.inputs.ReplicationConfigReplicationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -58,11 +57,7 @@ import javax.annotation.Nullable;
  *         var foo_rep = new ReplicationConfig(&#34;foo-rep&#34;, ReplicationConfigArgs.builder()        
  *             .cronExp(&#34;0 0 * * * ?&#34;)
  *             .enableEventReplication(true)
- *             .replications(ReplicationConfigReplicationArgs.builder()
- *                 .password(&#34;$var.artifactory_password&#34;)
- *                 .url(&#34;$var.artifactory_url&#34;)
- *                 .username(&#34;$var.artifactory_username&#34;)
- *                 .build())
+ *             .replications(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .repoKey(providerTestSource.key())
  *             .build());
  * 

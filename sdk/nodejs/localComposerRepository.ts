@@ -13,7 +13,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const terraform_local_test_composer_repo = new artifactory.LocalComposerRepository("terraform-local-test-composer-repo", {key: "terraform-local-test-composer-repo"});
+ * const terraform_local_test_composer_repo = new artifactory.index/localComposerRepository.LocalComposerRepository("terraform-local-test-composer-repo", {key: "terraform-local-test-composer-repo"});
  * ```
  *
  * ## Import

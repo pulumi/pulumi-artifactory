@@ -11,7 +11,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const terraform_local_test_terraform_provider_repo = new artifactory.LocalTerraformProviderRepository("terraform-local-test-terraform-provider-repo", {key: "terraform-local-test-terraform-provider-repo"});
+ * const terraform_local_test_terraform_provider_repo = new artifactory.index/localTerraformProviderRepository.LocalTerraformProviderRepository("terraform-local-test-terraform-provider-repo", {key: "terraform-local-test-terraform-provider-repo"});
  * ```
  *
  * ## Import

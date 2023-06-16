@@ -8,17 +8,6 @@ import * as utilities from "./utilities";
 
 /**
  * Retrieves a remote Debian repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const remote-debian = artifactory.getRemoteDebianRepository({
- *     key: "remote-debian",
- * });
- * ```
  */
 export function getRemoteDebianRepository(args: GetRemoteDebianRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetRemoteDebianRepositoryResult> {
 
@@ -168,17 +157,6 @@ export interface GetRemoteDebianRepositoryResult {
 }
 /**
  * Retrieves a remote Debian repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const remote-debian = artifactory.getRemoteDebianRepository({
- *     key: "remote-debian",
- * });
- * ```
  */
 export function getRemoteDebianRepositoryOutput(args: GetRemoteDebianRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemoteDebianRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getRemoteDebianRepository(a, opts))

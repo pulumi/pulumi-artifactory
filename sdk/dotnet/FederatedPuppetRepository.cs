@@ -22,20 +22,20 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var terraform_federated_test_puppet_repo = new Artifactory.FederatedPuppetRepository("terraform-federated-test-puppet-repo", new()
+    ///     var terraform_federated_test_puppet_repo = new Artifactory.Index.FederatedPuppetRepository.FederatedPuppetRepository("terraform-federated-test-puppet-repo", new()
     ///     {
     ///         Key = "terraform-federated-test-puppet-repo",
     ///         Members = new[]
     ///         {
-    ///             new Artifactory.Inputs.FederatedPuppetRepositoryMemberArgs
+    ///             
     ///             {
-    ///                 Enabled = true,
-    ///                 Url = "http://tempurl.org/artifactory/terraform-federated-test-puppet-repo",
+    ///                 { "enabled", true },
+    ///                 { "url", "http://tempurl.org/artifactory/terraform-federated-test-puppet-repo" },
     ///             },
-    ///             new Artifactory.Inputs.FederatedPuppetRepositoryMemberArgs
+    ///             
     ///             {
-    ///                 Enabled = true,
-    ///                 Url = "http://tempurl2.org/artifactory/terraform-federated-test-puppet-repo-2",
+    ///                 { "enabled", true },
+    ///                 { "url", "http://tempurl2.org/artifactory/terraform-federated-test-puppet-repo-2" },
     ///             },
     ///         },
     ///     });

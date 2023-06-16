@@ -6,17 +6,6 @@ import * as utilities from "./utilities";
 
 /**
  * Retrieves a virtual Generic repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const virtual-generic = artifactory.getVirtualGenericRepository({
- *     key: "virtual-generic",
- * });
- * ```
  */
 export function getVirtualGenericRepository(args: GetVirtualGenericRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualGenericRepositoryResult> {
 
@@ -79,17 +68,6 @@ export interface GetVirtualGenericRepositoryResult {
 }
 /**
  * Retrieves a virtual Generic repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const virtual-generic = artifactory.getVirtualGenericRepository({
- *     key: "virtual-generic",
- * });
- * ```
  */
 export function getVirtualGenericRepositoryOutput(args: GetVirtualGenericRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualGenericRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getVirtualGenericRepository(a, opts))

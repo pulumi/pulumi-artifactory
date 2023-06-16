@@ -30,9 +30,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.artifactory.PermissionTarget;
  * import com.pulumi.artifactory.PermissionTargetArgs;
- * import com.pulumi.artifactory.inputs.PermissionTargetBuildArgs;
- * import com.pulumi.artifactory.inputs.PermissionTargetReleaseBundleArgs;
- * import com.pulumi.artifactory.inputs.PermissionTargetRepoArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -47,45 +44,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test_perm = new PermissionTarget(&#34;test-perm&#34;, PermissionTargetArgs.builder()        
- *             .builds(PermissionTargetBuildArgs.builder()
- *                 .actions(PermissionTargetBuildActionArgs.builder()
- *                     .users(PermissionTargetBuildActionUserArgs.builder()
- *                         .name(&#34;anonymous&#34;)
- *                         .permissions(                        
- *                             &#34;read&#34;,
- *                             &#34;write&#34;)
- *                         .build())
- *                     .build())
- *                 .includesPatterns(&#34;**&#34;)
- *                 .repositories(&#34;artifactory-build-info&#34;)
- *                 .build())
- *             .releaseBundles(PermissionTargetReleaseBundleArgs.builder()
- *                 .actions(PermissionTargetReleaseBundleActionArgs.builder()
- *                     .users(PermissionTargetReleaseBundleActionUserArgs.builder()
- *                         .name(&#34;anonymous&#34;)
- *                         .permissions(&#34;read&#34;)
- *                         .build())
- *                     .build())
- *                 .includesPatterns(&#34;**&#34;)
- *                 .repositories(&#34;release-bundles&#34;)
- *                 .build())
- *             .repos(PermissionTargetRepoArgs.builder()
- *                 .actions(PermissionTargetRepoActionArgs.builder()
- *                     .groups(PermissionTargetRepoActionGroupArgs.builder()
- *                         .name(&#34;readers&#34;)
- *                         .permissions(&#34;read&#34;)
- *                         .build())
- *                     .users(PermissionTargetRepoActionUserArgs.builder()
- *                         .name(&#34;anonymous&#34;)
- *                         .permissions(                        
- *                             &#34;read&#34;,
- *                             &#34;write&#34;)
- *                         .build())
- *                     .build())
- *                 .excludesPatterns(&#34;bar/**&#34;)
- *                 .includesPatterns(&#34;foo/**&#34;)
- *                 .repositories(&#34;example-repo-local&#34;)
- *                 .build())
+ *             .builds(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .releaseBundles(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .repos(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

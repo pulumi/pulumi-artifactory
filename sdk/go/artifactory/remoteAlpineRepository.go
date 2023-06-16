@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
+//	"github.com/pulumi/pulumi-artifactory/sdk/v1/go/artifactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -29,8 +29,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewRemoteAlpineRepository(ctx, "my-remote-alpine", &artifactory.RemoteAlpineRepositoryArgs{
-//				Key: pulumi.String("my-remote-alpine"),
-//				Url: pulumi.String("http://dl-cdn.alpinelinux.org/alpine"),
+//				Key: "my-remote-alpine",
+//				Url: "http://dl-cdn.alpinelinux.org/alpine",
 //			})
 //			if err != nil {
 //				return err

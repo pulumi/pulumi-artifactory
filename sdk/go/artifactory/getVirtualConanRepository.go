@@ -11,32 +11,6 @@ import (
 )
 
 // Retrieves a virtual Conan repository.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupVirtualConanRepository(ctx, &artifactory.LookupVirtualConanRepositoryArgs{
-//				Key: "virtual-conan",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupVirtualConanRepository(ctx *pulumi.Context, args *LookupVirtualConanRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupVirtualConanRepositoryResult, error) {
 	var rv LookupVirtualConanRepositoryResult
 	err := ctx.Invoke("artifactory:index/getVirtualConanRepository:getVirtualConanRepository", args, &rv, opts...)

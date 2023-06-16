@@ -22,7 +22,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo_bower = new Artifactory.VirtualBowerRepository("foo-bower", new()
+    ///     var foo_bower = new Artifactory.Index.VirtualBowerRepository.VirtualBowerRepository("foo-bower", new()
     ///     {
     ///         Description = "A test virtual repo",
     ///         ExcludesPattern = "com/google/**",

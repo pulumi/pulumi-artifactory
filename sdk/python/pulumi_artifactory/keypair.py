@@ -259,13 +259,13 @@ class Keypair(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        some_keypair6543461672124900137 = artifactory.Keypair("some-keypair6543461672124900137",
-            pair_name="some-keypair6543461672124900137",
-            pair_type="RSA",
-            alias="foo-alias6543461672124900137",
-            private_key=(lambda path: open(path).read())("samples/rsa.priv"),
-            public_key=(lambda path: open(path).read())("samples/rsa.pub"),
-            passphrase="PASSPHRASE")
+        some_keypair6543461672124900137 = artifactory.index.keypair.Keypair("some-keypair6543461672124900137",
+            pair_name=some-keypair6543461672124900137,
+            pair_type=RSA,
+            alias=foo-alias6543461672124900137,
+            private_key=(lambda path: open(path).read())(samples/rsa.priv),
+            public_key=(lambda path: open(path).read())(samples/rsa.pub),
+            passphrase=PASSPHRASE)
         ```
 
         ## Import
@@ -304,13 +304,13 @@ class Keypair(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        some_keypair6543461672124900137 = artifactory.Keypair("some-keypair6543461672124900137",
-            pair_name="some-keypair6543461672124900137",
-            pair_type="RSA",
-            alias="foo-alias6543461672124900137",
-            private_key=(lambda path: open(path).read())("samples/rsa.priv"),
-            public_key=(lambda path: open(path).read())("samples/rsa.pub"),
-            passphrase="PASSPHRASE")
+        some_keypair6543461672124900137 = artifactory.index.keypair.Keypair("some-keypair6543461672124900137",
+            pair_name=some-keypair6543461672124900137,
+            pair_type=RSA,
+            alias=foo-alias6543461672124900137,
+            private_key=(lambda path: open(path).read())(samples/rsa.priv),
+            public_key=(lambda path: open(path).read())(samples/rsa.pub),
+            passphrase=PASSPHRASE)
         ```
 
         ## Import

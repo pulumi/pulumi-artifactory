@@ -22,7 +22,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo = new Artifactory.DockerV1Repository("foo", new()
+    ///     var foo = new Artifactory.Index.DockerV1Repository.DockerV1Repository("foo", new()
     ///     {
     ///         Key = "foo",
     ///     });

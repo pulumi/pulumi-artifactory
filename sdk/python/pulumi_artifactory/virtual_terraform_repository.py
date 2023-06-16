@@ -446,12 +446,12 @@ class VirtualTerraformRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_virtual = artifactory.VirtualTerraformRepository("terraform-virtual",
-            description="A test virtual repo",
-            excludes_pattern="com/google/**",
-            includes_pattern="com/jfrog/**,cloud/jfrog/**",
-            key="terraform-remote",
-            notes="Internal description",
+        terraform_virtual = artifactory.index.virtual_terraform_repository.VirtualTerraformRepository("terraform-virtual",
+            description=A test virtual repo,
+            excludes_pattern=com/google/**,
+            includes_pattern=com/jfrog/**,cloud/jfrog/**,
+            key=terraform-remote,
+            notes=Internal description,
             repositories=[])
         ```
 
@@ -498,12 +498,12 @@ class VirtualTerraformRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_virtual = artifactory.VirtualTerraformRepository("terraform-virtual",
-            description="A test virtual repo",
-            excludes_pattern="com/google/**",
-            includes_pattern="com/jfrog/**,cloud/jfrog/**",
-            key="terraform-remote",
-            notes="Internal description",
+        terraform_virtual = artifactory.index.virtual_terraform_repository.VirtualTerraformRepository("terraform-virtual",
+            description=A test virtual repo,
+            excludes_pattern=com/google/**,
+            includes_pattern=com/jfrog/**,cloud/jfrog/**,
+            key=terraform-remote,
+            notes=Internal description,
             repositories=[])
         ```
 

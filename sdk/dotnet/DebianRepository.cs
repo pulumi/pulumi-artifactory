@@ -23,7 +23,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var some_keypairGPG1 = new Artifactory.Keypair("some-keypairGPG1", new()
+    ///     var some_keypairGPG1 = new Artifactory.Index.Keypair.Keypair("some-keypairGPG1", new()
     ///     {
     ///         PairName = $"some-keypair{random_id.Randid.Id}",
     ///         PairType = "GPG",
@@ -32,7 +32,7 @@ namespace Pulumi.Artifactory
     ///         PublicKey = File.ReadAllText("samples/gpg.pub"),
     ///     });
     /// 
-    ///     var some_keypairGPG2 = new Artifactory.Keypair("some-keypairGPG2", new()
+    ///     var some_keypairGPG2 = new Artifactory.Index.Keypair.Keypair("some-keypairGPG2", new()
     ///     {
     ///         PairName = $"some-keypair4{random_id.Randid.Id}",
     ///         PairType = "GPG",
@@ -41,7 +41,7 @@ namespace Pulumi.Artifactory
     ///         PublicKey = File.ReadAllText("samples/gpg.pub"),
     ///     });
     /// 
-    ///     var my_debian_repo = new Artifactory.DebianRepository("my-debian-repo", new()
+    ///     var my_debian_repo = new Artifactory.Index.DebianRepository.DebianRepository("my-debian-repo", new()
     ///     {
     ///         Key = "my-debian-repo",
     ///         PrimaryKeypairRef = some_keypairGPG1.PairName,

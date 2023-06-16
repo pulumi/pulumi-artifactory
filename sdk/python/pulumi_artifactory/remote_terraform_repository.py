@@ -1546,11 +1546,11 @@ class RemoteTerraformRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_remote = artifactory.RemoteTerraformRepository("terraform-remote",
-            key="terraform-remote",
-            terraform_providers_url="https://releases.hashicorp.com",
-            terraform_registry_url="https://registry.terraform.io",
-            url="https://github.com/")
+        terraform_remote = artifactory.index.remote_terraform_repository.RemoteTerraformRepository("terraform-remote",
+            key=terraform-remote,
+            terraform_providers_url=https://releases.hashicorp.com,
+            terraform_registry_url=https://registry.terraform.io,
+            url=https://github.com/)
         ```
 
         ## Import
@@ -1650,11 +1650,11 @@ class RemoteTerraformRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_remote = artifactory.RemoteTerraformRepository("terraform-remote",
-            key="terraform-remote",
-            terraform_providers_url="https://releases.hashicorp.com",
-            terraform_registry_url="https://registry.terraform.io",
-            url="https://github.com/")
+        terraform_remote = artifactory.index.remote_terraform_repository.RemoteTerraformRepository("terraform-remote",
+            key=terraform-remote,
+            terraform_providers_url=https://releases.hashicorp.com,
+            terraform_registry_url=https://registry.terraform.io,
+            url=https://github.com/)
         ```
 
         ## Import

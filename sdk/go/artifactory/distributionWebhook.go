@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
+//	"github.com/pulumi/pulumi-artifactory/sdk/v1/go/artifactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -29,39 +29,39 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewDistributionWebhook(ctx, "distribution-webhook", &artifactory.DistributionWebhookArgs{
-//				Criteria: &artifactory.DistributionWebhookCriteriaArgs{
-//					AnyReleaseBundle: pulumi.Bool(false),
-//					ExcludePatterns: pulumi.StringArray{
-//						pulumi.String("bar/**"),
+//				Criteria: map[string]interface{}{
+//					"anyReleaseBundle": false,
+//					"excludePatterns": []string{
+//						"bar/**",
 //					},
-//					IncludePatterns: pulumi.StringArray{
-//						pulumi.String("foo/**"),
+//					"includePatterns": []string{
+//						"foo/**",
 //					},
-//					RegisteredReleaseBundleNames: pulumi.StringArray{
-//						pulumi.String("bundle-name"),
+//					"registeredReleaseBundleNames": []string{
+//						"bundle-name",
 //					},
 //				},
-//				EventTypes: pulumi.StringArray{
-//					pulumi.String("distribute_started"),
-//					pulumi.String("distribute_completed"),
-//					pulumi.String("distribute_aborted"),
-//					pulumi.String("distribute_failed"),
-//					pulumi.String("delete_started"),
-//					pulumi.String("delete_completed"),
-//					pulumi.String("delete_failed"),
+//				EventTypes: []string{
+//					"distribute_started",
+//					"distribute_completed",
+//					"distribute_aborted",
+//					"distribute_failed",
+//					"delete_started",
+//					"delete_completed",
+//					"delete_failed",
 //				},
-//				Handlers: artifactory.DistributionWebhookHandlerArray{
-//					&artifactory.DistributionWebhookHandlerArgs{
-//						CustomHttpHeaders: pulumi.StringMap{
-//							"header-1": pulumi.String("value-1"),
-//							"header-2": pulumi.String("value-2"),
+//				Handlers: []map[string]interface{}{
+//					map[string]interface{}{
+//						"customHttpHeaders": map[string]interface{}{
+//							"header-1": "value-1",
+//							"header-2": "value-2",
 //						},
-//						Proxy:  pulumi.String("proxy-key"),
-//						Secret: pulumi.String("some-secret"),
-//						Url:    pulumi.String("http://tempurl.org/webhook"),
+//						"proxy":  "proxy-key",
+//						"secret": "some-secret",
+//						"url":    "http://tempurl.org/webhook",
 //					},
 //				},
-//				Key: pulumi.String("distribution-webhook"),
+//				Key: "distribution-webhook",
 //			})
 //			if err != nil {
 //				return err

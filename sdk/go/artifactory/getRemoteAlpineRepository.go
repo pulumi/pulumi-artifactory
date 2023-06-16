@@ -11,32 +11,6 @@ import (
 )
 
 // Retrieves a remote Alpine repository.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupRemoteAlpineRepository(ctx, &artifactory.LookupRemoteAlpineRepositoryArgs{
-//				Key: "remote-alpine",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupRemoteAlpineRepository(ctx *pulumi.Context, args *LookupRemoteAlpineRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupRemoteAlpineRepositoryResult, error) {
 	var rv LookupRemoteAlpineRepositoryResult
 	err := ctx.Invoke("artifactory:index/getRemoteAlpineRepository:getRemoteAlpineRepository", args, &rv, opts...)

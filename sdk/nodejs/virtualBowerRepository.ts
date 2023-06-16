@@ -13,7 +13,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const foo_bower = new artifactory.VirtualBowerRepository("foo-bower", {
+ * const foo_bower = new artifactory.index/virtualBowerRepository.VirtualBowerRepository("foo-bower", {
  *     description: "A test virtual repo",
  *     excludesPattern: "com/google/**",
  *     externalDependenciesEnabled: false,

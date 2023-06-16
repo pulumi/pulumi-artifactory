@@ -23,7 +23,7 @@ import (
 //	"fmt"
 //	"os"
 //
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
+//	"github.com/pulumi/pulumi-artifactory/sdk/v1/go/artifactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -39,9 +39,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewKeypair(ctx, "some-keypairGPG1", &artifactory.KeypairArgs{
-//				PairName:   pulumi.String(fmt.Sprintf("some-keypair%v", random_id.Randid.Id)),
-//				PairType:   pulumi.String("GPG"),
-//				Alias:      pulumi.String("foo-alias1"),
+//				PairName:   fmt.Sprintf("some-keypair%v", random_id.Randid.Id),
+//				PairType:   "GPG",
+//				Alias:      "foo-alias1",
 //				PrivateKey: readFileOrPanic("samples/gpg.priv"),
 //				PublicKey:  readFileOrPanic("samples/gpg.pub"),
 //			})
@@ -49,9 +49,9 @@ import (
 //				return err
 //			}
 //			_, err = artifactory.NewKeypair(ctx, "some-keypairGPG2", &artifactory.KeypairArgs{
-//				PairName:   pulumi.String(fmt.Sprintf("some-keypair4%v", random_id.Randid.Id)),
-//				PairType:   pulumi.String("GPG"),
-//				Alias:      pulumi.String("foo-alias2"),
+//				PairName:   fmt.Sprintf("some-keypair4%v", random_id.Randid.Id),
+//				PairType:   "GPG",
+//				Alias:      "foo-alias2",
 //				PrivateKey: readFileOrPanic("samples/gpg.priv"),
 //				PublicKey:  readFileOrPanic("samples/gpg.pub"),
 //			})
@@ -59,15 +59,15 @@ import (
 //				return err
 //			}
 //			_, err = artifactory.NewDebianRepository(ctx, "my-debian-repo", &artifactory.DebianRepositoryArgs{
-//				Key:                 pulumi.String("my-debian-repo"),
+//				Key:                 "my-debian-repo",
 //				PrimaryKeypairRef:   some_keypairGPG1.PairName,
 //				SecondaryKeypairRef: some_keypairGPG2.PairName,
-//				IndexCompressionFormats: pulumi.StringArray{
-//					pulumi.String("bz2"),
-//					pulumi.String("lzma"),
-//					pulumi.String("xz"),
+//				IndexCompressionFormats: []string{
+//					"bz2",
+//					"lzma",
+//					"xz",
 //				},
-//				TrivialLayout: pulumi.Bool(true),
+//				TrivialLayout: true,
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				some_keypairGPG1,
 //				some_keypairGPG2,

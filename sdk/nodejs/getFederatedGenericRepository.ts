@@ -8,17 +8,6 @@ import * as utilities from "./utilities";
 
 /**
  * Retrieves a federated Generic repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const terraform-federated-test-generic-repo = artifactory.getFederatedGenericRepository({
- *     key: "terraform-federated-test-generic-repo",
- * });
- * ```
  */
 export function getFederatedGenericRepository(args: GetFederatedGenericRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetFederatedGenericRepositoryResult> {
 
@@ -111,17 +100,6 @@ export interface GetFederatedGenericRepositoryResult {
 }
 /**
  * Retrieves a federated Generic repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const terraform-federated-test-generic-repo = artifactory.getFederatedGenericRepository({
- *     key: "terraform-federated-test-generic-repo",
- * });
- * ```
  */
 export function getFederatedGenericRepositoryOutput(args: GetFederatedGenericRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedGenericRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getFederatedGenericRepository(a, opts))

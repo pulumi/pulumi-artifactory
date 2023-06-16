@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
+//	"github.com/pulumi/pulumi-artifactory/sdk/v1/go/artifactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -29,8 +29,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewRemoteDebianRepository(ctx, "my-remote-debian", &artifactory.RemoteDebianRepositoryArgs{
-//				Key: pulumi.String("my-remote-Debian"),
-//				Url: pulumi.String("http://archive.ubuntu.com/ubuntu/"),
+//				Key: "my-remote-Debian",
+//				Url: "http://archive.ubuntu.com/ubuntu/",
 //			})
 //			if err != nil {
 //				return err

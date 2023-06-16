@@ -372,6 +372,24 @@ class SingleReplicationConfig(pulumi.CustomResource):
         **WARNING: This should not be used on a repository with `ReplicationConfig`. Using both together will cause
         unexpected behaviour and will almost certainly cause your replications to break.**
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        # Create a replication between two artifactory local repositories
+        provider_test_source = artifactory.index.local_maven_repository.LocalMavenRepository("providerTestSource", key=provider_test_source)
+        provider_test_dest = artifactory.index.local_maven_repository.LocalMavenRepository("providerTestDest", key=provider_test_dest)
+        foo_rep = artifactory.index.single_replication_config.SingleReplicationConfig("foo-rep",
+            cron_exp=0 0 * * * ?,
+            enable_event_replication=True,
+            password=var.artifactory_password,
+            repo_key=provider_test_source.key,
+            url=var.artifactory_url,
+            username=var.artifactory_username)
+        ```
+
         ## Import
 
         Replication configs can be imported using their repo key, e.g.
@@ -399,6 +417,24 @@ class SingleReplicationConfig(pulumi.CustomResource):
 
         **WARNING: This should not be used on a repository with `ReplicationConfig`. Using both together will cause
         unexpected behaviour and will almost certainly cause your replications to break.**
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        # Create a replication between two artifactory local repositories
+        provider_test_source = artifactory.index.local_maven_repository.LocalMavenRepository("providerTestSource", key=provider_test_source)
+        provider_test_dest = artifactory.index.local_maven_repository.LocalMavenRepository("providerTestDest", key=provider_test_dest)
+        foo_rep = artifactory.index.single_replication_config.SingleReplicationConfig("foo-rep",
+            cron_exp=0 0 * * * ?,
+            enable_event_replication=True,
+            password=var.artifactory_password,
+            repo_key=provider_test_source.key,
+            url=var.artifactory_url,
+            username=var.artifactory_username)
+        ```
 
         ## Import
 

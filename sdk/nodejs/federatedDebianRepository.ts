@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const terraform_federated_test_debian_repo = new artifactory.FederatedDebianRepository("terraform-federated-test-debian-repo", {
+ * const terraform_federated_test_debian_repo = new artifactory.index/federatedDebianRepository.FederatedDebianRepository("terraform-federated-test-debian-repo", {
  *     key: "terraform-federated-test-debian-repo",
  *     members: [
  *         {

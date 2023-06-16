@@ -29,7 +29,7 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
+//	"github.com/pulumi/pulumi-artifactory/sdk/v1/go/artifactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
 //
@@ -42,29 +42,27 @@ import (
 //			artifactoryUsername := cfg.Require("artifactoryUsername")
 //			artifactoryPassword := cfg.Require("artifactoryPassword")
 //			providerTestSource, err := artifactory.NewLocalMavenRepository(ctx, "providerTestSource", &artifactory.LocalMavenRepositoryArgs{
-//				Key: pulumi.String("provider_test_source"),
+//				Key: "provider_test_source",
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			providerTestDest, err := artifactory.NewLocalMavenRepository(ctx, "providerTestDest", &artifactory.LocalMavenRepositoryArgs{
-//				Key: pulumi.String("provider_test_dest"),
+//				Key: "provider_test_dest",
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = artifactory.NewPushReplication(ctx, "foo-rep", &artifactory.PushReplicationArgs{
 //				RepoKey:                providerTestSource.Key,
-//				CronExp:                pulumi.String("0 0 * * * ?"),
-//				EnableEventReplication: pulumi.Bool(true),
-//				Replications: artifactory.PushReplicationReplicationArray{
-//					&artifactory.PushReplicationReplicationArgs{
-//						Url: providerTestDest.Key.ApplyT(func(key string) (string, error) {
-//							return fmt.Sprintf("%v/%v", artifactoryUrl, key), nil
-//						}).(pulumi.StringOutput),
-//						Username: pulumi.String("$var.artifactory_username"),
-//						Password: pulumi.String("$var.artifactory_password"),
-//						Enabled:  pulumi.Bool(true),
+//				CronExp:                "0 0 * * * ?",
+//				EnableEventReplication: true,
+//				Replications: []map[string]interface{}{
+//					map[string]interface{}{
+//						"url":      fmt.Sprintf("%v/%v", artifactoryUrl, providerTestDest.Key),
+//						"username": "$var.artifactory_username",
+//						"password": "$var.artifactory_password",
+//						"enabled":  true,
 //					},
 //				},
 //			})

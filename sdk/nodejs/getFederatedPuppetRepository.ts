@@ -8,17 +8,6 @@ import * as utilities from "./utilities";
 
 /**
  * Retrieves a federated Puppet repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const federated-test-puppet-repo = artifactory.getFederatedPuppetRepository({
- *     key: "federated-test-puppet-repo",
- * });
- * ```
  */
 export function getFederatedPuppetRepository(args: GetFederatedPuppetRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetFederatedPuppetRepositoryResult> {
 
@@ -111,17 +100,6 @@ export interface GetFederatedPuppetRepositoryResult {
 }
 /**
  * Retrieves a federated Puppet repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const federated-test-puppet-repo = artifactory.getFederatedPuppetRepository({
- *     key: "federated-test-puppet-repo",
- * });
- * ```
  */
 export function getFederatedPuppetRepositoryOutput(args: GetFederatedPuppetRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedPuppetRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getFederatedPuppetRepository(a, opts))

@@ -511,14 +511,14 @@ class PullReplication(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         # Create a replication between two artifactory local repositories
-        provider_test_source = artifactory.LocalMavenRepository("providerTestSource", key="provider_test_source")
-        provider_test_dest = artifactory.RemoteMavenRepository("providerTestDest",
-            key="provider_test_dest",
-            password="bar",
-            url=f"https://example.com/artifactory/{artifactory_local_maven_repository['artifactory_local_maven_repository']['key']}",
-            username="foo")
-        remote_rep = artifactory.PullReplication("remote-rep",
-            cron_exp="0 0 * * * ?",
+        provider_test_source = artifactory.index.local_maven_repository.LocalMavenRepository("providerTestSource", key=provider_test_source)
+        provider_test_dest = artifactory.index.remote_maven_repository.RemoteMavenRepository("providerTestDest",
+            key=provider_test_dest,
+            password=bar,
+            url=fhttps://example.com/artifactory/{artifactory_local_maven_repository.artifactory_local_maven_repository.key},
+            username=foo)
+        remote_rep = artifactory.index.pull_replication.PullReplication("remote-rep",
+            cron_exp=0 0 * * * ?,
             enable_event_replication=True,
             repo_key=provider_test_dest.key)
         ```
@@ -569,14 +569,14 @@ class PullReplication(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         # Create a replication between two artifactory local repositories
-        provider_test_source = artifactory.LocalMavenRepository("providerTestSource", key="provider_test_source")
-        provider_test_dest = artifactory.RemoteMavenRepository("providerTestDest",
-            key="provider_test_dest",
-            password="bar",
-            url=f"https://example.com/artifactory/{artifactory_local_maven_repository['artifactory_local_maven_repository']['key']}",
-            username="foo")
-        remote_rep = artifactory.PullReplication("remote-rep",
-            cron_exp="0 0 * * * ?",
+        provider_test_source = artifactory.index.local_maven_repository.LocalMavenRepository("providerTestSource", key=provider_test_source)
+        provider_test_dest = artifactory.index.remote_maven_repository.RemoteMavenRepository("providerTestDest",
+            key=provider_test_dest,
+            password=bar,
+            url=fhttps://example.com/artifactory/{artifactory_local_maven_repository.artifactory_local_maven_repository.key},
+            username=foo)
+        remote_rep = artifactory.index.pull_replication.PullReplication("remote-rep",
+            cron_exp=0 0 * * * ?,
             enable_event_replication=True,
             repo_key=provider_test_dest.key)
         ```

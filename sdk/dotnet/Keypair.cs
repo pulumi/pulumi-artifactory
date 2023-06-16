@@ -27,7 +27,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var some_keypair6543461672124900137 = new Artifactory.Keypair("some-keypair6543461672124900137", new()
+    ///     var some_keypair6543461672124900137 = new Artifactory.Index.Keypair.Keypair("some-keypair6543461672124900137", new()
     ///     {
     ///         PairName = "some-keypair6543461672124900137",
     ///         PairType = "RSA",

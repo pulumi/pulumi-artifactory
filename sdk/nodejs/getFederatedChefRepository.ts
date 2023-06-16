@@ -8,17 +8,6 @@ import * as utilities from "./utilities";
 
 /**
  * Retrieves a federated Chef repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const federated-test-chef-repo = artifactory.getFederatedChefRepository({
- *     key: "federated-test-chef-repo",
- * });
- * ```
  */
 export function getFederatedChefRepository(args: GetFederatedChefRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetFederatedChefRepositoryResult> {
 
@@ -114,17 +103,6 @@ export interface GetFederatedChefRepositoryResult {
 }
 /**
  * Retrieves a federated Chef repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const federated-test-chef-repo = artifactory.getFederatedChefRepository({
- *     key: "federated-test-chef-repo",
- * });
- * ```
  */
 export function getFederatedChefRepositoryOutput(args: GetFederatedChefRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedChefRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getFederatedChefRepository(a, opts))

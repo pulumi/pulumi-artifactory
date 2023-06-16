@@ -23,7 +23,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var gradle_remote = new Artifactory.RemoteGradleRepository("gradle-remote", new()
+    ///     var gradle_remote = new Artifactory.Index.RemoteGradleRepository.RemoteGradleRepository("gradle-remote", new()
     ///     {
     ///         FetchJarsEagerly = true,
     ///         FetchSourcesEagerly = false,

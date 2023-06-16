@@ -6,17 +6,6 @@ import * as utilities from "./utilities";
 
 /**
  * Retrieves a virtual P2 repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const virtual-p2 = artifactory.getVirtualP2Repository({
- *     key: "virtual-p2",
- * });
- * ```
  */
 export function getVirtualP2Repository(args: GetVirtualP2RepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualP2RepositoryResult> {
 
@@ -79,17 +68,6 @@ export interface GetVirtualP2RepositoryResult {
 }
 /**
  * Retrieves a virtual P2 repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const virtual-p2 = artifactory.getVirtualP2Repository({
- *     key: "virtual-p2",
- * });
- * ```
  */
 export function getVirtualP2RepositoryOutput(args: GetVirtualP2RepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualP2RepositoryResult> {
     return pulumi.output(args).apply((a: any) => getVirtualP2Repository(a, opts))

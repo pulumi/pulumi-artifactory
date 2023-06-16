@@ -8,17 +8,6 @@ import * as utilities from "./utilities";
  * ## # Artifactory User Data Source
  *
  * Provides an Artifactory user data source. This can be used to read the configuration of users in artifactory.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const user1 = artifactory.getUser({
- *     name: "user1",
- * });
- * ```
  */
 export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise<GetUserResult> {
 
@@ -106,17 +95,6 @@ export interface GetUserResult {
  * ## # Artifactory User Data Source
  *
  * Provides an Artifactory user data source. This can be used to read the configuration of users in artifactory.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const user1 = artifactory.getUser({
- *     name: "user1",
- * });
- * ```
  */
 export function getUserOutput(args: GetUserOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserResult> {
     return pulumi.output(args).apply((a: any) => getUser(a, opts))

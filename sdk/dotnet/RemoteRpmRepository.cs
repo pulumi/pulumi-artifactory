@@ -23,7 +23,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var my_remote_rpm = new Artifactory.RemoteRpmRepository("my-remote-rpm", new()
+    ///     var my_remote_rpm = new Artifactory.Index.RemoteRpmRepository.RemoteRpmRepository("my-remote-rpm", new()
     ///     {
     ///         Key = "my-remote-rpm",
     ///         Url = "http://mirror.centos.org/centos/",

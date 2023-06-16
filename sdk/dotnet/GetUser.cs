@@ -15,28 +15,6 @@ namespace Pulumi.Artifactory
         /// ## # Artifactory User Data Source
         /// 
         /// Provides an Artifactory user data source. This can be used to read the configuration of users in artifactory.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var user1 = Artifactory.GetUser.Invoke(new()
-        ///     {
-        ///         Name = "user1",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetUserResult> InvokeAsync(GetUserArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetUserResult>("artifactory:index/getUser:getUser", args ?? new GetUserArgs(), options.WithDefaults());
@@ -45,28 +23,6 @@ namespace Pulumi.Artifactory
         /// ## # Artifactory User Data Source
         /// 
         /// Provides an Artifactory user data source. This can be used to read the configuration of users in artifactory.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var user1 = Artifactory.GetUser.Invoke(new()
-        ///     {
-        ///         Name = "user1",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetUserResult> Invoke(GetUserInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUserResult>("artifactory:index/getUser:getUser", args ?? new GetUserInvokeArgs(), options.WithDefaults());

@@ -16,7 +16,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const my_remote_bower = new artifactory.RemoteBowerRepository("my-remote-bower", {
+ * const my_remote_bower = new artifactory.index/remoteBowerRepository.RemoteBowerRepository("my-remote-bower", {
  *     key: "my-remote-bower",
  *     url: "https://github.com/",
  *     vcsGitProvider: "GITHUB",

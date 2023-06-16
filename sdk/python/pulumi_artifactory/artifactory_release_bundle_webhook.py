@@ -239,29 +239,29 @@ class ArtifactoryReleaseBundleWebhook(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        artifactory_release_bundle_webhook = artifactory.ArtifactoryReleaseBundleWebhook("artifactory-release-bundle-webhook",
-            criteria=artifactory.ArtifactoryReleaseBundleWebhookCriteriaArgs(
-                any_release_bundle=False,
-                exclude_patterns=["bar/**"],
-                include_patterns=["foo/**"],
-                registered_release_bundle_names=["bundle-name"],
-            ),
+        artifactory_release_bundle_webhook = artifactory.index.artifactory_release_bundle_webhook.ArtifactoryReleaseBundleWebhook("artifactory-release-bundle-webhook",
+            criteria={
+                anyReleaseBundle: False,
+                excludePatterns: [bar/**],
+                includePatterns: [foo/**],
+                registeredReleaseBundleNames: [bundle-name],
+            },
             event_types=[
-                "received",
-                "delete_started",
-                "delete_completed",
-                "delete_failed",
+                received,
+                delete_started,
+                delete_completed,
+                delete_failed,
             ],
-            handlers=[artifactory.ArtifactoryReleaseBundleWebhookHandlerArgs(
-                custom_http_headers={
-                    "header-1": "value-1",
-                    "header-2": "value-2",
+            handlers=[{
+                customHttpHeaders: {
+                    header-1: value-1,
+                    header-2: value-2,
                 },
-                proxy="proxy-key",
-                secret="some-secret",
-                url="http://tempurl.org/webhook",
-            )],
-            key="artifactory-release-bundle-webhook")
+                proxy: proxy-key,
+                secret: some-secret,
+                url: http://tempurl.org/webhook,
+            }],
+            key=artifactory-release-bundle-webhook)
         ```
 
         :param str resource_name: The name of the resource.
@@ -289,29 +289,29 @@ class ArtifactoryReleaseBundleWebhook(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        artifactory_release_bundle_webhook = artifactory.ArtifactoryReleaseBundleWebhook("artifactory-release-bundle-webhook",
-            criteria=artifactory.ArtifactoryReleaseBundleWebhookCriteriaArgs(
-                any_release_bundle=False,
-                exclude_patterns=["bar/**"],
-                include_patterns=["foo/**"],
-                registered_release_bundle_names=["bundle-name"],
-            ),
+        artifactory_release_bundle_webhook = artifactory.index.artifactory_release_bundle_webhook.ArtifactoryReleaseBundleWebhook("artifactory-release-bundle-webhook",
+            criteria={
+                anyReleaseBundle: False,
+                excludePatterns: [bar/**],
+                includePatterns: [foo/**],
+                registeredReleaseBundleNames: [bundle-name],
+            },
             event_types=[
-                "received",
-                "delete_started",
-                "delete_completed",
-                "delete_failed",
+                received,
+                delete_started,
+                delete_completed,
+                delete_failed,
             ],
-            handlers=[artifactory.ArtifactoryReleaseBundleWebhookHandlerArgs(
-                custom_http_headers={
-                    "header-1": "value-1",
-                    "header-2": "value-2",
+            handlers=[{
+                customHttpHeaders: {
+                    header-1: value-1,
+                    header-2: value-2,
                 },
-                proxy="proxy-key",
-                secret="some-secret",
-                url="http://tempurl.org/webhook",
-            )],
-            key="artifactory-release-bundle-webhook")
+                proxy: proxy-key,
+                secret: some-secret,
+                url: http://tempurl.org/webhook,
+            }],
+            key=artifactory-release-bundle-webhook)
         ```
 
         :param str resource_name: The name of the resource.

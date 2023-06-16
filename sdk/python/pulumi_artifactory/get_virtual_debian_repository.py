@@ -232,15 +232,6 @@ def get_virtual_debian_repository(artifactory_requests_can_retrieve_remote_artif
     """
     Retrieves a virtual Debian repository.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    virtual_debian = artifactory.get_virtual_debian_repository(key="virtual-debian")
-    ```
-
 
     :param str debian_default_architectures: (Optional) Specifying  architectures will speed up Artifactory's initial metadata indexing process. The default architecture values are amd64 and i386.
     :param str key: the identity key of the repo.
@@ -310,15 +301,6 @@ def get_virtual_debian_repository_output(artifactory_requests_can_retrieve_remot
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualDebianRepositoryResult]:
     """
     Retrieves a virtual Debian repository.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    virtual_debian = artifactory.get_virtual_debian_repository(key="virtual-debian")
-    ```
 
 
     :param str debian_default_architectures: (Optional) Specifying  architectures will speed up Artifactory's initial metadata indexing process. The default architecture values are amd64 and i386.

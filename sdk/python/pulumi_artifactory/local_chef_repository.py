@@ -592,7 +592,7 @@ class LocalChefRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_local_test_chef_repo = artifactory.LocalChefRepository("terraform-local-test-chef-repo", key="terraform-local-test-chef-repo")
+        terraform_local_test_chef_repo = artifactory.index.local_chef_repository.LocalChefRepository("terraform-local-test-chef-repo", key=terraform-local-test-chef-repo)
         ```
 
         ## Import
@@ -647,7 +647,7 @@ class LocalChefRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_local_test_chef_repo = artifactory.LocalChefRepository("terraform-local-test-chef-repo", key="terraform-local-test-chef-repo")
+        terraform_local_test_chef_repo = artifactory.index.local_chef_repository.LocalChefRepository("terraform-local-test-chef-repo", key=terraform-local-test-chef-repo)
         ```
 
         ## Import

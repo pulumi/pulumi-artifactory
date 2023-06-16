@@ -11,32 +11,6 @@ import (
 )
 
 // Retrieves a remote Cargo repository.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupRemoteCargoRepository(ctx, &artifactory.LookupRemoteCargoRepositoryArgs{
-//				Key: "remote-cargo",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupRemoteCargoRepository(ctx *pulumi.Context, args *LookupRemoteCargoRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupRemoteCargoRepositoryResult, error) {
 	var rv LookupRemoteCargoRepositoryResult
 	err := ctx.Invoke("artifactory:index/getRemoteCargoRepository:getRemoteCargoRepository", args, &rv, opts...)

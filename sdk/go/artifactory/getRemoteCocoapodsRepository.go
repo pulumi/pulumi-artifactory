@@ -11,32 +11,6 @@ import (
 )
 
 // Retrieves a remote CocoaPods repository.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupRemoteCocoapodsRepository(ctx, &artifactory.LookupRemoteCocoapodsRepositoryArgs{
-//				Key: "remote-cocoapods",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupRemoteCocoapodsRepository(ctx *pulumi.Context, args *LookupRemoteCocoapodsRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupRemoteCocoapodsRepositoryResult, error) {
 	var rv LookupRemoteCocoapodsRepositoryResult
 	err := ctx.Invoke("artifactory:index/getRemoteCocoapodsRepository:getRemoteCocoapodsRepository", args, &rv, opts...)

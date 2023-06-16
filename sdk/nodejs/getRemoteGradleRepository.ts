@@ -8,17 +8,6 @@ import * as utilities from "./utilities";
 
 /**
  * Retrieves a remote Gradle repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const remote-gradle = artifactory.getRemoteGradleRepository({
- *     key: "remote-gradle",
- * });
- * ```
  */
 export function getRemoteGradleRepository(args: GetRemoteGradleRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetRemoteGradleRepositoryResult> {
 
@@ -231,17 +220,6 @@ export interface GetRemoteGradleRepositoryResult {
 }
 /**
  * Retrieves a remote Gradle repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const remote-gradle = artifactory.getRemoteGradleRepository({
- *     key: "remote-gradle",
- * });
- * ```
  */
 export function getRemoteGradleRepositoryOutput(args: GetRemoteGradleRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemoteGradleRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getRemoteGradleRepository(a, opts))

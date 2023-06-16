@@ -11,32 +11,6 @@ import (
 )
 
 // Retrieves a remote Go repository.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupRemoteGoRepository(ctx, &artifactory.LookupRemoteGoRepositoryArgs{
-//				Key: "remote-go",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupRemoteGoRepository(ctx *pulumi.Context, args *LookupRemoteGoRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupRemoteGoRepositoryResult, error) {
 	var rv LookupRemoteGoRepositoryResult
 	err := ctx.Invoke("artifactory:index/getRemoteGoRepository:getRemoteGoRepository", args, &rv, opts...)

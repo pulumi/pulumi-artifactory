@@ -14,14 +14,14 @@ import * as utilities from "./utilities";
  * import * as artifactory from "@pulumi/artifactory";
  * import * as fs from "fs";
  *
- * const some_keypairRSA = new artifactory.Keypair("some-keypairRSA", {
+ * const some_keypairRSA = new artifactory.index/keypair.Keypair("some-keypairRSA", {
  *     pairName: "some-keypair",
  *     pairType: "RSA",
  *     alias: "foo-alias",
  *     privateKey: fs.readFileSync("samples/rsa.priv"),
  *     publicKey: fs.readFileSync("samples/rsa.pub"),
  * });
- * const terraform_local_test_alpine_repo_basic = new artifactory.AlpineRepository("terraform-local-test-alpine-repo-basic", {
+ * const terraform_local_test_alpine_repo_basic = new artifactory.index/alpineRepository.AlpineRepository("terraform-local-test-alpine-repo-basic", {
  *     key: "terraform-local-test-alpine-repo-basic",
  *     primaryKeypairRef: some_keypairRSA.pairName,
  * }, {

@@ -11,32 +11,6 @@ import (
 )
 
 // Retrieves a federated Composer repository.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.LookupFederatedComposerRepository(ctx, &artifactory.LookupFederatedComposerRepositoryArgs{
-//				Key: "federated-test-composer-repo",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupFederatedComposerRepository(ctx *pulumi.Context, args *LookupFederatedComposerRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupFederatedComposerRepositoryResult, error) {
 	var rv LookupFederatedComposerRepositoryResult
 	err := ctx.Invoke("artifactory:index/getFederatedComposerRepository:getFederatedComposerRepository", args, &rv, opts...)

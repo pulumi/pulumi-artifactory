@@ -23,7 +23,7 @@ namespace Pulumi.Artifactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var sbt_remote = new Artifactory.RemoteSbtRepository("sbt-remote", new()
+    ///     var sbt_remote = new Artifactory.Index.RemoteSbtRepository.RemoteSbtRepository("sbt-remote", new()
     ///     {
     ///         FetchJarsEagerly = true,
     ///         FetchSourcesEagerly = false,

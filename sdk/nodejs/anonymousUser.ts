@@ -12,7 +12,7 @@ import * as utilities from "./utilities";
  * import * as artifactory from "@pulumi/artifactory";
  *
  * // Define a new Artifactory 'anonymous' user for import
- * const anonymous = new artifactory.AnonymousUser("anonymous", {});
+ * const anonymous = new artifactory.index/anonymousUser.AnonymousUser("anonymous", {});
  * ```
  *
  * ## Import

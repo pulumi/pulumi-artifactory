@@ -485,15 +485,6 @@ def get_remote_pypi_repository(allow_any_host_auth: Optional[bool] = None,
     """
     Retrieves a remote Pypi repository.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    remote_pypi = artifactory.get_remote_pypi_repository(key="remote-pypi")
-    ```
-
 
     :param str key: the identity key of the repo.
     :param str pypi_registry_url: (Optional) To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another Artifactory server. See JFrog Pypi documentation [here](https://www.jfrog.com/confluence/display/JFROG/PyPI+Repositories) for the usage details. Default value is `https://pypi.org`.
@@ -638,15 +629,6 @@ def get_remote_pypi_repository_output(allow_any_host_auth: Optional[pulumi.Input
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRemotePypiRepositoryResult]:
     """
     Retrieves a remote Pypi repository.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    remote_pypi = artifactory.get_remote_pypi_repository(key="remote-pypi")
-    ```
 
 
     :param str key: the identity key of the repo.

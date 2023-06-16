@@ -167,15 +167,6 @@ def get_virtual_gitlfs_repository(artifactory_requests_can_retrieve_remote_artif
     """
     Retrieves a virtual Git LFS repository.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    virtual_gitlfs = artifactory.get_virtual_gitlfs_repository(key="virtual-gitlfs")
-    ```
-
 
     :param str key: the identity key of the repo.
     """
@@ -225,15 +216,6 @@ def get_virtual_gitlfs_repository_output(artifactory_requests_can_retrieve_remot
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualGitlfsRepositoryResult]:
     """
     Retrieves a virtual Git LFS repository.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_artifactory as artifactory
-
-    virtual_gitlfs = artifactory.get_virtual_gitlfs_repository(key="virtual-gitlfs")
-    ```
 
 
     :param str key: the identity key of the repo.

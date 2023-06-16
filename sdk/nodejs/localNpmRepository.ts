@@ -13,7 +13,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const terraform_local_test_npm_repo = new artifactory.LocalNpmRepository("terraform-local-test-npm-repo", {key: "terraform-local-test-npm-repo"});
+ * const terraform_local_test_npm_repo = new artifactory.index/localNpmRepository.LocalNpmRepository("terraform-local-test-npm-repo", {key: "terraform-local-test-npm-repo"});
  * ```
  *
  * ## Import

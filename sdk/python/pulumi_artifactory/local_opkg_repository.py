@@ -592,7 +592,7 @@ class LocalOpkgRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_local_test_opkg_repo = artifactory.LocalOpkgRepository("terraform-local-test-opkg-repo", key="terraform-local-test-opkg-repo")
+        terraform_local_test_opkg_repo = artifactory.index.local_opkg_repository.LocalOpkgRepository("terraform-local-test-opkg-repo", key=terraform-local-test-opkg-repo)
         ```
 
         ## Import
@@ -647,7 +647,7 @@ class LocalOpkgRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_local_test_opkg_repo = artifactory.LocalOpkgRepository("terraform-local-test-opkg-repo", key="terraform-local-test-opkg-repo")
+        terraform_local_test_opkg_repo = artifactory.index.local_opkg_repository.LocalOpkgRepository("terraform-local-test-opkg-repo", key=terraform-local-test-opkg-repo)
         ```
 
         ## Import

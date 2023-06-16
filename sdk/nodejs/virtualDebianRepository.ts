@@ -14,7 +14,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const foo_debian = new artifactory.VirtualDebianRepository("foo-debian", {
+ * const foo_debian = new artifactory.index/virtualDebianRepository.VirtualDebianRepository("foo-debian", {
  *     debianDefaultArchitectures: "amd64,i386",
  *     description: "A test virtual repo",
  *     excludesPattern: "com/google/**",

@@ -351,14 +351,14 @@ class LdapGroupSetting(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         # Configure Artifactory LDAP setting
-        ldap_group_name = artifactory.LdapGroupSetting("ldapGroupName",
-            description_attribute="description",
-            filter="(objectClass=groupOfNames)",
-            group_base_dn="",
-            group_member_attribute="uniqueMember",
-            group_name_attribute="cn",
-            ldap_setting_key="ldap_name",
-            strategy="STATIC",
+        ldap_group_name = artifactory.index.ldap_group_setting.LdapGroupSetting("ldapGroupName",
+            description_attribute=description,
+            filter=(objectClass=groupOfNames),
+            group_base_dn=,
+            group_member_attribute=uniqueMember,
+            group_name_attribute=cn,
+            ldap_setting_key=ldap_name,
+            strategy=STATIC,
             sub_tree=True)
         ```
         Note: `Name` argument has to match to the resource name.\\
@@ -408,14 +408,14 @@ class LdapGroupSetting(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         # Configure Artifactory LDAP setting
-        ldap_group_name = artifactory.LdapGroupSetting("ldapGroupName",
-            description_attribute="description",
-            filter="(objectClass=groupOfNames)",
-            group_base_dn="",
-            group_member_attribute="uniqueMember",
-            group_name_attribute="cn",
-            ldap_setting_key="ldap_name",
-            strategy="STATIC",
+        ldap_group_name = artifactory.index.ldap_group_setting.LdapGroupSetting("ldapGroupName",
+            description_attribute=description,
+            filter=(objectClass=groupOfNames),
+            group_base_dn=,
+            group_member_attribute=uniqueMember,
+            group_name_attribute=cn,
+            ldap_setting_key=ldap_name,
+            strategy=STATIC,
             sub_tree=True)
         ```
         Note: `Name` argument has to match to the resource name.\\

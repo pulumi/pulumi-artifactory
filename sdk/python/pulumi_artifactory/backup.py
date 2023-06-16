@@ -376,14 +376,14 @@ class Backup(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         # Configure Artifactory Backup system config
-        backup_config_name = artifactory.Backup("backupConfigName",
+        backup_config_name = artifactory.index.backup.Backup("backupConfigName",
             create_archive=False,
-            cron_exp="0 0 12 * * ? *",
+            cron_exp=0 0 12 * * ? *,
             enabled=True,
             exclude_new_repositories=True,
             excluded_repositories=[],
             export_mission_control=True,
-            key="backup_config_name",
+            key=backup_config_name,
             retention_period_hours=1000,
             send_mail_on_error=True,
             verify_disk_space=True)
@@ -433,14 +433,14 @@ class Backup(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         # Configure Artifactory Backup system config
-        backup_config_name = artifactory.Backup("backupConfigName",
+        backup_config_name = artifactory.index.backup.Backup("backupConfigName",
             create_archive=False,
-            cron_exp="0 0 12 * * ? *",
+            cron_exp=0 0 12 * * ? *,
             enabled=True,
             exclude_new_repositories=True,
             excluded_repositories=[],
             export_mission_control=True,
-            key="backup_config_name",
+            key=backup_config_name,
             retention_period_hours=1000,
             send_mail_on_error=True,
             verify_disk_space=True)

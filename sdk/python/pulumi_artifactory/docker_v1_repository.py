@@ -653,7 +653,7 @@ class DockerV1Repository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        foo = artifactory.DockerV1Repository("foo", key="foo")
+        foo = artifactory.index.docker_v1_repository.DockerV1Repository("foo", key=foo)
         ```
 
         ## Import
@@ -708,7 +708,7 @@ class DockerV1Repository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        foo = artifactory.DockerV1Repository("foo", key="foo")
+        foo = artifactory.index.docker_v1_repository.DockerV1Repository("foo", key=foo)
         ```
 
         ## Import

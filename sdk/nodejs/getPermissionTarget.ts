@@ -10,17 +10,6 @@ import * as utilities from "./utilities";
  * ## # Artifactory Permission Target Data Source
  *
  * Provides an Artifactory permission target data source. This can be used to read the configuration of permission targets in artifactory.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const target1 = artifactory.getPermissionTarget({
- *     name: "my_permission",
- * });
- * ```
  */
 export function getPermissionTarget(args: GetPermissionTargetArgs, opts?: pulumi.InvokeOptions): Promise<GetPermissionTargetResult> {
 
@@ -81,17 +70,6 @@ export interface GetPermissionTargetResult {
  * ## # Artifactory Permission Target Data Source
  *
  * Provides an Artifactory permission target data source. This can be used to read the configuration of permission targets in artifactory.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const target1 = artifactory.getPermissionTarget({
- *     name: "my_permission",
- * });
- * ```
  */
 export function getPermissionTargetOutput(args: GetPermissionTargetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPermissionTargetResult> {
     return pulumi.output(args).apply((a: any) => getPermissionTarget(a, opts))

@@ -13,56 +13,12 @@ namespace Pulumi.Artifactory
     {
         /// <summary>
         /// Retrieves a remote SBT repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var remote_sbt = Artifactory.GetRemoteSbtRepository.Invoke(new()
-        ///     {
-        ///         Key = "remote-sbt",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetRemoteSbtRepositoryResult> InvokeAsync(GetRemoteSbtRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRemoteSbtRepositoryResult>("artifactory:index/getRemoteSbtRepository:getRemoteSbtRepository", args ?? new GetRemoteSbtRepositoryArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves a remote SBT repository.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Artifactory = Pulumi.Artifactory;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var remote_sbt = Artifactory.GetRemoteSbtRepository.Invoke(new()
-        ///     {
-        ///         Key = "remote-sbt",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetRemoteSbtRepositoryResult> Invoke(GetRemoteSbtRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRemoteSbtRepositoryResult>("artifactory:index/getRemoteSbtRepository:getRemoteSbtRepository", args ?? new GetRemoteSbtRepositoryInvokeArgs(), options.WithDefaults());

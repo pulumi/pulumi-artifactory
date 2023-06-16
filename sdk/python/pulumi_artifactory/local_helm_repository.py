@@ -592,7 +592,7 @@ class LocalHelmRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_local_test_helm_repo = artifactory.LocalHelmRepository("terraform-local-test-helm-repo", key="terraform-local-test-helm-repo")
+        terraform_local_test_helm_repo = artifactory.index.local_helm_repository.LocalHelmRepository("terraform-local-test-helm-repo", key=terraform-local-test-helm-repo)
         ```
 
         ## Import
@@ -647,7 +647,7 @@ class LocalHelmRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_local_test_helm_repo = artifactory.LocalHelmRepository("terraform-local-test-helm-repo", key="terraform-local-test-helm-repo")
+        terraform_local_test_helm_repo = artifactory.index.local_helm_repository.LocalHelmRepository("terraform-local-test-helm-repo", key=terraform-local-test-helm-repo)
         ```
 
         ## Import

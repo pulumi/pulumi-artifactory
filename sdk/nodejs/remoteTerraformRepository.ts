@@ -13,7 +13,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const terraform_remote = new artifactory.RemoteTerraformRepository("terraform-remote", {
+ * const terraform_remote = new artifactory.index/remoteTerraformRepository.RemoteTerraformRepository("terraform-remote", {
  *     key: "terraform-remote",
  *     terraformProvidersUrl: "https://releases.hashicorp.com",
  *     terraformRegistryUrl: "https://registry.terraform.io",

@@ -592,7 +592,7 @@ class LocalBowerRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_local_test_bower_repo = artifactory.LocalBowerRepository("terraform-local-test-bower-repo", key="terraform-local-test-bower-repo")
+        terraform_local_test_bower_repo = artifactory.index.local_bower_repository.LocalBowerRepository("terraform-local-test-bower-repo", key=terraform-local-test-bower-repo)
         ```
 
         ## Import
@@ -647,7 +647,7 @@ class LocalBowerRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_local_test_bower_repo = artifactory.LocalBowerRepository("terraform-local-test-bower-repo", key="terraform-local-test-bower-repo")
+        terraform_local_test_bower_repo = artifactory.index.local_bower_repository.LocalBowerRepository("terraform-local-test-bower-repo", key=terraform-local-test-bower-repo)
         ```
 
         ## Import

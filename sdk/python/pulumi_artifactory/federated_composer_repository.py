@@ -675,17 +675,17 @@ class FederatedComposerRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_federated_test_composer_repo = artifactory.FederatedComposerRepository("terraform-federated-test-composer-repo",
-            key="terraform-federated-test-composer-repo",
+        terraform_federated_test_composer_repo = artifactory.index.federated_composer_repository.FederatedComposerRepository("terraform-federated-test-composer-repo",
+            key=terraform-federated-test-composer-repo,
             members=[
-                artifactory.FederatedComposerRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl.org/artifactory/terraform-federated-test-composer-repo",
-                ),
-                artifactory.FederatedComposerRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl2.org/artifactory/terraform-federated-test-composer-repo-2",
-                ),
+                {
+                    enabled: True,
+                    url: http://tempurl.org/artifactory/terraform-federated-test-composer-repo,
+                },
+                {
+                    enabled: True,
+                    url: http://tempurl2.org/artifactory/terraform-federated-test-composer-repo-2,
+                },
             ])
         ```
 
@@ -747,17 +747,17 @@ class FederatedComposerRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        terraform_federated_test_composer_repo = artifactory.FederatedComposerRepository("terraform-federated-test-composer-repo",
-            key="terraform-federated-test-composer-repo",
+        terraform_federated_test_composer_repo = artifactory.index.federated_composer_repository.FederatedComposerRepository("terraform-federated-test-composer-repo",
+            key=terraform-federated-test-composer-repo,
             members=[
-                artifactory.FederatedComposerRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl.org/artifactory/terraform-federated-test-composer-repo",
-                ),
-                artifactory.FederatedComposerRepositoryMemberArgs(
-                    enabled=True,
-                    url="http://tempurl2.org/artifactory/terraform-federated-test-composer-repo-2",
-                ),
+                {
+                    enabled: True,
+                    url: http://tempurl.org/artifactory/terraform-federated-test-composer-repo,
+                },
+                {
+                    enabled: True,
+                    url: http://tempurl2.org/artifactory/terraform-federated-test-composer-repo-2,
+                },
             ])
         ```
 

@@ -29,7 +29,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.artifactory.FederatedSwiftRepository;
  * import com.pulumi.artifactory.FederatedSwiftRepositoryArgs;
- * import com.pulumi.artifactory.inputs.FederatedSwiftRepositoryMemberArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -46,14 +45,8 @@ import javax.annotation.Nullable;
  *         var terraform_federated_test_swift_repo = new FederatedSwiftRepository(&#34;terraform-federated-test-swift-repo&#34;, FederatedSwiftRepositoryArgs.builder()        
  *             .key(&#34;terraform-federated-test-swift-repo&#34;)
  *             .members(            
- *                 FederatedSwiftRepositoryMemberArgs.builder()
- *                     .enabled(true)
- *                     .url(&#34;http://tempurl.org/artifactory/terraform-federated-test-swift-repo&#34;)
- *                     .build(),
- *                 FederatedSwiftRepositoryMemberArgs.builder()
- *                     .enabled(true)
- *                     .url(&#34;http://tempurl2.org/artifactory/terraform-federated-test-swift-repo-2&#34;)
- *                     .build())
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }

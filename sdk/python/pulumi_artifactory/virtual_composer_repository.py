@@ -449,12 +449,12 @@ class VirtualComposerRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        foo_composer = artifactory.VirtualComposerRepository("foo-composer",
-            description="A test virtual repo",
-            excludes_pattern="com/google/**",
-            includes_pattern="com/jfrog/**,cloud/jfrog/**",
-            key="foo-composer",
-            notes="Internal description",
+        foo_composer = artifactory.index.virtual_composer_repository.VirtualComposerRepository("foo-composer",
+            description=A test virtual repo,
+            excludes_pattern=com/google/**,
+            includes_pattern=com/jfrog/**,cloud/jfrog/**,
+            key=foo-composer,
+            notes=Internal description,
             repositories=[])
         ```
 
@@ -504,12 +504,12 @@ class VirtualComposerRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        foo_composer = artifactory.VirtualComposerRepository("foo-composer",
-            description="A test virtual repo",
-            excludes_pattern="com/google/**",
-            includes_pattern="com/jfrog/**,cloud/jfrog/**",
-            key="foo-composer",
-            notes="Internal description",
+        foo_composer = artifactory.index.virtual_composer_repository.VirtualComposerRepository("foo-composer",
+            description=A test virtual repo,
+            excludes_pattern=com/google/**,
+            includes_pattern=com/jfrog/**,cloud/jfrog/**,
+            key=foo-composer,
+            notes=Internal description,
             repositories=[])
         ```
 

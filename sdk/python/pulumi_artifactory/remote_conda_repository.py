@@ -1475,9 +1475,9 @@ class RemoteCondaRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        my_remote_conda = artifactory.RemoteCondaRepository("my-remote-conda",
-            key="my-remote-conda",
-            url="https://repo.anaconda.com/pkgs/main")
+        my_remote_conda = artifactory.index.remote_conda_repository.RemoteCondaRepository("my-remote-conda",
+            key=my-remote-conda,
+            url=https://repo.anaconda.com/pkgs/main)
         ```
 
         ## Import
@@ -1576,9 +1576,9 @@ class RemoteCondaRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        my_remote_conda = artifactory.RemoteCondaRepository("my-remote-conda",
-            key="my-remote-conda",
-            url="https://repo.anaconda.com/pkgs/main")
+        my_remote_conda = artifactory.index.remote_conda_repository.RemoteCondaRepository("my-remote-conda",
+            key=my-remote-conda,
+            url=https://repo.anaconda.com/pkgs/main)
         ```
 
         ## Import

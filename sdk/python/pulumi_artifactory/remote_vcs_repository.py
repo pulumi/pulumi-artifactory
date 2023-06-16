@@ -1591,11 +1591,11 @@ class RemoteVcsRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        my_remote_vcs = artifactory.RemoteVcsRepository("my-remote-vcs",
-            key="my-remote-vcs",
+        my_remote_vcs = artifactory.index.remote_vcs_repository.RemoteVcsRepository("my-remote-vcs",
+            key=my-remote-vcs,
             max_unique_snapshots=5,
-            url="https://github.com/",
-            vcs_git_provider="GITHUB")
+            url=https://github.com/,
+            vcs_git_provider=GITHUB)
         ```
 
         ## Import
@@ -1702,11 +1702,11 @@ class RemoteVcsRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        my_remote_vcs = artifactory.RemoteVcsRepository("my-remote-vcs",
-            key="my-remote-vcs",
+        my_remote_vcs = artifactory.index.remote_vcs_repository.RemoteVcsRepository("my-remote-vcs",
+            key=my-remote-vcs,
             max_unique_snapshots=5,
-            url="https://github.com/",
-            vcs_git_provider="GITHUB")
+            url=https://github.com/,
+            vcs_git_provider=GITHUB)
         ```
 
         ## Import
