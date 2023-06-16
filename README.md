@@ -32,9 +32,9 @@ To use from Python, install using `pip`:
 
 ### Go
 
-To use from Go, use `go get` to grab the latest version of the library
+To use from Go, use `go get` to grab the latest version of the libraryq
 
-    $ go get github.com/pulumi/pulumi-artifactory/sdk/v7
+    $ go get github.com/pulumi/pulumi-artifactory/sdk/v4
 
 ### .NET
 

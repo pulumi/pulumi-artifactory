@@ -2832,8 +2832,7 @@
             "artifactory:index/managedUser:ManagedUser": 1,
             "artifactory:index/mavenRepository:MavenRepository": 0,
             "artifactory:index/oauthSettings:OauthSettings": 0,
-            "artifactory:index/permissionTarget:PermissionTarget": 0,
-            "artifactory:index/permissionTargets:PermissionTargets": 0,
+            "artifactory:index/permissionTarget:PermissionTarget": 1,
             "artifactory:index/propertySet:PropertySet": 0,
             "artifactory:index/proxy:Proxy": 0,
             "artifactory:index/pullReplication:PullReplication": 0,
@@ -3125,7 +3124,6 @@
             "artifactory:index/mavenRepository:MavenRepository": "artifactory_virtual_maven_repository",
             "artifactory:index/oauthSettings:OauthSettings": "artifactory_oauth_settings",
             "artifactory:index/permissionTarget:PermissionTarget": "artifactory_permission_target",
-            "artifactory:index/permissionTargets:PermissionTargets": "artifactory_permission_targets",
             "artifactory:index/propertySet:PropertySet": "artifactory_property_set",
             "artifactory:index/proxy:Proxy": "artifactory_proxy",
             "artifactory:index/pullReplication:PullReplication": "artifactory_pull_replication",
@@ -3412,18 +3410,6 @@
                 "includesPatterns": "includes_pattern"
             },
             "artifactory:index/PermissionTargetRepo:PermissionTargetRepo": {
-                "excludesPatterns": "excludes_pattern",
-                "includesPatterns": "includes_pattern"
-            },
-            "artifactory:index/PermissionTargetsBuild:PermissionTargetsBuild": {
-                "excludesPatterns": "excludes_pattern",
-                "includesPatterns": "includes_pattern"
-            },
-            "artifactory:index/PermissionTargetsReleaseBundle:PermissionTargetsReleaseBundle": {
-                "excludesPatterns": "excludes_pattern",
-                "includesPatterns": "includes_pattern"
-            },
-            "artifactory:index/PermissionTargetsRepo:PermissionTargetsRepo": {
                 "excludesPatterns": "excludes_pattern",
                 "includesPatterns": "includes_pattern"
             },
@@ -7695,9 +7681,6 @@
                 "persistUsers": "persist_users"
             },
             "artifactory:index/permissionTarget:PermissionTarget": {
-                "releaseBundle": "release_bundle"
-            },
-            "artifactory:index/permissionTargets:PermissionTargets": {
                 "releaseBundle": "release_bundle"
             },
             "artifactory:index/propertySet:PropertySet": {

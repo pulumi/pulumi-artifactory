@@ -20,7 +20,7 @@ import (
 	"context"
 	_ "embed"
 
-	artifactory "github.com/pulumi/pulumi-artifactory/provider/v3"
+	artifactory "github.com/pulumi/pulumi-artifactory/provider/v4"
 	"github.com/pulumi/pulumi-terraform-bridge/pf/tfbridge"
 )
 
