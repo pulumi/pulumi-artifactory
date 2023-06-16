@@ -594,7 +594,7 @@ class Group(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> pulumi.Output[Optional[str]]:
+    def description(self) -> pulumi.Output[str]:
         """
         A description for the group.
         """
@@ -602,7 +602,7 @@ class Group(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="detachAllUsers")
-    def detach_all_users(self) -> pulumi.Output[bool]:
+    def detach_all_users(self) -> pulumi.Output[Optional[bool]]:
         """
         When this is set to `true`, an empty or missing usernames array will detach all users from the group.
         """
@@ -610,7 +610,7 @@ class Group(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="externalId")
-    def external_id(self) -> pulumi.Output[Optional[str]]:
+    def external_id(self) -> pulumi.Output[str]:
         """
         New external group ID used to configure the corresponding group in Azure AD.
         """
@@ -642,7 +642,7 @@ class Group(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="realmAttributes")
-    def realm_attributes(self) -> pulumi.Output[Optional[str]]:
+    def realm_attributes(self) -> pulumi.Output[str]:
         """
         The realm attributes for the group.
         """
@@ -658,7 +658,7 @@ class Group(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="usersNames")
-    def users_names(self) -> pulumi.Output[Optional[Sequence[str]]]:
+    def users_names(self) -> pulumi.Output[Sequence[str]]:
         """
         List of users assigned to the group. If not set or empty, Terraform will not manage group membership.
         """

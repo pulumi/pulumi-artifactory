@@ -13,7 +13,12 @@ namespace Pulumi.Artifactory.Inputs
     public sealed class PermissionTargetReleaseBundleGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("actions")]
-        public Input<Inputs.PermissionTargetReleaseBundleActionsGetArgs>? Actions { get; set; }
+        private InputList<Inputs.PermissionTargetReleaseBundleActionGetArgs>? _actions;
+        public InputList<Inputs.PermissionTargetReleaseBundleActionGetArgs> Actions
+        {
+            get => _actions ?? (_actions = new InputList<Inputs.PermissionTargetReleaseBundleActionGetArgs>());
+            set => _actions = value;
+        }
 
         [Input("excludesPatterns")]
         private InputList<string>? _excludesPatterns;

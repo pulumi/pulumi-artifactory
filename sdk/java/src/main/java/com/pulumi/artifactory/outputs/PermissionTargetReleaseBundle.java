@@ -3,17 +3,16 @@
 
 package com.pulumi.artifactory.outputs;
 
-import com.pulumi.artifactory.outputs.PermissionTargetReleaseBundleActions;
+import com.pulumi.artifactory.outputs.PermissionTargetReleaseBundleAction;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
 public final class PermissionTargetReleaseBundle {
-    private @Nullable PermissionTargetReleaseBundleActions actions;
+    private @Nullable List<PermissionTargetReleaseBundleAction> actions;
     /**
      * @return Pattern of artifacts to exclude.
      * 
@@ -31,8 +30,8 @@ public final class PermissionTargetReleaseBundle {
     private List<String> repositories;
 
     private PermissionTargetReleaseBundle() {}
-    public Optional<PermissionTargetReleaseBundleActions> actions() {
-        return Optional.ofNullable(this.actions);
+    public List<PermissionTargetReleaseBundleAction> actions() {
+        return this.actions == null ? List.of() : this.actions;
     }
     /**
      * @return Pattern of artifacts to exclude.
@@ -65,7 +64,7 @@ public final class PermissionTargetReleaseBundle {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable PermissionTargetReleaseBundleActions actions;
+        private @Nullable List<PermissionTargetReleaseBundleAction> actions;
         private @Nullable List<String> excludesPatterns;
         private @Nullable List<String> includesPatterns;
         private List<String> repositories;
@@ -79,9 +78,12 @@ public final class PermissionTargetReleaseBundle {
         }
 
         @CustomType.Setter
-        public Builder actions(@Nullable PermissionTargetReleaseBundleActions actions) {
+        public Builder actions(@Nullable List<PermissionTargetReleaseBundleAction> actions) {
             this.actions = actions;
             return this;
+        }
+        public Builder actions(PermissionTargetReleaseBundleAction... actions) {
+            return actions(List.of(actions));
         }
         @CustomType.Setter
         public Builder excludesPatterns(@Nullable List<String> excludesPatterns) {

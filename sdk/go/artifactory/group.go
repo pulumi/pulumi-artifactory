@@ -27,11 +27,11 @@ type Group struct {
 	// When this parameter is set, any new users defined in the system are automatically assigned to this group.
 	AutoJoin pulumi.BoolOutput `pulumi:"autoJoin"`
 	// A description for the group.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
+	Description pulumi.StringOutput `pulumi:"description"`
 	// When this is set to `true`, an empty or missing usernames array will detach all users from the group.
-	DetachAllUsers pulumi.BoolOutput `pulumi:"detachAllUsers"`
+	DetachAllUsers pulumi.BoolPtrOutput `pulumi:"detachAllUsers"`
 	// New external group ID used to configure the corresponding group in Azure AD.
-	ExternalId pulumi.StringPtrOutput `pulumi:"externalId"`
+	ExternalId pulumi.StringOutput `pulumi:"externalId"`
 	// Name of the group.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// When this override is set, User in the group can set Xray security and compliance policies. Default value is `false`.
@@ -39,7 +39,7 @@ type Group struct {
 	// The realm for the group.
 	Realm pulumi.StringOutput `pulumi:"realm"`
 	// The realm attributes for the group.
-	RealmAttributes pulumi.StringPtrOutput `pulumi:"realmAttributes"`
+	RealmAttributes pulumi.StringOutput `pulumi:"realmAttributes"`
 	// When this override is set, User in the group can manage Xray Reports on any resource type. Default value is `false`.
 	ReportsManager pulumi.BoolOutput `pulumi:"reportsManager"`
 	// List of users assigned to the group. If not set or empty, Terraform will not manage group membership.
@@ -287,18 +287,18 @@ func (o GroupOutput) AutoJoin() pulumi.BoolOutput {
 }
 
 // A description for the group.
-func (o GroupOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Group) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+func (o GroupOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
 
 // When this is set to `true`, an empty or missing usernames array will detach all users from the group.
-func (o GroupOutput) DetachAllUsers() pulumi.BoolOutput {
-	return o.ApplyT(func(v *Group) pulumi.BoolOutput { return v.DetachAllUsers }).(pulumi.BoolOutput)
+func (o GroupOutput) DetachAllUsers() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Group) pulumi.BoolPtrOutput { return v.DetachAllUsers }).(pulumi.BoolPtrOutput)
 }
 
 // New external group ID used to configure the corresponding group in Azure AD.
-func (o GroupOutput) ExternalId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Group) pulumi.StringPtrOutput { return v.ExternalId }).(pulumi.StringPtrOutput)
+func (o GroupOutput) ExternalId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.ExternalId }).(pulumi.StringOutput)
 }
 
 // Name of the group.
@@ -317,8 +317,8 @@ func (o GroupOutput) Realm() pulumi.StringOutput {
 }
 
 // The realm attributes for the group.
-func (o GroupOutput) RealmAttributes() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Group) pulumi.StringPtrOutput { return v.RealmAttributes }).(pulumi.StringPtrOutput)
+func (o GroupOutput) RealmAttributes() pulumi.StringOutput {
+	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.RealmAttributes }).(pulumi.StringOutput)
 }
 
 // When this override is set, User in the group can manage Xray Reports on any resource type. Default value is `false`.

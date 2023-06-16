@@ -17,13 +17,14 @@ package artifactory
 import (
 	"context"
 	"fmt"
+	"github.com/pulumi/pulumi-artifactory/provider/v4/pkg/version"
+
 	// embed is used to store bridge-metadata.json in the compiled binary
 	_ "embed"
 	"path/filepath"
 	"unicode"
 
-	artifactoryProvider "github.com/jfrog/terraform-provider-artifactory/v7/pkg/artifactory/provider"
-	"github.com/pulumi/pulumi-artifactory/provider/v3/pkg/version"
+	artifactoryProvider "github.com/jfrog/terraform-provider-artifactory/v8/pkg/artifactory/provider"
 	pfbridge "github.com/pulumi/pulumi-terraform-bridge/pf/tfbridge"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/x"
@@ -78,7 +79,7 @@ func Provider() tfbridge.ProviderInfo {
 		Homepage:                "https://pulumi.io",
 		Repository:              "https://github.com/pulumi/pulumi-artifactory",
 		GitHubOrg:               "jfrog",
-		TFProviderModuleVersion: "v7",
+		TFProviderModuleVersion: "v8",
 		Version:                 version.Version,
 		Config: map[string]*tfbridge.SchemaInfo{
 			"check_license": {
@@ -100,48 +101,39 @@ func Provider() tfbridge.ProviderInfo {
 					"api_key": {CSharpName: "Key"},
 				},
 			},
-			"artifactory_certificate":                {Tok: makeResource(mainMod, "Certificate")},
-			"artifactory_general_security":           {Tok: makeResource(mainMod, "GeneralSecurity")},
-			"artifactory_group":                      {Tok: makeResource(mainMod, "Group")},
-			"artifactory_keypair":                    {Tok: makeResource(mainMod, "Keypair")},
-			"artifactory_local_alpine_repository":    {Tok: makeResource(mainMod, "AlpineRepository")},
-			"artifactory_local_debian_repository":    {Tok: makeResource(mainMod, "DebianRepository")},
-			"artifactory_local_docker_v1_repository": {Tok: makeResource(mainMod, "DockerV1Repository")},
-			"artifactory_local_docker_v2_repository": {Tok: makeResource(mainMod, "DockerV2Repository")},
-			"artifactory_local_bower_repository":     {Tok: makeResource(mainMod, "LocalBowerRepository")},
-			"artifactory_local_chef_repository":      {Tok: makeResource(mainMod, "LocalChefRepository")},
-			"artifactory_local_cocoapods_repository": {Tok: makeResource(mainMod, "LocalCocoapodsRepository")},
-			"artifactory_local_composer_repository":  {Tok: makeResource(mainMod, "LocalComposerRepository")},
-			"artifactory_local_conan_repository":     {Tok: makeResource(mainMod, "LocalConanRepository")},
-			"artifactory_local_cran_repository":      {Tok: makeResource(mainMod, "LocalCranRepository")},
-			"artifactory_local_gems_repository":      {Tok: makeResource(mainMod, "LocalGemsRepository")},
-			"artifactory_local_generic_repository":   {Tok: makeResource(mainMod, "LocalGenericRepository")},
-			"artifactory_local_gitlfs_repository":    {Tok: makeResource(mainMod, "LocalGitltfsRepository")},
-			"artifactory_local_go_repository":        {Tok: makeResource(mainMod, "LocalGoRepository")},
-			"artifactory_local_gradle_repository":    {Tok: makeResource(mainMod, "LocalGradleRepository")},
-			"artifactory_local_helm_repository":      {Tok: makeResource(mainMod, "LocalHelmRepository")},
-			"artifactory_local_ivy_repository":       {Tok: makeResource(mainMod, "LocalIvyRepository")},
-			"artifactory_local_maven_repository":     {Tok: makeResource(mainMod, "LocalMavenRepository")},
-			"artifactory_local_npm_repository":       {Tok: makeResource(mainMod, "LocalNpmRepository")},
-			"artifactory_local_nuget_repository":     {Tok: makeResource(mainMod, "LocalNugetRepository")},
-			"artifactory_local_opkg_repository":      {Tok: makeResource(mainMod, "LocalOpkgRepository")},
-			"artifactory_local_puppet_repository":    {Tok: makeResource(mainMod, "LocalPuppetRepository")},
-			"artifactory_local_pypi_repository":      {Tok: makeResource(mainMod, "LocalPypiRepository")},
-			"artifactory_local_rpm_repository":       {Tok: makeResource(mainMod, "LocalRpmRepository")},
-			"artifactory_local_sbt_repository":       {Tok: makeResource(mainMod, "LocalSbtRepository")},
-			"artifactory_local_pub_repository":       {Tok: makeResource(mainMod, "LocalPubRepository")},
-			"artifactory_local_vagrant_repository":   {Tok: makeResource(mainMod, "LocalVagrantRepository")},
-			"artifactory_oauth_settings":             {Tok: makeResource(mainMod, "OauthSettings")},
-			"artifactory_permission_target":          {Tok: makeResource(mainMod, "PermissionTarget")},
-			"artifactory_permission_targets": {
-				Tok: makeResource(mainMod, "PermissionTargets"),
-				// This resource is still defined in the provider schema as of upstream v3.1.2, but there are no docs
-				// in the TF registry or repo. Ideally, we would probably want to omit this from the provider since it
-				// appears to have been implicitly deprecated, but doing so will fail the build for a missing mapping.
-				Docs: &tfbridge.DocInfo{
-					Source: "permission_target.md",
-				},
-			},
+			"artifactory_certificate":                        {Tok: makeResource(mainMod, "Certificate")},
+			"artifactory_general_security":                   {Tok: makeResource(mainMod, "GeneralSecurity")},
+			"artifactory_group":                              {Tok: makeResource(mainMod, "Group")},
+			"artifactory_keypair":                            {Tok: makeResource(mainMod, "Keypair")},
+			"artifactory_local_alpine_repository":            {Tok: makeResource(mainMod, "AlpineRepository")},
+			"artifactory_local_debian_repository":            {Tok: makeResource(mainMod, "DebianRepository")},
+			"artifactory_local_docker_v1_repository":         {Tok: makeResource(mainMod, "DockerV1Repository")},
+			"artifactory_local_docker_v2_repository":         {Tok: makeResource(mainMod, "DockerV2Repository")},
+			"artifactory_local_bower_repository":             {Tok: makeResource(mainMod, "LocalBowerRepository")},
+			"artifactory_local_chef_repository":              {Tok: makeResource(mainMod, "LocalChefRepository")},
+			"artifactory_local_cocoapods_repository":         {Tok: makeResource(mainMod, "LocalCocoapodsRepository")},
+			"artifactory_local_composer_repository":          {Tok: makeResource(mainMod, "LocalComposerRepository")},
+			"artifactory_local_conan_repository":             {Tok: makeResource(mainMod, "LocalConanRepository")},
+			"artifactory_local_cran_repository":              {Tok: makeResource(mainMod, "LocalCranRepository")},
+			"artifactory_local_gems_repository":              {Tok: makeResource(mainMod, "LocalGemsRepository")},
+			"artifactory_local_generic_repository":           {Tok: makeResource(mainMod, "LocalGenericRepository")},
+			"artifactory_local_gitlfs_repository":            {Tok: makeResource(mainMod, "LocalGitltfsRepository")},
+			"artifactory_local_go_repository":                {Tok: makeResource(mainMod, "LocalGoRepository")},
+			"artifactory_local_gradle_repository":            {Tok: makeResource(mainMod, "LocalGradleRepository")},
+			"artifactory_local_helm_repository":              {Tok: makeResource(mainMod, "LocalHelmRepository")},
+			"artifactory_local_ivy_repository":               {Tok: makeResource(mainMod, "LocalIvyRepository")},
+			"artifactory_local_maven_repository":             {Tok: makeResource(mainMod, "LocalMavenRepository")},
+			"artifactory_local_npm_repository":               {Tok: makeResource(mainMod, "LocalNpmRepository")},
+			"artifactory_local_nuget_repository":             {Tok: makeResource(mainMod, "LocalNugetRepository")},
+			"artifactory_local_opkg_repository":              {Tok: makeResource(mainMod, "LocalOpkgRepository")},
+			"artifactory_local_puppet_repository":            {Tok: makeResource(mainMod, "LocalPuppetRepository")},
+			"artifactory_local_pypi_repository":              {Tok: makeResource(mainMod, "LocalPypiRepository")},
+			"artifactory_local_rpm_repository":               {Tok: makeResource(mainMod, "LocalRpmRepository")},
+			"artifactory_local_sbt_repository":               {Tok: makeResource(mainMod, "LocalSbtRepository")},
+			"artifactory_local_pub_repository":               {Tok: makeResource(mainMod, "LocalPubRepository")},
+			"artifactory_local_vagrant_repository":           {Tok: makeResource(mainMod, "LocalVagrantRepository")},
+			"artifactory_oauth_settings":                     {Tok: makeResource(mainMod, "OauthSettings")},
+			"artifactory_permission_target":                  {Tok: makeResource(mainMod, "PermissionTarget")},
 			"artifactory_property_set":                       {Tok: makeResource(mainMod, "PropertySet")},
 			"artifactory_proxy":                              {Tok: makeResource(mainMod, "Proxy")},
 			"artifactory_pull_replication":                   {Tok: makeResource(mainMod, "PullReplication")},

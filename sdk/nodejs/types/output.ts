@@ -1453,33 +1453,33 @@ export interface OauthSettingsOauthProvider {
 }
 
 export interface PermissionTargetBuild {
-    actions?: outputs.PermissionTargetBuildActions;
+    actions?: outputs.PermissionTargetBuildAction[];
     /**
      * Pattern of artifacts to exclude.
      */
-    excludesPatterns?: string[];
+    excludesPatterns: string[];
     /**
      * Pattern of artifacts to include.
      */
-    includesPatterns?: string[];
+    includesPatterns: string[];
     /**
      * List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
      */
     repositories: string[];
 }
 
-export interface PermissionTargetBuildActions {
+export interface PermissionTargetBuildAction {
     /**
      * Groups this permission applies for.
      */
-    groups?: outputs.PermissionTargetBuildActionsGroup[];
+    groups?: outputs.PermissionTargetBuildActionGroup[];
     /**
      * Users this permission target applies for.
      */
-    users?: outputs.PermissionTargetBuildActionsUser[];
+    users?: outputs.PermissionTargetBuildActionUser[];
 }
 
-export interface PermissionTargetBuildActionsGroup {
+export interface PermissionTargetBuildActionGroup {
     /**
      * Name of permission.
      */
@@ -1487,7 +1487,7 @@ export interface PermissionTargetBuildActionsGroup {
     permissions: string[];
 }
 
-export interface PermissionTargetBuildActionsUser {
+export interface PermissionTargetBuildActionUser {
     /**
      * Name of permission.
      */
@@ -1496,33 +1496,33 @@ export interface PermissionTargetBuildActionsUser {
 }
 
 export interface PermissionTargetReleaseBundle {
-    actions?: outputs.PermissionTargetReleaseBundleActions;
+    actions?: outputs.PermissionTargetReleaseBundleAction[];
     /**
      * Pattern of artifacts to exclude.
      */
-    excludesPatterns?: string[];
+    excludesPatterns: string[];
     /**
      * Pattern of artifacts to include.
      */
-    includesPatterns?: string[];
+    includesPatterns: string[];
     /**
      * List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
      */
     repositories: string[];
 }
 
-export interface PermissionTargetReleaseBundleActions {
+export interface PermissionTargetReleaseBundleAction {
     /**
      * Groups this permission applies for.
      */
-    groups?: outputs.PermissionTargetReleaseBundleActionsGroup[];
+    groups?: outputs.PermissionTargetReleaseBundleActionGroup[];
     /**
      * Users this permission target applies for.
      */
-    users?: outputs.PermissionTargetReleaseBundleActionsUser[];
+    users?: outputs.PermissionTargetReleaseBundleActionUser[];
 }
 
-export interface PermissionTargetReleaseBundleActionsGroup {
+export interface PermissionTargetReleaseBundleActionGroup {
     /**
      * Name of permission.
      */
@@ -1530,7 +1530,7 @@ export interface PermissionTargetReleaseBundleActionsGroup {
     permissions: string[];
 }
 
-export interface PermissionTargetReleaseBundleActionsUser {
+export interface PermissionTargetReleaseBundleActionUser {
     /**
      * Name of permission.
      */
@@ -1539,33 +1539,33 @@ export interface PermissionTargetReleaseBundleActionsUser {
 }
 
 export interface PermissionTargetRepo {
-    actions?: outputs.PermissionTargetRepoActions;
+    actions?: outputs.PermissionTargetRepoAction[];
     /**
      * Pattern of artifacts to exclude.
      */
-    excludesPatterns?: string[];
+    excludesPatterns: string[];
     /**
      * Pattern of artifacts to include.
      */
-    includesPatterns?: string[];
+    includesPatterns: string[];
     /**
      * List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
      */
     repositories: string[];
 }
 
-export interface PermissionTargetRepoActions {
+export interface PermissionTargetRepoAction {
     /**
      * Groups this permission applies for.
      */
-    groups?: outputs.PermissionTargetRepoActionsGroup[];
+    groups?: outputs.PermissionTargetRepoActionGroup[];
     /**
      * Users this permission target applies for.
      */
-    users?: outputs.PermissionTargetRepoActionsUser[];
+    users?: outputs.PermissionTargetRepoActionUser[];
 }
 
-export interface PermissionTargetRepoActionsGroup {
+export interface PermissionTargetRepoActionGroup {
     /**
      * Name of permission.
      */
@@ -1573,136 +1573,7 @@ export interface PermissionTargetRepoActionsGroup {
     permissions: string[];
 }
 
-export interface PermissionTargetRepoActionsUser {
-    /**
-     * Name of permission.
-     */
-    name: string;
-    permissions: string[];
-}
-
-export interface PermissionTargetsBuild {
-    actions?: outputs.PermissionTargetsBuildActions;
-    /**
-     * Pattern of artifacts to exclude.
-     */
-    excludesPatterns?: string[];
-    /**
-     * Pattern of artifacts to include.
-     */
-    includesPatterns?: string[];
-    /**
-     * List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
-     */
-    repositories: string[];
-}
-
-export interface PermissionTargetsBuildActions {
-    /**
-     * Groups this permission applies for.
-     */
-    groups?: outputs.PermissionTargetsBuildActionsGroup[];
-    /**
-     * Users this permission target applies for.
-     */
-    users?: outputs.PermissionTargetsBuildActionsUser[];
-}
-
-export interface PermissionTargetsBuildActionsGroup {
-    /**
-     * Name of permission.
-     */
-    name: string;
-    permissions: string[];
-}
-
-export interface PermissionTargetsBuildActionsUser {
-    /**
-     * Name of permission.
-     */
-    name: string;
-    permissions: string[];
-}
-
-export interface PermissionTargetsReleaseBundle {
-    actions?: outputs.PermissionTargetsReleaseBundleActions;
-    /**
-     * Pattern of artifacts to exclude.
-     */
-    excludesPatterns?: string[];
-    /**
-     * Pattern of artifacts to include.
-     */
-    includesPatterns?: string[];
-    /**
-     * List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
-     */
-    repositories: string[];
-}
-
-export interface PermissionTargetsReleaseBundleActions {
-    /**
-     * Groups this permission applies for.
-     */
-    groups?: outputs.PermissionTargetsReleaseBundleActionsGroup[];
-    /**
-     * Users this permission target applies for.
-     */
-    users?: outputs.PermissionTargetsReleaseBundleActionsUser[];
-}
-
-export interface PermissionTargetsReleaseBundleActionsGroup {
-    /**
-     * Name of permission.
-     */
-    name: string;
-    permissions: string[];
-}
-
-export interface PermissionTargetsReleaseBundleActionsUser {
-    /**
-     * Name of permission.
-     */
-    name: string;
-    permissions: string[];
-}
-
-export interface PermissionTargetsRepo {
-    actions?: outputs.PermissionTargetsRepoActions;
-    /**
-     * Pattern of artifacts to exclude.
-     */
-    excludesPatterns?: string[];
-    /**
-     * Pattern of artifacts to include.
-     */
-    includesPatterns?: string[];
-    /**
-     * List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
-     */
-    repositories: string[];
-}
-
-export interface PermissionTargetsRepoActions {
-    /**
-     * Groups this permission applies for.
-     */
-    groups?: outputs.PermissionTargetsRepoActionsGroup[];
-    /**
-     * Users this permission target applies for.
-     */
-    users?: outputs.PermissionTargetsRepoActionsUser[];
-}
-
-export interface PermissionTargetsRepoActionsGroup {
-    /**
-     * Name of permission.
-     */
-    name: string;
-    permissions: string[];
-}
-
-export interface PermissionTargetsRepoActionsUser {
+export interface PermissionTargetRepoActionUser {
     /**
      * Name of permission.
      */
