@@ -17,8 +17,8 @@ import * as utilities from "./utilities";
  *
  * // Create a new Artifactory permission target called testpermission
  * const test_perm = new artifactory.PermissionTarget("test-perm", {
- *     build: {
- *         actions: {
+ *     builds: [{
+ *         actions: [{
  *             users: [{
  *                 name: "anonymous",
  *                 permissions: [
@@ -26,22 +26,22 @@ import * as utilities from "./utilities";
  *                     "write",
  *                 ],
  *             }],
- *         },
+ *         }],
  *         includesPatterns: ["**"],
  *         repositories: ["artifactory-build-info"],
- *     },
- *     releaseBundle: {
- *         actions: {
+ *     }],
+ *     releaseBundles: [{
+ *         actions: [{
  *             users: [{
  *                 name: "anonymous",
  *                 permissions: ["read"],
  *             }],
- *         },
+ *         }],
  *         includesPatterns: ["**"],
  *         repositories: ["release-bundles"],
- *     },
- *     repo: {
- *         actions: {
+ *     }],
+ *     repos: [{
+ *         actions: [{
  *             groups: [{
  *                 name: "readers",
  *                 permissions: ["read"],
@@ -53,11 +53,11 @@ import * as utilities from "./utilities";
  *                     "write",
  *                 ],
  *             }],
- *         },
+ *         }],
  *         excludesPatterns: ["bar/**"],
  *         includesPatterns: ["foo/**"],
  *         repositories: ["example-repo-local"],
- *     },
+ *     }],
  * });
  * ```
  * ## Permissions
@@ -121,7 +121,7 @@ export class PermissionTarget extends pulumi.CustomResource {
     /**
      * As for repo but for artifactory-build-info permissions.
      */
-    public readonly build!: pulumi.Output<outputs.PermissionTargetBuild | undefined>;
+    public readonly builds!: pulumi.Output<outputs.PermissionTargetBuild[] | undefined>;
     /**
      * Name of permission.
      */
@@ -129,11 +129,11 @@ export class PermissionTarget extends pulumi.CustomResource {
     /**
      * As for repo for for release-bundles permissions.
      */
-    public readonly releaseBundle!: pulumi.Output<outputs.PermissionTargetReleaseBundle | undefined>;
+    public readonly releaseBundles!: pulumi.Output<outputs.PermissionTargetReleaseBundle[] | undefined>;
     /**
      * Repository permission configuration.
      */
-    public readonly repo!: pulumi.Output<outputs.PermissionTargetRepo | undefined>;
+    public readonly repos!: pulumi.Output<outputs.PermissionTargetRepo[] | undefined>;
 
     /**
      * Create a PermissionTarget resource with the given unique name, arguments, and options.
@@ -148,16 +148,16 @@ export class PermissionTarget extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PermissionTargetState | undefined;
-            resourceInputs["build"] = state ? state.build : undefined;
+            resourceInputs["builds"] = state ? state.builds : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["releaseBundle"] = state ? state.releaseBundle : undefined;
-            resourceInputs["repo"] = state ? state.repo : undefined;
+            resourceInputs["releaseBundles"] = state ? state.releaseBundles : undefined;
+            resourceInputs["repos"] = state ? state.repos : undefined;
         } else {
             const args = argsOrState as PermissionTargetArgs | undefined;
-            resourceInputs["build"] = args ? args.build : undefined;
+            resourceInputs["builds"] = args ? args.builds : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["releaseBundle"] = args ? args.releaseBundle : undefined;
-            resourceInputs["repo"] = args ? args.repo : undefined;
+            resourceInputs["releaseBundles"] = args ? args.releaseBundles : undefined;
+            resourceInputs["repos"] = args ? args.repos : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(PermissionTarget.__pulumiType, name, resourceInputs, opts);
@@ -171,7 +171,7 @@ export interface PermissionTargetState {
     /**
      * As for repo but for artifactory-build-info permissions.
      */
-    build?: pulumi.Input<inputs.PermissionTargetBuild>;
+    builds?: pulumi.Input<pulumi.Input<inputs.PermissionTargetBuild>[]>;
     /**
      * Name of permission.
      */
@@ -179,11 +179,11 @@ export interface PermissionTargetState {
     /**
      * As for repo for for release-bundles permissions.
      */
-    releaseBundle?: pulumi.Input<inputs.PermissionTargetReleaseBundle>;
+    releaseBundles?: pulumi.Input<pulumi.Input<inputs.PermissionTargetReleaseBundle>[]>;
     /**
      * Repository permission configuration.
      */
-    repo?: pulumi.Input<inputs.PermissionTargetRepo>;
+    repos?: pulumi.Input<pulumi.Input<inputs.PermissionTargetRepo>[]>;
 }
 
 /**
@@ -193,7 +193,7 @@ export interface PermissionTargetArgs {
     /**
      * As for repo but for artifactory-build-info permissions.
      */
-    build?: pulumi.Input<inputs.PermissionTargetBuild>;
+    builds?: pulumi.Input<pulumi.Input<inputs.PermissionTargetBuild>[]>;
     /**
      * Name of permission.
      */
@@ -201,9 +201,9 @@ export interface PermissionTargetArgs {
     /**
      * As for repo for for release-bundles permissions.
      */
-    releaseBundle?: pulumi.Input<inputs.PermissionTargetReleaseBundle>;
+    releaseBundles?: pulumi.Input<pulumi.Input<inputs.PermissionTargetReleaseBundle>[]>;
     /**
      * Repository permission configuration.
      */
-    repo?: pulumi.Input<inputs.PermissionTargetRepo>;
+    repos?: pulumi.Input<pulumi.Input<inputs.PermissionTargetRepo>[]>;
 }

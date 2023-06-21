@@ -198,8 +198,6 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &OauthSettings{}
 	case "artifactory:index/permissionTarget:PermissionTarget":
 		r = &PermissionTarget{}
-	case "artifactory:index/permissionTargets:PermissionTargets":
-		r = &PermissionTargets{}
 	case "artifactory:index/propertySet:PropertySet":
 		r = &PropertySet{}
 	case "artifactory:index/proxy:Proxy":
@@ -809,11 +807,6 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"artifactory",
 		"index/permissionTarget",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"artifactory",
-		"index/permissionTargets",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

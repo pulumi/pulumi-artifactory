@@ -13,7 +13,7 @@ namespace Pulumi.Artifactory.Outputs
     [OutputType]
     public sealed class PermissionTargetRepo
     {
-        public readonly Outputs.PermissionTargetRepoActions? Actions;
+        public readonly ImmutableArray<Outputs.PermissionTargetRepoAction> Actions;
         /// <summary>
         /// Pattern of artifacts to exclude.
         /// </summary>
@@ -29,7 +29,7 @@ namespace Pulumi.Artifactory.Outputs
 
         [OutputConstructor]
         private PermissionTargetRepo(
-            Outputs.PermissionTargetRepoActions? actions,
+            ImmutableArray<Outputs.PermissionTargetRepoAction> actions,
 
             ImmutableArray<string> excludesPatterns,
 

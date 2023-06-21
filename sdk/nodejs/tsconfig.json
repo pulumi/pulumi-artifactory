@@ -232,7 +232,6 @@
         "mavenRepository.ts",
         "oauthSettings.ts",
         "permissionTarget.ts",
-        "permissionTargets.ts",
         "propertySet.ts",
         "provider.ts",
         "proxy.ts",
