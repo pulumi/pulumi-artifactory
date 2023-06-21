@@ -112,6 +112,24 @@ import * as utilities from "./utilities";
  *     username: "fixeddate",
  * });
  * ```
+ * ### Rotate token after it expires
+ * This example will generate a token that will expire in 1 hour.
+ *
+ * If `pulumi up` is run before 1 hour, nothing changes.
+ * One an hour has passed, `pulumi up` will generate a new token.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ * import * as time from "@pulumiverse/time";
+ *
+ * const nowPlus1Hours = new time.Rotating("nowPlus1Hours", {rotationHours: 1});
+ * const rotating = new artifactory.AccessToken("rotating", {
+ *     username: "rotating",
+ *     endDate: time_rotating.now_plus_1_hour.rotation_rfc3339,
+ *     groups: ["readers"],
+ * });
+ * ```
  * ## References
  *
  * - https://www.jfrog.com/confluence/display/ACC1X/Access+Tokens

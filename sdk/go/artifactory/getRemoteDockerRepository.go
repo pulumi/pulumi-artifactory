@@ -59,6 +59,7 @@ type LookupRemoteDockerRepositoryArgs struct {
 	ClientTlsCertificate   *string                                          `pulumi:"clientTlsCertificate"`
 	ContentSynchronisation *GetRemoteDockerRepositoryContentSynchronisation `pulumi:"contentSynchronisation"`
 	Description            *string                                          `pulumi:"description"`
+	DisableProxy           *bool                                            `pulumi:"disableProxy"`
 	DownloadDirect         *bool                                            `pulumi:"downloadDirect"`
 	EnableCookieManagement *bool                                            `pulumi:"enableCookieManagement"`
 	// (Optional) Enable token (Bearer) based authentication.
@@ -112,6 +113,7 @@ type LookupRemoteDockerRepositoryResult struct {
 	ClientTlsCertificate   string                                          `pulumi:"clientTlsCertificate"`
 	ContentSynchronisation GetRemoteDockerRepositoryContentSynchronisation `pulumi:"contentSynchronisation"`
 	Description            *string                                         `pulumi:"description"`
+	DisableProxy           *bool                                           `pulumi:"disableProxy"`
 	DownloadDirect         *bool                                           `pulumi:"downloadDirect"`
 	EnableCookieManagement *bool                                           `pulumi:"enableCookieManagement"`
 	// (Optional) Enable token (Bearer) based authentication.
@@ -180,6 +182,7 @@ type LookupRemoteDockerRepositoryOutputArgs struct {
 	ClientTlsCertificate   pulumi.StringPtrInput                                   `pulumi:"clientTlsCertificate"`
 	ContentSynchronisation GetRemoteDockerRepositoryContentSynchronisationPtrInput `pulumi:"contentSynchronisation"`
 	Description            pulumi.StringPtrInput                                   `pulumi:"description"`
+	DisableProxy           pulumi.BoolPtrInput                                     `pulumi:"disableProxy"`
 	DownloadDirect         pulumi.BoolPtrInput                                     `pulumi:"downloadDirect"`
 	EnableCookieManagement pulumi.BoolPtrInput                                     `pulumi:"enableCookieManagement"`
 	// (Optional) Enable token (Bearer) based authentication.
@@ -280,6 +283,10 @@ func (o LookupRemoteDockerRepositoryResultOutput) ContentSynchronisation() GetRe
 
 func (o LookupRemoteDockerRepositoryResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRemoteDockerRepositoryResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupRemoteDockerRepositoryResultOutput) DisableProxy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupRemoteDockerRepositoryResult) *bool { return v.DisableProxy }).(pulumi.BoolPtrOutput)
 }
 
 func (o LookupRemoteDockerRepositoryResultOutput) DownloadDirect() pulumi.BoolPtrOutput {

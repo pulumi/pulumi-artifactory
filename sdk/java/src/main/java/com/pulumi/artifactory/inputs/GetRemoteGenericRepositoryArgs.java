@@ -82,6 +82,13 @@ public final class GetRemoteGenericRepositoryArgs extends com.pulumi.resources.I
         return Optional.ofNullable(this.description);
     }
 
+    @Import(name="disableProxy")
+    private @Nullable Output<Boolean> disableProxy;
+
+    public Optional<Output<Boolean>> disableProxy() {
+        return Optional.ofNullable(this.disableProxy);
+    }
+
     @Import(name="downloadDirect")
     private @Nullable Output<Boolean> downloadDirect;
 
@@ -334,6 +341,7 @@ public final class GetRemoteGenericRepositoryArgs extends com.pulumi.resources.I
         this.clientTlsCertificate = $.clientTlsCertificate;
         this.contentSynchronisation = $.contentSynchronisation;
         this.description = $.description;
+        this.disableProxy = $.disableProxy;
         this.downloadDirect = $.downloadDirect;
         this.enableCookieManagement = $.enableCookieManagement;
         this.excludesPattern = $.excludesPattern;
@@ -465,6 +473,15 @@ public final class GetRemoteGenericRepositoryArgs extends com.pulumi.resources.I
 
         public Builder description(String description) {
             return description(Output.of(description));
+        }
+
+        public Builder disableProxy(@Nullable Output<Boolean> disableProxy) {
+            $.disableProxy = disableProxy;
+            return this;
+        }
+
+        public Builder disableProxy(Boolean disableProxy) {
+            return disableProxy(Output.of(disableProxy));
         }
 
         public Builder downloadDirect(@Nullable Output<Boolean> downloadDirect) {

@@ -33,6 +33,7 @@ export function getRemoteChefRepository(args: GetRemoteChefRepositoryArgs, opts?
         "clientTlsCertificate": args.clientTlsCertificate,
         "contentSynchronisation": args.contentSynchronisation,
         "description": args.description,
+        "disableProxy": args.disableProxy,
         "downloadDirect": args.downloadDirect,
         "enableCookieManagement": args.enableCookieManagement,
         "excludesPattern": args.excludesPattern,
@@ -80,6 +81,7 @@ export interface GetRemoteChefRepositoryArgs {
     clientTlsCertificate?: string;
     contentSynchronisation?: inputs.GetRemoteChefRepositoryContentSynchronisation;
     description?: string;
+    disableProxy?: boolean;
     downloadDirect?: boolean;
     enableCookieManagement?: boolean;
     excludesPattern?: string;
@@ -129,6 +131,7 @@ export interface GetRemoteChefRepositoryResult {
     readonly clientTlsCertificate: string;
     readonly contentSynchronisation: outputs.GetRemoteChefRepositoryContentSynchronisation;
     readonly description?: string;
+    readonly disableProxy?: boolean;
     readonly downloadDirect?: boolean;
     readonly enableCookieManagement?: boolean;
     readonly excludesPattern?: string;
@@ -197,6 +200,7 @@ export interface GetRemoteChefRepositoryOutputArgs {
     clientTlsCertificate?: pulumi.Input<string>;
     contentSynchronisation?: pulumi.Input<inputs.GetRemoteChefRepositoryContentSynchronisationArgs>;
     description?: pulumi.Input<string>;
+    disableProxy?: pulumi.Input<boolean>;
     downloadDirect?: pulumi.Input<boolean>;
     enableCookieManagement?: pulumi.Input<boolean>;
     excludesPattern?: pulumi.Input<string>;
