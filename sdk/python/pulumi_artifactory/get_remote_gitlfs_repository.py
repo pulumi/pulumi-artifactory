@@ -23,7 +23,7 @@ class GetRemoteGitlfsRepositoryResult:
     """
     A collection of values returned by getRemoteGitlfsRepository.
     """
-    def __init__(__self__, allow_any_host_auth=None, assumed_offline_period_secs=None, blacked_out=None, block_mismatching_mime_types=None, bypass_head_requests=None, cdn_redirect=None, client_tls_certificate=None, content_synchronisation=None, description=None, download_direct=None, enable_cookie_management=None, excludes_pattern=None, hard_fail=None, id=None, includes_pattern=None, key=None, list_remote_folder_items=None, local_address=None, metadata_retrieval_timeout_secs=None, mismatching_mime_types_override_list=None, missed_cache_period_seconds=None, notes=None, offline=None, package_type=None, password=None, priority_resolution=None, project_environments=None, project_key=None, property_sets=None, proxy=None, query_params=None, remote_repo_layout_ref=None, repo_layout_ref=None, retrieval_cache_period_seconds=None, share_configuration=None, socket_timeout_millis=None, store_artifacts_locally=None, synchronize_properties=None, unused_artifacts_cleanup_period_hours=None, url=None, username=None, xray_index=None):
+    def __init__(__self__, allow_any_host_auth=None, assumed_offline_period_secs=None, blacked_out=None, block_mismatching_mime_types=None, bypass_head_requests=None, cdn_redirect=None, client_tls_certificate=None, content_synchronisation=None, description=None, disable_proxy=None, download_direct=None, enable_cookie_management=None, excludes_pattern=None, hard_fail=None, id=None, includes_pattern=None, key=None, list_remote_folder_items=None, local_address=None, metadata_retrieval_timeout_secs=None, mismatching_mime_types_override_list=None, missed_cache_period_seconds=None, notes=None, offline=None, package_type=None, password=None, priority_resolution=None, project_environments=None, project_key=None, property_sets=None, proxy=None, query_params=None, remote_repo_layout_ref=None, repo_layout_ref=None, retrieval_cache_period_seconds=None, share_configuration=None, socket_timeout_millis=None, store_artifacts_locally=None, synchronize_properties=None, unused_artifacts_cleanup_period_hours=None, url=None, username=None, xray_index=None):
         if allow_any_host_auth and not isinstance(allow_any_host_auth, bool):
             raise TypeError("Expected argument 'allow_any_host_auth' to be a bool")
         pulumi.set(__self__, "allow_any_host_auth", allow_any_host_auth)
@@ -51,6 +51,9 @@ class GetRemoteGitlfsRepositoryResult:
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if disable_proxy and not isinstance(disable_proxy, bool):
+            raise TypeError("Expected argument 'disable_proxy' to be a bool")
+        pulumi.set(__self__, "disable_proxy", disable_proxy)
         if download_direct and not isinstance(download_direct, bool):
             raise TypeError("Expected argument 'download_direct' to be a bool")
         pulumi.set(__self__, "download_direct", download_direct)
@@ -195,6 +198,11 @@ class GetRemoteGitlfsRepositoryResult:
     @pulumi.getter
     def description(self) -> Optional[str]:
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="disableProxy")
+    def disable_proxy(self) -> Optional[bool]:
+        return pulumi.get(self, "disable_proxy")
 
     @property
     @pulumi.getter(name="downloadDirect")
@@ -380,6 +388,7 @@ class AwaitableGetRemoteGitlfsRepositoryResult(GetRemoteGitlfsRepositoryResult):
             client_tls_certificate=self.client_tls_certificate,
             content_synchronisation=self.content_synchronisation,
             description=self.description,
+            disable_proxy=self.disable_proxy,
             download_direct=self.download_direct,
             enable_cookie_management=self.enable_cookie_management,
             excludes_pattern=self.excludes_pattern,
@@ -424,6 +433,7 @@ def get_remote_gitlfs_repository(allow_any_host_auth: Optional[bool] = None,
                                  client_tls_certificate: Optional[str] = None,
                                  content_synchronisation: Optional[pulumi.InputType['GetRemoteGitlfsRepositoryContentSynchronisationArgs']] = None,
                                  description: Optional[str] = None,
+                                 disable_proxy: Optional[bool] = None,
                                  download_direct: Optional[bool] = None,
                                  enable_cookie_management: Optional[bool] = None,
                                  excludes_pattern: Optional[str] = None,
@@ -481,6 +491,7 @@ def get_remote_gitlfs_repository(allow_any_host_auth: Optional[bool] = None,
     __args__['clientTlsCertificate'] = client_tls_certificate
     __args__['contentSynchronisation'] = content_synchronisation
     __args__['description'] = description
+    __args__['disableProxy'] = disable_proxy
     __args__['downloadDirect'] = download_direct
     __args__['enableCookieManagement'] = enable_cookie_management
     __args__['excludesPattern'] = excludes_pattern
@@ -525,6 +536,7 @@ def get_remote_gitlfs_repository(allow_any_host_auth: Optional[bool] = None,
         client_tls_certificate=__ret__.client_tls_certificate,
         content_synchronisation=__ret__.content_synchronisation,
         description=__ret__.description,
+        disable_proxy=__ret__.disable_proxy,
         download_direct=__ret__.download_direct,
         enable_cookie_management=__ret__.enable_cookie_management,
         excludes_pattern=__ret__.excludes_pattern,
@@ -570,6 +582,7 @@ def get_remote_gitlfs_repository_output(allow_any_host_auth: Optional[pulumi.Inp
                                         client_tls_certificate: Optional[pulumi.Input[Optional[str]]] = None,
                                         content_synchronisation: Optional[pulumi.Input[Optional[pulumi.InputType['GetRemoteGitlfsRepositoryContentSynchronisationArgs']]]] = None,
                                         description: Optional[pulumi.Input[Optional[str]]] = None,
+                                        disable_proxy: Optional[pulumi.Input[Optional[bool]]] = None,
                                         download_direct: Optional[pulumi.Input[Optional[bool]]] = None,
                                         enable_cookie_management: Optional[pulumi.Input[Optional[bool]]] = None,
                                         excludes_pattern: Optional[pulumi.Input[Optional[str]]] = None,

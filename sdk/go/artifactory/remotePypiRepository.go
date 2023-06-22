@@ -81,6 +81,9 @@ type RemotePypiRepository struct {
 	ContentSynchronisation RemotePypiRepositoryContentSynchronisationOutput `pulumi:"contentSynchronisation"`
 	// Public description.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
+	// for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
+	DisableProxy pulumi.BoolPtrOutput `pulumi:"disableProxy"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
 	// storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
 	DownloadDirect pulumi.BoolPtrOutput `pulumi:"downloadDirect"`
@@ -133,7 +136,7 @@ type RemotePypiRepository struct {
 	ProjectKey pulumi.StringPtrOutput `pulumi:"projectKey"`
 	// List of property set names
 	PropertySets pulumi.StringArrayOutput `pulumi:"propertySets"`
-	// Proxy key from Artifactory Proxies settings
+	// Proxy key from Artifactory Proxies settings. Can't be set if `disable_proxy = true`.
 	Proxy pulumi.StringPtrOutput `pulumi:"proxy"`
 	// To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another Artifactory server. See JFrog Pypi documentation [here](https://www.jfrog.com/confluence/display/JFROG/PyPI+Repositories) for the usage details. Default value is `https://pypi.org`.
 	PypiRegistryUrl pulumi.StringPtrOutput `pulumi:"pypiRegistryUrl"`
@@ -142,7 +145,9 @@ type RemotePypiRepository struct {
 	// Custom HTTP query parameters that will be automatically included in all remote resource requests. For example:
 	// `param1=val1&param2=val2&param3=val3`
 	QueryParams pulumi.StringPtrOutput `pulumi:"queryParams"`
-	// Repository layout key for the remote layout mapping.
+	// Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an
+	// empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be
+	// ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
 	RemoteRepoLayoutRef pulumi.StringPtrOutput `pulumi:"remoteRepoLayoutRef"`
 	// Repository layout key for the local repository
 	RepoLayoutRef pulumi.StringPtrOutput `pulumi:"repoLayoutRef"`
@@ -239,6 +244,9 @@ type remotePypiRepositoryState struct {
 	ContentSynchronisation *RemotePypiRepositoryContentSynchronisation `pulumi:"contentSynchronisation"`
 	// Public description.
 	Description *string `pulumi:"description"`
+	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
+	// for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
+	DisableProxy *bool `pulumi:"disableProxy"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
 	// storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
 	DownloadDirect *bool `pulumi:"downloadDirect"`
@@ -291,7 +299,7 @@ type remotePypiRepositoryState struct {
 	ProjectKey *string `pulumi:"projectKey"`
 	// List of property set names
 	PropertySets []string `pulumi:"propertySets"`
-	// Proxy key from Artifactory Proxies settings
+	// Proxy key from Artifactory Proxies settings. Can't be set if `disable_proxy = true`.
 	Proxy *string `pulumi:"proxy"`
 	// To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another Artifactory server. See JFrog Pypi documentation [here](https://www.jfrog.com/confluence/display/JFROG/PyPI+Repositories) for the usage details. Default value is `https://pypi.org`.
 	PypiRegistryUrl *string `pulumi:"pypiRegistryUrl"`
@@ -300,7 +308,9 @@ type remotePypiRepositoryState struct {
 	// Custom HTTP query parameters that will be automatically included in all remote resource requests. For example:
 	// `param1=val1&param2=val2&param3=val3`
 	QueryParams *string `pulumi:"queryParams"`
-	// Repository layout key for the remote layout mapping.
+	// Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an
+	// empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be
+	// ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
 	RemoteRepoLayoutRef *string `pulumi:"remoteRepoLayoutRef"`
 	// Repository layout key for the local repository
 	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
@@ -356,6 +366,9 @@ type RemotePypiRepositoryState struct {
 	ContentSynchronisation RemotePypiRepositoryContentSynchronisationPtrInput
 	// Public description.
 	Description pulumi.StringPtrInput
+	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
+	// for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
+	DisableProxy pulumi.BoolPtrInput
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
 	// storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
 	DownloadDirect pulumi.BoolPtrInput
@@ -408,7 +421,7 @@ type RemotePypiRepositoryState struct {
 	ProjectKey pulumi.StringPtrInput
 	// List of property set names
 	PropertySets pulumi.StringArrayInput
-	// Proxy key from Artifactory Proxies settings
+	// Proxy key from Artifactory Proxies settings. Can't be set if `disable_proxy = true`.
 	Proxy pulumi.StringPtrInput
 	// To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another Artifactory server. See JFrog Pypi documentation [here](https://www.jfrog.com/confluence/display/JFROG/PyPI+Repositories) for the usage details. Default value is `https://pypi.org`.
 	PypiRegistryUrl pulumi.StringPtrInput
@@ -417,7 +430,9 @@ type RemotePypiRepositoryState struct {
 	// Custom HTTP query parameters that will be automatically included in all remote resource requests. For example:
 	// `param1=val1&param2=val2&param3=val3`
 	QueryParams pulumi.StringPtrInput
-	// Repository layout key for the remote layout mapping.
+	// Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an
+	// empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be
+	// ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
 	RemoteRepoLayoutRef pulumi.StringPtrInput
 	// Repository layout key for the local repository
 	RepoLayoutRef pulumi.StringPtrInput
@@ -477,6 +492,9 @@ type remotePypiRepositoryArgs struct {
 	ContentSynchronisation *RemotePypiRepositoryContentSynchronisation `pulumi:"contentSynchronisation"`
 	// Public description.
 	Description *string `pulumi:"description"`
+	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
+	// for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
+	DisableProxy *bool `pulumi:"disableProxy"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
 	// storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
 	DownloadDirect *bool `pulumi:"downloadDirect"`
@@ -528,7 +546,7 @@ type remotePypiRepositoryArgs struct {
 	ProjectKey *string `pulumi:"projectKey"`
 	// List of property set names
 	PropertySets []string `pulumi:"propertySets"`
-	// Proxy key from Artifactory Proxies settings
+	// Proxy key from Artifactory Proxies settings. Can't be set if `disable_proxy = true`.
 	Proxy *string `pulumi:"proxy"`
 	// To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another Artifactory server. See JFrog Pypi documentation [here](https://www.jfrog.com/confluence/display/JFROG/PyPI+Repositories) for the usage details. Default value is `https://pypi.org`.
 	PypiRegistryUrl *string `pulumi:"pypiRegistryUrl"`
@@ -537,7 +555,9 @@ type remotePypiRepositoryArgs struct {
 	// Custom HTTP query parameters that will be automatically included in all remote resource requests. For example:
 	// `param1=val1&param2=val2&param3=val3`
 	QueryParams *string `pulumi:"queryParams"`
-	// Repository layout key for the remote layout mapping.
+	// Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an
+	// empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be
+	// ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
 	RemoteRepoLayoutRef *string `pulumi:"remoteRepoLayoutRef"`
 	// Repository layout key for the local repository
 	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
@@ -594,6 +614,9 @@ type RemotePypiRepositoryArgs struct {
 	ContentSynchronisation RemotePypiRepositoryContentSynchronisationPtrInput
 	// Public description.
 	Description pulumi.StringPtrInput
+	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
+	// for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
+	DisableProxy pulumi.BoolPtrInput
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
 	// storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
 	DownloadDirect pulumi.BoolPtrInput
@@ -645,7 +668,7 @@ type RemotePypiRepositoryArgs struct {
 	ProjectKey pulumi.StringPtrInput
 	// List of property set names
 	PropertySets pulumi.StringArrayInput
-	// Proxy key from Artifactory Proxies settings
+	// Proxy key from Artifactory Proxies settings. Can't be set if `disable_proxy = true`.
 	Proxy pulumi.StringPtrInput
 	// To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another Artifactory server. See JFrog Pypi documentation [here](https://www.jfrog.com/confluence/display/JFROG/PyPI+Repositories) for the usage details. Default value is `https://pypi.org`.
 	PypiRegistryUrl pulumi.StringPtrInput
@@ -654,7 +677,9 @@ type RemotePypiRepositoryArgs struct {
 	// Custom HTTP query parameters that will be automatically included in all remote resource requests. For example:
 	// `param1=val1&param2=val2&param3=val3`
 	QueryParams pulumi.StringPtrInput
-	// Repository layout key for the remote layout mapping.
+	// Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an
+	// empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be
+	// ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
 	RemoteRepoLayoutRef pulumi.StringPtrInput
 	// Repository layout key for the local repository
 	RepoLayoutRef pulumi.StringPtrInput
@@ -825,6 +850,12 @@ func (o RemotePypiRepositoryOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RemotePypiRepository) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
+// for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
+func (o RemotePypiRepositoryOutput) DisableProxy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RemotePypiRepository) pulumi.BoolPtrOutput { return v.DisableProxy }).(pulumi.BoolPtrOutput)
+}
+
 // When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
 // storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
 func (o RemotePypiRepositoryOutput) DownloadDirect() pulumi.BoolPtrOutput {
@@ -934,7 +965,7 @@ func (o RemotePypiRepositoryOutput) PropertySets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RemotePypiRepository) pulumi.StringArrayOutput { return v.PropertySets }).(pulumi.StringArrayOutput)
 }
 
-// Proxy key from Artifactory Proxies settings
+// Proxy key from Artifactory Proxies settings. Can't be set if `disable_proxy = true`.
 func (o RemotePypiRepositoryOutput) Proxy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RemotePypiRepository) pulumi.StringPtrOutput { return v.Proxy }).(pulumi.StringPtrOutput)
 }
@@ -955,7 +986,9 @@ func (o RemotePypiRepositoryOutput) QueryParams() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RemotePypiRepository) pulumi.StringPtrOutput { return v.QueryParams }).(pulumi.StringPtrOutput)
 }
 
-// Repository layout key for the remote layout mapping.
+// Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an
+// empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be
+// ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
 func (o RemotePypiRepositoryOutput) RemoteRepoLayoutRef() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RemotePypiRepository) pulumi.StringPtrOutput { return v.RemoteRepoLayoutRef }).(pulumi.StringPtrOutput)
 }
