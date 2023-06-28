@@ -27,6 +27,7 @@ class RemoteTerraformRepositoryArgs:
                  client_tls_certificate: Optional[pulumi.Input[str]] = None,
                  content_synchronisation: Optional[pulumi.Input['RemoteTerraformRepositoryContentSynchronisationArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 disable_proxy: Optional[pulumi.Input[bool]] = None,
                  download_direct: Optional[pulumi.Input[bool]] = None,
                  enable_cookie_management: Optional[pulumi.Input[bool]] = None,
                  excludes_pattern: Optional[pulumi.Input[str]] = None,
@@ -80,6 +81,8 @@ class RemoteTerraformRepositoryArgs:
                CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         :param pulumi.Input[str] client_tls_certificate: Client TLS certificate name.
         :param pulumi.Input[str] description: Public description.
+        :param pulumi.Input[bool] disable_proxy: When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
+               for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
         :param pulumi.Input[bool] enable_cookie_management: Enables cookie management if the remote repository uses cookies to manage client state.
@@ -111,10 +114,12 @@ class RemoteTerraformRepositoryArgs:
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set names
-        :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies settings
+        :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies settings. Can't be set if `disable_proxy = true`.
         :param pulumi.Input[str] query_params: Custom HTTP query parameters that will be automatically included in all remote resource requests. For example:
                `param1=val1&param2=val2&param3=val3`
-        :param pulumi.Input[str] remote_repo_layout_ref: Repository layout key for the remote layout mapping.
+        :param pulumi.Input[str] remote_repo_layout_ref: Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an
+               empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be
+               ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
         :param pulumi.Input[int] retrieval_cache_period_seconds: Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files
                before checking for newer versions on remote server. A value of 0 indicates no caching.
@@ -154,6 +159,8 @@ class RemoteTerraformRepositoryArgs:
             pulumi.set(__self__, "content_synchronisation", content_synchronisation)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if disable_proxy is not None:
+            pulumi.set(__self__, "disable_proxy", disable_proxy)
         if download_direct is not None:
             pulumi.set(__self__, "download_direct", download_direct)
         if enable_cookie_management is not None:
@@ -355,6 +362,19 @@ class RemoteTerraformRepositoryArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="disableProxy")
+    def disable_proxy(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
+        for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
+        """
+        return pulumi.get(self, "disable_proxy")
+
+    @disable_proxy.setter
+    def disable_proxy(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "disable_proxy", value)
 
     @property
     @pulumi.getter(name="downloadDirect")
@@ -576,7 +596,7 @@ class RemoteTerraformRepositoryArgs:
     @pulumi.getter
     def proxy(self) -> Optional[pulumi.Input[str]]:
         """
-        Proxy key from Artifactory Proxies settings
+        Proxy key from Artifactory Proxies settings. Can't be set if `disable_proxy = true`.
         """
         return pulumi.get(self, "proxy")
 
@@ -601,7 +621,9 @@ class RemoteTerraformRepositoryArgs:
     @pulumi.getter(name="remoteRepoLayoutRef")
     def remote_repo_layout_ref(self) -> Optional[pulumi.Input[str]]:
         """
-        Repository layout key for the remote layout mapping.
+        Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an
+        empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be
+        ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
         """
         return pulumi.get(self, "remote_repo_layout_ref")
 
@@ -757,6 +779,7 @@ class _RemoteTerraformRepositoryState:
                  client_tls_certificate: Optional[pulumi.Input[str]] = None,
                  content_synchronisation: Optional[pulumi.Input['RemoteTerraformRepositoryContentSynchronisationArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 disable_proxy: Optional[pulumi.Input[bool]] = None,
                  download_direct: Optional[pulumi.Input[bool]] = None,
                  enable_cookie_management: Optional[pulumi.Input[bool]] = None,
                  excludes_pattern: Optional[pulumi.Input[str]] = None,
@@ -810,6 +833,8 @@ class _RemoteTerraformRepositoryState:
                CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         :param pulumi.Input[str] client_tls_certificate: Client TLS certificate name.
         :param pulumi.Input[str] description: Public description.
+        :param pulumi.Input[bool] disable_proxy: When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
+               for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
         :param pulumi.Input[bool] enable_cookie_management: Enables cookie management if the remote repository uses cookies to manage client state.
@@ -843,10 +868,12 @@ class _RemoteTerraformRepositoryState:
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set names
-        :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies settings
+        :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies settings. Can't be set if `disable_proxy = true`.
         :param pulumi.Input[str] query_params: Custom HTTP query parameters that will be automatically included in all remote resource requests. For example:
                `param1=val1&param2=val2&param3=val3`
-        :param pulumi.Input[str] remote_repo_layout_ref: Repository layout key for the remote layout mapping.
+        :param pulumi.Input[str] remote_repo_layout_ref: Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an
+               empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be
+               ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
         :param pulumi.Input[int] retrieval_cache_period_seconds: Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files
                before checking for newer versions on remote server. A value of 0 indicates no caching.
@@ -885,6 +912,8 @@ class _RemoteTerraformRepositoryState:
             pulumi.set(__self__, "content_synchronisation", content_synchronisation)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if disable_proxy is not None:
+            pulumi.set(__self__, "disable_proxy", disable_proxy)
         if download_direct is not None:
             pulumi.set(__self__, "download_direct", download_direct)
         if enable_cookie_management is not None:
@@ -1067,6 +1096,19 @@ class _RemoteTerraformRepositoryState:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="disableProxy")
+    def disable_proxy(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
+        for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
+        """
+        return pulumi.get(self, "disable_proxy")
+
+    @disable_proxy.setter
+    def disable_proxy(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "disable_proxy", value)
 
     @property
     @pulumi.getter(name="downloadDirect")
@@ -1310,7 +1352,7 @@ class _RemoteTerraformRepositoryState:
     @pulumi.getter
     def proxy(self) -> Optional[pulumi.Input[str]]:
         """
-        Proxy key from Artifactory Proxies settings
+        Proxy key from Artifactory Proxies settings. Can't be set if `disable_proxy = true`.
         """
         return pulumi.get(self, "proxy")
 
@@ -1335,7 +1377,9 @@ class _RemoteTerraformRepositoryState:
     @pulumi.getter(name="remoteRepoLayoutRef")
     def remote_repo_layout_ref(self) -> Optional[pulumi.Input[str]]:
         """
-        Repository layout key for the remote layout mapping.
+        Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an
+        empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be
+        ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
         """
         return pulumi.get(self, "remote_repo_layout_ref")
 
@@ -1505,6 +1549,7 @@ class RemoteTerraformRepository(pulumi.CustomResource):
                  client_tls_certificate: Optional[pulumi.Input[str]] = None,
                  content_synchronisation: Optional[pulumi.Input[pulumi.InputType['RemoteTerraformRepositoryContentSynchronisationArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 disable_proxy: Optional[pulumi.Input[bool]] = None,
                  download_direct: Optional[pulumi.Input[bool]] = None,
                  enable_cookie_management: Optional[pulumi.Input[bool]] = None,
                  excludes_pattern: Optional[pulumi.Input[str]] = None,
@@ -1580,6 +1625,8 @@ class RemoteTerraformRepository(pulumi.CustomResource):
                CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         :param pulumi.Input[str] client_tls_certificate: Client TLS certificate name.
         :param pulumi.Input[str] description: Public description.
+        :param pulumi.Input[bool] disable_proxy: When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
+               for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
         :param pulumi.Input[bool] enable_cookie_management: Enables cookie management if the remote repository uses cookies to manage client state.
@@ -1613,10 +1660,12 @@ class RemoteTerraformRepository(pulumi.CustomResource):
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set names
-        :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies settings
+        :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies settings. Can't be set if `disable_proxy = true`.
         :param pulumi.Input[str] query_params: Custom HTTP query parameters that will be automatically included in all remote resource requests. For example:
                `param1=val1&param2=val2&param3=val3`
-        :param pulumi.Input[str] remote_repo_layout_ref: Repository layout key for the remote layout mapping.
+        :param pulumi.Input[str] remote_repo_layout_ref: Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an
+               empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be
+               ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
         :param pulumi.Input[int] retrieval_cache_period_seconds: Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files
                before checking for newer versions on remote server. A value of 0 indicates no caching.
@@ -1689,6 +1738,7 @@ class RemoteTerraformRepository(pulumi.CustomResource):
                  client_tls_certificate: Optional[pulumi.Input[str]] = None,
                  content_synchronisation: Optional[pulumi.Input[pulumi.InputType['RemoteTerraformRepositoryContentSynchronisationArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 disable_proxy: Optional[pulumi.Input[bool]] = None,
                  download_direct: Optional[pulumi.Input[bool]] = None,
                  enable_cookie_management: Optional[pulumi.Input[bool]] = None,
                  excludes_pattern: Optional[pulumi.Input[str]] = None,
@@ -1740,6 +1790,7 @@ class RemoteTerraformRepository(pulumi.CustomResource):
             __props__.__dict__["client_tls_certificate"] = client_tls_certificate
             __props__.__dict__["content_synchronisation"] = content_synchronisation
             __props__.__dict__["description"] = description
+            __props__.__dict__["disable_proxy"] = disable_proxy
             __props__.__dict__["download_direct"] = download_direct
             __props__.__dict__["enable_cookie_management"] = enable_cookie_management
             __props__.__dict__["excludes_pattern"] = excludes_pattern
@@ -1799,6 +1850,7 @@ class RemoteTerraformRepository(pulumi.CustomResource):
             client_tls_certificate: Optional[pulumi.Input[str]] = None,
             content_synchronisation: Optional[pulumi.Input[pulumi.InputType['RemoteTerraformRepositoryContentSynchronisationArgs']]] = None,
             description: Optional[pulumi.Input[str]] = None,
+            disable_proxy: Optional[pulumi.Input[bool]] = None,
             download_direct: Optional[pulumi.Input[bool]] = None,
             enable_cookie_management: Optional[pulumi.Input[bool]] = None,
             excludes_pattern: Optional[pulumi.Input[str]] = None,
@@ -1857,6 +1909,8 @@ class RemoteTerraformRepository(pulumi.CustomResource):
                CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         :param pulumi.Input[str] client_tls_certificate: Client TLS certificate name.
         :param pulumi.Input[str] description: Public description.
+        :param pulumi.Input[bool] disable_proxy: When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
+               for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
         :param pulumi.Input[bool] enable_cookie_management: Enables cookie management if the remote repository uses cookies to manage client state.
@@ -1890,10 +1944,12 @@ class RemoteTerraformRepository(pulumi.CustomResource):
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set names
-        :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies settings
+        :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies settings. Can't be set if `disable_proxy = true`.
         :param pulumi.Input[str] query_params: Custom HTTP query parameters that will be automatically included in all remote resource requests. For example:
                `param1=val1&param2=val2&param3=val3`
-        :param pulumi.Input[str] remote_repo_layout_ref: Repository layout key for the remote layout mapping.
+        :param pulumi.Input[str] remote_repo_layout_ref: Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an
+               empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be
+               ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
         :param pulumi.Input[int] retrieval_cache_period_seconds: Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files
                before checking for newer versions on remote server. A value of 0 indicates no caching.
@@ -1927,6 +1983,7 @@ class RemoteTerraformRepository(pulumi.CustomResource):
         __props__.__dict__["client_tls_certificate"] = client_tls_certificate
         __props__.__dict__["content_synchronisation"] = content_synchronisation
         __props__.__dict__["description"] = description
+        __props__.__dict__["disable_proxy"] = disable_proxy
         __props__.__dict__["download_direct"] = download_direct
         __props__.__dict__["enable_cookie_management"] = enable_cookie_management
         __props__.__dict__["excludes_pattern"] = excludes_pattern
@@ -2040,6 +2097,15 @@ class RemoteTerraformRepository(pulumi.CustomResource):
         Public description.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="disableProxy")
+    def disable_proxy(self) -> pulumi.Output[Optional[bool]]:
+        """
+        When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
+        for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
+        """
+        return pulumi.get(self, "disable_proxy")
 
     @property
     @pulumi.getter(name="downloadDirect")
@@ -2207,7 +2273,7 @@ class RemoteTerraformRepository(pulumi.CustomResource):
     @pulumi.getter
     def proxy(self) -> pulumi.Output[Optional[str]]:
         """
-        Proxy key from Artifactory Proxies settings
+        Proxy key from Artifactory Proxies settings. Can't be set if `disable_proxy = true`.
         """
         return pulumi.get(self, "proxy")
 
@@ -2224,7 +2290,9 @@ class RemoteTerraformRepository(pulumi.CustomResource):
     @pulumi.getter(name="remoteRepoLayoutRef")
     def remote_repo_layout_ref(self) -> pulumi.Output[Optional[str]]:
         """
-        Repository layout key for the remote layout mapping.
+        Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an
+        empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be
+        ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
         """
         return pulumi.get(self, "remote_repo_layout_ref")
 

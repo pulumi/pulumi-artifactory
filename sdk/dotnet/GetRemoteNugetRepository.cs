@@ -98,6 +98,9 @@ namespace Pulumi.Artifactory
         [Input("description")]
         public string? Description { get; set; }
 
+        [Input("disableProxy")]
+        public bool? DisableProxy { get; set; }
+
         /// <summary>
         /// (Optional) The context path prefix through which NuGet downloads are served. For example, the NuGet Gallery download URL is `https://nuget.org/api/v2/package`, so the repository URL should be configured as `https://nuget.org` and the download context path should be configured as `api/v2/package`. Default value is `api/v2/package`.
         /// </summary>
@@ -274,6 +277,9 @@ namespace Pulumi.Artifactory
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        [Input("disableProxy")]
+        public Input<bool>? DisableProxy { get; set; }
+
         /// <summary>
         /// (Optional) The context path prefix through which NuGet downloads are served. For example, the NuGet Gallery download URL is `https://nuget.org/api/v2/package`, so the repository URL should be configured as `https://nuget.org` and the download context path should be configured as `api/v2/package`. Default value is `api/v2/package`.
         /// </summary>
@@ -438,6 +444,7 @@ namespace Pulumi.Artifactory
         public readonly string ClientTlsCertificate;
         public readonly Outputs.GetRemoteNugetRepositoryContentSynchronisationResult ContentSynchronisation;
         public readonly string? Description;
+        public readonly bool? DisableProxy;
         /// <summary>
         /// (Optional) The context path prefix through which NuGet downloads are served. For example, the NuGet Gallery download URL is `https://nuget.org/api/v2/package`, so the repository URL should be configured as `https://nuget.org` and the download context path should be configured as `api/v2/package`. Default value is `api/v2/package`.
         /// </summary>
@@ -514,6 +521,8 @@ namespace Pulumi.Artifactory
             Outputs.GetRemoteNugetRepositoryContentSynchronisationResult contentSynchronisation,
 
             string? description,
+
+            bool? disableProxy,
 
             string? downloadContextPath,
 
@@ -600,6 +609,7 @@ namespace Pulumi.Artifactory
             ClientTlsCertificate = clientTlsCertificate;
             ContentSynchronisation = contentSynchronisation;
             Description = description;
+            DisableProxy = disableProxy;
             DownloadContextPath = downloadContextPath;
             DownloadDirect = downloadDirect;
             EnableCookieManagement = enableCookieManagement;

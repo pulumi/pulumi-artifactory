@@ -59,6 +59,7 @@ type LookupRemoteComposerRepositoryArgs struct {
 	ComposerRegistryUrl    *string                                            `pulumi:"composerRegistryUrl"`
 	ContentSynchronisation *GetRemoteComposerRepositoryContentSynchronisation `pulumi:"contentSynchronisation"`
 	Description            *string                                            `pulumi:"description"`
+	DisableProxy           *bool                                              `pulumi:"disableProxy"`
 	DownloadDirect         *bool                                              `pulumi:"downloadDirect"`
 	EnableCookieManagement *bool                                              `pulumi:"enableCookieManagement"`
 	ExcludesPattern        *string                                            `pulumi:"excludesPattern"`
@@ -110,6 +111,7 @@ type LookupRemoteComposerRepositoryResult struct {
 	ComposerRegistryUrl    *string                                           `pulumi:"composerRegistryUrl"`
 	ContentSynchronisation GetRemoteComposerRepositoryContentSynchronisation `pulumi:"contentSynchronisation"`
 	Description            *string                                           `pulumi:"description"`
+	DisableProxy           *bool                                             `pulumi:"disableProxy"`
 	DownloadDirect         *bool                                             `pulumi:"downloadDirect"`
 	EnableCookieManagement *bool                                             `pulumi:"enableCookieManagement"`
 	ExcludesPattern        *string                                           `pulumi:"excludesPattern"`
@@ -176,6 +178,7 @@ type LookupRemoteComposerRepositoryOutputArgs struct {
 	ComposerRegistryUrl    pulumi.StringPtrInput                                     `pulumi:"composerRegistryUrl"`
 	ContentSynchronisation GetRemoteComposerRepositoryContentSynchronisationPtrInput `pulumi:"contentSynchronisation"`
 	Description            pulumi.StringPtrInput                                     `pulumi:"description"`
+	DisableProxy           pulumi.BoolPtrInput                                       `pulumi:"disableProxy"`
 	DownloadDirect         pulumi.BoolPtrInput                                       `pulumi:"downloadDirect"`
 	EnableCookieManagement pulumi.BoolPtrInput                                       `pulumi:"enableCookieManagement"`
 	ExcludesPattern        pulumi.StringPtrInput                                     `pulumi:"excludesPattern"`
@@ -274,6 +277,10 @@ func (o LookupRemoteComposerRepositoryResultOutput) ContentSynchronisation() Get
 
 func (o LookupRemoteComposerRepositoryResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRemoteComposerRepositoryResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupRemoteComposerRepositoryResultOutput) DisableProxy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupRemoteComposerRepositoryResult) *bool { return v.DisableProxy }).(pulumi.BoolPtrOutput)
 }
 
 func (o LookupRemoteComposerRepositoryResultOutput) DownloadDirect() pulumi.BoolPtrOutput {

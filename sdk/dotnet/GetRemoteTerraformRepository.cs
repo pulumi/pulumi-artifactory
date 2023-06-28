@@ -94,6 +94,9 @@ namespace Pulumi.Artifactory
         [Input("description")]
         public string? Description { get; set; }
 
+        [Input("disableProxy")]
+        public bool? DisableProxy { get; set; }
+
         [Input("downloadDirect")]
         public bool? DownloadDirect { get; set; }
 
@@ -246,6 +249,9 @@ namespace Pulumi.Artifactory
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        [Input("disableProxy")]
+        public Input<bool>? DisableProxy { get; set; }
+
         [Input("downloadDirect")]
         public Input<bool>? DownloadDirect { get; set; }
 
@@ -386,6 +392,7 @@ namespace Pulumi.Artifactory
         public readonly string ClientTlsCertificate;
         public readonly Outputs.GetRemoteTerraformRepositoryContentSynchronisationResult ContentSynchronisation;
         public readonly string? Description;
+        public readonly bool? DisableProxy;
         public readonly bool? DownloadDirect;
         public readonly bool? EnableCookieManagement;
         public readonly string? ExcludesPattern;
@@ -444,6 +451,8 @@ namespace Pulumi.Artifactory
             Outputs.GetRemoteTerraformRepositoryContentSynchronisationResult contentSynchronisation,
 
             string? description,
+
+            bool? disableProxy,
 
             bool? downloadDirect,
 
@@ -524,6 +533,7 @@ namespace Pulumi.Artifactory
             ClientTlsCertificate = clientTlsCertificate;
             ContentSynchronisation = contentSynchronisation;
             Description = description;
+            DisableProxy = disableProxy;
             DownloadDirect = downloadDirect;
             EnableCookieManagement = enableCookieManagement;
             ExcludesPattern = excludesPattern;

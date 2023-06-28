@@ -83,6 +83,9 @@ type RemoteNugetRepository struct {
 	ContentSynchronisation RemoteNugetRepositoryContentSynchronisationOutput `pulumi:"contentSynchronisation"`
 	// Public description.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
+	// for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
+	DisableProxy pulumi.BoolPtrOutput `pulumi:"disableProxy"`
 	// The context path prefix through which NuGet downloads are served.
 	// For example, the NuGet Gallery download URL is `https://nuget.org/api/v2/package`, so the repository
 	// URL should be configured as `https://nuget.org` and the download context path should be configured as `api/v2/package`. Default value is `api/v2/package`.
@@ -143,12 +146,14 @@ type RemoteNugetRepository struct {
 	ProjectKey pulumi.StringPtrOutput `pulumi:"projectKey"`
 	// List of property set names
 	PropertySets pulumi.StringArrayOutput `pulumi:"propertySets"`
-	// Proxy key from Artifactory Proxies settings
+	// Proxy key from Artifactory Proxies settings. Can't be set if `disable_proxy = true`.
 	Proxy pulumi.StringPtrOutput `pulumi:"proxy"`
 	// Custom HTTP query parameters that will be automatically included in all remote resource requests. For example:
 	// `param1=val1&param2=val2&param3=val3`
 	QueryParams pulumi.StringPtrOutput `pulumi:"queryParams"`
-	// Repository layout key for the remote layout mapping.
+	// Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an
+	// empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be
+	// ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
 	RemoteRepoLayoutRef pulumi.StringPtrOutput `pulumi:"remoteRepoLayoutRef"`
 	// Repository layout key for the local repository
 	RepoLayoutRef pulumi.StringPtrOutput `pulumi:"repoLayoutRef"`
@@ -249,6 +254,9 @@ type remoteNugetRepositoryState struct {
 	ContentSynchronisation *RemoteNugetRepositoryContentSynchronisation `pulumi:"contentSynchronisation"`
 	// Public description.
 	Description *string `pulumi:"description"`
+	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
+	// for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
+	DisableProxy *bool `pulumi:"disableProxy"`
 	// The context path prefix through which NuGet downloads are served.
 	// For example, the NuGet Gallery download URL is `https://nuget.org/api/v2/package`, so the repository
 	// URL should be configured as `https://nuget.org` and the download context path should be configured as `api/v2/package`. Default value is `api/v2/package`.
@@ -309,12 +317,14 @@ type remoteNugetRepositoryState struct {
 	ProjectKey *string `pulumi:"projectKey"`
 	// List of property set names
 	PropertySets []string `pulumi:"propertySets"`
-	// Proxy key from Artifactory Proxies settings
+	// Proxy key from Artifactory Proxies settings. Can't be set if `disable_proxy = true`.
 	Proxy *string `pulumi:"proxy"`
 	// Custom HTTP query parameters that will be automatically included in all remote resource requests. For example:
 	// `param1=val1&param2=val2&param3=val3`
 	QueryParams *string `pulumi:"queryParams"`
-	// Repository layout key for the remote layout mapping.
+	// Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an
+	// empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be
+	// ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
 	RemoteRepoLayoutRef *string `pulumi:"remoteRepoLayoutRef"`
 	// Repository layout key for the local repository
 	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
@@ -374,6 +384,9 @@ type RemoteNugetRepositoryState struct {
 	ContentSynchronisation RemoteNugetRepositoryContentSynchronisationPtrInput
 	// Public description.
 	Description pulumi.StringPtrInput
+	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
+	// for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
+	DisableProxy pulumi.BoolPtrInput
 	// The context path prefix through which NuGet downloads are served.
 	// For example, the NuGet Gallery download URL is `https://nuget.org/api/v2/package`, so the repository
 	// URL should be configured as `https://nuget.org` and the download context path should be configured as `api/v2/package`. Default value is `api/v2/package`.
@@ -434,12 +447,14 @@ type RemoteNugetRepositoryState struct {
 	ProjectKey pulumi.StringPtrInput
 	// List of property set names
 	PropertySets pulumi.StringArrayInput
-	// Proxy key from Artifactory Proxies settings
+	// Proxy key from Artifactory Proxies settings. Can't be set if `disable_proxy = true`.
 	Proxy pulumi.StringPtrInput
 	// Custom HTTP query parameters that will be automatically included in all remote resource requests. For example:
 	// `param1=val1&param2=val2&param3=val3`
 	QueryParams pulumi.StringPtrInput
-	// Repository layout key for the remote layout mapping.
+	// Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an
+	// empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be
+	// ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
 	RemoteRepoLayoutRef pulumi.StringPtrInput
 	// Repository layout key for the local repository
 	RepoLayoutRef pulumi.StringPtrInput
@@ -503,6 +518,9 @@ type remoteNugetRepositoryArgs struct {
 	ContentSynchronisation *RemoteNugetRepositoryContentSynchronisation `pulumi:"contentSynchronisation"`
 	// Public description.
 	Description *string `pulumi:"description"`
+	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
+	// for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
+	DisableProxy *bool `pulumi:"disableProxy"`
 	// The context path prefix through which NuGet downloads are served.
 	// For example, the NuGet Gallery download URL is `https://nuget.org/api/v2/package`, so the repository
 	// URL should be configured as `https://nuget.org` and the download context path should be configured as `api/v2/package`. Default value is `api/v2/package`.
@@ -562,12 +580,14 @@ type remoteNugetRepositoryArgs struct {
 	ProjectKey *string `pulumi:"projectKey"`
 	// List of property set names
 	PropertySets []string `pulumi:"propertySets"`
-	// Proxy key from Artifactory Proxies settings
+	// Proxy key from Artifactory Proxies settings. Can't be set if `disable_proxy = true`.
 	Proxy *string `pulumi:"proxy"`
 	// Custom HTTP query parameters that will be automatically included in all remote resource requests. For example:
 	// `param1=val1&param2=val2&param3=val3`
 	QueryParams *string `pulumi:"queryParams"`
-	// Repository layout key for the remote layout mapping.
+	// Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an
+	// empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be
+	// ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
 	RemoteRepoLayoutRef *string `pulumi:"remoteRepoLayoutRef"`
 	// Repository layout key for the local repository
 	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
@@ -628,6 +648,9 @@ type RemoteNugetRepositoryArgs struct {
 	ContentSynchronisation RemoteNugetRepositoryContentSynchronisationPtrInput
 	// Public description.
 	Description pulumi.StringPtrInput
+	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
+	// for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
+	DisableProxy pulumi.BoolPtrInput
 	// The context path prefix through which NuGet downloads are served.
 	// For example, the NuGet Gallery download URL is `https://nuget.org/api/v2/package`, so the repository
 	// URL should be configured as `https://nuget.org` and the download context path should be configured as `api/v2/package`. Default value is `api/v2/package`.
@@ -687,12 +710,14 @@ type RemoteNugetRepositoryArgs struct {
 	ProjectKey pulumi.StringPtrInput
 	// List of property set names
 	PropertySets pulumi.StringArrayInput
-	// Proxy key from Artifactory Proxies settings
+	// Proxy key from Artifactory Proxies settings. Can't be set if `disable_proxy = true`.
 	Proxy pulumi.StringPtrInput
 	// Custom HTTP query parameters that will be automatically included in all remote resource requests. For example:
 	// `param1=val1&param2=val2&param3=val3`
 	QueryParams pulumi.StringPtrInput
-	// Repository layout key for the remote layout mapping.
+	// Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an
+	// empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be
+	// ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
 	RemoteRepoLayoutRef pulumi.StringPtrInput
 	// Repository layout key for the local repository
 	RepoLayoutRef pulumi.StringPtrInput
@@ -867,6 +892,12 @@ func (o RemoteNugetRepositoryOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RemoteNugetRepository) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
+// for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
+func (o RemoteNugetRepositoryOutput) DisableProxy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RemoteNugetRepository) pulumi.BoolPtrOutput { return v.DisableProxy }).(pulumi.BoolPtrOutput)
+}
+
 // The context path prefix through which NuGet downloads are served.
 // For example, the NuGet Gallery download URL is `https://nuget.org/api/v2/package`, so the repository
 // URL should be configured as `https://nuget.org` and the download context path should be configured as `api/v2/package`. Default value is `api/v2/package`.
@@ -993,7 +1024,7 @@ func (o RemoteNugetRepositoryOutput) PropertySets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RemoteNugetRepository) pulumi.StringArrayOutput { return v.PropertySets }).(pulumi.StringArrayOutput)
 }
 
-// Proxy key from Artifactory Proxies settings
+// Proxy key from Artifactory Proxies settings. Can't be set if `disable_proxy = true`.
 func (o RemoteNugetRepositoryOutput) Proxy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RemoteNugetRepository) pulumi.StringPtrOutput { return v.Proxy }).(pulumi.StringPtrOutput)
 }
@@ -1004,7 +1035,9 @@ func (o RemoteNugetRepositoryOutput) QueryParams() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RemoteNugetRepository) pulumi.StringPtrOutput { return v.QueryParams }).(pulumi.StringPtrOutput)
 }
 
-// Repository layout key for the remote layout mapping.
+// Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an
+// empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be
+// ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
 func (o RemoteNugetRepositoryOutput) RemoteRepoLayoutRef() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RemoteNugetRepository) pulumi.StringPtrOutput { return v.RemoteRepoLayoutRef }).(pulumi.StringPtrOutput)
 }

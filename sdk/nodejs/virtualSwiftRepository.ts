@@ -8,6 +8,23 @@ import * as utilities from "./utilities";
  * Creates a virtual Swift repository.
  * Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Swift+Repositories#SwiftRepositories-VirtualRepositories).
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as swift from "@pulumi/swift";
+ *
+ * const foo_conan = new swift.index.Swift("foo-conan", {
+ *     key: "foo-conan",
+ *     repoLayoutRef: "swift-default",
+ *     repositories: [],
+ *     description: "A test virtual repo",
+ *     notes: "Internal description",
+ *     includesPattern: "com/jfrog/**,cloud/jfrog/**",
+ *     excludesPattern: "com/google/**",
+ * });
+ * ```
+ *
  * ## Import
  *
  * Virtual repositories can be imported using their name, e.g.

@@ -80,6 +80,9 @@ type RemoteConanRepository struct {
 	ContentSynchronisation RemoteConanRepositoryContentSynchronisationOutput `pulumi:"contentSynchronisation"`
 	// Public description.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
+	// for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
+	DisableProxy pulumi.BoolPtrOutput `pulumi:"disableProxy"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
 	// storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
 	DownloadDirect pulumi.BoolPtrOutput `pulumi:"downloadDirect"`
@@ -134,12 +137,14 @@ type RemoteConanRepository struct {
 	ProjectKey pulumi.StringPtrOutput `pulumi:"projectKey"`
 	// List of property set names
 	PropertySets pulumi.StringArrayOutput `pulumi:"propertySets"`
-	// Proxy key from Artifactory Proxies settings
+	// Proxy key from Artifactory Proxies settings. Can't be set if `disable_proxy = true`.
 	Proxy pulumi.StringPtrOutput `pulumi:"proxy"`
 	// Custom HTTP query parameters that will be automatically included in all remote resource requests. For example:
 	// `param1=val1&param2=val2&param3=val3`
 	QueryParams pulumi.StringPtrOutput `pulumi:"queryParams"`
-	// Repository layout key for the remote layout mapping.
+	// Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an
+	// empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be
+	// ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
 	RemoteRepoLayoutRef pulumi.StringPtrOutput `pulumi:"remoteRepoLayoutRef"`
 	// Repository layout key for the local repository
 	RepoLayoutRef pulumi.StringPtrOutput `pulumi:"repoLayoutRef"`
@@ -236,6 +241,9 @@ type remoteConanRepositoryState struct {
 	ContentSynchronisation *RemoteConanRepositoryContentSynchronisation `pulumi:"contentSynchronisation"`
 	// Public description.
 	Description *string `pulumi:"description"`
+	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
+	// for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
+	DisableProxy *bool `pulumi:"disableProxy"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
 	// storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
 	DownloadDirect *bool `pulumi:"downloadDirect"`
@@ -290,12 +298,14 @@ type remoteConanRepositoryState struct {
 	ProjectKey *string `pulumi:"projectKey"`
 	// List of property set names
 	PropertySets []string `pulumi:"propertySets"`
-	// Proxy key from Artifactory Proxies settings
+	// Proxy key from Artifactory Proxies settings. Can't be set if `disable_proxy = true`.
 	Proxy *string `pulumi:"proxy"`
 	// Custom HTTP query parameters that will be automatically included in all remote resource requests. For example:
 	// `param1=val1&param2=val2&param3=val3`
 	QueryParams *string `pulumi:"queryParams"`
-	// Repository layout key for the remote layout mapping.
+	// Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an
+	// empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be
+	// ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
 	RemoteRepoLayoutRef *string `pulumi:"remoteRepoLayoutRef"`
 	// Repository layout key for the local repository
 	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
@@ -351,6 +361,9 @@ type RemoteConanRepositoryState struct {
 	ContentSynchronisation RemoteConanRepositoryContentSynchronisationPtrInput
 	// Public description.
 	Description pulumi.StringPtrInput
+	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
+	// for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
+	DisableProxy pulumi.BoolPtrInput
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
 	// storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
 	DownloadDirect pulumi.BoolPtrInput
@@ -405,12 +418,14 @@ type RemoteConanRepositoryState struct {
 	ProjectKey pulumi.StringPtrInput
 	// List of property set names
 	PropertySets pulumi.StringArrayInput
-	// Proxy key from Artifactory Proxies settings
+	// Proxy key from Artifactory Proxies settings. Can't be set if `disable_proxy = true`.
 	Proxy pulumi.StringPtrInput
 	// Custom HTTP query parameters that will be automatically included in all remote resource requests. For example:
 	// `param1=val1&param2=val2&param3=val3`
 	QueryParams pulumi.StringPtrInput
-	// Repository layout key for the remote layout mapping.
+	// Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an
+	// empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be
+	// ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
 	RemoteRepoLayoutRef pulumi.StringPtrInput
 	// Repository layout key for the local repository
 	RepoLayoutRef pulumi.StringPtrInput
@@ -470,6 +485,9 @@ type remoteConanRepositoryArgs struct {
 	ContentSynchronisation *RemoteConanRepositoryContentSynchronisation `pulumi:"contentSynchronisation"`
 	// Public description.
 	Description *string `pulumi:"description"`
+	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
+	// for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
+	DisableProxy *bool `pulumi:"disableProxy"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
 	// storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
 	DownloadDirect *bool `pulumi:"downloadDirect"`
@@ -523,12 +541,14 @@ type remoteConanRepositoryArgs struct {
 	ProjectKey *string `pulumi:"projectKey"`
 	// List of property set names
 	PropertySets []string `pulumi:"propertySets"`
-	// Proxy key from Artifactory Proxies settings
+	// Proxy key from Artifactory Proxies settings. Can't be set if `disable_proxy = true`.
 	Proxy *string `pulumi:"proxy"`
 	// Custom HTTP query parameters that will be automatically included in all remote resource requests. For example:
 	// `param1=val1&param2=val2&param3=val3`
 	QueryParams *string `pulumi:"queryParams"`
-	// Repository layout key for the remote layout mapping.
+	// Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an
+	// empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be
+	// ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
 	RemoteRepoLayoutRef *string `pulumi:"remoteRepoLayoutRef"`
 	// Repository layout key for the local repository
 	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
@@ -585,6 +605,9 @@ type RemoteConanRepositoryArgs struct {
 	ContentSynchronisation RemoteConanRepositoryContentSynchronisationPtrInput
 	// Public description.
 	Description pulumi.StringPtrInput
+	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
+	// for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
+	DisableProxy pulumi.BoolPtrInput
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
 	// storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
 	DownloadDirect pulumi.BoolPtrInput
@@ -638,12 +661,14 @@ type RemoteConanRepositoryArgs struct {
 	ProjectKey pulumi.StringPtrInput
 	// List of property set names
 	PropertySets pulumi.StringArrayInput
-	// Proxy key from Artifactory Proxies settings
+	// Proxy key from Artifactory Proxies settings. Can't be set if `disable_proxy = true`.
 	Proxy pulumi.StringPtrInput
 	// Custom HTTP query parameters that will be automatically included in all remote resource requests. For example:
 	// `param1=val1&param2=val2&param3=val3`
 	QueryParams pulumi.StringPtrInput
-	// Repository layout key for the remote layout mapping.
+	// Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an
+	// empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be
+	// ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
 	RemoteRepoLayoutRef pulumi.StringPtrInput
 	// Repository layout key for the local repository
 	RepoLayoutRef pulumi.StringPtrInput
@@ -814,6 +839,12 @@ func (o RemoteConanRepositoryOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RemoteConanRepository) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
+// for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
+func (o RemoteConanRepositoryOutput) DisableProxy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RemoteConanRepository) pulumi.BoolPtrOutput { return v.DisableProxy }).(pulumi.BoolPtrOutput)
+}
+
 // When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
 // storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
 func (o RemoteConanRepositoryOutput) DownloadDirect() pulumi.BoolPtrOutput {
@@ -928,7 +959,7 @@ func (o RemoteConanRepositoryOutput) PropertySets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RemoteConanRepository) pulumi.StringArrayOutput { return v.PropertySets }).(pulumi.StringArrayOutput)
 }
 
-// Proxy key from Artifactory Proxies settings
+// Proxy key from Artifactory Proxies settings. Can't be set if `disable_proxy = true`.
 func (o RemoteConanRepositoryOutput) Proxy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RemoteConanRepository) pulumi.StringPtrOutput { return v.Proxy }).(pulumi.StringPtrOutput)
 }
@@ -939,7 +970,9 @@ func (o RemoteConanRepositoryOutput) QueryParams() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RemoteConanRepository) pulumi.StringPtrOutput { return v.QueryParams }).(pulumi.StringPtrOutput)
 }
 
-// Repository layout key for the remote layout mapping.
+// Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an
+// empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be
+// ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
 func (o RemoteConanRepositoryOutput) RemoteRepoLayoutRef() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RemoteConanRepository) pulumi.StringPtrOutput { return v.RemoteRepoLayoutRef }).(pulumi.StringPtrOutput)
 }
