@@ -168,14 +168,14 @@ def get_user(admin: Optional[bool] = None,
     __ret__ = pulumi.runtime.invoke('artifactory:index/getUser:getUser', __args__, opts=opts, typ=GetUserResult).value
 
     return AwaitableGetUserResult(
-        admin=__ret__.admin,
-        disable_ui_access=__ret__.disable_ui_access,
-        email=__ret__.email,
-        groups=__ret__.groups,
-        id=__ret__.id,
-        internal_password_disabled=__ret__.internal_password_disabled,
-        name=__ret__.name,
-        profile_updatable=__ret__.profile_updatable)
+        admin=pulumi.get(__ret__, 'admin'),
+        disable_ui_access=pulumi.get(__ret__, 'disable_ui_access'),
+        email=pulumi.get(__ret__, 'email'),
+        groups=pulumi.get(__ret__, 'groups'),
+        id=pulumi.get(__ret__, 'id'),
+        internal_password_disabled=pulumi.get(__ret__, 'internal_password_disabled'),
+        name=pulumi.get(__ret__, 'name'),
+        profile_updatable=pulumi.get(__ret__, 'profile_updatable'))
 
 
 @_utilities.lift_output_func(get_user)

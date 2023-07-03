@@ -33,6 +33,7 @@ export function getRemoteOpkgRepository(args: GetRemoteOpkgRepositoryArgs, opts?
         "clientTlsCertificate": args.clientTlsCertificate,
         "contentSynchronisation": args.contentSynchronisation,
         "description": args.description,
+        "disableProxy": args.disableProxy,
         "downloadDirect": args.downloadDirect,
         "enableCookieManagement": args.enableCookieManagement,
         "excludesPattern": args.excludesPattern,
@@ -80,6 +81,7 @@ export interface GetRemoteOpkgRepositoryArgs {
     clientTlsCertificate?: string;
     contentSynchronisation?: inputs.GetRemoteOpkgRepositoryContentSynchronisation;
     description?: string;
+    disableProxy?: boolean;
     downloadDirect?: boolean;
     enableCookieManagement?: boolean;
     excludesPattern?: string;
@@ -129,6 +131,7 @@ export interface GetRemoteOpkgRepositoryResult {
     readonly clientTlsCertificate: string;
     readonly contentSynchronisation: outputs.GetRemoteOpkgRepositoryContentSynchronisation;
     readonly description?: string;
+    readonly disableProxy?: boolean;
     readonly downloadDirect?: boolean;
     readonly enableCookieManagement?: boolean;
     readonly excludesPattern?: string;
@@ -197,6 +200,7 @@ export interface GetRemoteOpkgRepositoryOutputArgs {
     clientTlsCertificate?: pulumi.Input<string>;
     contentSynchronisation?: pulumi.Input<inputs.GetRemoteOpkgRepositoryContentSynchronisationArgs>;
     description?: pulumi.Input<string>;
+    disableProxy?: pulumi.Input<boolean>;
     downloadDirect?: pulumi.Input<boolean>;
     enableCookieManagement?: pulumi.Input<boolean>;
     excludesPattern?: pulumi.Input<string>;

@@ -63,6 +63,13 @@ In January 2023, API Keys will be deprecated all together and the option to use 
         """
         API token. Projects functionality will not work with any auth method other than access tokens
         """
+        warnings.warn("""An upcoming version will support the option to block the usage/creation of API Keys (for admins to set on their platform).
+In September 2022, the option to block the usage/creation of API Keys will be enabled by default, with the option for admins to change it back to enable API Keys.
+In January 2023, API Keys will be deprecated all together and the option to use them will no longer be available.""", DeprecationWarning)
+        pulumi.log.warn("""api_key is deprecated: An upcoming version will support the option to block the usage/creation of API Keys (for admins to set on their platform).
+In September 2022, the option to block the usage/creation of API Keys will be enabled by default, with the option for admins to change it back to enable API Keys.
+In January 2023, API Keys will be deprecated all together and the option to use them will no longer be available.""")
+
         return pulumi.get(self, "api_key")
 
     @api_key.setter
@@ -194,6 +201,13 @@ In January 2023, API Keys will be deprecated all together and the option to use 
         """
         API token. Projects functionality will not work with any auth method other than access tokens
         """
+        warnings.warn("""An upcoming version will support the option to block the usage/creation of API Keys (for admins to set on their platform).
+In September 2022, the option to block the usage/creation of API Keys will be enabled by default, with the option for admins to change it back to enable API Keys.
+In January 2023, API Keys will be deprecated all together and the option to use them will no longer be available.""", DeprecationWarning)
+        pulumi.log.warn("""api_key is deprecated: An upcoming version will support the option to block the usage/creation of API Keys (for admins to set on their platform).
+In September 2022, the option to block the usage/creation of API Keys will be enabled by default, with the option for admins to change it back to enable API Keys.
+In January 2023, API Keys will be deprecated all together and the option to use them will no longer be available.""")
+
         return pulumi.get(self, "api_key")
 
     @property

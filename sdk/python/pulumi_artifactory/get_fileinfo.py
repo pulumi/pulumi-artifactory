@@ -223,20 +223,20 @@ def get_fileinfo(path: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('artifactory:index/getFileinfo:getFileinfo', __args__, opts=opts, typ=GetFileinfoResult).value
 
     return AwaitableGetFileinfoResult(
-        created=__ret__.created,
-        created_by=__ret__.created_by,
-        download_uri=__ret__.download_uri,
-        id=__ret__.id,
-        last_modified=__ret__.last_modified,
-        last_updated=__ret__.last_updated,
-        md5=__ret__.md5,
-        mimetype=__ret__.mimetype,
-        modified_by=__ret__.modified_by,
-        path=__ret__.path,
-        repository=__ret__.repository,
-        sha1=__ret__.sha1,
-        sha256=__ret__.sha256,
-        size=__ret__.size)
+        created=pulumi.get(__ret__, 'created'),
+        created_by=pulumi.get(__ret__, 'created_by'),
+        download_uri=pulumi.get(__ret__, 'download_uri'),
+        id=pulumi.get(__ret__, 'id'),
+        last_modified=pulumi.get(__ret__, 'last_modified'),
+        last_updated=pulumi.get(__ret__, 'last_updated'),
+        md5=pulumi.get(__ret__, 'md5'),
+        mimetype=pulumi.get(__ret__, 'mimetype'),
+        modified_by=pulumi.get(__ret__, 'modified_by'),
+        path=pulumi.get(__ret__, 'path'),
+        repository=pulumi.get(__ret__, 'repository'),
+        sha1=pulumi.get(__ret__, 'sha1'),
+        sha256=pulumi.get(__ret__, 'sha256'),
+        size=pulumi.get(__ret__, 'size'))
 
 
 @_utilities.lift_output_func(get_fileinfo)

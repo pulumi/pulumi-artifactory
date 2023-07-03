@@ -329,6 +329,9 @@ class DebianRepositoryArgs:
         """
         When set, the repository will use the deprecated trivial layout.
         """
+        warnings.warn("""You shouldn't be using this""", DeprecationWarning)
+        pulumi.log.warn("""trivial_layout is deprecated: You shouldn't be using this""")
+
         return pulumi.get(self, "trivial_layout")
 
     @trivial_layout.setter
@@ -680,6 +683,9 @@ class _DebianRepositoryState:
         """
         When set, the repository will use the deprecated trivial layout.
         """
+        warnings.warn("""You shouldn't be using this""", DeprecationWarning)
+        pulumi.log.warn("""trivial_layout is deprecated: You shouldn't be using this""")
+
         return pulumi.get(self, "trivial_layout")
 
     @trivial_layout.setter
@@ -1176,6 +1182,9 @@ class DebianRepository(pulumi.CustomResource):
         """
         When set, the repository will use the deprecated trivial layout.
         """
+        warnings.warn("""You shouldn't be using this""", DeprecationWarning)
+        pulumi.log.warn("""trivial_layout is deprecated: You shouldn't be using this""")
+
         return pulumi.get(self, "trivial_layout")
 
     @property

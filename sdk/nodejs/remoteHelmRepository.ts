@@ -104,6 +104,11 @@ export class RemoteHelmRepository extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
+     * When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
+     * for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
+     */
+    public readonly disableProxy!: pulumi.Output<boolean | undefined>;
+    /**
      * When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
      * storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
      */
@@ -208,7 +213,7 @@ export class RemoteHelmRepository extends pulumi.CustomResource {
      */
     public readonly propertySets!: pulumi.Output<string[] | undefined>;
     /**
-     * Proxy key from Artifactory Proxies settings
+     * Proxy key from Artifactory Proxies settings. Can't be set if `disable_proxy = true`.
      */
     public readonly proxy!: pulumi.Output<string | undefined>;
     /**
@@ -217,7 +222,9 @@ export class RemoteHelmRepository extends pulumi.CustomResource {
      */
     public readonly queryParams!: pulumi.Output<string | undefined>;
     /**
-     * Repository layout key for the remote layout mapping.
+     * Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an
+     * empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be
+     * ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
      */
     public readonly remoteRepoLayoutRef!: pulumi.Output<string | undefined>;
     /**
@@ -284,6 +291,7 @@ export class RemoteHelmRepository extends pulumi.CustomResource {
             resourceInputs["clientTlsCertificate"] = state ? state.clientTlsCertificate : undefined;
             resourceInputs["contentSynchronisation"] = state ? state.contentSynchronisation : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["disableProxy"] = state ? state.disableProxy : undefined;
             resourceInputs["downloadDirect"] = state ? state.downloadDirect : undefined;
             resourceInputs["enableCookieManagement"] = state ? state.enableCookieManagement : undefined;
             resourceInputs["excludesPattern"] = state ? state.excludesPattern : undefined;
@@ -336,6 +344,7 @@ export class RemoteHelmRepository extends pulumi.CustomResource {
             resourceInputs["clientTlsCertificate"] = args ? args.clientTlsCertificate : undefined;
             resourceInputs["contentSynchronisation"] = args ? args.contentSynchronisation : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["disableProxy"] = args ? args.disableProxy : undefined;
             resourceInputs["downloadDirect"] = args ? args.downloadDirect : undefined;
             resourceInputs["enableCookieManagement"] = args ? args.enableCookieManagement : undefined;
             resourceInputs["excludesPattern"] = args ? args.excludesPattern : undefined;
@@ -425,6 +434,11 @@ export interface RemoteHelmRepositoryState {
      * Public description.
      */
     description?: pulumi.Input<string>;
+    /**
+     * When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
+     * for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
+     */
+    disableProxy?: pulumi.Input<boolean>;
     /**
      * When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
      * storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
@@ -530,7 +544,7 @@ export interface RemoteHelmRepositoryState {
      */
     propertySets?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Proxy key from Artifactory Proxies settings
+     * Proxy key from Artifactory Proxies settings. Can't be set if `disable_proxy = true`.
      */
     proxy?: pulumi.Input<string>;
     /**
@@ -539,7 +553,9 @@ export interface RemoteHelmRepositoryState {
      */
     queryParams?: pulumi.Input<string>;
     /**
-     * Repository layout key for the remote layout mapping.
+     * Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an
+     * empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be
+     * ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
      */
     remoteRepoLayoutRef?: pulumi.Input<string>;
     /**
@@ -631,6 +647,11 @@ export interface RemoteHelmRepositoryArgs {
      * Public description.
      */
     description?: pulumi.Input<string>;
+    /**
+     * When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
+     * for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
+     */
+    disableProxy?: pulumi.Input<boolean>;
     /**
      * When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
      * storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
@@ -735,7 +756,7 @@ export interface RemoteHelmRepositoryArgs {
      */
     propertySets?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Proxy key from Artifactory Proxies settings
+     * Proxy key from Artifactory Proxies settings. Can't be set if `disable_proxy = true`.
      */
     proxy?: pulumi.Input<string>;
     /**
@@ -744,7 +765,9 @@ export interface RemoteHelmRepositoryArgs {
      */
     queryParams?: pulumi.Input<string>;
     /**
-     * Repository layout key for the remote layout mapping.
+     * Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an
+     * empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be
+     * ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
      */
     remoteRepoLayoutRef?: pulumi.Input<string>;
     /**

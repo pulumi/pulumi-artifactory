@@ -57,6 +57,7 @@ type LookupRemotePypiRepositoryArgs struct {
 	ClientTlsCertificate      *string                                        `pulumi:"clientTlsCertificate"`
 	ContentSynchronisation    *GetRemotePypiRepositoryContentSynchronisation `pulumi:"contentSynchronisation"`
 	Description               *string                                        `pulumi:"description"`
+	DisableProxy              *bool                                          `pulumi:"disableProxy"`
 	DownloadDirect            *bool                                          `pulumi:"downloadDirect"`
 	EnableCookieManagement    *bool                                          `pulumi:"enableCookieManagement"`
 	ExcludesPattern           *string                                        `pulumi:"excludesPattern"`
@@ -106,6 +107,7 @@ type LookupRemotePypiRepositoryResult struct {
 	ClientTlsCertificate      string                                        `pulumi:"clientTlsCertificate"`
 	ContentSynchronisation    GetRemotePypiRepositoryContentSynchronisation `pulumi:"contentSynchronisation"`
 	Description               *string                                       `pulumi:"description"`
+	DisableProxy              *bool                                         `pulumi:"disableProxy"`
 	DownloadDirect            *bool                                         `pulumi:"downloadDirect"`
 	EnableCookieManagement    *bool                                         `pulumi:"enableCookieManagement"`
 	ExcludesPattern           *string                                       `pulumi:"excludesPattern"`
@@ -170,6 +172,7 @@ type LookupRemotePypiRepositoryOutputArgs struct {
 	ClientTlsCertificate      pulumi.StringPtrInput                                 `pulumi:"clientTlsCertificate"`
 	ContentSynchronisation    GetRemotePypiRepositoryContentSynchronisationPtrInput `pulumi:"contentSynchronisation"`
 	Description               pulumi.StringPtrInput                                 `pulumi:"description"`
+	DisableProxy              pulumi.BoolPtrInput                                   `pulumi:"disableProxy"`
 	DownloadDirect            pulumi.BoolPtrInput                                   `pulumi:"downloadDirect"`
 	EnableCookieManagement    pulumi.BoolPtrInput                                   `pulumi:"enableCookieManagement"`
 	ExcludesPattern           pulumi.StringPtrInput                                 `pulumi:"excludesPattern"`
@@ -263,6 +266,10 @@ func (o LookupRemotePypiRepositoryResultOutput) ContentSynchronisation() GetRemo
 
 func (o LookupRemotePypiRepositoryResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRemotePypiRepositoryResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupRemotePypiRepositoryResultOutput) DisableProxy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupRemotePypiRepositoryResult) *bool { return v.DisableProxy }).(pulumi.BoolPtrOutput)
 }
 
 func (o LookupRemotePypiRepositoryResultOutput) DownloadDirect() pulumi.BoolPtrOutput {

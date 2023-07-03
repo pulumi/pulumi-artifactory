@@ -13,6 +13,30 @@ namespace Pulumi.Artifactory
     /// Creates a virtual Swift repository.
     /// Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Swift+Repositories#SwiftRepositories-VirtualRepositories).
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Swift = Pulumi.Swift;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var foo_conan = new Swift.Index.Swift("foo-conan", new()
+    ///     {
+    ///         Key = "foo-conan",
+    ///         RepoLayoutRef = "swift-default",
+    ///         Repositories = new[] {},
+    ///         Description = "A test virtual repo",
+    ///         Notes = "Internal description",
+    ///         IncludesPattern = "com/jfrog/**,cloud/jfrog/**",
+    ///         ExcludesPattern = "com/google/**",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Virtual repositories can be imported using their name, e.g.

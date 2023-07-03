@@ -240,22 +240,22 @@ def get_virtual_bower_repository(artifactory_requests_can_retrieve_remote_artifa
     __ret__ = pulumi.runtime.invoke('artifactory:index/getVirtualBowerRepository:getVirtualBowerRepository', __args__, opts=opts, typ=GetVirtualBowerRepositoryResult).value
 
     return AwaitableGetVirtualBowerRepositoryResult(
-        artifactory_requests_can_retrieve_remote_artifacts=__ret__.artifactory_requests_can_retrieve_remote_artifacts,
-        default_deployment_repo=__ret__.default_deployment_repo,
-        description=__ret__.description,
-        excludes_pattern=__ret__.excludes_pattern,
-        external_dependencies_enabled=__ret__.external_dependencies_enabled,
-        external_dependencies_patterns=__ret__.external_dependencies_patterns,
-        external_dependencies_remote_repo=__ret__.external_dependencies_remote_repo,
-        id=__ret__.id,
-        includes_pattern=__ret__.includes_pattern,
-        key=__ret__.key,
-        notes=__ret__.notes,
-        package_type=__ret__.package_type,
-        project_environments=__ret__.project_environments,
-        project_key=__ret__.project_key,
-        repo_layout_ref=__ret__.repo_layout_ref,
-        repositories=__ret__.repositories)
+        artifactory_requests_can_retrieve_remote_artifacts=pulumi.get(__ret__, 'artifactory_requests_can_retrieve_remote_artifacts'),
+        default_deployment_repo=pulumi.get(__ret__, 'default_deployment_repo'),
+        description=pulumi.get(__ret__, 'description'),
+        excludes_pattern=pulumi.get(__ret__, 'excludes_pattern'),
+        external_dependencies_enabled=pulumi.get(__ret__, 'external_dependencies_enabled'),
+        external_dependencies_patterns=pulumi.get(__ret__, 'external_dependencies_patterns'),
+        external_dependencies_remote_repo=pulumi.get(__ret__, 'external_dependencies_remote_repo'),
+        id=pulumi.get(__ret__, 'id'),
+        includes_pattern=pulumi.get(__ret__, 'includes_pattern'),
+        key=pulumi.get(__ret__, 'key'),
+        notes=pulumi.get(__ret__, 'notes'),
+        package_type=pulumi.get(__ret__, 'package_type'),
+        project_environments=pulumi.get(__ret__, 'project_environments'),
+        project_key=pulumi.get(__ret__, 'project_key'),
+        repo_layout_ref=pulumi.get(__ret__, 'repo_layout_ref'),
+        repositories=pulumi.get(__ret__, 'repositories'))
 
 
 @_utilities.lift_output_func(get_virtual_bower_repository)

@@ -33,6 +33,7 @@ export function getRemoteGenericRepository(args: GetRemoteGenericRepositoryArgs,
         "clientTlsCertificate": args.clientTlsCertificate,
         "contentSynchronisation": args.contentSynchronisation,
         "description": args.description,
+        "disableProxy": args.disableProxy,
         "downloadDirect": args.downloadDirect,
         "enableCookieManagement": args.enableCookieManagement,
         "excludesPattern": args.excludesPattern,
@@ -81,6 +82,7 @@ export interface GetRemoteGenericRepositoryArgs {
     clientTlsCertificate?: string;
     contentSynchronisation?: inputs.GetRemoteGenericRepositoryContentSynchronisation;
     description?: string;
+    disableProxy?: boolean;
     downloadDirect?: boolean;
     enableCookieManagement?: boolean;
     excludesPattern?: string;
@@ -134,6 +136,7 @@ export interface GetRemoteGenericRepositoryResult {
     readonly clientTlsCertificate: string;
     readonly contentSynchronisation: outputs.GetRemoteGenericRepositoryContentSynchronisation;
     readonly description?: string;
+    readonly disableProxy?: boolean;
     readonly downloadDirect?: boolean;
     readonly enableCookieManagement?: boolean;
     readonly excludesPattern?: string;
@@ -206,6 +209,7 @@ export interface GetRemoteGenericRepositoryOutputArgs {
     clientTlsCertificate?: pulumi.Input<string>;
     contentSynchronisation?: pulumi.Input<inputs.GetRemoteGenericRepositoryContentSynchronisationArgs>;
     description?: pulumi.Input<string>;
+    disableProxy?: pulumi.Input<boolean>;
     downloadDirect?: pulumi.Input<boolean>;
     enableCookieManagement?: pulumi.Input<boolean>;
     excludesPattern?: pulumi.Input<string>;

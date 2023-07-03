@@ -24,6 +24,7 @@ public final class GetRemoteVcsRepositoryResult {
     private String clientTlsCertificate;
     private GetRemoteVcsRepositoryContentSynchronisation contentSynchronisation;
     private @Nullable String description;
+    private @Nullable Boolean disableProxy;
     private @Nullable Boolean downloadDirect;
     private @Nullable Boolean enableCookieManagement;
     private @Nullable String excludesPattern;
@@ -104,6 +105,9 @@ public final class GetRemoteVcsRepositoryResult {
     }
     public Optional<String> description() {
         return Optional.ofNullable(this.description);
+    }
+    public Optional<Boolean> disableProxy() {
+        return Optional.ofNullable(this.disableProxy);
     }
     public Optional<Boolean> downloadDirect() {
         return Optional.ofNullable(this.downloadDirect);
@@ -248,6 +252,7 @@ public final class GetRemoteVcsRepositoryResult {
         private String clientTlsCertificate;
         private GetRemoteVcsRepositoryContentSynchronisation contentSynchronisation;
         private @Nullable String description;
+        private @Nullable Boolean disableProxy;
         private @Nullable Boolean downloadDirect;
         private @Nullable Boolean enableCookieManagement;
         private @Nullable String excludesPattern;
@@ -296,6 +301,7 @@ public final class GetRemoteVcsRepositoryResult {
     	      this.clientTlsCertificate = defaults.clientTlsCertificate;
     	      this.contentSynchronisation = defaults.contentSynchronisation;
     	      this.description = defaults.description;
+    	      this.disableProxy = defaults.disableProxy;
     	      this.downloadDirect = defaults.downloadDirect;
     	      this.enableCookieManagement = defaults.enableCookieManagement;
     	      this.excludesPattern = defaults.excludesPattern;
@@ -377,6 +383,11 @@ public final class GetRemoteVcsRepositoryResult {
         @CustomType.Setter
         public Builder description(@Nullable String description) {
             this.description = description;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder disableProxy(@Nullable Boolean disableProxy) {
+            this.disableProxy = disableProxy;
             return this;
         }
         @CustomType.Setter
@@ -576,6 +587,7 @@ public final class GetRemoteVcsRepositoryResult {
             o.clientTlsCertificate = clientTlsCertificate;
             o.contentSynchronisation = contentSynchronisation;
             o.description = description;
+            o.disableProxy = disableProxy;
             o.downloadDirect = downloadDirect;
             o.enableCookieManagement = enableCookieManagement;
             o.excludesPattern = excludesPattern;

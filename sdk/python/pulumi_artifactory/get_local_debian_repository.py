@@ -81,10 +81,6 @@ class GetLocalDebianRepositoryResult:
         pulumi.set(__self__, "secondary_keypair_ref", secondary_keypair_ref)
         if trivial_layout and not isinstance(trivial_layout, bool):
             raise TypeError("Expected argument 'trivial_layout' to be a bool")
-        if trivial_layout is not None:
-            warnings.warn("""You shouldn't be using this""", DeprecationWarning)
-            pulumi.log.warn("""trivial_layout is deprecated: You shouldn't be using this""")
-
         pulumi.set(__self__, "trivial_layout", trivial_layout)
         if xray_index and not isinstance(xray_index, bool):
             raise TypeError("Expected argument 'xray_index' to be a bool")
@@ -191,6 +187,9 @@ class GetLocalDebianRepositoryResult:
     @property
     @pulumi.getter(name="trivialLayout")
     def trivial_layout(self) -> Optional[bool]:
+        warnings.warn("""You shouldn't be using this""", DeprecationWarning)
+        pulumi.log.warn("""trivial_layout is deprecated: You shouldn't be using this""")
+
         return pulumi.get(self, "trivial_layout")
 
     @property
@@ -275,27 +274,27 @@ def get_local_debian_repository(archive_browsing_enabled: Optional[bool] = None,
     __ret__ = pulumi.runtime.invoke('artifactory:index/getLocalDebianRepository:getLocalDebianRepository', __args__, opts=opts, typ=GetLocalDebianRepositoryResult).value
 
     return AwaitableGetLocalDebianRepositoryResult(
-        archive_browsing_enabled=__ret__.archive_browsing_enabled,
-        blacked_out=__ret__.blacked_out,
-        cdn_redirect=__ret__.cdn_redirect,
-        description=__ret__.description,
-        download_direct=__ret__.download_direct,
-        excludes_pattern=__ret__.excludes_pattern,
-        id=__ret__.id,
-        includes_pattern=__ret__.includes_pattern,
-        index_compression_formats=__ret__.index_compression_formats,
-        key=__ret__.key,
-        notes=__ret__.notes,
-        package_type=__ret__.package_type,
-        primary_keypair_ref=__ret__.primary_keypair_ref,
-        priority_resolution=__ret__.priority_resolution,
-        project_environments=__ret__.project_environments,
-        project_key=__ret__.project_key,
-        property_sets=__ret__.property_sets,
-        repo_layout_ref=__ret__.repo_layout_ref,
-        secondary_keypair_ref=__ret__.secondary_keypair_ref,
-        trivial_layout=__ret__.trivial_layout,
-        xray_index=__ret__.xray_index)
+        archive_browsing_enabled=pulumi.get(__ret__, 'archive_browsing_enabled'),
+        blacked_out=pulumi.get(__ret__, 'blacked_out'),
+        cdn_redirect=pulumi.get(__ret__, 'cdn_redirect'),
+        description=pulumi.get(__ret__, 'description'),
+        download_direct=pulumi.get(__ret__, 'download_direct'),
+        excludes_pattern=pulumi.get(__ret__, 'excludes_pattern'),
+        id=pulumi.get(__ret__, 'id'),
+        includes_pattern=pulumi.get(__ret__, 'includes_pattern'),
+        index_compression_formats=pulumi.get(__ret__, 'index_compression_formats'),
+        key=pulumi.get(__ret__, 'key'),
+        notes=pulumi.get(__ret__, 'notes'),
+        package_type=pulumi.get(__ret__, 'package_type'),
+        primary_keypair_ref=pulumi.get(__ret__, 'primary_keypair_ref'),
+        priority_resolution=pulumi.get(__ret__, 'priority_resolution'),
+        project_environments=pulumi.get(__ret__, 'project_environments'),
+        project_key=pulumi.get(__ret__, 'project_key'),
+        property_sets=pulumi.get(__ret__, 'property_sets'),
+        repo_layout_ref=pulumi.get(__ret__, 'repo_layout_ref'),
+        secondary_keypair_ref=pulumi.get(__ret__, 'secondary_keypair_ref'),
+        trivial_layout=pulumi.get(__ret__, 'trivial_layout'),
+        xray_index=pulumi.get(__ret__, 'xray_index'))
 
 
 @_utilities.lift_output_func(get_local_debian_repository)
