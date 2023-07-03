@@ -82,6 +82,13 @@ public final class GetRemoteNugetRepositoryArgs extends com.pulumi.resources.Inv
         return Optional.ofNullable(this.description);
     }
 
+    @Import(name="disableProxy")
+    private @Nullable Output<Boolean> disableProxy;
+
+    public Optional<Output<Boolean>> disableProxy() {
+        return Optional.ofNullable(this.disableProxy);
+    }
+
     /**
      * (Optional) The context path prefix through which NuGet downloads are served. For example, the NuGet Gallery download URL is `https://nuget.org/api/v2/package`, so the repository URL should be configured as `https://nuget.org` and the download context path should be configured as `api/v2/package`. Default value is `api/v2/package`.
      * 
@@ -394,6 +401,7 @@ public final class GetRemoteNugetRepositoryArgs extends com.pulumi.resources.Inv
         this.clientTlsCertificate = $.clientTlsCertificate;
         this.contentSynchronisation = $.contentSynchronisation;
         this.description = $.description;
+        this.disableProxy = $.disableProxy;
         this.downloadContextPath = $.downloadContextPath;
         this.downloadDirect = $.downloadDirect;
         this.enableCookieManagement = $.enableCookieManagement;
@@ -529,6 +537,15 @@ public final class GetRemoteNugetRepositoryArgs extends com.pulumi.resources.Inv
 
         public Builder description(String description) {
             return description(Output.of(description));
+        }
+
+        public Builder disableProxy(@Nullable Output<Boolean> disableProxy) {
+            $.disableProxy = disableProxy;
+            return this;
+        }
+
+        public Builder disableProxy(Boolean disableProxy) {
+            return disableProxy(Output.of(disableProxy));
         }
 
         /**

@@ -33,6 +33,7 @@ export function getRemoteGradleRepository(args: GetRemoteGradleRepositoryArgs, o
         "clientTlsCertificate": args.clientTlsCertificate,
         "contentSynchronisation": args.contentSynchronisation,
         "description": args.description,
+        "disableProxy": args.disableProxy,
         "downloadDirect": args.downloadDirect,
         "enableCookieManagement": args.enableCookieManagement,
         "excludesPattern": args.excludesPattern,
@@ -87,6 +88,7 @@ export interface GetRemoteGradleRepositoryArgs {
     clientTlsCertificate?: string;
     contentSynchronisation?: inputs.GetRemoteGradleRepositoryContentSynchronisation;
     description?: string;
+    disableProxy?: boolean;
     downloadDirect?: boolean;
     enableCookieManagement?: boolean;
     excludesPattern?: string;
@@ -164,6 +166,7 @@ export interface GetRemoteGradleRepositoryResult {
     readonly clientTlsCertificate: string;
     readonly contentSynchronisation: outputs.GetRemoteGradleRepositoryContentSynchronisation;
     readonly description?: string;
+    readonly disableProxy?: boolean;
     readonly downloadDirect?: boolean;
     readonly enableCookieManagement?: boolean;
     readonly excludesPattern?: string;
@@ -260,6 +263,7 @@ export interface GetRemoteGradleRepositoryOutputArgs {
     clientTlsCertificate?: pulumi.Input<string>;
     contentSynchronisation?: pulumi.Input<inputs.GetRemoteGradleRepositoryContentSynchronisationArgs>;
     description?: pulumi.Input<string>;
+    disableProxy?: pulumi.Input<boolean>;
     downloadDirect?: pulumi.Input<boolean>;
     enableCookieManagement?: pulumi.Input<boolean>;
     excludesPattern?: pulumi.Input<string>;

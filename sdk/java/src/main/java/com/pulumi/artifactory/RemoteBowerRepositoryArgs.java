@@ -180,6 +180,23 @@ public final class RemoteBowerRepositoryArgs extends com.pulumi.resources.Resour
     }
 
     /**
+     * When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
+     * for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
+     * 
+     */
+    @Import(name="disableProxy")
+    private @Nullable Output<Boolean> disableProxy;
+
+    /**
+     * @return When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
+     * for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
+     * 
+     */
+    public Optional<Output<Boolean>> disableProxy() {
+        return Optional.ofNullable(this.disableProxy);
+    }
+
+    /**
      * When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
      * storage provider. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;.
      * 
@@ -474,14 +491,14 @@ public final class RemoteBowerRepositoryArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Proxy key from Artifactory Proxies settings
+     * Proxy key from Artifactory Proxies settings. Can&#39;t be set if `disable_proxy = true`.
      * 
      */
     @Import(name="proxy")
     private @Nullable Output<String> proxy;
 
     /**
-     * @return Proxy key from Artifactory Proxies settings
+     * @return Proxy key from Artifactory Proxies settings. Can&#39;t be set if `disable_proxy = true`.
      * 
      */
     public Optional<Output<String>> proxy() {
@@ -506,14 +523,18 @@ public final class RemoteBowerRepositoryArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Repository layout key for the remote layout mapping.
+     * Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an
+     * empty string). Once it&#39;s set, it can&#39;t be removed by passing an empty string or removing the attribute, that will be
+     * ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
      * 
      */
     @Import(name="remoteRepoLayoutRef")
     private @Nullable Output<String> remoteRepoLayoutRef;
 
     /**
-     * @return Repository layout key for the remote layout mapping.
+     * @return Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an
+     * empty string). Once it&#39;s set, it can&#39;t be removed by passing an empty string or removing the attribute, that will be
+     * ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
      * 
      */
     public Optional<Output<String>> remoteRepoLayoutRef() {
@@ -711,6 +732,7 @@ public final class RemoteBowerRepositoryArgs extends com.pulumi.resources.Resour
         this.clientTlsCertificate = $.clientTlsCertificate;
         this.contentSynchronisation = $.contentSynchronisation;
         this.description = $.description;
+        this.disableProxy = $.disableProxy;
         this.downloadDirect = $.downloadDirect;
         this.enableCookieManagement = $.enableCookieManagement;
         this.excludesPattern = $.excludesPattern;
@@ -978,6 +1000,29 @@ public final class RemoteBowerRepositoryArgs extends com.pulumi.resources.Resour
          */
         public Builder description(String description) {
             return description(Output.of(description));
+        }
+
+        /**
+         * @param disableProxy When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
+         * for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder disableProxy(@Nullable Output<Boolean> disableProxy) {
+            $.disableProxy = disableProxy;
+            return this;
+        }
+
+        /**
+         * @param disableProxy When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
+         * for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder disableProxy(Boolean disableProxy) {
+            return disableProxy(Output.of(disableProxy));
         }
 
         /**
@@ -1402,7 +1447,7 @@ public final class RemoteBowerRepositoryArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param proxy Proxy key from Artifactory Proxies settings
+         * @param proxy Proxy key from Artifactory Proxies settings. Can&#39;t be set if `disable_proxy = true`.
          * 
          * @return builder
          * 
@@ -1413,7 +1458,7 @@ public final class RemoteBowerRepositoryArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param proxy Proxy key from Artifactory Proxies settings
+         * @param proxy Proxy key from Artifactory Proxies settings. Can&#39;t be set if `disable_proxy = true`.
          * 
          * @return builder
          * 
@@ -1446,7 +1491,9 @@ public final class RemoteBowerRepositoryArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param remoteRepoLayoutRef Repository layout key for the remote layout mapping.
+         * @param remoteRepoLayoutRef Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an
+         * empty string). Once it&#39;s set, it can&#39;t be removed by passing an empty string or removing the attribute, that will be
+         * ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
          * 
          * @return builder
          * 
@@ -1457,7 +1504,9 @@ public final class RemoteBowerRepositoryArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param remoteRepoLayoutRef Repository layout key for the remote layout mapping.
+         * @param remoteRepoLayoutRef Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an
+         * empty string). Once it&#39;s set, it can&#39;t be removed by passing an empty string or removing the attribute, that will be
+         * ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
          * 
          * @return builder
          * 

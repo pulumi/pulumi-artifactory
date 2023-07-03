@@ -27,10 +27,9 @@ import (
 	artifactoryProvider "github.com/jfrog/terraform-provider-artifactory/v8/pkg/artifactory/provider"
 	pfbridge "github.com/pulumi/pulumi-terraform-bridge/pf/tfbridge"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
-	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/x"
+	tks "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/tokens"
 	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/tokens"
-	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
 )
 
 // all of the token components used below.
@@ -306,9 +305,8 @@ func Provider() tfbridge.ProviderInfo {
 		MetadataInfo: tfbridge.NewProviderMetadata(bridgeMetadata),
 	}
 
-	err := x.ComputeDefaults(&prov, x.TokensSingleModule("artifactory_", mainMod,
-		x.MakeStandardToken(mainPkg)))
-	contract.AssertNoErrorf(err, "ComputeDefaults may have failed")
+	prov.MustComputeTokens(tks.SingleModule("artifactory_", mainMod,
+		tks.MakeStandard(mainPkg)))
 
 	// The provider doesn't have docs for the following data sources, so we exclude them.
 	docLessDataSources := []string{
@@ -354,9 +352,8 @@ func Provider() tfbridge.ProviderInfo {
 	for _, s := range docLessDataSources {
 		prov.DataSources[s].Docs = missingDocInfo
 	}
-	err = x.AutoAliasing(&prov, prov.GetMetadata())
-	contract.AssertNoErrorf(err, "auto aliasing apply failed")
 
+	prov.MustApplyAutoAliases()
 	prov.SetAutonaming(255, "-")
 
 	return prov

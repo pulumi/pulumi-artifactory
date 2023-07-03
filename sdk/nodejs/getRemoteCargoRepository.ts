@@ -34,6 +34,7 @@ export function getRemoteCargoRepository(args: GetRemoteCargoRepositoryArgs, opt
         "clientTlsCertificate": args.clientTlsCertificate,
         "contentSynchronisation": args.contentSynchronisation,
         "description": args.description,
+        "disableProxy": args.disableProxy,
         "downloadDirect": args.downloadDirect,
         "enableCookieManagement": args.enableCookieManagement,
         "enableSparseIndex": args.enableSparseIndex,
@@ -87,6 +88,7 @@ export interface GetRemoteCargoRepositoryArgs {
     clientTlsCertificate?: string;
     contentSynchronisation?: inputs.GetRemoteCargoRepositoryContentSynchronisation;
     description?: string;
+    disableProxy?: boolean;
     downloadDirect?: boolean;
     enableCookieManagement?: boolean;
     /**
@@ -148,6 +150,7 @@ export interface GetRemoteCargoRepositoryResult {
     readonly clientTlsCertificate: string;
     readonly contentSynchronisation: outputs.GetRemoteCargoRepositoryContentSynchronisation;
     readonly description?: string;
+    readonly disableProxy?: boolean;
     readonly downloadDirect?: boolean;
     readonly enableCookieManagement?: boolean;
     /**
@@ -228,6 +231,7 @@ export interface GetRemoteCargoRepositoryOutputArgs {
     clientTlsCertificate?: pulumi.Input<string>;
     contentSynchronisation?: pulumi.Input<inputs.GetRemoteCargoRepositoryContentSynchronisationArgs>;
     description?: pulumi.Input<string>;
+    disableProxy?: pulumi.Input<boolean>;
     downloadDirect?: pulumi.Input<boolean>;
     enableCookieManagement?: pulumi.Input<boolean>;
     /**

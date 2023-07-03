@@ -261,23 +261,23 @@ def get_file(force_overwrite: Optional[bool] = None,
     __ret__ = pulumi.runtime.invoke('artifactory:index/getFile:getFile', __args__, opts=opts, typ=GetFileResult).value
 
     return AwaitableGetFileResult(
-        created=__ret__.created,
-        created_by=__ret__.created_by,
-        download_uri=__ret__.download_uri,
-        force_overwrite=__ret__.force_overwrite,
-        id=__ret__.id,
-        last_modified=__ret__.last_modified,
-        last_updated=__ret__.last_updated,
-        md5=__ret__.md5,
-        mimetype=__ret__.mimetype,
-        modified_by=__ret__.modified_by,
-        output_path=__ret__.output_path,
-        path=__ret__.path,
-        path_is_aliased=__ret__.path_is_aliased,
-        repository=__ret__.repository,
-        sha1=__ret__.sha1,
-        sha256=__ret__.sha256,
-        size=__ret__.size)
+        created=pulumi.get(__ret__, 'created'),
+        created_by=pulumi.get(__ret__, 'created_by'),
+        download_uri=pulumi.get(__ret__, 'download_uri'),
+        force_overwrite=pulumi.get(__ret__, 'force_overwrite'),
+        id=pulumi.get(__ret__, 'id'),
+        last_modified=pulumi.get(__ret__, 'last_modified'),
+        last_updated=pulumi.get(__ret__, 'last_updated'),
+        md5=pulumi.get(__ret__, 'md5'),
+        mimetype=pulumi.get(__ret__, 'mimetype'),
+        modified_by=pulumi.get(__ret__, 'modified_by'),
+        output_path=pulumi.get(__ret__, 'output_path'),
+        path=pulumi.get(__ret__, 'path'),
+        path_is_aliased=pulumi.get(__ret__, 'path_is_aliased'),
+        repository=pulumi.get(__ret__, 'repository'),
+        sha1=pulumi.get(__ret__, 'sha1'),
+        sha256=pulumi.get(__ret__, 'sha256'),
+        size=pulumi.get(__ret__, 'size'))
 
 
 @_utilities.lift_output_func(get_file)

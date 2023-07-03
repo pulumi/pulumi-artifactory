@@ -108,6 +108,13 @@ namespace Pulumi.Artifactory
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
+        /// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
+        /// for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
+        /// </summary>
+        [Output("disableProxy")]
+        public Output<bool?> DisableProxy { get; private set; } = null!;
+
+        /// <summary>
         /// The context path prefix through which NuGet downloads are served.
         /// For example, the NuGet Gallery download URL is `https://nuget.org/api/v2/package`, so the repository
         /// URL should be configured as `https://nuget.org` and the download context path should be configured as `api/v2/package`. Default value is `api/v2/package`.
@@ -252,7 +259,7 @@ namespace Pulumi.Artifactory
         public Output<ImmutableArray<string>> PropertySets { get; private set; } = null!;
 
         /// <summary>
-        /// Proxy key from Artifactory Proxies settings
+        /// Proxy key from Artifactory Proxies settings. Can't be set if `disable_proxy = true`.
         /// </summary>
         [Output("proxy")]
         public Output<string?> Proxy { get; private set; } = null!;
@@ -265,7 +272,9 @@ namespace Pulumi.Artifactory
         public Output<string?> QueryParams { get; private set; } = null!;
 
         /// <summary>
-        /// Repository layout key for the remote layout mapping.
+        /// Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an
+        /// empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be
+        /// ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
         /// </summary>
         [Output("remoteRepoLayoutRef")]
         public Output<string?> RemoteRepoLayoutRef { get; private set; } = null!;
@@ -454,6 +463,13 @@ namespace Pulumi.Artifactory
         public Input<string>? Description { get; set; }
 
         /// <summary>
+        /// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
+        /// for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
+        /// </summary>
+        [Input("disableProxy")]
+        public Input<bool>? DisableProxy { get; set; }
+
+        /// <summary>
         /// The context path prefix through which NuGet downloads are served.
         /// For example, the NuGet Gallery download URL is `https://nuget.org/api/v2/package`, so the repository
         /// URL should be configured as `https://nuget.org` and the download context path should be configured as `api/v2/package`. Default value is `api/v2/package`.
@@ -616,7 +632,7 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// Proxy key from Artifactory Proxies settings
+        /// Proxy key from Artifactory Proxies settings. Can't be set if `disable_proxy = true`.
         /// </summary>
         [Input("proxy")]
         public Input<string>? Proxy { get; set; }
@@ -629,7 +645,9 @@ namespace Pulumi.Artifactory
         public Input<string>? QueryParams { get; set; }
 
         /// <summary>
-        /// Repository layout key for the remote layout mapping.
+        /// Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an
+        /// empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be
+        /// ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
         /// </summary>
         [Input("remoteRepoLayoutRef")]
         public Input<string>? RemoteRepoLayoutRef { get; set; }
@@ -774,6 +792,13 @@ namespace Pulumi.Artifactory
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
+        /// for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
+        /// </summary>
+        [Input("disableProxy")]
+        public Input<bool>? DisableProxy { get; set; }
 
         /// <summary>
         /// The context path prefix through which NuGet downloads are served.
@@ -941,7 +966,7 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// Proxy key from Artifactory Proxies settings
+        /// Proxy key from Artifactory Proxies settings. Can't be set if `disable_proxy = true`.
         /// </summary>
         [Input("proxy")]
         public Input<string>? Proxy { get; set; }
@@ -954,7 +979,9 @@ namespace Pulumi.Artifactory
         public Input<string>? QueryParams { get; set; }
 
         /// <summary>
-        /// Repository layout key for the remote layout mapping.
+        /// Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an
+        /// empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be
+        /// ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
         /// </summary>
         [Input("remoteRepoLayoutRef")]
         public Input<string>? RemoteRepoLayoutRef { get; set; }

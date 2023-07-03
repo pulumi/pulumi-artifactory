@@ -24,6 +24,7 @@ public final class GetRemoteNugetRepositoryResult {
     private String clientTlsCertificate;
     private GetRemoteNugetRepositoryContentSynchronisation contentSynchronisation;
     private @Nullable String description;
+    private @Nullable Boolean disableProxy;
     /**
      * @return (Optional) The context path prefix through which NuGet downloads are served. For example, the NuGet Gallery download URL is `https://nuget.org/api/v2/package`, so the repository URL should be configured as `https://nuget.org` and the download context path should be configured as `api/v2/package`. Default value is `api/v2/package`.
      * 
@@ -114,6 +115,9 @@ public final class GetRemoteNugetRepositoryResult {
     }
     public Optional<String> description() {
         return Optional.ofNullable(this.description);
+    }
+    public Optional<Boolean> disableProxy() {
+        return Optional.ofNullable(this.disableProxy);
     }
     /**
      * @return (Optional) The context path prefix through which NuGet downloads are served. For example, the NuGet Gallery download URL is `https://nuget.org/api/v2/package`, so the repository URL should be configured as `https://nuget.org` and the download context path should be configured as `api/v2/package`. Default value is `api/v2/package`.
@@ -272,6 +276,7 @@ public final class GetRemoteNugetRepositoryResult {
         private String clientTlsCertificate;
         private GetRemoteNugetRepositoryContentSynchronisation contentSynchronisation;
         private @Nullable String description;
+        private @Nullable Boolean disableProxy;
         private @Nullable String downloadContextPath;
         private @Nullable Boolean downloadDirect;
         private @Nullable Boolean enableCookieManagement;
@@ -322,6 +327,7 @@ public final class GetRemoteNugetRepositoryResult {
     	      this.clientTlsCertificate = defaults.clientTlsCertificate;
     	      this.contentSynchronisation = defaults.contentSynchronisation;
     	      this.description = defaults.description;
+    	      this.disableProxy = defaults.disableProxy;
     	      this.downloadContextPath = defaults.downloadContextPath;
     	      this.downloadDirect = defaults.downloadDirect;
     	      this.enableCookieManagement = defaults.enableCookieManagement;
@@ -405,6 +411,11 @@ public final class GetRemoteNugetRepositoryResult {
         @CustomType.Setter
         public Builder description(@Nullable String description) {
             this.description = description;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder disableProxy(@Nullable Boolean disableProxy) {
+            this.disableProxy = disableProxy;
             return this;
         }
         @CustomType.Setter
@@ -614,6 +625,7 @@ public final class GetRemoteNugetRepositoryResult {
             o.clientTlsCertificate = clientTlsCertificate;
             o.contentSynchronisation = contentSynchronisation;
             o.description = description;
+            o.disableProxy = disableProxy;
             o.downloadContextPath = downloadContextPath;
             o.downloadDirect = downloadDirect;
             o.enableCookieManagement = enableCookieManagement;

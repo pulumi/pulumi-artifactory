@@ -265,27 +265,27 @@ def get_local_docker_v1_repository(archive_browsing_enabled: Optional[bool] = No
     __ret__ = pulumi.runtime.invoke('artifactory:index/getLocalDockerV1Repository:getLocalDockerV1Repository', __args__, opts=opts, typ=GetLocalDockerV1RepositoryResult).value
 
     return AwaitableGetLocalDockerV1RepositoryResult(
-        api_version=__ret__.api_version,
-        archive_browsing_enabled=__ret__.archive_browsing_enabled,
-        blacked_out=__ret__.blacked_out,
-        block_pushing_schema1=__ret__.block_pushing_schema1,
-        cdn_redirect=__ret__.cdn_redirect,
-        description=__ret__.description,
-        download_direct=__ret__.download_direct,
-        excludes_pattern=__ret__.excludes_pattern,
-        id=__ret__.id,
-        includes_pattern=__ret__.includes_pattern,
-        key=__ret__.key,
-        max_unique_tags=__ret__.max_unique_tags,
-        notes=__ret__.notes,
-        package_type=__ret__.package_type,
-        priority_resolution=__ret__.priority_resolution,
-        project_environments=__ret__.project_environments,
-        project_key=__ret__.project_key,
-        property_sets=__ret__.property_sets,
-        repo_layout_ref=__ret__.repo_layout_ref,
-        tag_retention=__ret__.tag_retention,
-        xray_index=__ret__.xray_index)
+        api_version=pulumi.get(__ret__, 'api_version'),
+        archive_browsing_enabled=pulumi.get(__ret__, 'archive_browsing_enabled'),
+        blacked_out=pulumi.get(__ret__, 'blacked_out'),
+        block_pushing_schema1=pulumi.get(__ret__, 'block_pushing_schema1'),
+        cdn_redirect=pulumi.get(__ret__, 'cdn_redirect'),
+        description=pulumi.get(__ret__, 'description'),
+        download_direct=pulumi.get(__ret__, 'download_direct'),
+        excludes_pattern=pulumi.get(__ret__, 'excludes_pattern'),
+        id=pulumi.get(__ret__, 'id'),
+        includes_pattern=pulumi.get(__ret__, 'includes_pattern'),
+        key=pulumi.get(__ret__, 'key'),
+        max_unique_tags=pulumi.get(__ret__, 'max_unique_tags'),
+        notes=pulumi.get(__ret__, 'notes'),
+        package_type=pulumi.get(__ret__, 'package_type'),
+        priority_resolution=pulumi.get(__ret__, 'priority_resolution'),
+        project_environments=pulumi.get(__ret__, 'project_environments'),
+        project_key=pulumi.get(__ret__, 'project_key'),
+        property_sets=pulumi.get(__ret__, 'property_sets'),
+        repo_layout_ref=pulumi.get(__ret__, 'repo_layout_ref'),
+        tag_retention=pulumi.get(__ret__, 'tag_retention'),
+        xray_index=pulumi.get(__ret__, 'xray_index'))
 
 
 @_utilities.lift_output_func(get_local_docker_v1_repository)

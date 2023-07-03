@@ -23,7 +23,7 @@ class GetRemoteVcsRepositoryResult:
     """
     A collection of values returned by getRemoteVcsRepository.
     """
-    def __init__(__self__, allow_any_host_auth=None, assumed_offline_period_secs=None, blacked_out=None, block_mismatching_mime_types=None, bypass_head_requests=None, cdn_redirect=None, client_tls_certificate=None, content_synchronisation=None, description=None, download_direct=None, enable_cookie_management=None, excludes_pattern=None, hard_fail=None, id=None, includes_pattern=None, key=None, list_remote_folder_items=None, local_address=None, max_unique_snapshots=None, metadata_retrieval_timeout_secs=None, mismatching_mime_types_override_list=None, missed_cache_period_seconds=None, notes=None, offline=None, package_type=None, password=None, priority_resolution=None, project_environments=None, project_key=None, property_sets=None, proxy=None, query_params=None, remote_repo_layout_ref=None, repo_layout_ref=None, retrieval_cache_period_seconds=None, share_configuration=None, socket_timeout_millis=None, store_artifacts_locally=None, synchronize_properties=None, unused_artifacts_cleanup_period_hours=None, url=None, username=None, vcs_git_download_url=None, vcs_git_provider=None, xray_index=None):
+    def __init__(__self__, allow_any_host_auth=None, assumed_offline_period_secs=None, blacked_out=None, block_mismatching_mime_types=None, bypass_head_requests=None, cdn_redirect=None, client_tls_certificate=None, content_synchronisation=None, description=None, disable_proxy=None, download_direct=None, enable_cookie_management=None, excludes_pattern=None, hard_fail=None, id=None, includes_pattern=None, key=None, list_remote_folder_items=None, local_address=None, max_unique_snapshots=None, metadata_retrieval_timeout_secs=None, mismatching_mime_types_override_list=None, missed_cache_period_seconds=None, notes=None, offline=None, package_type=None, password=None, priority_resolution=None, project_environments=None, project_key=None, property_sets=None, proxy=None, query_params=None, remote_repo_layout_ref=None, repo_layout_ref=None, retrieval_cache_period_seconds=None, share_configuration=None, socket_timeout_millis=None, store_artifacts_locally=None, synchronize_properties=None, unused_artifacts_cleanup_period_hours=None, url=None, username=None, vcs_git_download_url=None, vcs_git_provider=None, xray_index=None):
         if allow_any_host_auth and not isinstance(allow_any_host_auth, bool):
             raise TypeError("Expected argument 'allow_any_host_auth' to be a bool")
         pulumi.set(__self__, "allow_any_host_auth", allow_any_host_auth)
@@ -51,6 +51,9 @@ class GetRemoteVcsRepositoryResult:
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if disable_proxy and not isinstance(disable_proxy, bool):
+            raise TypeError("Expected argument 'disable_proxy' to be a bool")
+        pulumi.set(__self__, "disable_proxy", disable_proxy)
         if download_direct and not isinstance(download_direct, bool):
             raise TypeError("Expected argument 'download_direct' to be a bool")
         pulumi.set(__self__, "download_direct", download_direct)
@@ -204,6 +207,11 @@ class GetRemoteVcsRepositoryResult:
     @pulumi.getter
     def description(self) -> Optional[str]:
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="disableProxy")
+    def disable_proxy(self) -> Optional[bool]:
+        return pulumi.get(self, "disable_proxy")
 
     @property
     @pulumi.getter(name="downloadDirect")
@@ -413,6 +421,7 @@ class AwaitableGetRemoteVcsRepositoryResult(GetRemoteVcsRepositoryResult):
             client_tls_certificate=self.client_tls_certificate,
             content_synchronisation=self.content_synchronisation,
             description=self.description,
+            disable_proxy=self.disable_proxy,
             download_direct=self.download_direct,
             enable_cookie_management=self.enable_cookie_management,
             excludes_pattern=self.excludes_pattern,
@@ -460,6 +469,7 @@ def get_remote_vcs_repository(allow_any_host_auth: Optional[bool] = None,
                               client_tls_certificate: Optional[str] = None,
                               content_synchronisation: Optional[pulumi.InputType['GetRemoteVcsRepositoryContentSynchronisationArgs']] = None,
                               description: Optional[str] = None,
+                              disable_proxy: Optional[bool] = None,
                               download_direct: Optional[bool] = None,
                               enable_cookie_management: Optional[bool] = None,
                               excludes_pattern: Optional[str] = None,
@@ -523,6 +533,7 @@ def get_remote_vcs_repository(allow_any_host_auth: Optional[bool] = None,
     __args__['clientTlsCertificate'] = client_tls_certificate
     __args__['contentSynchronisation'] = content_synchronisation
     __args__['description'] = description
+    __args__['disableProxy'] = disable_proxy
     __args__['downloadDirect'] = download_direct
     __args__['enableCookieManagement'] = enable_cookie_management
     __args__['excludesPattern'] = excludes_pattern
@@ -561,51 +572,52 @@ def get_remote_vcs_repository(allow_any_host_auth: Optional[bool] = None,
     __ret__ = pulumi.runtime.invoke('artifactory:index/getRemoteVcsRepository:getRemoteVcsRepository', __args__, opts=opts, typ=GetRemoteVcsRepositoryResult).value
 
     return AwaitableGetRemoteVcsRepositoryResult(
-        allow_any_host_auth=__ret__.allow_any_host_auth,
-        assumed_offline_period_secs=__ret__.assumed_offline_period_secs,
-        blacked_out=__ret__.blacked_out,
-        block_mismatching_mime_types=__ret__.block_mismatching_mime_types,
-        bypass_head_requests=__ret__.bypass_head_requests,
-        cdn_redirect=__ret__.cdn_redirect,
-        client_tls_certificate=__ret__.client_tls_certificate,
-        content_synchronisation=__ret__.content_synchronisation,
-        description=__ret__.description,
-        download_direct=__ret__.download_direct,
-        enable_cookie_management=__ret__.enable_cookie_management,
-        excludes_pattern=__ret__.excludes_pattern,
-        hard_fail=__ret__.hard_fail,
-        id=__ret__.id,
-        includes_pattern=__ret__.includes_pattern,
-        key=__ret__.key,
-        list_remote_folder_items=__ret__.list_remote_folder_items,
-        local_address=__ret__.local_address,
-        max_unique_snapshots=__ret__.max_unique_snapshots,
-        metadata_retrieval_timeout_secs=__ret__.metadata_retrieval_timeout_secs,
-        mismatching_mime_types_override_list=__ret__.mismatching_mime_types_override_list,
-        missed_cache_period_seconds=__ret__.missed_cache_period_seconds,
-        notes=__ret__.notes,
-        offline=__ret__.offline,
-        package_type=__ret__.package_type,
-        password=__ret__.password,
-        priority_resolution=__ret__.priority_resolution,
-        project_environments=__ret__.project_environments,
-        project_key=__ret__.project_key,
-        property_sets=__ret__.property_sets,
-        proxy=__ret__.proxy,
-        query_params=__ret__.query_params,
-        remote_repo_layout_ref=__ret__.remote_repo_layout_ref,
-        repo_layout_ref=__ret__.repo_layout_ref,
-        retrieval_cache_period_seconds=__ret__.retrieval_cache_period_seconds,
-        share_configuration=__ret__.share_configuration,
-        socket_timeout_millis=__ret__.socket_timeout_millis,
-        store_artifacts_locally=__ret__.store_artifacts_locally,
-        synchronize_properties=__ret__.synchronize_properties,
-        unused_artifacts_cleanup_period_hours=__ret__.unused_artifacts_cleanup_period_hours,
-        url=__ret__.url,
-        username=__ret__.username,
-        vcs_git_download_url=__ret__.vcs_git_download_url,
-        vcs_git_provider=__ret__.vcs_git_provider,
-        xray_index=__ret__.xray_index)
+        allow_any_host_auth=pulumi.get(__ret__, 'allow_any_host_auth'),
+        assumed_offline_period_secs=pulumi.get(__ret__, 'assumed_offline_period_secs'),
+        blacked_out=pulumi.get(__ret__, 'blacked_out'),
+        block_mismatching_mime_types=pulumi.get(__ret__, 'block_mismatching_mime_types'),
+        bypass_head_requests=pulumi.get(__ret__, 'bypass_head_requests'),
+        cdn_redirect=pulumi.get(__ret__, 'cdn_redirect'),
+        client_tls_certificate=pulumi.get(__ret__, 'client_tls_certificate'),
+        content_synchronisation=pulumi.get(__ret__, 'content_synchronisation'),
+        description=pulumi.get(__ret__, 'description'),
+        disable_proxy=pulumi.get(__ret__, 'disable_proxy'),
+        download_direct=pulumi.get(__ret__, 'download_direct'),
+        enable_cookie_management=pulumi.get(__ret__, 'enable_cookie_management'),
+        excludes_pattern=pulumi.get(__ret__, 'excludes_pattern'),
+        hard_fail=pulumi.get(__ret__, 'hard_fail'),
+        id=pulumi.get(__ret__, 'id'),
+        includes_pattern=pulumi.get(__ret__, 'includes_pattern'),
+        key=pulumi.get(__ret__, 'key'),
+        list_remote_folder_items=pulumi.get(__ret__, 'list_remote_folder_items'),
+        local_address=pulumi.get(__ret__, 'local_address'),
+        max_unique_snapshots=pulumi.get(__ret__, 'max_unique_snapshots'),
+        metadata_retrieval_timeout_secs=pulumi.get(__ret__, 'metadata_retrieval_timeout_secs'),
+        mismatching_mime_types_override_list=pulumi.get(__ret__, 'mismatching_mime_types_override_list'),
+        missed_cache_period_seconds=pulumi.get(__ret__, 'missed_cache_period_seconds'),
+        notes=pulumi.get(__ret__, 'notes'),
+        offline=pulumi.get(__ret__, 'offline'),
+        package_type=pulumi.get(__ret__, 'package_type'),
+        password=pulumi.get(__ret__, 'password'),
+        priority_resolution=pulumi.get(__ret__, 'priority_resolution'),
+        project_environments=pulumi.get(__ret__, 'project_environments'),
+        project_key=pulumi.get(__ret__, 'project_key'),
+        property_sets=pulumi.get(__ret__, 'property_sets'),
+        proxy=pulumi.get(__ret__, 'proxy'),
+        query_params=pulumi.get(__ret__, 'query_params'),
+        remote_repo_layout_ref=pulumi.get(__ret__, 'remote_repo_layout_ref'),
+        repo_layout_ref=pulumi.get(__ret__, 'repo_layout_ref'),
+        retrieval_cache_period_seconds=pulumi.get(__ret__, 'retrieval_cache_period_seconds'),
+        share_configuration=pulumi.get(__ret__, 'share_configuration'),
+        socket_timeout_millis=pulumi.get(__ret__, 'socket_timeout_millis'),
+        store_artifacts_locally=pulumi.get(__ret__, 'store_artifacts_locally'),
+        synchronize_properties=pulumi.get(__ret__, 'synchronize_properties'),
+        unused_artifacts_cleanup_period_hours=pulumi.get(__ret__, 'unused_artifacts_cleanup_period_hours'),
+        url=pulumi.get(__ret__, 'url'),
+        username=pulumi.get(__ret__, 'username'),
+        vcs_git_download_url=pulumi.get(__ret__, 'vcs_git_download_url'),
+        vcs_git_provider=pulumi.get(__ret__, 'vcs_git_provider'),
+        xray_index=pulumi.get(__ret__, 'xray_index'))
 
 
 @_utilities.lift_output_func(get_remote_vcs_repository)
@@ -618,6 +630,7 @@ def get_remote_vcs_repository_output(allow_any_host_auth: Optional[pulumi.Input[
                                      client_tls_certificate: Optional[pulumi.Input[Optional[str]]] = None,
                                      content_synchronisation: Optional[pulumi.Input[Optional[pulumi.InputType['GetRemoteVcsRepositoryContentSynchronisationArgs']]]] = None,
                                      description: Optional[pulumi.Input[Optional[str]]] = None,
+                                     disable_proxy: Optional[pulumi.Input[Optional[bool]]] = None,
                                      download_direct: Optional[pulumi.Input[Optional[bool]]] = None,
                                      enable_cookie_management: Optional[pulumi.Input[Optional[bool]]] = None,
                                      excludes_pattern: Optional[pulumi.Input[Optional[str]]] = None,

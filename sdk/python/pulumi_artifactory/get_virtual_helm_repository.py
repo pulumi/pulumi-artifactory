@@ -225,21 +225,21 @@ def get_virtual_helm_repository(artifactory_requests_can_retrieve_remote_artifac
     __ret__ = pulumi.runtime.invoke('artifactory:index/getVirtualHelmRepository:getVirtualHelmRepository', __args__, opts=opts, typ=GetVirtualHelmRepositoryResult).value
 
     return AwaitableGetVirtualHelmRepositoryResult(
-        artifactory_requests_can_retrieve_remote_artifacts=__ret__.artifactory_requests_can_retrieve_remote_artifacts,
-        default_deployment_repo=__ret__.default_deployment_repo,
-        description=__ret__.description,
-        excludes_pattern=__ret__.excludes_pattern,
-        id=__ret__.id,
-        includes_pattern=__ret__.includes_pattern,
-        key=__ret__.key,
-        notes=__ret__.notes,
-        package_type=__ret__.package_type,
-        project_environments=__ret__.project_environments,
-        project_key=__ret__.project_key,
-        repo_layout_ref=__ret__.repo_layout_ref,
-        repositories=__ret__.repositories,
-        retrieval_cache_period_seconds=__ret__.retrieval_cache_period_seconds,
-        use_namespaces=__ret__.use_namespaces)
+        artifactory_requests_can_retrieve_remote_artifacts=pulumi.get(__ret__, 'artifactory_requests_can_retrieve_remote_artifacts'),
+        default_deployment_repo=pulumi.get(__ret__, 'default_deployment_repo'),
+        description=pulumi.get(__ret__, 'description'),
+        excludes_pattern=pulumi.get(__ret__, 'excludes_pattern'),
+        id=pulumi.get(__ret__, 'id'),
+        includes_pattern=pulumi.get(__ret__, 'includes_pattern'),
+        key=pulumi.get(__ret__, 'key'),
+        notes=pulumi.get(__ret__, 'notes'),
+        package_type=pulumi.get(__ret__, 'package_type'),
+        project_environments=pulumi.get(__ret__, 'project_environments'),
+        project_key=pulumi.get(__ret__, 'project_key'),
+        repo_layout_ref=pulumi.get(__ret__, 'repo_layout_ref'),
+        repositories=pulumi.get(__ret__, 'repositories'),
+        retrieval_cache_period_seconds=pulumi.get(__ret__, 'retrieval_cache_period_seconds'),
+        use_namespaces=pulumi.get(__ret__, 'use_namespaces'))
 
 
 @_utilities.lift_output_func(get_virtual_helm_repository)

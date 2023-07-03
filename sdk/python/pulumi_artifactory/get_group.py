@@ -241,19 +241,19 @@ def get_group(admin_privileges: Optional[bool] = None,
     __ret__ = pulumi.runtime.invoke('artifactory:index/getGroup:getGroup', __args__, opts=opts, typ=GetGroupResult).value
 
     return AwaitableGetGroupResult(
-        admin_privileges=__ret__.admin_privileges,
-        auto_join=__ret__.auto_join,
-        description=__ret__.description,
-        external_id=__ret__.external_id,
-        id=__ret__.id,
-        include_users=__ret__.include_users,
-        name=__ret__.name,
-        policy_manager=__ret__.policy_manager,
-        realm=__ret__.realm,
-        realm_attributes=__ret__.realm_attributes,
-        reports_manager=__ret__.reports_manager,
-        users_names=__ret__.users_names,
-        watch_manager=__ret__.watch_manager)
+        admin_privileges=pulumi.get(__ret__, 'admin_privileges'),
+        auto_join=pulumi.get(__ret__, 'auto_join'),
+        description=pulumi.get(__ret__, 'description'),
+        external_id=pulumi.get(__ret__, 'external_id'),
+        id=pulumi.get(__ret__, 'id'),
+        include_users=pulumi.get(__ret__, 'include_users'),
+        name=pulumi.get(__ret__, 'name'),
+        policy_manager=pulumi.get(__ret__, 'policy_manager'),
+        realm=pulumi.get(__ret__, 'realm'),
+        realm_attributes=pulumi.get(__ret__, 'realm_attributes'),
+        reports_manager=pulumi.get(__ret__, 'reports_manager'),
+        users_names=pulumi.get(__ret__, 'users_names'),
+        watch_manager=pulumi.get(__ret__, 'watch_manager'))
 
 
 @_utilities.lift_output_func(get_group)

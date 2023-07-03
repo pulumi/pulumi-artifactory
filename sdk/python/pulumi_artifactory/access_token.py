@@ -394,6 +394,23 @@ class AccessToken(pulumi.CustomResource):
             groups=["readers"],
             username="fixeddate")
         ```
+        ### Rotate token after it expires
+        This example will generate a token that will expire in 1 hour.
+
+        If `pulumi up` is run before 1 hour, nothing changes.
+        One an hour has passed, `pulumi up` will generate a new token.
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+        import pulumiverse_time as time
+
+        now_plus1_hours = time.Rotating("nowPlus1Hours", rotation_hours=1)
+        rotating = artifactory.AccessToken("rotating",
+            username="rotating",
+            end_date=time_rotating["now_plus_1_hour"]["rotation_rfc3339"],
+            groups=["readers"])
+        ```
         ## References
 
         - https://www.jfrog.com/confluence/display/ACC1X/Access+Tokens
@@ -515,6 +532,23 @@ class AccessToken(pulumi.CustomResource):
             end_date="2018-01-01T01:02:03Z",
             groups=["readers"],
             username="fixeddate")
+        ```
+        ### Rotate token after it expires
+        This example will generate a token that will expire in 1 hour.
+
+        If `pulumi up` is run before 1 hour, nothing changes.
+        One an hour has passed, `pulumi up` will generate a new token.
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+        import pulumiverse_time as time
+
+        now_plus1_hours = time.Rotating("nowPlus1Hours", rotation_hours=1)
+        rotating = artifactory.AccessToken("rotating",
+            username="rotating",
+            end_date=time_rotating["now_plus_1_hour"]["rotation_rfc3339"],
+            groups=["readers"])
         ```
         ## References
 

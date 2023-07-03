@@ -125,11 +125,11 @@ def get_permission_target(build: Optional[pulumi.InputType['GetPermissionTargetB
     __ret__ = pulumi.runtime.invoke('artifactory:index/getPermissionTarget:getPermissionTarget', __args__, opts=opts, typ=GetPermissionTargetResult).value
 
     return AwaitableGetPermissionTargetResult(
-        build=__ret__.build,
-        id=__ret__.id,
-        name=__ret__.name,
-        release_bundle=__ret__.release_bundle,
-        repo=__ret__.repo)
+        build=pulumi.get(__ret__, 'build'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        release_bundle=pulumi.get(__ret__, 'release_bundle'),
+        repo=pulumi.get(__ret__, 'repo'))
 
 
 @_utilities.lift_output_func(get_permission_target)
