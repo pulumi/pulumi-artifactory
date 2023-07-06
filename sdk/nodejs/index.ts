@@ -25,6 +25,16 @@ export type ApiKey = import("./apiKey").ApiKey;
 export const ApiKey: typeof import("./apiKey").ApiKey = null as any;
 utilities.lazyLoad(exports, ["ApiKey"], () => require("./apiKey"));
 
+export { ArtifactCustomWebhookArgs, ArtifactCustomWebhookState } from "./artifactCustomWebhook";
+export type ArtifactCustomWebhook = import("./artifactCustomWebhook").ArtifactCustomWebhook;
+export const ArtifactCustomWebhook: typeof import("./artifactCustomWebhook").ArtifactCustomWebhook = null as any;
+utilities.lazyLoad(exports, ["ArtifactCustomWebhook"], () => require("./artifactCustomWebhook"));
+
+export { ArtifactPropertyCustomWebhookArgs, ArtifactPropertyCustomWebhookState } from "./artifactPropertyCustomWebhook";
+export type ArtifactPropertyCustomWebhook = import("./artifactPropertyCustomWebhook").ArtifactPropertyCustomWebhook;
+export const ArtifactPropertyCustomWebhook: typeof import("./artifactPropertyCustomWebhook").ArtifactPropertyCustomWebhook = null as any;
+utilities.lazyLoad(exports, ["ArtifactPropertyCustomWebhook"], () => require("./artifactPropertyCustomWebhook"));
+
 export { ArtifactPropertyWebhookArgs, ArtifactPropertyWebhookState } from "./artifactPropertyWebhook";
 export type ArtifactPropertyWebhook = import("./artifactPropertyWebhook").ArtifactPropertyWebhook;
 export const ArtifactPropertyWebhook: typeof import("./artifactPropertyWebhook").ArtifactPropertyWebhook = null as any;
@@ -35,6 +45,11 @@ export type ArtifactWebhook = import("./artifactWebhook").ArtifactWebhook;
 export const ArtifactWebhook: typeof import("./artifactWebhook").ArtifactWebhook = null as any;
 utilities.lazyLoad(exports, ["ArtifactWebhook"], () => require("./artifactWebhook"));
 
+export { ArtifactoryReleaseBundleCustomWebhookArgs, ArtifactoryReleaseBundleCustomWebhookState } from "./artifactoryReleaseBundleCustomWebhook";
+export type ArtifactoryReleaseBundleCustomWebhook = import("./artifactoryReleaseBundleCustomWebhook").ArtifactoryReleaseBundleCustomWebhook;
+export const ArtifactoryReleaseBundleCustomWebhook: typeof import("./artifactoryReleaseBundleCustomWebhook").ArtifactoryReleaseBundleCustomWebhook = null as any;
+utilities.lazyLoad(exports, ["ArtifactoryReleaseBundleCustomWebhook"], () => require("./artifactoryReleaseBundleCustomWebhook"));
+
 export { ArtifactoryReleaseBundleWebhookArgs, ArtifactoryReleaseBundleWebhookState } from "./artifactoryReleaseBundleWebhook";
 export type ArtifactoryReleaseBundleWebhook = import("./artifactoryReleaseBundleWebhook").ArtifactoryReleaseBundleWebhook;
 export const ArtifactoryReleaseBundleWebhook: typeof import("./artifactoryReleaseBundleWebhook").ArtifactoryReleaseBundleWebhook = null as any;
@@ -44,6 +59,11 @@ export { BackupArgs, BackupState } from "./backup";
 export type Backup = import("./backup").Backup;
 export const Backup: typeof import("./backup").Backup = null as any;
 utilities.lazyLoad(exports, ["Backup"], () => require("./backup"));
+
+export { BuildCustomWebhookArgs, BuildCustomWebhookState } from "./buildCustomWebhook";
+export type BuildCustomWebhook = import("./buildCustomWebhook").BuildCustomWebhook;
+export const BuildCustomWebhook: typeof import("./buildCustomWebhook").BuildCustomWebhook = null as any;
+utilities.lazyLoad(exports, ["BuildCustomWebhook"], () => require("./buildCustomWebhook"));
 
 export { BuildWebhookArgs, BuildWebhookState } from "./buildWebhook";
 export type BuildWebhook = import("./buildWebhook").BuildWebhook;
@@ -60,6 +80,11 @@ export type DebianRepository = import("./debianRepository").DebianRepository;
 export const DebianRepository: typeof import("./debianRepository").DebianRepository = null as any;
 utilities.lazyLoad(exports, ["DebianRepository"], () => require("./debianRepository"));
 
+export { DistributionCustomWebhookArgs, DistributionCustomWebhookState } from "./distributionCustomWebhook";
+export type DistributionCustomWebhook = import("./distributionCustomWebhook").DistributionCustomWebhook;
+export const DistributionCustomWebhook: typeof import("./distributionCustomWebhook").DistributionCustomWebhook = null as any;
+utilities.lazyLoad(exports, ["DistributionCustomWebhook"], () => require("./distributionCustomWebhook"));
+
 export { DistributionPublicKeyArgs, DistributionPublicKeyState } from "./distributionPublicKey";
 export type DistributionPublicKey = import("./distributionPublicKey").DistributionPublicKey;
 export const DistributionPublicKey: typeof import("./distributionPublicKey").DistributionPublicKey = null as any;
@@ -69,6 +94,11 @@ export { DistributionWebhookArgs, DistributionWebhookState } from "./distributio
 export type DistributionWebhook = import("./distributionWebhook").DistributionWebhook;
 export const DistributionWebhook: typeof import("./distributionWebhook").DistributionWebhook = null as any;
 utilities.lazyLoad(exports, ["DistributionWebhook"], () => require("./distributionWebhook"));
+
+export { DockerCustomWebhookArgs, DockerCustomWebhookState } from "./dockerCustomWebhook";
+export type DockerCustomWebhook = import("./dockerCustomWebhook").DockerCustomWebhook;
+export const DockerCustomWebhook: typeof import("./dockerCustomWebhook").DockerCustomWebhook = null as any;
+utilities.lazyLoad(exports, ["DockerCustomWebhook"], () => require("./dockerCustomWebhook"));
 
 export { DockerV1RepositoryArgs, DockerV1RepositoryState } from "./dockerV1Repository";
 export type DockerV1Repository = import("./dockerV1Repository").DockerV1Repository;
@@ -1110,6 +1140,11 @@ export type PushReplication = import("./pushReplication").PushReplication;
 export const PushReplication: typeof import("./pushReplication").PushReplication = null as any;
 utilities.lazyLoad(exports, ["PushReplication"], () => require("./pushReplication"));
 
+export { ReleaseBundleCustomWebhookArgs, ReleaseBundleCustomWebhookState } from "./releaseBundleCustomWebhook";
+export type ReleaseBundleCustomWebhook = import("./releaseBundleCustomWebhook").ReleaseBundleCustomWebhook;
+export const ReleaseBundleCustomWebhook: typeof import("./releaseBundleCustomWebhook").ReleaseBundleCustomWebhook = null as any;
+utilities.lazyLoad(exports, ["ReleaseBundleCustomWebhook"], () => require("./releaseBundleCustomWebhook"));
+
 export { ReleaseBundleWebhookArgs, ReleaseBundleWebhookState } from "./releaseBundleWebhook";
 export type ReleaseBundleWebhook = import("./releaseBundleWebhook").ReleaseBundleWebhook;
 export const ReleaseBundleWebhook: typeof import("./releaseBundleWebhook").ReleaseBundleWebhook = null as any;
@@ -1457,24 +1492,36 @@ const _module = {
                 return new AnonymousUser(name, <any>undefined, { urn })
             case "artifactory:index/apiKey:ApiKey":
                 return new ApiKey(name, <any>undefined, { urn })
+            case "artifactory:index/artifactCustomWebhook:ArtifactCustomWebhook":
+                return new ArtifactCustomWebhook(name, <any>undefined, { urn })
+            case "artifactory:index/artifactPropertyCustomWebhook:ArtifactPropertyCustomWebhook":
+                return new ArtifactPropertyCustomWebhook(name, <any>undefined, { urn })
             case "artifactory:index/artifactPropertyWebhook:ArtifactPropertyWebhook":
                 return new ArtifactPropertyWebhook(name, <any>undefined, { urn })
             case "artifactory:index/artifactWebhook:ArtifactWebhook":
                 return new ArtifactWebhook(name, <any>undefined, { urn })
+            case "artifactory:index/artifactoryReleaseBundleCustomWebhook:ArtifactoryReleaseBundleCustomWebhook":
+                return new ArtifactoryReleaseBundleCustomWebhook(name, <any>undefined, { urn })
             case "artifactory:index/artifactoryReleaseBundleWebhook:ArtifactoryReleaseBundleWebhook":
                 return new ArtifactoryReleaseBundleWebhook(name, <any>undefined, { urn })
             case "artifactory:index/backup:Backup":
                 return new Backup(name, <any>undefined, { urn })
+            case "artifactory:index/buildCustomWebhook:BuildCustomWebhook":
+                return new BuildCustomWebhook(name, <any>undefined, { urn })
             case "artifactory:index/buildWebhook:BuildWebhook":
                 return new BuildWebhook(name, <any>undefined, { urn })
             case "artifactory:index/certificate:Certificate":
                 return new Certificate(name, <any>undefined, { urn })
             case "artifactory:index/debianRepository:DebianRepository":
                 return new DebianRepository(name, <any>undefined, { urn })
+            case "artifactory:index/distributionCustomWebhook:DistributionCustomWebhook":
+                return new DistributionCustomWebhook(name, <any>undefined, { urn })
             case "artifactory:index/distributionPublicKey:DistributionPublicKey":
                 return new DistributionPublicKey(name, <any>undefined, { urn })
             case "artifactory:index/distributionWebhook:DistributionWebhook":
                 return new DistributionWebhook(name, <any>undefined, { urn })
+            case "artifactory:index/dockerCustomWebhook:DockerCustomWebhook":
+                return new DockerCustomWebhook(name, <any>undefined, { urn })
             case "artifactory:index/dockerV1Repository:DockerV1Repository":
                 return new DockerV1Repository(name, <any>undefined, { urn })
             case "artifactory:index/dockerV2Repository:DockerV2Repository":
@@ -1635,6 +1682,8 @@ const _module = {
                 return new PullReplication(name, <any>undefined, { urn })
             case "artifactory:index/pushReplication:PushReplication":
                 return new PushReplication(name, <any>undefined, { urn })
+            case "artifactory:index/releaseBundleCustomWebhook:ReleaseBundleCustomWebhook":
+                return new ReleaseBundleCustomWebhook(name, <any>undefined, { urn })
             case "artifactory:index/releaseBundleWebhook:ReleaseBundleWebhook":
                 return new ReleaseBundleWebhook(name, <any>undefined, { urn })
             case "artifactory:index/remoteAlpineRepository:RemoteAlpineRepository":
@@ -1774,15 +1823,21 @@ pulumi.runtime.registerResourceModule("artifactory", "index/accessToken", _modul
 pulumi.runtime.registerResourceModule("artifactory", "index/alpineRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/anonymousUser", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/apiKey", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/artifactCustomWebhook", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/artifactPropertyCustomWebhook", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/artifactPropertyWebhook", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/artifactWebhook", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/artifactoryReleaseBundleCustomWebhook", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/artifactoryReleaseBundleWebhook", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/backup", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/buildCustomWebhook", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/buildWebhook", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/certificate", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/debianRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/distributionCustomWebhook", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/distributionPublicKey", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/distributionWebhook", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/dockerCustomWebhook", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/dockerV1Repository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/dockerV2Repository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/dockerWebhook", _module)
@@ -1863,6 +1918,7 @@ pulumi.runtime.registerResourceModule("artifactory", "index/propertySet", _modul
 pulumi.runtime.registerResourceModule("artifactory", "index/proxy", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/pullReplication", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/pushReplication", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/releaseBundleCustomWebhook", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/releaseBundleWebhook", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteAlpineRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteBowerRepository", _module)
