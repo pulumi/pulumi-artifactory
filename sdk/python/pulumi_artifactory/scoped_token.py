@@ -28,7 +28,7 @@ class ScopedTokenArgs:
         :param pulumi.Input[str] description: Free text token description. Useful for filtering and managing tokens. Limited to 1024 characters.
         :param pulumi.Input[int] expires_in: The amount of time, in seconds, it would take for the token to expire. An admin shall be able to set whether expiry is mandatory, what is the default expiry, and what is the maximum expiry allowed. Must be non-negative. Default value is based on configuration in 'access.config.yaml'. See [API documentation](https://jfrog.com/help/r/jfrog-rest-apis/revoke-token-by-id) for details. Access Token would not be saved by Artifactory if this is less than the persistence threshold value (default to 10800 seconds) set in Access configuration. See [official documentation](https://jfrog.com/help/r/jfrog-platform-administration-documentation/using-the-revocable-and-persistency-thresholds) for details.
         :param pulumi.Input[str] grant_type: The grant type used to authenticate the request. In this case, the only value supported is `client_credentials` which is also the default value if this parameter is not specified.
-        :param pulumi.Input[bool] include_reference_token: Also create a reference token which can be used like an API key. Default is `false`.
+        :param pulumi.Input[bool] include_reference_token: Also create a reference token which can be used like an API key.
         :param pulumi.Input[bool] refreshable: Is this token refreshable? Default is `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: The scope of access that the token provides. Access to the REST API is always provided by default. Administrators can set any scope, while non-admin users can only set the scope to a subset of the groups to which they belong.
                The supported scopes include:
@@ -103,7 +103,7 @@ class ScopedTokenArgs:
     @pulumi.getter(name="includeReferenceToken")
     def include_reference_token(self) -> Optional[pulumi.Input[bool]]:
         """
-        Also create a reference token which can be used like an API key. Default is `false`.
+        Also create a reference token which can be used like an API key.
         """
         return pulumi.get(self, "include_reference_token")
 
@@ -176,7 +176,7 @@ class _ScopedTokenState:
         :param pulumi.Input[int] expires_in: The amount of time, in seconds, it would take for the token to expire. An admin shall be able to set whether expiry is mandatory, what is the default expiry, and what is the maximum expiry allowed. Must be non-negative. Default value is based on configuration in 'access.config.yaml'. See [API documentation](https://jfrog.com/help/r/jfrog-rest-apis/revoke-token-by-id) for details. Access Token would not be saved by Artifactory if this is less than the persistence threshold value (default to 10800 seconds) set in Access configuration. See [official documentation](https://jfrog.com/help/r/jfrog-platform-administration-documentation/using-the-revocable-and-persistency-thresholds) for details.
         :param pulumi.Input[int] expiry: Returns the token expiry.
         :param pulumi.Input[str] grant_type: The grant type used to authenticate the request. In this case, the only value supported is `client_credentials` which is also the default value if this parameter is not specified.
-        :param pulumi.Input[bool] include_reference_token: Also create a reference token which can be used like an API key. Default is `false`.
+        :param pulumi.Input[bool] include_reference_token: Also create a reference token which can be used like an API key.
         :param pulumi.Input[int] issued_at: Returns the token issued at date/time.
         :param pulumi.Input[str] issuer: Returns the token issuer.
         :param pulumi.Input[str] reference_token: Reference Token (alias to Access Token).
@@ -297,7 +297,7 @@ class _ScopedTokenState:
     @pulumi.getter(name="includeReferenceToken")
     def include_reference_token(self) -> Optional[pulumi.Input[bool]]:
         """
-        Also create a reference token which can be used like an API key. Default is `false`.
+        Also create a reference token which can be used like an API key.
         """
         return pulumi.get(self, "include_reference_token")
 
@@ -495,7 +495,7 @@ class ScopedToken(pulumi.CustomResource):
         :param pulumi.Input[str] description: Free text token description. Useful for filtering and managing tokens. Limited to 1024 characters.
         :param pulumi.Input[int] expires_in: The amount of time, in seconds, it would take for the token to expire. An admin shall be able to set whether expiry is mandatory, what is the default expiry, and what is the maximum expiry allowed. Must be non-negative. Default value is based on configuration in 'access.config.yaml'. See [API documentation](https://jfrog.com/help/r/jfrog-rest-apis/revoke-token-by-id) for details. Access Token would not be saved by Artifactory if this is less than the persistence threshold value (default to 10800 seconds) set in Access configuration. See [official documentation](https://jfrog.com/help/r/jfrog-platform-administration-documentation/using-the-revocable-and-persistency-thresholds) for details.
         :param pulumi.Input[str] grant_type: The grant type used to authenticate the request. In this case, the only value supported is `client_credentials` which is also the default value if this parameter is not specified.
-        :param pulumi.Input[bool] include_reference_token: Also create a reference token which can be used like an API key. Default is `false`.
+        :param pulumi.Input[bool] include_reference_token: Also create a reference token which can be used like an API key.
         :param pulumi.Input[bool] refreshable: Is this token refreshable? Default is `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: The scope of access that the token provides. Access to the REST API is always provided by default. Administrators can set any scope, while non-admin users can only set the scope to a subset of the groups to which they belong.
                The supported scopes include:
@@ -656,7 +656,7 @@ class ScopedToken(pulumi.CustomResource):
         :param pulumi.Input[int] expires_in: The amount of time, in seconds, it would take for the token to expire. An admin shall be able to set whether expiry is mandatory, what is the default expiry, and what is the maximum expiry allowed. Must be non-negative. Default value is based on configuration in 'access.config.yaml'. See [API documentation](https://jfrog.com/help/r/jfrog-rest-apis/revoke-token-by-id) for details. Access Token would not be saved by Artifactory if this is less than the persistence threshold value (default to 10800 seconds) set in Access configuration. See [official documentation](https://jfrog.com/help/r/jfrog-platform-administration-documentation/using-the-revocable-and-persistency-thresholds) for details.
         :param pulumi.Input[int] expiry: Returns the token expiry.
         :param pulumi.Input[str] grant_type: The grant type used to authenticate the request. In this case, the only value supported is `client_credentials` which is also the default value if this parameter is not specified.
-        :param pulumi.Input[bool] include_reference_token: Also create a reference token which can be used like an API key. Default is `false`.
+        :param pulumi.Input[bool] include_reference_token: Also create a reference token which can be used like an API key.
         :param pulumi.Input[int] issued_at: Returns the token issued at date/time.
         :param pulumi.Input[str] issuer: Returns the token issuer.
         :param pulumi.Input[str] reference_token: Reference Token (alias to Access Token).
@@ -742,7 +742,7 @@ class ScopedToken(pulumi.CustomResource):
     @pulumi.getter(name="includeReferenceToken")
     def include_reference_token(self) -> pulumi.Output[bool]:
         """
-        Also create a reference token which can be used like an API key. Default is `false`.
+        Also create a reference token which can be used like an API key.
         """
         return pulumi.get(self, "include_reference_token")
 

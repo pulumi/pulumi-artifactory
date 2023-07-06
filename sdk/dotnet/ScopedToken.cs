@@ -109,7 +109,7 @@ namespace Pulumi.Artifactory
         public Output<string> GrantType { get; private set; } = null!;
 
         /// <summary>
-        /// Also create a reference token which can be used like an API key. Default is `false`.
+        /// Also create a reference token which can be used like an API key.
         /// </summary>
         [Output("includeReferenceToken")]
         public Output<bool> IncludeReferenceToken { get; private set; } = null!;
@@ -252,7 +252,7 @@ namespace Pulumi.Artifactory
         public Input<string>? GrantType { get; set; }
 
         /// <summary>
-        /// Also create a reference token which can be used like an API key. Default is `false`.
+        /// Also create a reference token which can be used like an API key.
         /// </summary>
         [Input("includeReferenceToken")]
         public Input<bool>? IncludeReferenceToken { get; set; }
@@ -343,7 +343,7 @@ namespace Pulumi.Artifactory
         public Input<string>? GrantType { get; set; }
 
         /// <summary>
-        /// Also create a reference token which can be used like an API key. Default is `false`.
+        /// Also create a reference token which can be used like an API key.
         /// </summary>
         [Input("includeReferenceToken")]
         public Input<bool>? IncludeReferenceToken { get; set; }

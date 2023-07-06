@@ -165,14 +165,14 @@ public class ScopedToken extends com.pulumi.resources.CustomResource {
         return this.grantType;
     }
     /**
-     * Also create a reference token which can be used like an API key. Default is `false`.
+     * Also create a reference token which can be used like an API key.
      * 
      */
     @Export(name="includeReferenceToken", type=Boolean.class, parameters={})
     private Output<Boolean> includeReferenceToken;
 
     /**
-     * @return Also create a reference token which can be used like an API key. Default is `false`.
+     * @return Also create a reference token which can be used like an API key.
      * 
      */
     public Output<Boolean> includeReferenceToken() {

@@ -109,14 +109,14 @@ public final class ScopedTokenState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Also create a reference token which can be used like an API key. Default is `false`.
+     * Also create a reference token which can be used like an API key.
      * 
      */
     @Import(name="includeReferenceToken")
     private @Nullable Output<Boolean> includeReferenceToken;
 
     /**
-     * @return Also create a reference token which can be used like an API key. Default is `false`.
+     * @return Also create a reference token which can be used like an API key.
      * 
      */
     public Optional<Output<Boolean>> includeReferenceToken() {
@@ -436,7 +436,7 @@ public final class ScopedTokenState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param includeReferenceToken Also create a reference token which can be used like an API key. Default is `false`.
+         * @param includeReferenceToken Also create a reference token which can be used like an API key.
          * 
          * @return builder
          * 
@@ -447,7 +447,7 @@ public final class ScopedTokenState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param includeReferenceToken Also create a reference token which can be used like an API key. Default is `false`.
+         * @param includeReferenceToken Also create a reference token which can be used like an API key.
          * 
          * @return builder
          * 

@@ -9,6 +9,100 @@ export interface AccessTokenAdminToken {
     instanceId: pulumi.Input<string>;
 }
 
+export interface ArtifactCustomWebhookCriteria {
+    /**
+     * Trigger on any local repo.
+     */
+    anyLocal: pulumi.Input<boolean>;
+    /**
+     * Trigger on any remote repo.
+     */
+    anyRemote: pulumi.Input<boolean>;
+    /**
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
+     */
+    excludePatterns?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
+     */
+    includePatterns?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Trigger on this list of repo keys.
+     */
+    repoKeys: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface ArtifactCustomWebhookHandler {
+    /**
+     * HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
+     */
+    httpHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    payload?: pulumi.Input<string>;
+    /**
+     * Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+     */
+    proxy?: pulumi.Input<string>;
+    /**
+     * Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example: 
+     *
+     * ```typescript
+     * import * as pulumi from "@pulumi/pulumi";
+     * ```
+     */
+    secrets?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+     */
+    url: pulumi.Input<string>;
+}
+
+export interface ArtifactPropertyCustomWebhookCriteria {
+    /**
+     * Trigger on any local repo.
+     */
+    anyLocal: pulumi.Input<boolean>;
+    /**
+     * Trigger on any remote repo.
+     */
+    anyRemote: pulumi.Input<boolean>;
+    /**
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
+     */
+    excludePatterns?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
+     */
+    includePatterns?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Trigger on this list of repo keys.
+     */
+    repoKeys: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface ArtifactPropertyCustomWebhookHandler {
+    /**
+     * HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
+     */
+    httpHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    payload?: pulumi.Input<string>;
+    /**
+     * Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+     */
+    proxy?: pulumi.Input<string>;
+    /**
+     * Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
+     *
+     * ```typescript
+     * import * as pulumi from "@pulumi/pulumi";
+     * ```
+     */
+    secrets?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+     */
+    url: pulumi.Input<string>;
+}
+
 export interface ArtifactPropertyWebhookCriteria {
     /**
      * Trigger on any local repo.
@@ -93,6 +187,49 @@ export interface ArtifactWebhookHandler {
     url: pulumi.Input<string>;
 }
 
+export interface ArtifactoryReleaseBundleCustomWebhookCriteria {
+    /**
+     * Trigger on any release bundle
+     */
+    anyReleaseBundle: pulumi.Input<boolean>;
+    /**
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`
+     */
+    excludePatterns?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`
+     */
+    includePatterns?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Trigger on this list of release bundle names
+     */
+    registeredReleaseBundleNames: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface ArtifactoryReleaseBundleCustomWebhookHandler {
+    /**
+     * HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
+     */
+    httpHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    payload?: pulumi.Input<string>;
+    /**
+     * Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+     */
+    proxy?: pulumi.Input<string>;
+    /**
+     * Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
+     *
+     * ```typescript
+     * import * as pulumi from "@pulumi/pulumi";
+     * ```
+     */
+    secrets?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+     */
+    url: pulumi.Input<string>;
+}
+
 export interface ArtifactoryReleaseBundleWebhookCriteria {
     /**
      * Trigger on any release bundle
@@ -125,6 +262,49 @@ export interface ArtifactoryReleaseBundleWebhookHandler {
      * Secret authentication token that will be sent to the configured URL. The value will be sent as `x-jfrog-event-auth` header.
      */
     secret?: pulumi.Input<string>;
+    /**
+     * Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+     */
+    url: pulumi.Input<string>;
+}
+
+export interface BuildCustomWebhookCriteria {
+    /**
+     * Trigger on any build.
+     */
+    anyBuild: pulumi.Input<boolean>;
+    /**
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
+     */
+    excludePatterns?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
+     */
+    includePatterns?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Trigger on this list of build names.
+     */
+    selectedBuilds: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface BuildCustomWebhookHandler {
+    /**
+     * HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
+     */
+    httpHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    payload?: pulumi.Input<string>;
+    /**
+     * Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+     */
+    proxy?: pulumi.Input<string>;
+    /**
+     * Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
+     *
+     * ```typescript
+     * import * as pulumi from "@pulumi/pulumi";
+     * ```
+     */
+    secrets?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
      */
@@ -169,6 +349,49 @@ export interface BuildWebhookHandler {
     url: pulumi.Input<string>;
 }
 
+export interface DistributionCustomWebhookCriteria {
+    /**
+     * Trigger on any release bundle.
+     */
+    anyReleaseBundle: pulumi.Input<boolean>;
+    /**
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
+     */
+    excludePatterns?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
+     */
+    includePatterns?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Trigger on this list of release bundle names.
+     */
+    registeredReleaseBundleNames: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface DistributionCustomWebhookHandler {
+    /**
+     * HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
+     */
+    httpHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    payload?: pulumi.Input<string>;
+    /**
+     * Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+     */
+    proxy?: pulumi.Input<string>;
+    /**
+     * Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
+     *
+     * ```typescript
+     * import * as pulumi from "@pulumi/pulumi";
+     * ```
+     */
+    secrets?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+     */
+    url: pulumi.Input<string>;
+}
+
 export interface DistributionWebhookCriteria {
     /**
      * Trigger on any release bundle.
@@ -201,6 +424,53 @@ export interface DistributionWebhookHandler {
      * Secret authentication token that will be sent to the configured URL. The value will be sent as `x-jfrog-event-auth` header.
      */
     secret?: pulumi.Input<string>;
+    /**
+     * Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+     */
+    url: pulumi.Input<string>;
+}
+
+export interface DockerCustomWebhookCriteria {
+    /**
+     * Trigger on any local repo.
+     */
+    anyLocal: pulumi.Input<boolean>;
+    /**
+     * Trigger on any remote repo.
+     */
+    anyRemote: pulumi.Input<boolean>;
+    /**
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
+     */
+    excludePatterns?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
+     */
+    includePatterns?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Trigger on this list of repo keys.
+     */
+    repoKeys: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface DockerCustomWebhookHandler {
+    /**
+     * HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
+     */
+    httpHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    payload?: pulumi.Input<string>;
+    /**
+     * Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+     */
+    proxy?: pulumi.Input<string>;
+    /**
+     * Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
+     *
+     * ```typescript
+     * import * as pulumi from "@pulumi/pulumi";
+     * ```
+     */
+    secrets?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
      */
@@ -2387,6 +2657,49 @@ export interface PushReplicationReplication {
      * Required for local repository, but not needed for remote repository.
      */
     username: pulumi.Input<string>;
+}
+
+export interface ReleaseBundleCustomWebhookCriteria {
+    /**
+     * Trigger on any release bundle.
+     */
+    anyReleaseBundle: pulumi.Input<boolean>;
+    /**
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: "org/apache/**".
+     */
+    excludePatterns?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: "org/apache/**".
+     */
+    includePatterns?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Trigger on this list of release bundle names.
+     */
+    registeredReleaseBundleNames: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface ReleaseBundleCustomWebhookHandler {
+    /**
+     * HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
+     */
+    httpHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    payload?: pulumi.Input<string>;
+    /**
+     * Proxy key from Artifactory UI (Administration > Proxies > Configuration).
+     */
+    proxy?: pulumi.Input<string>;
+    /**
+     * Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
+     *
+     * ```typescript
+     * import * as pulumi from "@pulumi/pulumi";
+     * ```
+     */
+    secrets?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
+     */
+    url: pulumi.Input<string>;
 }
 
 export interface ReleaseBundleWebhookCriteria {

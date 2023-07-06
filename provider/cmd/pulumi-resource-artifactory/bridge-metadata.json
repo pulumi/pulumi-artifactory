@@ -21,6 +21,62 @@
                 "current": "artifactory:index/apiKey:ApiKey",
                 "majorVersion": 4
             },
+            "artifactory_artifact_custom_webhook": {
+                "current": "artifactory:index/artifactCustomWebhook:ArtifactCustomWebhook",
+                "majorVersion": 4,
+                "fields": {
+                    "criteria": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "exclude_patterns": {
+                                    "maxItemsOne": false
+                                },
+                                "include_patterns": {
+                                    "maxItemsOne": false
+                                },
+                                "repo_keys": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "event_types": {
+                        "maxItemsOne": false
+                    },
+                    "handler": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "artifactory_artifact_property_custom_webhook": {
+                "current": "artifactory:index/artifactPropertyCustomWebhook:ArtifactPropertyCustomWebhook",
+                "majorVersion": 4,
+                "fields": {
+                    "criteria": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "exclude_patterns": {
+                                    "maxItemsOne": false
+                                },
+                                "include_patterns": {
+                                    "maxItemsOne": false
+                                },
+                                "repo_keys": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "event_types": {
+                        "maxItemsOne": false
+                    },
+                    "handler": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "artifactory_artifact_property_webhook": {
                 "current": "artifactory:index/artifactPropertyWebhook:ArtifactPropertyWebhook",
                 "majorVersion": 4,
@@ -77,6 +133,34 @@
                     }
                 }
             },
+            "artifactory_artifactory_release_bundle_custom_webhook": {
+                "current": "artifactory:index/artifactoryReleaseBundleCustomWebhook:ArtifactoryReleaseBundleCustomWebhook",
+                "majorVersion": 4,
+                "fields": {
+                    "criteria": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "exclude_patterns": {
+                                    "maxItemsOne": false
+                                },
+                                "include_patterns": {
+                                    "maxItemsOne": false
+                                },
+                                "registered_release_bundle_names": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "event_types": {
+                        "maxItemsOne": false
+                    },
+                    "handler": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "artifactory_artifactory_release_bundle_webhook": {
                 "current": "artifactory:index/artifactoryReleaseBundleWebhook:ArtifactoryReleaseBundleWebhook",
                 "majorVersion": 4,
@@ -114,6 +198,34 @@
                     }
                 }
             },
+            "artifactory_build_custom_webhook": {
+                "current": "artifactory:index/buildCustomWebhook:BuildCustomWebhook",
+                "majorVersion": 4,
+                "fields": {
+                    "criteria": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "exclude_patterns": {
+                                    "maxItemsOne": false
+                                },
+                                "include_patterns": {
+                                    "maxItemsOne": false
+                                },
+                                "selected_builds": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "event_types": {
+                        "maxItemsOne": false
+                    },
+                    "handler": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "artifactory_build_webhook": {
                 "current": "artifactory:index/buildWebhook:BuildWebhook",
                 "majorVersion": 4,
@@ -146,6 +258,34 @@
                 "current": "artifactory:index/certificate:Certificate",
                 "majorVersion": 4
             },
+            "artifactory_distribution_custom_webhook": {
+                "current": "artifactory:index/distributionCustomWebhook:DistributionCustomWebhook",
+                "majorVersion": 4,
+                "fields": {
+                    "criteria": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "exclude_patterns": {
+                                    "maxItemsOne": false
+                                },
+                                "include_patterns": {
+                                    "maxItemsOne": false
+                                },
+                                "registered_release_bundle_names": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "event_types": {
+                        "maxItemsOne": false
+                    },
+                    "handler": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "artifactory_distribution_public_key": {
                 "current": "artifactory:index/distributionPublicKey:DistributionPublicKey",
                 "majorVersion": 4
@@ -165,6 +305,34 @@
                                     "maxItemsOne": false
                                 },
                                 "registered_release_bundle_names": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "event_types": {
+                        "maxItemsOne": false
+                    },
+                    "handler": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "artifactory_docker_custom_webhook": {
+                "current": "artifactory:index/dockerCustomWebhook:DockerCustomWebhook",
+                "majorVersion": 4,
+                "fields": {
+                    "criteria": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "exclude_patterns": {
+                                    "maxItemsOne": false
+                                },
+                                "include_patterns": {
+                                    "maxItemsOne": false
+                                },
+                                "repo_keys": {
                                     "maxItemsOne": false
                                 }
                             }
@@ -1463,6 +1631,34 @@
                 "majorVersion": 4,
                 "fields": {
                     "replications": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "artifactory_release_bundle_custom_webhook": {
+                "current": "artifactory:index/releaseBundleCustomWebhook:ReleaseBundleCustomWebhook",
+                "majorVersion": 4,
+                "fields": {
+                    "criteria": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "exclude_patterns": {
+                                    "maxItemsOne": false
+                                },
+                                "include_patterns": {
+                                    "maxItemsOne": false
+                                },
+                                "registered_release_bundle_names": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "event_types": {
+                        "maxItemsOne": false
+                    },
+                    "handler": {
                         "maxItemsOne": false
                     }
                 }
@@ -4217,15 +4413,21 @@
             "artifactory:index/alpineRepository:AlpineRepository": 0,
             "artifactory:index/anonymousUser:AnonymousUser": 1,
             "artifactory:index/apiKey:ApiKey": 0,
+            "artifactory:index/artifactCustomWebhook:ArtifactCustomWebhook": 0,
+            "artifactory:index/artifactPropertyCustomWebhook:ArtifactPropertyCustomWebhook": 0,
             "artifactory:index/artifactPropertyWebhook:ArtifactPropertyWebhook": 0,
             "artifactory:index/artifactWebhook:ArtifactWebhook": 0,
+            "artifactory:index/artifactoryReleaseBundleCustomWebhook:ArtifactoryReleaseBundleCustomWebhook": 0,
             "artifactory:index/artifactoryReleaseBundleWebhook:ArtifactoryReleaseBundleWebhook": 0,
             "artifactory:index/backup:Backup": 0,
+            "artifactory:index/buildCustomWebhook:BuildCustomWebhook": 0,
             "artifactory:index/buildWebhook:BuildWebhook": 0,
             "artifactory:index/certificate:Certificate": 0,
             "artifactory:index/debianRepository:DebianRepository": 0,
+            "artifactory:index/distributionCustomWebhook:DistributionCustomWebhook": 0,
             "artifactory:index/distributionPublicKey:DistributionPublicKey": 0,
             "artifactory:index/distributionWebhook:DistributionWebhook": 0,
+            "artifactory:index/dockerCustomWebhook:DockerCustomWebhook": 0,
             "artifactory:index/dockerV1Repository:DockerV1Repository": 0,
             "artifactory:index/dockerV2Repository:DockerV2Repository": 0,
             "artifactory:index/dockerWebhook:DockerWebhook": 0,
@@ -4306,6 +4508,7 @@
             "artifactory:index/proxy:Proxy": 0,
             "artifactory:index/pullReplication:PullReplication": 0,
             "artifactory:index/pushReplication:PushReplication": 0,
+            "artifactory:index/releaseBundleCustomWebhook:ReleaseBundleCustomWebhook": 0,
             "artifactory:index/releaseBundleWebhook:ReleaseBundleWebhook": 0,
             "artifactory:index/remoteAlpineRepository:RemoteAlpineRepository": 0,
             "artifactory:index/remoteBowerRepository:RemoteBowerRepository": 0,
@@ -4508,15 +4711,21 @@
             "artifactory:index/alpineRepository:AlpineRepository": "artifactory_local_alpine_repository",
             "artifactory:index/anonymousUser:AnonymousUser": "artifactory_anonymous_user",
             "artifactory:index/apiKey:ApiKey": "artifactory_api_key",
+            "artifactory:index/artifactCustomWebhook:ArtifactCustomWebhook": "artifactory_artifact_custom_webhook",
+            "artifactory:index/artifactPropertyCustomWebhook:ArtifactPropertyCustomWebhook": "artifactory_artifact_property_custom_webhook",
             "artifactory:index/artifactPropertyWebhook:ArtifactPropertyWebhook": "artifactory_artifact_property_webhook",
             "artifactory:index/artifactWebhook:ArtifactWebhook": "artifactory_artifact_webhook",
+            "artifactory:index/artifactoryReleaseBundleCustomWebhook:ArtifactoryReleaseBundleCustomWebhook": "artifactory_artifactory_release_bundle_custom_webhook",
             "artifactory:index/artifactoryReleaseBundleWebhook:ArtifactoryReleaseBundleWebhook": "artifactory_artifactory_release_bundle_webhook",
             "artifactory:index/backup:Backup": "artifactory_backup",
+            "artifactory:index/buildCustomWebhook:BuildCustomWebhook": "artifactory_build_custom_webhook",
             "artifactory:index/buildWebhook:BuildWebhook": "artifactory_build_webhook",
             "artifactory:index/certificate:Certificate": "artifactory_certificate",
             "artifactory:index/debianRepository:DebianRepository": "artifactory_local_debian_repository",
+            "artifactory:index/distributionCustomWebhook:DistributionCustomWebhook": "artifactory_distribution_custom_webhook",
             "artifactory:index/distributionPublicKey:DistributionPublicKey": "artifactory_distribution_public_key",
             "artifactory:index/distributionWebhook:DistributionWebhook": "artifactory_distribution_webhook",
+            "artifactory:index/dockerCustomWebhook:DockerCustomWebhook": "artifactory_docker_custom_webhook",
             "artifactory:index/dockerV1Repository:DockerV1Repository": "artifactory_local_docker_v1_repository",
             "artifactory:index/dockerV2Repository:DockerV2Repository": "artifactory_local_docker_v2_repository",
             "artifactory:index/dockerWebhook:DockerWebhook": "artifactory_docker_webhook",
@@ -4597,6 +4806,7 @@
             "artifactory:index/proxy:Proxy": "artifactory_proxy",
             "artifactory:index/pullReplication:PullReplication": "artifactory_pull_replication",
             "artifactory:index/pushReplication:PushReplication": "artifactory_push_replication",
+            "artifactory:index/releaseBundleCustomWebhook:ReleaseBundleCustomWebhook": "artifactory_release_bundle_custom_webhook",
             "artifactory:index/releaseBundleWebhook:ReleaseBundleWebhook": "artifactory_release_bundle_webhook",
             "artifactory:index/remoteAlpineRepository:RemoteAlpineRepository": "artifactory_remote_alpine_repository",
             "artifactory:index/remoteBowerRepository:RemoteBowerRepository": "artifactory_remote_bower_repository",
@@ -4796,6 +5006,26 @@
             "artifactory:index/AccessTokenAdminToken:AccessTokenAdminToken": {
                 "instanceId": "instance_id"
             },
+            "artifactory:index/ArtifactCustomWebhookCriteria:ArtifactCustomWebhookCriteria": {
+                "anyLocal": "any_local",
+                "anyRemote": "any_remote",
+                "excludePatterns": "exclude_patterns",
+                "includePatterns": "include_patterns",
+                "repoKeys": "repo_keys"
+            },
+            "artifactory:index/ArtifactCustomWebhookHandler:ArtifactCustomWebhookHandler": {
+                "httpHeaders": "http_headers"
+            },
+            "artifactory:index/ArtifactPropertyCustomWebhookCriteria:ArtifactPropertyCustomWebhookCriteria": {
+                "anyLocal": "any_local",
+                "anyRemote": "any_remote",
+                "excludePatterns": "exclude_patterns",
+                "includePatterns": "include_patterns",
+                "repoKeys": "repo_keys"
+            },
+            "artifactory:index/ArtifactPropertyCustomWebhookHandler:ArtifactPropertyCustomWebhookHandler": {
+                "httpHeaders": "http_headers"
+            },
             "artifactory:index/ArtifactPropertyWebhookCriteria:ArtifactPropertyWebhookCriteria": {
                 "anyLocal": "any_local",
                 "anyRemote": "any_remote",
@@ -4816,6 +5046,15 @@
             "artifactory:index/ArtifactWebhookHandler:ArtifactWebhookHandler": {
                 "customHttpHeaders": "custom_http_headers"
             },
+            "artifactory:index/ArtifactoryReleaseBundleCustomWebhookCriteria:ArtifactoryReleaseBundleCustomWebhookCriteria": {
+                "anyReleaseBundle": "any_release_bundle",
+                "excludePatterns": "exclude_patterns",
+                "includePatterns": "include_patterns",
+                "registeredReleaseBundleNames": "registered_release_bundle_names"
+            },
+            "artifactory:index/ArtifactoryReleaseBundleCustomWebhookHandler:ArtifactoryReleaseBundleCustomWebhookHandler": {
+                "httpHeaders": "http_headers"
+            },
             "artifactory:index/ArtifactoryReleaseBundleWebhookCriteria:ArtifactoryReleaseBundleWebhookCriteria": {
                 "anyReleaseBundle": "any_release_bundle",
                 "excludePatterns": "exclude_patterns",
@@ -4824,6 +5063,15 @@
             },
             "artifactory:index/ArtifactoryReleaseBundleWebhookHandler:ArtifactoryReleaseBundleWebhookHandler": {
                 "customHttpHeaders": "custom_http_headers"
+            },
+            "artifactory:index/BuildCustomWebhookCriteria:BuildCustomWebhookCriteria": {
+                "anyBuild": "any_build",
+                "excludePatterns": "exclude_patterns",
+                "includePatterns": "include_patterns",
+                "selectedBuilds": "selected_builds"
+            },
+            "artifactory:index/BuildCustomWebhookHandler:BuildCustomWebhookHandler": {
+                "httpHeaders": "http_headers"
             },
             "artifactory:index/BuildWebhookCriteria:BuildWebhookCriteria": {
                 "anyBuild": "any_build",
@@ -4834,6 +5082,15 @@
             "artifactory:index/BuildWebhookHandler:BuildWebhookHandler": {
                 "customHttpHeaders": "custom_http_headers"
             },
+            "artifactory:index/DistributionCustomWebhookCriteria:DistributionCustomWebhookCriteria": {
+                "anyReleaseBundle": "any_release_bundle",
+                "excludePatterns": "exclude_patterns",
+                "includePatterns": "include_patterns",
+                "registeredReleaseBundleNames": "registered_release_bundle_names"
+            },
+            "artifactory:index/DistributionCustomWebhookHandler:DistributionCustomWebhookHandler": {
+                "httpHeaders": "http_headers"
+            },
             "artifactory:index/DistributionWebhookCriteria:DistributionWebhookCriteria": {
                 "anyReleaseBundle": "any_release_bundle",
                 "excludePatterns": "exclude_patterns",
@@ -4842,6 +5099,16 @@
             },
             "artifactory:index/DistributionWebhookHandler:DistributionWebhookHandler": {
                 "customHttpHeaders": "custom_http_headers"
+            },
+            "artifactory:index/DockerCustomWebhookCriteria:DockerCustomWebhookCriteria": {
+                "anyLocal": "any_local",
+                "anyRemote": "any_remote",
+                "excludePatterns": "exclude_patterns",
+                "includePatterns": "include_patterns",
+                "repoKeys": "repo_keys"
+            },
+            "artifactory:index/DockerCustomWebhookHandler:DockerCustomWebhookHandler": {
+                "httpHeaders": "http_headers"
             },
             "artifactory:index/DockerWebhookCriteria:DockerWebhookCriteria": {
                 "anyLocal": "any_local",
@@ -4897,6 +5164,15 @@
                 "syncDeletes": "sync_deletes",
                 "syncProperties": "sync_properties",
                 "syncStatistics": "sync_statistics"
+            },
+            "artifactory:index/ReleaseBundleCustomWebhookCriteria:ReleaseBundleCustomWebhookCriteria": {
+                "anyReleaseBundle": "any_release_bundle",
+                "excludePatterns": "exclude_patterns",
+                "includePatterns": "include_patterns",
+                "registeredReleaseBundleNames": "registered_release_bundle_names"
+            },
+            "artifactory:index/ReleaseBundleCustomWebhookHandler:ReleaseBundleCustomWebhookHandler": {
+                "httpHeaders": "http_headers"
             },
             "artifactory:index/ReleaseBundleWebhookCriteria:ReleaseBundleWebhookCriteria": {
                 "anyReleaseBundle": "any_release_bundle",
@@ -5096,11 +5372,23 @@
             "artifactory:index/apiKey:ApiKey": {
                 "apiKey": "api_key"
             },
+            "artifactory:index/artifactCustomWebhook:ArtifactCustomWebhook": {
+                "eventTypes": "event_types",
+                "handlers": "handler"
+            },
+            "artifactory:index/artifactPropertyCustomWebhook:ArtifactPropertyCustomWebhook": {
+                "eventTypes": "event_types",
+                "handlers": "handler"
+            },
             "artifactory:index/artifactPropertyWebhook:ArtifactPropertyWebhook": {
                 "eventTypes": "event_types",
                 "handlers": "handler"
             },
             "artifactory:index/artifactWebhook:ArtifactWebhook": {
+                "eventTypes": "event_types",
+                "handlers": "handler"
+            },
+            "artifactory:index/artifactoryReleaseBundleCustomWebhook:ArtifactoryReleaseBundleCustomWebhook": {
                 "eventTypes": "event_types",
                 "handlers": "handler"
             },
@@ -5117,6 +5405,10 @@
                 "retentionPeriodHours": "retention_period_hours",
                 "sendMailOnError": "send_mail_on_error",
                 "verifyDiskSpace": "verify_disk_space"
+            },
+            "artifactory:index/buildCustomWebhook:BuildCustomWebhook": {
+                "eventTypes": "event_types",
+                "handlers": "handler"
             },
             "artifactory:index/buildWebhook:BuildWebhook": {
                 "eventTypes": "event_types",
@@ -5147,6 +5439,10 @@
                 "trivialLayout": "trivial_layout",
                 "xrayIndex": "xray_index"
             },
+            "artifactory:index/distributionCustomWebhook:DistributionCustomWebhook": {
+                "eventTypes": "event_types",
+                "handlers": "handler"
+            },
             "artifactory:index/distributionPublicKey:DistributionPublicKey": {
                 "issuedBy": "issued_by",
                 "issuedOn": "issued_on",
@@ -5155,6 +5451,10 @@
                 "validUntil": "valid_until"
             },
             "artifactory:index/distributionWebhook:DistributionWebhook": {
+                "eventTypes": "event_types",
+                "handlers": "handler"
+            },
+            "artifactory:index/dockerCustomWebhook:DockerCustomWebhook": {
                 "eventTypes": "event_types",
                 "handlers": "handler"
             },
@@ -9209,6 +9509,10 @@
                 "cronExp": "cron_exp",
                 "enableEventReplication": "enable_event_replication",
                 "repoKey": "repo_key"
+            },
+            "artifactory:index/releaseBundleCustomWebhook:ReleaseBundleCustomWebhook": {
+                "eventTypes": "event_types",
+                "handlers": "handler"
             },
             "artifactory:index/releaseBundleWebhook:ReleaseBundleWebhook": {
                 "eventTypes": "event_types",

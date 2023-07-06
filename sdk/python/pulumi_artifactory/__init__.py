@@ -9,15 +9,21 @@ from .access_token import *
 from .alpine_repository import *
 from .anonymous_user import *
 from .api_key import *
+from .artifact_custom_webhook import *
+from .artifact_property_custom_webhook import *
 from .artifact_property_webhook import *
 from .artifact_webhook import *
+from .artifactory_release_bundle_custom_webhook import *
 from .artifactory_release_bundle_webhook import *
 from .backup import *
+from .build_custom_webhook import *
 from .build_webhook import *
 from .certificate import *
 from .debian_repository import *
+from .distribution_custom_webhook import *
 from .distribution_public_key import *
 from .distribution_webhook import *
+from .docker_custom_webhook import *
 from .docker_v1_repository import *
 from .docker_v2_repository import *
 from .docker_webhook import *
@@ -226,6 +232,7 @@ from .provider import *
 from .proxy import *
 from .pull_replication import *
 from .push_replication import *
+from .release_bundle_custom_webhook import *
 from .release_bundle_webhook import *
 from .remote_alpine_repository import *
 from .remote_bower_repository import *
@@ -338,6 +345,22 @@ _utilities.register(
  },
  {
   "pkg": "artifactory",
+  "mod": "index/artifactCustomWebhook",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/artifactCustomWebhook:ArtifactCustomWebhook": "ArtifactCustomWebhook"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/artifactPropertyCustomWebhook",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/artifactPropertyCustomWebhook:ArtifactPropertyCustomWebhook": "ArtifactPropertyCustomWebhook"
+  }
+ },
+ {
+  "pkg": "artifactory",
   "mod": "index/artifactPropertyWebhook",
   "fqn": "pulumi_artifactory",
   "classes": {
@@ -354,6 +377,14 @@ _utilities.register(
  },
  {
   "pkg": "artifactory",
+  "mod": "index/artifactoryReleaseBundleCustomWebhook",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/artifactoryReleaseBundleCustomWebhook:ArtifactoryReleaseBundleCustomWebhook": "ArtifactoryReleaseBundleCustomWebhook"
+  }
+ },
+ {
+  "pkg": "artifactory",
   "mod": "index/artifactoryReleaseBundleWebhook",
   "fqn": "pulumi_artifactory",
   "classes": {
@@ -366,6 +397,14 @@ _utilities.register(
   "fqn": "pulumi_artifactory",
   "classes": {
    "artifactory:index/backup:Backup": "Backup"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/buildCustomWebhook",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/buildCustomWebhook:BuildCustomWebhook": "BuildCustomWebhook"
   }
  },
  {
@@ -394,6 +433,14 @@ _utilities.register(
  },
  {
   "pkg": "artifactory",
+  "mod": "index/distributionCustomWebhook",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/distributionCustomWebhook:DistributionCustomWebhook": "DistributionCustomWebhook"
+  }
+ },
+ {
+  "pkg": "artifactory",
   "mod": "index/distributionPublicKey",
   "fqn": "pulumi_artifactory",
   "classes": {
@@ -406,6 +453,14 @@ _utilities.register(
   "fqn": "pulumi_artifactory",
   "classes": {
    "artifactory:index/distributionWebhook:DistributionWebhook": "DistributionWebhook"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/dockerCustomWebhook",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/dockerCustomWebhook:DockerCustomWebhook": "DockerCustomWebhook"
   }
  },
  {
@@ -1046,6 +1101,14 @@ _utilities.register(
   "fqn": "pulumi_artifactory",
   "classes": {
    "artifactory:index/pushReplication:PushReplication": "PushReplication"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/releaseBundleCustomWebhook",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/releaseBundleCustomWebhook:ReleaseBundleCustomWebhook": "ReleaseBundleCustomWebhook"
   }
  },
  {
