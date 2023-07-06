@@ -28,24 +28,36 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AnonymousUser{}
 	case "artifactory:index/apiKey:ApiKey":
 		r = &ApiKey{}
+	case "artifactory:index/artifactCustomWebhook:ArtifactCustomWebhook":
+		r = &ArtifactCustomWebhook{}
+	case "artifactory:index/artifactPropertyCustomWebhook:ArtifactPropertyCustomWebhook":
+		r = &ArtifactPropertyCustomWebhook{}
 	case "artifactory:index/artifactPropertyWebhook:ArtifactPropertyWebhook":
 		r = &ArtifactPropertyWebhook{}
 	case "artifactory:index/artifactWebhook:ArtifactWebhook":
 		r = &ArtifactWebhook{}
+	case "artifactory:index/artifactoryReleaseBundleCustomWebhook:ArtifactoryReleaseBundleCustomWebhook":
+		r = &ArtifactoryReleaseBundleCustomWebhook{}
 	case "artifactory:index/artifactoryReleaseBundleWebhook:ArtifactoryReleaseBundleWebhook":
 		r = &ArtifactoryReleaseBundleWebhook{}
 	case "artifactory:index/backup:Backup":
 		r = &Backup{}
+	case "artifactory:index/buildCustomWebhook:BuildCustomWebhook":
+		r = &BuildCustomWebhook{}
 	case "artifactory:index/buildWebhook:BuildWebhook":
 		r = &BuildWebhook{}
 	case "artifactory:index/certificate:Certificate":
 		r = &Certificate{}
 	case "artifactory:index/debianRepository:DebianRepository":
 		r = &DebianRepository{}
+	case "artifactory:index/distributionCustomWebhook:DistributionCustomWebhook":
+		r = &DistributionCustomWebhook{}
 	case "artifactory:index/distributionPublicKey:DistributionPublicKey":
 		r = &DistributionPublicKey{}
 	case "artifactory:index/distributionWebhook:DistributionWebhook":
 		r = &DistributionWebhook{}
+	case "artifactory:index/dockerCustomWebhook:DockerCustomWebhook":
+		r = &DockerCustomWebhook{}
 	case "artifactory:index/dockerV1Repository:DockerV1Repository":
 		r = &DockerV1Repository{}
 	case "artifactory:index/dockerV2Repository:DockerV2Repository":
@@ -206,6 +218,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &PullReplication{}
 	case "artifactory:index/pushReplication:PushReplication":
 		r = &PushReplication{}
+	case "artifactory:index/releaseBundleCustomWebhook:ReleaseBundleCustomWebhook":
+		r = &ReleaseBundleCustomWebhook{}
 	case "artifactory:index/releaseBundleWebhook:ReleaseBundleWebhook":
 		r = &ReleaseBundleWebhook{}
 	case "artifactory:index/remoteAlpineRepository:RemoteAlpineRepository":
@@ -386,6 +400,16 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"artifactory",
+		"index/artifactCustomWebhook",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/artifactPropertyCustomWebhook",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
 		"index/artifactPropertyWebhook",
 		&module{version},
 	)
@@ -396,12 +420,22 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"artifactory",
+		"index/artifactoryReleaseBundleCustomWebhook",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
 		"index/artifactoryReleaseBundleWebhook",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
 		"artifactory",
 		"index/backup",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/buildCustomWebhook",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -421,12 +455,22 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"artifactory",
+		"index/distributionCustomWebhook",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
 		"index/distributionPublicKey",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
 		"artifactory",
 		"index/distributionWebhook",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/dockerCustomWebhook",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -827,6 +871,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"artifactory",
 		"index/pushReplication",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/releaseBundleCustomWebhook",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

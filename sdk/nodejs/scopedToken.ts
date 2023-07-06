@@ -117,7 +117,7 @@ export class ScopedToken extends pulumi.CustomResource {
      */
     public readonly grantType!: pulumi.Output<string>;
     /**
-     * Also create a reference token which can be used like an API key. Default is `false`.
+     * Also create a reference token which can be used like an API key.
      */
     public readonly includeReferenceToken!: pulumi.Output<boolean>;
     /**
@@ -242,7 +242,7 @@ export interface ScopedTokenState {
      */
     grantType?: pulumi.Input<string>;
     /**
-     * Also create a reference token which can be used like an API key. Default is `false`.
+     * Also create a reference token which can be used like an API key.
      */
     includeReferenceToken?: pulumi.Input<boolean>;
     /**
@@ -305,7 +305,7 @@ export interface ScopedTokenArgs {
      */
     grantType?: pulumi.Input<string>;
     /**
-     * Also create a reference token which can be used like an API key. Default is `false`.
+     * Also create a reference token which can be used like an API key.
      */
     includeReferenceToken?: pulumi.Input<boolean>;
     /**
