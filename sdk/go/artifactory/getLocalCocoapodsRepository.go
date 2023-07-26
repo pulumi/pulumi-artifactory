@@ -7,10 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 func LookupLocalCocoapodsRepository(ctx *pulumi.Context, args *LookupLocalCocoapodsRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupLocalCocoapodsRepositoryResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupLocalCocoapodsRepositoryResult
 	err := ctx.Invoke("artifactory:index/getLocalCocoapodsRepository:getLocalCocoapodsRepository", args, &rv, opts...)
 	if err != nil {

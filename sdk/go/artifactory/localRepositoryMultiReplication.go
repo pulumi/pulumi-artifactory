@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -124,6 +125,7 @@ func NewLocalRepositoryMultiReplication(ctx *pulumi.Context,
 	if args.RepoKey == nil {
 		return nil, errors.New("invalid value for required argument 'RepoKey'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LocalRepositoryMultiReplication
 	err := ctx.RegisterResource("artifactory:index/localRepositoryMultiReplication:LocalRepositoryMultiReplication", name, args, &resource, opts...)
 	if err != nil {

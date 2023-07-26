@@ -7,10 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 func LookupLocalTerraformProviderRepository(ctx *pulumi.Context, args *LookupLocalTerraformProviderRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupLocalTerraformProviderRepositoryResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupLocalTerraformProviderRepositoryResult
 	err := ctx.Invoke("artifactory:index/getLocalTerraformProviderRepository:getLocalTerraformProviderRepository", args, &rv, opts...)
 	if err != nil {

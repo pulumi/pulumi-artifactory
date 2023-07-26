@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -66,6 +67,7 @@ func NewGeneralSecurity(ctx *pulumi.Context,
 		args = &GeneralSecurityArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource GeneralSecurity
 	err := ctx.RegisterResource("artifactory:index/generalSecurity:GeneralSecurity", name, args, &resource, opts...)
 	if err != nil {

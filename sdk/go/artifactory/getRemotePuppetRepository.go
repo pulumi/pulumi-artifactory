@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Retrieves a remote Peppet repository.
 func LookupRemotePuppetRepository(ctx *pulumi.Context, args *LookupRemotePuppetRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupRemotePuppetRepositoryResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupRemotePuppetRepositoryResult
 	err := ctx.Invoke("artifactory:index/getRemotePuppetRepository:getRemotePuppetRepository", args, &rv, opts...)
 	if err != nil {

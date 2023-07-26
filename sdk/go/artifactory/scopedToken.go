@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -125,6 +126,7 @@ func NewScopedToken(ctx *pulumi.Context,
 		"refreshToken",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ScopedToken
 	err := ctx.RegisterResource("artifactory:index/scopedToken:ScopedToken", name, args, &resource, opts...)
 	if err != nil {

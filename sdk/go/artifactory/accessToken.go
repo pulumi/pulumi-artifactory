@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -333,6 +334,7 @@ func NewAccessToken(ctx *pulumi.Context,
 		"refreshToken",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AccessToken
 	err := ctx.RegisterResource("artifactory:index/accessToken:AccessToken", name, args, &resource, opts...)
 	if err != nil {

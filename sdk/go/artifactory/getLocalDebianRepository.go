@@ -7,10 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 func GetLocalDebianRepository(ctx *pulumi.Context, args *GetLocalDebianRepositoryArgs, opts ...pulumi.InvokeOption) (*GetLocalDebianRepositoryResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetLocalDebianRepositoryResult
 	err := ctx.Invoke("artifactory:index/getLocalDebianRepository:getLocalDebianRepository", args, &rv, opts...)
 	if err != nil {

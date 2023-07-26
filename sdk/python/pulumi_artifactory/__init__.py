@@ -191,7 +191,9 @@ from .go_repository import *
 from .group import *
 from .keypair import *
 from .ldap_group_setting import *
+from .ldap_group_setting_v2 import *
 from .ldap_setting import *
+from .ldap_setting_v2 import *
 from .local_bower_repository import *
 from .local_cargo_repository import *
 from .local_chef_repository import *
@@ -785,10 +787,26 @@ _utilities.register(
  },
  {
   "pkg": "artifactory",
+  "mod": "index/ldapGroupSettingV2",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/ldapGroupSettingV2:LdapGroupSettingV2": "LdapGroupSettingV2"
+  }
+ },
+ {
+  "pkg": "artifactory",
   "mod": "index/ldapSetting",
   "fqn": "pulumi_artifactory",
   "classes": {
    "artifactory:index/ldapSetting:LdapSetting": "LdapSetting"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/ldapSettingV2",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/ldapSettingV2:LdapSettingV2": "LdapSettingV2"
   }
  },
  {

@@ -7,10 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 func LookupLocalGemsRepository(ctx *pulumi.Context, args *LookupLocalGemsRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupLocalGemsRepositoryResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupLocalGemsRepositoryResult
 	err := ctx.Invoke("artifactory:index/getLocalGemsRepository:getLocalGemsRepository", args, &rv, opts...)
 	if err != nil {

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,6 +39,7 @@ import (
 //
 // ```
 func LookupFederatedComposerRepository(ctx *pulumi.Context, args *LookupFederatedComposerRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupFederatedComposerRepositoryResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupFederatedComposerRepositoryResult
 	err := ctx.Invoke("artifactory:index/getFederatedComposerRepository:getFederatedComposerRepository", args, &rv, opts...)
 	if err != nil {

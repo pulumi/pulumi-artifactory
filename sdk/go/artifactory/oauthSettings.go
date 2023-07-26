@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -91,6 +92,7 @@ func NewOauthSettings(ctx *pulumi.Context,
 	if args.OauthProviders == nil {
 		return nil, errors.New("invalid value for required argument 'OauthProviders'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource OauthSettings
 	err := ctx.RegisterResource("artifactory:index/oauthSettings:OauthSettings", name, args, &resource, opts...)
 	if err != nil {

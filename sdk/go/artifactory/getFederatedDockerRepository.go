@@ -7,10 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 func LookupFederatedDockerRepository(ctx *pulumi.Context, args *LookupFederatedDockerRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupFederatedDockerRepositoryResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupFederatedDockerRepositoryResult
 	err := ctx.Invoke("artifactory:index/getFederatedDockerRepository:getFederatedDockerRepository", args, &rv, opts...)
 	if err != nil {

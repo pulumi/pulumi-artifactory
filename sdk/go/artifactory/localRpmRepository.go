@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -163,6 +164,7 @@ func NewLocalRpmRepository(ctx *pulumi.Context,
 	if args.Key == nil {
 		return nil, errors.New("invalid value for required argument 'Key'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LocalRpmRepository
 	err := ctx.RegisterResource("artifactory:index/localRpmRepository:LocalRpmRepository", name, args, &resource, opts...)
 	if err != nil {

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,6 +39,7 @@ import (
 //
 // ```
 func LookupVirtualGradleRepository(ctx *pulumi.Context, args *LookupVirtualGradleRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupVirtualGradleRepositoryResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupVirtualGradleRepositoryResult
 	err := ctx.Invoke("artifactory:index/getVirtualGradleRepository:getVirtualGradleRepository", args, &rv, opts...)
 	if err != nil {

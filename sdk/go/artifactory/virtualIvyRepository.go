@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -110,6 +111,7 @@ func NewVirtualIvyRepository(ctx *pulumi.Context,
 	if args.Key == nil {
 		return nil, errors.New("invalid value for required argument 'Key'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VirtualIvyRepository
 	err := ctx.RegisterResource("artifactory:index/virtualIvyRepository:VirtualIvyRepository", name, args, &resource, opts...)
 	if err != nil {

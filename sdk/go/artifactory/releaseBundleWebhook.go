@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -103,6 +104,7 @@ func NewReleaseBundleWebhook(ctx *pulumi.Context,
 	if args.Key == nil {
 		return nil, errors.New("invalid value for required argument 'Key'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ReleaseBundleWebhook
 	err := ctx.RegisterResource("artifactory:index/releaseBundleWebhook:ReleaseBundleWebhook", name, args, &resource, opts...)
 	if err != nil {

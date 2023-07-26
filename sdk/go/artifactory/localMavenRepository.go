@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -131,6 +132,7 @@ func NewLocalMavenRepository(ctx *pulumi.Context,
 	if args.Key == nil {
 		return nil, errors.New("invalid value for required argument 'Key'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LocalMavenRepository
 	err := ctx.RegisterResource("artifactory:index/localMavenRepository:LocalMavenRepository", name, args, &resource, opts...)
 	if err != nil {

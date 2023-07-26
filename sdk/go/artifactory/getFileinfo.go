@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -41,6 +42,7 @@ import (
 //
 // ```
 func GetFileinfo(ctx *pulumi.Context, args *GetFileinfoArgs, opts ...pulumi.InvokeOption) (*GetFileinfoResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetFileinfoResult
 	err := ctx.Invoke("artifactory:index/getFileinfo:getFileinfo", args, &rv, opts...)
 	if err != nil {

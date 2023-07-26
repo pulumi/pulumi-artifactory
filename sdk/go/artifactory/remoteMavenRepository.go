@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -208,6 +209,7 @@ func NewRemoteMavenRepository(ctx *pulumi.Context,
 		"password",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RemoteMavenRepository
 	err := ctx.RegisterResource("artifactory:index/remoteMavenRepository:RemoteMavenRepository", name, args, &resource, opts...)
 	if err != nil {

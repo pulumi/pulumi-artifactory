@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -101,6 +102,7 @@ func NewVirtualGenericRepository(ctx *pulumi.Context,
 	if args.Key == nil {
 		return nil, errors.New("invalid value for required argument 'Key'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VirtualGenericRepository
 	err := ctx.RegisterResource("artifactory:index/virtualGenericRepository:VirtualGenericRepository", name, args, &resource, opts...)
 	if err != nil {

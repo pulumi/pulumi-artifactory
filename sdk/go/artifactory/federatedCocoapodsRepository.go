@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -126,6 +127,7 @@ func NewFederatedCocoapodsRepository(ctx *pulumi.Context,
 	if args.Members == nil {
 		return nil, errors.New("invalid value for required argument 'Members'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource FederatedCocoapodsRepository
 	err := ctx.RegisterResource("artifactory:index/federatedCocoapodsRepository:FederatedCocoapodsRepository", name, args, &resource, opts...)
 	if err != nil {

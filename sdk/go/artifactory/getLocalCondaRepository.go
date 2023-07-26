@@ -7,10 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 func LookupLocalCondaRepository(ctx *pulumi.Context, args *LookupLocalCondaRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupLocalCondaRepositoryResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupLocalCondaRepositoryResult
 	err := ctx.Invoke("artifactory:index/getLocalCondaRepository:getLocalCondaRepository", args, &rv, opts...)
 	if err != nil {

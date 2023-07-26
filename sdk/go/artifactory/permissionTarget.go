@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -166,6 +167,7 @@ func NewPermissionTarget(ctx *pulumi.Context,
 		args = &PermissionTargetArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PermissionTarget
 	err := ctx.RegisterResource("artifactory:index/permissionTarget:PermissionTarget", name, args, &resource, opts...)
 	if err != nil {

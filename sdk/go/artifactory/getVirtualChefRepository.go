@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,6 +39,7 @@ import (
 //
 // ```
 func LookupVirtualChefRepository(ctx *pulumi.Context, args *LookupVirtualChefRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupVirtualChefRepositoryResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupVirtualChefRepositoryResult
 	err := ctx.Invoke("artifactory:index/getVirtualChefRepository:getVirtualChefRepository", args, &rv, opts...)
 	if err != nil {

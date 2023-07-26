@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,6 +39,7 @@ import (
 //
 // ```
 func GetFederatedGitlfsRepository(ctx *pulumi.Context, args *GetFederatedGitlfsRepositoryArgs, opts ...pulumi.InvokeOption) (*GetFederatedGitlfsRepositoryResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetFederatedGitlfsRepositoryResult
 	err := ctx.Invoke("artifactory:index/getFederatedGitlfsRepository:getFederatedGitlfsRepository", args, &rv, opts...)
 	if err != nil {

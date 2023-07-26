@@ -7,10 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 func LookupLocalCargoRepository(ctx *pulumi.Context, args *LookupLocalCargoRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupLocalCargoRepositoryResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupLocalCargoRepositoryResult
 	err := ctx.Invoke("artifactory:index/getLocalCargoRepository:getLocalCargoRepository", args, &rv, opts...)
 	if err != nil {

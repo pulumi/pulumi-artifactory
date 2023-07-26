@@ -7,10 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 func LookupLocalHelmRepository(ctx *pulumi.Context, args *LookupLocalHelmRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupLocalHelmRepositoryResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupLocalHelmRepositoryResult
 	err := ctx.Invoke("artifactory:index/getLocalHelmRepository:getLocalHelmRepository", args, &rv, opts...)
 	if err != nil {

@@ -4,9 +4,12 @@
 package config
 
 import (
+	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
 )
+
+var _ = internal.GetEnvOrDefault
 
 // This is a access token that can be given to you by your admin under `Identity and Access`. If not set, the 'api_key'
 // attribute value will be used.

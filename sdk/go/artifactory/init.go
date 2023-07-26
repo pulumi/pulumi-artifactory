@@ -7,6 +7,7 @@ import (
 	"fmt"
 
 	"github.com/blang/semver"
+	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -138,8 +139,12 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Keypair{}
 	case "artifactory:index/ldapGroupSetting:LdapGroupSetting":
 		r = &LdapGroupSetting{}
+	case "artifactory:index/ldapGroupSettingV2:LdapGroupSettingV2":
+		r = &LdapGroupSettingV2{}
 	case "artifactory:index/ldapSetting:LdapSetting":
 		r = &LdapSetting{}
+	case "artifactory:index/ldapSettingV2:LdapSettingV2":
+		r = &LdapSettingV2{}
 	case "artifactory:index/localBowerRepository:LocalBowerRepository":
 		r = &LocalBowerRepository{}
 	case "artifactory:index/localCargoRepository:LocalCargoRepository":
@@ -377,7 +382,10 @@ func (p *pkg) ConstructProvider(ctx *pulumi.Context, name, typ, urn string) (pul
 }
 
 func init() {
-	version, _ := PkgVersion()
+	version, err := internal.PkgVersion()
+	if err != nil {
+		version = semver.Version{Major: 1}
+	}
 	pulumi.RegisterResourceModule(
 		"artifactory",
 		"index/accessToken",
@@ -675,7 +683,17 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"artifactory",
+		"index/ldapGroupSettingV2",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
 		"index/ldapSetting",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/ldapSettingV2",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

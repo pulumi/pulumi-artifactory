@@ -7,10 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 func GetLocalDockerV2Repository(ctx *pulumi.Context, args *GetLocalDockerV2RepositoryArgs, opts ...pulumi.InvokeOption) (*GetLocalDockerV2RepositoryResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetLocalDockerV2RepositoryResult
 	err := ctx.Invoke("artifactory:index/getLocalDockerV2Repository:getLocalDockerV2Repository", args, &rv, opts...)
 	if err != nil {
