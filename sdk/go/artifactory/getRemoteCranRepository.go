@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,6 +39,7 @@ import (
 //
 // ```
 func LookupRemoteCranRepository(ctx *pulumi.Context, args *LookupRemoteCranRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupRemoteCranRepositoryResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupRemoteCranRepositoryResult
 	err := ctx.Invoke("artifactory:index/getRemoteCranRepository:getRemoteCranRepository", args, &rv, opts...)
 	if err != nil {

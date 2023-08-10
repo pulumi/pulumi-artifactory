@@ -7,10 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 func LookupLocalBowerRepository(ctx *pulumi.Context, args *LookupLocalBowerRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupLocalBowerRepositoryResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupLocalBowerRepositoryResult
 	err := ctx.Invoke("artifactory:index/getLocalBowerRepository:getLocalBowerRepository", args, &rv, opts...)
 	if err != nil {

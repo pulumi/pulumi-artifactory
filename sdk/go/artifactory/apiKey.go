@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -69,6 +70,7 @@ func NewApiKey(ctx *pulumi.Context,
 		"apiKey",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ApiKey
 	err := ctx.RegisterResource("artifactory:index/apiKey:ApiKey", name, args, &resource, opts...)
 	if err != nil {

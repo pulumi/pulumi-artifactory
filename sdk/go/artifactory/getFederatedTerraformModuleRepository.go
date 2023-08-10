@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -36,6 +37,7 @@ import (
 //
 // ```
 func LookupFederatedTerraformModuleRepository(ctx *pulumi.Context, args *LookupFederatedTerraformModuleRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupFederatedTerraformModuleRepositoryResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupFederatedTerraformModuleRepositoryResult
 	err := ctx.Invoke("artifactory:index/getFederatedTerraformModuleRepository:getFederatedTerraformModuleRepository", args, &rv, opts...)
 	if err != nil {

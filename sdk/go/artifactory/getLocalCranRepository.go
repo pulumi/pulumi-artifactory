@@ -7,10 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 func LookupLocalCranRepository(ctx *pulumi.Context, args *LookupLocalCranRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupLocalCranRepositoryResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupLocalCranRepositoryResult
 	err := ctx.Invoke("artifactory:index/getLocalCranRepository:getLocalCranRepository", args, &rv, opts...)
 	if err != nil {

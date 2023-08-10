@@ -7,10 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 func LookupLocalIvyRepository(ctx *pulumi.Context, args *LookupLocalIvyRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupLocalIvyRepositoryResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupLocalIvyRepositoryResult
 	err := ctx.Invoke("artifactory:index/getLocalIvyRepository:getLocalIvyRepository", args, &rv, opts...)
 	if err != nil {

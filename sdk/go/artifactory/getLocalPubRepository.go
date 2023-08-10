@@ -7,10 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 func LookupLocalPubRepository(ctx *pulumi.Context, args *LookupLocalPubRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupLocalPubRepositoryResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupLocalPubRepositoryResult
 	err := ctx.Invoke("artifactory:index/getLocalPubRepository:getLocalPubRepository", args, &rv, opts...)
 	if err != nil {

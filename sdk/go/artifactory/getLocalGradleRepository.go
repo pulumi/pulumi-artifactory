@@ -7,10 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 func LookupLocalGradleRepository(ctx *pulumi.Context, args *LookupLocalGradleRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupLocalGradleRepositoryResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupLocalGradleRepositoryResult
 	err := ctx.Invoke("artifactory:index/getLocalGradleRepository:getLocalGradleRepository", args, &rv, opts...)
 	if err != nil {

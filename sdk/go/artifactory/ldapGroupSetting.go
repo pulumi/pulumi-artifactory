@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -113,6 +114,7 @@ func NewLdapGroupSetting(ctx *pulumi.Context,
 	if args.Strategy == nil {
 		return nil, errors.New("invalid value for required argument 'Strategy'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LdapGroupSetting
 	err := ctx.RegisterResource("artifactory:index/ldapGroupSetting:LdapGroupSetting", name, args, &resource, opts...)
 	if err != nil {

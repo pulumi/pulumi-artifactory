@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,6 +39,7 @@ import (
 //
 // ```
 func LookupFederatedGradleRepository(ctx *pulumi.Context, args *LookupFederatedGradleRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupFederatedGradleRepositoryResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupFederatedGradleRepositoryResult
 	err := ctx.Invoke("artifactory:index/getFederatedGradleRepository:getFederatedGradleRepository", args, &rv, opts...)
 	if err != nil {

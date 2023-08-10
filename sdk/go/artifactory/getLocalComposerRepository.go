@@ -7,10 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 func LookupLocalComposerRepository(ctx *pulumi.Context, args *LookupLocalComposerRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupLocalComposerRepositoryResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupLocalComposerRepositoryResult
 	err := ctx.Invoke("artifactory:index/getLocalComposerRepository:getLocalComposerRepository", args, &rv, opts...)
 	if err != nil {

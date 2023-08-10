@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -52,6 +53,7 @@ func NewRepositoryLayout(ctx *pulumi.Context,
 	if args.FolderIntegrationRevisionRegexp == nil {
 		return nil, errors.New("invalid value for required argument 'FolderIntegrationRevisionRegexp'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RepositoryLayout
 	err := ctx.RegisterResource("artifactory:index/repositoryLayout:RepositoryLayout", name, args, &resource, opts...)
 	if err != nil {

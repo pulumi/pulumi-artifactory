@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,6 +39,7 @@ import (
 //
 // ```
 func LookupRemoteCocoapodsRepository(ctx *pulumi.Context, args *LookupRemoteCocoapodsRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupRemoteCocoapodsRepositoryResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupRemoteCocoapodsRepositoryResult
 	err := ctx.Invoke("artifactory:index/getRemoteCocoapodsRepository:getRemoteCocoapodsRepository", args, &rv, opts...)
 	if err != nil {

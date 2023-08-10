@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,6 +41,7 @@ import (
 //
 // ```
 func LookupPermissionTarget(ctx *pulumi.Context, args *LookupPermissionTargetArgs, opts ...pulumi.InvokeOption) (*LookupPermissionTargetResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupPermissionTargetResult
 	err := ctx.Invoke("artifactory:index/getPermissionTarget:getPermissionTarget", args, &rv, opts...)
 	if err != nil {

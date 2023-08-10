@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,6 +39,7 @@ import (
 //
 // ```
 func LookupFederatedDebianRepository(ctx *pulumi.Context, args *LookupFederatedDebianRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupFederatedDebianRepositoryResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupFederatedDebianRepositoryResult
 	err := ctx.Invoke("artifactory:index/getFederatedDebianRepository:getFederatedDebianRepository", args, &rv, opts...)
 	if err != nil {

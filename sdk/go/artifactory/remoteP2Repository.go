@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -190,6 +191,7 @@ func NewRemoteP2Repository(ctx *pulumi.Context,
 		"password",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RemoteP2Repository
 	err := ctx.RegisterResource("artifactory:index/remoteP2Repository:RemoteP2Repository", name, args, &resource, opts...)
 	if err != nil {

@@ -7,10 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 func GetLocalGitlfsRepository(ctx *pulumi.Context, args *GetLocalGitlfsRepositoryArgs, opts ...pulumi.InvokeOption) (*GetLocalGitlfsRepositoryResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetLocalGitlfsRepositoryResult
 	err := ctx.Invoke("artifactory:index/getLocalGitlfsRepository:getLocalGitlfsRepository", args, &rv, opts...)
 	if err != nil {

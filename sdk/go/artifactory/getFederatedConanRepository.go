@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,6 +39,7 @@ import (
 //
 // ```
 func LookupFederatedConanRepository(ctx *pulumi.Context, args *LookupFederatedConanRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupFederatedConanRepositoryResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupFederatedConanRepositoryResult
 	err := ctx.Invoke("artifactory:index/getFederatedConanRepository:getFederatedConanRepository", args, &rv, opts...)
 	if err != nil {

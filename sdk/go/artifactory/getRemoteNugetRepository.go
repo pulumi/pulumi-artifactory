@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,6 +39,7 @@ import (
 //
 // ```
 func LookupRemoteNugetRepository(ctx *pulumi.Context, args *LookupRemoteNugetRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupRemoteNugetRepositoryResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupRemoteNugetRepositoryResult
 	err := ctx.Invoke("artifactory:index/getRemoteNugetRepository:getRemoteNugetRepository", args, &rv, opts...)
 	if err != nil {

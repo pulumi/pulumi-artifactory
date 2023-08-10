@@ -884,8 +884,16 @@
                 "current": "artifactory:index/ldapGroupSetting:LdapGroupSetting",
                 "majorVersion": 4
             },
+            "artifactory_ldap_group_setting_v2": {
+                "current": "artifactory:index/ldapGroupSettingV2:LdapGroupSettingV2",
+                "majorVersion": 4
+            },
             "artifactory_ldap_setting": {
                 "current": "artifactory:index/ldapSetting:LdapSetting",
+                "majorVersion": 4
+            },
+            "artifactory_ldap_setting_v2": {
+                "current": "artifactory:index/ldapSettingV2:LdapSettingV2",
                 "majorVersion": 4
             },
             "artifactory_local_alpine_repository": {
@@ -4468,7 +4476,9 @@
             "artifactory:index/group:Group": 1,
             "artifactory:index/keypair:Keypair": 0,
             "artifactory:index/ldapGroupSetting:LdapGroupSetting": 0,
+            "artifactory:index/ldapGroupSettingV2:LdapGroupSettingV2": 1,
             "artifactory:index/ldapSetting:LdapSetting": 0,
+            "artifactory:index/ldapSettingV2:LdapSettingV2": 1,
             "artifactory:index/localBowerRepository:LocalBowerRepository": 0,
             "artifactory:index/localCargoRepository:LocalCargoRepository": 0,
             "artifactory:index/localChefRepository:LocalChefRepository": 0,
@@ -4766,7 +4776,9 @@
             "artifactory:index/group:Group": "artifactory_group",
             "artifactory:index/keypair:Keypair": "artifactory_keypair",
             "artifactory:index/ldapGroupSetting:LdapGroupSetting": "artifactory_ldap_group_setting",
+            "artifactory:index/ldapGroupSettingV2:LdapGroupSettingV2": "artifactory_ldap_group_setting_v2",
             "artifactory:index/ldapSetting:LdapSetting": "artifactory_ldap_setting",
+            "artifactory:index/ldapSettingV2:LdapSettingV2": "artifactory_ldap_setting_v2",
             "artifactory:index/localBowerRepository:LocalBowerRepository": "artifactory_local_bower_repository",
             "artifactory:index/localCargoRepository:LocalCargoRepository": "artifactory_local_cargo_repository",
             "artifactory:index/localChefRepository:LocalChefRepository": "artifactory_local_chef_repository",
@@ -8954,7 +8966,30 @@
                 "ldapSettingKey": "ldap_setting_key",
                 "subTree": "sub_tree"
             },
+            "artifactory:index/ldapGroupSettingV2:LdapGroupSettingV2": {
+                "descriptionAttribute": "description_attribute",
+                "enabledLdap": "enabled_ldap",
+                "forceAttributeSearch": "force_attribute_search",
+                "groupBaseDn": "group_base_dn",
+                "groupMemberAttribute": "group_member_attribute",
+                "groupNameAttribute": "group_name_attribute",
+                "subTree": "sub_tree"
+            },
             "artifactory:index/ldapSetting:LdapSetting": {
+                "allowUserToAccessProfile": "allow_user_to_access_profile",
+                "autoCreateUser": "auto_create_user",
+                "emailAttribute": "email_attribute",
+                "ldapPoisoningProtection": "ldap_poisoning_protection",
+                "ldapUrl": "ldap_url",
+                "managerDn": "manager_dn",
+                "managerPassword": "manager_password",
+                "pagingSupportEnabled": "paging_support_enabled",
+                "searchBase": "search_base",
+                "searchFilter": "search_filter",
+                "searchSubTree": "search_sub_tree",
+                "userDnPattern": "user_dn_pattern"
+            },
+            "artifactory:index/ldapSettingV2:LdapSettingV2": {
                 "allowUserToAccessProfile": "allow_user_to_access_profile",
                 "autoCreateUser": "auto_create_user",
                 "emailAttribute": "email_attribute",

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -36,6 +37,7 @@ import (
 //
 // ```
 func LookupVirtualTerraformRepository(ctx *pulumi.Context, args *LookupVirtualTerraformRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupVirtualTerraformRepositoryResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupVirtualTerraformRepositoryResult
 	err := ctx.Invoke("artifactory:index/getVirtualTerraformRepository:getVirtualTerraformRepository", args, &rv, opts...)
 	if err != nil {

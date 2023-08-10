@@ -935,10 +935,20 @@ export type LdapGroupSetting = import("./ldapGroupSetting").LdapGroupSetting;
 export const LdapGroupSetting: typeof import("./ldapGroupSetting").LdapGroupSetting = null as any;
 utilities.lazyLoad(exports, ["LdapGroupSetting"], () => require("./ldapGroupSetting"));
 
+export { LdapGroupSettingV2Args, LdapGroupSettingV2State } from "./ldapGroupSettingV2";
+export type LdapGroupSettingV2 = import("./ldapGroupSettingV2").LdapGroupSettingV2;
+export const LdapGroupSettingV2: typeof import("./ldapGroupSettingV2").LdapGroupSettingV2 = null as any;
+utilities.lazyLoad(exports, ["LdapGroupSettingV2"], () => require("./ldapGroupSettingV2"));
+
 export { LdapSettingArgs, LdapSettingState } from "./ldapSetting";
 export type LdapSetting = import("./ldapSetting").LdapSetting;
 export const LdapSetting: typeof import("./ldapSetting").LdapSetting = null as any;
 utilities.lazyLoad(exports, ["LdapSetting"], () => require("./ldapSetting"));
+
+export { LdapSettingV2Args, LdapSettingV2State } from "./ldapSettingV2";
+export type LdapSettingV2 = import("./ldapSettingV2").LdapSettingV2;
+export const LdapSettingV2: typeof import("./ldapSettingV2").LdapSettingV2 = null as any;
+utilities.lazyLoad(exports, ["LdapSettingV2"], () => require("./ldapSettingV2"));
 
 export { LocalBowerRepositoryArgs, LocalBowerRepositoryState } from "./localBowerRepository";
 export type LocalBowerRepository = import("./localBowerRepository").LocalBowerRepository;
@@ -1602,8 +1612,12 @@ const _module = {
                 return new Keypair(name, <any>undefined, { urn })
             case "artifactory:index/ldapGroupSetting:LdapGroupSetting":
                 return new LdapGroupSetting(name, <any>undefined, { urn })
+            case "artifactory:index/ldapGroupSettingV2:LdapGroupSettingV2":
+                return new LdapGroupSettingV2(name, <any>undefined, { urn })
             case "artifactory:index/ldapSetting:LdapSetting":
                 return new LdapSetting(name, <any>undefined, { urn })
+            case "artifactory:index/ldapSettingV2:LdapSettingV2":
+                return new LdapSettingV2(name, <any>undefined, { urn })
             case "artifactory:index/localBowerRepository:LocalBowerRepository":
                 return new LocalBowerRepository(name, <any>undefined, { urn })
             case "artifactory:index/localCargoRepository:LocalCargoRepository":
@@ -1878,7 +1892,9 @@ pulumi.runtime.registerResourceModule("artifactory", "index/goRepository", _modu
 pulumi.runtime.registerResourceModule("artifactory", "index/group", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/keypair", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/ldapGroupSetting", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/ldapGroupSettingV2", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/ldapSetting", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/ldapSettingV2", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/localBowerRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/localCargoRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/localChefRepository", _module)

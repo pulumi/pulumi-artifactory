@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,6 +39,7 @@ import (
 //
 // ```
 func LookupRemoteBowerRepository(ctx *pulumi.Context, args *LookupRemoteBowerRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupRemoteBowerRepositoryResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupRemoteBowerRepositoryResult
 	err := ctx.Invoke("artifactory:index/getRemoteBowerRepository:getRemoteBowerRepository", args, &rv, opts...)
 	if err != nil {

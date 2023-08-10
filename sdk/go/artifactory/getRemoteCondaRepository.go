@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,6 +39,7 @@ import (
 //
 // ```
 func LookupRemoteCondaRepository(ctx *pulumi.Context, args *LookupRemoteCondaRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupRemoteCondaRepositoryResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupRemoteCondaRepositoryResult
 	err := ctx.Invoke("artifactory:index/getRemoteCondaRepository:getRemoteCondaRepository", args, &rv, opts...)
 	if err != nil {
