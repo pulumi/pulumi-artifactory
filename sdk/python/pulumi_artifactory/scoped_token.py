@@ -19,6 +19,7 @@ class ScopedTokenArgs:
                  expires_in: Optional[pulumi.Input[int]] = None,
                  grant_type: Optional[pulumi.Input[str]] = None,
                  include_reference_token: Optional[pulumi.Input[bool]] = None,
+                 project_key: Optional[pulumi.Input[str]] = None,
                  refreshable: Optional[pulumi.Input[bool]] = None,
                  scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  username: Optional[pulumi.Input[str]] = None):
@@ -29,6 +30,7 @@ class ScopedTokenArgs:
         :param pulumi.Input[int] expires_in: The amount of time, in seconds, it would take for the token to expire. An admin shall be able to set whether expiry is mandatory, what is the default expiry, and what is the maximum expiry allowed. Must be non-negative. Default value is based on configuration in 'access.config.yaml'. See [API documentation](https://jfrog.com/help/r/jfrog-rest-apis/revoke-token-by-id) for details. Access Token would not be saved by Artifactory if this is less than the persistence threshold value (default to 10800 seconds) set in Access configuration. See [official documentation](https://jfrog.com/help/r/jfrog-platform-administration-documentation/using-the-revocable-and-persistency-thresholds) for details.
         :param pulumi.Input[str] grant_type: The grant type used to authenticate the request. In this case, the only value supported is `client_credentials` which is also the default value if this parameter is not specified.
         :param pulumi.Input[bool] include_reference_token: Also create a reference token which can be used like an API key.
+        :param pulumi.Input[str] project_key: The project for which this token is created. Enter the project name on which you want to apply this token.
         :param pulumi.Input[bool] refreshable: Is this token refreshable? Default is `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: The scope of access that the token provides. Access to the REST API is always provided by default. Administrators can set any scope, while non-admin users can only set the scope to a subset of the groups to which they belong.
                The supported scopes include:
@@ -44,6 +46,8 @@ class ScopedTokenArgs:
             pulumi.set(__self__, "grant_type", grant_type)
         if include_reference_token is not None:
             pulumi.set(__self__, "include_reference_token", include_reference_token)
+        if project_key is not None:
+            pulumi.set(__self__, "project_key", project_key)
         if refreshable is not None:
             pulumi.set(__self__, "refreshable", refreshable)
         if scopes is not None:
@@ -112,6 +116,18 @@ class ScopedTokenArgs:
         pulumi.set(self, "include_reference_token", value)
 
     @property
+    @pulumi.getter(name="projectKey")
+    def project_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The project for which this token is created. Enter the project name on which you want to apply this token.
+        """
+        return pulumi.get(self, "project_key")
+
+    @project_key.setter
+    def project_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "project_key", value)
+
+    @property
     @pulumi.getter
     def refreshable(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -161,6 +177,7 @@ class _ScopedTokenState:
                  include_reference_token: Optional[pulumi.Input[bool]] = None,
                  issued_at: Optional[pulumi.Input[int]] = None,
                  issuer: Optional[pulumi.Input[str]] = None,
+                 project_key: Optional[pulumi.Input[str]] = None,
                  reference_token: Optional[pulumi.Input[str]] = None,
                  refresh_token: Optional[pulumi.Input[str]] = None,
                  refreshable: Optional[pulumi.Input[bool]] = None,
@@ -179,6 +196,7 @@ class _ScopedTokenState:
         :param pulumi.Input[bool] include_reference_token: Also create a reference token which can be used like an API key.
         :param pulumi.Input[int] issued_at: Returns the token issued at date/time.
         :param pulumi.Input[str] issuer: Returns the token issuer.
+        :param pulumi.Input[str] project_key: The project for which this token is created. Enter the project name on which you want to apply this token.
         :param pulumi.Input[str] reference_token: Reference Token (alias to Access Token).
         :param pulumi.Input[str] refresh_token: Refresh token.
         :param pulumi.Input[bool] refreshable: Is this token refreshable? Default is `false`.
@@ -206,6 +224,8 @@ class _ScopedTokenState:
             pulumi.set(__self__, "issued_at", issued_at)
         if issuer is not None:
             pulumi.set(__self__, "issuer", issuer)
+        if project_key is not None:
+            pulumi.set(__self__, "project_key", project_key)
         if reference_token is not None:
             pulumi.set(__self__, "reference_token", reference_token)
         if refresh_token is not None:
@@ -330,6 +350,18 @@ class _ScopedTokenState:
         pulumi.set(self, "issuer", value)
 
     @property
+    @pulumi.getter(name="projectKey")
+    def project_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The project for which this token is created. Enter the project name on which you want to apply this token.
+        """
+        return pulumi.get(self, "project_key")
+
+    @project_key.setter
+    def project_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "project_key", value)
+
+    @property
     @pulumi.getter(name="referenceToken")
     def reference_token(self) -> Optional[pulumi.Input[str]]:
         """
@@ -425,6 +457,7 @@ class ScopedToken(pulumi.CustomResource):
                  expires_in: Optional[pulumi.Input[int]] = None,
                  grant_type: Optional[pulumi.Input[str]] = None,
                  include_reference_token: Optional[pulumi.Input[bool]] = None,
+                 project_key: Optional[pulumi.Input[str]] = None,
                  refreshable: Optional[pulumi.Input[bool]] = None,
                  scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  username: Optional[pulumi.Input[str]] = None,
@@ -496,6 +529,7 @@ class ScopedToken(pulumi.CustomResource):
         :param pulumi.Input[int] expires_in: The amount of time, in seconds, it would take for the token to expire. An admin shall be able to set whether expiry is mandatory, what is the default expiry, and what is the maximum expiry allowed. Must be non-negative. Default value is based on configuration in 'access.config.yaml'. See [API documentation](https://jfrog.com/help/r/jfrog-rest-apis/revoke-token-by-id) for details. Access Token would not be saved by Artifactory if this is less than the persistence threshold value (default to 10800 seconds) set in Access configuration. See [official documentation](https://jfrog.com/help/r/jfrog-platform-administration-documentation/using-the-revocable-and-persistency-thresholds) for details.
         :param pulumi.Input[str] grant_type: The grant type used to authenticate the request. In this case, the only value supported is `client_credentials` which is also the default value if this parameter is not specified.
         :param pulumi.Input[bool] include_reference_token: Also create a reference token which can be used like an API key.
+        :param pulumi.Input[str] project_key: The project for which this token is created. Enter the project name on which you want to apply this token.
         :param pulumi.Input[bool] refreshable: Is this token refreshable? Default is `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: The scope of access that the token provides. Access to the REST API is always provided by default. Administrators can set any scope, while non-admin users can only set the scope to a subset of the groups to which they belong.
                The supported scopes include:
@@ -587,6 +621,7 @@ class ScopedToken(pulumi.CustomResource):
                  expires_in: Optional[pulumi.Input[int]] = None,
                  grant_type: Optional[pulumi.Input[str]] = None,
                  include_reference_token: Optional[pulumi.Input[bool]] = None,
+                 project_key: Optional[pulumi.Input[str]] = None,
                  refreshable: Optional[pulumi.Input[bool]] = None,
                  scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  username: Optional[pulumi.Input[str]] = None,
@@ -604,6 +639,7 @@ class ScopedToken(pulumi.CustomResource):
             __props__.__dict__["expires_in"] = expires_in
             __props__.__dict__["grant_type"] = grant_type
             __props__.__dict__["include_reference_token"] = include_reference_token
+            __props__.__dict__["project_key"] = project_key
             __props__.__dict__["refreshable"] = refreshable
             __props__.__dict__["scopes"] = scopes
             __props__.__dict__["username"] = username
@@ -636,6 +672,7 @@ class ScopedToken(pulumi.CustomResource):
             include_reference_token: Optional[pulumi.Input[bool]] = None,
             issued_at: Optional[pulumi.Input[int]] = None,
             issuer: Optional[pulumi.Input[str]] = None,
+            project_key: Optional[pulumi.Input[str]] = None,
             reference_token: Optional[pulumi.Input[str]] = None,
             refresh_token: Optional[pulumi.Input[str]] = None,
             refreshable: Optional[pulumi.Input[bool]] = None,
@@ -659,6 +696,7 @@ class ScopedToken(pulumi.CustomResource):
         :param pulumi.Input[bool] include_reference_token: Also create a reference token which can be used like an API key.
         :param pulumi.Input[int] issued_at: Returns the token issued at date/time.
         :param pulumi.Input[str] issuer: Returns the token issuer.
+        :param pulumi.Input[str] project_key: The project for which this token is created. Enter the project name on which you want to apply this token.
         :param pulumi.Input[str] reference_token: Reference Token (alias to Access Token).
         :param pulumi.Input[str] refresh_token: Refresh token.
         :param pulumi.Input[bool] refreshable: Is this token refreshable? Default is `false`.
@@ -681,6 +719,7 @@ class ScopedToken(pulumi.CustomResource):
         __props__.__dict__["include_reference_token"] = include_reference_token
         __props__.__dict__["issued_at"] = issued_at
         __props__.__dict__["issuer"] = issuer
+        __props__.__dict__["project_key"] = project_key
         __props__.__dict__["reference_token"] = reference_token
         __props__.__dict__["refresh_token"] = refresh_token
         __props__.__dict__["refreshable"] = refreshable
@@ -761,6 +800,14 @@ class ScopedToken(pulumi.CustomResource):
         Returns the token issuer.
         """
         return pulumi.get(self, "issuer")
+
+    @property
+    @pulumi.getter(name="projectKey")
+    def project_key(self) -> pulumi.Output[Optional[str]]:
+        """
+        The project for which this token is created. Enter the project name on which you want to apply this token.
+        """
+        return pulumi.get(self, "project_key")
 
     @property
     @pulumi.getter(name="referenceToken")

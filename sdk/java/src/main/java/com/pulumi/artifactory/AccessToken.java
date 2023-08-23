@@ -18,11 +18,6 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Provides an Artifactory Access Token resource. This can be used to create and manage Artifactory Access Tokens.
- * 
- * &gt; **Note:** Access Tokens will be stored in the raw state as plain-text. Read more about sensitive data in
- * state.
- * 
  * ## Example Usage
  * 
  * ### S

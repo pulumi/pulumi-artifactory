@@ -94,6 +94,21 @@ public final class ScopedTokenArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The project for which this token is created. Enter the project name on which you want to apply this token.
+     * 
+     */
+    @Import(name="projectKey")
+    private @Nullable Output<String> projectKey;
+
+    /**
+     * @return The project for which this token is created. Enter the project name on which you want to apply this token.
+     * 
+     */
+    public Optional<Output<String>> projectKey() {
+        return Optional.ofNullable(this.projectKey);
+    }
+
+    /**
      * Is this token refreshable? Default is `false`.
      * 
      */
@@ -148,6 +163,7 @@ public final class ScopedTokenArgs extends com.pulumi.resources.ResourceArgs {
         this.expiresIn = $.expiresIn;
         this.grantType = $.grantType;
         this.includeReferenceToken = $.includeReferenceToken;
+        this.projectKey = $.projectKey;
         this.refreshable = $.refreshable;
         this.scopes = $.scopes;
         this.username = $.username;
@@ -284,6 +300,27 @@ public final class ScopedTokenArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder includeReferenceToken(Boolean includeReferenceToken) {
             return includeReferenceToken(Output.of(includeReferenceToken));
+        }
+
+        /**
+         * @param projectKey The project for which this token is created. Enter the project name on which you want to apply this token.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder projectKey(@Nullable Output<String> projectKey) {
+            $.projectKey = projectKey;
+            return this;
+        }
+
+        /**
+         * @param projectKey The project for which this token is created. Enter the project name on which you want to apply this token.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder projectKey(String projectKey) {
+            return projectKey(Output.of(projectKey));
         }
 
         /**

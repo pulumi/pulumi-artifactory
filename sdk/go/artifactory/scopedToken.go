@@ -96,6 +96,8 @@ type ScopedToken struct {
 	IssuedAt pulumi.IntOutput `pulumi:"issuedAt"`
 	// Returns the token issuer.
 	Issuer pulumi.StringOutput `pulumi:"issuer"`
+	// The project for which this token is created. Enter the project name on which you want to apply this token.
+	ProjectKey pulumi.StringPtrOutput `pulumi:"projectKey"`
 	// Reference Token (alias to Access Token).
 	ReferenceToken pulumi.StringOutput `pulumi:"referenceToken"`
 	// Refresh token.
@@ -167,6 +169,8 @@ type scopedTokenState struct {
 	IssuedAt *int `pulumi:"issuedAt"`
 	// Returns the token issuer.
 	Issuer *string `pulumi:"issuer"`
+	// The project for which this token is created. Enter the project name on which you want to apply this token.
+	ProjectKey *string `pulumi:"projectKey"`
 	// Reference Token (alias to Access Token).
 	ReferenceToken *string `pulumi:"referenceToken"`
 	// Refresh token.
@@ -203,6 +207,8 @@ type ScopedTokenState struct {
 	IssuedAt pulumi.IntPtrInput
 	// Returns the token issuer.
 	Issuer pulumi.StringPtrInput
+	// The project for which this token is created. Enter the project name on which you want to apply this token.
+	ProjectKey pulumi.StringPtrInput
 	// Reference Token (alias to Access Token).
 	ReferenceToken pulumi.StringPtrInput
 	// Refresh token.
@@ -235,6 +241,8 @@ type scopedTokenArgs struct {
 	GrantType *string `pulumi:"grantType"`
 	// Also create a reference token which can be used like an API key.
 	IncludeReferenceToken *bool `pulumi:"includeReferenceToken"`
+	// The project for which this token is created. Enter the project name on which you want to apply this token.
+	ProjectKey *string `pulumi:"projectKey"`
 	// Is this token refreshable? Default is `false`.
 	Refreshable *bool `pulumi:"refreshable"`
 	// The scope of access that the token provides. Access to the REST API is always provided by default. Administrators can set any scope, while non-admin users can only set the scope to a subset of the groups to which they belong.
@@ -256,6 +264,8 @@ type ScopedTokenArgs struct {
 	GrantType pulumi.StringPtrInput
 	// Also create a reference token which can be used like an API key.
 	IncludeReferenceToken pulumi.BoolPtrInput
+	// The project for which this token is created. Enter the project name on which you want to apply this token.
+	ProjectKey pulumi.StringPtrInput
 	// Is this token refreshable? Default is `false`.
 	Refreshable pulumi.BoolPtrInput
 	// The scope of access that the token provides. Access to the REST API is always provided by default. Administrators can set any scope, while non-admin users can only set the scope to a subset of the groups to which they belong.
@@ -395,6 +405,11 @@ func (o ScopedTokenOutput) IssuedAt() pulumi.IntOutput {
 // Returns the token issuer.
 func (o ScopedTokenOutput) Issuer() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScopedToken) pulumi.StringOutput { return v.Issuer }).(pulumi.StringOutput)
+}
+
+// The project for which this token is created. Enter the project name on which you want to apply this token.
+func (o ScopedTokenOutput) ProjectKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScopedToken) pulumi.StringPtrOutput { return v.ProjectKey }).(pulumi.StringPtrOutput)
 }
 
 // Reference Token (alias to Access Token).
