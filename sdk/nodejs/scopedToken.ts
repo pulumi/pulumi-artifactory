@@ -129,6 +129,10 @@ export class ScopedToken extends pulumi.CustomResource {
      */
     public /*out*/ readonly issuer!: pulumi.Output<string>;
     /**
+     * The project for which this token is created. Enter the project name on which you want to apply this token.
+     */
+    public readonly projectKey!: pulumi.Output<string | undefined>;
+    /**
      * Reference Token (alias to Access Token).
      */
     public /*out*/ readonly referenceToken!: pulumi.Output<string>;
@@ -180,6 +184,7 @@ export class ScopedToken extends pulumi.CustomResource {
             resourceInputs["includeReferenceToken"] = state ? state.includeReferenceToken : undefined;
             resourceInputs["issuedAt"] = state ? state.issuedAt : undefined;
             resourceInputs["issuer"] = state ? state.issuer : undefined;
+            resourceInputs["projectKey"] = state ? state.projectKey : undefined;
             resourceInputs["referenceToken"] = state ? state.referenceToken : undefined;
             resourceInputs["refreshToken"] = state ? state.refreshToken : undefined;
             resourceInputs["refreshable"] = state ? state.refreshable : undefined;
@@ -194,6 +199,7 @@ export class ScopedToken extends pulumi.CustomResource {
             resourceInputs["expiresIn"] = args ? args.expiresIn : undefined;
             resourceInputs["grantType"] = args ? args.grantType : undefined;
             resourceInputs["includeReferenceToken"] = args ? args.includeReferenceToken : undefined;
+            resourceInputs["projectKey"] = args ? args.projectKey : undefined;
             resourceInputs["refreshable"] = args ? args.refreshable : undefined;
             resourceInputs["scopes"] = args ? args.scopes : undefined;
             resourceInputs["username"] = args ? args.username : undefined;
@@ -254,6 +260,10 @@ export interface ScopedTokenState {
      */
     issuer?: pulumi.Input<string>;
     /**
+     * The project for which this token is created. Enter the project name on which you want to apply this token.
+     */
+    projectKey?: pulumi.Input<string>;
+    /**
      * Reference Token (alias to Access Token).
      */
     referenceToken?: pulumi.Input<string>;
@@ -308,6 +318,10 @@ export interface ScopedTokenArgs {
      * Also create a reference token which can be used like an API key.
      */
     includeReferenceToken?: pulumi.Input<boolean>;
+    /**
+     * The project for which this token is created. Enter the project name on which you want to apply this token.
+     */
+    projectKey?: pulumi.Input<string>;
     /**
      * Is this token refreshable? Default is `false`.
      */

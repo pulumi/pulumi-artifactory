@@ -154,6 +154,21 @@ public final class ScopedTokenState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The project for which this token is created. Enter the project name on which you want to apply this token.
+     * 
+     */
+    @Import(name="projectKey")
+    private @Nullable Output<String> projectKey;
+
+    /**
+     * @return The project for which this token is created. Enter the project name on which you want to apply this token.
+     * 
+     */
+    public Optional<Output<String>> projectKey() {
+        return Optional.ofNullable(this.projectKey);
+    }
+
+    /**
      * Reference Token (alias to Access Token).
      * 
      */
@@ -272,6 +287,7 @@ public final class ScopedTokenState extends com.pulumi.resources.ResourceArgs {
         this.includeReferenceToken = $.includeReferenceToken;
         this.issuedAt = $.issuedAt;
         this.issuer = $.issuer;
+        this.projectKey = $.projectKey;
         this.referenceToken = $.referenceToken;
         this.refreshToken = $.refreshToken;
         this.refreshable = $.refreshable;
@@ -496,6 +512,27 @@ public final class ScopedTokenState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder issuer(String issuer) {
             return issuer(Output.of(issuer));
+        }
+
+        /**
+         * @param projectKey The project for which this token is created. Enter the project name on which you want to apply this token.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder projectKey(@Nullable Output<String> projectKey) {
+            $.projectKey = projectKey;
+            return this;
+        }
+
+        /**
+         * @param projectKey The project for which this token is created. Enter the project name on which you want to apply this token.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder projectKey(String projectKey) {
+            return projectKey(Output.of(projectKey));
         }
 
         /**

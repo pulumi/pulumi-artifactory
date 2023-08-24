@@ -127,6 +127,12 @@ namespace Pulumi.Artifactory
         public Output<string> Issuer { get; private set; } = null!;
 
         /// <summary>
+        /// The project for which this token is created. Enter the project name on which you want to apply this token.
+        /// </summary>
+        [Output("projectKey")]
+        public Output<string?> ProjectKey { get; private set; } = null!;
+
+        /// <summary>
         /// Reference Token (alias to Access Token).
         /// </summary>
         [Output("referenceToken")]
@@ -258,6 +264,12 @@ namespace Pulumi.Artifactory
         public Input<bool>? IncludeReferenceToken { get; set; }
 
         /// <summary>
+        /// The project for which this token is created. Enter the project name on which you want to apply this token.
+        /// </summary>
+        [Input("projectKey")]
+        public Input<string>? ProjectKey { get; set; }
+
+        /// <summary>
         /// Is this token refreshable? Default is `false`.
         /// </summary>
         [Input("refreshable")]
@@ -359,6 +371,12 @@ namespace Pulumi.Artifactory
         /// </summary>
         [Input("issuer")]
         public Input<string>? Issuer { get; set; }
+
+        /// <summary>
+        /// The project for which this token is created. Enter the project name on which you want to apply this token.
+        /// </summary>
+        [Input("projectKey")]
+        public Input<string>? ProjectKey { get; set; }
 
         [Input("referenceToken")]
         private Input<string>? _referenceToken;

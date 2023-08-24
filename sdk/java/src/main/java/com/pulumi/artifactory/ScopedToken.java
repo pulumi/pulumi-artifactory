@@ -207,6 +207,20 @@ public class ScopedToken extends com.pulumi.resources.CustomResource {
         return this.issuer;
     }
     /**
+     * The project for which this token is created. Enter the project name on which you want to apply this token.
+     * 
+     */
+    @Export(name="projectKey", type=String.class, parameters={})
+    private Output</* @Nullable */ String> projectKey;
+
+    /**
+     * @return The project for which this token is created. Enter the project name on which you want to apply this token.
+     * 
+     */
+    public Output<Optional<String>> projectKey() {
+        return Codegen.optional(this.projectKey);
+    }
+    /**
      * Reference Token (alias to Access Token).
      * 
      */

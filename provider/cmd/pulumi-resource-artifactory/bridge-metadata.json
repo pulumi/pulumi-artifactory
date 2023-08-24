@@ -10773,6 +10773,7 @@
                 "grantType": "grant_type",
                 "includeReferenceToken": "include_reference_token",
                 "issuedAt": "issued_at",
+                "projectKey": "project_key",
                 "referenceToken": "reference_token",
                 "refreshToken": "refresh_token",
                 "tokenType": "token_type"
