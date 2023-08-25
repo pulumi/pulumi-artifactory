@@ -44,13 +44,13 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * 
      * @deprecated
      * An upcoming version will support the option to block the usage/creation of API Keys (for admins to set on their platform).
-     * In September 2022, the option to block the usage/creation of API Keys will be enabled by default, with the option for admins to change it back to enable API Keys.
-     * In January 2023, API Keys will be deprecated all together and the option to use them will no longer be available.
+     * In a future version (scheduled for end of Q3, 2023), the option to disable the usage/creation of API Keys will be available and set to disabled by default. Admins will be able to enable the usage/creation of API Keys.
+     * By end of Q1 2024, API Keys will be deprecated all together and the option to use them will no longer be available.
      * 
      */
     @Deprecated /* An upcoming version will support the option to block the usage/creation of API Keys (for admins to set on their platform).
-In September 2022, the option to block the usage/creation of API Keys will be enabled by default, with the option for admins to change it back to enable API Keys.
-In January 2023, API Keys will be deprecated all together and the option to use them will no longer be available. */
+In a future version (scheduled for end of Q3, 2023), the option to disable the usage/creation of API Keys will be available and set to disabled by default. Admins will be able to enable the usage/creation of API Keys.
+By end of Q1 2024, API Keys will be deprecated all together and the option to use them will no longer be available. */
     @Export(name="apiKey", type=String.class, parameters={})
     private Output</* @Nullable */ String> apiKey;
 

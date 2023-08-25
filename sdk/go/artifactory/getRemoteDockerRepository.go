@@ -62,8 +62,10 @@ type LookupRemoteDockerRepositoryArgs struct {
 	ContentSynchronisation *GetRemoteDockerRepositoryContentSynchronisation `pulumi:"contentSynchronisation"`
 	Description            *string                                          `pulumi:"description"`
 	DisableProxy           *bool                                            `pulumi:"disableProxy"`
-	DownloadDirect         *bool                                            `pulumi:"downloadDirect"`
-	EnableCookieManagement *bool                                            `pulumi:"enableCookieManagement"`
+	// (Optional) Whether to disable URL normalization.
+	DisableUrlNormalization *bool `pulumi:"disableUrlNormalization"`
+	DownloadDirect          *bool `pulumi:"downloadDirect"`
+	EnableCookieManagement  *bool `pulumi:"enableCookieManagement"`
 	// (Optional) Enable token (Bearer) based authentication.
 	EnableTokenAuthentication *bool   `pulumi:"enableTokenAuthentication"`
 	ExcludesPattern           *string `pulumi:"excludesPattern"`
@@ -116,8 +118,10 @@ type LookupRemoteDockerRepositoryResult struct {
 	ContentSynchronisation GetRemoteDockerRepositoryContentSynchronisation `pulumi:"contentSynchronisation"`
 	Description            *string                                         `pulumi:"description"`
 	DisableProxy           *bool                                           `pulumi:"disableProxy"`
-	DownloadDirect         *bool                                           `pulumi:"downloadDirect"`
-	EnableCookieManagement *bool                                           `pulumi:"enableCookieManagement"`
+	// (Optional) Whether to disable URL normalization.
+	DisableUrlNormalization *bool `pulumi:"disableUrlNormalization"`
+	DownloadDirect          *bool `pulumi:"downloadDirect"`
+	EnableCookieManagement  *bool `pulumi:"enableCookieManagement"`
 	// (Optional) Enable token (Bearer) based authentication.
 	EnableTokenAuthentication bool    `pulumi:"enableTokenAuthentication"`
 	ExcludesPattern           *string `pulumi:"excludesPattern"`
@@ -185,8 +189,10 @@ type LookupRemoteDockerRepositoryOutputArgs struct {
 	ContentSynchronisation GetRemoteDockerRepositoryContentSynchronisationPtrInput `pulumi:"contentSynchronisation"`
 	Description            pulumi.StringPtrInput                                   `pulumi:"description"`
 	DisableProxy           pulumi.BoolPtrInput                                     `pulumi:"disableProxy"`
-	DownloadDirect         pulumi.BoolPtrInput                                     `pulumi:"downloadDirect"`
-	EnableCookieManagement pulumi.BoolPtrInput                                     `pulumi:"enableCookieManagement"`
+	// (Optional) Whether to disable URL normalization.
+	DisableUrlNormalization pulumi.BoolPtrInput `pulumi:"disableUrlNormalization"`
+	DownloadDirect          pulumi.BoolPtrInput `pulumi:"downloadDirect"`
+	EnableCookieManagement  pulumi.BoolPtrInput `pulumi:"enableCookieManagement"`
 	// (Optional) Enable token (Bearer) based authentication.
 	EnableTokenAuthentication pulumi.BoolPtrInput   `pulumi:"enableTokenAuthentication"`
 	ExcludesPattern           pulumi.StringPtrInput `pulumi:"excludesPattern"`
@@ -289,6 +295,11 @@ func (o LookupRemoteDockerRepositoryResultOutput) Description() pulumi.StringPtr
 
 func (o LookupRemoteDockerRepositoryResultOutput) DisableProxy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupRemoteDockerRepositoryResult) *bool { return v.DisableProxy }).(pulumi.BoolPtrOutput)
+}
+
+// (Optional) Whether to disable URL normalization.
+func (o LookupRemoteDockerRepositoryResultOutput) DisableUrlNormalization() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupRemoteDockerRepositoryResult) *bool { return v.DisableUrlNormalization }).(pulumi.BoolPtrOutput)
 }
 
 func (o LookupRemoteDockerRepositoryResultOutput) DownloadDirect() pulumi.BoolPtrOutput {

@@ -103,6 +103,21 @@ public final class GetRemoteDockerRepositoryPlainArgs extends com.pulumi.resourc
         return Optional.ofNullable(this.disableProxy);
     }
 
+    /**
+     * (Optional) Whether to disable URL normalization.
+     * 
+     */
+    @Import(name="disableUrlNormalization")
+    private @Nullable Boolean disableUrlNormalization;
+
+    /**
+     * @return (Optional) Whether to disable URL normalization.
+     * 
+     */
+    public Optional<Boolean> disableUrlNormalization() {
+        return Optional.ofNullable(this.disableUrlNormalization);
+    }
+
     @Import(name="downloadDirect")
     private @Nullable Boolean downloadDirect;
 
@@ -387,6 +402,7 @@ public final class GetRemoteDockerRepositoryPlainArgs extends com.pulumi.resourc
         this.contentSynchronisation = $.contentSynchronisation;
         this.description = $.description;
         this.disableProxy = $.disableProxy;
+        this.disableUrlNormalization = $.disableUrlNormalization;
         this.downloadDirect = $.downloadDirect;
         this.enableCookieManagement = $.enableCookieManagement;
         this.enableTokenAuthentication = $.enableTokenAuthentication;
@@ -499,6 +515,17 @@ public final class GetRemoteDockerRepositoryPlainArgs extends com.pulumi.resourc
 
         public Builder disableProxy(@Nullable Boolean disableProxy) {
             $.disableProxy = disableProxy;
+            return this;
+        }
+
+        /**
+         * @param disableUrlNormalization (Optional) Whether to disable URL normalization.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder disableUrlNormalization(@Nullable Boolean disableUrlNormalization) {
+            $.disableUrlNormalization = disableUrlNormalization;
             return this;
         }
 

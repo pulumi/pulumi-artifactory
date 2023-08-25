@@ -30,11 +30,11 @@ class ProviderArgs:
             pulumi.set(__self__, "access_token", access_token)
         if api_key is not None:
             warnings.warn("""An upcoming version will support the option to block the usage/creation of API Keys (for admins to set on their platform).
-In September 2022, the option to block the usage/creation of API Keys will be enabled by default, with the option for admins to change it back to enable API Keys.
-In January 2023, API Keys will be deprecated all together and the option to use them will no longer be available.""", DeprecationWarning)
+In a future version (scheduled for end of Q3, 2023), the option to disable the usage/creation of API Keys will be available and set to disabled by default. Admins will be able to enable the usage/creation of API Keys.
+By end of Q1 2024, API Keys will be deprecated all together and the option to use them will no longer be available.""", DeprecationWarning)
             pulumi.log.warn("""api_key is deprecated: An upcoming version will support the option to block the usage/creation of API Keys (for admins to set on their platform).
-In September 2022, the option to block the usage/creation of API Keys will be enabled by default, with the option for admins to change it back to enable API Keys.
-In January 2023, API Keys will be deprecated all together and the option to use them will no longer be available.""")
+In a future version (scheduled for end of Q3, 2023), the option to disable the usage/creation of API Keys will be available and set to disabled by default. Admins will be able to enable the usage/creation of API Keys.
+By end of Q1 2024, API Keys will be deprecated all together and the option to use them will no longer be available.""")
         if api_key is not None:
             pulumi.set(__self__, "api_key", api_key)
         if check_license is None:
@@ -64,11 +64,11 @@ In January 2023, API Keys will be deprecated all together and the option to use 
         API token. Projects functionality will not work with any auth method other than access tokens
         """
         warnings.warn("""An upcoming version will support the option to block the usage/creation of API Keys (for admins to set on their platform).
-In September 2022, the option to block the usage/creation of API Keys will be enabled by default, with the option for admins to change it back to enable API Keys.
-In January 2023, API Keys will be deprecated all together and the option to use them will no longer be available.""", DeprecationWarning)
+In a future version (scheduled for end of Q3, 2023), the option to disable the usage/creation of API Keys will be available and set to disabled by default. Admins will be able to enable the usage/creation of API Keys.
+By end of Q1 2024, API Keys will be deprecated all together and the option to use them will no longer be available.""", DeprecationWarning)
         pulumi.log.warn("""api_key is deprecated: An upcoming version will support the option to block the usage/creation of API Keys (for admins to set on their platform).
-In September 2022, the option to block the usage/creation of API Keys will be enabled by default, with the option for admins to change it back to enable API Keys.
-In January 2023, API Keys will be deprecated all together and the option to use them will no longer be available.""")
+In a future version (scheduled for end of Q3, 2023), the option to disable the usage/creation of API Keys will be available and set to disabled by default. Admins will be able to enable the usage/creation of API Keys.
+By end of Q1 2024, API Keys will be deprecated all together and the option to use them will no longer be available.""")
 
         return pulumi.get(self, "api_key")
 
@@ -168,11 +168,11 @@ class Provider(pulumi.ProviderResource):
             __props__.__dict__["access_token"] = None if access_token is None else pulumi.Output.secret(access_token)
             if api_key is not None and not opts.urn:
                 warnings.warn("""An upcoming version will support the option to block the usage/creation of API Keys (for admins to set on their platform).
-In September 2022, the option to block the usage/creation of API Keys will be enabled by default, with the option for admins to change it back to enable API Keys.
-In January 2023, API Keys will be deprecated all together and the option to use them will no longer be available.""", DeprecationWarning)
+In a future version (scheduled for end of Q3, 2023), the option to disable the usage/creation of API Keys will be available and set to disabled by default. Admins will be able to enable the usage/creation of API Keys.
+By end of Q1 2024, API Keys will be deprecated all together and the option to use them will no longer be available.""", DeprecationWarning)
                 pulumi.log.warn("""api_key is deprecated: An upcoming version will support the option to block the usage/creation of API Keys (for admins to set on their platform).
-In September 2022, the option to block the usage/creation of API Keys will be enabled by default, with the option for admins to change it back to enable API Keys.
-In January 2023, API Keys will be deprecated all together and the option to use them will no longer be available.""")
+In a future version (scheduled for end of Q3, 2023), the option to disable the usage/creation of API Keys will be available and set to disabled by default. Admins will be able to enable the usage/creation of API Keys.
+By end of Q1 2024, API Keys will be deprecated all together and the option to use them will no longer be available.""")
             __props__.__dict__["api_key"] = None if api_key is None else pulumi.Output.secret(api_key)
             if check_license is None:
                 check_license = False
@@ -202,11 +202,11 @@ In January 2023, API Keys will be deprecated all together and the option to use 
         API token. Projects functionality will not work with any auth method other than access tokens
         """
         warnings.warn("""An upcoming version will support the option to block the usage/creation of API Keys (for admins to set on their platform).
-In September 2022, the option to block the usage/creation of API Keys will be enabled by default, with the option for admins to change it back to enable API Keys.
-In January 2023, API Keys will be deprecated all together and the option to use them will no longer be available.""", DeprecationWarning)
+In a future version (scheduled for end of Q3, 2023), the option to disable the usage/creation of API Keys will be available and set to disabled by default. Admins will be able to enable the usage/creation of API Keys.
+By end of Q1 2024, API Keys will be deprecated all together and the option to use them will no longer be available.""", DeprecationWarning)
         pulumi.log.warn("""api_key is deprecated: An upcoming version will support the option to block the usage/creation of API Keys (for admins to set on their platform).
-In September 2022, the option to block the usage/creation of API Keys will be enabled by default, with the option for admins to change it back to enable API Keys.
-In January 2023, API Keys will be deprecated all together and the option to use them will no longer be available.""")
+In a future version (scheduled for end of Q3, 2023), the option to disable the usage/creation of API Keys will be available and set to disabled by default. Admins will be able to enable the usage/creation of API Keys.
+By end of Q1 2024, API Keys will be deprecated all together and the option to use them will no longer be available.""")
 
         return pulumi.get(self, "api_key")
 
