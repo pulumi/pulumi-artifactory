@@ -39,13 +39,13 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
      * 
      * @deprecated
      * An upcoming version will support the option to block the usage/creation of API Keys (for admins to set on their platform).
-     * In September 2022, the option to block the usage/creation of API Keys will be enabled by default, with the option for admins to change it back to enable API Keys.
-     * In January 2023, API Keys will be deprecated all together and the option to use them will no longer be available.
+     * In a future version (scheduled for end of Q3, 2023), the option to disable the usage/creation of API Keys will be available and set to disabled by default. Admins will be able to enable the usage/creation of API Keys.
+     * By end of Q1 2024, API Keys will be deprecated all together and the option to use them will no longer be available.
      * 
      */
     @Deprecated /* An upcoming version will support the option to block the usage/creation of API Keys (for admins to set on their platform).
-In September 2022, the option to block the usage/creation of API Keys will be enabled by default, with the option for admins to change it back to enable API Keys.
-In January 2023, API Keys will be deprecated all together and the option to use them will no longer be available. */
+In a future version (scheduled for end of Q3, 2023), the option to disable the usage/creation of API Keys will be available and set to disabled by default. Admins will be able to enable the usage/creation of API Keys.
+By end of Q1 2024, API Keys will be deprecated all together and the option to use them will no longer be available. */
     @Import(name="apiKey")
     private @Nullable Output<String> apiKey;
 
@@ -54,13 +54,13 @@ In January 2023, API Keys will be deprecated all together and the option to use 
      * 
      * @deprecated
      * An upcoming version will support the option to block the usage/creation of API Keys (for admins to set on their platform).
-     * In September 2022, the option to block the usage/creation of API Keys will be enabled by default, with the option for admins to change it back to enable API Keys.
-     * In January 2023, API Keys will be deprecated all together and the option to use them will no longer be available.
+     * In a future version (scheduled for end of Q3, 2023), the option to disable the usage/creation of API Keys will be available and set to disabled by default. Admins will be able to enable the usage/creation of API Keys.
+     * By end of Q1 2024, API Keys will be deprecated all together and the option to use them will no longer be available.
      * 
      */
     @Deprecated /* An upcoming version will support the option to block the usage/creation of API Keys (for admins to set on their platform).
-In September 2022, the option to block the usage/creation of API Keys will be enabled by default, with the option for admins to change it back to enable API Keys.
-In January 2023, API Keys will be deprecated all together and the option to use them will no longer be available. */
+In a future version (scheduled for end of Q3, 2023), the option to disable the usage/creation of API Keys will be available and set to disabled by default. Admins will be able to enable the usage/creation of API Keys.
+By end of Q1 2024, API Keys will be deprecated all together and the option to use them will no longer be available. */
     public Optional<Output<String>> apiKey() {
         return Optional.ofNullable(this.apiKey);
     }
@@ -152,13 +152,13 @@ In January 2023, API Keys will be deprecated all together and the option to use 
          * 
          * @deprecated
          * An upcoming version will support the option to block the usage/creation of API Keys (for admins to set on their platform).
-         * In September 2022, the option to block the usage/creation of API Keys will be enabled by default, with the option for admins to change it back to enable API Keys.
-         * In January 2023, API Keys will be deprecated all together and the option to use them will no longer be available.
+         * In a future version (scheduled for end of Q3, 2023), the option to disable the usage/creation of API Keys will be available and set to disabled by default. Admins will be able to enable the usage/creation of API Keys.
+         * By end of Q1 2024, API Keys will be deprecated all together and the option to use them will no longer be available.
          * 
          */
         @Deprecated /* An upcoming version will support the option to block the usage/creation of API Keys (for admins to set on their platform).
-In September 2022, the option to block the usage/creation of API Keys will be enabled by default, with the option for admins to change it back to enable API Keys.
-In January 2023, API Keys will be deprecated all together and the option to use them will no longer be available. */
+In a future version (scheduled for end of Q3, 2023), the option to disable the usage/creation of API Keys will be available and set to disabled by default. Admins will be able to enable the usage/creation of API Keys.
+By end of Q1 2024, API Keys will be deprecated all together and the option to use them will no longer be available. */
         public Builder apiKey(@Nullable Output<String> apiKey) {
             $.apiKey = apiKey;
             return this;
@@ -171,13 +171,13 @@ In January 2023, API Keys will be deprecated all together and the option to use 
          * 
          * @deprecated
          * An upcoming version will support the option to block the usage/creation of API Keys (for admins to set on their platform).
-         * In September 2022, the option to block the usage/creation of API Keys will be enabled by default, with the option for admins to change it back to enable API Keys.
-         * In January 2023, API Keys will be deprecated all together and the option to use them will no longer be available.
+         * In a future version (scheduled for end of Q3, 2023), the option to disable the usage/creation of API Keys will be available and set to disabled by default. Admins will be able to enable the usage/creation of API Keys.
+         * By end of Q1 2024, API Keys will be deprecated all together and the option to use them will no longer be available.
          * 
          */
         @Deprecated /* An upcoming version will support the option to block the usage/creation of API Keys (for admins to set on their platform).
-In September 2022, the option to block the usage/creation of API Keys will be enabled by default, with the option for admins to change it back to enable API Keys.
-In January 2023, API Keys will be deprecated all together and the option to use them will no longer be available. */
+In a future version (scheduled for end of Q3, 2023), the option to disable the usage/creation of API Keys will be available and set to disabled by default. Admins will be able to enable the usage/creation of API Keys.
+By end of Q1 2024, API Keys will be deprecated all together and the option to use them will no longer be available. */
         public Builder apiKey(String apiKey) {
             return apiKey(Output.of(apiKey));
         }

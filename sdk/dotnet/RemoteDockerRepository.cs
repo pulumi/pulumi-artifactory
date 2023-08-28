@@ -26,6 +26,7 @@ namespace Pulumi.Artifactory
     ///     var my_remote_docker = new Artifactory.RemoteDockerRepository("my-remote-docker", new()
     ///     {
     ///         BlockPushingSchema1 = true,
+    ///         DisableUrlNormalization = true,
     ///         EnableTokenAuthentication = true,
     ///         ExternalDependenciesEnabled = true,
     ///         ExternalDependenciesPatterns = new[]
@@ -124,6 +125,12 @@ namespace Pulumi.Artifactory
         /// </summary>
         [Output("disableProxy")]
         public Output<bool?> DisableProxy { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether to disable URL normalization, default is `false`.
+        /// </summary>
+        [Output("disableUrlNormalization")]
+        public Output<bool?> DisableUrlNormalization { get; private set; } = null!;
 
         /// <summary>
         /// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
@@ -481,6 +488,12 @@ namespace Pulumi.Artifactory
         public Input<bool>? DisableProxy { get; set; }
 
         /// <summary>
+        /// Whether to disable URL normalization, default is `false`.
+        /// </summary>
+        [Input("disableUrlNormalization")]
+        public Input<bool>? DisableUrlNormalization { get; set; }
+
+        /// <summary>
         /// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
         /// storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
         /// </summary>
@@ -816,6 +829,12 @@ namespace Pulumi.Artifactory
         /// </summary>
         [Input("disableProxy")]
         public Input<bool>? DisableProxy { get; set; }
+
+        /// <summary>
+        /// Whether to disable URL normalization, default is `false`.
+        /// </summary>
+        [Input("disableUrlNormalization")]
+        public Input<bool>? DisableUrlNormalization { get; set; }
 
         /// <summary>
         /// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud

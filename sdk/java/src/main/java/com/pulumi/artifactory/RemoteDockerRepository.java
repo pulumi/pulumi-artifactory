@@ -46,6 +46,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var my_remote_docker = new RemoteDockerRepository(&#34;my-remote-docker&#34;, RemoteDockerRepositoryArgs.builder()        
  *             .blockPushingSchema1(true)
+ *             .disableUrlNormalization(true)
  *             .enableTokenAuthentication(true)
  *             .externalDependenciesEnabled(true)
  *             .externalDependenciesPatterns(&#34;**{@literal /}registry-1.docker.io/**&#34;)
@@ -237,6 +238,20 @@ public class RemoteDockerRepository extends com.pulumi.resources.CustomResource 
      */
     public Output<Optional<Boolean>> disableProxy() {
         return Codegen.optional(this.disableProxy);
+    }
+    /**
+     * Whether to disable URL normalization, default is `false`.
+     * 
+     */
+    @Export(name="disableUrlNormalization", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> disableUrlNormalization;
+
+    /**
+     * @return Whether to disable URL normalization, default is `false`.
+     * 
+     */
+    public Output<Optional<Boolean>> disableUrlNormalization() {
+        return Codegen.optional(this.disableUrlNormalization);
     }
     /**
      * When set, download requests to this repository will redirect the client to download the artifact directly from the cloud

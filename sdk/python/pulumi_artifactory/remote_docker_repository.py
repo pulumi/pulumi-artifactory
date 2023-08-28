@@ -29,6 +29,7 @@ class RemoteDockerRepositoryArgs:
                  content_synchronisation: Optional[pulumi.Input['RemoteDockerRepositoryContentSynchronisationArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  disable_proxy: Optional[pulumi.Input[bool]] = None,
+                 disable_url_normalization: Optional[pulumi.Input[bool]] = None,
                  download_direct: Optional[pulumi.Input[bool]] = None,
                  enable_cookie_management: Optional[pulumi.Input[bool]] = None,
                  enable_token_authentication: Optional[pulumi.Input[bool]] = None,
@@ -88,6 +89,7 @@ class RemoteDockerRepositoryArgs:
         :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[bool] disable_proxy: When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
                for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
+        :param pulumi.Input[bool] disable_url_normalization: Whether to disable URL normalization, default is `false`.
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
         :param pulumi.Input[bool] enable_cookie_management: Enables cookie management if the remote repository uses cookies to manage client state.
@@ -173,6 +175,8 @@ class RemoteDockerRepositoryArgs:
             pulumi.set(__self__, "description", description)
         if disable_proxy is not None:
             pulumi.set(__self__, "disable_proxy", disable_proxy)
+        if disable_url_normalization is not None:
+            pulumi.set(__self__, "disable_url_normalization", disable_url_normalization)
         if download_direct is not None:
             pulumi.set(__self__, "download_direct", download_direct)
         if enable_cookie_management is not None:
@@ -403,6 +407,18 @@ class RemoteDockerRepositoryArgs:
     @disable_proxy.setter
     def disable_proxy(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "disable_proxy", value)
+
+    @property
+    @pulumi.getter(name="disableUrlNormalization")
+    def disable_url_normalization(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to disable URL normalization, default is `false`.
+        """
+        return pulumi.get(self, "disable_url_normalization")
+
+    @disable_url_normalization.setter
+    def disable_url_normalization(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "disable_url_normalization", value)
 
     @property
     @pulumi.getter(name="downloadDirect")
@@ -825,6 +841,7 @@ class _RemoteDockerRepositoryState:
                  content_synchronisation: Optional[pulumi.Input['RemoteDockerRepositoryContentSynchronisationArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  disable_proxy: Optional[pulumi.Input[bool]] = None,
+                 disable_url_normalization: Optional[pulumi.Input[bool]] = None,
                  download_direct: Optional[pulumi.Input[bool]] = None,
                  enable_cookie_management: Optional[pulumi.Input[bool]] = None,
                  enable_token_authentication: Optional[pulumi.Input[bool]] = None,
@@ -884,6 +901,7 @@ class _RemoteDockerRepositoryState:
         :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[bool] disable_proxy: When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
                for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
+        :param pulumi.Input[bool] disable_url_normalization: Whether to disable URL normalization, default is `false`.
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
         :param pulumi.Input[bool] enable_cookie_management: Enables cookie management if the remote repository uses cookies to manage client state.
@@ -970,6 +988,8 @@ class _RemoteDockerRepositoryState:
             pulumi.set(__self__, "description", description)
         if disable_proxy is not None:
             pulumi.set(__self__, "disable_proxy", disable_proxy)
+        if disable_url_normalization is not None:
+            pulumi.set(__self__, "disable_url_normalization", disable_url_normalization)
         if download_direct is not None:
             pulumi.set(__self__, "download_direct", download_direct)
         if enable_cookie_management is not None:
@@ -1181,6 +1201,18 @@ class _RemoteDockerRepositoryState:
     @disable_proxy.setter
     def disable_proxy(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "disable_proxy", value)
+
+    @property
+    @pulumi.getter(name="disableUrlNormalization")
+    def disable_url_normalization(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to disable URL normalization, default is `false`.
+        """
+        return pulumi.get(self, "disable_url_normalization")
+
+    @disable_url_normalization.setter
+    def disable_url_normalization(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "disable_url_normalization", value)
 
     @property
     @pulumi.getter(name="downloadDirect")
@@ -1639,6 +1671,7 @@ class RemoteDockerRepository(pulumi.CustomResource):
                  content_synchronisation: Optional[pulumi.Input[pulumi.InputType['RemoteDockerRepositoryContentSynchronisationArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  disable_proxy: Optional[pulumi.Input[bool]] = None,
+                 disable_url_normalization: Optional[pulumi.Input[bool]] = None,
                  download_direct: Optional[pulumi.Input[bool]] = None,
                  enable_cookie_management: Optional[pulumi.Input[bool]] = None,
                  enable_token_authentication: Optional[pulumi.Input[bool]] = None,
@@ -1686,6 +1719,7 @@ class RemoteDockerRepository(pulumi.CustomResource):
 
         my_remote_docker = artifactory.RemoteDockerRepository("my-remote-docker",
             block_pushing_schema1=True,
+            disable_url_normalization=True,
             enable_token_authentication=True,
             external_dependencies_enabled=True,
             external_dependencies_patterns=["**/registry-1.docker.io/**"],
@@ -1725,6 +1759,7 @@ class RemoteDockerRepository(pulumi.CustomResource):
         :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[bool] disable_proxy: When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
                for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
+        :param pulumi.Input[bool] disable_url_normalization: Whether to disable URL normalization, default is `false`.
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
         :param pulumi.Input[bool] enable_cookie_management: Enables cookie management if the remote repository uses cookies to manage client state.
@@ -1807,6 +1842,7 @@ class RemoteDockerRepository(pulumi.CustomResource):
 
         my_remote_docker = artifactory.RemoteDockerRepository("my-remote-docker",
             block_pushing_schema1=True,
+            disable_url_normalization=True,
             enable_token_authentication=True,
             external_dependencies_enabled=True,
             external_dependencies_patterns=["**/registry-1.docker.io/**"],
@@ -1848,6 +1884,7 @@ class RemoteDockerRepository(pulumi.CustomResource):
                  content_synchronisation: Optional[pulumi.Input[pulumi.InputType['RemoteDockerRepositoryContentSynchronisationArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  disable_proxy: Optional[pulumi.Input[bool]] = None,
+                 disable_url_normalization: Optional[pulumi.Input[bool]] = None,
                  download_direct: Optional[pulumi.Input[bool]] = None,
                  enable_cookie_management: Optional[pulumi.Input[bool]] = None,
                  enable_token_authentication: Optional[pulumi.Input[bool]] = None,
@@ -1902,6 +1939,7 @@ class RemoteDockerRepository(pulumi.CustomResource):
             __props__.__dict__["content_synchronisation"] = content_synchronisation
             __props__.__dict__["description"] = description
             __props__.__dict__["disable_proxy"] = disable_proxy
+            __props__.__dict__["disable_url_normalization"] = disable_url_normalization
             __props__.__dict__["download_direct"] = download_direct
             __props__.__dict__["enable_cookie_management"] = enable_cookie_management
             __props__.__dict__["enable_token_authentication"] = enable_token_authentication
@@ -1964,6 +2002,7 @@ class RemoteDockerRepository(pulumi.CustomResource):
             content_synchronisation: Optional[pulumi.Input[pulumi.InputType['RemoteDockerRepositoryContentSynchronisationArgs']]] = None,
             description: Optional[pulumi.Input[str]] = None,
             disable_proxy: Optional[pulumi.Input[bool]] = None,
+            disable_url_normalization: Optional[pulumi.Input[bool]] = None,
             download_direct: Optional[pulumi.Input[bool]] = None,
             enable_cookie_management: Optional[pulumi.Input[bool]] = None,
             enable_token_authentication: Optional[pulumi.Input[bool]] = None,
@@ -2028,6 +2067,7 @@ class RemoteDockerRepository(pulumi.CustomResource):
         :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[bool] disable_proxy: When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
                for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
+        :param pulumi.Input[bool] disable_url_normalization: Whether to disable URL normalization, default is `false`.
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
         :param pulumi.Input[bool] enable_cookie_management: Enables cookie management if the remote repository uses cookies to manage client state.
@@ -2107,6 +2147,7 @@ class RemoteDockerRepository(pulumi.CustomResource):
         __props__.__dict__["content_synchronisation"] = content_synchronisation
         __props__.__dict__["description"] = description
         __props__.__dict__["disable_proxy"] = disable_proxy
+        __props__.__dict__["disable_url_normalization"] = disable_url_normalization
         __props__.__dict__["download_direct"] = download_direct
         __props__.__dict__["enable_cookie_management"] = enable_cookie_management
         __props__.__dict__["enable_token_authentication"] = enable_token_authentication
@@ -2240,6 +2281,14 @@ class RemoteDockerRepository(pulumi.CustomResource):
         for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
         """
         return pulumi.get(self, "disable_proxy")
+
+    @property
+    @pulumi.getter(name="disableUrlNormalization")
+    def disable_url_normalization(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether to disable URL normalization, default is `false`.
+        """
+        return pulumi.get(self, "disable_url_normalization")
 
     @property
     @pulumi.getter(name="downloadDirect")

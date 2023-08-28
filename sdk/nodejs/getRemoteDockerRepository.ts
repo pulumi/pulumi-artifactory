@@ -35,6 +35,7 @@ export function getRemoteDockerRepository(args: GetRemoteDockerRepositoryArgs, o
         "contentSynchronisation": args.contentSynchronisation,
         "description": args.description,
         "disableProxy": args.disableProxy,
+        "disableUrlNormalization": args.disableUrlNormalization,
         "downloadDirect": args.downloadDirect,
         "enableCookieManagement": args.enableCookieManagement,
         "enableTokenAuthentication": args.enableTokenAuthentication,
@@ -90,6 +91,10 @@ export interface GetRemoteDockerRepositoryArgs {
     contentSynchronisation?: inputs.GetRemoteDockerRepositoryContentSynchronisation;
     description?: string;
     disableProxy?: boolean;
+    /**
+     * (Optional) Whether to disable URL normalization.
+     */
+    disableUrlNormalization?: boolean;
     downloadDirect?: boolean;
     enableCookieManagement?: boolean;
     /**
@@ -156,6 +161,10 @@ export interface GetRemoteDockerRepositoryResult {
     readonly contentSynchronisation: outputs.GetRemoteDockerRepositoryContentSynchronisation;
     readonly description?: string;
     readonly disableProxy?: boolean;
+    /**
+     * (Optional) Whether to disable URL normalization.
+     */
+    readonly disableUrlNormalization?: boolean;
     readonly downloadDirect?: boolean;
     readonly enableCookieManagement?: boolean;
     /**
@@ -241,6 +250,10 @@ export interface GetRemoteDockerRepositoryOutputArgs {
     contentSynchronisation?: pulumi.Input<inputs.GetRemoteDockerRepositoryContentSynchronisationArgs>;
     description?: pulumi.Input<string>;
     disableProxy?: pulumi.Input<boolean>;
+    /**
+     * (Optional) Whether to disable URL normalization.
+     */
+    disableUrlNormalization?: pulumi.Input<boolean>;
     downloadDirect?: pulumi.Input<boolean>;
     enableCookieManagement?: pulumi.Input<boolean>;
     /**

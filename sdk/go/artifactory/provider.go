@@ -24,8 +24,8 @@ type Provider struct {
 	// API token. Projects functionality will not work with any auth method other than access tokens
 	//
 	// Deprecated: An upcoming version will support the option to block the usage/creation of API Keys (for admins to set on their platform).
-	// In September 2022, the option to block the usage/creation of API Keys will be enabled by default, with the option for admins to change it back to enable API Keys.
-	// In January 2023, API Keys will be deprecated all together and the option to use them will no longer be available.
+	// In a future version (scheduled for end of Q3, 2023), the option to disable the usage/creation of API Keys will be available and set to disabled by default. Admins will be able to enable the usage/creation of API Keys.
+	// By end of Q1 2024, API Keys will be deprecated all together and the option to use them will no longer be available.
 	ApiKey pulumi.StringPtrOutput `pulumi:"apiKey"`
 	// Artifactory URL.
 	Url pulumi.StringPtrOutput `pulumi:"url"`
@@ -68,8 +68,8 @@ type providerArgs struct {
 	// API token. Projects functionality will not work with any auth method other than access tokens
 	//
 	// Deprecated: An upcoming version will support the option to block the usage/creation of API Keys (for admins to set on their platform).
-	// In September 2022, the option to block the usage/creation of API Keys will be enabled by default, with the option for admins to change it back to enable API Keys.
-	// In January 2023, API Keys will be deprecated all together and the option to use them will no longer be available.
+	// In a future version (scheduled for end of Q3, 2023), the option to disable the usage/creation of API Keys will be available and set to disabled by default. Admins will be able to enable the usage/creation of API Keys.
+	// By end of Q1 2024, API Keys will be deprecated all together and the option to use them will no longer be available.
 	ApiKey *string `pulumi:"apiKey"`
 	// Toggle for pre-flight checking of Artifactory Pro and Enterprise license. Default to `true`.
 	CheckLicense *bool `pulumi:"checkLicense"`
@@ -85,8 +85,8 @@ type ProviderArgs struct {
 	// API token. Projects functionality will not work with any auth method other than access tokens
 	//
 	// Deprecated: An upcoming version will support the option to block the usage/creation of API Keys (for admins to set on their platform).
-	// In September 2022, the option to block the usage/creation of API Keys will be enabled by default, with the option for admins to change it back to enable API Keys.
-	// In January 2023, API Keys will be deprecated all together and the option to use them will no longer be available.
+	// In a future version (scheduled for end of Q3, 2023), the option to disable the usage/creation of API Keys will be available and set to disabled by default. Admins will be able to enable the usage/creation of API Keys.
+	// By end of Q1 2024, API Keys will be deprecated all together and the option to use them will no longer be available.
 	ApiKey pulumi.StringPtrInput
 	// Toggle for pre-flight checking of Artifactory Pro and Enterprise license. Default to `true`.
 	CheckLicense pulumi.BoolPtrInput
@@ -140,8 +140,8 @@ func (o ProviderOutput) AccessToken() pulumi.StringPtrOutput {
 // API token. Projects functionality will not work with any auth method other than access tokens
 //
 // Deprecated: An upcoming version will support the option to block the usage/creation of API Keys (for admins to set on their platform).
-// In September 2022, the option to block the usage/creation of API Keys will be enabled by default, with the option for admins to change it back to enable API Keys.
-// In January 2023, API Keys will be deprecated all together and the option to use them will no longer be available.
+// In a future version (scheduled for end of Q3, 2023), the option to disable the usage/creation of API Keys will be available and set to disabled by default. Admins will be able to enable the usage/creation of API Keys.
+// By end of Q1 2024, API Keys will be deprecated all together and the option to use them will no longer be available.
 func (o ProviderOutput) ApiKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.ApiKey }).(pulumi.StringPtrOutput)
 }

@@ -23,7 +23,7 @@ class GetRemoteDockerRepositoryResult:
     """
     A collection of values returned by getRemoteDockerRepository.
     """
-    def __init__(__self__, allow_any_host_auth=None, assumed_offline_period_secs=None, blacked_out=None, block_mismatching_mime_types=None, block_pushing_schema1=None, bypass_head_requests=None, cdn_redirect=None, client_tls_certificate=None, content_synchronisation=None, description=None, disable_proxy=None, download_direct=None, enable_cookie_management=None, enable_token_authentication=None, excludes_pattern=None, external_dependencies_enabled=None, external_dependencies_patterns=None, hard_fail=None, id=None, includes_pattern=None, key=None, list_remote_folder_items=None, local_address=None, metadata_retrieval_timeout_secs=None, mismatching_mime_types_override_list=None, missed_cache_period_seconds=None, notes=None, offline=None, package_type=None, password=None, priority_resolution=None, project_environments=None, project_key=None, property_sets=None, proxy=None, query_params=None, remote_repo_layout_ref=None, repo_layout_ref=None, retrieval_cache_period_seconds=None, share_configuration=None, socket_timeout_millis=None, store_artifacts_locally=None, synchronize_properties=None, unused_artifacts_cleanup_period_hours=None, url=None, username=None, xray_index=None):
+    def __init__(__self__, allow_any_host_auth=None, assumed_offline_period_secs=None, blacked_out=None, block_mismatching_mime_types=None, block_pushing_schema1=None, bypass_head_requests=None, cdn_redirect=None, client_tls_certificate=None, content_synchronisation=None, description=None, disable_proxy=None, disable_url_normalization=None, download_direct=None, enable_cookie_management=None, enable_token_authentication=None, excludes_pattern=None, external_dependencies_enabled=None, external_dependencies_patterns=None, hard_fail=None, id=None, includes_pattern=None, key=None, list_remote_folder_items=None, local_address=None, metadata_retrieval_timeout_secs=None, mismatching_mime_types_override_list=None, missed_cache_period_seconds=None, notes=None, offline=None, package_type=None, password=None, priority_resolution=None, project_environments=None, project_key=None, property_sets=None, proxy=None, query_params=None, remote_repo_layout_ref=None, repo_layout_ref=None, retrieval_cache_period_seconds=None, share_configuration=None, socket_timeout_millis=None, store_artifacts_locally=None, synchronize_properties=None, unused_artifacts_cleanup_period_hours=None, url=None, username=None, xray_index=None):
         if allow_any_host_auth and not isinstance(allow_any_host_auth, bool):
             raise TypeError("Expected argument 'allow_any_host_auth' to be a bool")
         pulumi.set(__self__, "allow_any_host_auth", allow_any_host_auth)
@@ -57,6 +57,9 @@ class GetRemoteDockerRepositoryResult:
         if disable_proxy and not isinstance(disable_proxy, bool):
             raise TypeError("Expected argument 'disable_proxy' to be a bool")
         pulumi.set(__self__, "disable_proxy", disable_proxy)
+        if disable_url_normalization and not isinstance(disable_url_normalization, bool):
+            raise TypeError("Expected argument 'disable_url_normalization' to be a bool")
+        pulumi.set(__self__, "disable_url_normalization", disable_url_normalization)
         if download_direct and not isinstance(download_direct, bool):
             raise TypeError("Expected argument 'download_direct' to be a bool")
         pulumi.set(__self__, "download_direct", download_direct)
@@ -223,6 +226,14 @@ class GetRemoteDockerRepositoryResult:
     @pulumi.getter(name="disableProxy")
     def disable_proxy(self) -> Optional[bool]:
         return pulumi.get(self, "disable_proxy")
+
+    @property
+    @pulumi.getter(name="disableUrlNormalization")
+    def disable_url_normalization(self) -> Optional[bool]:
+        """
+        (Optional) Whether to disable URL normalization.
+        """
+        return pulumi.get(self, "disable_url_normalization")
 
     @property
     @pulumi.getter(name="downloadDirect")
@@ -434,6 +445,7 @@ class AwaitableGetRemoteDockerRepositoryResult(GetRemoteDockerRepositoryResult):
             content_synchronisation=self.content_synchronisation,
             description=self.description,
             disable_proxy=self.disable_proxy,
+            disable_url_normalization=self.disable_url_normalization,
             download_direct=self.download_direct,
             enable_cookie_management=self.enable_cookie_management,
             enable_token_authentication=self.enable_token_authentication,
@@ -483,6 +495,7 @@ def get_remote_docker_repository(allow_any_host_auth: Optional[bool] = None,
                                  content_synchronisation: Optional[pulumi.InputType['GetRemoteDockerRepositoryContentSynchronisationArgs']] = None,
                                  description: Optional[str] = None,
                                  disable_proxy: Optional[bool] = None,
+                                 disable_url_normalization: Optional[bool] = None,
                                  download_direct: Optional[bool] = None,
                                  enable_cookie_management: Optional[bool] = None,
                                  enable_token_authentication: Optional[bool] = None,
@@ -532,6 +545,7 @@ def get_remote_docker_repository(allow_any_host_auth: Optional[bool] = None,
 
 
     :param bool block_pushing_schema1: (Optional) When set, Artifactory will block the pulling of Docker images with manifest v2 schema 1 from the remote repository (i.e. the upstream). It will be possible to pull images with manifest v2 schema 1 that exist in the cache.
+    :param bool disable_url_normalization: (Optional) Whether to disable URL normalization.
     :param bool enable_token_authentication: (Optional) Enable token (Bearer) based authentication.
     :param bool external_dependencies_enabled: (Optional) Also known as 'Foreign Layers Caching' on the UI.
     :param Sequence[str] external_dependencies_patterns: (Optional) An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response. By default, this is set to `[**]` in the UI, which means that remote modules may be downloaded from any external VCS source. Due to SDKv2 limitations, we can't set the default value for the list. This value `[**]` must be assigned to the attribute manually, if user don't specify any other non-default values. We don't want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns `[**]` on update if HCL doesn't have the attribute set or the list is empty.
@@ -549,6 +563,7 @@ def get_remote_docker_repository(allow_any_host_auth: Optional[bool] = None,
     __args__['contentSynchronisation'] = content_synchronisation
     __args__['description'] = description
     __args__['disableProxy'] = disable_proxy
+    __args__['disableUrlNormalization'] = disable_url_normalization
     __args__['downloadDirect'] = download_direct
     __args__['enableCookieManagement'] = enable_cookie_management
     __args__['enableTokenAuthentication'] = enable_token_authentication
@@ -598,6 +613,7 @@ def get_remote_docker_repository(allow_any_host_auth: Optional[bool] = None,
         content_synchronisation=pulumi.get(__ret__, 'content_synchronisation'),
         description=pulumi.get(__ret__, 'description'),
         disable_proxy=pulumi.get(__ret__, 'disable_proxy'),
+        disable_url_normalization=pulumi.get(__ret__, 'disable_url_normalization'),
         download_direct=pulumi.get(__ret__, 'download_direct'),
         enable_cookie_management=pulumi.get(__ret__, 'enable_cookie_management'),
         enable_token_authentication=pulumi.get(__ret__, 'enable_token_authentication'),
@@ -648,6 +664,7 @@ def get_remote_docker_repository_output(allow_any_host_auth: Optional[pulumi.Inp
                                         content_synchronisation: Optional[pulumi.Input[Optional[pulumi.InputType['GetRemoteDockerRepositoryContentSynchronisationArgs']]]] = None,
                                         description: Optional[pulumi.Input[Optional[str]]] = None,
                                         disable_proxy: Optional[pulumi.Input[Optional[bool]]] = None,
+                                        disable_url_normalization: Optional[pulumi.Input[Optional[bool]]] = None,
                                         download_direct: Optional[pulumi.Input[Optional[bool]]] = None,
                                         enable_cookie_management: Optional[pulumi.Input[Optional[bool]]] = None,
                                         enable_token_authentication: Optional[pulumi.Input[Optional[bool]]] = None,
@@ -697,6 +714,7 @@ def get_remote_docker_repository_output(allow_any_host_auth: Optional[pulumi.Inp
 
 
     :param bool block_pushing_schema1: (Optional) When set, Artifactory will block the pulling of Docker images with manifest v2 schema 1 from the remote repository (i.e. the upstream). It will be possible to pull images with manifest v2 schema 1 that exist in the cache.
+    :param bool disable_url_normalization: (Optional) Whether to disable URL normalization.
     :param bool enable_token_authentication: (Optional) Enable token (Bearer) based authentication.
     :param bool external_dependencies_enabled: (Optional) Also known as 'Foreign Layers Caching' on the UI.
     :param Sequence[str] external_dependencies_patterns: (Optional) An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response. By default, this is set to `[**]` in the UI, which means that remote modules may be downloaded from any external VCS source. Due to SDKv2 limitations, we can't set the default value for the list. This value `[**]` must be assigned to the attribute manually, if user don't specify any other non-default values. We don't want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns `[**]` on update if HCL doesn't have the attribute set or the list is empty.
