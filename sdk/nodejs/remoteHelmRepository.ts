@@ -142,7 +142,7 @@ export class RemoteHelmRepository extends pulumi.CustomResource {
      */
     public readonly hardFail!: pulumi.Output<boolean | undefined>;
     /**
-     * No documentation is available. Hopefully you know what this means.
+     * Base URL for the translation of chart source URLs in the index.yaml of virtual repos. Artifactory will only translate URLs matching the index.yamls hostname or URLs starting with this base url. Support http/https/oci protocol scheme.
      */
     public readonly helmChartsBaseUrl!: pulumi.Output<string | undefined>;
     /**
@@ -473,7 +473,7 @@ export interface RemoteHelmRepositoryState {
      */
     hardFail?: pulumi.Input<boolean>;
     /**
-     * No documentation is available. Hopefully you know what this means.
+     * Base URL for the translation of chart source URLs in the index.yaml of virtual repos. Artifactory will only translate URLs matching the index.yamls hostname or URLs starting with this base url. Support http/https/oci protocol scheme.
      */
     helmChartsBaseUrl?: pulumi.Input<string>;
     /**
@@ -686,7 +686,7 @@ export interface RemoteHelmRepositoryArgs {
      */
     hardFail?: pulumi.Input<boolean>;
     /**
-     * No documentation is available. Hopefully you know what this means.
+     * Base URL for the translation of chart source URLs in the index.yaml of virtual repos. Artifactory will only translate URLs matching the index.yamls hostname or URLs starting with this base url. Support http/https/oci protocol scheme.
      */
     helmChartsBaseUrl?: pulumi.Input<string>;
     /**
