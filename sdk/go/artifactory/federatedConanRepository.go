@@ -56,11 +56,9 @@ import (
 //
 // ```sh
 //
-//	$ pulumi import artifactory:index/federatedConanRepository:FederatedConanRepository resource "artifactory_federated_conan_repository" "terraform-federated-test-conan-repo" {
+//	$ pulumi import artifactory:index/federatedConanRepository:FederatedConanRepository terraform-federated-test-conan-repo terraform-federated-test-conan-repo
 //
 // ```
-//
-//	.terraform-federated-test-conan-repo terraform-federated-test-conan-repo
 type FederatedConanRepository struct {
 	pulumi.CustomResourceState
 

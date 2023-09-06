@@ -144,14 +144,14 @@ public class User extends com.pulumi.resources.CustomResource {
         return this.internalPasswordDisabled;
     }
     /**
-     * Username for user.
+     * Username for user. May contain lowercase letters, numbers and symbols: &#39;.-_@&#39;
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return Username for user.
+     * @return Username for user. May contain lowercase letters, numbers and symbols: &#39;.-_@&#39;
      * 
      */
     public Output<String> name() {

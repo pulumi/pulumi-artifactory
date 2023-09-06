@@ -35,10 +35,8 @@ import * as utilities from "./utilities";
  * Federated repositories can be imported using their name, e.g.
  *
  * ```sh
- *  $ pulumi import artifactory:index/federatedConanRepository:FederatedConanRepository resource "artifactory_federated_conan_repository" "terraform-federated-test-conan-repo" {
+ *  $ pulumi import artifactory:index/federatedConanRepository:FederatedConanRepository terraform-federated-test-conan-repo terraform-federated-test-conan-repo
  * ```
- *
- *  .terraform-federated-test-conan-repo terraform-federated-test-conan-repo
  */
 export class FederatedConanRepository extends pulumi.CustomResource {
     /**
