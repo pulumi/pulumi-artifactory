@@ -290,14 +290,14 @@ public final class RemoteHelmRepositoryState extends com.pulumi.resources.Resour
     }
 
     /**
-     * No documentation is available. Hopefully you know what this means.
+     * Base URL for the translation of chart source URLs in the index.yaml of virtual repos. Artifactory will only translate URLs matching the index.yamls hostname or URLs starting with this base url. Support http/https/oci protocol scheme.
      * 
      */
     @Import(name="helmChartsBaseUrl")
     private @Nullable Output<String> helmChartsBaseUrl;
 
     /**
-     * @return No documentation is available. Hopefully you know what this means.
+     * @return Base URL for the translation of chart source URLs in the index.yaml of virtual repos. Artifactory will only translate URLs matching the index.yamls hostname or URLs starting with this base url. Support http/https/oci protocol scheme.
      * 
      */
     public Optional<Output<String>> helmChartsBaseUrl() {
@@ -1185,7 +1185,7 @@ public final class RemoteHelmRepositoryState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param helmChartsBaseUrl No documentation is available. Hopefully you know what this means.
+         * @param helmChartsBaseUrl Base URL for the translation of chart source URLs in the index.yaml of virtual repos. Artifactory will only translate URLs matching the index.yamls hostname or URLs starting with this base url. Support http/https/oci protocol scheme.
          * 
          * @return builder
          * 
@@ -1196,7 +1196,7 @@ public final class RemoteHelmRepositoryState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param helmChartsBaseUrl No documentation is available. Hopefully you know what this means.
+         * @param helmChartsBaseUrl Base URL for the translation of chart source URLs in the index.yaml of virtual repos. Artifactory will only translate URLs matching the index.yamls hostname or URLs starting with this base url. Support http/https/oci protocol scheme.
          * 
          * @return builder
          * 
