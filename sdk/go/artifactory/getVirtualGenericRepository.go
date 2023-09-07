@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieves a virtual Generic repository.
@@ -128,6 +129,12 @@ func (o LookupVirtualGenericRepositoryResultOutput) ToLookupVirtualGenericReposi
 
 func (o LookupVirtualGenericRepositoryResultOutput) ToLookupVirtualGenericRepositoryResultOutputWithContext(ctx context.Context) LookupVirtualGenericRepositoryResultOutput {
 	return o
+}
+
+func (o LookupVirtualGenericRepositoryResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupVirtualGenericRepositoryResult] {
+	return pulumix.Output[LookupVirtualGenericRepositoryResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupVirtualGenericRepositoryResultOutput) ArtifactoryRequestsCanRetrieveRemoteArtifacts() pulumi.BoolPtrOutput {

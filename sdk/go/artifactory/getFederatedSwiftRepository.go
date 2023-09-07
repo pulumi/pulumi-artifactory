@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieves a federated Swift repository.
@@ -158,6 +159,12 @@ func (o LookupFederatedSwiftRepositoryResultOutput) ToLookupFederatedSwiftReposi
 
 func (o LookupFederatedSwiftRepositoryResultOutput) ToLookupFederatedSwiftRepositoryResultOutputWithContext(ctx context.Context) LookupFederatedSwiftRepositoryResultOutput {
 	return o
+}
+
+func (o LookupFederatedSwiftRepositoryResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupFederatedSwiftRepositoryResult] {
+	return pulumix.Output[LookupFederatedSwiftRepositoryResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupFederatedSwiftRepositoryResultOutput) ArchiveBrowsingEnabled() pulumi.BoolPtrOutput {

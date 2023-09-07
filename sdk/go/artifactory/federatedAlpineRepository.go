@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a federated Alpine repository.
@@ -407,6 +408,12 @@ func (i *FederatedAlpineRepository) ToFederatedAlpineRepositoryOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedAlpineRepositoryOutput)
 }
 
+func (i *FederatedAlpineRepository) ToOutput(ctx context.Context) pulumix.Output[*FederatedAlpineRepository] {
+	return pulumix.Output[*FederatedAlpineRepository]{
+		OutputState: i.ToFederatedAlpineRepositoryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FederatedAlpineRepositoryArrayInput is an input type that accepts FederatedAlpineRepositoryArray and FederatedAlpineRepositoryArrayOutput values.
 // You can construct a concrete instance of `FederatedAlpineRepositoryArrayInput` via:
 //
@@ -430,6 +437,12 @@ func (i FederatedAlpineRepositoryArray) ToFederatedAlpineRepositoryArrayOutput()
 
 func (i FederatedAlpineRepositoryArray) ToFederatedAlpineRepositoryArrayOutputWithContext(ctx context.Context) FederatedAlpineRepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedAlpineRepositoryArrayOutput)
+}
+
+func (i FederatedAlpineRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*FederatedAlpineRepository] {
+	return pulumix.Output[[]*FederatedAlpineRepository]{
+		OutputState: i.ToFederatedAlpineRepositoryArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // FederatedAlpineRepositoryMapInput is an input type that accepts FederatedAlpineRepositoryMap and FederatedAlpineRepositoryMapOutput values.
@@ -457,6 +470,12 @@ func (i FederatedAlpineRepositoryMap) ToFederatedAlpineRepositoryMapOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedAlpineRepositoryMapOutput)
 }
 
+func (i FederatedAlpineRepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*FederatedAlpineRepository] {
+	return pulumix.Output[map[string]*FederatedAlpineRepository]{
+		OutputState: i.ToFederatedAlpineRepositoryMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FederatedAlpineRepositoryOutput struct{ *pulumi.OutputState }
 
 func (FederatedAlpineRepositoryOutput) ElementType() reflect.Type {
@@ -469,6 +488,12 @@ func (o FederatedAlpineRepositoryOutput) ToFederatedAlpineRepositoryOutput() Fed
 
 func (o FederatedAlpineRepositoryOutput) ToFederatedAlpineRepositoryOutputWithContext(ctx context.Context) FederatedAlpineRepositoryOutput {
 	return o
+}
+
+func (o FederatedAlpineRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*FederatedAlpineRepository] {
+	return pulumix.Output[*FederatedAlpineRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 // When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -599,6 +624,12 @@ func (o FederatedAlpineRepositoryArrayOutput) ToFederatedAlpineRepositoryArrayOu
 	return o
 }
 
+func (o FederatedAlpineRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*FederatedAlpineRepository] {
+	return pulumix.Output[[]*FederatedAlpineRepository]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FederatedAlpineRepositoryArrayOutput) Index(i pulumi.IntInput) FederatedAlpineRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FederatedAlpineRepository {
 		return vs[0].([]*FederatedAlpineRepository)[vs[1].(int)]
@@ -617,6 +648,12 @@ func (o FederatedAlpineRepositoryMapOutput) ToFederatedAlpineRepositoryMapOutput
 
 func (o FederatedAlpineRepositoryMapOutput) ToFederatedAlpineRepositoryMapOutputWithContext(ctx context.Context) FederatedAlpineRepositoryMapOutput {
 	return o
+}
+
+func (o FederatedAlpineRepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*FederatedAlpineRepository] {
+	return pulumix.Output[map[string]*FederatedAlpineRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FederatedAlpineRepositoryMapOutput) MapIndex(k pulumi.StringInput) FederatedAlpineRepositoryOutput {

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a federated Maven repository.
@@ -492,6 +493,12 @@ func (i *FederatedMavenRepository) ToFederatedMavenRepositoryOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedMavenRepositoryOutput)
 }
 
+func (i *FederatedMavenRepository) ToOutput(ctx context.Context) pulumix.Output[*FederatedMavenRepository] {
+	return pulumix.Output[*FederatedMavenRepository]{
+		OutputState: i.ToFederatedMavenRepositoryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FederatedMavenRepositoryArrayInput is an input type that accepts FederatedMavenRepositoryArray and FederatedMavenRepositoryArrayOutput values.
 // You can construct a concrete instance of `FederatedMavenRepositoryArrayInput` via:
 //
@@ -515,6 +522,12 @@ func (i FederatedMavenRepositoryArray) ToFederatedMavenRepositoryArrayOutput() F
 
 func (i FederatedMavenRepositoryArray) ToFederatedMavenRepositoryArrayOutputWithContext(ctx context.Context) FederatedMavenRepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedMavenRepositoryArrayOutput)
+}
+
+func (i FederatedMavenRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*FederatedMavenRepository] {
+	return pulumix.Output[[]*FederatedMavenRepository]{
+		OutputState: i.ToFederatedMavenRepositoryArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // FederatedMavenRepositoryMapInput is an input type that accepts FederatedMavenRepositoryMap and FederatedMavenRepositoryMapOutput values.
@@ -542,6 +555,12 @@ func (i FederatedMavenRepositoryMap) ToFederatedMavenRepositoryMapOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedMavenRepositoryMapOutput)
 }
 
+func (i FederatedMavenRepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*FederatedMavenRepository] {
+	return pulumix.Output[map[string]*FederatedMavenRepository]{
+		OutputState: i.ToFederatedMavenRepositoryMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FederatedMavenRepositoryOutput struct{ *pulumi.OutputState }
 
 func (FederatedMavenRepositoryOutput) ElementType() reflect.Type {
@@ -554,6 +573,12 @@ func (o FederatedMavenRepositoryOutput) ToFederatedMavenRepositoryOutput() Feder
 
 func (o FederatedMavenRepositoryOutput) ToFederatedMavenRepositoryOutputWithContext(ctx context.Context) FederatedMavenRepositoryOutput {
 	return o
+}
+
+func (o FederatedMavenRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*FederatedMavenRepository] {
+	return pulumix.Output[*FederatedMavenRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 // When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -713,6 +738,12 @@ func (o FederatedMavenRepositoryArrayOutput) ToFederatedMavenRepositoryArrayOutp
 	return o
 }
 
+func (o FederatedMavenRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*FederatedMavenRepository] {
+	return pulumix.Output[[]*FederatedMavenRepository]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FederatedMavenRepositoryArrayOutput) Index(i pulumi.IntInput) FederatedMavenRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FederatedMavenRepository {
 		return vs[0].([]*FederatedMavenRepository)[vs[1].(int)]
@@ -731,6 +762,12 @@ func (o FederatedMavenRepositoryMapOutput) ToFederatedMavenRepositoryMapOutput()
 
 func (o FederatedMavenRepositoryMapOutput) ToFederatedMavenRepositoryMapOutputWithContext(ctx context.Context) FederatedMavenRepositoryMapOutput {
 	return o
+}
+
+func (o FederatedMavenRepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*FederatedMavenRepository] {
+	return pulumix.Output[map[string]*FederatedMavenRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FederatedMavenRepositoryMapOutput) MapIndex(k pulumi.StringInput) FederatedMavenRepositoryOutput {

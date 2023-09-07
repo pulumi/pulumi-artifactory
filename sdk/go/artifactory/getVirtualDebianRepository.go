@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieves a virtual Debian repository.
@@ -158,6 +159,12 @@ func (o LookupVirtualDebianRepositoryResultOutput) ToLookupVirtualDebianReposito
 
 func (o LookupVirtualDebianRepositoryResultOutput) ToLookupVirtualDebianRepositoryResultOutputWithContext(ctx context.Context) LookupVirtualDebianRepositoryResultOutput {
 	return o
+}
+
+func (o LookupVirtualDebianRepositoryResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupVirtualDebianRepositoryResult] {
+	return pulumix.Output[LookupVirtualDebianRepositoryResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupVirtualDebianRepositoryResultOutput) ArtifactoryRequestsCanRetrieveRemoteArtifacts() pulumi.BoolPtrOutput {

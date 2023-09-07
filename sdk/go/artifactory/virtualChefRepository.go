@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a virtual Chef repository.
@@ -295,6 +296,12 @@ func (i *VirtualChefRepository) ToVirtualChefRepositoryOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualChefRepositoryOutput)
 }
 
+func (i *VirtualChefRepository) ToOutput(ctx context.Context) pulumix.Output[*VirtualChefRepository] {
+	return pulumix.Output[*VirtualChefRepository]{
+		OutputState: i.ToVirtualChefRepositoryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // VirtualChefRepositoryArrayInput is an input type that accepts VirtualChefRepositoryArray and VirtualChefRepositoryArrayOutput values.
 // You can construct a concrete instance of `VirtualChefRepositoryArrayInput` via:
 //
@@ -318,6 +325,12 @@ func (i VirtualChefRepositoryArray) ToVirtualChefRepositoryArrayOutput() Virtual
 
 func (i VirtualChefRepositoryArray) ToVirtualChefRepositoryArrayOutputWithContext(ctx context.Context) VirtualChefRepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualChefRepositoryArrayOutput)
+}
+
+func (i VirtualChefRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*VirtualChefRepository] {
+	return pulumix.Output[[]*VirtualChefRepository]{
+		OutputState: i.ToVirtualChefRepositoryArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // VirtualChefRepositoryMapInput is an input type that accepts VirtualChefRepositoryMap and VirtualChefRepositoryMapOutput values.
@@ -345,6 +358,12 @@ func (i VirtualChefRepositoryMap) ToVirtualChefRepositoryMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualChefRepositoryMapOutput)
 }
 
+func (i VirtualChefRepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VirtualChefRepository] {
+	return pulumix.Output[map[string]*VirtualChefRepository]{
+		OutputState: i.ToVirtualChefRepositoryMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualChefRepositoryOutput struct{ *pulumi.OutputState }
 
 func (VirtualChefRepositoryOutput) ElementType() reflect.Type {
@@ -357,6 +376,12 @@ func (o VirtualChefRepositoryOutput) ToVirtualChefRepositoryOutput() VirtualChef
 
 func (o VirtualChefRepositoryOutput) ToVirtualChefRepositoryOutputWithContext(ctx context.Context) VirtualChefRepositoryOutput {
 	return o
+}
+
+func (o VirtualChefRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualChefRepository] {
+	return pulumix.Output[*VirtualChefRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
@@ -447,6 +472,12 @@ func (o VirtualChefRepositoryArrayOutput) ToVirtualChefRepositoryArrayOutputWith
 	return o
 }
 
+func (o VirtualChefRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VirtualChefRepository] {
+	return pulumix.Output[[]*VirtualChefRepository]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VirtualChefRepositoryArrayOutput) Index(i pulumi.IntInput) VirtualChefRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VirtualChefRepository {
 		return vs[0].([]*VirtualChefRepository)[vs[1].(int)]
@@ -465,6 +496,12 @@ func (o VirtualChefRepositoryMapOutput) ToVirtualChefRepositoryMapOutput() Virtu
 
 func (o VirtualChefRepositoryMapOutput) ToVirtualChefRepositoryMapOutputWithContext(ctx context.Context) VirtualChefRepositoryMapOutput {
 	return o
+}
+
+func (o VirtualChefRepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VirtualChefRepository] {
+	return pulumix.Output[map[string]*VirtualChefRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualChefRepositoryMapOutput) MapIndex(k pulumi.StringInput) VirtualChefRepositoryOutput {

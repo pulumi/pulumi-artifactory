@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a remote Cran repository.
@@ -711,6 +712,12 @@ func (i *RemoteCranRepository) ToRemoteCranRepositoryOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(RemoteCranRepositoryOutput)
 }
 
+func (i *RemoteCranRepository) ToOutput(ctx context.Context) pulumix.Output[*RemoteCranRepository] {
+	return pulumix.Output[*RemoteCranRepository]{
+		OutputState: i.ToRemoteCranRepositoryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RemoteCranRepositoryArrayInput is an input type that accepts RemoteCranRepositoryArray and RemoteCranRepositoryArrayOutput values.
 // You can construct a concrete instance of `RemoteCranRepositoryArrayInput` via:
 //
@@ -734,6 +741,12 @@ func (i RemoteCranRepositoryArray) ToRemoteCranRepositoryArrayOutput() RemoteCra
 
 func (i RemoteCranRepositoryArray) ToRemoteCranRepositoryArrayOutputWithContext(ctx context.Context) RemoteCranRepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RemoteCranRepositoryArrayOutput)
+}
+
+func (i RemoteCranRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*RemoteCranRepository] {
+	return pulumix.Output[[]*RemoteCranRepository]{
+		OutputState: i.ToRemoteCranRepositoryArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // RemoteCranRepositoryMapInput is an input type that accepts RemoteCranRepositoryMap and RemoteCranRepositoryMapOutput values.
@@ -761,6 +774,12 @@ func (i RemoteCranRepositoryMap) ToRemoteCranRepositoryMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(RemoteCranRepositoryMapOutput)
 }
 
+func (i RemoteCranRepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RemoteCranRepository] {
+	return pulumix.Output[map[string]*RemoteCranRepository]{
+		OutputState: i.ToRemoteCranRepositoryMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RemoteCranRepositoryOutput struct{ *pulumi.OutputState }
 
 func (RemoteCranRepositoryOutput) ElementType() reflect.Type {
@@ -773,6 +792,12 @@ func (o RemoteCranRepositoryOutput) ToRemoteCranRepositoryOutput() RemoteCranRep
 
 func (o RemoteCranRepositoryOutput) ToRemoteCranRepositoryOutputWithContext(ctx context.Context) RemoteCranRepositoryOutput {
 	return o
+}
+
+func (o RemoteCranRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*RemoteCranRepository] {
+	return pulumix.Output[*RemoteCranRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 // 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any
@@ -1032,6 +1057,12 @@ func (o RemoteCranRepositoryArrayOutput) ToRemoteCranRepositoryArrayOutputWithCo
 	return o
 }
 
+func (o RemoteCranRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RemoteCranRepository] {
+	return pulumix.Output[[]*RemoteCranRepository]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RemoteCranRepositoryArrayOutput) Index(i pulumi.IntInput) RemoteCranRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RemoteCranRepository {
 		return vs[0].([]*RemoteCranRepository)[vs[1].(int)]
@@ -1050,6 +1081,12 @@ func (o RemoteCranRepositoryMapOutput) ToRemoteCranRepositoryMapOutput() RemoteC
 
 func (o RemoteCranRepositoryMapOutput) ToRemoteCranRepositoryMapOutputWithContext(ctx context.Context) RemoteCranRepositoryMapOutput {
 	return o
+}
+
+func (o RemoteCranRepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RemoteCranRepository] {
+	return pulumix.Output[map[string]*RemoteCranRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RemoteCranRepositoryMapOutput) MapIndex(k pulumi.StringInput) RemoteCranRepositoryOutput {

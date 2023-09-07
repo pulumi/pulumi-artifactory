@@ -29,7 +29,7 @@ class UnmanagedUserArgs:
         :param pulumi.Input[bool] disable_ui_access: When set, this user can only access Artifactory through the REST API. This option cannot be set if the user has Admin privileges. Default value is `true`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: List of groups this user is a part of. **Notes:** If this attribute is not specified then user's group membership is set to empty. User will not be part of default "readers" group automatically.
         :param pulumi.Input[bool] internal_password_disabled: When set, disables the fallback of using an internal password when external authentication (such as LDAP) is enabled.
-        :param pulumi.Input[str] name: Username for user.
+        :param pulumi.Input[str] name: Username for user. May contain lowercase letters, numbers and symbols: '.-_@'
         :param pulumi.Input[str] password: Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters.
         :param pulumi.Input[bool] profile_updatable: When set, this user can update his profile details (except for the password. Only an administrator can update the password). Default value is `true`.
         """
@@ -113,7 +113,7 @@ class UnmanagedUserArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Username for user.
+        Username for user. May contain lowercase letters, numbers and symbols: '.-_@'
         """
         return pulumi.get(self, "name")
 
@@ -164,7 +164,7 @@ class _UnmanagedUserState:
         :param pulumi.Input[str] email: Email for user.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: List of groups this user is a part of. **Notes:** If this attribute is not specified then user's group membership is set to empty. User will not be part of default "readers" group automatically.
         :param pulumi.Input[bool] internal_password_disabled: When set, disables the fallback of using an internal password when external authentication (such as LDAP) is enabled.
-        :param pulumi.Input[str] name: Username for user.
+        :param pulumi.Input[str] name: Username for user. May contain lowercase letters, numbers and symbols: '.-_@'
         :param pulumi.Input[str] password: Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters.
         :param pulumi.Input[bool] profile_updatable: When set, this user can update his profile details (except for the password. Only an administrator can update the password). Default value is `true`.
         """
@@ -249,7 +249,7 @@ class _UnmanagedUserState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Username for user.
+        Username for user. May contain lowercase letters, numbers and symbols: '.-_@'
         """
         return pulumi.get(self, "name")
 
@@ -339,7 +339,7 @@ class UnmanagedUser(pulumi.CustomResource):
         :param pulumi.Input[str] email: Email for user.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: List of groups this user is a part of. **Notes:** If this attribute is not specified then user's group membership is set to empty. User will not be part of default "readers" group automatically.
         :param pulumi.Input[bool] internal_password_disabled: When set, disables the fallback of using an internal password when external authentication (such as LDAP) is enabled.
-        :param pulumi.Input[str] name: Username for user.
+        :param pulumi.Input[str] name: Username for user. May contain lowercase letters, numbers and symbols: '.-_@'
         :param pulumi.Input[str] password: Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters.
         :param pulumi.Input[bool] profile_updatable: When set, this user can update his profile details (except for the password. Only an administrator can update the password). Default value is `true`.
         """
@@ -459,7 +459,7 @@ class UnmanagedUser(pulumi.CustomResource):
         :param pulumi.Input[str] email: Email for user.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: List of groups this user is a part of. **Notes:** If this attribute is not specified then user's group membership is set to empty. User will not be part of default "readers" group automatically.
         :param pulumi.Input[bool] internal_password_disabled: When set, disables the fallback of using an internal password when external authentication (such as LDAP) is enabled.
-        :param pulumi.Input[str] name: Username for user.
+        :param pulumi.Input[str] name: Username for user. May contain lowercase letters, numbers and symbols: '.-_@'
         :param pulumi.Input[str] password: Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters.
         :param pulumi.Input[bool] profile_updatable: When set, this user can update his profile details (except for the password. Only an administrator can update the password). Default value is `true`.
         """
@@ -521,7 +521,7 @@ class UnmanagedUser(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Username for user.
+        Username for user. May contain lowercase letters, numbers and symbols: '.-_@'
         """
         return pulumi.get(self, "name")
 

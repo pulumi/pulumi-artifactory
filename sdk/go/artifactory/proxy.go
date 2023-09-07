@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an Artifactory Proxy resource.
@@ -258,6 +259,12 @@ func (i *Proxy) ToProxyOutputWithContext(ctx context.Context) ProxyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProxyOutput)
 }
 
+func (i *Proxy) ToOutput(ctx context.Context) pulumix.Output[*Proxy] {
+	return pulumix.Output[*Proxy]{
+		OutputState: i.ToProxyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ProxyArrayInput is an input type that accepts ProxyArray and ProxyArrayOutput values.
 // You can construct a concrete instance of `ProxyArrayInput` via:
 //
@@ -281,6 +288,12 @@ func (i ProxyArray) ToProxyArrayOutput() ProxyArrayOutput {
 
 func (i ProxyArray) ToProxyArrayOutputWithContext(ctx context.Context) ProxyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProxyArrayOutput)
+}
+
+func (i ProxyArray) ToOutput(ctx context.Context) pulumix.Output[[]*Proxy] {
+	return pulumix.Output[[]*Proxy]{
+		OutputState: i.ToProxyArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ProxyMapInput is an input type that accepts ProxyMap and ProxyMapOutput values.
@@ -308,6 +321,12 @@ func (i ProxyMap) ToProxyMapOutputWithContext(ctx context.Context) ProxyMapOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ProxyMapOutput)
 }
 
+func (i ProxyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Proxy] {
+	return pulumix.Output[map[string]*Proxy]{
+		OutputState: i.ToProxyMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ProxyOutput struct{ *pulumi.OutputState }
 
 func (ProxyOutput) ElementType() reflect.Type {
@@ -320,6 +339,12 @@ func (o ProxyOutput) ToProxyOutput() ProxyOutput {
 
 func (o ProxyOutput) ToProxyOutputWithContext(ctx context.Context) ProxyOutput {
 	return o
+}
+
+func (o ProxyOutput) ToOutput(ctx context.Context) pulumix.Output[*Proxy] {
+	return pulumix.Output[*Proxy]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the proxy host.
@@ -386,6 +411,12 @@ func (o ProxyArrayOutput) ToProxyArrayOutputWithContext(ctx context.Context) Pro
 	return o
 }
 
+func (o ProxyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Proxy] {
+	return pulumix.Output[[]*Proxy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ProxyArrayOutput) Index(i pulumi.IntInput) ProxyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Proxy {
 		return vs[0].([]*Proxy)[vs[1].(int)]
@@ -404,6 +435,12 @@ func (o ProxyMapOutput) ToProxyMapOutput() ProxyMapOutput {
 
 func (o ProxyMapOutput) ToProxyMapOutputWithContext(ctx context.Context) ProxyMapOutput {
 	return o
+}
+
+func (o ProxyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Proxy] {
+	return pulumix.Output[map[string]*Proxy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProxyMapOutput) MapIndex(k pulumi.StringInput) ProxyOutput {

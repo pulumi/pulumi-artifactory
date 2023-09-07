@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 func GetLocalDebianRepository(ctx *pulumi.Context, args *GetLocalDebianRepositoryArgs, opts ...pulumi.InvokeOption) (*GetLocalDebianRepositoryResult, error) {
@@ -126,6 +127,12 @@ func (o GetLocalDebianRepositoryResultOutput) ToGetLocalDebianRepositoryResultOu
 
 func (o GetLocalDebianRepositoryResultOutput) ToGetLocalDebianRepositoryResultOutputWithContext(ctx context.Context) GetLocalDebianRepositoryResultOutput {
 	return o
+}
+
+func (o GetLocalDebianRepositoryResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetLocalDebianRepositoryResult] {
+	return pulumix.Output[GetLocalDebianRepositoryResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetLocalDebianRepositoryResultOutput) ArchiveBrowsingEnabled() pulumi.BoolPtrOutput {

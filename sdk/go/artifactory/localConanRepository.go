@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a local Conan repository.
@@ -334,6 +335,12 @@ func (i *LocalConanRepository) ToLocalConanRepositoryOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(LocalConanRepositoryOutput)
 }
 
+func (i *LocalConanRepository) ToOutput(ctx context.Context) pulumix.Output[*LocalConanRepository] {
+	return pulumix.Output[*LocalConanRepository]{
+		OutputState: i.ToLocalConanRepositoryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LocalConanRepositoryArrayInput is an input type that accepts LocalConanRepositoryArray and LocalConanRepositoryArrayOutput values.
 // You can construct a concrete instance of `LocalConanRepositoryArrayInput` via:
 //
@@ -357,6 +364,12 @@ func (i LocalConanRepositoryArray) ToLocalConanRepositoryArrayOutput() LocalCona
 
 func (i LocalConanRepositoryArray) ToLocalConanRepositoryArrayOutputWithContext(ctx context.Context) LocalConanRepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LocalConanRepositoryArrayOutput)
+}
+
+func (i LocalConanRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*LocalConanRepository] {
+	return pulumix.Output[[]*LocalConanRepository]{
+		OutputState: i.ToLocalConanRepositoryArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // LocalConanRepositoryMapInput is an input type that accepts LocalConanRepositoryMap and LocalConanRepositoryMapOutput values.
@@ -384,6 +397,12 @@ func (i LocalConanRepositoryMap) ToLocalConanRepositoryMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(LocalConanRepositoryMapOutput)
 }
 
+func (i LocalConanRepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LocalConanRepository] {
+	return pulumix.Output[map[string]*LocalConanRepository]{
+		OutputState: i.ToLocalConanRepositoryMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LocalConanRepositoryOutput struct{ *pulumi.OutputState }
 
 func (LocalConanRepositoryOutput) ElementType() reflect.Type {
@@ -396,6 +415,12 @@ func (o LocalConanRepositoryOutput) ToLocalConanRepositoryOutput() LocalConanRep
 
 func (o LocalConanRepositoryOutput) ToLocalConanRepositoryOutputWithContext(ctx context.Context) LocalConanRepositoryOutput {
 	return o
+}
+
+func (o LocalConanRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*LocalConanRepository] {
+	return pulumix.Output[*LocalConanRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 // When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -502,6 +527,12 @@ func (o LocalConanRepositoryArrayOutput) ToLocalConanRepositoryArrayOutputWithCo
 	return o
 }
 
+func (o LocalConanRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LocalConanRepository] {
+	return pulumix.Output[[]*LocalConanRepository]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LocalConanRepositoryArrayOutput) Index(i pulumi.IntInput) LocalConanRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LocalConanRepository {
 		return vs[0].([]*LocalConanRepository)[vs[1].(int)]
@@ -520,6 +551,12 @@ func (o LocalConanRepositoryMapOutput) ToLocalConanRepositoryMapOutput() LocalCo
 
 func (o LocalConanRepositoryMapOutput) ToLocalConanRepositoryMapOutputWithContext(ctx context.Context) LocalConanRepositoryMapOutput {
 	return o
+}
+
+func (o LocalConanRepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LocalConanRepository] {
+	return pulumix.Output[map[string]*LocalConanRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LocalConanRepositoryMapOutput) MapIndex(k pulumi.StringInput) LocalConanRepositoryOutput {

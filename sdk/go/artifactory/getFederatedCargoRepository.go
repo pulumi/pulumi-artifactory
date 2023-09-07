@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieves a federated Cargo repository.
@@ -167,6 +168,12 @@ func (o LookupFederatedCargoRepositoryResultOutput) ToLookupFederatedCargoReposi
 
 func (o LookupFederatedCargoRepositoryResultOutput) ToLookupFederatedCargoRepositoryResultOutputWithContext(ctx context.Context) LookupFederatedCargoRepositoryResultOutput {
 	return o
+}
+
+func (o LookupFederatedCargoRepositoryResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupFederatedCargoRepositoryResult] {
+	return pulumix.Output[LookupFederatedCargoRepositoryResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupFederatedCargoRepositoryResultOutput) AnonymousAccess() pulumi.BoolPtrOutput {

@@ -99,7 +99,7 @@ class RemoteHelmRepositoryArgs:
                `[**]` on update if HCL doesn't have the attribute set or the list is empty.
         :param pulumi.Input[bool] hard_fail: When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
                communicate with this repository.
-        :param pulumi.Input[str] helm_charts_base_url: No documentation is available. Hopefully you know what this means.
+        :param pulumi.Input[str] helm_charts_base_url: Base URL for the translation of chart source URLs in the index.yaml of virtual repos. Artifactory will only translate URLs matching the index.yamls hostname or URLs starting with this base url. Support http/https/oci protocol scheme.
         :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
                used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         :param pulumi.Input[bool] list_remote_folder_items: Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
@@ -469,7 +469,7 @@ class RemoteHelmRepositoryArgs:
     @pulumi.getter(name="helmChartsBaseUrl")
     def helm_charts_base_url(self) -> Optional[pulumi.Input[str]]:
         """
-        No documentation is available. Hopefully you know what this means.
+        Base URL for the translation of chart source URLs in the index.yaml of virtual repos. Artifactory will only translate URLs matching the index.yamls hostname or URLs starting with this base url. Support http/https/oci protocol scheme.
         """
         return pulumi.get(self, "helm_charts_base_url")
 
@@ -875,7 +875,7 @@ class _RemoteHelmRepositoryState:
                `[**]` on update if HCL doesn't have the attribute set or the list is empty.
         :param pulumi.Input[bool] hard_fail: When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
                communicate with this repository.
-        :param pulumi.Input[str] helm_charts_base_url: No documentation is available. Hopefully you know what this means.
+        :param pulumi.Input[str] helm_charts_base_url: Base URL for the translation of chart source URLs in the index.yaml of virtual repos. Artifactory will only translate URLs matching the index.yamls hostname or URLs starting with this base url. Support http/https/oci protocol scheme.
         :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
                used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
@@ -1227,7 +1227,7 @@ class _RemoteHelmRepositoryState:
     @pulumi.getter(name="helmChartsBaseUrl")
     def helm_charts_base_url(self) -> Optional[pulumi.Input[str]]:
         """
-        No documentation is available. Hopefully you know what this means.
+        Base URL for the translation of chart source URLs in the index.yaml of virtual repos. Artifactory will only translate URLs matching the index.yamls hostname or URLs starting with this base url. Support http/https/oci protocol scheme.
         """
         return pulumi.get(self, "helm_charts_base_url")
 
@@ -1695,7 +1695,7 @@ class RemoteHelmRepository(pulumi.CustomResource):
                `[**]` on update if HCL doesn't have the attribute set or the list is empty.
         :param pulumi.Input[bool] hard_fail: When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
                communicate with this repository.
-        :param pulumi.Input[str] helm_charts_base_url: No documentation is available. Hopefully you know what this means.
+        :param pulumi.Input[str] helm_charts_base_url: Base URL for the translation of chart source URLs in the index.yaml of virtual repos. Artifactory will only translate URLs matching the index.yamls hostname or URLs starting with this base url. Support http/https/oci protocol scheme.
         :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
                used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
@@ -1991,7 +1991,7 @@ class RemoteHelmRepository(pulumi.CustomResource):
                `[**]` on update if HCL doesn't have the attribute set or the list is empty.
         :param pulumi.Input[bool] hard_fail: When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
                communicate with this repository.
-        :param pulumi.Input[str] helm_charts_base_url: No documentation is available. Hopefully you know what this means.
+        :param pulumi.Input[str] helm_charts_base_url: Base URL for the translation of chart source URLs in the index.yaml of virtual repos. Artifactory will only translate URLs matching the index.yamls hostname or URLs starting with this base url. Support http/https/oci protocol scheme.
         :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
                used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
@@ -2239,7 +2239,7 @@ class RemoteHelmRepository(pulumi.CustomResource):
     @pulumi.getter(name="helmChartsBaseUrl")
     def helm_charts_base_url(self) -> pulumi.Output[Optional[str]]:
         """
-        No documentation is available. Hopefully you know what this means.
+        Base URL for the translation of chart source URLs in the index.yaml of virtual repos. Artifactory will only translate URLs matching the index.yamls hostname or URLs starting with this base url. Support http/https/oci protocol scheme.
         """
         return pulumi.get(self, "helm_charts_base_url")
 

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a virtual Helm repository.
@@ -301,6 +302,12 @@ func (i *VirtualHelmRepository) ToVirtualHelmRepositoryOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualHelmRepositoryOutput)
 }
 
+func (i *VirtualHelmRepository) ToOutput(ctx context.Context) pulumix.Output[*VirtualHelmRepository] {
+	return pulumix.Output[*VirtualHelmRepository]{
+		OutputState: i.ToVirtualHelmRepositoryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // VirtualHelmRepositoryArrayInput is an input type that accepts VirtualHelmRepositoryArray and VirtualHelmRepositoryArrayOutput values.
 // You can construct a concrete instance of `VirtualHelmRepositoryArrayInput` via:
 //
@@ -324,6 +331,12 @@ func (i VirtualHelmRepositoryArray) ToVirtualHelmRepositoryArrayOutput() Virtual
 
 func (i VirtualHelmRepositoryArray) ToVirtualHelmRepositoryArrayOutputWithContext(ctx context.Context) VirtualHelmRepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualHelmRepositoryArrayOutput)
+}
+
+func (i VirtualHelmRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*VirtualHelmRepository] {
+	return pulumix.Output[[]*VirtualHelmRepository]{
+		OutputState: i.ToVirtualHelmRepositoryArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // VirtualHelmRepositoryMapInput is an input type that accepts VirtualHelmRepositoryMap and VirtualHelmRepositoryMapOutput values.
@@ -351,6 +364,12 @@ func (i VirtualHelmRepositoryMap) ToVirtualHelmRepositoryMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualHelmRepositoryMapOutput)
 }
 
+func (i VirtualHelmRepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VirtualHelmRepository] {
+	return pulumix.Output[map[string]*VirtualHelmRepository]{
+		OutputState: i.ToVirtualHelmRepositoryMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualHelmRepositoryOutput struct{ *pulumi.OutputState }
 
 func (VirtualHelmRepositoryOutput) ElementType() reflect.Type {
@@ -363,6 +382,12 @@ func (o VirtualHelmRepositoryOutput) ToVirtualHelmRepositoryOutput() VirtualHelm
 
 func (o VirtualHelmRepositoryOutput) ToVirtualHelmRepositoryOutputWithContext(ctx context.Context) VirtualHelmRepositoryOutput {
 	return o
+}
+
+func (o VirtualHelmRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualHelmRepository] {
+	return pulumix.Output[*VirtualHelmRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
@@ -458,6 +483,12 @@ func (o VirtualHelmRepositoryArrayOutput) ToVirtualHelmRepositoryArrayOutputWith
 	return o
 }
 
+func (o VirtualHelmRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VirtualHelmRepository] {
+	return pulumix.Output[[]*VirtualHelmRepository]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VirtualHelmRepositoryArrayOutput) Index(i pulumi.IntInput) VirtualHelmRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VirtualHelmRepository {
 		return vs[0].([]*VirtualHelmRepository)[vs[1].(int)]
@@ -476,6 +507,12 @@ func (o VirtualHelmRepositoryMapOutput) ToVirtualHelmRepositoryMapOutput() Virtu
 
 func (o VirtualHelmRepositoryMapOutput) ToVirtualHelmRepositoryMapOutputWithContext(ctx context.Context) VirtualHelmRepositoryMapOutput {
 	return o
+}
+
+func (o VirtualHelmRepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VirtualHelmRepository] {
+	return pulumix.Output[map[string]*VirtualHelmRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualHelmRepositoryMapOutput) MapIndex(k pulumi.StringInput) VirtualHelmRepositoryOutput {

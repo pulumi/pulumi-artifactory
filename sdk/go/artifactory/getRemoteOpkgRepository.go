@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieves a remote Opkg repository.
@@ -218,6 +219,12 @@ func (o LookupRemoteOpkgRepositoryResultOutput) ToLookupRemoteOpkgRepositoryResu
 
 func (o LookupRemoteOpkgRepositoryResultOutput) ToLookupRemoteOpkgRepositoryResultOutputWithContext(ctx context.Context) LookupRemoteOpkgRepositoryResultOutput {
 	return o
+}
+
+func (o LookupRemoteOpkgRepositoryResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupRemoteOpkgRepositoryResult] {
+	return pulumix.Output[LookupRemoteOpkgRepositoryResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupRemoteOpkgRepositoryResultOutput) AllowAnyHostAuth() pulumi.BoolPtrOutput {

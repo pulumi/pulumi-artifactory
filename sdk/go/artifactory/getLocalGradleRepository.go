@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 func LookupLocalGradleRepository(ctx *pulumi.Context, args *LookupLocalGradleRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupLocalGradleRepositoryResult, error) {
@@ -129,6 +130,12 @@ func (o LookupLocalGradleRepositoryResultOutput) ToLookupLocalGradleRepositoryRe
 
 func (o LookupLocalGradleRepositoryResultOutput) ToLookupLocalGradleRepositoryResultOutputWithContext(ctx context.Context) LookupLocalGradleRepositoryResultOutput {
 	return o
+}
+
+func (o LookupLocalGradleRepositoryResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupLocalGradleRepositoryResult] {
+	return pulumix.Output[LookupLocalGradleRepositoryResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupLocalGradleRepositoryResultOutput) ArchiveBrowsingEnabled() pulumi.BoolPtrOutput {

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a local RPM repository.
@@ -464,6 +465,12 @@ func (i *LocalRpmRepository) ToLocalRpmRepositoryOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(LocalRpmRepositoryOutput)
 }
 
+func (i *LocalRpmRepository) ToOutput(ctx context.Context) pulumix.Output[*LocalRpmRepository] {
+	return pulumix.Output[*LocalRpmRepository]{
+		OutputState: i.ToLocalRpmRepositoryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LocalRpmRepositoryArrayInput is an input type that accepts LocalRpmRepositoryArray and LocalRpmRepositoryArrayOutput values.
 // You can construct a concrete instance of `LocalRpmRepositoryArrayInput` via:
 //
@@ -487,6 +494,12 @@ func (i LocalRpmRepositoryArray) ToLocalRpmRepositoryArrayOutput() LocalRpmRepos
 
 func (i LocalRpmRepositoryArray) ToLocalRpmRepositoryArrayOutputWithContext(ctx context.Context) LocalRpmRepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LocalRpmRepositoryArrayOutput)
+}
+
+func (i LocalRpmRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*LocalRpmRepository] {
+	return pulumix.Output[[]*LocalRpmRepository]{
+		OutputState: i.ToLocalRpmRepositoryArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // LocalRpmRepositoryMapInput is an input type that accepts LocalRpmRepositoryMap and LocalRpmRepositoryMapOutput values.
@@ -514,6 +527,12 @@ func (i LocalRpmRepositoryMap) ToLocalRpmRepositoryMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(LocalRpmRepositoryMapOutput)
 }
 
+func (i LocalRpmRepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LocalRpmRepository] {
+	return pulumix.Output[map[string]*LocalRpmRepository]{
+		OutputState: i.ToLocalRpmRepositoryMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LocalRpmRepositoryOutput struct{ *pulumi.OutputState }
 
 func (LocalRpmRepositoryOutput) ElementType() reflect.Type {
@@ -526,6 +545,12 @@ func (o LocalRpmRepositoryOutput) ToLocalRpmRepositoryOutput() LocalRpmRepositor
 
 func (o LocalRpmRepositoryOutput) ToLocalRpmRepositoryOutputWithContext(ctx context.Context) LocalRpmRepositoryOutput {
 	return o
+}
+
+func (o LocalRpmRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*LocalRpmRepository] {
+	return pulumix.Output[*LocalRpmRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 // When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -668,6 +693,12 @@ func (o LocalRpmRepositoryArrayOutput) ToLocalRpmRepositoryArrayOutputWithContex
 	return o
 }
 
+func (o LocalRpmRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LocalRpmRepository] {
+	return pulumix.Output[[]*LocalRpmRepository]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LocalRpmRepositoryArrayOutput) Index(i pulumi.IntInput) LocalRpmRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LocalRpmRepository {
 		return vs[0].([]*LocalRpmRepository)[vs[1].(int)]
@@ -686,6 +717,12 @@ func (o LocalRpmRepositoryMapOutput) ToLocalRpmRepositoryMapOutput() LocalRpmRep
 
 func (o LocalRpmRepositoryMapOutput) ToLocalRpmRepositoryMapOutputWithContext(ctx context.Context) LocalRpmRepositoryMapOutput {
 	return o
+}
+
+func (o LocalRpmRepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LocalRpmRepository] {
+	return pulumix.Output[map[string]*LocalRpmRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LocalRpmRepositoryMapOutput) MapIndex(k pulumi.StringInput) LocalRpmRepositoryOutput {

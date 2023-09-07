@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a virtual Debian repository.
@@ -340,6 +341,12 @@ func (i *VirtualDebianRepository) ToVirtualDebianRepositoryOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualDebianRepositoryOutput)
 }
 
+func (i *VirtualDebianRepository) ToOutput(ctx context.Context) pulumix.Output[*VirtualDebianRepository] {
+	return pulumix.Output[*VirtualDebianRepository]{
+		OutputState: i.ToVirtualDebianRepositoryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // VirtualDebianRepositoryArrayInput is an input type that accepts VirtualDebianRepositoryArray and VirtualDebianRepositoryArrayOutput values.
 // You can construct a concrete instance of `VirtualDebianRepositoryArrayInput` via:
 //
@@ -363,6 +370,12 @@ func (i VirtualDebianRepositoryArray) ToVirtualDebianRepositoryArrayOutput() Vir
 
 func (i VirtualDebianRepositoryArray) ToVirtualDebianRepositoryArrayOutputWithContext(ctx context.Context) VirtualDebianRepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualDebianRepositoryArrayOutput)
+}
+
+func (i VirtualDebianRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*VirtualDebianRepository] {
+	return pulumix.Output[[]*VirtualDebianRepository]{
+		OutputState: i.ToVirtualDebianRepositoryArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // VirtualDebianRepositoryMapInput is an input type that accepts VirtualDebianRepositoryMap and VirtualDebianRepositoryMapOutput values.
@@ -390,6 +403,12 @@ func (i VirtualDebianRepositoryMap) ToVirtualDebianRepositoryMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualDebianRepositoryMapOutput)
 }
 
+func (i VirtualDebianRepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VirtualDebianRepository] {
+	return pulumix.Output[map[string]*VirtualDebianRepository]{
+		OutputState: i.ToVirtualDebianRepositoryMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualDebianRepositoryOutput struct{ *pulumi.OutputState }
 
 func (VirtualDebianRepositoryOutput) ElementType() reflect.Type {
@@ -402,6 +421,12 @@ func (o VirtualDebianRepositoryOutput) ToVirtualDebianRepositoryOutput() Virtual
 
 func (o VirtualDebianRepositoryOutput) ToVirtualDebianRepositoryOutputWithContext(ctx context.Context) VirtualDebianRepositoryOutput {
 	return o
+}
+
+func (o VirtualDebianRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualDebianRepository] {
+	return pulumix.Output[*VirtualDebianRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
@@ -512,6 +537,12 @@ func (o VirtualDebianRepositoryArrayOutput) ToVirtualDebianRepositoryArrayOutput
 	return o
 }
 
+func (o VirtualDebianRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VirtualDebianRepository] {
+	return pulumix.Output[[]*VirtualDebianRepository]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VirtualDebianRepositoryArrayOutput) Index(i pulumi.IntInput) VirtualDebianRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VirtualDebianRepository {
 		return vs[0].([]*VirtualDebianRepository)[vs[1].(int)]
@@ -530,6 +561,12 @@ func (o VirtualDebianRepositoryMapOutput) ToVirtualDebianRepositoryMapOutput() V
 
 func (o VirtualDebianRepositoryMapOutput) ToVirtualDebianRepositoryMapOutputWithContext(ctx context.Context) VirtualDebianRepositoryMapOutput {
 	return o
+}
+
+func (o VirtualDebianRepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VirtualDebianRepository] {
+	return pulumix.Output[map[string]*VirtualDebianRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualDebianRepositoryMapOutput) MapIndex(k pulumi.StringInput) VirtualDebianRepositoryOutput {

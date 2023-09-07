@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a federated Vagrant repository.
@@ -387,6 +388,12 @@ func (i *FederatedVagrantRepository) ToFederatedVagrantRepositoryOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedVagrantRepositoryOutput)
 }
 
+func (i *FederatedVagrantRepository) ToOutput(ctx context.Context) pulumix.Output[*FederatedVagrantRepository] {
+	return pulumix.Output[*FederatedVagrantRepository]{
+		OutputState: i.ToFederatedVagrantRepositoryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FederatedVagrantRepositoryArrayInput is an input type that accepts FederatedVagrantRepositoryArray and FederatedVagrantRepositoryArrayOutput values.
 // You can construct a concrete instance of `FederatedVagrantRepositoryArrayInput` via:
 //
@@ -410,6 +417,12 @@ func (i FederatedVagrantRepositoryArray) ToFederatedVagrantRepositoryArrayOutput
 
 func (i FederatedVagrantRepositoryArray) ToFederatedVagrantRepositoryArrayOutputWithContext(ctx context.Context) FederatedVagrantRepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedVagrantRepositoryArrayOutput)
+}
+
+func (i FederatedVagrantRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*FederatedVagrantRepository] {
+	return pulumix.Output[[]*FederatedVagrantRepository]{
+		OutputState: i.ToFederatedVagrantRepositoryArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // FederatedVagrantRepositoryMapInput is an input type that accepts FederatedVagrantRepositoryMap and FederatedVagrantRepositoryMapOutput values.
@@ -437,6 +450,12 @@ func (i FederatedVagrantRepositoryMap) ToFederatedVagrantRepositoryMapOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedVagrantRepositoryMapOutput)
 }
 
+func (i FederatedVagrantRepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*FederatedVagrantRepository] {
+	return pulumix.Output[map[string]*FederatedVagrantRepository]{
+		OutputState: i.ToFederatedVagrantRepositoryMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FederatedVagrantRepositoryOutput struct{ *pulumi.OutputState }
 
 func (FederatedVagrantRepositoryOutput) ElementType() reflect.Type {
@@ -449,6 +468,12 @@ func (o FederatedVagrantRepositoryOutput) ToFederatedVagrantRepositoryOutput() F
 
 func (o FederatedVagrantRepositoryOutput) ToFederatedVagrantRepositoryOutputWithContext(ctx context.Context) FederatedVagrantRepositoryOutput {
 	return o
+}
+
+func (o FederatedVagrantRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*FederatedVagrantRepository] {
+	return pulumix.Output[*FederatedVagrantRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 // When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -569,6 +594,12 @@ func (o FederatedVagrantRepositoryArrayOutput) ToFederatedVagrantRepositoryArray
 	return o
 }
 
+func (o FederatedVagrantRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*FederatedVagrantRepository] {
+	return pulumix.Output[[]*FederatedVagrantRepository]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FederatedVagrantRepositoryArrayOutput) Index(i pulumi.IntInput) FederatedVagrantRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FederatedVagrantRepository {
 		return vs[0].([]*FederatedVagrantRepository)[vs[1].(int)]
@@ -587,6 +618,12 @@ func (o FederatedVagrantRepositoryMapOutput) ToFederatedVagrantRepositoryMapOutp
 
 func (o FederatedVagrantRepositoryMapOutput) ToFederatedVagrantRepositoryMapOutputWithContext(ctx context.Context) FederatedVagrantRepositoryMapOutput {
 	return o
+}
+
+func (o FederatedVagrantRepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*FederatedVagrantRepository] {
+	return pulumix.Output[map[string]*FederatedVagrantRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FederatedVagrantRepositoryMapOutput) MapIndex(k pulumi.StringInput) FederatedVagrantRepositoryOutput {

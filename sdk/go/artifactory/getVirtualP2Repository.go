@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieves a virtual P2 repository.
@@ -128,6 +129,12 @@ func (o LookupVirtualP2RepositoryResultOutput) ToLookupVirtualP2RepositoryResult
 
 func (o LookupVirtualP2RepositoryResultOutput) ToLookupVirtualP2RepositoryResultOutputWithContext(ctx context.Context) LookupVirtualP2RepositoryResultOutput {
 	return o
+}
+
+func (o LookupVirtualP2RepositoryResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupVirtualP2RepositoryResult] {
+	return pulumix.Output[LookupVirtualP2RepositoryResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupVirtualP2RepositoryResultOutput) ArtifactoryRequestsCanRetrieveRemoteArtifacts() pulumi.BoolPtrOutput {

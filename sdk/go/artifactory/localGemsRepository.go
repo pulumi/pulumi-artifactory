@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a local Gems repository.
@@ -334,6 +335,12 @@ func (i *LocalGemsRepository) ToLocalGemsRepositoryOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(LocalGemsRepositoryOutput)
 }
 
+func (i *LocalGemsRepository) ToOutput(ctx context.Context) pulumix.Output[*LocalGemsRepository] {
+	return pulumix.Output[*LocalGemsRepository]{
+		OutputState: i.ToLocalGemsRepositoryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LocalGemsRepositoryArrayInput is an input type that accepts LocalGemsRepositoryArray and LocalGemsRepositoryArrayOutput values.
 // You can construct a concrete instance of `LocalGemsRepositoryArrayInput` via:
 //
@@ -357,6 +364,12 @@ func (i LocalGemsRepositoryArray) ToLocalGemsRepositoryArrayOutput() LocalGemsRe
 
 func (i LocalGemsRepositoryArray) ToLocalGemsRepositoryArrayOutputWithContext(ctx context.Context) LocalGemsRepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LocalGemsRepositoryArrayOutput)
+}
+
+func (i LocalGemsRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*LocalGemsRepository] {
+	return pulumix.Output[[]*LocalGemsRepository]{
+		OutputState: i.ToLocalGemsRepositoryArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // LocalGemsRepositoryMapInput is an input type that accepts LocalGemsRepositoryMap and LocalGemsRepositoryMapOutput values.
@@ -384,6 +397,12 @@ func (i LocalGemsRepositoryMap) ToLocalGemsRepositoryMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(LocalGemsRepositoryMapOutput)
 }
 
+func (i LocalGemsRepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LocalGemsRepository] {
+	return pulumix.Output[map[string]*LocalGemsRepository]{
+		OutputState: i.ToLocalGemsRepositoryMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LocalGemsRepositoryOutput struct{ *pulumi.OutputState }
 
 func (LocalGemsRepositoryOutput) ElementType() reflect.Type {
@@ -396,6 +415,12 @@ func (o LocalGemsRepositoryOutput) ToLocalGemsRepositoryOutput() LocalGemsReposi
 
 func (o LocalGemsRepositoryOutput) ToLocalGemsRepositoryOutputWithContext(ctx context.Context) LocalGemsRepositoryOutput {
 	return o
+}
+
+func (o LocalGemsRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*LocalGemsRepository] {
+	return pulumix.Output[*LocalGemsRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 // When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -502,6 +527,12 @@ func (o LocalGemsRepositoryArrayOutput) ToLocalGemsRepositoryArrayOutputWithCont
 	return o
 }
 
+func (o LocalGemsRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LocalGemsRepository] {
+	return pulumix.Output[[]*LocalGemsRepository]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LocalGemsRepositoryArrayOutput) Index(i pulumi.IntInput) LocalGemsRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LocalGemsRepository {
 		return vs[0].([]*LocalGemsRepository)[vs[1].(int)]
@@ -520,6 +551,12 @@ func (o LocalGemsRepositoryMapOutput) ToLocalGemsRepositoryMapOutput() LocalGems
 
 func (o LocalGemsRepositoryMapOutput) ToLocalGemsRepositoryMapOutputWithContext(ctx context.Context) LocalGemsRepositoryMapOutput {
 	return o
+}
+
+func (o LocalGemsRepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LocalGemsRepository] {
+	return pulumix.Output[map[string]*LocalGemsRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LocalGemsRepositoryMapOutput) MapIndex(k pulumi.StringInput) LocalGemsRepositoryOutput {

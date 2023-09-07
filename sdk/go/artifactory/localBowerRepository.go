@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a local Bower repository.
@@ -334,6 +335,12 @@ func (i *LocalBowerRepository) ToLocalBowerRepositoryOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(LocalBowerRepositoryOutput)
 }
 
+func (i *LocalBowerRepository) ToOutput(ctx context.Context) pulumix.Output[*LocalBowerRepository] {
+	return pulumix.Output[*LocalBowerRepository]{
+		OutputState: i.ToLocalBowerRepositoryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LocalBowerRepositoryArrayInput is an input type that accepts LocalBowerRepositoryArray and LocalBowerRepositoryArrayOutput values.
 // You can construct a concrete instance of `LocalBowerRepositoryArrayInput` via:
 //
@@ -357,6 +364,12 @@ func (i LocalBowerRepositoryArray) ToLocalBowerRepositoryArrayOutput() LocalBowe
 
 func (i LocalBowerRepositoryArray) ToLocalBowerRepositoryArrayOutputWithContext(ctx context.Context) LocalBowerRepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LocalBowerRepositoryArrayOutput)
+}
+
+func (i LocalBowerRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*LocalBowerRepository] {
+	return pulumix.Output[[]*LocalBowerRepository]{
+		OutputState: i.ToLocalBowerRepositoryArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // LocalBowerRepositoryMapInput is an input type that accepts LocalBowerRepositoryMap and LocalBowerRepositoryMapOutput values.
@@ -384,6 +397,12 @@ func (i LocalBowerRepositoryMap) ToLocalBowerRepositoryMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(LocalBowerRepositoryMapOutput)
 }
 
+func (i LocalBowerRepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LocalBowerRepository] {
+	return pulumix.Output[map[string]*LocalBowerRepository]{
+		OutputState: i.ToLocalBowerRepositoryMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LocalBowerRepositoryOutput struct{ *pulumi.OutputState }
 
 func (LocalBowerRepositoryOutput) ElementType() reflect.Type {
@@ -396,6 +415,12 @@ func (o LocalBowerRepositoryOutput) ToLocalBowerRepositoryOutput() LocalBowerRep
 
 func (o LocalBowerRepositoryOutput) ToLocalBowerRepositoryOutputWithContext(ctx context.Context) LocalBowerRepositoryOutput {
 	return o
+}
+
+func (o LocalBowerRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*LocalBowerRepository] {
+	return pulumix.Output[*LocalBowerRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 // When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -502,6 +527,12 @@ func (o LocalBowerRepositoryArrayOutput) ToLocalBowerRepositoryArrayOutputWithCo
 	return o
 }
 
+func (o LocalBowerRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LocalBowerRepository] {
+	return pulumix.Output[[]*LocalBowerRepository]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LocalBowerRepositoryArrayOutput) Index(i pulumi.IntInput) LocalBowerRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LocalBowerRepository {
 		return vs[0].([]*LocalBowerRepository)[vs[1].(int)]
@@ -520,6 +551,12 @@ func (o LocalBowerRepositoryMapOutput) ToLocalBowerRepositoryMapOutput() LocalBo
 
 func (o LocalBowerRepositoryMapOutput) ToLocalBowerRepositoryMapOutputWithContext(ctx context.Context) LocalBowerRepositoryMapOutput {
 	return o
+}
+
+func (o LocalBowerRepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LocalBowerRepository] {
+	return pulumix.Output[map[string]*LocalBowerRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LocalBowerRepositoryMapOutput) MapIndex(k pulumi.StringInput) LocalBowerRepositoryOutput {

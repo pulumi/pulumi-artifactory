@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieves a virtual Docker repository.
@@ -134,6 +135,12 @@ func (o LookupVirtualDockerRepositoryResultOutput) ToLookupVirtualDockerReposito
 
 func (o LookupVirtualDockerRepositoryResultOutput) ToLookupVirtualDockerRepositoryResultOutputWithContext(ctx context.Context) LookupVirtualDockerRepositoryResultOutput {
 	return o
+}
+
+func (o LookupVirtualDockerRepositoryResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupVirtualDockerRepositoryResult] {
+	return pulumix.Output[LookupVirtualDockerRepositoryResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupVirtualDockerRepositoryResultOutput) ArtifactoryRequestsCanRetrieveRemoteArtifacts() pulumi.BoolPtrOutput {

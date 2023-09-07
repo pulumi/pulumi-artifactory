@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a federated Debian repository.
@@ -432,6 +433,12 @@ func (i *FederatedDebianRepository) ToFederatedDebianRepositoryOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedDebianRepositoryOutput)
 }
 
+func (i *FederatedDebianRepository) ToOutput(ctx context.Context) pulumix.Output[*FederatedDebianRepository] {
+	return pulumix.Output[*FederatedDebianRepository]{
+		OutputState: i.ToFederatedDebianRepositoryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FederatedDebianRepositoryArrayInput is an input type that accepts FederatedDebianRepositoryArray and FederatedDebianRepositoryArrayOutput values.
 // You can construct a concrete instance of `FederatedDebianRepositoryArrayInput` via:
 //
@@ -455,6 +462,12 @@ func (i FederatedDebianRepositoryArray) ToFederatedDebianRepositoryArrayOutput()
 
 func (i FederatedDebianRepositoryArray) ToFederatedDebianRepositoryArrayOutputWithContext(ctx context.Context) FederatedDebianRepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedDebianRepositoryArrayOutput)
+}
+
+func (i FederatedDebianRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*FederatedDebianRepository] {
+	return pulumix.Output[[]*FederatedDebianRepository]{
+		OutputState: i.ToFederatedDebianRepositoryArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // FederatedDebianRepositoryMapInput is an input type that accepts FederatedDebianRepositoryMap and FederatedDebianRepositoryMapOutput values.
@@ -482,6 +495,12 @@ func (i FederatedDebianRepositoryMap) ToFederatedDebianRepositoryMapOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedDebianRepositoryMapOutput)
 }
 
+func (i FederatedDebianRepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*FederatedDebianRepository] {
+	return pulumix.Output[map[string]*FederatedDebianRepository]{
+		OutputState: i.ToFederatedDebianRepositoryMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FederatedDebianRepositoryOutput struct{ *pulumi.OutputState }
 
 func (FederatedDebianRepositoryOutput) ElementType() reflect.Type {
@@ -494,6 +513,12 @@ func (o FederatedDebianRepositoryOutput) ToFederatedDebianRepositoryOutput() Fed
 
 func (o FederatedDebianRepositoryOutput) ToFederatedDebianRepositoryOutputWithContext(ctx context.Context) FederatedDebianRepositoryOutput {
 	return o
+}
+
+func (o FederatedDebianRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*FederatedDebianRepository] {
+	return pulumix.Output[*FederatedDebianRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 // When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -635,6 +660,12 @@ func (o FederatedDebianRepositoryArrayOutput) ToFederatedDebianRepositoryArrayOu
 	return o
 }
 
+func (o FederatedDebianRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*FederatedDebianRepository] {
+	return pulumix.Output[[]*FederatedDebianRepository]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FederatedDebianRepositoryArrayOutput) Index(i pulumi.IntInput) FederatedDebianRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FederatedDebianRepository {
 		return vs[0].([]*FederatedDebianRepository)[vs[1].(int)]
@@ -653,6 +684,12 @@ func (o FederatedDebianRepositoryMapOutput) ToFederatedDebianRepositoryMapOutput
 
 func (o FederatedDebianRepositoryMapOutput) ToFederatedDebianRepositoryMapOutputWithContext(ctx context.Context) FederatedDebianRepositoryMapOutput {
 	return o
+}
+
+func (o FederatedDebianRepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*FederatedDebianRepository] {
+	return pulumix.Output[map[string]*FederatedDebianRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FederatedDebianRepositoryMapOutput) MapIndex(k pulumi.StringInput) FederatedDebianRepositoryOutput {
