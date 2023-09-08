@@ -197,6 +197,7 @@
         "getVirtualSbtRepository.ts",
         "getVirtualSwiftRepository.ts",
         "getVirtualTerraformRepository.ts",
+        "globalEnvironment.ts",
         "goRepository.ts",
         "group.ts",
         "index.ts",

@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieves a remote Debian repository.
@@ -218,6 +219,12 @@ func (o LookupRemoteDebianRepositoryResultOutput) ToLookupRemoteDebianRepository
 
 func (o LookupRemoteDebianRepositoryResultOutput) ToLookupRemoteDebianRepositoryResultOutputWithContext(ctx context.Context) LookupRemoteDebianRepositoryResultOutput {
 	return o
+}
+
+func (o LookupRemoteDebianRepositoryResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupRemoteDebianRepositoryResult] {
+	return pulumix.Output[LookupRemoteDebianRepositoryResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupRemoteDebianRepositoryResultOutput) AllowAnyHostAuth() pulumi.BoolPtrOutput {

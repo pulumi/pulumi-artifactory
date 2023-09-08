@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a federated Helm repository.
@@ -387,6 +388,12 @@ func (i *FederatedHelmRepository) ToFederatedHelmRepositoryOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedHelmRepositoryOutput)
 }
 
+func (i *FederatedHelmRepository) ToOutput(ctx context.Context) pulumix.Output[*FederatedHelmRepository] {
+	return pulumix.Output[*FederatedHelmRepository]{
+		OutputState: i.ToFederatedHelmRepositoryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FederatedHelmRepositoryArrayInput is an input type that accepts FederatedHelmRepositoryArray and FederatedHelmRepositoryArrayOutput values.
 // You can construct a concrete instance of `FederatedHelmRepositoryArrayInput` via:
 //
@@ -410,6 +417,12 @@ func (i FederatedHelmRepositoryArray) ToFederatedHelmRepositoryArrayOutput() Fed
 
 func (i FederatedHelmRepositoryArray) ToFederatedHelmRepositoryArrayOutputWithContext(ctx context.Context) FederatedHelmRepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedHelmRepositoryArrayOutput)
+}
+
+func (i FederatedHelmRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*FederatedHelmRepository] {
+	return pulumix.Output[[]*FederatedHelmRepository]{
+		OutputState: i.ToFederatedHelmRepositoryArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // FederatedHelmRepositoryMapInput is an input type that accepts FederatedHelmRepositoryMap and FederatedHelmRepositoryMapOutput values.
@@ -437,6 +450,12 @@ func (i FederatedHelmRepositoryMap) ToFederatedHelmRepositoryMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedHelmRepositoryMapOutput)
 }
 
+func (i FederatedHelmRepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*FederatedHelmRepository] {
+	return pulumix.Output[map[string]*FederatedHelmRepository]{
+		OutputState: i.ToFederatedHelmRepositoryMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FederatedHelmRepositoryOutput struct{ *pulumi.OutputState }
 
 func (FederatedHelmRepositoryOutput) ElementType() reflect.Type {
@@ -449,6 +468,12 @@ func (o FederatedHelmRepositoryOutput) ToFederatedHelmRepositoryOutput() Federat
 
 func (o FederatedHelmRepositoryOutput) ToFederatedHelmRepositoryOutputWithContext(ctx context.Context) FederatedHelmRepositoryOutput {
 	return o
+}
+
+func (o FederatedHelmRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*FederatedHelmRepository] {
+	return pulumix.Output[*FederatedHelmRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 // When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -569,6 +594,12 @@ func (o FederatedHelmRepositoryArrayOutput) ToFederatedHelmRepositoryArrayOutput
 	return o
 }
 
+func (o FederatedHelmRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*FederatedHelmRepository] {
+	return pulumix.Output[[]*FederatedHelmRepository]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FederatedHelmRepositoryArrayOutput) Index(i pulumi.IntInput) FederatedHelmRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FederatedHelmRepository {
 		return vs[0].([]*FederatedHelmRepository)[vs[1].(int)]
@@ -587,6 +618,12 @@ func (o FederatedHelmRepositoryMapOutput) ToFederatedHelmRepositoryMapOutput() F
 
 func (o FederatedHelmRepositoryMapOutput) ToFederatedHelmRepositoryMapOutputWithContext(ctx context.Context) FederatedHelmRepositoryMapOutput {
 	return o
+}
+
+func (o FederatedHelmRepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*FederatedHelmRepository] {
+	return pulumix.Output[map[string]*FederatedHelmRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FederatedHelmRepositoryMapOutput) MapIndex(k pulumi.StringInput) FederatedHelmRepositoryOutput {

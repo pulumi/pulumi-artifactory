@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a virtual Maven repository.
@@ -336,6 +337,12 @@ func (i *MavenRepository) ToMavenRepositoryOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(MavenRepositoryOutput)
 }
 
+func (i *MavenRepository) ToOutput(ctx context.Context) pulumix.Output[*MavenRepository] {
+	return pulumix.Output[*MavenRepository]{
+		OutputState: i.ToMavenRepositoryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // MavenRepositoryArrayInput is an input type that accepts MavenRepositoryArray and MavenRepositoryArrayOutput values.
 // You can construct a concrete instance of `MavenRepositoryArrayInput` via:
 //
@@ -359,6 +366,12 @@ func (i MavenRepositoryArray) ToMavenRepositoryArrayOutput() MavenRepositoryArra
 
 func (i MavenRepositoryArray) ToMavenRepositoryArrayOutputWithContext(ctx context.Context) MavenRepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MavenRepositoryArrayOutput)
+}
+
+func (i MavenRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*MavenRepository] {
+	return pulumix.Output[[]*MavenRepository]{
+		OutputState: i.ToMavenRepositoryArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // MavenRepositoryMapInput is an input type that accepts MavenRepositoryMap and MavenRepositoryMapOutput values.
@@ -386,6 +399,12 @@ func (i MavenRepositoryMap) ToMavenRepositoryMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(MavenRepositoryMapOutput)
 }
 
+func (i MavenRepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*MavenRepository] {
+	return pulumix.Output[map[string]*MavenRepository]{
+		OutputState: i.ToMavenRepositoryMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type MavenRepositoryOutput struct{ *pulumi.OutputState }
 
 func (MavenRepositoryOutput) ElementType() reflect.Type {
@@ -398,6 +417,12 @@ func (o MavenRepositoryOutput) ToMavenRepositoryOutput() MavenRepositoryOutput {
 
 func (o MavenRepositoryOutput) ToMavenRepositoryOutputWithContext(ctx context.Context) MavenRepositoryOutput {
 	return o
+}
+
+func (o MavenRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*MavenRepository] {
+	return pulumix.Output[*MavenRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
@@ -496,6 +521,12 @@ func (o MavenRepositoryArrayOutput) ToMavenRepositoryArrayOutputWithContext(ctx 
 	return o
 }
 
+func (o MavenRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*MavenRepository] {
+	return pulumix.Output[[]*MavenRepository]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o MavenRepositoryArrayOutput) Index(i pulumi.IntInput) MavenRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *MavenRepository {
 		return vs[0].([]*MavenRepository)[vs[1].(int)]
@@ -514,6 +545,12 @@ func (o MavenRepositoryMapOutput) ToMavenRepositoryMapOutput() MavenRepositoryMa
 
 func (o MavenRepositoryMapOutput) ToMavenRepositoryMapOutputWithContext(ctx context.Context) MavenRepositoryMapOutput {
 	return o
+}
+
+func (o MavenRepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*MavenRepository] {
+	return pulumix.Output[map[string]*MavenRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MavenRepositoryMapOutput) MapIndex(k pulumi.StringInput) MavenRepositoryOutput {

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a federated Nuget repository.
@@ -412,6 +413,12 @@ func (i *FederatedNugetRepository) ToFederatedNugetRepositoryOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedNugetRepositoryOutput)
 }
 
+func (i *FederatedNugetRepository) ToOutput(ctx context.Context) pulumix.Output[*FederatedNugetRepository] {
+	return pulumix.Output[*FederatedNugetRepository]{
+		OutputState: i.ToFederatedNugetRepositoryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FederatedNugetRepositoryArrayInput is an input type that accepts FederatedNugetRepositoryArray and FederatedNugetRepositoryArrayOutput values.
 // You can construct a concrete instance of `FederatedNugetRepositoryArrayInput` via:
 //
@@ -435,6 +442,12 @@ func (i FederatedNugetRepositoryArray) ToFederatedNugetRepositoryArrayOutput() F
 
 func (i FederatedNugetRepositoryArray) ToFederatedNugetRepositoryArrayOutputWithContext(ctx context.Context) FederatedNugetRepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedNugetRepositoryArrayOutput)
+}
+
+func (i FederatedNugetRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*FederatedNugetRepository] {
+	return pulumix.Output[[]*FederatedNugetRepository]{
+		OutputState: i.ToFederatedNugetRepositoryArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // FederatedNugetRepositoryMapInput is an input type that accepts FederatedNugetRepositoryMap and FederatedNugetRepositoryMapOutput values.
@@ -462,6 +475,12 @@ func (i FederatedNugetRepositoryMap) ToFederatedNugetRepositoryMapOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedNugetRepositoryMapOutput)
 }
 
+func (i FederatedNugetRepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*FederatedNugetRepository] {
+	return pulumix.Output[map[string]*FederatedNugetRepository]{
+		OutputState: i.ToFederatedNugetRepositoryMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FederatedNugetRepositoryOutput struct{ *pulumi.OutputState }
 
 func (FederatedNugetRepositoryOutput) ElementType() reflect.Type {
@@ -474,6 +493,12 @@ func (o FederatedNugetRepositoryOutput) ToFederatedNugetRepositoryOutput() Feder
 
 func (o FederatedNugetRepositoryOutput) ToFederatedNugetRepositoryOutputWithContext(ctx context.Context) FederatedNugetRepositoryOutput {
 	return o
+}
+
+func (o FederatedNugetRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*FederatedNugetRepository] {
+	return pulumix.Output[*FederatedNugetRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 // When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -605,6 +630,12 @@ func (o FederatedNugetRepositoryArrayOutput) ToFederatedNugetRepositoryArrayOutp
 	return o
 }
 
+func (o FederatedNugetRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*FederatedNugetRepository] {
+	return pulumix.Output[[]*FederatedNugetRepository]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FederatedNugetRepositoryArrayOutput) Index(i pulumi.IntInput) FederatedNugetRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FederatedNugetRepository {
 		return vs[0].([]*FederatedNugetRepository)[vs[1].(int)]
@@ -623,6 +654,12 @@ func (o FederatedNugetRepositoryMapOutput) ToFederatedNugetRepositoryMapOutput()
 
 func (o FederatedNugetRepositoryMapOutput) ToFederatedNugetRepositoryMapOutputWithContext(ctx context.Context) FederatedNugetRepositoryMapOutput {
 	return o
+}
+
+func (o FederatedNugetRepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*FederatedNugetRepository] {
+	return pulumix.Output[map[string]*FederatedNugetRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FederatedNugetRepositoryMapOutput) MapIndex(k pulumi.StringInput) FederatedNugetRepositoryOutput {

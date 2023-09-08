@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Note: this resource is deprecated in favor of `PullReplication` resource.
@@ -189,6 +190,12 @@ func (i *SingleReplicationConfig) ToSingleReplicationConfigOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SingleReplicationConfigOutput)
 }
 
+func (i *SingleReplicationConfig) ToOutput(ctx context.Context) pulumix.Output[*SingleReplicationConfig] {
+	return pulumix.Output[*SingleReplicationConfig]{
+		OutputState: i.ToSingleReplicationConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SingleReplicationConfigArrayInput is an input type that accepts SingleReplicationConfigArray and SingleReplicationConfigArrayOutput values.
 // You can construct a concrete instance of `SingleReplicationConfigArrayInput` via:
 //
@@ -212,6 +219,12 @@ func (i SingleReplicationConfigArray) ToSingleReplicationConfigArrayOutput() Sin
 
 func (i SingleReplicationConfigArray) ToSingleReplicationConfigArrayOutputWithContext(ctx context.Context) SingleReplicationConfigArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SingleReplicationConfigArrayOutput)
+}
+
+func (i SingleReplicationConfigArray) ToOutput(ctx context.Context) pulumix.Output[[]*SingleReplicationConfig] {
+	return pulumix.Output[[]*SingleReplicationConfig]{
+		OutputState: i.ToSingleReplicationConfigArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // SingleReplicationConfigMapInput is an input type that accepts SingleReplicationConfigMap and SingleReplicationConfigMapOutput values.
@@ -239,6 +252,12 @@ func (i SingleReplicationConfigMap) ToSingleReplicationConfigMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(SingleReplicationConfigMapOutput)
 }
 
+func (i SingleReplicationConfigMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SingleReplicationConfig] {
+	return pulumix.Output[map[string]*SingleReplicationConfig]{
+		OutputState: i.ToSingleReplicationConfigMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SingleReplicationConfigOutput struct{ *pulumi.OutputState }
 
 func (SingleReplicationConfigOutput) ElementType() reflect.Type {
@@ -251,6 +270,12 @@ func (o SingleReplicationConfigOutput) ToSingleReplicationConfigOutput() SingleR
 
 func (o SingleReplicationConfigOutput) ToSingleReplicationConfigOutputWithContext(ctx context.Context) SingleReplicationConfigOutput {
 	return o
+}
+
+func (o SingleReplicationConfigOutput) ToOutput(ctx context.Context) pulumix.Output[*SingleReplicationConfig] {
+	return pulumix.Output[*SingleReplicationConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Cron expression to control the operation frequency.
@@ -322,6 +347,12 @@ func (o SingleReplicationConfigArrayOutput) ToSingleReplicationConfigArrayOutput
 	return o
 }
 
+func (o SingleReplicationConfigArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SingleReplicationConfig] {
+	return pulumix.Output[[]*SingleReplicationConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SingleReplicationConfigArrayOutput) Index(i pulumi.IntInput) SingleReplicationConfigOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SingleReplicationConfig {
 		return vs[0].([]*SingleReplicationConfig)[vs[1].(int)]
@@ -340,6 +371,12 @@ func (o SingleReplicationConfigMapOutput) ToSingleReplicationConfigMapOutput() S
 
 func (o SingleReplicationConfigMapOutput) ToSingleReplicationConfigMapOutputWithContext(ctx context.Context) SingleReplicationConfigMapOutput {
 	return o
+}
+
+func (o SingleReplicationConfigMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SingleReplicationConfig] {
+	return pulumix.Output[map[string]*SingleReplicationConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SingleReplicationConfigMapOutput) MapIndex(k pulumi.StringInput) SingleReplicationConfigOutput {

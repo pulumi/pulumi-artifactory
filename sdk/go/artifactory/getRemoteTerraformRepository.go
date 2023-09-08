@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -222,6 +223,12 @@ func (o LookupRemoteTerraformRepositoryResultOutput) ToLookupRemoteTerraformRepo
 
 func (o LookupRemoteTerraformRepositoryResultOutput) ToLookupRemoteTerraformRepositoryResultOutputWithContext(ctx context.Context) LookupRemoteTerraformRepositoryResultOutput {
 	return o
+}
+
+func (o LookupRemoteTerraformRepositoryResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupRemoteTerraformRepositoryResult] {
+	return pulumix.Output[LookupRemoteTerraformRepositoryResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupRemoteTerraformRepositoryResultOutput) AllowAnyHostAuth() pulumi.BoolPtrOutput {

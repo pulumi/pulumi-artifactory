@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a local Opkg repository.
@@ -334,6 +335,12 @@ func (i *LocalOpkgRepository) ToLocalOpkgRepositoryOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(LocalOpkgRepositoryOutput)
 }
 
+func (i *LocalOpkgRepository) ToOutput(ctx context.Context) pulumix.Output[*LocalOpkgRepository] {
+	return pulumix.Output[*LocalOpkgRepository]{
+		OutputState: i.ToLocalOpkgRepositoryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LocalOpkgRepositoryArrayInput is an input type that accepts LocalOpkgRepositoryArray and LocalOpkgRepositoryArrayOutput values.
 // You can construct a concrete instance of `LocalOpkgRepositoryArrayInput` via:
 //
@@ -357,6 +364,12 @@ func (i LocalOpkgRepositoryArray) ToLocalOpkgRepositoryArrayOutput() LocalOpkgRe
 
 func (i LocalOpkgRepositoryArray) ToLocalOpkgRepositoryArrayOutputWithContext(ctx context.Context) LocalOpkgRepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LocalOpkgRepositoryArrayOutput)
+}
+
+func (i LocalOpkgRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*LocalOpkgRepository] {
+	return pulumix.Output[[]*LocalOpkgRepository]{
+		OutputState: i.ToLocalOpkgRepositoryArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // LocalOpkgRepositoryMapInput is an input type that accepts LocalOpkgRepositoryMap and LocalOpkgRepositoryMapOutput values.
@@ -384,6 +397,12 @@ func (i LocalOpkgRepositoryMap) ToLocalOpkgRepositoryMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(LocalOpkgRepositoryMapOutput)
 }
 
+func (i LocalOpkgRepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LocalOpkgRepository] {
+	return pulumix.Output[map[string]*LocalOpkgRepository]{
+		OutputState: i.ToLocalOpkgRepositoryMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LocalOpkgRepositoryOutput struct{ *pulumi.OutputState }
 
 func (LocalOpkgRepositoryOutput) ElementType() reflect.Type {
@@ -396,6 +415,12 @@ func (o LocalOpkgRepositoryOutput) ToLocalOpkgRepositoryOutput() LocalOpkgReposi
 
 func (o LocalOpkgRepositoryOutput) ToLocalOpkgRepositoryOutputWithContext(ctx context.Context) LocalOpkgRepositoryOutput {
 	return o
+}
+
+func (o LocalOpkgRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*LocalOpkgRepository] {
+	return pulumix.Output[*LocalOpkgRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 // When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -502,6 +527,12 @@ func (o LocalOpkgRepositoryArrayOutput) ToLocalOpkgRepositoryArrayOutputWithCont
 	return o
 }
 
+func (o LocalOpkgRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LocalOpkgRepository] {
+	return pulumix.Output[[]*LocalOpkgRepository]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LocalOpkgRepositoryArrayOutput) Index(i pulumi.IntInput) LocalOpkgRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LocalOpkgRepository {
 		return vs[0].([]*LocalOpkgRepository)[vs[1].(int)]
@@ -520,6 +551,12 @@ func (o LocalOpkgRepositoryMapOutput) ToLocalOpkgRepositoryMapOutput() LocalOpkg
 
 func (o LocalOpkgRepositoryMapOutput) ToLocalOpkgRepositoryMapOutputWithContext(ctx context.Context) LocalOpkgRepositoryMapOutput {
 	return o
+}
+
+func (o LocalOpkgRepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LocalOpkgRepository] {
+	return pulumix.Output[map[string]*LocalOpkgRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LocalOpkgRepositoryMapOutput) MapIndex(k pulumi.StringInput) LocalOpkgRepositoryOutput {

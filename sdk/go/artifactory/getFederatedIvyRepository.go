@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieves a federated Ivy repository.
@@ -176,6 +177,12 @@ func (o LookupFederatedIvyRepositoryResultOutput) ToLookupFederatedIvyRepository
 
 func (o LookupFederatedIvyRepositoryResultOutput) ToLookupFederatedIvyRepositoryResultOutputWithContext(ctx context.Context) LookupFederatedIvyRepositoryResultOutput {
 	return o
+}
+
+func (o LookupFederatedIvyRepositoryResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupFederatedIvyRepositoryResult] {
+	return pulumix.Output[LookupFederatedIvyRepositoryResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupFederatedIvyRepositoryResultOutput) ArchiveBrowsingEnabled() pulumi.BoolPtrOutput {

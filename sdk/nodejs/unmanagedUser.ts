@@ -90,7 +90,7 @@ export class UnmanagedUser extends pulumi.CustomResource {
      */
     public readonly internalPasswordDisabled!: pulumi.Output<boolean | undefined>;
     /**
-     * Username for user.
+     * Username for user. May contain lowercase letters, numbers and symbols: '.-_@'
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -169,7 +169,7 @@ export interface UnmanagedUserState {
      */
     internalPasswordDisabled?: pulumi.Input<boolean>;
     /**
-     * Username for user.
+     * Username for user. May contain lowercase letters, numbers and symbols: '.-_@'
      */
     name?: pulumi.Input<string>;
     /**
@@ -207,7 +207,7 @@ export interface UnmanagedUserArgs {
      */
     internalPasswordDisabled?: pulumi.Input<boolean>;
     /**
-     * Username for user.
+     * Username for user. May contain lowercase letters, numbers and symbols: '.-_@'
      */
     name?: pulumi.Input<string>;
     /**

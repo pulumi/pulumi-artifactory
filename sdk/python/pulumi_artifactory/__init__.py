@@ -187,6 +187,7 @@ from .get_virtual_rpm_repository import *
 from .get_virtual_sbt_repository import *
 from .get_virtual_swift_repository import *
 from .get_virtual_terraform_repository import *
+from .global_environment import *
 from .go_repository import *
 from .group import *
 from .keypair import *
@@ -751,6 +752,14 @@ _utilities.register(
   "fqn": "pulumi_artifactory",
   "classes": {
    "artifactory:index/generalSecurity:GeneralSecurity": "GeneralSecurity"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/globalEnvironment",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/globalEnvironment:GlobalEnvironment": "GlobalEnvironment"
   }
  },
  {

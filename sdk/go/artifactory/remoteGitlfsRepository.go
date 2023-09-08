@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a remote Gitlfs repository.
@@ -711,6 +712,12 @@ func (i *RemoteGitlfsRepository) ToRemoteGitlfsRepositoryOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(RemoteGitlfsRepositoryOutput)
 }
 
+func (i *RemoteGitlfsRepository) ToOutput(ctx context.Context) pulumix.Output[*RemoteGitlfsRepository] {
+	return pulumix.Output[*RemoteGitlfsRepository]{
+		OutputState: i.ToRemoteGitlfsRepositoryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RemoteGitlfsRepositoryArrayInput is an input type that accepts RemoteGitlfsRepositoryArray and RemoteGitlfsRepositoryArrayOutput values.
 // You can construct a concrete instance of `RemoteGitlfsRepositoryArrayInput` via:
 //
@@ -734,6 +741,12 @@ func (i RemoteGitlfsRepositoryArray) ToRemoteGitlfsRepositoryArrayOutput() Remot
 
 func (i RemoteGitlfsRepositoryArray) ToRemoteGitlfsRepositoryArrayOutputWithContext(ctx context.Context) RemoteGitlfsRepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RemoteGitlfsRepositoryArrayOutput)
+}
+
+func (i RemoteGitlfsRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*RemoteGitlfsRepository] {
+	return pulumix.Output[[]*RemoteGitlfsRepository]{
+		OutputState: i.ToRemoteGitlfsRepositoryArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // RemoteGitlfsRepositoryMapInput is an input type that accepts RemoteGitlfsRepositoryMap and RemoteGitlfsRepositoryMapOutput values.
@@ -761,6 +774,12 @@ func (i RemoteGitlfsRepositoryMap) ToRemoteGitlfsRepositoryMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(RemoteGitlfsRepositoryMapOutput)
 }
 
+func (i RemoteGitlfsRepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RemoteGitlfsRepository] {
+	return pulumix.Output[map[string]*RemoteGitlfsRepository]{
+		OutputState: i.ToRemoteGitlfsRepositoryMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RemoteGitlfsRepositoryOutput struct{ *pulumi.OutputState }
 
 func (RemoteGitlfsRepositoryOutput) ElementType() reflect.Type {
@@ -773,6 +792,12 @@ func (o RemoteGitlfsRepositoryOutput) ToRemoteGitlfsRepositoryOutput() RemoteGit
 
 func (o RemoteGitlfsRepositoryOutput) ToRemoteGitlfsRepositoryOutputWithContext(ctx context.Context) RemoteGitlfsRepositoryOutput {
 	return o
+}
+
+func (o RemoteGitlfsRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*RemoteGitlfsRepository] {
+	return pulumix.Output[*RemoteGitlfsRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 // 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any
@@ -1032,6 +1057,12 @@ func (o RemoteGitlfsRepositoryArrayOutput) ToRemoteGitlfsRepositoryArrayOutputWi
 	return o
 }
 
+func (o RemoteGitlfsRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RemoteGitlfsRepository] {
+	return pulumix.Output[[]*RemoteGitlfsRepository]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RemoteGitlfsRepositoryArrayOutput) Index(i pulumi.IntInput) RemoteGitlfsRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RemoteGitlfsRepository {
 		return vs[0].([]*RemoteGitlfsRepository)[vs[1].(int)]
@@ -1050,6 +1081,12 @@ func (o RemoteGitlfsRepositoryMapOutput) ToRemoteGitlfsRepositoryMapOutput() Rem
 
 func (o RemoteGitlfsRepositoryMapOutput) ToRemoteGitlfsRepositoryMapOutputWithContext(ctx context.Context) RemoteGitlfsRepositoryMapOutput {
 	return o
+}
+
+func (o RemoteGitlfsRepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RemoteGitlfsRepository] {
+	return pulumix.Output[map[string]*RemoteGitlfsRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RemoteGitlfsRepositoryMapOutput) MapIndex(k pulumi.StringInput) RemoteGitlfsRepositoryOutput {

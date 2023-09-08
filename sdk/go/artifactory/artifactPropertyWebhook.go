@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an Artifactory webhook resource. This can be used to register and manage Artifactory webhook subscription which enables you to be notified or notify other users when such events take place in Artifactory.
@@ -222,6 +223,12 @@ func (i *ArtifactPropertyWebhook) ToArtifactPropertyWebhookOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(ArtifactPropertyWebhookOutput)
 }
 
+func (i *ArtifactPropertyWebhook) ToOutput(ctx context.Context) pulumix.Output[*ArtifactPropertyWebhook] {
+	return pulumix.Output[*ArtifactPropertyWebhook]{
+		OutputState: i.ToArtifactPropertyWebhookOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ArtifactPropertyWebhookArrayInput is an input type that accepts ArtifactPropertyWebhookArray and ArtifactPropertyWebhookArrayOutput values.
 // You can construct a concrete instance of `ArtifactPropertyWebhookArrayInput` via:
 //
@@ -245,6 +252,12 @@ func (i ArtifactPropertyWebhookArray) ToArtifactPropertyWebhookArrayOutput() Art
 
 func (i ArtifactPropertyWebhookArray) ToArtifactPropertyWebhookArrayOutputWithContext(ctx context.Context) ArtifactPropertyWebhookArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ArtifactPropertyWebhookArrayOutput)
+}
+
+func (i ArtifactPropertyWebhookArray) ToOutput(ctx context.Context) pulumix.Output[[]*ArtifactPropertyWebhook] {
+	return pulumix.Output[[]*ArtifactPropertyWebhook]{
+		OutputState: i.ToArtifactPropertyWebhookArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ArtifactPropertyWebhookMapInput is an input type that accepts ArtifactPropertyWebhookMap and ArtifactPropertyWebhookMapOutput values.
@@ -272,6 +285,12 @@ func (i ArtifactPropertyWebhookMap) ToArtifactPropertyWebhookMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ArtifactPropertyWebhookMapOutput)
 }
 
+func (i ArtifactPropertyWebhookMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ArtifactPropertyWebhook] {
+	return pulumix.Output[map[string]*ArtifactPropertyWebhook]{
+		OutputState: i.ToArtifactPropertyWebhookMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ArtifactPropertyWebhookOutput struct{ *pulumi.OutputState }
 
 func (ArtifactPropertyWebhookOutput) ElementType() reflect.Type {
@@ -284,6 +303,12 @@ func (o ArtifactPropertyWebhookOutput) ToArtifactPropertyWebhookOutput() Artifac
 
 func (o ArtifactPropertyWebhookOutput) ToArtifactPropertyWebhookOutputWithContext(ctx context.Context) ArtifactPropertyWebhookOutput {
 	return o
+}
+
+func (o ArtifactPropertyWebhookOutput) ToOutput(ctx context.Context) pulumix.Output[*ArtifactPropertyWebhook] {
+	return pulumix.Output[*ArtifactPropertyWebhook]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies where the webhook will be applied on which repositories.
@@ -330,6 +355,12 @@ func (o ArtifactPropertyWebhookArrayOutput) ToArtifactPropertyWebhookArrayOutput
 	return o
 }
 
+func (o ArtifactPropertyWebhookArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ArtifactPropertyWebhook] {
+	return pulumix.Output[[]*ArtifactPropertyWebhook]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ArtifactPropertyWebhookArrayOutput) Index(i pulumi.IntInput) ArtifactPropertyWebhookOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ArtifactPropertyWebhook {
 		return vs[0].([]*ArtifactPropertyWebhook)[vs[1].(int)]
@@ -348,6 +379,12 @@ func (o ArtifactPropertyWebhookMapOutput) ToArtifactPropertyWebhookMapOutput() A
 
 func (o ArtifactPropertyWebhookMapOutput) ToArtifactPropertyWebhookMapOutputWithContext(ctx context.Context) ArtifactPropertyWebhookMapOutput {
 	return o
+}
+
+func (o ArtifactPropertyWebhookMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ArtifactPropertyWebhook] {
+	return pulumix.Output[map[string]*ArtifactPropertyWebhook]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ArtifactPropertyWebhookMapOutput) MapIndex(k pulumi.StringInput) ArtifactPropertyWebhookOutput {

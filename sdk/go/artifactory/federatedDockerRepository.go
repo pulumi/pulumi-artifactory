@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a federated Docker repository.
@@ -440,6 +441,12 @@ func (i *FederatedDockerRepository) ToFederatedDockerRepositoryOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedDockerRepositoryOutput)
 }
 
+func (i *FederatedDockerRepository) ToOutput(ctx context.Context) pulumix.Output[*FederatedDockerRepository] {
+	return pulumix.Output[*FederatedDockerRepository]{
+		OutputState: i.ToFederatedDockerRepositoryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FederatedDockerRepositoryArrayInput is an input type that accepts FederatedDockerRepositoryArray and FederatedDockerRepositoryArrayOutput values.
 // You can construct a concrete instance of `FederatedDockerRepositoryArrayInput` via:
 //
@@ -463,6 +470,12 @@ func (i FederatedDockerRepositoryArray) ToFederatedDockerRepositoryArrayOutput()
 
 func (i FederatedDockerRepositoryArray) ToFederatedDockerRepositoryArrayOutputWithContext(ctx context.Context) FederatedDockerRepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedDockerRepositoryArrayOutput)
+}
+
+func (i FederatedDockerRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*FederatedDockerRepository] {
+	return pulumix.Output[[]*FederatedDockerRepository]{
+		OutputState: i.ToFederatedDockerRepositoryArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // FederatedDockerRepositoryMapInput is an input type that accepts FederatedDockerRepositoryMap and FederatedDockerRepositoryMapOutput values.
@@ -490,6 +503,12 @@ func (i FederatedDockerRepositoryMap) ToFederatedDockerRepositoryMapOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedDockerRepositoryMapOutput)
 }
 
+func (i FederatedDockerRepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*FederatedDockerRepository] {
+	return pulumix.Output[map[string]*FederatedDockerRepository]{
+		OutputState: i.ToFederatedDockerRepositoryMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FederatedDockerRepositoryOutput struct{ *pulumi.OutputState }
 
 func (FederatedDockerRepositoryOutput) ElementType() reflect.Type {
@@ -502,6 +521,12 @@ func (o FederatedDockerRepositoryOutput) ToFederatedDockerRepositoryOutput() Fed
 
 func (o FederatedDockerRepositoryOutput) ToFederatedDockerRepositoryOutputWithContext(ctx context.Context) FederatedDockerRepositoryOutput {
 	return o
+}
+
+func (o FederatedDockerRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*FederatedDockerRepository] {
+	return pulumix.Output[*FederatedDockerRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Docker API version to use. This cannot be set
@@ -645,6 +670,12 @@ func (o FederatedDockerRepositoryArrayOutput) ToFederatedDockerRepositoryArrayOu
 	return o
 }
 
+func (o FederatedDockerRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*FederatedDockerRepository] {
+	return pulumix.Output[[]*FederatedDockerRepository]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FederatedDockerRepositoryArrayOutput) Index(i pulumi.IntInput) FederatedDockerRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FederatedDockerRepository {
 		return vs[0].([]*FederatedDockerRepository)[vs[1].(int)]
@@ -663,6 +694,12 @@ func (o FederatedDockerRepositoryMapOutput) ToFederatedDockerRepositoryMapOutput
 
 func (o FederatedDockerRepositoryMapOutput) ToFederatedDockerRepositoryMapOutputWithContext(ctx context.Context) FederatedDockerRepositoryMapOutput {
 	return o
+}
+
+func (o FederatedDockerRepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*FederatedDockerRepository] {
+	return pulumix.Output[map[string]*FederatedDockerRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FederatedDockerRepositoryMapOutput) MapIndex(k pulumi.StringInput) FederatedDockerRepositoryOutput {

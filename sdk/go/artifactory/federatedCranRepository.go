@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a federated Cran repository.
@@ -387,6 +388,12 @@ func (i *FederatedCranRepository) ToFederatedCranRepositoryOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedCranRepositoryOutput)
 }
 
+func (i *FederatedCranRepository) ToOutput(ctx context.Context) pulumix.Output[*FederatedCranRepository] {
+	return pulumix.Output[*FederatedCranRepository]{
+		OutputState: i.ToFederatedCranRepositoryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FederatedCranRepositoryArrayInput is an input type that accepts FederatedCranRepositoryArray and FederatedCranRepositoryArrayOutput values.
 // You can construct a concrete instance of `FederatedCranRepositoryArrayInput` via:
 //
@@ -410,6 +417,12 @@ func (i FederatedCranRepositoryArray) ToFederatedCranRepositoryArrayOutput() Fed
 
 func (i FederatedCranRepositoryArray) ToFederatedCranRepositoryArrayOutputWithContext(ctx context.Context) FederatedCranRepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedCranRepositoryArrayOutput)
+}
+
+func (i FederatedCranRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*FederatedCranRepository] {
+	return pulumix.Output[[]*FederatedCranRepository]{
+		OutputState: i.ToFederatedCranRepositoryArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // FederatedCranRepositoryMapInput is an input type that accepts FederatedCranRepositoryMap and FederatedCranRepositoryMapOutput values.
@@ -437,6 +450,12 @@ func (i FederatedCranRepositoryMap) ToFederatedCranRepositoryMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedCranRepositoryMapOutput)
 }
 
+func (i FederatedCranRepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*FederatedCranRepository] {
+	return pulumix.Output[map[string]*FederatedCranRepository]{
+		OutputState: i.ToFederatedCranRepositoryMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FederatedCranRepositoryOutput struct{ *pulumi.OutputState }
 
 func (FederatedCranRepositoryOutput) ElementType() reflect.Type {
@@ -449,6 +468,12 @@ func (o FederatedCranRepositoryOutput) ToFederatedCranRepositoryOutput() Federat
 
 func (o FederatedCranRepositoryOutput) ToFederatedCranRepositoryOutputWithContext(ctx context.Context) FederatedCranRepositoryOutput {
 	return o
+}
+
+func (o FederatedCranRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*FederatedCranRepository] {
+	return pulumix.Output[*FederatedCranRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 // When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -569,6 +594,12 @@ func (o FederatedCranRepositoryArrayOutput) ToFederatedCranRepositoryArrayOutput
 	return o
 }
 
+func (o FederatedCranRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*FederatedCranRepository] {
+	return pulumix.Output[[]*FederatedCranRepository]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FederatedCranRepositoryArrayOutput) Index(i pulumi.IntInput) FederatedCranRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FederatedCranRepository {
 		return vs[0].([]*FederatedCranRepository)[vs[1].(int)]
@@ -587,6 +618,12 @@ func (o FederatedCranRepositoryMapOutput) ToFederatedCranRepositoryMapOutput() F
 
 func (o FederatedCranRepositoryMapOutput) ToFederatedCranRepositoryMapOutputWithContext(ctx context.Context) FederatedCranRepositoryMapOutput {
 	return o
+}
+
+func (o FederatedCranRepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*FederatedCranRepository] {
+	return pulumix.Output[map[string]*FederatedCranRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FederatedCranRepositoryMapOutput) MapIndex(k pulumi.StringInput) FederatedCranRepositoryOutput {

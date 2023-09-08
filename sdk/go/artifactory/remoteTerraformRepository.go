@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -740,6 +741,12 @@ func (i *RemoteTerraformRepository) ToRemoteTerraformRepositoryOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(RemoteTerraformRepositoryOutput)
 }
 
+func (i *RemoteTerraformRepository) ToOutput(ctx context.Context) pulumix.Output[*RemoteTerraformRepository] {
+	return pulumix.Output[*RemoteTerraformRepository]{
+		OutputState: i.ToRemoteTerraformRepositoryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RemoteTerraformRepositoryArrayInput is an input type that accepts RemoteTerraformRepositoryArray and RemoteTerraformRepositoryArrayOutput values.
 // You can construct a concrete instance of `RemoteTerraformRepositoryArrayInput` via:
 //
@@ -763,6 +770,12 @@ func (i RemoteTerraformRepositoryArray) ToRemoteTerraformRepositoryArrayOutput()
 
 func (i RemoteTerraformRepositoryArray) ToRemoteTerraformRepositoryArrayOutputWithContext(ctx context.Context) RemoteTerraformRepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RemoteTerraformRepositoryArrayOutput)
+}
+
+func (i RemoteTerraformRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*RemoteTerraformRepository] {
+	return pulumix.Output[[]*RemoteTerraformRepository]{
+		OutputState: i.ToRemoteTerraformRepositoryArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // RemoteTerraformRepositoryMapInput is an input type that accepts RemoteTerraformRepositoryMap and RemoteTerraformRepositoryMapOutput values.
@@ -790,6 +803,12 @@ func (i RemoteTerraformRepositoryMap) ToRemoteTerraformRepositoryMapOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(RemoteTerraformRepositoryMapOutput)
 }
 
+func (i RemoteTerraformRepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RemoteTerraformRepository] {
+	return pulumix.Output[map[string]*RemoteTerraformRepository]{
+		OutputState: i.ToRemoteTerraformRepositoryMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RemoteTerraformRepositoryOutput struct{ *pulumi.OutputState }
 
 func (RemoteTerraformRepositoryOutput) ElementType() reflect.Type {
@@ -802,6 +821,12 @@ func (o RemoteTerraformRepositoryOutput) ToRemoteTerraformRepositoryOutput() Rem
 
 func (o RemoteTerraformRepositoryOutput) ToRemoteTerraformRepositoryOutputWithContext(ctx context.Context) RemoteTerraformRepositoryOutput {
 	return o
+}
+
+func (o RemoteTerraformRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*RemoteTerraformRepository] {
+	return pulumix.Output[*RemoteTerraformRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 // 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any
@@ -1073,6 +1098,12 @@ func (o RemoteTerraformRepositoryArrayOutput) ToRemoteTerraformRepositoryArrayOu
 	return o
 }
 
+func (o RemoteTerraformRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RemoteTerraformRepository] {
+	return pulumix.Output[[]*RemoteTerraformRepository]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RemoteTerraformRepositoryArrayOutput) Index(i pulumi.IntInput) RemoteTerraformRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RemoteTerraformRepository {
 		return vs[0].([]*RemoteTerraformRepository)[vs[1].(int)]
@@ -1091,6 +1122,12 @@ func (o RemoteTerraformRepositoryMapOutput) ToRemoteTerraformRepositoryMapOutput
 
 func (o RemoteTerraformRepositoryMapOutput) ToRemoteTerraformRepositoryMapOutputWithContext(ctx context.Context) RemoteTerraformRepositoryMapOutput {
 	return o
+}
+
+func (o RemoteTerraformRepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RemoteTerraformRepository] {
+	return pulumix.Output[map[string]*RemoteTerraformRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RemoteTerraformRepositoryMapOutput) MapIndex(k pulumi.StringInput) RemoteTerraformRepositoryOutput {

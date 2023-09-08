@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a federated Docker repository.
@@ -401,6 +402,12 @@ func (i *FederatedDockerV1Repository) ToFederatedDockerV1RepositoryOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedDockerV1RepositoryOutput)
 }
 
+func (i *FederatedDockerV1Repository) ToOutput(ctx context.Context) pulumix.Output[*FederatedDockerV1Repository] {
+	return pulumix.Output[*FederatedDockerV1Repository]{
+		OutputState: i.ToFederatedDockerV1RepositoryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FederatedDockerV1RepositoryArrayInput is an input type that accepts FederatedDockerV1RepositoryArray and FederatedDockerV1RepositoryArrayOutput values.
 // You can construct a concrete instance of `FederatedDockerV1RepositoryArrayInput` via:
 //
@@ -424,6 +431,12 @@ func (i FederatedDockerV1RepositoryArray) ToFederatedDockerV1RepositoryArrayOutp
 
 func (i FederatedDockerV1RepositoryArray) ToFederatedDockerV1RepositoryArrayOutputWithContext(ctx context.Context) FederatedDockerV1RepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedDockerV1RepositoryArrayOutput)
+}
+
+func (i FederatedDockerV1RepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*FederatedDockerV1Repository] {
+	return pulumix.Output[[]*FederatedDockerV1Repository]{
+		OutputState: i.ToFederatedDockerV1RepositoryArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // FederatedDockerV1RepositoryMapInput is an input type that accepts FederatedDockerV1RepositoryMap and FederatedDockerV1RepositoryMapOutput values.
@@ -451,6 +464,12 @@ func (i FederatedDockerV1RepositoryMap) ToFederatedDockerV1RepositoryMapOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedDockerV1RepositoryMapOutput)
 }
 
+func (i FederatedDockerV1RepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*FederatedDockerV1Repository] {
+	return pulumix.Output[map[string]*FederatedDockerV1Repository]{
+		OutputState: i.ToFederatedDockerV1RepositoryMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FederatedDockerV1RepositoryOutput struct{ *pulumi.OutputState }
 
 func (FederatedDockerV1RepositoryOutput) ElementType() reflect.Type {
@@ -463,6 +482,12 @@ func (o FederatedDockerV1RepositoryOutput) ToFederatedDockerV1RepositoryOutput()
 
 func (o FederatedDockerV1RepositoryOutput) ToFederatedDockerV1RepositoryOutputWithContext(ctx context.Context) FederatedDockerV1RepositoryOutput {
 	return o
+}
+
+func (o FederatedDockerV1RepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*FederatedDockerV1Repository] {
+	return pulumix.Output[*FederatedDockerV1Repository]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FederatedDockerV1RepositoryOutput) ApiVersion() pulumi.StringOutput {
@@ -599,6 +624,12 @@ func (o FederatedDockerV1RepositoryArrayOutput) ToFederatedDockerV1RepositoryArr
 	return o
 }
 
+func (o FederatedDockerV1RepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*FederatedDockerV1Repository] {
+	return pulumix.Output[[]*FederatedDockerV1Repository]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FederatedDockerV1RepositoryArrayOutput) Index(i pulumi.IntInput) FederatedDockerV1RepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FederatedDockerV1Repository {
 		return vs[0].([]*FederatedDockerV1Repository)[vs[1].(int)]
@@ -617,6 +648,12 @@ func (o FederatedDockerV1RepositoryMapOutput) ToFederatedDockerV1RepositoryMapOu
 
 func (o FederatedDockerV1RepositoryMapOutput) ToFederatedDockerV1RepositoryMapOutputWithContext(ctx context.Context) FederatedDockerV1RepositoryMapOutput {
 	return o
+}
+
+func (o FederatedDockerV1RepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*FederatedDockerV1Repository] {
+	return pulumix.Output[map[string]*FederatedDockerV1Repository]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FederatedDockerV1RepositoryMapOutput) MapIndex(k pulumi.StringInput) FederatedDockerV1RepositoryOutput {

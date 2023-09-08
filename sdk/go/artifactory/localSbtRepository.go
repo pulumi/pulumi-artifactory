@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a local Sbt repository.
@@ -439,6 +440,12 @@ func (i *LocalSbtRepository) ToLocalSbtRepositoryOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(LocalSbtRepositoryOutput)
 }
 
+func (i *LocalSbtRepository) ToOutput(ctx context.Context) pulumix.Output[*LocalSbtRepository] {
+	return pulumix.Output[*LocalSbtRepository]{
+		OutputState: i.ToLocalSbtRepositoryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LocalSbtRepositoryArrayInput is an input type that accepts LocalSbtRepositoryArray and LocalSbtRepositoryArrayOutput values.
 // You can construct a concrete instance of `LocalSbtRepositoryArrayInput` via:
 //
@@ -462,6 +469,12 @@ func (i LocalSbtRepositoryArray) ToLocalSbtRepositoryArrayOutput() LocalSbtRepos
 
 func (i LocalSbtRepositoryArray) ToLocalSbtRepositoryArrayOutputWithContext(ctx context.Context) LocalSbtRepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LocalSbtRepositoryArrayOutput)
+}
+
+func (i LocalSbtRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*LocalSbtRepository] {
+	return pulumix.Output[[]*LocalSbtRepository]{
+		OutputState: i.ToLocalSbtRepositoryArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // LocalSbtRepositoryMapInput is an input type that accepts LocalSbtRepositoryMap and LocalSbtRepositoryMapOutput values.
@@ -489,6 +502,12 @@ func (i LocalSbtRepositoryMap) ToLocalSbtRepositoryMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(LocalSbtRepositoryMapOutput)
 }
 
+func (i LocalSbtRepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LocalSbtRepository] {
+	return pulumix.Output[map[string]*LocalSbtRepository]{
+		OutputState: i.ToLocalSbtRepositoryMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LocalSbtRepositoryOutput struct{ *pulumi.OutputState }
 
 func (LocalSbtRepositoryOutput) ElementType() reflect.Type {
@@ -501,6 +520,12 @@ func (o LocalSbtRepositoryOutput) ToLocalSbtRepositoryOutput() LocalSbtRepositor
 
 func (o LocalSbtRepositoryOutput) ToLocalSbtRepositoryOutputWithContext(ctx context.Context) LocalSbtRepositoryOutput {
 	return o
+}
+
+func (o LocalSbtRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*LocalSbtRepository] {
+	return pulumix.Output[*LocalSbtRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 // When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -646,6 +671,12 @@ func (o LocalSbtRepositoryArrayOutput) ToLocalSbtRepositoryArrayOutputWithContex
 	return o
 }
 
+func (o LocalSbtRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LocalSbtRepository] {
+	return pulumix.Output[[]*LocalSbtRepository]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LocalSbtRepositoryArrayOutput) Index(i pulumi.IntInput) LocalSbtRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LocalSbtRepository {
 		return vs[0].([]*LocalSbtRepository)[vs[1].(int)]
@@ -664,6 +695,12 @@ func (o LocalSbtRepositoryMapOutput) ToLocalSbtRepositoryMapOutput() LocalSbtRep
 
 func (o LocalSbtRepositoryMapOutput) ToLocalSbtRepositoryMapOutputWithContext(ctx context.Context) LocalSbtRepositoryMapOutput {
 	return o
+}
+
+func (o LocalSbtRepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LocalSbtRepository] {
+	return pulumix.Output[map[string]*LocalSbtRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LocalSbtRepositoryMapOutput) MapIndex(k pulumi.StringInput) LocalSbtRepositoryOutput {

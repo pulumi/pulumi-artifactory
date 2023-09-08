@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieves a remote Cargo repository.
@@ -236,6 +237,12 @@ func (o LookupRemoteCargoRepositoryResultOutput) ToLookupRemoteCargoRepositoryRe
 
 func (o LookupRemoteCargoRepositoryResultOutput) ToLookupRemoteCargoRepositoryResultOutputWithContext(ctx context.Context) LookupRemoteCargoRepositoryResultOutput {
 	return o
+}
+
+func (o LookupRemoteCargoRepositoryResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupRemoteCargoRepositoryResult] {
+	return pulumix.Output[LookupRemoteCargoRepositoryResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupRemoteCargoRepositoryResultOutput) AllowAnyHostAuth() pulumi.BoolPtrOutput {

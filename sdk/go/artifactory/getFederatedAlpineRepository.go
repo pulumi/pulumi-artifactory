@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieves a federated Alpine repository.
@@ -164,6 +165,12 @@ func (o LookupFederatedAlpineRepositoryResultOutput) ToLookupFederatedAlpineRepo
 
 func (o LookupFederatedAlpineRepositoryResultOutput) ToLookupFederatedAlpineRepositoryResultOutputWithContext(ctx context.Context) LookupFederatedAlpineRepositoryResultOutput {
 	return o
+}
+
+func (o LookupFederatedAlpineRepositoryResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupFederatedAlpineRepositoryResult] {
+	return pulumix.Output[LookupFederatedAlpineRepositoryResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupFederatedAlpineRepositoryResultOutput) ArchiveBrowsingEnabled() pulumi.BoolPtrOutput {
