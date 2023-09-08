@@ -867,6 +867,10 @@
                 "current": "artifactory:index/generalSecurity:GeneralSecurity",
                 "majorVersion": 4
             },
+            "artifactory_global_environment": {
+                "current": "artifactory:index/globalEnvironment:GlobalEnvironment",
+                "majorVersion": 4
+            },
             "artifactory_group": {
                 "current": "artifactory:index/group:Group",
                 "majorVersion": 4,
@@ -4472,6 +4476,7 @@
             "artifactory:index/federatedTerraformProviderRepository:FederatedTerraformProviderRepository": 0,
             "artifactory:index/federatedVagrantRepository:FederatedVagrantRepository": 0,
             "artifactory:index/generalSecurity:GeneralSecurity": 0,
+            "artifactory:index/globalEnvironment:GlobalEnvironment": 1,
             "artifactory:index/goRepository:GoRepository": 0,
             "artifactory:index/group:Group": 1,
             "artifactory:index/keypair:Keypair": 0,
@@ -4772,6 +4777,7 @@
             "artifactory:index/federatedTerraformProviderRepository:FederatedTerraformProviderRepository": "artifactory_federated_terraform_provider_repository",
             "artifactory:index/federatedVagrantRepository:FederatedVagrantRepository": "artifactory_federated_vagrant_repository",
             "artifactory:index/generalSecurity:GeneralSecurity": "artifactory_general_security",
+            "artifactory:index/globalEnvironment:GlobalEnvironment": "artifactory_global_environment",
             "artifactory:index/goRepository:GoRepository": "artifactory_virtual_go_repository",
             "artifactory:index/group:Group": "artifactory_group",
             "artifactory:index/keypair:Keypair": "artifactory_keypair",
