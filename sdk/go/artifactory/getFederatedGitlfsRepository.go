@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieves a federated Gitlfs repository.
@@ -158,6 +159,12 @@ func (o GetFederatedGitlfsRepositoryResultOutput) ToGetFederatedGitlfsRepository
 
 func (o GetFederatedGitlfsRepositoryResultOutput) ToGetFederatedGitlfsRepositoryResultOutputWithContext(ctx context.Context) GetFederatedGitlfsRepositoryResultOutput {
 	return o
+}
+
+func (o GetFederatedGitlfsRepositoryResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetFederatedGitlfsRepositoryResult] {
+	return pulumix.Output[GetFederatedGitlfsRepositoryResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetFederatedGitlfsRepositoryResultOutput) ArchiveBrowsingEnabled() pulumi.BoolPtrOutput {

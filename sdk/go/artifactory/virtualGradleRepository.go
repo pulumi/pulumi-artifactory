@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a virtual Gradle repository.
@@ -331,6 +332,12 @@ func (i *VirtualGradleRepository) ToVirtualGradleRepositoryOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualGradleRepositoryOutput)
 }
 
+func (i *VirtualGradleRepository) ToOutput(ctx context.Context) pulumix.Output[*VirtualGradleRepository] {
+	return pulumix.Output[*VirtualGradleRepository]{
+		OutputState: i.ToVirtualGradleRepositoryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // VirtualGradleRepositoryArrayInput is an input type that accepts VirtualGradleRepositoryArray and VirtualGradleRepositoryArrayOutput values.
 // You can construct a concrete instance of `VirtualGradleRepositoryArrayInput` via:
 //
@@ -354,6 +361,12 @@ func (i VirtualGradleRepositoryArray) ToVirtualGradleRepositoryArrayOutput() Vir
 
 func (i VirtualGradleRepositoryArray) ToVirtualGradleRepositoryArrayOutputWithContext(ctx context.Context) VirtualGradleRepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualGradleRepositoryArrayOutput)
+}
+
+func (i VirtualGradleRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*VirtualGradleRepository] {
+	return pulumix.Output[[]*VirtualGradleRepository]{
+		OutputState: i.ToVirtualGradleRepositoryArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // VirtualGradleRepositoryMapInput is an input type that accepts VirtualGradleRepositoryMap and VirtualGradleRepositoryMapOutput values.
@@ -381,6 +394,12 @@ func (i VirtualGradleRepositoryMap) ToVirtualGradleRepositoryMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualGradleRepositoryMapOutput)
 }
 
+func (i VirtualGradleRepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VirtualGradleRepository] {
+	return pulumix.Output[map[string]*VirtualGradleRepository]{
+		OutputState: i.ToVirtualGradleRepositoryMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualGradleRepositoryOutput struct{ *pulumi.OutputState }
 
 func (VirtualGradleRepositoryOutput) ElementType() reflect.Type {
@@ -393,6 +412,12 @@ func (o VirtualGradleRepositoryOutput) ToVirtualGradleRepositoryOutput() Virtual
 
 func (o VirtualGradleRepositoryOutput) ToVirtualGradleRepositoryOutputWithContext(ctx context.Context) VirtualGradleRepositoryOutput {
 	return o
+}
+
+func (o VirtualGradleRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualGradleRepository] {
+	return pulumix.Output[*VirtualGradleRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
@@ -496,6 +521,12 @@ func (o VirtualGradleRepositoryArrayOutput) ToVirtualGradleRepositoryArrayOutput
 	return o
 }
 
+func (o VirtualGradleRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VirtualGradleRepository] {
+	return pulumix.Output[[]*VirtualGradleRepository]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VirtualGradleRepositoryArrayOutput) Index(i pulumi.IntInput) VirtualGradleRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VirtualGradleRepository {
 		return vs[0].([]*VirtualGradleRepository)[vs[1].(int)]
@@ -514,6 +545,12 @@ func (o VirtualGradleRepositoryMapOutput) ToVirtualGradleRepositoryMapOutput() V
 
 func (o VirtualGradleRepositoryMapOutput) ToVirtualGradleRepositoryMapOutputWithContext(ctx context.Context) VirtualGradleRepositoryMapOutput {
 	return o
+}
+
+func (o VirtualGradleRepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VirtualGradleRepository] {
+	return pulumix.Output[map[string]*VirtualGradleRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualGradleRepositoryMapOutput) MapIndex(k pulumi.StringInput) VirtualGradleRepositoryOutput {

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a remote CocoaPods repository.
@@ -748,6 +749,12 @@ func (i *RemoteCocoapodsRepository) ToRemoteCocoapodsRepositoryOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(RemoteCocoapodsRepositoryOutput)
 }
 
+func (i *RemoteCocoapodsRepository) ToOutput(ctx context.Context) pulumix.Output[*RemoteCocoapodsRepository] {
+	return pulumix.Output[*RemoteCocoapodsRepository]{
+		OutputState: i.ToRemoteCocoapodsRepositoryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RemoteCocoapodsRepositoryArrayInput is an input type that accepts RemoteCocoapodsRepositoryArray and RemoteCocoapodsRepositoryArrayOutput values.
 // You can construct a concrete instance of `RemoteCocoapodsRepositoryArrayInput` via:
 //
@@ -771,6 +778,12 @@ func (i RemoteCocoapodsRepositoryArray) ToRemoteCocoapodsRepositoryArrayOutput()
 
 func (i RemoteCocoapodsRepositoryArray) ToRemoteCocoapodsRepositoryArrayOutputWithContext(ctx context.Context) RemoteCocoapodsRepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RemoteCocoapodsRepositoryArrayOutput)
+}
+
+func (i RemoteCocoapodsRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*RemoteCocoapodsRepository] {
+	return pulumix.Output[[]*RemoteCocoapodsRepository]{
+		OutputState: i.ToRemoteCocoapodsRepositoryArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // RemoteCocoapodsRepositoryMapInput is an input type that accepts RemoteCocoapodsRepositoryMap and RemoteCocoapodsRepositoryMapOutput values.
@@ -798,6 +811,12 @@ func (i RemoteCocoapodsRepositoryMap) ToRemoteCocoapodsRepositoryMapOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(RemoteCocoapodsRepositoryMapOutput)
 }
 
+func (i RemoteCocoapodsRepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RemoteCocoapodsRepository] {
+	return pulumix.Output[map[string]*RemoteCocoapodsRepository]{
+		OutputState: i.ToRemoteCocoapodsRepositoryMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RemoteCocoapodsRepositoryOutput struct{ *pulumi.OutputState }
 
 func (RemoteCocoapodsRepositoryOutput) ElementType() reflect.Type {
@@ -810,6 +829,12 @@ func (o RemoteCocoapodsRepositoryOutput) ToRemoteCocoapodsRepositoryOutput() Rem
 
 func (o RemoteCocoapodsRepositoryOutput) ToRemoteCocoapodsRepositoryOutputWithContext(ctx context.Context) RemoteCocoapodsRepositoryOutput {
 	return o
+}
+
+func (o RemoteCocoapodsRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*RemoteCocoapodsRepository] {
+	return pulumix.Output[*RemoteCocoapodsRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 // 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any
@@ -1085,6 +1110,12 @@ func (o RemoteCocoapodsRepositoryArrayOutput) ToRemoteCocoapodsRepositoryArrayOu
 	return o
 }
 
+func (o RemoteCocoapodsRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RemoteCocoapodsRepository] {
+	return pulumix.Output[[]*RemoteCocoapodsRepository]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RemoteCocoapodsRepositoryArrayOutput) Index(i pulumi.IntInput) RemoteCocoapodsRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RemoteCocoapodsRepository {
 		return vs[0].([]*RemoteCocoapodsRepository)[vs[1].(int)]
@@ -1103,6 +1134,12 @@ func (o RemoteCocoapodsRepositoryMapOutput) ToRemoteCocoapodsRepositoryMapOutput
 
 func (o RemoteCocoapodsRepositoryMapOutput) ToRemoteCocoapodsRepositoryMapOutputWithContext(ctx context.Context) RemoteCocoapodsRepositoryMapOutput {
 	return o
+}
+
+func (o RemoteCocoapodsRepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RemoteCocoapodsRepository] {
+	return pulumix.Output[map[string]*RemoteCocoapodsRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RemoteCocoapodsRepositoryMapOutput) MapIndex(k pulumi.StringInput) RemoteCocoapodsRepositoryOutput {

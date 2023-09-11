@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -455,6 +456,12 @@ func (i *AccessToken) ToAccessTokenOutputWithContext(ctx context.Context) Access
 	return pulumi.ToOutputWithContext(ctx, i).(AccessTokenOutput)
 }
 
+func (i *AccessToken) ToOutput(ctx context.Context) pulumix.Output[*AccessToken] {
+	return pulumix.Output[*AccessToken]{
+		OutputState: i.ToAccessTokenOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AccessTokenArrayInput is an input type that accepts AccessTokenArray and AccessTokenArrayOutput values.
 // You can construct a concrete instance of `AccessTokenArrayInput` via:
 //
@@ -478,6 +485,12 @@ func (i AccessTokenArray) ToAccessTokenArrayOutput() AccessTokenArrayOutput {
 
 func (i AccessTokenArray) ToAccessTokenArrayOutputWithContext(ctx context.Context) AccessTokenArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AccessTokenArrayOutput)
+}
+
+func (i AccessTokenArray) ToOutput(ctx context.Context) pulumix.Output[[]*AccessToken] {
+	return pulumix.Output[[]*AccessToken]{
+		OutputState: i.ToAccessTokenArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // AccessTokenMapInput is an input type that accepts AccessTokenMap and AccessTokenMapOutput values.
@@ -505,6 +518,12 @@ func (i AccessTokenMap) ToAccessTokenMapOutputWithContext(ctx context.Context) A
 	return pulumi.ToOutputWithContext(ctx, i).(AccessTokenMapOutput)
 }
 
+func (i AccessTokenMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AccessToken] {
+	return pulumix.Output[map[string]*AccessToken]{
+		OutputState: i.ToAccessTokenMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AccessTokenOutput struct{ *pulumi.OutputState }
 
 func (AccessTokenOutput) ElementType() reflect.Type {
@@ -517,6 +536,12 @@ func (o AccessTokenOutput) ToAccessTokenOutput() AccessTokenOutput {
 
 func (o AccessTokenOutput) ToAccessTokenOutputWithContext(ctx context.Context) AccessTokenOutput {
 	return o
+}
+
+func (o AccessTokenOutput) ToOutput(ctx context.Context) pulumix.Output[*AccessToken] {
+	return pulumix.Output[*AccessToken]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Returns the access token to authenciate to Artifactory
@@ -578,6 +603,12 @@ func (o AccessTokenArrayOutput) ToAccessTokenArrayOutputWithContext(ctx context.
 	return o
 }
 
+func (o AccessTokenArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AccessToken] {
+	return pulumix.Output[[]*AccessToken]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AccessTokenArrayOutput) Index(i pulumi.IntInput) AccessTokenOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AccessToken {
 		return vs[0].([]*AccessToken)[vs[1].(int)]
@@ -596,6 +627,12 @@ func (o AccessTokenMapOutput) ToAccessTokenMapOutput() AccessTokenMapOutput {
 
 func (o AccessTokenMapOutput) ToAccessTokenMapOutputWithContext(ctx context.Context) AccessTokenMapOutput {
 	return o
+}
+
+func (o AccessTokenMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AccessToken] {
+	return pulumix.Output[map[string]*AccessToken]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AccessTokenMapOutput) MapIndex(k pulumi.StringInput) AccessTokenOutput {

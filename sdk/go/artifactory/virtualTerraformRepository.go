@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -282,6 +283,12 @@ func (i *VirtualTerraformRepository) ToVirtualTerraformRepositoryOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualTerraformRepositoryOutput)
 }
 
+func (i *VirtualTerraformRepository) ToOutput(ctx context.Context) pulumix.Output[*VirtualTerraformRepository] {
+	return pulumix.Output[*VirtualTerraformRepository]{
+		OutputState: i.ToVirtualTerraformRepositoryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // VirtualTerraformRepositoryArrayInput is an input type that accepts VirtualTerraformRepositoryArray and VirtualTerraformRepositoryArrayOutput values.
 // You can construct a concrete instance of `VirtualTerraformRepositoryArrayInput` via:
 //
@@ -305,6 +312,12 @@ func (i VirtualTerraformRepositoryArray) ToVirtualTerraformRepositoryArrayOutput
 
 func (i VirtualTerraformRepositoryArray) ToVirtualTerraformRepositoryArrayOutputWithContext(ctx context.Context) VirtualTerraformRepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualTerraformRepositoryArrayOutput)
+}
+
+func (i VirtualTerraformRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*VirtualTerraformRepository] {
+	return pulumix.Output[[]*VirtualTerraformRepository]{
+		OutputState: i.ToVirtualTerraformRepositoryArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // VirtualTerraformRepositoryMapInput is an input type that accepts VirtualTerraformRepositoryMap and VirtualTerraformRepositoryMapOutput values.
@@ -332,6 +345,12 @@ func (i VirtualTerraformRepositoryMap) ToVirtualTerraformRepositoryMapOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualTerraformRepositoryMapOutput)
 }
 
+func (i VirtualTerraformRepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VirtualTerraformRepository] {
+	return pulumix.Output[map[string]*VirtualTerraformRepository]{
+		OutputState: i.ToVirtualTerraformRepositoryMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualTerraformRepositoryOutput struct{ *pulumi.OutputState }
 
 func (VirtualTerraformRepositoryOutput) ElementType() reflect.Type {
@@ -344,6 +363,12 @@ func (o VirtualTerraformRepositoryOutput) ToVirtualTerraformRepositoryOutput() V
 
 func (o VirtualTerraformRepositoryOutput) ToVirtualTerraformRepositoryOutputWithContext(ctx context.Context) VirtualTerraformRepositoryOutput {
 	return o
+}
+
+func (o VirtualTerraformRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualTerraformRepository] {
+	return pulumix.Output[*VirtualTerraformRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
@@ -429,6 +454,12 @@ func (o VirtualTerraformRepositoryArrayOutput) ToVirtualTerraformRepositoryArray
 	return o
 }
 
+func (o VirtualTerraformRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VirtualTerraformRepository] {
+	return pulumix.Output[[]*VirtualTerraformRepository]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VirtualTerraformRepositoryArrayOutput) Index(i pulumi.IntInput) VirtualTerraformRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VirtualTerraformRepository {
 		return vs[0].([]*VirtualTerraformRepository)[vs[1].(int)]
@@ -447,6 +478,12 @@ func (o VirtualTerraformRepositoryMapOutput) ToVirtualTerraformRepositoryMapOutp
 
 func (o VirtualTerraformRepositoryMapOutput) ToVirtualTerraformRepositoryMapOutputWithContext(ctx context.Context) VirtualTerraformRepositoryMapOutput {
 	return o
+}
+
+func (o VirtualTerraformRepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VirtualTerraformRepository] {
+	return pulumix.Output[map[string]*VirtualTerraformRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualTerraformRepositoryMapOutput) MapIndex(k pulumi.StringInput) VirtualTerraformRepositoryOutput {

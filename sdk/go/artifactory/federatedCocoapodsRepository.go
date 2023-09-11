@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a federated Cocoapods repository.
@@ -387,6 +388,12 @@ func (i *FederatedCocoapodsRepository) ToFederatedCocoapodsRepositoryOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedCocoapodsRepositoryOutput)
 }
 
+func (i *FederatedCocoapodsRepository) ToOutput(ctx context.Context) pulumix.Output[*FederatedCocoapodsRepository] {
+	return pulumix.Output[*FederatedCocoapodsRepository]{
+		OutputState: i.ToFederatedCocoapodsRepositoryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FederatedCocoapodsRepositoryArrayInput is an input type that accepts FederatedCocoapodsRepositoryArray and FederatedCocoapodsRepositoryArrayOutput values.
 // You can construct a concrete instance of `FederatedCocoapodsRepositoryArrayInput` via:
 //
@@ -410,6 +417,12 @@ func (i FederatedCocoapodsRepositoryArray) ToFederatedCocoapodsRepositoryArrayOu
 
 func (i FederatedCocoapodsRepositoryArray) ToFederatedCocoapodsRepositoryArrayOutputWithContext(ctx context.Context) FederatedCocoapodsRepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedCocoapodsRepositoryArrayOutput)
+}
+
+func (i FederatedCocoapodsRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*FederatedCocoapodsRepository] {
+	return pulumix.Output[[]*FederatedCocoapodsRepository]{
+		OutputState: i.ToFederatedCocoapodsRepositoryArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // FederatedCocoapodsRepositoryMapInput is an input type that accepts FederatedCocoapodsRepositoryMap and FederatedCocoapodsRepositoryMapOutput values.
@@ -437,6 +450,12 @@ func (i FederatedCocoapodsRepositoryMap) ToFederatedCocoapodsRepositoryMapOutput
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedCocoapodsRepositoryMapOutput)
 }
 
+func (i FederatedCocoapodsRepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*FederatedCocoapodsRepository] {
+	return pulumix.Output[map[string]*FederatedCocoapodsRepository]{
+		OutputState: i.ToFederatedCocoapodsRepositoryMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FederatedCocoapodsRepositoryOutput struct{ *pulumi.OutputState }
 
 func (FederatedCocoapodsRepositoryOutput) ElementType() reflect.Type {
@@ -449,6 +468,12 @@ func (o FederatedCocoapodsRepositoryOutput) ToFederatedCocoapodsRepositoryOutput
 
 func (o FederatedCocoapodsRepositoryOutput) ToFederatedCocoapodsRepositoryOutputWithContext(ctx context.Context) FederatedCocoapodsRepositoryOutput {
 	return o
+}
+
+func (o FederatedCocoapodsRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*FederatedCocoapodsRepository] {
+	return pulumix.Output[*FederatedCocoapodsRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 // When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -569,6 +594,12 @@ func (o FederatedCocoapodsRepositoryArrayOutput) ToFederatedCocoapodsRepositoryA
 	return o
 }
 
+func (o FederatedCocoapodsRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*FederatedCocoapodsRepository] {
+	return pulumix.Output[[]*FederatedCocoapodsRepository]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FederatedCocoapodsRepositoryArrayOutput) Index(i pulumi.IntInput) FederatedCocoapodsRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FederatedCocoapodsRepository {
 		return vs[0].([]*FederatedCocoapodsRepository)[vs[1].(int)]
@@ -587,6 +618,12 @@ func (o FederatedCocoapodsRepositoryMapOutput) ToFederatedCocoapodsRepositoryMap
 
 func (o FederatedCocoapodsRepositoryMapOutput) ToFederatedCocoapodsRepositoryMapOutputWithContext(ctx context.Context) FederatedCocoapodsRepositoryMapOutput {
 	return o
+}
+
+func (o FederatedCocoapodsRepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*FederatedCocoapodsRepository] {
+	return pulumix.Output[map[string]*FederatedCocoapodsRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FederatedCocoapodsRepositoryMapOutput) MapIndex(k pulumi.StringInput) FederatedCocoapodsRepositoryOutput {

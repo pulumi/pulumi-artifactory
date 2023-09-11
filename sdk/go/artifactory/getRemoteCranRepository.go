@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieves a remote CRAN repository.
@@ -218,6 +219,12 @@ func (o LookupRemoteCranRepositoryResultOutput) ToLookupRemoteCranRepositoryResu
 
 func (o LookupRemoteCranRepositoryResultOutput) ToLookupRemoteCranRepositoryResultOutputWithContext(ctx context.Context) LookupRemoteCranRepositoryResultOutput {
 	return o
+}
+
+func (o LookupRemoteCranRepositoryResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupRemoteCranRepositoryResult] {
+	return pulumix.Output[LookupRemoteCranRepositoryResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupRemoteCranRepositoryResultOutput) AllowAnyHostAuth() pulumi.BoolPtrOutput {

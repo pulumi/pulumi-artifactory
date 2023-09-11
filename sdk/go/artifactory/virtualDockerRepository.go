@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a virtual Docker repository.
@@ -296,6 +297,12 @@ func (i *VirtualDockerRepository) ToVirtualDockerRepositoryOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualDockerRepositoryOutput)
 }
 
+func (i *VirtualDockerRepository) ToOutput(ctx context.Context) pulumix.Output[*VirtualDockerRepository] {
+	return pulumix.Output[*VirtualDockerRepository]{
+		OutputState: i.ToVirtualDockerRepositoryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // VirtualDockerRepositoryArrayInput is an input type that accepts VirtualDockerRepositoryArray and VirtualDockerRepositoryArrayOutput values.
 // You can construct a concrete instance of `VirtualDockerRepositoryArrayInput` via:
 //
@@ -319,6 +326,12 @@ func (i VirtualDockerRepositoryArray) ToVirtualDockerRepositoryArrayOutput() Vir
 
 func (i VirtualDockerRepositoryArray) ToVirtualDockerRepositoryArrayOutputWithContext(ctx context.Context) VirtualDockerRepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualDockerRepositoryArrayOutput)
+}
+
+func (i VirtualDockerRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*VirtualDockerRepository] {
+	return pulumix.Output[[]*VirtualDockerRepository]{
+		OutputState: i.ToVirtualDockerRepositoryArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // VirtualDockerRepositoryMapInput is an input type that accepts VirtualDockerRepositoryMap and VirtualDockerRepositoryMapOutput values.
@@ -346,6 +359,12 @@ func (i VirtualDockerRepositoryMap) ToVirtualDockerRepositoryMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualDockerRepositoryMapOutput)
 }
 
+func (i VirtualDockerRepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VirtualDockerRepository] {
+	return pulumix.Output[map[string]*VirtualDockerRepository]{
+		OutputState: i.ToVirtualDockerRepositoryMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualDockerRepositoryOutput struct{ *pulumi.OutputState }
 
 func (VirtualDockerRepositoryOutput) ElementType() reflect.Type {
@@ -358,6 +377,12 @@ func (o VirtualDockerRepositoryOutput) ToVirtualDockerRepositoryOutput() Virtual
 
 func (o VirtualDockerRepositoryOutput) ToVirtualDockerRepositoryOutputWithContext(ctx context.Context) VirtualDockerRepositoryOutput {
 	return o
+}
+
+func (o VirtualDockerRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualDockerRepository] {
+	return pulumix.Output[*VirtualDockerRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
@@ -448,6 +473,12 @@ func (o VirtualDockerRepositoryArrayOutput) ToVirtualDockerRepositoryArrayOutput
 	return o
 }
 
+func (o VirtualDockerRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VirtualDockerRepository] {
+	return pulumix.Output[[]*VirtualDockerRepository]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VirtualDockerRepositoryArrayOutput) Index(i pulumi.IntInput) VirtualDockerRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VirtualDockerRepository {
 		return vs[0].([]*VirtualDockerRepository)[vs[1].(int)]
@@ -466,6 +497,12 @@ func (o VirtualDockerRepositoryMapOutput) ToVirtualDockerRepositoryMapOutput() V
 
 func (o VirtualDockerRepositoryMapOutput) ToVirtualDockerRepositoryMapOutputWithContext(ctx context.Context) VirtualDockerRepositoryMapOutput {
 	return o
+}
+
+func (o VirtualDockerRepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VirtualDockerRepository] {
+	return pulumix.Output[map[string]*VirtualDockerRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualDockerRepositoryMapOutput) MapIndex(k pulumi.StringInput) VirtualDockerRepositoryOutput {

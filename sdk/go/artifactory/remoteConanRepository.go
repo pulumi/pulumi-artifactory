@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a remote Conan repository.
@@ -722,6 +723,12 @@ func (i *RemoteConanRepository) ToRemoteConanRepositoryOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(RemoteConanRepositoryOutput)
 }
 
+func (i *RemoteConanRepository) ToOutput(ctx context.Context) pulumix.Output[*RemoteConanRepository] {
+	return pulumix.Output[*RemoteConanRepository]{
+		OutputState: i.ToRemoteConanRepositoryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RemoteConanRepositoryArrayInput is an input type that accepts RemoteConanRepositoryArray and RemoteConanRepositoryArrayOutput values.
 // You can construct a concrete instance of `RemoteConanRepositoryArrayInput` via:
 //
@@ -745,6 +752,12 @@ func (i RemoteConanRepositoryArray) ToRemoteConanRepositoryArrayOutput() RemoteC
 
 func (i RemoteConanRepositoryArray) ToRemoteConanRepositoryArrayOutputWithContext(ctx context.Context) RemoteConanRepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RemoteConanRepositoryArrayOutput)
+}
+
+func (i RemoteConanRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*RemoteConanRepository] {
+	return pulumix.Output[[]*RemoteConanRepository]{
+		OutputState: i.ToRemoteConanRepositoryArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // RemoteConanRepositoryMapInput is an input type that accepts RemoteConanRepositoryMap and RemoteConanRepositoryMapOutput values.
@@ -772,6 +785,12 @@ func (i RemoteConanRepositoryMap) ToRemoteConanRepositoryMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(RemoteConanRepositoryMapOutput)
 }
 
+func (i RemoteConanRepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RemoteConanRepository] {
+	return pulumix.Output[map[string]*RemoteConanRepository]{
+		OutputState: i.ToRemoteConanRepositoryMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RemoteConanRepositoryOutput struct{ *pulumi.OutputState }
 
 func (RemoteConanRepositoryOutput) ElementType() reflect.Type {
@@ -784,6 +803,12 @@ func (o RemoteConanRepositoryOutput) ToRemoteConanRepositoryOutput() RemoteConan
 
 func (o RemoteConanRepositoryOutput) ToRemoteConanRepositoryOutputWithContext(ctx context.Context) RemoteConanRepositoryOutput {
 	return o
+}
+
+func (o RemoteConanRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*RemoteConanRepository] {
+	return pulumix.Output[*RemoteConanRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 // 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any
@@ -1048,6 +1073,12 @@ func (o RemoteConanRepositoryArrayOutput) ToRemoteConanRepositoryArrayOutputWith
 	return o
 }
 
+func (o RemoteConanRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RemoteConanRepository] {
+	return pulumix.Output[[]*RemoteConanRepository]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RemoteConanRepositoryArrayOutput) Index(i pulumi.IntInput) RemoteConanRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RemoteConanRepository {
 		return vs[0].([]*RemoteConanRepository)[vs[1].(int)]
@@ -1066,6 +1097,12 @@ func (o RemoteConanRepositoryMapOutput) ToRemoteConanRepositoryMapOutput() Remot
 
 func (o RemoteConanRepositoryMapOutput) ToRemoteConanRepositoryMapOutputWithContext(ctx context.Context) RemoteConanRepositoryMapOutput {
 	return o
+}
+
+func (o RemoteConanRepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RemoteConanRepository] {
+	return pulumix.Output[map[string]*RemoteConanRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RemoteConanRepositoryMapOutput) MapIndex(k pulumi.StringInput) RemoteConanRepositoryOutput {

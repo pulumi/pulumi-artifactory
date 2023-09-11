@@ -131,6 +131,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &FederatedVagrantRepository{}
 	case "artifactory:index/generalSecurity:GeneralSecurity":
 		r = &GeneralSecurity{}
+	case "artifactory:index/globalEnvironment:GlobalEnvironment":
+		r = &GlobalEnvironment{}
 	case "artifactory:index/goRepository:GoRepository":
 		r = &GoRepository{}
 	case "artifactory:index/group:Group":
@@ -659,6 +661,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"artifactory",
 		"index/generalSecurity",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/globalEnvironment",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

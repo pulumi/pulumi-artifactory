@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieves a remote Maven repository.
@@ -263,6 +264,12 @@ func (o LookupRemoteMavenRepositoryResultOutput) ToLookupRemoteMavenRepositoryRe
 
 func (o LookupRemoteMavenRepositoryResultOutput) ToLookupRemoteMavenRepositoryResultOutputWithContext(ctx context.Context) LookupRemoteMavenRepositoryResultOutput {
 	return o
+}
+
+func (o LookupRemoteMavenRepositoryResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupRemoteMavenRepositoryResult] {
+	return pulumix.Output[LookupRemoteMavenRepositoryResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupRemoteMavenRepositoryResultOutput) AllowAnyHostAuth() pulumi.BoolPtrOutput {

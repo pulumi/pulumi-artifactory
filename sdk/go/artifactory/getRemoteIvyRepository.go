@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieves a remote Ivy repository.
@@ -260,6 +261,12 @@ func (o LookupRemoteIvyRepositoryResultOutput) ToLookupRemoteIvyRepositoryResult
 
 func (o LookupRemoteIvyRepositoryResultOutput) ToLookupRemoteIvyRepositoryResultOutputWithContext(ctx context.Context) LookupRemoteIvyRepositoryResultOutput {
 	return o
+}
+
+func (o LookupRemoteIvyRepositoryResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupRemoteIvyRepositoryResult] {
+	return pulumix.Output[LookupRemoteIvyRepositoryResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupRemoteIvyRepositoryResultOutput) AllowAnyHostAuth() pulumi.BoolPtrOutput {

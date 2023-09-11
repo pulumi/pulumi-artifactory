@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieves a virtual Bower repository.
@@ -146,6 +147,12 @@ func (o LookupVirtualBowerRepositoryResultOutput) ToLookupVirtualBowerRepository
 
 func (o LookupVirtualBowerRepositoryResultOutput) ToLookupVirtualBowerRepositoryResultOutputWithContext(ctx context.Context) LookupVirtualBowerRepositoryResultOutput {
 	return o
+}
+
+func (o LookupVirtualBowerRepositoryResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupVirtualBowerRepositoryResult] {
+	return pulumix.Output[LookupVirtualBowerRepositoryResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupVirtualBowerRepositoryResultOutput) ArtifactoryRequestsCanRetrieveRemoteArtifacts() pulumi.BoolPtrOutput {

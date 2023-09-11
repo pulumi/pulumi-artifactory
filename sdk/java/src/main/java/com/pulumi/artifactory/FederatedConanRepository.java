@@ -65,10 +65,8 @@ import javax.annotation.Nullable;
  * Federated repositories can be imported using their name, e.g.
  * 
  * ```sh
- *  $ pulumi import artifactory:index/federatedConanRepository:FederatedConanRepository resource &#34;artifactory_federated_conan_repository&#34; &#34;terraform-federated-test-conan-repo&#34; {
+ *  $ pulumi import artifactory:index/federatedConanRepository:FederatedConanRepository terraform-federated-test-conan-repo terraform-federated-test-conan-repo
  * ```
- * 
- *  .terraform-federated-test-conan-repo terraform-federated-test-conan-repo
  * 
  */
 @ResourceType(type="artifactory:index/federatedConanRepository:FederatedConanRepository")

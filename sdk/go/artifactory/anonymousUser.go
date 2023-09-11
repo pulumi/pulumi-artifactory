@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -131,6 +132,12 @@ func (i *AnonymousUser) ToAnonymousUserOutputWithContext(ctx context.Context) An
 	return pulumi.ToOutputWithContext(ctx, i).(AnonymousUserOutput)
 }
 
+func (i *AnonymousUser) ToOutput(ctx context.Context) pulumix.Output[*AnonymousUser] {
+	return pulumix.Output[*AnonymousUser]{
+		OutputState: i.ToAnonymousUserOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AnonymousUserArrayInput is an input type that accepts AnonymousUserArray and AnonymousUserArrayOutput values.
 // You can construct a concrete instance of `AnonymousUserArrayInput` via:
 //
@@ -154,6 +161,12 @@ func (i AnonymousUserArray) ToAnonymousUserArrayOutput() AnonymousUserArrayOutpu
 
 func (i AnonymousUserArray) ToAnonymousUserArrayOutputWithContext(ctx context.Context) AnonymousUserArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AnonymousUserArrayOutput)
+}
+
+func (i AnonymousUserArray) ToOutput(ctx context.Context) pulumix.Output[[]*AnonymousUser] {
+	return pulumix.Output[[]*AnonymousUser]{
+		OutputState: i.ToAnonymousUserArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // AnonymousUserMapInput is an input type that accepts AnonymousUserMap and AnonymousUserMapOutput values.
@@ -181,6 +194,12 @@ func (i AnonymousUserMap) ToAnonymousUserMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(AnonymousUserMapOutput)
 }
 
+func (i AnonymousUserMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AnonymousUser] {
+	return pulumix.Output[map[string]*AnonymousUser]{
+		OutputState: i.ToAnonymousUserMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AnonymousUserOutput struct{ *pulumi.OutputState }
 
 func (AnonymousUserOutput) ElementType() reflect.Type {
@@ -193,6 +212,12 @@ func (o AnonymousUserOutput) ToAnonymousUserOutput() AnonymousUserOutput {
 
 func (o AnonymousUserOutput) ToAnonymousUserOutputWithContext(ctx context.Context) AnonymousUserOutput {
 	return o
+}
+
+func (o AnonymousUserOutput) ToOutput(ctx context.Context) pulumix.Output[*AnonymousUser] {
+	return pulumix.Output[*AnonymousUser]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Username for anonymous user. This is only for ensuring resource schema is valid for Terraform. This is not meant to be
@@ -215,6 +240,12 @@ func (o AnonymousUserArrayOutput) ToAnonymousUserArrayOutputWithContext(ctx cont
 	return o
 }
 
+func (o AnonymousUserArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AnonymousUser] {
+	return pulumix.Output[[]*AnonymousUser]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AnonymousUserArrayOutput) Index(i pulumi.IntInput) AnonymousUserOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AnonymousUser {
 		return vs[0].([]*AnonymousUser)[vs[1].(int)]
@@ -233,6 +264,12 @@ func (o AnonymousUserMapOutput) ToAnonymousUserMapOutput() AnonymousUserMapOutpu
 
 func (o AnonymousUserMapOutput) ToAnonymousUserMapOutputWithContext(ctx context.Context) AnonymousUserMapOutput {
 	return o
+}
+
+func (o AnonymousUserMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AnonymousUser] {
+	return pulumix.Output[map[string]*AnonymousUser]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AnonymousUserMapOutput) MapIndex(k pulumi.StringInput) AnonymousUserOutput {

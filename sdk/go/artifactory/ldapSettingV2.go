@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an Artifactory LDAP Setting resource.
@@ -294,6 +295,12 @@ func (i *LdapSettingV2) ToLdapSettingV2OutputWithContext(ctx context.Context) Ld
 	return pulumi.ToOutputWithContext(ctx, i).(LdapSettingV2Output)
 }
 
+func (i *LdapSettingV2) ToOutput(ctx context.Context) pulumix.Output[*LdapSettingV2] {
+	return pulumix.Output[*LdapSettingV2]{
+		OutputState: i.ToLdapSettingV2OutputWithContext(ctx).OutputState,
+	}
+}
+
 // LdapSettingV2ArrayInput is an input type that accepts LdapSettingV2Array and LdapSettingV2ArrayOutput values.
 // You can construct a concrete instance of `LdapSettingV2ArrayInput` via:
 //
@@ -317,6 +324,12 @@ func (i LdapSettingV2Array) ToLdapSettingV2ArrayOutput() LdapSettingV2ArrayOutpu
 
 func (i LdapSettingV2Array) ToLdapSettingV2ArrayOutputWithContext(ctx context.Context) LdapSettingV2ArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LdapSettingV2ArrayOutput)
+}
+
+func (i LdapSettingV2Array) ToOutput(ctx context.Context) pulumix.Output[[]*LdapSettingV2] {
+	return pulumix.Output[[]*LdapSettingV2]{
+		OutputState: i.ToLdapSettingV2ArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // LdapSettingV2MapInput is an input type that accepts LdapSettingV2Map and LdapSettingV2MapOutput values.
@@ -344,6 +357,12 @@ func (i LdapSettingV2Map) ToLdapSettingV2MapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(LdapSettingV2MapOutput)
 }
 
+func (i LdapSettingV2Map) ToOutput(ctx context.Context) pulumix.Output[map[string]*LdapSettingV2] {
+	return pulumix.Output[map[string]*LdapSettingV2]{
+		OutputState: i.ToLdapSettingV2MapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LdapSettingV2Output struct{ *pulumi.OutputState }
 
 func (LdapSettingV2Output) ElementType() reflect.Type {
@@ -356,6 +375,12 @@ func (o LdapSettingV2Output) ToLdapSettingV2Output() LdapSettingV2Output {
 
 func (o LdapSettingV2Output) ToLdapSettingV2OutputWithContext(ctx context.Context) LdapSettingV2Output {
 	return o
+}
+
+func (o LdapSettingV2Output) ToOutput(ctx context.Context) pulumix.Output[*LdapSettingV2] {
+	return pulumix.Output[*LdapSettingV2]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Auto created users will have access to their profile page and will be able to perform actions such as generating an API key. Default value is `false`.
@@ -442,6 +467,12 @@ func (o LdapSettingV2ArrayOutput) ToLdapSettingV2ArrayOutputWithContext(ctx cont
 	return o
 }
 
+func (o LdapSettingV2ArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LdapSettingV2] {
+	return pulumix.Output[[]*LdapSettingV2]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LdapSettingV2ArrayOutput) Index(i pulumi.IntInput) LdapSettingV2Output {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LdapSettingV2 {
 		return vs[0].([]*LdapSettingV2)[vs[1].(int)]
@@ -460,6 +491,12 @@ func (o LdapSettingV2MapOutput) ToLdapSettingV2MapOutput() LdapSettingV2MapOutpu
 
 func (o LdapSettingV2MapOutput) ToLdapSettingV2MapOutputWithContext(ctx context.Context) LdapSettingV2MapOutput {
 	return o
+}
+
+func (o LdapSettingV2MapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LdapSettingV2] {
+	return pulumix.Output[map[string]*LdapSettingV2]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LdapSettingV2MapOutput) MapIndex(k pulumi.StringInput) LdapSettingV2Output {

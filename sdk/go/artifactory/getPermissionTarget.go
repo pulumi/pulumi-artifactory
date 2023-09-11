@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## # Artifactory Permission Target Data Source
@@ -117,6 +118,12 @@ func (o LookupPermissionTargetResultOutput) ToLookupPermissionTargetResultOutput
 
 func (o LookupPermissionTargetResultOutput) ToLookupPermissionTargetResultOutputWithContext(ctx context.Context) LookupPermissionTargetResultOutput {
 	return o
+}
+
+func (o LookupPermissionTargetResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupPermissionTargetResult] {
+	return pulumix.Output[LookupPermissionTargetResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Same as repo but for artifactory-build-info permissions.

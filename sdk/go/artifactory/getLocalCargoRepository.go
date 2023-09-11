@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 func LookupLocalCargoRepository(ctx *pulumi.Context, args *LookupLocalCargoRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupLocalCargoRepositoryResult, error) {
@@ -120,6 +121,12 @@ func (o LookupLocalCargoRepositoryResultOutput) ToLookupLocalCargoRepositoryResu
 
 func (o LookupLocalCargoRepositoryResultOutput) ToLookupLocalCargoRepositoryResultOutputWithContext(ctx context.Context) LookupLocalCargoRepositoryResultOutput {
 	return o
+}
+
+func (o LookupLocalCargoRepositoryResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupLocalCargoRepositoryResult] {
+	return pulumix.Output[LookupLocalCargoRepositoryResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupLocalCargoRepositoryResultOutput) AnonymousAccess() pulumi.BoolPtrOutput {

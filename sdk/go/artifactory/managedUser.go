@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -63,7 +64,7 @@ type ManagedUser struct {
 	Groups pulumi.StringArrayOutput `pulumi:"groups"`
 	// (Optional, Default: false) When enabled, disables the fallback mechanism for using an internal password when external authentication (such as LDAP) is enabled.
 	InternalPasswordDisabled pulumi.BoolOutput `pulumi:"internalPasswordDisabled"`
-	// Username for user.
+	// Username for user. May contain lowercase letters, numbers and symbols: '.-_@'
 	Name pulumi.StringOutput `pulumi:"name"`
 	// (Optional, Sensitive) Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters
 	Password pulumi.StringPtrOutput `pulumi:"password"`
@@ -121,7 +122,7 @@ type managedUserState struct {
 	Groups []string `pulumi:"groups"`
 	// (Optional, Default: false) When enabled, disables the fallback mechanism for using an internal password when external authentication (such as LDAP) is enabled.
 	InternalPasswordDisabled *bool `pulumi:"internalPasswordDisabled"`
-	// Username for user.
+	// Username for user. May contain lowercase letters, numbers and symbols: '.-_@'
 	Name *string `pulumi:"name"`
 	// (Optional, Sensitive) Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters
 	Password *string `pulumi:"password"`
@@ -140,7 +141,7 @@ type ManagedUserState struct {
 	Groups pulumi.StringArrayInput
 	// (Optional, Default: false) When enabled, disables the fallback mechanism for using an internal password when external authentication (such as LDAP) is enabled.
 	InternalPasswordDisabled pulumi.BoolPtrInput
-	// Username for user.
+	// Username for user. May contain lowercase letters, numbers and symbols: '.-_@'
 	Name pulumi.StringPtrInput
 	// (Optional, Sensitive) Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters
 	Password pulumi.StringPtrInput
@@ -163,7 +164,7 @@ type managedUserArgs struct {
 	Groups []string `pulumi:"groups"`
 	// (Optional, Default: false) When enabled, disables the fallback mechanism for using an internal password when external authentication (such as LDAP) is enabled.
 	InternalPasswordDisabled *bool `pulumi:"internalPasswordDisabled"`
-	// Username for user.
+	// Username for user. May contain lowercase letters, numbers and symbols: '.-_@'
 	Name *string `pulumi:"name"`
 	// (Optional, Sensitive) Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters
 	Password *string `pulumi:"password"`
@@ -183,7 +184,7 @@ type ManagedUserArgs struct {
 	Groups pulumi.StringArrayInput
 	// (Optional, Default: false) When enabled, disables the fallback mechanism for using an internal password when external authentication (such as LDAP) is enabled.
 	InternalPasswordDisabled pulumi.BoolPtrInput
-	// Username for user.
+	// Username for user. May contain lowercase letters, numbers and symbols: '.-_@'
 	Name pulumi.StringPtrInput
 	// (Optional, Sensitive) Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters
 	Password pulumi.StringPtrInput
@@ -214,6 +215,12 @@ func (i *ManagedUser) ToManagedUserOutputWithContext(ctx context.Context) Manage
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedUserOutput)
 }
 
+func (i *ManagedUser) ToOutput(ctx context.Context) pulumix.Output[*ManagedUser] {
+	return pulumix.Output[*ManagedUser]{
+		OutputState: i.ToManagedUserOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ManagedUserArrayInput is an input type that accepts ManagedUserArray and ManagedUserArrayOutput values.
 // You can construct a concrete instance of `ManagedUserArrayInput` via:
 //
@@ -237,6 +244,12 @@ func (i ManagedUserArray) ToManagedUserArrayOutput() ManagedUserArrayOutput {
 
 func (i ManagedUserArray) ToManagedUserArrayOutputWithContext(ctx context.Context) ManagedUserArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedUserArrayOutput)
+}
+
+func (i ManagedUserArray) ToOutput(ctx context.Context) pulumix.Output[[]*ManagedUser] {
+	return pulumix.Output[[]*ManagedUser]{
+		OutputState: i.ToManagedUserArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ManagedUserMapInput is an input type that accepts ManagedUserMap and ManagedUserMapOutput values.
@@ -264,6 +277,12 @@ func (i ManagedUserMap) ToManagedUserMapOutputWithContext(ctx context.Context) M
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedUserMapOutput)
 }
 
+func (i ManagedUserMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ManagedUser] {
+	return pulumix.Output[map[string]*ManagedUser]{
+		OutputState: i.ToManagedUserMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ManagedUserOutput struct{ *pulumi.OutputState }
 
 func (ManagedUserOutput) ElementType() reflect.Type {
@@ -276,6 +295,12 @@ func (o ManagedUserOutput) ToManagedUserOutput() ManagedUserOutput {
 
 func (o ManagedUserOutput) ToManagedUserOutputWithContext(ctx context.Context) ManagedUserOutput {
 	return o
+}
+
+func (o ManagedUserOutput) ToOutput(ctx context.Context) pulumix.Output[*ManagedUser] {
+	return pulumix.Output[*ManagedUser]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Optional, Default: false) When enabled, this user is an administrator with all the ensuing privileges.
@@ -303,7 +328,7 @@ func (o ManagedUserOutput) InternalPasswordDisabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *ManagedUser) pulumi.BoolOutput { return v.InternalPasswordDisabled }).(pulumi.BoolOutput)
 }
 
-// Username for user.
+// Username for user. May contain lowercase letters, numbers and symbols: '.-_@'
 func (o ManagedUserOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedUser) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -332,6 +357,12 @@ func (o ManagedUserArrayOutput) ToManagedUserArrayOutputWithContext(ctx context.
 	return o
 }
 
+func (o ManagedUserArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ManagedUser] {
+	return pulumix.Output[[]*ManagedUser]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ManagedUserArrayOutput) Index(i pulumi.IntInput) ManagedUserOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ManagedUser {
 		return vs[0].([]*ManagedUser)[vs[1].(int)]
@@ -350,6 +381,12 @@ func (o ManagedUserMapOutput) ToManagedUserMapOutput() ManagedUserMapOutput {
 
 func (o ManagedUserMapOutput) ToManagedUserMapOutputWithContext(ctx context.Context) ManagedUserMapOutput {
 	return o
+}
+
+func (o ManagedUserMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ManagedUser] {
+	return pulumix.Output[map[string]*ManagedUser]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ManagedUserMapOutput) MapIndex(k pulumi.StringInput) ManagedUserOutput {

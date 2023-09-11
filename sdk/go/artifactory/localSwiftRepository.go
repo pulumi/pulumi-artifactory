@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a local Swift repository.
@@ -334,6 +335,12 @@ func (i *LocalSwiftRepository) ToLocalSwiftRepositoryOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(LocalSwiftRepositoryOutput)
 }
 
+func (i *LocalSwiftRepository) ToOutput(ctx context.Context) pulumix.Output[*LocalSwiftRepository] {
+	return pulumix.Output[*LocalSwiftRepository]{
+		OutputState: i.ToLocalSwiftRepositoryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LocalSwiftRepositoryArrayInput is an input type that accepts LocalSwiftRepositoryArray and LocalSwiftRepositoryArrayOutput values.
 // You can construct a concrete instance of `LocalSwiftRepositoryArrayInput` via:
 //
@@ -357,6 +364,12 @@ func (i LocalSwiftRepositoryArray) ToLocalSwiftRepositoryArrayOutput() LocalSwif
 
 func (i LocalSwiftRepositoryArray) ToLocalSwiftRepositoryArrayOutputWithContext(ctx context.Context) LocalSwiftRepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LocalSwiftRepositoryArrayOutput)
+}
+
+func (i LocalSwiftRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*LocalSwiftRepository] {
+	return pulumix.Output[[]*LocalSwiftRepository]{
+		OutputState: i.ToLocalSwiftRepositoryArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // LocalSwiftRepositoryMapInput is an input type that accepts LocalSwiftRepositoryMap and LocalSwiftRepositoryMapOutput values.
@@ -384,6 +397,12 @@ func (i LocalSwiftRepositoryMap) ToLocalSwiftRepositoryMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(LocalSwiftRepositoryMapOutput)
 }
 
+func (i LocalSwiftRepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LocalSwiftRepository] {
+	return pulumix.Output[map[string]*LocalSwiftRepository]{
+		OutputState: i.ToLocalSwiftRepositoryMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LocalSwiftRepositoryOutput struct{ *pulumi.OutputState }
 
 func (LocalSwiftRepositoryOutput) ElementType() reflect.Type {
@@ -396,6 +415,12 @@ func (o LocalSwiftRepositoryOutput) ToLocalSwiftRepositoryOutput() LocalSwiftRep
 
 func (o LocalSwiftRepositoryOutput) ToLocalSwiftRepositoryOutputWithContext(ctx context.Context) LocalSwiftRepositoryOutput {
 	return o
+}
+
+func (o LocalSwiftRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*LocalSwiftRepository] {
+	return pulumix.Output[*LocalSwiftRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 // When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -502,6 +527,12 @@ func (o LocalSwiftRepositoryArrayOutput) ToLocalSwiftRepositoryArrayOutputWithCo
 	return o
 }
 
+func (o LocalSwiftRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LocalSwiftRepository] {
+	return pulumix.Output[[]*LocalSwiftRepository]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LocalSwiftRepositoryArrayOutput) Index(i pulumi.IntInput) LocalSwiftRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LocalSwiftRepository {
 		return vs[0].([]*LocalSwiftRepository)[vs[1].(int)]
@@ -520,6 +551,12 @@ func (o LocalSwiftRepositoryMapOutput) ToLocalSwiftRepositoryMapOutput() LocalSw
 
 func (o LocalSwiftRepositoryMapOutput) ToLocalSwiftRepositoryMapOutputWithContext(ctx context.Context) LocalSwiftRepositoryMapOutput {
 	return o
+}
+
+func (o LocalSwiftRepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LocalSwiftRepository] {
+	return pulumix.Output[map[string]*LocalSwiftRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LocalSwiftRepositoryMapOutput) MapIndex(k pulumi.StringInput) LocalSwiftRepositoryOutput {

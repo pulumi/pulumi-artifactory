@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieves a virtual Git LFS repository.
@@ -128,6 +129,12 @@ func (o LookupVirtualGitlfsRepositoryResultOutput) ToLookupVirtualGitlfsReposito
 
 func (o LookupVirtualGitlfsRepositoryResultOutput) ToLookupVirtualGitlfsRepositoryResultOutputWithContext(ctx context.Context) LookupVirtualGitlfsRepositoryResultOutput {
 	return o
+}
+
+func (o LookupVirtualGitlfsRepositoryResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupVirtualGitlfsRepositoryResult] {
+	return pulumix.Output[LookupVirtualGitlfsRepositoryResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupVirtualGitlfsRepositoryResultOutput) ArtifactoryRequestsCanRetrieveRemoteArtifacts() pulumi.BoolPtrOutput {
