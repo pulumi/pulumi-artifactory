@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // This resource can be used to manage Artifactory's LDAP Group settings for user authentication.
@@ -260,6 +261,12 @@ func (i *LdapGroupSetting) ToLdapGroupSettingOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(LdapGroupSettingOutput)
 }
 
+func (i *LdapGroupSetting) ToOutput(ctx context.Context) pulumix.Output[*LdapGroupSetting] {
+	return pulumix.Output[*LdapGroupSetting]{
+		OutputState: i.ToLdapGroupSettingOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LdapGroupSettingArrayInput is an input type that accepts LdapGroupSettingArray and LdapGroupSettingArrayOutput values.
 // You can construct a concrete instance of `LdapGroupSettingArrayInput` via:
 //
@@ -283,6 +290,12 @@ func (i LdapGroupSettingArray) ToLdapGroupSettingArrayOutput() LdapGroupSettingA
 
 func (i LdapGroupSettingArray) ToLdapGroupSettingArrayOutputWithContext(ctx context.Context) LdapGroupSettingArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LdapGroupSettingArrayOutput)
+}
+
+func (i LdapGroupSettingArray) ToOutput(ctx context.Context) pulumix.Output[[]*LdapGroupSetting] {
+	return pulumix.Output[[]*LdapGroupSetting]{
+		OutputState: i.ToLdapGroupSettingArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // LdapGroupSettingMapInput is an input type that accepts LdapGroupSettingMap and LdapGroupSettingMapOutput values.
@@ -310,6 +323,12 @@ func (i LdapGroupSettingMap) ToLdapGroupSettingMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(LdapGroupSettingMapOutput)
 }
 
+func (i LdapGroupSettingMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LdapGroupSetting] {
+	return pulumix.Output[map[string]*LdapGroupSetting]{
+		OutputState: i.ToLdapGroupSettingMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LdapGroupSettingOutput struct{ *pulumi.OutputState }
 
 func (LdapGroupSettingOutput) ElementType() reflect.Type {
@@ -322,6 +341,12 @@ func (o LdapGroupSettingOutput) ToLdapGroupSettingOutput() LdapGroupSettingOutpu
 
 func (o LdapGroupSettingOutput) ToLdapGroupSettingOutputWithContext(ctx context.Context) LdapGroupSettingOutput {
 	return o
+}
+
+func (o LdapGroupSettingOutput) ToOutput(ctx context.Context) pulumix.Output[*LdapGroupSetting] {
+	return pulumix.Output[*LdapGroupSetting]{
+		OutputState: o.OutputState,
+	}
 }
 
 // An attribute on the group entry which denoting the group description. Used when importing groups.
@@ -386,6 +411,12 @@ func (o LdapGroupSettingArrayOutput) ToLdapGroupSettingArrayOutputWithContext(ct
 	return o
 }
 
+func (o LdapGroupSettingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LdapGroupSetting] {
+	return pulumix.Output[[]*LdapGroupSetting]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LdapGroupSettingArrayOutput) Index(i pulumi.IntInput) LdapGroupSettingOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LdapGroupSetting {
 		return vs[0].([]*LdapGroupSetting)[vs[1].(int)]
@@ -404,6 +435,12 @@ func (o LdapGroupSettingMapOutput) ToLdapGroupSettingMapOutput() LdapGroupSettin
 
 func (o LdapGroupSettingMapOutput) ToLdapGroupSettingMapOutputWithContext(ctx context.Context) LdapGroupSettingMapOutput {
 	return o
+}
+
+func (o LdapGroupSettingMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LdapGroupSetting] {
+	return pulumix.Output[map[string]*LdapGroupSetting]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LdapGroupSettingMapOutput) MapIndex(k pulumi.StringInput) LdapGroupSettingOutput {

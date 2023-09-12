@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieves a remote Bower repository.
@@ -230,6 +231,12 @@ func (o LookupRemoteBowerRepositoryResultOutput) ToLookupRemoteBowerRepositoryRe
 
 func (o LookupRemoteBowerRepositoryResultOutput) ToLookupRemoteBowerRepositoryResultOutputWithContext(ctx context.Context) LookupRemoteBowerRepositoryResultOutput {
 	return o
+}
+
+func (o LookupRemoteBowerRepositoryResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupRemoteBowerRepositoryResult] {
+	return pulumix.Output[LookupRemoteBowerRepositoryResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupRemoteBowerRepositoryResultOutput) AllowAnyHostAuth() pulumi.BoolPtrOutput {

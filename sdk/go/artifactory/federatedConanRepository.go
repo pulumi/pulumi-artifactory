@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a federated Conan repository.
@@ -56,11 +57,9 @@ import (
 //
 // ```sh
 //
-//	$ pulumi import artifactory:index/federatedConanRepository:FederatedConanRepository resource "artifactory_federated_conan_repository" "terraform-federated-test-conan-repo" {
+//	$ pulumi import artifactory:index/federatedConanRepository:FederatedConanRepository terraform-federated-test-conan-repo terraform-federated-test-conan-repo
 //
 // ```
-//
-//	.terraform-federated-test-conan-repo terraform-federated-test-conan-repo
 type FederatedConanRepository struct {
 	pulumi.CustomResourceState
 
@@ -389,6 +388,12 @@ func (i *FederatedConanRepository) ToFederatedConanRepositoryOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedConanRepositoryOutput)
 }
 
+func (i *FederatedConanRepository) ToOutput(ctx context.Context) pulumix.Output[*FederatedConanRepository] {
+	return pulumix.Output[*FederatedConanRepository]{
+		OutputState: i.ToFederatedConanRepositoryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FederatedConanRepositoryArrayInput is an input type that accepts FederatedConanRepositoryArray and FederatedConanRepositoryArrayOutput values.
 // You can construct a concrete instance of `FederatedConanRepositoryArrayInput` via:
 //
@@ -412,6 +417,12 @@ func (i FederatedConanRepositoryArray) ToFederatedConanRepositoryArrayOutput() F
 
 func (i FederatedConanRepositoryArray) ToFederatedConanRepositoryArrayOutputWithContext(ctx context.Context) FederatedConanRepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedConanRepositoryArrayOutput)
+}
+
+func (i FederatedConanRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*FederatedConanRepository] {
+	return pulumix.Output[[]*FederatedConanRepository]{
+		OutputState: i.ToFederatedConanRepositoryArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // FederatedConanRepositoryMapInput is an input type that accepts FederatedConanRepositoryMap and FederatedConanRepositoryMapOutput values.
@@ -439,6 +450,12 @@ func (i FederatedConanRepositoryMap) ToFederatedConanRepositoryMapOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedConanRepositoryMapOutput)
 }
 
+func (i FederatedConanRepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*FederatedConanRepository] {
+	return pulumix.Output[map[string]*FederatedConanRepository]{
+		OutputState: i.ToFederatedConanRepositoryMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FederatedConanRepositoryOutput struct{ *pulumi.OutputState }
 
 func (FederatedConanRepositoryOutput) ElementType() reflect.Type {
@@ -451,6 +468,12 @@ func (o FederatedConanRepositoryOutput) ToFederatedConanRepositoryOutput() Feder
 
 func (o FederatedConanRepositoryOutput) ToFederatedConanRepositoryOutputWithContext(ctx context.Context) FederatedConanRepositoryOutput {
 	return o
+}
+
+func (o FederatedConanRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*FederatedConanRepository] {
+	return pulumix.Output[*FederatedConanRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 // When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -571,6 +594,12 @@ func (o FederatedConanRepositoryArrayOutput) ToFederatedConanRepositoryArrayOutp
 	return o
 }
 
+func (o FederatedConanRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*FederatedConanRepository] {
+	return pulumix.Output[[]*FederatedConanRepository]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FederatedConanRepositoryArrayOutput) Index(i pulumi.IntInput) FederatedConanRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FederatedConanRepository {
 		return vs[0].([]*FederatedConanRepository)[vs[1].(int)]
@@ -589,6 +618,12 @@ func (o FederatedConanRepositoryMapOutput) ToFederatedConanRepositoryMapOutput()
 
 func (o FederatedConanRepositoryMapOutput) ToFederatedConanRepositoryMapOutputWithContext(ctx context.Context) FederatedConanRepositoryMapOutput {
 	return o
+}
+
+func (o FederatedConanRepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*FederatedConanRepository] {
+	return pulumix.Output[map[string]*FederatedConanRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FederatedConanRepositoryMapOutput) MapIndex(k pulumi.StringInput) FederatedConanRepositoryOutput {

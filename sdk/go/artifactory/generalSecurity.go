@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // This resource can be used to manage Artifactory's general security settings.
@@ -133,6 +134,12 @@ func (i *GeneralSecurity) ToGeneralSecurityOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(GeneralSecurityOutput)
 }
 
+func (i *GeneralSecurity) ToOutput(ctx context.Context) pulumix.Output[*GeneralSecurity] {
+	return pulumix.Output[*GeneralSecurity]{
+		OutputState: i.ToGeneralSecurityOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GeneralSecurityArrayInput is an input type that accepts GeneralSecurityArray and GeneralSecurityArrayOutput values.
 // You can construct a concrete instance of `GeneralSecurityArrayInput` via:
 //
@@ -156,6 +163,12 @@ func (i GeneralSecurityArray) ToGeneralSecurityArrayOutput() GeneralSecurityArra
 
 func (i GeneralSecurityArray) ToGeneralSecurityArrayOutputWithContext(ctx context.Context) GeneralSecurityArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GeneralSecurityArrayOutput)
+}
+
+func (i GeneralSecurityArray) ToOutput(ctx context.Context) pulumix.Output[[]*GeneralSecurity] {
+	return pulumix.Output[[]*GeneralSecurity]{
+		OutputState: i.ToGeneralSecurityArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // GeneralSecurityMapInput is an input type that accepts GeneralSecurityMap and GeneralSecurityMapOutput values.
@@ -183,6 +196,12 @@ func (i GeneralSecurityMap) ToGeneralSecurityMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(GeneralSecurityMapOutput)
 }
 
+func (i GeneralSecurityMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*GeneralSecurity] {
+	return pulumix.Output[map[string]*GeneralSecurity]{
+		OutputState: i.ToGeneralSecurityMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GeneralSecurityOutput struct{ *pulumi.OutputState }
 
 func (GeneralSecurityOutput) ElementType() reflect.Type {
@@ -195,6 +214,12 @@ func (o GeneralSecurityOutput) ToGeneralSecurityOutput() GeneralSecurityOutput {
 
 func (o GeneralSecurityOutput) ToGeneralSecurityOutputWithContext(ctx context.Context) GeneralSecurityOutput {
 	return o
+}
+
+func (o GeneralSecurityOutput) ToOutput(ctx context.Context) pulumix.Output[*GeneralSecurity] {
+	return pulumix.Output[*GeneralSecurity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GeneralSecurityOutput) EnableAnonymousAccess() pulumi.BoolPtrOutput {
@@ -215,6 +240,12 @@ func (o GeneralSecurityArrayOutput) ToGeneralSecurityArrayOutputWithContext(ctx 
 	return o
 }
 
+func (o GeneralSecurityArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*GeneralSecurity] {
+	return pulumix.Output[[]*GeneralSecurity]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GeneralSecurityArrayOutput) Index(i pulumi.IntInput) GeneralSecurityOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *GeneralSecurity {
 		return vs[0].([]*GeneralSecurity)[vs[1].(int)]
@@ -233,6 +264,12 @@ func (o GeneralSecurityMapOutput) ToGeneralSecurityMapOutput() GeneralSecurityMa
 
 func (o GeneralSecurityMapOutput) ToGeneralSecurityMapOutputWithContext(ctx context.Context) GeneralSecurityMapOutput {
 	return o
+}
+
+func (o GeneralSecurityMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*GeneralSecurity] {
+	return pulumix.Output[map[string]*GeneralSecurity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GeneralSecurityMapOutput) MapIndex(k pulumi.StringInput) GeneralSecurityOutput {

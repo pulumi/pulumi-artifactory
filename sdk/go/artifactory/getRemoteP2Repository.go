@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieves a remote P2 repository.
@@ -218,6 +219,12 @@ func (o LookupRemoteP2RepositoryResultOutput) ToLookupRemoteP2RepositoryResultOu
 
 func (o LookupRemoteP2RepositoryResultOutput) ToLookupRemoteP2RepositoryResultOutputWithContext(ctx context.Context) LookupRemoteP2RepositoryResultOutput {
 	return o
+}
+
+func (o LookupRemoteP2RepositoryResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupRemoteP2RepositoryResult] {
+	return pulumix.Output[LookupRemoteP2RepositoryResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupRemoteP2RepositoryResultOutput) AllowAnyHostAuth() pulumi.BoolPtrOutput {

@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieves a virtual Cran repository.
@@ -134,6 +135,12 @@ func (o LookupVirtualCranRepositoryResultOutput) ToLookupVirtualCranRepositoryRe
 
 func (o LookupVirtualCranRepositoryResultOutput) ToLookupVirtualCranRepositoryResultOutputWithContext(ctx context.Context) LookupVirtualCranRepositoryResultOutput {
 	return o
+}
+
+func (o LookupVirtualCranRepositoryResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupVirtualCranRepositoryResult] {
+	return pulumix.Output[LookupVirtualCranRepositoryResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupVirtualCranRepositoryResultOutput) ArtifactoryRequestsCanRetrieveRemoteArtifacts() pulumi.BoolPtrOutput {

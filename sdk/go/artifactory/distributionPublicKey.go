@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an Artifactory Distribution Public Key resource. This can be used to create and manage Artifactory Distribution Public Keys.
@@ -202,6 +203,12 @@ func (i *DistributionPublicKey) ToDistributionPublicKeyOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionPublicKeyOutput)
 }
 
+func (i *DistributionPublicKey) ToOutput(ctx context.Context) pulumix.Output[*DistributionPublicKey] {
+	return pulumix.Output[*DistributionPublicKey]{
+		OutputState: i.ToDistributionPublicKeyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DistributionPublicKeyArrayInput is an input type that accepts DistributionPublicKeyArray and DistributionPublicKeyArrayOutput values.
 // You can construct a concrete instance of `DistributionPublicKeyArrayInput` via:
 //
@@ -225,6 +232,12 @@ func (i DistributionPublicKeyArray) ToDistributionPublicKeyArrayOutput() Distrib
 
 func (i DistributionPublicKeyArray) ToDistributionPublicKeyArrayOutputWithContext(ctx context.Context) DistributionPublicKeyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionPublicKeyArrayOutput)
+}
+
+func (i DistributionPublicKeyArray) ToOutput(ctx context.Context) pulumix.Output[[]*DistributionPublicKey] {
+	return pulumix.Output[[]*DistributionPublicKey]{
+		OutputState: i.ToDistributionPublicKeyArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // DistributionPublicKeyMapInput is an input type that accepts DistributionPublicKeyMap and DistributionPublicKeyMapOutput values.
@@ -252,6 +265,12 @@ func (i DistributionPublicKeyMap) ToDistributionPublicKeyMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionPublicKeyMapOutput)
 }
 
+func (i DistributionPublicKeyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DistributionPublicKey] {
+	return pulumix.Output[map[string]*DistributionPublicKey]{
+		OutputState: i.ToDistributionPublicKeyMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DistributionPublicKeyOutput struct{ *pulumi.OutputState }
 
 func (DistributionPublicKeyOutput) ElementType() reflect.Type {
@@ -264,6 +283,12 @@ func (o DistributionPublicKeyOutput) ToDistributionPublicKeyOutput() Distributio
 
 func (o DistributionPublicKeyOutput) ToDistributionPublicKeyOutputWithContext(ctx context.Context) DistributionPublicKeyOutput {
 	return o
+}
+
+func (o DistributionPublicKeyOutput) ToOutput(ctx context.Context) pulumix.Output[*DistributionPublicKey] {
+	return pulumix.Output[*DistributionPublicKey]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Will be used as an identifier when uploading/retrieving the public key via REST API.
@@ -317,6 +342,12 @@ func (o DistributionPublicKeyArrayOutput) ToDistributionPublicKeyArrayOutputWith
 	return o
 }
 
+func (o DistributionPublicKeyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DistributionPublicKey] {
+	return pulumix.Output[[]*DistributionPublicKey]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DistributionPublicKeyArrayOutput) Index(i pulumi.IntInput) DistributionPublicKeyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DistributionPublicKey {
 		return vs[0].([]*DistributionPublicKey)[vs[1].(int)]
@@ -335,6 +366,12 @@ func (o DistributionPublicKeyMapOutput) ToDistributionPublicKeyMapOutput() Distr
 
 func (o DistributionPublicKeyMapOutput) ToDistributionPublicKeyMapOutputWithContext(ctx context.Context) DistributionPublicKeyMapOutput {
 	return o
+}
+
+func (o DistributionPublicKeyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DistributionPublicKey] {
+	return pulumix.Output[map[string]*DistributionPublicKey]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DistributionPublicKeyMapOutput) MapIndex(k pulumi.StringInput) DistributionPublicKeyOutput {

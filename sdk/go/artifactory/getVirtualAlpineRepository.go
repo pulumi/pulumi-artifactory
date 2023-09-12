@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieves a virtual Alpine repository.
@@ -140,6 +141,12 @@ func (o LookupVirtualAlpineRepositoryResultOutput) ToLookupVirtualAlpineReposito
 
 func (o LookupVirtualAlpineRepositoryResultOutput) ToLookupVirtualAlpineRepositoryResultOutputWithContext(ctx context.Context) LookupVirtualAlpineRepositoryResultOutput {
 	return o
+}
+
+func (o LookupVirtualAlpineRepositoryResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupVirtualAlpineRepositoryResult] {
+	return pulumix.Output[LookupVirtualAlpineRepositoryResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupVirtualAlpineRepositoryResultOutput) ArtifactoryRequestsCanRetrieveRemoteArtifacts() pulumi.BoolPtrOutput {

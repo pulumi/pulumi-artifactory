@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a remote Pub repository.
@@ -711,6 +712,12 @@ func (i *RemotePubRepository) ToRemotePubRepositoryOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(RemotePubRepositoryOutput)
 }
 
+func (i *RemotePubRepository) ToOutput(ctx context.Context) pulumix.Output[*RemotePubRepository] {
+	return pulumix.Output[*RemotePubRepository]{
+		OutputState: i.ToRemotePubRepositoryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RemotePubRepositoryArrayInput is an input type that accepts RemotePubRepositoryArray and RemotePubRepositoryArrayOutput values.
 // You can construct a concrete instance of `RemotePubRepositoryArrayInput` via:
 //
@@ -734,6 +741,12 @@ func (i RemotePubRepositoryArray) ToRemotePubRepositoryArrayOutput() RemotePubRe
 
 func (i RemotePubRepositoryArray) ToRemotePubRepositoryArrayOutputWithContext(ctx context.Context) RemotePubRepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RemotePubRepositoryArrayOutput)
+}
+
+func (i RemotePubRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*RemotePubRepository] {
+	return pulumix.Output[[]*RemotePubRepository]{
+		OutputState: i.ToRemotePubRepositoryArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // RemotePubRepositoryMapInput is an input type that accepts RemotePubRepositoryMap and RemotePubRepositoryMapOutput values.
@@ -761,6 +774,12 @@ func (i RemotePubRepositoryMap) ToRemotePubRepositoryMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(RemotePubRepositoryMapOutput)
 }
 
+func (i RemotePubRepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RemotePubRepository] {
+	return pulumix.Output[map[string]*RemotePubRepository]{
+		OutputState: i.ToRemotePubRepositoryMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RemotePubRepositoryOutput struct{ *pulumi.OutputState }
 
 func (RemotePubRepositoryOutput) ElementType() reflect.Type {
@@ -773,6 +792,12 @@ func (o RemotePubRepositoryOutput) ToRemotePubRepositoryOutput() RemotePubReposi
 
 func (o RemotePubRepositoryOutput) ToRemotePubRepositoryOutputWithContext(ctx context.Context) RemotePubRepositoryOutput {
 	return o
+}
+
+func (o RemotePubRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*RemotePubRepository] {
+	return pulumix.Output[*RemotePubRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 // 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any
@@ -1032,6 +1057,12 @@ func (o RemotePubRepositoryArrayOutput) ToRemotePubRepositoryArrayOutputWithCont
 	return o
 }
 
+func (o RemotePubRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RemotePubRepository] {
+	return pulumix.Output[[]*RemotePubRepository]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RemotePubRepositoryArrayOutput) Index(i pulumi.IntInput) RemotePubRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RemotePubRepository {
 		return vs[0].([]*RemotePubRepository)[vs[1].(int)]
@@ -1050,6 +1081,12 @@ func (o RemotePubRepositoryMapOutput) ToRemotePubRepositoryMapOutput() RemotePub
 
 func (o RemotePubRepositoryMapOutput) ToRemotePubRepositoryMapOutputWithContext(ctx context.Context) RemotePubRepositoryMapOutput {
 	return o
+}
+
+func (o RemotePubRepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RemotePubRepository] {
+	return pulumix.Output[map[string]*RemotePubRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RemotePubRepositoryMapOutput) MapIndex(k pulumi.StringInput) RemotePubRepositoryOutput {

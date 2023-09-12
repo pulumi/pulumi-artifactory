@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a virtual Ivy repository.
@@ -331,6 +332,12 @@ func (i *VirtualIvyRepository) ToVirtualIvyRepositoryOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualIvyRepositoryOutput)
 }
 
+func (i *VirtualIvyRepository) ToOutput(ctx context.Context) pulumix.Output[*VirtualIvyRepository] {
+	return pulumix.Output[*VirtualIvyRepository]{
+		OutputState: i.ToVirtualIvyRepositoryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // VirtualIvyRepositoryArrayInput is an input type that accepts VirtualIvyRepositoryArray and VirtualIvyRepositoryArrayOutput values.
 // You can construct a concrete instance of `VirtualIvyRepositoryArrayInput` via:
 //
@@ -354,6 +361,12 @@ func (i VirtualIvyRepositoryArray) ToVirtualIvyRepositoryArrayOutput() VirtualIv
 
 func (i VirtualIvyRepositoryArray) ToVirtualIvyRepositoryArrayOutputWithContext(ctx context.Context) VirtualIvyRepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualIvyRepositoryArrayOutput)
+}
+
+func (i VirtualIvyRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*VirtualIvyRepository] {
+	return pulumix.Output[[]*VirtualIvyRepository]{
+		OutputState: i.ToVirtualIvyRepositoryArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // VirtualIvyRepositoryMapInput is an input type that accepts VirtualIvyRepositoryMap and VirtualIvyRepositoryMapOutput values.
@@ -381,6 +394,12 @@ func (i VirtualIvyRepositoryMap) ToVirtualIvyRepositoryMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualIvyRepositoryMapOutput)
 }
 
+func (i VirtualIvyRepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VirtualIvyRepository] {
+	return pulumix.Output[map[string]*VirtualIvyRepository]{
+		OutputState: i.ToVirtualIvyRepositoryMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualIvyRepositoryOutput struct{ *pulumi.OutputState }
 
 func (VirtualIvyRepositoryOutput) ElementType() reflect.Type {
@@ -393,6 +412,12 @@ func (o VirtualIvyRepositoryOutput) ToVirtualIvyRepositoryOutput() VirtualIvyRep
 
 func (o VirtualIvyRepositoryOutput) ToVirtualIvyRepositoryOutputWithContext(ctx context.Context) VirtualIvyRepositoryOutput {
 	return o
+}
+
+func (o VirtualIvyRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualIvyRepository] {
+	return pulumix.Output[*VirtualIvyRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
@@ -496,6 +521,12 @@ func (o VirtualIvyRepositoryArrayOutput) ToVirtualIvyRepositoryArrayOutputWithCo
 	return o
 }
 
+func (o VirtualIvyRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VirtualIvyRepository] {
+	return pulumix.Output[[]*VirtualIvyRepository]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VirtualIvyRepositoryArrayOutput) Index(i pulumi.IntInput) VirtualIvyRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VirtualIvyRepository {
 		return vs[0].([]*VirtualIvyRepository)[vs[1].(int)]
@@ -514,6 +545,12 @@ func (o VirtualIvyRepositoryMapOutput) ToVirtualIvyRepositoryMapOutput() Virtual
 
 func (o VirtualIvyRepositoryMapOutput) ToVirtualIvyRepositoryMapOutputWithContext(ctx context.Context) VirtualIvyRepositoryMapOutput {
 	return o
+}
+
+func (o VirtualIvyRepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VirtualIvyRepository] {
+	return pulumix.Output[map[string]*VirtualIvyRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualIvyRepositoryMapOutput) MapIndex(k pulumi.StringInput) VirtualIvyRepositoryOutput {

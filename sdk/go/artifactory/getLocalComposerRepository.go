@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 func LookupLocalComposerRepository(ctx *pulumi.Context, args *LookupLocalComposerRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupLocalComposerRepositoryResult, error) {
@@ -111,6 +112,12 @@ func (o LookupLocalComposerRepositoryResultOutput) ToLookupLocalComposerReposito
 
 func (o LookupLocalComposerRepositoryResultOutput) ToLookupLocalComposerRepositoryResultOutputWithContext(ctx context.Context) LookupLocalComposerRepositoryResultOutput {
 	return o
+}
+
+func (o LookupLocalComposerRepositoryResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupLocalComposerRepositoryResult] {
+	return pulumix.Output[LookupLocalComposerRepositoryResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupLocalComposerRepositoryResultOutput) ArchiveBrowsingEnabled() pulumi.BoolPtrOutput {

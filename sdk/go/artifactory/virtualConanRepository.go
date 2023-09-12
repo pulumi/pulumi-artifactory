@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a virtual Conan repository.
@@ -296,6 +297,12 @@ func (i *VirtualConanRepository) ToVirtualConanRepositoryOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualConanRepositoryOutput)
 }
 
+func (i *VirtualConanRepository) ToOutput(ctx context.Context) pulumix.Output[*VirtualConanRepository] {
+	return pulumix.Output[*VirtualConanRepository]{
+		OutputState: i.ToVirtualConanRepositoryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // VirtualConanRepositoryArrayInput is an input type that accepts VirtualConanRepositoryArray and VirtualConanRepositoryArrayOutput values.
 // You can construct a concrete instance of `VirtualConanRepositoryArrayInput` via:
 //
@@ -319,6 +326,12 @@ func (i VirtualConanRepositoryArray) ToVirtualConanRepositoryArrayOutput() Virtu
 
 func (i VirtualConanRepositoryArray) ToVirtualConanRepositoryArrayOutputWithContext(ctx context.Context) VirtualConanRepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualConanRepositoryArrayOutput)
+}
+
+func (i VirtualConanRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*VirtualConanRepository] {
+	return pulumix.Output[[]*VirtualConanRepository]{
+		OutputState: i.ToVirtualConanRepositoryArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // VirtualConanRepositoryMapInput is an input type that accepts VirtualConanRepositoryMap and VirtualConanRepositoryMapOutput values.
@@ -346,6 +359,12 @@ func (i VirtualConanRepositoryMap) ToVirtualConanRepositoryMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualConanRepositoryMapOutput)
 }
 
+func (i VirtualConanRepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VirtualConanRepository] {
+	return pulumix.Output[map[string]*VirtualConanRepository]{
+		OutputState: i.ToVirtualConanRepositoryMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualConanRepositoryOutput struct{ *pulumi.OutputState }
 
 func (VirtualConanRepositoryOutput) ElementType() reflect.Type {
@@ -358,6 +377,12 @@ func (o VirtualConanRepositoryOutput) ToVirtualConanRepositoryOutput() VirtualCo
 
 func (o VirtualConanRepositoryOutput) ToVirtualConanRepositoryOutputWithContext(ctx context.Context) VirtualConanRepositoryOutput {
 	return o
+}
+
+func (o VirtualConanRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualConanRepository] {
+	return pulumix.Output[*VirtualConanRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
@@ -448,6 +473,12 @@ func (o VirtualConanRepositoryArrayOutput) ToVirtualConanRepositoryArrayOutputWi
 	return o
 }
 
+func (o VirtualConanRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VirtualConanRepository] {
+	return pulumix.Output[[]*VirtualConanRepository]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VirtualConanRepositoryArrayOutput) Index(i pulumi.IntInput) VirtualConanRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VirtualConanRepository {
 		return vs[0].([]*VirtualConanRepository)[vs[1].(int)]
@@ -466,6 +497,12 @@ func (o VirtualConanRepositoryMapOutput) ToVirtualConanRepositoryMapOutput() Vir
 
 func (o VirtualConanRepositoryMapOutput) ToVirtualConanRepositoryMapOutputWithContext(ctx context.Context) VirtualConanRepositoryMapOutput {
 	return o
+}
+
+func (o VirtualConanRepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VirtualConanRepository] {
+	return pulumix.Output[map[string]*VirtualConanRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualConanRepositoryMapOutput) MapIndex(k pulumi.StringInput) VirtualConanRepositoryOutput {

@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieves a remote Peppet repository.
@@ -192,6 +193,12 @@ func (o LookupRemotePuppetRepositoryResultOutput) ToLookupRemotePuppetRepository
 
 func (o LookupRemotePuppetRepositoryResultOutput) ToLookupRemotePuppetRepositoryResultOutputWithContext(ctx context.Context) LookupRemotePuppetRepositoryResultOutput {
 	return o
+}
+
+func (o LookupRemotePuppetRepositoryResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupRemotePuppetRepositoryResult] {
+	return pulumix.Output[LookupRemotePuppetRepositoryResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupRemotePuppetRepositoryResultOutput) AllowAnyHostAuth() pulumi.BoolPtrOutput {

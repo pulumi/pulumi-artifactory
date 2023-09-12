@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an Artifactory custom webhook resource. This can be used to register and manage Artifactory webhook subscription which enables you to be notified or notify other users when such events take place in Artifactory.
@@ -216,6 +217,12 @@ func (i *BuildCustomWebhook) ToBuildCustomWebhookOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(BuildCustomWebhookOutput)
 }
 
+func (i *BuildCustomWebhook) ToOutput(ctx context.Context) pulumix.Output[*BuildCustomWebhook] {
+	return pulumix.Output[*BuildCustomWebhook]{
+		OutputState: i.ToBuildCustomWebhookOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BuildCustomWebhookArrayInput is an input type that accepts BuildCustomWebhookArray and BuildCustomWebhookArrayOutput values.
 // You can construct a concrete instance of `BuildCustomWebhookArrayInput` via:
 //
@@ -239,6 +246,12 @@ func (i BuildCustomWebhookArray) ToBuildCustomWebhookArrayOutput() BuildCustomWe
 
 func (i BuildCustomWebhookArray) ToBuildCustomWebhookArrayOutputWithContext(ctx context.Context) BuildCustomWebhookArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BuildCustomWebhookArrayOutput)
+}
+
+func (i BuildCustomWebhookArray) ToOutput(ctx context.Context) pulumix.Output[[]*BuildCustomWebhook] {
+	return pulumix.Output[[]*BuildCustomWebhook]{
+		OutputState: i.ToBuildCustomWebhookArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // BuildCustomWebhookMapInput is an input type that accepts BuildCustomWebhookMap and BuildCustomWebhookMapOutput values.
@@ -266,6 +279,12 @@ func (i BuildCustomWebhookMap) ToBuildCustomWebhookMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(BuildCustomWebhookMapOutput)
 }
 
+func (i BuildCustomWebhookMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*BuildCustomWebhook] {
+	return pulumix.Output[map[string]*BuildCustomWebhook]{
+		OutputState: i.ToBuildCustomWebhookMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BuildCustomWebhookOutput struct{ *pulumi.OutputState }
 
 func (BuildCustomWebhookOutput) ElementType() reflect.Type {
@@ -278,6 +297,12 @@ func (o BuildCustomWebhookOutput) ToBuildCustomWebhookOutput() BuildCustomWebhoo
 
 func (o BuildCustomWebhookOutput) ToBuildCustomWebhookOutputWithContext(ctx context.Context) BuildCustomWebhookOutput {
 	return o
+}
+
+func (o BuildCustomWebhookOutput) ToOutput(ctx context.Context) pulumix.Output[*BuildCustomWebhook] {
+	return pulumix.Output[*BuildCustomWebhook]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies where the webhook will be applied on which repositories.
@@ -324,6 +349,12 @@ func (o BuildCustomWebhookArrayOutput) ToBuildCustomWebhookArrayOutputWithContex
 	return o
 }
 
+func (o BuildCustomWebhookArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*BuildCustomWebhook] {
+	return pulumix.Output[[]*BuildCustomWebhook]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o BuildCustomWebhookArrayOutput) Index(i pulumi.IntInput) BuildCustomWebhookOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BuildCustomWebhook {
 		return vs[0].([]*BuildCustomWebhook)[vs[1].(int)]
@@ -342,6 +373,12 @@ func (o BuildCustomWebhookMapOutput) ToBuildCustomWebhookMapOutput() BuildCustom
 
 func (o BuildCustomWebhookMapOutput) ToBuildCustomWebhookMapOutputWithContext(ctx context.Context) BuildCustomWebhookMapOutput {
 	return o
+}
+
+func (o BuildCustomWebhookMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*BuildCustomWebhook] {
+	return pulumix.Output[map[string]*BuildCustomWebhook]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BuildCustomWebhookMapOutput) MapIndex(k pulumi.StringInput) BuildCustomWebhookOutput {

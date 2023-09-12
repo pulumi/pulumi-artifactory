@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 func GetLocalTerraformbackendRepository(ctx *pulumi.Context, args *GetLocalTerraformbackendRepositoryArgs, opts ...pulumi.InvokeOption) (*GetLocalTerraformbackendRepositoryResult, error) {
@@ -111,6 +112,12 @@ func (o GetLocalTerraformbackendRepositoryResultOutput) ToGetLocalTerraformbacke
 
 func (o GetLocalTerraformbackendRepositoryResultOutput) ToGetLocalTerraformbackendRepositoryResultOutputWithContext(ctx context.Context) GetLocalTerraformbackendRepositoryResultOutput {
 	return o
+}
+
+func (o GetLocalTerraformbackendRepositoryResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetLocalTerraformbackendRepositoryResult] {
+	return pulumix.Output[GetLocalTerraformbackendRepositoryResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetLocalTerraformbackendRepositoryResultOutput) ArchiveBrowsingEnabled() pulumi.BoolPtrOutput {

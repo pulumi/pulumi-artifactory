@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a virtual Nuget repository.
@@ -296,6 +297,12 @@ func (i *VirtualNugetRepository) ToVirtualNugetRepositoryOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNugetRepositoryOutput)
 }
 
+func (i *VirtualNugetRepository) ToOutput(ctx context.Context) pulumix.Output[*VirtualNugetRepository] {
+	return pulumix.Output[*VirtualNugetRepository]{
+		OutputState: i.ToVirtualNugetRepositoryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // VirtualNugetRepositoryArrayInput is an input type that accepts VirtualNugetRepositoryArray and VirtualNugetRepositoryArrayOutput values.
 // You can construct a concrete instance of `VirtualNugetRepositoryArrayInput` via:
 //
@@ -319,6 +326,12 @@ func (i VirtualNugetRepositoryArray) ToVirtualNugetRepositoryArrayOutput() Virtu
 
 func (i VirtualNugetRepositoryArray) ToVirtualNugetRepositoryArrayOutputWithContext(ctx context.Context) VirtualNugetRepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNugetRepositoryArrayOutput)
+}
+
+func (i VirtualNugetRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*VirtualNugetRepository] {
+	return pulumix.Output[[]*VirtualNugetRepository]{
+		OutputState: i.ToVirtualNugetRepositoryArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // VirtualNugetRepositoryMapInput is an input type that accepts VirtualNugetRepositoryMap and VirtualNugetRepositoryMapOutput values.
@@ -346,6 +359,12 @@ func (i VirtualNugetRepositoryMap) ToVirtualNugetRepositoryMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNugetRepositoryMapOutput)
 }
 
+func (i VirtualNugetRepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VirtualNugetRepository] {
+	return pulumix.Output[map[string]*VirtualNugetRepository]{
+		OutputState: i.ToVirtualNugetRepositoryMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualNugetRepositoryOutput struct{ *pulumi.OutputState }
 
 func (VirtualNugetRepositoryOutput) ElementType() reflect.Type {
@@ -358,6 +377,12 @@ func (o VirtualNugetRepositoryOutput) ToVirtualNugetRepositoryOutput() VirtualNu
 
 func (o VirtualNugetRepositoryOutput) ToVirtualNugetRepositoryOutputWithContext(ctx context.Context) VirtualNugetRepositoryOutput {
 	return o
+}
+
+func (o VirtualNugetRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualNugetRepository] {
+	return pulumix.Output[*VirtualNugetRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
@@ -448,6 +473,12 @@ func (o VirtualNugetRepositoryArrayOutput) ToVirtualNugetRepositoryArrayOutputWi
 	return o
 }
 
+func (o VirtualNugetRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VirtualNugetRepository] {
+	return pulumix.Output[[]*VirtualNugetRepository]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VirtualNugetRepositoryArrayOutput) Index(i pulumi.IntInput) VirtualNugetRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VirtualNugetRepository {
 		return vs[0].([]*VirtualNugetRepository)[vs[1].(int)]
@@ -466,6 +497,12 @@ func (o VirtualNugetRepositoryMapOutput) ToVirtualNugetRepositoryMapOutput() Vir
 
 func (o VirtualNugetRepositoryMapOutput) ToVirtualNugetRepositoryMapOutputWithContext(ctx context.Context) VirtualNugetRepositoryMapOutput {
 	return o
+}
+
+func (o VirtualNugetRepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VirtualNugetRepository] {
+	return pulumix.Output[map[string]*VirtualNugetRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualNugetRepositoryMapOutput) MapIndex(k pulumi.StringInput) VirtualNugetRepositoryOutput {

@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieves a virtual PHP Composer repository.
@@ -128,6 +129,12 @@ func (o LookupVirtualComposerRepositoryResultOutput) ToLookupVirtualComposerRepo
 
 func (o LookupVirtualComposerRepositoryResultOutput) ToLookupVirtualComposerRepositoryResultOutputWithContext(ctx context.Context) LookupVirtualComposerRepositoryResultOutput {
 	return o
+}
+
+func (o LookupVirtualComposerRepositoryResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupVirtualComposerRepositoryResult] {
+	return pulumix.Output[LookupVirtualComposerRepositoryResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupVirtualComposerRepositoryResultOutput) ArtifactoryRequestsCanRetrieveRemoteArtifacts() pulumi.BoolPtrOutput {

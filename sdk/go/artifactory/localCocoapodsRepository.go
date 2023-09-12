@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a local Cocoapods repository.
@@ -334,6 +335,12 @@ func (i *LocalCocoapodsRepository) ToLocalCocoapodsRepositoryOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(LocalCocoapodsRepositoryOutput)
 }
 
+func (i *LocalCocoapodsRepository) ToOutput(ctx context.Context) pulumix.Output[*LocalCocoapodsRepository] {
+	return pulumix.Output[*LocalCocoapodsRepository]{
+		OutputState: i.ToLocalCocoapodsRepositoryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LocalCocoapodsRepositoryArrayInput is an input type that accepts LocalCocoapodsRepositoryArray and LocalCocoapodsRepositoryArrayOutput values.
 // You can construct a concrete instance of `LocalCocoapodsRepositoryArrayInput` via:
 //
@@ -357,6 +364,12 @@ func (i LocalCocoapodsRepositoryArray) ToLocalCocoapodsRepositoryArrayOutput() L
 
 func (i LocalCocoapodsRepositoryArray) ToLocalCocoapodsRepositoryArrayOutputWithContext(ctx context.Context) LocalCocoapodsRepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LocalCocoapodsRepositoryArrayOutput)
+}
+
+func (i LocalCocoapodsRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*LocalCocoapodsRepository] {
+	return pulumix.Output[[]*LocalCocoapodsRepository]{
+		OutputState: i.ToLocalCocoapodsRepositoryArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // LocalCocoapodsRepositoryMapInput is an input type that accepts LocalCocoapodsRepositoryMap and LocalCocoapodsRepositoryMapOutput values.
@@ -384,6 +397,12 @@ func (i LocalCocoapodsRepositoryMap) ToLocalCocoapodsRepositoryMapOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(LocalCocoapodsRepositoryMapOutput)
 }
 
+func (i LocalCocoapodsRepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LocalCocoapodsRepository] {
+	return pulumix.Output[map[string]*LocalCocoapodsRepository]{
+		OutputState: i.ToLocalCocoapodsRepositoryMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LocalCocoapodsRepositoryOutput struct{ *pulumi.OutputState }
 
 func (LocalCocoapodsRepositoryOutput) ElementType() reflect.Type {
@@ -396,6 +415,12 @@ func (o LocalCocoapodsRepositoryOutput) ToLocalCocoapodsRepositoryOutput() Local
 
 func (o LocalCocoapodsRepositoryOutput) ToLocalCocoapodsRepositoryOutputWithContext(ctx context.Context) LocalCocoapodsRepositoryOutput {
 	return o
+}
+
+func (o LocalCocoapodsRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*LocalCocoapodsRepository] {
+	return pulumix.Output[*LocalCocoapodsRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 // When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -502,6 +527,12 @@ func (o LocalCocoapodsRepositoryArrayOutput) ToLocalCocoapodsRepositoryArrayOutp
 	return o
 }
 
+func (o LocalCocoapodsRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LocalCocoapodsRepository] {
+	return pulumix.Output[[]*LocalCocoapodsRepository]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LocalCocoapodsRepositoryArrayOutput) Index(i pulumi.IntInput) LocalCocoapodsRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LocalCocoapodsRepository {
 		return vs[0].([]*LocalCocoapodsRepository)[vs[1].(int)]
@@ -520,6 +551,12 @@ func (o LocalCocoapodsRepositoryMapOutput) ToLocalCocoapodsRepositoryMapOutput()
 
 func (o LocalCocoapodsRepositoryMapOutput) ToLocalCocoapodsRepositoryMapOutputWithContext(ctx context.Context) LocalCocoapodsRepositoryMapOutput {
 	return o
+}
+
+func (o LocalCocoapodsRepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LocalCocoapodsRepository] {
+	return pulumix.Output[map[string]*LocalCocoapodsRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LocalCocoapodsRepositoryMapOutput) MapIndex(k pulumi.StringInput) LocalCocoapodsRepositoryOutput {

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a virtual Gems repository.
@@ -285,6 +286,12 @@ func (i *VirtualGemsRepository) ToVirtualGemsRepositoryOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualGemsRepositoryOutput)
 }
 
+func (i *VirtualGemsRepository) ToOutput(ctx context.Context) pulumix.Output[*VirtualGemsRepository] {
+	return pulumix.Output[*VirtualGemsRepository]{
+		OutputState: i.ToVirtualGemsRepositoryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // VirtualGemsRepositoryArrayInput is an input type that accepts VirtualGemsRepositoryArray and VirtualGemsRepositoryArrayOutput values.
 // You can construct a concrete instance of `VirtualGemsRepositoryArrayInput` via:
 //
@@ -308,6 +315,12 @@ func (i VirtualGemsRepositoryArray) ToVirtualGemsRepositoryArrayOutput() Virtual
 
 func (i VirtualGemsRepositoryArray) ToVirtualGemsRepositoryArrayOutputWithContext(ctx context.Context) VirtualGemsRepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualGemsRepositoryArrayOutput)
+}
+
+func (i VirtualGemsRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*VirtualGemsRepository] {
+	return pulumix.Output[[]*VirtualGemsRepository]{
+		OutputState: i.ToVirtualGemsRepositoryArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // VirtualGemsRepositoryMapInput is an input type that accepts VirtualGemsRepositoryMap and VirtualGemsRepositoryMapOutput values.
@@ -335,6 +348,12 @@ func (i VirtualGemsRepositoryMap) ToVirtualGemsRepositoryMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualGemsRepositoryMapOutput)
 }
 
+func (i VirtualGemsRepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VirtualGemsRepository] {
+	return pulumix.Output[map[string]*VirtualGemsRepository]{
+		OutputState: i.ToVirtualGemsRepositoryMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualGemsRepositoryOutput struct{ *pulumi.OutputState }
 
 func (VirtualGemsRepositoryOutput) ElementType() reflect.Type {
@@ -347,6 +366,12 @@ func (o VirtualGemsRepositoryOutput) ToVirtualGemsRepositoryOutput() VirtualGems
 
 func (o VirtualGemsRepositoryOutput) ToVirtualGemsRepositoryOutputWithContext(ctx context.Context) VirtualGemsRepositoryOutput {
 	return o
+}
+
+func (o VirtualGemsRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualGemsRepository] {
+	return pulumix.Output[*VirtualGemsRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
@@ -432,6 +457,12 @@ func (o VirtualGemsRepositoryArrayOutput) ToVirtualGemsRepositoryArrayOutputWith
 	return o
 }
 
+func (o VirtualGemsRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VirtualGemsRepository] {
+	return pulumix.Output[[]*VirtualGemsRepository]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VirtualGemsRepositoryArrayOutput) Index(i pulumi.IntInput) VirtualGemsRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VirtualGemsRepository {
 		return vs[0].([]*VirtualGemsRepository)[vs[1].(int)]
@@ -450,6 +481,12 @@ func (o VirtualGemsRepositoryMapOutput) ToVirtualGemsRepositoryMapOutput() Virtu
 
 func (o VirtualGemsRepositoryMapOutput) ToVirtualGemsRepositoryMapOutputWithContext(ctx context.Context) VirtualGemsRepositoryMapOutput {
 	return o
+}
+
+func (o VirtualGemsRepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VirtualGemsRepository] {
+	return pulumix.Output[map[string]*VirtualGemsRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualGemsRepositoryMapOutput) MapIndex(k pulumi.StringInput) VirtualGemsRepositoryOutput {

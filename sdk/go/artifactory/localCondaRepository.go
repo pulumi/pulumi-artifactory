@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a local Conda repository.
@@ -334,6 +335,12 @@ func (i *LocalCondaRepository) ToLocalCondaRepositoryOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(LocalCondaRepositoryOutput)
 }
 
+func (i *LocalCondaRepository) ToOutput(ctx context.Context) pulumix.Output[*LocalCondaRepository] {
+	return pulumix.Output[*LocalCondaRepository]{
+		OutputState: i.ToLocalCondaRepositoryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LocalCondaRepositoryArrayInput is an input type that accepts LocalCondaRepositoryArray and LocalCondaRepositoryArrayOutput values.
 // You can construct a concrete instance of `LocalCondaRepositoryArrayInput` via:
 //
@@ -357,6 +364,12 @@ func (i LocalCondaRepositoryArray) ToLocalCondaRepositoryArrayOutput() LocalCond
 
 func (i LocalCondaRepositoryArray) ToLocalCondaRepositoryArrayOutputWithContext(ctx context.Context) LocalCondaRepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LocalCondaRepositoryArrayOutput)
+}
+
+func (i LocalCondaRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*LocalCondaRepository] {
+	return pulumix.Output[[]*LocalCondaRepository]{
+		OutputState: i.ToLocalCondaRepositoryArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // LocalCondaRepositoryMapInput is an input type that accepts LocalCondaRepositoryMap and LocalCondaRepositoryMapOutput values.
@@ -384,6 +397,12 @@ func (i LocalCondaRepositoryMap) ToLocalCondaRepositoryMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(LocalCondaRepositoryMapOutput)
 }
 
+func (i LocalCondaRepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LocalCondaRepository] {
+	return pulumix.Output[map[string]*LocalCondaRepository]{
+		OutputState: i.ToLocalCondaRepositoryMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LocalCondaRepositoryOutput struct{ *pulumi.OutputState }
 
 func (LocalCondaRepositoryOutput) ElementType() reflect.Type {
@@ -396,6 +415,12 @@ func (o LocalCondaRepositoryOutput) ToLocalCondaRepositoryOutput() LocalCondaRep
 
 func (o LocalCondaRepositoryOutput) ToLocalCondaRepositoryOutputWithContext(ctx context.Context) LocalCondaRepositoryOutput {
 	return o
+}
+
+func (o LocalCondaRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*LocalCondaRepository] {
+	return pulumix.Output[*LocalCondaRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 // When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -502,6 +527,12 @@ func (o LocalCondaRepositoryArrayOutput) ToLocalCondaRepositoryArrayOutputWithCo
 	return o
 }
 
+func (o LocalCondaRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LocalCondaRepository] {
+	return pulumix.Output[[]*LocalCondaRepository]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LocalCondaRepositoryArrayOutput) Index(i pulumi.IntInput) LocalCondaRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LocalCondaRepository {
 		return vs[0].([]*LocalCondaRepository)[vs[1].(int)]
@@ -520,6 +551,12 @@ func (o LocalCondaRepositoryMapOutput) ToLocalCondaRepositoryMapOutput() LocalCo
 
 func (o LocalCondaRepositoryMapOutput) ToLocalCondaRepositoryMapOutputWithContext(ctx context.Context) LocalCondaRepositoryMapOutput {
 	return o
+}
+
+func (o LocalCondaRepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LocalCondaRepository] {
+	return pulumix.Output[map[string]*LocalCondaRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LocalCondaRepositoryMapOutput) MapIndex(k pulumi.StringInput) LocalCondaRepositoryOutput {

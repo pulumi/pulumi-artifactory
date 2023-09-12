@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a remote Cargo repository.
@@ -751,6 +752,12 @@ func (i *RemoteCargoRepository) ToRemoteCargoRepositoryOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(RemoteCargoRepositoryOutput)
 }
 
+func (i *RemoteCargoRepository) ToOutput(ctx context.Context) pulumix.Output[*RemoteCargoRepository] {
+	return pulumix.Output[*RemoteCargoRepository]{
+		OutputState: i.ToRemoteCargoRepositoryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RemoteCargoRepositoryArrayInput is an input type that accepts RemoteCargoRepositoryArray and RemoteCargoRepositoryArrayOutput values.
 // You can construct a concrete instance of `RemoteCargoRepositoryArrayInput` via:
 //
@@ -774,6 +781,12 @@ func (i RemoteCargoRepositoryArray) ToRemoteCargoRepositoryArrayOutput() RemoteC
 
 func (i RemoteCargoRepositoryArray) ToRemoteCargoRepositoryArrayOutputWithContext(ctx context.Context) RemoteCargoRepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RemoteCargoRepositoryArrayOutput)
+}
+
+func (i RemoteCargoRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*RemoteCargoRepository] {
+	return pulumix.Output[[]*RemoteCargoRepository]{
+		OutputState: i.ToRemoteCargoRepositoryArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // RemoteCargoRepositoryMapInput is an input type that accepts RemoteCargoRepositoryMap and RemoteCargoRepositoryMapOutput values.
@@ -801,6 +814,12 @@ func (i RemoteCargoRepositoryMap) ToRemoteCargoRepositoryMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(RemoteCargoRepositoryMapOutput)
 }
 
+func (i RemoteCargoRepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RemoteCargoRepository] {
+	return pulumix.Output[map[string]*RemoteCargoRepository]{
+		OutputState: i.ToRemoteCargoRepositoryMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RemoteCargoRepositoryOutput struct{ *pulumi.OutputState }
 
 func (RemoteCargoRepositoryOutput) ElementType() reflect.Type {
@@ -813,6 +832,12 @@ func (o RemoteCargoRepositoryOutput) ToRemoteCargoRepositoryOutput() RemoteCargo
 
 func (o RemoteCargoRepositoryOutput) ToRemoteCargoRepositoryOutputWithContext(ctx context.Context) RemoteCargoRepositoryOutput {
 	return o
+}
+
+func (o RemoteCargoRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*RemoteCargoRepository] {
+	return pulumix.Output[*RemoteCargoRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 // 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any
@@ -1087,6 +1112,12 @@ func (o RemoteCargoRepositoryArrayOutput) ToRemoteCargoRepositoryArrayOutputWith
 	return o
 }
 
+func (o RemoteCargoRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RemoteCargoRepository] {
+	return pulumix.Output[[]*RemoteCargoRepository]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RemoteCargoRepositoryArrayOutput) Index(i pulumi.IntInput) RemoteCargoRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RemoteCargoRepository {
 		return vs[0].([]*RemoteCargoRepository)[vs[1].(int)]
@@ -1105,6 +1136,12 @@ func (o RemoteCargoRepositoryMapOutput) ToRemoteCargoRepositoryMapOutput() Remot
 
 func (o RemoteCargoRepositoryMapOutput) ToRemoteCargoRepositoryMapOutputWithContext(ctx context.Context) RemoteCargoRepositoryMapOutput {
 	return o
+}
+
+func (o RemoteCargoRepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RemoteCargoRepository] {
+	return pulumix.Output[map[string]*RemoteCargoRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RemoteCargoRepositoryMapOutput) MapIndex(k pulumi.StringInput) RemoteCargoRepositoryOutput {

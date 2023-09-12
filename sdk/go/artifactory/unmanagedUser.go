@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an Artifactory unmanaged user resource. This can be used to create and manage Artifactory users.
@@ -227,6 +228,12 @@ func (i *UnmanagedUser) ToUnmanagedUserOutputWithContext(ctx context.Context) Un
 	return pulumi.ToOutputWithContext(ctx, i).(UnmanagedUserOutput)
 }
 
+func (i *UnmanagedUser) ToOutput(ctx context.Context) pulumix.Output[*UnmanagedUser] {
+	return pulumix.Output[*UnmanagedUser]{
+		OutputState: i.ToUnmanagedUserOutputWithContext(ctx).OutputState,
+	}
+}
+
 // UnmanagedUserArrayInput is an input type that accepts UnmanagedUserArray and UnmanagedUserArrayOutput values.
 // You can construct a concrete instance of `UnmanagedUserArrayInput` via:
 //
@@ -250,6 +257,12 @@ func (i UnmanagedUserArray) ToUnmanagedUserArrayOutput() UnmanagedUserArrayOutpu
 
 func (i UnmanagedUserArray) ToUnmanagedUserArrayOutputWithContext(ctx context.Context) UnmanagedUserArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UnmanagedUserArrayOutput)
+}
+
+func (i UnmanagedUserArray) ToOutput(ctx context.Context) pulumix.Output[[]*UnmanagedUser] {
+	return pulumix.Output[[]*UnmanagedUser]{
+		OutputState: i.ToUnmanagedUserArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // UnmanagedUserMapInput is an input type that accepts UnmanagedUserMap and UnmanagedUserMapOutput values.
@@ -277,6 +290,12 @@ func (i UnmanagedUserMap) ToUnmanagedUserMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(UnmanagedUserMapOutput)
 }
 
+func (i UnmanagedUserMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*UnmanagedUser] {
+	return pulumix.Output[map[string]*UnmanagedUser]{
+		OutputState: i.ToUnmanagedUserMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type UnmanagedUserOutput struct{ *pulumi.OutputState }
 
 func (UnmanagedUserOutput) ElementType() reflect.Type {
@@ -289,6 +308,12 @@ func (o UnmanagedUserOutput) ToUnmanagedUserOutput() UnmanagedUserOutput {
 
 func (o UnmanagedUserOutput) ToUnmanagedUserOutputWithContext(ctx context.Context) UnmanagedUserOutput {
 	return o
+}
+
+func (o UnmanagedUserOutput) ToOutput(ctx context.Context) pulumix.Output[*UnmanagedUser] {
+	return pulumix.Output[*UnmanagedUser]{
+		OutputState: o.OutputState,
+	}
 }
 
 // When enabled, this user is an administrator with all the ensuing privileges. Default value is `false`.
@@ -345,6 +370,12 @@ func (o UnmanagedUserArrayOutput) ToUnmanagedUserArrayOutputWithContext(ctx cont
 	return o
 }
 
+func (o UnmanagedUserArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*UnmanagedUser] {
+	return pulumix.Output[[]*UnmanagedUser]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o UnmanagedUserArrayOutput) Index(i pulumi.IntInput) UnmanagedUserOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *UnmanagedUser {
 		return vs[0].([]*UnmanagedUser)[vs[1].(int)]
@@ -363,6 +394,12 @@ func (o UnmanagedUserMapOutput) ToUnmanagedUserMapOutput() UnmanagedUserMapOutpu
 
 func (o UnmanagedUserMapOutput) ToUnmanagedUserMapOutputWithContext(ctx context.Context) UnmanagedUserMapOutput {
 	return o
+}
+
+func (o UnmanagedUserMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*UnmanagedUser] {
+	return pulumix.Output[map[string]*UnmanagedUser]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o UnmanagedUserMapOutput) MapIndex(k pulumi.StringInput) UnmanagedUserOutput {

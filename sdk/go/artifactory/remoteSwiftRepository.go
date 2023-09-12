@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a remote Swift repository.
@@ -711,6 +712,12 @@ func (i *RemoteSwiftRepository) ToRemoteSwiftRepositoryOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(RemoteSwiftRepositoryOutput)
 }
 
+func (i *RemoteSwiftRepository) ToOutput(ctx context.Context) pulumix.Output[*RemoteSwiftRepository] {
+	return pulumix.Output[*RemoteSwiftRepository]{
+		OutputState: i.ToRemoteSwiftRepositoryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RemoteSwiftRepositoryArrayInput is an input type that accepts RemoteSwiftRepositoryArray and RemoteSwiftRepositoryArrayOutput values.
 // You can construct a concrete instance of `RemoteSwiftRepositoryArrayInput` via:
 //
@@ -734,6 +741,12 @@ func (i RemoteSwiftRepositoryArray) ToRemoteSwiftRepositoryArrayOutput() RemoteS
 
 func (i RemoteSwiftRepositoryArray) ToRemoteSwiftRepositoryArrayOutputWithContext(ctx context.Context) RemoteSwiftRepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RemoteSwiftRepositoryArrayOutput)
+}
+
+func (i RemoteSwiftRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*RemoteSwiftRepository] {
+	return pulumix.Output[[]*RemoteSwiftRepository]{
+		OutputState: i.ToRemoteSwiftRepositoryArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // RemoteSwiftRepositoryMapInput is an input type that accepts RemoteSwiftRepositoryMap and RemoteSwiftRepositoryMapOutput values.
@@ -761,6 +774,12 @@ func (i RemoteSwiftRepositoryMap) ToRemoteSwiftRepositoryMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(RemoteSwiftRepositoryMapOutput)
 }
 
+func (i RemoteSwiftRepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RemoteSwiftRepository] {
+	return pulumix.Output[map[string]*RemoteSwiftRepository]{
+		OutputState: i.ToRemoteSwiftRepositoryMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RemoteSwiftRepositoryOutput struct{ *pulumi.OutputState }
 
 func (RemoteSwiftRepositoryOutput) ElementType() reflect.Type {
@@ -773,6 +792,12 @@ func (o RemoteSwiftRepositoryOutput) ToRemoteSwiftRepositoryOutput() RemoteSwift
 
 func (o RemoteSwiftRepositoryOutput) ToRemoteSwiftRepositoryOutputWithContext(ctx context.Context) RemoteSwiftRepositoryOutput {
 	return o
+}
+
+func (o RemoteSwiftRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*RemoteSwiftRepository] {
+	return pulumix.Output[*RemoteSwiftRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 // 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any
@@ -1032,6 +1057,12 @@ func (o RemoteSwiftRepositoryArrayOutput) ToRemoteSwiftRepositoryArrayOutputWith
 	return o
 }
 
+func (o RemoteSwiftRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RemoteSwiftRepository] {
+	return pulumix.Output[[]*RemoteSwiftRepository]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RemoteSwiftRepositoryArrayOutput) Index(i pulumi.IntInput) RemoteSwiftRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RemoteSwiftRepository {
 		return vs[0].([]*RemoteSwiftRepository)[vs[1].(int)]
@@ -1050,6 +1081,12 @@ func (o RemoteSwiftRepositoryMapOutput) ToRemoteSwiftRepositoryMapOutput() Remot
 
 func (o RemoteSwiftRepositoryMapOutput) ToRemoteSwiftRepositoryMapOutputWithContext(ctx context.Context) RemoteSwiftRepositoryMapOutput {
 	return o
+}
+
+func (o RemoteSwiftRepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RemoteSwiftRepository] {
+	return pulumix.Output[map[string]*RemoteSwiftRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RemoteSwiftRepositoryMapOutput) MapIndex(k pulumi.StringInput) RemoteSwiftRepositoryOutput {

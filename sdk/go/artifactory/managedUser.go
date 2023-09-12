@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -214,6 +215,12 @@ func (i *ManagedUser) ToManagedUserOutputWithContext(ctx context.Context) Manage
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedUserOutput)
 }
 
+func (i *ManagedUser) ToOutput(ctx context.Context) pulumix.Output[*ManagedUser] {
+	return pulumix.Output[*ManagedUser]{
+		OutputState: i.ToManagedUserOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ManagedUserArrayInput is an input type that accepts ManagedUserArray and ManagedUserArrayOutput values.
 // You can construct a concrete instance of `ManagedUserArrayInput` via:
 //
@@ -237,6 +244,12 @@ func (i ManagedUserArray) ToManagedUserArrayOutput() ManagedUserArrayOutput {
 
 func (i ManagedUserArray) ToManagedUserArrayOutputWithContext(ctx context.Context) ManagedUserArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedUserArrayOutput)
+}
+
+func (i ManagedUserArray) ToOutput(ctx context.Context) pulumix.Output[[]*ManagedUser] {
+	return pulumix.Output[[]*ManagedUser]{
+		OutputState: i.ToManagedUserArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ManagedUserMapInput is an input type that accepts ManagedUserMap and ManagedUserMapOutput values.
@@ -264,6 +277,12 @@ func (i ManagedUserMap) ToManagedUserMapOutputWithContext(ctx context.Context) M
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedUserMapOutput)
 }
 
+func (i ManagedUserMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ManagedUser] {
+	return pulumix.Output[map[string]*ManagedUser]{
+		OutputState: i.ToManagedUserMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ManagedUserOutput struct{ *pulumi.OutputState }
 
 func (ManagedUserOutput) ElementType() reflect.Type {
@@ -276,6 +295,12 @@ func (o ManagedUserOutput) ToManagedUserOutput() ManagedUserOutput {
 
 func (o ManagedUserOutput) ToManagedUserOutputWithContext(ctx context.Context) ManagedUserOutput {
 	return o
+}
+
+func (o ManagedUserOutput) ToOutput(ctx context.Context) pulumix.Output[*ManagedUser] {
+	return pulumix.Output[*ManagedUser]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Optional, Default: false) When enabled, this user is an administrator with all the ensuing privileges.
@@ -332,6 +357,12 @@ func (o ManagedUserArrayOutput) ToManagedUserArrayOutputWithContext(ctx context.
 	return o
 }
 
+func (o ManagedUserArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ManagedUser] {
+	return pulumix.Output[[]*ManagedUser]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ManagedUserArrayOutput) Index(i pulumi.IntInput) ManagedUserOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ManagedUser {
 		return vs[0].([]*ManagedUser)[vs[1].(int)]
@@ -350,6 +381,12 @@ func (o ManagedUserMapOutput) ToManagedUserMapOutput() ManagedUserMapOutput {
 
 func (o ManagedUserMapOutput) ToManagedUserMapOutputWithContext(ctx context.Context) ManagedUserMapOutput {
 	return o
+}
+
+func (o ManagedUserMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ManagedUser] {
+	return pulumix.Output[map[string]*ManagedUser]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ManagedUserMapOutput) MapIndex(k pulumi.StringInput) ManagedUserOutput {
