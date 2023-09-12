@@ -322,14 +322,14 @@ public class RemoteHelmRepository extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.hardFail);
     }
     /**
-     * No documentation is available. Hopefully you know what this means.
+     * Base URL for the translation of chart source URLs in the index.yaml of virtual repos. Artifactory will only translate URLs matching the index.yamls hostname or URLs starting with this base url. Support http/https/oci protocol scheme.
      * 
      */
     @Export(name="helmChartsBaseUrl", type=String.class, parameters={})
     private Output</* @Nullable */ String> helmChartsBaseUrl;
 
     /**
-     * @return No documentation is available. Hopefully you know what this means.
+     * @return Base URL for the translation of chart source URLs in the index.yaml of virtual repos. Artifactory will only translate URLs matching the index.yamls hostname or URLs starting with this base url. Support http/https/oci protocol scheme.
      * 
      */
     public Output<Optional<String>> helmChartsBaseUrl() {

@@ -162,7 +162,7 @@ namespace Pulumi.Artifactory
         public Output<bool?> HardFail { get; private set; } = null!;
 
         /// <summary>
-        /// No documentation is available. Hopefully you know what this means.
+        /// Base URL for the translation of chart source URLs in the index.yaml of virtual repos. Artifactory will only translate URLs matching the index.yamls hostname or URLs starting with this base url. Support http/https/oci protocol scheme.
         /// </summary>
         [Output("helmChartsBaseUrl")]
         public Output<string?> HelmChartsBaseUrl { get; private set; } = null!;
@@ -515,7 +515,7 @@ namespace Pulumi.Artifactory
         public Input<bool>? HardFail { get; set; }
 
         /// <summary>
-        /// No documentation is available. Hopefully you know what this means.
+        /// Base URL for the translation of chart source URLs in the index.yaml of virtual repos. Artifactory will only translate URLs matching the index.yamls hostname or URLs starting with this base url. Support http/https/oci protocol scheme.
         /// </summary>
         [Input("helmChartsBaseUrl")]
         public Input<string>? HelmChartsBaseUrl { get; set; }
@@ -844,7 +844,7 @@ namespace Pulumi.Artifactory
         public Input<bool>? HardFail { get; set; }
 
         /// <summary>
-        /// No documentation is available. Hopefully you know what this means.
+        /// Base URL for the translation of chart source URLs in the index.yaml of virtual repos. Artifactory will only translate URLs matching the index.yamls hostname or URLs starting with this base url. Support http/https/oci protocol scheme.
         /// </summary>
         [Input("helmChartsBaseUrl")]
         public Input<string>? HelmChartsBaseUrl { get; set; }

@@ -915,6 +915,11 @@ export const getVirtualTerraformRepository: typeof import("./getVirtualTerraform
 export const getVirtualTerraformRepositoryOutput: typeof import("./getVirtualTerraformRepository").getVirtualTerraformRepositoryOutput = null as any;
 utilities.lazyLoad(exports, ["getVirtualTerraformRepository","getVirtualTerraformRepositoryOutput"], () => require("./getVirtualTerraformRepository"));
 
+export { GlobalEnvironmentArgs, GlobalEnvironmentState } from "./globalEnvironment";
+export type GlobalEnvironment = import("./globalEnvironment").GlobalEnvironment;
+export const GlobalEnvironment: typeof import("./globalEnvironment").GlobalEnvironment = null as any;
+utilities.lazyLoad(exports, ["GlobalEnvironment"], () => require("./globalEnvironment"));
+
 export { GoRepositoryArgs, GoRepositoryState } from "./goRepository";
 export type GoRepository = import("./goRepository").GoRepository;
 export const GoRepository: typeof import("./goRepository").GoRepository = null as any;
@@ -1604,6 +1609,8 @@ const _module = {
                 return new FederatedVagrantRepository(name, <any>undefined, { urn })
             case "artifactory:index/generalSecurity:GeneralSecurity":
                 return new GeneralSecurity(name, <any>undefined, { urn })
+            case "artifactory:index/globalEnvironment:GlobalEnvironment":
+                return new GlobalEnvironment(name, <any>undefined, { urn })
             case "artifactory:index/goRepository:GoRepository":
                 return new GoRepository(name, <any>undefined, { urn })
             case "artifactory:index/group:Group":
@@ -1888,6 +1895,7 @@ pulumi.runtime.registerResourceModule("artifactory", "index/federatedTerraformMo
 pulumi.runtime.registerResourceModule("artifactory", "index/federatedTerraformProviderRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/federatedVagrantRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/generalSecurity", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/globalEnvironment", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/goRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/group", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/keypair", _module)
