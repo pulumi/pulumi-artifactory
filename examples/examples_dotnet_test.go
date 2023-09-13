@@ -11,10 +11,10 @@ import (
 	"github.com/pulumi/pulumi/pkg/v3/testing/integration"
 )
 
-func TestAccLocalGenericRepositoryTs(t *testing.T) {
+func TestCreateUserDotnet(t *testing.T) {
 	test := getCSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir: filepath.Join(getCwd(t), "local-generic-repository", "csharp"),
+			Dir: filepath.Join(getCwd(t), "test-create-user", "csharp"),
 		})
 
 	integration.ProgramTest(t, &test)

@@ -20,10 +20,10 @@ func getJSBaseOptions(t *testing.T) integration.ProgramTestOptions {
 
 	return baseJS
 }
-func TestAccLocalGenericRepositoryTs(t *testing.T) {
+func TestCreateUserTs(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir: filepath.Join(getCwd(t), "local-generic-repository", "ts"),
+			Dir: filepath.Join(getCwd(t), "test-create-user", "ts"),
 		})
 
 	integration.ProgramTest(t, &test)
