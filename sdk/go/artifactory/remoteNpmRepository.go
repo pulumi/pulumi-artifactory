@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a remote Npm repository.
@@ -713,6 +714,12 @@ func (i *RemoteNpmRepository) ToRemoteNpmRepositoryOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(RemoteNpmRepositoryOutput)
 }
 
+func (i *RemoteNpmRepository) ToOutput(ctx context.Context) pulumix.Output[*RemoteNpmRepository] {
+	return pulumix.Output[*RemoteNpmRepository]{
+		OutputState: i.ToRemoteNpmRepositoryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RemoteNpmRepositoryArrayInput is an input type that accepts RemoteNpmRepositoryArray and RemoteNpmRepositoryArrayOutput values.
 // You can construct a concrete instance of `RemoteNpmRepositoryArrayInput` via:
 //
@@ -736,6 +743,12 @@ func (i RemoteNpmRepositoryArray) ToRemoteNpmRepositoryArrayOutput() RemoteNpmRe
 
 func (i RemoteNpmRepositoryArray) ToRemoteNpmRepositoryArrayOutputWithContext(ctx context.Context) RemoteNpmRepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RemoteNpmRepositoryArrayOutput)
+}
+
+func (i RemoteNpmRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*RemoteNpmRepository] {
+	return pulumix.Output[[]*RemoteNpmRepository]{
+		OutputState: i.ToRemoteNpmRepositoryArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // RemoteNpmRepositoryMapInput is an input type that accepts RemoteNpmRepositoryMap and RemoteNpmRepositoryMapOutput values.
@@ -763,6 +776,12 @@ func (i RemoteNpmRepositoryMap) ToRemoteNpmRepositoryMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(RemoteNpmRepositoryMapOutput)
 }
 
+func (i RemoteNpmRepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RemoteNpmRepository] {
+	return pulumix.Output[map[string]*RemoteNpmRepository]{
+		OutputState: i.ToRemoteNpmRepositoryMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RemoteNpmRepositoryOutput struct{ *pulumi.OutputState }
 
 func (RemoteNpmRepositoryOutput) ElementType() reflect.Type {
@@ -775,6 +794,12 @@ func (o RemoteNpmRepositoryOutput) ToRemoteNpmRepositoryOutput() RemoteNpmReposi
 
 func (o RemoteNpmRepositoryOutput) ToRemoteNpmRepositoryOutputWithContext(ctx context.Context) RemoteNpmRepositoryOutput {
 	return o
+}
+
+func (o RemoteNpmRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*RemoteNpmRepository] {
+	return pulumix.Output[*RemoteNpmRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 // 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any
@@ -1034,6 +1059,12 @@ func (o RemoteNpmRepositoryArrayOutput) ToRemoteNpmRepositoryArrayOutputWithCont
 	return o
 }
 
+func (o RemoteNpmRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RemoteNpmRepository] {
+	return pulumix.Output[[]*RemoteNpmRepository]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RemoteNpmRepositoryArrayOutput) Index(i pulumi.IntInput) RemoteNpmRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RemoteNpmRepository {
 		return vs[0].([]*RemoteNpmRepository)[vs[1].(int)]
@@ -1052,6 +1083,12 @@ func (o RemoteNpmRepositoryMapOutput) ToRemoteNpmRepositoryMapOutput() RemoteNpm
 
 func (o RemoteNpmRepositoryMapOutput) ToRemoteNpmRepositoryMapOutputWithContext(ctx context.Context) RemoteNpmRepositoryMapOutput {
 	return o
+}
+
+func (o RemoteNpmRepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RemoteNpmRepository] {
+	return pulumix.Output[map[string]*RemoteNpmRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RemoteNpmRepositoryMapOutput) MapIndex(k pulumi.StringInput) RemoteNpmRepositoryOutput {

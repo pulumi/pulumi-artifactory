@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieves a federated Docker repository.
@@ -164,6 +165,12 @@ func (o LookupFederatedDockerV1RepositoryResultOutput) ToLookupFederatedDockerV1
 
 func (o LookupFederatedDockerV1RepositoryResultOutput) ToLookupFederatedDockerV1RepositoryResultOutputWithContext(ctx context.Context) LookupFederatedDockerV1RepositoryResultOutput {
 	return o
+}
+
+func (o LookupFederatedDockerV1RepositoryResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupFederatedDockerV1RepositoryResult] {
+	return pulumix.Output[LookupFederatedDockerV1RepositoryResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupFederatedDockerV1RepositoryResultOutput) ApiVersion() pulumi.StringOutput {

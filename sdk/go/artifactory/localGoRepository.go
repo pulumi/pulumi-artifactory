@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a local Go repository.
@@ -334,6 +335,12 @@ func (i *LocalGoRepository) ToLocalGoRepositoryOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(LocalGoRepositoryOutput)
 }
 
+func (i *LocalGoRepository) ToOutput(ctx context.Context) pulumix.Output[*LocalGoRepository] {
+	return pulumix.Output[*LocalGoRepository]{
+		OutputState: i.ToLocalGoRepositoryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LocalGoRepositoryArrayInput is an input type that accepts LocalGoRepositoryArray and LocalGoRepositoryArrayOutput values.
 // You can construct a concrete instance of `LocalGoRepositoryArrayInput` via:
 //
@@ -357,6 +364,12 @@ func (i LocalGoRepositoryArray) ToLocalGoRepositoryArrayOutput() LocalGoReposito
 
 func (i LocalGoRepositoryArray) ToLocalGoRepositoryArrayOutputWithContext(ctx context.Context) LocalGoRepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LocalGoRepositoryArrayOutput)
+}
+
+func (i LocalGoRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*LocalGoRepository] {
+	return pulumix.Output[[]*LocalGoRepository]{
+		OutputState: i.ToLocalGoRepositoryArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // LocalGoRepositoryMapInput is an input type that accepts LocalGoRepositoryMap and LocalGoRepositoryMapOutput values.
@@ -384,6 +397,12 @@ func (i LocalGoRepositoryMap) ToLocalGoRepositoryMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(LocalGoRepositoryMapOutput)
 }
 
+func (i LocalGoRepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LocalGoRepository] {
+	return pulumix.Output[map[string]*LocalGoRepository]{
+		OutputState: i.ToLocalGoRepositoryMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LocalGoRepositoryOutput struct{ *pulumi.OutputState }
 
 func (LocalGoRepositoryOutput) ElementType() reflect.Type {
@@ -396,6 +415,12 @@ func (o LocalGoRepositoryOutput) ToLocalGoRepositoryOutput() LocalGoRepositoryOu
 
 func (o LocalGoRepositoryOutput) ToLocalGoRepositoryOutputWithContext(ctx context.Context) LocalGoRepositoryOutput {
 	return o
+}
+
+func (o LocalGoRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*LocalGoRepository] {
+	return pulumix.Output[*LocalGoRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 // When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -502,6 +527,12 @@ func (o LocalGoRepositoryArrayOutput) ToLocalGoRepositoryArrayOutputWithContext(
 	return o
 }
 
+func (o LocalGoRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LocalGoRepository] {
+	return pulumix.Output[[]*LocalGoRepository]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LocalGoRepositoryArrayOutput) Index(i pulumi.IntInput) LocalGoRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LocalGoRepository {
 		return vs[0].([]*LocalGoRepository)[vs[1].(int)]
@@ -520,6 +551,12 @@ func (o LocalGoRepositoryMapOutput) ToLocalGoRepositoryMapOutput() LocalGoReposi
 
 func (o LocalGoRepositoryMapOutput) ToLocalGoRepositoryMapOutputWithContext(ctx context.Context) LocalGoRepositoryMapOutput {
 	return o
+}
+
+func (o LocalGoRepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LocalGoRepository] {
+	return pulumix.Output[map[string]*LocalGoRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LocalGoRepositoryMapOutput) MapIndex(k pulumi.StringInput) LocalGoRepositoryOutput {

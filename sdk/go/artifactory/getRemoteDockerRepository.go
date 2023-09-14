@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieves a remote Docker repository.
@@ -248,6 +249,12 @@ func (o LookupRemoteDockerRepositoryResultOutput) ToLookupRemoteDockerRepository
 
 func (o LookupRemoteDockerRepositoryResultOutput) ToLookupRemoteDockerRepositoryResultOutputWithContext(ctx context.Context) LookupRemoteDockerRepositoryResultOutput {
 	return o
+}
+
+func (o LookupRemoteDockerRepositoryResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupRemoteDockerRepositoryResult] {
+	return pulumix.Output[LookupRemoteDockerRepositoryResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupRemoteDockerRepositoryResultOutput) AllowAnyHostAuth() pulumi.BoolPtrOutput {

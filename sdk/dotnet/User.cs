@@ -87,7 +87,7 @@ namespace Pulumi.Artifactory
         public Output<bool> InternalPasswordDisabled { get; private set; } = null!;
 
         /// <summary>
-        /// Username for user.
+        /// Username for user. May contain lowercase letters, numbers and symbols: '.-_@'
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -191,7 +191,7 @@ namespace Pulumi.Artifactory
         public Input<bool>? InternalPasswordDisabled { get; set; }
 
         /// <summary>
-        /// Username for user.
+        /// Username for user. May contain lowercase letters, numbers and symbols: '.-_@'
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -263,7 +263,7 @@ namespace Pulumi.Artifactory
         public Input<bool>? InternalPasswordDisabled { get; set; }
 
         /// <summary>
-        /// Username for user.
+        /// Username for user. May contain lowercase letters, numbers and symbols: '.-_@'
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

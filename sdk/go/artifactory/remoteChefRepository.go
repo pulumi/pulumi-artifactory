@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a remote Chef repository.
@@ -711,6 +712,12 @@ func (i *RemoteChefRepository) ToRemoteChefRepositoryOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(RemoteChefRepositoryOutput)
 }
 
+func (i *RemoteChefRepository) ToOutput(ctx context.Context) pulumix.Output[*RemoteChefRepository] {
+	return pulumix.Output[*RemoteChefRepository]{
+		OutputState: i.ToRemoteChefRepositoryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RemoteChefRepositoryArrayInput is an input type that accepts RemoteChefRepositoryArray and RemoteChefRepositoryArrayOutput values.
 // You can construct a concrete instance of `RemoteChefRepositoryArrayInput` via:
 //
@@ -734,6 +741,12 @@ func (i RemoteChefRepositoryArray) ToRemoteChefRepositoryArrayOutput() RemoteChe
 
 func (i RemoteChefRepositoryArray) ToRemoteChefRepositoryArrayOutputWithContext(ctx context.Context) RemoteChefRepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RemoteChefRepositoryArrayOutput)
+}
+
+func (i RemoteChefRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*RemoteChefRepository] {
+	return pulumix.Output[[]*RemoteChefRepository]{
+		OutputState: i.ToRemoteChefRepositoryArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // RemoteChefRepositoryMapInput is an input type that accepts RemoteChefRepositoryMap and RemoteChefRepositoryMapOutput values.
@@ -761,6 +774,12 @@ func (i RemoteChefRepositoryMap) ToRemoteChefRepositoryMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(RemoteChefRepositoryMapOutput)
 }
 
+func (i RemoteChefRepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RemoteChefRepository] {
+	return pulumix.Output[map[string]*RemoteChefRepository]{
+		OutputState: i.ToRemoteChefRepositoryMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RemoteChefRepositoryOutput struct{ *pulumi.OutputState }
 
 func (RemoteChefRepositoryOutput) ElementType() reflect.Type {
@@ -773,6 +792,12 @@ func (o RemoteChefRepositoryOutput) ToRemoteChefRepositoryOutput() RemoteChefRep
 
 func (o RemoteChefRepositoryOutput) ToRemoteChefRepositoryOutputWithContext(ctx context.Context) RemoteChefRepositoryOutput {
 	return o
+}
+
+func (o RemoteChefRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*RemoteChefRepository] {
+	return pulumix.Output[*RemoteChefRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 // 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any
@@ -1032,6 +1057,12 @@ func (o RemoteChefRepositoryArrayOutput) ToRemoteChefRepositoryArrayOutputWithCo
 	return o
 }
 
+func (o RemoteChefRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RemoteChefRepository] {
+	return pulumix.Output[[]*RemoteChefRepository]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RemoteChefRepositoryArrayOutput) Index(i pulumi.IntInput) RemoteChefRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RemoteChefRepository {
 		return vs[0].([]*RemoteChefRepository)[vs[1].(int)]
@@ -1050,6 +1081,12 @@ func (o RemoteChefRepositoryMapOutput) ToRemoteChefRepositoryMapOutput() RemoteC
 
 func (o RemoteChefRepositoryMapOutput) ToRemoteChefRepositoryMapOutputWithContext(ctx context.Context) RemoteChefRepositoryMapOutput {
 	return o
+}
+
+func (o RemoteChefRepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RemoteChefRepository] {
+	return pulumix.Output[map[string]*RemoteChefRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RemoteChefRepositoryMapOutput) MapIndex(k pulumi.StringInput) RemoteChefRepositoryOutput {

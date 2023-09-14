@@ -58,7 +58,6 @@ import javax.annotation.Nullable;
  * ```sh
  *  $ pulumi import artifactory:index/generalSecurity:GeneralSecurity security security
  * ```
- * 
  *  ~&gt;The `artifactory_general_security` resource uses endpoints that are undocumented and may not work with SaaS environments, or may change without notice.
  * 
  */

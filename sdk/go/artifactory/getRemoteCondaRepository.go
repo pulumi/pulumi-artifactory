@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieves a remote Conda repository.
@@ -218,6 +219,12 @@ func (o LookupRemoteCondaRepositoryResultOutput) ToLookupRemoteCondaRepositoryRe
 
 func (o LookupRemoteCondaRepositoryResultOutput) ToLookupRemoteCondaRepositoryResultOutputWithContext(ctx context.Context) LookupRemoteCondaRepositoryResultOutput {
 	return o
+}
+
+func (o LookupRemoteCondaRepositoryResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupRemoteCondaRepositoryResult] {
+	return pulumix.Output[LookupRemoteCondaRepositoryResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupRemoteCondaRepositoryResultOutput) AllowAnyHostAuth() pulumi.BoolPtrOutput {

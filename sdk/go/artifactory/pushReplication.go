@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // > This resource is deprecated and replaced by `LocalRepositoryMultiReplication` for clarity.
@@ -202,6 +203,12 @@ func (i *PushReplication) ToPushReplicationOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(PushReplicationOutput)
 }
 
+func (i *PushReplication) ToOutput(ctx context.Context) pulumix.Output[*PushReplication] {
+	return pulumix.Output[*PushReplication]{
+		OutputState: i.ToPushReplicationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PushReplicationArrayInput is an input type that accepts PushReplicationArray and PushReplicationArrayOutput values.
 // You can construct a concrete instance of `PushReplicationArrayInput` via:
 //
@@ -225,6 +232,12 @@ func (i PushReplicationArray) ToPushReplicationArrayOutput() PushReplicationArra
 
 func (i PushReplicationArray) ToPushReplicationArrayOutputWithContext(ctx context.Context) PushReplicationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PushReplicationArrayOutput)
+}
+
+func (i PushReplicationArray) ToOutput(ctx context.Context) pulumix.Output[[]*PushReplication] {
+	return pulumix.Output[[]*PushReplication]{
+		OutputState: i.ToPushReplicationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // PushReplicationMapInput is an input type that accepts PushReplicationMap and PushReplicationMapOutput values.
@@ -252,6 +265,12 @@ func (i PushReplicationMap) ToPushReplicationMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(PushReplicationMapOutput)
 }
 
+func (i PushReplicationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*PushReplication] {
+	return pulumix.Output[map[string]*PushReplication]{
+		OutputState: i.ToPushReplicationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PushReplicationOutput struct{ *pulumi.OutputState }
 
 func (PushReplicationOutput) ElementType() reflect.Type {
@@ -264,6 +283,12 @@ func (o PushReplicationOutput) ToPushReplicationOutput() PushReplicationOutput {
 
 func (o PushReplicationOutput) ToPushReplicationOutputWithContext(ctx context.Context) PushReplicationOutput {
 	return o
+}
+
+func (o PushReplicationOutput) ToOutput(ctx context.Context) pulumix.Output[*PushReplication] {
+	return pulumix.Output[*PushReplication]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
@@ -299,6 +324,12 @@ func (o PushReplicationArrayOutput) ToPushReplicationArrayOutputWithContext(ctx 
 	return o
 }
 
+func (o PushReplicationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*PushReplication] {
+	return pulumix.Output[[]*PushReplication]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PushReplicationArrayOutput) Index(i pulumi.IntInput) PushReplicationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PushReplication {
 		return vs[0].([]*PushReplication)[vs[1].(int)]
@@ -317,6 +348,12 @@ func (o PushReplicationMapOutput) ToPushReplicationMapOutput() PushReplicationMa
 
 func (o PushReplicationMapOutput) ToPushReplicationMapOutputWithContext(ctx context.Context) PushReplicationMapOutput {
 	return o
+}
+
+func (o PushReplicationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*PushReplication] {
+	return pulumix.Output[map[string]*PushReplication]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PushReplicationMapOutput) MapIndex(k pulumi.StringInput) PushReplicationOutput {

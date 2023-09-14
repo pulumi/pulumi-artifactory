@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a virtual Swift repository.
@@ -286,6 +287,12 @@ func (i *VirtualSwiftRepository) ToVirtualSwiftRepositoryOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualSwiftRepositoryOutput)
 }
 
+func (i *VirtualSwiftRepository) ToOutput(ctx context.Context) pulumix.Output[*VirtualSwiftRepository] {
+	return pulumix.Output[*VirtualSwiftRepository]{
+		OutputState: i.ToVirtualSwiftRepositoryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // VirtualSwiftRepositoryArrayInput is an input type that accepts VirtualSwiftRepositoryArray and VirtualSwiftRepositoryArrayOutput values.
 // You can construct a concrete instance of `VirtualSwiftRepositoryArrayInput` via:
 //
@@ -309,6 +316,12 @@ func (i VirtualSwiftRepositoryArray) ToVirtualSwiftRepositoryArrayOutput() Virtu
 
 func (i VirtualSwiftRepositoryArray) ToVirtualSwiftRepositoryArrayOutputWithContext(ctx context.Context) VirtualSwiftRepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualSwiftRepositoryArrayOutput)
+}
+
+func (i VirtualSwiftRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*VirtualSwiftRepository] {
+	return pulumix.Output[[]*VirtualSwiftRepository]{
+		OutputState: i.ToVirtualSwiftRepositoryArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // VirtualSwiftRepositoryMapInput is an input type that accepts VirtualSwiftRepositoryMap and VirtualSwiftRepositoryMapOutput values.
@@ -336,6 +349,12 @@ func (i VirtualSwiftRepositoryMap) ToVirtualSwiftRepositoryMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualSwiftRepositoryMapOutput)
 }
 
+func (i VirtualSwiftRepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VirtualSwiftRepository] {
+	return pulumix.Output[map[string]*VirtualSwiftRepository]{
+		OutputState: i.ToVirtualSwiftRepositoryMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualSwiftRepositoryOutput struct{ *pulumi.OutputState }
 
 func (VirtualSwiftRepositoryOutput) ElementType() reflect.Type {
@@ -348,6 +367,12 @@ func (o VirtualSwiftRepositoryOutput) ToVirtualSwiftRepositoryOutput() VirtualSw
 
 func (o VirtualSwiftRepositoryOutput) ToVirtualSwiftRepositoryOutputWithContext(ctx context.Context) VirtualSwiftRepositoryOutput {
 	return o
+}
+
+func (o VirtualSwiftRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualSwiftRepository] {
+	return pulumix.Output[*VirtualSwiftRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
@@ -433,6 +458,12 @@ func (o VirtualSwiftRepositoryArrayOutput) ToVirtualSwiftRepositoryArrayOutputWi
 	return o
 }
 
+func (o VirtualSwiftRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VirtualSwiftRepository] {
+	return pulumix.Output[[]*VirtualSwiftRepository]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VirtualSwiftRepositoryArrayOutput) Index(i pulumi.IntInput) VirtualSwiftRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VirtualSwiftRepository {
 		return vs[0].([]*VirtualSwiftRepository)[vs[1].(int)]
@@ -451,6 +482,12 @@ func (o VirtualSwiftRepositoryMapOutput) ToVirtualSwiftRepositoryMapOutput() Vir
 
 func (o VirtualSwiftRepositoryMapOutput) ToVirtualSwiftRepositoryMapOutputWithContext(ctx context.Context) VirtualSwiftRepositoryMapOutput {
 	return o
+}
+
+func (o VirtualSwiftRepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VirtualSwiftRepository] {
+	return pulumix.Output[map[string]*VirtualSwiftRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualSwiftRepositoryMapOutput) MapIndex(k pulumi.StringInput) VirtualSwiftRepositoryOutput {

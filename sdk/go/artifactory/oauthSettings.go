@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // This resource can be used to manage Artifactory's OAuth SSO settings.
@@ -60,9 +61,7 @@ import (
 //
 // ## Import
 //
-// Current OAuth SSO settings can be imported using `oauth_settings` as the `ID`. If the resource is being imported, there will be a state drift, because `client_secret` can't be known. There are two options on how to approach this:
-//
-// 1) Don't set `client_secret` initially, import, then update the config with actual secret; 2) Accept that there is a drift initially and run `pulumi up` twice;
+// Current OAuth SSO settings can be imported using `oauth_settings` as the `ID`. If the resource is being imported, there will be a state drift, because `client_secret` can't be known. There are two options on how to approach this1) Don't set `client_secret` initially, import, then update the config with actual secret; 2) Accept that there is a drift initially and run `pulumi up` twice;
 //
 // ```sh
 //
@@ -186,6 +185,12 @@ func (i *OauthSettings) ToOauthSettingsOutputWithContext(ctx context.Context) Oa
 	return pulumi.ToOutputWithContext(ctx, i).(OauthSettingsOutput)
 }
 
+func (i *OauthSettings) ToOutput(ctx context.Context) pulumix.Output[*OauthSettings] {
+	return pulumix.Output[*OauthSettings]{
+		OutputState: i.ToOauthSettingsOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OauthSettingsArrayInput is an input type that accepts OauthSettingsArray and OauthSettingsArrayOutput values.
 // You can construct a concrete instance of `OauthSettingsArrayInput` via:
 //
@@ -209,6 +214,12 @@ func (i OauthSettingsArray) ToOauthSettingsArrayOutput() OauthSettingsArrayOutpu
 
 func (i OauthSettingsArray) ToOauthSettingsArrayOutputWithContext(ctx context.Context) OauthSettingsArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OauthSettingsArrayOutput)
+}
+
+func (i OauthSettingsArray) ToOutput(ctx context.Context) pulumix.Output[[]*OauthSettings] {
+	return pulumix.Output[[]*OauthSettings]{
+		OutputState: i.ToOauthSettingsArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // OauthSettingsMapInput is an input type that accepts OauthSettingsMap and OauthSettingsMapOutput values.
@@ -236,6 +247,12 @@ func (i OauthSettingsMap) ToOauthSettingsMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(OauthSettingsMapOutput)
 }
 
+func (i OauthSettingsMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*OauthSettings] {
+	return pulumix.Output[map[string]*OauthSettings]{
+		OutputState: i.ToOauthSettingsMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OauthSettingsOutput struct{ *pulumi.OutputState }
 
 func (OauthSettingsOutput) ElementType() reflect.Type {
@@ -248,6 +265,12 @@ func (o OauthSettingsOutput) ToOauthSettingsOutput() OauthSettingsOutput {
 
 func (o OauthSettingsOutput) ToOauthSettingsOutputWithContext(ctx context.Context) OauthSettingsOutput {
 	return o
+}
+
+func (o OauthSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[*OauthSettings] {
+	return pulumix.Output[*OauthSettings]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Allow persisted users to access their profile.  Default value is `false`.
@@ -284,6 +307,12 @@ func (o OauthSettingsArrayOutput) ToOauthSettingsArrayOutputWithContext(ctx cont
 	return o
 }
 
+func (o OauthSettingsArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*OauthSettings] {
+	return pulumix.Output[[]*OauthSettings]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o OauthSettingsArrayOutput) Index(i pulumi.IntInput) OauthSettingsOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *OauthSettings {
 		return vs[0].([]*OauthSettings)[vs[1].(int)]
@@ -302,6 +331,12 @@ func (o OauthSettingsMapOutput) ToOauthSettingsMapOutput() OauthSettingsMapOutpu
 
 func (o OauthSettingsMapOutput) ToOauthSettingsMapOutputWithContext(ctx context.Context) OauthSettingsMapOutput {
 	return o
+}
+
+func (o OauthSettingsMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*OauthSettings] {
+	return pulumix.Output[map[string]*OauthSettings]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OauthSettingsMapOutput) MapIndex(k pulumi.StringInput) OauthSettingsOutput {

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a local repository replication resource, also referred to as Artifactory push replication. This can be used to create and manage Artifactory local repository replications using [Multi-push Replication API](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-CreateorReplaceLocalMulti-pushReplication).
@@ -219,6 +220,12 @@ func (i *LocalRepositoryMultiReplication) ToLocalRepositoryMultiReplicationOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(LocalRepositoryMultiReplicationOutput)
 }
 
+func (i *LocalRepositoryMultiReplication) ToOutput(ctx context.Context) pulumix.Output[*LocalRepositoryMultiReplication] {
+	return pulumix.Output[*LocalRepositoryMultiReplication]{
+		OutputState: i.ToLocalRepositoryMultiReplicationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LocalRepositoryMultiReplicationArrayInput is an input type that accepts LocalRepositoryMultiReplicationArray and LocalRepositoryMultiReplicationArrayOutput values.
 // You can construct a concrete instance of `LocalRepositoryMultiReplicationArrayInput` via:
 //
@@ -242,6 +249,12 @@ func (i LocalRepositoryMultiReplicationArray) ToLocalRepositoryMultiReplicationA
 
 func (i LocalRepositoryMultiReplicationArray) ToLocalRepositoryMultiReplicationArrayOutputWithContext(ctx context.Context) LocalRepositoryMultiReplicationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LocalRepositoryMultiReplicationArrayOutput)
+}
+
+func (i LocalRepositoryMultiReplicationArray) ToOutput(ctx context.Context) pulumix.Output[[]*LocalRepositoryMultiReplication] {
+	return pulumix.Output[[]*LocalRepositoryMultiReplication]{
+		OutputState: i.ToLocalRepositoryMultiReplicationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // LocalRepositoryMultiReplicationMapInput is an input type that accepts LocalRepositoryMultiReplicationMap and LocalRepositoryMultiReplicationMapOutput values.
@@ -269,6 +282,12 @@ func (i LocalRepositoryMultiReplicationMap) ToLocalRepositoryMultiReplicationMap
 	return pulumi.ToOutputWithContext(ctx, i).(LocalRepositoryMultiReplicationMapOutput)
 }
 
+func (i LocalRepositoryMultiReplicationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LocalRepositoryMultiReplication] {
+	return pulumix.Output[map[string]*LocalRepositoryMultiReplication]{
+		OutputState: i.ToLocalRepositoryMultiReplicationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LocalRepositoryMultiReplicationOutput struct{ *pulumi.OutputState }
 
 func (LocalRepositoryMultiReplicationOutput) ElementType() reflect.Type {
@@ -281,6 +300,12 @@ func (o LocalRepositoryMultiReplicationOutput) ToLocalRepositoryMultiReplication
 
 func (o LocalRepositoryMultiReplicationOutput) ToLocalRepositoryMultiReplicationOutputWithContext(ctx context.Context) LocalRepositoryMultiReplicationOutput {
 	return o
+}
+
+func (o LocalRepositoryMultiReplicationOutput) ToOutput(ctx context.Context) pulumix.Output[*LocalRepositoryMultiReplication] {
+	return pulumix.Output[*LocalRepositoryMultiReplication]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
@@ -319,6 +344,12 @@ func (o LocalRepositoryMultiReplicationArrayOutput) ToLocalRepositoryMultiReplic
 	return o
 }
 
+func (o LocalRepositoryMultiReplicationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LocalRepositoryMultiReplication] {
+	return pulumix.Output[[]*LocalRepositoryMultiReplication]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LocalRepositoryMultiReplicationArrayOutput) Index(i pulumi.IntInput) LocalRepositoryMultiReplicationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LocalRepositoryMultiReplication {
 		return vs[0].([]*LocalRepositoryMultiReplication)[vs[1].(int)]
@@ -337,6 +368,12 @@ func (o LocalRepositoryMultiReplicationMapOutput) ToLocalRepositoryMultiReplicat
 
 func (o LocalRepositoryMultiReplicationMapOutput) ToLocalRepositoryMultiReplicationMapOutputWithContext(ctx context.Context) LocalRepositoryMultiReplicationMapOutput {
 	return o
+}
+
+func (o LocalRepositoryMultiReplicationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LocalRepositoryMultiReplication] {
+	return pulumix.Output[map[string]*LocalRepositoryMultiReplication]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LocalRepositoryMultiReplicationMapOutput) MapIndex(k pulumi.StringInput) LocalRepositoryMultiReplicationOutput {

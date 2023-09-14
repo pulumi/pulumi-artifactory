@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a federated Cargo repository.
@@ -427,6 +428,12 @@ func (i *FederatedCargoRepository) ToFederatedCargoRepositoryOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedCargoRepositoryOutput)
 }
 
+func (i *FederatedCargoRepository) ToOutput(ctx context.Context) pulumix.Output[*FederatedCargoRepository] {
+	return pulumix.Output[*FederatedCargoRepository]{
+		OutputState: i.ToFederatedCargoRepositoryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FederatedCargoRepositoryArrayInput is an input type that accepts FederatedCargoRepositoryArray and FederatedCargoRepositoryArrayOutput values.
 // You can construct a concrete instance of `FederatedCargoRepositoryArrayInput` via:
 //
@@ -450,6 +457,12 @@ func (i FederatedCargoRepositoryArray) ToFederatedCargoRepositoryArrayOutput() F
 
 func (i FederatedCargoRepositoryArray) ToFederatedCargoRepositoryArrayOutputWithContext(ctx context.Context) FederatedCargoRepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedCargoRepositoryArrayOutput)
+}
+
+func (i FederatedCargoRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*FederatedCargoRepository] {
+	return pulumix.Output[[]*FederatedCargoRepository]{
+		OutputState: i.ToFederatedCargoRepositoryArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // FederatedCargoRepositoryMapInput is an input type that accepts FederatedCargoRepositoryMap and FederatedCargoRepositoryMapOutput values.
@@ -477,6 +490,12 @@ func (i FederatedCargoRepositoryMap) ToFederatedCargoRepositoryMapOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedCargoRepositoryMapOutput)
 }
 
+func (i FederatedCargoRepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*FederatedCargoRepository] {
+	return pulumix.Output[map[string]*FederatedCargoRepository]{
+		OutputState: i.ToFederatedCargoRepositoryMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FederatedCargoRepositoryOutput struct{ *pulumi.OutputState }
 
 func (FederatedCargoRepositoryOutput) ElementType() reflect.Type {
@@ -489,6 +508,12 @@ func (o FederatedCargoRepositoryOutput) ToFederatedCargoRepositoryOutput() Feder
 
 func (o FederatedCargoRepositoryOutput) ToFederatedCargoRepositoryOutputWithContext(ctx context.Context) FederatedCargoRepositoryOutput {
 	return o
+}
+
+func (o FederatedCargoRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*FederatedCargoRepository] {
+	return pulumix.Output[*FederatedCargoRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous
@@ -626,6 +651,12 @@ func (o FederatedCargoRepositoryArrayOutput) ToFederatedCargoRepositoryArrayOutp
 	return o
 }
 
+func (o FederatedCargoRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*FederatedCargoRepository] {
+	return pulumix.Output[[]*FederatedCargoRepository]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FederatedCargoRepositoryArrayOutput) Index(i pulumi.IntInput) FederatedCargoRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FederatedCargoRepository {
 		return vs[0].([]*FederatedCargoRepository)[vs[1].(int)]
@@ -644,6 +675,12 @@ func (o FederatedCargoRepositoryMapOutput) ToFederatedCargoRepositoryMapOutput()
 
 func (o FederatedCargoRepositoryMapOutput) ToFederatedCargoRepositoryMapOutputWithContext(ctx context.Context) FederatedCargoRepositoryMapOutput {
 	return o
+}
+
+func (o FederatedCargoRepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*FederatedCargoRepository] {
+	return pulumix.Output[map[string]*FederatedCargoRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FederatedCargoRepositoryMapOutput) MapIndex(k pulumi.StringInput) FederatedCargoRepositoryOutput {

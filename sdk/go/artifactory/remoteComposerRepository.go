@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a remote PHP Composer repository.
@@ -742,6 +743,12 @@ func (i *RemoteComposerRepository) ToRemoteComposerRepositoryOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(RemoteComposerRepositoryOutput)
 }
 
+func (i *RemoteComposerRepository) ToOutput(ctx context.Context) pulumix.Output[*RemoteComposerRepository] {
+	return pulumix.Output[*RemoteComposerRepository]{
+		OutputState: i.ToRemoteComposerRepositoryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RemoteComposerRepositoryArrayInput is an input type that accepts RemoteComposerRepositoryArray and RemoteComposerRepositoryArrayOutput values.
 // You can construct a concrete instance of `RemoteComposerRepositoryArrayInput` via:
 //
@@ -765,6 +772,12 @@ func (i RemoteComposerRepositoryArray) ToRemoteComposerRepositoryArrayOutput() R
 
 func (i RemoteComposerRepositoryArray) ToRemoteComposerRepositoryArrayOutputWithContext(ctx context.Context) RemoteComposerRepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RemoteComposerRepositoryArrayOutput)
+}
+
+func (i RemoteComposerRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*RemoteComposerRepository] {
+	return pulumix.Output[[]*RemoteComposerRepository]{
+		OutputState: i.ToRemoteComposerRepositoryArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // RemoteComposerRepositoryMapInput is an input type that accepts RemoteComposerRepositoryMap and RemoteComposerRepositoryMapOutput values.
@@ -792,6 +805,12 @@ func (i RemoteComposerRepositoryMap) ToRemoteComposerRepositoryMapOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(RemoteComposerRepositoryMapOutput)
 }
 
+func (i RemoteComposerRepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RemoteComposerRepository] {
+	return pulumix.Output[map[string]*RemoteComposerRepository]{
+		OutputState: i.ToRemoteComposerRepositoryMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RemoteComposerRepositoryOutput struct{ *pulumi.OutputState }
 
 func (RemoteComposerRepositoryOutput) ElementType() reflect.Type {
@@ -804,6 +823,12 @@ func (o RemoteComposerRepositoryOutput) ToRemoteComposerRepositoryOutput() Remot
 
 func (o RemoteComposerRepositoryOutput) ToRemoteComposerRepositoryOutputWithContext(ctx context.Context) RemoteComposerRepositoryOutput {
 	return o
+}
+
+func (o RemoteComposerRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*RemoteComposerRepository] {
+	return pulumix.Output[*RemoteComposerRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 // 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any
@@ -1078,6 +1103,12 @@ func (o RemoteComposerRepositoryArrayOutput) ToRemoteComposerRepositoryArrayOutp
 	return o
 }
 
+func (o RemoteComposerRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RemoteComposerRepository] {
+	return pulumix.Output[[]*RemoteComposerRepository]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RemoteComposerRepositoryArrayOutput) Index(i pulumi.IntInput) RemoteComposerRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RemoteComposerRepository {
 		return vs[0].([]*RemoteComposerRepository)[vs[1].(int)]
@@ -1096,6 +1127,12 @@ func (o RemoteComposerRepositoryMapOutput) ToRemoteComposerRepositoryMapOutput()
 
 func (o RemoteComposerRepositoryMapOutput) ToRemoteComposerRepositoryMapOutputWithContext(ctx context.Context) RemoteComposerRepositoryMapOutput {
 	return o
+}
+
+func (o RemoteComposerRepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RemoteComposerRepository] {
+	return pulumix.Output[map[string]*RemoteComposerRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RemoteComposerRepositoryMapOutput) MapIndex(k pulumi.StringInput) RemoteComposerRepositoryOutput {

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a local Helm repository.
@@ -334,6 +335,12 @@ func (i *LocalHelmRepository) ToLocalHelmRepositoryOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(LocalHelmRepositoryOutput)
 }
 
+func (i *LocalHelmRepository) ToOutput(ctx context.Context) pulumix.Output[*LocalHelmRepository] {
+	return pulumix.Output[*LocalHelmRepository]{
+		OutputState: i.ToLocalHelmRepositoryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LocalHelmRepositoryArrayInput is an input type that accepts LocalHelmRepositoryArray and LocalHelmRepositoryArrayOutput values.
 // You can construct a concrete instance of `LocalHelmRepositoryArrayInput` via:
 //
@@ -357,6 +364,12 @@ func (i LocalHelmRepositoryArray) ToLocalHelmRepositoryArrayOutput() LocalHelmRe
 
 func (i LocalHelmRepositoryArray) ToLocalHelmRepositoryArrayOutputWithContext(ctx context.Context) LocalHelmRepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LocalHelmRepositoryArrayOutput)
+}
+
+func (i LocalHelmRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*LocalHelmRepository] {
+	return pulumix.Output[[]*LocalHelmRepository]{
+		OutputState: i.ToLocalHelmRepositoryArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // LocalHelmRepositoryMapInput is an input type that accepts LocalHelmRepositoryMap and LocalHelmRepositoryMapOutput values.
@@ -384,6 +397,12 @@ func (i LocalHelmRepositoryMap) ToLocalHelmRepositoryMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(LocalHelmRepositoryMapOutput)
 }
 
+func (i LocalHelmRepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LocalHelmRepository] {
+	return pulumix.Output[map[string]*LocalHelmRepository]{
+		OutputState: i.ToLocalHelmRepositoryMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LocalHelmRepositoryOutput struct{ *pulumi.OutputState }
 
 func (LocalHelmRepositoryOutput) ElementType() reflect.Type {
@@ -396,6 +415,12 @@ func (o LocalHelmRepositoryOutput) ToLocalHelmRepositoryOutput() LocalHelmReposi
 
 func (o LocalHelmRepositoryOutput) ToLocalHelmRepositoryOutputWithContext(ctx context.Context) LocalHelmRepositoryOutput {
 	return o
+}
+
+func (o LocalHelmRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*LocalHelmRepository] {
+	return pulumix.Output[*LocalHelmRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 // When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -502,6 +527,12 @@ func (o LocalHelmRepositoryArrayOutput) ToLocalHelmRepositoryArrayOutputWithCont
 	return o
 }
 
+func (o LocalHelmRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LocalHelmRepository] {
+	return pulumix.Output[[]*LocalHelmRepository]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LocalHelmRepositoryArrayOutput) Index(i pulumi.IntInput) LocalHelmRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LocalHelmRepository {
 		return vs[0].([]*LocalHelmRepository)[vs[1].(int)]
@@ -520,6 +551,12 @@ func (o LocalHelmRepositoryMapOutput) ToLocalHelmRepositoryMapOutput() LocalHelm
 
 func (o LocalHelmRepositoryMapOutput) ToLocalHelmRepositoryMapOutputWithContext(ctx context.Context) LocalHelmRepositoryMapOutput {
 	return o
+}
+
+func (o LocalHelmRepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LocalHelmRepository] {
+	return pulumix.Output[map[string]*LocalHelmRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LocalHelmRepositoryMapOutput) MapIndex(k pulumi.StringInput) LocalHelmRepositoryOutput {

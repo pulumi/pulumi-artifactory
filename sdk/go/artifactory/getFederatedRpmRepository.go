@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieves a federated Rpm repository.
@@ -176,6 +177,12 @@ func (o LookupFederatedRpmRepositoryResultOutput) ToLookupFederatedRpmRepository
 
 func (o LookupFederatedRpmRepositoryResultOutput) ToLookupFederatedRpmRepositoryResultOutputWithContext(ctx context.Context) LookupFederatedRpmRepositoryResultOutput {
 	return o
+}
+
+func (o LookupFederatedRpmRepositoryResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupFederatedRpmRepositoryResult] {
+	return pulumix.Output[LookupFederatedRpmRepositoryResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupFederatedRpmRepositoryResultOutput) ArchiveBrowsingEnabled() pulumi.BoolPtrOutput {

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a remote Helm repository.
@@ -109,7 +110,7 @@ type RemoteHelmRepository struct {
 	// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
 	// communicate with this repository.
 	HardFail pulumi.BoolPtrOutput `pulumi:"hardFail"`
-	// No documentation is available. Hopefully you know what this means.
+	// Base URL for the translation of chart source URLs in the index.yaml of virtual repos. Artifactory will only translate URLs matching the index.yamls hostname or URLs starting with this base url. Support http/https/oci protocol scheme.
 	HelmChartsBaseUrl pulumi.StringPtrOutput `pulumi:"helmChartsBaseUrl"`
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
@@ -281,7 +282,7 @@ type remoteHelmRepositoryState struct {
 	// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
 	// communicate with this repository.
 	HardFail *bool `pulumi:"hardFail"`
-	// No documentation is available. Hopefully you know what this means.
+	// Base URL for the translation of chart source URLs in the index.yaml of virtual repos. Artifactory will only translate URLs matching the index.yamls hostname or URLs starting with this base url. Support http/https/oci protocol scheme.
 	HelmChartsBaseUrl *string `pulumi:"helmChartsBaseUrl"`
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
@@ -411,7 +412,7 @@ type RemoteHelmRepositoryState struct {
 	// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
 	// communicate with this repository.
 	HardFail pulumi.BoolPtrInput
-	// No documentation is available. Hopefully you know what this means.
+	// Base URL for the translation of chart source URLs in the index.yaml of virtual repos. Artifactory will only translate URLs matching the index.yamls hostname or URLs starting with this base url. Support http/https/oci protocol scheme.
 	HelmChartsBaseUrl pulumi.StringPtrInput
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
@@ -545,7 +546,7 @@ type remoteHelmRepositoryArgs struct {
 	// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
 	// communicate with this repository.
 	HardFail *bool `pulumi:"hardFail"`
-	// No documentation is available. Hopefully you know what this means.
+	// Base URL for the translation of chart source URLs in the index.yaml of virtual repos. Artifactory will only translate URLs matching the index.yamls hostname or URLs starting with this base url. Support http/https/oci protocol scheme.
 	HelmChartsBaseUrl *string `pulumi:"helmChartsBaseUrl"`
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
@@ -675,7 +676,7 @@ type RemoteHelmRepositoryArgs struct {
 	// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
 	// communicate with this repository.
 	HardFail pulumi.BoolPtrInput
-	// No documentation is available. Hopefully you know what this means.
+	// Base URL for the translation of chart source URLs in the index.yaml of virtual repos. Artifactory will only translate URLs matching the index.yamls hostname or URLs starting with this base url. Support http/https/oci protocol scheme.
 	HelmChartsBaseUrl pulumi.StringPtrInput
 	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
 	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
@@ -776,6 +777,12 @@ func (i *RemoteHelmRepository) ToRemoteHelmRepositoryOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(RemoteHelmRepositoryOutput)
 }
 
+func (i *RemoteHelmRepository) ToOutput(ctx context.Context) pulumix.Output[*RemoteHelmRepository] {
+	return pulumix.Output[*RemoteHelmRepository]{
+		OutputState: i.ToRemoteHelmRepositoryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RemoteHelmRepositoryArrayInput is an input type that accepts RemoteHelmRepositoryArray and RemoteHelmRepositoryArrayOutput values.
 // You can construct a concrete instance of `RemoteHelmRepositoryArrayInput` via:
 //
@@ -799,6 +806,12 @@ func (i RemoteHelmRepositoryArray) ToRemoteHelmRepositoryArrayOutput() RemoteHel
 
 func (i RemoteHelmRepositoryArray) ToRemoteHelmRepositoryArrayOutputWithContext(ctx context.Context) RemoteHelmRepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RemoteHelmRepositoryArrayOutput)
+}
+
+func (i RemoteHelmRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*RemoteHelmRepository] {
+	return pulumix.Output[[]*RemoteHelmRepository]{
+		OutputState: i.ToRemoteHelmRepositoryArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // RemoteHelmRepositoryMapInput is an input type that accepts RemoteHelmRepositoryMap and RemoteHelmRepositoryMapOutput values.
@@ -826,6 +839,12 @@ func (i RemoteHelmRepositoryMap) ToRemoteHelmRepositoryMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(RemoteHelmRepositoryMapOutput)
 }
 
+func (i RemoteHelmRepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RemoteHelmRepository] {
+	return pulumix.Output[map[string]*RemoteHelmRepository]{
+		OutputState: i.ToRemoteHelmRepositoryMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RemoteHelmRepositoryOutput struct{ *pulumi.OutputState }
 
 func (RemoteHelmRepositoryOutput) ElementType() reflect.Type {
@@ -838,6 +857,12 @@ func (o RemoteHelmRepositoryOutput) ToRemoteHelmRepositoryOutput() RemoteHelmRep
 
 func (o RemoteHelmRepositoryOutput) ToRemoteHelmRepositoryOutputWithContext(ctx context.Context) RemoteHelmRepositoryOutput {
 	return o
+}
+
+func (o RemoteHelmRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*RemoteHelmRepository] {
+	return pulumix.Output[*RemoteHelmRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 // 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any
@@ -940,7 +965,7 @@ func (o RemoteHelmRepositoryOutput) HardFail() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteHelmRepository) pulumi.BoolPtrOutput { return v.HardFail }).(pulumi.BoolPtrOutput)
 }
 
-// No documentation is available. Hopefully you know what this means.
+// Base URL for the translation of chart source URLs in the index.yaml of virtual repos. Artifactory will only translate URLs matching the index.yamls hostname or URLs starting with this base url. Support http/https/oci protocol scheme.
 func (o RemoteHelmRepositoryOutput) HelmChartsBaseUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RemoteHelmRepository) pulumi.StringPtrOutput { return v.HelmChartsBaseUrl }).(pulumi.StringPtrOutput)
 }
@@ -1118,6 +1143,12 @@ func (o RemoteHelmRepositoryArrayOutput) ToRemoteHelmRepositoryArrayOutputWithCo
 	return o
 }
 
+func (o RemoteHelmRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RemoteHelmRepository] {
+	return pulumix.Output[[]*RemoteHelmRepository]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RemoteHelmRepositoryArrayOutput) Index(i pulumi.IntInput) RemoteHelmRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RemoteHelmRepository {
 		return vs[0].([]*RemoteHelmRepository)[vs[1].(int)]
@@ -1136,6 +1167,12 @@ func (o RemoteHelmRepositoryMapOutput) ToRemoteHelmRepositoryMapOutput() RemoteH
 
 func (o RemoteHelmRepositoryMapOutput) ToRemoteHelmRepositoryMapOutputWithContext(ctx context.Context) RemoteHelmRepositoryMapOutput {
 	return o
+}
+
+func (o RemoteHelmRepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RemoteHelmRepository] {
+	return pulumix.Output[map[string]*RemoteHelmRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RemoteHelmRepositoryMapOutput) MapIndex(k pulumi.StringInput) RemoteHelmRepositoryOutput {

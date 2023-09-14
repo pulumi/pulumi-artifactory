@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a federated Gems repository.
@@ -387,6 +388,12 @@ func (i *FederatedGemsRepository) ToFederatedGemsRepositoryOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedGemsRepositoryOutput)
 }
 
+func (i *FederatedGemsRepository) ToOutput(ctx context.Context) pulumix.Output[*FederatedGemsRepository] {
+	return pulumix.Output[*FederatedGemsRepository]{
+		OutputState: i.ToFederatedGemsRepositoryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FederatedGemsRepositoryArrayInput is an input type that accepts FederatedGemsRepositoryArray and FederatedGemsRepositoryArrayOutput values.
 // You can construct a concrete instance of `FederatedGemsRepositoryArrayInput` via:
 //
@@ -410,6 +417,12 @@ func (i FederatedGemsRepositoryArray) ToFederatedGemsRepositoryArrayOutput() Fed
 
 func (i FederatedGemsRepositoryArray) ToFederatedGemsRepositoryArrayOutputWithContext(ctx context.Context) FederatedGemsRepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedGemsRepositoryArrayOutput)
+}
+
+func (i FederatedGemsRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*FederatedGemsRepository] {
+	return pulumix.Output[[]*FederatedGemsRepository]{
+		OutputState: i.ToFederatedGemsRepositoryArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // FederatedGemsRepositoryMapInput is an input type that accepts FederatedGemsRepositoryMap and FederatedGemsRepositoryMapOutput values.
@@ -437,6 +450,12 @@ func (i FederatedGemsRepositoryMap) ToFederatedGemsRepositoryMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedGemsRepositoryMapOutput)
 }
 
+func (i FederatedGemsRepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*FederatedGemsRepository] {
+	return pulumix.Output[map[string]*FederatedGemsRepository]{
+		OutputState: i.ToFederatedGemsRepositoryMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FederatedGemsRepositoryOutput struct{ *pulumi.OutputState }
 
 func (FederatedGemsRepositoryOutput) ElementType() reflect.Type {
@@ -449,6 +468,12 @@ func (o FederatedGemsRepositoryOutput) ToFederatedGemsRepositoryOutput() Federat
 
 func (o FederatedGemsRepositoryOutput) ToFederatedGemsRepositoryOutputWithContext(ctx context.Context) FederatedGemsRepositoryOutput {
 	return o
+}
+
+func (o FederatedGemsRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*FederatedGemsRepository] {
+	return pulumix.Output[*FederatedGemsRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 // When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -569,6 +594,12 @@ func (o FederatedGemsRepositoryArrayOutput) ToFederatedGemsRepositoryArrayOutput
 	return o
 }
 
+func (o FederatedGemsRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*FederatedGemsRepository] {
+	return pulumix.Output[[]*FederatedGemsRepository]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FederatedGemsRepositoryArrayOutput) Index(i pulumi.IntInput) FederatedGemsRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FederatedGemsRepository {
 		return vs[0].([]*FederatedGemsRepository)[vs[1].(int)]
@@ -587,6 +618,12 @@ func (o FederatedGemsRepositoryMapOutput) ToFederatedGemsRepositoryMapOutput() F
 
 func (o FederatedGemsRepositoryMapOutput) ToFederatedGemsRepositoryMapOutputWithContext(ctx context.Context) FederatedGemsRepositoryMapOutput {
 	return o
+}
+
+func (o FederatedGemsRepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*FederatedGemsRepository] {
+	return pulumix.Output[map[string]*FederatedGemsRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FederatedGemsRepositoryMapOutput) MapIndex(k pulumi.StringInput) FederatedGemsRepositoryOutput {

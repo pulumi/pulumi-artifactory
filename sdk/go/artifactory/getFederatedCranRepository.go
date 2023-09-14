@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieves a federated Cran repository.
@@ -158,6 +159,12 @@ func (o LookupFederatedCranRepositoryResultOutput) ToLookupFederatedCranReposito
 
 func (o LookupFederatedCranRepositoryResultOutput) ToLookupFederatedCranRepositoryResultOutputWithContext(ctx context.Context) LookupFederatedCranRepositoryResultOutput {
 	return o
+}
+
+func (o LookupFederatedCranRepositoryResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupFederatedCranRepositoryResult] {
+	return pulumix.Output[LookupFederatedCranRepositoryResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupFederatedCranRepositoryResultOutput) ArchiveBrowsingEnabled() pulumi.BoolPtrOutput {

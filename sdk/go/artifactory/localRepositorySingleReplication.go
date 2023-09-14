@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a local repository replication resource, also referred to as Artifactory push replication. This can be used to create and manage Artifactory local repository replications using [Push Replication API](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-SetRepositoryReplicationConfiguration).
@@ -276,6 +277,12 @@ func (i *LocalRepositorySingleReplication) ToLocalRepositorySingleReplicationOut
 	return pulumi.ToOutputWithContext(ctx, i).(LocalRepositorySingleReplicationOutput)
 }
 
+func (i *LocalRepositorySingleReplication) ToOutput(ctx context.Context) pulumix.Output[*LocalRepositorySingleReplication] {
+	return pulumix.Output[*LocalRepositorySingleReplication]{
+		OutputState: i.ToLocalRepositorySingleReplicationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LocalRepositorySingleReplicationArrayInput is an input type that accepts LocalRepositorySingleReplicationArray and LocalRepositorySingleReplicationArrayOutput values.
 // You can construct a concrete instance of `LocalRepositorySingleReplicationArrayInput` via:
 //
@@ -299,6 +306,12 @@ func (i LocalRepositorySingleReplicationArray) ToLocalRepositorySingleReplicatio
 
 func (i LocalRepositorySingleReplicationArray) ToLocalRepositorySingleReplicationArrayOutputWithContext(ctx context.Context) LocalRepositorySingleReplicationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LocalRepositorySingleReplicationArrayOutput)
+}
+
+func (i LocalRepositorySingleReplicationArray) ToOutput(ctx context.Context) pulumix.Output[[]*LocalRepositorySingleReplication] {
+	return pulumix.Output[[]*LocalRepositorySingleReplication]{
+		OutputState: i.ToLocalRepositorySingleReplicationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // LocalRepositorySingleReplicationMapInput is an input type that accepts LocalRepositorySingleReplicationMap and LocalRepositorySingleReplicationMapOutput values.
@@ -326,6 +339,12 @@ func (i LocalRepositorySingleReplicationMap) ToLocalRepositorySingleReplicationM
 	return pulumi.ToOutputWithContext(ctx, i).(LocalRepositorySingleReplicationMapOutput)
 }
 
+func (i LocalRepositorySingleReplicationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LocalRepositorySingleReplication] {
+	return pulumix.Output[map[string]*LocalRepositorySingleReplication]{
+		OutputState: i.ToLocalRepositorySingleReplicationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LocalRepositorySingleReplicationOutput struct{ *pulumi.OutputState }
 
 func (LocalRepositorySingleReplicationOutput) ElementType() reflect.Type {
@@ -338,6 +357,12 @@ func (o LocalRepositorySingleReplicationOutput) ToLocalRepositorySingleReplicati
 
 func (o LocalRepositorySingleReplicationOutput) ToLocalRepositorySingleReplicationOutputWithContext(ctx context.Context) LocalRepositorySingleReplicationOutput {
 	return o
+}
+
+func (o LocalRepositorySingleReplicationOutput) ToOutput(ctx context.Context) pulumix.Output[*LocalRepositorySingleReplication] {
+	return pulumix.Output[*LocalRepositorySingleReplication]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Enabling the `checkBinaryExistenceInFilestore` flag requires an Enterprise Plus license. When true, enables distributed checksum storage. For more information, see [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
@@ -436,6 +461,12 @@ func (o LocalRepositorySingleReplicationArrayOutput) ToLocalRepositorySingleRepl
 	return o
 }
 
+func (o LocalRepositorySingleReplicationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LocalRepositorySingleReplication] {
+	return pulumix.Output[[]*LocalRepositorySingleReplication]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LocalRepositorySingleReplicationArrayOutput) Index(i pulumi.IntInput) LocalRepositorySingleReplicationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LocalRepositorySingleReplication {
 		return vs[0].([]*LocalRepositorySingleReplication)[vs[1].(int)]
@@ -454,6 +485,12 @@ func (o LocalRepositorySingleReplicationMapOutput) ToLocalRepositorySingleReplic
 
 func (o LocalRepositorySingleReplicationMapOutput) ToLocalRepositorySingleReplicationMapOutputWithContext(ctx context.Context) LocalRepositorySingleReplicationMapOutput {
 	return o
+}
+
+func (o LocalRepositorySingleReplicationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LocalRepositorySingleReplication] {
+	return pulumix.Output[map[string]*LocalRepositorySingleReplication]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LocalRepositorySingleReplicationMapOutput) MapIndex(k pulumi.StringInput) LocalRepositorySingleReplicationOutput {

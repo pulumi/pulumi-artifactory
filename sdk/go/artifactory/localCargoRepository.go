@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a local Cargo repository.
@@ -366,6 +367,12 @@ func (i *LocalCargoRepository) ToLocalCargoRepositoryOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(LocalCargoRepositoryOutput)
 }
 
+func (i *LocalCargoRepository) ToOutput(ctx context.Context) pulumix.Output[*LocalCargoRepository] {
+	return pulumix.Output[*LocalCargoRepository]{
+		OutputState: i.ToLocalCargoRepositoryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LocalCargoRepositoryArrayInput is an input type that accepts LocalCargoRepositoryArray and LocalCargoRepositoryArrayOutput values.
 // You can construct a concrete instance of `LocalCargoRepositoryArrayInput` via:
 //
@@ -389,6 +396,12 @@ func (i LocalCargoRepositoryArray) ToLocalCargoRepositoryArrayOutput() LocalCarg
 
 func (i LocalCargoRepositoryArray) ToLocalCargoRepositoryArrayOutputWithContext(ctx context.Context) LocalCargoRepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LocalCargoRepositoryArrayOutput)
+}
+
+func (i LocalCargoRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*LocalCargoRepository] {
+	return pulumix.Output[[]*LocalCargoRepository]{
+		OutputState: i.ToLocalCargoRepositoryArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // LocalCargoRepositoryMapInput is an input type that accepts LocalCargoRepositoryMap and LocalCargoRepositoryMapOutput values.
@@ -416,6 +429,12 @@ func (i LocalCargoRepositoryMap) ToLocalCargoRepositoryMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(LocalCargoRepositoryMapOutput)
 }
 
+func (i LocalCargoRepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LocalCargoRepository] {
+	return pulumix.Output[map[string]*LocalCargoRepository]{
+		OutputState: i.ToLocalCargoRepositoryMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LocalCargoRepositoryOutput struct{ *pulumi.OutputState }
 
 func (LocalCargoRepositoryOutput) ElementType() reflect.Type {
@@ -428,6 +447,12 @@ func (o LocalCargoRepositoryOutput) ToLocalCargoRepositoryOutput() LocalCargoRep
 
 func (o LocalCargoRepositoryOutput) ToLocalCargoRepositoryOutputWithContext(ctx context.Context) LocalCargoRepositoryOutput {
 	return o
+}
+
+func (o LocalCargoRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*LocalCargoRepository] {
+	return pulumix.Output[*LocalCargoRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Cargo client does not send credentials when performing download and search for crates.
@@ -549,6 +574,12 @@ func (o LocalCargoRepositoryArrayOutput) ToLocalCargoRepositoryArrayOutputWithCo
 	return o
 }
 
+func (o LocalCargoRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LocalCargoRepository] {
+	return pulumix.Output[[]*LocalCargoRepository]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LocalCargoRepositoryArrayOutput) Index(i pulumi.IntInput) LocalCargoRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LocalCargoRepository {
 		return vs[0].([]*LocalCargoRepository)[vs[1].(int)]
@@ -567,6 +598,12 @@ func (o LocalCargoRepositoryMapOutput) ToLocalCargoRepositoryMapOutput() LocalCa
 
 func (o LocalCargoRepositoryMapOutput) ToLocalCargoRepositoryMapOutputWithContext(ctx context.Context) LocalCargoRepositoryMapOutput {
 	return o
+}
+
+func (o LocalCargoRepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LocalCargoRepository] {
+	return pulumix.Output[map[string]*LocalCargoRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LocalCargoRepositoryMapOutput) MapIndex(k pulumi.StringInput) LocalCargoRepositoryOutput {

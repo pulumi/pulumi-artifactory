@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type RepositoryLayout struct {
@@ -195,6 +196,12 @@ func (i *RepositoryLayout) ToRepositoryLayoutOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryLayoutOutput)
 }
 
+func (i *RepositoryLayout) ToOutput(ctx context.Context) pulumix.Output[*RepositoryLayout] {
+	return pulumix.Output[*RepositoryLayout]{
+		OutputState: i.ToRepositoryLayoutOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RepositoryLayoutArrayInput is an input type that accepts RepositoryLayoutArray and RepositoryLayoutArrayOutput values.
 // You can construct a concrete instance of `RepositoryLayoutArrayInput` via:
 //
@@ -218,6 +225,12 @@ func (i RepositoryLayoutArray) ToRepositoryLayoutArrayOutput() RepositoryLayoutA
 
 func (i RepositoryLayoutArray) ToRepositoryLayoutArrayOutputWithContext(ctx context.Context) RepositoryLayoutArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryLayoutArrayOutput)
+}
+
+func (i RepositoryLayoutArray) ToOutput(ctx context.Context) pulumix.Output[[]*RepositoryLayout] {
+	return pulumix.Output[[]*RepositoryLayout]{
+		OutputState: i.ToRepositoryLayoutArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // RepositoryLayoutMapInput is an input type that accepts RepositoryLayoutMap and RepositoryLayoutMapOutput values.
@@ -245,6 +258,12 @@ func (i RepositoryLayoutMap) ToRepositoryLayoutMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryLayoutMapOutput)
 }
 
+func (i RepositoryLayoutMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RepositoryLayout] {
+	return pulumix.Output[map[string]*RepositoryLayout]{
+		OutputState: i.ToRepositoryLayoutMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RepositoryLayoutOutput struct{ *pulumi.OutputState }
 
 func (RepositoryLayoutOutput) ElementType() reflect.Type {
@@ -257,6 +276,12 @@ func (o RepositoryLayoutOutput) ToRepositoryLayoutOutput() RepositoryLayoutOutpu
 
 func (o RepositoryLayoutOutput) ToRepositoryLayoutOutputWithContext(ctx context.Context) RepositoryLayoutOutput {
 	return o
+}
+
+func (o RepositoryLayoutOutput) ToOutput(ctx context.Context) pulumix.Output[*RepositoryLayout] {
+	return pulumix.Output[*RepositoryLayout]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Please refer to: [Path
@@ -311,6 +336,12 @@ func (o RepositoryLayoutArrayOutput) ToRepositoryLayoutArrayOutputWithContext(ct
 	return o
 }
 
+func (o RepositoryLayoutArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RepositoryLayout] {
+	return pulumix.Output[[]*RepositoryLayout]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RepositoryLayoutArrayOutput) Index(i pulumi.IntInput) RepositoryLayoutOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RepositoryLayout {
 		return vs[0].([]*RepositoryLayout)[vs[1].(int)]
@@ -329,6 +360,12 @@ func (o RepositoryLayoutMapOutput) ToRepositoryLayoutMapOutput() RepositoryLayou
 
 func (o RepositoryLayoutMapOutput) ToRepositoryLayoutMapOutputWithContext(ctx context.Context) RepositoryLayoutMapOutput {
 	return o
+}
+
+func (o RepositoryLayoutMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RepositoryLayout] {
+	return pulumix.Output[map[string]*RepositoryLayout]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RepositoryLayoutMapOutput) MapIndex(k pulumi.StringInput) RepositoryLayoutOutput {
