@@ -230,14 +230,14 @@ public class VirtualAlpineRepository extends com.pulumi.resources.CustomResource
         return Codegen.optional(this.projectKey);
     }
     /**
-     * Repository layout key for the local repository
+     * Repository layout key for the virtual repository
      * 
      */
     @Export(name="repoLayoutRef", type=String.class, parameters={})
     private Output</* @Nullable */ String> repoLayoutRef;
 
     /**
-     * @return Repository layout key for the local repository
+     * @return Repository layout key for the virtual repository
      * 
      */
     public Output<Optional<String>> repoLayoutRef() {

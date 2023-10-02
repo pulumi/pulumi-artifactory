@@ -83,6 +83,13 @@ namespace Pulumi.Artifactory
         [Input("excludesPattern")]
         public string? ExcludesPattern { get; set; }
 
+        /// <summary>
+        /// Force basic authentication credentials in order to use this repository.
+        /// Default is `false`.
+        /// </summary>
+        [Input("forceConanAuthentication")]
+        public bool? ForceConanAuthentication { get; set; }
+
         [Input("includesPattern")]
         public string? IncludesPattern { get; set; }
 
@@ -143,6 +150,13 @@ namespace Pulumi.Artifactory
         [Input("excludesPattern")]
         public Input<string>? ExcludesPattern { get; set; }
 
+        /// <summary>
+        /// Force basic authentication credentials in order to use this repository.
+        /// Default is `false`.
+        /// </summary>
+        [Input("forceConanAuthentication")]
+        public Input<bool>? ForceConanAuthentication { get; set; }
+
         [Input("includesPattern")]
         public Input<string>? IncludesPattern { get; set; }
 
@@ -198,6 +212,11 @@ namespace Pulumi.Artifactory
         public readonly string? Description;
         public readonly string? ExcludesPattern;
         /// <summary>
+        /// Force basic authentication credentials in order to use this repository.
+        /// Default is `false`.
+        /// </summary>
+        public readonly bool? ForceConanAuthentication;
+        /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
@@ -224,6 +243,8 @@ namespace Pulumi.Artifactory
 
             string? excludesPattern,
 
+            bool? forceConanAuthentication,
+
             string id,
 
             string? includesPattern,
@@ -248,6 +269,7 @@ namespace Pulumi.Artifactory
             DefaultDeploymentRepo = defaultDeploymentRepo;
             Description = description;
             ExcludesPattern = excludesPattern;
+            ForceConanAuthentication = forceConanAuthentication;
             Id = id;
             IncludesPattern = includesPattern;
             Key = key;

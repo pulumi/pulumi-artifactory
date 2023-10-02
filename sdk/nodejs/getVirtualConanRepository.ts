@@ -26,6 +26,7 @@ export function getVirtualConanRepository(args: GetVirtualConanRepositoryArgs, o
         "defaultDeploymentRepo": args.defaultDeploymentRepo,
         "description": args.description,
         "excludesPattern": args.excludesPattern,
+        "forceConanAuthentication": args.forceConanAuthentication,
         "includesPattern": args.includesPattern,
         "key": args.key,
         "notes": args.notes,
@@ -45,6 +46,11 @@ export interface GetVirtualConanRepositoryArgs {
     defaultDeploymentRepo?: string;
     description?: string;
     excludesPattern?: string;
+    /**
+     * Force basic authentication credentials in order to use this repository.
+     * Default is `false`.
+     */
+    forceConanAuthentication?: boolean;
     includesPattern?: string;
     /**
      * the identity key of the repo.
@@ -69,6 +75,11 @@ export interface GetVirtualConanRepositoryResult {
     readonly defaultDeploymentRepo?: string;
     readonly description?: string;
     readonly excludesPattern?: string;
+    /**
+     * Force basic authentication credentials in order to use this repository.
+     * Default is `false`.
+     */
+    readonly forceConanAuthentication?: boolean;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -112,6 +123,11 @@ export interface GetVirtualConanRepositoryOutputArgs {
     defaultDeploymentRepo?: pulumi.Input<string>;
     description?: pulumi.Input<string>;
     excludesPattern?: pulumi.Input<string>;
+    /**
+     * Force basic authentication credentials in order to use this repository.
+     * Default is `false`.
+     */
+    forceConanAuthentication?: pulumi.Input<boolean>;
     includesPattern?: pulumi.Input<string>;
     /**
      * the identity key of the repo.

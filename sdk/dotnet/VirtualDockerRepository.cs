@@ -114,7 +114,7 @@ namespace Pulumi.Artifactory
         public Output<string?> ProjectKey { get; private set; } = null!;
 
         /// <summary>
-        /// Repository layout key for the local repository
+        /// Repository layout key for the virtual repository
         /// </summary>
         [Output("repoLayoutRef")]
         public Output<string?> RepoLayoutRef { get; private set; } = null!;
@@ -246,7 +246,7 @@ namespace Pulumi.Artifactory
         public Input<string>? ProjectKey { get; set; }
 
         /// <summary>
-        /// Repository layout key for the local repository
+        /// Repository layout key for the virtual repository
         /// </summary>
         [Input("repoLayoutRef")]
         public Input<string>? RepoLayoutRef { get; set; }
@@ -349,7 +349,7 @@ namespace Pulumi.Artifactory
         public Input<string>? ProjectKey { get; set; }
 
         /// <summary>
-        /// Repository layout key for the local repository
+        /// Repository layout key for the virtual repository
         /// </summary>
         [Input("repoLayoutRef")]
         public Input<string>? RepoLayoutRef { get; set; }

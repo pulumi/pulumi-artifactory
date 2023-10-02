@@ -111,7 +111,7 @@ export class VirtualNugetRepository extends pulumi.CustomResource {
      */
     public readonly projectKey!: pulumi.Output<string | undefined>;
     /**
-     * Repository layout key for the local repository
+     * Repository layout key for the virtual repository
      */
     public readonly repoLayoutRef!: pulumi.Output<string | undefined>;
     /**
@@ -223,7 +223,7 @@ export interface VirtualNugetRepositoryState {
      */
     projectKey?: pulumi.Input<string>;
     /**
-     * Repository layout key for the local repository
+     * Repository layout key for the virtual repository
      */
     repoLayoutRef?: pulumi.Input<string>;
     /**
@@ -285,7 +285,7 @@ export interface VirtualNugetRepositoryArgs {
      */
     projectKey?: pulumi.Input<string>;
     /**
-     * Repository layout key for the local repository
+     * Repository layout key for the virtual repository
      */
     repoLayoutRef?: pulumi.Input<string>;
     /**

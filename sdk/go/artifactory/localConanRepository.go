@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
+	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
+//	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -70,6 +70,8 @@ type LocalConanRepository struct {
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
 	// artifacts are excluded.
 	ExcludesPattern pulumi.StringOutput `pulumi:"excludesPattern"`
+	// Force basic authentication credentials in order to use this repository. Default value is `false`.
+	ForceConanAuthentication pulumi.BoolPtrOutput `pulumi:"forceConanAuthentication"`
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringOutput `pulumi:"includesPattern"`
@@ -147,6 +149,8 @@ type localConanRepositoryState struct {
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
 	// artifacts are excluded.
 	ExcludesPattern *string `pulumi:"excludesPattern"`
+	// Force basic authentication credentials in order to use this repository. Default value is `false`.
+	ForceConanAuthentication *bool `pulumi:"forceConanAuthentication"`
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
@@ -192,6 +196,8 @@ type LocalConanRepositoryState struct {
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
 	// artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrInput
+	// Force basic authentication credentials in order to use this repository. Default value is `false`.
+	ForceConanAuthentication pulumi.BoolPtrInput
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
@@ -241,6 +247,8 @@ type localConanRepositoryArgs struct {
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
 	// artifacts are excluded.
 	ExcludesPattern *string `pulumi:"excludesPattern"`
+	// Force basic authentication credentials in order to use this repository. Default value is `false`.
+	ForceConanAuthentication *bool `pulumi:"forceConanAuthentication"`
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
@@ -286,6 +294,8 @@ type LocalConanRepositoryArgs struct {
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
 	// artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrInput
+	// Force basic authentication credentials in order to use this repository. Default value is `false`.
+	ForceConanAuthentication pulumi.BoolPtrInput
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
@@ -456,6 +466,11 @@ func (o LocalConanRepositoryOutput) DownloadDirect() pulumi.BoolPtrOutput {
 // artifacts are excluded.
 func (o LocalConanRepositoryOutput) ExcludesPattern() pulumi.StringOutput {
 	return o.ApplyT(func(v *LocalConanRepository) pulumi.StringOutput { return v.ExcludesPattern }).(pulumi.StringOutput)
+}
+
+// Force basic authentication credentials in order to use this repository. Default value is `false`.
+func (o LocalConanRepositoryOutput) ForceConanAuthentication() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LocalConanRepository) pulumi.BoolPtrOutput { return v.ForceConanAuthentication }).(pulumi.BoolPtrOutput)
 }
 
 // List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only

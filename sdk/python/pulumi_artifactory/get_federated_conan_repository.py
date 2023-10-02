@@ -23,7 +23,7 @@ class GetFederatedConanRepositoryResult:
     """
     A collection of values returned by getFederatedConanRepository.
     """
-    def __init__(__self__, archive_browsing_enabled=None, blacked_out=None, cdn_redirect=None, cleanup_on_delete=None, description=None, download_direct=None, excludes_pattern=None, id=None, includes_pattern=None, key=None, members=None, notes=None, package_type=None, priority_resolution=None, project_environments=None, project_key=None, property_sets=None, repo_layout_ref=None, xray_index=None):
+    def __init__(__self__, archive_browsing_enabled=None, blacked_out=None, cdn_redirect=None, cleanup_on_delete=None, description=None, download_direct=None, excludes_pattern=None, force_conan_authentication=None, id=None, includes_pattern=None, key=None, members=None, notes=None, package_type=None, priority_resolution=None, project_environments=None, project_key=None, property_sets=None, repo_layout_ref=None, xray_index=None):
         if archive_browsing_enabled and not isinstance(archive_browsing_enabled, bool):
             raise TypeError("Expected argument 'archive_browsing_enabled' to be a bool")
         pulumi.set(__self__, "archive_browsing_enabled", archive_browsing_enabled)
@@ -45,6 +45,9 @@ class GetFederatedConanRepositoryResult:
         if excludes_pattern and not isinstance(excludes_pattern, str):
             raise TypeError("Expected argument 'excludes_pattern' to be a str")
         pulumi.set(__self__, "excludes_pattern", excludes_pattern)
+        if force_conan_authentication and not isinstance(force_conan_authentication, bool):
+            raise TypeError("Expected argument 'force_conan_authentication' to be a bool")
+        pulumi.set(__self__, "force_conan_authentication", force_conan_authentication)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -116,6 +119,11 @@ class GetFederatedConanRepositoryResult:
     @pulumi.getter(name="excludesPattern")
     def excludes_pattern(self) -> str:
         return pulumi.get(self, "excludes_pattern")
+
+    @property
+    @pulumi.getter(name="forceConanAuthentication")
+    def force_conan_authentication(self) -> Optional[bool]:
+        return pulumi.get(self, "force_conan_authentication")
 
     @property
     @pulumi.getter
@@ -200,6 +208,7 @@ class AwaitableGetFederatedConanRepositoryResult(GetFederatedConanRepositoryResu
             description=self.description,
             download_direct=self.download_direct,
             excludes_pattern=self.excludes_pattern,
+            force_conan_authentication=self.force_conan_authentication,
             id=self.id,
             includes_pattern=self.includes_pattern,
             key=self.key,
@@ -221,6 +230,7 @@ def get_federated_conan_repository(archive_browsing_enabled: Optional[bool] = No
                                    description: Optional[str] = None,
                                    download_direct: Optional[bool] = None,
                                    excludes_pattern: Optional[str] = None,
+                                   force_conan_authentication: Optional[bool] = None,
                                    includes_pattern: Optional[str] = None,
                                    key: Optional[str] = None,
                                    members: Optional[Sequence[pulumi.InputType['GetFederatedConanRepositoryMemberArgs']]] = None,
@@ -259,6 +269,7 @@ def get_federated_conan_repository(archive_browsing_enabled: Optional[bool] = No
     __args__['description'] = description
     __args__['downloadDirect'] = download_direct
     __args__['excludesPattern'] = excludes_pattern
+    __args__['forceConanAuthentication'] = force_conan_authentication
     __args__['includesPattern'] = includes_pattern
     __args__['key'] = key
     __args__['members'] = members
@@ -280,6 +291,7 @@ def get_federated_conan_repository(archive_browsing_enabled: Optional[bool] = No
         description=pulumi.get(__ret__, 'description'),
         download_direct=pulumi.get(__ret__, 'download_direct'),
         excludes_pattern=pulumi.get(__ret__, 'excludes_pattern'),
+        force_conan_authentication=pulumi.get(__ret__, 'force_conan_authentication'),
         id=pulumi.get(__ret__, 'id'),
         includes_pattern=pulumi.get(__ret__, 'includes_pattern'),
         key=pulumi.get(__ret__, 'key'),
@@ -302,6 +314,7 @@ def get_federated_conan_repository_output(archive_browsing_enabled: Optional[pul
                                           description: Optional[pulumi.Input[Optional[str]]] = None,
                                           download_direct: Optional[pulumi.Input[Optional[bool]]] = None,
                                           excludes_pattern: Optional[pulumi.Input[Optional[str]]] = None,
+                                          force_conan_authentication: Optional[pulumi.Input[Optional[bool]]] = None,
                                           includes_pattern: Optional[pulumi.Input[Optional[str]]] = None,
                                           key: Optional[pulumi.Input[str]] = None,
                                           members: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetFederatedConanRepositoryMemberArgs']]]]] = None,

@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
+	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
+//	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -112,7 +112,7 @@ type FederatedRpmRepository struct {
 	ProjectKey pulumi.StringPtrOutput `pulumi:"projectKey"`
 	// List of property set name
 	PropertySets pulumi.StringArrayOutput `pulumi:"propertySets"`
-	// Repository layout key for the local repository
+	// Repository layout key for the federated repository
 	RepoLayoutRef pulumi.StringPtrOutput `pulumi:"repoLayoutRef"`
 	// Secondary keypair used to sign artifacts.
 	SecondaryKeypairRef pulumi.StringPtrOutput `pulumi:"secondaryKeypairRef"`
@@ -214,7 +214,7 @@ type federatedRpmRepositoryState struct {
 	ProjectKey *string `pulumi:"projectKey"`
 	// List of property set name
 	PropertySets []string `pulumi:"propertySets"`
-	// Repository layout key for the local repository
+	// Repository layout key for the federated repository
 	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
 	// Secondary keypair used to sign artifacts.
 	SecondaryKeypairRef *string `pulumi:"secondaryKeypairRef"`
@@ -281,7 +281,7 @@ type FederatedRpmRepositoryState struct {
 	ProjectKey pulumi.StringPtrInput
 	// List of property set name
 	PropertySets pulumi.StringArrayInput
-	// Repository layout key for the local repository
+	// Repository layout key for the federated repository
 	RepoLayoutRef pulumi.StringPtrInput
 	// Secondary keypair used to sign artifacts.
 	SecondaryKeypairRef pulumi.StringPtrInput
@@ -351,7 +351,7 @@ type federatedRpmRepositoryArgs struct {
 	ProjectKey *string `pulumi:"projectKey"`
 	// List of property set name
 	PropertySets []string `pulumi:"propertySets"`
-	// Repository layout key for the local repository
+	// Repository layout key for the federated repository
 	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
 	// Secondary keypair used to sign artifacts.
 	SecondaryKeypairRef *string `pulumi:"secondaryKeypairRef"`
@@ -418,7 +418,7 @@ type FederatedRpmRepositoryArgs struct {
 	ProjectKey pulumi.StringPtrInput
 	// List of property set name
 	PropertySets pulumi.StringArrayInput
-	// Repository layout key for the local repository
+	// Repository layout key for the federated repository
 	RepoLayoutRef pulumi.StringPtrInput
 	// Secondary keypair used to sign artifacts.
 	SecondaryKeypairRef pulumi.StringPtrInput
@@ -652,7 +652,7 @@ func (o FederatedRpmRepositoryOutput) PropertySets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FederatedRpmRepository) pulumi.StringArrayOutput { return v.PropertySets }).(pulumi.StringArrayOutput)
 }
 
-// Repository layout key for the local repository
+// Repository layout key for the federated repository
 func (o FederatedRpmRepositoryOutput) RepoLayoutRef() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FederatedRpmRepository) pulumi.StringPtrOutput { return v.RepoLayoutRef }).(pulumi.StringPtrOutput)
 }

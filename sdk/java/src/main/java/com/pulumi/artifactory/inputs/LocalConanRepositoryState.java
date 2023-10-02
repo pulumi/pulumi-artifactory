@@ -118,6 +118,21 @@ public final class LocalConanRepositoryState extends com.pulumi.resources.Resour
     }
 
     /**
+     * Force basic authentication credentials in order to use this repository. Default value is `false`.
+     * 
+     */
+    @Import(name="forceConanAuthentication")
+    private @Nullable Output<Boolean> forceConanAuthentication;
+
+    /**
+     * @return Force basic authentication credentials in order to use this repository. Default value is `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> forceConanAuthentication() {
+        return Optional.ofNullable(this.forceConanAuthentication);
+    }
+
+    /**
      * List of artifact patterns to include when evaluating artifact requests in the form of x/y/**{@literal /}z/*. When used, only
      * artifacts matching one of the include patterns are served. By default, all artifacts are included (**{@literal /}*).
      * 
@@ -280,6 +295,7 @@ public final class LocalConanRepositoryState extends com.pulumi.resources.Resour
         this.description = $.description;
         this.downloadDirect = $.downloadDirect;
         this.excludesPattern = $.excludesPattern;
+        this.forceConanAuthentication = $.forceConanAuthentication;
         this.includesPattern = $.includesPattern;
         this.key = $.key;
         this.notes = $.notes;
@@ -444,6 +460,27 @@ public final class LocalConanRepositoryState extends com.pulumi.resources.Resour
          */
         public Builder excludesPattern(String excludesPattern) {
             return excludesPattern(Output.of(excludesPattern));
+        }
+
+        /**
+         * @param forceConanAuthentication Force basic authentication credentials in order to use this repository. Default value is `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder forceConanAuthentication(@Nullable Output<Boolean> forceConanAuthentication) {
+            $.forceConanAuthentication = forceConanAuthentication;
+            return this;
+        }
+
+        /**
+         * @param forceConanAuthentication Force basic authentication credentials in order to use this repository. Default value is `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder forceConanAuthentication(Boolean forceConanAuthentication) {
+            return forceConanAuthentication(Output.of(forceConanAuthentication));
         }
 
         /**

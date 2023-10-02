@@ -41,6 +41,14 @@ namespace Pulumi.Artifactory
     ///                                 Permissions = new[]
     ///                                 {
     ///                                     "read",
+    ///                                 },
+    ///                             },
+    ///                             new Artifactory.Inputs.PermissionTargetBuildActionUserArgs
+    ///                             {
+    ///                                 Name = "user1",
+    ///                                 Permissions = new[]
+    ///                                 {
+    ///                                     "read",
     ///                                     "write",
     ///                                 },
     ///                             },
@@ -106,12 +114,30 @@ namespace Pulumi.Artifactory
     ///                                     "read",
     ///                                 },
     ///                             },
+    ///                             new Artifactory.Inputs.PermissionTargetRepoActionGroupArgs
+    ///                             {
+    ///                                 Name = "dev",
+    ///                                 Permissions = new[]
+    ///                                 {
+    ///                                     "read",
+    ///                                     "write",
+    ///                                 },
+    ///                             },
     ///                         },
     ///                         Users = new[]
     ///                         {
     ///                             new Artifactory.Inputs.PermissionTargetRepoActionUserArgs
     ///                             {
     ///                                 Name = "anonymous",
+    ///                                 Permissions = new[]
+    ///                                 {
+    ///                                     "read",
+    ///                                     "write",
+    ///                                 },
+    ///                             },
+    ///                             new Artifactory.Inputs.PermissionTargetRepoActionUserArgs
+    ///                             {
+    ///                                 Name = "user1",
     ///                                 Permissions = new[]
     ///                                 {
     ///                                     "read",

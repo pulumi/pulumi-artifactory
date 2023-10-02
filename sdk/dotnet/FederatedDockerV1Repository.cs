@@ -171,7 +171,7 @@ namespace Pulumi.Artifactory
         public Output<ImmutableArray<string>> PropertySets { get; private set; } = null!;
 
         /// <summary>
-        /// Repository layout key for the local repository
+        /// Repository layout key for the federated repository
         /// </summary>
         [Output("repoLayoutRef")]
         public Output<string?> RepoLayoutRef { get; private set; } = null!;
@@ -358,7 +358,7 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// Repository layout key for the local repository
+        /// Repository layout key for the federated repository
         /// </summary>
         [Input("repoLayoutRef")]
         public Input<string>? RepoLayoutRef { get; set; }
@@ -513,7 +513,7 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// Repository layout key for the local repository
+        /// Repository layout key for the federated repository
         /// </summary>
         [Input("repoLayoutRef")]
         public Input<string>? RepoLayoutRef { get; set; }

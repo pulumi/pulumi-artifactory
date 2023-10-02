@@ -182,6 +182,20 @@ public class FederatedConanRepository extends com.pulumi.resources.CustomResourc
         return this.excludesPattern;
     }
     /**
+     * Force basic authentication credentials in order to use this repository. Default value is &#39;false&#39;.
+     * 
+     */
+    @Export(name="forceConanAuthentication", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> forceConanAuthentication;
+
+    /**
+     * @return Force basic authentication credentials in order to use this repository. Default value is &#39;false&#39;.
+     * 
+     */
+    public Output<Optional<Boolean>> forceConanAuthentication() {
+        return Codegen.optional(this.forceConanAuthentication);
+    }
+    /**
      * List of artifact patterns to include when evaluating artifact requests in the form of x/y/**{@literal /}z/*. When used, only
      * artifacts matching one of the include patterns are served. By default, all artifacts are included (**{@literal /}*).
      * 
@@ -316,14 +330,14 @@ public class FederatedConanRepository extends com.pulumi.resources.CustomResourc
         return Codegen.optional(this.propertySets);
     }
     /**
-     * Repository layout key for the local repository
+     * Repository layout key for the federated repository
      * 
      */
     @Export(name="repoLayoutRef", type=String.class, parameters={})
     private Output</* @Nullable */ String> repoLayoutRef;
 
     /**
-     * @return Repository layout key for the local repository
+     * @return Repository layout key for the federated repository
      * 
      */
     public Output<Optional<String>> repoLayoutRef() {

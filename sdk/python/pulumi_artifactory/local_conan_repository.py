@@ -21,6 +21,7 @@ class LocalConanRepositoryArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  download_direct: Optional[pulumi.Input[bool]] = None,
                  excludes_pattern: Optional[pulumi.Input[str]] = None,
+                 force_conan_authentication: Optional[pulumi.Input[bool]] = None,
                  includes_pattern: Optional[pulumi.Input[str]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
                  priority_resolution: Optional[pulumi.Input[bool]] = None,
@@ -43,6 +44,7 @@ class LocalConanRepositoryArgs:
                storage provider. Available in Enterprise+ and Edge licenses only.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
                artifacts are excluded.
+        :param pulumi.Input[bool] force_conan_authentication: Force basic authentication credentials in order to use this repository. Default value is `false`.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         :param pulumi.Input[str] notes: Internal description.
@@ -71,6 +73,8 @@ class LocalConanRepositoryArgs:
             pulumi.set(__self__, "download_direct", download_direct)
         if excludes_pattern is not None:
             pulumi.set(__self__, "excludes_pattern", excludes_pattern)
+        if force_conan_authentication is not None:
+            pulumi.set(__self__, "force_conan_authentication", force_conan_authentication)
         if includes_pattern is not None:
             pulumi.set(__self__, "includes_pattern", includes_pattern)
         if notes is not None:
@@ -176,6 +180,18 @@ class LocalConanRepositoryArgs:
     @excludes_pattern.setter
     def excludes_pattern(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "excludes_pattern", value)
+
+    @property
+    @pulumi.getter(name="forceConanAuthentication")
+    def force_conan_authentication(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Force basic authentication credentials in order to use this repository. Default value is `false`.
+        """
+        return pulumi.get(self, "force_conan_authentication")
+
+    @force_conan_authentication.setter
+    def force_conan_authentication(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "force_conan_authentication", value)
 
     @property
     @pulumi.getter(name="includesPattern")
@@ -289,6 +305,7 @@ class _LocalConanRepositoryState:
                  description: Optional[pulumi.Input[str]] = None,
                  download_direct: Optional[pulumi.Input[bool]] = None,
                  excludes_pattern: Optional[pulumi.Input[str]] = None,
+                 force_conan_authentication: Optional[pulumi.Input[bool]] = None,
                  includes_pattern: Optional[pulumi.Input[str]] = None,
                  key: Optional[pulumi.Input[str]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
@@ -312,6 +329,7 @@ class _LocalConanRepositoryState:
                storage provider. Available in Enterprise+ and Edge licenses only.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
                artifacts are excluded.
+        :param pulumi.Input[bool] force_conan_authentication: Force basic authentication credentials in order to use this repository. Default value is `false`.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         :param pulumi.Input[str] key: the identity key of the repo.
@@ -340,6 +358,8 @@ class _LocalConanRepositoryState:
             pulumi.set(__self__, "download_direct", download_direct)
         if excludes_pattern is not None:
             pulumi.set(__self__, "excludes_pattern", excludes_pattern)
+        if force_conan_authentication is not None:
+            pulumi.set(__self__, "force_conan_authentication", force_conan_authentication)
         if includes_pattern is not None:
             pulumi.set(__self__, "includes_pattern", includes_pattern)
         if key is not None:
@@ -437,6 +457,18 @@ class _LocalConanRepositoryState:
     @excludes_pattern.setter
     def excludes_pattern(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "excludes_pattern", value)
+
+    @property
+    @pulumi.getter(name="forceConanAuthentication")
+    def force_conan_authentication(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Force basic authentication credentials in order to use this repository. Default value is `false`.
+        """
+        return pulumi.get(self, "force_conan_authentication")
+
+    @force_conan_authentication.setter
+    def force_conan_authentication(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "force_conan_authentication", value)
 
     @property
     @pulumi.getter(name="includesPattern")
@@ -573,6 +605,7 @@ class LocalConanRepository(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  download_direct: Optional[pulumi.Input[bool]] = None,
                  excludes_pattern: Optional[pulumi.Input[str]] = None,
+                 force_conan_authentication: Optional[pulumi.Input[bool]] = None,
                  includes_pattern: Optional[pulumi.Input[str]] = None,
                  key: Optional[pulumi.Input[str]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
@@ -616,6 +649,7 @@ class LocalConanRepository(pulumi.CustomResource):
                storage provider. Available in Enterprise+ and Edge licenses only.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
                artifacts are excluded.
+        :param pulumi.Input[bool] force_conan_authentication: Force basic authentication credentials in order to use this repository. Default value is `false`.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         :param pulumi.Input[str] key: the identity key of the repo.
@@ -679,6 +713,7 @@ class LocalConanRepository(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  download_direct: Optional[pulumi.Input[bool]] = None,
                  excludes_pattern: Optional[pulumi.Input[str]] = None,
+                 force_conan_authentication: Optional[pulumi.Input[bool]] = None,
                  includes_pattern: Optional[pulumi.Input[str]] = None,
                  key: Optional[pulumi.Input[str]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
@@ -703,6 +738,7 @@ class LocalConanRepository(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["download_direct"] = download_direct
             __props__.__dict__["excludes_pattern"] = excludes_pattern
+            __props__.__dict__["force_conan_authentication"] = force_conan_authentication
             __props__.__dict__["includes_pattern"] = includes_pattern
             if key is None and not opts.urn:
                 raise TypeError("Missing required property 'key'")
@@ -731,6 +767,7 @@ class LocalConanRepository(pulumi.CustomResource):
             description: Optional[pulumi.Input[str]] = None,
             download_direct: Optional[pulumi.Input[bool]] = None,
             excludes_pattern: Optional[pulumi.Input[str]] = None,
+            force_conan_authentication: Optional[pulumi.Input[bool]] = None,
             includes_pattern: Optional[pulumi.Input[str]] = None,
             key: Optional[pulumi.Input[str]] = None,
             notes: Optional[pulumi.Input[str]] = None,
@@ -759,6 +796,7 @@ class LocalConanRepository(pulumi.CustomResource):
                storage provider. Available in Enterprise+ and Edge licenses only.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
                artifacts are excluded.
+        :param pulumi.Input[bool] force_conan_authentication: Force basic authentication credentials in order to use this repository. Default value is `false`.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         :param pulumi.Input[str] key: the identity key of the repo.
@@ -785,6 +823,7 @@ class LocalConanRepository(pulumi.CustomResource):
         __props__.__dict__["description"] = description
         __props__.__dict__["download_direct"] = download_direct
         __props__.__dict__["excludes_pattern"] = excludes_pattern
+        __props__.__dict__["force_conan_authentication"] = force_conan_authentication
         __props__.__dict__["includes_pattern"] = includes_pattern
         __props__.__dict__["key"] = key
         __props__.__dict__["notes"] = notes
@@ -849,6 +888,14 @@ class LocalConanRepository(pulumi.CustomResource):
         artifacts are excluded.
         """
         return pulumi.get(self, "excludes_pattern")
+
+    @property
+    @pulumi.getter(name="forceConanAuthentication")
+    def force_conan_authentication(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Force basic authentication credentials in order to use this repository. Default value is `false`.
+        """
+        return pulumi.get(self, "force_conan_authentication")
 
     @property
     @pulumi.getter(name="includesPattern")

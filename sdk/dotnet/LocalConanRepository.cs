@@ -83,6 +83,12 @@ namespace Pulumi.Artifactory
         public Output<string> ExcludesPattern { get; private set; } = null!;
 
         /// <summary>
+        /// Force basic authentication credentials in order to use this repository. Default value is `false`.
+        /// </summary>
+        [Output("forceConanAuthentication")]
+        public Output<bool?> ForceConanAuthentication { get; private set; } = null!;
+
+        /// <summary>
         /// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
         /// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         /// </summary>
@@ -233,6 +239,12 @@ namespace Pulumi.Artifactory
         public Input<string>? ExcludesPattern { get; set; }
 
         /// <summary>
+        /// Force basic authentication credentials in order to use this repository. Default value is `false`.
+        /// </summary>
+        [Input("forceConanAuthentication")]
+        public Input<bool>? ForceConanAuthentication { get; set; }
+
+        /// <summary>
         /// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
         /// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         /// </summary>
@@ -352,6 +364,12 @@ namespace Pulumi.Artifactory
         /// </summary>
         [Input("excludesPattern")]
         public Input<string>? ExcludesPattern { get; set; }
+
+        /// <summary>
+        /// Force basic authentication credentials in order to use this repository. Default value is `false`.
+        /// </summary>
+        [Input("forceConanAuthentication")]
+        public Input<bool>? ForceConanAuthentication { get; set; }
 
         /// <summary>
         /// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only

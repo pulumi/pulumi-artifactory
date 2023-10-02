@@ -156,7 +156,7 @@ export class FederatedDockerV2Repository extends pulumi.CustomResource {
      */
     public readonly propertySets!: pulumi.Output<string[] | undefined>;
     /**
-     * Repository layout key for the local repository
+     * Repository layout key for the federated repository
      */
     public readonly repoLayoutRef!: pulumi.Output<string | undefined>;
     /**
@@ -335,7 +335,7 @@ export interface FederatedDockerV2RepositoryState {
      */
     propertySets?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Repository layout key for the local repository
+     * Repository layout key for the federated repository
      */
     repoLayoutRef?: pulumi.Input<string>;
     /**
@@ -439,7 +439,7 @@ export interface FederatedDockerV2RepositoryArgs {
      */
     propertySets?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Repository layout key for the local repository
+     * Repository layout key for the federated repository
      */
     repoLayoutRef?: pulumi.Input<string>;
     /**

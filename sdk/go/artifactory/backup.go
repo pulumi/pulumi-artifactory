@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
+	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
@@ -27,7 +27,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
+//	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -70,25 +70,25 @@ type Backup struct {
 	pulumi.CustomResourceState
 
 	// If set, backups will be created within a Zip archive (Slow and CPU intensive). Default value is `false`.
-	CreateArchive pulumi.BoolPtrOutput `pulumi:"createArchive"`
+	CreateArchive pulumi.BoolOutput `pulumi:"createArchive"`
 	// A valid CRON expression that you can use to control backup frequency. Eg: "0 0 12 * * ? *", "0 0 2 ? * MON-SAT *". Note: please use 7 character format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year. Also, specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html) and in [Cronexp package readme](https://github.com/gorhill/cronexpr#other-details).
 	CronExp pulumi.StringOutput `pulumi:"cronExp"`
 	// Flag to enable or disable the backup config. Default value is `true`.
-	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
+	Enabled pulumi.BoolOutput `pulumi:"enabled"`
 	// When set, new repositories will not be automatically added to the backup. Default value is `false`.
-	ExcludeNewRepositories pulumi.BoolPtrOutput `pulumi:"excludeNewRepositories"`
+	ExcludeNewRepositories pulumi.BoolOutput `pulumi:"excludeNewRepositories"`
 	// A list of excluded repositories from the backup. Default is empty list.
 	ExcludedRepositories pulumi.StringArrayOutput `pulumi:"excludedRepositories"`
 	// When set to true, mission control will not be automatically added to the backup. Default value is `false`.
-	ExportMissionControl pulumi.BoolPtrOutput `pulumi:"exportMissionControl"`
+	ExportMissionControl pulumi.BoolOutput `pulumi:"exportMissionControl"`
 	// The unique ID of the artifactory backup config.
 	Key pulumi.StringOutput `pulumi:"key"`
 	// The number of hours to keep a backup before Artifactory will clean it up to free up disk space. Applicable only to non-incremental backups. Default value is 168 hours ie: 7 days.
-	RetentionPeriodHours pulumi.IntPtrOutput `pulumi:"retentionPeriodHours"`
+	RetentionPeriodHours pulumi.IntOutput `pulumi:"retentionPeriodHours"`
 	// If set, all Artifactory administrators will be notified by email if any problem is encountered during backup. Default value is `true`.
-	SendMailOnError pulumi.BoolPtrOutput `pulumi:"sendMailOnError"`
+	SendMailOnError pulumi.BoolOutput `pulumi:"sendMailOnError"`
 	// If set, Artifactory will verify that the backup target location has enough disk space available to hold the backed up data. If there is not enough space available, Artifactory will abort the backup and write a message in the log file. Applicable only to non-incremental backups.
-	VerifyDiskSpace pulumi.BoolPtrOutput `pulumi:"verifyDiskSpace"`
+	VerifyDiskSpace pulumi.BoolOutput `pulumi:"verifyDiskSpace"`
 }
 
 // NewBackup registers a new resource with the given unique name, arguments, and options.
@@ -335,8 +335,8 @@ func (o BackupOutput) ToOutput(ctx context.Context) pulumix.Output[*Backup] {
 }
 
 // If set, backups will be created within a Zip archive (Slow and CPU intensive). Default value is `false`.
-func (o BackupOutput) CreateArchive() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *Backup) pulumi.BoolPtrOutput { return v.CreateArchive }).(pulumi.BoolPtrOutput)
+func (o BackupOutput) CreateArchive() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Backup) pulumi.BoolOutput { return v.CreateArchive }).(pulumi.BoolOutput)
 }
 
 // A valid CRON expression that you can use to control backup frequency. Eg: "0 0 12 * * ? *", "0 0 2 ? * MON-SAT *". Note: please use 7 character format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year. Also, specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html) and in [Cronexp package readme](https://github.com/gorhill/cronexpr#other-details).
@@ -345,13 +345,13 @@ func (o BackupOutput) CronExp() pulumi.StringOutput {
 }
 
 // Flag to enable or disable the backup config. Default value is `true`.
-func (o BackupOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *Backup) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
+func (o BackupOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Backup) pulumi.BoolOutput { return v.Enabled }).(pulumi.BoolOutput)
 }
 
 // When set, new repositories will not be automatically added to the backup. Default value is `false`.
-func (o BackupOutput) ExcludeNewRepositories() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *Backup) pulumi.BoolPtrOutput { return v.ExcludeNewRepositories }).(pulumi.BoolPtrOutput)
+func (o BackupOutput) ExcludeNewRepositories() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Backup) pulumi.BoolOutput { return v.ExcludeNewRepositories }).(pulumi.BoolOutput)
 }
 
 // A list of excluded repositories from the backup. Default is empty list.
@@ -360,8 +360,8 @@ func (o BackupOutput) ExcludedRepositories() pulumi.StringArrayOutput {
 }
 
 // When set to true, mission control will not be automatically added to the backup. Default value is `false`.
-func (o BackupOutput) ExportMissionControl() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *Backup) pulumi.BoolPtrOutput { return v.ExportMissionControl }).(pulumi.BoolPtrOutput)
+func (o BackupOutput) ExportMissionControl() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Backup) pulumi.BoolOutput { return v.ExportMissionControl }).(pulumi.BoolOutput)
 }
 
 // The unique ID of the artifactory backup config.
@@ -370,18 +370,18 @@ func (o BackupOutput) Key() pulumi.StringOutput {
 }
 
 // The number of hours to keep a backup before Artifactory will clean it up to free up disk space. Applicable only to non-incremental backups. Default value is 168 hours ie: 7 days.
-func (o BackupOutput) RetentionPeriodHours() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *Backup) pulumi.IntPtrOutput { return v.RetentionPeriodHours }).(pulumi.IntPtrOutput)
+func (o BackupOutput) RetentionPeriodHours() pulumi.IntOutput {
+	return o.ApplyT(func(v *Backup) pulumi.IntOutput { return v.RetentionPeriodHours }).(pulumi.IntOutput)
 }
 
 // If set, all Artifactory administrators will be notified by email if any problem is encountered during backup. Default value is `true`.
-func (o BackupOutput) SendMailOnError() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *Backup) pulumi.BoolPtrOutput { return v.SendMailOnError }).(pulumi.BoolPtrOutput)
+func (o BackupOutput) SendMailOnError() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Backup) pulumi.BoolOutput { return v.SendMailOnError }).(pulumi.BoolOutput)
 }
 
 // If set, Artifactory will verify that the backup target location has enough disk space available to hold the backed up data. If there is not enough space available, Artifactory will abort the backup and write a message in the log file. Applicable only to non-incremental backups.
-func (o BackupOutput) VerifyDiskSpace() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *Backup) pulumi.BoolPtrOutput { return v.VerifyDiskSpace }).(pulumi.BoolPtrOutput)
+func (o BackupOutput) VerifyDiskSpace() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Backup) pulumi.BoolOutput { return v.VerifyDiskSpace }).(pulumi.BoolOutput)
 }
 
 type BackupArrayOutput struct{ *pulumi.OutputState }

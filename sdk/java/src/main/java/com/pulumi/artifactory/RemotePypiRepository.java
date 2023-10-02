@@ -577,14 +577,14 @@ public class RemotePypiRepository extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.remoteRepoLayoutRef);
     }
     /**
-     * Repository layout key for the local repository
+     * Repository layout key for the remote repository
      * 
      */
     @Export(name="repoLayoutRef", type=String.class, parameters={})
     private Output</* @Nullable */ String> repoLayoutRef;
 
     /**
-     * @return Repository layout key for the local repository
+     * @return Repository layout key for the remote repository
      * 
      */
     public Output<Optional<String>> repoLayoutRef() {

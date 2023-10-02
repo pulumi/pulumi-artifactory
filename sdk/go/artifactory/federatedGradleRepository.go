@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
+	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
+//	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -120,7 +120,7 @@ type FederatedGradleRepository struct {
 	ProjectKey pulumi.StringPtrOutput `pulumi:"projectKey"`
 	// List of property set name
 	PropertySets pulumi.StringArrayOutput `pulumi:"propertySets"`
-	// Repository layout key for the local repository
+	// Repository layout key for the federated repository
 	RepoLayoutRef pulumi.StringPtrOutput `pulumi:"repoLayoutRef"`
 	// Specifies the naming convention for Maven SNAPSHOT versions. The options are - unique: Version number is based on a
 	// time-stamp (default) non-unique: Version number uses a self-overriding naming pattern of
@@ -229,7 +229,7 @@ type federatedGradleRepositoryState struct {
 	ProjectKey *string `pulumi:"projectKey"`
 	// List of property set name
 	PropertySets []string `pulumi:"propertySets"`
-	// Repository layout key for the local repository
+	// Repository layout key for the federated repository
 	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
 	// Specifies the naming convention for Maven SNAPSHOT versions. The options are - unique: Version number is based on a
 	// time-stamp (default) non-unique: Version number uses a self-overriding naming pattern of
@@ -303,7 +303,7 @@ type FederatedGradleRepositoryState struct {
 	ProjectKey pulumi.StringPtrInput
 	// List of property set name
 	PropertySets pulumi.StringArrayInput
-	// Repository layout key for the local repository
+	// Repository layout key for the federated repository
 	RepoLayoutRef pulumi.StringPtrInput
 	// Specifies the naming convention for Maven SNAPSHOT versions. The options are - unique: Version number is based on a
 	// time-stamp (default) non-unique: Version number uses a self-overriding naming pattern of
@@ -380,7 +380,7 @@ type federatedGradleRepositoryArgs struct {
 	ProjectKey *string `pulumi:"projectKey"`
 	// List of property set name
 	PropertySets []string `pulumi:"propertySets"`
-	// Repository layout key for the local repository
+	// Repository layout key for the federated repository
 	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
 	// Specifies the naming convention for Maven SNAPSHOT versions. The options are - unique: Version number is based on a
 	// time-stamp (default) non-unique: Version number uses a self-overriding naming pattern of
@@ -454,7 +454,7 @@ type FederatedGradleRepositoryArgs struct {
 	ProjectKey pulumi.StringPtrInput
 	// List of property set name
 	PropertySets pulumi.StringArrayInput
-	// Repository layout key for the local repository
+	// Repository layout key for the federated repository
 	RepoLayoutRef pulumi.StringPtrInput
 	// Specifies the naming convention for Maven SNAPSHOT versions. The options are - unique: Version number is based on a
 	// time-stamp (default) non-unique: Version number uses a self-overriding naming pattern of
@@ -698,7 +698,7 @@ func (o FederatedGradleRepositoryOutput) PropertySets() pulumi.StringArrayOutput
 	return o.ApplyT(func(v *FederatedGradleRepository) pulumi.StringArrayOutput { return v.PropertySets }).(pulumi.StringArrayOutput)
 }
 
-// Repository layout key for the local repository
+// Repository layout key for the federated repository
 func (o FederatedGradleRepositoryOutput) RepoLayoutRef() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FederatedGradleRepository) pulumi.StringPtrOutput { return v.RepoLayoutRef }).(pulumi.StringPtrOutput)
 }

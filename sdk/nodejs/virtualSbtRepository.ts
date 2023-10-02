@@ -122,7 +122,7 @@ export class VirtualSbtRepository extends pulumi.CustomResource {
      */
     public readonly projectKey!: pulumi.Output<string | undefined>;
     /**
-     * Repository layout key for the local repository
+     * Repository layout key for the virtual repository
      */
     public readonly repoLayoutRef!: pulumi.Output<string | undefined>;
     /**
@@ -249,7 +249,7 @@ export interface VirtualSbtRepositoryState {
      */
     projectKey?: pulumi.Input<string>;
     /**
-     * Repository layout key for the local repository
+     * Repository layout key for the virtual repository
      */
     repoLayoutRef?: pulumi.Input<string>;
     /**
@@ -322,7 +322,7 @@ export interface VirtualSbtRepositoryArgs {
      */
     projectKey?: pulumi.Input<string>;
     /**
-     * Repository layout key for the local repository
+     * Repository layout key for the virtual repository
      */
     repoLayoutRef?: pulumi.Input<string>;
     /**

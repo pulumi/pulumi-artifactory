@@ -71,7 +71,7 @@ class FederatedDockerRepositoryArgs:
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
-        :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
+        :param pulumi.Input[str] repo_layout_ref: Repository layout key for the federated repository
         :param pulumi.Input[int] tag_retention: If greater than 1, overwritten tags will be saved by their digest, up to the set up number. This only applies to
                manifest V2
         :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
@@ -340,7 +340,7 @@ class FederatedDockerRepositoryArgs:
     @pulumi.getter(name="repoLayoutRef")
     def repo_layout_ref(self) -> Optional[pulumi.Input[str]]:
         """
-        Repository layout key for the local repository
+        Repository layout key for the federated repository
         """
         return pulumi.get(self, "repo_layout_ref")
 
@@ -436,7 +436,7 @@ class _FederatedDockerRepositoryState:
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
-        :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
+        :param pulumi.Input[str] repo_layout_ref: Repository layout key for the federated repository
         :param pulumi.Input[int] tag_retention: If greater than 1, overwritten tags will be saved by their digest, up to the set up number. This only applies to
                manifest V2
         :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
@@ -732,7 +732,7 @@ class _FederatedDockerRepositoryState:
     @pulumi.getter(name="repoLayoutRef")
     def repo_layout_ref(self) -> Optional[pulumi.Input[str]]:
         """
-        Repository layout key for the local repository
+        Repository layout key for the federated repository
         """
         return pulumi.get(self, "repo_layout_ref")
 
@@ -861,7 +861,7 @@ class FederatedDockerRepository(pulumi.CustomResource):
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
-        :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
+        :param pulumi.Input[str] repo_layout_ref: Repository layout key for the federated repository
         :param pulumi.Input[int] tag_retention: If greater than 1, overwritten tags will be saved by their digest, up to the set up number. This only applies to
                manifest V2
         :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
@@ -1049,7 +1049,7 @@ class FederatedDockerRepository(pulumi.CustomResource):
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
-        :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
+        :param pulumi.Input[str] repo_layout_ref: Repository layout key for the federated repository
         :param pulumi.Input[int] tag_retention: If greater than 1, overwritten tags will be saved by their digest, up to the set up number. This only applies to
                manifest V2
         :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
@@ -1252,7 +1252,7 @@ class FederatedDockerRepository(pulumi.CustomResource):
     @pulumi.getter(name="repoLayoutRef")
     def repo_layout_ref(self) -> pulumi.Output[Optional[str]]:
         """
-        Repository layout key for the local repository
+        Repository layout key for the federated repository
         """
         return pulumi.get(self, "repo_layout_ref")
 

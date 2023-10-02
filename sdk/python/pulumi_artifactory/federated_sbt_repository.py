@@ -78,7 +78,7 @@ class FederatedSbtRepositoryArgs:
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
-        :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
+        :param pulumi.Input[str] repo_layout_ref: Repository layout key for the federated repository
         :param pulumi.Input[str] snapshot_version_behavior: Specifies the naming convention for Maven SNAPSHOT versions. The options are - unique: Version number is based on a
                time-stamp (default) non-unique: Version number uses a self-overriding naming pattern of
                artifactId-version-SNAPSHOT.type deployer: Respects the settings in the Maven client that is deploying the artifact.
@@ -384,7 +384,7 @@ class FederatedSbtRepositoryArgs:
     @pulumi.getter(name="repoLayoutRef")
     def repo_layout_ref(self) -> Optional[pulumi.Input[str]]:
         """
-        Repository layout key for the local repository
+        Repository layout key for the federated repository
         """
         return pulumi.get(self, "repo_layout_ref")
 
@@ -501,7 +501,7 @@ class _FederatedSbtRepositoryState:
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
-        :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
+        :param pulumi.Input[str] repo_layout_ref: Repository layout key for the federated repository
         :param pulumi.Input[str] snapshot_version_behavior: Specifies the naming convention for Maven SNAPSHOT versions. The options are - unique: Version number is based on a
                time-stamp (default) non-unique: Version number uses a self-overriding naming pattern of
                artifactId-version-SNAPSHOT.type deployer: Respects the settings in the Maven client that is deploying the artifact.
@@ -820,7 +820,7 @@ class _FederatedSbtRepositoryState:
     @pulumi.getter(name="repoLayoutRef")
     def repo_layout_ref(self) -> Optional[pulumi.Input[str]]:
         """
-        Repository layout key for the local repository
+        Repository layout key for the federated repository
         """
         return pulumi.get(self, "repo_layout_ref")
 
@@ -970,7 +970,7 @@ class FederatedSbtRepository(pulumi.CustomResource):
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
-        :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
+        :param pulumi.Input[str] repo_layout_ref: Repository layout key for the federated repository
         :param pulumi.Input[str] snapshot_version_behavior: Specifies the naming convention for Maven SNAPSHOT versions. The options are - unique: Version number is based on a
                time-stamp (default) non-unique: Version number uses a self-overriding naming pattern of
                artifactId-version-SNAPSHOT.type deployer: Respects the settings in the Maven client that is deploying the artifact.
@@ -1171,7 +1171,7 @@ class FederatedSbtRepository(pulumi.CustomResource):
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
-        :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
+        :param pulumi.Input[str] repo_layout_ref: Repository layout key for the federated repository
         :param pulumi.Input[str] snapshot_version_behavior: Specifies the naming convention for Maven SNAPSHOT versions. The options are - unique: Version number is based on a
                time-stamp (default) non-unique: Version number uses a self-overriding naming pattern of
                artifactId-version-SNAPSHOT.type deployer: Respects the settings in the Maven client that is deploying the artifact.
@@ -1391,7 +1391,7 @@ class FederatedSbtRepository(pulumi.CustomResource):
     @pulumi.getter(name="repoLayoutRef")
     def repo_layout_ref(self) -> pulumi.Output[Optional[str]]:
         """
-        Repository layout key for the local repository
+        Repository layout key for the federated repository
         """
         return pulumi.get(self, "repo_layout_ref")
 

@@ -224,14 +224,14 @@ public final class VirtualNpmRepositoryState extends com.pulumi.resources.Resour
     }
 
     /**
-     * Repository layout key for the local repository
+     * Repository layout key for the virtual repository
      * 
      */
     @Import(name="repoLayoutRef")
     private @Nullable Output<String> repoLayoutRef;
 
     /**
-     * @return Repository layout key for the local repository
+     * @return Repository layout key for the virtual repository
      * 
      */
     public Optional<Output<String>> repoLayoutRef() {
@@ -611,7 +611,7 @@ public final class VirtualNpmRepositoryState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param repoLayoutRef Repository layout key for the local repository
+         * @param repoLayoutRef Repository layout key for the virtual repository
          * 
          * @return builder
          * 
@@ -622,7 +622,7 @@ public final class VirtualNpmRepositoryState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param repoLayoutRef Repository layout key for the local repository
+         * @param repoLayoutRef Repository layout key for the virtual repository
          * 
          * @return builder
          * 

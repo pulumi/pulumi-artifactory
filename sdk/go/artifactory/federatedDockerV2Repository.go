@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
+	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
+//	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -116,7 +116,7 @@ type FederatedDockerV2Repository struct {
 	ProjectKey pulumi.StringPtrOutput `pulumi:"projectKey"`
 	// List of property set name
 	PropertySets pulumi.StringArrayOutput `pulumi:"propertySets"`
-	// Repository layout key for the local repository
+	// Repository layout key for the federated repository
 	RepoLayoutRef pulumi.StringPtrOutput `pulumi:"repoLayoutRef"`
 	// If greater than 1, overwritten tags will be saved by their digest, up to the set up number. This only applies to
 	// manifest V2
@@ -215,7 +215,7 @@ type federatedDockerV2RepositoryState struct {
 	ProjectKey *string `pulumi:"projectKey"`
 	// List of property set name
 	PropertySets []string `pulumi:"propertySets"`
-	// Repository layout key for the local repository
+	// Repository layout key for the federated repository
 	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
 	// If greater than 1, overwritten tags will be saved by their digest, up to the set up number. This only applies to
 	// manifest V2
@@ -279,7 +279,7 @@ type FederatedDockerV2RepositoryState struct {
 	ProjectKey pulumi.StringPtrInput
 	// List of property set name
 	PropertySets pulumi.StringArrayInput
-	// Repository layout key for the local repository
+	// Repository layout key for the federated repository
 	RepoLayoutRef pulumi.StringPtrInput
 	// If greater than 1, overwritten tags will be saved by their digest, up to the set up number. This only applies to
 	// manifest V2
@@ -344,7 +344,7 @@ type federatedDockerV2RepositoryArgs struct {
 	ProjectKey *string `pulumi:"projectKey"`
 	// List of property set name
 	PropertySets []string `pulumi:"propertySets"`
-	// Repository layout key for the local repository
+	// Repository layout key for the federated repository
 	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
 	// If greater than 1, overwritten tags will be saved by their digest, up to the set up number. This only applies to
 	// manifest V2
@@ -406,7 +406,7 @@ type FederatedDockerV2RepositoryArgs struct {
 	ProjectKey pulumi.StringPtrInput
 	// List of property set name
 	PropertySets pulumi.StringArrayInput
-	// Repository layout key for the local repository
+	// Repository layout key for the federated repository
 	RepoLayoutRef pulumi.StringPtrInput
 	// If greater than 1, overwritten tags will be saved by their digest, up to the set up number. This only applies to
 	// manifest V2
@@ -637,7 +637,7 @@ func (o FederatedDockerV2RepositoryOutput) PropertySets() pulumi.StringArrayOutp
 	return o.ApplyT(func(v *FederatedDockerV2Repository) pulumi.StringArrayOutput { return v.PropertySets }).(pulumi.StringArrayOutput)
 }
 
-// Repository layout key for the local repository
+// Repository layout key for the federated repository
 func (o FederatedDockerV2RepositoryOutput) RepoLayoutRef() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FederatedDockerV2Repository) pulumi.StringPtrOutput { return v.RepoLayoutRef }).(pulumi.StringPtrOutput)
 }

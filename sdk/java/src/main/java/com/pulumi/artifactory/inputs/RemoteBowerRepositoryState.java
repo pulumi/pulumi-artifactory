@@ -549,14 +549,14 @@ public final class RemoteBowerRepositoryState extends com.pulumi.resources.Resou
     }
 
     /**
-     * Repository layout key for the local repository
+     * Repository layout key for the remote repository
      * 
      */
     @Import(name="repoLayoutRef")
     private @Nullable Output<String> repoLayoutRef;
 
     /**
-     * @return Repository layout key for the local repository
+     * @return Repository layout key for the remote repository
      * 
      */
     public Optional<Output<String>> repoLayoutRef() {
@@ -1533,7 +1533,7 @@ public final class RemoteBowerRepositoryState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param repoLayoutRef Repository layout key for the local repository
+         * @param repoLayoutRef Repository layout key for the remote repository
          * 
          * @return builder
          * 
@@ -1544,7 +1544,7 @@ public final class RemoteBowerRepositoryState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param repoLayoutRef Repository layout key for the local repository
+         * @param repoLayoutRef Repository layout key for the remote repository
          * 
          * @return builder
          * 

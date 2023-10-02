@@ -142,7 +142,7 @@ export class FederatedSwiftRepository extends pulumi.CustomResource {
      */
     public readonly propertySets!: pulumi.Output<string[] | undefined>;
     /**
-     * Repository layout key for the local repository
+     * Repository layout key for the federated repository
      */
     public readonly repoLayoutRef!: pulumi.Output<string | undefined>;
     /**
@@ -294,7 +294,7 @@ export interface FederatedSwiftRepositoryState {
      */
     propertySets?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Repository layout key for the local repository
+     * Repository layout key for the federated repository
      */
     repoLayoutRef?: pulumi.Input<string>;
     /**
@@ -383,7 +383,7 @@ export interface FederatedSwiftRepositoryArgs {
      */
     propertySets?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Repository layout key for the local repository
+     * Repository layout key for the federated repository
      */
     repoLayoutRef?: pulumi.Input<string>;
     /**

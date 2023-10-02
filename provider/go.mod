@@ -1,4 +1,4 @@
-module github.com/pulumi/pulumi-artifactory/provider/v4
+module github.com/pulumi/pulumi-artifactory/provider/v5
 
 go 1.21
 
@@ -8,7 +8,7 @@ replace (
 )
 
 require (
-	github.com/jfrog/terraform-provider-artifactory/v8 v8.9.1
+	github.com/jfrog/terraform-provider-artifactory/v9 v9.2.1
 	github.com/pulumi/pulumi-terraform-bridge/pf v0.16.1
 	github.com/pulumi/pulumi-terraform-bridge/v3 v3.60.1
 	github.com/pulumi/pulumi/sdk/v3 v3.81.0
@@ -163,7 +163,7 @@ require (
 	github.com/imdario/mergo v0.3.15 // indirect
 	github.com/inconshreveable/mousetrap v1.1.0 // indirect
 	github.com/jbenet/go-context v0.0.0-20150711004518-d14ea06fba99 // indirect
-	github.com/jfrog/terraform-provider-shared v1.17.0 // indirect
+	github.com/jfrog/terraform-provider-shared v1.19.0 // indirect
 	github.com/jmespath/go-jmespath v0.4.0 // indirect
 	github.com/json-iterator/go v1.1.12 // indirect
 	github.com/kballard/go-shellquote v0.0.0-20180428030007-95032a82bc51 // indirect

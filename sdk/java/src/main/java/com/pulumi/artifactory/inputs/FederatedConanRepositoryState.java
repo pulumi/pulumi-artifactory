@@ -136,6 +136,21 @@ public final class FederatedConanRepositoryState extends com.pulumi.resources.Re
     }
 
     /**
+     * Force basic authentication credentials in order to use this repository. Default value is &#39;false&#39;.
+     * 
+     */
+    @Import(name="forceConanAuthentication")
+    private @Nullable Output<Boolean> forceConanAuthentication;
+
+    /**
+     * @return Force basic authentication credentials in order to use this repository. Default value is &#39;false&#39;.
+     * 
+     */
+    public Optional<Output<Boolean>> forceConanAuthentication() {
+        return Optional.ofNullable(this.forceConanAuthentication);
+    }
+
+    /**
      * List of artifact patterns to include when evaluating artifact requests in the form of x/y/**{@literal /}z/*. When used, only
      * artifacts matching one of the include patterns are served. By default, all artifacts are included (**{@literal /}*).
      * 
@@ -279,14 +294,14 @@ public final class FederatedConanRepositoryState extends com.pulumi.resources.Re
     }
 
     /**
-     * Repository layout key for the local repository
+     * Repository layout key for the federated repository
      * 
      */
     @Import(name="repoLayoutRef")
     private @Nullable Output<String> repoLayoutRef;
 
     /**
-     * @return Repository layout key for the local repository
+     * @return Repository layout key for the federated repository
      * 
      */
     public Optional<Output<String>> repoLayoutRef() {
@@ -320,6 +335,7 @@ public final class FederatedConanRepositoryState extends com.pulumi.resources.Re
         this.description = $.description;
         this.downloadDirect = $.downloadDirect;
         this.excludesPattern = $.excludesPattern;
+        this.forceConanAuthentication = $.forceConanAuthentication;
         this.includesPattern = $.includesPattern;
         this.key = $.key;
         this.members = $.members;
@@ -508,6 +524,27 @@ public final class FederatedConanRepositoryState extends com.pulumi.resources.Re
          */
         public Builder excludesPattern(String excludesPattern) {
             return excludesPattern(Output.of(excludesPattern));
+        }
+
+        /**
+         * @param forceConanAuthentication Force basic authentication credentials in order to use this repository. Default value is &#39;false&#39;.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder forceConanAuthentication(@Nullable Output<Boolean> forceConanAuthentication) {
+            $.forceConanAuthentication = forceConanAuthentication;
+            return this;
+        }
+
+        /**
+         * @param forceConanAuthentication Force basic authentication credentials in order to use this repository. Default value is &#39;false&#39;.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder forceConanAuthentication(Boolean forceConanAuthentication) {
+            return forceConanAuthentication(Output.of(forceConanAuthentication));
         }
 
         /**
@@ -740,7 +777,7 @@ public final class FederatedConanRepositoryState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param repoLayoutRef Repository layout key for the local repository
+         * @param repoLayoutRef Repository layout key for the federated repository
          * 
          * @return builder
          * 
@@ -751,7 +788,7 @@ public final class FederatedConanRepositoryState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param repoLayoutRef Repository layout key for the local repository
+         * @param repoLayoutRef Repository layout key for the federated repository
          * 
          * @return builder
          * 

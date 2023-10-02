@@ -123,7 +123,7 @@ export class VirtualDebianRepository extends pulumi.CustomResource {
      */
     public readonly projectKey!: pulumi.Output<string | undefined>;
     /**
-     * Repository layout key for the local repository
+     * Repository layout key for the virtual repository
      */
     public readonly repoLayoutRef!: pulumi.Output<string | undefined>;
     /**
@@ -259,7 +259,7 @@ export interface VirtualDebianRepositoryState {
      */
     projectKey?: pulumi.Input<string>;
     /**
-     * Repository layout key for the local repository
+     * Repository layout key for the virtual repository
      */
     repoLayoutRef?: pulumi.Input<string>;
     /**
@@ -337,7 +337,7 @@ export interface VirtualDebianRepositoryArgs {
      */
     projectKey?: pulumi.Input<string>;
     /**
-     * Repository layout key for the local repository
+     * Repository layout key for the virtual repository
      */
     repoLayoutRef?: pulumi.Input<string>;
     /**

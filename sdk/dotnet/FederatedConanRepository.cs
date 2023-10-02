@@ -103,6 +103,12 @@ namespace Pulumi.Artifactory
         public Output<string> ExcludesPattern { get; private set; } = null!;
 
         /// <summary>
+        /// Force basic authentication credentials in order to use this repository. Default value is 'false'.
+        /// </summary>
+        [Output("forceConanAuthentication")]
+        public Output<bool?> ForceConanAuthentication { get; private set; } = null!;
+
+        /// <summary>
         /// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
         /// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         /// </summary>
@@ -162,7 +168,7 @@ namespace Pulumi.Artifactory
         public Output<ImmutableArray<string>> PropertySets { get; private set; } = null!;
 
         /// <summary>
-        /// Repository layout key for the local repository
+        /// Repository layout key for the federated repository
         /// </summary>
         [Output("repoLayoutRef")]
         public Output<string?> RepoLayoutRef { get; private set; } = null!;
@@ -269,6 +275,12 @@ namespace Pulumi.Artifactory
         public Input<string>? ExcludesPattern { get; set; }
 
         /// <summary>
+        /// Force basic authentication credentials in order to use this repository. Default value is 'false'.
+        /// </summary>
+        [Input("forceConanAuthentication")]
+        public Input<bool>? ForceConanAuthentication { get; set; }
+
+        /// <summary>
         /// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
         /// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         /// </summary>
@@ -343,7 +355,7 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// Repository layout key for the local repository
+        /// Repository layout key for the federated repository
         /// </summary>
         [Input("repoLayoutRef")]
         public Input<string>? RepoLayoutRef { get; set; }
@@ -410,6 +422,12 @@ namespace Pulumi.Artifactory
         /// </summary>
         [Input("excludesPattern")]
         public Input<string>? ExcludesPattern { get; set; }
+
+        /// <summary>
+        /// Force basic authentication credentials in order to use this repository. Default value is 'false'.
+        /// </summary>
+        [Input("forceConanAuthentication")]
+        public Input<bool>? ForceConanAuthentication { get; set; }
 
         /// <summary>
         /// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
@@ -489,7 +507,7 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// Repository layout key for the local repository
+        /// Repository layout key for the federated repository
         /// </summary>
         [Input("repoLayoutRef")]
         public Input<string>? RepoLayoutRef { get; set; }

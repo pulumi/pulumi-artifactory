@@ -80,6 +80,10 @@ export class VirtualConanRepository extends pulumi.CustomResource {
      */
     public readonly excludesPattern!: pulumi.Output<string | undefined>;
     /**
+     * Force basic authentication credentials in order to use this repository. Default value is `false`.
+     */
+    public readonly forceConanAuthentication!: pulumi.Output<boolean | undefined>;
+    /**
      * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When
      * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
      */
@@ -107,7 +111,7 @@ export class VirtualConanRepository extends pulumi.CustomResource {
      */
     public readonly projectKey!: pulumi.Output<string | undefined>;
     /**
-     * Repository layout key for the local repository
+     * Repository layout key for the virtual repository
      */
     public readonly repoLayoutRef!: pulumi.Output<string | undefined>;
     /**
@@ -136,6 +140,7 @@ export class VirtualConanRepository extends pulumi.CustomResource {
             resourceInputs["defaultDeploymentRepo"] = state ? state.defaultDeploymentRepo : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["excludesPattern"] = state ? state.excludesPattern : undefined;
+            resourceInputs["forceConanAuthentication"] = state ? state.forceConanAuthentication : undefined;
             resourceInputs["includesPattern"] = state ? state.includesPattern : undefined;
             resourceInputs["key"] = state ? state.key : undefined;
             resourceInputs["notes"] = state ? state.notes : undefined;
@@ -154,6 +159,7 @@ export class VirtualConanRepository extends pulumi.CustomResource {
             resourceInputs["defaultDeploymentRepo"] = args ? args.defaultDeploymentRepo : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["excludesPattern"] = args ? args.excludesPattern : undefined;
+            resourceInputs["forceConanAuthentication"] = args ? args.forceConanAuthentication : undefined;
             resourceInputs["includesPattern"] = args ? args.includesPattern : undefined;
             resourceInputs["key"] = args ? args.key : undefined;
             resourceInputs["notes"] = args ? args.notes : undefined;
@@ -192,6 +198,10 @@ export interface VirtualConanRepositoryState {
      */
     excludesPattern?: pulumi.Input<string>;
     /**
+     * Force basic authentication credentials in order to use this repository. Default value is `false`.
+     */
+    forceConanAuthentication?: pulumi.Input<boolean>;
+    /**
      * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When
      * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
      */
@@ -219,7 +229,7 @@ export interface VirtualConanRepositoryState {
      */
     projectKey?: pulumi.Input<string>;
     /**
-     * Repository layout key for the local repository
+     * Repository layout key for the virtual repository
      */
     repoLayoutRef?: pulumi.Input<string>;
     /**
@@ -255,6 +265,10 @@ export interface VirtualConanRepositoryArgs {
      */
     excludesPattern?: pulumi.Input<string>;
     /**
+     * Force basic authentication credentials in order to use this repository. Default value is `false`.
+     */
+    forceConanAuthentication?: pulumi.Input<boolean>;
+    /**
      * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When
      * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
      */
@@ -281,7 +295,7 @@ export interface VirtualConanRepositoryArgs {
      */
     projectKey?: pulumi.Input<string>;
     /**
-     * Repository layout key for the local repository
+     * Repository layout key for the virtual repository
      */
     repoLayoutRef?: pulumi.Input<string>;
     /**

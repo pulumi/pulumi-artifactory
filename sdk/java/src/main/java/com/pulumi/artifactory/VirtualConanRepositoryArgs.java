@@ -83,6 +83,21 @@ public final class VirtualConanRepositoryArgs extends com.pulumi.resources.Resou
     }
 
     /**
+     * Force basic authentication credentials in order to use this repository. Default value is `false`.
+     * 
+     */
+    @Import(name="forceConanAuthentication")
+    private @Nullable Output<Boolean> forceConanAuthentication;
+
+    /**
+     * @return Force basic authentication credentials in order to use this repository. Default value is `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> forceConanAuthentication() {
+        return Optional.ofNullable(this.forceConanAuthentication);
+    }
+
+    /**
      * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**{@literal /}z/*. When
      * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**{@literal /}*).
      * 
@@ -170,14 +185,14 @@ public final class VirtualConanRepositoryArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Repository layout key for the local repository
+     * Repository layout key for the virtual repository
      * 
      */
     @Import(name="repoLayoutRef")
     private @Nullable Output<String> repoLayoutRef;
 
     /**
-     * @return Repository layout key for the local repository
+     * @return Repository layout key for the virtual repository
      * 
      */
     public Optional<Output<String>> repoLayoutRef() {
@@ -221,6 +236,7 @@ public final class VirtualConanRepositoryArgs extends com.pulumi.resources.Resou
         this.defaultDeploymentRepo = $.defaultDeploymentRepo;
         this.description = $.description;
         this.excludesPattern = $.excludesPattern;
+        this.forceConanAuthentication = $.forceConanAuthentication;
         this.includesPattern = $.includesPattern;
         this.key = $.key;
         this.notes = $.notes;
@@ -335,6 +351,27 @@ public final class VirtualConanRepositoryArgs extends com.pulumi.resources.Resou
          */
         public Builder excludesPattern(String excludesPattern) {
             return excludesPattern(Output.of(excludesPattern));
+        }
+
+        /**
+         * @param forceConanAuthentication Force basic authentication credentials in order to use this repository. Default value is `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder forceConanAuthentication(@Nullable Output<Boolean> forceConanAuthentication) {
+            $.forceConanAuthentication = forceConanAuthentication;
+            return this;
+        }
+
+        /**
+         * @param forceConanAuthentication Force basic authentication credentials in order to use this repository. Default value is `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder forceConanAuthentication(Boolean forceConanAuthentication) {
+            return forceConanAuthentication(Output.of(forceConanAuthentication));
         }
 
         /**
@@ -468,7 +505,7 @@ public final class VirtualConanRepositoryArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param repoLayoutRef Repository layout key for the local repository
+         * @param repoLayoutRef Repository layout key for the virtual repository
          * 
          * @return builder
          * 
@@ -479,7 +516,7 @@ public final class VirtualConanRepositoryArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param repoLayoutRef Repository layout key for the local repository
+         * @param repoLayoutRef Repository layout key for the virtual repository
          * 
          * @return builder
          * 

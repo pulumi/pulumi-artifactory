@@ -14,6 +14,7 @@ export function getLocalConanRepository(args: GetLocalConanRepositoryArgs, opts?
         "description": args.description,
         "downloadDirect": args.downloadDirect,
         "excludesPattern": args.excludesPattern,
+        "forceConanAuthentication": args.forceConanAuthentication,
         "includesPattern": args.includesPattern,
         "key": args.key,
         "notes": args.notes,
@@ -36,6 +37,7 @@ export interface GetLocalConanRepositoryArgs {
     description?: string;
     downloadDirect?: boolean;
     excludesPattern?: string;
+    forceConanAuthentication?: boolean;
     includesPattern?: string;
     key: string;
     notes?: string;
@@ -57,6 +59,7 @@ export interface GetLocalConanRepositoryResult {
     readonly description?: string;
     readonly downloadDirect?: boolean;
     readonly excludesPattern: string;
+    readonly forceConanAuthentication?: boolean;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -86,6 +89,7 @@ export interface GetLocalConanRepositoryOutputArgs {
     description?: pulumi.Input<string>;
     downloadDirect?: pulumi.Input<boolean>;
     excludesPattern?: pulumi.Input<string>;
+    forceConanAuthentication?: pulumi.Input<boolean>;
     includesPattern?: pulumi.Input<string>;
     key: pulumi.Input<string>;
     notes?: pulumi.Input<string>;

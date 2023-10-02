@@ -103,7 +103,7 @@ export class VirtualTerraformRepository extends pulumi.CustomResource {
      */
     public readonly projectKey!: pulumi.Output<string | undefined>;
     /**
-     * Repository layout key for the local repository
+     * Repository layout key for the virtual repository
      */
     public readonly repoLayoutRef!: pulumi.Output<string | undefined>;
     /**
@@ -209,7 +209,7 @@ export interface VirtualTerraformRepositoryState {
      */
     projectKey?: pulumi.Input<string>;
     /**
-     * Repository layout key for the local repository
+     * Repository layout key for the virtual repository
      */
     repoLayoutRef?: pulumi.Input<string>;
     /**
@@ -267,7 +267,7 @@ export interface VirtualTerraformRepositoryArgs {
      */
     projectKey?: pulumi.Input<string>;
     /**
-     * Repository layout key for the local repository
+     * Repository layout key for the virtual repository
      */
     repoLayoutRef?: pulumi.Input<string>;
     /**

@@ -59,6 +59,13 @@ public final class GetLocalConanRepositoryArgs extends com.pulumi.resources.Invo
         return Optional.ofNullable(this.excludesPattern);
     }
 
+    @Import(name="forceConanAuthentication")
+    private @Nullable Output<Boolean> forceConanAuthentication;
+
+    public Optional<Output<Boolean>> forceConanAuthentication() {
+        return Optional.ofNullable(this.forceConanAuthentication);
+    }
+
     @Import(name="includesPattern")
     private @Nullable Output<String> includesPattern;
 
@@ -131,6 +138,7 @@ public final class GetLocalConanRepositoryArgs extends com.pulumi.resources.Invo
         this.description = $.description;
         this.downloadDirect = $.downloadDirect;
         this.excludesPattern = $.excludesPattern;
+        this.forceConanAuthentication = $.forceConanAuthentication;
         this.includesPattern = $.includesPattern;
         this.key = $.key;
         this.notes = $.notes;
@@ -212,6 +220,15 @@ public final class GetLocalConanRepositoryArgs extends com.pulumi.resources.Invo
 
         public Builder excludesPattern(String excludesPattern) {
             return excludesPattern(Output.of(excludesPattern));
+        }
+
+        public Builder forceConanAuthentication(@Nullable Output<Boolean> forceConanAuthentication) {
+            $.forceConanAuthentication = forceConanAuthentication;
+            return this;
+        }
+
+        public Builder forceConanAuthentication(Boolean forceConanAuthentication) {
+            return forceConanAuthentication(Output.of(forceConanAuthentication));
         }
 
         public Builder includesPattern(@Nullable Output<String> includesPattern) {

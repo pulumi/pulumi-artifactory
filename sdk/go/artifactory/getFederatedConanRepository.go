@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
+	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
+//	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -51,14 +51,15 @@ func LookupFederatedConanRepository(ctx *pulumi.Context, args *LookupFederatedCo
 
 // A collection of arguments for invoking getFederatedConanRepository.
 type LookupFederatedConanRepositoryArgs struct {
-	ArchiveBrowsingEnabled *bool   `pulumi:"archiveBrowsingEnabled"`
-	BlackedOut             *bool   `pulumi:"blackedOut"`
-	CdnRedirect            *bool   `pulumi:"cdnRedirect"`
-	CleanupOnDelete        *bool   `pulumi:"cleanupOnDelete"`
-	Description            *string `pulumi:"description"`
-	DownloadDirect         *bool   `pulumi:"downloadDirect"`
-	ExcludesPattern        *string `pulumi:"excludesPattern"`
-	IncludesPattern        *string `pulumi:"includesPattern"`
+	ArchiveBrowsingEnabled   *bool   `pulumi:"archiveBrowsingEnabled"`
+	BlackedOut               *bool   `pulumi:"blackedOut"`
+	CdnRedirect              *bool   `pulumi:"cdnRedirect"`
+	CleanupOnDelete          *bool   `pulumi:"cleanupOnDelete"`
+	Description              *string `pulumi:"description"`
+	DownloadDirect           *bool   `pulumi:"downloadDirect"`
+	ExcludesPattern          *string `pulumi:"excludesPattern"`
+	ForceConanAuthentication *bool   `pulumi:"forceConanAuthentication"`
+	IncludesPattern          *string `pulumi:"includesPattern"`
 	// the identity key of the repo.
 	Key string `pulumi:"key"`
 	// The list of Federated members and must contain this repository URL (configured base URL
@@ -77,13 +78,14 @@ type LookupFederatedConanRepositoryArgs struct {
 
 // A collection of values returned by getFederatedConanRepository.
 type LookupFederatedConanRepositoryResult struct {
-	ArchiveBrowsingEnabled *bool   `pulumi:"archiveBrowsingEnabled"`
-	BlackedOut             *bool   `pulumi:"blackedOut"`
-	CdnRedirect            *bool   `pulumi:"cdnRedirect"`
-	CleanupOnDelete        *bool   `pulumi:"cleanupOnDelete"`
-	Description            *string `pulumi:"description"`
-	DownloadDirect         *bool   `pulumi:"downloadDirect"`
-	ExcludesPattern        string  `pulumi:"excludesPattern"`
+	ArchiveBrowsingEnabled   *bool   `pulumi:"archiveBrowsingEnabled"`
+	BlackedOut               *bool   `pulumi:"blackedOut"`
+	CdnRedirect              *bool   `pulumi:"cdnRedirect"`
+	CleanupOnDelete          *bool   `pulumi:"cleanupOnDelete"`
+	Description              *string `pulumi:"description"`
+	DownloadDirect           *bool   `pulumi:"downloadDirect"`
+	ExcludesPattern          string  `pulumi:"excludesPattern"`
+	ForceConanAuthentication *bool   `pulumi:"forceConanAuthentication"`
 	// The provider-assigned unique ID for this managed resource.
 	Id              string `pulumi:"id"`
 	IncludesPattern string `pulumi:"includesPattern"`
@@ -118,14 +120,15 @@ func LookupFederatedConanRepositoryOutput(ctx *pulumi.Context, args LookupFedera
 
 // A collection of arguments for invoking getFederatedConanRepository.
 type LookupFederatedConanRepositoryOutputArgs struct {
-	ArchiveBrowsingEnabled pulumi.BoolPtrInput   `pulumi:"archiveBrowsingEnabled"`
-	BlackedOut             pulumi.BoolPtrInput   `pulumi:"blackedOut"`
-	CdnRedirect            pulumi.BoolPtrInput   `pulumi:"cdnRedirect"`
-	CleanupOnDelete        pulumi.BoolPtrInput   `pulumi:"cleanupOnDelete"`
-	Description            pulumi.StringPtrInput `pulumi:"description"`
-	DownloadDirect         pulumi.BoolPtrInput   `pulumi:"downloadDirect"`
-	ExcludesPattern        pulumi.StringPtrInput `pulumi:"excludesPattern"`
-	IncludesPattern        pulumi.StringPtrInput `pulumi:"includesPattern"`
+	ArchiveBrowsingEnabled   pulumi.BoolPtrInput   `pulumi:"archiveBrowsingEnabled"`
+	BlackedOut               pulumi.BoolPtrInput   `pulumi:"blackedOut"`
+	CdnRedirect              pulumi.BoolPtrInput   `pulumi:"cdnRedirect"`
+	CleanupOnDelete          pulumi.BoolPtrInput   `pulumi:"cleanupOnDelete"`
+	Description              pulumi.StringPtrInput `pulumi:"description"`
+	DownloadDirect           pulumi.BoolPtrInput   `pulumi:"downloadDirect"`
+	ExcludesPattern          pulumi.StringPtrInput `pulumi:"excludesPattern"`
+	ForceConanAuthentication pulumi.BoolPtrInput   `pulumi:"forceConanAuthentication"`
+	IncludesPattern          pulumi.StringPtrInput `pulumi:"includesPattern"`
 	// the identity key of the repo.
 	Key pulumi.StringInput `pulumi:"key"`
 	// The list of Federated members and must contain this repository URL (configured base URL
@@ -193,6 +196,10 @@ func (o LookupFederatedConanRepositoryResultOutput) DownloadDirect() pulumi.Bool
 
 func (o LookupFederatedConanRepositoryResultOutput) ExcludesPattern() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFederatedConanRepositoryResult) string { return v.ExcludesPattern }).(pulumi.StringOutput)
+}
+
+func (o LookupFederatedConanRepositoryResultOutput) ForceConanAuthentication() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupFederatedConanRepositoryResult) *bool { return v.ForceConanAuthentication }).(pulumi.BoolPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
