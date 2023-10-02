@@ -155,6 +155,20 @@ public class LocalConanRepository extends com.pulumi.resources.CustomResource {
         return this.excludesPattern;
     }
     /**
+     * Force basic authentication credentials in order to use this repository. Default value is `false`.
+     * 
+     */
+    @Export(name="forceConanAuthentication", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> forceConanAuthentication;
+
+    /**
+     * @return Force basic authentication credentials in order to use this repository. Default value is `false`.
+     * 
+     */
+    public Output<Optional<Boolean>> forceConanAuthentication() {
+        return Codegen.optional(this.forceConanAuthentication);
+    }
+    /**
      * List of artifact patterns to include when evaluating artifact requests in the form of x/y/**{@literal /}z/*. When used, only
      * artifacts matching one of the include patterns are served. By default, all artifacts are included (**{@literal /}*).
      * 

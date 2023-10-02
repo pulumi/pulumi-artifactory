@@ -92,6 +92,9 @@ namespace Pulumi.Artifactory
         [Input("excludesPattern")]
         public string? ExcludesPattern { get; set; }
 
+        [Input("forceConanAuthentication")]
+        public bool? ForceConanAuthentication { get; set; }
+
         [Input("includesPattern")]
         public string? IncludesPattern { get; set; }
 
@@ -176,6 +179,9 @@ namespace Pulumi.Artifactory
         [Input("excludesPattern")]
         public Input<string>? ExcludesPattern { get; set; }
 
+        [Input("forceConanAuthentication")]
+        public Input<bool>? ForceConanAuthentication { get; set; }
+
         [Input("includesPattern")]
         public Input<string>? IncludesPattern { get; set; }
 
@@ -248,6 +254,7 @@ namespace Pulumi.Artifactory
         public readonly string? Description;
         public readonly bool? DownloadDirect;
         public readonly string ExcludesPattern;
+        public readonly bool? ForceConanAuthentication;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
@@ -286,6 +293,8 @@ namespace Pulumi.Artifactory
 
             string excludesPattern,
 
+            bool? forceConanAuthentication,
+
             string id,
 
             string includesPattern,
@@ -317,6 +326,7 @@ namespace Pulumi.Artifactory
             Description = description;
             DownloadDirect = downloadDirect;
             ExcludesPattern = excludesPattern;
+            ForceConanAuthentication = forceConanAuthentication;
             Id = id;
             IncludesPattern = includesPattern;
             Key = key;

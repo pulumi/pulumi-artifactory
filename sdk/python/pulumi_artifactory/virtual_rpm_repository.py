@@ -47,7 +47,7 @@ class VirtualRpmRepositoryArgs:
                be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
-        :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
+        :param pulumi.Input[str] repo_layout_ref: Repository layout key for the virtual repository
         :param pulumi.Input[Sequence[pulumi.Input[str]]] repositories: The effective list of actual repositories included in this virtual repository.
         :param pulumi.Input[str] secondary_keypair_ref: Secondary keypair used to sign artifacts.
         """
@@ -209,7 +209,7 @@ class VirtualRpmRepositoryArgs:
     @pulumi.getter(name="repoLayoutRef")
     def repo_layout_ref(self) -> Optional[pulumi.Input[str]]:
         """
-        Repository layout key for the local repository
+        Repository layout key for the virtual repository
         """
         return pulumi.get(self, "repo_layout_ref")
 
@@ -279,7 +279,7 @@ class _VirtualRpmRepositoryState:
                be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
-        :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
+        :param pulumi.Input[str] repo_layout_ref: Repository layout key for the virtual repository
         :param pulumi.Input[Sequence[pulumi.Input[str]]] repositories: The effective list of actual repositories included in this virtual repository.
         :param pulumi.Input[str] secondary_keypair_ref: Secondary keypair used to sign artifacts.
         """
@@ -453,7 +453,7 @@ class _VirtualRpmRepositoryState:
     @pulumi.getter(name="repoLayoutRef")
     def repo_layout_ref(self) -> Optional[pulumi.Input[str]]:
         """
-        Repository layout key for the local repository
+        Repository layout key for the virtual repository
         """
         return pulumi.get(self, "repo_layout_ref")
 
@@ -565,7 +565,7 @@ class VirtualRpmRepository(pulumi.CustomResource):
                be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
-        :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
+        :param pulumi.Input[str] repo_layout_ref: Repository layout key for the virtual repository
         :param pulumi.Input[Sequence[pulumi.Input[str]]] repositories: The effective list of actual repositories included in this virtual repository.
         :param pulumi.Input[str] secondary_keypair_ref: Secondary keypair used to sign artifacts.
         """
@@ -717,7 +717,7 @@ class VirtualRpmRepository(pulumi.CustomResource):
                be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
-        :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
+        :param pulumi.Input[str] repo_layout_ref: Repository layout key for the virtual repository
         :param pulumi.Input[Sequence[pulumi.Input[str]]] repositories: The effective list of actual repositories included in this virtual repository.
         :param pulumi.Input[str] secondary_keypair_ref: Secondary keypair used to sign artifacts.
         """
@@ -838,7 +838,7 @@ class VirtualRpmRepository(pulumi.CustomResource):
     @pulumi.getter(name="repoLayoutRef")
     def repo_layout_ref(self) -> pulumi.Output[Optional[str]]:
         """
-        Repository layout key for the local repository
+        Repository layout key for the virtual repository
         """
         return pulumi.get(self, "repo_layout_ref")
 

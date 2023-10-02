@@ -235,7 +235,7 @@ export class RemoteSbtRepository extends pulumi.CustomResource {
      */
     public readonly remoteRepoLayoutRef!: pulumi.Output<string | undefined>;
     /**
-     * Repository layout key for the local repository
+     * Repository layout key for the remote repository
      */
     public readonly repoLayoutRef!: pulumi.Output<string | undefined>;
     /**
@@ -584,7 +584,7 @@ export interface RemoteSbtRepositoryState {
      */
     remoteRepoLayoutRef?: pulumi.Input<string>;
     /**
-     * Repository layout key for the local repository
+     * Repository layout key for the remote repository
      */
     repoLayoutRef?: pulumi.Input<string>;
     /**
@@ -806,7 +806,7 @@ export interface RemoteSbtRepositoryArgs {
      */
     remoteRepoLayoutRef?: pulumi.Input<string>;
     /**
-     * Repository layout key for the local repository
+     * Repository layout key for the remote repository
      */
     repoLayoutRef?: pulumi.Input<string>;
     /**

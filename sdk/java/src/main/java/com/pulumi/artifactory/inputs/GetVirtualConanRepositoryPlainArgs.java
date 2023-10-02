@@ -45,6 +45,23 @@ public final class GetVirtualConanRepositoryPlainArgs extends com.pulumi.resourc
         return Optional.ofNullable(this.excludesPattern);
     }
 
+    /**
+     * Force basic authentication credentials in order to use this repository.
+     * Default is `false`.
+     * 
+     */
+    @Import(name="forceConanAuthentication")
+    private @Nullable Boolean forceConanAuthentication;
+
+    /**
+     * @return Force basic authentication credentials in order to use this repository.
+     * Default is `false`.
+     * 
+     */
+    public Optional<Boolean> forceConanAuthentication() {
+        return Optional.ofNullable(this.forceConanAuthentication);
+    }
+
     @Import(name="includesPattern")
     private @Nullable String includesPattern;
 
@@ -124,6 +141,7 @@ public final class GetVirtualConanRepositoryPlainArgs extends com.pulumi.resourc
         this.defaultDeploymentRepo = $.defaultDeploymentRepo;
         this.description = $.description;
         this.excludesPattern = $.excludesPattern;
+        this.forceConanAuthentication = $.forceConanAuthentication;
         this.includesPattern = $.includesPattern;
         this.key = $.key;
         this.notes = $.notes;
@@ -169,6 +187,18 @@ public final class GetVirtualConanRepositoryPlainArgs extends com.pulumi.resourc
 
         public Builder excludesPattern(@Nullable String excludesPattern) {
             $.excludesPattern = excludesPattern;
+            return this;
+        }
+
+        /**
+         * @param forceConanAuthentication Force basic authentication credentials in order to use this repository.
+         * Default is `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder forceConanAuthentication(@Nullable Boolean forceConanAuthentication) {
+            $.forceConanAuthentication = forceConanAuthentication;
             return this;
         }
 

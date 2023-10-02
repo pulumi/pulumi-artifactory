@@ -21,6 +21,7 @@ public final class GetFederatedConanRepositoryResult {
     private @Nullable String description;
     private @Nullable Boolean downloadDirect;
     private String excludesPattern;
+    private @Nullable Boolean forceConanAuthentication;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -66,6 +67,9 @@ public final class GetFederatedConanRepositoryResult {
     }
     public String excludesPattern() {
         return this.excludesPattern;
+    }
+    public Optional<Boolean> forceConanAuthentication() {
+        return Optional.ofNullable(this.forceConanAuthentication);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -131,6 +135,7 @@ public final class GetFederatedConanRepositoryResult {
         private @Nullable String description;
         private @Nullable Boolean downloadDirect;
         private String excludesPattern;
+        private @Nullable Boolean forceConanAuthentication;
         private String id;
         private String includesPattern;
         private String key;
@@ -153,6 +158,7 @@ public final class GetFederatedConanRepositoryResult {
     	      this.description = defaults.description;
     	      this.downloadDirect = defaults.downloadDirect;
     	      this.excludesPattern = defaults.excludesPattern;
+    	      this.forceConanAuthentication = defaults.forceConanAuthentication;
     	      this.id = defaults.id;
     	      this.includesPattern = defaults.includesPattern;
     	      this.key = defaults.key;
@@ -200,6 +206,11 @@ public final class GetFederatedConanRepositoryResult {
         @CustomType.Setter
         public Builder excludesPattern(String excludesPattern) {
             this.excludesPattern = Objects.requireNonNull(excludesPattern);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder forceConanAuthentication(@Nullable Boolean forceConanAuthentication) {
+            this.forceConanAuthentication = forceConanAuthentication;
             return this;
         }
         @CustomType.Setter
@@ -280,6 +291,7 @@ public final class GetFederatedConanRepositoryResult {
             o.description = description;
             o.downloadDirect = downloadDirect;
             o.excludesPattern = excludesPattern;
+            o.forceConanAuthentication = forceConanAuthentication;
             o.id = id;
             o.includesPattern = includesPattern;
             o.key = key;

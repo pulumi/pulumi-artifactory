@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
+	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
@@ -24,31 +24,33 @@ func LookupLocalConanRepository(ctx *pulumi.Context, args *LookupLocalConanRepos
 
 // A collection of arguments for invoking getLocalConanRepository.
 type LookupLocalConanRepositoryArgs struct {
-	ArchiveBrowsingEnabled *bool    `pulumi:"archiveBrowsingEnabled"`
-	BlackedOut             *bool    `pulumi:"blackedOut"`
-	CdnRedirect            *bool    `pulumi:"cdnRedirect"`
-	Description            *string  `pulumi:"description"`
-	DownloadDirect         *bool    `pulumi:"downloadDirect"`
-	ExcludesPattern        *string  `pulumi:"excludesPattern"`
-	IncludesPattern        *string  `pulumi:"includesPattern"`
-	Key                    string   `pulumi:"key"`
-	Notes                  *string  `pulumi:"notes"`
-	PriorityResolution     *bool    `pulumi:"priorityResolution"`
-	ProjectEnvironments    []string `pulumi:"projectEnvironments"`
-	ProjectKey             *string  `pulumi:"projectKey"`
-	PropertySets           []string `pulumi:"propertySets"`
-	RepoLayoutRef          *string  `pulumi:"repoLayoutRef"`
-	XrayIndex              *bool    `pulumi:"xrayIndex"`
+	ArchiveBrowsingEnabled   *bool    `pulumi:"archiveBrowsingEnabled"`
+	BlackedOut               *bool    `pulumi:"blackedOut"`
+	CdnRedirect              *bool    `pulumi:"cdnRedirect"`
+	Description              *string  `pulumi:"description"`
+	DownloadDirect           *bool    `pulumi:"downloadDirect"`
+	ExcludesPattern          *string  `pulumi:"excludesPattern"`
+	ForceConanAuthentication *bool    `pulumi:"forceConanAuthentication"`
+	IncludesPattern          *string  `pulumi:"includesPattern"`
+	Key                      string   `pulumi:"key"`
+	Notes                    *string  `pulumi:"notes"`
+	PriorityResolution       *bool    `pulumi:"priorityResolution"`
+	ProjectEnvironments      []string `pulumi:"projectEnvironments"`
+	ProjectKey               *string  `pulumi:"projectKey"`
+	PropertySets             []string `pulumi:"propertySets"`
+	RepoLayoutRef            *string  `pulumi:"repoLayoutRef"`
+	XrayIndex                *bool    `pulumi:"xrayIndex"`
 }
 
 // A collection of values returned by getLocalConanRepository.
 type LookupLocalConanRepositoryResult struct {
-	ArchiveBrowsingEnabled *bool   `pulumi:"archiveBrowsingEnabled"`
-	BlackedOut             *bool   `pulumi:"blackedOut"`
-	CdnRedirect            *bool   `pulumi:"cdnRedirect"`
-	Description            *string `pulumi:"description"`
-	DownloadDirect         *bool   `pulumi:"downloadDirect"`
-	ExcludesPattern        string  `pulumi:"excludesPattern"`
+	ArchiveBrowsingEnabled   *bool   `pulumi:"archiveBrowsingEnabled"`
+	BlackedOut               *bool   `pulumi:"blackedOut"`
+	CdnRedirect              *bool   `pulumi:"cdnRedirect"`
+	Description              *string `pulumi:"description"`
+	DownloadDirect           *bool   `pulumi:"downloadDirect"`
+	ExcludesPattern          string  `pulumi:"excludesPattern"`
+	ForceConanAuthentication *bool   `pulumi:"forceConanAuthentication"`
 	// The provider-assigned unique ID for this managed resource.
 	Id                  string   `pulumi:"id"`
 	IncludesPattern     string   `pulumi:"includesPattern"`
@@ -78,21 +80,22 @@ func LookupLocalConanRepositoryOutput(ctx *pulumi.Context, args LookupLocalConan
 
 // A collection of arguments for invoking getLocalConanRepository.
 type LookupLocalConanRepositoryOutputArgs struct {
-	ArchiveBrowsingEnabled pulumi.BoolPtrInput     `pulumi:"archiveBrowsingEnabled"`
-	BlackedOut             pulumi.BoolPtrInput     `pulumi:"blackedOut"`
-	CdnRedirect            pulumi.BoolPtrInput     `pulumi:"cdnRedirect"`
-	Description            pulumi.StringPtrInput   `pulumi:"description"`
-	DownloadDirect         pulumi.BoolPtrInput     `pulumi:"downloadDirect"`
-	ExcludesPattern        pulumi.StringPtrInput   `pulumi:"excludesPattern"`
-	IncludesPattern        pulumi.StringPtrInput   `pulumi:"includesPattern"`
-	Key                    pulumi.StringInput      `pulumi:"key"`
-	Notes                  pulumi.StringPtrInput   `pulumi:"notes"`
-	PriorityResolution     pulumi.BoolPtrInput     `pulumi:"priorityResolution"`
-	ProjectEnvironments    pulumi.StringArrayInput `pulumi:"projectEnvironments"`
-	ProjectKey             pulumi.StringPtrInput   `pulumi:"projectKey"`
-	PropertySets           pulumi.StringArrayInput `pulumi:"propertySets"`
-	RepoLayoutRef          pulumi.StringPtrInput   `pulumi:"repoLayoutRef"`
-	XrayIndex              pulumi.BoolPtrInput     `pulumi:"xrayIndex"`
+	ArchiveBrowsingEnabled   pulumi.BoolPtrInput     `pulumi:"archiveBrowsingEnabled"`
+	BlackedOut               pulumi.BoolPtrInput     `pulumi:"blackedOut"`
+	CdnRedirect              pulumi.BoolPtrInput     `pulumi:"cdnRedirect"`
+	Description              pulumi.StringPtrInput   `pulumi:"description"`
+	DownloadDirect           pulumi.BoolPtrInput     `pulumi:"downloadDirect"`
+	ExcludesPattern          pulumi.StringPtrInput   `pulumi:"excludesPattern"`
+	ForceConanAuthentication pulumi.BoolPtrInput     `pulumi:"forceConanAuthentication"`
+	IncludesPattern          pulumi.StringPtrInput   `pulumi:"includesPattern"`
+	Key                      pulumi.StringInput      `pulumi:"key"`
+	Notes                    pulumi.StringPtrInput   `pulumi:"notes"`
+	PriorityResolution       pulumi.BoolPtrInput     `pulumi:"priorityResolution"`
+	ProjectEnvironments      pulumi.StringArrayInput `pulumi:"projectEnvironments"`
+	ProjectKey               pulumi.StringPtrInput   `pulumi:"projectKey"`
+	PropertySets             pulumi.StringArrayInput `pulumi:"propertySets"`
+	RepoLayoutRef            pulumi.StringPtrInput   `pulumi:"repoLayoutRef"`
+	XrayIndex                pulumi.BoolPtrInput     `pulumi:"xrayIndex"`
 }
 
 func (LookupLocalConanRepositoryOutputArgs) ElementType() reflect.Type {
@@ -142,6 +145,10 @@ func (o LookupLocalConanRepositoryResultOutput) DownloadDirect() pulumi.BoolPtrO
 
 func (o LookupLocalConanRepositoryResultOutput) ExcludesPattern() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLocalConanRepositoryResult) string { return v.ExcludesPattern }).(pulumi.StringOutput)
+}
+
+func (o LookupLocalConanRepositoryResultOutput) ForceConanAuthentication() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupLocalConanRepositoryResult) *bool { return v.ForceConanAuthentication }).(pulumi.BoolPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.

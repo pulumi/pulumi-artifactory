@@ -19,6 +19,12 @@ public final class GetVirtualConanRepositoryResult {
     private @Nullable String description;
     private @Nullable String excludesPattern;
     /**
+     * @return Force basic authentication credentials in order to use this repository.
+     * Default is `false`.
+     * 
+     */
+    private @Nullable Boolean forceConanAuthentication;
+    /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
@@ -49,6 +55,14 @@ public final class GetVirtualConanRepositoryResult {
     }
     public Optional<String> excludesPattern() {
         return Optional.ofNullable(this.excludesPattern);
+    }
+    /**
+     * @return Force basic authentication credentials in order to use this repository.
+     * Default is `false`.
+     * 
+     */
+    public Optional<Boolean> forceConanAuthentication() {
+        return Optional.ofNullable(this.forceConanAuthentication);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -102,6 +116,7 @@ public final class GetVirtualConanRepositoryResult {
         private @Nullable String defaultDeploymentRepo;
         private @Nullable String description;
         private @Nullable String excludesPattern;
+        private @Nullable Boolean forceConanAuthentication;
         private String id;
         private @Nullable String includesPattern;
         private String key;
@@ -119,6 +134,7 @@ public final class GetVirtualConanRepositoryResult {
     	      this.defaultDeploymentRepo = defaults.defaultDeploymentRepo;
     	      this.description = defaults.description;
     	      this.excludesPattern = defaults.excludesPattern;
+    	      this.forceConanAuthentication = defaults.forceConanAuthentication;
     	      this.id = defaults.id;
     	      this.includesPattern = defaults.includesPattern;
     	      this.key = defaults.key;
@@ -149,6 +165,11 @@ public final class GetVirtualConanRepositoryResult {
         @CustomType.Setter
         public Builder excludesPattern(@Nullable String excludesPattern) {
             this.excludesPattern = excludesPattern;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder forceConanAuthentication(@Nullable Boolean forceConanAuthentication) {
+            this.forceConanAuthentication = forceConanAuthentication;
             return this;
         }
         @CustomType.Setter
@@ -213,6 +234,7 @@ public final class GetVirtualConanRepositoryResult {
             o.defaultDeploymentRepo = defaultDeploymentRepo;
             o.description = description;
             o.excludesPattern = excludesPattern;
+            o.forceConanAuthentication = forceConanAuthentication;
             o.id = id;
             o.includesPattern = includesPattern;
             o.key = key;

@@ -129,6 +129,20 @@ public class VirtualConanRepository extends com.pulumi.resources.CustomResource 
         return Codegen.optional(this.excludesPattern);
     }
     /**
+     * Force basic authentication credentials in order to use this repository. Default value is `false`.
+     * 
+     */
+    @Export(name="forceConanAuthentication", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> forceConanAuthentication;
+
+    /**
+     * @return Force basic authentication credentials in order to use this repository. Default value is `false`.
+     * 
+     */
+    public Output<Optional<Boolean>> forceConanAuthentication() {
+        return Codegen.optional(this.forceConanAuthentication);
+    }
+    /**
      * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**{@literal /}z/*. When
      * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**{@literal /}*).
      * 
@@ -217,14 +231,14 @@ public class VirtualConanRepository extends com.pulumi.resources.CustomResource 
         return Codegen.optional(this.projectKey);
     }
     /**
-     * Repository layout key for the local repository
+     * Repository layout key for the virtual repository
      * 
      */
     @Export(name="repoLayoutRef", type=String.class, parameters={})
     private Output</* @Nullable */ String> repoLayoutRef;
 
     /**
-     * @return Repository layout key for the local repository
+     * @return Repository layout key for the virtual repository
      * 
      */
     public Output<Optional<String>> repoLayoutRef() {

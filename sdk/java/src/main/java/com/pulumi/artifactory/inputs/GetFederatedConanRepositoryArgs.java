@@ -67,6 +67,13 @@ public final class GetFederatedConanRepositoryArgs extends com.pulumi.resources.
         return Optional.ofNullable(this.excludesPattern);
     }
 
+    @Import(name="forceConanAuthentication")
+    private @Nullable Output<Boolean> forceConanAuthentication;
+
+    public Optional<Output<Boolean>> forceConanAuthentication() {
+        return Optional.ofNullable(this.forceConanAuthentication);
+    }
+
     @Import(name="includesPattern")
     private @Nullable Output<String> includesPattern;
 
@@ -169,6 +176,7 @@ public final class GetFederatedConanRepositoryArgs extends com.pulumi.resources.
         this.description = $.description;
         this.downloadDirect = $.downloadDirect;
         this.excludesPattern = $.excludesPattern;
+        this.forceConanAuthentication = $.forceConanAuthentication;
         this.includesPattern = $.includesPattern;
         this.key = $.key;
         this.members = $.members;
@@ -260,6 +268,15 @@ public final class GetFederatedConanRepositoryArgs extends com.pulumi.resources.
 
         public Builder excludesPattern(String excludesPattern) {
             return excludesPattern(Output.of(excludesPattern));
+        }
+
+        public Builder forceConanAuthentication(@Nullable Output<Boolean> forceConanAuthentication) {
+            $.forceConanAuthentication = forceConanAuthentication;
+            return this;
+        }
+
+        public Builder forceConanAuthentication(Boolean forceConanAuthentication) {
+            return forceConanAuthentication(Output.of(forceConanAuthentication));
         }
 
         public Builder includesPattern(@Nullable Output<String> includesPattern) {

@@ -120,7 +120,7 @@ class RemoteGenericRepositoryArgs:
         :param pulumi.Input[str] remote_repo_layout_ref: Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an
                empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be
                ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
-        :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
+        :param pulumi.Input[str] repo_layout_ref: Repository layout key for the remote repository
         :param pulumi.Input[int] retrieval_cache_period_seconds: Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files
                before checking for newer versions on remote server. A value of 0 indicates no caching.
         :param pulumi.Input[int] socket_timeout_millis: Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network
@@ -641,7 +641,7 @@ class RemoteGenericRepositoryArgs:
     @pulumi.getter(name="repoLayoutRef")
     def repo_layout_ref(self) -> Optional[pulumi.Input[str]]:
         """
-        Repository layout key for the local repository
+        Repository layout key for the remote repository
         """
         return pulumi.get(self, "repo_layout_ref")
 
@@ -854,7 +854,7 @@ class _RemoteGenericRepositoryState:
         :param pulumi.Input[str] remote_repo_layout_ref: Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an
                empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be
                ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
-        :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
+        :param pulumi.Input[str] repo_layout_ref: Repository layout key for the remote repository
         :param pulumi.Input[int] retrieval_cache_period_seconds: Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files
                before checking for newer versions on remote server. A value of 0 indicates no caching.
         :param pulumi.Input[int] socket_timeout_millis: Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network
@@ -1377,7 +1377,7 @@ class _RemoteGenericRepositoryState:
     @pulumi.getter(name="repoLayoutRef")
     def repo_layout_ref(self) -> Optional[pulumi.Input[str]]:
         """
-        Repository layout key for the local repository
+        Repository layout key for the remote repository
         """
         return pulumi.get(self, "repo_layout_ref")
 
@@ -1626,7 +1626,7 @@ class RemoteGenericRepository(pulumi.CustomResource):
         :param pulumi.Input[str] remote_repo_layout_ref: Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an
                empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be
                ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
-        :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
+        :param pulumi.Input[str] repo_layout_ref: Repository layout key for the remote repository
         :param pulumi.Input[int] retrieval_cache_period_seconds: Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files
                before checking for newer versions on remote server. A value of 0 indicates no caching.
         :param pulumi.Input[int] socket_timeout_millis: Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network
@@ -1904,7 +1904,7 @@ class RemoteGenericRepository(pulumi.CustomResource):
         :param pulumi.Input[str] remote_repo_layout_ref: Repository layout key for the remote layout mapping. Repository can be created without this attribute (or set to an
                empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be
                ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
-        :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
+        :param pulumi.Input[str] repo_layout_ref: Repository layout key for the remote repository
         :param pulumi.Input[int] retrieval_cache_period_seconds: Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files
                before checking for newer versions on remote server. A value of 0 indicates no caching.
         :param pulumi.Input[int] socket_timeout_millis: Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network
@@ -2257,7 +2257,7 @@ class RemoteGenericRepository(pulumi.CustomResource):
     @pulumi.getter(name="repoLayoutRef")
     def repo_layout_ref(self) -> pulumi.Output[Optional[str]]:
         """
-        Repository layout key for the local repository
+        Repository layout key for the remote repository
         """
         return pulumi.get(self, "repo_layout_ref")
 

@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
+	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
+//	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -36,6 +36,12 @@ import (
 //								Users: artifactory.PermissionTargetBuildActionUserArray{
 //									&artifactory.PermissionTargetBuildActionUserArgs{
 //										Name: pulumi.String("anonymous"),
+//										Permissions: pulumi.StringArray{
+//											pulumi.String("read"),
+//										},
+//									},
+//									&artifactory.PermissionTargetBuildActionUserArgs{
+//										Name: pulumi.String("user1"),
 //										Permissions: pulumi.StringArray{
 //											pulumi.String("read"),
 //											pulumi.String("write"),
@@ -85,10 +91,24 @@ import (
 //											pulumi.String("read"),
 //										},
 //									},
+//									&artifactory.PermissionTargetRepoActionGroupArgs{
+//										Name: pulumi.String("dev"),
+//										Permissions: pulumi.StringArray{
+//											pulumi.String("read"),
+//											pulumi.String("write"),
+//										},
+//									},
 //								},
 //								Users: artifactory.PermissionTargetRepoActionUserArray{
 //									&artifactory.PermissionTargetRepoActionUserArgs{
 //										Name: pulumi.String("anonymous"),
+//										Permissions: pulumi.StringArray{
+//											pulumi.String("read"),
+//											pulumi.String("write"),
+//										},
+//									},
+//									&artifactory.PermissionTargetRepoActionUserArgs{
+//										Name: pulumi.String("user1"),
 //										Permissions: pulumi.StringArray{
 //											pulumi.String("read"),
 //											pulumi.String("write"),

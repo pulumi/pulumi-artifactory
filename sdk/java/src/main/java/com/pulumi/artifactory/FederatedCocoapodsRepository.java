@@ -316,14 +316,14 @@ public class FederatedCocoapodsRepository extends com.pulumi.resources.CustomRes
         return Codegen.optional(this.propertySets);
     }
     /**
-     * Repository layout key for the local repository
+     * Repository layout key for the federated repository
      * 
      */
     @Export(name="repoLayoutRef", type=String.class, parameters={})
     private Output</* @Nullable */ String> repoLayoutRef;
 
     /**
-     * @return Repository layout key for the local repository
+     * @return Repository layout key for the federated repository
      * 
      */
     public Output<Optional<String>> repoLayoutRef() {

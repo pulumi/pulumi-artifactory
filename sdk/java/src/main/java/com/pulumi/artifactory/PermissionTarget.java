@@ -49,12 +49,17 @@ import javax.annotation.Nullable;
  *         var test_perm = new PermissionTarget(&#34;test-perm&#34;, PermissionTargetArgs.builder()        
  *             .builds(PermissionTargetBuildArgs.builder()
  *                 .actions(PermissionTargetBuildActionArgs.builder()
- *                     .users(PermissionTargetBuildActionUserArgs.builder()
- *                         .name(&#34;anonymous&#34;)
- *                         .permissions(                        
- *                             &#34;read&#34;,
- *                             &#34;write&#34;)
- *                         .build())
+ *                     .users(                    
+ *                         PermissionTargetBuildActionUserArgs.builder()
+ *                             .name(&#34;anonymous&#34;)
+ *                             .permissions(&#34;read&#34;)
+ *                             .build(),
+ *                         PermissionTargetBuildActionUserArgs.builder()
+ *                             .name(&#34;user1&#34;)
+ *                             .permissions(                            
+ *                                 &#34;read&#34;,
+ *                                 &#34;write&#34;)
+ *                             .build())
  *                     .build())
  *                 .includesPatterns(&#34;**&#34;)
  *                 .repositories(&#34;artifactory-build-info&#34;)
@@ -71,16 +76,30 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .repos(PermissionTargetRepoArgs.builder()
  *                 .actions(PermissionTargetRepoActionArgs.builder()
- *                     .groups(PermissionTargetRepoActionGroupArgs.builder()
- *                         .name(&#34;readers&#34;)
- *                         .permissions(&#34;read&#34;)
- *                         .build())
- *                     .users(PermissionTargetRepoActionUserArgs.builder()
- *                         .name(&#34;anonymous&#34;)
- *                         .permissions(                        
- *                             &#34;read&#34;,
- *                             &#34;write&#34;)
- *                         .build())
+ *                     .groups(                    
+ *                         PermissionTargetRepoActionGroupArgs.builder()
+ *                             .name(&#34;readers&#34;)
+ *                             .permissions(&#34;read&#34;)
+ *                             .build(),
+ *                         PermissionTargetRepoActionGroupArgs.builder()
+ *                             .name(&#34;dev&#34;)
+ *                             .permissions(                            
+ *                                 &#34;read&#34;,
+ *                                 &#34;write&#34;)
+ *                             .build())
+ *                     .users(                    
+ *                         PermissionTargetRepoActionUserArgs.builder()
+ *                             .name(&#34;anonymous&#34;)
+ *                             .permissions(                            
+ *                                 &#34;read&#34;,
+ *                                 &#34;write&#34;)
+ *                             .build(),
+ *                         PermissionTargetRepoActionUserArgs.builder()
+ *                             .name(&#34;user1&#34;)
+ *                             .permissions(                            
+ *                                 &#34;read&#34;,
+ *                                 &#34;write&#34;)
+ *                             .build())
  *                     .build())
  *                 .excludesPatterns(&#34;bar/**&#34;)
  *                 .includesPatterns(&#34;foo/**&#34;)

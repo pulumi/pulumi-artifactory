@@ -31,6 +31,7 @@ export function getFederatedConanRepository(args: GetFederatedConanRepositoryArg
         "description": args.description,
         "downloadDirect": args.downloadDirect,
         "excludesPattern": args.excludesPattern,
+        "forceConanAuthentication": args.forceConanAuthentication,
         "includesPattern": args.includesPattern,
         "key": args.key,
         "members": args.members,
@@ -55,6 +56,7 @@ export interface GetFederatedConanRepositoryArgs {
     description?: string;
     downloadDirect?: boolean;
     excludesPattern?: string;
+    forceConanAuthentication?: boolean;
     includesPattern?: string;
     /**
      * the identity key of the repo.
@@ -87,6 +89,7 @@ export interface GetFederatedConanRepositoryResult {
     readonly description?: string;
     readonly downloadDirect?: boolean;
     readonly excludesPattern: string;
+    readonly forceConanAuthentication?: boolean;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -138,6 +141,7 @@ export interface GetFederatedConanRepositoryOutputArgs {
     description?: pulumi.Input<string>;
     downloadDirect?: pulumi.Input<boolean>;
     excludesPattern?: pulumi.Input<string>;
+    forceConanAuthentication?: pulumi.Input<boolean>;
     includesPattern?: pulumi.Input<string>;
     /**
      * the identity key of the repo.

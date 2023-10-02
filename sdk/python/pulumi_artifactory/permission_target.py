@@ -180,13 +180,19 @@ class PermissionTarget(pulumi.CustomResource):
         test_perm = artifactory.PermissionTarget("test-perm",
             builds=[artifactory.PermissionTargetBuildArgs(
                 actions=[artifactory.PermissionTargetBuildActionArgs(
-                    users=[artifactory.PermissionTargetBuildActionUserArgs(
-                        name="anonymous",
-                        permissions=[
-                            "read",
-                            "write",
-                        ],
-                    )],
+                    users=[
+                        artifactory.PermissionTargetBuildActionUserArgs(
+                            name="anonymous",
+                            permissions=["read"],
+                        ),
+                        artifactory.PermissionTargetBuildActionUserArgs(
+                            name="user1",
+                            permissions=[
+                                "read",
+                                "write",
+                            ],
+                        ),
+                    ],
                 )],
                 includes_patterns=["**"],
                 repositories=["artifactory-build-info"],
@@ -203,17 +209,35 @@ class PermissionTarget(pulumi.CustomResource):
             )],
             repos=[artifactory.PermissionTargetRepoArgs(
                 actions=[artifactory.PermissionTargetRepoActionArgs(
-                    groups=[artifactory.PermissionTargetRepoActionGroupArgs(
-                        name="readers",
-                        permissions=["read"],
-                    )],
-                    users=[artifactory.PermissionTargetRepoActionUserArgs(
-                        name="anonymous",
-                        permissions=[
-                            "read",
-                            "write",
-                        ],
-                    )],
+                    groups=[
+                        artifactory.PermissionTargetRepoActionGroupArgs(
+                            name="readers",
+                            permissions=["read"],
+                        ),
+                        artifactory.PermissionTargetRepoActionGroupArgs(
+                            name="dev",
+                            permissions=[
+                                "read",
+                                "write",
+                            ],
+                        ),
+                    ],
+                    users=[
+                        artifactory.PermissionTargetRepoActionUserArgs(
+                            name="anonymous",
+                            permissions=[
+                                "read",
+                                "write",
+                            ],
+                        ),
+                        artifactory.PermissionTargetRepoActionUserArgs(
+                            name="user1",
+                            permissions=[
+                                "read",
+                                "write",
+                            ],
+                        ),
+                    ],
                 )],
                 excludes_patterns=["bar/**"],
                 includes_patterns=["foo/**"],
@@ -276,13 +300,19 @@ class PermissionTarget(pulumi.CustomResource):
         test_perm = artifactory.PermissionTarget("test-perm",
             builds=[artifactory.PermissionTargetBuildArgs(
                 actions=[artifactory.PermissionTargetBuildActionArgs(
-                    users=[artifactory.PermissionTargetBuildActionUserArgs(
-                        name="anonymous",
-                        permissions=[
-                            "read",
-                            "write",
-                        ],
-                    )],
+                    users=[
+                        artifactory.PermissionTargetBuildActionUserArgs(
+                            name="anonymous",
+                            permissions=["read"],
+                        ),
+                        artifactory.PermissionTargetBuildActionUserArgs(
+                            name="user1",
+                            permissions=[
+                                "read",
+                                "write",
+                            ],
+                        ),
+                    ],
                 )],
                 includes_patterns=["**"],
                 repositories=["artifactory-build-info"],
@@ -299,17 +329,35 @@ class PermissionTarget(pulumi.CustomResource):
             )],
             repos=[artifactory.PermissionTargetRepoArgs(
                 actions=[artifactory.PermissionTargetRepoActionArgs(
-                    groups=[artifactory.PermissionTargetRepoActionGroupArgs(
-                        name="readers",
-                        permissions=["read"],
-                    )],
-                    users=[artifactory.PermissionTargetRepoActionUserArgs(
-                        name="anonymous",
-                        permissions=[
-                            "read",
-                            "write",
-                        ],
-                    )],
+                    groups=[
+                        artifactory.PermissionTargetRepoActionGroupArgs(
+                            name="readers",
+                            permissions=["read"],
+                        ),
+                        artifactory.PermissionTargetRepoActionGroupArgs(
+                            name="dev",
+                            permissions=[
+                                "read",
+                                "write",
+                            ],
+                        ),
+                    ],
+                    users=[
+                        artifactory.PermissionTargetRepoActionUserArgs(
+                            name="anonymous",
+                            permissions=[
+                                "read",
+                                "write",
+                            ],
+                        ),
+                        artifactory.PermissionTargetRepoActionUserArgs(
+                            name="user1",
+                            permissions=[
+                                "read",
+                                "write",
+                            ],
+                        ),
+                    ],
                 )],
                 excludes_patterns=["bar/**"],
                 includes_patterns=["foo/**"],

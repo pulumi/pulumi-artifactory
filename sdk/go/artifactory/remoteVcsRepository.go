@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
+	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
@@ -24,7 +24,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
+//	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -152,7 +152,7 @@ type RemoteVcsRepository struct {
 	// empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be
 	// ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
 	RemoteRepoLayoutRef pulumi.StringPtrOutput `pulumi:"remoteRepoLayoutRef"`
-	// Repository layout key for the local repository
+	// Repository layout key for the remote repository
 	RepoLayoutRef pulumi.StringPtrOutput `pulumi:"repoLayoutRef"`
 	// Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files
 	// before checking for newer versions on remote server. A value of 0 indicates no caching.
@@ -322,7 +322,7 @@ type remoteVcsRepositoryState struct {
 	// empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be
 	// ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
 	RemoteRepoLayoutRef *string `pulumi:"remoteRepoLayoutRef"`
-	// Repository layout key for the local repository
+	// Repository layout key for the remote repository
 	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
 	// Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files
 	// before checking for newer versions on remote server. A value of 0 indicates no caching.
@@ -450,7 +450,7 @@ type RemoteVcsRepositoryState struct {
 	// empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be
 	// ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
 	RemoteRepoLayoutRef pulumi.StringPtrInput
-	// Repository layout key for the local repository
+	// Repository layout key for the remote repository
 	RepoLayoutRef pulumi.StringPtrInput
 	// Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files
 	// before checking for newer versions on remote server. A value of 0 indicates no caching.
@@ -581,7 +581,7 @@ type remoteVcsRepositoryArgs struct {
 	// empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be
 	// ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
 	RemoteRepoLayoutRef *string `pulumi:"remoteRepoLayoutRef"`
-	// Repository layout key for the local repository
+	// Repository layout key for the remote repository
 	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
 	// Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files
 	// before checking for newer versions on remote server. A value of 0 indicates no caching.
@@ -709,7 +709,7 @@ type RemoteVcsRepositoryArgs struct {
 	// empty string). Once it's set, it can't be removed by passing an empty string or removing the attribute, that will be
 	// ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
 	RemoteRepoLayoutRef pulumi.StringPtrInput
-	// Repository layout key for the local repository
+	// Repository layout key for the remote repository
 	RepoLayoutRef pulumi.StringPtrInput
 	// Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files
 	// before checking for newer versions on remote server. A value of 0 indicates no caching.
@@ -1048,7 +1048,7 @@ func (o RemoteVcsRepositoryOutput) RemoteRepoLayoutRef() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v *RemoteVcsRepository) pulumi.StringPtrOutput { return v.RemoteRepoLayoutRef }).(pulumi.StringPtrOutput)
 }
 
-// Repository layout key for the local repository
+// Repository layout key for the remote repository
 func (o RemoteVcsRepositoryOutput) RepoLayoutRef() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RemoteVcsRepository) pulumi.StringPtrOutput { return v.RepoLayoutRef }).(pulumi.StringPtrOutput)
 }

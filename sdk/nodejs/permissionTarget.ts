@@ -19,13 +19,19 @@ import * as utilities from "./utilities";
  * const test_perm = new artifactory.PermissionTarget("test-perm", {
  *     builds: [{
  *         actions: [{
- *             users: [{
- *                 name: "anonymous",
- *                 permissions: [
- *                     "read",
- *                     "write",
- *                 ],
- *             }],
+ *             users: [
+ *                 {
+ *                     name: "anonymous",
+ *                     permissions: ["read"],
+ *                 },
+ *                 {
+ *                     name: "user1",
+ *                     permissions: [
+ *                         "read",
+ *                         "write",
+ *                     ],
+ *                 },
+ *             ],
  *         }],
  *         includesPatterns: ["**"],
  *         repositories: ["artifactory-build-info"],
@@ -42,17 +48,35 @@ import * as utilities from "./utilities";
  *     }],
  *     repos: [{
  *         actions: [{
- *             groups: [{
- *                 name: "readers",
- *                 permissions: ["read"],
- *             }],
- *             users: [{
- *                 name: "anonymous",
- *                 permissions: [
- *                     "read",
- *                     "write",
- *                 ],
- *             }],
+ *             groups: [
+ *                 {
+ *                     name: "readers",
+ *                     permissions: ["read"],
+ *                 },
+ *                 {
+ *                     name: "dev",
+ *                     permissions: [
+ *                         "read",
+ *                         "write",
+ *                     ],
+ *                 },
+ *             ],
+ *             users: [
+ *                 {
+ *                     name: "anonymous",
+ *                     permissions: [
+ *                         "read",
+ *                         "write",
+ *                     ],
+ *                 },
+ *                 {
+ *                     name: "user1",
+ *                     permissions: [
+ *                         "read",
+ *                         "write",
+ *                     ],
+ *                 },
+ *             ],
  *         }],
  *         excludesPatterns: ["bar/**"],
  *         includesPatterns: ["foo/**"],

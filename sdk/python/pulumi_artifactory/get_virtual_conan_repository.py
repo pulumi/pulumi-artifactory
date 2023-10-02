@@ -21,7 +21,7 @@ class GetVirtualConanRepositoryResult:
     """
     A collection of values returned by getVirtualConanRepository.
     """
-    def __init__(__self__, artifactory_requests_can_retrieve_remote_artifacts=None, default_deployment_repo=None, description=None, excludes_pattern=None, id=None, includes_pattern=None, key=None, notes=None, package_type=None, project_environments=None, project_key=None, repo_layout_ref=None, repositories=None, retrieval_cache_period_seconds=None):
+    def __init__(__self__, artifactory_requests_can_retrieve_remote_artifacts=None, default_deployment_repo=None, description=None, excludes_pattern=None, force_conan_authentication=None, id=None, includes_pattern=None, key=None, notes=None, package_type=None, project_environments=None, project_key=None, repo_layout_ref=None, repositories=None, retrieval_cache_period_seconds=None):
         if artifactory_requests_can_retrieve_remote_artifacts and not isinstance(artifactory_requests_can_retrieve_remote_artifacts, bool):
             raise TypeError("Expected argument 'artifactory_requests_can_retrieve_remote_artifacts' to be a bool")
         pulumi.set(__self__, "artifactory_requests_can_retrieve_remote_artifacts", artifactory_requests_can_retrieve_remote_artifacts)
@@ -34,6 +34,9 @@ class GetVirtualConanRepositoryResult:
         if excludes_pattern and not isinstance(excludes_pattern, str):
             raise TypeError("Expected argument 'excludes_pattern' to be a str")
         pulumi.set(__self__, "excludes_pattern", excludes_pattern)
+        if force_conan_authentication and not isinstance(force_conan_authentication, bool):
+            raise TypeError("Expected argument 'force_conan_authentication' to be a bool")
+        pulumi.set(__self__, "force_conan_authentication", force_conan_authentication)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -84,6 +87,15 @@ class GetVirtualConanRepositoryResult:
     @pulumi.getter(name="excludesPattern")
     def excludes_pattern(self) -> Optional[str]:
         return pulumi.get(self, "excludes_pattern")
+
+    @property
+    @pulumi.getter(name="forceConanAuthentication")
+    def force_conan_authentication(self) -> Optional[bool]:
+        """
+        Force basic authentication credentials in order to use this repository.
+        Default is `false`.
+        """
+        return pulumi.get(self, "force_conan_authentication")
 
     @property
     @pulumi.getter
@@ -152,6 +164,7 @@ class AwaitableGetVirtualConanRepositoryResult(GetVirtualConanRepositoryResult):
             default_deployment_repo=self.default_deployment_repo,
             description=self.description,
             excludes_pattern=self.excludes_pattern,
+            force_conan_authentication=self.force_conan_authentication,
             id=self.id,
             includes_pattern=self.includes_pattern,
             key=self.key,
@@ -168,6 +181,7 @@ def get_virtual_conan_repository(artifactory_requests_can_retrieve_remote_artifa
                                  default_deployment_repo: Optional[str] = None,
                                  description: Optional[str] = None,
                                  excludes_pattern: Optional[str] = None,
+                                 force_conan_authentication: Optional[bool] = None,
                                  includes_pattern: Optional[str] = None,
                                  key: Optional[str] = None,
                                  notes: Optional[str] = None,
@@ -190,6 +204,8 @@ def get_virtual_conan_repository(artifactory_requests_can_retrieve_remote_artifa
     ```
 
 
+    :param bool force_conan_authentication: Force basic authentication credentials in order to use this repository.
+           Default is `false`.
     :param str key: the identity key of the repo.
     :param int retrieval_cache_period_seconds: (Optional, Default: `7200`) This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
     """
@@ -198,6 +214,7 @@ def get_virtual_conan_repository(artifactory_requests_can_retrieve_remote_artifa
     __args__['defaultDeploymentRepo'] = default_deployment_repo
     __args__['description'] = description
     __args__['excludesPattern'] = excludes_pattern
+    __args__['forceConanAuthentication'] = force_conan_authentication
     __args__['includesPattern'] = includes_pattern
     __args__['key'] = key
     __args__['notes'] = notes
@@ -214,6 +231,7 @@ def get_virtual_conan_repository(artifactory_requests_can_retrieve_remote_artifa
         default_deployment_repo=pulumi.get(__ret__, 'default_deployment_repo'),
         description=pulumi.get(__ret__, 'description'),
         excludes_pattern=pulumi.get(__ret__, 'excludes_pattern'),
+        force_conan_authentication=pulumi.get(__ret__, 'force_conan_authentication'),
         id=pulumi.get(__ret__, 'id'),
         includes_pattern=pulumi.get(__ret__, 'includes_pattern'),
         key=pulumi.get(__ret__, 'key'),
@@ -231,6 +249,7 @@ def get_virtual_conan_repository_output(artifactory_requests_can_retrieve_remote
                                         default_deployment_repo: Optional[pulumi.Input[Optional[str]]] = None,
                                         description: Optional[pulumi.Input[Optional[str]]] = None,
                                         excludes_pattern: Optional[pulumi.Input[Optional[str]]] = None,
+                                        force_conan_authentication: Optional[pulumi.Input[Optional[bool]]] = None,
                                         includes_pattern: Optional[pulumi.Input[Optional[str]]] = None,
                                         key: Optional[pulumi.Input[str]] = None,
                                         notes: Optional[pulumi.Input[Optional[str]]] = None,
@@ -253,6 +272,8 @@ def get_virtual_conan_repository_output(artifactory_requests_can_retrieve_remote
     ```
 
 
+    :param bool force_conan_authentication: Force basic authentication credentials in order to use this repository.
+           Default is `false`.
     :param str key: the identity key of the repo.
     :param int retrieval_cache_period_seconds: (Optional, Default: `7200`) This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
     """

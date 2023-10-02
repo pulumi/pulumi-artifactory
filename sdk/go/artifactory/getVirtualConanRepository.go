@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory/internal"
+	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-artifactory/sdk/v4/go/artifactory"
+//	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -55,7 +55,10 @@ type LookupVirtualConanRepositoryArgs struct {
 	DefaultDeploymentRepo                         *string `pulumi:"defaultDeploymentRepo"`
 	Description                                   *string `pulumi:"description"`
 	ExcludesPattern                               *string `pulumi:"excludesPattern"`
-	IncludesPattern                               *string `pulumi:"includesPattern"`
+	// Force basic authentication credentials in order to use this repository.
+	// Default is `false`.
+	ForceConanAuthentication *bool   `pulumi:"forceConanAuthentication"`
+	IncludesPattern          *string `pulumi:"includesPattern"`
 	// the identity key of the repo.
 	Key                 string   `pulumi:"key"`
 	Notes               *string  `pulumi:"notes"`
@@ -73,6 +76,9 @@ type LookupVirtualConanRepositoryResult struct {
 	DefaultDeploymentRepo                         *string `pulumi:"defaultDeploymentRepo"`
 	Description                                   *string `pulumi:"description"`
 	ExcludesPattern                               *string `pulumi:"excludesPattern"`
+	// Force basic authentication credentials in order to use this repository.
+	// Default is `false`.
+	ForceConanAuthentication *bool `pulumi:"forceConanAuthentication"`
 	// The provider-assigned unique ID for this managed resource.
 	Id                  string   `pulumi:"id"`
 	IncludesPattern     *string  `pulumi:"includesPattern"`
@@ -106,7 +112,10 @@ type LookupVirtualConanRepositoryOutputArgs struct {
 	DefaultDeploymentRepo                         pulumi.StringPtrInput `pulumi:"defaultDeploymentRepo"`
 	Description                                   pulumi.StringPtrInput `pulumi:"description"`
 	ExcludesPattern                               pulumi.StringPtrInput `pulumi:"excludesPattern"`
-	IncludesPattern                               pulumi.StringPtrInput `pulumi:"includesPattern"`
+	// Force basic authentication credentials in order to use this repository.
+	// Default is `false`.
+	ForceConanAuthentication pulumi.BoolPtrInput   `pulumi:"forceConanAuthentication"`
+	IncludesPattern          pulumi.StringPtrInput `pulumi:"includesPattern"`
 	// the identity key of the repo.
 	Key                 pulumi.StringInput      `pulumi:"key"`
 	Notes               pulumi.StringPtrInput   `pulumi:"notes"`
@@ -159,6 +168,12 @@ func (o LookupVirtualConanRepositoryResultOutput) Description() pulumi.StringPtr
 
 func (o LookupVirtualConanRepositoryResultOutput) ExcludesPattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupVirtualConanRepositoryResult) *string { return v.ExcludesPattern }).(pulumi.StringPtrOutput)
+}
+
+// Force basic authentication credentials in order to use this repository.
+// Default is `false`.
+func (o LookupVirtualConanRepositoryResultOutput) ForceConanAuthentication() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupVirtualConanRepositoryResult) *bool { return v.ForceConanAuthentication }).(pulumi.BoolPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.

@@ -142,7 +142,7 @@ export class FederatedOpkgRepository extends pulumi.CustomResource {
      */
     public readonly propertySets!: pulumi.Output<string[] | undefined>;
     /**
-     * Repository layout key for the local repository
+     * Repository layout key for the federated repository
      */
     public readonly repoLayoutRef!: pulumi.Output<string | undefined>;
     /**
@@ -294,7 +294,7 @@ export interface FederatedOpkgRepositoryState {
      */
     propertySets?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Repository layout key for the local repository
+     * Repository layout key for the federated repository
      */
     repoLayoutRef?: pulumi.Input<string>;
     /**
@@ -383,7 +383,7 @@ export interface FederatedOpkgRepositoryArgs {
      */
     propertySets?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Repository layout key for the local repository
+     * Repository layout key for the federated repository
      */
     repoLayoutRef?: pulumi.Input<string>;
     /**
