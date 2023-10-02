@@ -17,14 +17,15 @@ package artifactory
 import (
 	"context"
 	"fmt"
-	"github.com/pulumi/pulumi-artifactory/provider/v4/pkg/version"
+
+	"github.com/pulumi/pulumi-artifactory/provider/v5/pkg/version"
 
 	// embed is used to store bridge-metadata.json in the compiled binary
 	_ "embed"
 	"path/filepath"
 	"unicode"
 
-	artifactoryProvider "github.com/jfrog/terraform-provider-artifactory/v8/pkg/artifactory/provider"
+	artifactoryProvider "github.com/jfrog/terraform-provider-artifactory/v9/pkg/artifactory/provider"
 	pfbridge "github.com/pulumi/pulumi-terraform-bridge/pf/tfbridge"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	tks "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/tokens"
@@ -78,7 +79,7 @@ func Provider() tfbridge.ProviderInfo {
 		Homepage:                "https://pulumi.io",
 		Repository:              "https://github.com/pulumi/pulumi-artifactory",
 		GitHubOrg:               "jfrog",
-		TFProviderModuleVersion: "v8",
+		TFProviderModuleVersion: "v9",
 		Version:                 version.Version,
 		Config: map[string]*tfbridge.SchemaInfo{
 			"check_license": {
