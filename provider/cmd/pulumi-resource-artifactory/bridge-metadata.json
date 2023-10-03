@@ -4437,7 +4437,7 @@
             "artifactory:index/certificate:Certificate": 0,
             "artifactory:index/debianRepository:DebianRepository": 0,
             "artifactory:index/distributionCustomWebhook:DistributionCustomWebhook": 0,
-            "artifactory:index/distributionPublicKey:DistributionPublicKey": 0,
+            "artifactory:index/distributionPublicKey:DistributionPublicKey": 1,
             "artifactory:index/distributionWebhook:DistributionWebhook": 0,
             "artifactory:index/dockerCustomWebhook:DockerCustomWebhook": 0,
             "artifactory:index/dockerV1Repository:DockerV1Repository": 0,
