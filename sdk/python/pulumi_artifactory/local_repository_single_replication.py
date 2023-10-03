@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['LocalRepositorySingleReplicationArgs', 'LocalRepositorySingleReplication']
@@ -49,35 +49,74 @@ class LocalRepositorySingleReplicationArgs:
         :param pulumi.Input[bool] sync_properties: When set, the task also synchronizes the properties of replicated artifacts. Default value is `true`.
         :param pulumi.Input[bool] sync_statistics: When set, the task also synchronizes artifact download statistics. Set to avoid inadvertent cleanup at the target instance when setting up replication for disaster recovery. Default value is `false`
         """
-        pulumi.set(__self__, "repo_key", repo_key)
-        pulumi.set(__self__, "url", url)
-        pulumi.set(__self__, "username", username)
+        LocalRepositorySingleReplicationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            repo_key=repo_key,
+            url=url,
+            username=username,
+            check_binary_existence_in_filestore=check_binary_existence_in_filestore,
+            cron_exp=cron_exp,
+            enable_event_replication=enable_event_replication,
+            enabled=enabled,
+            exclude_path_prefix_pattern=exclude_path_prefix_pattern,
+            include_path_prefix_pattern=include_path_prefix_pattern,
+            password=password,
+            proxy=proxy,
+            replication_key=replication_key,
+            socket_timeout_millis=socket_timeout_millis,
+            sync_deletes=sync_deletes,
+            sync_properties=sync_properties,
+            sync_statistics=sync_statistics,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             repo_key: pulumi.Input[str],
+             url: pulumi.Input[str],
+             username: pulumi.Input[str],
+             check_binary_existence_in_filestore: Optional[pulumi.Input[bool]] = None,
+             cron_exp: Optional[pulumi.Input[str]] = None,
+             enable_event_replication: Optional[pulumi.Input[bool]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             exclude_path_prefix_pattern: Optional[pulumi.Input[str]] = None,
+             include_path_prefix_pattern: Optional[pulumi.Input[str]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             proxy: Optional[pulumi.Input[str]] = None,
+             replication_key: Optional[pulumi.Input[str]] = None,
+             socket_timeout_millis: Optional[pulumi.Input[int]] = None,
+             sync_deletes: Optional[pulumi.Input[bool]] = None,
+             sync_properties: Optional[pulumi.Input[bool]] = None,
+             sync_statistics: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("repo_key", repo_key)
+        _setter("url", url)
+        _setter("username", username)
         if check_binary_existence_in_filestore is not None:
-            pulumi.set(__self__, "check_binary_existence_in_filestore", check_binary_existence_in_filestore)
+            _setter("check_binary_existence_in_filestore", check_binary_existence_in_filestore)
         if cron_exp is not None:
-            pulumi.set(__self__, "cron_exp", cron_exp)
+            _setter("cron_exp", cron_exp)
         if enable_event_replication is not None:
-            pulumi.set(__self__, "enable_event_replication", enable_event_replication)
+            _setter("enable_event_replication", enable_event_replication)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if exclude_path_prefix_pattern is not None:
-            pulumi.set(__self__, "exclude_path_prefix_pattern", exclude_path_prefix_pattern)
+            _setter("exclude_path_prefix_pattern", exclude_path_prefix_pattern)
         if include_path_prefix_pattern is not None:
-            pulumi.set(__self__, "include_path_prefix_pattern", include_path_prefix_pattern)
+            _setter("include_path_prefix_pattern", include_path_prefix_pattern)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if proxy is not None:
-            pulumi.set(__self__, "proxy", proxy)
+            _setter("proxy", proxy)
         if replication_key is not None:
-            pulumi.set(__self__, "replication_key", replication_key)
+            _setter("replication_key", replication_key)
         if socket_timeout_millis is not None:
-            pulumi.set(__self__, "socket_timeout_millis", socket_timeout_millis)
+            _setter("socket_timeout_millis", socket_timeout_millis)
         if sync_deletes is not None:
-            pulumi.set(__self__, "sync_deletes", sync_deletes)
+            _setter("sync_deletes", sync_deletes)
         if sync_properties is not None:
-            pulumi.set(__self__, "sync_properties", sync_properties)
+            _setter("sync_properties", sync_properties)
         if sync_statistics is not None:
-            pulumi.set(__self__, "sync_statistics", sync_statistics)
+            _setter("sync_statistics", sync_statistics)
 
     @property
     @pulumi.getter(name="repoKey")
@@ -310,38 +349,77 @@ class _LocalRepositorySingleReplicationState:
         :param pulumi.Input[str] url: The URL of the target local repository on a remote Artifactory server. Use the format `https://<artifactory_url>/artifactory/<repository_name>`.
         :param pulumi.Input[str] username: Username on the remote Artifactory instance.
         """
+        _LocalRepositorySingleReplicationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            check_binary_existence_in_filestore=check_binary_existence_in_filestore,
+            cron_exp=cron_exp,
+            enable_event_replication=enable_event_replication,
+            enabled=enabled,
+            exclude_path_prefix_pattern=exclude_path_prefix_pattern,
+            include_path_prefix_pattern=include_path_prefix_pattern,
+            password=password,
+            proxy=proxy,
+            replication_key=replication_key,
+            repo_key=repo_key,
+            socket_timeout_millis=socket_timeout_millis,
+            sync_deletes=sync_deletes,
+            sync_properties=sync_properties,
+            sync_statistics=sync_statistics,
+            url=url,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             check_binary_existence_in_filestore: Optional[pulumi.Input[bool]] = None,
+             cron_exp: Optional[pulumi.Input[str]] = None,
+             enable_event_replication: Optional[pulumi.Input[bool]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             exclude_path_prefix_pattern: Optional[pulumi.Input[str]] = None,
+             include_path_prefix_pattern: Optional[pulumi.Input[str]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             proxy: Optional[pulumi.Input[str]] = None,
+             replication_key: Optional[pulumi.Input[str]] = None,
+             repo_key: Optional[pulumi.Input[str]] = None,
+             socket_timeout_millis: Optional[pulumi.Input[int]] = None,
+             sync_deletes: Optional[pulumi.Input[bool]] = None,
+             sync_properties: Optional[pulumi.Input[bool]] = None,
+             sync_statistics: Optional[pulumi.Input[bool]] = None,
+             url: Optional[pulumi.Input[str]] = None,
+             username: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if check_binary_existence_in_filestore is not None:
-            pulumi.set(__self__, "check_binary_existence_in_filestore", check_binary_existence_in_filestore)
+            _setter("check_binary_existence_in_filestore", check_binary_existence_in_filestore)
         if cron_exp is not None:
-            pulumi.set(__self__, "cron_exp", cron_exp)
+            _setter("cron_exp", cron_exp)
         if enable_event_replication is not None:
-            pulumi.set(__self__, "enable_event_replication", enable_event_replication)
+            _setter("enable_event_replication", enable_event_replication)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if exclude_path_prefix_pattern is not None:
-            pulumi.set(__self__, "exclude_path_prefix_pattern", exclude_path_prefix_pattern)
+            _setter("exclude_path_prefix_pattern", exclude_path_prefix_pattern)
         if include_path_prefix_pattern is not None:
-            pulumi.set(__self__, "include_path_prefix_pattern", include_path_prefix_pattern)
+            _setter("include_path_prefix_pattern", include_path_prefix_pattern)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if proxy is not None:
-            pulumi.set(__self__, "proxy", proxy)
+            _setter("proxy", proxy)
         if replication_key is not None:
-            pulumi.set(__self__, "replication_key", replication_key)
+            _setter("replication_key", replication_key)
         if repo_key is not None:
-            pulumi.set(__self__, "repo_key", repo_key)
+            _setter("repo_key", repo_key)
         if socket_timeout_millis is not None:
-            pulumi.set(__self__, "socket_timeout_millis", socket_timeout_millis)
+            _setter("socket_timeout_millis", socket_timeout_millis)
         if sync_deletes is not None:
-            pulumi.set(__self__, "sync_deletes", sync_deletes)
+            _setter("sync_deletes", sync_deletes)
         if sync_properties is not None:
-            pulumi.set(__self__, "sync_properties", sync_properties)
+            _setter("sync_properties", sync_properties)
         if sync_statistics is not None:
-            pulumi.set(__self__, "sync_statistics", sync_statistics)
+            _setter("sync_statistics", sync_statistics)
         if url is not None:
-            pulumi.set(__self__, "url", url)
+            _setter("url", url)
         if username is not None:
-            pulumi.set(__self__, "username", username)
+            _setter("username", username)
 
     @property
     @pulumi.getter(name="checkBinaryExistenceInFilestore")
@@ -621,6 +699,10 @@ class LocalRepositorySingleReplication(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LocalRepositorySingleReplicationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

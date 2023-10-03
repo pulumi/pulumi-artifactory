@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['VirtualHelmRepositoryArgs', 'VirtualHelmRepository']
@@ -51,31 +51,64 @@ class VirtualHelmRepositoryArgs:
         :param pulumi.Input[int] retrieval_cache_period_seconds: This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
         :param pulumi.Input[bool] use_namespaces: From Artifactory 7.24.1 (SaaS Version), you can explicitly state a specific aggregated local or remote repository to fetch from a virtual by assigning namespaces to local and remote repositories. See the documentation [here](https://www.jfrog.com/confluence/display/JFROG/Kubernetes+Helm+Chart+Repositories#KubernetesHelmChartRepositories-NamespaceSupportforHelmVirtualRepositories). Default is `false`.
         """
-        pulumi.set(__self__, "key", key)
+        VirtualHelmRepositoryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            artifactory_requests_can_retrieve_remote_artifacts=artifactory_requests_can_retrieve_remote_artifacts,
+            default_deployment_repo=default_deployment_repo,
+            description=description,
+            excludes_pattern=excludes_pattern,
+            includes_pattern=includes_pattern,
+            notes=notes,
+            project_environments=project_environments,
+            project_key=project_key,
+            repo_layout_ref=repo_layout_ref,
+            repositories=repositories,
+            retrieval_cache_period_seconds=retrieval_cache_period_seconds,
+            use_namespaces=use_namespaces,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             artifactory_requests_can_retrieve_remote_artifacts: Optional[pulumi.Input[bool]] = None,
+             default_deployment_repo: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             excludes_pattern: Optional[pulumi.Input[str]] = None,
+             includes_pattern: Optional[pulumi.Input[str]] = None,
+             notes: Optional[pulumi.Input[str]] = None,
+             project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             project_key: Optional[pulumi.Input[str]] = None,
+             repo_layout_ref: Optional[pulumi.Input[str]] = None,
+             repositories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             retrieval_cache_period_seconds: Optional[pulumi.Input[int]] = None,
+             use_namespaces: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
         if artifactory_requests_can_retrieve_remote_artifacts is not None:
-            pulumi.set(__self__, "artifactory_requests_can_retrieve_remote_artifacts", artifactory_requests_can_retrieve_remote_artifacts)
+            _setter("artifactory_requests_can_retrieve_remote_artifacts", artifactory_requests_can_retrieve_remote_artifacts)
         if default_deployment_repo is not None:
-            pulumi.set(__self__, "default_deployment_repo", default_deployment_repo)
+            _setter("default_deployment_repo", default_deployment_repo)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if excludes_pattern is not None:
-            pulumi.set(__self__, "excludes_pattern", excludes_pattern)
+            _setter("excludes_pattern", excludes_pattern)
         if includes_pattern is not None:
-            pulumi.set(__self__, "includes_pattern", includes_pattern)
+            _setter("includes_pattern", includes_pattern)
         if notes is not None:
-            pulumi.set(__self__, "notes", notes)
+            _setter("notes", notes)
         if project_environments is not None:
-            pulumi.set(__self__, "project_environments", project_environments)
+            _setter("project_environments", project_environments)
         if project_key is not None:
-            pulumi.set(__self__, "project_key", project_key)
+            _setter("project_key", project_key)
         if repo_layout_ref is not None:
-            pulumi.set(__self__, "repo_layout_ref", repo_layout_ref)
+            _setter("repo_layout_ref", repo_layout_ref)
         if repositories is not None:
-            pulumi.set(__self__, "repositories", repositories)
+            _setter("repositories", repositories)
         if retrieval_cache_period_seconds is not None:
-            pulumi.set(__self__, "retrieval_cache_period_seconds", retrieval_cache_period_seconds)
+            _setter("retrieval_cache_period_seconds", retrieval_cache_period_seconds)
         if use_namespaces is not None:
-            pulumi.set(__self__, "use_namespaces", use_namespaces)
+            _setter("use_namespaces", use_namespaces)
 
     @property
     @pulumi.getter
@@ -283,34 +316,69 @@ class _VirtualHelmRepositoryState:
         :param pulumi.Input[int] retrieval_cache_period_seconds: This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
         :param pulumi.Input[bool] use_namespaces: From Artifactory 7.24.1 (SaaS Version), you can explicitly state a specific aggregated local or remote repository to fetch from a virtual by assigning namespaces to local and remote repositories. See the documentation [here](https://www.jfrog.com/confluence/display/JFROG/Kubernetes+Helm+Chart+Repositories#KubernetesHelmChartRepositories-NamespaceSupportforHelmVirtualRepositories). Default is `false`.
         """
+        _VirtualHelmRepositoryState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            artifactory_requests_can_retrieve_remote_artifacts=artifactory_requests_can_retrieve_remote_artifacts,
+            default_deployment_repo=default_deployment_repo,
+            description=description,
+            excludes_pattern=excludes_pattern,
+            includes_pattern=includes_pattern,
+            key=key,
+            notes=notes,
+            package_type=package_type,
+            project_environments=project_environments,
+            project_key=project_key,
+            repo_layout_ref=repo_layout_ref,
+            repositories=repositories,
+            retrieval_cache_period_seconds=retrieval_cache_period_seconds,
+            use_namespaces=use_namespaces,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             artifactory_requests_can_retrieve_remote_artifacts: Optional[pulumi.Input[bool]] = None,
+             default_deployment_repo: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             excludes_pattern: Optional[pulumi.Input[str]] = None,
+             includes_pattern: Optional[pulumi.Input[str]] = None,
+             key: Optional[pulumi.Input[str]] = None,
+             notes: Optional[pulumi.Input[str]] = None,
+             package_type: Optional[pulumi.Input[str]] = None,
+             project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             project_key: Optional[pulumi.Input[str]] = None,
+             repo_layout_ref: Optional[pulumi.Input[str]] = None,
+             repositories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             retrieval_cache_period_seconds: Optional[pulumi.Input[int]] = None,
+             use_namespaces: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if artifactory_requests_can_retrieve_remote_artifacts is not None:
-            pulumi.set(__self__, "artifactory_requests_can_retrieve_remote_artifacts", artifactory_requests_can_retrieve_remote_artifacts)
+            _setter("artifactory_requests_can_retrieve_remote_artifacts", artifactory_requests_can_retrieve_remote_artifacts)
         if default_deployment_repo is not None:
-            pulumi.set(__self__, "default_deployment_repo", default_deployment_repo)
+            _setter("default_deployment_repo", default_deployment_repo)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if excludes_pattern is not None:
-            pulumi.set(__self__, "excludes_pattern", excludes_pattern)
+            _setter("excludes_pattern", excludes_pattern)
         if includes_pattern is not None:
-            pulumi.set(__self__, "includes_pattern", includes_pattern)
+            _setter("includes_pattern", includes_pattern)
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if notes is not None:
-            pulumi.set(__self__, "notes", notes)
+            _setter("notes", notes)
         if package_type is not None:
-            pulumi.set(__self__, "package_type", package_type)
+            _setter("package_type", package_type)
         if project_environments is not None:
-            pulumi.set(__self__, "project_environments", project_environments)
+            _setter("project_environments", project_environments)
         if project_key is not None:
-            pulumi.set(__self__, "project_key", project_key)
+            _setter("project_key", project_key)
         if repo_layout_ref is not None:
-            pulumi.set(__self__, "repo_layout_ref", repo_layout_ref)
+            _setter("repo_layout_ref", repo_layout_ref)
         if repositories is not None:
-            pulumi.set(__self__, "repositories", repositories)
+            _setter("repositories", repositories)
         if retrieval_cache_period_seconds is not None:
-            pulumi.set(__self__, "retrieval_cache_period_seconds", retrieval_cache_period_seconds)
+            _setter("retrieval_cache_period_seconds", retrieval_cache_period_seconds)
         if use_namespaces is not None:
-            pulumi.set(__self__, "use_namespaces", use_namespaces)
+            _setter("use_namespaces", use_namespaces)
 
     @property
     @pulumi.getter(name="artifactoryRequestsCanRetrieveRemoteArtifacts")
@@ -591,6 +659,10 @@ class VirtualHelmRepository(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VirtualHelmRepositoryArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
