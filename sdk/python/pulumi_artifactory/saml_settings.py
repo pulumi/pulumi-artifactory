@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['SamlSettingsArgs', 'SamlSettings']
@@ -43,29 +43,62 @@ class SamlSettingsArgs:
         :param pulumi.Input[bool] use_encrypted_assertion: When set, an X.509 public certificate will be created by Artifactory. Download this certificate and upload it to your IDP and choose your own encryption algorithm. This process will let you encrypt the assertion section in your SAML response. Default value is `false`.
         :param pulumi.Input[bool] verify_audience_restriction: Enable "audience", or who the SAML assertion is intended for.  Ensures that the correct service provider intended for Artifactory is used on the IdP.  Default value is `true`.
         """
-        pulumi.set(__self__, "login_url", login_url)
-        pulumi.set(__self__, "logout_url", logout_url)
-        pulumi.set(__self__, "service_provider_name", service_provider_name)
+        SamlSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            login_url=login_url,
+            logout_url=logout_url,
+            service_provider_name=service_provider_name,
+            allow_user_to_access_profile=allow_user_to_access_profile,
+            auto_redirect=auto_redirect,
+            certificate=certificate,
+            email_attribute=email_attribute,
+            enable=enable,
+            group_attribute=group_attribute,
+            no_auto_user_creation=no_auto_user_creation,
+            sync_groups=sync_groups,
+            use_encrypted_assertion=use_encrypted_assertion,
+            verify_audience_restriction=verify_audience_restriction,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             login_url: pulumi.Input[str],
+             logout_url: pulumi.Input[str],
+             service_provider_name: pulumi.Input[str],
+             allow_user_to_access_profile: Optional[pulumi.Input[bool]] = None,
+             auto_redirect: Optional[pulumi.Input[bool]] = None,
+             certificate: Optional[pulumi.Input[str]] = None,
+             email_attribute: Optional[pulumi.Input[str]] = None,
+             enable: Optional[pulumi.Input[bool]] = None,
+             group_attribute: Optional[pulumi.Input[str]] = None,
+             no_auto_user_creation: Optional[pulumi.Input[bool]] = None,
+             sync_groups: Optional[pulumi.Input[bool]] = None,
+             use_encrypted_assertion: Optional[pulumi.Input[bool]] = None,
+             verify_audience_restriction: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("login_url", login_url)
+        _setter("logout_url", logout_url)
+        _setter("service_provider_name", service_provider_name)
         if allow_user_to_access_profile is not None:
-            pulumi.set(__self__, "allow_user_to_access_profile", allow_user_to_access_profile)
+            _setter("allow_user_to_access_profile", allow_user_to_access_profile)
         if auto_redirect is not None:
-            pulumi.set(__self__, "auto_redirect", auto_redirect)
+            _setter("auto_redirect", auto_redirect)
         if certificate is not None:
-            pulumi.set(__self__, "certificate", certificate)
+            _setter("certificate", certificate)
         if email_attribute is not None:
-            pulumi.set(__self__, "email_attribute", email_attribute)
+            _setter("email_attribute", email_attribute)
         if enable is not None:
-            pulumi.set(__self__, "enable", enable)
+            _setter("enable", enable)
         if group_attribute is not None:
-            pulumi.set(__self__, "group_attribute", group_attribute)
+            _setter("group_attribute", group_attribute)
         if no_auto_user_creation is not None:
-            pulumi.set(__self__, "no_auto_user_creation", no_auto_user_creation)
+            _setter("no_auto_user_creation", no_auto_user_creation)
         if sync_groups is not None:
-            pulumi.set(__self__, "sync_groups", sync_groups)
+            _setter("sync_groups", sync_groups)
         if use_encrypted_assertion is not None:
-            pulumi.set(__self__, "use_encrypted_assertion", use_encrypted_assertion)
+            _setter("use_encrypted_assertion", use_encrypted_assertion)
         if verify_audience_restriction is not None:
-            pulumi.set(__self__, "verify_audience_restriction", verify_audience_restriction)
+            _setter("verify_audience_restriction", verify_audience_restriction)
 
     @property
     @pulumi.getter(name="loginUrl")
@@ -256,32 +289,65 @@ class _SamlSettingsState:
         :param pulumi.Input[bool] use_encrypted_assertion: When set, an X.509 public certificate will be created by Artifactory. Download this certificate and upload it to your IDP and choose your own encryption algorithm. This process will let you encrypt the assertion section in your SAML response. Default value is `false`.
         :param pulumi.Input[bool] verify_audience_restriction: Enable "audience", or who the SAML assertion is intended for.  Ensures that the correct service provider intended for Artifactory is used on the IdP.  Default value is `true`.
         """
+        _SamlSettingsState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allow_user_to_access_profile=allow_user_to_access_profile,
+            auto_redirect=auto_redirect,
+            certificate=certificate,
+            email_attribute=email_attribute,
+            enable=enable,
+            group_attribute=group_attribute,
+            login_url=login_url,
+            logout_url=logout_url,
+            no_auto_user_creation=no_auto_user_creation,
+            service_provider_name=service_provider_name,
+            sync_groups=sync_groups,
+            use_encrypted_assertion=use_encrypted_assertion,
+            verify_audience_restriction=verify_audience_restriction,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allow_user_to_access_profile: Optional[pulumi.Input[bool]] = None,
+             auto_redirect: Optional[pulumi.Input[bool]] = None,
+             certificate: Optional[pulumi.Input[str]] = None,
+             email_attribute: Optional[pulumi.Input[str]] = None,
+             enable: Optional[pulumi.Input[bool]] = None,
+             group_attribute: Optional[pulumi.Input[str]] = None,
+             login_url: Optional[pulumi.Input[str]] = None,
+             logout_url: Optional[pulumi.Input[str]] = None,
+             no_auto_user_creation: Optional[pulumi.Input[bool]] = None,
+             service_provider_name: Optional[pulumi.Input[str]] = None,
+             sync_groups: Optional[pulumi.Input[bool]] = None,
+             use_encrypted_assertion: Optional[pulumi.Input[bool]] = None,
+             verify_audience_restriction: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if allow_user_to_access_profile is not None:
-            pulumi.set(__self__, "allow_user_to_access_profile", allow_user_to_access_profile)
+            _setter("allow_user_to_access_profile", allow_user_to_access_profile)
         if auto_redirect is not None:
-            pulumi.set(__self__, "auto_redirect", auto_redirect)
+            _setter("auto_redirect", auto_redirect)
         if certificate is not None:
-            pulumi.set(__self__, "certificate", certificate)
+            _setter("certificate", certificate)
         if email_attribute is not None:
-            pulumi.set(__self__, "email_attribute", email_attribute)
+            _setter("email_attribute", email_attribute)
         if enable is not None:
-            pulumi.set(__self__, "enable", enable)
+            _setter("enable", enable)
         if group_attribute is not None:
-            pulumi.set(__self__, "group_attribute", group_attribute)
+            _setter("group_attribute", group_attribute)
         if login_url is not None:
-            pulumi.set(__self__, "login_url", login_url)
+            _setter("login_url", login_url)
         if logout_url is not None:
-            pulumi.set(__self__, "logout_url", logout_url)
+            _setter("logout_url", logout_url)
         if no_auto_user_creation is not None:
-            pulumi.set(__self__, "no_auto_user_creation", no_auto_user_creation)
+            _setter("no_auto_user_creation", no_auto_user_creation)
         if service_provider_name is not None:
-            pulumi.set(__self__, "service_provider_name", service_provider_name)
+            _setter("service_provider_name", service_provider_name)
         if sync_groups is not None:
-            pulumi.set(__self__, "sync_groups", sync_groups)
+            _setter("sync_groups", sync_groups)
         if use_encrypted_assertion is not None:
-            pulumi.set(__self__, "use_encrypted_assertion", use_encrypted_assertion)
+            _setter("use_encrypted_assertion", use_encrypted_assertion)
         if verify_audience_restriction is not None:
-            pulumi.set(__self__, "verify_audience_restriction", verify_audience_restriction)
+            _setter("verify_audience_restriction", verify_audience_restriction)
 
     @property
     @pulumi.getter(name="allowUserToAccessProfile")
@@ -567,6 +633,10 @@ class SamlSettings(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SamlSettingsArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

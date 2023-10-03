@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['RemoteRepositoryReplicationArgs', 'RemoteRepositoryReplication']
@@ -38,25 +38,52 @@ class RemoteRepositoryReplicationArgs:
         :param pulumi.Input[bool] sync_deletes: When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata). Note that enabling this option, will delete artifacts on the target that do not exist in the source repository. Default value is `false`.
         :param pulumi.Input[bool] sync_properties: When set, the task also synchronizes the properties of replicated artifacts. Default value is `true`.
         """
-        pulumi.set(__self__, "repo_key", repo_key)
+        RemoteRepositoryReplicationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            repo_key=repo_key,
+            check_binary_existence_in_filestore=check_binary_existence_in_filestore,
+            cron_exp=cron_exp,
+            enable_event_replication=enable_event_replication,
+            enabled=enabled,
+            exclude_path_prefix_pattern=exclude_path_prefix_pattern,
+            include_path_prefix_pattern=include_path_prefix_pattern,
+            replication_key=replication_key,
+            sync_deletes=sync_deletes,
+            sync_properties=sync_properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             repo_key: pulumi.Input[str],
+             check_binary_existence_in_filestore: Optional[pulumi.Input[bool]] = None,
+             cron_exp: Optional[pulumi.Input[str]] = None,
+             enable_event_replication: Optional[pulumi.Input[bool]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             exclude_path_prefix_pattern: Optional[pulumi.Input[str]] = None,
+             include_path_prefix_pattern: Optional[pulumi.Input[str]] = None,
+             replication_key: Optional[pulumi.Input[str]] = None,
+             sync_deletes: Optional[pulumi.Input[bool]] = None,
+             sync_properties: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("repo_key", repo_key)
         if check_binary_existence_in_filestore is not None:
-            pulumi.set(__self__, "check_binary_existence_in_filestore", check_binary_existence_in_filestore)
+            _setter("check_binary_existence_in_filestore", check_binary_existence_in_filestore)
         if cron_exp is not None:
-            pulumi.set(__self__, "cron_exp", cron_exp)
+            _setter("cron_exp", cron_exp)
         if enable_event_replication is not None:
-            pulumi.set(__self__, "enable_event_replication", enable_event_replication)
+            _setter("enable_event_replication", enable_event_replication)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if exclude_path_prefix_pattern is not None:
-            pulumi.set(__self__, "exclude_path_prefix_pattern", exclude_path_prefix_pattern)
+            _setter("exclude_path_prefix_pattern", exclude_path_prefix_pattern)
         if include_path_prefix_pattern is not None:
-            pulumi.set(__self__, "include_path_prefix_pattern", include_path_prefix_pattern)
+            _setter("include_path_prefix_pattern", include_path_prefix_pattern)
         if replication_key is not None:
-            pulumi.set(__self__, "replication_key", replication_key)
+            _setter("replication_key", replication_key)
         if sync_deletes is not None:
-            pulumi.set(__self__, "sync_deletes", sync_deletes)
+            _setter("sync_deletes", sync_deletes)
         if sync_properties is not None:
-            pulumi.set(__self__, "sync_properties", sync_properties)
+            _setter("sync_properties", sync_properties)
 
     @property
     @pulumi.getter(name="repoKey")
@@ -207,26 +234,53 @@ class _RemoteRepositoryReplicationState:
         :param pulumi.Input[bool] sync_deletes: When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata). Note that enabling this option, will delete artifacts on the target that do not exist in the source repository. Default value is `false`.
         :param pulumi.Input[bool] sync_properties: When set, the task also synchronizes the properties of replicated artifacts. Default value is `true`.
         """
+        _RemoteRepositoryReplicationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            check_binary_existence_in_filestore=check_binary_existence_in_filestore,
+            cron_exp=cron_exp,
+            enable_event_replication=enable_event_replication,
+            enabled=enabled,
+            exclude_path_prefix_pattern=exclude_path_prefix_pattern,
+            include_path_prefix_pattern=include_path_prefix_pattern,
+            replication_key=replication_key,
+            repo_key=repo_key,
+            sync_deletes=sync_deletes,
+            sync_properties=sync_properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             check_binary_existence_in_filestore: Optional[pulumi.Input[bool]] = None,
+             cron_exp: Optional[pulumi.Input[str]] = None,
+             enable_event_replication: Optional[pulumi.Input[bool]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             exclude_path_prefix_pattern: Optional[pulumi.Input[str]] = None,
+             include_path_prefix_pattern: Optional[pulumi.Input[str]] = None,
+             replication_key: Optional[pulumi.Input[str]] = None,
+             repo_key: Optional[pulumi.Input[str]] = None,
+             sync_deletes: Optional[pulumi.Input[bool]] = None,
+             sync_properties: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if check_binary_existence_in_filestore is not None:
-            pulumi.set(__self__, "check_binary_existence_in_filestore", check_binary_existence_in_filestore)
+            _setter("check_binary_existence_in_filestore", check_binary_existence_in_filestore)
         if cron_exp is not None:
-            pulumi.set(__self__, "cron_exp", cron_exp)
+            _setter("cron_exp", cron_exp)
         if enable_event_replication is not None:
-            pulumi.set(__self__, "enable_event_replication", enable_event_replication)
+            _setter("enable_event_replication", enable_event_replication)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if exclude_path_prefix_pattern is not None:
-            pulumi.set(__self__, "exclude_path_prefix_pattern", exclude_path_prefix_pattern)
+            _setter("exclude_path_prefix_pattern", exclude_path_prefix_pattern)
         if include_path_prefix_pattern is not None:
-            pulumi.set(__self__, "include_path_prefix_pattern", include_path_prefix_pattern)
+            _setter("include_path_prefix_pattern", include_path_prefix_pattern)
         if replication_key is not None:
-            pulumi.set(__self__, "replication_key", replication_key)
+            _setter("replication_key", replication_key)
         if repo_key is not None:
-            pulumi.set(__self__, "repo_key", repo_key)
+            _setter("repo_key", repo_key)
         if sync_deletes is not None:
-            pulumi.set(__self__, "sync_deletes", sync_deletes)
+            _setter("sync_deletes", sync_deletes)
         if sync_properties is not None:
-            pulumi.set(__self__, "sync_properties", sync_properties)
+            _setter("sync_properties", sync_properties)
 
     @property
     @pulumi.getter(name="checkBinaryExistenceInFilestore")
@@ -472,6 +526,10 @@ class RemoteRepositoryReplication(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RemoteRepositoryReplicationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

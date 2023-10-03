@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['LocalOpkgRepositoryArgs', 'LocalOpkgRepository']
@@ -58,35 +58,72 @@ class LocalOpkgRepositoryArgs:
         :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
                Xray settings.
         """
-        pulumi.set(__self__, "key", key)
+        LocalOpkgRepositoryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            archive_browsing_enabled=archive_browsing_enabled,
+            blacked_out=blacked_out,
+            cdn_redirect=cdn_redirect,
+            description=description,
+            download_direct=download_direct,
+            excludes_pattern=excludes_pattern,
+            includes_pattern=includes_pattern,
+            notes=notes,
+            priority_resolution=priority_resolution,
+            project_environments=project_environments,
+            project_key=project_key,
+            property_sets=property_sets,
+            repo_layout_ref=repo_layout_ref,
+            xray_index=xray_index,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             archive_browsing_enabled: Optional[pulumi.Input[bool]] = None,
+             blacked_out: Optional[pulumi.Input[bool]] = None,
+             cdn_redirect: Optional[pulumi.Input[bool]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             download_direct: Optional[pulumi.Input[bool]] = None,
+             excludes_pattern: Optional[pulumi.Input[str]] = None,
+             includes_pattern: Optional[pulumi.Input[str]] = None,
+             notes: Optional[pulumi.Input[str]] = None,
+             priority_resolution: Optional[pulumi.Input[bool]] = None,
+             project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             project_key: Optional[pulumi.Input[str]] = None,
+             property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             repo_layout_ref: Optional[pulumi.Input[str]] = None,
+             xray_index: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
         if archive_browsing_enabled is not None:
-            pulumi.set(__self__, "archive_browsing_enabled", archive_browsing_enabled)
+            _setter("archive_browsing_enabled", archive_browsing_enabled)
         if blacked_out is not None:
-            pulumi.set(__self__, "blacked_out", blacked_out)
+            _setter("blacked_out", blacked_out)
         if cdn_redirect is not None:
-            pulumi.set(__self__, "cdn_redirect", cdn_redirect)
+            _setter("cdn_redirect", cdn_redirect)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if download_direct is not None:
-            pulumi.set(__self__, "download_direct", download_direct)
+            _setter("download_direct", download_direct)
         if excludes_pattern is not None:
-            pulumi.set(__self__, "excludes_pattern", excludes_pattern)
+            _setter("excludes_pattern", excludes_pattern)
         if includes_pattern is not None:
-            pulumi.set(__self__, "includes_pattern", includes_pattern)
+            _setter("includes_pattern", includes_pattern)
         if notes is not None:
-            pulumi.set(__self__, "notes", notes)
+            _setter("notes", notes)
         if priority_resolution is not None:
-            pulumi.set(__self__, "priority_resolution", priority_resolution)
+            _setter("priority_resolution", priority_resolution)
         if project_environments is not None:
-            pulumi.set(__self__, "project_environments", project_environments)
+            _setter("project_environments", project_environments)
         if project_key is not None:
-            pulumi.set(__self__, "project_key", project_key)
+            _setter("project_key", project_key)
         if property_sets is not None:
-            pulumi.set(__self__, "property_sets", property_sets)
+            _setter("property_sets", property_sets)
         if repo_layout_ref is not None:
-            pulumi.set(__self__, "repo_layout_ref", repo_layout_ref)
+            _setter("repo_layout_ref", repo_layout_ref)
         if xray_index is not None:
-            pulumi.set(__self__, "xray_index", xray_index)
+            _setter("xray_index", xray_index)
 
     @property
     @pulumi.getter
@@ -328,38 +365,77 @@ class _LocalOpkgRepositoryState:
         :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
                Xray settings.
         """
+        _LocalOpkgRepositoryState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            archive_browsing_enabled=archive_browsing_enabled,
+            blacked_out=blacked_out,
+            cdn_redirect=cdn_redirect,
+            description=description,
+            download_direct=download_direct,
+            excludes_pattern=excludes_pattern,
+            includes_pattern=includes_pattern,
+            key=key,
+            notes=notes,
+            package_type=package_type,
+            priority_resolution=priority_resolution,
+            project_environments=project_environments,
+            project_key=project_key,
+            property_sets=property_sets,
+            repo_layout_ref=repo_layout_ref,
+            xray_index=xray_index,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             archive_browsing_enabled: Optional[pulumi.Input[bool]] = None,
+             blacked_out: Optional[pulumi.Input[bool]] = None,
+             cdn_redirect: Optional[pulumi.Input[bool]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             download_direct: Optional[pulumi.Input[bool]] = None,
+             excludes_pattern: Optional[pulumi.Input[str]] = None,
+             includes_pattern: Optional[pulumi.Input[str]] = None,
+             key: Optional[pulumi.Input[str]] = None,
+             notes: Optional[pulumi.Input[str]] = None,
+             package_type: Optional[pulumi.Input[str]] = None,
+             priority_resolution: Optional[pulumi.Input[bool]] = None,
+             project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             project_key: Optional[pulumi.Input[str]] = None,
+             property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             repo_layout_ref: Optional[pulumi.Input[str]] = None,
+             xray_index: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if archive_browsing_enabled is not None:
-            pulumi.set(__self__, "archive_browsing_enabled", archive_browsing_enabled)
+            _setter("archive_browsing_enabled", archive_browsing_enabled)
         if blacked_out is not None:
-            pulumi.set(__self__, "blacked_out", blacked_out)
+            _setter("blacked_out", blacked_out)
         if cdn_redirect is not None:
-            pulumi.set(__self__, "cdn_redirect", cdn_redirect)
+            _setter("cdn_redirect", cdn_redirect)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if download_direct is not None:
-            pulumi.set(__self__, "download_direct", download_direct)
+            _setter("download_direct", download_direct)
         if excludes_pattern is not None:
-            pulumi.set(__self__, "excludes_pattern", excludes_pattern)
+            _setter("excludes_pattern", excludes_pattern)
         if includes_pattern is not None:
-            pulumi.set(__self__, "includes_pattern", includes_pattern)
+            _setter("includes_pattern", includes_pattern)
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if notes is not None:
-            pulumi.set(__self__, "notes", notes)
+            _setter("notes", notes)
         if package_type is not None:
-            pulumi.set(__self__, "package_type", package_type)
+            _setter("package_type", package_type)
         if priority_resolution is not None:
-            pulumi.set(__self__, "priority_resolution", priority_resolution)
+            _setter("priority_resolution", priority_resolution)
         if project_environments is not None:
-            pulumi.set(__self__, "project_environments", project_environments)
+            _setter("project_environments", project_environments)
         if project_key is not None:
-            pulumi.set(__self__, "project_key", project_key)
+            _setter("project_key", project_key)
         if property_sets is not None:
-            pulumi.set(__self__, "property_sets", property_sets)
+            _setter("property_sets", property_sets)
         if repo_layout_ref is not None:
-            pulumi.set(__self__, "repo_layout_ref", repo_layout_ref)
+            _setter("repo_layout_ref", repo_layout_ref)
         if xray_index is not None:
-            pulumi.set(__self__, "xray_index", xray_index)
+            _setter("xray_index", xray_index)
 
     @property
     @pulumi.getter(name="archiveBrowsingEnabled")
@@ -668,6 +744,10 @@ class LocalOpkgRepository(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LocalOpkgRepositoryArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,13 +27,28 @@ class OauthSettingsArgs:
         :param pulumi.Input[bool] enable: Enable OAuth SSO.  Default value is `true`.
         :param pulumi.Input[bool] persist_users: Enable the creation of local Artifactory users.  Default value is `false`.
         """
-        pulumi.set(__self__, "oauth_providers", oauth_providers)
+        OauthSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            oauth_providers=oauth_providers,
+            allow_user_to_access_profile=allow_user_to_access_profile,
+            enable=enable,
+            persist_users=persist_users,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             oauth_providers: pulumi.Input[Sequence[pulumi.Input['OauthSettingsOauthProviderArgs']]],
+             allow_user_to_access_profile: Optional[pulumi.Input[bool]] = None,
+             enable: Optional[pulumi.Input[bool]] = None,
+             persist_users: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("oauth_providers", oauth_providers)
         if allow_user_to_access_profile is not None:
-            pulumi.set(__self__, "allow_user_to_access_profile", allow_user_to_access_profile)
+            _setter("allow_user_to_access_profile", allow_user_to_access_profile)
         if enable is not None:
-            pulumi.set(__self__, "enable", enable)
+            _setter("enable", enable)
         if persist_users is not None:
-            pulumi.set(__self__, "persist_users", persist_users)
+            _setter("persist_users", persist_users)
 
     @property
     @pulumi.getter(name="oauthProviders")
@@ -98,14 +113,29 @@ class _OauthSettingsState:
         :param pulumi.Input[Sequence[pulumi.Input['OauthSettingsOauthProviderArgs']]] oauth_providers: OAuth provider settings block. Multiple blocks can be defined, at least one is required.
         :param pulumi.Input[bool] persist_users: Enable the creation of local Artifactory users.  Default value is `false`.
         """
+        _OauthSettingsState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allow_user_to_access_profile=allow_user_to_access_profile,
+            enable=enable,
+            oauth_providers=oauth_providers,
+            persist_users=persist_users,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allow_user_to_access_profile: Optional[pulumi.Input[bool]] = None,
+             enable: Optional[pulumi.Input[bool]] = None,
+             oauth_providers: Optional[pulumi.Input[Sequence[pulumi.Input['OauthSettingsOauthProviderArgs']]]] = None,
+             persist_users: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if allow_user_to_access_profile is not None:
-            pulumi.set(__self__, "allow_user_to_access_profile", allow_user_to_access_profile)
+            _setter("allow_user_to_access_profile", allow_user_to_access_profile)
         if enable is not None:
-            pulumi.set(__self__, "enable", enable)
+            _setter("enable", enable)
         if oauth_providers is not None:
-            pulumi.set(__self__, "oauth_providers", oauth_providers)
+            _setter("oauth_providers", oauth_providers)
         if persist_users is not None:
-            pulumi.set(__self__, "persist_users", persist_users)
+            _setter("persist_users", persist_users)
 
     @property
     @pulumi.getter(name="allowUserToAccessProfile")
@@ -265,6 +295,10 @@ class OauthSettings(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            OauthSettingsArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

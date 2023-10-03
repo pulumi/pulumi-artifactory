@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['ProxyArgs', 'Proxy']
@@ -37,23 +37,50 @@ class ProxyArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] services: An optional list of services names to which this proxy be the default of. The options are `jfrt`, `jfmc`, `jfxr`, `jfds`.
         :param pulumi.Input[str] username: The proxy username when authentication credentials are required.
         """
-        pulumi.set(__self__, "host", host)
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "port", port)
+        ProxyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            host=host,
+            key=key,
+            port=port,
+            nt_domain=nt_domain,
+            nt_host=nt_host,
+            password=password,
+            platform_default=platform_default,
+            redirect_to_hosts=redirect_to_hosts,
+            services=services,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             host: pulumi.Input[str],
+             key: pulumi.Input[str],
+             port: pulumi.Input[int],
+             nt_domain: Optional[pulumi.Input[str]] = None,
+             nt_host: Optional[pulumi.Input[str]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             platform_default: Optional[pulumi.Input[bool]] = None,
+             redirect_to_hosts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             services: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             username: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("host", host)
+        _setter("key", key)
+        _setter("port", port)
         if nt_domain is not None:
-            pulumi.set(__self__, "nt_domain", nt_domain)
+            _setter("nt_domain", nt_domain)
         if nt_host is not None:
-            pulumi.set(__self__, "nt_host", nt_host)
+            _setter("nt_host", nt_host)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if platform_default is not None:
-            pulumi.set(__self__, "platform_default", platform_default)
+            _setter("platform_default", platform_default)
         if redirect_to_hosts is not None:
-            pulumi.set(__self__, "redirect_to_hosts", redirect_to_hosts)
+            _setter("redirect_to_hosts", redirect_to_hosts)
         if services is not None:
-            pulumi.set(__self__, "services", services)
+            _setter("services", services)
         if username is not None:
-            pulumi.set(__self__, "username", username)
+            _setter("username", username)
 
     @property
     @pulumi.getter
@@ -202,26 +229,53 @@ class _ProxyState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] services: An optional list of services names to which this proxy be the default of. The options are `jfrt`, `jfmc`, `jfxr`, `jfds`.
         :param pulumi.Input[str] username: The proxy username when authentication credentials are required.
         """
+        _ProxyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            host=host,
+            key=key,
+            nt_domain=nt_domain,
+            nt_host=nt_host,
+            password=password,
+            platform_default=platform_default,
+            port=port,
+            redirect_to_hosts=redirect_to_hosts,
+            services=services,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             host: Optional[pulumi.Input[str]] = None,
+             key: Optional[pulumi.Input[str]] = None,
+             nt_domain: Optional[pulumi.Input[str]] = None,
+             nt_host: Optional[pulumi.Input[str]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             platform_default: Optional[pulumi.Input[bool]] = None,
+             port: Optional[pulumi.Input[int]] = None,
+             redirect_to_hosts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             services: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             username: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if host is not None:
-            pulumi.set(__self__, "host", host)
+            _setter("host", host)
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if nt_domain is not None:
-            pulumi.set(__self__, "nt_domain", nt_domain)
+            _setter("nt_domain", nt_domain)
         if nt_host is not None:
-            pulumi.set(__self__, "nt_host", nt_host)
+            _setter("nt_host", nt_host)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if platform_default is not None:
-            pulumi.set(__self__, "platform_default", platform_default)
+            _setter("platform_default", platform_default)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
         if redirect_to_hosts is not None:
-            pulumi.set(__self__, "redirect_to_hosts", redirect_to_hosts)
+            _setter("redirect_to_hosts", redirect_to_hosts)
         if services is not None:
-            pulumi.set(__self__, "services", services)
+            _setter("services", services)
         if username is not None:
-            pulumi.set(__self__, "username", username)
+            _setter("username", username)
 
     @property
     @pulumi.getter
@@ -465,6 +519,10 @@ class Proxy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ProxyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

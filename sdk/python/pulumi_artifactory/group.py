@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['GroupArgs', 'Group']
@@ -41,30 +41,61 @@ class GroupArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] users_names: List of users assigned to the group. If not set or empty, Terraform will not manage group membership.
         :param pulumi.Input[bool] watch_manager: When this override is set, User in the group can manage Xray Watches on any resource type. Default value is `false`.
         """
+        GroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            admin_privileges=admin_privileges,
+            auto_join=auto_join,
+            description=description,
+            detach_all_users=detach_all_users,
+            external_id=external_id,
+            name=name,
+            policy_manager=policy_manager,
+            realm=realm,
+            realm_attributes=realm_attributes,
+            reports_manager=reports_manager,
+            users_names=users_names,
+            watch_manager=watch_manager,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             admin_privileges: Optional[pulumi.Input[bool]] = None,
+             auto_join: Optional[pulumi.Input[bool]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             detach_all_users: Optional[pulumi.Input[bool]] = None,
+             external_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             policy_manager: Optional[pulumi.Input[bool]] = None,
+             realm: Optional[pulumi.Input[str]] = None,
+             realm_attributes: Optional[pulumi.Input[str]] = None,
+             reports_manager: Optional[pulumi.Input[bool]] = None,
+             users_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             watch_manager: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if admin_privileges is not None:
-            pulumi.set(__self__, "admin_privileges", admin_privileges)
+            _setter("admin_privileges", admin_privileges)
         if auto_join is not None:
-            pulumi.set(__self__, "auto_join", auto_join)
+            _setter("auto_join", auto_join)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if detach_all_users is not None:
-            pulumi.set(__self__, "detach_all_users", detach_all_users)
+            _setter("detach_all_users", detach_all_users)
         if external_id is not None:
-            pulumi.set(__self__, "external_id", external_id)
+            _setter("external_id", external_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if policy_manager is not None:
-            pulumi.set(__self__, "policy_manager", policy_manager)
+            _setter("policy_manager", policy_manager)
         if realm is not None:
-            pulumi.set(__self__, "realm", realm)
+            _setter("realm", realm)
         if realm_attributes is not None:
-            pulumi.set(__self__, "realm_attributes", realm_attributes)
+            _setter("realm_attributes", realm_attributes)
         if reports_manager is not None:
-            pulumi.set(__self__, "reports_manager", reports_manager)
+            _setter("reports_manager", reports_manager)
         if users_names is not None:
-            pulumi.set(__self__, "users_names", users_names)
+            _setter("users_names", users_names)
         if watch_manager is not None:
-            pulumi.set(__self__, "watch_manager", watch_manager)
+            _setter("watch_manager", watch_manager)
 
     @property
     @pulumi.getter(name="adminPrivileges")
@@ -241,30 +272,61 @@ class _GroupState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] users_names: List of users assigned to the group. If not set or empty, Terraform will not manage group membership.
         :param pulumi.Input[bool] watch_manager: When this override is set, User in the group can manage Xray Watches on any resource type. Default value is `false`.
         """
+        _GroupState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            admin_privileges=admin_privileges,
+            auto_join=auto_join,
+            description=description,
+            detach_all_users=detach_all_users,
+            external_id=external_id,
+            name=name,
+            policy_manager=policy_manager,
+            realm=realm,
+            realm_attributes=realm_attributes,
+            reports_manager=reports_manager,
+            users_names=users_names,
+            watch_manager=watch_manager,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             admin_privileges: Optional[pulumi.Input[bool]] = None,
+             auto_join: Optional[pulumi.Input[bool]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             detach_all_users: Optional[pulumi.Input[bool]] = None,
+             external_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             policy_manager: Optional[pulumi.Input[bool]] = None,
+             realm: Optional[pulumi.Input[str]] = None,
+             realm_attributes: Optional[pulumi.Input[str]] = None,
+             reports_manager: Optional[pulumi.Input[bool]] = None,
+             users_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             watch_manager: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if admin_privileges is not None:
-            pulumi.set(__self__, "admin_privileges", admin_privileges)
+            _setter("admin_privileges", admin_privileges)
         if auto_join is not None:
-            pulumi.set(__self__, "auto_join", auto_join)
+            _setter("auto_join", auto_join)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if detach_all_users is not None:
-            pulumi.set(__self__, "detach_all_users", detach_all_users)
+            _setter("detach_all_users", detach_all_users)
         if external_id is not None:
-            pulumi.set(__self__, "external_id", external_id)
+            _setter("external_id", external_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if policy_manager is not None:
-            pulumi.set(__self__, "policy_manager", policy_manager)
+            _setter("policy_manager", policy_manager)
         if realm is not None:
-            pulumi.set(__self__, "realm", realm)
+            _setter("realm", realm)
         if realm_attributes is not None:
-            pulumi.set(__self__, "realm_attributes", realm_attributes)
+            _setter("realm_attributes", realm_attributes)
         if reports_manager is not None:
-            pulumi.set(__self__, "reports_manager", reports_manager)
+            _setter("reports_manager", reports_manager)
         if users_names is not None:
-            pulumi.set(__self__, "users_names", users_names)
+            _setter("users_names", users_names)
         if watch_manager is not None:
-            pulumi.set(__self__, "watch_manager", watch_manager)
+            _setter("watch_manager", watch_manager)
 
     @property
     @pulumi.getter(name="adminPrivileges")
@@ -478,6 +540,10 @@ class Group(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            GroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

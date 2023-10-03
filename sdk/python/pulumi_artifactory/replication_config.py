@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -24,12 +24,27 @@ class ReplicationConfigArgs:
         The set of arguments for constructing a ReplicationConfig resource.
         :param pulumi.Input[str] cron_exp: Cron expression to control the operation frequency.
         """
-        pulumi.set(__self__, "cron_exp", cron_exp)
-        pulumi.set(__self__, "repo_key", repo_key)
+        ReplicationConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cron_exp=cron_exp,
+            repo_key=repo_key,
+            enable_event_replication=enable_event_replication,
+            replications=replications,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cron_exp: pulumi.Input[str],
+             repo_key: pulumi.Input[str],
+             enable_event_replication: Optional[pulumi.Input[bool]] = None,
+             replications: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationConfigReplicationArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("cron_exp", cron_exp)
+        _setter("repo_key", repo_key)
         if enable_event_replication is not None:
-            pulumi.set(__self__, "enable_event_replication", enable_event_replication)
+            _setter("enable_event_replication", enable_event_replication)
         if replications is not None:
-            pulumi.set(__self__, "replications", replications)
+            _setter("replications", replications)
 
     @property
     @pulumi.getter(name="cronExp")
@@ -82,14 +97,29 @@ class _ReplicationConfigState:
         Input properties used for looking up and filtering ReplicationConfig resources.
         :param pulumi.Input[str] cron_exp: Cron expression to control the operation frequency.
         """
+        _ReplicationConfigState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cron_exp=cron_exp,
+            enable_event_replication=enable_event_replication,
+            replications=replications,
+            repo_key=repo_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cron_exp: Optional[pulumi.Input[str]] = None,
+             enable_event_replication: Optional[pulumi.Input[bool]] = None,
+             replications: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationConfigReplicationArgs']]]] = None,
+             repo_key: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if cron_exp is not None:
-            pulumi.set(__self__, "cron_exp", cron_exp)
+            _setter("cron_exp", cron_exp)
         if enable_event_replication is not None:
-            pulumi.set(__self__, "enable_event_replication", enable_event_replication)
+            _setter("enable_event_replication", enable_event_replication)
         if replications is not None:
-            pulumi.set(__self__, "replications", replications)
+            _setter("replications", replications)
         if repo_key is not None:
-            pulumi.set(__self__, "repo_key", repo_key)
+            _setter("repo_key", repo_key)
 
     @property
     @pulumi.getter(name="cronExp")
@@ -227,6 +257,10 @@ class ReplicationConfig(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ReplicationConfigArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

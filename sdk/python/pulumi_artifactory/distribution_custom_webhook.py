@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,14 +31,33 @@ class DistributionCustomWebhookArgs:
         :param pulumi.Input[str] description: Webhook description. Max length 1000 characters.
         :param pulumi.Input[bool] enabled: Status of webhook. Default to `true`.
         """
-        pulumi.set(__self__, "criteria", criteria)
-        pulumi.set(__self__, "event_types", event_types)
-        pulumi.set(__self__, "handlers", handlers)
-        pulumi.set(__self__, "key", key)
+        DistributionCustomWebhookArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            criteria=criteria,
+            event_types=event_types,
+            handlers=handlers,
+            key=key,
+            description=description,
+            enabled=enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             criteria: pulumi.Input['DistributionCustomWebhookCriteriaArgs'],
+             event_types: pulumi.Input[Sequence[pulumi.Input[str]]],
+             handlers: pulumi.Input[Sequence[pulumi.Input['DistributionCustomWebhookHandlerArgs']]],
+             key: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("criteria", criteria)
+        _setter("event_types", event_types)
+        _setter("handlers", handlers)
+        _setter("key", key)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
 
     @property
     @pulumi.getter
@@ -131,18 +150,37 @@ class _DistributionCustomWebhookState:
         :param pulumi.Input[Sequence[pulumi.Input['DistributionCustomWebhookHandlerArgs']]] handlers: At least one is required.
         :param pulumi.Input[str] key: The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
         """
+        _DistributionCustomWebhookState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            criteria=criteria,
+            description=description,
+            enabled=enabled,
+            event_types=event_types,
+            handlers=handlers,
+            key=key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             criteria: Optional[pulumi.Input['DistributionCustomWebhookCriteriaArgs']] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             event_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             handlers: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionCustomWebhookHandlerArgs']]]] = None,
+             key: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if criteria is not None:
-            pulumi.set(__self__, "criteria", criteria)
+            _setter("criteria", criteria)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if event_types is not None:
-            pulumi.set(__self__, "event_types", event_types)
+            _setter("event_types", event_types)
         if handlers is not None:
-            pulumi.set(__self__, "handlers", handlers)
+            _setter("handlers", handlers)
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
 
     @property
     @pulumi.getter
@@ -334,6 +372,10 @@ class DistributionCustomWebhook(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DistributionCustomWebhookArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -354,6 +396,11 @@ class DistributionCustomWebhook(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DistributionCustomWebhookArgs.__new__(DistributionCustomWebhookArgs)
 
+            if criteria is not None and not isinstance(criteria, DistributionCustomWebhookCriteriaArgs):
+                criteria = criteria or {}
+                def _setter(key, value):
+                    criteria[key] = value
+                DistributionCustomWebhookCriteriaArgs._configure(_setter, **criteria)
             if criteria is None and not opts.urn:
                 raise TypeError("Missing required property 'criteria'")
             __props__.__dict__["criteria"] = criteria

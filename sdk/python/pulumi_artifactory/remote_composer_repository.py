@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -139,92 +139,187 @@ class RemoteComposerRepositoryArgs:
         :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
                Xray settings.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "url", url)
+        RemoteComposerRepositoryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            url=url,
+            allow_any_host_auth=allow_any_host_auth,
+            assumed_offline_period_secs=assumed_offline_period_secs,
+            blacked_out=blacked_out,
+            block_mismatching_mime_types=block_mismatching_mime_types,
+            bypass_head_requests=bypass_head_requests,
+            cdn_redirect=cdn_redirect,
+            client_tls_certificate=client_tls_certificate,
+            composer_registry_url=composer_registry_url,
+            content_synchronisation=content_synchronisation,
+            description=description,
+            disable_proxy=disable_proxy,
+            download_direct=download_direct,
+            enable_cookie_management=enable_cookie_management,
+            excludes_pattern=excludes_pattern,
+            hard_fail=hard_fail,
+            includes_pattern=includes_pattern,
+            list_remote_folder_items=list_remote_folder_items,
+            local_address=local_address,
+            metadata_retrieval_timeout_secs=metadata_retrieval_timeout_secs,
+            mismatching_mime_types_override_list=mismatching_mime_types_override_list,
+            missed_cache_period_seconds=missed_cache_period_seconds,
+            notes=notes,
+            offline=offline,
+            password=password,
+            priority_resolution=priority_resolution,
+            project_environments=project_environments,
+            project_key=project_key,
+            property_sets=property_sets,
+            proxy=proxy,
+            query_params=query_params,
+            remote_repo_layout_ref=remote_repo_layout_ref,
+            repo_layout_ref=repo_layout_ref,
+            retrieval_cache_period_seconds=retrieval_cache_period_seconds,
+            share_configuration=share_configuration,
+            socket_timeout_millis=socket_timeout_millis,
+            store_artifacts_locally=store_artifacts_locally,
+            synchronize_properties=synchronize_properties,
+            unused_artifacts_cleanup_period_hours=unused_artifacts_cleanup_period_hours,
+            username=username,
+            vcs_git_download_url=vcs_git_download_url,
+            vcs_git_provider=vcs_git_provider,
+            xray_index=xray_index,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             url: pulumi.Input[str],
+             allow_any_host_auth: Optional[pulumi.Input[bool]] = None,
+             assumed_offline_period_secs: Optional[pulumi.Input[int]] = None,
+             blacked_out: Optional[pulumi.Input[bool]] = None,
+             block_mismatching_mime_types: Optional[pulumi.Input[bool]] = None,
+             bypass_head_requests: Optional[pulumi.Input[bool]] = None,
+             cdn_redirect: Optional[pulumi.Input[bool]] = None,
+             client_tls_certificate: Optional[pulumi.Input[str]] = None,
+             composer_registry_url: Optional[pulumi.Input[str]] = None,
+             content_synchronisation: Optional[pulumi.Input['RemoteComposerRepositoryContentSynchronisationArgs']] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             disable_proxy: Optional[pulumi.Input[bool]] = None,
+             download_direct: Optional[pulumi.Input[bool]] = None,
+             enable_cookie_management: Optional[pulumi.Input[bool]] = None,
+             excludes_pattern: Optional[pulumi.Input[str]] = None,
+             hard_fail: Optional[pulumi.Input[bool]] = None,
+             includes_pattern: Optional[pulumi.Input[str]] = None,
+             list_remote_folder_items: Optional[pulumi.Input[bool]] = None,
+             local_address: Optional[pulumi.Input[str]] = None,
+             metadata_retrieval_timeout_secs: Optional[pulumi.Input[int]] = None,
+             mismatching_mime_types_override_list: Optional[pulumi.Input[str]] = None,
+             missed_cache_period_seconds: Optional[pulumi.Input[int]] = None,
+             notes: Optional[pulumi.Input[str]] = None,
+             offline: Optional[pulumi.Input[bool]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             priority_resolution: Optional[pulumi.Input[bool]] = None,
+             project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             project_key: Optional[pulumi.Input[str]] = None,
+             property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             proxy: Optional[pulumi.Input[str]] = None,
+             query_params: Optional[pulumi.Input[str]] = None,
+             remote_repo_layout_ref: Optional[pulumi.Input[str]] = None,
+             repo_layout_ref: Optional[pulumi.Input[str]] = None,
+             retrieval_cache_period_seconds: Optional[pulumi.Input[int]] = None,
+             share_configuration: Optional[pulumi.Input[bool]] = None,
+             socket_timeout_millis: Optional[pulumi.Input[int]] = None,
+             store_artifacts_locally: Optional[pulumi.Input[bool]] = None,
+             synchronize_properties: Optional[pulumi.Input[bool]] = None,
+             unused_artifacts_cleanup_period_hours: Optional[pulumi.Input[int]] = None,
+             username: Optional[pulumi.Input[str]] = None,
+             vcs_git_download_url: Optional[pulumi.Input[str]] = None,
+             vcs_git_provider: Optional[pulumi.Input[str]] = None,
+             xray_index: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("url", url)
         if allow_any_host_auth is not None:
-            pulumi.set(__self__, "allow_any_host_auth", allow_any_host_auth)
+            _setter("allow_any_host_auth", allow_any_host_auth)
         if assumed_offline_period_secs is not None:
-            pulumi.set(__self__, "assumed_offline_period_secs", assumed_offline_period_secs)
+            _setter("assumed_offline_period_secs", assumed_offline_period_secs)
         if blacked_out is not None:
-            pulumi.set(__self__, "blacked_out", blacked_out)
+            _setter("blacked_out", blacked_out)
         if block_mismatching_mime_types is not None:
-            pulumi.set(__self__, "block_mismatching_mime_types", block_mismatching_mime_types)
+            _setter("block_mismatching_mime_types", block_mismatching_mime_types)
         if bypass_head_requests is not None:
-            pulumi.set(__self__, "bypass_head_requests", bypass_head_requests)
+            _setter("bypass_head_requests", bypass_head_requests)
         if cdn_redirect is not None:
-            pulumi.set(__self__, "cdn_redirect", cdn_redirect)
+            _setter("cdn_redirect", cdn_redirect)
         if client_tls_certificate is not None:
-            pulumi.set(__self__, "client_tls_certificate", client_tls_certificate)
+            _setter("client_tls_certificate", client_tls_certificate)
         if composer_registry_url is not None:
-            pulumi.set(__self__, "composer_registry_url", composer_registry_url)
+            _setter("composer_registry_url", composer_registry_url)
         if content_synchronisation is not None:
-            pulumi.set(__self__, "content_synchronisation", content_synchronisation)
+            _setter("content_synchronisation", content_synchronisation)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if disable_proxy is not None:
-            pulumi.set(__self__, "disable_proxy", disable_proxy)
+            _setter("disable_proxy", disable_proxy)
         if download_direct is not None:
-            pulumi.set(__self__, "download_direct", download_direct)
+            _setter("download_direct", download_direct)
         if enable_cookie_management is not None:
-            pulumi.set(__self__, "enable_cookie_management", enable_cookie_management)
+            _setter("enable_cookie_management", enable_cookie_management)
         if excludes_pattern is not None:
-            pulumi.set(__self__, "excludes_pattern", excludes_pattern)
+            _setter("excludes_pattern", excludes_pattern)
         if hard_fail is not None:
-            pulumi.set(__self__, "hard_fail", hard_fail)
+            _setter("hard_fail", hard_fail)
         if includes_pattern is not None:
-            pulumi.set(__self__, "includes_pattern", includes_pattern)
+            _setter("includes_pattern", includes_pattern)
         if list_remote_folder_items is not None:
-            pulumi.set(__self__, "list_remote_folder_items", list_remote_folder_items)
+            _setter("list_remote_folder_items", list_remote_folder_items)
         if local_address is not None:
-            pulumi.set(__self__, "local_address", local_address)
+            _setter("local_address", local_address)
         if metadata_retrieval_timeout_secs is not None:
-            pulumi.set(__self__, "metadata_retrieval_timeout_secs", metadata_retrieval_timeout_secs)
+            _setter("metadata_retrieval_timeout_secs", metadata_retrieval_timeout_secs)
         if mismatching_mime_types_override_list is not None:
-            pulumi.set(__self__, "mismatching_mime_types_override_list", mismatching_mime_types_override_list)
+            _setter("mismatching_mime_types_override_list", mismatching_mime_types_override_list)
         if missed_cache_period_seconds is not None:
-            pulumi.set(__self__, "missed_cache_period_seconds", missed_cache_period_seconds)
+            _setter("missed_cache_period_seconds", missed_cache_period_seconds)
         if notes is not None:
-            pulumi.set(__self__, "notes", notes)
+            _setter("notes", notes)
         if offline is not None:
-            pulumi.set(__self__, "offline", offline)
+            _setter("offline", offline)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if priority_resolution is not None:
-            pulumi.set(__self__, "priority_resolution", priority_resolution)
+            _setter("priority_resolution", priority_resolution)
         if project_environments is not None:
-            pulumi.set(__self__, "project_environments", project_environments)
+            _setter("project_environments", project_environments)
         if project_key is not None:
-            pulumi.set(__self__, "project_key", project_key)
+            _setter("project_key", project_key)
         if property_sets is not None:
-            pulumi.set(__self__, "property_sets", property_sets)
+            _setter("property_sets", property_sets)
         if proxy is not None:
-            pulumi.set(__self__, "proxy", proxy)
+            _setter("proxy", proxy)
         if query_params is not None:
-            pulumi.set(__self__, "query_params", query_params)
+            _setter("query_params", query_params)
         if remote_repo_layout_ref is not None:
-            pulumi.set(__self__, "remote_repo_layout_ref", remote_repo_layout_ref)
+            _setter("remote_repo_layout_ref", remote_repo_layout_ref)
         if repo_layout_ref is not None:
-            pulumi.set(__self__, "repo_layout_ref", repo_layout_ref)
+            _setter("repo_layout_ref", repo_layout_ref)
         if retrieval_cache_period_seconds is not None:
-            pulumi.set(__self__, "retrieval_cache_period_seconds", retrieval_cache_period_seconds)
+            _setter("retrieval_cache_period_seconds", retrieval_cache_period_seconds)
         if share_configuration is not None:
-            pulumi.set(__self__, "share_configuration", share_configuration)
+            _setter("share_configuration", share_configuration)
         if socket_timeout_millis is not None:
-            pulumi.set(__self__, "socket_timeout_millis", socket_timeout_millis)
+            _setter("socket_timeout_millis", socket_timeout_millis)
         if store_artifacts_locally is not None:
-            pulumi.set(__self__, "store_artifacts_locally", store_artifacts_locally)
+            _setter("store_artifacts_locally", store_artifacts_locally)
         if synchronize_properties is not None:
-            pulumi.set(__self__, "synchronize_properties", synchronize_properties)
+            _setter("synchronize_properties", synchronize_properties)
         if unused_artifacts_cleanup_period_hours is not None:
-            pulumi.set(__self__, "unused_artifacts_cleanup_period_hours", unused_artifacts_cleanup_period_hours)
+            _setter("unused_artifacts_cleanup_period_hours", unused_artifacts_cleanup_period_hours)
         if username is not None:
-            pulumi.set(__self__, "username", username)
+            _setter("username", username)
         if vcs_git_download_url is not None:
-            pulumi.set(__self__, "vcs_git_download_url", vcs_git_download_url)
+            _setter("vcs_git_download_url", vcs_git_download_url)
         if vcs_git_provider is not None:
-            pulumi.set(__self__, "vcs_git_provider", vcs_git_provider)
+            _setter("vcs_git_provider", vcs_git_provider)
         if xray_index is not None:
-            pulumi.set(__self__, "xray_index", xray_index)
+            _setter("xray_index", xray_index)
 
     @property
     @pulumi.getter
@@ -906,96 +1001,193 @@ class _RemoteComposerRepositoryState:
         :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
                Xray settings.
         """
+        _RemoteComposerRepositoryState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allow_any_host_auth=allow_any_host_auth,
+            assumed_offline_period_secs=assumed_offline_period_secs,
+            blacked_out=blacked_out,
+            block_mismatching_mime_types=block_mismatching_mime_types,
+            bypass_head_requests=bypass_head_requests,
+            cdn_redirect=cdn_redirect,
+            client_tls_certificate=client_tls_certificate,
+            composer_registry_url=composer_registry_url,
+            content_synchronisation=content_synchronisation,
+            description=description,
+            disable_proxy=disable_proxy,
+            download_direct=download_direct,
+            enable_cookie_management=enable_cookie_management,
+            excludes_pattern=excludes_pattern,
+            hard_fail=hard_fail,
+            includes_pattern=includes_pattern,
+            key=key,
+            list_remote_folder_items=list_remote_folder_items,
+            local_address=local_address,
+            metadata_retrieval_timeout_secs=metadata_retrieval_timeout_secs,
+            mismatching_mime_types_override_list=mismatching_mime_types_override_list,
+            missed_cache_period_seconds=missed_cache_period_seconds,
+            notes=notes,
+            offline=offline,
+            package_type=package_type,
+            password=password,
+            priority_resolution=priority_resolution,
+            project_environments=project_environments,
+            project_key=project_key,
+            property_sets=property_sets,
+            proxy=proxy,
+            query_params=query_params,
+            remote_repo_layout_ref=remote_repo_layout_ref,
+            repo_layout_ref=repo_layout_ref,
+            retrieval_cache_period_seconds=retrieval_cache_period_seconds,
+            share_configuration=share_configuration,
+            socket_timeout_millis=socket_timeout_millis,
+            store_artifacts_locally=store_artifacts_locally,
+            synchronize_properties=synchronize_properties,
+            unused_artifacts_cleanup_period_hours=unused_artifacts_cleanup_period_hours,
+            url=url,
+            username=username,
+            vcs_git_download_url=vcs_git_download_url,
+            vcs_git_provider=vcs_git_provider,
+            xray_index=xray_index,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allow_any_host_auth: Optional[pulumi.Input[bool]] = None,
+             assumed_offline_period_secs: Optional[pulumi.Input[int]] = None,
+             blacked_out: Optional[pulumi.Input[bool]] = None,
+             block_mismatching_mime_types: Optional[pulumi.Input[bool]] = None,
+             bypass_head_requests: Optional[pulumi.Input[bool]] = None,
+             cdn_redirect: Optional[pulumi.Input[bool]] = None,
+             client_tls_certificate: Optional[pulumi.Input[str]] = None,
+             composer_registry_url: Optional[pulumi.Input[str]] = None,
+             content_synchronisation: Optional[pulumi.Input['RemoteComposerRepositoryContentSynchronisationArgs']] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             disable_proxy: Optional[pulumi.Input[bool]] = None,
+             download_direct: Optional[pulumi.Input[bool]] = None,
+             enable_cookie_management: Optional[pulumi.Input[bool]] = None,
+             excludes_pattern: Optional[pulumi.Input[str]] = None,
+             hard_fail: Optional[pulumi.Input[bool]] = None,
+             includes_pattern: Optional[pulumi.Input[str]] = None,
+             key: Optional[pulumi.Input[str]] = None,
+             list_remote_folder_items: Optional[pulumi.Input[bool]] = None,
+             local_address: Optional[pulumi.Input[str]] = None,
+             metadata_retrieval_timeout_secs: Optional[pulumi.Input[int]] = None,
+             mismatching_mime_types_override_list: Optional[pulumi.Input[str]] = None,
+             missed_cache_period_seconds: Optional[pulumi.Input[int]] = None,
+             notes: Optional[pulumi.Input[str]] = None,
+             offline: Optional[pulumi.Input[bool]] = None,
+             package_type: Optional[pulumi.Input[str]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             priority_resolution: Optional[pulumi.Input[bool]] = None,
+             project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             project_key: Optional[pulumi.Input[str]] = None,
+             property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             proxy: Optional[pulumi.Input[str]] = None,
+             query_params: Optional[pulumi.Input[str]] = None,
+             remote_repo_layout_ref: Optional[pulumi.Input[str]] = None,
+             repo_layout_ref: Optional[pulumi.Input[str]] = None,
+             retrieval_cache_period_seconds: Optional[pulumi.Input[int]] = None,
+             share_configuration: Optional[pulumi.Input[bool]] = None,
+             socket_timeout_millis: Optional[pulumi.Input[int]] = None,
+             store_artifacts_locally: Optional[pulumi.Input[bool]] = None,
+             synchronize_properties: Optional[pulumi.Input[bool]] = None,
+             unused_artifacts_cleanup_period_hours: Optional[pulumi.Input[int]] = None,
+             url: Optional[pulumi.Input[str]] = None,
+             username: Optional[pulumi.Input[str]] = None,
+             vcs_git_download_url: Optional[pulumi.Input[str]] = None,
+             vcs_git_provider: Optional[pulumi.Input[str]] = None,
+             xray_index: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if allow_any_host_auth is not None:
-            pulumi.set(__self__, "allow_any_host_auth", allow_any_host_auth)
+            _setter("allow_any_host_auth", allow_any_host_auth)
         if assumed_offline_period_secs is not None:
-            pulumi.set(__self__, "assumed_offline_period_secs", assumed_offline_period_secs)
+            _setter("assumed_offline_period_secs", assumed_offline_period_secs)
         if blacked_out is not None:
-            pulumi.set(__self__, "blacked_out", blacked_out)
+            _setter("blacked_out", blacked_out)
         if block_mismatching_mime_types is not None:
-            pulumi.set(__self__, "block_mismatching_mime_types", block_mismatching_mime_types)
+            _setter("block_mismatching_mime_types", block_mismatching_mime_types)
         if bypass_head_requests is not None:
-            pulumi.set(__self__, "bypass_head_requests", bypass_head_requests)
+            _setter("bypass_head_requests", bypass_head_requests)
         if cdn_redirect is not None:
-            pulumi.set(__self__, "cdn_redirect", cdn_redirect)
+            _setter("cdn_redirect", cdn_redirect)
         if client_tls_certificate is not None:
-            pulumi.set(__self__, "client_tls_certificate", client_tls_certificate)
+            _setter("client_tls_certificate", client_tls_certificate)
         if composer_registry_url is not None:
-            pulumi.set(__self__, "composer_registry_url", composer_registry_url)
+            _setter("composer_registry_url", composer_registry_url)
         if content_synchronisation is not None:
-            pulumi.set(__self__, "content_synchronisation", content_synchronisation)
+            _setter("content_synchronisation", content_synchronisation)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if disable_proxy is not None:
-            pulumi.set(__self__, "disable_proxy", disable_proxy)
+            _setter("disable_proxy", disable_proxy)
         if download_direct is not None:
-            pulumi.set(__self__, "download_direct", download_direct)
+            _setter("download_direct", download_direct)
         if enable_cookie_management is not None:
-            pulumi.set(__self__, "enable_cookie_management", enable_cookie_management)
+            _setter("enable_cookie_management", enable_cookie_management)
         if excludes_pattern is not None:
-            pulumi.set(__self__, "excludes_pattern", excludes_pattern)
+            _setter("excludes_pattern", excludes_pattern)
         if hard_fail is not None:
-            pulumi.set(__self__, "hard_fail", hard_fail)
+            _setter("hard_fail", hard_fail)
         if includes_pattern is not None:
-            pulumi.set(__self__, "includes_pattern", includes_pattern)
+            _setter("includes_pattern", includes_pattern)
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if list_remote_folder_items is not None:
-            pulumi.set(__self__, "list_remote_folder_items", list_remote_folder_items)
+            _setter("list_remote_folder_items", list_remote_folder_items)
         if local_address is not None:
-            pulumi.set(__self__, "local_address", local_address)
+            _setter("local_address", local_address)
         if metadata_retrieval_timeout_secs is not None:
-            pulumi.set(__self__, "metadata_retrieval_timeout_secs", metadata_retrieval_timeout_secs)
+            _setter("metadata_retrieval_timeout_secs", metadata_retrieval_timeout_secs)
         if mismatching_mime_types_override_list is not None:
-            pulumi.set(__self__, "mismatching_mime_types_override_list", mismatching_mime_types_override_list)
+            _setter("mismatching_mime_types_override_list", mismatching_mime_types_override_list)
         if missed_cache_period_seconds is not None:
-            pulumi.set(__self__, "missed_cache_period_seconds", missed_cache_period_seconds)
+            _setter("missed_cache_period_seconds", missed_cache_period_seconds)
         if notes is not None:
-            pulumi.set(__self__, "notes", notes)
+            _setter("notes", notes)
         if offline is not None:
-            pulumi.set(__self__, "offline", offline)
+            _setter("offline", offline)
         if package_type is not None:
-            pulumi.set(__self__, "package_type", package_type)
+            _setter("package_type", package_type)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if priority_resolution is not None:
-            pulumi.set(__self__, "priority_resolution", priority_resolution)
+            _setter("priority_resolution", priority_resolution)
         if project_environments is not None:
-            pulumi.set(__self__, "project_environments", project_environments)
+            _setter("project_environments", project_environments)
         if project_key is not None:
-            pulumi.set(__self__, "project_key", project_key)
+            _setter("project_key", project_key)
         if property_sets is not None:
-            pulumi.set(__self__, "property_sets", property_sets)
+            _setter("property_sets", property_sets)
         if proxy is not None:
-            pulumi.set(__self__, "proxy", proxy)
+            _setter("proxy", proxy)
         if query_params is not None:
-            pulumi.set(__self__, "query_params", query_params)
+            _setter("query_params", query_params)
         if remote_repo_layout_ref is not None:
-            pulumi.set(__self__, "remote_repo_layout_ref", remote_repo_layout_ref)
+            _setter("remote_repo_layout_ref", remote_repo_layout_ref)
         if repo_layout_ref is not None:
-            pulumi.set(__self__, "repo_layout_ref", repo_layout_ref)
+            _setter("repo_layout_ref", repo_layout_ref)
         if retrieval_cache_period_seconds is not None:
-            pulumi.set(__self__, "retrieval_cache_period_seconds", retrieval_cache_period_seconds)
+            _setter("retrieval_cache_period_seconds", retrieval_cache_period_seconds)
         if share_configuration is not None:
-            pulumi.set(__self__, "share_configuration", share_configuration)
+            _setter("share_configuration", share_configuration)
         if socket_timeout_millis is not None:
-            pulumi.set(__self__, "socket_timeout_millis", socket_timeout_millis)
+            _setter("socket_timeout_millis", socket_timeout_millis)
         if store_artifacts_locally is not None:
-            pulumi.set(__self__, "store_artifacts_locally", store_artifacts_locally)
+            _setter("store_artifacts_locally", store_artifacts_locally)
         if synchronize_properties is not None:
-            pulumi.set(__self__, "synchronize_properties", synchronize_properties)
+            _setter("synchronize_properties", synchronize_properties)
         if unused_artifacts_cleanup_period_hours is not None:
-            pulumi.set(__self__, "unused_artifacts_cleanup_period_hours", unused_artifacts_cleanup_period_hours)
+            _setter("unused_artifacts_cleanup_period_hours", unused_artifacts_cleanup_period_hours)
         if url is not None:
-            pulumi.set(__self__, "url", url)
+            _setter("url", url)
         if username is not None:
-            pulumi.set(__self__, "username", username)
+            _setter("username", username)
         if vcs_git_download_url is not None:
-            pulumi.set(__self__, "vcs_git_download_url", vcs_git_download_url)
+            _setter("vcs_git_download_url", vcs_git_download_url)
         if vcs_git_provider is not None:
-            pulumi.set(__self__, "vcs_git_provider", vcs_git_provider)
+            _setter("vcs_git_provider", vcs_git_provider)
         if xray_index is not None:
-            pulumi.set(__self__, "xray_index", xray_index)
+            _setter("xray_index", xray_index)
 
     @property
     @pulumi.getter(name="allowAnyHostAuth")
@@ -1752,6 +1944,10 @@ class RemoteComposerRepository(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RemoteComposerRepositoryArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -1818,6 +2014,11 @@ class RemoteComposerRepository(pulumi.CustomResource):
             __props__.__dict__["cdn_redirect"] = cdn_redirect
             __props__.__dict__["client_tls_certificate"] = client_tls_certificate
             __props__.__dict__["composer_registry_url"] = composer_registry_url
+            if content_synchronisation is not None and not isinstance(content_synchronisation, RemoteComposerRepositoryContentSynchronisationArgs):
+                content_synchronisation = content_synchronisation or {}
+                def _setter(key, value):
+                    content_synchronisation[key] = value
+                RemoteComposerRepositoryContentSynchronisationArgs._configure(_setter, **content_synchronisation)
             __props__.__dict__["content_synchronisation"] = content_synchronisation
             __props__.__dict__["description"] = description
             __props__.__dict__["disable_proxy"] = disable_proxy

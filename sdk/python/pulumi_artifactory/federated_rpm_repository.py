@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -82,50 +82,103 @@ class FederatedRpmRepositoryArgs:
                contains multiple RPM repositories under parallel hierarchies. For example, if your RPMs are stored under
                'fedora/linux/$releasever/$basearch', specify a depth of 4.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "members", members)
+        FederatedRpmRepositoryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            members=members,
+            archive_browsing_enabled=archive_browsing_enabled,
+            blacked_out=blacked_out,
+            calculate_yum_metadata=calculate_yum_metadata,
+            cdn_redirect=cdn_redirect,
+            cleanup_on_delete=cleanup_on_delete,
+            description=description,
+            download_direct=download_direct,
+            enable_file_lists_indexing=enable_file_lists_indexing,
+            excludes_pattern=excludes_pattern,
+            includes_pattern=includes_pattern,
+            notes=notes,
+            primary_keypair_ref=primary_keypair_ref,
+            priority_resolution=priority_resolution,
+            project_environments=project_environments,
+            project_key=project_key,
+            property_sets=property_sets,
+            repo_layout_ref=repo_layout_ref,
+            secondary_keypair_ref=secondary_keypair_ref,
+            xray_index=xray_index,
+            yum_group_file_names=yum_group_file_names,
+            yum_root_depth=yum_root_depth,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             members: pulumi.Input[Sequence[pulumi.Input['FederatedRpmRepositoryMemberArgs']]],
+             archive_browsing_enabled: Optional[pulumi.Input[bool]] = None,
+             blacked_out: Optional[pulumi.Input[bool]] = None,
+             calculate_yum_metadata: Optional[pulumi.Input[bool]] = None,
+             cdn_redirect: Optional[pulumi.Input[bool]] = None,
+             cleanup_on_delete: Optional[pulumi.Input[bool]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             download_direct: Optional[pulumi.Input[bool]] = None,
+             enable_file_lists_indexing: Optional[pulumi.Input[bool]] = None,
+             excludes_pattern: Optional[pulumi.Input[str]] = None,
+             includes_pattern: Optional[pulumi.Input[str]] = None,
+             notes: Optional[pulumi.Input[str]] = None,
+             primary_keypair_ref: Optional[pulumi.Input[str]] = None,
+             priority_resolution: Optional[pulumi.Input[bool]] = None,
+             project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             project_key: Optional[pulumi.Input[str]] = None,
+             property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             repo_layout_ref: Optional[pulumi.Input[str]] = None,
+             secondary_keypair_ref: Optional[pulumi.Input[str]] = None,
+             xray_index: Optional[pulumi.Input[bool]] = None,
+             yum_group_file_names: Optional[pulumi.Input[str]] = None,
+             yum_root_depth: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("members", members)
         if archive_browsing_enabled is not None:
-            pulumi.set(__self__, "archive_browsing_enabled", archive_browsing_enabled)
+            _setter("archive_browsing_enabled", archive_browsing_enabled)
         if blacked_out is not None:
-            pulumi.set(__self__, "blacked_out", blacked_out)
+            _setter("blacked_out", blacked_out)
         if calculate_yum_metadata is not None:
-            pulumi.set(__self__, "calculate_yum_metadata", calculate_yum_metadata)
+            _setter("calculate_yum_metadata", calculate_yum_metadata)
         if cdn_redirect is not None:
-            pulumi.set(__self__, "cdn_redirect", cdn_redirect)
+            _setter("cdn_redirect", cdn_redirect)
         if cleanup_on_delete is not None:
-            pulumi.set(__self__, "cleanup_on_delete", cleanup_on_delete)
+            _setter("cleanup_on_delete", cleanup_on_delete)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if download_direct is not None:
-            pulumi.set(__self__, "download_direct", download_direct)
+            _setter("download_direct", download_direct)
         if enable_file_lists_indexing is not None:
-            pulumi.set(__self__, "enable_file_lists_indexing", enable_file_lists_indexing)
+            _setter("enable_file_lists_indexing", enable_file_lists_indexing)
         if excludes_pattern is not None:
-            pulumi.set(__self__, "excludes_pattern", excludes_pattern)
+            _setter("excludes_pattern", excludes_pattern)
         if includes_pattern is not None:
-            pulumi.set(__self__, "includes_pattern", includes_pattern)
+            _setter("includes_pattern", includes_pattern)
         if notes is not None:
-            pulumi.set(__self__, "notes", notes)
+            _setter("notes", notes)
         if primary_keypair_ref is not None:
-            pulumi.set(__self__, "primary_keypair_ref", primary_keypair_ref)
+            _setter("primary_keypair_ref", primary_keypair_ref)
         if priority_resolution is not None:
-            pulumi.set(__self__, "priority_resolution", priority_resolution)
+            _setter("priority_resolution", priority_resolution)
         if project_environments is not None:
-            pulumi.set(__self__, "project_environments", project_environments)
+            _setter("project_environments", project_environments)
         if project_key is not None:
-            pulumi.set(__self__, "project_key", project_key)
+            _setter("project_key", project_key)
         if property_sets is not None:
-            pulumi.set(__self__, "property_sets", property_sets)
+            _setter("property_sets", property_sets)
         if repo_layout_ref is not None:
-            pulumi.set(__self__, "repo_layout_ref", repo_layout_ref)
+            _setter("repo_layout_ref", repo_layout_ref)
         if secondary_keypair_ref is not None:
-            pulumi.set(__self__, "secondary_keypair_ref", secondary_keypair_ref)
+            _setter("secondary_keypair_ref", secondary_keypair_ref)
         if xray_index is not None:
-            pulumi.set(__self__, "xray_index", xray_index)
+            _setter("xray_index", xray_index)
         if yum_group_file_names is not None:
-            pulumi.set(__self__, "yum_group_file_names", yum_group_file_names)
+            _setter("yum_group_file_names", yum_group_file_names)
         if yum_root_depth is not None:
-            pulumi.set(__self__, "yum_root_depth", yum_root_depth)
+            _setter("yum_root_depth", yum_root_depth)
 
     @property
     @pulumi.getter
@@ -487,54 +540,109 @@ class _FederatedRpmRepositoryState:
                contains multiple RPM repositories under parallel hierarchies. For example, if your RPMs are stored under
                'fedora/linux/$releasever/$basearch', specify a depth of 4.
         """
+        _FederatedRpmRepositoryState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            archive_browsing_enabled=archive_browsing_enabled,
+            blacked_out=blacked_out,
+            calculate_yum_metadata=calculate_yum_metadata,
+            cdn_redirect=cdn_redirect,
+            cleanup_on_delete=cleanup_on_delete,
+            description=description,
+            download_direct=download_direct,
+            enable_file_lists_indexing=enable_file_lists_indexing,
+            excludes_pattern=excludes_pattern,
+            includes_pattern=includes_pattern,
+            key=key,
+            members=members,
+            notes=notes,
+            package_type=package_type,
+            primary_keypair_ref=primary_keypair_ref,
+            priority_resolution=priority_resolution,
+            project_environments=project_environments,
+            project_key=project_key,
+            property_sets=property_sets,
+            repo_layout_ref=repo_layout_ref,
+            secondary_keypair_ref=secondary_keypair_ref,
+            xray_index=xray_index,
+            yum_group_file_names=yum_group_file_names,
+            yum_root_depth=yum_root_depth,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             archive_browsing_enabled: Optional[pulumi.Input[bool]] = None,
+             blacked_out: Optional[pulumi.Input[bool]] = None,
+             calculate_yum_metadata: Optional[pulumi.Input[bool]] = None,
+             cdn_redirect: Optional[pulumi.Input[bool]] = None,
+             cleanup_on_delete: Optional[pulumi.Input[bool]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             download_direct: Optional[pulumi.Input[bool]] = None,
+             enable_file_lists_indexing: Optional[pulumi.Input[bool]] = None,
+             excludes_pattern: Optional[pulumi.Input[str]] = None,
+             includes_pattern: Optional[pulumi.Input[str]] = None,
+             key: Optional[pulumi.Input[str]] = None,
+             members: Optional[pulumi.Input[Sequence[pulumi.Input['FederatedRpmRepositoryMemberArgs']]]] = None,
+             notes: Optional[pulumi.Input[str]] = None,
+             package_type: Optional[pulumi.Input[str]] = None,
+             primary_keypair_ref: Optional[pulumi.Input[str]] = None,
+             priority_resolution: Optional[pulumi.Input[bool]] = None,
+             project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             project_key: Optional[pulumi.Input[str]] = None,
+             property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             repo_layout_ref: Optional[pulumi.Input[str]] = None,
+             secondary_keypair_ref: Optional[pulumi.Input[str]] = None,
+             xray_index: Optional[pulumi.Input[bool]] = None,
+             yum_group_file_names: Optional[pulumi.Input[str]] = None,
+             yum_root_depth: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if archive_browsing_enabled is not None:
-            pulumi.set(__self__, "archive_browsing_enabled", archive_browsing_enabled)
+            _setter("archive_browsing_enabled", archive_browsing_enabled)
         if blacked_out is not None:
-            pulumi.set(__self__, "blacked_out", blacked_out)
+            _setter("blacked_out", blacked_out)
         if calculate_yum_metadata is not None:
-            pulumi.set(__self__, "calculate_yum_metadata", calculate_yum_metadata)
+            _setter("calculate_yum_metadata", calculate_yum_metadata)
         if cdn_redirect is not None:
-            pulumi.set(__self__, "cdn_redirect", cdn_redirect)
+            _setter("cdn_redirect", cdn_redirect)
         if cleanup_on_delete is not None:
-            pulumi.set(__self__, "cleanup_on_delete", cleanup_on_delete)
+            _setter("cleanup_on_delete", cleanup_on_delete)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if download_direct is not None:
-            pulumi.set(__self__, "download_direct", download_direct)
+            _setter("download_direct", download_direct)
         if enable_file_lists_indexing is not None:
-            pulumi.set(__self__, "enable_file_lists_indexing", enable_file_lists_indexing)
+            _setter("enable_file_lists_indexing", enable_file_lists_indexing)
         if excludes_pattern is not None:
-            pulumi.set(__self__, "excludes_pattern", excludes_pattern)
+            _setter("excludes_pattern", excludes_pattern)
         if includes_pattern is not None:
-            pulumi.set(__self__, "includes_pattern", includes_pattern)
+            _setter("includes_pattern", includes_pattern)
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if members is not None:
-            pulumi.set(__self__, "members", members)
+            _setter("members", members)
         if notes is not None:
-            pulumi.set(__self__, "notes", notes)
+            _setter("notes", notes)
         if package_type is not None:
-            pulumi.set(__self__, "package_type", package_type)
+            _setter("package_type", package_type)
         if primary_keypair_ref is not None:
-            pulumi.set(__self__, "primary_keypair_ref", primary_keypair_ref)
+            _setter("primary_keypair_ref", primary_keypair_ref)
         if priority_resolution is not None:
-            pulumi.set(__self__, "priority_resolution", priority_resolution)
+            _setter("priority_resolution", priority_resolution)
         if project_environments is not None:
-            pulumi.set(__self__, "project_environments", project_environments)
+            _setter("project_environments", project_environments)
         if project_key is not None:
-            pulumi.set(__self__, "project_key", project_key)
+            _setter("project_key", project_key)
         if property_sets is not None:
-            pulumi.set(__self__, "property_sets", property_sets)
+            _setter("property_sets", property_sets)
         if repo_layout_ref is not None:
-            pulumi.set(__self__, "repo_layout_ref", repo_layout_ref)
+            _setter("repo_layout_ref", repo_layout_ref)
         if secondary_keypair_ref is not None:
-            pulumi.set(__self__, "secondary_keypair_ref", secondary_keypair_ref)
+            _setter("secondary_keypair_ref", secondary_keypair_ref)
         if xray_index is not None:
-            pulumi.set(__self__, "xray_index", xray_index)
+            _setter("xray_index", xray_index)
         if yum_group_file_names is not None:
-            pulumi.set(__self__, "yum_group_file_names", yum_group_file_names)
+            _setter("yum_group_file_names", yum_group_file_names)
         if yum_root_depth is not None:
-            pulumi.set(__self__, "yum_root_depth", yum_root_depth)
+            _setter("yum_root_depth", yum_root_depth)
 
     @property
     @pulumi.getter(name="archiveBrowsingEnabled")
@@ -985,6 +1093,10 @@ class FederatedRpmRepository(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FederatedRpmRepositoryArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

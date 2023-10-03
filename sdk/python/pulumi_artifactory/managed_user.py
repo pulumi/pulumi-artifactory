@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['ManagedUserArgs', 'ManagedUser']
@@ -33,21 +33,44 @@ class ManagedUserArgs:
         :param pulumi.Input[str] password: (Optional, Sensitive) Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters
         :param pulumi.Input[bool] profile_updatable: (Optional, Default: true) When enabled, this user can update their profile details (except for the password. Only an administrator can update the password). There may be cases in which you want to leave this unset to prevent users from updating their profile. For example, a departmental user with a single password shared between all department members.
         """
-        pulumi.set(__self__, "email", email)
+        ManagedUserArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            email=email,
+            admin=admin,
+            disable_ui_access=disable_ui_access,
+            groups=groups,
+            internal_password_disabled=internal_password_disabled,
+            name=name,
+            password=password,
+            profile_updatable=profile_updatable,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             email: pulumi.Input[str],
+             admin: Optional[pulumi.Input[bool]] = None,
+             disable_ui_access: Optional[pulumi.Input[bool]] = None,
+             groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             internal_password_disabled: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             profile_updatable: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("email", email)
         if admin is not None:
-            pulumi.set(__self__, "admin", admin)
+            _setter("admin", admin)
         if disable_ui_access is not None:
-            pulumi.set(__self__, "disable_ui_access", disable_ui_access)
+            _setter("disable_ui_access", disable_ui_access)
         if groups is not None:
-            pulumi.set(__self__, "groups", groups)
+            _setter("groups", groups)
         if internal_password_disabled is not None:
-            pulumi.set(__self__, "internal_password_disabled", internal_password_disabled)
+            _setter("internal_password_disabled", internal_password_disabled)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if profile_updatable is not None:
-            pulumi.set(__self__, "profile_updatable", profile_updatable)
+            _setter("profile_updatable", profile_updatable)
 
     @property
     @pulumi.getter
@@ -168,22 +191,45 @@ class _ManagedUserState:
         :param pulumi.Input[str] password: (Optional, Sensitive) Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters
         :param pulumi.Input[bool] profile_updatable: (Optional, Default: true) When enabled, this user can update their profile details (except for the password. Only an administrator can update the password). There may be cases in which you want to leave this unset to prevent users from updating their profile. For example, a departmental user with a single password shared between all department members.
         """
+        _ManagedUserState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            admin=admin,
+            disable_ui_access=disable_ui_access,
+            email=email,
+            groups=groups,
+            internal_password_disabled=internal_password_disabled,
+            name=name,
+            password=password,
+            profile_updatable=profile_updatable,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             admin: Optional[pulumi.Input[bool]] = None,
+             disable_ui_access: Optional[pulumi.Input[bool]] = None,
+             email: Optional[pulumi.Input[str]] = None,
+             groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             internal_password_disabled: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             profile_updatable: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if admin is not None:
-            pulumi.set(__self__, "admin", admin)
+            _setter("admin", admin)
         if disable_ui_access is not None:
-            pulumi.set(__self__, "disable_ui_access", disable_ui_access)
+            _setter("disable_ui_access", disable_ui_access)
         if email is not None:
-            pulumi.set(__self__, "email", email)
+            _setter("email", email)
         if groups is not None:
-            pulumi.set(__self__, "groups", groups)
+            _setter("groups", groups)
         if internal_password_disabled is not None:
-            pulumi.set(__self__, "internal_password_disabled", internal_password_disabled)
+            _setter("internal_password_disabled", internal_password_disabled)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if profile_updatable is not None:
-            pulumi.set(__self__, "profile_updatable", profile_updatable)
+            _setter("profile_updatable", profile_updatable)
 
     @property
     @pulumi.getter
@@ -367,6 +413,10 @@ class ManagedUser(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ManagedUserArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
