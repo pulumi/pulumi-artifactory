@@ -1318,6 +1318,10 @@
                     }
                 }
             },
+            "artifactory_mail_server": {
+                "current": "artifactory:index/mailServer:MailServer",
+                "majorVersion": 5
+            },
             "artifactory_managed_user": {
                 "current": "artifactory:index/managedUser:ManagedUser",
                 "majorVersion": 5,
@@ -4515,6 +4519,7 @@
             "artifactory:index/localTerraformModuleRepository:LocalTerraformModuleRepository": 0,
             "artifactory:index/localTerraformProviderRepository:LocalTerraformProviderRepository": 0,
             "artifactory:index/localVagrantRepository:LocalVagrantRepository": 0,
+            "artifactory:index/mailServer:MailServer": 1,
             "artifactory:index/managedUser:ManagedUser": 1,
             "artifactory:index/mavenRepository:MavenRepository": 0,
             "artifactory:index/oauthSettings:OauthSettings": 0,
@@ -4816,6 +4821,7 @@
             "artifactory:index/localTerraformModuleRepository:LocalTerraformModuleRepository": "artifactory_local_terraform_module_repository",
             "artifactory:index/localTerraformProviderRepository:LocalTerraformProviderRepository": "artifactory_local_terraform_provider_repository",
             "artifactory:index/localVagrantRepository:LocalVagrantRepository": "artifactory_local_vagrant_repository",
+            "artifactory:index/mailServer:MailServer": "artifactory_mail_server",
             "artifactory:index/managedUser:ManagedUser": "artifactory_managed_user",
             "artifactory:index/mavenRepository:MavenRepository": "artifactory_virtual_maven_repository",
             "artifactory:index/oauthSettings:OauthSettings": "artifactory_oauth_settings",
@@ -9503,6 +9509,12 @@
                 "propertySets": "property_sets",
                 "repoLayoutRef": "repo_layout_ref",
                 "xrayIndex": "xray_index"
+            },
+            "artifactory:index/mailServer:MailServer": {
+                "artifactoryUrl": "artifactory_url",
+                "subjectPrefix": "subject_prefix",
+                "useSsl": "use_ssl",
+                "useTls": "use_tls"
             },
             "artifactory:index/managedUser:ManagedUser": {
                 "disableUiAccess": "disable_ui_access",
