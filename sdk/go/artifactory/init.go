@@ -209,6 +209,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &LocalTerraformProviderRepository{}
 	case "artifactory:index/localVagrantRepository:LocalVagrantRepository":
 		r = &LocalVagrantRepository{}
+	case "artifactory:index/mailServer:MailServer":
+		r = &MailServer{}
 	case "artifactory:index/managedUser:ManagedUser":
 		r = &ManagedUser{}
 	case "artifactory:index/mavenRepository:MavenRepository":
@@ -856,6 +858,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"artifactory",
 		"index/localVagrantRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/mailServer",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

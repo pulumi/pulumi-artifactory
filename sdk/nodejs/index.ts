@@ -1110,6 +1110,11 @@ export type LocalVagrantRepository = import("./localVagrantRepository").LocalVag
 export const LocalVagrantRepository: typeof import("./localVagrantRepository").LocalVagrantRepository = null as any;
 utilities.lazyLoad(exports, ["LocalVagrantRepository"], () => require("./localVagrantRepository"));
 
+export { MailServerArgs, MailServerState } from "./mailServer";
+export type MailServer = import("./mailServer").MailServer;
+export const MailServer: typeof import("./mailServer").MailServer = null as any;
+utilities.lazyLoad(exports, ["MailServer"], () => require("./mailServer"));
+
 export { ManagedUserArgs, ManagedUserState } from "./managedUser";
 export type ManagedUser = import("./managedUser").ManagedUser;
 export const ManagedUser: typeof import("./managedUser").ManagedUser = null as any;
@@ -1687,6 +1692,8 @@ const _module = {
                 return new LocalTerraformProviderRepository(name, <any>undefined, { urn })
             case "artifactory:index/localVagrantRepository:LocalVagrantRepository":
                 return new LocalVagrantRepository(name, <any>undefined, { urn })
+            case "artifactory:index/mailServer:MailServer":
+                return new MailServer(name, <any>undefined, { urn })
             case "artifactory:index/managedUser:ManagedUser":
                 return new ManagedUser(name, <any>undefined, { urn })
             case "artifactory:index/mavenRepository:MavenRepository":
@@ -1934,6 +1941,7 @@ pulumi.runtime.registerResourceModule("artifactory", "index/localTerraformBacken
 pulumi.runtime.registerResourceModule("artifactory", "index/localTerraformModuleRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/localTerraformProviderRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/localVagrantRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/mailServer", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/managedUser", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/mavenRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/oauthSettings", _module)
