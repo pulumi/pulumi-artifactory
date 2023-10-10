@@ -226,6 +226,7 @@ from .local_terraform_backend_repository import *
 from .local_terraform_module_repository import *
 from .local_terraform_provider_repository import *
 from .local_vagrant_repository import *
+from .mail_server import *
 from .managed_user import *
 from .maven_repository import *
 from .oauth_settings import *
@@ -1064,6 +1065,14 @@ _utilities.register(
   "fqn": "pulumi_artifactory",
   "classes": {
    "artifactory:index/localVagrantRepository:LocalVagrantRepository": "LocalVagrantRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/mailServer",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/mailServer:MailServer": "MailServer"
   }
  },
  {

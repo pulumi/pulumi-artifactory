@@ -237,6 +237,7 @@
         "localTerraformModuleRepository.ts",
         "localTerraformProviderRepository.ts",
         "localVagrantRepository.ts",
+        "mailServer.ts",
         "managedUser.ts",
         "mavenRepository.ts",
         "oauthSettings.ts",
