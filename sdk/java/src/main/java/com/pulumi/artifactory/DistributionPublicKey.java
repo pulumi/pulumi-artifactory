@@ -64,7 +64,7 @@ public class DistributionPublicKey extends com.pulumi.resources.CustomResource {
      * Will be used as an identifier when uploading/retrieving the public key via REST API.
      * 
      */
-    @Export(name="alias", type=String.class, parameters={})
+    @Export(name="alias", refs={String.class}, tree="[0]")
     private Output<String> alias;
 
     /**
@@ -78,7 +78,7 @@ public class DistributionPublicKey extends com.pulumi.resources.CustomResource {
      * Returns the computed key fingerprint
      * 
      */
-    @Export(name="fingerprint", type=String.class, parameters={})
+    @Export(name="fingerprint", refs={String.class}, tree="[0]")
     private Output<String> fingerprint;
 
     /**
@@ -92,7 +92,7 @@ public class DistributionPublicKey extends com.pulumi.resources.CustomResource {
      * Returns the name and eMail address of issuer
      * 
      */
-    @Export(name="issuedBy", type=String.class, parameters={})
+    @Export(name="issuedBy", refs={String.class}, tree="[0]")
     private Output<String> issuedBy;
 
     /**
@@ -106,7 +106,7 @@ public class DistributionPublicKey extends com.pulumi.resources.CustomResource {
      * Returns the date/time when this GPG key was created
      * 
      */
-    @Export(name="issuedOn", type=String.class, parameters={})
+    @Export(name="issuedOn", refs={String.class}, tree="[0]")
     private Output<String> issuedOn;
 
     /**
@@ -120,7 +120,7 @@ public class DistributionPublicKey extends com.pulumi.resources.CustomResource {
      * Returns the key id by which this key is referenced in Artifactory
      * 
      */
-    @Export(name="keyId", type=String.class, parameters={})
+    @Export(name="keyId", refs={String.class}, tree="[0]")
     private Output<String> keyId;
 
     /**
@@ -136,7 +136,7 @@ public class DistributionPublicKey extends com.pulumi.resources.CustomResource {
      * The following additional attributes are exported:
      * 
      */
-    @Export(name="publicKey", type=String.class, parameters={})
+    @Export(name="publicKey", refs={String.class}, tree="[0]")
     private Output<String> publicKey;
 
     /**
@@ -152,7 +152,7 @@ public class DistributionPublicKey extends com.pulumi.resources.CustomResource {
      * Returns the date/time when this GPG key expires.
      * 
      */
-    @Export(name="validUntil", type=String.class, parameters={})
+    @Export(name="validUntil", refs={String.class}, tree="[0]")
     private Output<String> validUntil;
 
     /**

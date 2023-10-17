@@ -79,7 +79,7 @@ public class SamlSettings extends com.pulumi.resources.CustomResource {
      * Allow persisted users to access their profile.  Default value is `true`.
      * 
      */
-    @Export(name="allowUserToAccessProfile", type=Boolean.class, parameters={})
+    @Export(name="allowUserToAccessProfile", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> allowUserToAccessProfile;
 
     /**
@@ -93,7 +93,7 @@ public class SamlSettings extends com.pulumi.resources.CustomResource {
      * Auto redirect to login through the IdP when clicking on Artifactory&#39;s login link.  Default value is `false`.
      * 
      */
-    @Export(name="autoRedirect", type=Boolean.class, parameters={})
+    @Export(name="autoRedirect", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> autoRedirect;
 
     /**
@@ -107,7 +107,7 @@ public class SamlSettings extends com.pulumi.resources.CustomResource {
      * SAML certificate that contains the public key for the IdP service provider.  Used by Artifactory to verify sign-in requests. Default value is ``.
      * 
      */
-    @Export(name="certificate", type=String.class, parameters={})
+    @Export(name="certificate", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> certificate;
 
     /**
@@ -121,7 +121,7 @@ public class SamlSettings extends com.pulumi.resources.CustomResource {
      * Name of the attribute in the SAML response from the IdP that contains the user&#39;s email. Default value is ``.
      * 
      */
-    @Export(name="emailAttribute", type=String.class, parameters={})
+    @Export(name="emailAttribute", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> emailAttribute;
 
     /**
@@ -135,7 +135,7 @@ public class SamlSettings extends com.pulumi.resources.CustomResource {
      * Enable SAML SSO.  Default value is `true`.
      * 
      */
-    @Export(name="enable", type=Boolean.class, parameters={})
+    @Export(name="enable", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enable;
 
     /**
@@ -149,7 +149,7 @@ public class SamlSettings extends com.pulumi.resources.CustomResource {
      * Name of the attribute in the SAML response from the IdP that contains the user&#39;s group memberships. Default value is ``.
      * 
      */
-    @Export(name="groupAttribute", type=String.class, parameters={})
+    @Export(name="groupAttribute", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> groupAttribute;
 
     /**
@@ -163,7 +163,7 @@ public class SamlSettings extends com.pulumi.resources.CustomResource {
      * Service provider login url configured on the IdP.
      * 
      */
-    @Export(name="loginUrl", type=String.class, parameters={})
+    @Export(name="loginUrl", refs={String.class}, tree="[0]")
     private Output<String> loginUrl;
 
     /**
@@ -177,7 +177,7 @@ public class SamlSettings extends com.pulumi.resources.CustomResource {
      * Service provider logout url, or where to redirect after user logs out.
      * 
      */
-    @Export(name="logoutUrl", type=String.class, parameters={})
+    @Export(name="logoutUrl", refs={String.class}, tree="[0]")
     private Output<String> logoutUrl;
 
     /**
@@ -191,7 +191,7 @@ public class SamlSettings extends com.pulumi.resources.CustomResource {
      * When automatic user creation is off, authenticated users are not automatically created inside Artifactory. Instead, for every request from an SSO user, the user is temporarily associated with default groups (if such groups are defined), and the permissions for these groups apply. Without auto-user creation, you must manually create the user inside Artifactory to manage user permissions not attached to their default groups. Default value is `false`.
      * 
      */
-    @Export(name="noAutoUserCreation", type=Boolean.class, parameters={})
+    @Export(name="noAutoUserCreation", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> noAutoUserCreation;
 
     /**
@@ -205,7 +205,7 @@ public class SamlSettings extends com.pulumi.resources.CustomResource {
      * The SAML service provider name. This should be a URI that is also known as the entityID, providerID, or entity identity.
      * 
      */
-    @Export(name="serviceProviderName", type=String.class, parameters={})
+    @Export(name="serviceProviderName", refs={String.class}, tree="[0]")
     private Output<String> serviceProviderName;
 
     /**
@@ -219,7 +219,7 @@ public class SamlSettings extends com.pulumi.resources.CustomResource {
      * Associate user with Artifactory groups based on the `group_attribute` provided in the SAML response from the identity provider.  Default value is `false`.
      * 
      */
-    @Export(name="syncGroups", type=Boolean.class, parameters={})
+    @Export(name="syncGroups", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> syncGroups;
 
     /**
@@ -233,7 +233,7 @@ public class SamlSettings extends com.pulumi.resources.CustomResource {
      * When set, an X.509 public certificate will be created by Artifactory. Download this certificate and upload it to your IDP and choose your own encryption algorithm. This process will let you encrypt the assertion section in your SAML response. Default value is `false`.
      * 
      */
-    @Export(name="useEncryptedAssertion", type=Boolean.class, parameters={})
+    @Export(name="useEncryptedAssertion", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> useEncryptedAssertion;
 
     /**
@@ -247,7 +247,7 @@ public class SamlSettings extends com.pulumi.resources.CustomResource {
      * Enable &#34;audience&#34;, or who the SAML assertion is intended for.  Ensures that the correct service provider intended for Artifactory is used on the IdP.  Default value is `true`.
      * 
      */
-    @Export(name="verifyAudienceRestriction", type=Boolean.class, parameters={})
+    @Export(name="verifyAudienceRestriction", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> verifyAudienceRestriction;
 
     /**

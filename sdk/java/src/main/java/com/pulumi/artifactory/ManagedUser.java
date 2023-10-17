@@ -64,7 +64,7 @@ public class ManagedUser extends com.pulumi.resources.CustomResource {
      * (Optional, Default: false) When enabled, this user is an administrator with all the ensuing privileges.
      * 
      */
-    @Export(name="admin", type=Boolean.class, parameters={})
+    @Export(name="admin", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> admin;
 
     /**
@@ -78,7 +78,7 @@ public class ManagedUser extends com.pulumi.resources.CustomResource {
      * (Optional, Default: true) When enabled, this user can only access the system through the REST API. This option cannot be set if the user has Admin privileges.
      * 
      */
-    @Export(name="disableUiAccess", type=Boolean.class, parameters={})
+    @Export(name="disableUiAccess", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> disableUiAccess;
 
     /**
@@ -92,7 +92,7 @@ public class ManagedUser extends com.pulumi.resources.CustomResource {
      * Email for user.
      * 
      */
-    @Export(name="email", type=String.class, parameters={})
+    @Export(name="email", refs={String.class}, tree="[0]")
     private Output<String> email;
 
     /**
@@ -106,7 +106,7 @@ public class ManagedUser extends com.pulumi.resources.CustomResource {
      * List of groups this user is a part of. If no groups set, `readers` group will be added by default. If other groups are assigned, `readers` must be added to the list manually to avoid state drift.
      * 
      */
-    @Export(name="groups", type=List.class, parameters={String.class})
+    @Export(name="groups", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> groups;
 
     /**
@@ -120,7 +120,7 @@ public class ManagedUser extends com.pulumi.resources.CustomResource {
      * (Optional, Default: false) When enabled, disables the fallback mechanism for using an internal password when external authentication (such as LDAP) is enabled.
      * 
      */
-    @Export(name="internalPasswordDisabled", type=Boolean.class, parameters={})
+    @Export(name="internalPasswordDisabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> internalPasswordDisabled;
 
     /**
@@ -134,7 +134,7 @@ public class ManagedUser extends com.pulumi.resources.CustomResource {
      * Username for user. May contain lowercase letters, numbers and symbols: &#39;.-_@&#39;
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -148,7 +148,7 @@ public class ManagedUser extends com.pulumi.resources.CustomResource {
      * (Optional, Sensitive) Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters
      * 
      */
-    @Export(name="password", type=String.class, parameters={})
+    @Export(name="password", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> password;
 
     /**
@@ -162,7 +162,7 @@ public class ManagedUser extends com.pulumi.resources.CustomResource {
      * (Optional, Default: true) When enabled, this user can update their profile details (except for the password. Only an administrator can update the password). There may be cases in which you want to leave this unset to prevent users from updating their profile. For example, a departmental user with a single password shared between all department members.
      * 
      */
-    @Export(name="profileUpdatable", type=Boolean.class, parameters={})
+    @Export(name="profileUpdatable", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> profileUpdatable;
 
     /**

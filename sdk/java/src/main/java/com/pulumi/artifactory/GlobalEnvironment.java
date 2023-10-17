@@ -56,7 +56,7 @@ public class GlobalEnvironment extends com.pulumi.resources.CustomResource {
      * Name must start with a letter and contain letters, digits and `-` character. The maximum length is 32 characters
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**

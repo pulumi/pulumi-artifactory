@@ -71,7 +71,7 @@ public class RemoteCocoapodsRepository extends com.pulumi.resources.CustomResour
      * other host.
      * 
      */
-    @Export(name="allowAnyHostAuth", type=Boolean.class, parameters={})
+    @Export(name="allowAnyHostAuth", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> allowAnyHostAuth;
 
     /**
@@ -88,7 +88,7 @@ public class RemoteCocoapodsRepository extends com.pulumi.resources.CustomResour
      * offline.
      * 
      */
-    @Export(name="assumedOfflinePeriodSecs", type=Integer.class, parameters={})
+    @Export(name="assumedOfflinePeriodSecs", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> assumedOfflinePeriodSecs;
 
     /**
@@ -105,7 +105,7 @@ public class RemoteCocoapodsRepository extends com.pulumi.resources.CustomResour
      * resolution.
      * 
      */
-    @Export(name="blackedOut", type=Boolean.class, parameters={})
+    @Export(name="blackedOut", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> blackedOut;
 
     /**
@@ -122,7 +122,7 @@ public class RemoteCocoapodsRepository extends com.pulumi.resources.CustomResour
      * to the override list &#39;mismatching_mime_types_override_list&#39;.
      * 
      */
-    @Export(name="blockMismatchingMimeTypes", type=Boolean.class, parameters={})
+    @Export(name="blockMismatchingMimeTypes", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> blockMismatchingMimeTypes;
 
     /**
@@ -140,7 +140,7 @@ public class RemoteCocoapodsRepository extends com.pulumi.resources.CustomResour
      * Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
      * 
      */
-    @Export(name="bypassHeadRequests", type=Boolean.class, parameters={})
+    @Export(name="bypassHeadRequests", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> bypassHeadRequests;
 
     /**
@@ -157,7 +157,7 @@ public class RemoteCocoapodsRepository extends com.pulumi.resources.CustomResour
      * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
      * 
      */
-    @Export(name="cdnRedirect", type=Boolean.class, parameters={})
+    @Export(name="cdnRedirect", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> cdnRedirect;
 
     /**
@@ -172,7 +172,7 @@ public class RemoteCocoapodsRepository extends com.pulumi.resources.CustomResour
      * Client TLS certificate name.
      * 
      */
-    @Export(name="clientTlsCertificate", type=String.class, parameters={})
+    @Export(name="clientTlsCertificate", refs={String.class}, tree="[0]")
     private Output<String> clientTlsCertificate;
 
     /**
@@ -182,7 +182,7 @@ public class RemoteCocoapodsRepository extends com.pulumi.resources.CustomResour
     public Output<String> clientTlsCertificate() {
         return this.clientTlsCertificate;
     }
-    @Export(name="contentSynchronisation", type=RemoteCocoapodsRepositoryContentSynchronisation.class, parameters={})
+    @Export(name="contentSynchronisation", refs={RemoteCocoapodsRepositoryContentSynchronisation.class}, tree="[0]")
     private Output<RemoteCocoapodsRepositoryContentSynchronisation> contentSynchronisation;
 
     public Output<RemoteCocoapodsRepositoryContentSynchronisation> contentSynchronisation() {
@@ -192,7 +192,7 @@ public class RemoteCocoapodsRepository extends com.pulumi.resources.CustomResour
      * Public description.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -207,7 +207,7 @@ public class RemoteCocoapodsRepository extends com.pulumi.resources.CustomResour
      * for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
      * 
      */
-    @Export(name="disableProxy", type=Boolean.class, parameters={})
+    @Export(name="disableProxy", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> disableProxy;
 
     /**
@@ -222,7 +222,7 @@ public class RemoteCocoapodsRepository extends com.pulumi.resources.CustomResour
      * Whether to disable URL normalization, default is `false`.
      * 
      */
-    @Export(name="disableUrlNormalization", type=Boolean.class, parameters={})
+    @Export(name="disableUrlNormalization", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> disableUrlNormalization;
 
     /**
@@ -237,7 +237,7 @@ public class RemoteCocoapodsRepository extends com.pulumi.resources.CustomResour
      * storage provider. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;.
      * 
      */
-    @Export(name="downloadDirect", type=Boolean.class, parameters={})
+    @Export(name="downloadDirect", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> downloadDirect;
 
     /**
@@ -252,7 +252,7 @@ public class RemoteCocoapodsRepository extends com.pulumi.resources.CustomResour
      * Enables cookie management if the remote repository uses cookies to manage client state.
      * 
      */
-    @Export(name="enableCookieManagement", type=Boolean.class, parameters={})
+    @Export(name="enableCookieManagement", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableCookieManagement;
 
     /**
@@ -267,7 +267,7 @@ public class RemoteCocoapodsRepository extends com.pulumi.resources.CustomResour
      * artifacts are excluded.
      * 
      */
-    @Export(name="excludesPattern", type=String.class, parameters={})
+    @Export(name="excludesPattern", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> excludesPattern;
 
     /**
@@ -283,7 +283,7 @@ public class RemoteCocoapodsRepository extends com.pulumi.resources.CustomResour
      * communicate with this repository.
      * 
      */
-    @Export(name="hardFail", type=Boolean.class, parameters={})
+    @Export(name="hardFail", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> hardFail;
 
     /**
@@ -299,7 +299,7 @@ public class RemoteCocoapodsRepository extends com.pulumi.resources.CustomResour
      * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**{@literal /}*).
      * 
      */
-    @Export(name="includesPattern", type=String.class, parameters={})
+    @Export(name="includesPattern", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> includesPattern;
 
     /**
@@ -315,7 +315,7 @@ public class RemoteCocoapodsRepository extends com.pulumi.resources.CustomResour
      * contain spaces or special characters.
      * 
      */
-    @Export(name="key", type=String.class, parameters={})
+    @Export(name="key", refs={String.class}, tree="[0]")
     private Output<String> key;
 
     /**
@@ -331,7 +331,7 @@ public class RemoteCocoapodsRepository extends com.pulumi.resources.CustomResour
      * the &#39;Retrieval Cache Period&#39;. Default value is &#39;true&#39;.
      * 
      */
-    @Export(name="listRemoteFolderItems", type=Boolean.class, parameters={})
+    @Export(name="listRemoteFolderItems", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> listRemoteFolderItems;
 
     /**
@@ -347,7 +347,7 @@ public class RemoteCocoapodsRepository extends com.pulumi.resources.CustomResour
      * multiple network interfaces.
      * 
      */
-    @Export(name="localAddress", type=String.class, parameters={})
+    @Export(name="localAddress", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> localAddress;
 
     /**
@@ -363,7 +363,7 @@ public class RemoteCocoapodsRepository extends com.pulumi.resources.CustomResour
      * the remote before serving locally cached artifact or fail the request.
      * 
      */
-    @Export(name="metadataRetrievalTimeoutSecs", type=Integer.class, parameters={})
+    @Export(name="metadataRetrievalTimeoutSecs", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> metadataRetrievalTimeoutSecs;
 
     /**
@@ -379,7 +379,7 @@ public class RemoteCocoapodsRepository extends com.pulumi.resources.CustomResour
      * &#39;application/json,application/xml&#39;. Default value is empty.
      * 
      */
-    @Export(name="mismatchingMimeTypesOverrideList", type=String.class, parameters={})
+    @Export(name="mismatchingMimeTypesOverrideList", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> mismatchingMimeTypesOverrideList;
 
     /**
@@ -395,7 +395,7 @@ public class RemoteCocoapodsRepository extends com.pulumi.resources.CustomResour
      * found). A value of 0 indicates no caching.
      * 
      */
-    @Export(name="missedCachePeriodSeconds", type=Integer.class, parameters={})
+    @Export(name="missedCachePeriodSeconds", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> missedCachePeriodSeconds;
 
     /**
@@ -410,7 +410,7 @@ public class RemoteCocoapodsRepository extends com.pulumi.resources.CustomResour
      * Internal description.
      * 
      */
-    @Export(name="notes", type=String.class, parameters={})
+    @Export(name="notes", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> notes;
 
     /**
@@ -424,7 +424,7 @@ public class RemoteCocoapodsRepository extends com.pulumi.resources.CustomResour
      * If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
      * 
      */
-    @Export(name="offline", type=Boolean.class, parameters={})
+    @Export(name="offline", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> offline;
 
     /**
@@ -434,13 +434,13 @@ public class RemoteCocoapodsRepository extends com.pulumi.resources.CustomResour
     public Output<Optional<Boolean>> offline() {
         return Codegen.optional(this.offline);
     }
-    @Export(name="packageType", type=String.class, parameters={})
+    @Export(name="packageType", refs={String.class}, tree="[0]")
     private Output<String> packageType;
 
     public Output<String> packageType() {
         return this.packageType;
     }
-    @Export(name="password", type=String.class, parameters={})
+    @Export(name="password", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> password;
 
     public Output<Optional<String>> password() {
@@ -450,7 +450,7 @@ public class RemoteCocoapodsRepository extends com.pulumi.resources.CustomResour
      * Proxy remote CocoaPods Specs repositories. Default value is `https://github.com/CocoaPods/Specs`.
      * 
      */
-    @Export(name="podsSpecsRepoUrl", type=String.class, parameters={})
+    @Export(name="podsSpecsRepoUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> podsSpecsRepoUrl;
 
     /**
@@ -466,7 +466,7 @@ public class RemoteCocoapodsRepository extends com.pulumi.resources.CustomResour
      * not found in those repositories, Artifactory will merge from repositories marked as non-priority.
      * 
      */
-    @Export(name="priorityResolution", type=Boolean.class, parameters={})
+    @Export(name="priorityResolution", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> priorityResolution;
 
     /**
@@ -485,7 +485,7 @@ public class RemoteCocoapodsRepository extends com.pulumi.resources.CustomResour
      * be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
      * 
      */
-    @Export(name="projectEnvironments", type=List.class, parameters={String.class})
+    @Export(name="projectEnvironments", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> projectEnvironments;
 
     /**
@@ -503,7 +503,7 @@ public class RemoteCocoapodsRepository extends com.pulumi.resources.CustomResour
      * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      * 
      */
-    @Export(name="projectKey", type=String.class, parameters={})
+    @Export(name="projectKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> projectKey;
 
     /**
@@ -518,7 +518,7 @@ public class RemoteCocoapodsRepository extends com.pulumi.resources.CustomResour
      * List of property set names
      * 
      */
-    @Export(name="propertySets", type=List.class, parameters={String.class})
+    @Export(name="propertySets", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> propertySets;
 
     /**
@@ -532,7 +532,7 @@ public class RemoteCocoapodsRepository extends com.pulumi.resources.CustomResour
      * Proxy key from Artifactory Proxies settings. Can&#39;t be set if `disable_proxy = true`.
      * 
      */
-    @Export(name="proxy", type=String.class, parameters={})
+    @Export(name="proxy", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> proxy;
 
     /**
@@ -547,7 +547,7 @@ public class RemoteCocoapodsRepository extends com.pulumi.resources.CustomResour
      * `param1=val1&amp;param2=val2&amp;param3=val3`
      * 
      */
-    @Export(name="queryParams", type=String.class, parameters={})
+    @Export(name="queryParams", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> queryParams;
 
     /**
@@ -564,7 +564,7 @@ public class RemoteCocoapodsRepository extends com.pulumi.resources.CustomResour
      * ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
      * 
      */
-    @Export(name="remoteRepoLayoutRef", type=String.class, parameters={})
+    @Export(name="remoteRepoLayoutRef", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> remoteRepoLayoutRef;
 
     /**
@@ -580,7 +580,7 @@ public class RemoteCocoapodsRepository extends com.pulumi.resources.CustomResour
      * Repository layout key for the remote repository
      * 
      */
-    @Export(name="repoLayoutRef", type=String.class, parameters={})
+    @Export(name="repoLayoutRef", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> repoLayoutRef;
 
     /**
@@ -595,7 +595,7 @@ public class RemoteCocoapodsRepository extends com.pulumi.resources.CustomResour
      * before checking for newer versions on remote server. A value of 0 indicates no caching.
      * 
      */
-    @Export(name="retrievalCachePeriodSeconds", type=Integer.class, parameters={})
+    @Export(name="retrievalCachePeriodSeconds", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> retrievalCachePeriodSeconds;
 
     /**
@@ -606,7 +606,7 @@ public class RemoteCocoapodsRepository extends com.pulumi.resources.CustomResour
     public Output<Optional<Integer>> retrievalCachePeriodSeconds() {
         return Codegen.optional(this.retrievalCachePeriodSeconds);
     }
-    @Export(name="shareConfiguration", type=Boolean.class, parameters={})
+    @Export(name="shareConfiguration", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> shareConfiguration;
 
     public Output<Boolean> shareConfiguration() {
@@ -617,7 +617,7 @@ public class RemoteCocoapodsRepository extends com.pulumi.resources.CustomResour
      * operation is considered a retrieval failure.
      * 
      */
-    @Export(name="socketTimeoutMillis", type=Integer.class, parameters={})
+    @Export(name="socketTimeoutMillis", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> socketTimeoutMillis;
 
     /**
@@ -635,7 +635,7 @@ public class RemoteCocoapodsRepository extends com.pulumi.resources.CustomResour
      * servers.
      * 
      */
-    @Export(name="storeArtifactsLocally", type=Boolean.class, parameters={})
+    @Export(name="storeArtifactsLocally", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> storeArtifactsLocally;
 
     /**
@@ -652,7 +652,7 @@ public class RemoteCocoapodsRepository extends com.pulumi.resources.CustomResour
      * When set, remote artifacts are fetched along with their properties.
      * 
      */
-    @Export(name="synchronizeProperties", type=Boolean.class, parameters={})
+    @Export(name="synchronizeProperties", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> synchronizeProperties;
 
     /**
@@ -667,7 +667,7 @@ public class RemoteCocoapodsRepository extends com.pulumi.resources.CustomResour
      * eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
      * 
      */
-    @Export(name="unusedArtifactsCleanupPeriodHours", type=Integer.class, parameters={})
+    @Export(name="unusedArtifactsCleanupPeriodHours", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> unusedArtifactsCleanupPeriodHours;
 
     /**
@@ -682,7 +682,7 @@ public class RemoteCocoapodsRepository extends com.pulumi.resources.CustomResour
      * The remote repo URL.
      * 
      */
-    @Export(name="url", type=String.class, parameters={})
+    @Export(name="url", refs={String.class}, tree="[0]")
     private Output<String> url;
 
     /**
@@ -692,7 +692,7 @@ public class RemoteCocoapodsRepository extends com.pulumi.resources.CustomResour
     public Output<String> url() {
         return this.url;
     }
-    @Export(name="username", type=String.class, parameters={})
+    @Export(name="username", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> username;
 
     public Output<Optional<String>> username() {
@@ -702,7 +702,7 @@ public class RemoteCocoapodsRepository extends com.pulumi.resources.CustomResour
      * This attribute is used when vcs_git_provider is set to `CUSTOM`. Provided URL will be used as proxy.
      * 
      */
-    @Export(name="vcsGitDownloadUrl", type=String.class, parameters={})
+    @Export(name="vcsGitDownloadUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> vcsGitDownloadUrl;
 
     /**
@@ -717,7 +717,7 @@ public class RemoteCocoapodsRepository extends com.pulumi.resources.CustomResour
      * Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
      * 
      */
-    @Export(name="vcsGitProvider", type=String.class, parameters={})
+    @Export(name="vcsGitProvider", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> vcsGitProvider;
 
     /**
@@ -733,7 +733,7 @@ public class RemoteCocoapodsRepository extends com.pulumi.resources.CustomResour
      * Xray settings.
      * 
      */
-    @Export(name="xrayIndex", type=Boolean.class, parameters={})
+    @Export(name="xrayIndex", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> xrayIndex;
 
     /**

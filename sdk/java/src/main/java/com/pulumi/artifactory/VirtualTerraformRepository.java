@@ -68,7 +68,7 @@ public class VirtualTerraformRepository extends com.pulumi.resources.CustomResou
      * another Artifactory instance.
      * 
      */
-    @Export(name="artifactoryRequestsCanRetrieveRemoteArtifacts", type=Boolean.class, parameters={})
+    @Export(name="artifactoryRequestsCanRetrieveRemoteArtifacts", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> artifactoryRequestsCanRetrieveRemoteArtifacts;
 
     /**
@@ -83,7 +83,7 @@ public class VirtualTerraformRepository extends com.pulumi.resources.CustomResou
      * Default repository to deploy artifacts.
      * 
      */
-    @Export(name="defaultDeploymentRepo", type=String.class, parameters={})
+    @Export(name="defaultDeploymentRepo", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> defaultDeploymentRepo;
 
     /**
@@ -97,7 +97,7 @@ public class VirtualTerraformRepository extends com.pulumi.resources.CustomResou
      * Public description.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -112,7 +112,7 @@ public class VirtualTerraformRepository extends com.pulumi.resources.CustomResou
      * artifacts are excluded.
      * 
      */
-    @Export(name="excludesPattern", type=String.class, parameters={})
+    @Export(name="excludesPattern", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> excludesPattern;
 
     /**
@@ -128,7 +128,7 @@ public class VirtualTerraformRepository extends com.pulumi.resources.CustomResou
      * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**{@literal /}*).
      * 
      */
-    @Export(name="includesPattern", type=String.class, parameters={})
+    @Export(name="includesPattern", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> includesPattern;
 
     /**
@@ -144,7 +144,7 @@ public class VirtualTerraformRepository extends com.pulumi.resources.CustomResou
      * contain spaces or special characters.
      * 
      */
-    @Export(name="key", type=String.class, parameters={})
+    @Export(name="key", refs={String.class}, tree="[0]")
     private Output<String> key;
 
     /**
@@ -159,7 +159,7 @@ public class VirtualTerraformRepository extends com.pulumi.resources.CustomResou
      * Internal description.
      * 
      */
-    @Export(name="notes", type=String.class, parameters={})
+    @Export(name="notes", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> notes;
 
     /**
@@ -169,7 +169,7 @@ public class VirtualTerraformRepository extends com.pulumi.resources.CustomResou
     public Output<Optional<String>> notes() {
         return Codegen.optional(this.notes);
     }
-    @Export(name="packageType", type=String.class, parameters={})
+    @Export(name="packageType", refs={String.class}, tree="[0]")
     private Output<String> packageType;
 
     public Output<String> packageType() {
@@ -182,7 +182,7 @@ public class VirtualTerraformRepository extends com.pulumi.resources.CustomResou
      * be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
      * 
      */
-    @Export(name="projectEnvironments", type=List.class, parameters={String.class})
+    @Export(name="projectEnvironments", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> projectEnvironments;
 
     /**
@@ -200,7 +200,7 @@ public class VirtualTerraformRepository extends com.pulumi.resources.CustomResou
      * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      * 
      */
-    @Export(name="projectKey", type=String.class, parameters={})
+    @Export(name="projectKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> projectKey;
 
     /**
@@ -215,7 +215,7 @@ public class VirtualTerraformRepository extends com.pulumi.resources.CustomResou
      * Repository layout key for the virtual repository
      * 
      */
-    @Export(name="repoLayoutRef", type=String.class, parameters={})
+    @Export(name="repoLayoutRef", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> repoLayoutRef;
 
     /**
@@ -229,7 +229,7 @@ public class VirtualTerraformRepository extends com.pulumi.resources.CustomResou
      * The effective list of actual repositories included in this virtual repository.
      * 
      */
-    @Export(name="repositories", type=List.class, parameters={String.class})
+    @Export(name="repositories", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> repositories;
 
     /**

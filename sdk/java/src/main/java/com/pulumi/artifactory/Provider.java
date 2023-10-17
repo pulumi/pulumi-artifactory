@@ -28,7 +28,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * attribute value will be used.
      * 
      */
-    @Export(name="accessToken", type=String.class, parameters={})
+    @Export(name="accessToken", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> accessToken;
 
     /**
@@ -51,7 +51,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
     @Deprecated /* An upcoming version will support the option to block the usage/creation of API Keys (for admins to set on their platform).
 In a future version (scheduled for end of Q3, 2023), the option to disable the usage/creation of API Keys will be available and set to disabled by default. Admins will be able to enable the usage/creation of API Keys.
 By end of Q1 2024, API Keys will be deprecated all together and the option to use them will no longer be available. */
-    @Export(name="apiKey", type=String.class, parameters={})
+    @Export(name="apiKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> apiKey;
 
     /**
@@ -65,7 +65,7 @@ By end of Q1 2024, API Keys will be deprecated all together and the option to us
      * Artifactory URL.
      * 
      */
-    @Export(name="url", type=String.class, parameters={})
+    @Export(name="url", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> url;
 
     /**

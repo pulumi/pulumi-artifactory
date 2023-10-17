@@ -74,7 +74,7 @@ public class MailServer extends com.pulumi.resources.CustomResource {
      * The Artifactory URL to to link to in all outgoing messages.
      * 
      */
-    @Export(name="artifactoryUrl", type=String.class, parameters={})
+    @Export(name="artifactoryUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> artifactoryUrl;
 
     /**
@@ -88,7 +88,7 @@ public class MailServer extends com.pulumi.resources.CustomResource {
      * When set, mail notifications are enabled.
      * 
      */
-    @Export(name="enabled", type=Boolean.class, parameters={})
+    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> enabled;
 
     /**
@@ -102,7 +102,7 @@ public class MailServer extends com.pulumi.resources.CustomResource {
      * The &#39;from&#39; address header to use in all outgoing messages.
      * 
      */
-    @Export(name="from", type=String.class, parameters={})
+    @Export(name="from", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> from;
 
     /**
@@ -116,7 +116,7 @@ public class MailServer extends com.pulumi.resources.CustomResource {
      * The mail server IP address / DNS.
      * 
      */
-    @Export(name="host", type=String.class, parameters={})
+    @Export(name="host", refs={String.class}, tree="[0]")
     private Output<String> host;
 
     /**
@@ -130,7 +130,7 @@ public class MailServer extends com.pulumi.resources.CustomResource {
      * The password for authentication with the mail server.
      * 
      */
-    @Export(name="password", type=String.class, parameters={})
+    @Export(name="password", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> password;
 
     /**
@@ -144,7 +144,7 @@ public class MailServer extends com.pulumi.resources.CustomResource {
      * The port number of the mail server.
      * 
      */
-    @Export(name="port", type=Integer.class, parameters={})
+    @Export(name="port", refs={Integer.class}, tree="[0]")
     private Output<Integer> port;
 
     /**
@@ -158,7 +158,7 @@ public class MailServer extends com.pulumi.resources.CustomResource {
      * A prefix to use for the subject of all outgoing mails.
      * 
      */
-    @Export(name="subjectPrefix", type=String.class, parameters={})
+    @Export(name="subjectPrefix", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> subjectPrefix;
 
     /**
@@ -172,7 +172,7 @@ public class MailServer extends com.pulumi.resources.CustomResource {
      * When set to &#39;true&#39;, uses a secure connection to the mail server.
      * 
      */
-    @Export(name="useSsl", type=Boolean.class, parameters={})
+    @Export(name="useSsl", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> useSsl;
 
     /**
@@ -186,7 +186,7 @@ public class MailServer extends com.pulumi.resources.CustomResource {
      * When set to &#39;true&#39;, uses Transport Layer Security when connecting to the mail server.
      * 
      */
-    @Export(name="useTls", type=Boolean.class, parameters={})
+    @Export(name="useTls", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> useTls;
 
     /**
@@ -200,7 +200,7 @@ public class MailServer extends com.pulumi.resources.CustomResource {
      * The username for authentication with the mail server.
      * 
      */
-    @Export(name="username", type=String.class, parameters={})
+    @Export(name="username", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> username;
 
     /**

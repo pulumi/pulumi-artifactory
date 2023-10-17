@@ -75,7 +75,7 @@ public class LdapGroupSettingV2 extends com.pulumi.resources.CustomResource {
      * An attribute on the group entry which denoting the group description. Used when importing groups.
      * 
      */
-    @Export(name="descriptionAttribute", type=String.class, parameters={})
+    @Export(name="descriptionAttribute", refs={String.class}, tree="[0]")
     private Output<String> descriptionAttribute;
 
     /**
@@ -89,7 +89,7 @@ public class LdapGroupSettingV2 extends com.pulumi.resources.CustomResource {
      * The LDAP setting key you want to use for group retrieval.
      * 
      */
-    @Export(name="enabledLdap", type=String.class, parameters={})
+    @Export(name="enabledLdap", refs={String.class}, tree="[0]")
     private Output<String> enabledLdap;
 
     /**
@@ -103,7 +103,7 @@ public class LdapGroupSettingV2 extends com.pulumi.resources.CustomResource {
      * The LDAP filter used to search for group entries. Used for importing groups.
      * 
      */
-    @Export(name="filter", type=String.class, parameters={})
+    @Export(name="filter", refs={String.class}, tree="[0]")
     private Output<String> filter;
 
     /**
@@ -117,7 +117,7 @@ public class LdapGroupSettingV2 extends com.pulumi.resources.CustomResource {
      * This attribute is used in very specific cases of LDAP group settings. Don&#39;t switch it to `false`, unless instructed by the JFrog support team. Default value is `false`.
      * 
      */
-    @Export(name="forceAttributeSearch", type=Boolean.class, parameters={})
+    @Export(name="forceAttributeSearch", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> forceAttributeSearch;
 
     /**
@@ -131,7 +131,7 @@ public class LdapGroupSettingV2 extends com.pulumi.resources.CustomResource {
      * A search base for group entry DNs, relative to the DN on the LDAP server’s URL (and not relative to the LDAP Setting’s “Search Base”). Used when importing groups.
      * 
      */
-    @Export(name="groupBaseDn", type=String.class, parameters={})
+    @Export(name="groupBaseDn", refs={String.class}, tree="[0]")
     private Output<String> groupBaseDn;
 
     /**
@@ -145,7 +145,7 @@ public class LdapGroupSettingV2 extends com.pulumi.resources.CustomResource {
      * A multi-value attribute on the group entry containing user DNs or IDs of the group members (e.g., uniqueMember, member).
      * 
      */
-    @Export(name="groupMemberAttribute", type=String.class, parameters={})
+    @Export(name="groupMemberAttribute", refs={String.class}, tree="[0]")
     private Output<String> groupMemberAttribute;
 
     /**
@@ -159,7 +159,7 @@ public class LdapGroupSettingV2 extends com.pulumi.resources.CustomResource {
      * Attribute on the group entry denoting the group name. Used when importing groups.
      * 
      */
-    @Export(name="groupNameAttribute", type=String.class, parameters={})
+    @Export(name="groupNameAttribute", refs={String.class}, tree="[0]")
     private Output<String> groupNameAttribute;
 
     /**
@@ -173,7 +173,7 @@ public class LdapGroupSettingV2 extends com.pulumi.resources.CustomResource {
      * Ldap group setting name.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -187,7 +187,7 @@ public class LdapGroupSettingV2 extends com.pulumi.resources.CustomResource {
      * The JFrog Platform Deployment (JPD) supports three ways of mapping groups to LDAP schemas: STATIC: Group objects are aware of their members, however, the users are not aware of the groups they belong to. Each group object such as groupOfNames or groupOfUniqueNames holds its respective member attributes, typically member or uniqueMember, which is a user DN. DYNAMIC: User objects are aware of what groups they belong to, but the group objects are not aware of their members. Each user object contains a custom attribute, such as group, that holds the group DNs or group names of which the user is a member. HIERARCHICAL: The user&#39;s DN is indicative of the groups the user belongs to by using group names as part of user DN hierarchy. Each user DN contains a list of ou&#39;s or custom attributes that make up the group association. For example, `uid=user1,ou=developers,ou=uk,dc=jfrog,dc=org` indicates that `user1` belongs to two groups: `uk` and `developers`. Valid values are: `STATIC`, `DYNAMIC`, `HIERARCHICAL`, case sensitive, all caps.
      * 
      */
-    @Export(name="strategy", type=String.class, parameters={})
+    @Export(name="strategy", refs={String.class}, tree="[0]")
     private Output<String> strategy;
 
     /**
@@ -201,7 +201,7 @@ public class LdapGroupSettingV2 extends com.pulumi.resources.CustomResource {
      * When set, enables deep search through the sub-tree of the LDAP URL + Search Base. `true` by default. `sub_tree` can be set to true only with `STATIC` or `DYNAMIC` strategy.
      * 
      */
-    @Export(name="subTree", type=Boolean.class, parameters={})
+    @Export(name="subTree", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> subTree;
 
     /**

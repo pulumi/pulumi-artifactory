@@ -91,7 +91,7 @@ public class ArtifactPropertyCustomWebhook extends com.pulumi.resources.CustomRe
      * Specifies where the webhook will be applied on which repositories.
      * 
      */
-    @Export(name="criteria", type=ArtifactPropertyCustomWebhookCriteria.class, parameters={})
+    @Export(name="criteria", refs={ArtifactPropertyCustomWebhookCriteria.class}, tree="[0]")
     private Output<ArtifactPropertyCustomWebhookCriteria> criteria;
 
     /**
@@ -105,7 +105,7 @@ public class ArtifactPropertyCustomWebhook extends com.pulumi.resources.CustomRe
      * Webhook description. Max length 1000 characters.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -119,7 +119,7 @@ public class ArtifactPropertyCustomWebhook extends com.pulumi.resources.CustomRe
      * Status of webhook. Default to `true`.
      * 
      */
-    @Export(name="enabled", type=Boolean.class, parameters={})
+    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
@@ -133,7 +133,7 @@ public class ArtifactPropertyCustomWebhook extends com.pulumi.resources.CustomRe
      * List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `added`, `deleted`.
      * 
      */
-    @Export(name="eventTypes", type=List.class, parameters={String.class})
+    @Export(name="eventTypes", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> eventTypes;
 
     /**
@@ -147,7 +147,7 @@ public class ArtifactPropertyCustomWebhook extends com.pulumi.resources.CustomRe
      * At least one is required.
      * 
      */
-    @Export(name="handlers", type=List.class, parameters={ArtifactPropertyCustomWebhookHandler.class})
+    @Export(name="handlers", refs={List.class,ArtifactPropertyCustomWebhookHandler.class}, tree="[0,1]")
     private Output<List<ArtifactPropertyCustomWebhookHandler>> handlers;
 
     /**
@@ -161,7 +161,7 @@ public class ArtifactPropertyCustomWebhook extends com.pulumi.resources.CustomRe
      * The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
      * 
      */
-    @Export(name="key", type=String.class, parameters={})
+    @Export(name="key", refs={String.class}, tree="[0]")
     private Output<String> key;
 
     /**

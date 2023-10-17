@@ -85,7 +85,7 @@ public class ReplicationConfig extends com.pulumi.resources.CustomResource {
      * Cron expression to control the operation frequency.
      * 
      */
-    @Export(name="cronExp", type=String.class, parameters={})
+    @Export(name="cronExp", refs={String.class}, tree="[0]")
     private Output<String> cronExp;
 
     /**
@@ -95,19 +95,19 @@ public class ReplicationConfig extends com.pulumi.resources.CustomResource {
     public Output<String> cronExp() {
         return this.cronExp;
     }
-    @Export(name="enableEventReplication", type=Boolean.class, parameters={})
+    @Export(name="enableEventReplication", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> enableEventReplication;
 
     public Output<Boolean> enableEventReplication() {
         return this.enableEventReplication;
     }
-    @Export(name="replications", type=List.class, parameters={ReplicationConfigReplication.class})
+    @Export(name="replications", refs={List.class,ReplicationConfigReplication.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ReplicationConfigReplication>> replications;
 
     public Output<Optional<List<ReplicationConfigReplication>>> replications() {
         return Codegen.optional(this.replications);
     }
-    @Export(name="repoKey", type=String.class, parameters={})
+    @Export(name="repoKey", refs={String.class}, tree="[0]")
     private Output<String> repoKey;
 
     public Output<String> repoKey() {

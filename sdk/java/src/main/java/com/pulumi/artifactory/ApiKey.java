@@ -65,7 +65,7 @@ public class ApiKey extends com.pulumi.resources.CustomResource {
      * Please check the [release notes](https://www.jfrog.com/confluence/display/JFROG/Artifactory+Release+Notes#ArtifactoryReleaseNotes-Artifactory7.38.4).
      * 
      */
-    @Export(name="apiKey", type=String.class, parameters={})
+    @Export(name="apiKey", refs={String.class}, tree="[0]")
     private Output<String> apiKey;
 
     /**

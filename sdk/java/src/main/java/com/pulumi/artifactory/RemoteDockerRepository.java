@@ -73,7 +73,7 @@ public class RemoteDockerRepository extends com.pulumi.resources.CustomResource 
      * other host.
      * 
      */
-    @Export(name="allowAnyHostAuth", type=Boolean.class, parameters={})
+    @Export(name="allowAnyHostAuth", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> allowAnyHostAuth;
 
     /**
@@ -90,7 +90,7 @@ public class RemoteDockerRepository extends com.pulumi.resources.CustomResource 
      * offline.
      * 
      */
-    @Export(name="assumedOfflinePeriodSecs", type=Integer.class, parameters={})
+    @Export(name="assumedOfflinePeriodSecs", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> assumedOfflinePeriodSecs;
 
     /**
@@ -107,7 +107,7 @@ public class RemoteDockerRepository extends com.pulumi.resources.CustomResource 
      * resolution.
      * 
      */
-    @Export(name="blackedOut", type=Boolean.class, parameters={})
+    @Export(name="blackedOut", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> blackedOut;
 
     /**
@@ -124,7 +124,7 @@ public class RemoteDockerRepository extends com.pulumi.resources.CustomResource 
      * to the override list &#39;mismatching_mime_types_override_list&#39;.
      * 
      */
-    @Export(name="blockMismatchingMimeTypes", type=Boolean.class, parameters={})
+    @Export(name="blockMismatchingMimeTypes", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> blockMismatchingMimeTypes;
 
     /**
@@ -142,7 +142,7 @@ public class RemoteDockerRepository extends com.pulumi.resources.CustomResource 
      * that exist in the cache.
      * 
      */
-    @Export(name="blockPushingSchema1", type=Boolean.class, parameters={})
+    @Export(name="blockPushingSchema1", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> blockPushingSchema1;
 
     /**
@@ -160,7 +160,7 @@ public class RemoteDockerRepository extends com.pulumi.resources.CustomResource 
      * Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
      * 
      */
-    @Export(name="bypassHeadRequests", type=Boolean.class, parameters={})
+    @Export(name="bypassHeadRequests", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> bypassHeadRequests;
 
     /**
@@ -177,7 +177,7 @@ public class RemoteDockerRepository extends com.pulumi.resources.CustomResource 
      * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
      * 
      */
-    @Export(name="cdnRedirect", type=Boolean.class, parameters={})
+    @Export(name="cdnRedirect", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> cdnRedirect;
 
     /**
@@ -192,7 +192,7 @@ public class RemoteDockerRepository extends com.pulumi.resources.CustomResource 
      * Client TLS certificate name.
      * 
      */
-    @Export(name="clientTlsCertificate", type=String.class, parameters={})
+    @Export(name="clientTlsCertificate", refs={String.class}, tree="[0]")
     private Output<String> clientTlsCertificate;
 
     /**
@@ -202,7 +202,7 @@ public class RemoteDockerRepository extends com.pulumi.resources.CustomResource 
     public Output<String> clientTlsCertificate() {
         return this.clientTlsCertificate;
     }
-    @Export(name="contentSynchronisation", type=RemoteDockerRepositoryContentSynchronisation.class, parameters={})
+    @Export(name="contentSynchronisation", refs={RemoteDockerRepositoryContentSynchronisation.class}, tree="[0]")
     private Output<RemoteDockerRepositoryContentSynchronisation> contentSynchronisation;
 
     public Output<RemoteDockerRepositoryContentSynchronisation> contentSynchronisation() {
@@ -212,7 +212,7 @@ public class RemoteDockerRepository extends com.pulumi.resources.CustomResource 
      * Public description.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -227,7 +227,7 @@ public class RemoteDockerRepository extends com.pulumi.resources.CustomResource 
      * for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
      * 
      */
-    @Export(name="disableProxy", type=Boolean.class, parameters={})
+    @Export(name="disableProxy", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> disableProxy;
 
     /**
@@ -242,7 +242,7 @@ public class RemoteDockerRepository extends com.pulumi.resources.CustomResource 
      * Whether to disable URL normalization, default is `false`.
      * 
      */
-    @Export(name="disableUrlNormalization", type=Boolean.class, parameters={})
+    @Export(name="disableUrlNormalization", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> disableUrlNormalization;
 
     /**
@@ -257,7 +257,7 @@ public class RemoteDockerRepository extends com.pulumi.resources.CustomResource 
      * storage provider. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;.
      * 
      */
-    @Export(name="downloadDirect", type=Boolean.class, parameters={})
+    @Export(name="downloadDirect", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> downloadDirect;
 
     /**
@@ -272,7 +272,7 @@ public class RemoteDockerRepository extends com.pulumi.resources.CustomResource 
      * Enables cookie management if the remote repository uses cookies to manage client state.
      * 
      */
-    @Export(name="enableCookieManagement", type=Boolean.class, parameters={})
+    @Export(name="enableCookieManagement", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableCookieManagement;
 
     /**
@@ -286,7 +286,7 @@ public class RemoteDockerRepository extends com.pulumi.resources.CustomResource 
      * Enable token (Bearer) based authentication.
      * 
      */
-    @Export(name="enableTokenAuthentication", type=Boolean.class, parameters={})
+    @Export(name="enableTokenAuthentication", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> enableTokenAuthentication;
 
     /**
@@ -301,7 +301,7 @@ public class RemoteDockerRepository extends com.pulumi.resources.CustomResource 
      * artifacts are excluded.
      * 
      */
-    @Export(name="excludesPattern", type=String.class, parameters={})
+    @Export(name="excludesPattern", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> excludesPattern;
 
     /**
@@ -316,7 +316,7 @@ public class RemoteDockerRepository extends com.pulumi.resources.CustomResource 
      * Also known as &#39;Foreign Layers Caching&#39; on the UI.
      * 
      */
-    @Export(name="externalDependenciesEnabled", type=Boolean.class, parameters={})
+    @Export(name="externalDependenciesEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> externalDependenciesEnabled;
 
     /**
@@ -336,7 +336,7 @@ public class RemoteDockerRepository extends com.pulumi.resources.CustomResource 
      * `[**]` on update if HCL doesn&#39;t have the attribute set or the list is empty.
      * 
      */
-    @Export(name="externalDependenciesPatterns", type=List.class, parameters={String.class})
+    @Export(name="externalDependenciesPatterns", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> externalDependenciesPatterns;
 
     /**
@@ -357,7 +357,7 @@ public class RemoteDockerRepository extends com.pulumi.resources.CustomResource 
      * communicate with this repository.
      * 
      */
-    @Export(name="hardFail", type=Boolean.class, parameters={})
+    @Export(name="hardFail", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> hardFail;
 
     /**
@@ -373,7 +373,7 @@ public class RemoteDockerRepository extends com.pulumi.resources.CustomResource 
      * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**{@literal /}*).
      * 
      */
-    @Export(name="includesPattern", type=String.class, parameters={})
+    @Export(name="includesPattern", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> includesPattern;
 
     /**
@@ -389,7 +389,7 @@ public class RemoteDockerRepository extends com.pulumi.resources.CustomResource 
      * contain spaces or special characters.
      * 
      */
-    @Export(name="key", type=String.class, parameters={})
+    @Export(name="key", refs={String.class}, tree="[0]")
     private Output<String> key;
 
     /**
@@ -405,7 +405,7 @@ public class RemoteDockerRepository extends com.pulumi.resources.CustomResource 
      * the &#39;Retrieval Cache Period&#39;. Default value is &#39;true&#39;.
      * 
      */
-    @Export(name="listRemoteFolderItems", type=Boolean.class, parameters={})
+    @Export(name="listRemoteFolderItems", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> listRemoteFolderItems;
 
     /**
@@ -421,7 +421,7 @@ public class RemoteDockerRepository extends com.pulumi.resources.CustomResource 
      * multiple network interfaces.
      * 
      */
-    @Export(name="localAddress", type=String.class, parameters={})
+    @Export(name="localAddress", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> localAddress;
 
     /**
@@ -437,7 +437,7 @@ public class RemoteDockerRepository extends com.pulumi.resources.CustomResource 
      * the remote before serving locally cached artifact or fail the request.
      * 
      */
-    @Export(name="metadataRetrievalTimeoutSecs", type=Integer.class, parameters={})
+    @Export(name="metadataRetrievalTimeoutSecs", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> metadataRetrievalTimeoutSecs;
 
     /**
@@ -453,7 +453,7 @@ public class RemoteDockerRepository extends com.pulumi.resources.CustomResource 
      * &#39;application/json,application/xml&#39;. Default value is empty.
      * 
      */
-    @Export(name="mismatchingMimeTypesOverrideList", type=String.class, parameters={})
+    @Export(name="mismatchingMimeTypesOverrideList", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> mismatchingMimeTypesOverrideList;
 
     /**
@@ -469,7 +469,7 @@ public class RemoteDockerRepository extends com.pulumi.resources.CustomResource 
      * found). A value of 0 indicates no caching.
      * 
      */
-    @Export(name="missedCachePeriodSeconds", type=Integer.class, parameters={})
+    @Export(name="missedCachePeriodSeconds", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> missedCachePeriodSeconds;
 
     /**
@@ -484,7 +484,7 @@ public class RemoteDockerRepository extends com.pulumi.resources.CustomResource 
      * Internal description.
      * 
      */
-    @Export(name="notes", type=String.class, parameters={})
+    @Export(name="notes", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> notes;
 
     /**
@@ -498,7 +498,7 @@ public class RemoteDockerRepository extends com.pulumi.resources.CustomResource 
      * If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
      * 
      */
-    @Export(name="offline", type=Boolean.class, parameters={})
+    @Export(name="offline", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> offline;
 
     /**
@@ -508,13 +508,13 @@ public class RemoteDockerRepository extends com.pulumi.resources.CustomResource 
     public Output<Optional<Boolean>> offline() {
         return Codegen.optional(this.offline);
     }
-    @Export(name="packageType", type=String.class, parameters={})
+    @Export(name="packageType", refs={String.class}, tree="[0]")
     private Output<String> packageType;
 
     public Output<String> packageType() {
         return this.packageType;
     }
-    @Export(name="password", type=String.class, parameters={})
+    @Export(name="password", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> password;
 
     public Output<Optional<String>> password() {
@@ -526,7 +526,7 @@ public class RemoteDockerRepository extends com.pulumi.resources.CustomResource 
      * not found in those repositories, Artifactory will merge from repositories marked as non-priority.
      * 
      */
-    @Export(name="priorityResolution", type=Boolean.class, parameters={})
+    @Export(name="priorityResolution", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> priorityResolution;
 
     /**
@@ -545,7 +545,7 @@ public class RemoteDockerRepository extends com.pulumi.resources.CustomResource 
      * be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
      * 
      */
-    @Export(name="projectEnvironments", type=List.class, parameters={String.class})
+    @Export(name="projectEnvironments", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> projectEnvironments;
 
     /**
@@ -563,7 +563,7 @@ public class RemoteDockerRepository extends com.pulumi.resources.CustomResource 
      * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      * 
      */
-    @Export(name="projectKey", type=String.class, parameters={})
+    @Export(name="projectKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> projectKey;
 
     /**
@@ -578,7 +578,7 @@ public class RemoteDockerRepository extends com.pulumi.resources.CustomResource 
      * List of property set names
      * 
      */
-    @Export(name="propertySets", type=List.class, parameters={String.class})
+    @Export(name="propertySets", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> propertySets;
 
     /**
@@ -592,7 +592,7 @@ public class RemoteDockerRepository extends com.pulumi.resources.CustomResource 
      * Proxy key from Artifactory Proxies settings. Can&#39;t be set if `disable_proxy = true`.
      * 
      */
-    @Export(name="proxy", type=String.class, parameters={})
+    @Export(name="proxy", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> proxy;
 
     /**
@@ -607,7 +607,7 @@ public class RemoteDockerRepository extends com.pulumi.resources.CustomResource 
      * `param1=val1&amp;param2=val2&amp;param3=val3`
      * 
      */
-    @Export(name="queryParams", type=String.class, parameters={})
+    @Export(name="queryParams", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> queryParams;
 
     /**
@@ -624,7 +624,7 @@ public class RemoteDockerRepository extends com.pulumi.resources.CustomResource 
      * ignored by the Artifactory API. UI shows an error message, if the user tries to remove the value.
      * 
      */
-    @Export(name="remoteRepoLayoutRef", type=String.class, parameters={})
+    @Export(name="remoteRepoLayoutRef", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> remoteRepoLayoutRef;
 
     /**
@@ -640,7 +640,7 @@ public class RemoteDockerRepository extends com.pulumi.resources.CustomResource 
      * Repository layout key for the remote repository
      * 
      */
-    @Export(name="repoLayoutRef", type=String.class, parameters={})
+    @Export(name="repoLayoutRef", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> repoLayoutRef;
 
     /**
@@ -655,7 +655,7 @@ public class RemoteDockerRepository extends com.pulumi.resources.CustomResource 
      * before checking for newer versions on remote server. A value of 0 indicates no caching.
      * 
      */
-    @Export(name="retrievalCachePeriodSeconds", type=Integer.class, parameters={})
+    @Export(name="retrievalCachePeriodSeconds", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> retrievalCachePeriodSeconds;
 
     /**
@@ -666,7 +666,7 @@ public class RemoteDockerRepository extends com.pulumi.resources.CustomResource 
     public Output<Optional<Integer>> retrievalCachePeriodSeconds() {
         return Codegen.optional(this.retrievalCachePeriodSeconds);
     }
-    @Export(name="shareConfiguration", type=Boolean.class, parameters={})
+    @Export(name="shareConfiguration", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> shareConfiguration;
 
     public Output<Boolean> shareConfiguration() {
@@ -677,7 +677,7 @@ public class RemoteDockerRepository extends com.pulumi.resources.CustomResource 
      * operation is considered a retrieval failure.
      * 
      */
-    @Export(name="socketTimeoutMillis", type=Integer.class, parameters={})
+    @Export(name="socketTimeoutMillis", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> socketTimeoutMillis;
 
     /**
@@ -695,7 +695,7 @@ public class RemoteDockerRepository extends com.pulumi.resources.CustomResource 
      * servers.
      * 
      */
-    @Export(name="storeArtifactsLocally", type=Boolean.class, parameters={})
+    @Export(name="storeArtifactsLocally", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> storeArtifactsLocally;
 
     /**
@@ -712,7 +712,7 @@ public class RemoteDockerRepository extends com.pulumi.resources.CustomResource 
      * When set, remote artifacts are fetched along with their properties.
      * 
      */
-    @Export(name="synchronizeProperties", type=Boolean.class, parameters={})
+    @Export(name="synchronizeProperties", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> synchronizeProperties;
 
     /**
@@ -727,7 +727,7 @@ public class RemoteDockerRepository extends com.pulumi.resources.CustomResource 
      * eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
      * 
      */
-    @Export(name="unusedArtifactsCleanupPeriodHours", type=Integer.class, parameters={})
+    @Export(name="unusedArtifactsCleanupPeriodHours", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> unusedArtifactsCleanupPeriodHours;
 
     /**
@@ -742,7 +742,7 @@ public class RemoteDockerRepository extends com.pulumi.resources.CustomResource 
      * The remote repo URL.
      * 
      */
-    @Export(name="url", type=String.class, parameters={})
+    @Export(name="url", refs={String.class}, tree="[0]")
     private Output<String> url;
 
     /**
@@ -752,7 +752,7 @@ public class RemoteDockerRepository extends com.pulumi.resources.CustomResource 
     public Output<String> url() {
         return this.url;
     }
-    @Export(name="username", type=String.class, parameters={})
+    @Export(name="username", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> username;
 
     public Output<Optional<String>> username() {
@@ -763,7 +763,7 @@ public class RemoteDockerRepository extends com.pulumi.resources.CustomResource 
      * Xray settings.
      * 
      */
-    @Export(name="xrayIndex", type=Boolean.class, parameters={})
+    @Export(name="xrayIndex", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> xrayIndex;
 
     /**

@@ -147,7 +147,7 @@ public class PermissionTarget extends com.pulumi.resources.CustomResource {
      * As for repo but for artifactory-build-info permissions.
      * 
      */
-    @Export(name="builds", type=List.class, parameters={PermissionTargetBuild.class})
+    @Export(name="builds", refs={List.class,PermissionTargetBuild.class}, tree="[0,1]")
     private Output</* @Nullable */ List<PermissionTargetBuild>> builds;
 
     /**
@@ -161,7 +161,7 @@ public class PermissionTarget extends com.pulumi.resources.CustomResource {
      * Name of permission.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -175,7 +175,7 @@ public class PermissionTarget extends com.pulumi.resources.CustomResource {
      * As for repo for for release-bundles permissions.
      * 
      */
-    @Export(name="releaseBundles", type=List.class, parameters={PermissionTargetReleaseBundle.class})
+    @Export(name="releaseBundles", refs={List.class,PermissionTargetReleaseBundle.class}, tree="[0,1]")
     private Output</* @Nullable */ List<PermissionTargetReleaseBundle>> releaseBundles;
 
     /**
@@ -189,7 +189,7 @@ public class PermissionTarget extends com.pulumi.resources.CustomResource {
      * Repository permission configuration.
      * 
      */
-    @Export(name="repos", type=List.class, parameters={PermissionTargetRepo.class})
+    @Export(name="repos", refs={List.class,PermissionTargetRepo.class}, tree="[0,1]")
     private Output</* @Nullable */ List<PermissionTargetRepo>> repos;
 
     /**

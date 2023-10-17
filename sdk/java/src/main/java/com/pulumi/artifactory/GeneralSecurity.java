@@ -63,7 +63,7 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="artifactory:index/generalSecurity:GeneralSecurity")
 public class GeneralSecurity extends com.pulumi.resources.CustomResource {
-    @Export(name="enableAnonymousAccess", type=Boolean.class, parameters={})
+    @Export(name="enableAnonymousAccess", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableAnonymousAccess;
 
     public Output<Optional<Boolean>> enableAnonymousAccess() {

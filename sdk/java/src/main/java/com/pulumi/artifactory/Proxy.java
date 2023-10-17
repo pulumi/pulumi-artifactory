@@ -81,7 +81,7 @@ public class Proxy extends com.pulumi.resources.CustomResource {
      * The name of the proxy host.
      * 
      */
-    @Export(name="host", type=String.class, parameters={})
+    @Export(name="host", refs={String.class}, tree="[0]")
     private Output<String> host;
 
     /**
@@ -95,7 +95,7 @@ public class Proxy extends com.pulumi.resources.CustomResource {
      * The unique ID of the proxy.
      * 
      */
-    @Export(name="key", type=String.class, parameters={})
+    @Export(name="key", refs={String.class}, tree="[0]")
     private Output<String> key;
 
     /**
@@ -109,7 +109,7 @@ public class Proxy extends com.pulumi.resources.CustomResource {
      * The proxy domain/realm name.
      * 
      */
-    @Export(name="ntDomain", type=String.class, parameters={})
+    @Export(name="ntDomain", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> ntDomain;
 
     /**
@@ -123,7 +123,7 @@ public class Proxy extends com.pulumi.resources.CustomResource {
      * The computer name of the machine (the machine connecting to the NTLM proxy).
      * 
      */
-    @Export(name="ntHost", type=String.class, parameters={})
+    @Export(name="ntHost", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> ntHost;
 
     /**
@@ -137,7 +137,7 @@ public class Proxy extends com.pulumi.resources.CustomResource {
      * The proxy password when authentication credentials are required.
      * 
      */
-    @Export(name="password", type=String.class, parameters={})
+    @Export(name="password", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> password;
 
     /**
@@ -151,7 +151,7 @@ public class Proxy extends com.pulumi.resources.CustomResource {
      * When set, this proxy will be the default proxy for new remote repositories and for internal HTTP requests issued by Artifactory. Will also be used as proxy for all other services in the platform (for example: Xray, Distribution, etc).
      * 
      */
-    @Export(name="platformDefault", type=Boolean.class, parameters={})
+    @Export(name="platformDefault", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> platformDefault;
 
     /**
@@ -165,7 +165,7 @@ public class Proxy extends com.pulumi.resources.CustomResource {
      * The proxy port number.
      * 
      */
-    @Export(name="port", type=Integer.class, parameters={})
+    @Export(name="port", refs={Integer.class}, tree="[0]")
     private Output<Integer> port;
 
     /**
@@ -179,7 +179,7 @@ public class Proxy extends com.pulumi.resources.CustomResource {
      * An optional list of host names to which this proxy may redirect requests. The credentials defined for the proxy are reused by requests redirected to all of these hosts.
      * 
      */
-    @Export(name="redirectToHosts", type=List.class, parameters={String.class})
+    @Export(name="redirectToHosts", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> redirectToHosts;
 
     /**
@@ -193,7 +193,7 @@ public class Proxy extends com.pulumi.resources.CustomResource {
      * An optional list of services names to which this proxy be the default of. The options are `jfrt`, `jfmc`, `jfxr`, `jfds`.
      * 
      */
-    @Export(name="services", type=List.class, parameters={String.class})
+    @Export(name="services", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> services;
 
     /**
@@ -207,7 +207,7 @@ public class Proxy extends com.pulumi.resources.CustomResource {
      * The proxy username when authentication credentials are required.
      * 
      */
-    @Export(name="username", type=String.class, parameters={})
+    @Export(name="username", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> username;
 
     /**

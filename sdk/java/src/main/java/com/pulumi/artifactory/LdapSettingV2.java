@@ -81,7 +81,7 @@ public class LdapSettingV2 extends com.pulumi.resources.CustomResource {
      * Auto created users will have access to their profile page and will be able to perform actions such as generating an API key. Default value is `false`.
      * 
      */
-    @Export(name="allowUserToAccessProfile", type=Boolean.class, parameters={})
+    @Export(name="allowUserToAccessProfile", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> allowUserToAccessProfile;
 
     /**
@@ -95,7 +95,7 @@ public class LdapSettingV2 extends com.pulumi.resources.CustomResource {
      * When set, users are automatically created when using LDAP. Otherwise, users are transient and associated with auto-join groups defined in Artifactory. Default value is `true`.
      * 
      */
-    @Export(name="autoCreateUser", type=Boolean.class, parameters={})
+    @Export(name="autoCreateUser", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> autoCreateUser;
 
     /**
@@ -109,7 +109,7 @@ public class LdapSettingV2 extends com.pulumi.resources.CustomResource {
      * An attribute that can be used to map a user&#39;s email address to a user created automatically in Artifactory. Default value is`mail`.
      * 
      */
-    @Export(name="emailAttribute", type=String.class, parameters={})
+    @Export(name="emailAttribute", refs={String.class}, tree="[0]")
     private Output<String> emailAttribute;
 
     /**
@@ -123,7 +123,7 @@ public class LdapSettingV2 extends com.pulumi.resources.CustomResource {
      * Flag to enable or disable the ldap setting. Default value is `true`.
      * 
      */
-    @Export(name="enabled", type=Boolean.class, parameters={})
+    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> enabled;
 
     /**
@@ -137,7 +137,7 @@ public class LdapSettingV2 extends com.pulumi.resources.CustomResource {
      * Ldap setting name.
      * 
      */
-    @Export(name="key", type=String.class, parameters={})
+    @Export(name="key", refs={String.class}, tree="[0]")
     private Output<String> key;
 
     /**
@@ -151,7 +151,7 @@ public class LdapSettingV2 extends com.pulumi.resources.CustomResource {
      * When this is set to `true`, an empty or missing usernames array will detach all users from the group.
      * 
      */
-    @Export(name="ldapPoisoningProtection", type=Boolean.class, parameters={})
+    @Export(name="ldapPoisoningProtection", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> ldapPoisoningProtection;
 
     /**
@@ -165,7 +165,7 @@ public class LdapSettingV2 extends com.pulumi.resources.CustomResource {
      * Location of the LDAP server in the following format: `ldap://myldapserver/dc=sampledomain,dc=com`
      * 
      */
-    @Export(name="ldapUrl", type=String.class, parameters={})
+    @Export(name="ldapUrl", refs={String.class}, tree="[0]")
     private Output<String> ldapUrl;
 
     /**
@@ -179,7 +179,7 @@ public class LdapSettingV2 extends com.pulumi.resources.CustomResource {
      * The full DN of the user that binds to the LDAP server to perform user searches. Only used with `search` authentication.
      * 
      */
-    @Export(name="managerDn", type=String.class, parameters={})
+    @Export(name="managerDn", refs={String.class}, tree="[0]")
     private Output<String> managerDn;
 
     /**
@@ -193,7 +193,7 @@ public class LdapSettingV2 extends com.pulumi.resources.CustomResource {
      * The password of the user that binds to the LDAP server to perform the search. Only used with `search` authentication.
      * 
      */
-    @Export(name="managerPassword", type=String.class, parameters={})
+    @Export(name="managerPassword", refs={String.class}, tree="[0]")
     private Output<String> managerPassword;
 
     /**
@@ -207,7 +207,7 @@ public class LdapSettingV2 extends com.pulumi.resources.CustomResource {
      * When set, supports paging results for the LDAP server. This feature requires that the LDAP server supports a PagedResultsControl configuration. Default value is `true`.
      * 
      */
-    @Export(name="pagingSupportEnabled", type=Boolean.class, parameters={})
+    @Export(name="pagingSupportEnabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> pagingSupportEnabled;
 
     /**
@@ -221,7 +221,7 @@ public class LdapSettingV2 extends com.pulumi.resources.CustomResource {
      * A context name to search in relative to the base DN of the LDAP URL. For example, &#39;ou=users&#39; With the LDAP Group Add-on enabled, it is possible to enter multiple search base entries separated by a pipe (&#39;|&#39;) character.
      * 
      */
-    @Export(name="searchBase", type=String.class, parameters={})
+    @Export(name="searchBase", refs={String.class}, tree="[0]")
     private Output<String> searchBase;
 
     /**
@@ -235,7 +235,7 @@ public class LdapSettingV2 extends com.pulumi.resources.CustomResource {
      * A filter expression used to search for the user DN used in LDAP authentication. This is an LDAP search filter (as defined in &#39;RFC 2254&#39;) with optional arguments. In this case, the username is the only argument, and is denoted by &#39;{0}&#39;. Possible examples are: (uid={0}) - This searches for a username match on the attribute. Authentication to LDAP is performed from the DN found if successful.
      * 
      */
-    @Export(name="searchFilter", type=String.class, parameters={})
+    @Export(name="searchFilter", refs={String.class}, tree="[0]")
     private Output<String> searchFilter;
 
     /**
@@ -249,7 +249,7 @@ public class LdapSettingV2 extends com.pulumi.resources.CustomResource {
      * When set, enables deep search through the sub tree of the LDAP URL + search base. Default value is `true`.
      * 
      */
-    @Export(name="searchSubTree", type=Boolean.class, parameters={})
+    @Export(name="searchSubTree", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> searchSubTree;
 
     /**
@@ -263,7 +263,7 @@ public class LdapSettingV2 extends com.pulumi.resources.CustomResource {
      * A DN pattern that can be used to log users directly in to LDAP. This pattern is used to create a DN string for &#39;direct&#39; user authentication where the pattern is relative to the base DN in the LDAP URL. The pattern argument {0} is replaced with the username. This only works if anonymous binding is allowed and a direct user DN can be used, which is not the default case for Active Directory (use User DN search filter instead). Example: uid={0},ou=People. Default value is blank/empty.
      * 
      */
-    @Export(name="userDnPattern", type=String.class, parameters={})
+    @Export(name="userDnPattern", refs={String.class}, tree="[0]")
     private Output<String> userDnPattern;
 
     /**

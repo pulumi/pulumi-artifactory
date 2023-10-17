@@ -72,7 +72,7 @@ public class VirtualNugetRepository extends com.pulumi.resources.CustomResource 
      * another Artifactory instance.
      * 
      */
-    @Export(name="artifactoryRequestsCanRetrieveRemoteArtifacts", type=Boolean.class, parameters={})
+    @Export(name="artifactoryRequestsCanRetrieveRemoteArtifacts", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> artifactoryRequestsCanRetrieveRemoteArtifacts;
 
     /**
@@ -87,7 +87,7 @@ public class VirtualNugetRepository extends com.pulumi.resources.CustomResource 
      * Default repository to deploy artifacts.
      * 
      */
-    @Export(name="defaultDeploymentRepo", type=String.class, parameters={})
+    @Export(name="defaultDeploymentRepo", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> defaultDeploymentRepo;
 
     /**
@@ -101,7 +101,7 @@ public class VirtualNugetRepository extends com.pulumi.resources.CustomResource 
      * Public description.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -116,7 +116,7 @@ public class VirtualNugetRepository extends com.pulumi.resources.CustomResource 
      * artifacts are excluded.
      * 
      */
-    @Export(name="excludesPattern", type=String.class, parameters={})
+    @Export(name="excludesPattern", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> excludesPattern;
 
     /**
@@ -131,7 +131,7 @@ public class VirtualNugetRepository extends com.pulumi.resources.CustomResource 
      * If set, user authentication is required when accessing the repository. An anonymous request will display an HTTP 401 error. This is also enforced when aggregated repositories support anonymous requests. Default is `false`.
      * 
      */
-    @Export(name="forceNugetAuthentication", type=Boolean.class, parameters={})
+    @Export(name="forceNugetAuthentication", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> forceNugetAuthentication;
 
     /**
@@ -146,7 +146,7 @@ public class VirtualNugetRepository extends com.pulumi.resources.CustomResource 
      * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**{@literal /}*).
      * 
      */
-    @Export(name="includesPattern", type=String.class, parameters={})
+    @Export(name="includesPattern", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> includesPattern;
 
     /**
@@ -162,7 +162,7 @@ public class VirtualNugetRepository extends com.pulumi.resources.CustomResource 
      * contain spaces or special characters.
      * 
      */
-    @Export(name="key", type=String.class, parameters={})
+    @Export(name="key", refs={String.class}, tree="[0]")
     private Output<String> key;
 
     /**
@@ -177,7 +177,7 @@ public class VirtualNugetRepository extends com.pulumi.resources.CustomResource 
      * Internal description.
      * 
      */
-    @Export(name="notes", type=String.class, parameters={})
+    @Export(name="notes", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> notes;
 
     /**
@@ -187,7 +187,7 @@ public class VirtualNugetRepository extends com.pulumi.resources.CustomResource 
     public Output<Optional<String>> notes() {
         return Codegen.optional(this.notes);
     }
-    @Export(name="packageType", type=String.class, parameters={})
+    @Export(name="packageType", refs={String.class}, tree="[0]")
     private Output<String> packageType;
 
     public Output<String> packageType() {
@@ -200,7 +200,7 @@ public class VirtualNugetRepository extends com.pulumi.resources.CustomResource 
      * be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
      * 
      */
-    @Export(name="projectEnvironments", type=List.class, parameters={String.class})
+    @Export(name="projectEnvironments", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> projectEnvironments;
 
     /**
@@ -218,7 +218,7 @@ public class VirtualNugetRepository extends com.pulumi.resources.CustomResource 
      * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      * 
      */
-    @Export(name="projectKey", type=String.class, parameters={})
+    @Export(name="projectKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> projectKey;
 
     /**
@@ -233,7 +233,7 @@ public class VirtualNugetRepository extends com.pulumi.resources.CustomResource 
      * Repository layout key for the virtual repository
      * 
      */
-    @Export(name="repoLayoutRef", type=String.class, parameters={})
+    @Export(name="repoLayoutRef", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> repoLayoutRef;
 
     /**
@@ -247,7 +247,7 @@ public class VirtualNugetRepository extends com.pulumi.resources.CustomResource 
      * The effective list of actual repositories included in this virtual repository.
      * 
      */
-    @Export(name="repositories", type=List.class, parameters={String.class})
+    @Export(name="repositories", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> repositories;
 
     /**

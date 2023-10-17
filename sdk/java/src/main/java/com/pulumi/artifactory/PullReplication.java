@@ -86,7 +86,7 @@ public class PullReplication extends com.pulumi.resources.CustomResource {
      * [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
      * 
      */
-    @Export(name="checkBinaryExistenceInFilestore", type=Boolean.class, parameters={})
+    @Export(name="checkBinaryExistenceInFilestore", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> checkBinaryExistenceInFilestore;
 
     /**
@@ -101,7 +101,7 @@ public class PullReplication extends com.pulumi.resources.CustomResource {
      * A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
      * 
      */
-    @Export(name="cronExp", type=String.class, parameters={})
+    @Export(name="cronExp", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> cronExp;
 
     /**
@@ -115,7 +115,7 @@ public class PullReplication extends com.pulumi.resources.CustomResource {
      * When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. added, deleted or property change.
      * 
      */
-    @Export(name="enableEventReplication", type=Boolean.class, parameters={})
+    @Export(name="enableEventReplication", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableEventReplication;
 
     /**
@@ -129,7 +129,7 @@ public class PullReplication extends com.pulumi.resources.CustomResource {
      * When set, this replication will be enabled when saved.
      * 
      */
-    @Export(name="enabled", type=Boolean.class, parameters={})
+    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> enabled;
 
     /**
@@ -143,7 +143,7 @@ public class PullReplication extends com.pulumi.resources.CustomResource {
      * Required for local repository, but not needed for remote repository.
      * 
      */
-    @Export(name="password", type=String.class, parameters={})
+    @Export(name="password", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> password;
 
     /**
@@ -157,7 +157,7 @@ public class PullReplication extends com.pulumi.resources.CustomResource {
      * Only artifacts that located in path that matches the subpath within the remote repository will be replicated.
      * 
      */
-    @Export(name="pathPrefix", type=String.class, parameters={})
+    @Export(name="pathPrefix", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> pathPrefix;
 
     /**
@@ -171,7 +171,7 @@ public class PullReplication extends com.pulumi.resources.CustomResource {
      * Proxy key from Artifactory Proxies setting
      * 
      */
-    @Export(name="proxy", type=String.class, parameters={})
+    @Export(name="proxy", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> proxy;
 
     /**
@@ -185,7 +185,7 @@ public class PullReplication extends com.pulumi.resources.CustomResource {
      * Repository name.
      * 
      */
-    @Export(name="repoKey", type=String.class, parameters={})
+    @Export(name="repoKey", refs={String.class}, tree="[0]")
     private Output<String> repoKey;
 
     /**
@@ -195,7 +195,7 @@ public class PullReplication extends com.pulumi.resources.CustomResource {
     public Output<String> repoKey() {
         return this.repoKey;
     }
-    @Export(name="socketTimeoutMillis", type=Integer.class, parameters={})
+    @Export(name="socketTimeoutMillis", refs={Integer.class}, tree="[0]")
     private Output<Integer> socketTimeoutMillis;
 
     public Output<Integer> socketTimeoutMillis() {
@@ -205,7 +205,7 @@ public class PullReplication extends com.pulumi.resources.CustomResource {
      * When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata).
      * 
      */
-    @Export(name="syncDeletes", type=Boolean.class, parameters={})
+    @Export(name="syncDeletes", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> syncDeletes;
 
     /**
@@ -219,7 +219,7 @@ public class PullReplication extends com.pulumi.resources.CustomResource {
      * When set, the task also synchronizes the properties of replicated artifacts.
      * 
      */
-    @Export(name="syncProperties", type=Boolean.class, parameters={})
+    @Export(name="syncProperties", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> syncProperties;
 
     /**
@@ -233,7 +233,7 @@ public class PullReplication extends com.pulumi.resources.CustomResource {
      * When set, artifact download statistics will also be replicated. Set to avoid inadvertent cleanup at the target instance when setting up replication for disaster recovery.
      * 
      */
-    @Export(name="syncStatistics", type=Boolean.class, parameters={})
+    @Export(name="syncStatistics", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> syncStatistics;
 
     /**
@@ -249,7 +249,7 @@ public class PullReplication extends com.pulumi.resources.CustomResource {
      * Required for local repository, but not needed for remote repository.
      * 
      */
-    @Export(name="url", type=String.class, parameters={})
+    @Export(name="url", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> url;
 
     /**
@@ -265,7 +265,7 @@ public class PullReplication extends com.pulumi.resources.CustomResource {
      * Required for local repository, but not needed for remote repository.
      * 
      */
-    @Export(name="username", type=String.class, parameters={})
+    @Export(name="username", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> username;
 
     /**

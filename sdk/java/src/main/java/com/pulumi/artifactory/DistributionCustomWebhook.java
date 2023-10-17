@@ -86,7 +86,7 @@ public class DistributionCustomWebhook extends com.pulumi.resources.CustomResour
      * Specifies where the webhook will be applied on which repositories.
      * 
      */
-    @Export(name="criteria", type=DistributionCustomWebhookCriteria.class, parameters={})
+    @Export(name="criteria", refs={DistributionCustomWebhookCriteria.class}, tree="[0]")
     private Output<DistributionCustomWebhookCriteria> criteria;
 
     /**
@@ -100,7 +100,7 @@ public class DistributionCustomWebhook extends com.pulumi.resources.CustomResour
      * Webhook description. Max length 1000 characters.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -114,7 +114,7 @@ public class DistributionCustomWebhook extends com.pulumi.resources.CustomResour
      * Status of webhook. Default to `true`.
      * 
      */
-    @Export(name="enabled", type=Boolean.class, parameters={})
+    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
@@ -128,7 +128,7 @@ public class DistributionCustomWebhook extends com.pulumi.resources.CustomResour
      * List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `distribute_started`, `distribute_completed`, `distribute_aborted`, ` distribute_failed,  `delete_started` ,  `delete_completed` ,  `delete_failed`
      * 
      */
-    @Export(name="eventTypes", type=List.class, parameters={String.class})
+    @Export(name="eventTypes", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> eventTypes;
 
     /**
@@ -142,7 +142,7 @@ public class DistributionCustomWebhook extends com.pulumi.resources.CustomResour
      * At least one is required.
      * 
      */
-    @Export(name="handlers", type=List.class, parameters={DistributionCustomWebhookHandler.class})
+    @Export(name="handlers", refs={List.class,DistributionCustomWebhookHandler.class}, tree="[0,1]")
     private Output<List<DistributionCustomWebhookHandler>> handlers;
 
     /**
@@ -156,7 +156,7 @@ public class DistributionCustomWebhook extends com.pulumi.resources.CustomResour
      * The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
      * 
      */
-    @Export(name="key", type=String.class, parameters={})
+    @Export(name="key", refs={String.class}, tree="[0]")
     private Output<String> key;
 
     /**

@@ -55,7 +55,7 @@ public class AnonymousUser extends com.pulumi.resources.CustomResource {
      * set or updated in the HCL.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**

@@ -78,7 +78,7 @@ public class FederatedMavenRepository extends com.pulumi.resources.CustomResourc
      * security (e.g., cross-site scripting attacks).
      * 
      */
-    @Export(name="archiveBrowsingEnabled", type=Boolean.class, parameters={})
+    @Export(name="archiveBrowsingEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> archiveBrowsingEnabled;
 
     /**
@@ -94,7 +94,7 @@ public class FederatedMavenRepository extends com.pulumi.resources.CustomResourc
      * When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
      * 
      */
-    @Export(name="blackedOut", type=Boolean.class, parameters={})
+    @Export(name="blackedOut", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> blackedOut;
 
     /**
@@ -109,7 +109,7 @@ public class FederatedMavenRepository extends com.pulumi.resources.CustomResourc
      * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
      * 
      */
-    @Export(name="cdnRedirect", type=Boolean.class, parameters={})
+    @Export(name="cdnRedirect", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> cdnRedirect;
 
     /**
@@ -127,7 +127,7 @@ public class FederatedMavenRepository extends com.pulumi.resources.CustomResourc
      * https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy
      * 
      */
-    @Export(name="checksumPolicyType", type=String.class, parameters={})
+    @Export(name="checksumPolicyType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> checksumPolicyType;
 
     /**
@@ -145,7 +145,7 @@ public class FederatedMavenRepository extends com.pulumi.resources.CustomResourc
      * the federation on other Artifactory instances.
      * 
      */
-    @Export(name="cleanupOnDelete", type=Boolean.class, parameters={})
+    @Export(name="cleanupOnDelete", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> cleanupOnDelete;
 
     /**
@@ -160,7 +160,7 @@ public class FederatedMavenRepository extends com.pulumi.resources.CustomResourc
      * Public description.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -175,7 +175,7 @@ public class FederatedMavenRepository extends com.pulumi.resources.CustomResourc
      * storage provider. Available in Enterprise+ and Edge licenses only.
      * 
      */
-    @Export(name="downloadDirect", type=Boolean.class, parameters={})
+    @Export(name="downloadDirect", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> downloadDirect;
 
     /**
@@ -191,7 +191,7 @@ public class FederatedMavenRepository extends com.pulumi.resources.CustomResourc
      * artifacts are excluded.
      * 
      */
-    @Export(name="excludesPattern", type=String.class, parameters={})
+    @Export(name="excludesPattern", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> excludesPattern;
 
     /**
@@ -206,7 +206,7 @@ public class FederatedMavenRepository extends com.pulumi.resources.CustomResourc
      * If set, Artifactory allows you to deploy release artifacts into this repository.
      * 
      */
-    @Export(name="handleReleases", type=Boolean.class, parameters={})
+    @Export(name="handleReleases", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> handleReleases;
 
     /**
@@ -220,7 +220,7 @@ public class FederatedMavenRepository extends com.pulumi.resources.CustomResourc
      * If set, Artifactory allows you to deploy snapshot artifacts into this repository.
      * 
      */
-    @Export(name="handleSnapshots", type=Boolean.class, parameters={})
+    @Export(name="handleSnapshots", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> handleSnapshots;
 
     /**
@@ -235,7 +235,7 @@ public class FederatedMavenRepository extends com.pulumi.resources.CustomResourc
      * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**{@literal /}*).
      * 
      */
-    @Export(name="includesPattern", type=String.class, parameters={})
+    @Export(name="includesPattern", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> includesPattern;
 
     /**
@@ -250,7 +250,7 @@ public class FederatedMavenRepository extends com.pulumi.resources.CustomResourc
      * the identity key of the repo.
      * 
      */
-    @Export(name="key", type=String.class, parameters={})
+    @Export(name="key", refs={String.class}, tree="[0]")
     private Output<String> key;
 
     /**
@@ -265,7 +265,7 @@ public class FederatedMavenRepository extends com.pulumi.resources.CustomResourc
      * older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
      * 
      */
-    @Export(name="maxUniqueSnapshots", type=Integer.class, parameters={})
+    @Export(name="maxUniqueSnapshots", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> maxUniqueSnapshots;
 
     /**
@@ -283,7 +283,7 @@ public class FederatedMavenRepository extends com.pulumi.resources.CustomResourc
      * to set up Federated repositories correctly.
      * 
      */
-    @Export(name="members", type=List.class, parameters={FederatedMavenRepositoryMember.class})
+    @Export(name="members", refs={List.class,FederatedMavenRepositoryMember.class}, tree="[0,1]")
     private Output<List<FederatedMavenRepositoryMember>> members;
 
     /**
@@ -300,7 +300,7 @@ public class FederatedMavenRepository extends com.pulumi.resources.CustomResourc
      * Internal description.
      * 
      */
-    @Export(name="notes", type=String.class, parameters={})
+    @Export(name="notes", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> notes;
 
     /**
@@ -310,7 +310,7 @@ public class FederatedMavenRepository extends com.pulumi.resources.CustomResourc
     public Output<Optional<String>> notes() {
         return Codegen.optional(this.notes);
     }
-    @Export(name="packageType", type=String.class, parameters={})
+    @Export(name="packageType", refs={String.class}, tree="[0]")
     private Output<String> packageType;
 
     public Output<String> packageType() {
@@ -320,7 +320,7 @@ public class FederatedMavenRepository extends com.pulumi.resources.CustomResourc
      * Setting repositories with priority will cause metadata to be merged only from repositories set with this field
      * 
      */
-    @Export(name="priorityResolution", type=Boolean.class, parameters={})
+    @Export(name="priorityResolution", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> priorityResolution;
 
     /**
@@ -337,7 +337,7 @@ public class FederatedMavenRepository extends com.pulumi.resources.CustomResourc
      * be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
      * 
      */
-    @Export(name="projectEnvironments", type=List.class, parameters={String.class})
+    @Export(name="projectEnvironments", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> projectEnvironments;
 
     /**
@@ -355,7 +355,7 @@ public class FederatedMavenRepository extends com.pulumi.resources.CustomResourc
      * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      * 
      */
-    @Export(name="projectKey", type=String.class, parameters={})
+    @Export(name="projectKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> projectKey;
 
     /**
@@ -370,7 +370,7 @@ public class FederatedMavenRepository extends com.pulumi.resources.CustomResourc
      * List of property set name
      * 
      */
-    @Export(name="propertySets", type=List.class, parameters={String.class})
+    @Export(name="propertySets", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> propertySets;
 
     /**
@@ -384,7 +384,7 @@ public class FederatedMavenRepository extends com.pulumi.resources.CustomResourc
      * Repository layout key for the federated repository
      * 
      */
-    @Export(name="repoLayoutRef", type=String.class, parameters={})
+    @Export(name="repoLayoutRef", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> repoLayoutRef;
 
     /**
@@ -400,7 +400,7 @@ public class FederatedMavenRepository extends com.pulumi.resources.CustomResourc
      * artifactId-version-SNAPSHOT.type deployer: Respects the settings in the Maven client that is deploying the artifact.
      * 
      */
-    @Export(name="snapshotVersionBehavior", type=String.class, parameters={})
+    @Export(name="snapshotVersionBehavior", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> snapshotVersionBehavior;
 
     /**
@@ -419,7 +419,7 @@ public class FederatedMavenRepository extends com.pulumi.resources.CustomResourc
      * checkbox.
      * 
      */
-    @Export(name="suppressPomConsistencyChecks", type=Boolean.class, parameters={})
+    @Export(name="suppressPomConsistencyChecks", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> suppressPomConsistencyChecks;
 
     /**
@@ -437,7 +437,7 @@ public class FederatedMavenRepository extends com.pulumi.resources.CustomResourc
      * Xray settings.
      * 
      */
-    @Export(name="xrayIndex", type=Boolean.class, parameters={})
+    @Export(name="xrayIndex", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> xrayIndex;
 
     /**
