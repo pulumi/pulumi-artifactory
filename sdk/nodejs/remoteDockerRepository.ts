@@ -18,7 +18,6 @@ import * as utilities from "./utilities";
  *
  * const my_remote_docker = new artifactory.RemoteDockerRepository("my-remote-docker", {
  *     blockPushingSchema1: true,
- *     disableUrlNormalization: true,
  *     enableTokenAuthentication: true,
  *     externalDependenciesEnabled: true,
  *     externalDependenciesPatterns: ["**&#47;registry-1.docker.io/**"],

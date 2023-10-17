@@ -100,12 +100,12 @@ export interface GetFederatedRpmRepositoryResult {
     readonly description?: string;
     readonly downloadDirect?: boolean;
     readonly enableFileListsIndexing?: boolean;
-    readonly excludesPattern: string;
+    readonly excludesPattern?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    readonly includesPattern: string;
+    readonly includesPattern?: string;
     readonly key: string;
     /**
      * The list of Federated members and must contain this repository URL (configured base URL

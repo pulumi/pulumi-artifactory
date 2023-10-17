@@ -182,6 +182,21 @@ public final class RemoteNugetRepositoryState extends com.pulumi.resources.Resou
     }
 
     /**
+     * Whether to disable URL normalization, default is `false`.
+     * 
+     */
+    @Import(name="disableUrlNormalization")
+    private @Nullable Output<Boolean> disableUrlNormalization;
+
+    /**
+     * @return Whether to disable URL normalization, default is `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> disableUrlNormalization() {
+        return Optional.ofNullable(this.disableUrlNormalization);
+    }
+
+    /**
      * The context path prefix through which NuGet downloads are served.
      * For example, the NuGet Gallery download URL is `https://nuget.org/api/v2/package`, so the repository
      * URL should be configured as `https://nuget.org` and the download context path should be configured as `api/v2/package`. Default value is `api/v2/package`.
@@ -773,6 +788,7 @@ public final class RemoteNugetRepositoryState extends com.pulumi.resources.Resou
         this.contentSynchronisation = $.contentSynchronisation;
         this.description = $.description;
         this.disableProxy = $.disableProxy;
+        this.disableUrlNormalization = $.disableUrlNormalization;
         this.downloadContextPath = $.downloadContextPath;
         this.downloadDirect = $.downloadDirect;
         this.enableCookieManagement = $.enableCookieManagement;
@@ -1046,6 +1062,27 @@ public final class RemoteNugetRepositoryState extends com.pulumi.resources.Resou
          */
         public Builder disableProxy(Boolean disableProxy) {
             return disableProxy(Output.of(disableProxy));
+        }
+
+        /**
+         * @param disableUrlNormalization Whether to disable URL normalization, default is `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder disableUrlNormalization(@Nullable Output<Boolean> disableUrlNormalization) {
+            $.disableUrlNormalization = disableUrlNormalization;
+            return this;
+        }
+
+        /**
+         * @param disableUrlNormalization Whether to disable URL normalization, default is `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder disableUrlNormalization(Boolean disableUrlNormalization) {
+            return disableUrlNormalization(Output.of(disableUrlNormalization));
         }
 
         /**

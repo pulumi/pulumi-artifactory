@@ -2859,6 +2859,13 @@ export interface RemoteHelmRepositoryContentSynchronisation {
     statisticsEnabled?: pulumi.Input<boolean>;
 }
 
+export interface RemoteHuggingfacemlRepositoryContentSynchronisation {
+    enabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean>;
+}
+
 export interface RemoteIvyRepositoryContentSynchronisation {
     enabled?: pulumi.Input<boolean>;
     propertiesEnabled?: pulumi.Input<boolean>;

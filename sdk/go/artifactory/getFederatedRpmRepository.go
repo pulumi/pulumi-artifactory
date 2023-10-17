@@ -91,11 +91,11 @@ type LookupFederatedRpmRepositoryResult struct {
 	Description             *string `pulumi:"description"`
 	DownloadDirect          *bool   `pulumi:"downloadDirect"`
 	EnableFileListsIndexing *bool   `pulumi:"enableFileListsIndexing"`
-	ExcludesPattern         string  `pulumi:"excludesPattern"`
+	ExcludesPattern         *string `pulumi:"excludesPattern"`
 	// The provider-assigned unique ID for this managed resource.
-	Id              string `pulumi:"id"`
-	IncludesPattern string `pulumi:"includesPattern"`
-	Key             string `pulumi:"key"`
+	Id              string  `pulumi:"id"`
+	IncludesPattern *string `pulumi:"includesPattern"`
+	Key             string  `pulumi:"key"`
 	// The list of Federated members and must contain this repository URL (configured base URL
 	// `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
 	// Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
@@ -217,8 +217,8 @@ func (o LookupFederatedRpmRepositoryResultOutput) EnableFileListsIndexing() pulu
 	return o.ApplyT(func(v LookupFederatedRpmRepositoryResult) *bool { return v.EnableFileListsIndexing }).(pulumi.BoolPtrOutput)
 }
 
-func (o LookupFederatedRpmRepositoryResultOutput) ExcludesPattern() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupFederatedRpmRepositoryResult) string { return v.ExcludesPattern }).(pulumi.StringOutput)
+func (o LookupFederatedRpmRepositoryResultOutput) ExcludesPattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFederatedRpmRepositoryResult) *string { return v.ExcludesPattern }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
@@ -226,8 +226,8 @@ func (o LookupFederatedRpmRepositoryResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFederatedRpmRepositoryResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-func (o LookupFederatedRpmRepositoryResultOutput) IncludesPattern() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupFederatedRpmRepositoryResult) string { return v.IncludesPattern }).(pulumi.StringOutput)
+func (o LookupFederatedRpmRepositoryResultOutput) IncludesPattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFederatedRpmRepositoryResult) *string { return v.IncludesPattern }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupFederatedRpmRepositoryResultOutput) Key() pulumi.StringOutput {

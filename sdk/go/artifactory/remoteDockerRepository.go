@@ -32,7 +32,6 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewRemoteDockerRepository(ctx, "my-remote-docker", &artifactory.RemoteDockerRepositoryArgs{
 //				BlockPushingSchema1:         pulumi.Bool(true),
-//				DisableUrlNormalization:     pulumi.Bool(true),
 //				EnableTokenAuthentication:   pulumi.Bool(true),
 //				ExternalDependenciesEnabled: pulumi.Bool(true),
 //				ExternalDependenciesPatterns: pulumi.StringArray{

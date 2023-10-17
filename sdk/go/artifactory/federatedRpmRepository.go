@@ -82,12 +82,12 @@ type FederatedRpmRepository struct {
 	// storage provider. Available in Enterprise+ and Edge licenses only.
 	DownloadDirect          pulumi.BoolPtrOutput `pulumi:"downloadDirect"`
 	EnableFileListsIndexing pulumi.BoolPtrOutput `pulumi:"enableFileListsIndexing"`
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 	// artifacts are excluded.
-	ExcludesPattern pulumi.StringOutput `pulumi:"excludesPattern"`
-	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-	IncludesPattern pulumi.StringOutput `pulumi:"includesPattern"`
+	ExcludesPattern pulumi.StringPtrOutput `pulumi:"excludesPattern"`
+	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+	IncludesPattern pulumi.StringPtrOutput `pulumi:"includesPattern"`
 	// the identity key of the repo.
 	Key pulumi.StringOutput `pulumi:"key"`
 	// The list of Federated members and must contain this repository URL (configured base URL
@@ -184,11 +184,11 @@ type federatedRpmRepositoryState struct {
 	// storage provider. Available in Enterprise+ and Edge licenses only.
 	DownloadDirect          *bool `pulumi:"downloadDirect"`
 	EnableFileListsIndexing *bool `pulumi:"enableFileListsIndexing"`
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 	// artifacts are excluded.
 	ExcludesPattern *string `pulumi:"excludesPattern"`
-	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
 	// the identity key of the repo.
 	Key *string `pulumi:"key"`
@@ -251,11 +251,11 @@ type FederatedRpmRepositoryState struct {
 	// storage provider. Available in Enterprise+ and Edge licenses only.
 	DownloadDirect          pulumi.BoolPtrInput
 	EnableFileListsIndexing pulumi.BoolPtrInput
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 	// artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrInput
-	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
 	// the identity key of the repo.
 	Key pulumi.StringPtrInput
@@ -322,11 +322,11 @@ type federatedRpmRepositoryArgs struct {
 	// storage provider. Available in Enterprise+ and Edge licenses only.
 	DownloadDirect          *bool `pulumi:"downloadDirect"`
 	EnableFileListsIndexing *bool `pulumi:"enableFileListsIndexing"`
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 	// artifacts are excluded.
 	ExcludesPattern *string `pulumi:"excludesPattern"`
-	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
 	// the identity key of the repo.
 	Key string `pulumi:"key"`
@@ -389,11 +389,11 @@ type FederatedRpmRepositoryArgs struct {
 	// storage provider. Available in Enterprise+ and Edge licenses only.
 	DownloadDirect          pulumi.BoolPtrInput
 	EnableFileListsIndexing pulumi.BoolPtrInput
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 	// artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrInput
-	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
 	// the identity key of the repo.
 	Key pulumi.StringInput
@@ -589,16 +589,16 @@ func (o FederatedRpmRepositoryOutput) EnableFileListsIndexing() pulumi.BoolPtrOu
 	return o.ApplyT(func(v *FederatedRpmRepository) pulumi.BoolPtrOutput { return v.EnableFileListsIndexing }).(pulumi.BoolPtrOutput)
 }
 
-// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 // artifacts are excluded.
-func (o FederatedRpmRepositoryOutput) ExcludesPattern() pulumi.StringOutput {
-	return o.ApplyT(func(v *FederatedRpmRepository) pulumi.StringOutput { return v.ExcludesPattern }).(pulumi.StringOutput)
+func (o FederatedRpmRepositoryOutput) ExcludesPattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FederatedRpmRepository) pulumi.StringPtrOutput { return v.ExcludesPattern }).(pulumi.StringPtrOutput)
 }
 
-// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-func (o FederatedRpmRepositoryOutput) IncludesPattern() pulumi.StringOutput {
-	return o.ApplyT(func(v *FederatedRpmRepository) pulumi.StringOutput { return v.IncludesPattern }).(pulumi.StringOutput)
+// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+func (o FederatedRpmRepositoryOutput) IncludesPattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FederatedRpmRepository) pulumi.StringPtrOutput { return v.IncludesPattern }).(pulumi.StringPtrOutput)
 }
 
 // the identity key of the repo.

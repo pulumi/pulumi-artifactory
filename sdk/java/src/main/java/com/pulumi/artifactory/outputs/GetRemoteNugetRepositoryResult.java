@@ -25,6 +25,7 @@ public final class GetRemoteNugetRepositoryResult {
     private GetRemoteNugetRepositoryContentSynchronisation contentSynchronisation;
     private @Nullable String description;
     private @Nullable Boolean disableProxy;
+    private @Nullable Boolean disableUrlNormalization;
     /**
      * @return (Optional) The context path prefix through which NuGet downloads are served. For example, the NuGet Gallery download URL is `https://nuget.org/api/v2/package`, so the repository URL should be configured as `https://nuget.org` and the download context path should be configured as `api/v2/package`. Default value is `api/v2/package`.
      * 
@@ -118,6 +119,9 @@ public final class GetRemoteNugetRepositoryResult {
     }
     public Optional<Boolean> disableProxy() {
         return Optional.ofNullable(this.disableProxy);
+    }
+    public Optional<Boolean> disableUrlNormalization() {
+        return Optional.ofNullable(this.disableUrlNormalization);
     }
     /**
      * @return (Optional) The context path prefix through which NuGet downloads are served. For example, the NuGet Gallery download URL is `https://nuget.org/api/v2/package`, so the repository URL should be configured as `https://nuget.org` and the download context path should be configured as `api/v2/package`. Default value is `api/v2/package`.
@@ -277,6 +281,7 @@ public final class GetRemoteNugetRepositoryResult {
         private GetRemoteNugetRepositoryContentSynchronisation contentSynchronisation;
         private @Nullable String description;
         private @Nullable Boolean disableProxy;
+        private @Nullable Boolean disableUrlNormalization;
         private @Nullable String downloadContextPath;
         private @Nullable Boolean downloadDirect;
         private @Nullable Boolean enableCookieManagement;
@@ -328,6 +333,7 @@ public final class GetRemoteNugetRepositoryResult {
     	      this.contentSynchronisation = defaults.contentSynchronisation;
     	      this.description = defaults.description;
     	      this.disableProxy = defaults.disableProxy;
+    	      this.disableUrlNormalization = defaults.disableUrlNormalization;
     	      this.downloadContextPath = defaults.downloadContextPath;
     	      this.downloadDirect = defaults.downloadDirect;
     	      this.enableCookieManagement = defaults.enableCookieManagement;
@@ -416,6 +422,11 @@ public final class GetRemoteNugetRepositoryResult {
         @CustomType.Setter
         public Builder disableProxy(@Nullable Boolean disableProxy) {
             this.disableProxy = disableProxy;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder disableUrlNormalization(@Nullable Boolean disableUrlNormalization) {
+            this.disableUrlNormalization = disableUrlNormalization;
             return this;
         }
         @CustomType.Setter
@@ -626,6 +637,7 @@ public final class GetRemoteNugetRepositoryResult {
             o.contentSynchronisation = contentSynchronisation;
             o.description = description;
             o.disableProxy = disableProxy;
+            o.disableUrlNormalization = disableUrlNormalization;
             o.downloadContextPath = downloadContextPath;
             o.downloadDirect = downloadDirect;
             o.enableCookieManagement = enableCookieManagement;

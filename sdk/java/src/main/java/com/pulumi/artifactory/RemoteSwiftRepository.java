@@ -217,6 +217,20 @@ public class RemoteSwiftRepository extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.disableProxy);
     }
     /**
+     * Whether to disable URL normalization, default is `false`.
+     * 
+     */
+    @Export(name="disableUrlNormalization", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> disableUrlNormalization;
+
+    /**
+     * @return Whether to disable URL normalization, default is `false`.
+     * 
+     */
+    public Output<Optional<Boolean>> disableUrlNormalization() {
+        return Codegen.optional(this.disableUrlNormalization);
+    }
+    /**
      * When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
      * storage provider. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;.
      * 

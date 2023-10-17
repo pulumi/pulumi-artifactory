@@ -35,6 +35,7 @@ export function getRemoteCargoRepository(args: GetRemoteCargoRepositoryArgs, opt
         "contentSynchronisation": args.contentSynchronisation,
         "description": args.description,
         "disableProxy": args.disableProxy,
+        "disableUrlNormalization": args.disableUrlNormalization,
         "downloadDirect": args.downloadDirect,
         "enableCookieManagement": args.enableCookieManagement,
         "enableSparseIndex": args.enableSparseIndex,
@@ -89,6 +90,7 @@ export interface GetRemoteCargoRepositoryArgs {
     contentSynchronisation?: inputs.GetRemoteCargoRepositoryContentSynchronisation;
     description?: string;
     disableProxy?: boolean;
+    disableUrlNormalization?: boolean;
     downloadDirect?: boolean;
     enableCookieManagement?: boolean;
     /**
@@ -151,6 +153,7 @@ export interface GetRemoteCargoRepositoryResult {
     readonly contentSynchronisation: outputs.GetRemoteCargoRepositoryContentSynchronisation;
     readonly description?: string;
     readonly disableProxy?: boolean;
+    readonly disableUrlNormalization?: boolean;
     readonly downloadDirect?: boolean;
     readonly enableCookieManagement?: boolean;
     /**
@@ -232,6 +235,7 @@ export interface GetRemoteCargoRepositoryOutputArgs {
     contentSynchronisation?: pulumi.Input<inputs.GetRemoteCargoRepositoryContentSynchronisationArgs>;
     description?: pulumi.Input<string>;
     disableProxy?: pulumi.Input<boolean>;
+    disableUrlNormalization?: pulumi.Input<boolean>;
     downloadDirect?: pulumi.Input<boolean>;
     enableCookieManagement?: pulumi.Input<boolean>;
     /**

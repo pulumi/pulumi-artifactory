@@ -49,11 +49,11 @@ type LookupLocalConanRepositoryResult struct {
 	CdnRedirect              *bool   `pulumi:"cdnRedirect"`
 	Description              *string `pulumi:"description"`
 	DownloadDirect           *bool   `pulumi:"downloadDirect"`
-	ExcludesPattern          string  `pulumi:"excludesPattern"`
+	ExcludesPattern          *string `pulumi:"excludesPattern"`
 	ForceConanAuthentication *bool   `pulumi:"forceConanAuthentication"`
 	// The provider-assigned unique ID for this managed resource.
 	Id                  string   `pulumi:"id"`
-	IncludesPattern     string   `pulumi:"includesPattern"`
+	IncludesPattern     *string  `pulumi:"includesPattern"`
 	Key                 string   `pulumi:"key"`
 	Notes               *string  `pulumi:"notes"`
 	PackageType         string   `pulumi:"packageType"`
@@ -143,8 +143,8 @@ func (o LookupLocalConanRepositoryResultOutput) DownloadDirect() pulumi.BoolPtrO
 	return o.ApplyT(func(v LookupLocalConanRepositoryResult) *bool { return v.DownloadDirect }).(pulumi.BoolPtrOutput)
 }
 
-func (o LookupLocalConanRepositoryResultOutput) ExcludesPattern() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupLocalConanRepositoryResult) string { return v.ExcludesPattern }).(pulumi.StringOutput)
+func (o LookupLocalConanRepositoryResultOutput) ExcludesPattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLocalConanRepositoryResult) *string { return v.ExcludesPattern }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupLocalConanRepositoryResultOutput) ForceConanAuthentication() pulumi.BoolPtrOutput {
@@ -156,8 +156,8 @@ func (o LookupLocalConanRepositoryResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLocalConanRepositoryResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-func (o LookupLocalConanRepositoryResultOutput) IncludesPattern() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupLocalConanRepositoryResult) string { return v.IncludesPattern }).(pulumi.StringOutput)
+func (o LookupLocalConanRepositoryResultOutput) IncludesPattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLocalConanRepositoryResult) *string { return v.IncludesPattern }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupLocalConanRepositoryResultOutput) Key() pulumi.StringOutput {

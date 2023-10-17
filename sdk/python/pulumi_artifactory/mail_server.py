@@ -63,7 +63,19 @@ class MailServerArgs:
              use_ssl: Optional[pulumi.Input[bool]] = None,
              use_tls: Optional[pulumi.Input[bool]] = None,
              username: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'artifactoryUrl' in kwargs:
+            artifactory_url = kwargs['artifactoryUrl']
+        if 'from' in kwargs:
+            from_ = kwargs['from']
+        if 'subjectPrefix' in kwargs:
+            subject_prefix = kwargs['subjectPrefix']
+        if 'useSsl' in kwargs:
+            use_ssl = kwargs['useSsl']
+        if 'useTls' in kwargs:
+            use_tls = kwargs['useTls']
+
         _setter("enabled", enabled)
         _setter("host", host)
         _setter("port", port)
@@ -255,7 +267,19 @@ class _MailServerState:
              use_ssl: Optional[pulumi.Input[bool]] = None,
              use_tls: Optional[pulumi.Input[bool]] = None,
              username: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'artifactoryUrl' in kwargs:
+            artifactory_url = kwargs['artifactoryUrl']
+        if 'from' in kwargs:
+            from_ = kwargs['from']
+        if 'subjectPrefix' in kwargs:
+            subject_prefix = kwargs['subjectPrefix']
+        if 'useSsl' in kwargs:
+            use_ssl = kwargs['useSsl']
+        if 'useTls' in kwargs:
+            use_tls = kwargs['useTls']
+
         if artifactory_url is not None:
             _setter("artifactory_url", artifactory_url)
         if enabled is not None:

@@ -101,6 +101,9 @@ namespace Pulumi.Artifactory
         [Input("disableProxy")]
         public bool? DisableProxy { get; set; }
 
+        [Input("disableUrlNormalization")]
+        public bool? DisableUrlNormalization { get; set; }
+
         [Input("downloadDirect")]
         public bool? DownloadDirect { get; set; }
 
@@ -268,6 +271,9 @@ namespace Pulumi.Artifactory
         [Input("disableProxy")]
         public Input<bool>? DisableProxy { get; set; }
 
+        [Input("disableUrlNormalization")]
+        public Input<bool>? DisableUrlNormalization { get; set; }
+
         [Input("downloadDirect")]
         public Input<bool>? DownloadDirect { get; set; }
 
@@ -421,6 +427,7 @@ namespace Pulumi.Artifactory
         public readonly Outputs.GetRemoteCocoapodsRepositoryContentSynchronisationResult ContentSynchronisation;
         public readonly string? Description;
         public readonly bool? DisableProxy;
+        public readonly bool? DisableUrlNormalization;
         public readonly bool? DownloadDirect;
         public readonly bool? EnableCookieManagement;
         public readonly string? ExcludesPattern;
@@ -491,6 +498,8 @@ namespace Pulumi.Artifactory
             string? description,
 
             bool? disableProxy,
+
+            bool? disableUrlNormalization,
 
             bool? downloadDirect,
 
@@ -574,6 +583,7 @@ namespace Pulumi.Artifactory
             ContentSynchronisation = contentSynchronisation;
             Description = description;
             DisableProxy = disableProxy;
+            DisableUrlNormalization = disableUrlNormalization;
             DownloadDirect = downloadDirect;
             EnableCookieManagement = enableCookieManagement;
             ExcludesPattern = excludesPattern;

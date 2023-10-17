@@ -545,6 +545,11 @@ export const getLocalHelmRepository: typeof import("./getLocalHelmRepository").g
 export const getLocalHelmRepositoryOutput: typeof import("./getLocalHelmRepository").getLocalHelmRepositoryOutput = null as any;
 utilities.lazyLoad(exports, ["getLocalHelmRepository","getLocalHelmRepositoryOutput"], () => require("./getLocalHelmRepository"));
 
+export { GetLocalHuggingfacemlRepositoryArgs, GetLocalHuggingfacemlRepositoryResult, GetLocalHuggingfacemlRepositoryOutputArgs } from "./getLocalHuggingfacemlRepository";
+export const getLocalHuggingfacemlRepository: typeof import("./getLocalHuggingfacemlRepository").getLocalHuggingfacemlRepository = null as any;
+export const getLocalHuggingfacemlRepositoryOutput: typeof import("./getLocalHuggingfacemlRepository").getLocalHuggingfacemlRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getLocalHuggingfacemlRepository","getLocalHuggingfacemlRepositoryOutput"], () => require("./getLocalHuggingfacemlRepository"));
+
 export { GetLocalIvyRepositoryArgs, GetLocalIvyRepositoryResult, GetLocalIvyRepositoryOutputArgs } from "./getLocalIvyRepository";
 export const getLocalIvyRepository: typeof import("./getLocalIvyRepository").getLocalIvyRepository = null as any;
 export const getLocalIvyRepositoryOutput: typeof import("./getLocalIvyRepository").getLocalIvyRepositoryOutput = null as any;
@@ -1025,6 +1030,11 @@ export type LocalHelmRepository = import("./localHelmRepository").LocalHelmRepos
 export const LocalHelmRepository: typeof import("./localHelmRepository").LocalHelmRepository = null as any;
 utilities.lazyLoad(exports, ["LocalHelmRepository"], () => require("./localHelmRepository"));
 
+export { LocalHuggingfacemlRepositoryArgs, LocalHuggingfacemlRepositoryState } from "./localHuggingfacemlRepository";
+export type LocalHuggingfacemlRepository = import("./localHuggingfacemlRepository").LocalHuggingfacemlRepository;
+export const LocalHuggingfacemlRepository: typeof import("./localHuggingfacemlRepository").LocalHuggingfacemlRepository = null as any;
+utilities.lazyLoad(exports, ["LocalHuggingfacemlRepository"], () => require("./localHuggingfacemlRepository"));
+
 export { LocalIvyRepositoryArgs, LocalIvyRepositoryState } from "./localIvyRepository";
 export type LocalIvyRepository = import("./localIvyRepository").LocalIvyRepository;
 export const LocalIvyRepository: typeof import("./localIvyRepository").LocalIvyRepository = null as any;
@@ -1254,6 +1264,11 @@ export { RemoteHelmRepositoryArgs, RemoteHelmRepositoryState } from "./remoteHel
 export type RemoteHelmRepository = import("./remoteHelmRepository").RemoteHelmRepository;
 export const RemoteHelmRepository: typeof import("./remoteHelmRepository").RemoteHelmRepository = null as any;
 utilities.lazyLoad(exports, ["RemoteHelmRepository"], () => require("./remoteHelmRepository"));
+
+export { RemoteHuggingfacemlRepositoryArgs, RemoteHuggingfacemlRepositoryState } from "./remoteHuggingfacemlRepository";
+export type RemoteHuggingfacemlRepository = import("./remoteHuggingfacemlRepository").RemoteHuggingfacemlRepository;
+export const RemoteHuggingfacemlRepository: typeof import("./remoteHuggingfacemlRepository").RemoteHuggingfacemlRepository = null as any;
+utilities.lazyLoad(exports, ["RemoteHuggingfacemlRepository"], () => require("./remoteHuggingfacemlRepository"));
 
 export { RemoteIvyRepositoryArgs, RemoteIvyRepositoryState } from "./remoteIvyRepository";
 export type RemoteIvyRepository = import("./remoteIvyRepository").RemoteIvyRepository;
@@ -1658,6 +1673,8 @@ const _module = {
                 return new LocalGradleRepository(name, <any>undefined, { urn })
             case "artifactory:index/localHelmRepository:LocalHelmRepository":
                 return new LocalHelmRepository(name, <any>undefined, { urn })
+            case "artifactory:index/localHuggingfacemlRepository:LocalHuggingfacemlRepository":
+                return new LocalHuggingfacemlRepository(name, <any>undefined, { urn })
             case "artifactory:index/localIvyRepository:LocalIvyRepository":
                 return new LocalIvyRepository(name, <any>undefined, { urn })
             case "artifactory:index/localMavenRepository:LocalMavenRepository":
@@ -1748,6 +1765,8 @@ const _module = {
                 return new RemoteGradleRepository(name, <any>undefined, { urn })
             case "artifactory:index/remoteHelmRepository:RemoteHelmRepository":
                 return new RemoteHelmRepository(name, <any>undefined, { urn })
+            case "artifactory:index/remoteHuggingfacemlRepository:RemoteHuggingfacemlRepository":
+                return new RemoteHuggingfacemlRepository(name, <any>undefined, { urn })
             case "artifactory:index/remoteIvyRepository:RemoteIvyRepository":
                 return new RemoteIvyRepository(name, <any>undefined, { urn })
             case "artifactory:index/remoteMavenRepository:RemoteMavenRepository":
@@ -1924,6 +1943,7 @@ pulumi.runtime.registerResourceModule("artifactory", "index/localGitltfsReposito
 pulumi.runtime.registerResourceModule("artifactory", "index/localGoRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/localGradleRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/localHelmRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/localHuggingfacemlRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/localIvyRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/localMavenRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/localNpmRepository", _module)
@@ -1969,6 +1989,7 @@ pulumi.runtime.registerResourceModule("artifactory", "index/remoteGitlfsReposito
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteGoRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteGradleRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteHelmRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/remoteHuggingfacemlRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteIvyRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteMavenRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteNpmRepository", _module)

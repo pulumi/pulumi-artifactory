@@ -139,36 +139,36 @@ public class LocalBowerRepository extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.downloadDirect);
     }
     /**
-     * List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**{@literal /}z/*. By default no
+     * List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**{@literal /}z/*.By default no
      * artifacts are excluded.
      * 
      */
     @Export(name="excludesPattern", type=String.class, parameters={})
-    private Output<String> excludesPattern;
+    private Output</* @Nullable */ String> excludesPattern;
 
     /**
-     * @return List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**{@literal /}z/*. By default no
+     * @return List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**{@literal /}z/*.By default no
      * artifacts are excluded.
      * 
      */
-    public Output<String> excludesPattern() {
-        return this.excludesPattern;
+    public Output<Optional<String>> excludesPattern() {
+        return Codegen.optional(this.excludesPattern);
     }
     /**
-     * List of artifact patterns to include when evaluating artifact requests in the form of x/y/**{@literal /}z/*. When used, only
-     * artifacts matching one of the include patterns are served. By default, all artifacts are included (**{@literal /}*).
+     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**{@literal /}z/*. When
+     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**{@literal /}*).
      * 
      */
     @Export(name="includesPattern", type=String.class, parameters={})
-    private Output<String> includesPattern;
+    private Output</* @Nullable */ String> includesPattern;
 
     /**
-     * @return List of artifact patterns to include when evaluating artifact requests in the form of x/y/**{@literal /}z/*. When used, only
-     * artifacts matching one of the include patterns are served. By default, all artifacts are included (**{@literal /}*).
+     * @return List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**{@literal /}z/*. When
+     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**{@literal /}*).
      * 
      */
-    public Output<String> includesPattern() {
-        return this.includesPattern;
+    public Output<Optional<String>> includesPattern() {
+        return Codegen.optional(this.includesPattern);
     }
     /**
      * the identity key of the repo.

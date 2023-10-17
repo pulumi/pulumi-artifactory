@@ -93,6 +93,8 @@ type RemoteCargoRepository struct {
 	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
 	// for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
 	DisableProxy pulumi.BoolPtrOutput `pulumi:"disableProxy"`
+	// Whether to disable URL normalization, default is `false`.
+	DisableUrlNormalization pulumi.BoolPtrOutput `pulumi:"disableUrlNormalization"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
 	// storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
 	DownloadDirect pulumi.BoolPtrOutput `pulumi:"downloadDirect"`
@@ -262,6 +264,8 @@ type remoteCargoRepositoryState struct {
 	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
 	// for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
 	DisableProxy *bool `pulumi:"disableProxy"`
+	// Whether to disable URL normalization, default is `false`.
+	DisableUrlNormalization *bool `pulumi:"disableUrlNormalization"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
 	// storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
 	DownloadDirect *bool `pulumi:"downloadDirect"`
@@ -386,6 +390,8 @@ type RemoteCargoRepositoryState struct {
 	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
 	// for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
 	DisableProxy pulumi.BoolPtrInput
+	// Whether to disable URL normalization, default is `false`.
+	DisableUrlNormalization pulumi.BoolPtrInput
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
 	// storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
 	DownloadDirect pulumi.BoolPtrInput
@@ -514,6 +520,8 @@ type remoteCargoRepositoryArgs struct {
 	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
 	// for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
 	DisableProxy *bool `pulumi:"disableProxy"`
+	// Whether to disable URL normalization, default is `false`.
+	DisableUrlNormalization *bool `pulumi:"disableUrlNormalization"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
 	// storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
 	DownloadDirect *bool `pulumi:"downloadDirect"`
@@ -638,6 +646,8 @@ type RemoteCargoRepositoryArgs struct {
 	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
 	// for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
 	DisableProxy pulumi.BoolPtrInput
+	// Whether to disable URL normalization, default is `false`.
+	DisableUrlNormalization pulumi.BoolPtrInput
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
 	// storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
 	DownloadDirect pulumi.BoolPtrInput
@@ -904,6 +914,11 @@ func (o RemoteCargoRepositoryOutput) Description() pulumi.StringPtrOutput {
 // for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
 func (o RemoteCargoRepositoryOutput) DisableProxy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteCargoRepository) pulumi.BoolPtrOutput { return v.DisableProxy }).(pulumi.BoolPtrOutput)
+}
+
+// Whether to disable URL normalization, default is `false`.
+func (o RemoteCargoRepositoryOutput) DisableUrlNormalization() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RemoteCargoRepository) pulumi.BoolPtrOutput { return v.DisableUrlNormalization }).(pulumi.BoolPtrOutput)
 }
 
 // When set, download requests to this repository will redirect the client to download the artifact directly from the cloud

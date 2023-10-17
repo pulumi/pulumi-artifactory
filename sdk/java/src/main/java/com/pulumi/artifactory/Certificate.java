@@ -81,22 +81,30 @@ public class Certificate extends com.pulumi.resources.CustomResource {
         return this.alias;
     }
     /**
-     * PEM-encoded client certificate and private key.
+     * PEM-encoded client certificate and private key. Cannot be set with `file` attribute simultaneously.
      * 
      */
     @Export(name="content", type=String.class, parameters={})
     private Output</* @Nullable */ String> content;
 
     /**
-     * @return PEM-encoded client certificate and private key.
+     * @return PEM-encoded client certificate and private key. Cannot be set with `file` attribute simultaneously.
      * 
      */
     public Output<Optional<String>> content() {
         return Codegen.optional(this.content);
     }
+    /**
+     * Path to the PEM file. Cannot be set with `content` attribute simultaneously.
+     * 
+     */
     @Export(name="file", type=String.class, parameters={})
     private Output</* @Nullable */ String> file;
 
+    /**
+     * @return Path to the PEM file. Cannot be set with `content` attribute simultaneously.
+     * 
+     */
     public Output<Optional<String>> file() {
         return Codegen.optional(this.file);
     }

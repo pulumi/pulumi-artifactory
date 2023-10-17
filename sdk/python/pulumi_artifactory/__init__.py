@@ -113,6 +113,7 @@ from .get_local_gitlfs_repository import *
 from .get_local_go_repository import *
 from .get_local_gradle_repository import *
 from .get_local_helm_repository import *
+from .get_local_huggingfaceml_repository import *
 from .get_local_ivy_repository import *
 from .get_local_maven_repository import *
 from .get_local_npm_repository import *
@@ -209,6 +210,7 @@ from .local_gitltfs_repository import *
 from .local_go_repository import *
 from .local_gradle_repository import *
 from .local_helm_repository import *
+from .local_huggingfaceml_repository import *
 from .local_ivy_repository import *
 from .local_maven_repository import *
 from .local_npm_repository import *
@@ -255,6 +257,7 @@ from .remote_gitlfs_repository import *
 from .remote_go_repository import *
 from .remote_gradle_repository import *
 from .remote_helm_repository import *
+from .remote_huggingfaceml_repository import *
 from .remote_ivy_repository import *
 from .remote_maven_repository import *
 from .remote_npm_repository import *
@@ -933,6 +936,14 @@ _utilities.register(
  },
  {
   "pkg": "artifactory",
+  "mod": "index/localHuggingfacemlRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/localHuggingfacemlRepository:LocalHuggingfacemlRepository": "LocalHuggingfacemlRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
   "mod": "index/localIvyRepository",
   "fqn": "pulumi_artifactory",
   "classes": {
@@ -1289,6 +1300,14 @@ _utilities.register(
   "fqn": "pulumi_artifactory",
   "classes": {
    "artifactory:index/remoteHelmRepository:RemoteHelmRepository": "RemoteHelmRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/remoteHuggingfacemlRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/remoteHuggingfacemlRepository:RemoteHuggingfacemlRepository": "RemoteHuggingfacemlRepository"
   }
  },
  {

@@ -49,7 +49,11 @@ class ReleaseBundleWebhookArgs:
              key: pulumi.Input[str],
              description: Optional[pulumi.Input[str]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'eventTypes' in kwargs:
+            event_types = kwargs['eventTypes']
+
         _setter("criteria", criteria)
         _setter("event_types", event_types)
         _setter("handlers", handlers)
@@ -168,7 +172,11 @@ class _ReleaseBundleWebhookState:
              event_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              handlers: Optional[pulumi.Input[Sequence[pulumi.Input['ReleaseBundleWebhookHandlerArgs']]]] = None,
              key: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'eventTypes' in kwargs:
+            event_types = kwargs['eventTypes']
+
         if criteria is not None:
             _setter("criteria", criteria)
         if description is not None:

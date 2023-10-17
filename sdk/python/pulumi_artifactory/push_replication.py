@@ -40,7 +40,15 @@ class PushReplicationArgs:
              repo_key: pulumi.Input[str],
              enable_event_replication: Optional[pulumi.Input[bool]] = None,
              replications: Optional[pulumi.Input[Sequence[pulumi.Input['PushReplicationReplicationArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cronExp' in kwargs:
+            cron_exp = kwargs['cronExp']
+        if 'repoKey' in kwargs:
+            repo_key = kwargs['repoKey']
+        if 'enableEventReplication' in kwargs:
+            enable_event_replication = kwargs['enableEventReplication']
+
         _setter("cron_exp", cron_exp)
         _setter("repo_key", repo_key)
         if enable_event_replication is not None:
@@ -121,7 +129,15 @@ class _PushReplicationState:
              enable_event_replication: Optional[pulumi.Input[bool]] = None,
              replications: Optional[pulumi.Input[Sequence[pulumi.Input['PushReplicationReplicationArgs']]]] = None,
              repo_key: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cronExp' in kwargs:
+            cron_exp = kwargs['cronExp']
+        if 'enableEventReplication' in kwargs:
+            enable_event_replication = kwargs['enableEventReplication']
+        if 'repoKey' in kwargs:
+            repo_key = kwargs['repoKey']
+
         if cron_exp is not None:
             _setter("cron_exp", cron_exp)
         if enable_event_replication is not None:

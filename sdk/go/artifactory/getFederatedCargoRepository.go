@@ -88,10 +88,10 @@ type LookupFederatedCargoRepositoryResult struct {
 	Description            *string `pulumi:"description"`
 	DownloadDirect         *bool   `pulumi:"downloadDirect"`
 	EnableSparseIndex      *bool   `pulumi:"enableSparseIndex"`
-	ExcludesPattern        string  `pulumi:"excludesPattern"`
+	ExcludesPattern        *string `pulumi:"excludesPattern"`
 	// The provider-assigned unique ID for this managed resource.
 	Id                      string   `pulumi:"id"`
-	IncludesPattern         string   `pulumi:"includesPattern"`
+	IncludesPattern         *string  `pulumi:"includesPattern"`
 	IndexCompressionFormats []string `pulumi:"indexCompressionFormats"`
 	Key                     string   `pulumi:"key"`
 	// The list of Federated members and must contain this repository URL (configured base URL
@@ -208,8 +208,8 @@ func (o LookupFederatedCargoRepositoryResultOutput) EnableSparseIndex() pulumi.B
 	return o.ApplyT(func(v LookupFederatedCargoRepositoryResult) *bool { return v.EnableSparseIndex }).(pulumi.BoolPtrOutput)
 }
 
-func (o LookupFederatedCargoRepositoryResultOutput) ExcludesPattern() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupFederatedCargoRepositoryResult) string { return v.ExcludesPattern }).(pulumi.StringOutput)
+func (o LookupFederatedCargoRepositoryResultOutput) ExcludesPattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFederatedCargoRepositoryResult) *string { return v.ExcludesPattern }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
@@ -217,8 +217,8 @@ func (o LookupFederatedCargoRepositoryResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFederatedCargoRepositoryResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-func (o LookupFederatedCargoRepositoryResultOutput) IncludesPattern() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupFederatedCargoRepositoryResult) string { return v.IncludesPattern }).(pulumi.StringOutput)
+func (o LookupFederatedCargoRepositoryResultOutput) IncludesPattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFederatedCargoRepositoryResult) *string { return v.IncludesPattern }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupFederatedCargoRepositoryResultOutput) IndexCompressionFormats() pulumi.StringArrayOutput {

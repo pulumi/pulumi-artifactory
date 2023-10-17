@@ -34,6 +34,7 @@ export function getRemoteGitlfsRepository(args: GetRemoteGitlfsRepositoryArgs, o
         "contentSynchronisation": args.contentSynchronisation,
         "description": args.description,
         "disableProxy": args.disableProxy,
+        "disableUrlNormalization": args.disableUrlNormalization,
         "downloadDirect": args.downloadDirect,
         "enableCookieManagement": args.enableCookieManagement,
         "excludesPattern": args.excludesPattern,
@@ -82,6 +83,7 @@ export interface GetRemoteGitlfsRepositoryArgs {
     contentSynchronisation?: inputs.GetRemoteGitlfsRepositoryContentSynchronisation;
     description?: string;
     disableProxy?: boolean;
+    disableUrlNormalization?: boolean;
     downloadDirect?: boolean;
     enableCookieManagement?: boolean;
     excludesPattern?: string;
@@ -132,6 +134,7 @@ export interface GetRemoteGitlfsRepositoryResult {
     readonly contentSynchronisation: outputs.GetRemoteGitlfsRepositoryContentSynchronisation;
     readonly description?: string;
     readonly disableProxy?: boolean;
+    readonly disableUrlNormalization?: boolean;
     readonly downloadDirect?: boolean;
     readonly enableCookieManagement?: boolean;
     readonly excludesPattern?: string;
@@ -201,6 +204,7 @@ export interface GetRemoteGitlfsRepositoryOutputArgs {
     contentSynchronisation?: pulumi.Input<inputs.GetRemoteGitlfsRepositoryContentSynchronisationArgs>;
     description?: pulumi.Input<string>;
     disableProxy?: pulumi.Input<boolean>;
+    disableUrlNormalization?: pulumi.Input<boolean>;
     downloadDirect?: pulumi.Input<boolean>;
     enableCookieManagement?: pulumi.Input<boolean>;
     excludesPattern?: pulumi.Input<string>;

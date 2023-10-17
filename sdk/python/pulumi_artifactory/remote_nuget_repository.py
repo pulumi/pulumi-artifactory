@@ -28,6 +28,7 @@ class RemoteNugetRepositoryArgs:
                  content_synchronisation: Optional[pulumi.Input['RemoteNugetRepositoryContentSynchronisationArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  disable_proxy: Optional[pulumi.Input[bool]] = None,
+                 disable_url_normalization: Optional[pulumi.Input[bool]] = None,
                  download_context_path: Optional[pulumi.Input[str]] = None,
                  download_direct: Optional[pulumi.Input[bool]] = None,
                  enable_cookie_management: Optional[pulumi.Input[bool]] = None,
@@ -86,6 +87,7 @@ class RemoteNugetRepositoryArgs:
         :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[bool] disable_proxy: When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
                for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
+        :param pulumi.Input[bool] disable_url_normalization: Whether to disable URL normalization, default is `false`.
         :param pulumi.Input[str] download_context_path: The context path prefix through which NuGet downloads are served.
                For example, the NuGet Gallery download URL is `https://nuget.org/api/v2/package`, so the repository
                URL should be configured as `https://nuget.org` and the download context path should be configured as `api/v2/package`. Default value is `api/v2/package`.
@@ -159,6 +161,7 @@ class RemoteNugetRepositoryArgs:
             content_synchronisation=content_synchronisation,
             description=description,
             disable_proxy=disable_proxy,
+            disable_url_normalization=disable_url_normalization,
             download_context_path=download_context_path,
             download_direct=download_direct,
             enable_cookie_management=enable_cookie_management,
@@ -209,6 +212,7 @@ class RemoteNugetRepositoryArgs:
              content_synchronisation: Optional[pulumi.Input['RemoteNugetRepositoryContentSynchronisationArgs']] = None,
              description: Optional[pulumi.Input[str]] = None,
              disable_proxy: Optional[pulumi.Input[bool]] = None,
+             disable_url_normalization: Optional[pulumi.Input[bool]] = None,
              download_context_path: Optional[pulumi.Input[str]] = None,
              download_direct: Optional[pulumi.Input[bool]] = None,
              enable_cookie_management: Optional[pulumi.Input[bool]] = None,
@@ -243,7 +247,87 @@ class RemoteNugetRepositoryArgs:
              username: Optional[pulumi.Input[str]] = None,
              v3_feed_url: Optional[pulumi.Input[str]] = None,
              xray_index: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowAnyHostAuth' in kwargs:
+            allow_any_host_auth = kwargs['allowAnyHostAuth']
+        if 'assumedOfflinePeriodSecs' in kwargs:
+            assumed_offline_period_secs = kwargs['assumedOfflinePeriodSecs']
+        if 'blackedOut' in kwargs:
+            blacked_out = kwargs['blackedOut']
+        if 'blockMismatchingMimeTypes' in kwargs:
+            block_mismatching_mime_types = kwargs['blockMismatchingMimeTypes']
+        if 'bypassHeadRequests' in kwargs:
+            bypass_head_requests = kwargs['bypassHeadRequests']
+        if 'cdnRedirect' in kwargs:
+            cdn_redirect = kwargs['cdnRedirect']
+        if 'clientTlsCertificate' in kwargs:
+            client_tls_certificate = kwargs['clientTlsCertificate']
+        if 'contentSynchronisation' in kwargs:
+            content_synchronisation = kwargs['contentSynchronisation']
+        if 'disableProxy' in kwargs:
+            disable_proxy = kwargs['disableProxy']
+        if 'disableUrlNormalization' in kwargs:
+            disable_url_normalization = kwargs['disableUrlNormalization']
+        if 'downloadContextPath' in kwargs:
+            download_context_path = kwargs['downloadContextPath']
+        if 'downloadDirect' in kwargs:
+            download_direct = kwargs['downloadDirect']
+        if 'enableCookieManagement' in kwargs:
+            enable_cookie_management = kwargs['enableCookieManagement']
+        if 'excludesPattern' in kwargs:
+            excludes_pattern = kwargs['excludesPattern']
+        if 'feedContextPath' in kwargs:
+            feed_context_path = kwargs['feedContextPath']
+        if 'forceNugetAuthentication' in kwargs:
+            force_nuget_authentication = kwargs['forceNugetAuthentication']
+        if 'hardFail' in kwargs:
+            hard_fail = kwargs['hardFail']
+        if 'includesPattern' in kwargs:
+            includes_pattern = kwargs['includesPattern']
+        if 'listRemoteFolderItems' in kwargs:
+            list_remote_folder_items = kwargs['listRemoteFolderItems']
+        if 'localAddress' in kwargs:
+            local_address = kwargs['localAddress']
+        if 'metadataRetrievalTimeoutSecs' in kwargs:
+            metadata_retrieval_timeout_secs = kwargs['metadataRetrievalTimeoutSecs']
+        if 'mismatchingMimeTypesOverrideList' in kwargs:
+            mismatching_mime_types_override_list = kwargs['mismatchingMimeTypesOverrideList']
+        if 'missedCachePeriodSeconds' in kwargs:
+            missed_cache_period_seconds = kwargs['missedCachePeriodSeconds']
+        if 'priorityResolution' in kwargs:
+            priority_resolution = kwargs['priorityResolution']
+        if 'projectEnvironments' in kwargs:
+            project_environments = kwargs['projectEnvironments']
+        if 'projectKey' in kwargs:
+            project_key = kwargs['projectKey']
+        if 'propertySets' in kwargs:
+            property_sets = kwargs['propertySets']
+        if 'queryParams' in kwargs:
+            query_params = kwargs['queryParams']
+        if 'remoteRepoLayoutRef' in kwargs:
+            remote_repo_layout_ref = kwargs['remoteRepoLayoutRef']
+        if 'repoLayoutRef' in kwargs:
+            repo_layout_ref = kwargs['repoLayoutRef']
+        if 'retrievalCachePeriodSeconds' in kwargs:
+            retrieval_cache_period_seconds = kwargs['retrievalCachePeriodSeconds']
+        if 'shareConfiguration' in kwargs:
+            share_configuration = kwargs['shareConfiguration']
+        if 'socketTimeoutMillis' in kwargs:
+            socket_timeout_millis = kwargs['socketTimeoutMillis']
+        if 'storeArtifactsLocally' in kwargs:
+            store_artifacts_locally = kwargs['storeArtifactsLocally']
+        if 'symbolServerUrl' in kwargs:
+            symbol_server_url = kwargs['symbolServerUrl']
+        if 'synchronizeProperties' in kwargs:
+            synchronize_properties = kwargs['synchronizeProperties']
+        if 'unusedArtifactsCleanupPeriodHours' in kwargs:
+            unused_artifacts_cleanup_period_hours = kwargs['unusedArtifactsCleanupPeriodHours']
+        if 'v3FeedUrl' in kwargs:
+            v3_feed_url = kwargs['v3FeedUrl']
+        if 'xrayIndex' in kwargs:
+            xray_index = kwargs['xrayIndex']
+
         _setter("key", key)
         _setter("url", url)
         if allow_any_host_auth is not None:
@@ -266,6 +350,8 @@ class RemoteNugetRepositoryArgs:
             _setter("description", description)
         if disable_proxy is not None:
             _setter("disable_proxy", disable_proxy)
+        if disable_url_normalization is not None:
+            _setter("disable_url_normalization", disable_url_normalization)
         if download_context_path is not None:
             _setter("download_context_path", download_context_path)
         if download_direct is not None:
@@ -486,6 +572,18 @@ class RemoteNugetRepositoryArgs:
     @disable_proxy.setter
     def disable_proxy(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "disable_proxy", value)
+
+    @property
+    @pulumi.getter(name="disableUrlNormalization")
+    def disable_url_normalization(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to disable URL normalization, default is `false`.
+        """
+        return pulumi.get(self, "disable_url_normalization")
+
+    @disable_url_normalization.setter
+    def disable_url_normalization(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "disable_url_normalization", value)
 
     @property
     @pulumi.getter(name="downloadContextPath")
@@ -927,6 +1025,7 @@ class _RemoteNugetRepositoryState:
                  content_synchronisation: Optional[pulumi.Input['RemoteNugetRepositoryContentSynchronisationArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  disable_proxy: Optional[pulumi.Input[bool]] = None,
+                 disable_url_normalization: Optional[pulumi.Input[bool]] = None,
                  download_context_path: Optional[pulumi.Input[str]] = None,
                  download_direct: Optional[pulumi.Input[bool]] = None,
                  enable_cookie_management: Optional[pulumi.Input[bool]] = None,
@@ -985,6 +1084,7 @@ class _RemoteNugetRepositoryState:
         :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[bool] disable_proxy: When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
                for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
+        :param pulumi.Input[bool] disable_url_normalization: Whether to disable URL normalization, default is `false`.
         :param pulumi.Input[str] download_context_path: The context path prefix through which NuGet downloads are served.
                For example, the NuGet Gallery download URL is `https://nuget.org/api/v2/package`, so the repository
                URL should be configured as `https://nuget.org` and the download context path should be configured as `api/v2/package`. Default value is `api/v2/package`.
@@ -1059,6 +1159,7 @@ class _RemoteNugetRepositoryState:
             content_synchronisation=content_synchronisation,
             description=description,
             disable_proxy=disable_proxy,
+            disable_url_normalization=disable_url_normalization,
             download_context_path=download_context_path,
             download_direct=download_direct,
             enable_cookie_management=enable_cookie_management,
@@ -1110,6 +1211,7 @@ class _RemoteNugetRepositoryState:
              content_synchronisation: Optional[pulumi.Input['RemoteNugetRepositoryContentSynchronisationArgs']] = None,
              description: Optional[pulumi.Input[str]] = None,
              disable_proxy: Optional[pulumi.Input[bool]] = None,
+             disable_url_normalization: Optional[pulumi.Input[bool]] = None,
              download_context_path: Optional[pulumi.Input[str]] = None,
              download_direct: Optional[pulumi.Input[bool]] = None,
              enable_cookie_management: Optional[pulumi.Input[bool]] = None,
@@ -1147,7 +1249,89 @@ class _RemoteNugetRepositoryState:
              username: Optional[pulumi.Input[str]] = None,
              v3_feed_url: Optional[pulumi.Input[str]] = None,
              xray_index: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowAnyHostAuth' in kwargs:
+            allow_any_host_auth = kwargs['allowAnyHostAuth']
+        if 'assumedOfflinePeriodSecs' in kwargs:
+            assumed_offline_period_secs = kwargs['assumedOfflinePeriodSecs']
+        if 'blackedOut' in kwargs:
+            blacked_out = kwargs['blackedOut']
+        if 'blockMismatchingMimeTypes' in kwargs:
+            block_mismatching_mime_types = kwargs['blockMismatchingMimeTypes']
+        if 'bypassHeadRequests' in kwargs:
+            bypass_head_requests = kwargs['bypassHeadRequests']
+        if 'cdnRedirect' in kwargs:
+            cdn_redirect = kwargs['cdnRedirect']
+        if 'clientTlsCertificate' in kwargs:
+            client_tls_certificate = kwargs['clientTlsCertificate']
+        if 'contentSynchronisation' in kwargs:
+            content_synchronisation = kwargs['contentSynchronisation']
+        if 'disableProxy' in kwargs:
+            disable_proxy = kwargs['disableProxy']
+        if 'disableUrlNormalization' in kwargs:
+            disable_url_normalization = kwargs['disableUrlNormalization']
+        if 'downloadContextPath' in kwargs:
+            download_context_path = kwargs['downloadContextPath']
+        if 'downloadDirect' in kwargs:
+            download_direct = kwargs['downloadDirect']
+        if 'enableCookieManagement' in kwargs:
+            enable_cookie_management = kwargs['enableCookieManagement']
+        if 'excludesPattern' in kwargs:
+            excludes_pattern = kwargs['excludesPattern']
+        if 'feedContextPath' in kwargs:
+            feed_context_path = kwargs['feedContextPath']
+        if 'forceNugetAuthentication' in kwargs:
+            force_nuget_authentication = kwargs['forceNugetAuthentication']
+        if 'hardFail' in kwargs:
+            hard_fail = kwargs['hardFail']
+        if 'includesPattern' in kwargs:
+            includes_pattern = kwargs['includesPattern']
+        if 'listRemoteFolderItems' in kwargs:
+            list_remote_folder_items = kwargs['listRemoteFolderItems']
+        if 'localAddress' in kwargs:
+            local_address = kwargs['localAddress']
+        if 'metadataRetrievalTimeoutSecs' in kwargs:
+            metadata_retrieval_timeout_secs = kwargs['metadataRetrievalTimeoutSecs']
+        if 'mismatchingMimeTypesOverrideList' in kwargs:
+            mismatching_mime_types_override_list = kwargs['mismatchingMimeTypesOverrideList']
+        if 'missedCachePeriodSeconds' in kwargs:
+            missed_cache_period_seconds = kwargs['missedCachePeriodSeconds']
+        if 'packageType' in kwargs:
+            package_type = kwargs['packageType']
+        if 'priorityResolution' in kwargs:
+            priority_resolution = kwargs['priorityResolution']
+        if 'projectEnvironments' in kwargs:
+            project_environments = kwargs['projectEnvironments']
+        if 'projectKey' in kwargs:
+            project_key = kwargs['projectKey']
+        if 'propertySets' in kwargs:
+            property_sets = kwargs['propertySets']
+        if 'queryParams' in kwargs:
+            query_params = kwargs['queryParams']
+        if 'remoteRepoLayoutRef' in kwargs:
+            remote_repo_layout_ref = kwargs['remoteRepoLayoutRef']
+        if 'repoLayoutRef' in kwargs:
+            repo_layout_ref = kwargs['repoLayoutRef']
+        if 'retrievalCachePeriodSeconds' in kwargs:
+            retrieval_cache_period_seconds = kwargs['retrievalCachePeriodSeconds']
+        if 'shareConfiguration' in kwargs:
+            share_configuration = kwargs['shareConfiguration']
+        if 'socketTimeoutMillis' in kwargs:
+            socket_timeout_millis = kwargs['socketTimeoutMillis']
+        if 'storeArtifactsLocally' in kwargs:
+            store_artifacts_locally = kwargs['storeArtifactsLocally']
+        if 'symbolServerUrl' in kwargs:
+            symbol_server_url = kwargs['symbolServerUrl']
+        if 'synchronizeProperties' in kwargs:
+            synchronize_properties = kwargs['synchronizeProperties']
+        if 'unusedArtifactsCleanupPeriodHours' in kwargs:
+            unused_artifacts_cleanup_period_hours = kwargs['unusedArtifactsCleanupPeriodHours']
+        if 'v3FeedUrl' in kwargs:
+            v3_feed_url = kwargs['v3FeedUrl']
+        if 'xrayIndex' in kwargs:
+            xray_index = kwargs['xrayIndex']
+
         if allow_any_host_auth is not None:
             _setter("allow_any_host_auth", allow_any_host_auth)
         if assumed_offline_period_secs is not None:
@@ -1168,6 +1352,8 @@ class _RemoteNugetRepositoryState:
             _setter("description", description)
         if disable_proxy is not None:
             _setter("disable_proxy", disable_proxy)
+        if disable_url_normalization is not None:
+            _setter("disable_url_normalization", disable_url_normalization)
         if download_context_path is not None:
             _setter("download_context_path", download_context_path)
         if download_direct is not None:
@@ -1369,6 +1555,18 @@ class _RemoteNugetRepositoryState:
     @disable_proxy.setter
     def disable_proxy(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "disable_proxy", value)
+
+    @property
+    @pulumi.getter(name="disableUrlNormalization")
+    def disable_url_normalization(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to disable URL normalization, default is `false`.
+        """
+        return pulumi.get(self, "disable_url_normalization")
+
+    @disable_url_normalization.setter
+    def disable_url_normalization(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "disable_url_normalization", value)
 
     @property
     @pulumi.getter(name="downloadContextPath")
@@ -1846,6 +2044,7 @@ class RemoteNugetRepository(pulumi.CustomResource):
                  content_synchronisation: Optional[pulumi.Input[pulumi.InputType['RemoteNugetRepositoryContentSynchronisationArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  disable_proxy: Optional[pulumi.Input[bool]] = None,
+                 disable_url_normalization: Optional[pulumi.Input[bool]] = None,
                  download_context_path: Optional[pulumi.Input[str]] = None,
                  download_direct: Optional[pulumi.Input[bool]] = None,
                  enable_cookie_management: Optional[pulumi.Input[bool]] = None,
@@ -1931,6 +2130,7 @@ class RemoteNugetRepository(pulumi.CustomResource):
         :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[bool] disable_proxy: When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
                for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
+        :param pulumi.Input[bool] disable_url_normalization: Whether to disable URL normalization, default is `false`.
         :param pulumi.Input[str] download_context_path: The context path prefix through which NuGet downloads are served.
                For example, the NuGet Gallery download URL is `https://nuget.org/api/v2/package`, so the repository
                URL should be configured as `https://nuget.org` and the download context path should be configured as `api/v2/package`. Default value is `api/v2/package`.
@@ -2055,6 +2255,7 @@ class RemoteNugetRepository(pulumi.CustomResource):
                  content_synchronisation: Optional[pulumi.Input[pulumi.InputType['RemoteNugetRepositoryContentSynchronisationArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  disable_proxy: Optional[pulumi.Input[bool]] = None,
+                 disable_url_normalization: Optional[pulumi.Input[bool]] = None,
                  download_context_path: Optional[pulumi.Input[str]] = None,
                  download_direct: Optional[pulumi.Input[bool]] = None,
                  enable_cookie_management: Optional[pulumi.Input[bool]] = None,
@@ -2115,6 +2316,7 @@ class RemoteNugetRepository(pulumi.CustomResource):
             __props__.__dict__["content_synchronisation"] = content_synchronisation
             __props__.__dict__["description"] = description
             __props__.__dict__["disable_proxy"] = disable_proxy
+            __props__.__dict__["disable_url_normalization"] = disable_url_normalization
             __props__.__dict__["download_context_path"] = download_context_path
             __props__.__dict__["download_direct"] = download_direct
             __props__.__dict__["enable_cookie_management"] = enable_cookie_management
@@ -2178,6 +2380,7 @@ class RemoteNugetRepository(pulumi.CustomResource):
             content_synchronisation: Optional[pulumi.Input[pulumi.InputType['RemoteNugetRepositoryContentSynchronisationArgs']]] = None,
             description: Optional[pulumi.Input[str]] = None,
             disable_proxy: Optional[pulumi.Input[bool]] = None,
+            disable_url_normalization: Optional[pulumi.Input[bool]] = None,
             download_context_path: Optional[pulumi.Input[str]] = None,
             download_direct: Optional[pulumi.Input[bool]] = None,
             enable_cookie_management: Optional[pulumi.Input[bool]] = None,
@@ -2241,6 +2444,7 @@ class RemoteNugetRepository(pulumi.CustomResource):
         :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[bool] disable_proxy: When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
                for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
+        :param pulumi.Input[bool] disable_url_normalization: Whether to disable URL normalization, default is `false`.
         :param pulumi.Input[str] download_context_path: The context path prefix through which NuGet downloads are served.
                For example, the NuGet Gallery download URL is `https://nuget.org/api/v2/package`, so the repository
                URL should be configured as `https://nuget.org` and the download context path should be configured as `api/v2/package`. Default value is `api/v2/package`.
@@ -2317,6 +2521,7 @@ class RemoteNugetRepository(pulumi.CustomResource):
         __props__.__dict__["content_synchronisation"] = content_synchronisation
         __props__.__dict__["description"] = description
         __props__.__dict__["disable_proxy"] = disable_proxy
+        __props__.__dict__["disable_url_normalization"] = disable_url_normalization
         __props__.__dict__["download_context_path"] = download_context_path
         __props__.__dict__["download_direct"] = download_direct
         __props__.__dict__["enable_cookie_management"] = enable_cookie_management
@@ -2442,6 +2647,14 @@ class RemoteNugetRepository(pulumi.CustomResource):
         for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
         """
         return pulumi.get(self, "disable_proxy")
+
+    @property
+    @pulumi.getter(name="disableUrlNormalization")
+    def disable_url_normalization(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether to disable URL normalization, default is `false`.
+        """
+        return pulumi.get(self, "disable_url_normalization")
 
     @property
     @pulumi.getter(name="downloadContextPath")

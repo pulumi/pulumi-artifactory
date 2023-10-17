@@ -221,6 +221,20 @@ public class RemoteNugetRepository extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.disableProxy);
     }
     /**
+     * Whether to disable URL normalization, default is `false`.
+     * 
+     */
+    @Export(name="disableUrlNormalization", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> disableUrlNormalization;
+
+    /**
+     * @return Whether to disable URL normalization, default is `false`.
+     * 
+     */
+    public Output<Optional<Boolean>> disableUrlNormalization() {
+        return Codegen.optional(this.disableUrlNormalization);
+    }
+    /**
      * The context path prefix through which NuGet downloads are served.
      * For example, the NuGet Gallery download URL is `https://nuget.org/api/v2/package`, so the repository
      * URL should be configured as `https://nuget.org` and the download context path should be configured as `api/v2/package`. Default value is `api/v2/package`.

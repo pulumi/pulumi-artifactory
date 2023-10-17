@@ -84,12 +84,12 @@ type LookupFederatedConanRepositoryResult struct {
 	CleanupOnDelete          *bool   `pulumi:"cleanupOnDelete"`
 	Description              *string `pulumi:"description"`
 	DownloadDirect           *bool   `pulumi:"downloadDirect"`
-	ExcludesPattern          string  `pulumi:"excludesPattern"`
+	ExcludesPattern          *string `pulumi:"excludesPattern"`
 	ForceConanAuthentication *bool   `pulumi:"forceConanAuthentication"`
 	// The provider-assigned unique ID for this managed resource.
-	Id              string `pulumi:"id"`
-	IncludesPattern string `pulumi:"includesPattern"`
-	Key             string `pulumi:"key"`
+	Id              string  `pulumi:"id"`
+	IncludesPattern *string `pulumi:"includesPattern"`
+	Key             string  `pulumi:"key"`
 	// The list of Federated members and must contain this repository URL (configured base URL
 	// `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
 	// Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
@@ -194,8 +194,8 @@ func (o LookupFederatedConanRepositoryResultOutput) DownloadDirect() pulumi.Bool
 	return o.ApplyT(func(v LookupFederatedConanRepositoryResult) *bool { return v.DownloadDirect }).(pulumi.BoolPtrOutput)
 }
 
-func (o LookupFederatedConanRepositoryResultOutput) ExcludesPattern() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupFederatedConanRepositoryResult) string { return v.ExcludesPattern }).(pulumi.StringOutput)
+func (o LookupFederatedConanRepositoryResultOutput) ExcludesPattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFederatedConanRepositoryResult) *string { return v.ExcludesPattern }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupFederatedConanRepositoryResultOutput) ForceConanAuthentication() pulumi.BoolPtrOutput {
@@ -207,8 +207,8 @@ func (o LookupFederatedConanRepositoryResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFederatedConanRepositoryResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-func (o LookupFederatedConanRepositoryResultOutput) IncludesPattern() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupFederatedConanRepositoryResult) string { return v.IncludesPattern }).(pulumi.StringOutput)
+func (o LookupFederatedConanRepositoryResultOutput) IncludesPattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFederatedConanRepositoryResult) *string { return v.IncludesPattern }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupFederatedConanRepositoryResultOutput) Key() pulumi.StringOutput {

@@ -115,6 +115,12 @@ namespace Pulumi.Artifactory
         public Output<bool?> DisableProxy { get; private set; } = null!;
 
         /// <summary>
+        /// Whether to disable URL normalization, default is `false`.
+        /// </summary>
+        [Output("disableUrlNormalization")]
+        public Output<bool?> DisableUrlNormalization { get; private set; } = null!;
+
+        /// <summary>
         /// The context path prefix through which NuGet downloads are served.
         /// For example, the NuGet Gallery download URL is `https://nuget.org/api/v2/package`, so the repository
         /// URL should be configured as `https://nuget.org` and the download context path should be configured as `api/v2/package`. Default value is `api/v2/package`.
@@ -470,6 +476,12 @@ namespace Pulumi.Artifactory
         public Input<bool>? DisableProxy { get; set; }
 
         /// <summary>
+        /// Whether to disable URL normalization, default is `false`.
+        /// </summary>
+        [Input("disableUrlNormalization")]
+        public Input<bool>? DisableUrlNormalization { get; set; }
+
+        /// <summary>
         /// The context path prefix through which NuGet downloads are served.
         /// For example, the NuGet Gallery download URL is `https://nuget.org/api/v2/package`, so the repository
         /// URL should be configured as `https://nuget.org` and the download context path should be configured as `api/v2/package`. Default value is `api/v2/package`.
@@ -799,6 +811,12 @@ namespace Pulumi.Artifactory
         /// </summary>
         [Input("disableProxy")]
         public Input<bool>? DisableProxy { get; set; }
+
+        /// <summary>
+        /// Whether to disable URL normalization, default is `false`.
+        /// </summary>
+        [Input("disableUrlNormalization")]
+        public Input<bool>? DisableUrlNormalization { get; set; }
 
         /// <summary>
         /// The context path prefix through which NuGet downloads are served.

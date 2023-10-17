@@ -81,11 +81,11 @@ type LookupFederatedTerraformModuleRepositoryResult struct {
 	CleanupOnDelete        *bool   `pulumi:"cleanupOnDelete"`
 	Description            *string `pulumi:"description"`
 	DownloadDirect         *bool   `pulumi:"downloadDirect"`
-	ExcludesPattern        string  `pulumi:"excludesPattern"`
+	ExcludesPattern        *string `pulumi:"excludesPattern"`
 	// The provider-assigned unique ID for this managed resource.
-	Id              string `pulumi:"id"`
-	IncludesPattern string `pulumi:"includesPattern"`
-	Key             string `pulumi:"key"`
+	Id              string  `pulumi:"id"`
+	IncludesPattern *string `pulumi:"includesPattern"`
+	Key             string  `pulumi:"key"`
 	// The list of Federated members and must contain this repository URL (configured base URL
 	// `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
 	// Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
@@ -189,8 +189,8 @@ func (o LookupFederatedTerraformModuleRepositoryResultOutput) DownloadDirect() p
 	return o.ApplyT(func(v LookupFederatedTerraformModuleRepositoryResult) *bool { return v.DownloadDirect }).(pulumi.BoolPtrOutput)
 }
 
-func (o LookupFederatedTerraformModuleRepositoryResultOutput) ExcludesPattern() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupFederatedTerraformModuleRepositoryResult) string { return v.ExcludesPattern }).(pulumi.StringOutput)
+func (o LookupFederatedTerraformModuleRepositoryResultOutput) ExcludesPattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFederatedTerraformModuleRepositoryResult) *string { return v.ExcludesPattern }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
@@ -198,8 +198,8 @@ func (o LookupFederatedTerraformModuleRepositoryResultOutput) Id() pulumi.String
 	return o.ApplyT(func(v LookupFederatedTerraformModuleRepositoryResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-func (o LookupFederatedTerraformModuleRepositoryResultOutput) IncludesPattern() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupFederatedTerraformModuleRepositoryResult) string { return v.IncludesPattern }).(pulumi.StringOutput)
+func (o LookupFederatedTerraformModuleRepositoryResultOutput) IncludesPattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFederatedTerraformModuleRepositoryResult) *string { return v.IncludesPattern }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupFederatedTerraformModuleRepositoryResultOutput) Key() pulumi.StringOutput {

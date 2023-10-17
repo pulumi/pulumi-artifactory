@@ -192,12 +192,12 @@ namespace Pulumi.Artifactory
         public readonly string? Description;
         public readonly bool? DownloadDirect;
         public readonly bool? EnableFileListsIndexing;
-        public readonly string ExcludesPattern;
+        public readonly string? ExcludesPattern;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        public readonly string IncludesPattern;
+        public readonly string? IncludesPattern;
         public readonly string Key;
         public readonly string? Notes;
         public readonly string PackageType;
@@ -228,11 +228,11 @@ namespace Pulumi.Artifactory
 
             bool? enableFileListsIndexing,
 
-            string excludesPattern,
+            string? excludesPattern,
 
             string id,
 
-            string includesPattern,
+            string? includesPattern,
 
             string key,
 

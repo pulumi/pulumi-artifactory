@@ -74,12 +74,12 @@ type LocalCargoRepository struct {
 	DownloadDirect pulumi.BoolPtrOutput `pulumi:"downloadDirect"`
 	// Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
 	EnableSparseIndex pulumi.BoolPtrOutput `pulumi:"enableSparseIndex"`
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 	// artifacts are excluded.
-	ExcludesPattern pulumi.StringOutput `pulumi:"excludesPattern"`
-	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-	IncludesPattern         pulumi.StringOutput      `pulumi:"includesPattern"`
+	ExcludesPattern pulumi.StringPtrOutput `pulumi:"excludesPattern"`
+	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+	IncludesPattern         pulumi.StringPtrOutput   `pulumi:"includesPattern"`
 	IndexCompressionFormats pulumi.StringArrayOutput `pulumi:"indexCompressionFormats"`
 	// the identity key of the repo.
 	Key pulumi.StringOutput `pulumi:"key"`
@@ -157,11 +157,11 @@ type localCargoRepositoryState struct {
 	DownloadDirect *bool `pulumi:"downloadDirect"`
 	// Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
 	EnableSparseIndex *bool `pulumi:"enableSparseIndex"`
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 	// artifacts are excluded.
 	ExcludesPattern *string `pulumi:"excludesPattern"`
-	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern         *string  `pulumi:"includesPattern"`
 	IndexCompressionFormats []string `pulumi:"indexCompressionFormats"`
 	// the identity key of the repo.
@@ -208,11 +208,11 @@ type LocalCargoRepositoryState struct {
 	DownloadDirect pulumi.BoolPtrInput
 	// Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
 	EnableSparseIndex pulumi.BoolPtrInput
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 	// artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrInput
-	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern         pulumi.StringPtrInput
 	IndexCompressionFormats pulumi.StringArrayInput
 	// the identity key of the repo.
@@ -263,11 +263,11 @@ type localCargoRepositoryArgs struct {
 	DownloadDirect *bool `pulumi:"downloadDirect"`
 	// Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
 	EnableSparseIndex *bool `pulumi:"enableSparseIndex"`
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 	// artifacts are excluded.
 	ExcludesPattern *string `pulumi:"excludesPattern"`
-	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern         *string  `pulumi:"includesPattern"`
 	IndexCompressionFormats []string `pulumi:"indexCompressionFormats"`
 	// the identity key of the repo.
@@ -314,11 +314,11 @@ type LocalCargoRepositoryArgs struct {
 	DownloadDirect pulumi.BoolPtrInput
 	// Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
 	EnableSparseIndex pulumi.BoolPtrInput
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 	// artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrInput
-	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern         pulumi.StringPtrInput
 	IndexCompressionFormats pulumi.StringArrayInput
 	// the identity key of the repo.
@@ -495,16 +495,16 @@ func (o LocalCargoRepositoryOutput) EnableSparseIndex() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LocalCargoRepository) pulumi.BoolPtrOutput { return v.EnableSparseIndex }).(pulumi.BoolPtrOutput)
 }
 
-// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 // artifacts are excluded.
-func (o LocalCargoRepositoryOutput) ExcludesPattern() pulumi.StringOutput {
-	return o.ApplyT(func(v *LocalCargoRepository) pulumi.StringOutput { return v.ExcludesPattern }).(pulumi.StringOutput)
+func (o LocalCargoRepositoryOutput) ExcludesPattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocalCargoRepository) pulumi.StringPtrOutput { return v.ExcludesPattern }).(pulumi.StringPtrOutput)
 }
 
-// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-func (o LocalCargoRepositoryOutput) IncludesPattern() pulumi.StringOutput {
-	return o.ApplyT(func(v *LocalCargoRepository) pulumi.StringOutput { return v.IncludesPattern }).(pulumi.StringOutput)
+// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+func (o LocalCargoRepositoryOutput) IncludesPattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocalCargoRepository) pulumi.StringPtrOutput { return v.IncludesPattern }).(pulumi.StringPtrOutput)
 }
 
 func (o LocalCargoRepositoryOutput) IndexCompressionFormats() pulumi.StringArrayOutput {

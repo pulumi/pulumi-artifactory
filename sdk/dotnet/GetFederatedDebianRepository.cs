@@ -281,12 +281,12 @@ namespace Pulumi.Artifactory
         public readonly bool? CleanupOnDelete;
         public readonly string? Description;
         public readonly bool? DownloadDirect;
-        public readonly string ExcludesPattern;
+        public readonly string? ExcludesPattern;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        public readonly string IncludesPattern;
+        public readonly string? IncludesPattern;
         public readonly ImmutableArray<string> IndexCompressionFormats;
         public readonly string Key;
         /// <summary>
@@ -322,11 +322,11 @@ namespace Pulumi.Artifactory
 
             bool? downloadDirect,
 
-            string excludesPattern,
+            string? excludesPattern,
 
             string id,
 
-            string includesPattern,
+            string? includesPattern,
 
             ImmutableArray<string> indexCompressionFormats,
 

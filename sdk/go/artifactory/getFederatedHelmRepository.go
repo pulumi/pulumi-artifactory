@@ -83,11 +83,11 @@ type LookupFederatedHelmRepositoryResult struct {
 	CleanupOnDelete        *bool   `pulumi:"cleanupOnDelete"`
 	Description            *string `pulumi:"description"`
 	DownloadDirect         *bool   `pulumi:"downloadDirect"`
-	ExcludesPattern        string  `pulumi:"excludesPattern"`
+	ExcludesPattern        *string `pulumi:"excludesPattern"`
 	// The provider-assigned unique ID for this managed resource.
-	Id              string `pulumi:"id"`
-	IncludesPattern string `pulumi:"includesPattern"`
-	Key             string `pulumi:"key"`
+	Id              string  `pulumi:"id"`
+	IncludesPattern *string `pulumi:"includesPattern"`
+	Key             string  `pulumi:"key"`
 	// The list of Federated members and must contain this repository URL (configured base URL
 	// `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
 	// Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
@@ -191,8 +191,8 @@ func (o LookupFederatedHelmRepositoryResultOutput) DownloadDirect() pulumi.BoolP
 	return o.ApplyT(func(v LookupFederatedHelmRepositoryResult) *bool { return v.DownloadDirect }).(pulumi.BoolPtrOutput)
 }
 
-func (o LookupFederatedHelmRepositoryResultOutput) ExcludesPattern() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupFederatedHelmRepositoryResult) string { return v.ExcludesPattern }).(pulumi.StringOutput)
+func (o LookupFederatedHelmRepositoryResultOutput) ExcludesPattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFederatedHelmRepositoryResult) *string { return v.ExcludesPattern }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
@@ -200,8 +200,8 @@ func (o LookupFederatedHelmRepositoryResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFederatedHelmRepositoryResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-func (o LookupFederatedHelmRepositoryResultOutput) IncludesPattern() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupFederatedHelmRepositoryResult) string { return v.IncludesPattern }).(pulumi.StringOutput)
+func (o LookupFederatedHelmRepositoryResultOutput) IncludesPattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFederatedHelmRepositoryResult) *string { return v.IncludesPattern }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupFederatedHelmRepositoryResultOutput) Key() pulumi.StringOutput {

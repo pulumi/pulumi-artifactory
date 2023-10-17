@@ -111,12 +111,12 @@ type LocalRpmRepository struct {
 	DownloadDirect pulumi.BoolPtrOutput `pulumi:"downloadDirect"`
 	// Default: `false`.
 	EnableFileListsIndexing pulumi.BoolPtrOutput `pulumi:"enableFileListsIndexing"`
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 	// artifacts are excluded.
-	ExcludesPattern pulumi.StringOutput `pulumi:"excludesPattern"`
-	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-	IncludesPattern pulumi.StringOutput `pulumi:"includesPattern"`
+	ExcludesPattern pulumi.StringPtrOutput `pulumi:"excludesPattern"`
+	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+	IncludesPattern pulumi.StringPtrOutput `pulumi:"includesPattern"`
 	// the identity key of the repo.
 	Key pulumi.StringOutput `pulumi:"key"`
 	// Internal description.
@@ -206,11 +206,11 @@ type localRpmRepositoryState struct {
 	DownloadDirect *bool `pulumi:"downloadDirect"`
 	// Default: `false`.
 	EnableFileListsIndexing *bool `pulumi:"enableFileListsIndexing"`
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 	// artifacts are excluded.
 	ExcludesPattern *string `pulumi:"excludesPattern"`
-	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
 	// the identity key of the repo.
 	Key *string `pulumi:"key"`
@@ -269,11 +269,11 @@ type LocalRpmRepositoryState struct {
 	DownloadDirect pulumi.BoolPtrInput
 	// Default: `false`.
 	EnableFileListsIndexing pulumi.BoolPtrInput
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 	// artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrInput
-	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
 	// the identity key of the repo.
 	Key pulumi.StringPtrInput
@@ -336,11 +336,11 @@ type localRpmRepositoryArgs struct {
 	DownloadDirect *bool `pulumi:"downloadDirect"`
 	// Default: `false`.
 	EnableFileListsIndexing *bool `pulumi:"enableFileListsIndexing"`
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 	// artifacts are excluded.
 	ExcludesPattern *string `pulumi:"excludesPattern"`
-	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
 	// the identity key of the repo.
 	Key string `pulumi:"key"`
@@ -399,11 +399,11 @@ type LocalRpmRepositoryArgs struct {
 	DownloadDirect pulumi.BoolPtrInput
 	// Default: `false`.
 	EnableFileListsIndexing pulumi.BoolPtrInput
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 	// artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrInput
-	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
 	// the identity key of the repo.
 	Key pulumi.StringInput
@@ -592,16 +592,16 @@ func (o LocalRpmRepositoryOutput) EnableFileListsIndexing() pulumi.BoolPtrOutput
 	return o.ApplyT(func(v *LocalRpmRepository) pulumi.BoolPtrOutput { return v.EnableFileListsIndexing }).(pulumi.BoolPtrOutput)
 }
 
-// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 // artifacts are excluded.
-func (o LocalRpmRepositoryOutput) ExcludesPattern() pulumi.StringOutput {
-	return o.ApplyT(func(v *LocalRpmRepository) pulumi.StringOutput { return v.ExcludesPattern }).(pulumi.StringOutput)
+func (o LocalRpmRepositoryOutput) ExcludesPattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocalRpmRepository) pulumi.StringPtrOutput { return v.ExcludesPattern }).(pulumi.StringPtrOutput)
 }
 
-// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-func (o LocalRpmRepositoryOutput) IncludesPattern() pulumi.StringOutput {
-	return o.ApplyT(func(v *LocalRpmRepository) pulumi.StringOutput { return v.IncludesPattern }).(pulumi.StringOutput)
+// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+func (o LocalRpmRepositoryOutput) IncludesPattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocalRpmRepository) pulumi.StringPtrOutput { return v.IncludesPattern }).(pulumi.StringPtrOutput)
 }
 
 // the identity key of the repo.

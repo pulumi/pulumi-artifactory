@@ -61,6 +61,7 @@ type LookupRemoteCondaRepositoryArgs struct {
 	ContentSynchronisation    *GetRemoteCondaRepositoryContentSynchronisation `pulumi:"contentSynchronisation"`
 	Description               *string                                         `pulumi:"description"`
 	DisableProxy              *bool                                           `pulumi:"disableProxy"`
+	DisableUrlNormalization   *bool                                           `pulumi:"disableUrlNormalization"`
 	DownloadDirect            *bool                                           `pulumi:"downloadDirect"`
 	EnableCookieManagement    *bool                                           `pulumi:"enableCookieManagement"`
 	ExcludesPattern           *string                                         `pulumi:"excludesPattern"`
@@ -107,6 +108,7 @@ type LookupRemoteCondaRepositoryResult struct {
 	ContentSynchronisation    GetRemoteCondaRepositoryContentSynchronisation `pulumi:"contentSynchronisation"`
 	Description               *string                                        `pulumi:"description"`
 	DisableProxy              *bool                                          `pulumi:"disableProxy"`
+	DisableUrlNormalization   *bool                                          `pulumi:"disableUrlNormalization"`
 	DownloadDirect            *bool                                          `pulumi:"downloadDirect"`
 	EnableCookieManagement    *bool                                          `pulumi:"enableCookieManagement"`
 	ExcludesPattern           *string                                        `pulumi:"excludesPattern"`
@@ -168,6 +170,7 @@ type LookupRemoteCondaRepositoryOutputArgs struct {
 	ContentSynchronisation    GetRemoteCondaRepositoryContentSynchronisationPtrInput `pulumi:"contentSynchronisation"`
 	Description               pulumi.StringPtrInput                                  `pulumi:"description"`
 	DisableProxy              pulumi.BoolPtrInput                                    `pulumi:"disableProxy"`
+	DisableUrlNormalization   pulumi.BoolPtrInput                                    `pulumi:"disableUrlNormalization"`
 	DownloadDirect            pulumi.BoolPtrInput                                    `pulumi:"downloadDirect"`
 	EnableCookieManagement    pulumi.BoolPtrInput                                    `pulumi:"enableCookieManagement"`
 	ExcludesPattern           pulumi.StringPtrInput                                  `pulumi:"excludesPattern"`
@@ -267,6 +270,10 @@ func (o LookupRemoteCondaRepositoryResultOutput) Description() pulumi.StringPtrO
 
 func (o LookupRemoteCondaRepositoryResultOutput) DisableProxy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupRemoteCondaRepositoryResult) *bool { return v.DisableProxy }).(pulumi.BoolPtrOutput)
+}
+
+func (o LookupRemoteCondaRepositoryResultOutput) DisableUrlNormalization() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupRemoteCondaRepositoryResult) *bool { return v.DisableUrlNormalization }).(pulumi.BoolPtrOutput)
 }
 
 func (o LookupRemoteCondaRepositoryResultOutput) DownloadDirect() pulumi.BoolPtrOutput {

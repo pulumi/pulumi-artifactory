@@ -55,12 +55,12 @@ type LookupLocalMavenRepositoryResult struct {
 	ChecksumPolicyType     *string `pulumi:"checksumPolicyType"`
 	Description            *string `pulumi:"description"`
 	DownloadDirect         *bool   `pulumi:"downloadDirect"`
-	ExcludesPattern        string  `pulumi:"excludesPattern"`
+	ExcludesPattern        *string `pulumi:"excludesPattern"`
 	HandleReleases         *bool   `pulumi:"handleReleases"`
 	HandleSnapshots        *bool   `pulumi:"handleSnapshots"`
 	// The provider-assigned unique ID for this managed resource.
 	Id                           string   `pulumi:"id"`
-	IncludesPattern              string   `pulumi:"includesPattern"`
+	IncludesPattern              *string  `pulumi:"includesPattern"`
 	Key                          string   `pulumi:"key"`
 	MaxUniqueSnapshots           *int     `pulumi:"maxUniqueSnapshots"`
 	Notes                        *string  `pulumi:"notes"`
@@ -162,8 +162,8 @@ func (o LookupLocalMavenRepositoryResultOutput) DownloadDirect() pulumi.BoolPtrO
 	return o.ApplyT(func(v LookupLocalMavenRepositoryResult) *bool { return v.DownloadDirect }).(pulumi.BoolPtrOutput)
 }
 
-func (o LookupLocalMavenRepositoryResultOutput) ExcludesPattern() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupLocalMavenRepositoryResult) string { return v.ExcludesPattern }).(pulumi.StringOutput)
+func (o LookupLocalMavenRepositoryResultOutput) ExcludesPattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLocalMavenRepositoryResult) *string { return v.ExcludesPattern }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupLocalMavenRepositoryResultOutput) HandleReleases() pulumi.BoolPtrOutput {
@@ -179,8 +179,8 @@ func (o LookupLocalMavenRepositoryResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLocalMavenRepositoryResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-func (o LookupLocalMavenRepositoryResultOutput) IncludesPattern() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupLocalMavenRepositoryResult) string { return v.IncludesPattern }).(pulumi.StringOutput)
+func (o LookupLocalMavenRepositoryResultOutput) IncludesPattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLocalMavenRepositoryResult) *string { return v.IncludesPattern }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupLocalMavenRepositoryResultOutput) Key() pulumi.StringOutput {

@@ -56,10 +56,10 @@ type LookupFederatedDockerRepositoryResult struct {
 	CleanupOnDelete        *bool   `pulumi:"cleanupOnDelete"`
 	Description            *string `pulumi:"description"`
 	DownloadDirect         *bool   `pulumi:"downloadDirect"`
-	ExcludesPattern        string  `pulumi:"excludesPattern"`
+	ExcludesPattern        *string `pulumi:"excludesPattern"`
 	// The provider-assigned unique ID for this managed resource.
 	Id                  string                               `pulumi:"id"`
-	IncludesPattern     string                               `pulumi:"includesPattern"`
+	IncludesPattern     *string                              `pulumi:"includesPattern"`
 	Key                 string                               `pulumi:"key"`
 	MaxUniqueTags       *int                                 `pulumi:"maxUniqueTags"`
 	Members             []GetFederatedDockerRepositoryMember `pulumi:"members"`
@@ -168,8 +168,8 @@ func (o LookupFederatedDockerRepositoryResultOutput) DownloadDirect() pulumi.Boo
 	return o.ApplyT(func(v LookupFederatedDockerRepositoryResult) *bool { return v.DownloadDirect }).(pulumi.BoolPtrOutput)
 }
 
-func (o LookupFederatedDockerRepositoryResultOutput) ExcludesPattern() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupFederatedDockerRepositoryResult) string { return v.ExcludesPattern }).(pulumi.StringOutput)
+func (o LookupFederatedDockerRepositoryResultOutput) ExcludesPattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFederatedDockerRepositoryResult) *string { return v.ExcludesPattern }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
@@ -177,8 +177,8 @@ func (o LookupFederatedDockerRepositoryResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFederatedDockerRepositoryResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-func (o LookupFederatedDockerRepositoryResultOutput) IncludesPattern() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupFederatedDockerRepositoryResult) string { return v.IncludesPattern }).(pulumi.StringOutput)
+func (o LookupFederatedDockerRepositoryResultOutput) IncludesPattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFederatedDockerRepositoryResult) *string { return v.IncludesPattern }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupFederatedDockerRepositoryResultOutput) Key() pulumi.StringOutput {

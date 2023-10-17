@@ -72,16 +72,16 @@ type LocalSbtRepository struct {
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
 	// storage provider. Available in Enterprise+ and Edge licenses only.
 	DownloadDirect pulumi.BoolPtrOutput `pulumi:"downloadDirect"`
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 	// artifacts are excluded.
-	ExcludesPattern pulumi.StringOutput `pulumi:"excludesPattern"`
+	ExcludesPattern pulumi.StringPtrOutput `pulumi:"excludesPattern"`
 	// If set, Artifactory allows you to deploy release artifacts into this repository.
 	HandleReleases pulumi.BoolPtrOutput `pulumi:"handleReleases"`
 	// If set, Artifactory allows you to deploy snapshot artifacts into this repository.
 	HandleSnapshots pulumi.BoolPtrOutput `pulumi:"handleSnapshots"`
-	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-	IncludesPattern pulumi.StringOutput `pulumi:"includesPattern"`
+	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+	IncludesPattern pulumi.StringPtrOutput `pulumi:"includesPattern"`
 	// the identity key of the repo.
 	Key pulumi.StringOutput `pulumi:"key"`
 	// The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
@@ -170,15 +170,15 @@ type localSbtRepositoryState struct {
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
 	// storage provider. Available in Enterprise+ and Edge licenses only.
 	DownloadDirect *bool `pulumi:"downloadDirect"`
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 	// artifacts are excluded.
 	ExcludesPattern *string `pulumi:"excludesPattern"`
 	// If set, Artifactory allows you to deploy release artifacts into this repository.
 	HandleReleases *bool `pulumi:"handleReleases"`
 	// If set, Artifactory allows you to deploy snapshot artifacts into this repository.
 	HandleSnapshots *bool `pulumi:"handleSnapshots"`
-	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
 	// the identity key of the repo.
 	Key *string `pulumi:"key"`
@@ -236,15 +236,15 @@ type LocalSbtRepositoryState struct {
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
 	// storage provider. Available in Enterprise+ and Edge licenses only.
 	DownloadDirect pulumi.BoolPtrInput
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 	// artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrInput
 	// If set, Artifactory allows you to deploy release artifacts into this repository.
 	HandleReleases pulumi.BoolPtrInput
 	// If set, Artifactory allows you to deploy snapshot artifacts into this repository.
 	HandleSnapshots pulumi.BoolPtrInput
-	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
 	// the identity key of the repo.
 	Key pulumi.StringPtrInput
@@ -306,15 +306,15 @@ type localSbtRepositoryArgs struct {
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
 	// storage provider. Available in Enterprise+ and Edge licenses only.
 	DownloadDirect *bool `pulumi:"downloadDirect"`
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 	// artifacts are excluded.
 	ExcludesPattern *string `pulumi:"excludesPattern"`
 	// If set, Artifactory allows you to deploy release artifacts into this repository.
 	HandleReleases *bool `pulumi:"handleReleases"`
 	// If set, Artifactory allows you to deploy snapshot artifacts into this repository.
 	HandleSnapshots *bool `pulumi:"handleSnapshots"`
-	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
 	// the identity key of the repo.
 	Key string `pulumi:"key"`
@@ -372,15 +372,15 @@ type LocalSbtRepositoryArgs struct {
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
 	// storage provider. Available in Enterprise+ and Edge licenses only.
 	DownloadDirect pulumi.BoolPtrInput
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 	// artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrInput
 	// If set, Artifactory allows you to deploy release artifacts into this repository.
 	HandleReleases pulumi.BoolPtrInput
 	// If set, Artifactory allows you to deploy snapshot artifacts into this repository.
 	HandleSnapshots pulumi.BoolPtrInput
-	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
 	// the identity key of the repo.
 	Key pulumi.StringInput
@@ -565,10 +565,10 @@ func (o LocalSbtRepositoryOutput) DownloadDirect() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LocalSbtRepository) pulumi.BoolPtrOutput { return v.DownloadDirect }).(pulumi.BoolPtrOutput)
 }
 
-// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 // artifacts are excluded.
-func (o LocalSbtRepositoryOutput) ExcludesPattern() pulumi.StringOutput {
-	return o.ApplyT(func(v *LocalSbtRepository) pulumi.StringOutput { return v.ExcludesPattern }).(pulumi.StringOutput)
+func (o LocalSbtRepositoryOutput) ExcludesPattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocalSbtRepository) pulumi.StringPtrOutput { return v.ExcludesPattern }).(pulumi.StringPtrOutput)
 }
 
 // If set, Artifactory allows you to deploy release artifacts into this repository.
@@ -581,10 +581,10 @@ func (o LocalSbtRepositoryOutput) HandleSnapshots() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LocalSbtRepository) pulumi.BoolPtrOutput { return v.HandleSnapshots }).(pulumi.BoolPtrOutput)
 }
 
-// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-func (o LocalSbtRepositoryOutput) IncludesPattern() pulumi.StringOutput {
-	return o.ApplyT(func(v *LocalSbtRepository) pulumi.StringOutput { return v.IncludesPattern }).(pulumi.StringOutput)
+// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+func (o LocalSbtRepositoryOutput) IncludesPattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocalSbtRepository) pulumi.StringPtrOutput { return v.IncludesPattern }).(pulumi.StringPtrOutput)
 }
 
 // the identity key of the repo.

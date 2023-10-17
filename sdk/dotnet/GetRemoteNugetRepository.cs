@@ -101,6 +101,9 @@ namespace Pulumi.Artifactory
         [Input("disableProxy")]
         public bool? DisableProxy { get; set; }
 
+        [Input("disableUrlNormalization")]
+        public bool? DisableUrlNormalization { get; set; }
+
         /// <summary>
         /// (Optional) The context path prefix through which NuGet downloads are served. For example, the NuGet Gallery download URL is `https://nuget.org/api/v2/package`, so the repository URL should be configured as `https://nuget.org` and the download context path should be configured as `api/v2/package`. Default value is `api/v2/package`.
         /// </summary>
@@ -280,6 +283,9 @@ namespace Pulumi.Artifactory
         [Input("disableProxy")]
         public Input<bool>? DisableProxy { get; set; }
 
+        [Input("disableUrlNormalization")]
+        public Input<bool>? DisableUrlNormalization { get; set; }
+
         /// <summary>
         /// (Optional) The context path prefix through which NuGet downloads are served. For example, the NuGet Gallery download URL is `https://nuget.org/api/v2/package`, so the repository URL should be configured as `https://nuget.org` and the download context path should be configured as `api/v2/package`. Default value is `api/v2/package`.
         /// </summary>
@@ -445,6 +451,7 @@ namespace Pulumi.Artifactory
         public readonly Outputs.GetRemoteNugetRepositoryContentSynchronisationResult ContentSynchronisation;
         public readonly string? Description;
         public readonly bool? DisableProxy;
+        public readonly bool? DisableUrlNormalization;
         /// <summary>
         /// (Optional) The context path prefix through which NuGet downloads are served. For example, the NuGet Gallery download URL is `https://nuget.org/api/v2/package`, so the repository URL should be configured as `https://nuget.org` and the download context path should be configured as `api/v2/package`. Default value is `api/v2/package`.
         /// </summary>
@@ -523,6 +530,8 @@ namespace Pulumi.Artifactory
             string? description,
 
             bool? disableProxy,
+
+            bool? disableUrlNormalization,
 
             string? downloadContextPath,
 
@@ -610,6 +619,7 @@ namespace Pulumi.Artifactory
             ContentSynchronisation = contentSynchronisation;
             Description = description;
             DisableProxy = disableProxy;
+            DisableUrlNormalization = disableUrlNormalization;
             DownloadContextPath = downloadContextPath;
             DownloadDirect = downloadDirect;
             EnableCookieManagement = enableCookieManagement;

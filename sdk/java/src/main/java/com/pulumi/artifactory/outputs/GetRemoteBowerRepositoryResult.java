@@ -30,6 +30,7 @@ public final class GetRemoteBowerRepositoryResult {
     private GetRemoteBowerRepositoryContentSynchronisation contentSynchronisation;
     private @Nullable String description;
     private @Nullable Boolean disableProxy;
+    private @Nullable Boolean disableUrlNormalization;
     private @Nullable Boolean downloadDirect;
     private @Nullable Boolean enableCookieManagement;
     private @Nullable String excludesPattern;
@@ -107,6 +108,9 @@ public final class GetRemoteBowerRepositoryResult {
     }
     public Optional<Boolean> disableProxy() {
         return Optional.ofNullable(this.disableProxy);
+    }
+    public Optional<Boolean> disableUrlNormalization() {
+        return Optional.ofNullable(this.disableUrlNormalization);
     }
     public Optional<Boolean> downloadDirect() {
         return Optional.ofNullable(this.downloadDirect);
@@ -238,6 +242,7 @@ public final class GetRemoteBowerRepositoryResult {
         private GetRemoteBowerRepositoryContentSynchronisation contentSynchronisation;
         private @Nullable String description;
         private @Nullable Boolean disableProxy;
+        private @Nullable Boolean disableUrlNormalization;
         private @Nullable Boolean downloadDirect;
         private @Nullable Boolean enableCookieManagement;
         private @Nullable String excludesPattern;
@@ -287,6 +292,7 @@ public final class GetRemoteBowerRepositoryResult {
     	      this.contentSynchronisation = defaults.contentSynchronisation;
     	      this.description = defaults.description;
     	      this.disableProxy = defaults.disableProxy;
+    	      this.disableUrlNormalization = defaults.disableUrlNormalization;
     	      this.downloadDirect = defaults.downloadDirect;
     	      this.enableCookieManagement = defaults.enableCookieManagement;
     	      this.excludesPattern = defaults.excludesPattern;
@@ -377,6 +383,11 @@ public final class GetRemoteBowerRepositoryResult {
         @CustomType.Setter
         public Builder disableProxy(@Nullable Boolean disableProxy) {
             this.disableProxy = disableProxy;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder disableUrlNormalization(@Nullable Boolean disableUrlNormalization) {
+            this.disableUrlNormalization = disableUrlNormalization;
             return this;
         }
         @CustomType.Setter
@@ -573,6 +584,7 @@ public final class GetRemoteBowerRepositoryResult {
             o.contentSynchronisation = contentSynchronisation;
             o.description = description;
             o.disableProxy = disableProxy;
+            o.disableUrlNormalization = disableUrlNormalization;
             o.downloadDirect = downloadDirect;
             o.enableCookieManagement = enableCookieManagement;
             o.excludesPattern = excludesPattern;

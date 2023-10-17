@@ -103,6 +103,13 @@ public final class GetRemoteBowerRepositoryPlainArgs extends com.pulumi.resource
         return Optional.ofNullable(this.disableProxy);
     }
 
+    @Import(name="disableUrlNormalization")
+    private @Nullable Boolean disableUrlNormalization;
+
+    public Optional<Boolean> disableUrlNormalization() {
+        return Optional.ofNullable(this.disableUrlNormalization);
+    }
+
     @Import(name="downloadDirect")
     private @Nullable Boolean downloadDirect;
 
@@ -356,6 +363,7 @@ public final class GetRemoteBowerRepositoryPlainArgs extends com.pulumi.resource
         this.contentSynchronisation = $.contentSynchronisation;
         this.description = $.description;
         this.disableProxy = $.disableProxy;
+        this.disableUrlNormalization = $.disableUrlNormalization;
         this.downloadDirect = $.downloadDirect;
         this.enableCookieManagement = $.enableCookieManagement;
         this.excludesPattern = $.excludesPattern;
@@ -467,6 +475,11 @@ public final class GetRemoteBowerRepositoryPlainArgs extends com.pulumi.resource
 
         public Builder disableProxy(@Nullable Boolean disableProxy) {
             $.disableProxy = disableProxy;
+            return this;
+        }
+
+        public Builder disableUrlNormalization(@Nullable Boolean disableUrlNormalization) {
+            $.disableUrlNormalization = disableUrlNormalization;
             return this;
         }
 

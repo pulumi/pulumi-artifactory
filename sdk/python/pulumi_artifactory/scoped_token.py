@@ -60,7 +60,17 @@ class ScopedTokenArgs:
              refreshable: Optional[pulumi.Input[bool]] = None,
              scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              username: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'expiresIn' in kwargs:
+            expires_in = kwargs['expiresIn']
+        if 'grantType' in kwargs:
+            grant_type = kwargs['grantType']
+        if 'includeReferenceToken' in kwargs:
+            include_reference_token = kwargs['includeReferenceToken']
+        if 'projectKey' in kwargs:
+            project_key = kwargs['projectKey']
+
         if audiences is not None:
             _setter("audiences", audiences)
         if description is not None:
@@ -271,7 +281,27 @@ class _ScopedTokenState:
              subject: Optional[pulumi.Input[str]] = None,
              token_type: Optional[pulumi.Input[str]] = None,
              username: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessToken' in kwargs:
+            access_token = kwargs['accessToken']
+        if 'expiresIn' in kwargs:
+            expires_in = kwargs['expiresIn']
+        if 'grantType' in kwargs:
+            grant_type = kwargs['grantType']
+        if 'includeReferenceToken' in kwargs:
+            include_reference_token = kwargs['includeReferenceToken']
+        if 'issuedAt' in kwargs:
+            issued_at = kwargs['issuedAt']
+        if 'projectKey' in kwargs:
+            project_key = kwargs['projectKey']
+        if 'referenceToken' in kwargs:
+            reference_token = kwargs['referenceToken']
+        if 'refreshToken' in kwargs:
+            refresh_token = kwargs['refreshToken']
+        if 'tokenType' in kwargs:
+            token_type = kwargs['tokenType']
+
         if access_token is not None:
             _setter("access_token", access_token)
         if audiences is not None:

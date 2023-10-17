@@ -71,7 +71,27 @@ class GroupArgs:
              reports_manager: Optional[pulumi.Input[bool]] = None,
              users_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              watch_manager: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'adminPrivileges' in kwargs:
+            admin_privileges = kwargs['adminPrivileges']
+        if 'autoJoin' in kwargs:
+            auto_join = kwargs['autoJoin']
+        if 'detachAllUsers' in kwargs:
+            detach_all_users = kwargs['detachAllUsers']
+        if 'externalId' in kwargs:
+            external_id = kwargs['externalId']
+        if 'policyManager' in kwargs:
+            policy_manager = kwargs['policyManager']
+        if 'realmAttributes' in kwargs:
+            realm_attributes = kwargs['realmAttributes']
+        if 'reportsManager' in kwargs:
+            reports_manager = kwargs['reportsManager']
+        if 'usersNames' in kwargs:
+            users_names = kwargs['usersNames']
+        if 'watchManager' in kwargs:
+            watch_manager = kwargs['watchManager']
+
         if admin_privileges is not None:
             _setter("admin_privileges", admin_privileges)
         if auto_join is not None:
@@ -302,7 +322,27 @@ class _GroupState:
              reports_manager: Optional[pulumi.Input[bool]] = None,
              users_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              watch_manager: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'adminPrivileges' in kwargs:
+            admin_privileges = kwargs['adminPrivileges']
+        if 'autoJoin' in kwargs:
+            auto_join = kwargs['autoJoin']
+        if 'detachAllUsers' in kwargs:
+            detach_all_users = kwargs['detachAllUsers']
+        if 'externalId' in kwargs:
+            external_id = kwargs['externalId']
+        if 'policyManager' in kwargs:
+            policy_manager = kwargs['policyManager']
+        if 'realmAttributes' in kwargs:
+            realm_attributes = kwargs['realmAttributes']
+        if 'reportsManager' in kwargs:
+            reports_manager = kwargs['reportsManager']
+        if 'usersNames' in kwargs:
+            users_names = kwargs['usersNames']
+        if 'watchManager' in kwargs:
+            watch_manager = kwargs['watchManager']
+
         if admin_privileges is not None:
             _setter("admin_privileges", admin_privileges)
         if auto_join is not None:

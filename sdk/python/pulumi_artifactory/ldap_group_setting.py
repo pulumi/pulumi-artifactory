@@ -62,7 +62,21 @@ class LdapGroupSettingArgs:
              group_base_dn: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              sub_tree: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'descriptionAttribute' in kwargs:
+            description_attribute = kwargs['descriptionAttribute']
+        if 'groupMemberAttribute' in kwargs:
+            group_member_attribute = kwargs['groupMemberAttribute']
+        if 'groupNameAttribute' in kwargs:
+            group_name_attribute = kwargs['groupNameAttribute']
+        if 'ldapSettingKey' in kwargs:
+            ldap_setting_key = kwargs['ldapSettingKey']
+        if 'groupBaseDn' in kwargs:
+            group_base_dn = kwargs['groupBaseDn']
+        if 'subTree' in kwargs:
+            sub_tree = kwargs['subTree']
+
         _setter("description_attribute", description_attribute)
         _setter("filter", filter)
         _setter("group_member_attribute", group_member_attribute)
@@ -239,7 +253,21 @@ class _LdapGroupSettingState:
              name: Optional[pulumi.Input[str]] = None,
              strategy: Optional[pulumi.Input[str]] = None,
              sub_tree: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'descriptionAttribute' in kwargs:
+            description_attribute = kwargs['descriptionAttribute']
+        if 'groupBaseDn' in kwargs:
+            group_base_dn = kwargs['groupBaseDn']
+        if 'groupMemberAttribute' in kwargs:
+            group_member_attribute = kwargs['groupMemberAttribute']
+        if 'groupNameAttribute' in kwargs:
+            group_name_attribute = kwargs['groupNameAttribute']
+        if 'ldapSettingKey' in kwargs:
+            ldap_setting_key = kwargs['ldapSettingKey']
+        if 'subTree' in kwargs:
+            sub_tree = kwargs['subTree']
+
         if description_attribute is not None:
             _setter("description_attribute", description_attribute)
         if filter is not None:

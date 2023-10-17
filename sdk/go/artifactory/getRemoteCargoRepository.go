@@ -63,6 +63,7 @@ type LookupRemoteCargoRepositoryArgs struct {
 	ContentSynchronisation    *GetRemoteCargoRepositoryContentSynchronisation `pulumi:"contentSynchronisation"`
 	Description               *string                                         `pulumi:"description"`
 	DisableProxy              *bool                                           `pulumi:"disableProxy"`
+	DisableUrlNormalization   *bool                                           `pulumi:"disableUrlNormalization"`
 	DownloadDirect            *bool                                           `pulumi:"downloadDirect"`
 	EnableCookieManagement    *bool                                           `pulumi:"enableCookieManagement"`
 	// (Optional) Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
@@ -115,6 +116,7 @@ type LookupRemoteCargoRepositoryResult struct {
 	ContentSynchronisation    GetRemoteCargoRepositoryContentSynchronisation `pulumi:"contentSynchronisation"`
 	Description               *string                                        `pulumi:"description"`
 	DisableProxy              *bool                                          `pulumi:"disableProxy"`
+	DisableUrlNormalization   *bool                                          `pulumi:"disableUrlNormalization"`
 	DownloadDirect            *bool                                          `pulumi:"downloadDirect"`
 	EnableCookieManagement    *bool                                          `pulumi:"enableCookieManagement"`
 	// (Optional) Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
@@ -182,6 +184,7 @@ type LookupRemoteCargoRepositoryOutputArgs struct {
 	ContentSynchronisation    GetRemoteCargoRepositoryContentSynchronisationPtrInput `pulumi:"contentSynchronisation"`
 	Description               pulumi.StringPtrInput                                  `pulumi:"description"`
 	DisableProxy              pulumi.BoolPtrInput                                    `pulumi:"disableProxy"`
+	DisableUrlNormalization   pulumi.BoolPtrInput                                    `pulumi:"disableUrlNormalization"`
 	DownloadDirect            pulumi.BoolPtrInput                                    `pulumi:"downloadDirect"`
 	EnableCookieManagement    pulumi.BoolPtrInput                                    `pulumi:"enableCookieManagement"`
 	// (Optional) Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
@@ -290,6 +293,10 @@ func (o LookupRemoteCargoRepositoryResultOutput) Description() pulumi.StringPtrO
 
 func (o LookupRemoteCargoRepositoryResultOutput) DisableProxy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupRemoteCargoRepositoryResult) *bool { return v.DisableProxy }).(pulumi.BoolPtrOutput)
+}
+
+func (o LookupRemoteCargoRepositoryResultOutput) DisableUrlNormalization() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupRemoteCargoRepositoryResult) *bool { return v.DisableUrlNormalization }).(pulumi.BoolPtrOutput)
 }
 
 func (o LookupRemoteCargoRepositoryResultOutput) DownloadDirect() pulumi.BoolPtrOutput {

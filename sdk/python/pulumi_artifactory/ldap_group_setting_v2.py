@@ -63,7 +63,23 @@ class LdapGroupSettingV2Args:
              group_base_dn: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              sub_tree: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'descriptionAttribute' in kwargs:
+            description_attribute = kwargs['descriptionAttribute']
+        if 'groupMemberAttribute' in kwargs:
+            group_member_attribute = kwargs['groupMemberAttribute']
+        if 'groupNameAttribute' in kwargs:
+            group_name_attribute = kwargs['groupNameAttribute']
+        if 'enabledLdap' in kwargs:
+            enabled_ldap = kwargs['enabledLdap']
+        if 'forceAttributeSearch' in kwargs:
+            force_attribute_search = kwargs['forceAttributeSearch']
+        if 'groupBaseDn' in kwargs:
+            group_base_dn = kwargs['groupBaseDn']
+        if 'subTree' in kwargs:
+            sub_tree = kwargs['subTree']
+
         _setter("description_attribute", description_attribute)
         _setter("filter", filter)
         _setter("group_member_attribute", group_member_attribute)
@@ -253,7 +269,23 @@ class _LdapGroupSettingV2State:
              name: Optional[pulumi.Input[str]] = None,
              strategy: Optional[pulumi.Input[str]] = None,
              sub_tree: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'descriptionAttribute' in kwargs:
+            description_attribute = kwargs['descriptionAttribute']
+        if 'enabledLdap' in kwargs:
+            enabled_ldap = kwargs['enabledLdap']
+        if 'forceAttributeSearch' in kwargs:
+            force_attribute_search = kwargs['forceAttributeSearch']
+        if 'groupBaseDn' in kwargs:
+            group_base_dn = kwargs['groupBaseDn']
+        if 'groupMemberAttribute' in kwargs:
+            group_member_attribute = kwargs['groupMemberAttribute']
+        if 'groupNameAttribute' in kwargs:
+            group_name_attribute = kwargs['groupNameAttribute']
+        if 'subTree' in kwargs:
+            sub_tree = kwargs['subTree']
+
         if description_attribute is not None:
             _setter("description_attribute", description_attribute)
         if enabled_ldap is not None:

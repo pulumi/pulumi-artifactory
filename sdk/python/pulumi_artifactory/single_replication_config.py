@@ -61,7 +61,25 @@ class SingleReplicationConfigArgs:
              sync_statistics: Optional[pulumi.Input[bool]] = None,
              url: Optional[pulumi.Input[str]] = None,
              username: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cronExp' in kwargs:
+            cron_exp = kwargs['cronExp']
+        if 'repoKey' in kwargs:
+            repo_key = kwargs['repoKey']
+        if 'enableEventReplication' in kwargs:
+            enable_event_replication = kwargs['enableEventReplication']
+        if 'pathPrefix' in kwargs:
+            path_prefix = kwargs['pathPrefix']
+        if 'socketTimeoutMillis' in kwargs:
+            socket_timeout_millis = kwargs['socketTimeoutMillis']
+        if 'syncDeletes' in kwargs:
+            sync_deletes = kwargs['syncDeletes']
+        if 'syncProperties' in kwargs:
+            sync_properties = kwargs['syncProperties']
+        if 'syncStatistics' in kwargs:
+            sync_statistics = kwargs['syncStatistics']
+
         _setter("cron_exp", cron_exp)
         _setter("repo_key", repo_key)
         if enable_event_replication is not None:
@@ -254,7 +272,25 @@ class _SingleReplicationConfigState:
              sync_statistics: Optional[pulumi.Input[bool]] = None,
              url: Optional[pulumi.Input[str]] = None,
              username: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cronExp' in kwargs:
+            cron_exp = kwargs['cronExp']
+        if 'enableEventReplication' in kwargs:
+            enable_event_replication = kwargs['enableEventReplication']
+        if 'pathPrefix' in kwargs:
+            path_prefix = kwargs['pathPrefix']
+        if 'repoKey' in kwargs:
+            repo_key = kwargs['repoKey']
+        if 'socketTimeoutMillis' in kwargs:
+            socket_timeout_millis = kwargs['socketTimeoutMillis']
+        if 'syncDeletes' in kwargs:
+            sync_deletes = kwargs['syncDeletes']
+        if 'syncProperties' in kwargs:
+            sync_properties = kwargs['syncProperties']
+        if 'syncStatistics' in kwargs:
+            sync_statistics = kwargs['syncStatistics']
+
         if cron_exp is not None:
             _setter("cron_exp", cron_exp)
         if enable_event_replication is not None:

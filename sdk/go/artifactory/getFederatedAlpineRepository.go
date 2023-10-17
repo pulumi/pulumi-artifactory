@@ -85,10 +85,10 @@ type LookupFederatedAlpineRepositoryResult struct {
 	CleanupOnDelete        *bool   `pulumi:"cleanupOnDelete"`
 	Description            *string `pulumi:"description"`
 	DownloadDirect         *bool   `pulumi:"downloadDirect"`
-	ExcludesPattern        string  `pulumi:"excludesPattern"`
+	ExcludesPattern        *string `pulumi:"excludesPattern"`
 	// The provider-assigned unique ID for this managed resource.
 	Id                      string   `pulumi:"id"`
-	IncludesPattern         string   `pulumi:"includesPattern"`
+	IncludesPattern         *string  `pulumi:"includesPattern"`
 	IndexCompressionFormats []string `pulumi:"indexCompressionFormats"`
 	Key                     string   `pulumi:"key"`
 	// The list of Federated members and must contain this repository URL (configured base URL
@@ -197,8 +197,8 @@ func (o LookupFederatedAlpineRepositoryResultOutput) DownloadDirect() pulumi.Boo
 	return o.ApplyT(func(v LookupFederatedAlpineRepositoryResult) *bool { return v.DownloadDirect }).(pulumi.BoolPtrOutput)
 }
 
-func (o LookupFederatedAlpineRepositoryResultOutput) ExcludesPattern() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupFederatedAlpineRepositoryResult) string { return v.ExcludesPattern }).(pulumi.StringOutput)
+func (o LookupFederatedAlpineRepositoryResultOutput) ExcludesPattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFederatedAlpineRepositoryResult) *string { return v.ExcludesPattern }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
@@ -206,8 +206,8 @@ func (o LookupFederatedAlpineRepositoryResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFederatedAlpineRepositoryResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-func (o LookupFederatedAlpineRepositoryResultOutput) IncludesPattern() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupFederatedAlpineRepositoryResult) string { return v.IncludesPattern }).(pulumi.StringOutput)
+func (o LookupFederatedAlpineRepositoryResultOutput) IncludesPattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFederatedAlpineRepositoryResult) *string { return v.IncludesPattern }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupFederatedAlpineRepositoryResultOutput) IndexCompressionFormats() pulumi.StringArrayOutput {

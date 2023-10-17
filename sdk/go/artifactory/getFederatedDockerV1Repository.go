@@ -86,12 +86,12 @@ type LookupFederatedDockerV1RepositoryResult struct {
 	CleanupOnDelete        *bool   `pulumi:"cleanupOnDelete"`
 	Description            *string `pulumi:"description"`
 	DownloadDirect         *bool   `pulumi:"downloadDirect"`
-	ExcludesPattern        string  `pulumi:"excludesPattern"`
+	ExcludesPattern        *string `pulumi:"excludesPattern"`
 	// The provider-assigned unique ID for this managed resource.
-	Id              string `pulumi:"id"`
-	IncludesPattern string `pulumi:"includesPattern"`
-	Key             string `pulumi:"key"`
-	MaxUniqueTags   int    `pulumi:"maxUniqueTags"`
+	Id              string  `pulumi:"id"`
+	IncludesPattern *string `pulumi:"includesPattern"`
+	Key             string  `pulumi:"key"`
+	MaxUniqueTags   int     `pulumi:"maxUniqueTags"`
 	// The list of Federated members and must contain this repository URL (configured base URL
 	// `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
 	// Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
@@ -205,8 +205,8 @@ func (o LookupFederatedDockerV1RepositoryResultOutput) DownloadDirect() pulumi.B
 	return o.ApplyT(func(v LookupFederatedDockerV1RepositoryResult) *bool { return v.DownloadDirect }).(pulumi.BoolPtrOutput)
 }
 
-func (o LookupFederatedDockerV1RepositoryResultOutput) ExcludesPattern() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupFederatedDockerV1RepositoryResult) string { return v.ExcludesPattern }).(pulumi.StringOutput)
+func (o LookupFederatedDockerV1RepositoryResultOutput) ExcludesPattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFederatedDockerV1RepositoryResult) *string { return v.ExcludesPattern }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
@@ -214,8 +214,8 @@ func (o LookupFederatedDockerV1RepositoryResultOutput) Id() pulumi.StringOutput 
 	return o.ApplyT(func(v LookupFederatedDockerV1RepositoryResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-func (o LookupFederatedDockerV1RepositoryResultOutput) IncludesPattern() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupFederatedDockerV1RepositoryResult) string { return v.IncludesPattern }).(pulumi.StringOutput)
+func (o LookupFederatedDockerV1RepositoryResultOutput) IncludesPattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFederatedDockerV1RepositoryResult) *string { return v.IncludesPattern }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupFederatedDockerV1RepositoryResultOutput) Key() pulumi.StringOutput {
