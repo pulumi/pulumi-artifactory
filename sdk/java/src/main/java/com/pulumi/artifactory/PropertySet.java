@@ -99,7 +99,7 @@ public class PropertySet extends com.pulumi.resources.CustomResource {
      * Predefined property name.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -113,7 +113,7 @@ public class PropertySet extends com.pulumi.resources.CustomResource {
      * A list of properties that will be part of the property set.
      * 
      */
-    @Export(name="properties", type=List.class, parameters={PropertySetProperty.class})
+    @Export(name="properties", refs={List.class,PropertySetProperty.class}, tree="[0,1]")
     private Output<List<PropertySetProperty>> properties;
 
     /**
@@ -127,7 +127,7 @@ public class PropertySet extends com.pulumi.resources.CustomResource {
      * Defines if the list visible and assignable to the repository or artifact. Default value is `true`.
      * 
      */
-    @Export(name="visible", type=Boolean.class, parameters={})
+    @Export(name="visible", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> visible;
 
     /**

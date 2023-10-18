@@ -41,7 +41,11 @@ class PermissionTargetArgs:
              name: Optional[pulumi.Input[str]] = None,
              release_bundles: Optional[pulumi.Input[Sequence[pulumi.Input['PermissionTargetReleaseBundleArgs']]]] = None,
              repos: Optional[pulumi.Input[Sequence[pulumi.Input['PermissionTargetRepoArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'releaseBundles' in kwargs:
+            release_bundles = kwargs['releaseBundles']
+
         if builds is not None:
             _setter("builds", builds)
         if name is not None:
@@ -128,7 +132,11 @@ class _PermissionTargetState:
              name: Optional[pulumi.Input[str]] = None,
              release_bundles: Optional[pulumi.Input[Sequence[pulumi.Input['PermissionTargetReleaseBundleArgs']]]] = None,
              repos: Optional[pulumi.Input[Sequence[pulumi.Input['PermissionTargetRepoArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'releaseBundles' in kwargs:
+            release_bundles = kwargs['releaseBundles']
+
         if builds is not None:
             _setter("builds", builds)
         if name is not None:

@@ -63,7 +63,17 @@ class ProxyArgs:
              redirect_to_hosts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              services: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              username: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ntDomain' in kwargs:
+            nt_domain = kwargs['ntDomain']
+        if 'ntHost' in kwargs:
+            nt_host = kwargs['ntHost']
+        if 'platformDefault' in kwargs:
+            platform_default = kwargs['platformDefault']
+        if 'redirectToHosts' in kwargs:
+            redirect_to_hosts = kwargs['redirectToHosts']
+
         _setter("host", host)
         _setter("key", key)
         _setter("port", port)
@@ -255,7 +265,17 @@ class _ProxyState:
              redirect_to_hosts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              services: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              username: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ntDomain' in kwargs:
+            nt_domain = kwargs['ntDomain']
+        if 'ntHost' in kwargs:
+            nt_host = kwargs['ntHost']
+        if 'platformDefault' in kwargs:
+            platform_default = kwargs['platformDefault']
+        if 'redirectToHosts' in kwargs:
+            redirect_to_hosts = kwargs['redirectToHosts']
+
         if host is not None:
             _setter("host", host)
         if key is not None:

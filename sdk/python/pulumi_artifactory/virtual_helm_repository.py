@@ -83,7 +83,27 @@ class VirtualHelmRepositoryArgs:
              repositories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              retrieval_cache_period_seconds: Optional[pulumi.Input[int]] = None,
              use_namespaces: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'artifactoryRequestsCanRetrieveRemoteArtifacts' in kwargs:
+            artifactory_requests_can_retrieve_remote_artifacts = kwargs['artifactoryRequestsCanRetrieveRemoteArtifacts']
+        if 'defaultDeploymentRepo' in kwargs:
+            default_deployment_repo = kwargs['defaultDeploymentRepo']
+        if 'excludesPattern' in kwargs:
+            excludes_pattern = kwargs['excludesPattern']
+        if 'includesPattern' in kwargs:
+            includes_pattern = kwargs['includesPattern']
+        if 'projectEnvironments' in kwargs:
+            project_environments = kwargs['projectEnvironments']
+        if 'projectKey' in kwargs:
+            project_key = kwargs['projectKey']
+        if 'repoLayoutRef' in kwargs:
+            repo_layout_ref = kwargs['repoLayoutRef']
+        if 'retrievalCachePeriodSeconds' in kwargs:
+            retrieval_cache_period_seconds = kwargs['retrievalCachePeriodSeconds']
+        if 'useNamespaces' in kwargs:
+            use_namespaces = kwargs['useNamespaces']
+
         _setter("key", key)
         if artifactory_requests_can_retrieve_remote_artifacts is not None:
             _setter("artifactory_requests_can_retrieve_remote_artifacts", artifactory_requests_can_retrieve_remote_artifacts)
@@ -350,7 +370,29 @@ class _VirtualHelmRepositoryState:
              repositories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              retrieval_cache_period_seconds: Optional[pulumi.Input[int]] = None,
              use_namespaces: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'artifactoryRequestsCanRetrieveRemoteArtifacts' in kwargs:
+            artifactory_requests_can_retrieve_remote_artifacts = kwargs['artifactoryRequestsCanRetrieveRemoteArtifacts']
+        if 'defaultDeploymentRepo' in kwargs:
+            default_deployment_repo = kwargs['defaultDeploymentRepo']
+        if 'excludesPattern' in kwargs:
+            excludes_pattern = kwargs['excludesPattern']
+        if 'includesPattern' in kwargs:
+            includes_pattern = kwargs['includesPattern']
+        if 'packageType' in kwargs:
+            package_type = kwargs['packageType']
+        if 'projectEnvironments' in kwargs:
+            project_environments = kwargs['projectEnvironments']
+        if 'projectKey' in kwargs:
+            project_key = kwargs['projectKey']
+        if 'repoLayoutRef' in kwargs:
+            repo_layout_ref = kwargs['repoLayoutRef']
+        if 'retrievalCachePeriodSeconds' in kwargs:
+            retrieval_cache_period_seconds = kwargs['retrievalCachePeriodSeconds']
+        if 'useNamespaces' in kwargs:
+            use_namespaces = kwargs['useNamespaces']
+
         if artifactory_requests_can_retrieve_remote_artifacts is not None:
             _setter("artifactory_requests_can_retrieve_remote_artifacts", artifactory_requests_can_retrieve_remote_artifacts)
         if default_deployment_repo is not None:

@@ -60,13 +60,13 @@ export interface GetLocalNugetRepositoryResult {
     readonly cdnRedirect?: boolean;
     readonly description?: string;
     readonly downloadDirect?: boolean;
-    readonly excludesPattern: string;
+    readonly excludesPattern?: string;
     readonly forceNugetAuthentication?: boolean;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    readonly includesPattern: string;
+    readonly includesPattern?: string;
     readonly key: string;
     readonly maxUniqueSnapshots?: number;
     readonly notes?: string;

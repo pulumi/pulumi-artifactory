@@ -71,12 +71,12 @@ export interface GetFederatedDockerRepositoryResult {
     readonly cleanupOnDelete?: boolean;
     readonly description?: string;
     readonly downloadDirect?: boolean;
-    readonly excludesPattern: string;
+    readonly excludesPattern?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    readonly includesPattern: string;
+    readonly includesPattern?: string;
     readonly key: string;
     readonly maxUniqueTags?: number;
     readonly members?: outputs.GetFederatedDockerRepositoryMember[];

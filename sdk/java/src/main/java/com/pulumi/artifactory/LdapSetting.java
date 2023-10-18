@@ -84,7 +84,7 @@ public class LdapSetting extends com.pulumi.resources.CustomResource {
      * When set, users created after logging in using LDAP will be able to access their profile page.  Default value is `false`.
      * 
      */
-    @Export(name="allowUserToAccessProfile", type=Boolean.class, parameters={})
+    @Export(name="allowUserToAccessProfile", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> allowUserToAccessProfile;
 
     /**
@@ -98,7 +98,7 @@ public class LdapSetting extends com.pulumi.resources.CustomResource {
      * When set, the system will automatically create new users for those who have logged in using LDAP, and assign them to the default groups.  Default value is `true`.
      * 
      */
-    @Export(name="autoCreateUser", type=Boolean.class, parameters={})
+    @Export(name="autoCreateUser", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> autoCreateUser;
 
     /**
@@ -113,7 +113,7 @@ public class LdapSetting extends com.pulumi.resources.CustomResource {
      * - Note: If blank/empty string input was set for email_attribute, Default value `mail` takes effect. This is to match with Artifactory behavior.
      * 
      */
-    @Export(name="emailAttribute", type=String.class, parameters={})
+    @Export(name="emailAttribute", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> emailAttribute;
 
     /**
@@ -128,7 +128,7 @@ public class LdapSetting extends com.pulumi.resources.CustomResource {
      * When set, these settings are enabled. Default value is `true`.
      * 
      */
-    @Export(name="enabled", type=Boolean.class, parameters={})
+    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
@@ -142,7 +142,7 @@ public class LdapSetting extends com.pulumi.resources.CustomResource {
      * The unique ID of the LDAP setting.
      * 
      */
-    @Export(name="key", type=String.class, parameters={})
+    @Export(name="key", refs={String.class}, tree="[0]")
     private Output<String> key;
 
     /**
@@ -156,7 +156,7 @@ public class LdapSetting extends com.pulumi.resources.CustomResource {
      * Protects against LDAP poisoning by filtering out users exposed to vulnerabilities.  Default value is `true`.
      * 
      */
-    @Export(name="ldapPoisoningProtection", type=Boolean.class, parameters={})
+    @Export(name="ldapPoisoningProtection", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> ldapPoisoningProtection;
 
     /**
@@ -170,7 +170,7 @@ public class LdapSetting extends com.pulumi.resources.CustomResource {
      * Location of the LDAP server in the following format: ldap://myserver:myport/dc=sampledomain,dc=com. The URL should include the base DN used to search for and/or authenticate users.
      * 
      */
-    @Export(name="ldapUrl", type=String.class, parameters={})
+    @Export(name="ldapUrl", refs={String.class}, tree="[0]")
     private Output<String> ldapUrl;
 
     /**
@@ -184,7 +184,7 @@ public class LdapSetting extends com.pulumi.resources.CustomResource {
      * The full DN of a user with permissions that allow querying the LDAP server. When working with LDAP Groups, the user should have permissions for any extra group attributes such as memberOf.
      * 
      */
-    @Export(name="managerDn", type=String.class, parameters={})
+    @Export(name="managerDn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> managerDn;
 
     /**
@@ -198,7 +198,7 @@ public class LdapSetting extends com.pulumi.resources.CustomResource {
      * The password of the user binding to the LDAP server when using &#34;search&#34; authentication.
      * 
      */
-    @Export(name="managerPassword", type=String.class, parameters={})
+    @Export(name="managerPassword", refs={String.class}, tree="[0]")
     private Output<String> managerPassword;
 
     /**
@@ -212,7 +212,7 @@ public class LdapSetting extends com.pulumi.resources.CustomResource {
      * When set, supports paging results for the LDAP server. This feature requires that the LDAP Server supports a PagedResultsControl configuration.  Default value is `true`.
      * 
      */
-    @Export(name="pagingSupportEnabled", type=Boolean.class, parameters={})
+    @Export(name="pagingSupportEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> pagingSupportEnabled;
 
     /**
@@ -226,7 +226,7 @@ public class LdapSetting extends com.pulumi.resources.CustomResource {
      * The Context name in which to search relative to the base DN in the LDAP URL. Multiple search bases may be specified separated by a pipe ( | ).
      * 
      */
-    @Export(name="searchBase", type=String.class, parameters={})
+    @Export(name="searchBase", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> searchBase;
 
     /**
@@ -241,7 +241,7 @@ public class LdapSetting extends com.pulumi.resources.CustomResource {
      * - Note: LDAP settings should provide a userDnPattern or a searchFilter (or both)
      * 
      */
-    @Export(name="searchFilter", type=String.class, parameters={})
+    @Export(name="searchFilter", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> searchFilter;
 
     /**
@@ -256,7 +256,7 @@ public class LdapSetting extends com.pulumi.resources.CustomResource {
      * When set, enables deep search through the sub-tree of the LDAP URL + Search Base.  Default value is `true`.
      * 
      */
-    @Export(name="searchSubTree", type=Boolean.class, parameters={})
+    @Export(name="searchSubTree", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> searchSubTree;
 
     /**
@@ -271,7 +271,7 @@ public class LdapSetting extends com.pulumi.resources.CustomResource {
      * - Note: LDAP settings should provide a userDnPattern or a searchFilter (or both).
      * 
      */
-    @Export(name="userDnPattern", type=String.class, parameters={})
+    @Export(name="userDnPattern", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userDnPattern;
 
     /**

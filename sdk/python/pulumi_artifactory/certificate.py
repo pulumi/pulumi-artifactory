@@ -20,7 +20,8 @@ class CertificateArgs:
         """
         The set of arguments for constructing a Certificate resource.
         :param pulumi.Input[str] alias: Name of certificate.
-        :param pulumi.Input[str] content: PEM-encoded client certificate and private key.
+        :param pulumi.Input[str] content: PEM-encoded client certificate and private key. Cannot be set with `file` attribute simultaneously.
+        :param pulumi.Input[str] file: Path to the PEM file. Cannot be set with `content` attribute simultaneously.
         """
         CertificateArgs._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -34,7 +35,9 @@ class CertificateArgs:
              alias: pulumi.Input[str],
              content: Optional[pulumi.Input[str]] = None,
              file: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("alias", alias)
         if content is not None:
             _setter("content", content)
@@ -57,7 +60,7 @@ class CertificateArgs:
     @pulumi.getter
     def content(self) -> Optional[pulumi.Input[str]]:
         """
-        PEM-encoded client certificate and private key.
+        PEM-encoded client certificate and private key. Cannot be set with `file` attribute simultaneously.
         """
         return pulumi.get(self, "content")
 
@@ -68,6 +71,9 @@ class CertificateArgs:
     @property
     @pulumi.getter
     def file(self) -> Optional[pulumi.Input[str]]:
+        """
+        Path to the PEM file. Cannot be set with `content` attribute simultaneously.
+        """
         return pulumi.get(self, "file")
 
     @file.setter
@@ -89,7 +95,8 @@ class _CertificateState:
         """
         Input properties used for looking up and filtering Certificate resources.
         :param pulumi.Input[str] alias: Name of certificate.
-        :param pulumi.Input[str] content: PEM-encoded client certificate and private key.
+        :param pulumi.Input[str] content: PEM-encoded client certificate and private key. Cannot be set with `file` attribute simultaneously.
+        :param pulumi.Input[str] file: Path to the PEM file. Cannot be set with `content` attribute simultaneously.
         :param pulumi.Input[str] fingerprint: SHA256 fingerprint of the certificate.
         :param pulumi.Input[str] issued_by: Name of the certificate authority that issued the certificate.
         :param pulumi.Input[str] issued_on: The time & date when the certificate is valid from.
@@ -118,7 +125,17 @@ class _CertificateState:
              issued_on: Optional[pulumi.Input[str]] = None,
              issued_to: Optional[pulumi.Input[str]] = None,
              valid_until: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'issuedBy' in kwargs:
+            issued_by = kwargs['issuedBy']
+        if 'issuedOn' in kwargs:
+            issued_on = kwargs['issuedOn']
+        if 'issuedTo' in kwargs:
+            issued_to = kwargs['issuedTo']
+        if 'validUntil' in kwargs:
+            valid_until = kwargs['validUntil']
+
         if alias is not None:
             _setter("alias", alias)
         if content is not None:
@@ -152,7 +169,7 @@ class _CertificateState:
     @pulumi.getter
     def content(self) -> Optional[pulumi.Input[str]]:
         """
-        PEM-encoded client certificate and private key.
+        PEM-encoded client certificate and private key. Cannot be set with `file` attribute simultaneously.
         """
         return pulumi.get(self, "content")
 
@@ -163,6 +180,9 @@ class _CertificateState:
     @property
     @pulumi.getter
     def file(self) -> Optional[pulumi.Input[str]]:
+        """
+        Path to the PEM file. Cannot be set with `content` attribute simultaneously.
+        """
         return pulumi.get(self, "file")
 
     @file.setter
@@ -267,7 +287,8 @@ class Certificate(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] alias: Name of certificate.
-        :param pulumi.Input[str] content: PEM-encoded client certificate and private key.
+        :param pulumi.Input[str] content: PEM-encoded client certificate and private key. Cannot be set with `file` attribute simultaneously.
+        :param pulumi.Input[str] file: Path to the PEM file. Cannot be set with `content` attribute simultaneously.
         """
         ...
     @overload
@@ -369,7 +390,8 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] alias: Name of certificate.
-        :param pulumi.Input[str] content: PEM-encoded client certificate and private key.
+        :param pulumi.Input[str] content: PEM-encoded client certificate and private key. Cannot be set with `file` attribute simultaneously.
+        :param pulumi.Input[str] file: Path to the PEM file. Cannot be set with `content` attribute simultaneously.
         :param pulumi.Input[str] fingerprint: SHA256 fingerprint of the certificate.
         :param pulumi.Input[str] issued_by: Name of the certificate authority that issued the certificate.
         :param pulumi.Input[str] issued_on: The time & date when the certificate is valid from.
@@ -402,13 +424,16 @@ class Certificate(pulumi.CustomResource):
     @pulumi.getter
     def content(self) -> pulumi.Output[Optional[str]]:
         """
-        PEM-encoded client certificate and private key.
+        PEM-encoded client certificate and private key. Cannot be set with `file` attribute simultaneously.
         """
         return pulumi.get(self, "content")
 
     @property
     @pulumi.getter
     def file(self) -> pulumi.Output[Optional[str]]:
+        """
+        Path to the PEM file. Cannot be set with `content` attribute simultaneously.
+        """
         return pulumi.get(self, "file")
 
     @property

@@ -31,23 +31,31 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * PEM-encoded client certificate and private key.
+     * PEM-encoded client certificate and private key. Cannot be set with `file` attribute simultaneously.
      * 
      */
     @Import(name="content")
     private @Nullable Output<String> content;
 
     /**
-     * @return PEM-encoded client certificate and private key.
+     * @return PEM-encoded client certificate and private key. Cannot be set with `file` attribute simultaneously.
      * 
      */
     public Optional<Output<String>> content() {
         return Optional.ofNullable(this.content);
     }
 
+    /**
+     * Path to the PEM file. Cannot be set with `content` attribute simultaneously.
+     * 
+     */
     @Import(name="file")
     private @Nullable Output<String> file;
 
+    /**
+     * @return Path to the PEM file. Cannot be set with `content` attribute simultaneously.
+     * 
+     */
     public Optional<Output<String>> file() {
         return Optional.ofNullable(this.file);
     }
@@ -100,7 +108,7 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param content PEM-encoded client certificate and private key.
+         * @param content PEM-encoded client certificate and private key. Cannot be set with `file` attribute simultaneously.
          * 
          * @return builder
          * 
@@ -111,7 +119,7 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param content PEM-encoded client certificate and private key.
+         * @param content PEM-encoded client certificate and private key. Cannot be set with `file` attribute simultaneously.
          * 
          * @return builder
          * 
@@ -120,11 +128,23 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
             return content(Output.of(content));
         }
 
+        /**
+         * @param file Path to the PEM file. Cannot be set with `content` attribute simultaneously.
+         * 
+         * @return builder
+         * 
+         */
         public Builder file(@Nullable Output<String> file) {
             $.file = file;
             return this;
         }
 
+        /**
+         * @param file Path to the PEM file. Cannot be set with `content` attribute simultaneously.
+         * 
+         * @return builder
+         * 
+         */
         public Builder file(String file) {
             return file(Output.of(file));
         }

@@ -32,7 +32,7 @@ public class Group extends com.pulumi.resources.CustomResource {
      * Any users added to this group will automatically be assigned with admin privileges in the system.
      * 
      */
-    @Export(name="adminPrivileges", type=Boolean.class, parameters={})
+    @Export(name="adminPrivileges", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> adminPrivileges;
 
     /**
@@ -46,7 +46,7 @@ public class Group extends com.pulumi.resources.CustomResource {
      * When this parameter is set, any new users defined in the system are automatically assigned to this group.
      * 
      */
-    @Export(name="autoJoin", type=Boolean.class, parameters={})
+    @Export(name="autoJoin", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> autoJoin;
 
     /**
@@ -60,7 +60,7 @@ public class Group extends com.pulumi.resources.CustomResource {
      * A description for the group.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
     /**
@@ -74,7 +74,7 @@ public class Group extends com.pulumi.resources.CustomResource {
      * When this is set to `true`, an empty or missing usernames array will detach all users from the group.
      * 
      */
-    @Export(name="detachAllUsers", type=Boolean.class, parameters={})
+    @Export(name="detachAllUsers", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> detachAllUsers;
 
     /**
@@ -88,7 +88,7 @@ public class Group extends com.pulumi.resources.CustomResource {
      * New external group ID used to configure the corresponding group in Azure AD.
      * 
      */
-    @Export(name="externalId", type=String.class, parameters={})
+    @Export(name="externalId", refs={String.class}, tree="[0]")
     private Output<String> externalId;
 
     /**
@@ -102,7 +102,7 @@ public class Group extends com.pulumi.resources.CustomResource {
      * Name of the group.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -116,7 +116,7 @@ public class Group extends com.pulumi.resources.CustomResource {
      * When this override is set, User in the group can set Xray security and compliance policies. Default value is `false`.
      * 
      */
-    @Export(name="policyManager", type=Boolean.class, parameters={})
+    @Export(name="policyManager", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> policyManager;
 
     /**
@@ -130,7 +130,7 @@ public class Group extends com.pulumi.resources.CustomResource {
      * The realm for the group.
      * 
      */
-    @Export(name="realm", type=String.class, parameters={})
+    @Export(name="realm", refs={String.class}, tree="[0]")
     private Output<String> realm;
 
     /**
@@ -144,7 +144,7 @@ public class Group extends com.pulumi.resources.CustomResource {
      * The realm attributes for the group.
      * 
      */
-    @Export(name="realmAttributes", type=String.class, parameters={})
+    @Export(name="realmAttributes", refs={String.class}, tree="[0]")
     private Output<String> realmAttributes;
 
     /**
@@ -158,7 +158,7 @@ public class Group extends com.pulumi.resources.CustomResource {
      * When this override is set, User in the group can manage Xray Reports on any resource type. Default value is `false`.
      * 
      */
-    @Export(name="reportsManager", type=Boolean.class, parameters={})
+    @Export(name="reportsManager", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> reportsManager;
 
     /**
@@ -172,7 +172,7 @@ public class Group extends com.pulumi.resources.CustomResource {
      * List of users assigned to the group. If not set or empty, Terraform will not manage group membership.
      * 
      */
-    @Export(name="usersNames", type=List.class, parameters={String.class})
+    @Export(name="usersNames", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> usersNames;
 
     /**
@@ -186,7 +186,7 @@ public class Group extends com.pulumi.resources.CustomResource {
      * When this override is set, User in the group can manage Xray Watches on any resource type. Default value is `false`.
      * 
      */
-    @Export(name="watchManager", type=Boolean.class, parameters={})
+    @Export(name="watchManager", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> watchManager;
 
     /**

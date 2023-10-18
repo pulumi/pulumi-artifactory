@@ -91,7 +91,7 @@ public class DockerWebhook extends com.pulumi.resources.CustomResource {
      * Specifies where the webhook will be applied on which repositories.
      * 
      */
-    @Export(name="criteria", type=DockerWebhookCriteria.class, parameters={})
+    @Export(name="criteria", refs={DockerWebhookCriteria.class}, tree="[0]")
     private Output<DockerWebhookCriteria> criteria;
 
     /**
@@ -105,7 +105,7 @@ public class DockerWebhook extends com.pulumi.resources.CustomResource {
      * Webhook description. Max length 1000 characters.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -119,7 +119,7 @@ public class DockerWebhook extends com.pulumi.resources.CustomResource {
      * Status of webhook. Default to `true`.
      * 
      */
-    @Export(name="enabled", type=Boolean.class, parameters={})
+    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
@@ -133,7 +133,7 @@ public class DockerWebhook extends com.pulumi.resources.CustomResource {
      * List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `pushed`, `deleted`, `promoted`.
      * 
      */
-    @Export(name="eventTypes", type=List.class, parameters={String.class})
+    @Export(name="eventTypes", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> eventTypes;
 
     /**
@@ -147,7 +147,7 @@ public class DockerWebhook extends com.pulumi.resources.CustomResource {
      * At least one is required.
      * 
      */
-    @Export(name="handlers", type=List.class, parameters={DockerWebhookHandler.class})
+    @Export(name="handlers", refs={List.class,DockerWebhookHandler.class}, tree="[0,1]")
     private Output<List<DockerWebhookHandler>> handlers;
 
     /**
@@ -161,7 +161,7 @@ public class DockerWebhook extends com.pulumi.resources.CustomResource {
      * The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
      * 
      */
-    @Export(name="key", type=String.class, parameters={})
+    @Export(name="key", refs={String.class}, tree="[0]")
     private Output<String> key;
 
     /**

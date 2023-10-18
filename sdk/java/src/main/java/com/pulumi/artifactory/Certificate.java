@@ -70,7 +70,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * Name of certificate.
      * 
      */
-    @Export(name="alias", type=String.class, parameters={})
+    @Export(name="alias", refs={String.class}, tree="[0]")
     private Output<String> alias;
 
     /**
@@ -81,22 +81,30 @@ public class Certificate extends com.pulumi.resources.CustomResource {
         return this.alias;
     }
     /**
-     * PEM-encoded client certificate and private key.
+     * PEM-encoded client certificate and private key. Cannot be set with `file` attribute simultaneously.
      * 
      */
-    @Export(name="content", type=String.class, parameters={})
+    @Export(name="content", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> content;
 
     /**
-     * @return PEM-encoded client certificate and private key.
+     * @return PEM-encoded client certificate and private key. Cannot be set with `file` attribute simultaneously.
      * 
      */
     public Output<Optional<String>> content() {
         return Codegen.optional(this.content);
     }
-    @Export(name="file", type=String.class, parameters={})
+    /**
+     * Path to the PEM file. Cannot be set with `content` attribute simultaneously.
+     * 
+     */
+    @Export(name="file", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> file;
 
+    /**
+     * @return Path to the PEM file. Cannot be set with `content` attribute simultaneously.
+     * 
+     */
     public Output<Optional<String>> file() {
         return Codegen.optional(this.file);
     }
@@ -104,7 +112,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * SHA256 fingerprint of the certificate.
      * 
      */
-    @Export(name="fingerprint", type=String.class, parameters={})
+    @Export(name="fingerprint", refs={String.class}, tree="[0]")
     private Output<String> fingerprint;
 
     /**
@@ -118,7 +126,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * Name of the certificate authority that issued the certificate.
      * 
      */
-    @Export(name="issuedBy", type=String.class, parameters={})
+    @Export(name="issuedBy", refs={String.class}, tree="[0]")
     private Output<String> issuedBy;
 
     /**
@@ -132,7 +140,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * The time &amp; date when the certificate is valid from.
      * 
      */
-    @Export(name="issuedOn", type=String.class, parameters={})
+    @Export(name="issuedOn", refs={String.class}, tree="[0]")
     private Output<String> issuedOn;
 
     /**
@@ -146,7 +154,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * Name of whom the certificate has been issued to.
      * 
      */
-    @Export(name="issuedTo", type=String.class, parameters={})
+    @Export(name="issuedTo", refs={String.class}, tree="[0]")
     private Output<String> issuedTo;
 
     /**
@@ -160,7 +168,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * The time &amp; date when the certificate expires.
      * 
      */
-    @Export(name="validUntil", type=String.class, parameters={})
+    @Export(name="validUntil", refs={String.class}, tree="[0]")
     private Output<String> validUntil;
 
     /**

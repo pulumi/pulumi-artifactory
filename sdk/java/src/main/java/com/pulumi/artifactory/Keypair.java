@@ -73,7 +73,7 @@ public class Keypair extends com.pulumi.resources.CustomResource {
      * Will be used as a filename when retrieving the public key via REST API.
      * 
      */
-    @Export(name="alias", type=String.class, parameters={})
+    @Export(name="alias", refs={String.class}, tree="[0]")
     private Output<String> alias;
 
     /**
@@ -87,7 +87,7 @@ public class Keypair extends com.pulumi.resources.CustomResource {
      * A unique identifier for the Key Pair record.
      * 
      */
-    @Export(name="pairName", type=String.class, parameters={})
+    @Export(name="pairName", refs={String.class}, tree="[0]")
     private Output<String> pairName;
 
     /**
@@ -101,7 +101,7 @@ public class Keypair extends com.pulumi.resources.CustomResource {
      * Key Pair type. Supported types - GPG and RSA.
      * 
      */
-    @Export(name="pairType", type=String.class, parameters={})
+    @Export(name="pairType", refs={String.class}, tree="[0]")
     private Output<String> pairType;
 
     /**
@@ -115,7 +115,7 @@ public class Keypair extends com.pulumi.resources.CustomResource {
      * Passphrase will be used to decrypt the private key. Validated server side.
      * 
      */
-    @Export(name="passphrase", type=String.class, parameters={})
+    @Export(name="passphrase", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> passphrase;
 
     /**
@@ -129,7 +129,7 @@ public class Keypair extends com.pulumi.resources.CustomResource {
      * Private key. PEM format will be validated.
      * 
      */
-    @Export(name="privateKey", type=String.class, parameters={})
+    @Export(name="privateKey", refs={String.class}, tree="[0]")
     private Output<String> privateKey;
 
     /**
@@ -143,7 +143,7 @@ public class Keypair extends com.pulumi.resources.CustomResource {
      * Public key. PEM format will be validated.
      * 
      */
-    @Export(name="publicKey", type=String.class, parameters={})
+    @Export(name="publicKey", refs={String.class}, tree="[0]")
     private Output<String> publicKey;
 
     /**
@@ -159,7 +159,7 @@ public class Keypair extends com.pulumi.resources.CustomResource {
      * Artifactory REST API call Get Key Pair doesn&#39;t return keys `private_key` and `passphrase`, but consumes these keys in the POST call.
      * 
      */
-    @Export(name="unavailable", type=Boolean.class, parameters={})
+    @Export(name="unavailable", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> unavailable;
 
     /**

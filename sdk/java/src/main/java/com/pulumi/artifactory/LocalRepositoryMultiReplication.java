@@ -104,7 +104,7 @@ public class LocalRepositoryMultiReplication extends com.pulumi.resources.Custom
      * A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
      * 
      */
-    @Export(name="cronExp", type=String.class, parameters={})
+    @Export(name="cronExp", refs={String.class}, tree="[0]")
     private Output<String> cronExp;
 
     /**
@@ -118,7 +118,7 @@ public class LocalRepositoryMultiReplication extends com.pulumi.resources.Custom
      * When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. add, deleted or property change. Default value is `false`.
      * 
      */
-    @Export(name="enableEventReplication", type=Boolean.class, parameters={})
+    @Export(name="enableEventReplication", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableEventReplication;
 
     /**
@@ -132,7 +132,7 @@ public class LocalRepositoryMultiReplication extends com.pulumi.resources.Custom
      * List of replications minimum 1 element.
      * 
      */
-    @Export(name="replications", type=List.class, parameters={LocalRepositoryMultiReplicationReplication.class})
+    @Export(name="replications", refs={List.class,LocalRepositoryMultiReplicationReplication.class}, tree="[0,1]")
     private Output</* @Nullable */ List<LocalRepositoryMultiReplicationReplication>> replications;
 
     /**
@@ -146,7 +146,7 @@ public class LocalRepositoryMultiReplication extends com.pulumi.resources.Custom
      * Repository name.
      * 
      */
-    @Export(name="repoKey", type=String.class, parameters={})
+    @Export(name="repoKey", refs={String.class}, tree="[0]")
     private Output<String> repoKey;
 
     /**

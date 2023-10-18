@@ -61,12 +61,12 @@ class FederatedMavenRepositoryArgs:
         :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only.
-        :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+        :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
                artifacts are excluded.
         :param pulumi.Input[bool] handle_releases: If set, Artifactory allows you to deploy release artifacts into this repository.
         :param pulumi.Input[bool] handle_snapshots: If set, Artifactory allows you to deploy snapshot artifacts into this repository.
-        :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-               artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+               used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         :param pulumi.Input[int] max_unique_snapshots: The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
                older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
         :param pulumi.Input[str] notes: Internal description.
@@ -141,7 +141,47 @@ class FederatedMavenRepositoryArgs:
              snapshot_version_behavior: Optional[pulumi.Input[str]] = None,
              suppress_pom_consistency_checks: Optional[pulumi.Input[bool]] = None,
              xray_index: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'archiveBrowsingEnabled' in kwargs:
+            archive_browsing_enabled = kwargs['archiveBrowsingEnabled']
+        if 'blackedOut' in kwargs:
+            blacked_out = kwargs['blackedOut']
+        if 'cdnRedirect' in kwargs:
+            cdn_redirect = kwargs['cdnRedirect']
+        if 'checksumPolicyType' in kwargs:
+            checksum_policy_type = kwargs['checksumPolicyType']
+        if 'cleanupOnDelete' in kwargs:
+            cleanup_on_delete = kwargs['cleanupOnDelete']
+        if 'downloadDirect' in kwargs:
+            download_direct = kwargs['downloadDirect']
+        if 'excludesPattern' in kwargs:
+            excludes_pattern = kwargs['excludesPattern']
+        if 'handleReleases' in kwargs:
+            handle_releases = kwargs['handleReleases']
+        if 'handleSnapshots' in kwargs:
+            handle_snapshots = kwargs['handleSnapshots']
+        if 'includesPattern' in kwargs:
+            includes_pattern = kwargs['includesPattern']
+        if 'maxUniqueSnapshots' in kwargs:
+            max_unique_snapshots = kwargs['maxUniqueSnapshots']
+        if 'priorityResolution' in kwargs:
+            priority_resolution = kwargs['priorityResolution']
+        if 'projectEnvironments' in kwargs:
+            project_environments = kwargs['projectEnvironments']
+        if 'projectKey' in kwargs:
+            project_key = kwargs['projectKey']
+        if 'propertySets' in kwargs:
+            property_sets = kwargs['propertySets']
+        if 'repoLayoutRef' in kwargs:
+            repo_layout_ref = kwargs['repoLayoutRef']
+        if 'snapshotVersionBehavior' in kwargs:
+            snapshot_version_behavior = kwargs['snapshotVersionBehavior']
+        if 'suppressPomConsistencyChecks' in kwargs:
+            suppress_pom_consistency_checks = kwargs['suppressPomConsistencyChecks']
+        if 'xrayIndex' in kwargs:
+            xray_index = kwargs['xrayIndex']
+
         _setter("key", key)
         _setter("members", members)
         if archive_browsing_enabled is not None:
@@ -310,7 +350,7 @@ class FederatedMavenRepositoryArgs:
     @pulumi.getter(name="excludesPattern")
     def excludes_pattern(self) -> Optional[pulumi.Input[str]]:
         """
-        List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+        List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
         artifacts are excluded.
         """
         return pulumi.get(self, "excludes_pattern")
@@ -347,8 +387,8 @@ class FederatedMavenRepositoryArgs:
     @pulumi.getter(name="includesPattern")
     def includes_pattern(self) -> Optional[pulumi.Input[str]]:
         """
-        List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-        artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+        used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         """
         return pulumi.get(self, "includes_pattern")
 
@@ -532,12 +572,12 @@ class _FederatedMavenRepositoryState:
         :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only.
-        :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+        :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
                artifacts are excluded.
         :param pulumi.Input[bool] handle_releases: If set, Artifactory allows you to deploy release artifacts into this repository.
         :param pulumi.Input[bool] handle_snapshots: If set, Artifactory allows you to deploy snapshot artifacts into this repository.
-        :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-               artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+               used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         :param pulumi.Input[str] key: the identity key of the repo.
         :param pulumi.Input[int] max_unique_snapshots: The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
                older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
@@ -619,7 +659,49 @@ class _FederatedMavenRepositoryState:
              snapshot_version_behavior: Optional[pulumi.Input[str]] = None,
              suppress_pom_consistency_checks: Optional[pulumi.Input[bool]] = None,
              xray_index: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'archiveBrowsingEnabled' in kwargs:
+            archive_browsing_enabled = kwargs['archiveBrowsingEnabled']
+        if 'blackedOut' in kwargs:
+            blacked_out = kwargs['blackedOut']
+        if 'cdnRedirect' in kwargs:
+            cdn_redirect = kwargs['cdnRedirect']
+        if 'checksumPolicyType' in kwargs:
+            checksum_policy_type = kwargs['checksumPolicyType']
+        if 'cleanupOnDelete' in kwargs:
+            cleanup_on_delete = kwargs['cleanupOnDelete']
+        if 'downloadDirect' in kwargs:
+            download_direct = kwargs['downloadDirect']
+        if 'excludesPattern' in kwargs:
+            excludes_pattern = kwargs['excludesPattern']
+        if 'handleReleases' in kwargs:
+            handle_releases = kwargs['handleReleases']
+        if 'handleSnapshots' in kwargs:
+            handle_snapshots = kwargs['handleSnapshots']
+        if 'includesPattern' in kwargs:
+            includes_pattern = kwargs['includesPattern']
+        if 'maxUniqueSnapshots' in kwargs:
+            max_unique_snapshots = kwargs['maxUniqueSnapshots']
+        if 'packageType' in kwargs:
+            package_type = kwargs['packageType']
+        if 'priorityResolution' in kwargs:
+            priority_resolution = kwargs['priorityResolution']
+        if 'projectEnvironments' in kwargs:
+            project_environments = kwargs['projectEnvironments']
+        if 'projectKey' in kwargs:
+            project_key = kwargs['projectKey']
+        if 'propertySets' in kwargs:
+            property_sets = kwargs['propertySets']
+        if 'repoLayoutRef' in kwargs:
+            repo_layout_ref = kwargs['repoLayoutRef']
+        if 'snapshotVersionBehavior' in kwargs:
+            snapshot_version_behavior = kwargs['snapshotVersionBehavior']
+        if 'suppressPomConsistencyChecks' in kwargs:
+            suppress_pom_consistency_checks = kwargs['suppressPomConsistencyChecks']
+        if 'xrayIndex' in kwargs:
+            xray_index = kwargs['xrayIndex']
+
         if archive_browsing_enabled is not None:
             _setter("archive_browsing_enabled", archive_browsing_enabled)
         if blacked_out is not None:
@@ -765,7 +847,7 @@ class _FederatedMavenRepositoryState:
     @pulumi.getter(name="excludesPattern")
     def excludes_pattern(self) -> Optional[pulumi.Input[str]]:
         """
-        List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+        List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
         artifacts are excluded.
         """
         return pulumi.get(self, "excludes_pattern")
@@ -802,8 +884,8 @@ class _FederatedMavenRepositoryState:
     @pulumi.getter(name="includesPattern")
     def includes_pattern(self) -> Optional[pulumi.Input[str]]:
         """
-        List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-        artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+        used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         """
         return pulumi.get(self, "includes_pattern")
 
@@ -1056,12 +1138,12 @@ class FederatedMavenRepository(pulumi.CustomResource):
         :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only.
-        :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+        :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
                artifacts are excluded.
         :param pulumi.Input[bool] handle_releases: If set, Artifactory allows you to deploy release artifacts into this repository.
         :param pulumi.Input[bool] handle_snapshots: If set, Artifactory allows you to deploy snapshot artifacts into this repository.
-        :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-               artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+               used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         :param pulumi.Input[str] key: the identity key of the repo.
         :param pulumi.Input[int] max_unique_snapshots: The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
                older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
@@ -1261,12 +1343,12 @@ class FederatedMavenRepository(pulumi.CustomResource):
         :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only.
-        :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+        :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
                artifacts are excluded.
         :param pulumi.Input[bool] handle_releases: If set, Artifactory allows you to deploy release artifacts into this repository.
         :param pulumi.Input[bool] handle_snapshots: If set, Artifactory allows you to deploy snapshot artifacts into this repository.
-        :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-               artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+               used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         :param pulumi.Input[str] key: the identity key of the repo.
         :param pulumi.Input[int] max_unique_snapshots: The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
                older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
@@ -1390,9 +1472,9 @@ class FederatedMavenRepository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="excludesPattern")
-    def excludes_pattern(self) -> pulumi.Output[str]:
+    def excludes_pattern(self) -> pulumi.Output[Optional[str]]:
         """
-        List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+        List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
         artifacts are excluded.
         """
         return pulumi.get(self, "excludes_pattern")
@@ -1415,10 +1497,10 @@ class FederatedMavenRepository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="includesPattern")
-    def includes_pattern(self) -> pulumi.Output[str]:
+    def includes_pattern(self) -> pulumi.Output[Optional[str]]:
         """
-        List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-        artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+        used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         """
         return pulumi.get(self, "includes_pattern")
 

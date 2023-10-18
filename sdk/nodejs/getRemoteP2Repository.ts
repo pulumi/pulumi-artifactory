@@ -34,6 +34,7 @@ export function getRemoteP2Repository(args: GetRemoteP2RepositoryArgs, opts?: pu
         "contentSynchronisation": args.contentSynchronisation,
         "description": args.description,
         "disableProxy": args.disableProxy,
+        "disableUrlNormalization": args.disableUrlNormalization,
         "downloadDirect": args.downloadDirect,
         "enableCookieManagement": args.enableCookieManagement,
         "excludesPattern": args.excludesPattern,
@@ -82,6 +83,7 @@ export interface GetRemoteP2RepositoryArgs {
     contentSynchronisation?: inputs.GetRemoteP2RepositoryContentSynchronisation;
     description?: string;
     disableProxy?: boolean;
+    disableUrlNormalization?: boolean;
     downloadDirect?: boolean;
     enableCookieManagement?: boolean;
     excludesPattern?: string;
@@ -132,6 +134,7 @@ export interface GetRemoteP2RepositoryResult {
     readonly contentSynchronisation: outputs.GetRemoteP2RepositoryContentSynchronisation;
     readonly description?: string;
     readonly disableProxy?: boolean;
+    readonly disableUrlNormalization?: boolean;
     readonly downloadDirect?: boolean;
     readonly enableCookieManagement?: boolean;
     readonly excludesPattern?: string;
@@ -201,6 +204,7 @@ export interface GetRemoteP2RepositoryOutputArgs {
     contentSynchronisation?: pulumi.Input<inputs.GetRemoteP2RepositoryContentSynchronisationArgs>;
     description?: pulumi.Input<string>;
     disableProxy?: pulumi.Input<boolean>;
+    disableUrlNormalization?: pulumi.Input<boolean>;
     downloadDirect?: pulumi.Input<boolean>;
     enableCookieManagement?: pulumi.Input<boolean>;
     excludesPattern?: pulumi.Input<string>;

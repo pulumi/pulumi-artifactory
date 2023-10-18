@@ -53,7 +53,15 @@ class AccessTokenArgs:
              end_date_relative: Optional[pulumi.Input[str]] = None,
              groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              refreshable: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'adminToken' in kwargs:
+            admin_token = kwargs['adminToken']
+        if 'endDate' in kwargs:
+            end_date = kwargs['endDate']
+        if 'endDateRelative' in kwargs:
+            end_date_relative = kwargs['endDateRelative']
+
         _setter("username", username)
         if admin_token is not None:
             _setter("admin_token", admin_token)
@@ -201,7 +209,19 @@ class _AccessTokenState:
              refresh_token: Optional[pulumi.Input[str]] = None,
              refreshable: Optional[pulumi.Input[bool]] = None,
              username: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessToken' in kwargs:
+            access_token = kwargs['accessToken']
+        if 'adminToken' in kwargs:
+            admin_token = kwargs['adminToken']
+        if 'endDate' in kwargs:
+            end_date = kwargs['endDate']
+        if 'endDateRelative' in kwargs:
+            end_date_relative = kwargs['endDateRelative']
+        if 'refreshToken' in kwargs:
+            refresh_token = kwargs['refreshToken']
+
         if access_token is not None:
             _setter("access_token", access_token)
         if admin_token is not None:

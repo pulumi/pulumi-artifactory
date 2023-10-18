@@ -55,7 +55,15 @@ class ManagedUserArgs:
              name: Optional[pulumi.Input[str]] = None,
              password: Optional[pulumi.Input[str]] = None,
              profile_updatable: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'disableUiAccess' in kwargs:
+            disable_ui_access = kwargs['disableUiAccess']
+        if 'internalPasswordDisabled' in kwargs:
+            internal_password_disabled = kwargs['internalPasswordDisabled']
+        if 'profileUpdatable' in kwargs:
+            profile_updatable = kwargs['profileUpdatable']
+
         _setter("email", email)
         if admin is not None:
             _setter("admin", admin)
@@ -213,7 +221,15 @@ class _ManagedUserState:
              name: Optional[pulumi.Input[str]] = None,
              password: Optional[pulumi.Input[str]] = None,
              profile_updatable: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'disableUiAccess' in kwargs:
+            disable_ui_access = kwargs['disableUiAccess']
+        if 'internalPasswordDisabled' in kwargs:
+            internal_password_disabled = kwargs['internalPasswordDisabled']
+        if 'profileUpdatable' in kwargs:
+            profile_updatable = kwargs['profileUpdatable']
+
         if admin is not None:
             _setter("admin", admin)
         if disable_ui_access is not None:

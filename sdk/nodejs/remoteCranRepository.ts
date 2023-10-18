@@ -106,6 +106,10 @@ export class RemoteCranRepository extends pulumi.CustomResource {
      */
     public readonly disableProxy!: pulumi.Output<boolean | undefined>;
     /**
+     * Whether to disable URL normalization, default is `false`.
+     */
+    public readonly disableUrlNormalization!: pulumi.Output<boolean | undefined>;
+    /**
      * When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
      * storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
      */
@@ -271,6 +275,7 @@ export class RemoteCranRepository extends pulumi.CustomResource {
             resourceInputs["contentSynchronisation"] = state ? state.contentSynchronisation : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["disableProxy"] = state ? state.disableProxy : undefined;
+            resourceInputs["disableUrlNormalization"] = state ? state.disableUrlNormalization : undefined;
             resourceInputs["downloadDirect"] = state ? state.downloadDirect : undefined;
             resourceInputs["enableCookieManagement"] = state ? state.enableCookieManagement : undefined;
             resourceInputs["excludesPattern"] = state ? state.excludesPattern : undefined;
@@ -321,6 +326,7 @@ export class RemoteCranRepository extends pulumi.CustomResource {
             resourceInputs["contentSynchronisation"] = args ? args.contentSynchronisation : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["disableProxy"] = args ? args.disableProxy : undefined;
+            resourceInputs["disableUrlNormalization"] = args ? args.disableUrlNormalization : undefined;
             resourceInputs["downloadDirect"] = args ? args.downloadDirect : undefined;
             resourceInputs["enableCookieManagement"] = args ? args.enableCookieManagement : undefined;
             resourceInputs["excludesPattern"] = args ? args.excludesPattern : undefined;
@@ -412,6 +418,10 @@ export interface RemoteCranRepositoryState {
      * for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
      */
     disableProxy?: pulumi.Input<boolean>;
+    /**
+     * Whether to disable URL normalization, default is `false`.
+     */
+    disableUrlNormalization?: pulumi.Input<boolean>;
     /**
      * When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
      * storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
@@ -607,6 +617,10 @@ export interface RemoteCranRepositoryArgs {
      * for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
      */
     disableProxy?: pulumi.Input<boolean>;
+    /**
+     * Whether to disable URL normalization, default is `false`.
+     */
+    disableUrlNormalization?: pulumi.Input<boolean>;
     /**
      * When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
      * storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.

@@ -37,7 +37,9 @@ class PropertySetArgs:
              properties: pulumi.Input[Sequence[pulumi.Input['PropertySetPropertyArgs']]],
              name: Optional[pulumi.Input[str]] = None,
              visible: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("properties", properties)
         if name is not None:
             _setter("name", name)
@@ -105,7 +107,9 @@ class _PropertySetState:
              name: Optional[pulumi.Input[str]] = None,
              properties: Optional[pulumi.Input[Sequence[pulumi.Input['PropertySetPropertyArgs']]]] = None,
              visible: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if name is not None:
             _setter("name", name)
         if properties is not None:

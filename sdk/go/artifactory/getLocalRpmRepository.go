@@ -56,10 +56,10 @@ type LookupLocalRpmRepositoryResult struct {
 	Description             *string `pulumi:"description"`
 	DownloadDirect          *bool   `pulumi:"downloadDirect"`
 	EnableFileListsIndexing *bool   `pulumi:"enableFileListsIndexing"`
-	ExcludesPattern         string  `pulumi:"excludesPattern"`
+	ExcludesPattern         *string `pulumi:"excludesPattern"`
 	// The provider-assigned unique ID for this managed resource.
 	Id                  string   `pulumi:"id"`
-	IncludesPattern     string   `pulumi:"includesPattern"`
+	IncludesPattern     *string  `pulumi:"includesPattern"`
 	Key                 string   `pulumi:"key"`
 	Notes               *string  `pulumi:"notes"`
 	PackageType         string   `pulumi:"packageType"`
@@ -166,8 +166,8 @@ func (o LookupLocalRpmRepositoryResultOutput) EnableFileListsIndexing() pulumi.B
 	return o.ApplyT(func(v LookupLocalRpmRepositoryResult) *bool { return v.EnableFileListsIndexing }).(pulumi.BoolPtrOutput)
 }
 
-func (o LookupLocalRpmRepositoryResultOutput) ExcludesPattern() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupLocalRpmRepositoryResult) string { return v.ExcludesPattern }).(pulumi.StringOutput)
+func (o LookupLocalRpmRepositoryResultOutput) ExcludesPattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLocalRpmRepositoryResult) *string { return v.ExcludesPattern }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
@@ -175,8 +175,8 @@ func (o LookupLocalRpmRepositoryResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLocalRpmRepositoryResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-func (o LookupLocalRpmRepositoryResultOutput) IncludesPattern() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupLocalRpmRepositoryResult) string { return v.IncludesPattern }).(pulumi.StringOutput)
+func (o LookupLocalRpmRepositoryResultOutput) IncludesPattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLocalRpmRepositoryResult) *string { return v.IncludesPattern }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupLocalRpmRepositoryResultOutput) Key() pulumi.StringOutput {

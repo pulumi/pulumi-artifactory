@@ -103,6 +103,13 @@ public final class GetRemoteComposerRepositoryPlainArgs extends com.pulumi.resou
         return Optional.ofNullable(this.disableProxy);
     }
 
+    @Import(name="disableUrlNormalization")
+    private @Nullable Boolean disableUrlNormalization;
+
+    public Optional<Boolean> disableUrlNormalization() {
+        return Optional.ofNullable(this.disableUrlNormalization);
+    }
+
     @Import(name="downloadDirect")
     private @Nullable Boolean downloadDirect;
 
@@ -372,6 +379,7 @@ public final class GetRemoteComposerRepositoryPlainArgs extends com.pulumi.resou
         this.contentSynchronisation = $.contentSynchronisation;
         this.description = $.description;
         this.disableProxy = $.disableProxy;
+        this.disableUrlNormalization = $.disableUrlNormalization;
         this.downloadDirect = $.downloadDirect;
         this.enableCookieManagement = $.enableCookieManagement;
         this.excludesPattern = $.excludesPattern;
@@ -483,6 +491,11 @@ public final class GetRemoteComposerRepositoryPlainArgs extends com.pulumi.resou
 
         public Builder disableProxy(@Nullable Boolean disableProxy) {
             $.disableProxy = disableProxy;
+            return this;
+        }
+
+        public Builder disableUrlNormalization(@Nullable Boolean disableUrlNormalization) {
+            $.disableUrlNormalization = disableUrlNormalization;
             return this;
         }
 

@@ -89,7 +89,7 @@ public class RemoteRepositoryReplication extends com.pulumi.resources.CustomReso
      * Enabling the `check_binary_existence_in_filestore` flag requires an Enterprise Plus license. When true, enables distributed checksum storage. For more information, see [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
      * 
      */
-    @Export(name="checkBinaryExistenceInFilestore", type=Boolean.class, parameters={})
+    @Export(name="checkBinaryExistenceInFilestore", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> checkBinaryExistenceInFilestore;
 
     /**
@@ -103,7 +103,7 @@ public class RemoteRepositoryReplication extends com.pulumi.resources.CustomReso
      * A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
      * 
      */
-    @Export(name="cronExp", type=String.class, parameters={})
+    @Export(name="cronExp", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> cronExp;
 
     /**
@@ -118,7 +118,7 @@ public class RemoteRepositoryReplication extends com.pulumi.resources.CustomReso
      * com/confluence/display/JFROG/User+Profile#UserProfile-IdentityTokenidentitytoken).
      * 
      */
-    @Export(name="enableEventReplication", type=Boolean.class, parameters={})
+    @Export(name="enableEventReplication", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableEventReplication;
 
     /**
@@ -133,7 +133,7 @@ public class RemoteRepositoryReplication extends com.pulumi.resources.CustomReso
      * When set, enables replication of this repository to the target specified in `url` attribute. Default value is `true`.
      * 
      */
-    @Export(name="enabled", type=Boolean.class, parameters={})
+    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
@@ -147,7 +147,7 @@ public class RemoteRepositoryReplication extends com.pulumi.resources.CustomReso
      * List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**{@literal /}z/*`. By default, no artifacts are excluded.
      * 
      */
-    @Export(name="excludePathPrefixPattern", type=String.class, parameters={})
+    @Export(name="excludePathPrefixPattern", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> excludePathPrefixPattern;
 
     /**
@@ -161,7 +161,7 @@ public class RemoteRepositoryReplication extends com.pulumi.resources.CustomReso
      * List of artifact patterns to include when evaluating artifact requests in the form of `x/y/**{@literal /}z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included `(**{@literal /}*)`.
      * 
      */
-    @Export(name="includePathPrefixPattern", type=String.class, parameters={})
+    @Export(name="includePathPrefixPattern", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> includePathPrefixPattern;
 
     /**
@@ -175,7 +175,7 @@ public class RemoteRepositoryReplication extends com.pulumi.resources.CustomReso
      * Replication ID, the value is unknown until the resource is created. Can&#39;t be set or updated.
      * 
      */
-    @Export(name="replicationKey", type=String.class, parameters={})
+    @Export(name="replicationKey", refs={String.class}, tree="[0]")
     private Output<String> replicationKey;
 
     /**
@@ -189,7 +189,7 @@ public class RemoteRepositoryReplication extends com.pulumi.resources.CustomReso
      * Repository name.
      * 
      */
-    @Export(name="repoKey", type=String.class, parameters={})
+    @Export(name="repoKey", refs={String.class}, tree="[0]")
     private Output<String> repoKey;
 
     /**
@@ -203,7 +203,7 @@ public class RemoteRepositoryReplication extends com.pulumi.resources.CustomReso
      * When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata). Note that enabling this option, will delete artifacts on the target that do not exist in the source repository. Default value is `false`.
      * 
      */
-    @Export(name="syncDeletes", type=Boolean.class, parameters={})
+    @Export(name="syncDeletes", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> syncDeletes;
 
     /**
@@ -217,7 +217,7 @@ public class RemoteRepositoryReplication extends com.pulumi.resources.CustomReso
      * When set, the task also synchronizes the properties of replicated artifacts. Default value is `true`.
      * 
      */
-    @Export(name="syncProperties", type=Boolean.class, parameters={})
+    @Export(name="syncProperties", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> syncProperties;
 
     /**

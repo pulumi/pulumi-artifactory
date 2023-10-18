@@ -47,7 +47,17 @@ class KeypairArgs:
              private_key: pulumi.Input[str],
              public_key: pulumi.Input[str],
              passphrase: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'pairName' in kwargs:
+            pair_name = kwargs['pairName']
+        if 'pairType' in kwargs:
+            pair_type = kwargs['pairType']
+        if 'privateKey' in kwargs:
+            private_key = kwargs['privateKey']
+        if 'publicKey' in kwargs:
+            public_key = kwargs['publicKey']
+
         _setter("alias", alias)
         _setter("pair_name", pair_name)
         _setter("pair_type", pair_type)
@@ -171,7 +181,17 @@ class _KeypairState:
              private_key: Optional[pulumi.Input[str]] = None,
              public_key: Optional[pulumi.Input[str]] = None,
              unavailable: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'pairName' in kwargs:
+            pair_name = kwargs['pairName']
+        if 'pairType' in kwargs:
+            pair_type = kwargs['pairType']
+        if 'privateKey' in kwargs:
+            private_key = kwargs['privateKey']
+        if 'publicKey' in kwargs:
+            public_key = kwargs['publicKey']
+
         if alias is not None:
             _setter("alias", alias)
         if pair_name is not None:

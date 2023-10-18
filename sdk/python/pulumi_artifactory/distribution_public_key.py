@@ -33,7 +33,11 @@ class DistributionPublicKeyArgs:
              _setter: Callable[[Any, Any], None],
              alias: pulumi.Input[str],
              public_key: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'publicKey' in kwargs:
+            public_key = kwargs['publicKey']
+
         _setter("alias", alias)
         _setter("public_key", public_key)
 
@@ -106,7 +110,19 @@ class _DistributionPublicKeyState:
              key_id: Optional[pulumi.Input[str]] = None,
              public_key: Optional[pulumi.Input[str]] = None,
              valid_until: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'issuedBy' in kwargs:
+            issued_by = kwargs['issuedBy']
+        if 'issuedOn' in kwargs:
+            issued_on = kwargs['issuedOn']
+        if 'keyId' in kwargs:
+            key_id = kwargs['keyId']
+        if 'publicKey' in kwargs:
+            public_key = kwargs['publicKey']
+        if 'validUntil' in kwargs:
+            valid_until = kwargs['validUntil']
+
         if alias is not None:
             _setter("alias", alias)
         if fingerprint is not None:

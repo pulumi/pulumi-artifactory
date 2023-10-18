@@ -35,6 +35,7 @@ export function getRemoteBowerRepository(args: GetRemoteBowerRepositoryArgs, opt
         "contentSynchronisation": args.contentSynchronisation,
         "description": args.description,
         "disableProxy": args.disableProxy,
+        "disableUrlNormalization": args.disableUrlNormalization,
         "downloadDirect": args.downloadDirect,
         "enableCookieManagement": args.enableCookieManagement,
         "excludesPattern": args.excludesPattern,
@@ -89,6 +90,7 @@ export interface GetRemoteBowerRepositoryArgs {
     contentSynchronisation?: inputs.GetRemoteBowerRepositoryContentSynchronisation;
     description?: string;
     disableProxy?: boolean;
+    disableUrlNormalization?: boolean;
     downloadDirect?: boolean;
     enableCookieManagement?: boolean;
     excludesPattern?: string;
@@ -145,6 +147,7 @@ export interface GetRemoteBowerRepositoryResult {
     readonly contentSynchronisation: outputs.GetRemoteBowerRepositoryContentSynchronisation;
     readonly description?: string;
     readonly disableProxy?: boolean;
+    readonly disableUrlNormalization?: boolean;
     readonly downloadDirect?: boolean;
     readonly enableCookieManagement?: boolean;
     readonly excludesPattern?: string;
@@ -220,6 +223,7 @@ export interface GetRemoteBowerRepositoryOutputArgs {
     contentSynchronisation?: pulumi.Input<inputs.GetRemoteBowerRepositoryContentSynchronisationArgs>;
     description?: pulumi.Input<string>;
     disableProxy?: pulumi.Input<boolean>;
+    disableUrlNormalization?: pulumi.Input<boolean>;
     downloadDirect?: pulumi.Input<boolean>;
     enableCookieManagement?: pulumi.Input<boolean>;
     excludesPattern?: pulumi.Input<string>;

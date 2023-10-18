@@ -175,6 +175,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &LocalGradleRepository{}
 	case "artifactory:index/localHelmRepository:LocalHelmRepository":
 		r = &LocalHelmRepository{}
+	case "artifactory:index/localHuggingfacemlRepository:LocalHuggingfacemlRepository":
+		r = &LocalHuggingfacemlRepository{}
 	case "artifactory:index/localIvyRepository:LocalIvyRepository":
 		r = &LocalIvyRepository{}
 	case "artifactory:index/localMavenRepository:LocalMavenRepository":
@@ -265,6 +267,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &RemoteGradleRepository{}
 	case "artifactory:index/remoteHelmRepository:RemoteHelmRepository":
 		r = &RemoteHelmRepository{}
+	case "artifactory:index/remoteHuggingfacemlRepository:RemoteHuggingfacemlRepository":
+		r = &RemoteHuggingfacemlRepository{}
 	case "artifactory:index/remoteIvyRepository:RemoteIvyRepository":
 		r = &RemoteIvyRepository{}
 	case "artifactory:index/remoteMavenRepository:RemoteMavenRepository":
@@ -777,6 +781,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"artifactory",
+		"index/localHuggingfacemlRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
 		"index/localIvyRepository",
 		&module{version},
 	)
@@ -998,6 +1007,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"artifactory",
 		"index/remoteHelmRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/remoteHuggingfacemlRepository",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

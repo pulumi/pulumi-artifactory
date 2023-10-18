@@ -25,6 +25,7 @@ public final class GetRemoteHelmRepositoryResult {
     private GetRemoteHelmRepositoryContentSynchronisation contentSynchronisation;
     private @Nullable String description;
     private @Nullable Boolean disableProxy;
+    private @Nullable Boolean disableUrlNormalization;
     private @Nullable Boolean downloadDirect;
     private @Nullable Boolean enableCookieManagement;
     private @Nullable String excludesPattern;
@@ -108,6 +109,9 @@ public final class GetRemoteHelmRepositoryResult {
     }
     public Optional<Boolean> disableProxy() {
         return Optional.ofNullable(this.disableProxy);
+    }
+    public Optional<Boolean> disableUrlNormalization() {
+        return Optional.ofNullable(this.disableUrlNormalization);
     }
     public Optional<Boolean> downloadDirect() {
         return Optional.ofNullable(this.downloadDirect);
@@ -253,6 +257,7 @@ public final class GetRemoteHelmRepositoryResult {
         private GetRemoteHelmRepositoryContentSynchronisation contentSynchronisation;
         private @Nullable String description;
         private @Nullable Boolean disableProxy;
+        private @Nullable Boolean disableUrlNormalization;
         private @Nullable Boolean downloadDirect;
         private @Nullable Boolean enableCookieManagement;
         private @Nullable String excludesPattern;
@@ -302,6 +307,7 @@ public final class GetRemoteHelmRepositoryResult {
     	      this.contentSynchronisation = defaults.contentSynchronisation;
     	      this.description = defaults.description;
     	      this.disableProxy = defaults.disableProxy;
+    	      this.disableUrlNormalization = defaults.disableUrlNormalization;
     	      this.downloadDirect = defaults.downloadDirect;
     	      this.enableCookieManagement = defaults.enableCookieManagement;
     	      this.excludesPattern = defaults.excludesPattern;
@@ -388,6 +394,11 @@ public final class GetRemoteHelmRepositoryResult {
         @CustomType.Setter
         public Builder disableProxy(@Nullable Boolean disableProxy) {
             this.disableProxy = disableProxy;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder disableUrlNormalization(@Nullable Boolean disableUrlNormalization) {
+            this.disableUrlNormalization = disableUrlNormalization;
             return this;
         }
         @CustomType.Setter
@@ -591,6 +602,7 @@ public final class GetRemoteHelmRepositoryResult {
             o.contentSynchronisation = contentSynchronisation;
             o.description = description;
             o.disableProxy = disableProxy;
+            o.disableUrlNormalization = disableUrlNormalization;
             o.downloadDirect = downloadDirect;
             o.enableCookieManagement = enableCookieManagement;
             o.excludesPattern = excludesPattern;

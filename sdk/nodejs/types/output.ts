@@ -2130,6 +2130,13 @@ export interface RemoteHelmRepositoryContentSynchronisation {
     statisticsEnabled?: boolean;
 }
 
+export interface RemoteHuggingfacemlRepositoryContentSynchronisation {
+    enabled?: boolean;
+    propertiesEnabled?: boolean;
+    sourceOriginAbsenceDetection?: boolean;
+    statisticsEnabled?: boolean;
+}
+
 export interface RemoteIvyRepositoryContentSynchronisation {
     enabled?: boolean;
     propertiesEnabled?: boolean;

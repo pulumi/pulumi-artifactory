@@ -89,6 +89,13 @@ public final class GetRemoteNpmRepositoryArgs extends com.pulumi.resources.Invok
         return Optional.ofNullable(this.disableProxy);
     }
 
+    @Import(name="disableUrlNormalization")
+    private @Nullable Output<Boolean> disableUrlNormalization;
+
+    public Optional<Output<Boolean>> disableUrlNormalization() {
+        return Optional.ofNullable(this.disableUrlNormalization);
+    }
+
     @Import(name="downloadDirect")
     private @Nullable Output<Boolean> downloadDirect;
 
@@ -327,6 +334,7 @@ public final class GetRemoteNpmRepositoryArgs extends com.pulumi.resources.Invok
         this.contentSynchronisation = $.contentSynchronisation;
         this.description = $.description;
         this.disableProxy = $.disableProxy;
+        this.disableUrlNormalization = $.disableUrlNormalization;
         this.downloadDirect = $.downloadDirect;
         this.enableCookieManagement = $.enableCookieManagement;
         this.excludesPattern = $.excludesPattern;
@@ -466,6 +474,15 @@ public final class GetRemoteNpmRepositoryArgs extends com.pulumi.resources.Invok
 
         public Builder disableProxy(Boolean disableProxy) {
             return disableProxy(Output.of(disableProxy));
+        }
+
+        public Builder disableUrlNormalization(@Nullable Output<Boolean> disableUrlNormalization) {
+            $.disableUrlNormalization = disableUrlNormalization;
+            return this;
+        }
+
+        public Builder disableUrlNormalization(Boolean disableUrlNormalization) {
+            return disableUrlNormalization(Output.of(disableUrlNormalization));
         }
 
         public Builder downloadDirect(@Nullable Output<Boolean> downloadDirect) {

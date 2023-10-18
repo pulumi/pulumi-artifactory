@@ -55,7 +55,19 @@ class RepositoryLayoutArgs:
              descriptor_path_pattern: Optional[pulumi.Input[str]] = None,
              distinctive_descriptor_path_pattern: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'artifactPathPattern' in kwargs:
+            artifact_path_pattern = kwargs['artifactPathPattern']
+        if 'fileIntegrationRevisionRegexp' in kwargs:
+            file_integration_revision_regexp = kwargs['fileIntegrationRevisionRegexp']
+        if 'folderIntegrationRevisionRegexp' in kwargs:
+            folder_integration_revision_regexp = kwargs['folderIntegrationRevisionRegexp']
+        if 'descriptorPathPattern' in kwargs:
+            descriptor_path_pattern = kwargs['descriptorPathPattern']
+        if 'distinctiveDescriptorPathPattern' in kwargs:
+            distinctive_descriptor_path_pattern = kwargs['distinctiveDescriptorPathPattern']
+
         _setter("artifact_path_pattern", artifact_path_pattern)
         _setter("file_integration_revision_regexp", file_integration_revision_regexp)
         _setter("folder_integration_revision_regexp", folder_integration_revision_regexp)
@@ -191,7 +203,19 @@ class _RepositoryLayoutState:
              file_integration_revision_regexp: Optional[pulumi.Input[str]] = None,
              folder_integration_revision_regexp: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'artifactPathPattern' in kwargs:
+            artifact_path_pattern = kwargs['artifactPathPattern']
+        if 'descriptorPathPattern' in kwargs:
+            descriptor_path_pattern = kwargs['descriptorPathPattern']
+        if 'distinctiveDescriptorPathPattern' in kwargs:
+            distinctive_descriptor_path_pattern = kwargs['distinctiveDescriptorPathPattern']
+        if 'fileIntegrationRevisionRegexp' in kwargs:
+            file_integration_revision_regexp = kwargs['fileIntegrationRevisionRegexp']
+        if 'folderIntegrationRevisionRegexp' in kwargs:
+            folder_integration_revision_regexp = kwargs['folderIntegrationRevisionRegexp']
+
         if artifact_path_pattern is not None:
             _setter("artifact_path_pattern", artifact_path_pattern)
         if descriptor_path_pattern is not None:

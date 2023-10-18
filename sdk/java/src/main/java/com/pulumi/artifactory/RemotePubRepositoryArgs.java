@@ -182,6 +182,21 @@ public final class RemotePubRepositoryArgs extends com.pulumi.resources.Resource
     }
 
     /**
+     * Whether to disable URL normalization, default is `false`.
+     * 
+     */
+    @Import(name="disableUrlNormalization")
+    private @Nullable Output<Boolean> disableUrlNormalization;
+
+    /**
+     * @return Whether to disable URL normalization, default is `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> disableUrlNormalization() {
+        return Optional.ofNullable(this.disableUrlNormalization);
+    }
+
+    /**
      * When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
      * storage provider. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;.
      * 
@@ -687,6 +702,7 @@ public final class RemotePubRepositoryArgs extends com.pulumi.resources.Resource
         this.contentSynchronisation = $.contentSynchronisation;
         this.description = $.description;
         this.disableProxy = $.disableProxy;
+        this.disableUrlNormalization = $.disableUrlNormalization;
         this.downloadDirect = $.downloadDirect;
         this.enableCookieManagement = $.enableCookieManagement;
         this.excludesPattern = $.excludesPattern;
@@ -954,6 +970,27 @@ public final class RemotePubRepositoryArgs extends com.pulumi.resources.Resource
          */
         public Builder disableProxy(Boolean disableProxy) {
             return disableProxy(Output.of(disableProxy));
+        }
+
+        /**
+         * @param disableUrlNormalization Whether to disable URL normalization, default is `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder disableUrlNormalization(@Nullable Output<Boolean> disableUrlNormalization) {
+            $.disableUrlNormalization = disableUrlNormalization;
+            return this;
+        }
+
+        /**
+         * @param disableUrlNormalization Whether to disable URL normalization, default is `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder disableUrlNormalization(Boolean disableUrlNormalization) {
+            return disableUrlNormalization(Output.of(disableUrlNormalization));
         }
 
         /**

@@ -76,7 +76,7 @@ public class VirtualDebianRepository extends com.pulumi.resources.CustomResource
      * another Artifactory instance.
      * 
      */
-    @Export(name="artifactoryRequestsCanRetrieveRemoteArtifacts", type=Boolean.class, parameters={})
+    @Export(name="artifactoryRequestsCanRetrieveRemoteArtifacts", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> artifactoryRequestsCanRetrieveRemoteArtifacts;
 
     /**
@@ -91,7 +91,7 @@ public class VirtualDebianRepository extends com.pulumi.resources.CustomResource
      * Specifying  architectures will speed up Artifactory&#39;s initial metadata indexing process. The default architecture values are amd64 and i386.
      * 
      */
-    @Export(name="debianDefaultArchitectures", type=String.class, parameters={})
+    @Export(name="debianDefaultArchitectures", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> debianDefaultArchitectures;
 
     /**
@@ -105,7 +105,7 @@ public class VirtualDebianRepository extends com.pulumi.resources.CustomResource
      * Default repository to deploy artifacts.
      * 
      */
-    @Export(name="defaultDeploymentRepo", type=String.class, parameters={})
+    @Export(name="defaultDeploymentRepo", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> defaultDeploymentRepo;
 
     /**
@@ -119,7 +119,7 @@ public class VirtualDebianRepository extends com.pulumi.resources.CustomResource
      * Public description.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -134,7 +134,7 @@ public class VirtualDebianRepository extends com.pulumi.resources.CustomResource
      * artifacts are excluded.
      * 
      */
-    @Export(name="excludesPattern", type=String.class, parameters={})
+    @Export(name="excludesPattern", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> excludesPattern;
 
     /**
@@ -150,7 +150,7 @@ public class VirtualDebianRepository extends com.pulumi.resources.CustomResource
      * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**{@literal /}*).
      * 
      */
-    @Export(name="includesPattern", type=String.class, parameters={})
+    @Export(name="includesPattern", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> includesPattern;
 
     /**
@@ -166,7 +166,7 @@ public class VirtualDebianRepository extends com.pulumi.resources.CustomResource
      * contain spaces or special characters.
      * 
      */
-    @Export(name="key", type=String.class, parameters={})
+    @Export(name="key", refs={String.class}, tree="[0]")
     private Output<String> key;
 
     /**
@@ -181,7 +181,7 @@ public class VirtualDebianRepository extends com.pulumi.resources.CustomResource
      * Internal description.
      * 
      */
-    @Export(name="notes", type=String.class, parameters={})
+    @Export(name="notes", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> notes;
 
     /**
@@ -195,7 +195,7 @@ public class VirtualDebianRepository extends com.pulumi.resources.CustomResource
      * Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are `bz2`,`lzma` and `xz`. Default value is `bz2`.
      * 
      */
-    @Export(name="optionalIndexCompressionFormats", type=List.class, parameters={String.class})
+    @Export(name="optionalIndexCompressionFormats", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> optionalIndexCompressionFormats;
 
     /**
@@ -205,7 +205,7 @@ public class VirtualDebianRepository extends com.pulumi.resources.CustomResource
     public Output<List<String>> optionalIndexCompressionFormats() {
         return this.optionalIndexCompressionFormats;
     }
-    @Export(name="packageType", type=String.class, parameters={})
+    @Export(name="packageType", refs={String.class}, tree="[0]")
     private Output<String> packageType;
 
     public Output<String> packageType() {
@@ -215,7 +215,7 @@ public class VirtualDebianRepository extends com.pulumi.resources.CustomResource
      * Primary keypair used to sign artifacts. Default is empty.
      * 
      */
-    @Export(name="primaryKeypairRef", type=String.class, parameters={})
+    @Export(name="primaryKeypairRef", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> primaryKeypairRef;
 
     /**
@@ -232,7 +232,7 @@ public class VirtualDebianRepository extends com.pulumi.resources.CustomResource
      * be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
      * 
      */
-    @Export(name="projectEnvironments", type=List.class, parameters={String.class})
+    @Export(name="projectEnvironments", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> projectEnvironments;
 
     /**
@@ -250,7 +250,7 @@ public class VirtualDebianRepository extends com.pulumi.resources.CustomResource
      * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      * 
      */
-    @Export(name="projectKey", type=String.class, parameters={})
+    @Export(name="projectKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> projectKey;
 
     /**
@@ -265,7 +265,7 @@ public class VirtualDebianRepository extends com.pulumi.resources.CustomResource
      * Repository layout key for the virtual repository
      * 
      */
-    @Export(name="repoLayoutRef", type=String.class, parameters={})
+    @Export(name="repoLayoutRef", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> repoLayoutRef;
 
     /**
@@ -279,7 +279,7 @@ public class VirtualDebianRepository extends com.pulumi.resources.CustomResource
      * The effective list of actual repositories included in this virtual repository.
      * 
      */
-    @Export(name="repositories", type=List.class, parameters={String.class})
+    @Export(name="repositories", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> repositories;
 
     /**
@@ -293,7 +293,7 @@ public class VirtualDebianRepository extends com.pulumi.resources.CustomResource
      * This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
      * 
      */
-    @Export(name="retrievalCachePeriodSeconds", type=Integer.class, parameters={})
+    @Export(name="retrievalCachePeriodSeconds", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> retrievalCachePeriodSeconds;
 
     /**
@@ -307,7 +307,7 @@ public class VirtualDebianRepository extends com.pulumi.resources.CustomResource
      * Secondary keypair used to sign artifacts. Default is empty.
      * 
      */
-    @Export(name="secondaryKeypairRef", type=String.class, parameters={})
+    @Export(name="secondaryKeypairRef", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> secondaryKeypairRef;
 
     /**

@@ -28,6 +28,7 @@ class RemoteTerraformRepositoryArgs:
                  content_synchronisation: Optional[pulumi.Input['RemoteTerraformRepositoryContentSynchronisationArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  disable_proxy: Optional[pulumi.Input[bool]] = None,
+                 disable_url_normalization: Optional[pulumi.Input[bool]] = None,
                  download_direct: Optional[pulumi.Input[bool]] = None,
                  enable_cookie_management: Optional[pulumi.Input[bool]] = None,
                  excludes_pattern: Optional[pulumi.Input[str]] = None,
@@ -83,6 +84,7 @@ class RemoteTerraformRepositoryArgs:
         :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[bool] disable_proxy: When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
                for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
+        :param pulumi.Input[bool] disable_url_normalization: Whether to disable URL normalization, default is `false`.
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
         :param pulumi.Input[bool] enable_cookie_management: Enables cookie management if the remote repository uses cookies to manage client state.
@@ -153,6 +155,7 @@ class RemoteTerraformRepositoryArgs:
             content_synchronisation=content_synchronisation,
             description=description,
             disable_proxy=disable_proxy,
+            disable_url_normalization=disable_url_normalization,
             download_direct=download_direct,
             enable_cookie_management=enable_cookie_management,
             excludes_pattern=excludes_pattern,
@@ -200,6 +203,7 @@ class RemoteTerraformRepositoryArgs:
              content_synchronisation: Optional[pulumi.Input['RemoteTerraformRepositoryContentSynchronisationArgs']] = None,
              description: Optional[pulumi.Input[str]] = None,
              disable_proxy: Optional[pulumi.Input[bool]] = None,
+             disable_url_normalization: Optional[pulumi.Input[bool]] = None,
              download_direct: Optional[pulumi.Input[bool]] = None,
              enable_cookie_management: Optional[pulumi.Input[bool]] = None,
              excludes_pattern: Optional[pulumi.Input[str]] = None,
@@ -231,7 +235,81 @@ class RemoteTerraformRepositoryArgs:
              unused_artifacts_cleanup_period_hours: Optional[pulumi.Input[int]] = None,
              username: Optional[pulumi.Input[str]] = None,
              xray_index: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowAnyHostAuth' in kwargs:
+            allow_any_host_auth = kwargs['allowAnyHostAuth']
+        if 'assumedOfflinePeriodSecs' in kwargs:
+            assumed_offline_period_secs = kwargs['assumedOfflinePeriodSecs']
+        if 'blackedOut' in kwargs:
+            blacked_out = kwargs['blackedOut']
+        if 'blockMismatchingMimeTypes' in kwargs:
+            block_mismatching_mime_types = kwargs['blockMismatchingMimeTypes']
+        if 'bypassHeadRequests' in kwargs:
+            bypass_head_requests = kwargs['bypassHeadRequests']
+        if 'cdnRedirect' in kwargs:
+            cdn_redirect = kwargs['cdnRedirect']
+        if 'clientTlsCertificate' in kwargs:
+            client_tls_certificate = kwargs['clientTlsCertificate']
+        if 'contentSynchronisation' in kwargs:
+            content_synchronisation = kwargs['contentSynchronisation']
+        if 'disableProxy' in kwargs:
+            disable_proxy = kwargs['disableProxy']
+        if 'disableUrlNormalization' in kwargs:
+            disable_url_normalization = kwargs['disableUrlNormalization']
+        if 'downloadDirect' in kwargs:
+            download_direct = kwargs['downloadDirect']
+        if 'enableCookieManagement' in kwargs:
+            enable_cookie_management = kwargs['enableCookieManagement']
+        if 'excludesPattern' in kwargs:
+            excludes_pattern = kwargs['excludesPattern']
+        if 'hardFail' in kwargs:
+            hard_fail = kwargs['hardFail']
+        if 'includesPattern' in kwargs:
+            includes_pattern = kwargs['includesPattern']
+        if 'listRemoteFolderItems' in kwargs:
+            list_remote_folder_items = kwargs['listRemoteFolderItems']
+        if 'localAddress' in kwargs:
+            local_address = kwargs['localAddress']
+        if 'metadataRetrievalTimeoutSecs' in kwargs:
+            metadata_retrieval_timeout_secs = kwargs['metadataRetrievalTimeoutSecs']
+        if 'mismatchingMimeTypesOverrideList' in kwargs:
+            mismatching_mime_types_override_list = kwargs['mismatchingMimeTypesOverrideList']
+        if 'missedCachePeriodSeconds' in kwargs:
+            missed_cache_period_seconds = kwargs['missedCachePeriodSeconds']
+        if 'priorityResolution' in kwargs:
+            priority_resolution = kwargs['priorityResolution']
+        if 'projectEnvironments' in kwargs:
+            project_environments = kwargs['projectEnvironments']
+        if 'projectKey' in kwargs:
+            project_key = kwargs['projectKey']
+        if 'propertySets' in kwargs:
+            property_sets = kwargs['propertySets']
+        if 'queryParams' in kwargs:
+            query_params = kwargs['queryParams']
+        if 'remoteRepoLayoutRef' in kwargs:
+            remote_repo_layout_ref = kwargs['remoteRepoLayoutRef']
+        if 'repoLayoutRef' in kwargs:
+            repo_layout_ref = kwargs['repoLayoutRef']
+        if 'retrievalCachePeriodSeconds' in kwargs:
+            retrieval_cache_period_seconds = kwargs['retrievalCachePeriodSeconds']
+        if 'shareConfiguration' in kwargs:
+            share_configuration = kwargs['shareConfiguration']
+        if 'socketTimeoutMillis' in kwargs:
+            socket_timeout_millis = kwargs['socketTimeoutMillis']
+        if 'storeArtifactsLocally' in kwargs:
+            store_artifacts_locally = kwargs['storeArtifactsLocally']
+        if 'synchronizeProperties' in kwargs:
+            synchronize_properties = kwargs['synchronizeProperties']
+        if 'terraformProvidersUrl' in kwargs:
+            terraform_providers_url = kwargs['terraformProvidersUrl']
+        if 'terraformRegistryUrl' in kwargs:
+            terraform_registry_url = kwargs['terraformRegistryUrl']
+        if 'unusedArtifactsCleanupPeriodHours' in kwargs:
+            unused_artifacts_cleanup_period_hours = kwargs['unusedArtifactsCleanupPeriodHours']
+        if 'xrayIndex' in kwargs:
+            xray_index = kwargs['xrayIndex']
+
         _setter("key", key)
         _setter("url", url)
         if allow_any_host_auth is not None:
@@ -254,6 +332,8 @@ class RemoteTerraformRepositoryArgs:
             _setter("description", description)
         if disable_proxy is not None:
             _setter("disable_proxy", disable_proxy)
+        if disable_url_normalization is not None:
+            _setter("disable_url_normalization", disable_url_normalization)
         if download_direct is not None:
             _setter("download_direct", download_direct)
         if enable_cookie_management is not None:
@@ -468,6 +548,18 @@ class RemoteTerraformRepositoryArgs:
     @disable_proxy.setter
     def disable_proxy(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "disable_proxy", value)
+
+    @property
+    @pulumi.getter(name="disableUrlNormalization")
+    def disable_url_normalization(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to disable URL normalization, default is `false`.
+        """
+        return pulumi.get(self, "disable_url_normalization")
+
+    @disable_url_normalization.setter
+    def disable_url_normalization(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "disable_url_normalization", value)
 
     @property
     @pulumi.getter(name="downloadDirect")
@@ -873,6 +965,7 @@ class _RemoteTerraformRepositoryState:
                  content_synchronisation: Optional[pulumi.Input['RemoteTerraformRepositoryContentSynchronisationArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  disable_proxy: Optional[pulumi.Input[bool]] = None,
+                 disable_url_normalization: Optional[pulumi.Input[bool]] = None,
                  download_direct: Optional[pulumi.Input[bool]] = None,
                  enable_cookie_management: Optional[pulumi.Input[bool]] = None,
                  excludes_pattern: Optional[pulumi.Input[str]] = None,
@@ -928,6 +1021,7 @@ class _RemoteTerraformRepositoryState:
         :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[bool] disable_proxy: When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
                for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
+        :param pulumi.Input[bool] disable_url_normalization: Whether to disable URL normalization, default is `false`.
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
         :param pulumi.Input[bool] enable_cookie_management: Enables cookie management if the remote repository uses cookies to manage client state.
@@ -999,6 +1093,7 @@ class _RemoteTerraformRepositoryState:
             content_synchronisation=content_synchronisation,
             description=description,
             disable_proxy=disable_proxy,
+            disable_url_normalization=disable_url_normalization,
             download_direct=download_direct,
             enable_cookie_management=enable_cookie_management,
             excludes_pattern=excludes_pattern,
@@ -1047,6 +1142,7 @@ class _RemoteTerraformRepositoryState:
              content_synchronisation: Optional[pulumi.Input['RemoteTerraformRepositoryContentSynchronisationArgs']] = None,
              description: Optional[pulumi.Input[str]] = None,
              disable_proxy: Optional[pulumi.Input[bool]] = None,
+             disable_url_normalization: Optional[pulumi.Input[bool]] = None,
              download_direct: Optional[pulumi.Input[bool]] = None,
              enable_cookie_management: Optional[pulumi.Input[bool]] = None,
              excludes_pattern: Optional[pulumi.Input[str]] = None,
@@ -1081,7 +1177,83 @@ class _RemoteTerraformRepositoryState:
              url: Optional[pulumi.Input[str]] = None,
              username: Optional[pulumi.Input[str]] = None,
              xray_index: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowAnyHostAuth' in kwargs:
+            allow_any_host_auth = kwargs['allowAnyHostAuth']
+        if 'assumedOfflinePeriodSecs' in kwargs:
+            assumed_offline_period_secs = kwargs['assumedOfflinePeriodSecs']
+        if 'blackedOut' in kwargs:
+            blacked_out = kwargs['blackedOut']
+        if 'blockMismatchingMimeTypes' in kwargs:
+            block_mismatching_mime_types = kwargs['blockMismatchingMimeTypes']
+        if 'bypassHeadRequests' in kwargs:
+            bypass_head_requests = kwargs['bypassHeadRequests']
+        if 'cdnRedirect' in kwargs:
+            cdn_redirect = kwargs['cdnRedirect']
+        if 'clientTlsCertificate' in kwargs:
+            client_tls_certificate = kwargs['clientTlsCertificate']
+        if 'contentSynchronisation' in kwargs:
+            content_synchronisation = kwargs['contentSynchronisation']
+        if 'disableProxy' in kwargs:
+            disable_proxy = kwargs['disableProxy']
+        if 'disableUrlNormalization' in kwargs:
+            disable_url_normalization = kwargs['disableUrlNormalization']
+        if 'downloadDirect' in kwargs:
+            download_direct = kwargs['downloadDirect']
+        if 'enableCookieManagement' in kwargs:
+            enable_cookie_management = kwargs['enableCookieManagement']
+        if 'excludesPattern' in kwargs:
+            excludes_pattern = kwargs['excludesPattern']
+        if 'hardFail' in kwargs:
+            hard_fail = kwargs['hardFail']
+        if 'includesPattern' in kwargs:
+            includes_pattern = kwargs['includesPattern']
+        if 'listRemoteFolderItems' in kwargs:
+            list_remote_folder_items = kwargs['listRemoteFolderItems']
+        if 'localAddress' in kwargs:
+            local_address = kwargs['localAddress']
+        if 'metadataRetrievalTimeoutSecs' in kwargs:
+            metadata_retrieval_timeout_secs = kwargs['metadataRetrievalTimeoutSecs']
+        if 'mismatchingMimeTypesOverrideList' in kwargs:
+            mismatching_mime_types_override_list = kwargs['mismatchingMimeTypesOverrideList']
+        if 'missedCachePeriodSeconds' in kwargs:
+            missed_cache_period_seconds = kwargs['missedCachePeriodSeconds']
+        if 'packageType' in kwargs:
+            package_type = kwargs['packageType']
+        if 'priorityResolution' in kwargs:
+            priority_resolution = kwargs['priorityResolution']
+        if 'projectEnvironments' in kwargs:
+            project_environments = kwargs['projectEnvironments']
+        if 'projectKey' in kwargs:
+            project_key = kwargs['projectKey']
+        if 'propertySets' in kwargs:
+            property_sets = kwargs['propertySets']
+        if 'queryParams' in kwargs:
+            query_params = kwargs['queryParams']
+        if 'remoteRepoLayoutRef' in kwargs:
+            remote_repo_layout_ref = kwargs['remoteRepoLayoutRef']
+        if 'repoLayoutRef' in kwargs:
+            repo_layout_ref = kwargs['repoLayoutRef']
+        if 'retrievalCachePeriodSeconds' in kwargs:
+            retrieval_cache_period_seconds = kwargs['retrievalCachePeriodSeconds']
+        if 'shareConfiguration' in kwargs:
+            share_configuration = kwargs['shareConfiguration']
+        if 'socketTimeoutMillis' in kwargs:
+            socket_timeout_millis = kwargs['socketTimeoutMillis']
+        if 'storeArtifactsLocally' in kwargs:
+            store_artifacts_locally = kwargs['storeArtifactsLocally']
+        if 'synchronizeProperties' in kwargs:
+            synchronize_properties = kwargs['synchronizeProperties']
+        if 'terraformProvidersUrl' in kwargs:
+            terraform_providers_url = kwargs['terraformProvidersUrl']
+        if 'terraformRegistryUrl' in kwargs:
+            terraform_registry_url = kwargs['terraformRegistryUrl']
+        if 'unusedArtifactsCleanupPeriodHours' in kwargs:
+            unused_artifacts_cleanup_period_hours = kwargs['unusedArtifactsCleanupPeriodHours']
+        if 'xrayIndex' in kwargs:
+            xray_index = kwargs['xrayIndex']
+
         if allow_any_host_auth is not None:
             _setter("allow_any_host_auth", allow_any_host_auth)
         if assumed_offline_period_secs is not None:
@@ -1102,6 +1274,8 @@ class _RemoteTerraformRepositoryState:
             _setter("description", description)
         if disable_proxy is not None:
             _setter("disable_proxy", disable_proxy)
+        if disable_url_normalization is not None:
+            _setter("disable_url_normalization", disable_url_normalization)
         if download_direct is not None:
             _setter("download_direct", download_direct)
         if enable_cookie_management is not None:
@@ -1297,6 +1471,18 @@ class _RemoteTerraformRepositoryState:
     @disable_proxy.setter
     def disable_proxy(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "disable_proxy", value)
+
+    @property
+    @pulumi.getter(name="disableUrlNormalization")
+    def disable_url_normalization(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to disable URL normalization, default is `false`.
+        """
+        return pulumi.get(self, "disable_url_normalization")
+
+    @disable_url_normalization.setter
+    def disable_url_normalization(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "disable_url_normalization", value)
 
     @property
     @pulumi.getter(name="downloadDirect")
@@ -1738,6 +1924,7 @@ class RemoteTerraformRepository(pulumi.CustomResource):
                  content_synchronisation: Optional[pulumi.Input[pulumi.InputType['RemoteTerraformRepositoryContentSynchronisationArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  disable_proxy: Optional[pulumi.Input[bool]] = None,
+                 disable_url_normalization: Optional[pulumi.Input[bool]] = None,
                  download_direct: Optional[pulumi.Input[bool]] = None,
                  enable_cookie_management: Optional[pulumi.Input[bool]] = None,
                  excludes_pattern: Optional[pulumi.Input[str]] = None,
@@ -1815,6 +2002,7 @@ class RemoteTerraformRepository(pulumi.CustomResource):
         :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[bool] disable_proxy: When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
                for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
+        :param pulumi.Input[bool] disable_url_normalization: Whether to disable URL normalization, default is `false`.
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
         :param pulumi.Input[bool] enable_cookie_management: Enables cookie management if the remote repository uses cookies to manage client state.
@@ -1931,6 +2119,7 @@ class RemoteTerraformRepository(pulumi.CustomResource):
                  content_synchronisation: Optional[pulumi.Input[pulumi.InputType['RemoteTerraformRepositoryContentSynchronisationArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  disable_proxy: Optional[pulumi.Input[bool]] = None,
+                 disable_url_normalization: Optional[pulumi.Input[bool]] = None,
                  download_direct: Optional[pulumi.Input[bool]] = None,
                  enable_cookie_management: Optional[pulumi.Input[bool]] = None,
                  excludes_pattern: Optional[pulumi.Input[str]] = None,
@@ -1988,6 +2177,7 @@ class RemoteTerraformRepository(pulumi.CustomResource):
             __props__.__dict__["content_synchronisation"] = content_synchronisation
             __props__.__dict__["description"] = description
             __props__.__dict__["disable_proxy"] = disable_proxy
+            __props__.__dict__["disable_url_normalization"] = disable_url_normalization
             __props__.__dict__["download_direct"] = download_direct
             __props__.__dict__["enable_cookie_management"] = enable_cookie_management
             __props__.__dict__["excludes_pattern"] = excludes_pattern
@@ -2048,6 +2238,7 @@ class RemoteTerraformRepository(pulumi.CustomResource):
             content_synchronisation: Optional[pulumi.Input[pulumi.InputType['RemoteTerraformRepositoryContentSynchronisationArgs']]] = None,
             description: Optional[pulumi.Input[str]] = None,
             disable_proxy: Optional[pulumi.Input[bool]] = None,
+            disable_url_normalization: Optional[pulumi.Input[bool]] = None,
             download_direct: Optional[pulumi.Input[bool]] = None,
             enable_cookie_management: Optional[pulumi.Input[bool]] = None,
             excludes_pattern: Optional[pulumi.Input[str]] = None,
@@ -2108,6 +2299,7 @@ class RemoteTerraformRepository(pulumi.CustomResource):
         :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[bool] disable_proxy: When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
                for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
+        :param pulumi.Input[bool] disable_url_normalization: Whether to disable URL normalization, default is `false`.
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
         :param pulumi.Input[bool] enable_cookie_management: Enables cookie management if the remote repository uses cookies to manage client state.
@@ -2181,6 +2373,7 @@ class RemoteTerraformRepository(pulumi.CustomResource):
         __props__.__dict__["content_synchronisation"] = content_synchronisation
         __props__.__dict__["description"] = description
         __props__.__dict__["disable_proxy"] = disable_proxy
+        __props__.__dict__["disable_url_normalization"] = disable_url_normalization
         __props__.__dict__["download_direct"] = download_direct
         __props__.__dict__["enable_cookie_management"] = enable_cookie_management
         __props__.__dict__["excludes_pattern"] = excludes_pattern
@@ -2303,6 +2496,14 @@ class RemoteTerraformRepository(pulumi.CustomResource):
         for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
         """
         return pulumi.get(self, "disable_proxy")
+
+    @property
+    @pulumi.getter(name="disableUrlNormalization")
+    def disable_url_normalization(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether to disable URL normalization, default is `false`.
+        """
+        return pulumi.get(self, "disable_url_normalization")
 
     @property
     @pulumi.getter(name="downloadDirect")

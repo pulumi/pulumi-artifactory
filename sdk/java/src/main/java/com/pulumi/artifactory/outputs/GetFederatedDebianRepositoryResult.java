@@ -20,13 +20,13 @@ public final class GetFederatedDebianRepositoryResult {
     private @Nullable Boolean cleanupOnDelete;
     private @Nullable String description;
     private @Nullable Boolean downloadDirect;
-    private String excludesPattern;
+    private @Nullable String excludesPattern;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    private String includesPattern;
+    private @Nullable String includesPattern;
     private @Nullable List<String> indexCompressionFormats;
     private String key;
     /**
@@ -74,8 +74,8 @@ public final class GetFederatedDebianRepositoryResult {
     public Optional<Boolean> downloadDirect() {
         return Optional.ofNullable(this.downloadDirect);
     }
-    public String excludesPattern() {
-        return this.excludesPattern;
+    public Optional<String> excludesPattern() {
+        return Optional.ofNullable(this.excludesPattern);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -84,8 +84,8 @@ public final class GetFederatedDebianRepositoryResult {
     public String id() {
         return this.id;
     }
-    public String includesPattern() {
-        return this.includesPattern;
+    public Optional<String> includesPattern() {
+        return Optional.ofNullable(this.includesPattern);
     }
     public List<String> indexCompressionFormats() {
         return this.indexCompressionFormats == null ? List.of() : this.indexCompressionFormats;
@@ -158,9 +158,9 @@ public final class GetFederatedDebianRepositoryResult {
         private @Nullable Boolean cleanupOnDelete;
         private @Nullable String description;
         private @Nullable Boolean downloadDirect;
-        private String excludesPattern;
+        private @Nullable String excludesPattern;
         private String id;
-        private String includesPattern;
+        private @Nullable String includesPattern;
         private @Nullable List<String> indexCompressionFormats;
         private String key;
         private @Nullable List<GetFederatedDebianRepositoryMember> members;
@@ -234,8 +234,8 @@ public final class GetFederatedDebianRepositoryResult {
             return this;
         }
         @CustomType.Setter
-        public Builder excludesPattern(String excludesPattern) {
-            this.excludesPattern = Objects.requireNonNull(excludesPattern);
+        public Builder excludesPattern(@Nullable String excludesPattern) {
+            this.excludesPattern = excludesPattern;
             return this;
         }
         @CustomType.Setter
@@ -244,8 +244,8 @@ public final class GetFederatedDebianRepositoryResult {
             return this;
         }
         @CustomType.Setter
-        public Builder includesPattern(String includesPattern) {
-            this.includesPattern = Objects.requireNonNull(includesPattern);
+        public Builder includesPattern(@Nullable String includesPattern) {
+            this.includesPattern = includesPattern;
             return this;
         }
         @CustomType.Setter

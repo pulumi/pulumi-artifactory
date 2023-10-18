@@ -53,10 +53,10 @@ type GetLocalDebianRepositoryResult struct {
 	CdnRedirect            *bool   `pulumi:"cdnRedirect"`
 	Description            *string `pulumi:"description"`
 	DownloadDirect         *bool   `pulumi:"downloadDirect"`
-	ExcludesPattern        string  `pulumi:"excludesPattern"`
+	ExcludesPattern        *string `pulumi:"excludesPattern"`
 	// The provider-assigned unique ID for this managed resource.
 	Id                      string   `pulumi:"id"`
-	IncludesPattern         string   `pulumi:"includesPattern"`
+	IncludesPattern         *string  `pulumi:"includesPattern"`
 	IndexCompressionFormats []string `pulumi:"indexCompressionFormats"`
 	Key                     string   `pulumi:"key"`
 	Notes                   *string  `pulumi:"notes"`
@@ -155,8 +155,8 @@ func (o GetLocalDebianRepositoryResultOutput) DownloadDirect() pulumi.BoolPtrOut
 	return o.ApplyT(func(v GetLocalDebianRepositoryResult) *bool { return v.DownloadDirect }).(pulumi.BoolPtrOutput)
 }
 
-func (o GetLocalDebianRepositoryResultOutput) ExcludesPattern() pulumi.StringOutput {
-	return o.ApplyT(func(v GetLocalDebianRepositoryResult) string { return v.ExcludesPattern }).(pulumi.StringOutput)
+func (o GetLocalDebianRepositoryResultOutput) ExcludesPattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetLocalDebianRepositoryResult) *string { return v.ExcludesPattern }).(pulumi.StringPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
@@ -164,8 +164,8 @@ func (o GetLocalDebianRepositoryResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLocalDebianRepositoryResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-func (o GetLocalDebianRepositoryResultOutput) IncludesPattern() pulumi.StringOutput {
-	return o.ApplyT(func(v GetLocalDebianRepositoryResult) string { return v.IncludesPattern }).(pulumi.StringOutput)
+func (o GetLocalDebianRepositoryResultOutput) IncludesPattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetLocalDebianRepositoryResult) *string { return v.IncludesPattern }).(pulumi.StringPtrOutput)
 }
 
 func (o GetLocalDebianRepositoryResultOutput) IndexCompressionFormats() pulumi.StringArrayOutput {

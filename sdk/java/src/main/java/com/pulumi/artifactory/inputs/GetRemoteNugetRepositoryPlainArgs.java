@@ -88,6 +88,13 @@ public final class GetRemoteNugetRepositoryPlainArgs extends com.pulumi.resource
         return Optional.ofNullable(this.disableProxy);
     }
 
+    @Import(name="disableUrlNormalization")
+    private @Nullable Boolean disableUrlNormalization;
+
+    public Optional<Boolean> disableUrlNormalization() {
+        return Optional.ofNullable(this.disableUrlNormalization);
+    }
+
     /**
      * (Optional) The context path prefix through which NuGet downloads are served. For example, the NuGet Gallery download URL is `https://nuget.org/api/v2/package`, so the repository URL should be configured as `https://nuget.org` and the download context path should be configured as `api/v2/package`. Default value is `api/v2/package`.
      * 
@@ -401,6 +408,7 @@ public final class GetRemoteNugetRepositoryPlainArgs extends com.pulumi.resource
         this.contentSynchronisation = $.contentSynchronisation;
         this.description = $.description;
         this.disableProxy = $.disableProxy;
+        this.disableUrlNormalization = $.disableUrlNormalization;
         this.downloadContextPath = $.downloadContextPath;
         this.downloadDirect = $.downloadDirect;
         this.enableCookieManagement = $.enableCookieManagement;
@@ -504,6 +512,11 @@ public final class GetRemoteNugetRepositoryPlainArgs extends com.pulumi.resource
 
         public Builder disableProxy(@Nullable Boolean disableProxy) {
             $.disableProxy = disableProxy;
+            return this;
+        }
+
+        public Builder disableUrlNormalization(@Nullable Boolean disableUrlNormalization) {
+            $.disableUrlNormalization = disableUrlNormalization;
             return this;
         }
 

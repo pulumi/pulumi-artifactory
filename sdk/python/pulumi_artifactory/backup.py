@@ -63,7 +63,25 @@ class BackupArgs:
              retention_period_hours: Optional[pulumi.Input[int]] = None,
              send_mail_on_error: Optional[pulumi.Input[bool]] = None,
              verify_disk_space: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cronExp' in kwargs:
+            cron_exp = kwargs['cronExp']
+        if 'createArchive' in kwargs:
+            create_archive = kwargs['createArchive']
+        if 'excludeNewRepositories' in kwargs:
+            exclude_new_repositories = kwargs['excludeNewRepositories']
+        if 'excludedRepositories' in kwargs:
+            excluded_repositories = kwargs['excludedRepositories']
+        if 'exportMissionControl' in kwargs:
+            export_mission_control = kwargs['exportMissionControl']
+        if 'retentionPeriodHours' in kwargs:
+            retention_period_hours = kwargs['retentionPeriodHours']
+        if 'sendMailOnError' in kwargs:
+            send_mail_on_error = kwargs['sendMailOnError']
+        if 'verifyDiskSpace' in kwargs:
+            verify_disk_space = kwargs['verifyDiskSpace']
+
         _setter("cron_exp", cron_exp)
         _setter("key", key)
         if create_archive is not None:
@@ -256,7 +274,25 @@ class _BackupState:
              retention_period_hours: Optional[pulumi.Input[int]] = None,
              send_mail_on_error: Optional[pulumi.Input[bool]] = None,
              verify_disk_space: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'createArchive' in kwargs:
+            create_archive = kwargs['createArchive']
+        if 'cronExp' in kwargs:
+            cron_exp = kwargs['cronExp']
+        if 'excludeNewRepositories' in kwargs:
+            exclude_new_repositories = kwargs['excludeNewRepositories']
+        if 'excludedRepositories' in kwargs:
+            excluded_repositories = kwargs['excludedRepositories']
+        if 'exportMissionControl' in kwargs:
+            export_mission_control = kwargs['exportMissionControl']
+        if 'retentionPeriodHours' in kwargs:
+            retention_period_hours = kwargs['retentionPeriodHours']
+        if 'sendMailOnError' in kwargs:
+            send_mail_on_error = kwargs['sendMailOnError']
+        if 'verifyDiskSpace' in kwargs:
+            verify_disk_space = kwargs['verifyDiskSpace']
+
         if create_archive is not None:
             _setter("create_archive", create_archive)
         if cron_exp is not None:

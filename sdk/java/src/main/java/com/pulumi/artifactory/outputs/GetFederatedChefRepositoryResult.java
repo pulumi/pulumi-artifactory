@@ -20,13 +20,13 @@ public final class GetFederatedChefRepositoryResult {
     private @Nullable Boolean cleanupOnDelete;
     private @Nullable String description;
     private @Nullable Boolean downloadDirect;
-    private String excludesPattern;
+    private @Nullable String excludesPattern;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    private String includesPattern;
+    private @Nullable String includesPattern;
     /**
      * @return the identity key of the repo.
      * 
@@ -68,8 +68,8 @@ public final class GetFederatedChefRepositoryResult {
     public Optional<Boolean> downloadDirect() {
         return Optional.ofNullable(this.downloadDirect);
     }
-    public String excludesPattern() {
-        return this.excludesPattern;
+    public Optional<String> excludesPattern() {
+        return Optional.ofNullable(this.excludesPattern);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -78,8 +78,8 @@ public final class GetFederatedChefRepositoryResult {
     public String id() {
         return this.id;
     }
-    public String includesPattern() {
-        return this.includesPattern;
+    public Optional<String> includesPattern() {
+        return Optional.ofNullable(this.includesPattern);
     }
     /**
      * @return the identity key of the repo.
@@ -138,9 +138,9 @@ public final class GetFederatedChefRepositoryResult {
         private @Nullable Boolean cleanupOnDelete;
         private @Nullable String description;
         private @Nullable Boolean downloadDirect;
-        private String excludesPattern;
+        private @Nullable String excludesPattern;
         private String id;
-        private String includesPattern;
+        private @Nullable String includesPattern;
         private String key;
         private @Nullable List<GetFederatedChefRepositoryMember> members;
         private @Nullable String notes;
@@ -206,8 +206,8 @@ public final class GetFederatedChefRepositoryResult {
             return this;
         }
         @CustomType.Setter
-        public Builder excludesPattern(String excludesPattern) {
-            this.excludesPattern = Objects.requireNonNull(excludesPattern);
+        public Builder excludesPattern(@Nullable String excludesPattern) {
+            this.excludesPattern = excludesPattern;
             return this;
         }
         @CustomType.Setter
@@ -216,8 +216,8 @@ public final class GetFederatedChefRepositoryResult {
             return this;
         }
         @CustomType.Setter
-        public Builder includesPattern(String includesPattern) {
-            this.includesPattern = Objects.requireNonNull(includesPattern);
+        public Builder includesPattern(@Nullable String includesPattern) {
+            this.includesPattern = includesPattern;
             return this;
         }
         @CustomType.Setter

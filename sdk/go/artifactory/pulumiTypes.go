@@ -15953,6 +15953,210 @@ func (o RemoteHelmRepositoryContentSynchronisationPtrOutput) StatisticsEnabled()
 	}).(pulumi.BoolPtrOutput)
 }
 
+type RemoteHuggingfacemlRepositoryContentSynchronisation struct {
+	Enabled                      *bool `pulumi:"enabled"`
+	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
+	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
+	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
+}
+
+// RemoteHuggingfacemlRepositoryContentSynchronisationInput is an input type that accepts RemoteHuggingfacemlRepositoryContentSynchronisationArgs and RemoteHuggingfacemlRepositoryContentSynchronisationOutput values.
+// You can construct a concrete instance of `RemoteHuggingfacemlRepositoryContentSynchronisationInput` via:
+//
+//	RemoteHuggingfacemlRepositoryContentSynchronisationArgs{...}
+type RemoteHuggingfacemlRepositoryContentSynchronisationInput interface {
+	pulumi.Input
+
+	ToRemoteHuggingfacemlRepositoryContentSynchronisationOutput() RemoteHuggingfacemlRepositoryContentSynchronisationOutput
+	ToRemoteHuggingfacemlRepositoryContentSynchronisationOutputWithContext(context.Context) RemoteHuggingfacemlRepositoryContentSynchronisationOutput
+}
+
+type RemoteHuggingfacemlRepositoryContentSynchronisationArgs struct {
+	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
+	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
+	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+}
+
+func (RemoteHuggingfacemlRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RemoteHuggingfacemlRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (i RemoteHuggingfacemlRepositoryContentSynchronisationArgs) ToRemoteHuggingfacemlRepositoryContentSynchronisationOutput() RemoteHuggingfacemlRepositoryContentSynchronisationOutput {
+	return i.ToRemoteHuggingfacemlRepositoryContentSynchronisationOutputWithContext(context.Background())
+}
+
+func (i RemoteHuggingfacemlRepositoryContentSynchronisationArgs) ToRemoteHuggingfacemlRepositoryContentSynchronisationOutputWithContext(ctx context.Context) RemoteHuggingfacemlRepositoryContentSynchronisationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemoteHuggingfacemlRepositoryContentSynchronisationOutput)
+}
+
+func (i RemoteHuggingfacemlRepositoryContentSynchronisationArgs) ToOutput(ctx context.Context) pulumix.Output[RemoteHuggingfacemlRepositoryContentSynchronisation] {
+	return pulumix.Output[RemoteHuggingfacemlRepositoryContentSynchronisation]{
+		OutputState: i.ToRemoteHuggingfacemlRepositoryContentSynchronisationOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i RemoteHuggingfacemlRepositoryContentSynchronisationArgs) ToRemoteHuggingfacemlRepositoryContentSynchronisationPtrOutput() RemoteHuggingfacemlRepositoryContentSynchronisationPtrOutput {
+	return i.ToRemoteHuggingfacemlRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (i RemoteHuggingfacemlRepositoryContentSynchronisationArgs) ToRemoteHuggingfacemlRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) RemoteHuggingfacemlRepositoryContentSynchronisationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemoteHuggingfacemlRepositoryContentSynchronisationOutput).ToRemoteHuggingfacemlRepositoryContentSynchronisationPtrOutputWithContext(ctx)
+}
+
+// RemoteHuggingfacemlRepositoryContentSynchronisationPtrInput is an input type that accepts RemoteHuggingfacemlRepositoryContentSynchronisationArgs, RemoteHuggingfacemlRepositoryContentSynchronisationPtr and RemoteHuggingfacemlRepositoryContentSynchronisationPtrOutput values.
+// You can construct a concrete instance of `RemoteHuggingfacemlRepositoryContentSynchronisationPtrInput` via:
+//
+//	        RemoteHuggingfacemlRepositoryContentSynchronisationArgs{...}
+//
+//	or:
+//
+//	        nil
+type RemoteHuggingfacemlRepositoryContentSynchronisationPtrInput interface {
+	pulumi.Input
+
+	ToRemoteHuggingfacemlRepositoryContentSynchronisationPtrOutput() RemoteHuggingfacemlRepositoryContentSynchronisationPtrOutput
+	ToRemoteHuggingfacemlRepositoryContentSynchronisationPtrOutputWithContext(context.Context) RemoteHuggingfacemlRepositoryContentSynchronisationPtrOutput
+}
+
+type remoteHuggingfacemlRepositoryContentSynchronisationPtrType RemoteHuggingfacemlRepositoryContentSynchronisationArgs
+
+func RemoteHuggingfacemlRepositoryContentSynchronisationPtr(v *RemoteHuggingfacemlRepositoryContentSynchronisationArgs) RemoteHuggingfacemlRepositoryContentSynchronisationPtrInput {
+	return (*remoteHuggingfacemlRepositoryContentSynchronisationPtrType)(v)
+}
+
+func (*remoteHuggingfacemlRepositoryContentSynchronisationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RemoteHuggingfacemlRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (i *remoteHuggingfacemlRepositoryContentSynchronisationPtrType) ToRemoteHuggingfacemlRepositoryContentSynchronisationPtrOutput() RemoteHuggingfacemlRepositoryContentSynchronisationPtrOutput {
+	return i.ToRemoteHuggingfacemlRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (i *remoteHuggingfacemlRepositoryContentSynchronisationPtrType) ToRemoteHuggingfacemlRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) RemoteHuggingfacemlRepositoryContentSynchronisationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemoteHuggingfacemlRepositoryContentSynchronisationPtrOutput)
+}
+
+func (i *remoteHuggingfacemlRepositoryContentSynchronisationPtrType) ToOutput(ctx context.Context) pulumix.Output[*RemoteHuggingfacemlRepositoryContentSynchronisation] {
+	return pulumix.Output[*RemoteHuggingfacemlRepositoryContentSynchronisation]{
+		OutputState: i.ToRemoteHuggingfacemlRepositoryContentSynchronisationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type RemoteHuggingfacemlRepositoryContentSynchronisationOutput struct{ *pulumi.OutputState }
+
+func (RemoteHuggingfacemlRepositoryContentSynchronisationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RemoteHuggingfacemlRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (o RemoteHuggingfacemlRepositoryContentSynchronisationOutput) ToRemoteHuggingfacemlRepositoryContentSynchronisationOutput() RemoteHuggingfacemlRepositoryContentSynchronisationOutput {
+	return o
+}
+
+func (o RemoteHuggingfacemlRepositoryContentSynchronisationOutput) ToRemoteHuggingfacemlRepositoryContentSynchronisationOutputWithContext(ctx context.Context) RemoteHuggingfacemlRepositoryContentSynchronisationOutput {
+	return o
+}
+
+func (o RemoteHuggingfacemlRepositoryContentSynchronisationOutput) ToRemoteHuggingfacemlRepositoryContentSynchronisationPtrOutput() RemoteHuggingfacemlRepositoryContentSynchronisationPtrOutput {
+	return o.ToRemoteHuggingfacemlRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (o RemoteHuggingfacemlRepositoryContentSynchronisationOutput) ToRemoteHuggingfacemlRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) RemoteHuggingfacemlRepositoryContentSynchronisationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RemoteHuggingfacemlRepositoryContentSynchronisation) *RemoteHuggingfacemlRepositoryContentSynchronisation {
+		return &v
+	}).(RemoteHuggingfacemlRepositoryContentSynchronisationPtrOutput)
+}
+
+func (o RemoteHuggingfacemlRepositoryContentSynchronisationOutput) ToOutput(ctx context.Context) pulumix.Output[RemoteHuggingfacemlRepositoryContentSynchronisation] {
+	return pulumix.Output[RemoteHuggingfacemlRepositoryContentSynchronisation]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o RemoteHuggingfacemlRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RemoteHuggingfacemlRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o RemoteHuggingfacemlRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RemoteHuggingfacemlRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o RemoteHuggingfacemlRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RemoteHuggingfacemlRepositoryContentSynchronisation) *bool {
+		return v.SourceOriginAbsenceDetection
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o RemoteHuggingfacemlRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RemoteHuggingfacemlRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type RemoteHuggingfacemlRepositoryContentSynchronisationPtrOutput struct{ *pulumi.OutputState }
+
+func (RemoteHuggingfacemlRepositoryContentSynchronisationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RemoteHuggingfacemlRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (o RemoteHuggingfacemlRepositoryContentSynchronisationPtrOutput) ToRemoteHuggingfacemlRepositoryContentSynchronisationPtrOutput() RemoteHuggingfacemlRepositoryContentSynchronisationPtrOutput {
+	return o
+}
+
+func (o RemoteHuggingfacemlRepositoryContentSynchronisationPtrOutput) ToRemoteHuggingfacemlRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) RemoteHuggingfacemlRepositoryContentSynchronisationPtrOutput {
+	return o
+}
+
+func (o RemoteHuggingfacemlRepositoryContentSynchronisationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RemoteHuggingfacemlRepositoryContentSynchronisation] {
+	return pulumix.Output[*RemoteHuggingfacemlRepositoryContentSynchronisation]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o RemoteHuggingfacemlRepositoryContentSynchronisationPtrOutput) Elem() RemoteHuggingfacemlRepositoryContentSynchronisationOutput {
+	return o.ApplyT(func(v *RemoteHuggingfacemlRepositoryContentSynchronisation) RemoteHuggingfacemlRepositoryContentSynchronisation {
+		if v != nil {
+			return *v
+		}
+		var ret RemoteHuggingfacemlRepositoryContentSynchronisation
+		return ret
+	}).(RemoteHuggingfacemlRepositoryContentSynchronisationOutput)
+}
+
+func (o RemoteHuggingfacemlRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RemoteHuggingfacemlRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o RemoteHuggingfacemlRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RemoteHuggingfacemlRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PropertiesEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o RemoteHuggingfacemlRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RemoteHuggingfacemlRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SourceOriginAbsenceDetection
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o RemoteHuggingfacemlRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RemoteHuggingfacemlRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.StatisticsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 type RemoteIvyRepositoryContentSynchronisation struct {
 	Enabled                      *bool `pulumi:"enabled"`
 	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
@@ -31635,6 +31839,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteGradleRepositoryContentSynchronisationPtrInput)(nil)).Elem(), RemoteGradleRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteHelmRepositoryContentSynchronisationInput)(nil)).Elem(), RemoteHelmRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteHelmRepositoryContentSynchronisationPtrInput)(nil)).Elem(), RemoteHelmRepositoryContentSynchronisationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RemoteHuggingfacemlRepositoryContentSynchronisationInput)(nil)).Elem(), RemoteHuggingfacemlRepositoryContentSynchronisationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RemoteHuggingfacemlRepositoryContentSynchronisationPtrInput)(nil)).Elem(), RemoteHuggingfacemlRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteIvyRepositoryContentSynchronisationInput)(nil)).Elem(), RemoteIvyRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteIvyRepositoryContentSynchronisationPtrInput)(nil)).Elem(), RemoteIvyRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteMavenRepositoryContentSynchronisationInput)(nil)).Elem(), RemoteMavenRepositoryContentSynchronisationArgs{})
@@ -32005,6 +32211,8 @@ func init() {
 	pulumi.RegisterOutputType(RemoteGradleRepositoryContentSynchronisationPtrOutput{})
 	pulumi.RegisterOutputType(RemoteHelmRepositoryContentSynchronisationOutput{})
 	pulumi.RegisterOutputType(RemoteHelmRepositoryContentSynchronisationPtrOutput{})
+	pulumi.RegisterOutputType(RemoteHuggingfacemlRepositoryContentSynchronisationOutput{})
+	pulumi.RegisterOutputType(RemoteHuggingfacemlRepositoryContentSynchronisationPtrOutput{})
 	pulumi.RegisterOutputType(RemoteIvyRepositoryContentSynchronisationOutput{})
 	pulumi.RegisterOutputType(RemoteIvyRepositoryContentSynchronisationPtrOutput{})
 	pulumi.RegisterOutputType(RemoteMavenRepositoryContentSynchronisationOutput{})

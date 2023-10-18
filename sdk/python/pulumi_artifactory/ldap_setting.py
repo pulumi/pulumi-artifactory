@@ -82,7 +82,33 @@ class LdapSettingArgs:
              search_filter: Optional[pulumi.Input[str]] = None,
              search_sub_tree: Optional[pulumi.Input[bool]] = None,
              user_dn_pattern: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ldapUrl' in kwargs:
+            ldap_url = kwargs['ldapUrl']
+        if 'allowUserToAccessProfile' in kwargs:
+            allow_user_to_access_profile = kwargs['allowUserToAccessProfile']
+        if 'autoCreateUser' in kwargs:
+            auto_create_user = kwargs['autoCreateUser']
+        if 'emailAttribute' in kwargs:
+            email_attribute = kwargs['emailAttribute']
+        if 'ldapPoisoningProtection' in kwargs:
+            ldap_poisoning_protection = kwargs['ldapPoisoningProtection']
+        if 'managerDn' in kwargs:
+            manager_dn = kwargs['managerDn']
+        if 'managerPassword' in kwargs:
+            manager_password = kwargs['managerPassword']
+        if 'pagingSupportEnabled' in kwargs:
+            paging_support_enabled = kwargs['pagingSupportEnabled']
+        if 'searchBase' in kwargs:
+            search_base = kwargs['searchBase']
+        if 'searchFilter' in kwargs:
+            search_filter = kwargs['searchFilter']
+        if 'searchSubTree' in kwargs:
+            search_sub_tree = kwargs['searchSubTree']
+        if 'userDnPattern' in kwargs:
+            user_dn_pattern = kwargs['userDnPattern']
+
         _setter("key", key)
         _setter("ldap_url", ldap_url)
         if allow_user_to_access_profile is not None:
@@ -353,7 +379,33 @@ class _LdapSettingState:
              search_filter: Optional[pulumi.Input[str]] = None,
              search_sub_tree: Optional[pulumi.Input[bool]] = None,
              user_dn_pattern: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowUserToAccessProfile' in kwargs:
+            allow_user_to_access_profile = kwargs['allowUserToAccessProfile']
+        if 'autoCreateUser' in kwargs:
+            auto_create_user = kwargs['autoCreateUser']
+        if 'emailAttribute' in kwargs:
+            email_attribute = kwargs['emailAttribute']
+        if 'ldapPoisoningProtection' in kwargs:
+            ldap_poisoning_protection = kwargs['ldapPoisoningProtection']
+        if 'ldapUrl' in kwargs:
+            ldap_url = kwargs['ldapUrl']
+        if 'managerDn' in kwargs:
+            manager_dn = kwargs['managerDn']
+        if 'managerPassword' in kwargs:
+            manager_password = kwargs['managerPassword']
+        if 'pagingSupportEnabled' in kwargs:
+            paging_support_enabled = kwargs['pagingSupportEnabled']
+        if 'searchBase' in kwargs:
+            search_base = kwargs['searchBase']
+        if 'searchFilter' in kwargs:
+            search_filter = kwargs['searchFilter']
+        if 'searchSubTree' in kwargs:
+            search_sub_tree = kwargs['searchSubTree']
+        if 'userDnPattern' in kwargs:
+            user_dn_pattern = kwargs['userDnPattern']
+
         if allow_user_to_access_profile is not None:
             _setter("allow_user_to_access_profile", allow_user_to_access_profile)
         if auto_create_user is not None:

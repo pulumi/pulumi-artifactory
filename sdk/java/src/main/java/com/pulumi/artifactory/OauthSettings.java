@@ -81,7 +81,7 @@ public class OauthSettings extends com.pulumi.resources.CustomResource {
      * Allow persisted users to access their profile.  Default value is `false`.
      * 
      */
-    @Export(name="allowUserToAccessProfile", type=Boolean.class, parameters={})
+    @Export(name="allowUserToAccessProfile", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> allowUserToAccessProfile;
 
     /**
@@ -95,7 +95,7 @@ public class OauthSettings extends com.pulumi.resources.CustomResource {
      * Enable OAuth SSO.  Default value is `true`.
      * 
      */
-    @Export(name="enable", type=Boolean.class, parameters={})
+    @Export(name="enable", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enable;
 
     /**
@@ -109,7 +109,7 @@ public class OauthSettings extends com.pulumi.resources.CustomResource {
      * OAuth provider settings block. Multiple blocks can be defined, at least one is required.
      * 
      */
-    @Export(name="oauthProviders", type=List.class, parameters={OauthSettingsOauthProvider.class})
+    @Export(name="oauthProviders", refs={List.class,OauthSettingsOauthProvider.class}, tree="[0,1]")
     private Output<List<OauthSettingsOauthProvider>> oauthProviders;
 
     /**
@@ -123,7 +123,7 @@ public class OauthSettings extends com.pulumi.resources.CustomResource {
      * Enable the creation of local Artifactory users.  Default value is `false`.
      * 
      */
-    @Export(name="persistUsers", type=Boolean.class, parameters={})
+    @Export(name="persistUsers", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> persistUsers;
 
     /**

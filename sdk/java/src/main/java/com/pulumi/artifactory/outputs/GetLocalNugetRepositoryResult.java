@@ -19,14 +19,14 @@ public final class GetLocalNugetRepositoryResult {
     private @Nullable Boolean cdnRedirect;
     private @Nullable String description;
     private @Nullable Boolean downloadDirect;
-    private String excludesPattern;
+    private @Nullable String excludesPattern;
     private @Nullable Boolean forceNugetAuthentication;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    private String includesPattern;
+    private @Nullable String includesPattern;
     private String key;
     private @Nullable Integer maxUniqueSnapshots;
     private @Nullable String notes;
@@ -54,8 +54,8 @@ public final class GetLocalNugetRepositoryResult {
     public Optional<Boolean> downloadDirect() {
         return Optional.ofNullable(this.downloadDirect);
     }
-    public String excludesPattern() {
-        return this.excludesPattern;
+    public Optional<String> excludesPattern() {
+        return Optional.ofNullable(this.excludesPattern);
     }
     public Optional<Boolean> forceNugetAuthentication() {
         return Optional.ofNullable(this.forceNugetAuthentication);
@@ -67,8 +67,8 @@ public final class GetLocalNugetRepositoryResult {
     public String id() {
         return this.id;
     }
-    public String includesPattern() {
-        return this.includesPattern;
+    public Optional<String> includesPattern() {
+        return Optional.ofNullable(this.includesPattern);
     }
     public String key() {
         return this.key;
@@ -115,10 +115,10 @@ public final class GetLocalNugetRepositoryResult {
         private @Nullable Boolean cdnRedirect;
         private @Nullable String description;
         private @Nullable Boolean downloadDirect;
-        private String excludesPattern;
+        private @Nullable String excludesPattern;
         private @Nullable Boolean forceNugetAuthentication;
         private String id;
-        private String includesPattern;
+        private @Nullable String includesPattern;
         private String key;
         private @Nullable Integer maxUniqueSnapshots;
         private @Nullable String notes;
@@ -179,8 +179,8 @@ public final class GetLocalNugetRepositoryResult {
             return this;
         }
         @CustomType.Setter
-        public Builder excludesPattern(String excludesPattern) {
-            this.excludesPattern = Objects.requireNonNull(excludesPattern);
+        public Builder excludesPattern(@Nullable String excludesPattern) {
+            this.excludesPattern = excludesPattern;
             return this;
         }
         @CustomType.Setter
@@ -194,8 +194,8 @@ public final class GetLocalNugetRepositoryResult {
             return this;
         }
         @CustomType.Setter
-        public Builder includesPattern(String includesPattern) {
-            this.includesPattern = Objects.requireNonNull(includesPattern);
+        public Builder includesPattern(@Nullable String includesPattern) {
+            this.includesPattern = includesPattern;
             return this;
         }
         @CustomType.Setter

@@ -104,7 +104,7 @@ class GetLocalConanRepositoryResult:
 
     @property
     @pulumi.getter(name="excludesPattern")
-    def excludes_pattern(self) -> str:
+    def excludes_pattern(self) -> Optional[str]:
         return pulumi.get(self, "excludes_pattern")
 
     @property
@@ -122,7 +122,7 @@ class GetLocalConanRepositoryResult:
 
     @property
     @pulumi.getter(name="includesPattern")
-    def includes_pattern(self) -> str:
+    def includes_pattern(self) -> Optional[str]:
         return pulumi.get(self, "includes_pattern")
 
     @property

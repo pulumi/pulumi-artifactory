@@ -34,6 +34,7 @@ export function getRemoteNugetRepository(args: GetRemoteNugetRepositoryArgs, opt
         "contentSynchronisation": args.contentSynchronisation,
         "description": args.description,
         "disableProxy": args.disableProxy,
+        "disableUrlNormalization": args.disableUrlNormalization,
         "downloadContextPath": args.downloadContextPath,
         "downloadDirect": args.downloadDirect,
         "enableCookieManagement": args.enableCookieManagement,
@@ -87,6 +88,7 @@ export interface GetRemoteNugetRepositoryArgs {
     contentSynchronisation?: inputs.GetRemoteNugetRepositoryContentSynchronisation;
     description?: string;
     disableProxy?: boolean;
+    disableUrlNormalization?: boolean;
     /**
      * (Optional) The context path prefix through which NuGet downloads are served. For example, the NuGet Gallery download URL is `https://nuget.org/api/v2/package`, so the repository URL should be configured as `https://nuget.org` and the download context path should be configured as `api/v2/package`. Default value is `api/v2/package`.
      */
@@ -157,6 +159,7 @@ export interface GetRemoteNugetRepositoryResult {
     readonly contentSynchronisation: outputs.GetRemoteNugetRepositoryContentSynchronisation;
     readonly description?: string;
     readonly disableProxy?: boolean;
+    readonly disableUrlNormalization?: boolean;
     /**
      * (Optional) The context path prefix through which NuGet downloads are served. For example, the NuGet Gallery download URL is `https://nuget.org/api/v2/package`, so the repository URL should be configured as `https://nuget.org` and the download context path should be configured as `api/v2/package`. Default value is `api/v2/package`.
      */
@@ -246,6 +249,7 @@ export interface GetRemoteNugetRepositoryOutputArgs {
     contentSynchronisation?: pulumi.Input<inputs.GetRemoteNugetRepositoryContentSynchronisationArgs>;
     description?: pulumi.Input<string>;
     disableProxy?: pulumi.Input<boolean>;
+    disableUrlNormalization?: pulumi.Input<boolean>;
     /**
      * (Optional) The context path prefix through which NuGet downloads are served. For example, the NuGet Gallery download URL is `https://nuget.org/api/v2/package`, so the repository URL should be configured as `https://nuget.org` and the download context path should be configured as `api/v2/package`. Default value is `api/v2/package`.
      */

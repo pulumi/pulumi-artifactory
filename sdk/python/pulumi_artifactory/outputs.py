@@ -106,6 +106,7 @@ __all__ = [
     'RemoteGoRepositoryContentSynchronisation',
     'RemoteGradleRepositoryContentSynchronisation',
     'RemoteHelmRepositoryContentSynchronisation',
+    'RemoteHuggingfacemlRepositoryContentSynchronisation',
     'RemoteIvyRepositoryContentSynchronisation',
     'RemoteMavenRepositoryContentSynchronisation',
     'RemoteNpmRepositoryContentSynchronisation',
@@ -227,7 +228,11 @@ class AccessTokenAdminToken(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              instance_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'instanceId' in kwargs:
+            instance_id = kwargs['instanceId']
+
         _setter("instance_id", instance_id)
 
     @property
@@ -292,7 +297,19 @@ class ArtifactCustomWebhookCriteria(dict):
              repo_keys: Sequence[str],
              exclude_patterns: Optional[Sequence[str]] = None,
              include_patterns: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'anyLocal' in kwargs:
+            any_local = kwargs['anyLocal']
+        if 'anyRemote' in kwargs:
+            any_remote = kwargs['anyRemote']
+        if 'repoKeys' in kwargs:
+            repo_keys = kwargs['repoKeys']
+        if 'excludePatterns' in kwargs:
+            exclude_patterns = kwargs['excludePatterns']
+        if 'includePatterns' in kwargs:
+            include_patterns = kwargs['includePatterns']
+
         _setter("any_local", any_local)
         _setter("any_remote", any_remote)
         _setter("repo_keys", repo_keys)
@@ -393,7 +410,11 @@ class ArtifactCustomWebhookHandler(dict):
              payload: Optional[str] = None,
              proxy: Optional[str] = None,
              secrets: Optional[Mapping[str, str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'httpHeaders' in kwargs:
+            http_headers = kwargs['httpHeaders']
+
         _setter("url", url)
         if http_headers is not None:
             _setter("http_headers", http_headers)
@@ -502,7 +523,19 @@ class ArtifactPropertyCustomWebhookCriteria(dict):
              repo_keys: Sequence[str],
              exclude_patterns: Optional[Sequence[str]] = None,
              include_patterns: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'anyLocal' in kwargs:
+            any_local = kwargs['anyLocal']
+        if 'anyRemote' in kwargs:
+            any_remote = kwargs['anyRemote']
+        if 'repoKeys' in kwargs:
+            repo_keys = kwargs['repoKeys']
+        if 'excludePatterns' in kwargs:
+            exclude_patterns = kwargs['excludePatterns']
+        if 'includePatterns' in kwargs:
+            include_patterns = kwargs['includePatterns']
+
         _setter("any_local", any_local)
         _setter("any_remote", any_remote)
         _setter("repo_keys", repo_keys)
@@ -603,7 +636,11 @@ class ArtifactPropertyCustomWebhookHandler(dict):
              payload: Optional[str] = None,
              proxy: Optional[str] = None,
              secrets: Optional[Mapping[str, str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'httpHeaders' in kwargs:
+            http_headers = kwargs['httpHeaders']
+
         _setter("url", url)
         if http_headers is not None:
             _setter("http_headers", http_headers)
@@ -712,7 +749,19 @@ class ArtifactPropertyWebhookCriteria(dict):
              repo_keys: Sequence[str],
              exclude_patterns: Optional[Sequence[str]] = None,
              include_patterns: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'anyLocal' in kwargs:
+            any_local = kwargs['anyLocal']
+        if 'anyRemote' in kwargs:
+            any_remote = kwargs['anyRemote']
+        if 'repoKeys' in kwargs:
+            repo_keys = kwargs['repoKeys']
+        if 'excludePatterns' in kwargs:
+            exclude_patterns = kwargs['excludePatterns']
+        if 'includePatterns' in kwargs:
+            include_patterns = kwargs['includePatterns']
+
         _setter("any_local", any_local)
         _setter("any_remote", any_remote)
         _setter("repo_keys", repo_keys)
@@ -806,7 +855,11 @@ class ArtifactPropertyWebhookHandler(dict):
              custom_http_headers: Optional[Mapping[str, str]] = None,
              proxy: Optional[str] = None,
              secret: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customHttpHeaders' in kwargs:
+            custom_http_headers = kwargs['customHttpHeaders']
+
         _setter("url", url)
         if custom_http_headers is not None:
             _setter("custom_http_headers", custom_http_headers)
@@ -904,7 +957,19 @@ class ArtifactWebhookCriteria(dict):
              repo_keys: Sequence[str],
              exclude_patterns: Optional[Sequence[str]] = None,
              include_patterns: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'anyLocal' in kwargs:
+            any_local = kwargs['anyLocal']
+        if 'anyRemote' in kwargs:
+            any_remote = kwargs['anyRemote']
+        if 'repoKeys' in kwargs:
+            repo_keys = kwargs['repoKeys']
+        if 'excludePatterns' in kwargs:
+            exclude_patterns = kwargs['excludePatterns']
+        if 'includePatterns' in kwargs:
+            include_patterns = kwargs['includePatterns']
+
         _setter("any_local", any_local)
         _setter("any_remote", any_remote)
         _setter("repo_keys", repo_keys)
@@ -998,7 +1063,11 @@ class ArtifactWebhookHandler(dict):
              custom_http_headers: Optional[Mapping[str, str]] = None,
              proxy: Optional[str] = None,
              secret: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customHttpHeaders' in kwargs:
+            custom_http_headers = kwargs['customHttpHeaders']
+
         _setter("url", url)
         if custom_http_headers is not None:
             _setter("custom_http_headers", custom_http_headers)
@@ -1090,7 +1159,17 @@ class ArtifactoryReleaseBundleCustomWebhookCriteria(dict):
              registered_release_bundle_names: Sequence[str],
              exclude_patterns: Optional[Sequence[str]] = None,
              include_patterns: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'anyReleaseBundle' in kwargs:
+            any_release_bundle = kwargs['anyReleaseBundle']
+        if 'registeredReleaseBundleNames' in kwargs:
+            registered_release_bundle_names = kwargs['registeredReleaseBundleNames']
+        if 'excludePatterns' in kwargs:
+            exclude_patterns = kwargs['excludePatterns']
+        if 'includePatterns' in kwargs:
+            include_patterns = kwargs['includePatterns']
+
         _setter("any_release_bundle", any_release_bundle)
         _setter("registered_release_bundle_names", registered_release_bundle_names)
         if exclude_patterns is not None:
@@ -1182,7 +1261,11 @@ class ArtifactoryReleaseBundleCustomWebhookHandler(dict):
              payload: Optional[str] = None,
              proxy: Optional[str] = None,
              secrets: Optional[Mapping[str, str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'httpHeaders' in kwargs:
+            http_headers = kwargs['httpHeaders']
+
         _setter("url", url)
         if http_headers is not None:
             _setter("http_headers", http_headers)
@@ -1285,7 +1368,17 @@ class ArtifactoryReleaseBundleWebhookCriteria(dict):
              registered_release_bundle_names: Sequence[str],
              exclude_patterns: Optional[Sequence[str]] = None,
              include_patterns: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'anyReleaseBundle' in kwargs:
+            any_release_bundle = kwargs['anyReleaseBundle']
+        if 'registeredReleaseBundleNames' in kwargs:
+            registered_release_bundle_names = kwargs['registeredReleaseBundleNames']
+        if 'excludePatterns' in kwargs:
+            exclude_patterns = kwargs['excludePatterns']
+        if 'includePatterns' in kwargs:
+            include_patterns = kwargs['includePatterns']
+
         _setter("any_release_bundle", any_release_bundle)
         _setter("registered_release_bundle_names", registered_release_bundle_names)
         if exclude_patterns is not None:
@@ -1370,7 +1463,11 @@ class ArtifactoryReleaseBundleWebhookHandler(dict):
              custom_http_headers: Optional[Mapping[str, str]] = None,
              proxy: Optional[str] = None,
              secret: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customHttpHeaders' in kwargs:
+            custom_http_headers = kwargs['customHttpHeaders']
+
         _setter("url", url)
         if custom_http_headers is not None:
             _setter("custom_http_headers", custom_http_headers)
@@ -1462,7 +1559,17 @@ class BuildCustomWebhookCriteria(dict):
              selected_builds: Sequence[str],
              exclude_patterns: Optional[Sequence[str]] = None,
              include_patterns: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'anyBuild' in kwargs:
+            any_build = kwargs['anyBuild']
+        if 'selectedBuilds' in kwargs:
+            selected_builds = kwargs['selectedBuilds']
+        if 'excludePatterns' in kwargs:
+            exclude_patterns = kwargs['excludePatterns']
+        if 'includePatterns' in kwargs:
+            include_patterns = kwargs['includePatterns']
+
         _setter("any_build", any_build)
         _setter("selected_builds", selected_builds)
         if exclude_patterns is not None:
@@ -1554,7 +1661,11 @@ class BuildCustomWebhookHandler(dict):
              payload: Optional[str] = None,
              proxy: Optional[str] = None,
              secrets: Optional[Mapping[str, str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'httpHeaders' in kwargs:
+            http_headers = kwargs['httpHeaders']
+
         _setter("url", url)
         if http_headers is not None:
             _setter("http_headers", http_headers)
@@ -1657,7 +1768,17 @@ class BuildWebhookCriteria(dict):
              selected_builds: Sequence[str],
              exclude_patterns: Optional[Sequence[str]] = None,
              include_patterns: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'anyBuild' in kwargs:
+            any_build = kwargs['anyBuild']
+        if 'selectedBuilds' in kwargs:
+            selected_builds = kwargs['selectedBuilds']
+        if 'excludePatterns' in kwargs:
+            exclude_patterns = kwargs['excludePatterns']
+        if 'includePatterns' in kwargs:
+            include_patterns = kwargs['includePatterns']
+
         _setter("any_build", any_build)
         _setter("selected_builds", selected_builds)
         if exclude_patterns is not None:
@@ -1742,7 +1863,11 @@ class BuildWebhookHandler(dict):
              custom_http_headers: Optional[Mapping[str, str]] = None,
              proxy: Optional[str] = None,
              secret: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customHttpHeaders' in kwargs:
+            custom_http_headers = kwargs['customHttpHeaders']
+
         _setter("url", url)
         if custom_http_headers is not None:
             _setter("custom_http_headers", custom_http_headers)
@@ -1834,7 +1959,17 @@ class DistributionCustomWebhookCriteria(dict):
              registered_release_bundle_names: Sequence[str],
              exclude_patterns: Optional[Sequence[str]] = None,
              include_patterns: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'anyReleaseBundle' in kwargs:
+            any_release_bundle = kwargs['anyReleaseBundle']
+        if 'registeredReleaseBundleNames' in kwargs:
+            registered_release_bundle_names = kwargs['registeredReleaseBundleNames']
+        if 'excludePatterns' in kwargs:
+            exclude_patterns = kwargs['excludePatterns']
+        if 'includePatterns' in kwargs:
+            include_patterns = kwargs['includePatterns']
+
         _setter("any_release_bundle", any_release_bundle)
         _setter("registered_release_bundle_names", registered_release_bundle_names)
         if exclude_patterns is not None:
@@ -1926,7 +2061,11 @@ class DistributionCustomWebhookHandler(dict):
              payload: Optional[str] = None,
              proxy: Optional[str] = None,
              secrets: Optional[Mapping[str, str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'httpHeaders' in kwargs:
+            http_headers = kwargs['httpHeaders']
+
         _setter("url", url)
         if http_headers is not None:
             _setter("http_headers", http_headers)
@@ -2029,7 +2168,17 @@ class DistributionWebhookCriteria(dict):
              registered_release_bundle_names: Sequence[str],
              exclude_patterns: Optional[Sequence[str]] = None,
              include_patterns: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'anyReleaseBundle' in kwargs:
+            any_release_bundle = kwargs['anyReleaseBundle']
+        if 'registeredReleaseBundleNames' in kwargs:
+            registered_release_bundle_names = kwargs['registeredReleaseBundleNames']
+        if 'excludePatterns' in kwargs:
+            exclude_patterns = kwargs['excludePatterns']
+        if 'includePatterns' in kwargs:
+            include_patterns = kwargs['includePatterns']
+
         _setter("any_release_bundle", any_release_bundle)
         _setter("registered_release_bundle_names", registered_release_bundle_names)
         if exclude_patterns is not None:
@@ -2114,7 +2263,11 @@ class DistributionWebhookHandler(dict):
              custom_http_headers: Optional[Mapping[str, str]] = None,
              proxy: Optional[str] = None,
              secret: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customHttpHeaders' in kwargs:
+            custom_http_headers = kwargs['customHttpHeaders']
+
         _setter("url", url)
         if custom_http_headers is not None:
             _setter("custom_http_headers", custom_http_headers)
@@ -2212,7 +2365,19 @@ class DockerCustomWebhookCriteria(dict):
              repo_keys: Sequence[str],
              exclude_patterns: Optional[Sequence[str]] = None,
              include_patterns: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'anyLocal' in kwargs:
+            any_local = kwargs['anyLocal']
+        if 'anyRemote' in kwargs:
+            any_remote = kwargs['anyRemote']
+        if 'repoKeys' in kwargs:
+            repo_keys = kwargs['repoKeys']
+        if 'excludePatterns' in kwargs:
+            exclude_patterns = kwargs['excludePatterns']
+        if 'includePatterns' in kwargs:
+            include_patterns = kwargs['includePatterns']
+
         _setter("any_local", any_local)
         _setter("any_remote", any_remote)
         _setter("repo_keys", repo_keys)
@@ -2313,7 +2478,11 @@ class DockerCustomWebhookHandler(dict):
              payload: Optional[str] = None,
              proxy: Optional[str] = None,
              secrets: Optional[Mapping[str, str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'httpHeaders' in kwargs:
+            http_headers = kwargs['httpHeaders']
+
         _setter("url", url)
         if http_headers is not None:
             _setter("http_headers", http_headers)
@@ -2422,7 +2591,19 @@ class DockerWebhookCriteria(dict):
              repo_keys: Sequence[str],
              exclude_patterns: Optional[Sequence[str]] = None,
              include_patterns: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'anyLocal' in kwargs:
+            any_local = kwargs['anyLocal']
+        if 'anyRemote' in kwargs:
+            any_remote = kwargs['anyRemote']
+        if 'repoKeys' in kwargs:
+            repo_keys = kwargs['repoKeys']
+        if 'excludePatterns' in kwargs:
+            exclude_patterns = kwargs['excludePatterns']
+        if 'includePatterns' in kwargs:
+            include_patterns = kwargs['includePatterns']
+
         _setter("any_local", any_local)
         _setter("any_remote", any_remote)
         _setter("repo_keys", repo_keys)
@@ -2516,7 +2697,11 @@ class DockerWebhookHandler(dict):
              custom_http_headers: Optional[Mapping[str, str]] = None,
              proxy: Optional[str] = None,
              secret: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customHttpHeaders' in kwargs:
+            custom_http_headers = kwargs['customHttpHeaders']
+
         _setter("url", url)
         if custom_http_headers is not None:
             _setter("custom_http_headers", custom_http_headers)
@@ -2578,7 +2763,9 @@ class FederatedAlpineRepositoryMember(dict):
              _setter: Callable[[Any, Any], None],
              enabled: bool,
              url: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("enabled", enabled)
         _setter("url", url)
 
@@ -2620,7 +2807,9 @@ class FederatedBowerRepositoryMember(dict):
              _setter: Callable[[Any, Any], None],
              enabled: bool,
              url: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("enabled", enabled)
         _setter("url", url)
 
@@ -2662,7 +2851,9 @@ class FederatedCargoRepositoryMember(dict):
              _setter: Callable[[Any, Any], None],
              enabled: bool,
              url: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("enabled", enabled)
         _setter("url", url)
 
@@ -2704,7 +2895,9 @@ class FederatedChefRepositoryMember(dict):
              _setter: Callable[[Any, Any], None],
              enabled: bool,
              url: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("enabled", enabled)
         _setter("url", url)
 
@@ -2746,7 +2939,9 @@ class FederatedCocoapodsRepositoryMember(dict):
              _setter: Callable[[Any, Any], None],
              enabled: bool,
              url: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("enabled", enabled)
         _setter("url", url)
 
@@ -2788,7 +2983,9 @@ class FederatedComposerRepositoryMember(dict):
              _setter: Callable[[Any, Any], None],
              enabled: bool,
              url: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("enabled", enabled)
         _setter("url", url)
 
@@ -2830,7 +3027,9 @@ class FederatedConanRepositoryMember(dict):
              _setter: Callable[[Any, Any], None],
              enabled: bool,
              url: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("enabled", enabled)
         _setter("url", url)
 
@@ -2872,7 +3071,9 @@ class FederatedCondaRepositoryMember(dict):
              _setter: Callable[[Any, Any], None],
              enabled: bool,
              url: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("enabled", enabled)
         _setter("url", url)
 
@@ -2914,7 +3115,9 @@ class FederatedCranRepositoryMember(dict):
              _setter: Callable[[Any, Any], None],
              enabled: bool,
              url: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("enabled", enabled)
         _setter("url", url)
 
@@ -2956,7 +3159,9 @@ class FederatedDebianRepositoryMember(dict):
              _setter: Callable[[Any, Any], None],
              enabled: bool,
              url: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("enabled", enabled)
         _setter("url", url)
 
@@ -2998,7 +3203,9 @@ class FederatedDockerRepositoryMember(dict):
              _setter: Callable[[Any, Any], None],
              enabled: bool,
              url: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("enabled", enabled)
         _setter("url", url)
 
@@ -3040,7 +3247,9 @@ class FederatedDockerV1RepositoryMember(dict):
              _setter: Callable[[Any, Any], None],
              enabled: bool,
              url: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("enabled", enabled)
         _setter("url", url)
 
@@ -3082,7 +3291,9 @@ class FederatedDockerV2RepositoryMember(dict):
              _setter: Callable[[Any, Any], None],
              enabled: bool,
              url: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("enabled", enabled)
         _setter("url", url)
 
@@ -3124,7 +3335,9 @@ class FederatedGemsRepositoryMember(dict):
              _setter: Callable[[Any, Any], None],
              enabled: bool,
              url: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("enabled", enabled)
         _setter("url", url)
 
@@ -3166,7 +3379,9 @@ class FederatedGenericRepositoryMember(dict):
              _setter: Callable[[Any, Any], None],
              enabled: bool,
              url: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("enabled", enabled)
         _setter("url", url)
 
@@ -3208,7 +3423,9 @@ class FederatedGitltfsRepositoryMember(dict):
              _setter: Callable[[Any, Any], None],
              enabled: bool,
              url: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("enabled", enabled)
         _setter("url", url)
 
@@ -3250,7 +3467,9 @@ class FederatedGoRepositoryMember(dict):
              _setter: Callable[[Any, Any], None],
              enabled: bool,
              url: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("enabled", enabled)
         _setter("url", url)
 
@@ -3292,7 +3511,9 @@ class FederatedGradleRepositoryMember(dict):
              _setter: Callable[[Any, Any], None],
              enabled: bool,
              url: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("enabled", enabled)
         _setter("url", url)
 
@@ -3334,7 +3555,9 @@ class FederatedHelmRepositoryMember(dict):
              _setter: Callable[[Any, Any], None],
              enabled: bool,
              url: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("enabled", enabled)
         _setter("url", url)
 
@@ -3376,7 +3599,9 @@ class FederatedIvyRepositoryMember(dict):
              _setter: Callable[[Any, Any], None],
              enabled: bool,
              url: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("enabled", enabled)
         _setter("url", url)
 
@@ -3418,7 +3643,9 @@ class FederatedMavenRepositoryMember(dict):
              _setter: Callable[[Any, Any], None],
              enabled: bool,
              url: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("enabled", enabled)
         _setter("url", url)
 
@@ -3460,7 +3687,9 @@ class FederatedNpmRepositoryMember(dict):
              _setter: Callable[[Any, Any], None],
              enabled: bool,
              url: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("enabled", enabled)
         _setter("url", url)
 
@@ -3502,7 +3731,9 @@ class FederatedNugetRepositoryMember(dict):
              _setter: Callable[[Any, Any], None],
              enabled: bool,
              url: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("enabled", enabled)
         _setter("url", url)
 
@@ -3544,7 +3775,9 @@ class FederatedOpkgRepositoryMember(dict):
              _setter: Callable[[Any, Any], None],
              enabled: bool,
              url: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("enabled", enabled)
         _setter("url", url)
 
@@ -3586,7 +3819,9 @@ class FederatedPuppetRepositoryMember(dict):
              _setter: Callable[[Any, Any], None],
              enabled: bool,
              url: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("enabled", enabled)
         _setter("url", url)
 
@@ -3628,7 +3863,9 @@ class FederatedPypiRepositoryMember(dict):
              _setter: Callable[[Any, Any], None],
              enabled: bool,
              url: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("enabled", enabled)
         _setter("url", url)
 
@@ -3670,7 +3907,9 @@ class FederatedRpmRepositoryMember(dict):
              _setter: Callable[[Any, Any], None],
              enabled: bool,
              url: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("enabled", enabled)
         _setter("url", url)
 
@@ -3712,7 +3951,9 @@ class FederatedSbtRepositoryMember(dict):
              _setter: Callable[[Any, Any], None],
              enabled: bool,
              url: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("enabled", enabled)
         _setter("url", url)
 
@@ -3754,7 +3995,9 @@ class FederatedSwiftRepositoryMember(dict):
              _setter: Callable[[Any, Any], None],
              enabled: bool,
              url: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("enabled", enabled)
         _setter("url", url)
 
@@ -3796,7 +4039,9 @@ class FederatedTerraformModuleRepositoryMember(dict):
              _setter: Callable[[Any, Any], None],
              enabled: bool,
              url: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("enabled", enabled)
         _setter("url", url)
 
@@ -3838,7 +4083,9 @@ class FederatedTerraformProviderRepositoryMember(dict):
              _setter: Callable[[Any, Any], None],
              enabled: bool,
              url: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("enabled", enabled)
         _setter("url", url)
 
@@ -3880,7 +4127,9 @@ class FederatedVagrantRepositoryMember(dict):
              _setter: Callable[[Any, Any], None],
              enabled: bool,
              url: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("enabled", enabled)
         _setter("url", url)
 
@@ -3996,7 +4245,25 @@ class LocalRepositoryMultiReplicationReplication(dict):
              sync_deletes: Optional[bool] = None,
              sync_properties: Optional[bool] = None,
              sync_statistics: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'checkBinaryExistenceInFilestore' in kwargs:
+            check_binary_existence_in_filestore = kwargs['checkBinaryExistenceInFilestore']
+        if 'excludePathPrefixPattern' in kwargs:
+            exclude_path_prefix_pattern = kwargs['excludePathPrefixPattern']
+        if 'includePathPrefixPattern' in kwargs:
+            include_path_prefix_pattern = kwargs['includePathPrefixPattern']
+        if 'replicationKey' in kwargs:
+            replication_key = kwargs['replicationKey']
+        if 'socketTimeoutMillis' in kwargs:
+            socket_timeout_millis = kwargs['socketTimeoutMillis']
+        if 'syncDeletes' in kwargs:
+            sync_deletes = kwargs['syncDeletes']
+        if 'syncProperties' in kwargs:
+            sync_properties = kwargs['syncProperties']
+        if 'syncStatistics' in kwargs:
+            sync_statistics = kwargs['syncStatistics']
+
         _setter("url", url)
         _setter("username", username)
         if check_binary_existence_in_filestore is not None:
@@ -4195,7 +4462,19 @@ class OauthSettingsOauthProvider(dict):
              token_url: str,
              type: str,
              enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiUrl' in kwargs:
+            api_url = kwargs['apiUrl']
+        if 'authUrl' in kwargs:
+            auth_url = kwargs['authUrl']
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if 'tokenUrl' in kwargs:
+            token_url = kwargs['tokenUrl']
+
         _setter("api_url", api_url)
         _setter("auth_url", auth_url)
         _setter("client_id", client_id)
@@ -4316,7 +4595,13 @@ class PermissionTargetBuild(dict):
              actions: Optional[Sequence['outputs.PermissionTargetBuildAction']] = None,
              excludes_patterns: Optional[Sequence[str]] = None,
              includes_patterns: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'excludesPatterns' in kwargs:
+            excludes_patterns = kwargs['excludesPatterns']
+        if 'includesPatterns' in kwargs:
+            includes_patterns = kwargs['includesPatterns']
+
         _setter("repositories", repositories)
         if actions is not None:
             _setter("actions", actions)
@@ -4374,7 +4659,9 @@ class PermissionTargetBuildAction(dict):
              _setter: Callable[[Any, Any], None],
              groups: Optional[Sequence['outputs.PermissionTargetBuildActionGroup']] = None,
              users: Optional[Sequence['outputs.PermissionTargetBuildActionUser']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if groups is not None:
             _setter("groups", groups)
         if users is not None:
@@ -4415,7 +4702,9 @@ class PermissionTargetBuildActionGroup(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              permissions: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("permissions", permissions)
 
@@ -4451,7 +4740,9 @@ class PermissionTargetBuildActionUser(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              permissions: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("permissions", permissions)
 
@@ -4514,7 +4805,13 @@ class PermissionTargetReleaseBundle(dict):
              actions: Optional[Sequence['outputs.PermissionTargetReleaseBundleAction']] = None,
              excludes_patterns: Optional[Sequence[str]] = None,
              includes_patterns: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'excludesPatterns' in kwargs:
+            excludes_patterns = kwargs['excludesPatterns']
+        if 'includesPatterns' in kwargs:
+            includes_patterns = kwargs['includesPatterns']
+
         _setter("repositories", repositories)
         if actions is not None:
             _setter("actions", actions)
@@ -4572,7 +4869,9 @@ class PermissionTargetReleaseBundleAction(dict):
              _setter: Callable[[Any, Any], None],
              groups: Optional[Sequence['outputs.PermissionTargetReleaseBundleActionGroup']] = None,
              users: Optional[Sequence['outputs.PermissionTargetReleaseBundleActionUser']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if groups is not None:
             _setter("groups", groups)
         if users is not None:
@@ -4613,7 +4912,9 @@ class PermissionTargetReleaseBundleActionGroup(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              permissions: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("permissions", permissions)
 
@@ -4649,7 +4950,9 @@ class PermissionTargetReleaseBundleActionUser(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              permissions: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("permissions", permissions)
 
@@ -4712,7 +5015,13 @@ class PermissionTargetRepo(dict):
              actions: Optional[Sequence['outputs.PermissionTargetRepoAction']] = None,
              excludes_patterns: Optional[Sequence[str]] = None,
              includes_patterns: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'excludesPatterns' in kwargs:
+            excludes_patterns = kwargs['excludesPatterns']
+        if 'includesPatterns' in kwargs:
+            includes_patterns = kwargs['includesPatterns']
+
         _setter("repositories", repositories)
         if actions is not None:
             _setter("actions", actions)
@@ -4770,7 +5079,9 @@ class PermissionTargetRepoAction(dict):
              _setter: Callable[[Any, Any], None],
              groups: Optional[Sequence['outputs.PermissionTargetRepoActionGroup']] = None,
              users: Optional[Sequence['outputs.PermissionTargetRepoActionUser']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if groups is not None:
             _setter("groups", groups)
         if users is not None:
@@ -4811,7 +5122,9 @@ class PermissionTargetRepoActionGroup(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              permissions: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("permissions", permissions)
 
@@ -4847,7 +5160,9 @@ class PermissionTargetRepoActionUser(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              permissions: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("permissions", permissions)
 
@@ -4913,7 +5228,15 @@ class PropertySetProperty(dict):
              predefined_values: Sequence['outputs.PropertySetPropertyPredefinedValue'],
              closed_predefined_values: Optional[bool] = None,
              multiple_choice: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'predefinedValues' in kwargs:
+            predefined_values = kwargs['predefinedValues']
+        if 'closedPredefinedValues' in kwargs:
+            closed_predefined_values = kwargs['closedPredefinedValues']
+        if 'multipleChoice' in kwargs:
+            multiple_choice = kwargs['multipleChoice']
+
         _setter("name", name)
         _setter("predefined_values", predefined_values)
         if closed_predefined_values is not None:
@@ -4990,7 +5313,11 @@ class PropertySetPropertyPredefinedValue(dict):
              _setter: Callable[[Any, Any], None],
              default_value: bool,
              name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'defaultValue' in kwargs:
+            default_value = kwargs['defaultValue']
+
         _setter("default_value", default_value)
         _setter("name", name)
 
@@ -5095,7 +5422,21 @@ class PushReplicationReplication(dict):
              sync_deletes: Optional[bool] = None,
              sync_properties: Optional[bool] = None,
              sync_statistics: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'checkBinaryExistenceInFilestore' in kwargs:
+            check_binary_existence_in_filestore = kwargs['checkBinaryExistenceInFilestore']
+        if 'pathPrefix' in kwargs:
+            path_prefix = kwargs['pathPrefix']
+        if 'socketTimeoutMillis' in kwargs:
+            socket_timeout_millis = kwargs['socketTimeoutMillis']
+        if 'syncDeletes' in kwargs:
+            sync_deletes = kwargs['syncDeletes']
+        if 'syncProperties' in kwargs:
+            sync_properties = kwargs['syncProperties']
+        if 'syncStatistics' in kwargs:
+            sync_statistics = kwargs['syncStatistics']
+
         _setter("password", password)
         _setter("url", url)
         _setter("username", username)
@@ -5257,7 +5598,17 @@ class ReleaseBundleCustomWebhookCriteria(dict):
              registered_release_bundle_names: Sequence[str],
              exclude_patterns: Optional[Sequence[str]] = None,
              include_patterns: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'anyReleaseBundle' in kwargs:
+            any_release_bundle = kwargs['anyReleaseBundle']
+        if 'registeredReleaseBundleNames' in kwargs:
+            registered_release_bundle_names = kwargs['registeredReleaseBundleNames']
+        if 'excludePatterns' in kwargs:
+            exclude_patterns = kwargs['excludePatterns']
+        if 'includePatterns' in kwargs:
+            include_patterns = kwargs['includePatterns']
+
         _setter("any_release_bundle", any_release_bundle)
         _setter("registered_release_bundle_names", registered_release_bundle_names)
         if exclude_patterns is not None:
@@ -5349,7 +5700,11 @@ class ReleaseBundleCustomWebhookHandler(dict):
              payload: Optional[str] = None,
              proxy: Optional[str] = None,
              secrets: Optional[Mapping[str, str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'httpHeaders' in kwargs:
+            http_headers = kwargs['httpHeaders']
+
         _setter("url", url)
         if http_headers is not None:
             _setter("http_headers", http_headers)
@@ -5452,7 +5807,17 @@ class ReleaseBundleWebhookCriteria(dict):
              registered_release_bundle_names: Sequence[str],
              exclude_patterns: Optional[Sequence[str]] = None,
              include_patterns: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'anyReleaseBundle' in kwargs:
+            any_release_bundle = kwargs['anyReleaseBundle']
+        if 'registeredReleaseBundleNames' in kwargs:
+            registered_release_bundle_names = kwargs['registeredReleaseBundleNames']
+        if 'excludePatterns' in kwargs:
+            exclude_patterns = kwargs['excludePatterns']
+        if 'includePatterns' in kwargs:
+            include_patterns = kwargs['includePatterns']
+
         _setter("any_release_bundle", any_release_bundle)
         _setter("registered_release_bundle_names", registered_release_bundle_names)
         if exclude_patterns is not None:
@@ -5537,7 +5902,11 @@ class ReleaseBundleWebhookHandler(dict):
              custom_http_headers: Optional[Mapping[str, str]] = None,
              proxy: Optional[str] = None,
              secret: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customHttpHeaders' in kwargs:
+            custom_http_headers = kwargs['customHttpHeaders']
+
         _setter("url", url)
         if custom_http_headers is not None:
             _setter("custom_http_headers", custom_http_headers)
@@ -5621,7 +5990,15 @@ class RemoteAlpineRepositoryContentSynchronisation(dict):
              properties_enabled: Optional[bool] = None,
              source_origin_absence_detection: Optional[bool] = None,
              statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'propertiesEnabled' in kwargs:
+            properties_enabled = kwargs['propertiesEnabled']
+        if 'sourceOriginAbsenceDetection' in kwargs:
+            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
+        if 'statisticsEnabled' in kwargs:
+            statistics_enabled = kwargs['statisticsEnabled']
+
         if enabled is not None:
             _setter("enabled", enabled)
         if properties_enabled is not None:
@@ -5694,7 +6071,15 @@ class RemoteBowerRepositoryContentSynchronisation(dict):
              properties_enabled: Optional[bool] = None,
              source_origin_absence_detection: Optional[bool] = None,
              statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'propertiesEnabled' in kwargs:
+            properties_enabled = kwargs['propertiesEnabled']
+        if 'sourceOriginAbsenceDetection' in kwargs:
+            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
+        if 'statisticsEnabled' in kwargs:
+            statistics_enabled = kwargs['statisticsEnabled']
+
         if enabled is not None:
             _setter("enabled", enabled)
         if properties_enabled is not None:
@@ -5767,7 +6152,15 @@ class RemoteCargoRepositoryContentSynchronisation(dict):
              properties_enabled: Optional[bool] = None,
              source_origin_absence_detection: Optional[bool] = None,
              statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'propertiesEnabled' in kwargs:
+            properties_enabled = kwargs['propertiesEnabled']
+        if 'sourceOriginAbsenceDetection' in kwargs:
+            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
+        if 'statisticsEnabled' in kwargs:
+            statistics_enabled = kwargs['statisticsEnabled']
+
         if enabled is not None:
             _setter("enabled", enabled)
         if properties_enabled is not None:
@@ -5840,7 +6233,15 @@ class RemoteChefRepositoryContentSynchronisation(dict):
              properties_enabled: Optional[bool] = None,
              source_origin_absence_detection: Optional[bool] = None,
              statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'propertiesEnabled' in kwargs:
+            properties_enabled = kwargs['propertiesEnabled']
+        if 'sourceOriginAbsenceDetection' in kwargs:
+            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
+        if 'statisticsEnabled' in kwargs:
+            statistics_enabled = kwargs['statisticsEnabled']
+
         if enabled is not None:
             _setter("enabled", enabled)
         if properties_enabled is not None:
@@ -5913,7 +6314,15 @@ class RemoteCocoapodsRepositoryContentSynchronisation(dict):
              properties_enabled: Optional[bool] = None,
              source_origin_absence_detection: Optional[bool] = None,
              statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'propertiesEnabled' in kwargs:
+            properties_enabled = kwargs['propertiesEnabled']
+        if 'sourceOriginAbsenceDetection' in kwargs:
+            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
+        if 'statisticsEnabled' in kwargs:
+            statistics_enabled = kwargs['statisticsEnabled']
+
         if enabled is not None:
             _setter("enabled", enabled)
         if properties_enabled is not None:
@@ -5986,7 +6395,15 @@ class RemoteComposerRepositoryContentSynchronisation(dict):
              properties_enabled: Optional[bool] = None,
              source_origin_absence_detection: Optional[bool] = None,
              statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'propertiesEnabled' in kwargs:
+            properties_enabled = kwargs['propertiesEnabled']
+        if 'sourceOriginAbsenceDetection' in kwargs:
+            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
+        if 'statisticsEnabled' in kwargs:
+            statistics_enabled = kwargs['statisticsEnabled']
+
         if enabled is not None:
             _setter("enabled", enabled)
         if properties_enabled is not None:
@@ -6059,7 +6476,15 @@ class RemoteConanRepositoryContentSynchronisation(dict):
              properties_enabled: Optional[bool] = None,
              source_origin_absence_detection: Optional[bool] = None,
              statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'propertiesEnabled' in kwargs:
+            properties_enabled = kwargs['propertiesEnabled']
+        if 'sourceOriginAbsenceDetection' in kwargs:
+            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
+        if 'statisticsEnabled' in kwargs:
+            statistics_enabled = kwargs['statisticsEnabled']
+
         if enabled is not None:
             _setter("enabled", enabled)
         if properties_enabled is not None:
@@ -6132,7 +6557,15 @@ class RemoteCondaRepositoryContentSynchronisation(dict):
              properties_enabled: Optional[bool] = None,
              source_origin_absence_detection: Optional[bool] = None,
              statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'propertiesEnabled' in kwargs:
+            properties_enabled = kwargs['propertiesEnabled']
+        if 'sourceOriginAbsenceDetection' in kwargs:
+            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
+        if 'statisticsEnabled' in kwargs:
+            statistics_enabled = kwargs['statisticsEnabled']
+
         if enabled is not None:
             _setter("enabled", enabled)
         if properties_enabled is not None:
@@ -6205,7 +6638,15 @@ class RemoteCranRepositoryContentSynchronisation(dict):
              properties_enabled: Optional[bool] = None,
              source_origin_absence_detection: Optional[bool] = None,
              statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'propertiesEnabled' in kwargs:
+            properties_enabled = kwargs['propertiesEnabled']
+        if 'sourceOriginAbsenceDetection' in kwargs:
+            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
+        if 'statisticsEnabled' in kwargs:
+            statistics_enabled = kwargs['statisticsEnabled']
+
         if enabled is not None:
             _setter("enabled", enabled)
         if properties_enabled is not None:
@@ -6278,7 +6719,15 @@ class RemoteDebianRepositoryContentSynchronisation(dict):
              properties_enabled: Optional[bool] = None,
              source_origin_absence_detection: Optional[bool] = None,
              statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'propertiesEnabled' in kwargs:
+            properties_enabled = kwargs['propertiesEnabled']
+        if 'sourceOriginAbsenceDetection' in kwargs:
+            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
+        if 'statisticsEnabled' in kwargs:
+            statistics_enabled = kwargs['statisticsEnabled']
+
         if enabled is not None:
             _setter("enabled", enabled)
         if properties_enabled is not None:
@@ -6351,7 +6800,15 @@ class RemoteDockerRepositoryContentSynchronisation(dict):
              properties_enabled: Optional[bool] = None,
              source_origin_absence_detection: Optional[bool] = None,
              statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'propertiesEnabled' in kwargs:
+            properties_enabled = kwargs['propertiesEnabled']
+        if 'sourceOriginAbsenceDetection' in kwargs:
+            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
+        if 'statisticsEnabled' in kwargs:
+            statistics_enabled = kwargs['statisticsEnabled']
+
         if enabled is not None:
             _setter("enabled", enabled)
         if properties_enabled is not None:
@@ -6424,7 +6881,15 @@ class RemoteGemsRepositoryContentSynchronisation(dict):
              properties_enabled: Optional[bool] = None,
              source_origin_absence_detection: Optional[bool] = None,
              statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'propertiesEnabled' in kwargs:
+            properties_enabled = kwargs['propertiesEnabled']
+        if 'sourceOriginAbsenceDetection' in kwargs:
+            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
+        if 'statisticsEnabled' in kwargs:
+            statistics_enabled = kwargs['statisticsEnabled']
+
         if enabled is not None:
             _setter("enabled", enabled)
         if properties_enabled is not None:
@@ -6497,7 +6962,15 @@ class RemoteGenericRepositoryContentSynchronisation(dict):
              properties_enabled: Optional[bool] = None,
              source_origin_absence_detection: Optional[bool] = None,
              statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'propertiesEnabled' in kwargs:
+            properties_enabled = kwargs['propertiesEnabled']
+        if 'sourceOriginAbsenceDetection' in kwargs:
+            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
+        if 'statisticsEnabled' in kwargs:
+            statistics_enabled = kwargs['statisticsEnabled']
+
         if enabled is not None:
             _setter("enabled", enabled)
         if properties_enabled is not None:
@@ -6570,7 +7043,15 @@ class RemoteGitlfsRepositoryContentSynchronisation(dict):
              properties_enabled: Optional[bool] = None,
              source_origin_absence_detection: Optional[bool] = None,
              statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'propertiesEnabled' in kwargs:
+            properties_enabled = kwargs['propertiesEnabled']
+        if 'sourceOriginAbsenceDetection' in kwargs:
+            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
+        if 'statisticsEnabled' in kwargs:
+            statistics_enabled = kwargs['statisticsEnabled']
+
         if enabled is not None:
             _setter("enabled", enabled)
         if properties_enabled is not None:
@@ -6643,7 +7124,15 @@ class RemoteGoRepositoryContentSynchronisation(dict):
              properties_enabled: Optional[bool] = None,
              source_origin_absence_detection: Optional[bool] = None,
              statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'propertiesEnabled' in kwargs:
+            properties_enabled = kwargs['propertiesEnabled']
+        if 'sourceOriginAbsenceDetection' in kwargs:
+            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
+        if 'statisticsEnabled' in kwargs:
+            statistics_enabled = kwargs['statisticsEnabled']
+
         if enabled is not None:
             _setter("enabled", enabled)
         if properties_enabled is not None:
@@ -6716,7 +7205,15 @@ class RemoteGradleRepositoryContentSynchronisation(dict):
              properties_enabled: Optional[bool] = None,
              source_origin_absence_detection: Optional[bool] = None,
              statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'propertiesEnabled' in kwargs:
+            properties_enabled = kwargs['propertiesEnabled']
+        if 'sourceOriginAbsenceDetection' in kwargs:
+            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
+        if 'statisticsEnabled' in kwargs:
+            statistics_enabled = kwargs['statisticsEnabled']
+
         if enabled is not None:
             _setter("enabled", enabled)
         if properties_enabled is not None:
@@ -6789,7 +7286,96 @@ class RemoteHelmRepositoryContentSynchronisation(dict):
              properties_enabled: Optional[bool] = None,
              source_origin_absence_detection: Optional[bool] = None,
              statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'propertiesEnabled' in kwargs:
+            properties_enabled = kwargs['propertiesEnabled']
+        if 'sourceOriginAbsenceDetection' in kwargs:
+            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
+        if 'statisticsEnabled' in kwargs:
+            statistics_enabled = kwargs['statisticsEnabled']
+
+        if enabled is not None:
+            _setter("enabled", enabled)
+        if properties_enabled is not None:
+            _setter("properties_enabled", properties_enabled)
+        if source_origin_absence_detection is not None:
+            _setter("source_origin_absence_detection", source_origin_absence_detection)
+        if statistics_enabled is not None:
+            _setter("statistics_enabled", statistics_enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="propertiesEnabled")
+    def properties_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "properties_enabled")
+
+    @property
+    @pulumi.getter(name="sourceOriginAbsenceDetection")
+    def source_origin_absence_detection(self) -> Optional[bool]:
+        return pulumi.get(self, "source_origin_absence_detection")
+
+    @property
+    @pulumi.getter(name="statisticsEnabled")
+    def statistics_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "statistics_enabled")
+
+
+@pulumi.output_type
+class RemoteHuggingfacemlRepositoryContentSynchronisation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "propertiesEnabled":
+            suggest = "properties_enabled"
+        elif key == "sourceOriginAbsenceDetection":
+            suggest = "source_origin_absence_detection"
+        elif key == "statisticsEnabled":
+            suggest = "statistics_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RemoteHuggingfacemlRepositoryContentSynchronisation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RemoteHuggingfacemlRepositoryContentSynchronisation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RemoteHuggingfacemlRepositoryContentSynchronisation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None,
+                 properties_enabled: Optional[bool] = None,
+                 source_origin_absence_detection: Optional[bool] = None,
+                 statistics_enabled: Optional[bool] = None):
+        RemoteHuggingfacemlRepositoryContentSynchronisation._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            properties_enabled=properties_enabled,
+            source_origin_absence_detection=source_origin_absence_detection,
+            statistics_enabled=statistics_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[bool] = None,
+             properties_enabled: Optional[bool] = None,
+             source_origin_absence_detection: Optional[bool] = None,
+             statistics_enabled: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'propertiesEnabled' in kwargs:
+            properties_enabled = kwargs['propertiesEnabled']
+        if 'sourceOriginAbsenceDetection' in kwargs:
+            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
+        if 'statisticsEnabled' in kwargs:
+            statistics_enabled = kwargs['statisticsEnabled']
+
         if enabled is not None:
             _setter("enabled", enabled)
         if properties_enabled is not None:
@@ -6862,7 +7448,15 @@ class RemoteIvyRepositoryContentSynchronisation(dict):
              properties_enabled: Optional[bool] = None,
              source_origin_absence_detection: Optional[bool] = None,
              statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'propertiesEnabled' in kwargs:
+            properties_enabled = kwargs['propertiesEnabled']
+        if 'sourceOriginAbsenceDetection' in kwargs:
+            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
+        if 'statisticsEnabled' in kwargs:
+            statistics_enabled = kwargs['statisticsEnabled']
+
         if enabled is not None:
             _setter("enabled", enabled)
         if properties_enabled is not None:
@@ -6935,7 +7529,15 @@ class RemoteMavenRepositoryContentSynchronisation(dict):
              properties_enabled: Optional[bool] = None,
              source_origin_absence_detection: Optional[bool] = None,
              statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'propertiesEnabled' in kwargs:
+            properties_enabled = kwargs['propertiesEnabled']
+        if 'sourceOriginAbsenceDetection' in kwargs:
+            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
+        if 'statisticsEnabled' in kwargs:
+            statistics_enabled = kwargs['statisticsEnabled']
+
         if enabled is not None:
             _setter("enabled", enabled)
         if properties_enabled is not None:
@@ -7008,7 +7610,15 @@ class RemoteNpmRepositoryContentSynchronisation(dict):
              properties_enabled: Optional[bool] = None,
              source_origin_absence_detection: Optional[bool] = None,
              statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'propertiesEnabled' in kwargs:
+            properties_enabled = kwargs['propertiesEnabled']
+        if 'sourceOriginAbsenceDetection' in kwargs:
+            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
+        if 'statisticsEnabled' in kwargs:
+            statistics_enabled = kwargs['statisticsEnabled']
+
         if enabled is not None:
             _setter("enabled", enabled)
         if properties_enabled is not None:
@@ -7081,7 +7691,15 @@ class RemoteNugetRepositoryContentSynchronisation(dict):
              properties_enabled: Optional[bool] = None,
              source_origin_absence_detection: Optional[bool] = None,
              statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'propertiesEnabled' in kwargs:
+            properties_enabled = kwargs['propertiesEnabled']
+        if 'sourceOriginAbsenceDetection' in kwargs:
+            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
+        if 'statisticsEnabled' in kwargs:
+            statistics_enabled = kwargs['statisticsEnabled']
+
         if enabled is not None:
             _setter("enabled", enabled)
         if properties_enabled is not None:
@@ -7154,7 +7772,15 @@ class RemoteOpkgRepositoryContentSynchronisation(dict):
              properties_enabled: Optional[bool] = None,
              source_origin_absence_detection: Optional[bool] = None,
              statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'propertiesEnabled' in kwargs:
+            properties_enabled = kwargs['propertiesEnabled']
+        if 'sourceOriginAbsenceDetection' in kwargs:
+            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
+        if 'statisticsEnabled' in kwargs:
+            statistics_enabled = kwargs['statisticsEnabled']
+
         if enabled is not None:
             _setter("enabled", enabled)
         if properties_enabled is not None:
@@ -7227,7 +7853,15 @@ class RemoteP2RepositoryContentSynchronisation(dict):
              properties_enabled: Optional[bool] = None,
              source_origin_absence_detection: Optional[bool] = None,
              statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'propertiesEnabled' in kwargs:
+            properties_enabled = kwargs['propertiesEnabled']
+        if 'sourceOriginAbsenceDetection' in kwargs:
+            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
+        if 'statisticsEnabled' in kwargs:
+            statistics_enabled = kwargs['statisticsEnabled']
+
         if enabled is not None:
             _setter("enabled", enabled)
         if properties_enabled is not None:
@@ -7300,7 +7934,15 @@ class RemotePubRepositoryContentSynchronisation(dict):
              properties_enabled: Optional[bool] = None,
              source_origin_absence_detection: Optional[bool] = None,
              statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'propertiesEnabled' in kwargs:
+            properties_enabled = kwargs['propertiesEnabled']
+        if 'sourceOriginAbsenceDetection' in kwargs:
+            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
+        if 'statisticsEnabled' in kwargs:
+            statistics_enabled = kwargs['statisticsEnabled']
+
         if enabled is not None:
             _setter("enabled", enabled)
         if properties_enabled is not None:
@@ -7373,7 +8015,15 @@ class RemotePuppetRepositoryContentSynchronisation(dict):
              properties_enabled: Optional[bool] = None,
              source_origin_absence_detection: Optional[bool] = None,
              statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'propertiesEnabled' in kwargs:
+            properties_enabled = kwargs['propertiesEnabled']
+        if 'sourceOriginAbsenceDetection' in kwargs:
+            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
+        if 'statisticsEnabled' in kwargs:
+            statistics_enabled = kwargs['statisticsEnabled']
+
         if enabled is not None:
             _setter("enabled", enabled)
         if properties_enabled is not None:
@@ -7446,7 +8096,15 @@ class RemotePypiRepositoryContentSynchronisation(dict):
              properties_enabled: Optional[bool] = None,
              source_origin_absence_detection: Optional[bool] = None,
              statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'propertiesEnabled' in kwargs:
+            properties_enabled = kwargs['propertiesEnabled']
+        if 'sourceOriginAbsenceDetection' in kwargs:
+            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
+        if 'statisticsEnabled' in kwargs:
+            statistics_enabled = kwargs['statisticsEnabled']
+
         if enabled is not None:
             _setter("enabled", enabled)
         if properties_enabled is not None:
@@ -7519,7 +8177,15 @@ class RemoteRpmRepositoryContentSynchronisation(dict):
              properties_enabled: Optional[bool] = None,
              source_origin_absence_detection: Optional[bool] = None,
              statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'propertiesEnabled' in kwargs:
+            properties_enabled = kwargs['propertiesEnabled']
+        if 'sourceOriginAbsenceDetection' in kwargs:
+            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
+        if 'statisticsEnabled' in kwargs:
+            statistics_enabled = kwargs['statisticsEnabled']
+
         if enabled is not None:
             _setter("enabled", enabled)
         if properties_enabled is not None:
@@ -7592,7 +8258,15 @@ class RemoteSbtRepositoryContentSynchronisation(dict):
              properties_enabled: Optional[bool] = None,
              source_origin_absence_detection: Optional[bool] = None,
              statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'propertiesEnabled' in kwargs:
+            properties_enabled = kwargs['propertiesEnabled']
+        if 'sourceOriginAbsenceDetection' in kwargs:
+            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
+        if 'statisticsEnabled' in kwargs:
+            statistics_enabled = kwargs['statisticsEnabled']
+
         if enabled is not None:
             _setter("enabled", enabled)
         if properties_enabled is not None:
@@ -7665,7 +8339,15 @@ class RemoteSwiftRepositoryContentSynchronisation(dict):
              properties_enabled: Optional[bool] = None,
              source_origin_absence_detection: Optional[bool] = None,
              statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'propertiesEnabled' in kwargs:
+            properties_enabled = kwargs['propertiesEnabled']
+        if 'sourceOriginAbsenceDetection' in kwargs:
+            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
+        if 'statisticsEnabled' in kwargs:
+            statistics_enabled = kwargs['statisticsEnabled']
+
         if enabled is not None:
             _setter("enabled", enabled)
         if properties_enabled is not None:
@@ -7738,7 +8420,15 @@ class RemoteTerraformRepositoryContentSynchronisation(dict):
              properties_enabled: Optional[bool] = None,
              source_origin_absence_detection: Optional[bool] = None,
              statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'propertiesEnabled' in kwargs:
+            properties_enabled = kwargs['propertiesEnabled']
+        if 'sourceOriginAbsenceDetection' in kwargs:
+            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
+        if 'statisticsEnabled' in kwargs:
+            statistics_enabled = kwargs['statisticsEnabled']
+
         if enabled is not None:
             _setter("enabled", enabled)
         if properties_enabled is not None:
@@ -7811,7 +8501,15 @@ class RemoteVcsRepositoryContentSynchronisation(dict):
              properties_enabled: Optional[bool] = None,
              source_origin_absence_detection: Optional[bool] = None,
              statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'propertiesEnabled' in kwargs:
+            properties_enabled = kwargs['propertiesEnabled']
+        if 'sourceOriginAbsenceDetection' in kwargs:
+            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
+        if 'statisticsEnabled' in kwargs:
+            statistics_enabled = kwargs['statisticsEnabled']
+
         if enabled is not None:
             _setter("enabled", enabled)
         if properties_enabled is not None:
@@ -7910,7 +8608,19 @@ class ReplicationConfigReplication(dict):
              sync_statistics: Optional[bool] = None,
              url: Optional[str] = None,
              username: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'pathPrefix' in kwargs:
+            path_prefix = kwargs['pathPrefix']
+        if 'socketTimeoutMillis' in kwargs:
+            socket_timeout_millis = kwargs['socketTimeoutMillis']
+        if 'syncDeletes' in kwargs:
+            sync_deletes = kwargs['syncDeletes']
+        if 'syncProperties' in kwargs:
+            sync_properties = kwargs['syncProperties']
+        if 'syncStatistics' in kwargs:
+            sync_statistics = kwargs['syncStatistics']
+
         if enabled is not None:
             _setter("enabled", enabled)
         if password is not None:
@@ -8009,7 +8719,9 @@ class GetFederatedAlpineRepositoryMemberResult(dict):
              _setter: Callable[[Any, Any], None],
              enabled: bool,
              url: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("enabled", enabled)
         _setter("url", url)
 
@@ -8051,7 +8763,9 @@ class GetFederatedBowerRepositoryMemberResult(dict):
              _setter: Callable[[Any, Any], None],
              enabled: bool,
              url: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("enabled", enabled)
         _setter("url", url)
 
@@ -8093,7 +8807,9 @@ class GetFederatedCargoRepositoryMemberResult(dict):
              _setter: Callable[[Any, Any], None],
              enabled: bool,
              url: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("enabled", enabled)
         _setter("url", url)
 
@@ -8135,7 +8851,9 @@ class GetFederatedChefRepositoryMemberResult(dict):
              _setter: Callable[[Any, Any], None],
              enabled: bool,
              url: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("enabled", enabled)
         _setter("url", url)
 
@@ -8177,7 +8895,9 @@ class GetFederatedCocoapodsRepositoryMemberResult(dict):
              _setter: Callable[[Any, Any], None],
              enabled: bool,
              url: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("enabled", enabled)
         _setter("url", url)
 
@@ -8219,7 +8939,9 @@ class GetFederatedComposerRepositoryMemberResult(dict):
              _setter: Callable[[Any, Any], None],
              enabled: bool,
              url: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("enabled", enabled)
         _setter("url", url)
 
@@ -8261,7 +8983,9 @@ class GetFederatedConanRepositoryMemberResult(dict):
              _setter: Callable[[Any, Any], None],
              enabled: bool,
              url: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("enabled", enabled)
         _setter("url", url)
 
@@ -8303,7 +9027,9 @@ class GetFederatedCondaRepositoryMemberResult(dict):
              _setter: Callable[[Any, Any], None],
              enabled: bool,
              url: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("enabled", enabled)
         _setter("url", url)
 
@@ -8345,7 +9071,9 @@ class GetFederatedCranRepositoryMemberResult(dict):
              _setter: Callable[[Any, Any], None],
              enabled: bool,
              url: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("enabled", enabled)
         _setter("url", url)
 
@@ -8387,7 +9115,9 @@ class GetFederatedDebianRepositoryMemberResult(dict):
              _setter: Callable[[Any, Any], None],
              enabled: bool,
              url: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("enabled", enabled)
         _setter("url", url)
 
@@ -8424,7 +9154,9 @@ class GetFederatedDockerRepositoryMemberResult(dict):
              _setter: Callable[[Any, Any], None],
              enabled: bool,
              url: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("enabled", enabled)
         _setter("url", url)
 
@@ -8459,7 +9191,9 @@ class GetFederatedDockerV1RepositoryMemberResult(dict):
              _setter: Callable[[Any, Any], None],
              enabled: bool,
              url: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("enabled", enabled)
         _setter("url", url)
 
@@ -8501,7 +9235,9 @@ class GetFederatedDockerV2RepositoryMemberResult(dict):
              _setter: Callable[[Any, Any], None],
              enabled: bool,
              url: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("enabled", enabled)
         _setter("url", url)
 
@@ -8543,7 +9279,9 @@ class GetFederatedGemsRepositoryMemberResult(dict):
              _setter: Callable[[Any, Any], None],
              enabled: bool,
              url: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("enabled", enabled)
         _setter("url", url)
 
@@ -8585,7 +9323,9 @@ class GetFederatedGenericRepositoryMemberResult(dict):
              _setter: Callable[[Any, Any], None],
              enabled: bool,
              url: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("enabled", enabled)
         _setter("url", url)
 
@@ -8627,7 +9367,9 @@ class GetFederatedGitlfsRepositoryMemberResult(dict):
              _setter: Callable[[Any, Any], None],
              enabled: bool,
              url: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("enabled", enabled)
         _setter("url", url)
 
@@ -8669,7 +9411,9 @@ class GetFederatedGoRepositoryMemberResult(dict):
              _setter: Callable[[Any, Any], None],
              enabled: bool,
              url: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("enabled", enabled)
         _setter("url", url)
 
@@ -8711,7 +9455,9 @@ class GetFederatedGradleRepositoryMemberResult(dict):
              _setter: Callable[[Any, Any], None],
              enabled: bool,
              url: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("enabled", enabled)
         _setter("url", url)
 
@@ -8753,7 +9499,9 @@ class GetFederatedHelmRepositoryMemberResult(dict):
              _setter: Callable[[Any, Any], None],
              enabled: bool,
              url: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("enabled", enabled)
         _setter("url", url)
 
@@ -8795,7 +9543,9 @@ class GetFederatedIvyRepositoryMemberResult(dict):
              _setter: Callable[[Any, Any], None],
              enabled: bool,
              url: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("enabled", enabled)
         _setter("url", url)
 
@@ -8837,7 +9587,9 @@ class GetFederatedMavenRepositoryMemberResult(dict):
              _setter: Callable[[Any, Any], None],
              enabled: bool,
              url: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("enabled", enabled)
         _setter("url", url)
 
@@ -8879,7 +9631,9 @@ class GetFederatedNpmRepositoryMemberResult(dict):
              _setter: Callable[[Any, Any], None],
              enabled: bool,
              url: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("enabled", enabled)
         _setter("url", url)
 
@@ -8921,7 +9675,9 @@ class GetFederatedNugetRepositoryMemberResult(dict):
              _setter: Callable[[Any, Any], None],
              enabled: bool,
              url: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("enabled", enabled)
         _setter("url", url)
 
@@ -8963,7 +9719,9 @@ class GetFederatedOpkgRepositoryMemberResult(dict):
              _setter: Callable[[Any, Any], None],
              enabled: bool,
              url: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("enabled", enabled)
         _setter("url", url)
 
@@ -9005,7 +9763,9 @@ class GetFederatedPuppetRepositoryMemberResult(dict):
              _setter: Callable[[Any, Any], None],
              enabled: bool,
              url: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("enabled", enabled)
         _setter("url", url)
 
@@ -9047,7 +9807,9 @@ class GetFederatedPypiRepositoryMemberResult(dict):
              _setter: Callable[[Any, Any], None],
              enabled: bool,
              url: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("enabled", enabled)
         _setter("url", url)
 
@@ -9089,7 +9851,9 @@ class GetFederatedRpmRepositoryMemberResult(dict):
              _setter: Callable[[Any, Any], None],
              enabled: bool,
              url: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("enabled", enabled)
         _setter("url", url)
 
@@ -9131,7 +9895,9 @@ class GetFederatedSbtRepositoryMemberResult(dict):
              _setter: Callable[[Any, Any], None],
              enabled: bool,
              url: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("enabled", enabled)
         _setter("url", url)
 
@@ -9173,7 +9939,9 @@ class GetFederatedSwiftRepositoryMemberResult(dict):
              _setter: Callable[[Any, Any], None],
              enabled: bool,
              url: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("enabled", enabled)
         _setter("url", url)
 
@@ -9215,7 +9983,9 @@ class GetFederatedTerraformModuleRepositoryMemberResult(dict):
              _setter: Callable[[Any, Any], None],
              enabled: bool,
              url: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("enabled", enabled)
         _setter("url", url)
 
@@ -9257,7 +10027,9 @@ class GetFederatedTerraformProviderRepositoryMemberResult(dict):
              _setter: Callable[[Any, Any], None],
              enabled: bool,
              url: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("enabled", enabled)
         _setter("url", url)
 
@@ -9299,7 +10071,9 @@ class GetFederatedVagrantRepositoryMemberResult(dict):
              _setter: Callable[[Any, Any], None],
              enabled: bool,
              url: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("enabled", enabled)
         _setter("url", url)
 
@@ -9349,7 +10123,13 @@ class GetPermissionTargetBuildResult(dict):
              actions: Optional['outputs.GetPermissionTargetBuildActionsResult'] = None,
              excludes_patterns: Optional[Sequence[str]] = None,
              includes_patterns: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'excludesPatterns' in kwargs:
+            excludes_patterns = kwargs['excludesPatterns']
+        if 'includesPatterns' in kwargs:
+            includes_patterns = kwargs['includesPatterns']
+
         _setter("repositories", repositories)
         if actions is not None:
             _setter("actions", actions)
@@ -9409,7 +10189,9 @@ class GetPermissionTargetBuildActionsResult(dict):
              _setter: Callable[[Any, Any], None],
              groups: Optional[Sequence['outputs.GetPermissionTargetBuildActionsGroupResult']] = None,
              users: Optional[Sequence['outputs.GetPermissionTargetBuildActionsUserResult']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if groups is not None:
             _setter("groups", groups)
         if users is not None:
@@ -9450,7 +10232,9 @@ class GetPermissionTargetBuildActionsGroupResult(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              permissions: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("permissions", permissions)
 
@@ -9486,7 +10270,9 @@ class GetPermissionTargetBuildActionsUserResult(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              permissions: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("permissions", permissions)
 
@@ -9532,7 +10318,13 @@ class GetPermissionTargetReleaseBundleResult(dict):
              actions: Optional['outputs.GetPermissionTargetReleaseBundleActionsResult'] = None,
              excludes_patterns: Optional[Sequence[str]] = None,
              includes_patterns: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'excludesPatterns' in kwargs:
+            excludes_patterns = kwargs['excludesPatterns']
+        if 'includesPatterns' in kwargs:
+            includes_patterns = kwargs['includesPatterns']
+
         _setter("repositories", repositories)
         if actions is not None:
             _setter("actions", actions)
@@ -9592,7 +10384,9 @@ class GetPermissionTargetReleaseBundleActionsResult(dict):
              _setter: Callable[[Any, Any], None],
              groups: Optional[Sequence['outputs.GetPermissionTargetReleaseBundleActionsGroupResult']] = None,
              users: Optional[Sequence['outputs.GetPermissionTargetReleaseBundleActionsUserResult']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if groups is not None:
             _setter("groups", groups)
         if users is not None:
@@ -9633,7 +10427,9 @@ class GetPermissionTargetReleaseBundleActionsGroupResult(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              permissions: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("permissions", permissions)
 
@@ -9669,7 +10465,9 @@ class GetPermissionTargetReleaseBundleActionsUserResult(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              permissions: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("permissions", permissions)
 
@@ -9715,7 +10513,13 @@ class GetPermissionTargetRepoResult(dict):
              actions: Optional['outputs.GetPermissionTargetRepoActionsResult'] = None,
              excludes_patterns: Optional[Sequence[str]] = None,
              includes_patterns: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'excludesPatterns' in kwargs:
+            excludes_patterns = kwargs['excludesPatterns']
+        if 'includesPatterns' in kwargs:
+            includes_patterns = kwargs['includesPatterns']
+
         _setter("repositories", repositories)
         if actions is not None:
             _setter("actions", actions)
@@ -9775,7 +10579,9 @@ class GetPermissionTargetRepoActionsResult(dict):
              _setter: Callable[[Any, Any], None],
              groups: Optional[Sequence['outputs.GetPermissionTargetRepoActionsGroupResult']] = None,
              users: Optional[Sequence['outputs.GetPermissionTargetRepoActionsUserResult']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if groups is not None:
             _setter("groups", groups)
         if users is not None:
@@ -9816,7 +10622,9 @@ class GetPermissionTargetRepoActionsGroupResult(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              permissions: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("permissions", permissions)
 
@@ -9852,7 +10660,9 @@ class GetPermissionTargetRepoActionsUserResult(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              permissions: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("permissions", permissions)
 
@@ -9891,7 +10701,15 @@ class GetRemoteAlpineRepositoryContentSynchronisationResult(dict):
              properties_enabled: Optional[bool] = None,
              source_origin_absence_detection: Optional[bool] = None,
              statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'propertiesEnabled' in kwargs:
+            properties_enabled = kwargs['propertiesEnabled']
+        if 'sourceOriginAbsenceDetection' in kwargs:
+            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
+        if 'statisticsEnabled' in kwargs:
+            statistics_enabled = kwargs['statisticsEnabled']
+
         if enabled is not None:
             _setter("enabled", enabled)
         if properties_enabled is not None:
@@ -9943,7 +10761,15 @@ class GetRemoteBowerRepositoryContentSynchronisationResult(dict):
              properties_enabled: Optional[bool] = None,
              source_origin_absence_detection: Optional[bool] = None,
              statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'propertiesEnabled' in kwargs:
+            properties_enabled = kwargs['propertiesEnabled']
+        if 'sourceOriginAbsenceDetection' in kwargs:
+            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
+        if 'statisticsEnabled' in kwargs:
+            statistics_enabled = kwargs['statisticsEnabled']
+
         if enabled is not None:
             _setter("enabled", enabled)
         if properties_enabled is not None:
@@ -9995,7 +10821,15 @@ class GetRemoteCargoRepositoryContentSynchronisationResult(dict):
              properties_enabled: Optional[bool] = None,
              source_origin_absence_detection: Optional[bool] = None,
              statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'propertiesEnabled' in kwargs:
+            properties_enabled = kwargs['propertiesEnabled']
+        if 'sourceOriginAbsenceDetection' in kwargs:
+            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
+        if 'statisticsEnabled' in kwargs:
+            statistics_enabled = kwargs['statisticsEnabled']
+
         if enabled is not None:
             _setter("enabled", enabled)
         if properties_enabled is not None:
@@ -10047,7 +10881,15 @@ class GetRemoteChefRepositoryContentSynchronisationResult(dict):
              properties_enabled: Optional[bool] = None,
              source_origin_absence_detection: Optional[bool] = None,
              statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'propertiesEnabled' in kwargs:
+            properties_enabled = kwargs['propertiesEnabled']
+        if 'sourceOriginAbsenceDetection' in kwargs:
+            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
+        if 'statisticsEnabled' in kwargs:
+            statistics_enabled = kwargs['statisticsEnabled']
+
         if enabled is not None:
             _setter("enabled", enabled)
         if properties_enabled is not None:
@@ -10099,7 +10941,15 @@ class GetRemoteCocoapodsRepositoryContentSynchronisationResult(dict):
              properties_enabled: Optional[bool] = None,
              source_origin_absence_detection: Optional[bool] = None,
              statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'propertiesEnabled' in kwargs:
+            properties_enabled = kwargs['propertiesEnabled']
+        if 'sourceOriginAbsenceDetection' in kwargs:
+            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
+        if 'statisticsEnabled' in kwargs:
+            statistics_enabled = kwargs['statisticsEnabled']
+
         if enabled is not None:
             _setter("enabled", enabled)
         if properties_enabled is not None:
@@ -10151,7 +11001,15 @@ class GetRemoteComposerRepositoryContentSynchronisationResult(dict):
              properties_enabled: Optional[bool] = None,
              source_origin_absence_detection: Optional[bool] = None,
              statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'propertiesEnabled' in kwargs:
+            properties_enabled = kwargs['propertiesEnabled']
+        if 'sourceOriginAbsenceDetection' in kwargs:
+            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
+        if 'statisticsEnabled' in kwargs:
+            statistics_enabled = kwargs['statisticsEnabled']
+
         if enabled is not None:
             _setter("enabled", enabled)
         if properties_enabled is not None:
@@ -10203,7 +11061,15 @@ class GetRemoteConanRepositoryContentSynchronisationResult(dict):
              properties_enabled: Optional[bool] = None,
              source_origin_absence_detection: Optional[bool] = None,
              statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'propertiesEnabled' in kwargs:
+            properties_enabled = kwargs['propertiesEnabled']
+        if 'sourceOriginAbsenceDetection' in kwargs:
+            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
+        if 'statisticsEnabled' in kwargs:
+            statistics_enabled = kwargs['statisticsEnabled']
+
         if enabled is not None:
             _setter("enabled", enabled)
         if properties_enabled is not None:
@@ -10255,7 +11121,15 @@ class GetRemoteCondaRepositoryContentSynchronisationResult(dict):
              properties_enabled: Optional[bool] = None,
              source_origin_absence_detection: Optional[bool] = None,
              statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'propertiesEnabled' in kwargs:
+            properties_enabled = kwargs['propertiesEnabled']
+        if 'sourceOriginAbsenceDetection' in kwargs:
+            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
+        if 'statisticsEnabled' in kwargs:
+            statistics_enabled = kwargs['statisticsEnabled']
+
         if enabled is not None:
             _setter("enabled", enabled)
         if properties_enabled is not None:
@@ -10307,7 +11181,15 @@ class GetRemoteCranRepositoryContentSynchronisationResult(dict):
              properties_enabled: Optional[bool] = None,
              source_origin_absence_detection: Optional[bool] = None,
              statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'propertiesEnabled' in kwargs:
+            properties_enabled = kwargs['propertiesEnabled']
+        if 'sourceOriginAbsenceDetection' in kwargs:
+            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
+        if 'statisticsEnabled' in kwargs:
+            statistics_enabled = kwargs['statisticsEnabled']
+
         if enabled is not None:
             _setter("enabled", enabled)
         if properties_enabled is not None:
@@ -10359,7 +11241,15 @@ class GetRemoteDebianRepositoryContentSynchronisationResult(dict):
              properties_enabled: Optional[bool] = None,
              source_origin_absence_detection: Optional[bool] = None,
              statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'propertiesEnabled' in kwargs:
+            properties_enabled = kwargs['propertiesEnabled']
+        if 'sourceOriginAbsenceDetection' in kwargs:
+            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
+        if 'statisticsEnabled' in kwargs:
+            statistics_enabled = kwargs['statisticsEnabled']
+
         if enabled is not None:
             _setter("enabled", enabled)
         if properties_enabled is not None:
@@ -10411,7 +11301,15 @@ class GetRemoteDockerRepositoryContentSynchronisationResult(dict):
              properties_enabled: Optional[bool] = None,
              source_origin_absence_detection: Optional[bool] = None,
              statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'propertiesEnabled' in kwargs:
+            properties_enabled = kwargs['propertiesEnabled']
+        if 'sourceOriginAbsenceDetection' in kwargs:
+            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
+        if 'statisticsEnabled' in kwargs:
+            statistics_enabled = kwargs['statisticsEnabled']
+
         if enabled is not None:
             _setter("enabled", enabled)
         if properties_enabled is not None:
@@ -10463,7 +11361,15 @@ class GetRemoteGemsRepositoryContentSynchronisationResult(dict):
              properties_enabled: Optional[bool] = None,
              source_origin_absence_detection: Optional[bool] = None,
              statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'propertiesEnabled' in kwargs:
+            properties_enabled = kwargs['propertiesEnabled']
+        if 'sourceOriginAbsenceDetection' in kwargs:
+            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
+        if 'statisticsEnabled' in kwargs:
+            statistics_enabled = kwargs['statisticsEnabled']
+
         if enabled is not None:
             _setter("enabled", enabled)
         if properties_enabled is not None:
@@ -10515,7 +11421,15 @@ class GetRemoteGenericRepositoryContentSynchronisationResult(dict):
              properties_enabled: Optional[bool] = None,
              source_origin_absence_detection: Optional[bool] = None,
              statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'propertiesEnabled' in kwargs:
+            properties_enabled = kwargs['propertiesEnabled']
+        if 'sourceOriginAbsenceDetection' in kwargs:
+            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
+        if 'statisticsEnabled' in kwargs:
+            statistics_enabled = kwargs['statisticsEnabled']
+
         if enabled is not None:
             _setter("enabled", enabled)
         if properties_enabled is not None:
@@ -10567,7 +11481,15 @@ class GetRemoteGitlfsRepositoryContentSynchronisationResult(dict):
              properties_enabled: Optional[bool] = None,
              source_origin_absence_detection: Optional[bool] = None,
              statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'propertiesEnabled' in kwargs:
+            properties_enabled = kwargs['propertiesEnabled']
+        if 'sourceOriginAbsenceDetection' in kwargs:
+            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
+        if 'statisticsEnabled' in kwargs:
+            statistics_enabled = kwargs['statisticsEnabled']
+
         if enabled is not None:
             _setter("enabled", enabled)
         if properties_enabled is not None:
@@ -10619,7 +11541,15 @@ class GetRemoteGoRepositoryContentSynchronisationResult(dict):
              properties_enabled: Optional[bool] = None,
              source_origin_absence_detection: Optional[bool] = None,
              statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'propertiesEnabled' in kwargs:
+            properties_enabled = kwargs['propertiesEnabled']
+        if 'sourceOriginAbsenceDetection' in kwargs:
+            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
+        if 'statisticsEnabled' in kwargs:
+            statistics_enabled = kwargs['statisticsEnabled']
+
         if enabled is not None:
             _setter("enabled", enabled)
         if properties_enabled is not None:
@@ -10671,7 +11601,15 @@ class GetRemoteGradleRepositoryContentSynchronisationResult(dict):
              properties_enabled: Optional[bool] = None,
              source_origin_absence_detection: Optional[bool] = None,
              statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'propertiesEnabled' in kwargs:
+            properties_enabled = kwargs['propertiesEnabled']
+        if 'sourceOriginAbsenceDetection' in kwargs:
+            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
+        if 'statisticsEnabled' in kwargs:
+            statistics_enabled = kwargs['statisticsEnabled']
+
         if enabled is not None:
             _setter("enabled", enabled)
         if properties_enabled is not None:
@@ -10723,7 +11661,15 @@ class GetRemoteHelmRepositoryContentSynchronisationResult(dict):
              properties_enabled: Optional[bool] = None,
              source_origin_absence_detection: Optional[bool] = None,
              statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'propertiesEnabled' in kwargs:
+            properties_enabled = kwargs['propertiesEnabled']
+        if 'sourceOriginAbsenceDetection' in kwargs:
+            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
+        if 'statisticsEnabled' in kwargs:
+            statistics_enabled = kwargs['statisticsEnabled']
+
         if enabled is not None:
             _setter("enabled", enabled)
         if properties_enabled is not None:
@@ -10775,7 +11721,15 @@ class GetRemoteIvyRepositoryContentSynchronisationResult(dict):
              properties_enabled: Optional[bool] = None,
              source_origin_absence_detection: Optional[bool] = None,
              statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'propertiesEnabled' in kwargs:
+            properties_enabled = kwargs['propertiesEnabled']
+        if 'sourceOriginAbsenceDetection' in kwargs:
+            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
+        if 'statisticsEnabled' in kwargs:
+            statistics_enabled = kwargs['statisticsEnabled']
+
         if enabled is not None:
             _setter("enabled", enabled)
         if properties_enabled is not None:
@@ -10827,7 +11781,15 @@ class GetRemoteMavenRepositoryContentSynchronisationResult(dict):
              properties_enabled: Optional[bool] = None,
              source_origin_absence_detection: Optional[bool] = None,
              statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'propertiesEnabled' in kwargs:
+            properties_enabled = kwargs['propertiesEnabled']
+        if 'sourceOriginAbsenceDetection' in kwargs:
+            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
+        if 'statisticsEnabled' in kwargs:
+            statistics_enabled = kwargs['statisticsEnabled']
+
         if enabled is not None:
             _setter("enabled", enabled)
         if properties_enabled is not None:
@@ -10879,7 +11841,15 @@ class GetRemoteNpmRepositoryContentSynchronisationResult(dict):
              properties_enabled: Optional[bool] = None,
              source_origin_absence_detection: Optional[bool] = None,
              statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'propertiesEnabled' in kwargs:
+            properties_enabled = kwargs['propertiesEnabled']
+        if 'sourceOriginAbsenceDetection' in kwargs:
+            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
+        if 'statisticsEnabled' in kwargs:
+            statistics_enabled = kwargs['statisticsEnabled']
+
         if enabled is not None:
             _setter("enabled", enabled)
         if properties_enabled is not None:
@@ -10931,7 +11901,15 @@ class GetRemoteNugetRepositoryContentSynchronisationResult(dict):
              properties_enabled: Optional[bool] = None,
              source_origin_absence_detection: Optional[bool] = None,
              statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'propertiesEnabled' in kwargs:
+            properties_enabled = kwargs['propertiesEnabled']
+        if 'sourceOriginAbsenceDetection' in kwargs:
+            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
+        if 'statisticsEnabled' in kwargs:
+            statistics_enabled = kwargs['statisticsEnabled']
+
         if enabled is not None:
             _setter("enabled", enabled)
         if properties_enabled is not None:
@@ -10983,7 +11961,15 @@ class GetRemoteOpkgRepositoryContentSynchronisationResult(dict):
              properties_enabled: Optional[bool] = None,
              source_origin_absence_detection: Optional[bool] = None,
              statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'propertiesEnabled' in kwargs:
+            properties_enabled = kwargs['propertiesEnabled']
+        if 'sourceOriginAbsenceDetection' in kwargs:
+            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
+        if 'statisticsEnabled' in kwargs:
+            statistics_enabled = kwargs['statisticsEnabled']
+
         if enabled is not None:
             _setter("enabled", enabled)
         if properties_enabled is not None:
@@ -11035,7 +12021,15 @@ class GetRemoteP2RepositoryContentSynchronisationResult(dict):
              properties_enabled: Optional[bool] = None,
              source_origin_absence_detection: Optional[bool] = None,
              statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'propertiesEnabled' in kwargs:
+            properties_enabled = kwargs['propertiesEnabled']
+        if 'sourceOriginAbsenceDetection' in kwargs:
+            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
+        if 'statisticsEnabled' in kwargs:
+            statistics_enabled = kwargs['statisticsEnabled']
+
         if enabled is not None:
             _setter("enabled", enabled)
         if properties_enabled is not None:
@@ -11087,7 +12081,15 @@ class GetRemotePubRepositoryContentSynchronisationResult(dict):
              properties_enabled: Optional[bool] = None,
              source_origin_absence_detection: Optional[bool] = None,
              statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'propertiesEnabled' in kwargs:
+            properties_enabled = kwargs['propertiesEnabled']
+        if 'sourceOriginAbsenceDetection' in kwargs:
+            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
+        if 'statisticsEnabled' in kwargs:
+            statistics_enabled = kwargs['statisticsEnabled']
+
         if enabled is not None:
             _setter("enabled", enabled)
         if properties_enabled is not None:
@@ -11139,7 +12141,15 @@ class GetRemotePuppetRepositoryContentSynchronisationResult(dict):
              properties_enabled: Optional[bool] = None,
              source_origin_absence_detection: Optional[bool] = None,
              statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'propertiesEnabled' in kwargs:
+            properties_enabled = kwargs['propertiesEnabled']
+        if 'sourceOriginAbsenceDetection' in kwargs:
+            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
+        if 'statisticsEnabled' in kwargs:
+            statistics_enabled = kwargs['statisticsEnabled']
+
         if enabled is not None:
             _setter("enabled", enabled)
         if properties_enabled is not None:
@@ -11191,7 +12201,15 @@ class GetRemotePypiRepositoryContentSynchronisationResult(dict):
              properties_enabled: Optional[bool] = None,
              source_origin_absence_detection: Optional[bool] = None,
              statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'propertiesEnabled' in kwargs:
+            properties_enabled = kwargs['propertiesEnabled']
+        if 'sourceOriginAbsenceDetection' in kwargs:
+            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
+        if 'statisticsEnabled' in kwargs:
+            statistics_enabled = kwargs['statisticsEnabled']
+
         if enabled is not None:
             _setter("enabled", enabled)
         if properties_enabled is not None:
@@ -11243,7 +12261,15 @@ class GetRemoteRpmRepositoryContentSynchronisationResult(dict):
              properties_enabled: Optional[bool] = None,
              source_origin_absence_detection: Optional[bool] = None,
              statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'propertiesEnabled' in kwargs:
+            properties_enabled = kwargs['propertiesEnabled']
+        if 'sourceOriginAbsenceDetection' in kwargs:
+            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
+        if 'statisticsEnabled' in kwargs:
+            statistics_enabled = kwargs['statisticsEnabled']
+
         if enabled is not None:
             _setter("enabled", enabled)
         if properties_enabled is not None:
@@ -11295,7 +12321,15 @@ class GetRemoteSbtRepositoryContentSynchronisationResult(dict):
              properties_enabled: Optional[bool] = None,
              source_origin_absence_detection: Optional[bool] = None,
              statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'propertiesEnabled' in kwargs:
+            properties_enabled = kwargs['propertiesEnabled']
+        if 'sourceOriginAbsenceDetection' in kwargs:
+            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
+        if 'statisticsEnabled' in kwargs:
+            statistics_enabled = kwargs['statisticsEnabled']
+
         if enabled is not None:
             _setter("enabled", enabled)
         if properties_enabled is not None:
@@ -11347,7 +12381,15 @@ class GetRemoteSwiftRepositoryContentSynchronisationResult(dict):
              properties_enabled: Optional[bool] = None,
              source_origin_absence_detection: Optional[bool] = None,
              statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'propertiesEnabled' in kwargs:
+            properties_enabled = kwargs['propertiesEnabled']
+        if 'sourceOriginAbsenceDetection' in kwargs:
+            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
+        if 'statisticsEnabled' in kwargs:
+            statistics_enabled = kwargs['statisticsEnabled']
+
         if enabled is not None:
             _setter("enabled", enabled)
         if properties_enabled is not None:
@@ -11399,7 +12441,15 @@ class GetRemoteTerraformRepositoryContentSynchronisationResult(dict):
              properties_enabled: Optional[bool] = None,
              source_origin_absence_detection: Optional[bool] = None,
              statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'propertiesEnabled' in kwargs:
+            properties_enabled = kwargs['propertiesEnabled']
+        if 'sourceOriginAbsenceDetection' in kwargs:
+            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
+        if 'statisticsEnabled' in kwargs:
+            statistics_enabled = kwargs['statisticsEnabled']
+
         if enabled is not None:
             _setter("enabled", enabled)
         if properties_enabled is not None:
@@ -11451,7 +12501,15 @@ class GetRemoteVcsRepositoryContentSynchronisationResult(dict):
              properties_enabled: Optional[bool] = None,
              source_origin_absence_detection: Optional[bool] = None,
              statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'propertiesEnabled' in kwargs:
+            properties_enabled = kwargs['propertiesEnabled']
+        if 'sourceOriginAbsenceDetection' in kwargs:
+            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
+        if 'statisticsEnabled' in kwargs:
+            statistics_enabled = kwargs['statisticsEnabled']
+
         if enabled is not None:
             _setter("enabled", enabled)
         if properties_enabled is not None:

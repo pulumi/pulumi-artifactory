@@ -117,6 +117,12 @@ namespace Pulumi.Artifactory
         public Output<bool?> DisableProxy { get; private set; } = null!;
 
         /// <summary>
+        /// Whether to disable URL normalization, default is `false`.
+        /// </summary>
+        [Output("disableUrlNormalization")]
+        public Output<bool?> DisableUrlNormalization { get; private set; } = null!;
+
+        /// <summary>
         /// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
         /// storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
         /// </summary>
@@ -464,6 +470,12 @@ namespace Pulumi.Artifactory
         public Input<bool>? DisableProxy { get; set; }
 
         /// <summary>
+        /// Whether to disable URL normalization, default is `false`.
+        /// </summary>
+        [Input("disableUrlNormalization")]
+        public Input<bool>? DisableUrlNormalization { get; set; }
+
+        /// <summary>
         /// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
         /// storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
         /// </summary>
@@ -791,6 +803,12 @@ namespace Pulumi.Artifactory
         /// </summary>
         [Input("disableProxy")]
         public Input<bool>? DisableProxy { get; set; }
+
+        /// <summary>
+        /// Whether to disable URL normalization, default is `false`.
+        /// </summary>
+        [Input("disableUrlNormalization")]
+        public Input<bool>? DisableUrlNormalization { get; set; }
 
         /// <summary>
         /// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud

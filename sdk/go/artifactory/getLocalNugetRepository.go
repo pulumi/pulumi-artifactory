@@ -50,11 +50,11 @@ type LookupLocalNugetRepositoryResult struct {
 	CdnRedirect              *bool   `pulumi:"cdnRedirect"`
 	Description              *string `pulumi:"description"`
 	DownloadDirect           *bool   `pulumi:"downloadDirect"`
-	ExcludesPattern          string  `pulumi:"excludesPattern"`
+	ExcludesPattern          *string `pulumi:"excludesPattern"`
 	ForceNugetAuthentication *bool   `pulumi:"forceNugetAuthentication"`
 	// The provider-assigned unique ID for this managed resource.
 	Id                  string   `pulumi:"id"`
-	IncludesPattern     string   `pulumi:"includesPattern"`
+	IncludesPattern     *string  `pulumi:"includesPattern"`
 	Key                 string   `pulumi:"key"`
 	MaxUniqueSnapshots  *int     `pulumi:"maxUniqueSnapshots"`
 	Notes               *string  `pulumi:"notes"`
@@ -146,8 +146,8 @@ func (o LookupLocalNugetRepositoryResultOutput) DownloadDirect() pulumi.BoolPtrO
 	return o.ApplyT(func(v LookupLocalNugetRepositoryResult) *bool { return v.DownloadDirect }).(pulumi.BoolPtrOutput)
 }
 
-func (o LookupLocalNugetRepositoryResultOutput) ExcludesPattern() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupLocalNugetRepositoryResult) string { return v.ExcludesPattern }).(pulumi.StringOutput)
+func (o LookupLocalNugetRepositoryResultOutput) ExcludesPattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLocalNugetRepositoryResult) *string { return v.ExcludesPattern }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupLocalNugetRepositoryResultOutput) ForceNugetAuthentication() pulumi.BoolPtrOutput {
@@ -159,8 +159,8 @@ func (o LookupLocalNugetRepositoryResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLocalNugetRepositoryResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-func (o LookupLocalNugetRepositoryResultOutput) IncludesPattern() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupLocalNugetRepositoryResult) string { return v.IncludesPattern }).(pulumi.StringOutput)
+func (o LookupLocalNugetRepositoryResultOutput) IncludesPattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLocalNugetRepositoryResult) *string { return v.IncludesPattern }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupLocalNugetRepositoryResultOutput) Key() pulumi.StringOutput {

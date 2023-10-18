@@ -41,7 +41,15 @@ class OauthSettingsArgs:
              allow_user_to_access_profile: Optional[pulumi.Input[bool]] = None,
              enable: Optional[pulumi.Input[bool]] = None,
              persist_users: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'oauthProviders' in kwargs:
+            oauth_providers = kwargs['oauthProviders']
+        if 'allowUserToAccessProfile' in kwargs:
+            allow_user_to_access_profile = kwargs['allowUserToAccessProfile']
+        if 'persistUsers' in kwargs:
+            persist_users = kwargs['persistUsers']
+
         _setter("oauth_providers", oauth_providers)
         if allow_user_to_access_profile is not None:
             _setter("allow_user_to_access_profile", allow_user_to_access_profile)
@@ -127,7 +135,15 @@ class _OauthSettingsState:
              enable: Optional[pulumi.Input[bool]] = None,
              oauth_providers: Optional[pulumi.Input[Sequence[pulumi.Input['OauthSettingsOauthProviderArgs']]]] = None,
              persist_users: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowUserToAccessProfile' in kwargs:
+            allow_user_to_access_profile = kwargs['allowUserToAccessProfile']
+        if 'oauthProviders' in kwargs:
+            oauth_providers = kwargs['oauthProviders']
+        if 'persistUsers' in kwargs:
+            persist_users = kwargs['persistUsers']
+
         if allow_user_to_access_profile is not None:
             _setter("allow_user_to_access_profile", allow_user_to_access_profile)
         if enable is not None:

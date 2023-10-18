@@ -334,6 +334,7 @@ func Provider() tfbridge.ProviderInfo {
 		"artifactory_local_go_repository",
 		"artifactory_local_gradle_repository",
 		"artifactory_local_helm_repository",
+		"artifactory_local_huggingfaceml_repository",
 		"artifactory_local_ivy_repository",
 		"artifactory_local_maven_repository",
 		"artifactory_local_npm_repository",

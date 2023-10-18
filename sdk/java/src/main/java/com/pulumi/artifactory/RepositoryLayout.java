@@ -23,7 +23,7 @@ public class RepositoryLayout extends com.pulumi.resources.CustomResource {
      * in the Artifactory Wiki documentation.
      * 
      */
-    @Export(name="artifactPathPattern", type=String.class, parameters={})
+    @Export(name="artifactPathPattern", refs={String.class}, tree="[0]")
     private Output<String> artifactPathPattern;
 
     /**
@@ -41,7 +41,7 @@ public class RepositoryLayout extends com.pulumi.resources.CustomResource {
      * the Artifactory Wiki documentation.
      * 
      */
-    @Export(name="descriptorPathPattern", type=String.class, parameters={})
+    @Export(name="descriptorPathPattern", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> descriptorPathPattern;
 
     /**
@@ -57,7 +57,7 @@ public class RepositoryLayout extends com.pulumi.resources.CustomResource {
      * When set, &#39;descriptor_path_pattern&#39; will be used. Default to &#39;false&#39;.
      * 
      */
-    @Export(name="distinctiveDescriptorPathPattern", type=Boolean.class, parameters={})
+    @Export(name="distinctiveDescriptorPathPattern", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> distinctiveDescriptorPathPattern;
 
     /**
@@ -73,7 +73,7 @@ public class RepositoryLayout extends com.pulumi.resources.CustomResource {
      * capturing groups within this expression. If not applicable use &#39;.*&#39;
      * 
      */
-    @Export(name="fileIntegrationRevisionRegexp", type=String.class, parameters={})
+    @Export(name="fileIntegrationRevisionRegexp", refs={String.class}, tree="[0]")
     private Output<String> fileIntegrationRevisionRegexp;
 
     /**
@@ -91,7 +91,7 @@ public class RepositoryLayout extends com.pulumi.resources.CustomResource {
      * If not applicable use &#39;.*&#39;
      * 
      */
-    @Export(name="folderIntegrationRevisionRegexp", type=String.class, parameters={})
+    @Export(name="folderIntegrationRevisionRegexp", refs={String.class}, tree="[0]")
     private Output<String> folderIntegrationRevisionRegexp;
 
     /**
@@ -107,7 +107,7 @@ public class RepositoryLayout extends com.pulumi.resources.CustomResource {
      * Layout name
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**

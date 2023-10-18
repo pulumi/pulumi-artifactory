@@ -81,20 +81,20 @@ export class LocalNugetRepository extends pulumi.CustomResource {
      */
     public readonly downloadDirect!: pulumi.Output<boolean | undefined>;
     /**
-     * List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*. By default no
+     * List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*.By default no
      * artifacts are excluded.
      */
-    public readonly excludesPattern!: pulumi.Output<string>;
+    public readonly excludesPattern!: pulumi.Output<string | undefined>;
     /**
      * Force basic authentication credentials in order to use this repository.
      * Default is `false`.
      */
     public readonly forceNugetAuthentication!: pulumi.Output<boolean | undefined>;
     /**
-     * List of artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When used, only
-     * artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
+     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When
+     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
      */
-    public readonly includesPattern!: pulumi.Output<string>;
+    public readonly includesPattern!: pulumi.Output<string | undefined>;
     /**
      * the identity key of the repo.
      */
@@ -229,7 +229,7 @@ export interface LocalNugetRepositoryState {
      */
     downloadDirect?: pulumi.Input<boolean>;
     /**
-     * List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*. By default no
+     * List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*.By default no
      * artifacts are excluded.
      */
     excludesPattern?: pulumi.Input<string>;
@@ -239,8 +239,8 @@ export interface LocalNugetRepositoryState {
      */
     forceNugetAuthentication?: pulumi.Input<boolean>;
     /**
-     * List of artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When used, only
-     * artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
+     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When
+     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
      */
     includesPattern?: pulumi.Input<string>;
     /**
@@ -318,7 +318,7 @@ export interface LocalNugetRepositoryArgs {
      */
     downloadDirect?: pulumi.Input<boolean>;
     /**
-     * List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*. By default no
+     * List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*.By default no
      * artifacts are excluded.
      */
     excludesPattern?: pulumi.Input<string>;
@@ -328,8 +328,8 @@ export interface LocalNugetRepositoryArgs {
      */
     forceNugetAuthentication?: pulumi.Input<boolean>;
     /**
-     * List of artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When used, only
-     * artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
+     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When
+     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
      */
     includesPattern?: pulumi.Input<string>;
     /**

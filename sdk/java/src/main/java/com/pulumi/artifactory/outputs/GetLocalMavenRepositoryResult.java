@@ -20,7 +20,7 @@ public final class GetLocalMavenRepositoryResult {
     private @Nullable String checksumPolicyType;
     private @Nullable String description;
     private @Nullable Boolean downloadDirect;
-    private String excludesPattern;
+    private @Nullable String excludesPattern;
     private @Nullable Boolean handleReleases;
     private @Nullable Boolean handleSnapshots;
     /**
@@ -28,7 +28,7 @@ public final class GetLocalMavenRepositoryResult {
      * 
      */
     private String id;
-    private String includesPattern;
+    private @Nullable String includesPattern;
     private String key;
     private @Nullable Integer maxUniqueSnapshots;
     private @Nullable String notes;
@@ -61,8 +61,8 @@ public final class GetLocalMavenRepositoryResult {
     public Optional<Boolean> downloadDirect() {
         return Optional.ofNullable(this.downloadDirect);
     }
-    public String excludesPattern() {
-        return this.excludesPattern;
+    public Optional<String> excludesPattern() {
+        return Optional.ofNullable(this.excludesPattern);
     }
     public Optional<Boolean> handleReleases() {
         return Optional.ofNullable(this.handleReleases);
@@ -77,8 +77,8 @@ public final class GetLocalMavenRepositoryResult {
     public String id() {
         return this.id;
     }
-    public String includesPattern() {
-        return this.includesPattern;
+    public Optional<String> includesPattern() {
+        return Optional.ofNullable(this.includesPattern);
     }
     public String key() {
         return this.key;
@@ -132,11 +132,11 @@ public final class GetLocalMavenRepositoryResult {
         private @Nullable String checksumPolicyType;
         private @Nullable String description;
         private @Nullable Boolean downloadDirect;
-        private String excludesPattern;
+        private @Nullable String excludesPattern;
         private @Nullable Boolean handleReleases;
         private @Nullable Boolean handleSnapshots;
         private String id;
-        private String includesPattern;
+        private @Nullable String includesPattern;
         private String key;
         private @Nullable Integer maxUniqueSnapshots;
         private @Nullable String notes;
@@ -208,8 +208,8 @@ public final class GetLocalMavenRepositoryResult {
             return this;
         }
         @CustomType.Setter
-        public Builder excludesPattern(String excludesPattern) {
-            this.excludesPattern = Objects.requireNonNull(excludesPattern);
+        public Builder excludesPattern(@Nullable String excludesPattern) {
+            this.excludesPattern = excludesPattern;
             return this;
         }
         @CustomType.Setter
@@ -228,8 +228,8 @@ public final class GetLocalMavenRepositoryResult {
             return this;
         }
         @CustomType.Setter
-        public Builder includesPattern(String includesPattern) {
-            this.includesPattern = Objects.requireNonNull(includesPattern);
+        public Builder includesPattern(@Nullable String includesPattern) {
+            this.includesPattern = includesPattern;
             return this;
         }
         @CustomType.Setter

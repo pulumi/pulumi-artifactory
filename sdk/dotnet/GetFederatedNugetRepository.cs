@@ -259,13 +259,13 @@ namespace Pulumi.Artifactory
         public readonly bool? CleanupOnDelete;
         public readonly string? Description;
         public readonly bool? DownloadDirect;
-        public readonly string ExcludesPattern;
+        public readonly string? ExcludesPattern;
         public readonly bool? ForceNugetAuthentication;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        public readonly string IncludesPattern;
+        public readonly string? IncludesPattern;
         public readonly string Key;
         public readonly int? MaxUniqueSnapshots;
         /// <summary>
@@ -298,13 +298,13 @@ namespace Pulumi.Artifactory
 
             bool? downloadDirect,
 
-            string excludesPattern,
+            string? excludesPattern,
 
             bool? forceNugetAuthentication,
 
             string id,
 
-            string includesPattern,
+            string? includesPattern,
 
             string key,
 

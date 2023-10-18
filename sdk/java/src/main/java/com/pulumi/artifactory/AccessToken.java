@@ -338,7 +338,7 @@ public class AccessToken extends com.pulumi.resources.CustomResource {
      * Returns the access token to authenciate to Artifactory
      * 
      */
-    @Export(name="accessToken", type=String.class, parameters={})
+    @Export(name="accessToken", refs={String.class}, tree="[0]")
     private Output<String> accessToken;
 
     /**
@@ -352,7 +352,7 @@ public class AccessToken extends com.pulumi.resources.CustomResource {
      * (Optional) Specify the `instance_id` in this block to grant this token admin privileges. This can only be created when the authenticated user is an admin. `admin_token` cannot be specified with `groups`.
      * 
      */
-    @Export(name="adminToken", type=AccessTokenAdminToken.class, parameters={})
+    @Export(name="adminToken", refs={AccessTokenAdminToken.class}, tree="[0]")
     private Output</* @Nullable */ AccessTokenAdminToken> adminToken;
 
     /**
@@ -366,7 +366,7 @@ public class AccessToken extends com.pulumi.resources.CustomResource {
      * (Optional) A space-separate list of the other Artifactory instances or services that should accept this token identified by their Artifactory Service IDs. You may set `&#34;jfrt@*&#34;` so the token to be accepted by all Artifactory instances.
      * 
      */
-    @Export(name="audience", type=String.class, parameters={})
+    @Export(name="audience", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> audience;
 
     /**
@@ -380,7 +380,7 @@ public class AccessToken extends com.pulumi.resources.CustomResource {
      * (Optional) The end date which the token is valid until, formatted as a RFC3339 date string (e.g. `2018-01-01T01:02:03Z`).
      * 
      */
-    @Export(name="endDate", type=String.class, parameters={})
+    @Export(name="endDate", refs={String.class}, tree="[0]")
     private Output<String> endDate;
 
     /**
@@ -394,7 +394,7 @@ public class AccessToken extends com.pulumi.resources.CustomResource {
      * (Optional) A relative duration for which the token is valid until, for example `240h` (10 days) or `2400h30m`. Valid time units are &#34;s&#34;, &#34;m&#34;, &#34;h&#34;.
      * 
      */
-    @Export(name="endDateRelative", type=String.class, parameters={})
+    @Export(name="endDateRelative", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> endDateRelative;
 
     /**
@@ -408,7 +408,7 @@ public class AccessToken extends com.pulumi.resources.CustomResource {
      * (Optional) List of groups. The token is granted access based on the permissions of the groups. Specify `[&#34;*&#34;]` for all groups that the user belongs to. `groups` cannot be specified with `admin_token`.
      * 
      */
-    @Export(name="groups", type=List.class, parameters={String.class})
+    @Export(name="groups", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> groups;
 
     /**
@@ -422,7 +422,7 @@ public class AccessToken extends com.pulumi.resources.CustomResource {
      * Returns the refresh token when `refreshable` is true, or an empty string when `refreshable` is false.
      * 
      */
-    @Export(name="refreshToken", type=String.class, parameters={})
+    @Export(name="refreshToken", refs={String.class}, tree="[0]")
     private Output<String> refreshToken;
 
     /**
@@ -436,7 +436,7 @@ public class AccessToken extends com.pulumi.resources.CustomResource {
      * (Optional) Is this token refreshable? Defaults to `false`
      * 
      */
-    @Export(name="refreshable", type=Boolean.class, parameters={})
+    @Export(name="refreshable", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> refreshable;
 
     /**
@@ -450,7 +450,7 @@ public class AccessToken extends com.pulumi.resources.CustomResource {
      * (Required) The username or subject for the token. A non-admin can only specify their own username. Admins can specify any existing username, or a new name for a temporary token. Temporary tokens require `groups` to be set.
      * 
      */
-    @Export(name="username", type=String.class, parameters={})
+    @Export(name="username", refs={String.class}, tree="[0]")
     private Output<String> username;
 
     /**

@@ -22,13 +22,13 @@ public final class GetFederatedCargoRepositoryResult {
     private @Nullable String description;
     private @Nullable Boolean downloadDirect;
     private @Nullable Boolean enableSparseIndex;
-    private String excludesPattern;
+    private @Nullable String excludesPattern;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    private String includesPattern;
+    private @Nullable String includesPattern;
     private @Nullable List<String> indexCompressionFormats;
     private String key;
     /**
@@ -73,8 +73,8 @@ public final class GetFederatedCargoRepositoryResult {
     public Optional<Boolean> enableSparseIndex() {
         return Optional.ofNullable(this.enableSparseIndex);
     }
-    public String excludesPattern() {
-        return this.excludesPattern;
+    public Optional<String> excludesPattern() {
+        return Optional.ofNullable(this.excludesPattern);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -83,8 +83,8 @@ public final class GetFederatedCargoRepositoryResult {
     public String id() {
         return this.id;
     }
-    public String includesPattern() {
-        return this.includesPattern;
+    public Optional<String> includesPattern() {
+        return Optional.ofNullable(this.includesPattern);
     }
     public List<String> indexCompressionFormats() {
         return this.indexCompressionFormats == null ? List.of() : this.indexCompressionFormats;
@@ -144,9 +144,9 @@ public final class GetFederatedCargoRepositoryResult {
         private @Nullable String description;
         private @Nullable Boolean downloadDirect;
         private @Nullable Boolean enableSparseIndex;
-        private String excludesPattern;
+        private @Nullable String excludesPattern;
         private String id;
-        private String includesPattern;
+        private @Nullable String includesPattern;
         private @Nullable List<String> indexCompressionFormats;
         private String key;
         private @Nullable List<GetFederatedCargoRepositoryMember> members;
@@ -226,8 +226,8 @@ public final class GetFederatedCargoRepositoryResult {
             return this;
         }
         @CustomType.Setter
-        public Builder excludesPattern(String excludesPattern) {
-            this.excludesPattern = Objects.requireNonNull(excludesPattern);
+        public Builder excludesPattern(@Nullable String excludesPattern) {
+            this.excludesPattern = excludesPattern;
             return this;
         }
         @CustomType.Setter
@@ -236,8 +236,8 @@ public final class GetFederatedCargoRepositoryResult {
             return this;
         }
         @CustomType.Setter
-        public Builder includesPattern(String includesPattern) {
-            this.includesPattern = Objects.requireNonNull(includesPattern);
+        public Builder includesPattern(@Nullable String includesPattern) {
+            this.includesPattern = includesPattern;
             return this;
         }
         @CustomType.Setter

@@ -249,7 +249,85 @@ class RemoteDockerRepositoryArgs:
              unused_artifacts_cleanup_period_hours: Optional[pulumi.Input[int]] = None,
              username: Optional[pulumi.Input[str]] = None,
              xray_index: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowAnyHostAuth' in kwargs:
+            allow_any_host_auth = kwargs['allowAnyHostAuth']
+        if 'assumedOfflinePeriodSecs' in kwargs:
+            assumed_offline_period_secs = kwargs['assumedOfflinePeriodSecs']
+        if 'blackedOut' in kwargs:
+            blacked_out = kwargs['blackedOut']
+        if 'blockMismatchingMimeTypes' in kwargs:
+            block_mismatching_mime_types = kwargs['blockMismatchingMimeTypes']
+        if 'blockPushingSchema1' in kwargs:
+            block_pushing_schema1 = kwargs['blockPushingSchema1']
+        if 'bypassHeadRequests' in kwargs:
+            bypass_head_requests = kwargs['bypassHeadRequests']
+        if 'cdnRedirect' in kwargs:
+            cdn_redirect = kwargs['cdnRedirect']
+        if 'clientTlsCertificate' in kwargs:
+            client_tls_certificate = kwargs['clientTlsCertificate']
+        if 'contentSynchronisation' in kwargs:
+            content_synchronisation = kwargs['contentSynchronisation']
+        if 'disableProxy' in kwargs:
+            disable_proxy = kwargs['disableProxy']
+        if 'disableUrlNormalization' in kwargs:
+            disable_url_normalization = kwargs['disableUrlNormalization']
+        if 'downloadDirect' in kwargs:
+            download_direct = kwargs['downloadDirect']
+        if 'enableCookieManagement' in kwargs:
+            enable_cookie_management = kwargs['enableCookieManagement']
+        if 'enableTokenAuthentication' in kwargs:
+            enable_token_authentication = kwargs['enableTokenAuthentication']
+        if 'excludesPattern' in kwargs:
+            excludes_pattern = kwargs['excludesPattern']
+        if 'externalDependenciesEnabled' in kwargs:
+            external_dependencies_enabled = kwargs['externalDependenciesEnabled']
+        if 'externalDependenciesPatterns' in kwargs:
+            external_dependencies_patterns = kwargs['externalDependenciesPatterns']
+        if 'hardFail' in kwargs:
+            hard_fail = kwargs['hardFail']
+        if 'includesPattern' in kwargs:
+            includes_pattern = kwargs['includesPattern']
+        if 'listRemoteFolderItems' in kwargs:
+            list_remote_folder_items = kwargs['listRemoteFolderItems']
+        if 'localAddress' in kwargs:
+            local_address = kwargs['localAddress']
+        if 'metadataRetrievalTimeoutSecs' in kwargs:
+            metadata_retrieval_timeout_secs = kwargs['metadataRetrievalTimeoutSecs']
+        if 'mismatchingMimeTypesOverrideList' in kwargs:
+            mismatching_mime_types_override_list = kwargs['mismatchingMimeTypesOverrideList']
+        if 'missedCachePeriodSeconds' in kwargs:
+            missed_cache_period_seconds = kwargs['missedCachePeriodSeconds']
+        if 'priorityResolution' in kwargs:
+            priority_resolution = kwargs['priorityResolution']
+        if 'projectEnvironments' in kwargs:
+            project_environments = kwargs['projectEnvironments']
+        if 'projectKey' in kwargs:
+            project_key = kwargs['projectKey']
+        if 'propertySets' in kwargs:
+            property_sets = kwargs['propertySets']
+        if 'queryParams' in kwargs:
+            query_params = kwargs['queryParams']
+        if 'remoteRepoLayoutRef' in kwargs:
+            remote_repo_layout_ref = kwargs['remoteRepoLayoutRef']
+        if 'repoLayoutRef' in kwargs:
+            repo_layout_ref = kwargs['repoLayoutRef']
+        if 'retrievalCachePeriodSeconds' in kwargs:
+            retrieval_cache_period_seconds = kwargs['retrievalCachePeriodSeconds']
+        if 'shareConfiguration' in kwargs:
+            share_configuration = kwargs['shareConfiguration']
+        if 'socketTimeoutMillis' in kwargs:
+            socket_timeout_millis = kwargs['socketTimeoutMillis']
+        if 'storeArtifactsLocally' in kwargs:
+            store_artifacts_locally = kwargs['storeArtifactsLocally']
+        if 'synchronizeProperties' in kwargs:
+            synchronize_properties = kwargs['synchronizeProperties']
+        if 'unusedArtifactsCleanupPeriodHours' in kwargs:
+            unused_artifacts_cleanup_period_hours = kwargs['unusedArtifactsCleanupPeriodHours']
+        if 'xrayIndex' in kwargs:
+            xray_index = kwargs['xrayIndex']
+
         _setter("key", key)
         _setter("url", url)
         if allow_any_host_auth is not None:
@@ -1165,7 +1243,87 @@ class _RemoteDockerRepositoryState:
              url: Optional[pulumi.Input[str]] = None,
              username: Optional[pulumi.Input[str]] = None,
              xray_index: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowAnyHostAuth' in kwargs:
+            allow_any_host_auth = kwargs['allowAnyHostAuth']
+        if 'assumedOfflinePeriodSecs' in kwargs:
+            assumed_offline_period_secs = kwargs['assumedOfflinePeriodSecs']
+        if 'blackedOut' in kwargs:
+            blacked_out = kwargs['blackedOut']
+        if 'blockMismatchingMimeTypes' in kwargs:
+            block_mismatching_mime_types = kwargs['blockMismatchingMimeTypes']
+        if 'blockPushingSchema1' in kwargs:
+            block_pushing_schema1 = kwargs['blockPushingSchema1']
+        if 'bypassHeadRequests' in kwargs:
+            bypass_head_requests = kwargs['bypassHeadRequests']
+        if 'cdnRedirect' in kwargs:
+            cdn_redirect = kwargs['cdnRedirect']
+        if 'clientTlsCertificate' in kwargs:
+            client_tls_certificate = kwargs['clientTlsCertificate']
+        if 'contentSynchronisation' in kwargs:
+            content_synchronisation = kwargs['contentSynchronisation']
+        if 'disableProxy' in kwargs:
+            disable_proxy = kwargs['disableProxy']
+        if 'disableUrlNormalization' in kwargs:
+            disable_url_normalization = kwargs['disableUrlNormalization']
+        if 'downloadDirect' in kwargs:
+            download_direct = kwargs['downloadDirect']
+        if 'enableCookieManagement' in kwargs:
+            enable_cookie_management = kwargs['enableCookieManagement']
+        if 'enableTokenAuthentication' in kwargs:
+            enable_token_authentication = kwargs['enableTokenAuthentication']
+        if 'excludesPattern' in kwargs:
+            excludes_pattern = kwargs['excludesPattern']
+        if 'externalDependenciesEnabled' in kwargs:
+            external_dependencies_enabled = kwargs['externalDependenciesEnabled']
+        if 'externalDependenciesPatterns' in kwargs:
+            external_dependencies_patterns = kwargs['externalDependenciesPatterns']
+        if 'hardFail' in kwargs:
+            hard_fail = kwargs['hardFail']
+        if 'includesPattern' in kwargs:
+            includes_pattern = kwargs['includesPattern']
+        if 'listRemoteFolderItems' in kwargs:
+            list_remote_folder_items = kwargs['listRemoteFolderItems']
+        if 'localAddress' in kwargs:
+            local_address = kwargs['localAddress']
+        if 'metadataRetrievalTimeoutSecs' in kwargs:
+            metadata_retrieval_timeout_secs = kwargs['metadataRetrievalTimeoutSecs']
+        if 'mismatchingMimeTypesOverrideList' in kwargs:
+            mismatching_mime_types_override_list = kwargs['mismatchingMimeTypesOverrideList']
+        if 'missedCachePeriodSeconds' in kwargs:
+            missed_cache_period_seconds = kwargs['missedCachePeriodSeconds']
+        if 'packageType' in kwargs:
+            package_type = kwargs['packageType']
+        if 'priorityResolution' in kwargs:
+            priority_resolution = kwargs['priorityResolution']
+        if 'projectEnvironments' in kwargs:
+            project_environments = kwargs['projectEnvironments']
+        if 'projectKey' in kwargs:
+            project_key = kwargs['projectKey']
+        if 'propertySets' in kwargs:
+            property_sets = kwargs['propertySets']
+        if 'queryParams' in kwargs:
+            query_params = kwargs['queryParams']
+        if 'remoteRepoLayoutRef' in kwargs:
+            remote_repo_layout_ref = kwargs['remoteRepoLayoutRef']
+        if 'repoLayoutRef' in kwargs:
+            repo_layout_ref = kwargs['repoLayoutRef']
+        if 'retrievalCachePeriodSeconds' in kwargs:
+            retrieval_cache_period_seconds = kwargs['retrievalCachePeriodSeconds']
+        if 'shareConfiguration' in kwargs:
+            share_configuration = kwargs['shareConfiguration']
+        if 'socketTimeoutMillis' in kwargs:
+            socket_timeout_millis = kwargs['socketTimeoutMillis']
+        if 'storeArtifactsLocally' in kwargs:
+            store_artifacts_locally = kwargs['storeArtifactsLocally']
+        if 'synchronizeProperties' in kwargs:
+            synchronize_properties = kwargs['synchronizeProperties']
+        if 'unusedArtifactsCleanupPeriodHours' in kwargs:
+            unused_artifacts_cleanup_period_hours = kwargs['unusedArtifactsCleanupPeriodHours']
+        if 'xrayIndex' in kwargs:
+            xray_index = kwargs['xrayIndex']
+
         if allow_any_host_auth is not None:
             _setter("allow_any_host_auth", allow_any_host_auth)
         if assumed_offline_period_secs is not None:
@@ -1919,7 +2077,6 @@ class RemoteDockerRepository(pulumi.CustomResource):
 
         my_remote_docker = artifactory.RemoteDockerRepository("my-remote-docker",
             block_pushing_schema1=True,
-            disable_url_normalization=True,
             enable_token_authentication=True,
             external_dependencies_enabled=True,
             external_dependencies_patterns=["**/registry-1.docker.io/**"],
@@ -2042,7 +2199,6 @@ class RemoteDockerRepository(pulumi.CustomResource):
 
         my_remote_docker = artifactory.RemoteDockerRepository("my-remote-docker",
             block_pushing_schema1=True,
-            disable_url_normalization=True,
             enable_token_authentication=True,
             external_dependencies_enabled=True,
             external_dependencies_patterns=["**/registry-1.docker.io/**"],

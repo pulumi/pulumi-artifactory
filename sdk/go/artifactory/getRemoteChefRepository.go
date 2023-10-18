@@ -61,6 +61,7 @@ type LookupRemoteChefRepositoryArgs struct {
 	ContentSynchronisation    *GetRemoteChefRepositoryContentSynchronisation `pulumi:"contentSynchronisation"`
 	Description               *string                                        `pulumi:"description"`
 	DisableProxy              *bool                                          `pulumi:"disableProxy"`
+	DisableUrlNormalization   *bool                                          `pulumi:"disableUrlNormalization"`
 	DownloadDirect            *bool                                          `pulumi:"downloadDirect"`
 	EnableCookieManagement    *bool                                          `pulumi:"enableCookieManagement"`
 	ExcludesPattern           *string                                        `pulumi:"excludesPattern"`
@@ -107,6 +108,7 @@ type LookupRemoteChefRepositoryResult struct {
 	ContentSynchronisation    GetRemoteChefRepositoryContentSynchronisation `pulumi:"contentSynchronisation"`
 	Description               *string                                       `pulumi:"description"`
 	DisableProxy              *bool                                         `pulumi:"disableProxy"`
+	DisableUrlNormalization   *bool                                         `pulumi:"disableUrlNormalization"`
 	DownloadDirect            *bool                                         `pulumi:"downloadDirect"`
 	EnableCookieManagement    *bool                                         `pulumi:"enableCookieManagement"`
 	ExcludesPattern           *string                                       `pulumi:"excludesPattern"`
@@ -168,6 +170,7 @@ type LookupRemoteChefRepositoryOutputArgs struct {
 	ContentSynchronisation    GetRemoteChefRepositoryContentSynchronisationPtrInput `pulumi:"contentSynchronisation"`
 	Description               pulumi.StringPtrInput                                 `pulumi:"description"`
 	DisableProxy              pulumi.BoolPtrInput                                   `pulumi:"disableProxy"`
+	DisableUrlNormalization   pulumi.BoolPtrInput                                   `pulumi:"disableUrlNormalization"`
 	DownloadDirect            pulumi.BoolPtrInput                                   `pulumi:"downloadDirect"`
 	EnableCookieManagement    pulumi.BoolPtrInput                                   `pulumi:"enableCookieManagement"`
 	ExcludesPattern           pulumi.StringPtrInput                                 `pulumi:"excludesPattern"`
@@ -267,6 +270,10 @@ func (o LookupRemoteChefRepositoryResultOutput) Description() pulumi.StringPtrOu
 
 func (o LookupRemoteChefRepositoryResultOutput) DisableProxy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupRemoteChefRepositoryResult) *bool { return v.DisableProxy }).(pulumi.BoolPtrOutput)
+}
+
+func (o LookupRemoteChefRepositoryResultOutput) DisableUrlNormalization() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupRemoteChefRepositoryResult) *bool { return v.DisableUrlNormalization }).(pulumi.BoolPtrOutput)
 }
 
 func (o LookupRemoteChefRepositoryResultOutput) DownloadDirect() pulumi.BoolPtrOutput {

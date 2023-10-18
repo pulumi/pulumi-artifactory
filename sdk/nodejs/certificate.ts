@@ -64,9 +64,12 @@ export class Certificate extends pulumi.CustomResource {
      */
     public readonly alias!: pulumi.Output<string>;
     /**
-     * PEM-encoded client certificate and private key.
+     * PEM-encoded client certificate and private key. Cannot be set with `file` attribute simultaneously.
      */
     public readonly content!: pulumi.Output<string | undefined>;
+    /**
+     * Path to the PEM file. Cannot be set with `content` attribute simultaneously.
+     */
     public readonly file!: pulumi.Output<string | undefined>;
     /**
      * SHA256 fingerprint of the certificate.
@@ -140,9 +143,12 @@ export interface CertificateState {
      */
     alias?: pulumi.Input<string>;
     /**
-     * PEM-encoded client certificate and private key.
+     * PEM-encoded client certificate and private key. Cannot be set with `file` attribute simultaneously.
      */
     content?: pulumi.Input<string>;
+    /**
+     * Path to the PEM file. Cannot be set with `content` attribute simultaneously.
+     */
     file?: pulumi.Input<string>;
     /**
      * SHA256 fingerprint of the certificate.
@@ -175,8 +181,11 @@ export interface CertificateArgs {
      */
     alias: pulumi.Input<string>;
     /**
-     * PEM-encoded client certificate and private key.
+     * PEM-encoded client certificate and private key. Cannot be set with `file` attribute simultaneously.
      */
     content?: pulumi.Input<string>;
+    /**
+     * Path to the PEM file. Cannot be set with `content` attribute simultaneously.
+     */
     file?: pulumi.Input<string>;
 }

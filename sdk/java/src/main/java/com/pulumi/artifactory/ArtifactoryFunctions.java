@@ -110,6 +110,8 @@ import com.pulumi.artifactory.inputs.GetLocalGradleRepositoryArgs;
 import com.pulumi.artifactory.inputs.GetLocalGradleRepositoryPlainArgs;
 import com.pulumi.artifactory.inputs.GetLocalHelmRepositoryArgs;
 import com.pulumi.artifactory.inputs.GetLocalHelmRepositoryPlainArgs;
+import com.pulumi.artifactory.inputs.GetLocalHuggingfacemlRepositoryArgs;
+import com.pulumi.artifactory.inputs.GetLocalHuggingfacemlRepositoryPlainArgs;
 import com.pulumi.artifactory.inputs.GetLocalIvyRepositoryArgs;
 import com.pulumi.artifactory.inputs.GetLocalIvyRepositoryPlainArgs;
 import com.pulumi.artifactory.inputs.GetLocalMavenRepositoryArgs;
@@ -311,6 +313,7 @@ import com.pulumi.artifactory.outputs.GetLocalGitlfsRepositoryResult;
 import com.pulumi.artifactory.outputs.GetLocalGoRepositoryResult;
 import com.pulumi.artifactory.outputs.GetLocalGradleRepositoryResult;
 import com.pulumi.artifactory.outputs.GetLocalHelmRepositoryResult;
+import com.pulumi.artifactory.outputs.GetLocalHuggingfacemlRepositoryResult;
 import com.pulumi.artifactory.outputs.GetLocalIvyRepositoryResult;
 import com.pulumi.artifactory.outputs.GetLocalMavenRepositoryResult;
 import com.pulumi.artifactory.outputs.GetLocalNpmRepositoryResult;
@@ -5675,6 +5678,18 @@ public final class ArtifactoryFunctions {
     }
     public static CompletableFuture<GetLocalHelmRepositoryResult> getLocalHelmRepositoryPlain(GetLocalHelmRepositoryPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("artifactory:index/getLocalHelmRepository:getLocalHelmRepository", TypeShape.of(GetLocalHelmRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    public static Output<GetLocalHuggingfacemlRepositoryResult> getLocalHuggingfacemlRepository(GetLocalHuggingfacemlRepositoryArgs args) {
+        return getLocalHuggingfacemlRepository(args, InvokeOptions.Empty);
+    }
+    public static CompletableFuture<GetLocalHuggingfacemlRepositoryResult> getLocalHuggingfacemlRepositoryPlain(GetLocalHuggingfacemlRepositoryPlainArgs args) {
+        return getLocalHuggingfacemlRepositoryPlain(args, InvokeOptions.Empty);
+    }
+    public static Output<GetLocalHuggingfacemlRepositoryResult> getLocalHuggingfacemlRepository(GetLocalHuggingfacemlRepositoryArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("artifactory:index/getLocalHuggingfacemlRepository:getLocalHuggingfacemlRepository", TypeShape.of(GetLocalHuggingfacemlRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    public static CompletableFuture<GetLocalHuggingfacemlRepositoryResult> getLocalHuggingfacemlRepositoryPlain(GetLocalHuggingfacemlRepositoryPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("artifactory:index/getLocalHuggingfacemlRepository:getLocalHuggingfacemlRepository", TypeShape.of(GetLocalHuggingfacemlRepositoryResult.class), args, Utilities.withVersion(options));
     }
     public static Output<GetLocalIvyRepositoryResult> getLocalIvyRepository(GetLocalIvyRepositoryArgs args) {
         return getLocalIvyRepository(args, InvokeOptions.Empty);

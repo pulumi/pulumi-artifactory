@@ -87,7 +87,7 @@ public class SingleReplicationConfig extends com.pulumi.resources.CustomResource
      * Cron expression to control the operation frequency.
      * 
      */
-    @Export(name="cronExp", type=String.class, parameters={})
+    @Export(name="cronExp", refs={String.class}, tree="[0]")
     private Output<String> cronExp;
 
     /**
@@ -97,13 +97,13 @@ public class SingleReplicationConfig extends com.pulumi.resources.CustomResource
     public Output<String> cronExp() {
         return this.cronExp;
     }
-    @Export(name="enableEventReplication", type=Boolean.class, parameters={})
+    @Export(name="enableEventReplication", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> enableEventReplication;
 
     public Output<Boolean> enableEventReplication() {
         return this.enableEventReplication;
     }
-    @Export(name="enabled", type=Boolean.class, parameters={})
+    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> enabled;
 
     public Output<Boolean> enabled() {
@@ -113,7 +113,7 @@ public class SingleReplicationConfig extends com.pulumi.resources.CustomResource
      * Requires password encryption to be turned off `POST /api/system/decrypt`.
      * 
      */
-    @Export(name="password", type=String.class, parameters={})
+    @Export(name="password", refs={String.class}, tree="[0]")
     private Output<String> password;
 
     /**
@@ -123,7 +123,7 @@ public class SingleReplicationConfig extends com.pulumi.resources.CustomResource
     public Output<String> password() {
         return this.password;
     }
-    @Export(name="pathPrefix", type=String.class, parameters={})
+    @Export(name="pathPrefix", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> pathPrefix;
 
     public Output<Optional<String>> pathPrefix() {
@@ -133,7 +133,7 @@ public class SingleReplicationConfig extends com.pulumi.resources.CustomResource
      * Proxy key from Artifactory Proxies setting.
      * 
      */
-    @Export(name="proxy", type=String.class, parameters={})
+    @Export(name="proxy", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> proxy;
 
     /**
@@ -143,43 +143,43 @@ public class SingleReplicationConfig extends com.pulumi.resources.CustomResource
     public Output<Optional<String>> proxy() {
         return Codegen.optional(this.proxy);
     }
-    @Export(name="repoKey", type=String.class, parameters={})
+    @Export(name="repoKey", refs={String.class}, tree="[0]")
     private Output<String> repoKey;
 
     public Output<String> repoKey() {
         return this.repoKey;
     }
-    @Export(name="socketTimeoutMillis", type=Integer.class, parameters={})
+    @Export(name="socketTimeoutMillis", refs={Integer.class}, tree="[0]")
     private Output<Integer> socketTimeoutMillis;
 
     public Output<Integer> socketTimeoutMillis() {
         return this.socketTimeoutMillis;
     }
-    @Export(name="syncDeletes", type=Boolean.class, parameters={})
+    @Export(name="syncDeletes", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> syncDeletes;
 
     public Output<Boolean> syncDeletes() {
         return this.syncDeletes;
     }
-    @Export(name="syncProperties", type=Boolean.class, parameters={})
+    @Export(name="syncProperties", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> syncProperties;
 
     public Output<Boolean> syncProperties() {
         return this.syncProperties;
     }
-    @Export(name="syncStatistics", type=Boolean.class, parameters={})
+    @Export(name="syncStatistics", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> syncStatistics;
 
     public Output<Boolean> syncStatistics() {
         return this.syncStatistics;
     }
-    @Export(name="url", type=String.class, parameters={})
+    @Export(name="url", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> url;
 
     public Output<Optional<String>> url() {
         return Codegen.optional(this.url);
     }
-    @Export(name="username", type=String.class, parameters={})
+    @Export(name="username", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> username;
 
     public Output<Optional<String>> username() {

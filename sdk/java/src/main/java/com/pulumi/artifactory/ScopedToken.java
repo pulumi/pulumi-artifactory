@@ -84,7 +84,7 @@ public class ScopedToken extends com.pulumi.resources.CustomResource {
      * Returns the access token to authenticate to Artifactory.
      * 
      */
-    @Export(name="accessToken", type=String.class, parameters={})
+    @Export(name="accessToken", refs={String.class}, tree="[0]")
     private Output<String> accessToken;
 
     /**
@@ -98,7 +98,7 @@ public class ScopedToken extends com.pulumi.resources.CustomResource {
      * A list of the other instances or services that should accept this token identified by their Service-IDs. Limited to total 255 characters. Default to &#39;*@*&#39; if not set. Service ID must begin with valid JFrog service type. Options: jfrt, jfxr, jfpip, jfds, jfmc, jfac, jfevt, jfmd, jfcon, or *. For instructions to retrieve the Artifactory Service ID see this [documentation](https://jfrog.com/help/r/jfrog-rest-apis/get-service-id)
      * 
      */
-    @Export(name="audiences", type=List.class, parameters={String.class})
+    @Export(name="audiences", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> audiences;
 
     /**
@@ -112,7 +112,7 @@ public class ScopedToken extends com.pulumi.resources.CustomResource {
      * Free text token description. Useful for filtering and managing tokens. Limited to 1024 characters.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
     /**
@@ -126,7 +126,7 @@ public class ScopedToken extends com.pulumi.resources.CustomResource {
      * The amount of time, in seconds, it would take for the token to expire. An admin shall be able to set whether expiry is mandatory, what is the default expiry, and what is the maximum expiry allowed. Must be non-negative. Default value is based on configuration in &#39;access.config.yaml&#39;. See [API documentation](https://jfrog.com/help/r/jfrog-rest-apis/create-token) for details. Access Token would not be saved by Artifactory if this is less than the persistence threshold value (default to 10800 seconds) set in Access configuration. See [official documentation](https://jfrog.com/help/r/jfrog-platform-administration-documentation/using-the-revocable-and-persistency-thresholds) for details.
      * 
      */
-    @Export(name="expiresIn", type=Integer.class, parameters={})
+    @Export(name="expiresIn", refs={Integer.class}, tree="[0]")
     private Output<Integer> expiresIn;
 
     /**
@@ -140,7 +140,7 @@ public class ScopedToken extends com.pulumi.resources.CustomResource {
      * Returns the token expiry.
      * 
      */
-    @Export(name="expiry", type=Integer.class, parameters={})
+    @Export(name="expiry", refs={Integer.class}, tree="[0]")
     private Output<Integer> expiry;
 
     /**
@@ -154,7 +154,7 @@ public class ScopedToken extends com.pulumi.resources.CustomResource {
      * The grant type used to authenticate the request. In this case, the only value supported is `client_credentials` which is also the default value if this parameter is not specified.
      * 
      */
-    @Export(name="grantType", type=String.class, parameters={})
+    @Export(name="grantType", refs={String.class}, tree="[0]")
     private Output<String> grantType;
 
     /**
@@ -168,7 +168,7 @@ public class ScopedToken extends com.pulumi.resources.CustomResource {
      * Also create a reference token which can be used like an API key.
      * 
      */
-    @Export(name="includeReferenceToken", type=Boolean.class, parameters={})
+    @Export(name="includeReferenceToken", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> includeReferenceToken;
 
     /**
@@ -182,7 +182,7 @@ public class ScopedToken extends com.pulumi.resources.CustomResource {
      * Returns the token issued at date/time.
      * 
      */
-    @Export(name="issuedAt", type=Integer.class, parameters={})
+    @Export(name="issuedAt", refs={Integer.class}, tree="[0]")
     private Output<Integer> issuedAt;
 
     /**
@@ -196,7 +196,7 @@ public class ScopedToken extends com.pulumi.resources.CustomResource {
      * Returns the token issuer.
      * 
      */
-    @Export(name="issuer", type=String.class, parameters={})
+    @Export(name="issuer", refs={String.class}, tree="[0]")
     private Output<String> issuer;
 
     /**
@@ -210,7 +210,7 @@ public class ScopedToken extends com.pulumi.resources.CustomResource {
      * The project for which this token is created. Enter the project name on which you want to apply this token.
      * 
      */
-    @Export(name="projectKey", type=String.class, parameters={})
+    @Export(name="projectKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> projectKey;
 
     /**
@@ -224,7 +224,7 @@ public class ScopedToken extends com.pulumi.resources.CustomResource {
      * Reference Token (alias to Access Token).
      * 
      */
-    @Export(name="referenceToken", type=String.class, parameters={})
+    @Export(name="referenceToken", refs={String.class}, tree="[0]")
     private Output<String> referenceToken;
 
     /**
@@ -238,7 +238,7 @@ public class ScopedToken extends com.pulumi.resources.CustomResource {
      * Refresh token.
      * 
      */
-    @Export(name="refreshToken", type=String.class, parameters={})
+    @Export(name="refreshToken", refs={String.class}, tree="[0]")
     private Output<String> refreshToken;
 
     /**
@@ -252,7 +252,7 @@ public class ScopedToken extends com.pulumi.resources.CustomResource {
      * Is this token refreshable? Default is `false`.
      * 
      */
-    @Export(name="refreshable", type=Boolean.class, parameters={})
+    @Export(name="refreshable", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> refreshable;
 
     /**
@@ -267,7 +267,7 @@ public class ScopedToken extends com.pulumi.resources.CustomResource {
      * The supported scopes include:
      * 
      */
-    @Export(name="scopes", type=List.class, parameters={String.class})
+    @Export(name="scopes", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> scopes;
 
     /**
@@ -282,7 +282,7 @@ public class ScopedToken extends com.pulumi.resources.CustomResource {
      * Returns the token type.
      * 
      */
-    @Export(name="subject", type=String.class, parameters={})
+    @Export(name="subject", refs={String.class}, tree="[0]")
     private Output<String> subject;
 
     /**
@@ -296,7 +296,7 @@ public class ScopedToken extends com.pulumi.resources.CustomResource {
      * Returns the token type.
      * 
      */
-    @Export(name="tokenType", type=String.class, parameters={})
+    @Export(name="tokenType", refs={String.class}, tree="[0]")
     private Output<String> tokenType;
 
     /**
@@ -310,7 +310,7 @@ public class ScopedToken extends com.pulumi.resources.CustomResource {
      * The user name for which this token is created. The username is based on the authenticated user - either from the user of the authenticated token or based on the username (if basic auth was used). The username is then used to set the subject of the token: \n\n/users/\n\n. Limited to 255 characters.
      * 
      */
-    @Export(name="username", type=String.class, parameters={})
+    @Export(name="username", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> username;
 
     /**

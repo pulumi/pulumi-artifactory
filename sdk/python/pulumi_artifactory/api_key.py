@@ -21,8 +21,10 @@ class ApiKeyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
         pass
+
 
 
 @pulumi.input_type
@@ -45,7 +47,11 @@ class _ApiKeyState:
     def _configure(
              _setter: Callable[[Any, Any], None],
              api_key: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiKey' in kwargs:
+            api_key = kwargs['apiKey']
+
         if api_key is not None:
             _setter("api_key", api_key)
 

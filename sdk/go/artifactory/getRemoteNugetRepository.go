@@ -61,6 +61,7 @@ type LookupRemoteNugetRepositoryArgs struct {
 	ContentSynchronisation    *GetRemoteNugetRepositoryContentSynchronisation `pulumi:"contentSynchronisation"`
 	Description               *string                                         `pulumi:"description"`
 	DisableProxy              *bool                                           `pulumi:"disableProxy"`
+	DisableUrlNormalization   *bool                                           `pulumi:"disableUrlNormalization"`
 	// (Optional) The context path prefix through which NuGet downloads are served. For example, the NuGet Gallery download URL is `https://nuget.org/api/v2/package`, so the repository URL should be configured as `https://nuget.org` and the download context path should be configured as `api/v2/package`. Default value is `api/v2/package`.
 	DownloadContextPath    *string `pulumi:"downloadContextPath"`
 	DownloadDirect         *bool   `pulumi:"downloadDirect"`
@@ -117,6 +118,7 @@ type LookupRemoteNugetRepositoryResult struct {
 	ContentSynchronisation    GetRemoteNugetRepositoryContentSynchronisation `pulumi:"contentSynchronisation"`
 	Description               *string                                        `pulumi:"description"`
 	DisableProxy              *bool                                          `pulumi:"disableProxy"`
+	DisableUrlNormalization   *bool                                          `pulumi:"disableUrlNormalization"`
 	// (Optional) The context path prefix through which NuGet downloads are served. For example, the NuGet Gallery download URL is `https://nuget.org/api/v2/package`, so the repository URL should be configured as `https://nuget.org` and the download context path should be configured as `api/v2/package`. Default value is `api/v2/package`.
 	DownloadContextPath    *string `pulumi:"downloadContextPath"`
 	DownloadDirect         *bool   `pulumi:"downloadDirect"`
@@ -188,6 +190,7 @@ type LookupRemoteNugetRepositoryOutputArgs struct {
 	ContentSynchronisation    GetRemoteNugetRepositoryContentSynchronisationPtrInput `pulumi:"contentSynchronisation"`
 	Description               pulumi.StringPtrInput                                  `pulumi:"description"`
 	DisableProxy              pulumi.BoolPtrInput                                    `pulumi:"disableProxy"`
+	DisableUrlNormalization   pulumi.BoolPtrInput                                    `pulumi:"disableUrlNormalization"`
 	// (Optional) The context path prefix through which NuGet downloads are served. For example, the NuGet Gallery download URL is `https://nuget.org/api/v2/package`, so the repository URL should be configured as `https://nuget.org` and the download context path should be configured as `api/v2/package`. Default value is `api/v2/package`.
 	DownloadContextPath    pulumi.StringPtrInput `pulumi:"downloadContextPath"`
 	DownloadDirect         pulumi.BoolPtrInput   `pulumi:"downloadDirect"`
@@ -297,6 +300,10 @@ func (o LookupRemoteNugetRepositoryResultOutput) Description() pulumi.StringPtrO
 
 func (o LookupRemoteNugetRepositoryResultOutput) DisableProxy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupRemoteNugetRepositoryResult) *bool { return v.DisableProxy }).(pulumi.BoolPtrOutput)
+}
+
+func (o LookupRemoteNugetRepositoryResultOutput) DisableUrlNormalization() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupRemoteNugetRepositoryResult) *bool { return v.DisableUrlNormalization }).(pulumi.BoolPtrOutput)
 }
 
 // (Optional) The context path prefix through which NuGet downloads are served. For example, the NuGet Gallery download URL is `https://nuget.org/api/v2/package`, so the repository URL should be configured as `https://nuget.org` and the download context path should be configured as `api/v2/package`. Default value is `api/v2/package`.

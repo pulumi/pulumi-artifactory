@@ -160,13 +160,13 @@ namespace Pulumi.Artifactory
         public readonly bool? CdnRedirect;
         public readonly string? Description;
         public readonly bool? DownloadDirect;
-        public readonly string ExcludesPattern;
+        public readonly string? ExcludesPattern;
         public readonly bool? ForceConanAuthentication;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        public readonly string IncludesPattern;
+        public readonly string? IncludesPattern;
         public readonly string Key;
         public readonly string? Notes;
         public readonly string PackageType;
@@ -189,13 +189,13 @@ namespace Pulumi.Artifactory
 
             bool? downloadDirect,
 
-            string excludesPattern,
+            string? excludesPattern,
 
             bool? forceConanAuthentication,
 
             string id,
 
-            string includesPattern,
+            string? includesPattern,
 
             string key,
 

@@ -72,9 +72,10 @@ type Certificate struct {
 
 	// Name of certificate.
 	Alias pulumi.StringOutput `pulumi:"alias"`
-	// PEM-encoded client certificate and private key.
+	// PEM-encoded client certificate and private key. Cannot be set with `file` attribute simultaneously.
 	Content pulumi.StringPtrOutput `pulumi:"content"`
-	File    pulumi.StringPtrOutput `pulumi:"file"`
+	// Path to the PEM file. Cannot be set with `content` attribute simultaneously.
+	File pulumi.StringPtrOutput `pulumi:"file"`
 	// SHA256 fingerprint of the certificate.
 	Fingerprint pulumi.StringOutput `pulumi:"fingerprint"`
 	// Name of the certificate authority that issued the certificate.
@@ -133,9 +134,10 @@ func GetCertificate(ctx *pulumi.Context,
 type certificateState struct {
 	// Name of certificate.
 	Alias *string `pulumi:"alias"`
-	// PEM-encoded client certificate and private key.
+	// PEM-encoded client certificate and private key. Cannot be set with `file` attribute simultaneously.
 	Content *string `pulumi:"content"`
-	File    *string `pulumi:"file"`
+	// Path to the PEM file. Cannot be set with `content` attribute simultaneously.
+	File *string `pulumi:"file"`
 	// SHA256 fingerprint of the certificate.
 	Fingerprint *string `pulumi:"fingerprint"`
 	// Name of the certificate authority that issued the certificate.
@@ -151,9 +153,10 @@ type certificateState struct {
 type CertificateState struct {
 	// Name of certificate.
 	Alias pulumi.StringPtrInput
-	// PEM-encoded client certificate and private key.
+	// PEM-encoded client certificate and private key. Cannot be set with `file` attribute simultaneously.
 	Content pulumi.StringPtrInput
-	File    pulumi.StringPtrInput
+	// Path to the PEM file. Cannot be set with `content` attribute simultaneously.
+	File pulumi.StringPtrInput
 	// SHA256 fingerprint of the certificate.
 	Fingerprint pulumi.StringPtrInput
 	// Name of the certificate authority that issued the certificate.
@@ -173,18 +176,20 @@ func (CertificateState) ElementType() reflect.Type {
 type certificateArgs struct {
 	// Name of certificate.
 	Alias string `pulumi:"alias"`
-	// PEM-encoded client certificate and private key.
+	// PEM-encoded client certificate and private key. Cannot be set with `file` attribute simultaneously.
 	Content *string `pulumi:"content"`
-	File    *string `pulumi:"file"`
+	// Path to the PEM file. Cannot be set with `content` attribute simultaneously.
+	File *string `pulumi:"file"`
 }
 
 // The set of arguments for constructing a Certificate resource.
 type CertificateArgs struct {
 	// Name of certificate.
 	Alias pulumi.StringInput
-	// PEM-encoded client certificate and private key.
+	// PEM-encoded client certificate and private key. Cannot be set with `file` attribute simultaneously.
 	Content pulumi.StringPtrInput
-	File    pulumi.StringPtrInput
+	// Path to the PEM file. Cannot be set with `content` attribute simultaneously.
+	File pulumi.StringPtrInput
 }
 
 func (CertificateArgs) ElementType() reflect.Type {
@@ -303,11 +308,12 @@ func (o CertificateOutput) Alias() pulumi.StringOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.Alias }).(pulumi.StringOutput)
 }
 
-// PEM-encoded client certificate and private key.
+// PEM-encoded client certificate and private key. Cannot be set with `file` attribute simultaneously.
 func (o CertificateOutput) Content() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.Content }).(pulumi.StringPtrOutput)
 }
 
+// Path to the PEM file. Cannot be set with `content` attribute simultaneously.
 func (o CertificateOutput) File() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.File }).(pulumi.StringPtrOutput)
 }

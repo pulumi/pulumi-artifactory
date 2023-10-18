@@ -85,13 +85,13 @@ type LookupFederatedNugetRepositoryResult struct {
 	CleanupOnDelete          *bool   `pulumi:"cleanupOnDelete"`
 	Description              *string `pulumi:"description"`
 	DownloadDirect           *bool   `pulumi:"downloadDirect"`
-	ExcludesPattern          string  `pulumi:"excludesPattern"`
+	ExcludesPattern          *string `pulumi:"excludesPattern"`
 	ForceNugetAuthentication *bool   `pulumi:"forceNugetAuthentication"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                 string `pulumi:"id"`
-	IncludesPattern    string `pulumi:"includesPattern"`
-	Key                string `pulumi:"key"`
-	MaxUniqueSnapshots *int   `pulumi:"maxUniqueSnapshots"`
+	Id                 string  `pulumi:"id"`
+	IncludesPattern    *string `pulumi:"includesPattern"`
+	Key                string  `pulumi:"key"`
+	MaxUniqueSnapshots *int    `pulumi:"maxUniqueSnapshots"`
 	// The list of Federated members and must contain this repository URL (configured base URL
 	// `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
 	// Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
@@ -197,8 +197,8 @@ func (o LookupFederatedNugetRepositoryResultOutput) DownloadDirect() pulumi.Bool
 	return o.ApplyT(func(v LookupFederatedNugetRepositoryResult) *bool { return v.DownloadDirect }).(pulumi.BoolPtrOutput)
 }
 
-func (o LookupFederatedNugetRepositoryResultOutput) ExcludesPattern() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupFederatedNugetRepositoryResult) string { return v.ExcludesPattern }).(pulumi.StringOutput)
+func (o LookupFederatedNugetRepositoryResultOutput) ExcludesPattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFederatedNugetRepositoryResult) *string { return v.ExcludesPattern }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupFederatedNugetRepositoryResultOutput) ForceNugetAuthentication() pulumi.BoolPtrOutput {
@@ -210,8 +210,8 @@ func (o LookupFederatedNugetRepositoryResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFederatedNugetRepositoryResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-func (o LookupFederatedNugetRepositoryResultOutput) IncludesPattern() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupFederatedNugetRepositoryResult) string { return v.IncludesPattern }).(pulumi.StringOutput)
+func (o LookupFederatedNugetRepositoryResultOutput) IncludesPattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFederatedNugetRepositoryResult) *string { return v.IncludesPattern }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupFederatedNugetRepositoryResultOutput) Key() pulumi.StringOutput {

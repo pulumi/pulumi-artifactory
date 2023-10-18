@@ -110,6 +110,10 @@ export class RemoteNugetRepository extends pulumi.CustomResource {
      */
     public readonly disableProxy!: pulumi.Output<boolean | undefined>;
     /**
+     * Whether to disable URL normalization, default is `false`.
+     */
+    public readonly disableUrlNormalization!: pulumi.Output<boolean | undefined>;
+    /**
      * The context path prefix through which NuGet downloads are served.
      * For example, the NuGet Gallery download URL is `https://nuget.org/api/v2/package`, so the repository
      * URL should be configured as `https://nuget.org` and the download context path should be configured as `api/v2/package`. Default value is `api/v2/package`.
@@ -297,6 +301,7 @@ export class RemoteNugetRepository extends pulumi.CustomResource {
             resourceInputs["contentSynchronisation"] = state ? state.contentSynchronisation : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["disableProxy"] = state ? state.disableProxy : undefined;
+            resourceInputs["disableUrlNormalization"] = state ? state.disableUrlNormalization : undefined;
             resourceInputs["downloadContextPath"] = state ? state.downloadContextPath : undefined;
             resourceInputs["downloadDirect"] = state ? state.downloadDirect : undefined;
             resourceInputs["enableCookieManagement"] = state ? state.enableCookieManagement : undefined;
@@ -352,6 +357,7 @@ export class RemoteNugetRepository extends pulumi.CustomResource {
             resourceInputs["contentSynchronisation"] = args ? args.contentSynchronisation : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["disableProxy"] = args ? args.disableProxy : undefined;
+            resourceInputs["disableUrlNormalization"] = args ? args.disableUrlNormalization : undefined;
             resourceInputs["downloadContextPath"] = args ? args.downloadContextPath : undefined;
             resourceInputs["downloadDirect"] = args ? args.downloadDirect : undefined;
             resourceInputs["enableCookieManagement"] = args ? args.enableCookieManagement : undefined;
@@ -448,6 +454,10 @@ export interface RemoteNugetRepositoryState {
      * for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
      */
     disableProxy?: pulumi.Input<boolean>;
+    /**
+     * Whether to disable URL normalization, default is `false`.
+     */
+    disableUrlNormalization?: pulumi.Input<boolean>;
     /**
      * The context path prefix through which NuGet downloads are served.
      * For example, the NuGet Gallery download URL is `https://nuget.org/api/v2/package`, so the repository
@@ -665,6 +675,10 @@ export interface RemoteNugetRepositoryArgs {
      * for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
      */
     disableProxy?: pulumi.Input<boolean>;
+    /**
+     * Whether to disable URL normalization, default is `false`.
+     */
+    disableUrlNormalization?: pulumi.Input<boolean>;
     /**
      * The context path prefix through which NuGet downloads are served.
      * For example, the NuGet Gallery download URL is `https://nuget.org/api/v2/package`, so the repository

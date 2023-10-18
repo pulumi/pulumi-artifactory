@@ -49,10 +49,10 @@ class LocalRpmRepositoryArgs:
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only.
         :param pulumi.Input[bool] enable_file_lists_indexing: Default: `false`.
-        :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+        :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
                artifacts are excluded.
-        :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-               artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+               used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         :param pulumi.Input[str] notes: Internal description.
         :param pulumi.Input[str] primary_keypair_ref: The primary GPG key to be used to sign packages.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
@@ -124,7 +124,45 @@ class LocalRpmRepositoryArgs:
              xray_index: Optional[pulumi.Input[bool]] = None,
              yum_group_file_names: Optional[pulumi.Input[str]] = None,
              yum_root_depth: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'archiveBrowsingEnabled' in kwargs:
+            archive_browsing_enabled = kwargs['archiveBrowsingEnabled']
+        if 'blackedOut' in kwargs:
+            blacked_out = kwargs['blackedOut']
+        if 'calculateYumMetadata' in kwargs:
+            calculate_yum_metadata = kwargs['calculateYumMetadata']
+        if 'cdnRedirect' in kwargs:
+            cdn_redirect = kwargs['cdnRedirect']
+        if 'downloadDirect' in kwargs:
+            download_direct = kwargs['downloadDirect']
+        if 'enableFileListsIndexing' in kwargs:
+            enable_file_lists_indexing = kwargs['enableFileListsIndexing']
+        if 'excludesPattern' in kwargs:
+            excludes_pattern = kwargs['excludesPattern']
+        if 'includesPattern' in kwargs:
+            includes_pattern = kwargs['includesPattern']
+        if 'primaryKeypairRef' in kwargs:
+            primary_keypair_ref = kwargs['primaryKeypairRef']
+        if 'priorityResolution' in kwargs:
+            priority_resolution = kwargs['priorityResolution']
+        if 'projectEnvironments' in kwargs:
+            project_environments = kwargs['projectEnvironments']
+        if 'projectKey' in kwargs:
+            project_key = kwargs['projectKey']
+        if 'propertySets' in kwargs:
+            property_sets = kwargs['propertySets']
+        if 'repoLayoutRef' in kwargs:
+            repo_layout_ref = kwargs['repoLayoutRef']
+        if 'secondaryKeypairRef' in kwargs:
+            secondary_keypair_ref = kwargs['secondaryKeypairRef']
+        if 'xrayIndex' in kwargs:
+            xray_index = kwargs['xrayIndex']
+        if 'yumGroupFileNames' in kwargs:
+            yum_group_file_names = kwargs['yumGroupFileNames']
+        if 'yumRootDepth' in kwargs:
+            yum_root_depth = kwargs['yumRootDepth']
+
         _setter("key", key)
         if archive_browsing_enabled is not None:
             _setter("archive_browsing_enabled", archive_browsing_enabled)
@@ -271,7 +309,7 @@ class LocalRpmRepositoryArgs:
     @pulumi.getter(name="excludesPattern")
     def excludes_pattern(self) -> Optional[pulumi.Input[str]]:
         """
-        List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+        List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
         artifacts are excluded.
         """
         return pulumi.get(self, "excludes_pattern")
@@ -284,8 +322,8 @@ class LocalRpmRepositoryArgs:
     @pulumi.getter(name="includesPattern")
     def includes_pattern(self) -> Optional[pulumi.Input[str]]:
         """
-        List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-        artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+        used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         """
         return pulumi.get(self, "includes_pattern")
 
@@ -475,10 +513,10 @@ class _LocalRpmRepositoryState:
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only.
         :param pulumi.Input[bool] enable_file_lists_indexing: Default: `false`.
-        :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+        :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
                artifacts are excluded.
-        :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-               artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+               used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         :param pulumi.Input[str] key: the identity key of the repo.
         :param pulumi.Input[str] notes: Internal description.
         :param pulumi.Input[str] primary_keypair_ref: The primary GPG key to be used to sign packages.
@@ -553,7 +591,47 @@ class _LocalRpmRepositoryState:
              xray_index: Optional[pulumi.Input[bool]] = None,
              yum_group_file_names: Optional[pulumi.Input[str]] = None,
              yum_root_depth: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'archiveBrowsingEnabled' in kwargs:
+            archive_browsing_enabled = kwargs['archiveBrowsingEnabled']
+        if 'blackedOut' in kwargs:
+            blacked_out = kwargs['blackedOut']
+        if 'calculateYumMetadata' in kwargs:
+            calculate_yum_metadata = kwargs['calculateYumMetadata']
+        if 'cdnRedirect' in kwargs:
+            cdn_redirect = kwargs['cdnRedirect']
+        if 'downloadDirect' in kwargs:
+            download_direct = kwargs['downloadDirect']
+        if 'enableFileListsIndexing' in kwargs:
+            enable_file_lists_indexing = kwargs['enableFileListsIndexing']
+        if 'excludesPattern' in kwargs:
+            excludes_pattern = kwargs['excludesPattern']
+        if 'includesPattern' in kwargs:
+            includes_pattern = kwargs['includesPattern']
+        if 'packageType' in kwargs:
+            package_type = kwargs['packageType']
+        if 'primaryKeypairRef' in kwargs:
+            primary_keypair_ref = kwargs['primaryKeypairRef']
+        if 'priorityResolution' in kwargs:
+            priority_resolution = kwargs['priorityResolution']
+        if 'projectEnvironments' in kwargs:
+            project_environments = kwargs['projectEnvironments']
+        if 'projectKey' in kwargs:
+            project_key = kwargs['projectKey']
+        if 'propertySets' in kwargs:
+            property_sets = kwargs['propertySets']
+        if 'repoLayoutRef' in kwargs:
+            repo_layout_ref = kwargs['repoLayoutRef']
+        if 'secondaryKeypairRef' in kwargs:
+            secondary_keypair_ref = kwargs['secondaryKeypairRef']
+        if 'xrayIndex' in kwargs:
+            xray_index = kwargs['xrayIndex']
+        if 'yumGroupFileNames' in kwargs:
+            yum_group_file_names = kwargs['yumGroupFileNames']
+        if 'yumRootDepth' in kwargs:
+            yum_root_depth = kwargs['yumRootDepth']
+
         if archive_browsing_enabled is not None:
             _setter("archive_browsing_enabled", archive_browsing_enabled)
         if blacked_out is not None:
@@ -691,7 +769,7 @@ class _LocalRpmRepositoryState:
     @pulumi.getter(name="excludesPattern")
     def excludes_pattern(self) -> Optional[pulumi.Input[str]]:
         """
-        List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+        List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
         artifacts are excluded.
         """
         return pulumi.get(self, "excludes_pattern")
@@ -704,8 +782,8 @@ class _LocalRpmRepositoryState:
     @pulumi.getter(name="includesPattern")
     def includes_pattern(self) -> Optional[pulumi.Input[str]]:
         """
-        List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-        artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+        used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         """
         return pulumi.get(self, "includes_pattern")
 
@@ -961,10 +1039,10 @@ class LocalRpmRepository(pulumi.CustomResource):
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only.
         :param pulumi.Input[bool] enable_file_lists_indexing: Default: `false`.
-        :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+        :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
                artifacts are excluded.
-        :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-               artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+               used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         :param pulumi.Input[str] key: the identity key of the repo.
         :param pulumi.Input[str] notes: Internal description.
         :param pulumi.Input[str] primary_keypair_ref: The primary GPG key to be used to sign packages.
@@ -1161,10 +1239,10 @@ class LocalRpmRepository(pulumi.CustomResource):
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only.
         :param pulumi.Input[bool] enable_file_lists_indexing: Default: `false`.
-        :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+        :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
                artifacts are excluded.
-        :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-               artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+               used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         :param pulumi.Input[str] key: the identity key of the repo.
         :param pulumi.Input[str] notes: Internal description.
         :param pulumi.Input[str] primary_keypair_ref: The primary GPG key to be used to sign packages.
@@ -1279,19 +1357,19 @@ class LocalRpmRepository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="excludesPattern")
-    def excludes_pattern(self) -> pulumi.Output[str]:
+    def excludes_pattern(self) -> pulumi.Output[Optional[str]]:
         """
-        List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+        List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
         artifacts are excluded.
         """
         return pulumi.get(self, "excludes_pattern")
 
     @property
     @pulumi.getter(name="includesPattern")
-    def includes_pattern(self) -> pulumi.Output[str]:
+    def includes_pattern(self) -> pulumi.Output[Optional[str]]:
         """
-        List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-        artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+        used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         """
         return pulumi.get(self, "includes_pattern")
 

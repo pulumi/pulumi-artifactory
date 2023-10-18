@@ -88,6 +88,8 @@ type RemoteNugetRepository struct {
 	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
 	// for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
 	DisableProxy pulumi.BoolPtrOutput `pulumi:"disableProxy"`
+	// Whether to disable URL normalization, default is `false`.
+	DisableUrlNormalization pulumi.BoolPtrOutput `pulumi:"disableUrlNormalization"`
 	// The context path prefix through which NuGet downloads are served.
 	// For example, the NuGet Gallery download URL is `https://nuget.org/api/v2/package`, so the repository
 	// URL should be configured as `https://nuget.org` and the download context path should be configured as `api/v2/package`. Default value is `api/v2/package`.
@@ -260,6 +262,8 @@ type remoteNugetRepositoryState struct {
 	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
 	// for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
 	DisableProxy *bool `pulumi:"disableProxy"`
+	// Whether to disable URL normalization, default is `false`.
+	DisableUrlNormalization *bool `pulumi:"disableUrlNormalization"`
 	// The context path prefix through which NuGet downloads are served.
 	// For example, the NuGet Gallery download URL is `https://nuget.org/api/v2/package`, so the repository
 	// URL should be configured as `https://nuget.org` and the download context path should be configured as `api/v2/package`. Default value is `api/v2/package`.
@@ -390,6 +394,8 @@ type RemoteNugetRepositoryState struct {
 	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
 	// for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
 	DisableProxy pulumi.BoolPtrInput
+	// Whether to disable URL normalization, default is `false`.
+	DisableUrlNormalization pulumi.BoolPtrInput
 	// The context path prefix through which NuGet downloads are served.
 	// For example, the NuGet Gallery download URL is `https://nuget.org/api/v2/package`, so the repository
 	// URL should be configured as `https://nuget.org` and the download context path should be configured as `api/v2/package`. Default value is `api/v2/package`.
@@ -524,6 +530,8 @@ type remoteNugetRepositoryArgs struct {
 	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
 	// for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
 	DisableProxy *bool `pulumi:"disableProxy"`
+	// Whether to disable URL normalization, default is `false`.
+	DisableUrlNormalization *bool `pulumi:"disableUrlNormalization"`
 	// The context path prefix through which NuGet downloads are served.
 	// For example, the NuGet Gallery download URL is `https://nuget.org/api/v2/package`, so the repository
 	// URL should be configured as `https://nuget.org` and the download context path should be configured as `api/v2/package`. Default value is `api/v2/package`.
@@ -654,6 +662,8 @@ type RemoteNugetRepositoryArgs struct {
 	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
 	// for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
 	DisableProxy pulumi.BoolPtrInput
+	// Whether to disable URL normalization, default is `false`.
+	DisableUrlNormalization pulumi.BoolPtrInput
 	// The context path prefix through which NuGet downloads are served.
 	// For example, the NuGet Gallery download URL is `https://nuget.org/api/v2/package`, so the repository
 	// URL should be configured as `https://nuget.org` and the download context path should be configured as `api/v2/package`. Default value is `api/v2/package`.
@@ -923,6 +933,11 @@ func (o RemoteNugetRepositoryOutput) Description() pulumi.StringPtrOutput {
 // for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
 func (o RemoteNugetRepositoryOutput) DisableProxy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteNugetRepository) pulumi.BoolPtrOutput { return v.DisableProxy }).(pulumi.BoolPtrOutput)
+}
+
+// Whether to disable URL normalization, default is `false`.
+func (o RemoteNugetRepositoryOutput) DisableUrlNormalization() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RemoteNugetRepository) pulumi.BoolPtrOutput { return v.DisableUrlNormalization }).(pulumi.BoolPtrOutput)
 }
 
 // The context path prefix through which NuGet downloads are served.

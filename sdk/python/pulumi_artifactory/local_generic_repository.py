@@ -42,10 +42,10 @@ class LocalGenericRepositoryArgs:
         :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only.
-        :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+        :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
                artifacts are excluded.
-        :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-               artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+               used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         :param pulumi.Input[str] notes: Internal description.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
@@ -95,7 +95,33 @@ class LocalGenericRepositoryArgs:
              property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              repo_layout_ref: Optional[pulumi.Input[str]] = None,
              xray_index: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'archiveBrowsingEnabled' in kwargs:
+            archive_browsing_enabled = kwargs['archiveBrowsingEnabled']
+        if 'blackedOut' in kwargs:
+            blacked_out = kwargs['blackedOut']
+        if 'cdnRedirect' in kwargs:
+            cdn_redirect = kwargs['cdnRedirect']
+        if 'downloadDirect' in kwargs:
+            download_direct = kwargs['downloadDirect']
+        if 'excludesPattern' in kwargs:
+            excludes_pattern = kwargs['excludesPattern']
+        if 'includesPattern' in kwargs:
+            includes_pattern = kwargs['includesPattern']
+        if 'priorityResolution' in kwargs:
+            priority_resolution = kwargs['priorityResolution']
+        if 'projectEnvironments' in kwargs:
+            project_environments = kwargs['projectEnvironments']
+        if 'projectKey' in kwargs:
+            project_key = kwargs['projectKey']
+        if 'propertySets' in kwargs:
+            property_sets = kwargs['propertySets']
+        if 'repoLayoutRef' in kwargs:
+            repo_layout_ref = kwargs['repoLayoutRef']
+        if 'xrayIndex' in kwargs:
+            xray_index = kwargs['xrayIndex']
+
         _setter("key", key)
         if archive_browsing_enabled is not None:
             _setter("archive_browsing_enabled", archive_browsing_enabled)
@@ -207,7 +233,7 @@ class LocalGenericRepositoryArgs:
     @pulumi.getter(name="excludesPattern")
     def excludes_pattern(self) -> Optional[pulumi.Input[str]]:
         """
-        List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+        List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
         artifacts are excluded.
         """
         return pulumi.get(self, "excludes_pattern")
@@ -220,8 +246,8 @@ class LocalGenericRepositoryArgs:
     @pulumi.getter(name="includesPattern")
     def includes_pattern(self) -> Optional[pulumi.Input[str]]:
         """
-        List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-        artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+        used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         """
         return pulumi.get(self, "includes_pattern")
 
@@ -349,10 +375,10 @@ class _LocalGenericRepositoryState:
         :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only.
-        :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+        :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
                artifacts are excluded.
-        :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-               artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+               used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. 
                It cannot begin with a number or contain spaces or special characters.
         :param pulumi.Input[str] notes: Internal description.
@@ -406,7 +432,35 @@ class _LocalGenericRepositoryState:
              property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              repo_layout_ref: Optional[pulumi.Input[str]] = None,
              xray_index: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'archiveBrowsingEnabled' in kwargs:
+            archive_browsing_enabled = kwargs['archiveBrowsingEnabled']
+        if 'blackedOut' in kwargs:
+            blacked_out = kwargs['blackedOut']
+        if 'cdnRedirect' in kwargs:
+            cdn_redirect = kwargs['cdnRedirect']
+        if 'downloadDirect' in kwargs:
+            download_direct = kwargs['downloadDirect']
+        if 'excludesPattern' in kwargs:
+            excludes_pattern = kwargs['excludesPattern']
+        if 'includesPattern' in kwargs:
+            includes_pattern = kwargs['includesPattern']
+        if 'packageType' in kwargs:
+            package_type = kwargs['packageType']
+        if 'priorityResolution' in kwargs:
+            priority_resolution = kwargs['priorityResolution']
+        if 'projectEnvironments' in kwargs:
+            project_environments = kwargs['projectEnvironments']
+        if 'projectKey' in kwargs:
+            project_key = kwargs['projectKey']
+        if 'propertySets' in kwargs:
+            property_sets = kwargs['propertySets']
+        if 'repoLayoutRef' in kwargs:
+            repo_layout_ref = kwargs['repoLayoutRef']
+        if 'xrayIndex' in kwargs:
+            xray_index = kwargs['xrayIndex']
+
         if archive_browsing_enabled is not None:
             _setter("archive_browsing_enabled", archive_browsing_enabled)
         if blacked_out is not None:
@@ -508,7 +562,7 @@ class _LocalGenericRepositoryState:
     @pulumi.getter(name="excludesPattern")
     def excludes_pattern(self) -> Optional[pulumi.Input[str]]:
         """
-        List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+        List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
         artifacts are excluded.
         """
         return pulumi.get(self, "excludes_pattern")
@@ -521,8 +575,8 @@ class _LocalGenericRepositoryState:
     @pulumi.getter(name="includesPattern")
     def includes_pattern(self) -> Optional[pulumi.Input[str]]:
         """
-        List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-        artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+        used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         """
         return pulumi.get(self, "includes_pattern")
 
@@ -694,10 +748,10 @@ class LocalGenericRepository(pulumi.CustomResource):
         :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only.
-        :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+        :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
                artifacts are excluded.
-        :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-               artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+               used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. 
                It cannot begin with a number or contain spaces or special characters.
         :param pulumi.Input[str] notes: Internal description.
@@ -842,10 +896,10 @@ class LocalGenericRepository(pulumi.CustomResource):
         :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only.
-        :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+        :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
                artifacts are excluded.
-        :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-               artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+               used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. 
                It cannot begin with a number or contain spaces or special characters.
         :param pulumi.Input[str] notes: Internal description.
@@ -929,19 +983,19 @@ class LocalGenericRepository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="excludesPattern")
-    def excludes_pattern(self) -> pulumi.Output[str]:
+    def excludes_pattern(self) -> pulumi.Output[Optional[str]]:
         """
-        List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+        List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
         artifacts are excluded.
         """
         return pulumi.get(self, "excludes_pattern")
 
     @property
     @pulumi.getter(name="includesPattern")
-    def includes_pattern(self) -> pulumi.Output[str]:
+    def includes_pattern(self) -> pulumi.Output[Optional[str]]:
         """
-        List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-        artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+        used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         """
         return pulumi.get(self, "includes_pattern")
 

@@ -81,7 +81,7 @@ public class Backup extends com.pulumi.resources.CustomResource {
      * If set, backups will be created within a Zip archive (Slow and CPU intensive). Default value is `false`.
      * 
      */
-    @Export(name="createArchive", type=Boolean.class, parameters={})
+    @Export(name="createArchive", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> createArchive;
 
     /**
@@ -95,7 +95,7 @@ public class Backup extends com.pulumi.resources.CustomResource {
      * A valid CRON expression that you can use to control backup frequency. Eg: &#34;0 0 12 * * ? *&#34;, &#34;0 0 2 ? * MON-SAT *&#34;. Note: please use 7 character format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year. Also, specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html) and in [Cronexp package readme](https://github.com/gorhill/cronexpr#other-details).
      * 
      */
-    @Export(name="cronExp", type=String.class, parameters={})
+    @Export(name="cronExp", refs={String.class}, tree="[0]")
     private Output<String> cronExp;
 
     /**
@@ -109,7 +109,7 @@ public class Backup extends com.pulumi.resources.CustomResource {
      * Flag to enable or disable the backup config. Default value is `true`.
      * 
      */
-    @Export(name="enabled", type=Boolean.class, parameters={})
+    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> enabled;
 
     /**
@@ -123,7 +123,7 @@ public class Backup extends com.pulumi.resources.CustomResource {
      * When set, new repositories will not be automatically added to the backup. Default value is `false`.
      * 
      */
-    @Export(name="excludeNewRepositories", type=Boolean.class, parameters={})
+    @Export(name="excludeNewRepositories", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> excludeNewRepositories;
 
     /**
@@ -137,7 +137,7 @@ public class Backup extends com.pulumi.resources.CustomResource {
      * A list of excluded repositories from the backup. Default is empty list.
      * 
      */
-    @Export(name="excludedRepositories", type=List.class, parameters={String.class})
+    @Export(name="excludedRepositories", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> excludedRepositories;
 
     /**
@@ -151,7 +151,7 @@ public class Backup extends com.pulumi.resources.CustomResource {
      * When set to true, mission control will not be automatically added to the backup. Default value is `false`.
      * 
      */
-    @Export(name="exportMissionControl", type=Boolean.class, parameters={})
+    @Export(name="exportMissionControl", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> exportMissionControl;
 
     /**
@@ -165,7 +165,7 @@ public class Backup extends com.pulumi.resources.CustomResource {
      * The unique ID of the artifactory backup config.
      * 
      */
-    @Export(name="key", type=String.class, parameters={})
+    @Export(name="key", refs={String.class}, tree="[0]")
     private Output<String> key;
 
     /**
@@ -179,7 +179,7 @@ public class Backup extends com.pulumi.resources.CustomResource {
      * The number of hours to keep a backup before Artifactory will clean it up to free up disk space. Applicable only to non-incremental backups. Default value is 168 hours ie: 7 days.
      * 
      */
-    @Export(name="retentionPeriodHours", type=Integer.class, parameters={})
+    @Export(name="retentionPeriodHours", refs={Integer.class}, tree="[0]")
     private Output<Integer> retentionPeriodHours;
 
     /**
@@ -193,7 +193,7 @@ public class Backup extends com.pulumi.resources.CustomResource {
      * If set, all Artifactory administrators will be notified by email if any problem is encountered during backup. Default value is `true`.
      * 
      */
-    @Export(name="sendMailOnError", type=Boolean.class, parameters={})
+    @Export(name="sendMailOnError", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> sendMailOnError;
 
     /**
@@ -207,7 +207,7 @@ public class Backup extends com.pulumi.resources.CustomResource {
      * If set, Artifactory will verify that the backup target location has enough disk space available to hold the backed up data. If there is not enough space available, Artifactory will abort the backup and write a message in the log file. Applicable only to non-incremental backups.
      * 
      */
-    @Export(name="verifyDiskSpace", type=Boolean.class, parameters={})
+    @Export(name="verifyDiskSpace", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> verifyDiskSpace;
 
     /**
