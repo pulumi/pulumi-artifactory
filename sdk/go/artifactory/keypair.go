@@ -14,10 +14,7 @@ import (
 )
 
 // RSA key pairs are used to sign and verify the Alpine Linux index files in JFrog Artifactory, while GPG key pairs are
-// used to sign and validate packages integrity in JFrog Distribution. The JFrog Platform enables you to manage multiple
-// RSA and GPG signing keys through the Keys Management UI and REST API. The JFrog Platform supports managing multiple
-// pairs of GPG signing keys to sign packages for authentication of several package types such as Debian, Opkg, and RPM
-// through the Keys Management UI and REST API.
+// used to sign and validate packages integrity in JFrog Distribution. The JFrog Platform enables you to manage multiple RSA and GPG signing keys through the Keys Management UI and REST API. The JFrog Platform supports managing multiple pairs of GPG signing keys to sign packages for authentication of several package types such as Debian, Opkg, and RPM through the Keys Management UI and REST API.
 //
 // ## Example Usage
 //
@@ -43,10 +40,10 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.NewKeypair(ctx, "some-keypair6543461672124900137", &artifactory.KeypairArgs{
-//				PairName:   pulumi.String("some-keypair6543461672124900137"),
+//			_, err := artifactory.NewKeypair(ctx, "some-keypair-6543461672124900137", &artifactory.KeypairArgs{
+//				PairName:   pulumi.String("some-keypair-6543461672124900137"),
 //				PairType:   pulumi.String("RSA"),
-//				Alias:      pulumi.String("foo-alias6543461672124900137"),
+//				Alias:      pulumi.String("some-alias-6543461672124900137"),
 //				PrivateKey: readFileOrPanic("samples/rsa.priv"),
 //				PublicKey:  readFileOrPanic("samples/rsa.pub"),
 //				Passphrase: pulumi.String("PASSPHRASE"),
@@ -62,11 +59,11 @@ import (
 //
 // ## Import
 //
-// Keypair can be imported using their name, e.g.
+// Keypair can be imported using the pair name, e.g.
 //
 // ```sh
 //
-//	$ pulumi import artifactory:index/keypair:Keypair my-keypair my-keypair
+//	$ pulumi import artifactory:index/keypair:Keypair my-keypair my-keypair-name
 //
 // ```
 type Keypair struct {
@@ -80,14 +77,12 @@ type Keypair struct {
 	PairType pulumi.StringOutput `pulumi:"pairType"`
 	// Passphrase will be used to decrypt the private key. Validated server side.
 	Passphrase pulumi.StringPtrOutput `pulumi:"passphrase"`
-	// Private key. PEM format will be validated.
+	// Private key. PEM format will be validated. Must not include extranous spaces or tabs.
 	PrivateKey pulumi.StringOutput `pulumi:"privateKey"`
-	// Public key. PEM format will be validated.
-	PublicKey pulumi.StringOutput `pulumi:"publicKey"`
-	// Unknown usage. Returned in the json payload and cannot be set.
+	// Public key. PEM format will be validated. Must not include extranous spaces or tabs.
 	//
-	// Artifactory REST API call Get Key Pair doesn't return keys `privateKey` and `passphrase`, but consumes these keys in the POST call.
-	Unavailable pulumi.BoolOutput `pulumi:"unavailable"`
+	// Artifactory REST API call 'Get Key Pair' doesn't return attributes `privateKey` and `passphrase`, but consumes these keys in the POST call.
+	PublicKey pulumi.StringOutput `pulumi:"publicKey"`
 }
 
 // NewKeypair registers a new resource with the given unique name, arguments, and options.
@@ -154,14 +149,12 @@ type keypairState struct {
 	PairType *string `pulumi:"pairType"`
 	// Passphrase will be used to decrypt the private key. Validated server side.
 	Passphrase *string `pulumi:"passphrase"`
-	// Private key. PEM format will be validated.
+	// Private key. PEM format will be validated. Must not include extranous spaces or tabs.
 	PrivateKey *string `pulumi:"privateKey"`
-	// Public key. PEM format will be validated.
-	PublicKey *string `pulumi:"publicKey"`
-	// Unknown usage. Returned in the json payload and cannot be set.
+	// Public key. PEM format will be validated. Must not include extranous spaces or tabs.
 	//
-	// Artifactory REST API call Get Key Pair doesn't return keys `privateKey` and `passphrase`, but consumes these keys in the POST call.
-	Unavailable *bool `pulumi:"unavailable"`
+	// Artifactory REST API call 'Get Key Pair' doesn't return attributes `privateKey` and `passphrase`, but consumes these keys in the POST call.
+	PublicKey *string `pulumi:"publicKey"`
 }
 
 type KeypairState struct {
@@ -173,14 +166,12 @@ type KeypairState struct {
 	PairType pulumi.StringPtrInput
 	// Passphrase will be used to decrypt the private key. Validated server side.
 	Passphrase pulumi.StringPtrInput
-	// Private key. PEM format will be validated.
+	// Private key. PEM format will be validated. Must not include extranous spaces or tabs.
 	PrivateKey pulumi.StringPtrInput
-	// Public key. PEM format will be validated.
-	PublicKey pulumi.StringPtrInput
-	// Unknown usage. Returned in the json payload and cannot be set.
+	// Public key. PEM format will be validated. Must not include extranous spaces or tabs.
 	//
-	// Artifactory REST API call Get Key Pair doesn't return keys `privateKey` and `passphrase`, but consumes these keys in the POST call.
-	Unavailable pulumi.BoolPtrInput
+	// Artifactory REST API call 'Get Key Pair' doesn't return attributes `privateKey` and `passphrase`, but consumes these keys in the POST call.
+	PublicKey pulumi.StringPtrInput
 }
 
 func (KeypairState) ElementType() reflect.Type {
@@ -196,9 +187,11 @@ type keypairArgs struct {
 	PairType string `pulumi:"pairType"`
 	// Passphrase will be used to decrypt the private key. Validated server side.
 	Passphrase *string `pulumi:"passphrase"`
-	// Private key. PEM format will be validated.
+	// Private key. PEM format will be validated. Must not include extranous spaces or tabs.
 	PrivateKey string `pulumi:"privateKey"`
-	// Public key. PEM format will be validated.
+	// Public key. PEM format will be validated. Must not include extranous spaces or tabs.
+	//
+	// Artifactory REST API call 'Get Key Pair' doesn't return attributes `privateKey` and `passphrase`, but consumes these keys in the POST call.
 	PublicKey string `pulumi:"publicKey"`
 }
 
@@ -212,9 +205,11 @@ type KeypairArgs struct {
 	PairType pulumi.StringInput
 	// Passphrase will be used to decrypt the private key. Validated server side.
 	Passphrase pulumi.StringPtrInput
-	// Private key. PEM format will be validated.
+	// Private key. PEM format will be validated. Must not include extranous spaces or tabs.
 	PrivateKey pulumi.StringInput
-	// Public key. PEM format will be validated.
+	// Public key. PEM format will be validated. Must not include extranous spaces or tabs.
+	//
+	// Artifactory REST API call 'Get Key Pair' doesn't return attributes `privateKey` and `passphrase`, but consumes these keys in the POST call.
 	PublicKey pulumi.StringInput
 }
 
@@ -349,21 +344,16 @@ func (o KeypairOutput) Passphrase() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Keypair) pulumi.StringPtrOutput { return v.Passphrase }).(pulumi.StringPtrOutput)
 }
 
-// Private key. PEM format will be validated.
+// Private key. PEM format will be validated. Must not include extranous spaces or tabs.
 func (o KeypairOutput) PrivateKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *Keypair) pulumi.StringOutput { return v.PrivateKey }).(pulumi.StringOutput)
 }
 
-// Public key. PEM format will be validated.
+// Public key. PEM format will be validated. Must not include extranous spaces or tabs.
+//
+// Artifactory REST API call 'Get Key Pair' doesn't return attributes `privateKey` and `passphrase`, but consumes these keys in the POST call.
 func (o KeypairOutput) PublicKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *Keypair) pulumi.StringOutput { return v.PublicKey }).(pulumi.StringOutput)
-}
-
-// Unknown usage. Returned in the json payload and cannot be set.
-//
-// Artifactory REST API call Get Key Pair doesn't return keys `privateKey` and `passphrase`, but consumes these keys in the POST call.
-func (o KeypairOutput) Unavailable() pulumi.BoolOutput {
-	return o.ApplyT(func(v *Keypair) pulumi.BoolOutput { return v.Unavailable }).(pulumi.BoolOutput)
 }
 
 type KeypairArrayOutput struct{ *pulumi.OutputState }

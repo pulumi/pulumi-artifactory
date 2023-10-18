@@ -10,7 +10,6 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
-import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Optional;
@@ -18,10 +17,7 @@ import javax.annotation.Nullable;
 
 /**
  * RSA key pairs are used to sign and verify the Alpine Linux index files in JFrog Artifactory, while GPG key pairs are
- * used to sign and validate packages integrity in JFrog Distribution. The JFrog Platform enables you to manage multiple
- * RSA and GPG signing keys through the Keys Management UI and REST API. The JFrog Platform supports managing multiple
- * pairs of GPG signing keys to sign packages for authentication of several package types such as Debian, Opkg, and RPM
- * through the Keys Management UI and REST API.
+ * used to sign and validate packages integrity in JFrog Distribution. The JFrog Platform enables you to manage multiple RSA and GPG signing keys through the Keys Management UI and REST API. The JFrog Platform supports managing multiple pairs of GPG signing keys to sign packages for authentication of several package types such as Debian, Opkg, and RPM through the Keys Management UI and REST API.
  * 
  * ## Example Usage
  * ```java
@@ -45,10 +41,10 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var some_keypair6543461672124900137 = new Keypair(&#34;some-keypair6543461672124900137&#34;, KeypairArgs.builder()        
- *             .pairName(&#34;some-keypair6543461672124900137&#34;)
+ *         var some_keypair_6543461672124900137 = new Keypair(&#34;some-keypair-6543461672124900137&#34;, KeypairArgs.builder()        
+ *             .pairName(&#34;some-keypair-6543461672124900137&#34;)
  *             .pairType(&#34;RSA&#34;)
- *             .alias(&#34;foo-alias6543461672124900137&#34;)
+ *             .alias(&#34;some-alias-6543461672124900137&#34;)
  *             .privateKey(Files.readString(Paths.get(&#34;samples/rsa.priv&#34;)))
  *             .publicKey(Files.readString(Paths.get(&#34;samples/rsa.pub&#34;)))
  *             .passphrase(&#34;PASSPHRASE&#34;)
@@ -60,10 +56,10 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Keypair can be imported using their name, e.g.
+ * Keypair can be imported using the pair name, e.g.
  * 
  * ```sh
- *  $ pulumi import artifactory:index/keypair:Keypair my-keypair my-keypair
+ *  $ pulumi import artifactory:index/keypair:Keypair my-keypair my-keypair-name
  * ```
  * 
  */
@@ -126,50 +122,36 @@ public class Keypair extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.passphrase);
     }
     /**
-     * Private key. PEM format will be validated.
+     * Private key. PEM format will be validated. Must not include extranous spaces or tabs.
      * 
      */
     @Export(name="privateKey", refs={String.class}, tree="[0]")
     private Output<String> privateKey;
 
     /**
-     * @return Private key. PEM format will be validated.
+     * @return Private key. PEM format will be validated. Must not include extranous spaces or tabs.
      * 
      */
     public Output<String> privateKey() {
         return this.privateKey;
     }
     /**
-     * Public key. PEM format will be validated.
+     * Public key. PEM format will be validated. Must not include extranous spaces or tabs.
+     * 
+     * Artifactory REST API call &#39;Get Key Pair&#39; doesn&#39;t return attributes `private_key` and `passphrase`, but consumes these keys in the POST call.
      * 
      */
     @Export(name="publicKey", refs={String.class}, tree="[0]")
     private Output<String> publicKey;
 
     /**
-     * @return Public key. PEM format will be validated.
+     * @return Public key. PEM format will be validated. Must not include extranous spaces or tabs.
+     * 
+     * Artifactory REST API call &#39;Get Key Pair&#39; doesn&#39;t return attributes `private_key` and `passphrase`, but consumes these keys in the POST call.
      * 
      */
     public Output<String> publicKey() {
         return this.publicKey;
-    }
-    /**
-     * Unknown usage. Returned in the json payload and cannot be set.
-     * 
-     * Artifactory REST API call Get Key Pair doesn&#39;t return keys `private_key` and `passphrase`, but consumes these keys in the POST call.
-     * 
-     */
-    @Export(name="unavailable", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> unavailable;
-
-    /**
-     * @return Unknown usage. Returned in the json payload and cannot be set.
-     * 
-     * Artifactory REST API call Get Key Pair doesn&#39;t return keys `private_key` and `passphrase`, but consumes these keys in the POST call.
-     * 
-     */
-    public Output<Boolean> unavailable() {
-        return this.unavailable;
     }
 
     /**
