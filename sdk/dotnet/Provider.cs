@@ -26,7 +26,8 @@ namespace Pulumi.Artifactory
         public Output<string?> AccessToken { get; private set; } = null!;
 
         /// <summary>
-        /// API token. Projects functionality will not work with any auth method other than access tokens
+        /// API key. If `access_token` attribute, `JFROG_ACCESS_TOKEN` or `ARTIFACTORY_ACCESS_TOKEN` environment variable is set,
+        /// the provider will ignore this attribute.
         /// </summary>
         [Output("apiKey")]
         public Output<string?> ApiKey { get; private set; } = null!;
@@ -91,7 +92,8 @@ namespace Pulumi.Artifactory
         private Input<string>? _apiKey;
 
         /// <summary>
-        /// API token. Projects functionality will not work with any auth method other than access tokens
+        /// API key. If `access_token` attribute, `JFROG_ACCESS_TOKEN` or `ARTIFACTORY_ACCESS_TOKEN` environment variable is set,
+        /// the provider will ignore this attribute.
         /// </summary>
         [Obsolete(@"An upcoming version will support the option to block the usage/creation of API Keys (for admins to set on their platform).
 In a future version (scheduled for end of Q3, 2023), the option to disable the usage/creation of API Keys will be available and set to disabled by default. Admins will be able to enable the usage/creation of API Keys.

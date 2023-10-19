@@ -35,7 +35,8 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * API token. Projects functionality will not work with any auth method other than access tokens
+     * API key. If `access_token` attribute, `JFROG_ACCESS_TOKEN` or `ARTIFACTORY_ACCESS_TOKEN` environment variable is set,
+     * the provider will ignore this attribute.
      * 
      * @deprecated
      * An upcoming version will support the option to block the usage/creation of API Keys (for admins to set on their platform).
@@ -50,7 +51,8 @@ By end of Q1 2024, API Keys will be deprecated all together and the option to us
     private @Nullable Output<String> apiKey;
 
     /**
-     * @return API token. Projects functionality will not work with any auth method other than access tokens
+     * @return API key. If `access_token` attribute, `JFROG_ACCESS_TOKEN` or `ARTIFACTORY_ACCESS_TOKEN` environment variable is set,
+     * the provider will ignore this attribute.
      * 
      * @deprecated
      * An upcoming version will support the option to block the usage/creation of API Keys (for admins to set on their platform).
@@ -146,7 +148,8 @@ By end of Q1 2024, API Keys will be deprecated all together and the option to us
         }
 
         /**
-         * @param apiKey API token. Projects functionality will not work with any auth method other than access tokens
+         * @param apiKey API key. If `access_token` attribute, `JFROG_ACCESS_TOKEN` or `ARTIFACTORY_ACCESS_TOKEN` environment variable is set,
+         * the provider will ignore this attribute.
          * 
          * @return builder
          * 
@@ -165,7 +168,8 @@ By end of Q1 2024, API Keys will be deprecated all together and the option to us
         }
 
         /**
-         * @param apiKey API token. Projects functionality will not work with any auth method other than access tokens
+         * @param apiKey API key. If `access_token` attribute, `JFROG_ACCESS_TOKEN` or `ARTIFACTORY_ACCESS_TOKEN` environment variable is set,
+         * the provider will ignore this attribute.
          * 
          * @return builder
          * 

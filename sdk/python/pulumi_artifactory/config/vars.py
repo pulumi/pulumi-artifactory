@@ -26,7 +26,8 @@ class _ExportableConfig(types.ModuleType):
     @property
     def api_key(self) -> Optional[str]:
         """
-        API token. Projects functionality will not work with any auth method other than access tokens
+        API key. If `access_token` attribute, `JFROG_ACCESS_TOKEN` or `ARTIFACTORY_ACCESS_TOKEN` environment variable is set,
+        the provider will ignore this attribute.
         """
         return __config__.get('apiKey')
 

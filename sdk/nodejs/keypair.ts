@@ -6,10 +6,7 @@ import * as utilities from "./utilities";
 
 /**
  * RSA key pairs are used to sign and verify the Alpine Linux index files in JFrog Artifactory, while GPG key pairs are
- * used to sign and validate packages integrity in JFrog Distribution. The JFrog Platform enables you to manage multiple
- * RSA and GPG signing keys through the Keys Management UI and REST API. The JFrog Platform supports managing multiple
- * pairs of GPG signing keys to sign packages for authentication of several package types such as Debian, Opkg, and RPM
- * through the Keys Management UI and REST API.
+ * used to sign and validate packages integrity in JFrog Distribution. The JFrog Platform enables you to manage multiple RSA and GPG signing keys through the Keys Management UI and REST API. The JFrog Platform supports managing multiple pairs of GPG signing keys to sign packages for authentication of several package types such as Debian, Opkg, and RPM through the Keys Management UI and REST API.
  *
  * ## Example Usage
  *
@@ -18,10 +15,10 @@ import * as utilities from "./utilities";
  * import * as artifactory from "@pulumi/artifactory";
  * import * as fs from "fs";
  *
- * const some_keypair6543461672124900137 = new artifactory.Keypair("some-keypair6543461672124900137", {
- *     pairName: "some-keypair6543461672124900137",
+ * const some_keypair_6543461672124900137 = new artifactory.Keypair("some-keypair-6543461672124900137", {
+ *     pairName: "some-keypair-6543461672124900137",
  *     pairType: "RSA",
- *     alias: "foo-alias6543461672124900137",
+ *     alias: "some-alias-6543461672124900137",
  *     privateKey: fs.readFileSync("samples/rsa.priv"),
  *     publicKey: fs.readFileSync("samples/rsa.pub"),
  *     passphrase: "PASSPHRASE",
@@ -30,10 +27,10 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
- * Keypair can be imported using their name, e.g.
+ * Keypair can be imported using the pair name, e.g.
  *
  * ```sh
- *  $ pulumi import artifactory:index/keypair:Keypair my-keypair my-keypair
+ *  $ pulumi import artifactory:index/keypair:Keypair my-keypair my-keypair-name
  * ```
  */
 export class Keypair extends pulumi.CustomResource {
@@ -81,19 +78,15 @@ export class Keypair extends pulumi.CustomResource {
      */
     public readonly passphrase!: pulumi.Output<string | undefined>;
     /**
-     * Private key. PEM format will be validated.
+     * Private key. PEM format will be validated. Must not include extranous spaces or tabs.
      */
     public readonly privateKey!: pulumi.Output<string>;
     /**
-     * Public key. PEM format will be validated.
+     * Public key. PEM format will be validated. Must not include extranous spaces or tabs.
+     *
+     * Artifactory REST API call 'Get Key Pair' doesn't return attributes `privateKey` and `passphrase`, but consumes these keys in the POST call.
      */
     public readonly publicKey!: pulumi.Output<string>;
-    /**
-     * Unknown usage. Returned in the json payload and cannot be set.
-     *
-     * Artifactory REST API call Get Key Pair doesn't return keys `privateKey` and `passphrase`, but consumes these keys in the POST call.
-     */
-    public /*out*/ readonly unavailable!: pulumi.Output<boolean>;
 
     /**
      * Create a Keypair resource with the given unique name, arguments, and options.
@@ -114,7 +107,6 @@ export class Keypair extends pulumi.CustomResource {
             resourceInputs["passphrase"] = state ? state.passphrase : undefined;
             resourceInputs["privateKey"] = state ? state.privateKey : undefined;
             resourceInputs["publicKey"] = state ? state.publicKey : undefined;
-            resourceInputs["unavailable"] = state ? state.unavailable : undefined;
         } else {
             const args = argsOrState as KeypairArgs | undefined;
             if ((!args || args.alias === undefined) && !opts.urn) {
@@ -138,7 +130,6 @@ export class Keypair extends pulumi.CustomResource {
             resourceInputs["passphrase"] = args?.passphrase ? pulumi.secret(args.passphrase) : undefined;
             resourceInputs["privateKey"] = args?.privateKey ? pulumi.secret(args.privateKey) : undefined;
             resourceInputs["publicKey"] = args ? args.publicKey : undefined;
-            resourceInputs["unavailable"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["passphrase", "privateKey"] };
@@ -168,19 +159,15 @@ export interface KeypairState {
      */
     passphrase?: pulumi.Input<string>;
     /**
-     * Private key. PEM format will be validated.
+     * Private key. PEM format will be validated. Must not include extranous spaces or tabs.
      */
     privateKey?: pulumi.Input<string>;
     /**
-     * Public key. PEM format will be validated.
+     * Public key. PEM format will be validated. Must not include extranous spaces or tabs.
+     *
+     * Artifactory REST API call 'Get Key Pair' doesn't return attributes `privateKey` and `passphrase`, but consumes these keys in the POST call.
      */
     publicKey?: pulumi.Input<string>;
-    /**
-     * Unknown usage. Returned in the json payload and cannot be set.
-     *
-     * Artifactory REST API call Get Key Pair doesn't return keys `privateKey` and `passphrase`, but consumes these keys in the POST call.
-     */
-    unavailable?: pulumi.Input<boolean>;
 }
 
 /**
@@ -204,11 +191,13 @@ export interface KeypairArgs {
      */
     passphrase?: pulumi.Input<string>;
     /**
-     * Private key. PEM format will be validated.
+     * Private key. PEM format will be validated. Must not include extranous spaces or tabs.
      */
     privateKey: pulumi.Input<string>;
     /**
-     * Public key. PEM format will be validated.
+     * Public key. PEM format will be validated. Must not include extranous spaces or tabs.
+     *
+     * Artifactory REST API call 'Get Key Pair' doesn't return attributes `privateKey` and `passphrase`, but consumes these keys in the POST call.
      */
     publicKey: pulumi.Input<string>;
 }
