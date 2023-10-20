@@ -20,9 +20,10 @@ class ProviderArgs:
                  url: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Provider resource.
-        :param pulumi.Input[str] access_token: This is a access token that can be given to you by your admin under `Identity and Access`. If not set, the 'api_key'
-               attribute value will be used.
-        :param pulumi.Input[str] api_key: API token. Projects functionality will not work with any auth method other than access tokens
+        :param pulumi.Input[str] access_token: This is a access token that can be given to you by your admin under `User Management -> Access Tokens`. If not set, the
+               'api_key' attribute value will be used.
+        :param pulumi.Input[str] api_key: API key. If `access_token` attribute, `JFROG_ACCESS_TOKEN` or `ARTIFACTORY_ACCESS_TOKEN` environment variable is set,
+               the provider will ignore this attribute.
         :param pulumi.Input[bool] check_license: Toggle for pre-flight checking of Artifactory Pro and Enterprise license. Default to `true`.
         :param pulumi.Input[str] url: Artifactory URL.
         """
@@ -71,8 +72,8 @@ By end of Q1 2024, API Keys will be deprecated all together and the option to us
     @pulumi.getter(name="accessToken")
     def access_token(self) -> Optional[pulumi.Input[str]]:
         """
-        This is a access token that can be given to you by your admin under `Identity and Access`. If not set, the 'api_key'
-        attribute value will be used.
+        This is a access token that can be given to you by your admin under `User Management -> Access Tokens`. If not set, the
+        'api_key' attribute value will be used.
         """
         return pulumi.get(self, "access_token")
 
@@ -84,7 +85,8 @@ By end of Q1 2024, API Keys will be deprecated all together and the option to us
     @pulumi.getter(name="apiKey")
     def api_key(self) -> Optional[pulumi.Input[str]]:
         """
-        API token. Projects functionality will not work with any auth method other than access tokens
+        API key. If `access_token` attribute, `JFROG_ACCESS_TOKEN` or `ARTIFACTORY_ACCESS_TOKEN` environment variable is set,
+        the provider will ignore this attribute.
         """
         warnings.warn("""An upcoming version will support the option to block the usage/creation of API Keys (for admins to set on their platform).
 In a future version (scheduled for end of Q3, 2023), the option to disable the usage/creation of API Keys will be available and set to disabled by default. Admins will be able to enable the usage/creation of API Keys.
@@ -142,9 +144,10 @@ class Provider(pulumi.ProviderResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] access_token: This is a access token that can be given to you by your admin under `Identity and Access`. If not set, the 'api_key'
-               attribute value will be used.
-        :param pulumi.Input[str] api_key: API token. Projects functionality will not work with any auth method other than access tokens
+        :param pulumi.Input[str] access_token: This is a access token that can be given to you by your admin under `User Management -> Access Tokens`. If not set, the
+               'api_key' attribute value will be used.
+        :param pulumi.Input[str] api_key: API key. If `access_token` attribute, `JFROG_ACCESS_TOKEN` or `ARTIFACTORY_ACCESS_TOKEN` environment variable is set,
+               the provider will ignore this attribute.
         :param pulumi.Input[bool] check_license: Toggle for pre-flight checking of Artifactory Pro and Enterprise license. Default to `true`.
         :param pulumi.Input[str] url: Artifactory URL.
         """
@@ -210,8 +213,8 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter(name="accessToken")
     def access_token(self) -> pulumi.Output[Optional[str]]:
         """
-        This is a access token that can be given to you by your admin under `Identity and Access`. If not set, the 'api_key'
-        attribute value will be used.
+        This is a access token that can be given to you by your admin under `User Management -> Access Tokens`. If not set, the
+        'api_key' attribute value will be used.
         """
         return pulumi.get(self, "access_token")
 
@@ -219,7 +222,8 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter(name="apiKey")
     def api_key(self) -> pulumi.Output[Optional[str]]:
         """
-        API token. Projects functionality will not work with any auth method other than access tokens
+        API key. If `access_token` attribute, `JFROG_ACCESS_TOKEN` or `ARTIFACTORY_ACCESS_TOKEN` environment variable is set,
+        the provider will ignore this attribute.
         """
         warnings.warn("""An upcoming version will support the option to block the usage/creation of API Keys (for admins to set on their platform).
 In a future version (scheduled for end of Q3, 2023), the option to disable the usage/creation of API Keys will be available and set to disabled by default. Admins will be able to enable the usage/creation of API Keys.

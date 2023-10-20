@@ -34,8 +34,8 @@ namespace Pulumi.Artifactory
 
         private static readonly __Value<string?> _accessToken = new __Value<string?>(() => __config.Get("accessToken"));
         /// <summary>
-        /// This is a access token that can be given to you by your admin under `Identity and Access`. If not set, the 'api_key'
-        /// attribute value will be used.
+        /// This is a access token that can be given to you by your admin under `User Management -&gt; Access Tokens`. If not set, the
+        /// 'api_key' attribute value will be used.
         /// </summary>
         public static string? AccessToken
         {
@@ -45,7 +45,8 @@ namespace Pulumi.Artifactory
 
         private static readonly __Value<string?> _apiKey = new __Value<string?>(() => __config.Get("apiKey"));
         /// <summary>
-        /// API token. Projects functionality will not work with any auth method other than access tokens
+        /// API key. If `access_token` attribute, `JFROG_ACCESS_TOKEN` or `ARTIFACTORY_ACCESS_TOKEN` environment variable is set,
+        /// the provider will ignore this attribute.
         /// </summary>
         public static string? ApiKey
         {

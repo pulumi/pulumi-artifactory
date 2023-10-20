@@ -12,15 +12,16 @@ public final class Config {
 
     private static final com.pulumi.Config config = com.pulumi.Config.of("artifactory");
 /**
- * This is a access token that can be given to you by your admin under `Identity and Access`. If not set, the &#39;api_key&#39;
- * attribute value will be used.
+ * This is a access token that can be given to you by your admin under `User Management -&gt; Access Tokens`. If not set, the
+ * &#39;api_key&#39; attribute value will be used.
  * 
  */
     public Optional<String> accessToken() {
         return Codegen.stringProp("accessToken").config(config).get();
     }
 /**
- * API token. Projects functionality will not work with any auth method other than access tokens
+ * API key. If `access_token` attribute, `JFROG_ACCESS_TOKEN` or `ARTIFACTORY_ACCESS_TOKEN` environment variable is set,
+ * the provider will ignore this attribute.
  * 
  */
     public Optional<String> apiKey() {
