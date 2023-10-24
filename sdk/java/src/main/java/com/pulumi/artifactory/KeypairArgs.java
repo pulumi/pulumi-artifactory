@@ -76,14 +76,14 @@ public final class KeypairArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Private key. PEM format will be validated.
+     * Private key. PEM format will be validated. Must not include extranous spaces or tabs.
      * 
      */
     @Import(name="privateKey", required=true)
     private Output<String> privateKey;
 
     /**
-     * @return Private key. PEM format will be validated.
+     * @return Private key. PEM format will be validated. Must not include extranous spaces or tabs.
      * 
      */
     public Output<String> privateKey() {
@@ -91,14 +91,18 @@ public final class KeypairArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Public key. PEM format will be validated.
+     * Public key. PEM format will be validated. Must not include extranous spaces or tabs.
+     * 
+     * Artifactory REST API call &#39;Get Key Pair&#39; doesn&#39;t return attributes `private_key` and `passphrase`, but consumes these keys in the POST call.
      * 
      */
     @Import(name="publicKey", required=true)
     private Output<String> publicKey;
 
     /**
-     * @return Public key. PEM format will be validated.
+     * @return Public key. PEM format will be validated. Must not include extranous spaces or tabs.
+     * 
+     * Artifactory REST API call &#39;Get Key Pair&#39; doesn&#39;t return attributes `private_key` and `passphrase`, but consumes these keys in the POST call.
      * 
      */
     public Output<String> publicKey() {
@@ -219,7 +223,7 @@ public final class KeypairArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param privateKey Private key. PEM format will be validated.
+         * @param privateKey Private key. PEM format will be validated. Must not include extranous spaces or tabs.
          * 
          * @return builder
          * 
@@ -230,7 +234,7 @@ public final class KeypairArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param privateKey Private key. PEM format will be validated.
+         * @param privateKey Private key. PEM format will be validated. Must not include extranous spaces or tabs.
          * 
          * @return builder
          * 
@@ -240,7 +244,9 @@ public final class KeypairArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param publicKey Public key. PEM format will be validated.
+         * @param publicKey Public key. PEM format will be validated. Must not include extranous spaces or tabs.
+         * 
+         * Artifactory REST API call &#39;Get Key Pair&#39; doesn&#39;t return attributes `private_key` and `passphrase`, but consumes these keys in the POST call.
          * 
          * @return builder
          * 
@@ -251,7 +257,9 @@ public final class KeypairArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param publicKey Public key. PEM format will be validated.
+         * @param publicKey Public key. PEM format will be validated. Must not include extranous spaces or tabs.
+         * 
+         * Artifactory REST API call &#39;Get Key Pair&#39; doesn&#39;t return attributes `private_key` and `passphrase`, but consumes these keys in the POST call.
          * 
          * @return builder
          * 

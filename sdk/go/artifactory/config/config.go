@@ -11,13 +11,14 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
-// This is a access token that can be given to you by your admin under `Identity and Access`. If not set, the 'api_key'
-// attribute value will be used.
+// This is a access token that can be given to you by your admin under `User Management -> Access Tokens`. If not set, the
+// 'api_key' attribute value will be used.
 func GetAccessToken(ctx *pulumi.Context) string {
 	return config.Get(ctx, "artifactory:accessToken")
 }
 
-// API token. Projects functionality will not work with any auth method other than access tokens
+// API key. If `access_token` attribute, `JFROG_ACCESS_TOKEN` or `ARTIFACTORY_ACCESS_TOKEN` environment variable is set,
+// the provider will ignore this attribute.
 //
 // Deprecated: An upcoming version will support the option to block the usage/creation of API Keys (for admins to set on their platform).
 // In a future version (scheduled for end of Q3, 2023), the option to disable the usage/creation of API Keys will be available and set to disabled by default. Admins will be able to enable the usage/creation of API Keys.

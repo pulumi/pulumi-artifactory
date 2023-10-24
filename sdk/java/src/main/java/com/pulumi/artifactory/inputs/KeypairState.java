@@ -5,7 +5,6 @@ package com.pulumi.artifactory.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -77,14 +76,14 @@ public final class KeypairState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Private key. PEM format will be validated.
+     * Private key. PEM format will be validated. Must not include extranous spaces or tabs.
      * 
      */
     @Import(name="privateKey")
     private @Nullable Output<String> privateKey;
 
     /**
-     * @return Private key. PEM format will be validated.
+     * @return Private key. PEM format will be validated. Must not include extranous spaces or tabs.
      * 
      */
     public Optional<Output<String>> privateKey() {
@@ -92,37 +91,22 @@ public final class KeypairState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Public key. PEM format will be validated.
+     * Public key. PEM format will be validated. Must not include extranous spaces or tabs.
+     * 
+     * Artifactory REST API call &#39;Get Key Pair&#39; doesn&#39;t return attributes `private_key` and `passphrase`, but consumes these keys in the POST call.
      * 
      */
     @Import(name="publicKey")
     private @Nullable Output<String> publicKey;
 
     /**
-     * @return Public key. PEM format will be validated.
+     * @return Public key. PEM format will be validated. Must not include extranous spaces or tabs.
+     * 
+     * Artifactory REST API call &#39;Get Key Pair&#39; doesn&#39;t return attributes `private_key` and `passphrase`, but consumes these keys in the POST call.
      * 
      */
     public Optional<Output<String>> publicKey() {
         return Optional.ofNullable(this.publicKey);
-    }
-
-    /**
-     * Unknown usage. Returned in the json payload and cannot be set.
-     * 
-     * Artifactory REST API call Get Key Pair doesn&#39;t return keys `private_key` and `passphrase`, but consumes these keys in the POST call.
-     * 
-     */
-    @Import(name="unavailable")
-    private @Nullable Output<Boolean> unavailable;
-
-    /**
-     * @return Unknown usage. Returned in the json payload and cannot be set.
-     * 
-     * Artifactory REST API call Get Key Pair doesn&#39;t return keys `private_key` and `passphrase`, but consumes these keys in the POST call.
-     * 
-     */
-    public Optional<Output<Boolean>> unavailable() {
-        return Optional.ofNullable(this.unavailable);
     }
 
     private KeypairState() {}
@@ -134,7 +118,6 @@ public final class KeypairState extends com.pulumi.resources.ResourceArgs {
         this.passphrase = $.passphrase;
         this.privateKey = $.privateKey;
         this.publicKey = $.publicKey;
-        this.unavailable = $.unavailable;
     }
 
     public static Builder builder() {
@@ -240,7 +223,7 @@ public final class KeypairState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param privateKey Private key. PEM format will be validated.
+         * @param privateKey Private key. PEM format will be validated. Must not include extranous spaces or tabs.
          * 
          * @return builder
          * 
@@ -251,7 +234,7 @@ public final class KeypairState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param privateKey Private key. PEM format will be validated.
+         * @param privateKey Private key. PEM format will be validated. Must not include extranous spaces or tabs.
          * 
          * @return builder
          * 
@@ -261,7 +244,9 @@ public final class KeypairState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param publicKey Public key. PEM format will be validated.
+         * @param publicKey Public key. PEM format will be validated. Must not include extranous spaces or tabs.
+         * 
+         * Artifactory REST API call &#39;Get Key Pair&#39; doesn&#39;t return attributes `private_key` and `passphrase`, but consumes these keys in the POST call.
          * 
          * @return builder
          * 
@@ -272,38 +257,15 @@ public final class KeypairState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param publicKey Public key. PEM format will be validated.
+         * @param publicKey Public key. PEM format will be validated. Must not include extranous spaces or tabs.
+         * 
+         * Artifactory REST API call &#39;Get Key Pair&#39; doesn&#39;t return attributes `private_key` and `passphrase`, but consumes these keys in the POST call.
          * 
          * @return builder
          * 
          */
         public Builder publicKey(String publicKey) {
             return publicKey(Output.of(publicKey));
-        }
-
-        /**
-         * @param unavailable Unknown usage. Returned in the json payload and cannot be set.
-         * 
-         * Artifactory REST API call Get Key Pair doesn&#39;t return keys `private_key` and `passphrase`, but consumes these keys in the POST call.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder unavailable(@Nullable Output<Boolean> unavailable) {
-            $.unavailable = unavailable;
-            return this;
-        }
-
-        /**
-         * @param unavailable Unknown usage. Returned in the json payload and cannot be set.
-         * 
-         * Artifactory REST API call Get Key Pair doesn&#39;t return keys `private_key` and `passphrase`, but consumes these keys in the POST call.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder unavailable(Boolean unavailable) {
-            return unavailable(Output.of(unavailable));
         }
 
         public KeypairState build() {
