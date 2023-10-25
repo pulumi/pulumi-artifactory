@@ -53,31 +53,41 @@ class LdapGroupSettingV2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             description_attribute: pulumi.Input[str],
-             filter: pulumi.Input[str],
-             group_member_attribute: pulumi.Input[str],
-             group_name_attribute: pulumi.Input[str],
-             strategy: pulumi.Input[str],
+             description_attribute: Optional[pulumi.Input[str]] = None,
+             filter: Optional[pulumi.Input[str]] = None,
+             group_member_attribute: Optional[pulumi.Input[str]] = None,
+             group_name_attribute: Optional[pulumi.Input[str]] = None,
+             strategy: Optional[pulumi.Input[str]] = None,
              enabled_ldap: Optional[pulumi.Input[str]] = None,
              force_attribute_search: Optional[pulumi.Input[bool]] = None,
              group_base_dn: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              sub_tree: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'descriptionAttribute' in kwargs:
+        if description_attribute is None and 'descriptionAttribute' in kwargs:
             description_attribute = kwargs['descriptionAttribute']
-        if 'groupMemberAttribute' in kwargs:
+        if description_attribute is None:
+            raise TypeError("Missing 'description_attribute' argument")
+        if filter is None:
+            raise TypeError("Missing 'filter' argument")
+        if group_member_attribute is None and 'groupMemberAttribute' in kwargs:
             group_member_attribute = kwargs['groupMemberAttribute']
-        if 'groupNameAttribute' in kwargs:
+        if group_member_attribute is None:
+            raise TypeError("Missing 'group_member_attribute' argument")
+        if group_name_attribute is None and 'groupNameAttribute' in kwargs:
             group_name_attribute = kwargs['groupNameAttribute']
-        if 'enabledLdap' in kwargs:
+        if group_name_attribute is None:
+            raise TypeError("Missing 'group_name_attribute' argument")
+        if strategy is None:
+            raise TypeError("Missing 'strategy' argument")
+        if enabled_ldap is None and 'enabledLdap' in kwargs:
             enabled_ldap = kwargs['enabledLdap']
-        if 'forceAttributeSearch' in kwargs:
+        if force_attribute_search is None and 'forceAttributeSearch' in kwargs:
             force_attribute_search = kwargs['forceAttributeSearch']
-        if 'groupBaseDn' in kwargs:
+        if group_base_dn is None and 'groupBaseDn' in kwargs:
             group_base_dn = kwargs['groupBaseDn']
-        if 'subTree' in kwargs:
+        if sub_tree is None and 'subTree' in kwargs:
             sub_tree = kwargs['subTree']
 
         _setter("description_attribute", description_attribute)
@@ -269,21 +279,21 @@ class _LdapGroupSettingV2State:
              name: Optional[pulumi.Input[str]] = None,
              strategy: Optional[pulumi.Input[str]] = None,
              sub_tree: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'descriptionAttribute' in kwargs:
+        if description_attribute is None and 'descriptionAttribute' in kwargs:
             description_attribute = kwargs['descriptionAttribute']
-        if 'enabledLdap' in kwargs:
+        if enabled_ldap is None and 'enabledLdap' in kwargs:
             enabled_ldap = kwargs['enabledLdap']
-        if 'forceAttributeSearch' in kwargs:
+        if force_attribute_search is None and 'forceAttributeSearch' in kwargs:
             force_attribute_search = kwargs['forceAttributeSearch']
-        if 'groupBaseDn' in kwargs:
+        if group_base_dn is None and 'groupBaseDn' in kwargs:
             group_base_dn = kwargs['groupBaseDn']
-        if 'groupMemberAttribute' in kwargs:
+        if group_member_attribute is None and 'groupMemberAttribute' in kwargs:
             group_member_attribute = kwargs['groupMemberAttribute']
-        if 'groupNameAttribute' in kwargs:
+        if group_name_attribute is None and 'groupNameAttribute' in kwargs:
             group_name_attribute = kwargs['groupNameAttribute']
-        if 'subTree' in kwargs:
+        if sub_tree is None and 'subTree' in kwargs:
             sub_tree = kwargs['subTree']
 
         if description_attribute is not None:

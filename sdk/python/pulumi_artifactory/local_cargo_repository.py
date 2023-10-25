@@ -88,7 +88,7 @@ class LocalCargoRepositoryArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
+             key: Optional[pulumi.Input[str]] = None,
              anonymous_access: Optional[pulumi.Input[bool]] = None,
              archive_browsing_enabled: Optional[pulumi.Input[bool]] = None,
              blacked_out: Optional[pulumi.Input[bool]] = None,
@@ -106,37 +106,39 @@ class LocalCargoRepositoryArgs:
              property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              repo_layout_ref: Optional[pulumi.Input[str]] = None,
              xray_index: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'anonymousAccess' in kwargs:
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if anonymous_access is None and 'anonymousAccess' in kwargs:
             anonymous_access = kwargs['anonymousAccess']
-        if 'archiveBrowsingEnabled' in kwargs:
+        if archive_browsing_enabled is None and 'archiveBrowsingEnabled' in kwargs:
             archive_browsing_enabled = kwargs['archiveBrowsingEnabled']
-        if 'blackedOut' in kwargs:
+        if blacked_out is None and 'blackedOut' in kwargs:
             blacked_out = kwargs['blackedOut']
-        if 'cdnRedirect' in kwargs:
+        if cdn_redirect is None and 'cdnRedirect' in kwargs:
             cdn_redirect = kwargs['cdnRedirect']
-        if 'downloadDirect' in kwargs:
+        if download_direct is None and 'downloadDirect' in kwargs:
             download_direct = kwargs['downloadDirect']
-        if 'enableSparseIndex' in kwargs:
+        if enable_sparse_index is None and 'enableSparseIndex' in kwargs:
             enable_sparse_index = kwargs['enableSparseIndex']
-        if 'excludesPattern' in kwargs:
+        if excludes_pattern is None and 'excludesPattern' in kwargs:
             excludes_pattern = kwargs['excludesPattern']
-        if 'includesPattern' in kwargs:
+        if includes_pattern is None and 'includesPattern' in kwargs:
             includes_pattern = kwargs['includesPattern']
-        if 'indexCompressionFormats' in kwargs:
+        if index_compression_formats is None and 'indexCompressionFormats' in kwargs:
             index_compression_formats = kwargs['indexCompressionFormats']
-        if 'priorityResolution' in kwargs:
+        if priority_resolution is None and 'priorityResolution' in kwargs:
             priority_resolution = kwargs['priorityResolution']
-        if 'projectEnvironments' in kwargs:
+        if project_environments is None and 'projectEnvironments' in kwargs:
             project_environments = kwargs['projectEnvironments']
-        if 'projectKey' in kwargs:
+        if project_key is None and 'projectKey' in kwargs:
             project_key = kwargs['projectKey']
-        if 'propertySets' in kwargs:
+        if property_sets is None and 'propertySets' in kwargs:
             property_sets = kwargs['propertySets']
-        if 'repoLayoutRef' in kwargs:
+        if repo_layout_ref is None and 'repoLayoutRef' in kwargs:
             repo_layout_ref = kwargs['repoLayoutRef']
-        if 'xrayIndex' in kwargs:
+        if xray_index is None and 'xrayIndex' in kwargs:
             xray_index = kwargs['xrayIndex']
 
         _setter("key", key)
@@ -499,39 +501,39 @@ class _LocalCargoRepositoryState:
              property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              repo_layout_ref: Optional[pulumi.Input[str]] = None,
              xray_index: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'anonymousAccess' in kwargs:
+        if anonymous_access is None and 'anonymousAccess' in kwargs:
             anonymous_access = kwargs['anonymousAccess']
-        if 'archiveBrowsingEnabled' in kwargs:
+        if archive_browsing_enabled is None and 'archiveBrowsingEnabled' in kwargs:
             archive_browsing_enabled = kwargs['archiveBrowsingEnabled']
-        if 'blackedOut' in kwargs:
+        if blacked_out is None and 'blackedOut' in kwargs:
             blacked_out = kwargs['blackedOut']
-        if 'cdnRedirect' in kwargs:
+        if cdn_redirect is None and 'cdnRedirect' in kwargs:
             cdn_redirect = kwargs['cdnRedirect']
-        if 'downloadDirect' in kwargs:
+        if download_direct is None and 'downloadDirect' in kwargs:
             download_direct = kwargs['downloadDirect']
-        if 'enableSparseIndex' in kwargs:
+        if enable_sparse_index is None and 'enableSparseIndex' in kwargs:
             enable_sparse_index = kwargs['enableSparseIndex']
-        if 'excludesPattern' in kwargs:
+        if excludes_pattern is None and 'excludesPattern' in kwargs:
             excludes_pattern = kwargs['excludesPattern']
-        if 'includesPattern' in kwargs:
+        if includes_pattern is None and 'includesPattern' in kwargs:
             includes_pattern = kwargs['includesPattern']
-        if 'indexCompressionFormats' in kwargs:
+        if index_compression_formats is None and 'indexCompressionFormats' in kwargs:
             index_compression_formats = kwargs['indexCompressionFormats']
-        if 'packageType' in kwargs:
+        if package_type is None and 'packageType' in kwargs:
             package_type = kwargs['packageType']
-        if 'priorityResolution' in kwargs:
+        if priority_resolution is None and 'priorityResolution' in kwargs:
             priority_resolution = kwargs['priorityResolution']
-        if 'projectEnvironments' in kwargs:
+        if project_environments is None and 'projectEnvironments' in kwargs:
             project_environments = kwargs['projectEnvironments']
-        if 'projectKey' in kwargs:
+        if project_key is None and 'projectKey' in kwargs:
             project_key = kwargs['projectKey']
-        if 'propertySets' in kwargs:
+        if property_sets is None and 'propertySets' in kwargs:
             property_sets = kwargs['propertySets']
-        if 'repoLayoutRef' in kwargs:
+        if repo_layout_ref is None and 'repoLayoutRef' in kwargs:
             repo_layout_ref = kwargs['repoLayoutRef']
-        if 'xrayIndex' in kwargs:
+        if xray_index is None and 'xrayIndex' in kwargs:
             xray_index = kwargs['xrayIndex']
 
         if anonymous_access is not None:

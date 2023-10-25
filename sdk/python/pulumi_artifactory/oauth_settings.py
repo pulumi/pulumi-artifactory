@@ -37,17 +37,19 @@ class OauthSettingsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             oauth_providers: pulumi.Input[Sequence[pulumi.Input['OauthSettingsOauthProviderArgs']]],
+             oauth_providers: Optional[pulumi.Input[Sequence[pulumi.Input['OauthSettingsOauthProviderArgs']]]] = None,
              allow_user_to_access_profile: Optional[pulumi.Input[bool]] = None,
              enable: Optional[pulumi.Input[bool]] = None,
              persist_users: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'oauthProviders' in kwargs:
+        if oauth_providers is None and 'oauthProviders' in kwargs:
             oauth_providers = kwargs['oauthProviders']
-        if 'allowUserToAccessProfile' in kwargs:
+        if oauth_providers is None:
+            raise TypeError("Missing 'oauth_providers' argument")
+        if allow_user_to_access_profile is None and 'allowUserToAccessProfile' in kwargs:
             allow_user_to_access_profile = kwargs['allowUserToAccessProfile']
-        if 'persistUsers' in kwargs:
+        if persist_users is None and 'persistUsers' in kwargs:
             persist_users = kwargs['persistUsers']
 
         _setter("oauth_providers", oauth_providers)
@@ -135,13 +137,13 @@ class _OauthSettingsState:
              enable: Optional[pulumi.Input[bool]] = None,
              oauth_providers: Optional[pulumi.Input[Sequence[pulumi.Input['OauthSettingsOauthProviderArgs']]]] = None,
              persist_users: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'allowUserToAccessProfile' in kwargs:
+        if allow_user_to_access_profile is None and 'allowUserToAccessProfile' in kwargs:
             allow_user_to_access_profile = kwargs['allowUserToAccessProfile']
-        if 'oauthProviders' in kwargs:
+        if oauth_providers is None and 'oauthProviders' in kwargs:
             oauth_providers = kwargs['oauthProviders']
-        if 'persistUsers' in kwargs:
+        if persist_users is None and 'persistUsers' in kwargs:
             persist_users = kwargs['persistUsers']
 
         if allow_user_to_access_profile is not None:

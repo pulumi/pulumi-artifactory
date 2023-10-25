@@ -71,9 +71,9 @@ class LocalRepositorySingleReplicationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             repo_key: pulumi.Input[str],
-             url: pulumi.Input[str],
-             username: pulumi.Input[str],
+             repo_key: Optional[pulumi.Input[str]] = None,
+             url: Optional[pulumi.Input[str]] = None,
+             username: Optional[pulumi.Input[str]] = None,
              check_binary_existence_in_filestore: Optional[pulumi.Input[bool]] = None,
              cron_exp: Optional[pulumi.Input[str]] = None,
              enable_event_replication: Optional[pulumi.Input[bool]] = None,
@@ -87,29 +87,35 @@ class LocalRepositorySingleReplicationArgs:
              sync_deletes: Optional[pulumi.Input[bool]] = None,
              sync_properties: Optional[pulumi.Input[bool]] = None,
              sync_statistics: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'repoKey' in kwargs:
+        if repo_key is None and 'repoKey' in kwargs:
             repo_key = kwargs['repoKey']
-        if 'checkBinaryExistenceInFilestore' in kwargs:
+        if repo_key is None:
+            raise TypeError("Missing 'repo_key' argument")
+        if url is None:
+            raise TypeError("Missing 'url' argument")
+        if username is None:
+            raise TypeError("Missing 'username' argument")
+        if check_binary_existence_in_filestore is None and 'checkBinaryExistenceInFilestore' in kwargs:
             check_binary_existence_in_filestore = kwargs['checkBinaryExistenceInFilestore']
-        if 'cronExp' in kwargs:
+        if cron_exp is None and 'cronExp' in kwargs:
             cron_exp = kwargs['cronExp']
-        if 'enableEventReplication' in kwargs:
+        if enable_event_replication is None and 'enableEventReplication' in kwargs:
             enable_event_replication = kwargs['enableEventReplication']
-        if 'excludePathPrefixPattern' in kwargs:
+        if exclude_path_prefix_pattern is None and 'excludePathPrefixPattern' in kwargs:
             exclude_path_prefix_pattern = kwargs['excludePathPrefixPattern']
-        if 'includePathPrefixPattern' in kwargs:
+        if include_path_prefix_pattern is None and 'includePathPrefixPattern' in kwargs:
             include_path_prefix_pattern = kwargs['includePathPrefixPattern']
-        if 'replicationKey' in kwargs:
+        if replication_key is None and 'replicationKey' in kwargs:
             replication_key = kwargs['replicationKey']
-        if 'socketTimeoutMillis' in kwargs:
+        if socket_timeout_millis is None and 'socketTimeoutMillis' in kwargs:
             socket_timeout_millis = kwargs['socketTimeoutMillis']
-        if 'syncDeletes' in kwargs:
+        if sync_deletes is None and 'syncDeletes' in kwargs:
             sync_deletes = kwargs['syncDeletes']
-        if 'syncProperties' in kwargs:
+        if sync_properties is None and 'syncProperties' in kwargs:
             sync_properties = kwargs['syncProperties']
-        if 'syncStatistics' in kwargs:
+        if sync_statistics is None and 'syncStatistics' in kwargs:
             sync_statistics = kwargs['syncStatistics']
 
         _setter("repo_key", repo_key)
@@ -411,29 +417,29 @@ class _LocalRepositorySingleReplicationState:
              sync_statistics: Optional[pulumi.Input[bool]] = None,
              url: Optional[pulumi.Input[str]] = None,
              username: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'checkBinaryExistenceInFilestore' in kwargs:
+        if check_binary_existence_in_filestore is None and 'checkBinaryExistenceInFilestore' in kwargs:
             check_binary_existence_in_filestore = kwargs['checkBinaryExistenceInFilestore']
-        if 'cronExp' in kwargs:
+        if cron_exp is None and 'cronExp' in kwargs:
             cron_exp = kwargs['cronExp']
-        if 'enableEventReplication' in kwargs:
+        if enable_event_replication is None and 'enableEventReplication' in kwargs:
             enable_event_replication = kwargs['enableEventReplication']
-        if 'excludePathPrefixPattern' in kwargs:
+        if exclude_path_prefix_pattern is None and 'excludePathPrefixPattern' in kwargs:
             exclude_path_prefix_pattern = kwargs['excludePathPrefixPattern']
-        if 'includePathPrefixPattern' in kwargs:
+        if include_path_prefix_pattern is None and 'includePathPrefixPattern' in kwargs:
             include_path_prefix_pattern = kwargs['includePathPrefixPattern']
-        if 'replicationKey' in kwargs:
+        if replication_key is None and 'replicationKey' in kwargs:
             replication_key = kwargs['replicationKey']
-        if 'repoKey' in kwargs:
+        if repo_key is None and 'repoKey' in kwargs:
             repo_key = kwargs['repoKey']
-        if 'socketTimeoutMillis' in kwargs:
+        if socket_timeout_millis is None and 'socketTimeoutMillis' in kwargs:
             socket_timeout_millis = kwargs['socketTimeoutMillis']
-        if 'syncDeletes' in kwargs:
+        if sync_deletes is None and 'syncDeletes' in kwargs:
             sync_deletes = kwargs['syncDeletes']
-        if 'syncProperties' in kwargs:
+        if sync_properties is None and 'syncProperties' in kwargs:
             sync_properties = kwargs['syncProperties']
-        if 'syncStatistics' in kwargs:
+        if sync_statistics is None and 'syncStatistics' in kwargs:
             sync_statistics = kwargs['syncStatistics']
 
         if check_binary_existence_in_filestore is not None:

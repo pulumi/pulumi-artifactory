@@ -49,8 +49,8 @@ class SingleReplicationConfigArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cron_exp: pulumi.Input[str],
-             repo_key: pulumi.Input[str],
+             cron_exp: Optional[pulumi.Input[str]] = None,
+             repo_key: Optional[pulumi.Input[str]] = None,
              enable_event_replication: Optional[pulumi.Input[bool]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
              path_prefix: Optional[pulumi.Input[str]] = None,
@@ -61,23 +61,27 @@ class SingleReplicationConfigArgs:
              sync_statistics: Optional[pulumi.Input[bool]] = None,
              url: Optional[pulumi.Input[str]] = None,
              username: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'cronExp' in kwargs:
+        if cron_exp is None and 'cronExp' in kwargs:
             cron_exp = kwargs['cronExp']
-        if 'repoKey' in kwargs:
+        if cron_exp is None:
+            raise TypeError("Missing 'cron_exp' argument")
+        if repo_key is None and 'repoKey' in kwargs:
             repo_key = kwargs['repoKey']
-        if 'enableEventReplication' in kwargs:
+        if repo_key is None:
+            raise TypeError("Missing 'repo_key' argument")
+        if enable_event_replication is None and 'enableEventReplication' in kwargs:
             enable_event_replication = kwargs['enableEventReplication']
-        if 'pathPrefix' in kwargs:
+        if path_prefix is None and 'pathPrefix' in kwargs:
             path_prefix = kwargs['pathPrefix']
-        if 'socketTimeoutMillis' in kwargs:
+        if socket_timeout_millis is None and 'socketTimeoutMillis' in kwargs:
             socket_timeout_millis = kwargs['socketTimeoutMillis']
-        if 'syncDeletes' in kwargs:
+        if sync_deletes is None and 'syncDeletes' in kwargs:
             sync_deletes = kwargs['syncDeletes']
-        if 'syncProperties' in kwargs:
+        if sync_properties is None and 'syncProperties' in kwargs:
             sync_properties = kwargs['syncProperties']
-        if 'syncStatistics' in kwargs:
+        if sync_statistics is None and 'syncStatistics' in kwargs:
             sync_statistics = kwargs['syncStatistics']
 
         _setter("cron_exp", cron_exp)
@@ -272,23 +276,23 @@ class _SingleReplicationConfigState:
              sync_statistics: Optional[pulumi.Input[bool]] = None,
              url: Optional[pulumi.Input[str]] = None,
              username: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'cronExp' in kwargs:
+        if cron_exp is None and 'cronExp' in kwargs:
             cron_exp = kwargs['cronExp']
-        if 'enableEventReplication' in kwargs:
+        if enable_event_replication is None and 'enableEventReplication' in kwargs:
             enable_event_replication = kwargs['enableEventReplication']
-        if 'pathPrefix' in kwargs:
+        if path_prefix is None and 'pathPrefix' in kwargs:
             path_prefix = kwargs['pathPrefix']
-        if 'repoKey' in kwargs:
+        if repo_key is None and 'repoKey' in kwargs:
             repo_key = kwargs['repoKey']
-        if 'socketTimeoutMillis' in kwargs:
+        if socket_timeout_millis is None and 'socketTimeoutMillis' in kwargs:
             socket_timeout_millis = kwargs['socketTimeoutMillis']
-        if 'syncDeletes' in kwargs:
+        if sync_deletes is None and 'syncDeletes' in kwargs:
             sync_deletes = kwargs['syncDeletes']
-        if 'syncProperties' in kwargs:
+        if sync_properties is None and 'syncProperties' in kwargs:
             sync_properties = kwargs['syncProperties']
-        if 'syncStatistics' in kwargs:
+        if sync_statistics is None and 'syncStatistics' in kwargs:
             sync_statistics = kwargs['syncStatistics']
 
         if cron_exp is not None:

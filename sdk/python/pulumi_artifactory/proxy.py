@@ -53,9 +53,9 @@ class ProxyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             host: pulumi.Input[str],
-             key: pulumi.Input[str],
-             port: pulumi.Input[int],
+             host: Optional[pulumi.Input[str]] = None,
+             key: Optional[pulumi.Input[str]] = None,
+             port: Optional[pulumi.Input[int]] = None,
              nt_domain: Optional[pulumi.Input[str]] = None,
              nt_host: Optional[pulumi.Input[str]] = None,
              password: Optional[pulumi.Input[str]] = None,
@@ -63,15 +63,21 @@ class ProxyArgs:
              redirect_to_hosts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              services: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              username: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'ntDomain' in kwargs:
+        if host is None:
+            raise TypeError("Missing 'host' argument")
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if port is None:
+            raise TypeError("Missing 'port' argument")
+        if nt_domain is None and 'ntDomain' in kwargs:
             nt_domain = kwargs['ntDomain']
-        if 'ntHost' in kwargs:
+        if nt_host is None and 'ntHost' in kwargs:
             nt_host = kwargs['ntHost']
-        if 'platformDefault' in kwargs:
+        if platform_default is None and 'platformDefault' in kwargs:
             platform_default = kwargs['platformDefault']
-        if 'redirectToHosts' in kwargs:
+        if redirect_to_hosts is None and 'redirectToHosts' in kwargs:
             redirect_to_hosts = kwargs['redirectToHosts']
 
         _setter("host", host)
@@ -265,15 +271,15 @@ class _ProxyState:
              redirect_to_hosts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              services: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              username: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'ntDomain' in kwargs:
+        if nt_domain is None and 'ntDomain' in kwargs:
             nt_domain = kwargs['ntDomain']
-        if 'ntHost' in kwargs:
+        if nt_host is None and 'ntHost' in kwargs:
             nt_host = kwargs['ntHost']
-        if 'platformDefault' in kwargs:
+        if platform_default is None and 'platformDefault' in kwargs:
             platform_default = kwargs['platformDefault']
-        if 'redirectToHosts' in kwargs:
+        if redirect_to_hosts is None and 'redirectToHosts' in kwargs:
             redirect_to_hosts = kwargs['redirectToHosts']
 
         if host is not None:

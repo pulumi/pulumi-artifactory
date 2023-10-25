@@ -37,17 +37,21 @@ class LocalRepositoryMultiReplicationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cron_exp: pulumi.Input[str],
-             repo_key: pulumi.Input[str],
+             cron_exp: Optional[pulumi.Input[str]] = None,
+             repo_key: Optional[pulumi.Input[str]] = None,
              enable_event_replication: Optional[pulumi.Input[bool]] = None,
              replications: Optional[pulumi.Input[Sequence[pulumi.Input['LocalRepositoryMultiReplicationReplicationArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'cronExp' in kwargs:
+        if cron_exp is None and 'cronExp' in kwargs:
             cron_exp = kwargs['cronExp']
-        if 'repoKey' in kwargs:
+        if cron_exp is None:
+            raise TypeError("Missing 'cron_exp' argument")
+        if repo_key is None and 'repoKey' in kwargs:
             repo_key = kwargs['repoKey']
-        if 'enableEventReplication' in kwargs:
+        if repo_key is None:
+            raise TypeError("Missing 'repo_key' argument")
+        if enable_event_replication is None and 'enableEventReplication' in kwargs:
             enable_event_replication = kwargs['enableEventReplication']
 
         _setter("cron_exp", cron_exp)
@@ -134,13 +138,13 @@ class _LocalRepositoryMultiReplicationState:
              enable_event_replication: Optional[pulumi.Input[bool]] = None,
              replications: Optional[pulumi.Input[Sequence[pulumi.Input['LocalRepositoryMultiReplicationReplicationArgs']]]] = None,
              repo_key: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'cronExp' in kwargs:
+        if cron_exp is None and 'cronExp' in kwargs:
             cron_exp = kwargs['cronExp']
-        if 'enableEventReplication' in kwargs:
+        if enable_event_replication is None and 'enableEventReplication' in kwargs:
             enable_event_replication = kwargs['enableEventReplication']
-        if 'repoKey' in kwargs:
+        if repo_key is None and 'repoKey' in kwargs:
             repo_key = kwargs['repoKey']
 
         if cron_exp is not None:

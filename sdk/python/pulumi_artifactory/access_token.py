@@ -46,20 +46,22 @@ class AccessTokenArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             username: pulumi.Input[str],
+             username: Optional[pulumi.Input[str]] = None,
              admin_token: Optional[pulumi.Input['AccessTokenAdminTokenArgs']] = None,
              audience: Optional[pulumi.Input[str]] = None,
              end_date: Optional[pulumi.Input[str]] = None,
              end_date_relative: Optional[pulumi.Input[str]] = None,
              groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              refreshable: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'adminToken' in kwargs:
+        if username is None:
+            raise TypeError("Missing 'username' argument")
+        if admin_token is None and 'adminToken' in kwargs:
             admin_token = kwargs['adminToken']
-        if 'endDate' in kwargs:
+        if end_date is None and 'endDate' in kwargs:
             end_date = kwargs['endDate']
-        if 'endDateRelative' in kwargs:
+        if end_date_relative is None and 'endDateRelative' in kwargs:
             end_date_relative = kwargs['endDateRelative']
 
         _setter("username", username)
@@ -209,17 +211,17 @@ class _AccessTokenState:
              refresh_token: Optional[pulumi.Input[str]] = None,
              refreshable: Optional[pulumi.Input[bool]] = None,
              username: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'accessToken' in kwargs:
+        if access_token is None and 'accessToken' in kwargs:
             access_token = kwargs['accessToken']
-        if 'adminToken' in kwargs:
+        if admin_token is None and 'adminToken' in kwargs:
             admin_token = kwargs['adminToken']
-        if 'endDate' in kwargs:
+        if end_date is None and 'endDate' in kwargs:
             end_date = kwargs['endDate']
-        if 'endDateRelative' in kwargs:
+        if end_date_relative is None and 'endDateRelative' in kwargs:
             end_date_relative = kwargs['endDateRelative']
-        if 'refreshToken' in kwargs:
+        if refresh_token is None and 'refreshToken' in kwargs:
             refresh_token = kwargs['refreshToken']
 
         if access_token is not None:
@@ -650,11 +652,7 @@ class AccessToken(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AccessTokenArgs.__new__(AccessTokenArgs)
 
-            if admin_token is not None and not isinstance(admin_token, AccessTokenAdminTokenArgs):
-                admin_token = admin_token or {}
-                def _setter(key, value):
-                    admin_token[key] = value
-                AccessTokenAdminTokenArgs._configure(_setter, **admin_token)
+            admin_token = _utilities.configure(admin_token, AccessTokenAdminTokenArgs, True)
             __props__.__dict__["admin_token"] = admin_token
             __props__.__dict__["audience"] = audience
             __props__.__dict__["end_date"] = end_date

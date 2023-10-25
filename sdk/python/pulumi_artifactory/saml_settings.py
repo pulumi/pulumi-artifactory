@@ -62,9 +62,9 @@ class SamlSettingsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             login_url: pulumi.Input[str],
-             logout_url: pulumi.Input[str],
-             service_provider_name: pulumi.Input[str],
+             login_url: Optional[pulumi.Input[str]] = None,
+             logout_url: Optional[pulumi.Input[str]] = None,
+             service_provider_name: Optional[pulumi.Input[str]] = None,
              allow_user_to_access_profile: Optional[pulumi.Input[bool]] = None,
              auto_redirect: Optional[pulumi.Input[bool]] = None,
              certificate: Optional[pulumi.Input[str]] = None,
@@ -75,29 +75,35 @@ class SamlSettingsArgs:
              sync_groups: Optional[pulumi.Input[bool]] = None,
              use_encrypted_assertion: Optional[pulumi.Input[bool]] = None,
              verify_audience_restriction: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'loginUrl' in kwargs:
+        if login_url is None and 'loginUrl' in kwargs:
             login_url = kwargs['loginUrl']
-        if 'logoutUrl' in kwargs:
+        if login_url is None:
+            raise TypeError("Missing 'login_url' argument")
+        if logout_url is None and 'logoutUrl' in kwargs:
             logout_url = kwargs['logoutUrl']
-        if 'serviceProviderName' in kwargs:
+        if logout_url is None:
+            raise TypeError("Missing 'logout_url' argument")
+        if service_provider_name is None and 'serviceProviderName' in kwargs:
             service_provider_name = kwargs['serviceProviderName']
-        if 'allowUserToAccessProfile' in kwargs:
+        if service_provider_name is None:
+            raise TypeError("Missing 'service_provider_name' argument")
+        if allow_user_to_access_profile is None and 'allowUserToAccessProfile' in kwargs:
             allow_user_to_access_profile = kwargs['allowUserToAccessProfile']
-        if 'autoRedirect' in kwargs:
+        if auto_redirect is None and 'autoRedirect' in kwargs:
             auto_redirect = kwargs['autoRedirect']
-        if 'emailAttribute' in kwargs:
+        if email_attribute is None and 'emailAttribute' in kwargs:
             email_attribute = kwargs['emailAttribute']
-        if 'groupAttribute' in kwargs:
+        if group_attribute is None and 'groupAttribute' in kwargs:
             group_attribute = kwargs['groupAttribute']
-        if 'noAutoUserCreation' in kwargs:
+        if no_auto_user_creation is None and 'noAutoUserCreation' in kwargs:
             no_auto_user_creation = kwargs['noAutoUserCreation']
-        if 'syncGroups' in kwargs:
+        if sync_groups is None and 'syncGroups' in kwargs:
             sync_groups = kwargs['syncGroups']
-        if 'useEncryptedAssertion' in kwargs:
+        if use_encrypted_assertion is None and 'useEncryptedAssertion' in kwargs:
             use_encrypted_assertion = kwargs['useEncryptedAssertion']
-        if 'verifyAudienceRestriction' in kwargs:
+        if verify_audience_restriction is None and 'verifyAudienceRestriction' in kwargs:
             verify_audience_restriction = kwargs['verifyAudienceRestriction']
 
         _setter("login_url", login_url)
@@ -345,29 +351,29 @@ class _SamlSettingsState:
              sync_groups: Optional[pulumi.Input[bool]] = None,
              use_encrypted_assertion: Optional[pulumi.Input[bool]] = None,
              verify_audience_restriction: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'allowUserToAccessProfile' in kwargs:
+        if allow_user_to_access_profile is None and 'allowUserToAccessProfile' in kwargs:
             allow_user_to_access_profile = kwargs['allowUserToAccessProfile']
-        if 'autoRedirect' in kwargs:
+        if auto_redirect is None and 'autoRedirect' in kwargs:
             auto_redirect = kwargs['autoRedirect']
-        if 'emailAttribute' in kwargs:
+        if email_attribute is None and 'emailAttribute' in kwargs:
             email_attribute = kwargs['emailAttribute']
-        if 'groupAttribute' in kwargs:
+        if group_attribute is None and 'groupAttribute' in kwargs:
             group_attribute = kwargs['groupAttribute']
-        if 'loginUrl' in kwargs:
+        if login_url is None and 'loginUrl' in kwargs:
             login_url = kwargs['loginUrl']
-        if 'logoutUrl' in kwargs:
+        if logout_url is None and 'logoutUrl' in kwargs:
             logout_url = kwargs['logoutUrl']
-        if 'noAutoUserCreation' in kwargs:
+        if no_auto_user_creation is None and 'noAutoUserCreation' in kwargs:
             no_auto_user_creation = kwargs['noAutoUserCreation']
-        if 'serviceProviderName' in kwargs:
+        if service_provider_name is None and 'serviceProviderName' in kwargs:
             service_provider_name = kwargs['serviceProviderName']
-        if 'syncGroups' in kwargs:
+        if sync_groups is None and 'syncGroups' in kwargs:
             sync_groups = kwargs['syncGroups']
-        if 'useEncryptedAssertion' in kwargs:
+        if use_encrypted_assertion is None and 'useEncryptedAssertion' in kwargs:
             use_encrypted_assertion = kwargs['useEncryptedAssertion']
-        if 'verifyAudienceRestriction' in kwargs:
+        if verify_audience_restriction is None and 'verifyAudienceRestriction' in kwargs:
             verify_audience_restriction = kwargs['verifyAudienceRestriction']
 
         if allow_user_to_access_profile is not None:

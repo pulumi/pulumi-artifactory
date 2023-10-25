@@ -32,11 +32,13 @@ class CertificateArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             alias: pulumi.Input[str],
+             alias: Optional[pulumi.Input[str]] = None,
              content: Optional[pulumi.Input[str]] = None,
              file: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if alias is None:
+            raise TypeError("Missing 'alias' argument")
 
         _setter("alias", alias)
         if content is not None:
@@ -125,15 +127,15 @@ class _CertificateState:
              issued_on: Optional[pulumi.Input[str]] = None,
              issued_to: Optional[pulumi.Input[str]] = None,
              valid_until: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'issuedBy' in kwargs:
+        if issued_by is None and 'issuedBy' in kwargs:
             issued_by = kwargs['issuedBy']
-        if 'issuedOn' in kwargs:
+        if issued_on is None and 'issuedOn' in kwargs:
             issued_on = kwargs['issuedOn']
-        if 'issuedTo' in kwargs:
+        if issued_to is None and 'issuedTo' in kwargs:
             issued_to = kwargs['issuedTo']
-        if 'validUntil' in kwargs:
+        if valid_until is None and 'validUntil' in kwargs:
             valid_until = kwargs['validUntil']
 
         if alias is not None:

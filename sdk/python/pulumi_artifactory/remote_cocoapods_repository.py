@@ -193,8 +193,8 @@ class RemoteCocoapodsRepositoryArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             url: pulumi.Input[str],
+             key: Optional[pulumi.Input[str]] = None,
+             url: Optional[pulumi.Input[str]] = None,
              allow_any_host_auth: Optional[pulumi.Input[bool]] = None,
              assumed_offline_period_secs: Optional[pulumi.Input[int]] = None,
              blacked_out: Optional[pulumi.Input[bool]] = None,
@@ -238,81 +238,85 @@ class RemoteCocoapodsRepositoryArgs:
              vcs_git_download_url: Optional[pulumi.Input[str]] = None,
              vcs_git_provider: Optional[pulumi.Input[str]] = None,
              xray_index: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'allowAnyHostAuth' in kwargs:
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if url is None:
+            raise TypeError("Missing 'url' argument")
+        if allow_any_host_auth is None and 'allowAnyHostAuth' in kwargs:
             allow_any_host_auth = kwargs['allowAnyHostAuth']
-        if 'assumedOfflinePeriodSecs' in kwargs:
+        if assumed_offline_period_secs is None and 'assumedOfflinePeriodSecs' in kwargs:
             assumed_offline_period_secs = kwargs['assumedOfflinePeriodSecs']
-        if 'blackedOut' in kwargs:
+        if blacked_out is None and 'blackedOut' in kwargs:
             blacked_out = kwargs['blackedOut']
-        if 'blockMismatchingMimeTypes' in kwargs:
+        if block_mismatching_mime_types is None and 'blockMismatchingMimeTypes' in kwargs:
             block_mismatching_mime_types = kwargs['blockMismatchingMimeTypes']
-        if 'bypassHeadRequests' in kwargs:
+        if bypass_head_requests is None and 'bypassHeadRequests' in kwargs:
             bypass_head_requests = kwargs['bypassHeadRequests']
-        if 'cdnRedirect' in kwargs:
+        if cdn_redirect is None and 'cdnRedirect' in kwargs:
             cdn_redirect = kwargs['cdnRedirect']
-        if 'clientTlsCertificate' in kwargs:
+        if client_tls_certificate is None and 'clientTlsCertificate' in kwargs:
             client_tls_certificate = kwargs['clientTlsCertificate']
-        if 'contentSynchronisation' in kwargs:
+        if content_synchronisation is None and 'contentSynchronisation' in kwargs:
             content_synchronisation = kwargs['contentSynchronisation']
-        if 'disableProxy' in kwargs:
+        if disable_proxy is None and 'disableProxy' in kwargs:
             disable_proxy = kwargs['disableProxy']
-        if 'disableUrlNormalization' in kwargs:
+        if disable_url_normalization is None and 'disableUrlNormalization' in kwargs:
             disable_url_normalization = kwargs['disableUrlNormalization']
-        if 'downloadDirect' in kwargs:
+        if download_direct is None and 'downloadDirect' in kwargs:
             download_direct = kwargs['downloadDirect']
-        if 'enableCookieManagement' in kwargs:
+        if enable_cookie_management is None and 'enableCookieManagement' in kwargs:
             enable_cookie_management = kwargs['enableCookieManagement']
-        if 'excludesPattern' in kwargs:
+        if excludes_pattern is None and 'excludesPattern' in kwargs:
             excludes_pattern = kwargs['excludesPattern']
-        if 'hardFail' in kwargs:
+        if hard_fail is None and 'hardFail' in kwargs:
             hard_fail = kwargs['hardFail']
-        if 'includesPattern' in kwargs:
+        if includes_pattern is None and 'includesPattern' in kwargs:
             includes_pattern = kwargs['includesPattern']
-        if 'listRemoteFolderItems' in kwargs:
+        if list_remote_folder_items is None and 'listRemoteFolderItems' in kwargs:
             list_remote_folder_items = kwargs['listRemoteFolderItems']
-        if 'localAddress' in kwargs:
+        if local_address is None and 'localAddress' in kwargs:
             local_address = kwargs['localAddress']
-        if 'metadataRetrievalTimeoutSecs' in kwargs:
+        if metadata_retrieval_timeout_secs is None and 'metadataRetrievalTimeoutSecs' in kwargs:
             metadata_retrieval_timeout_secs = kwargs['metadataRetrievalTimeoutSecs']
-        if 'mismatchingMimeTypesOverrideList' in kwargs:
+        if mismatching_mime_types_override_list is None and 'mismatchingMimeTypesOverrideList' in kwargs:
             mismatching_mime_types_override_list = kwargs['mismatchingMimeTypesOverrideList']
-        if 'missedCachePeriodSeconds' in kwargs:
+        if missed_cache_period_seconds is None and 'missedCachePeriodSeconds' in kwargs:
             missed_cache_period_seconds = kwargs['missedCachePeriodSeconds']
-        if 'podsSpecsRepoUrl' in kwargs:
+        if pods_specs_repo_url is None and 'podsSpecsRepoUrl' in kwargs:
             pods_specs_repo_url = kwargs['podsSpecsRepoUrl']
-        if 'priorityResolution' in kwargs:
+        if priority_resolution is None and 'priorityResolution' in kwargs:
             priority_resolution = kwargs['priorityResolution']
-        if 'projectEnvironments' in kwargs:
+        if project_environments is None and 'projectEnvironments' in kwargs:
             project_environments = kwargs['projectEnvironments']
-        if 'projectKey' in kwargs:
+        if project_key is None and 'projectKey' in kwargs:
             project_key = kwargs['projectKey']
-        if 'propertySets' in kwargs:
+        if property_sets is None and 'propertySets' in kwargs:
             property_sets = kwargs['propertySets']
-        if 'queryParams' in kwargs:
+        if query_params is None and 'queryParams' in kwargs:
             query_params = kwargs['queryParams']
-        if 'remoteRepoLayoutRef' in kwargs:
+        if remote_repo_layout_ref is None and 'remoteRepoLayoutRef' in kwargs:
             remote_repo_layout_ref = kwargs['remoteRepoLayoutRef']
-        if 'repoLayoutRef' in kwargs:
+        if repo_layout_ref is None and 'repoLayoutRef' in kwargs:
             repo_layout_ref = kwargs['repoLayoutRef']
-        if 'retrievalCachePeriodSeconds' in kwargs:
+        if retrieval_cache_period_seconds is None and 'retrievalCachePeriodSeconds' in kwargs:
             retrieval_cache_period_seconds = kwargs['retrievalCachePeriodSeconds']
-        if 'shareConfiguration' in kwargs:
+        if share_configuration is None and 'shareConfiguration' in kwargs:
             share_configuration = kwargs['shareConfiguration']
-        if 'socketTimeoutMillis' in kwargs:
+        if socket_timeout_millis is None and 'socketTimeoutMillis' in kwargs:
             socket_timeout_millis = kwargs['socketTimeoutMillis']
-        if 'storeArtifactsLocally' in kwargs:
+        if store_artifacts_locally is None and 'storeArtifactsLocally' in kwargs:
             store_artifacts_locally = kwargs['storeArtifactsLocally']
-        if 'synchronizeProperties' in kwargs:
+        if synchronize_properties is None and 'synchronizeProperties' in kwargs:
             synchronize_properties = kwargs['synchronizeProperties']
-        if 'unusedArtifactsCleanupPeriodHours' in kwargs:
+        if unused_artifacts_cleanup_period_hours is None and 'unusedArtifactsCleanupPeriodHours' in kwargs:
             unused_artifacts_cleanup_period_hours = kwargs['unusedArtifactsCleanupPeriodHours']
-        if 'vcsGitDownloadUrl' in kwargs:
+        if vcs_git_download_url is None and 'vcsGitDownloadUrl' in kwargs:
             vcs_git_download_url = kwargs['vcsGitDownloadUrl']
-        if 'vcsGitProvider' in kwargs:
+        if vcs_git_provider is None and 'vcsGitProvider' in kwargs:
             vcs_git_provider = kwargs['vcsGitProvider']
-        if 'xrayIndex' in kwargs:
+        if xray_index is None and 'xrayIndex' in kwargs:
             xray_index = kwargs['xrayIndex']
 
         _setter("key", key)
@@ -1198,83 +1202,83 @@ class _RemoteCocoapodsRepositoryState:
              vcs_git_download_url: Optional[pulumi.Input[str]] = None,
              vcs_git_provider: Optional[pulumi.Input[str]] = None,
              xray_index: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'allowAnyHostAuth' in kwargs:
+        if allow_any_host_auth is None and 'allowAnyHostAuth' in kwargs:
             allow_any_host_auth = kwargs['allowAnyHostAuth']
-        if 'assumedOfflinePeriodSecs' in kwargs:
+        if assumed_offline_period_secs is None and 'assumedOfflinePeriodSecs' in kwargs:
             assumed_offline_period_secs = kwargs['assumedOfflinePeriodSecs']
-        if 'blackedOut' in kwargs:
+        if blacked_out is None and 'blackedOut' in kwargs:
             blacked_out = kwargs['blackedOut']
-        if 'blockMismatchingMimeTypes' in kwargs:
+        if block_mismatching_mime_types is None and 'blockMismatchingMimeTypes' in kwargs:
             block_mismatching_mime_types = kwargs['blockMismatchingMimeTypes']
-        if 'bypassHeadRequests' in kwargs:
+        if bypass_head_requests is None and 'bypassHeadRequests' in kwargs:
             bypass_head_requests = kwargs['bypassHeadRequests']
-        if 'cdnRedirect' in kwargs:
+        if cdn_redirect is None and 'cdnRedirect' in kwargs:
             cdn_redirect = kwargs['cdnRedirect']
-        if 'clientTlsCertificate' in kwargs:
+        if client_tls_certificate is None and 'clientTlsCertificate' in kwargs:
             client_tls_certificate = kwargs['clientTlsCertificate']
-        if 'contentSynchronisation' in kwargs:
+        if content_synchronisation is None and 'contentSynchronisation' in kwargs:
             content_synchronisation = kwargs['contentSynchronisation']
-        if 'disableProxy' in kwargs:
+        if disable_proxy is None and 'disableProxy' in kwargs:
             disable_proxy = kwargs['disableProxy']
-        if 'disableUrlNormalization' in kwargs:
+        if disable_url_normalization is None and 'disableUrlNormalization' in kwargs:
             disable_url_normalization = kwargs['disableUrlNormalization']
-        if 'downloadDirect' in kwargs:
+        if download_direct is None and 'downloadDirect' in kwargs:
             download_direct = kwargs['downloadDirect']
-        if 'enableCookieManagement' in kwargs:
+        if enable_cookie_management is None and 'enableCookieManagement' in kwargs:
             enable_cookie_management = kwargs['enableCookieManagement']
-        if 'excludesPattern' in kwargs:
+        if excludes_pattern is None and 'excludesPattern' in kwargs:
             excludes_pattern = kwargs['excludesPattern']
-        if 'hardFail' in kwargs:
+        if hard_fail is None and 'hardFail' in kwargs:
             hard_fail = kwargs['hardFail']
-        if 'includesPattern' in kwargs:
+        if includes_pattern is None and 'includesPattern' in kwargs:
             includes_pattern = kwargs['includesPattern']
-        if 'listRemoteFolderItems' in kwargs:
+        if list_remote_folder_items is None and 'listRemoteFolderItems' in kwargs:
             list_remote_folder_items = kwargs['listRemoteFolderItems']
-        if 'localAddress' in kwargs:
+        if local_address is None and 'localAddress' in kwargs:
             local_address = kwargs['localAddress']
-        if 'metadataRetrievalTimeoutSecs' in kwargs:
+        if metadata_retrieval_timeout_secs is None and 'metadataRetrievalTimeoutSecs' in kwargs:
             metadata_retrieval_timeout_secs = kwargs['metadataRetrievalTimeoutSecs']
-        if 'mismatchingMimeTypesOverrideList' in kwargs:
+        if mismatching_mime_types_override_list is None and 'mismatchingMimeTypesOverrideList' in kwargs:
             mismatching_mime_types_override_list = kwargs['mismatchingMimeTypesOverrideList']
-        if 'missedCachePeriodSeconds' in kwargs:
+        if missed_cache_period_seconds is None and 'missedCachePeriodSeconds' in kwargs:
             missed_cache_period_seconds = kwargs['missedCachePeriodSeconds']
-        if 'packageType' in kwargs:
+        if package_type is None and 'packageType' in kwargs:
             package_type = kwargs['packageType']
-        if 'podsSpecsRepoUrl' in kwargs:
+        if pods_specs_repo_url is None and 'podsSpecsRepoUrl' in kwargs:
             pods_specs_repo_url = kwargs['podsSpecsRepoUrl']
-        if 'priorityResolution' in kwargs:
+        if priority_resolution is None and 'priorityResolution' in kwargs:
             priority_resolution = kwargs['priorityResolution']
-        if 'projectEnvironments' in kwargs:
+        if project_environments is None and 'projectEnvironments' in kwargs:
             project_environments = kwargs['projectEnvironments']
-        if 'projectKey' in kwargs:
+        if project_key is None and 'projectKey' in kwargs:
             project_key = kwargs['projectKey']
-        if 'propertySets' in kwargs:
+        if property_sets is None and 'propertySets' in kwargs:
             property_sets = kwargs['propertySets']
-        if 'queryParams' in kwargs:
+        if query_params is None and 'queryParams' in kwargs:
             query_params = kwargs['queryParams']
-        if 'remoteRepoLayoutRef' in kwargs:
+        if remote_repo_layout_ref is None and 'remoteRepoLayoutRef' in kwargs:
             remote_repo_layout_ref = kwargs['remoteRepoLayoutRef']
-        if 'repoLayoutRef' in kwargs:
+        if repo_layout_ref is None and 'repoLayoutRef' in kwargs:
             repo_layout_ref = kwargs['repoLayoutRef']
-        if 'retrievalCachePeriodSeconds' in kwargs:
+        if retrieval_cache_period_seconds is None and 'retrievalCachePeriodSeconds' in kwargs:
             retrieval_cache_period_seconds = kwargs['retrievalCachePeriodSeconds']
-        if 'shareConfiguration' in kwargs:
+        if share_configuration is None and 'shareConfiguration' in kwargs:
             share_configuration = kwargs['shareConfiguration']
-        if 'socketTimeoutMillis' in kwargs:
+        if socket_timeout_millis is None and 'socketTimeoutMillis' in kwargs:
             socket_timeout_millis = kwargs['socketTimeoutMillis']
-        if 'storeArtifactsLocally' in kwargs:
+        if store_artifacts_locally is None and 'storeArtifactsLocally' in kwargs:
             store_artifacts_locally = kwargs['storeArtifactsLocally']
-        if 'synchronizeProperties' in kwargs:
+        if synchronize_properties is None and 'synchronizeProperties' in kwargs:
             synchronize_properties = kwargs['synchronizeProperties']
-        if 'unusedArtifactsCleanupPeriodHours' in kwargs:
+        if unused_artifacts_cleanup_period_hours is None and 'unusedArtifactsCleanupPeriodHours' in kwargs:
             unused_artifacts_cleanup_period_hours = kwargs['unusedArtifactsCleanupPeriodHours']
-        if 'vcsGitDownloadUrl' in kwargs:
+        if vcs_git_download_url is None and 'vcsGitDownloadUrl' in kwargs:
             vcs_git_download_url = kwargs['vcsGitDownloadUrl']
-        if 'vcsGitProvider' in kwargs:
+        if vcs_git_provider is None and 'vcsGitProvider' in kwargs:
             vcs_git_provider = kwargs['vcsGitProvider']
-        if 'xrayIndex' in kwargs:
+        if xray_index is None and 'xrayIndex' in kwargs:
             xray_index = kwargs['xrayIndex']
 
         if allow_any_host_auth is not None:
@@ -2213,11 +2217,7 @@ class RemoteCocoapodsRepository(pulumi.CustomResource):
             __props__.__dict__["bypass_head_requests"] = bypass_head_requests
             __props__.__dict__["cdn_redirect"] = cdn_redirect
             __props__.__dict__["client_tls_certificate"] = client_tls_certificate
-            if content_synchronisation is not None and not isinstance(content_synchronisation, RemoteCocoapodsRepositoryContentSynchronisationArgs):
-                content_synchronisation = content_synchronisation or {}
-                def _setter(key, value):
-                    content_synchronisation[key] = value
-                RemoteCocoapodsRepositoryContentSynchronisationArgs._configure(_setter, **content_synchronisation)
+            content_synchronisation = _utilities.configure(content_synchronisation, RemoteCocoapodsRepositoryContentSynchronisationArgs, True)
             __props__.__dict__["content_synchronisation"] = content_synchronisation
             __props__.__dict__["description"] = description
             __props__.__dict__["disable_proxy"] = disable_proxy

@@ -60,15 +60,15 @@ class ScopedTokenArgs:
              refreshable: Optional[pulumi.Input[bool]] = None,
              scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              username: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'expiresIn' in kwargs:
+        if expires_in is None and 'expiresIn' in kwargs:
             expires_in = kwargs['expiresIn']
-        if 'grantType' in kwargs:
+        if grant_type is None and 'grantType' in kwargs:
             grant_type = kwargs['grantType']
-        if 'includeReferenceToken' in kwargs:
+        if include_reference_token is None and 'includeReferenceToken' in kwargs:
             include_reference_token = kwargs['includeReferenceToken']
-        if 'projectKey' in kwargs:
+        if project_key is None and 'projectKey' in kwargs:
             project_key = kwargs['projectKey']
 
         if audiences is not None:
@@ -281,25 +281,25 @@ class _ScopedTokenState:
              subject: Optional[pulumi.Input[str]] = None,
              token_type: Optional[pulumi.Input[str]] = None,
              username: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'accessToken' in kwargs:
+        if access_token is None and 'accessToken' in kwargs:
             access_token = kwargs['accessToken']
-        if 'expiresIn' in kwargs:
+        if expires_in is None and 'expiresIn' in kwargs:
             expires_in = kwargs['expiresIn']
-        if 'grantType' in kwargs:
+        if grant_type is None and 'grantType' in kwargs:
             grant_type = kwargs['grantType']
-        if 'includeReferenceToken' in kwargs:
+        if include_reference_token is None and 'includeReferenceToken' in kwargs:
             include_reference_token = kwargs['includeReferenceToken']
-        if 'issuedAt' in kwargs:
+        if issued_at is None and 'issuedAt' in kwargs:
             issued_at = kwargs['issuedAt']
-        if 'projectKey' in kwargs:
+        if project_key is None and 'projectKey' in kwargs:
             project_key = kwargs['projectKey']
-        if 'referenceToken' in kwargs:
+        if reference_token is None and 'referenceToken' in kwargs:
             reference_token = kwargs['referenceToken']
-        if 'refreshToken' in kwargs:
+        if refresh_token is None and 'refreshToken' in kwargs:
             refresh_token = kwargs['refreshToken']
-        if 'tokenType' in kwargs:
+        if token_type is None and 'tokenType' in kwargs:
             token_type = kwargs['tokenType']
 
         if access_token is not None:

@@ -43,22 +43,32 @@ class KeypairArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             alias: pulumi.Input[str],
-             pair_name: pulumi.Input[str],
-             pair_type: pulumi.Input[str],
-             private_key: pulumi.Input[str],
-             public_key: pulumi.Input[str],
+             alias: Optional[pulumi.Input[str]] = None,
+             pair_name: Optional[pulumi.Input[str]] = None,
+             pair_type: Optional[pulumi.Input[str]] = None,
+             private_key: Optional[pulumi.Input[str]] = None,
+             public_key: Optional[pulumi.Input[str]] = None,
              passphrase: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'pairName' in kwargs:
+        if alias is None:
+            raise TypeError("Missing 'alias' argument")
+        if pair_name is None and 'pairName' in kwargs:
             pair_name = kwargs['pairName']
-        if 'pairType' in kwargs:
+        if pair_name is None:
+            raise TypeError("Missing 'pair_name' argument")
+        if pair_type is None and 'pairType' in kwargs:
             pair_type = kwargs['pairType']
-        if 'privateKey' in kwargs:
+        if pair_type is None:
+            raise TypeError("Missing 'pair_type' argument")
+        if private_key is None and 'privateKey' in kwargs:
             private_key = kwargs['privateKey']
-        if 'publicKey' in kwargs:
+        if private_key is None:
+            raise TypeError("Missing 'private_key' argument")
+        if public_key is None and 'publicKey' in kwargs:
             public_key = kwargs['publicKey']
+        if public_key is None:
+            raise TypeError("Missing 'public_key' argument")
 
         _setter("alias", alias)
         _setter("pair_name", pair_name)
@@ -181,15 +191,15 @@ class _KeypairState:
              passphrase: Optional[pulumi.Input[str]] = None,
              private_key: Optional[pulumi.Input[str]] = None,
              public_key: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'pairName' in kwargs:
+        if pair_name is None and 'pairName' in kwargs:
             pair_name = kwargs['pairName']
-        if 'pairType' in kwargs:
+        if pair_type is None and 'pairType' in kwargs:
             pair_type = kwargs['pairType']
-        if 'privateKey' in kwargs:
+        if private_key is None and 'privateKey' in kwargs:
             private_key = kwargs['privateKey']
-        if 'publicKey' in kwargs:
+        if public_key is None and 'publicKey' in kwargs:
             public_key = kwargs['publicKey']
 
         if alias is not None:

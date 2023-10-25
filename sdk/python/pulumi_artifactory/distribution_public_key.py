@@ -31,12 +31,16 @@ class DistributionPublicKeyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             alias: pulumi.Input[str],
-             public_key: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None,
+             alias: Optional[pulumi.Input[str]] = None,
+             public_key: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'publicKey' in kwargs:
+        if alias is None:
+            raise TypeError("Missing 'alias' argument")
+        if public_key is None and 'publicKey' in kwargs:
             public_key = kwargs['publicKey']
+        if public_key is None:
+            raise TypeError("Missing 'public_key' argument")
 
         _setter("alias", alias)
         _setter("public_key", public_key)
@@ -110,17 +114,17 @@ class _DistributionPublicKeyState:
              key_id: Optional[pulumi.Input[str]] = None,
              public_key: Optional[pulumi.Input[str]] = None,
              valid_until: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'issuedBy' in kwargs:
+        if issued_by is None and 'issuedBy' in kwargs:
             issued_by = kwargs['issuedBy']
-        if 'issuedOn' in kwargs:
+        if issued_on is None and 'issuedOn' in kwargs:
             issued_on = kwargs['issuedOn']
-        if 'keyId' in kwargs:
+        if key_id is None and 'keyId' in kwargs:
             key_id = kwargs['keyId']
-        if 'publicKey' in kwargs:
+        if public_key is None and 'publicKey' in kwargs:
             public_key = kwargs['publicKey']
-        if 'validUntil' in kwargs:
+        if valid_until is None and 'validUntil' in kwargs:
             valid_until = kwargs['validUntil']
 
         if alias is not None:

@@ -70,7 +70,7 @@ class VirtualHelmRepositoryArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
+             key: Optional[pulumi.Input[str]] = None,
              artifactory_requests_can_retrieve_remote_artifacts: Optional[pulumi.Input[bool]] = None,
              default_deployment_repo: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
@@ -83,25 +83,27 @@ class VirtualHelmRepositoryArgs:
              repositories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              retrieval_cache_period_seconds: Optional[pulumi.Input[int]] = None,
              use_namespaces: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'artifactoryRequestsCanRetrieveRemoteArtifacts' in kwargs:
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if artifactory_requests_can_retrieve_remote_artifacts is None and 'artifactoryRequestsCanRetrieveRemoteArtifacts' in kwargs:
             artifactory_requests_can_retrieve_remote_artifacts = kwargs['artifactoryRequestsCanRetrieveRemoteArtifacts']
-        if 'defaultDeploymentRepo' in kwargs:
+        if default_deployment_repo is None and 'defaultDeploymentRepo' in kwargs:
             default_deployment_repo = kwargs['defaultDeploymentRepo']
-        if 'excludesPattern' in kwargs:
+        if excludes_pattern is None and 'excludesPattern' in kwargs:
             excludes_pattern = kwargs['excludesPattern']
-        if 'includesPattern' in kwargs:
+        if includes_pattern is None and 'includesPattern' in kwargs:
             includes_pattern = kwargs['includesPattern']
-        if 'projectEnvironments' in kwargs:
+        if project_environments is None and 'projectEnvironments' in kwargs:
             project_environments = kwargs['projectEnvironments']
-        if 'projectKey' in kwargs:
+        if project_key is None and 'projectKey' in kwargs:
             project_key = kwargs['projectKey']
-        if 'repoLayoutRef' in kwargs:
+        if repo_layout_ref is None and 'repoLayoutRef' in kwargs:
             repo_layout_ref = kwargs['repoLayoutRef']
-        if 'retrievalCachePeriodSeconds' in kwargs:
+        if retrieval_cache_period_seconds is None and 'retrievalCachePeriodSeconds' in kwargs:
             retrieval_cache_period_seconds = kwargs['retrievalCachePeriodSeconds']
-        if 'useNamespaces' in kwargs:
+        if use_namespaces is None and 'useNamespaces' in kwargs:
             use_namespaces = kwargs['useNamespaces']
 
         _setter("key", key)
@@ -370,27 +372,27 @@ class _VirtualHelmRepositoryState:
              repositories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              retrieval_cache_period_seconds: Optional[pulumi.Input[int]] = None,
              use_namespaces: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'artifactoryRequestsCanRetrieveRemoteArtifacts' in kwargs:
+        if artifactory_requests_can_retrieve_remote_artifacts is None and 'artifactoryRequestsCanRetrieveRemoteArtifacts' in kwargs:
             artifactory_requests_can_retrieve_remote_artifacts = kwargs['artifactoryRequestsCanRetrieveRemoteArtifacts']
-        if 'defaultDeploymentRepo' in kwargs:
+        if default_deployment_repo is None and 'defaultDeploymentRepo' in kwargs:
             default_deployment_repo = kwargs['defaultDeploymentRepo']
-        if 'excludesPattern' in kwargs:
+        if excludes_pattern is None and 'excludesPattern' in kwargs:
             excludes_pattern = kwargs['excludesPattern']
-        if 'includesPattern' in kwargs:
+        if includes_pattern is None and 'includesPattern' in kwargs:
             includes_pattern = kwargs['includesPattern']
-        if 'packageType' in kwargs:
+        if package_type is None and 'packageType' in kwargs:
             package_type = kwargs['packageType']
-        if 'projectEnvironments' in kwargs:
+        if project_environments is None and 'projectEnvironments' in kwargs:
             project_environments = kwargs['projectEnvironments']
-        if 'projectKey' in kwargs:
+        if project_key is None and 'projectKey' in kwargs:
             project_key = kwargs['projectKey']
-        if 'repoLayoutRef' in kwargs:
+        if repo_layout_ref is None and 'repoLayoutRef' in kwargs:
             repo_layout_ref = kwargs['repoLayoutRef']
-        if 'retrievalCachePeriodSeconds' in kwargs:
+        if retrieval_cache_period_seconds is None and 'retrievalCachePeriodSeconds' in kwargs:
             retrieval_cache_period_seconds = kwargs['retrievalCachePeriodSeconds']
-        if 'useNamespaces' in kwargs:
+        if use_namespaces is None and 'useNamespaces' in kwargs:
             use_namespaces = kwargs['useNamespaces']
 
         if artifactory_requests_can_retrieve_remote_artifacts is not None:

@@ -71,25 +71,25 @@ class GroupArgs:
              reports_manager: Optional[pulumi.Input[bool]] = None,
              users_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              watch_manager: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'adminPrivileges' in kwargs:
+        if admin_privileges is None and 'adminPrivileges' in kwargs:
             admin_privileges = kwargs['adminPrivileges']
-        if 'autoJoin' in kwargs:
+        if auto_join is None and 'autoJoin' in kwargs:
             auto_join = kwargs['autoJoin']
-        if 'detachAllUsers' in kwargs:
+        if detach_all_users is None and 'detachAllUsers' in kwargs:
             detach_all_users = kwargs['detachAllUsers']
-        if 'externalId' in kwargs:
+        if external_id is None and 'externalId' in kwargs:
             external_id = kwargs['externalId']
-        if 'policyManager' in kwargs:
+        if policy_manager is None and 'policyManager' in kwargs:
             policy_manager = kwargs['policyManager']
-        if 'realmAttributes' in kwargs:
+        if realm_attributes is None and 'realmAttributes' in kwargs:
             realm_attributes = kwargs['realmAttributes']
-        if 'reportsManager' in kwargs:
+        if reports_manager is None and 'reportsManager' in kwargs:
             reports_manager = kwargs['reportsManager']
-        if 'usersNames' in kwargs:
+        if users_names is None and 'usersNames' in kwargs:
             users_names = kwargs['usersNames']
-        if 'watchManager' in kwargs:
+        if watch_manager is None and 'watchManager' in kwargs:
             watch_manager = kwargs['watchManager']
 
         if admin_privileges is not None:
@@ -322,25 +322,25 @@ class _GroupState:
              reports_manager: Optional[pulumi.Input[bool]] = None,
              users_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              watch_manager: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'adminPrivileges' in kwargs:
+        if admin_privileges is None and 'adminPrivileges' in kwargs:
             admin_privileges = kwargs['adminPrivileges']
-        if 'autoJoin' in kwargs:
+        if auto_join is None and 'autoJoin' in kwargs:
             auto_join = kwargs['autoJoin']
-        if 'detachAllUsers' in kwargs:
+        if detach_all_users is None and 'detachAllUsers' in kwargs:
             detach_all_users = kwargs['detachAllUsers']
-        if 'externalId' in kwargs:
+        if external_id is None and 'externalId' in kwargs:
             external_id = kwargs['externalId']
-        if 'policyManager' in kwargs:
+        if policy_manager is None and 'policyManager' in kwargs:
             policy_manager = kwargs['policyManager']
-        if 'realmAttributes' in kwargs:
+        if realm_attributes is None and 'realmAttributes' in kwargs:
             realm_attributes = kwargs['realmAttributes']
-        if 'reportsManager' in kwargs:
+        if reports_manager is None and 'reportsManager' in kwargs:
             reports_manager = kwargs['reportsManager']
-        if 'usersNames' in kwargs:
+        if users_names is None and 'usersNames' in kwargs:
             users_names = kwargs['usersNames']
-        if 'watchManager' in kwargs:
+        if watch_manager is None and 'watchManager' in kwargs:
             watch_manager = kwargs['watchManager']
 
         if admin_privileges is not None:
