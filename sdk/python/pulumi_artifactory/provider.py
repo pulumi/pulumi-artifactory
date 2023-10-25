@@ -41,13 +41,13 @@ class ProviderArgs:
              api_key: Optional[pulumi.Input[str]] = None,
              check_license: Optional[pulumi.Input[bool]] = None,
              url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'accessToken' in kwargs:
+        if access_token is None and 'accessToken' in kwargs:
             access_token = kwargs['accessToken']
-        if 'apiKey' in kwargs:
+        if api_key is None and 'apiKey' in kwargs:
             api_key = kwargs['apiKey']
-        if 'checkLicense' in kwargs:
+        if check_license is None and 'checkLicense' in kwargs:
             check_license = kwargs['checkLicense']
 
         if access_token is not None:

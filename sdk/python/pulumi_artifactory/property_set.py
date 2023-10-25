@@ -34,11 +34,13 @@ class PropertySetArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             properties: pulumi.Input[Sequence[pulumi.Input['PropertySetPropertyArgs']]],
+             properties: Optional[pulumi.Input[Sequence[pulumi.Input['PropertySetPropertyArgs']]]] = None,
              name: Optional[pulumi.Input[str]] = None,
              visible: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
+        if properties is None:
+            raise TypeError("Missing 'properties' argument")
 
         _setter("properties", properties)
         if name is not None:
@@ -107,7 +109,7 @@ class _PropertySetState:
              name: Optional[pulumi.Input[str]] = None,
              properties: Optional[pulumi.Input[Sequence[pulumi.Input['PropertySetPropertyArgs']]]] = None,
              visible: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
 
         if name is not None:

@@ -43,16 +43,24 @@ class ArtifactoryReleaseBundleWebhookArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             criteria: pulumi.Input['ArtifactoryReleaseBundleWebhookCriteriaArgs'],
-             event_types: pulumi.Input[Sequence[pulumi.Input[str]]],
-             handlers: pulumi.Input[Sequence[pulumi.Input['ArtifactoryReleaseBundleWebhookHandlerArgs']]],
-             key: pulumi.Input[str],
+             criteria: Optional[pulumi.Input['ArtifactoryReleaseBundleWebhookCriteriaArgs']] = None,
+             event_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             handlers: Optional[pulumi.Input[Sequence[pulumi.Input['ArtifactoryReleaseBundleWebhookHandlerArgs']]]] = None,
+             key: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'eventTypes' in kwargs:
+        if criteria is None:
+            raise TypeError("Missing 'criteria' argument")
+        if event_types is None and 'eventTypes' in kwargs:
             event_types = kwargs['eventTypes']
+        if event_types is None:
+            raise TypeError("Missing 'event_types' argument")
+        if handlers is None:
+            raise TypeError("Missing 'handlers' argument")
+        if key is None:
+            raise TypeError("Missing 'key' argument")
 
         _setter("criteria", criteria)
         _setter("event_types", event_types)
@@ -172,9 +180,9 @@ class _ArtifactoryReleaseBundleWebhookState:
              event_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              handlers: Optional[pulumi.Input[Sequence[pulumi.Input['ArtifactoryReleaseBundleWebhookHandlerArgs']]]] = None,
              key: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'eventTypes' in kwargs:
+        if event_types is None and 'eventTypes' in kwargs:
             event_types = kwargs['eventTypes']
 
         if criteria is not None:
@@ -394,11 +402,7 @@ class ArtifactoryReleaseBundleWebhook(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ArtifactoryReleaseBundleWebhookArgs.__new__(ArtifactoryReleaseBundleWebhookArgs)
 
-            if criteria is not None and not isinstance(criteria, ArtifactoryReleaseBundleWebhookCriteriaArgs):
-                criteria = criteria or {}
-                def _setter(key, value):
-                    criteria[key] = value
-                ArtifactoryReleaseBundleWebhookCriteriaArgs._configure(_setter, **criteria)
+            criteria = _utilities.configure(criteria, ArtifactoryReleaseBundleWebhookCriteriaArgs, True)
             if criteria is None and not opts.urn:
                 raise TypeError("Missing required property 'criteria'")
             __props__.__dict__["criteria"] = criteria

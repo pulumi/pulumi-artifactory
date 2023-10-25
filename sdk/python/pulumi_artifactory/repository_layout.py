@@ -49,23 +49,29 @@ class RepositoryLayoutArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             artifact_path_pattern: pulumi.Input[str],
-             file_integration_revision_regexp: pulumi.Input[str],
-             folder_integration_revision_regexp: pulumi.Input[str],
+             artifact_path_pattern: Optional[pulumi.Input[str]] = None,
+             file_integration_revision_regexp: Optional[pulumi.Input[str]] = None,
+             folder_integration_revision_regexp: Optional[pulumi.Input[str]] = None,
              descriptor_path_pattern: Optional[pulumi.Input[str]] = None,
              distinctive_descriptor_path_pattern: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'artifactPathPattern' in kwargs:
+        if artifact_path_pattern is None and 'artifactPathPattern' in kwargs:
             artifact_path_pattern = kwargs['artifactPathPattern']
-        if 'fileIntegrationRevisionRegexp' in kwargs:
+        if artifact_path_pattern is None:
+            raise TypeError("Missing 'artifact_path_pattern' argument")
+        if file_integration_revision_regexp is None and 'fileIntegrationRevisionRegexp' in kwargs:
             file_integration_revision_regexp = kwargs['fileIntegrationRevisionRegexp']
-        if 'folderIntegrationRevisionRegexp' in kwargs:
+        if file_integration_revision_regexp is None:
+            raise TypeError("Missing 'file_integration_revision_regexp' argument")
+        if folder_integration_revision_regexp is None and 'folderIntegrationRevisionRegexp' in kwargs:
             folder_integration_revision_regexp = kwargs['folderIntegrationRevisionRegexp']
-        if 'descriptorPathPattern' in kwargs:
+        if folder_integration_revision_regexp is None:
+            raise TypeError("Missing 'folder_integration_revision_regexp' argument")
+        if descriptor_path_pattern is None and 'descriptorPathPattern' in kwargs:
             descriptor_path_pattern = kwargs['descriptorPathPattern']
-        if 'distinctiveDescriptorPathPattern' in kwargs:
+        if distinctive_descriptor_path_pattern is None and 'distinctiveDescriptorPathPattern' in kwargs:
             distinctive_descriptor_path_pattern = kwargs['distinctiveDescriptorPathPattern']
 
         _setter("artifact_path_pattern", artifact_path_pattern)
@@ -203,17 +209,17 @@ class _RepositoryLayoutState:
              file_integration_revision_regexp: Optional[pulumi.Input[str]] = None,
              folder_integration_revision_regexp: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'artifactPathPattern' in kwargs:
+        if artifact_path_pattern is None and 'artifactPathPattern' in kwargs:
             artifact_path_pattern = kwargs['artifactPathPattern']
-        if 'descriptorPathPattern' in kwargs:
+        if descriptor_path_pattern is None and 'descriptorPathPattern' in kwargs:
             descriptor_path_pattern = kwargs['descriptorPathPattern']
-        if 'distinctiveDescriptorPathPattern' in kwargs:
+        if distinctive_descriptor_path_pattern is None and 'distinctiveDescriptorPathPattern' in kwargs:
             distinctive_descriptor_path_pattern = kwargs['distinctiveDescriptorPathPattern']
-        if 'fileIntegrationRevisionRegexp' in kwargs:
+        if file_integration_revision_regexp is None and 'fileIntegrationRevisionRegexp' in kwargs:
             file_integration_revision_regexp = kwargs['fileIntegrationRevisionRegexp']
-        if 'folderIntegrationRevisionRegexp' in kwargs:
+        if folder_integration_revision_regexp is None and 'folderIntegrationRevisionRegexp' in kwargs:
             folder_integration_revision_regexp = kwargs['folderIntegrationRevisionRegexp']
 
         if artifact_path_pattern is not None:

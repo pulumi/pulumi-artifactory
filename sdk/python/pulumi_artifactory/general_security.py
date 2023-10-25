@@ -26,9 +26,9 @@ class GeneralSecurityArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              enable_anonymous_access: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'enableAnonymousAccess' in kwargs:
+        if enable_anonymous_access is None and 'enableAnonymousAccess' in kwargs:
             enable_anonymous_access = kwargs['enableAnonymousAccess']
 
         if enable_anonymous_access is not None:
@@ -59,9 +59,9 @@ class _GeneralSecurityState:
     def _configure(
              _setter: Callable[[Any, Any], None],
              enable_anonymous_access: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'enableAnonymousAccess' in kwargs:
+        if enable_anonymous_access is None and 'enableAnonymousAccess' in kwargs:
             enable_anonymous_access = kwargs['enableAnonymousAccess']
 
         if enable_anonymous_access is not None:

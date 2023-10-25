@@ -47,7 +47,7 @@ class ManagedUserArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             email: pulumi.Input[str],
+             email: Optional[pulumi.Input[str]] = None,
              admin: Optional[pulumi.Input[bool]] = None,
              disable_ui_access: Optional[pulumi.Input[bool]] = None,
              groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -55,13 +55,15 @@ class ManagedUserArgs:
              name: Optional[pulumi.Input[str]] = None,
              password: Optional[pulumi.Input[str]] = None,
              profile_updatable: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'disableUiAccess' in kwargs:
+        if email is None:
+            raise TypeError("Missing 'email' argument")
+        if disable_ui_access is None and 'disableUiAccess' in kwargs:
             disable_ui_access = kwargs['disableUiAccess']
-        if 'internalPasswordDisabled' in kwargs:
+        if internal_password_disabled is None and 'internalPasswordDisabled' in kwargs:
             internal_password_disabled = kwargs['internalPasswordDisabled']
-        if 'profileUpdatable' in kwargs:
+        if profile_updatable is None and 'profileUpdatable' in kwargs:
             profile_updatable = kwargs['profileUpdatable']
 
         _setter("email", email)
@@ -221,13 +223,13 @@ class _ManagedUserState:
              name: Optional[pulumi.Input[str]] = None,
              password: Optional[pulumi.Input[str]] = None,
              profile_updatable: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'disableUiAccess' in kwargs:
+        if disable_ui_access is None and 'disableUiAccess' in kwargs:
             disable_ui_access = kwargs['disableUiAccess']
-        if 'internalPasswordDisabled' in kwargs:
+        if internal_password_disabled is None and 'internalPasswordDisabled' in kwargs:
             internal_password_disabled = kwargs['internalPasswordDisabled']
-        if 'profileUpdatable' in kwargs:
+        if profile_updatable is None and 'profileUpdatable' in kwargs:
             profile_updatable = kwargs['profileUpdatable']
 
         if admin is not None:

@@ -53,9 +53,9 @@ class MailServerArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             enabled: pulumi.Input[bool],
-             host: pulumi.Input[str],
-             port: pulumi.Input[int],
+             enabled: Optional[pulumi.Input[bool]] = None,
+             host: Optional[pulumi.Input[str]] = None,
+             port: Optional[pulumi.Input[int]] = None,
              artifactory_url: Optional[pulumi.Input[str]] = None,
              from_: Optional[pulumi.Input[str]] = None,
              password: Optional[pulumi.Input[str]] = None,
@@ -63,17 +63,23 @@ class MailServerArgs:
              use_ssl: Optional[pulumi.Input[bool]] = None,
              use_tls: Optional[pulumi.Input[bool]] = None,
              username: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'artifactoryUrl' in kwargs:
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+        if host is None:
+            raise TypeError("Missing 'host' argument")
+        if port is None:
+            raise TypeError("Missing 'port' argument")
+        if artifactory_url is None and 'artifactoryUrl' in kwargs:
             artifactory_url = kwargs['artifactoryUrl']
-        if 'from' in kwargs:
+        if from_ is None and 'from' in kwargs:
             from_ = kwargs['from']
-        if 'subjectPrefix' in kwargs:
+        if subject_prefix is None and 'subjectPrefix' in kwargs:
             subject_prefix = kwargs['subjectPrefix']
-        if 'useSsl' in kwargs:
+        if use_ssl is None and 'useSsl' in kwargs:
             use_ssl = kwargs['useSsl']
-        if 'useTls' in kwargs:
+        if use_tls is None and 'useTls' in kwargs:
             use_tls = kwargs['useTls']
 
         _setter("enabled", enabled)
@@ -267,17 +273,17 @@ class _MailServerState:
              use_ssl: Optional[pulumi.Input[bool]] = None,
              use_tls: Optional[pulumi.Input[bool]] = None,
              username: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'artifactoryUrl' in kwargs:
+        if artifactory_url is None and 'artifactoryUrl' in kwargs:
             artifactory_url = kwargs['artifactoryUrl']
-        if 'from' in kwargs:
+        if from_ is None and 'from' in kwargs:
             from_ = kwargs['from']
-        if 'subjectPrefix' in kwargs:
+        if subject_prefix is None and 'subjectPrefix' in kwargs:
             subject_prefix = kwargs['subjectPrefix']
-        if 'useSsl' in kwargs:
+        if use_ssl is None and 'useSsl' in kwargs:
             use_ssl = kwargs['useSsl']
-        if 'useTls' in kwargs:
+        if use_tls is None and 'useTls' in kwargs:
             use_tls = kwargs['useTls']
 
         if artifactory_url is not None:

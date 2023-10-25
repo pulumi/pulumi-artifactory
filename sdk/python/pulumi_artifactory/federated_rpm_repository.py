@@ -111,8 +111,8 @@ class FederatedRpmRepositoryArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             members: pulumi.Input[Sequence[pulumi.Input['FederatedRpmRepositoryMemberArgs']]],
+             key: Optional[pulumi.Input[str]] = None,
+             members: Optional[pulumi.Input[Sequence[pulumi.Input['FederatedRpmRepositoryMemberArgs']]]] = None,
              archive_browsing_enabled: Optional[pulumi.Input[bool]] = None,
              blacked_out: Optional[pulumi.Input[bool]] = None,
              calculate_yum_metadata: Optional[pulumi.Input[bool]] = None,
@@ -134,45 +134,49 @@ class FederatedRpmRepositoryArgs:
              xray_index: Optional[pulumi.Input[bool]] = None,
              yum_group_file_names: Optional[pulumi.Input[str]] = None,
              yum_root_depth: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'archiveBrowsingEnabled' in kwargs:
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if members is None:
+            raise TypeError("Missing 'members' argument")
+        if archive_browsing_enabled is None and 'archiveBrowsingEnabled' in kwargs:
             archive_browsing_enabled = kwargs['archiveBrowsingEnabled']
-        if 'blackedOut' in kwargs:
+        if blacked_out is None and 'blackedOut' in kwargs:
             blacked_out = kwargs['blackedOut']
-        if 'calculateYumMetadata' in kwargs:
+        if calculate_yum_metadata is None and 'calculateYumMetadata' in kwargs:
             calculate_yum_metadata = kwargs['calculateYumMetadata']
-        if 'cdnRedirect' in kwargs:
+        if cdn_redirect is None and 'cdnRedirect' in kwargs:
             cdn_redirect = kwargs['cdnRedirect']
-        if 'cleanupOnDelete' in kwargs:
+        if cleanup_on_delete is None and 'cleanupOnDelete' in kwargs:
             cleanup_on_delete = kwargs['cleanupOnDelete']
-        if 'downloadDirect' in kwargs:
+        if download_direct is None and 'downloadDirect' in kwargs:
             download_direct = kwargs['downloadDirect']
-        if 'enableFileListsIndexing' in kwargs:
+        if enable_file_lists_indexing is None and 'enableFileListsIndexing' in kwargs:
             enable_file_lists_indexing = kwargs['enableFileListsIndexing']
-        if 'excludesPattern' in kwargs:
+        if excludes_pattern is None and 'excludesPattern' in kwargs:
             excludes_pattern = kwargs['excludesPattern']
-        if 'includesPattern' in kwargs:
+        if includes_pattern is None and 'includesPattern' in kwargs:
             includes_pattern = kwargs['includesPattern']
-        if 'primaryKeypairRef' in kwargs:
+        if primary_keypair_ref is None and 'primaryKeypairRef' in kwargs:
             primary_keypair_ref = kwargs['primaryKeypairRef']
-        if 'priorityResolution' in kwargs:
+        if priority_resolution is None and 'priorityResolution' in kwargs:
             priority_resolution = kwargs['priorityResolution']
-        if 'projectEnvironments' in kwargs:
+        if project_environments is None and 'projectEnvironments' in kwargs:
             project_environments = kwargs['projectEnvironments']
-        if 'projectKey' in kwargs:
+        if project_key is None and 'projectKey' in kwargs:
             project_key = kwargs['projectKey']
-        if 'propertySets' in kwargs:
+        if property_sets is None and 'propertySets' in kwargs:
             property_sets = kwargs['propertySets']
-        if 'repoLayoutRef' in kwargs:
+        if repo_layout_ref is None and 'repoLayoutRef' in kwargs:
             repo_layout_ref = kwargs['repoLayoutRef']
-        if 'secondaryKeypairRef' in kwargs:
+        if secondary_keypair_ref is None and 'secondaryKeypairRef' in kwargs:
             secondary_keypair_ref = kwargs['secondaryKeypairRef']
-        if 'xrayIndex' in kwargs:
+        if xray_index is None and 'xrayIndex' in kwargs:
             xray_index = kwargs['xrayIndex']
-        if 'yumGroupFileNames' in kwargs:
+        if yum_group_file_names is None and 'yumGroupFileNames' in kwargs:
             yum_group_file_names = kwargs['yumGroupFileNames']
-        if 'yumRootDepth' in kwargs:
+        if yum_root_depth is None and 'yumRootDepth' in kwargs:
             yum_root_depth = kwargs['yumRootDepth']
 
         _setter("key", key)
@@ -634,47 +638,47 @@ class _FederatedRpmRepositoryState:
              xray_index: Optional[pulumi.Input[bool]] = None,
              yum_group_file_names: Optional[pulumi.Input[str]] = None,
              yum_root_depth: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'archiveBrowsingEnabled' in kwargs:
+        if archive_browsing_enabled is None and 'archiveBrowsingEnabled' in kwargs:
             archive_browsing_enabled = kwargs['archiveBrowsingEnabled']
-        if 'blackedOut' in kwargs:
+        if blacked_out is None and 'blackedOut' in kwargs:
             blacked_out = kwargs['blackedOut']
-        if 'calculateYumMetadata' in kwargs:
+        if calculate_yum_metadata is None and 'calculateYumMetadata' in kwargs:
             calculate_yum_metadata = kwargs['calculateYumMetadata']
-        if 'cdnRedirect' in kwargs:
+        if cdn_redirect is None and 'cdnRedirect' in kwargs:
             cdn_redirect = kwargs['cdnRedirect']
-        if 'cleanupOnDelete' in kwargs:
+        if cleanup_on_delete is None and 'cleanupOnDelete' in kwargs:
             cleanup_on_delete = kwargs['cleanupOnDelete']
-        if 'downloadDirect' in kwargs:
+        if download_direct is None and 'downloadDirect' in kwargs:
             download_direct = kwargs['downloadDirect']
-        if 'enableFileListsIndexing' in kwargs:
+        if enable_file_lists_indexing is None and 'enableFileListsIndexing' in kwargs:
             enable_file_lists_indexing = kwargs['enableFileListsIndexing']
-        if 'excludesPattern' in kwargs:
+        if excludes_pattern is None and 'excludesPattern' in kwargs:
             excludes_pattern = kwargs['excludesPattern']
-        if 'includesPattern' in kwargs:
+        if includes_pattern is None and 'includesPattern' in kwargs:
             includes_pattern = kwargs['includesPattern']
-        if 'packageType' in kwargs:
+        if package_type is None and 'packageType' in kwargs:
             package_type = kwargs['packageType']
-        if 'primaryKeypairRef' in kwargs:
+        if primary_keypair_ref is None and 'primaryKeypairRef' in kwargs:
             primary_keypair_ref = kwargs['primaryKeypairRef']
-        if 'priorityResolution' in kwargs:
+        if priority_resolution is None and 'priorityResolution' in kwargs:
             priority_resolution = kwargs['priorityResolution']
-        if 'projectEnvironments' in kwargs:
+        if project_environments is None and 'projectEnvironments' in kwargs:
             project_environments = kwargs['projectEnvironments']
-        if 'projectKey' in kwargs:
+        if project_key is None and 'projectKey' in kwargs:
             project_key = kwargs['projectKey']
-        if 'propertySets' in kwargs:
+        if property_sets is None and 'propertySets' in kwargs:
             property_sets = kwargs['propertySets']
-        if 'repoLayoutRef' in kwargs:
+        if repo_layout_ref is None and 'repoLayoutRef' in kwargs:
             repo_layout_ref = kwargs['repoLayoutRef']
-        if 'secondaryKeypairRef' in kwargs:
+        if secondary_keypair_ref is None and 'secondaryKeypairRef' in kwargs:
             secondary_keypair_ref = kwargs['secondaryKeypairRef']
-        if 'xrayIndex' in kwargs:
+        if xray_index is None and 'xrayIndex' in kwargs:
             xray_index = kwargs['xrayIndex']
-        if 'yumGroupFileNames' in kwargs:
+        if yum_group_file_names is None and 'yumGroupFileNames' in kwargs:
             yum_group_file_names = kwargs['yumGroupFileNames']
-        if 'yumRootDepth' in kwargs:
+        if yum_root_depth is None and 'yumRootDepth' in kwargs:
             yum_root_depth = kwargs['yumRootDepth']
 
         if archive_browsing_enabled is not None:

@@ -53,8 +53,8 @@ class BackupArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cron_exp: pulumi.Input[str],
-             key: pulumi.Input[str],
+             cron_exp: Optional[pulumi.Input[str]] = None,
+             key: Optional[pulumi.Input[str]] = None,
              create_archive: Optional[pulumi.Input[bool]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
              exclude_new_repositories: Optional[pulumi.Input[bool]] = None,
@@ -63,23 +63,27 @@ class BackupArgs:
              retention_period_hours: Optional[pulumi.Input[int]] = None,
              send_mail_on_error: Optional[pulumi.Input[bool]] = None,
              verify_disk_space: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'cronExp' in kwargs:
+        if cron_exp is None and 'cronExp' in kwargs:
             cron_exp = kwargs['cronExp']
-        if 'createArchive' in kwargs:
+        if cron_exp is None:
+            raise TypeError("Missing 'cron_exp' argument")
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if create_archive is None and 'createArchive' in kwargs:
             create_archive = kwargs['createArchive']
-        if 'excludeNewRepositories' in kwargs:
+        if exclude_new_repositories is None and 'excludeNewRepositories' in kwargs:
             exclude_new_repositories = kwargs['excludeNewRepositories']
-        if 'excludedRepositories' in kwargs:
+        if excluded_repositories is None and 'excludedRepositories' in kwargs:
             excluded_repositories = kwargs['excludedRepositories']
-        if 'exportMissionControl' in kwargs:
+        if export_mission_control is None and 'exportMissionControl' in kwargs:
             export_mission_control = kwargs['exportMissionControl']
-        if 'retentionPeriodHours' in kwargs:
+        if retention_period_hours is None and 'retentionPeriodHours' in kwargs:
             retention_period_hours = kwargs['retentionPeriodHours']
-        if 'sendMailOnError' in kwargs:
+        if send_mail_on_error is None and 'sendMailOnError' in kwargs:
             send_mail_on_error = kwargs['sendMailOnError']
-        if 'verifyDiskSpace' in kwargs:
+        if verify_disk_space is None and 'verifyDiskSpace' in kwargs:
             verify_disk_space = kwargs['verifyDiskSpace']
 
         _setter("cron_exp", cron_exp)
@@ -274,23 +278,23 @@ class _BackupState:
              retention_period_hours: Optional[pulumi.Input[int]] = None,
              send_mail_on_error: Optional[pulumi.Input[bool]] = None,
              verify_disk_space: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'createArchive' in kwargs:
+        if create_archive is None and 'createArchive' in kwargs:
             create_archive = kwargs['createArchive']
-        if 'cronExp' in kwargs:
+        if cron_exp is None and 'cronExp' in kwargs:
             cron_exp = kwargs['cronExp']
-        if 'excludeNewRepositories' in kwargs:
+        if exclude_new_repositories is None and 'excludeNewRepositories' in kwargs:
             exclude_new_repositories = kwargs['excludeNewRepositories']
-        if 'excludedRepositories' in kwargs:
+        if excluded_repositories is None and 'excludedRepositories' in kwargs:
             excluded_repositories = kwargs['excludedRepositories']
-        if 'exportMissionControl' in kwargs:
+        if export_mission_control is None and 'exportMissionControl' in kwargs:
             export_mission_control = kwargs['exportMissionControl']
-        if 'retentionPeriodHours' in kwargs:
+        if retention_period_hours is None and 'retentionPeriodHours' in kwargs:
             retention_period_hours = kwargs['retentionPeriodHours']
-        if 'sendMailOnError' in kwargs:
+        if send_mail_on_error is None and 'sendMailOnError' in kwargs:
             send_mail_on_error = kwargs['sendMailOnError']
-        if 'verifyDiskSpace' in kwargs:
+        if verify_disk_space is None and 'verifyDiskSpace' in kwargs:
             verify_disk_space = kwargs['verifyDiskSpace']
 
         if create_archive is not None:

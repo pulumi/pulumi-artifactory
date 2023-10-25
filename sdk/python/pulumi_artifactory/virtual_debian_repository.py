@@ -79,7 +79,7 @@ class VirtualDebianRepositoryArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
+             key: Optional[pulumi.Input[str]] = None,
              artifactory_requests_can_retrieve_remote_artifacts: Optional[pulumi.Input[bool]] = None,
              debian_default_architectures: Optional[pulumi.Input[str]] = None,
              default_deployment_repo: Optional[pulumi.Input[str]] = None,
@@ -95,31 +95,33 @@ class VirtualDebianRepositoryArgs:
              repositories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              retrieval_cache_period_seconds: Optional[pulumi.Input[int]] = None,
              secondary_keypair_ref: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'artifactoryRequestsCanRetrieveRemoteArtifacts' in kwargs:
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if artifactory_requests_can_retrieve_remote_artifacts is None and 'artifactoryRequestsCanRetrieveRemoteArtifacts' in kwargs:
             artifactory_requests_can_retrieve_remote_artifacts = kwargs['artifactoryRequestsCanRetrieveRemoteArtifacts']
-        if 'debianDefaultArchitectures' in kwargs:
+        if debian_default_architectures is None and 'debianDefaultArchitectures' in kwargs:
             debian_default_architectures = kwargs['debianDefaultArchitectures']
-        if 'defaultDeploymentRepo' in kwargs:
+        if default_deployment_repo is None and 'defaultDeploymentRepo' in kwargs:
             default_deployment_repo = kwargs['defaultDeploymentRepo']
-        if 'excludesPattern' in kwargs:
+        if excludes_pattern is None and 'excludesPattern' in kwargs:
             excludes_pattern = kwargs['excludesPattern']
-        if 'includesPattern' in kwargs:
+        if includes_pattern is None and 'includesPattern' in kwargs:
             includes_pattern = kwargs['includesPattern']
-        if 'optionalIndexCompressionFormats' in kwargs:
+        if optional_index_compression_formats is None and 'optionalIndexCompressionFormats' in kwargs:
             optional_index_compression_formats = kwargs['optionalIndexCompressionFormats']
-        if 'primaryKeypairRef' in kwargs:
+        if primary_keypair_ref is None and 'primaryKeypairRef' in kwargs:
             primary_keypair_ref = kwargs['primaryKeypairRef']
-        if 'projectEnvironments' in kwargs:
+        if project_environments is None and 'projectEnvironments' in kwargs:
             project_environments = kwargs['projectEnvironments']
-        if 'projectKey' in kwargs:
+        if project_key is None and 'projectKey' in kwargs:
             project_key = kwargs['projectKey']
-        if 'repoLayoutRef' in kwargs:
+        if repo_layout_ref is None and 'repoLayoutRef' in kwargs:
             repo_layout_ref = kwargs['repoLayoutRef']
-        if 'retrievalCachePeriodSeconds' in kwargs:
+        if retrieval_cache_period_seconds is None and 'retrievalCachePeriodSeconds' in kwargs:
             retrieval_cache_period_seconds = kwargs['retrievalCachePeriodSeconds']
-        if 'secondaryKeypairRef' in kwargs:
+        if secondary_keypair_ref is None and 'secondaryKeypairRef' in kwargs:
             secondary_keypair_ref = kwargs['secondaryKeypairRef']
 
         _setter("key", key)
@@ -442,33 +444,33 @@ class _VirtualDebianRepositoryState:
              repositories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              retrieval_cache_period_seconds: Optional[pulumi.Input[int]] = None,
              secondary_keypair_ref: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None,
+             opts: Optional[pulumi.ResourceOptions] = None,
              **kwargs):
-        if 'artifactoryRequestsCanRetrieveRemoteArtifacts' in kwargs:
+        if artifactory_requests_can_retrieve_remote_artifacts is None and 'artifactoryRequestsCanRetrieveRemoteArtifacts' in kwargs:
             artifactory_requests_can_retrieve_remote_artifacts = kwargs['artifactoryRequestsCanRetrieveRemoteArtifacts']
-        if 'debianDefaultArchitectures' in kwargs:
+        if debian_default_architectures is None and 'debianDefaultArchitectures' in kwargs:
             debian_default_architectures = kwargs['debianDefaultArchitectures']
-        if 'defaultDeploymentRepo' in kwargs:
+        if default_deployment_repo is None and 'defaultDeploymentRepo' in kwargs:
             default_deployment_repo = kwargs['defaultDeploymentRepo']
-        if 'excludesPattern' in kwargs:
+        if excludes_pattern is None and 'excludesPattern' in kwargs:
             excludes_pattern = kwargs['excludesPattern']
-        if 'includesPattern' in kwargs:
+        if includes_pattern is None and 'includesPattern' in kwargs:
             includes_pattern = kwargs['includesPattern']
-        if 'optionalIndexCompressionFormats' in kwargs:
+        if optional_index_compression_formats is None and 'optionalIndexCompressionFormats' in kwargs:
             optional_index_compression_formats = kwargs['optionalIndexCompressionFormats']
-        if 'packageType' in kwargs:
+        if package_type is None and 'packageType' in kwargs:
             package_type = kwargs['packageType']
-        if 'primaryKeypairRef' in kwargs:
+        if primary_keypair_ref is None and 'primaryKeypairRef' in kwargs:
             primary_keypair_ref = kwargs['primaryKeypairRef']
-        if 'projectEnvironments' in kwargs:
+        if project_environments is None and 'projectEnvironments' in kwargs:
             project_environments = kwargs['projectEnvironments']
-        if 'projectKey' in kwargs:
+        if project_key is None and 'projectKey' in kwargs:
             project_key = kwargs['projectKey']
-        if 'repoLayoutRef' in kwargs:
+        if repo_layout_ref is None and 'repoLayoutRef' in kwargs:
             repo_layout_ref = kwargs['repoLayoutRef']
-        if 'retrievalCachePeriodSeconds' in kwargs:
+        if retrieval_cache_period_seconds is None and 'retrievalCachePeriodSeconds' in kwargs:
             retrieval_cache_period_seconds = kwargs['retrievalCachePeriodSeconds']
-        if 'secondaryKeypairRef' in kwargs:
+        if secondary_keypair_ref is None and 'secondaryKeypairRef' in kwargs:
             secondary_keypair_ref = kwargs['secondaryKeypairRef']
 
         if artifactory_requests_can_retrieve_remote_artifacts is not None:
