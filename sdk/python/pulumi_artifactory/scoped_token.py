@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['ScopedTokenArgs', 'ScopedToken']
@@ -36,59 +36,24 @@ class ScopedTokenArgs:
                The supported scopes include:
         :param pulumi.Input[str] username: The user name for which this token is created. The username is based on the authenticated user - either from the user of the authenticated token or based on the username (if basic auth was used). The username is then used to set the subject of the token: \\n\\n/users/\\n\\n. Limited to 255 characters.
         """
-        ScopedTokenArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            audiences=audiences,
-            description=description,
-            expires_in=expires_in,
-            grant_type=grant_type,
-            include_reference_token=include_reference_token,
-            project_key=project_key,
-            refreshable=refreshable,
-            scopes=scopes,
-            username=username,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             expires_in: Optional[pulumi.Input[int]] = None,
-             grant_type: Optional[pulumi.Input[str]] = None,
-             include_reference_token: Optional[pulumi.Input[bool]] = None,
-             project_key: Optional[pulumi.Input[str]] = None,
-             refreshable: Optional[pulumi.Input[bool]] = None,
-             scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             username: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if expires_in is None and 'expiresIn' in kwargs:
-            expires_in = kwargs['expiresIn']
-        if grant_type is None and 'grantType' in kwargs:
-            grant_type = kwargs['grantType']
-        if include_reference_token is None and 'includeReferenceToken' in kwargs:
-            include_reference_token = kwargs['includeReferenceToken']
-        if project_key is None and 'projectKey' in kwargs:
-            project_key = kwargs['projectKey']
-
         if audiences is not None:
-            _setter("audiences", audiences)
+            pulumi.set(__self__, "audiences", audiences)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if expires_in is not None:
-            _setter("expires_in", expires_in)
+            pulumi.set(__self__, "expires_in", expires_in)
         if grant_type is not None:
-            _setter("grant_type", grant_type)
+            pulumi.set(__self__, "grant_type", grant_type)
         if include_reference_token is not None:
-            _setter("include_reference_token", include_reference_token)
+            pulumi.set(__self__, "include_reference_token", include_reference_token)
         if project_key is not None:
-            _setter("project_key", project_key)
+            pulumi.set(__self__, "project_key", project_key)
         if refreshable is not None:
-            _setter("refreshable", refreshable)
+            pulumi.set(__self__, "refreshable", refreshable)
         if scopes is not None:
-            _setter("scopes", scopes)
+            pulumi.set(__self__, "scopes", scopes)
         if username is not None:
-            _setter("username", username)
+            pulumi.set(__self__, "username", username)
 
     @property
     @pulumi.getter
@@ -241,101 +206,40 @@ class _ScopedTokenState:
         :param pulumi.Input[str] token_type: Returns the token type.
         :param pulumi.Input[str] username: The user name for which this token is created. The username is based on the authenticated user - either from the user of the authenticated token or based on the username (if basic auth was used). The username is then used to set the subject of the token: \\n\\n/users/\\n\\n. Limited to 255 characters.
         """
-        _ScopedTokenState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            access_token=access_token,
-            audiences=audiences,
-            description=description,
-            expires_in=expires_in,
-            expiry=expiry,
-            grant_type=grant_type,
-            include_reference_token=include_reference_token,
-            issued_at=issued_at,
-            issuer=issuer,
-            project_key=project_key,
-            reference_token=reference_token,
-            refresh_token=refresh_token,
-            refreshable=refreshable,
-            scopes=scopes,
-            subject=subject,
-            token_type=token_type,
-            username=username,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             access_token: Optional[pulumi.Input[str]] = None,
-             audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             expires_in: Optional[pulumi.Input[int]] = None,
-             expiry: Optional[pulumi.Input[int]] = None,
-             grant_type: Optional[pulumi.Input[str]] = None,
-             include_reference_token: Optional[pulumi.Input[bool]] = None,
-             issued_at: Optional[pulumi.Input[int]] = None,
-             issuer: Optional[pulumi.Input[str]] = None,
-             project_key: Optional[pulumi.Input[str]] = None,
-             reference_token: Optional[pulumi.Input[str]] = None,
-             refresh_token: Optional[pulumi.Input[str]] = None,
-             refreshable: Optional[pulumi.Input[bool]] = None,
-             scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             subject: Optional[pulumi.Input[str]] = None,
-             token_type: Optional[pulumi.Input[str]] = None,
-             username: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if access_token is None and 'accessToken' in kwargs:
-            access_token = kwargs['accessToken']
-        if expires_in is None and 'expiresIn' in kwargs:
-            expires_in = kwargs['expiresIn']
-        if grant_type is None and 'grantType' in kwargs:
-            grant_type = kwargs['grantType']
-        if include_reference_token is None and 'includeReferenceToken' in kwargs:
-            include_reference_token = kwargs['includeReferenceToken']
-        if issued_at is None and 'issuedAt' in kwargs:
-            issued_at = kwargs['issuedAt']
-        if project_key is None and 'projectKey' in kwargs:
-            project_key = kwargs['projectKey']
-        if reference_token is None and 'referenceToken' in kwargs:
-            reference_token = kwargs['referenceToken']
-        if refresh_token is None and 'refreshToken' in kwargs:
-            refresh_token = kwargs['refreshToken']
-        if token_type is None and 'tokenType' in kwargs:
-            token_type = kwargs['tokenType']
-
         if access_token is not None:
-            _setter("access_token", access_token)
+            pulumi.set(__self__, "access_token", access_token)
         if audiences is not None:
-            _setter("audiences", audiences)
+            pulumi.set(__self__, "audiences", audiences)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if expires_in is not None:
-            _setter("expires_in", expires_in)
+            pulumi.set(__self__, "expires_in", expires_in)
         if expiry is not None:
-            _setter("expiry", expiry)
+            pulumi.set(__self__, "expiry", expiry)
         if grant_type is not None:
-            _setter("grant_type", grant_type)
+            pulumi.set(__self__, "grant_type", grant_type)
         if include_reference_token is not None:
-            _setter("include_reference_token", include_reference_token)
+            pulumi.set(__self__, "include_reference_token", include_reference_token)
         if issued_at is not None:
-            _setter("issued_at", issued_at)
+            pulumi.set(__self__, "issued_at", issued_at)
         if issuer is not None:
-            _setter("issuer", issuer)
+            pulumi.set(__self__, "issuer", issuer)
         if project_key is not None:
-            _setter("project_key", project_key)
+            pulumi.set(__self__, "project_key", project_key)
         if reference_token is not None:
-            _setter("reference_token", reference_token)
+            pulumi.set(__self__, "reference_token", reference_token)
         if refresh_token is not None:
-            _setter("refresh_token", refresh_token)
+            pulumi.set(__self__, "refresh_token", refresh_token)
         if refreshable is not None:
-            _setter("refreshable", refreshable)
+            pulumi.set(__self__, "refreshable", refreshable)
         if scopes is not None:
-            _setter("scopes", scopes)
+            pulumi.set(__self__, "scopes", scopes)
         if subject is not None:
-            _setter("subject", subject)
+            pulumi.set(__self__, "subject", subject)
         if token_type is not None:
-            _setter("token_type", token_type)
+            pulumi.set(__self__, "token_type", token_type)
         if username is not None:
-            _setter("username", username)
+            pulumi.set(__self__, "username", username)
 
     @property
     @pulumi.getter(name="accessToken")
@@ -707,10 +611,6 @@ class ScopedToken(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ScopedTokenArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

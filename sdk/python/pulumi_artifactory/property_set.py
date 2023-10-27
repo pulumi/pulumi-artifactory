@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,28 +25,11 @@ class PropertySetArgs:
         :param pulumi.Input[str] name: Predefined property name.
         :param pulumi.Input[bool] visible: Defines if the list visible and assignable to the repository or artifact. Default value is `true`.
         """
-        PropertySetArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            properties=properties,
-            name=name,
-            visible=visible,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             properties: Optional[pulumi.Input[Sequence[pulumi.Input['PropertySetPropertyArgs']]]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             visible: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if properties is None:
-            raise TypeError("Missing 'properties' argument")
-
-        _setter("properties", properties)
+        pulumi.set(__self__, "properties", properties)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if visible is not None:
-            _setter("visible", visible)
+            pulumi.set(__self__, "visible", visible)
 
     @property
     @pulumi.getter
@@ -97,27 +80,12 @@ class _PropertySetState:
         :param pulumi.Input[Sequence[pulumi.Input['PropertySetPropertyArgs']]] properties: A list of properties that will be part of the property set.
         :param pulumi.Input[bool] visible: Defines if the list visible and assignable to the repository or artifact. Default value is `true`.
         """
-        _PropertySetState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            properties=properties,
-            visible=visible,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[pulumi.Input[str]] = None,
-             properties: Optional[pulumi.Input[Sequence[pulumi.Input['PropertySetPropertyArgs']]]] = None,
-             visible: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if properties is not None:
-            _setter("properties", properties)
+            pulumi.set(__self__, "properties", properties)
         if visible is not None:
-            _setter("visible", visible)
+            pulumi.set(__self__, "visible", visible)
 
     @property
     @pulumi.getter
@@ -301,10 +269,6 @@ class PropertySet(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            PropertySetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['RepositoryLayoutArgs', 'RepositoryLayout']
@@ -37,52 +37,15 @@ class RepositoryLayoutArgs:
         :param pulumi.Input[bool] distinctive_descriptor_path_pattern: When set, 'descriptor_path_pattern' will be used. Default to 'false'.
         :param pulumi.Input[str] name: Layout name
         """
-        RepositoryLayoutArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            artifact_path_pattern=artifact_path_pattern,
-            file_integration_revision_regexp=file_integration_revision_regexp,
-            folder_integration_revision_regexp=folder_integration_revision_regexp,
-            descriptor_path_pattern=descriptor_path_pattern,
-            distinctive_descriptor_path_pattern=distinctive_descriptor_path_pattern,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             artifact_path_pattern: Optional[pulumi.Input[str]] = None,
-             file_integration_revision_regexp: Optional[pulumi.Input[str]] = None,
-             folder_integration_revision_regexp: Optional[pulumi.Input[str]] = None,
-             descriptor_path_pattern: Optional[pulumi.Input[str]] = None,
-             distinctive_descriptor_path_pattern: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if artifact_path_pattern is None and 'artifactPathPattern' in kwargs:
-            artifact_path_pattern = kwargs['artifactPathPattern']
-        if artifact_path_pattern is None:
-            raise TypeError("Missing 'artifact_path_pattern' argument")
-        if file_integration_revision_regexp is None and 'fileIntegrationRevisionRegexp' in kwargs:
-            file_integration_revision_regexp = kwargs['fileIntegrationRevisionRegexp']
-        if file_integration_revision_regexp is None:
-            raise TypeError("Missing 'file_integration_revision_regexp' argument")
-        if folder_integration_revision_regexp is None and 'folderIntegrationRevisionRegexp' in kwargs:
-            folder_integration_revision_regexp = kwargs['folderIntegrationRevisionRegexp']
-        if folder_integration_revision_regexp is None:
-            raise TypeError("Missing 'folder_integration_revision_regexp' argument")
-        if descriptor_path_pattern is None and 'descriptorPathPattern' in kwargs:
-            descriptor_path_pattern = kwargs['descriptorPathPattern']
-        if distinctive_descriptor_path_pattern is None and 'distinctiveDescriptorPathPattern' in kwargs:
-            distinctive_descriptor_path_pattern = kwargs['distinctiveDescriptorPathPattern']
-
-        _setter("artifact_path_pattern", artifact_path_pattern)
-        _setter("file_integration_revision_regexp", file_integration_revision_regexp)
-        _setter("folder_integration_revision_regexp", folder_integration_revision_regexp)
+        pulumi.set(__self__, "artifact_path_pattern", artifact_path_pattern)
+        pulumi.set(__self__, "file_integration_revision_regexp", file_integration_revision_regexp)
+        pulumi.set(__self__, "folder_integration_revision_regexp", folder_integration_revision_regexp)
         if descriptor_path_pattern is not None:
-            _setter("descriptor_path_pattern", descriptor_path_pattern)
+            pulumi.set(__self__, "descriptor_path_pattern", descriptor_path_pattern)
         if distinctive_descriptor_path_pattern is not None:
-            _setter("distinctive_descriptor_path_pattern", distinctive_descriptor_path_pattern)
+            pulumi.set(__self__, "distinctive_descriptor_path_pattern", distinctive_descriptor_path_pattern)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="artifactPathPattern")
@@ -191,49 +154,18 @@ class _RepositoryLayoutState:
                If not applicable use '.*'
         :param pulumi.Input[str] name: Layout name
         """
-        _RepositoryLayoutState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            artifact_path_pattern=artifact_path_pattern,
-            descriptor_path_pattern=descriptor_path_pattern,
-            distinctive_descriptor_path_pattern=distinctive_descriptor_path_pattern,
-            file_integration_revision_regexp=file_integration_revision_regexp,
-            folder_integration_revision_regexp=folder_integration_revision_regexp,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             artifact_path_pattern: Optional[pulumi.Input[str]] = None,
-             descriptor_path_pattern: Optional[pulumi.Input[str]] = None,
-             distinctive_descriptor_path_pattern: Optional[pulumi.Input[bool]] = None,
-             file_integration_revision_regexp: Optional[pulumi.Input[str]] = None,
-             folder_integration_revision_regexp: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if artifact_path_pattern is None and 'artifactPathPattern' in kwargs:
-            artifact_path_pattern = kwargs['artifactPathPattern']
-        if descriptor_path_pattern is None and 'descriptorPathPattern' in kwargs:
-            descriptor_path_pattern = kwargs['descriptorPathPattern']
-        if distinctive_descriptor_path_pattern is None and 'distinctiveDescriptorPathPattern' in kwargs:
-            distinctive_descriptor_path_pattern = kwargs['distinctiveDescriptorPathPattern']
-        if file_integration_revision_regexp is None and 'fileIntegrationRevisionRegexp' in kwargs:
-            file_integration_revision_regexp = kwargs['fileIntegrationRevisionRegexp']
-        if folder_integration_revision_regexp is None and 'folderIntegrationRevisionRegexp' in kwargs:
-            folder_integration_revision_regexp = kwargs['folderIntegrationRevisionRegexp']
-
         if artifact_path_pattern is not None:
-            _setter("artifact_path_pattern", artifact_path_pattern)
+            pulumi.set(__self__, "artifact_path_pattern", artifact_path_pattern)
         if descriptor_path_pattern is not None:
-            _setter("descriptor_path_pattern", descriptor_path_pattern)
+            pulumi.set(__self__, "descriptor_path_pattern", descriptor_path_pattern)
         if distinctive_descriptor_path_pattern is not None:
-            _setter("distinctive_descriptor_path_pattern", distinctive_descriptor_path_pattern)
+            pulumi.set(__self__, "distinctive_descriptor_path_pattern", distinctive_descriptor_path_pattern)
         if file_integration_revision_regexp is not None:
-            _setter("file_integration_revision_regexp", file_integration_revision_regexp)
+            pulumi.set(__self__, "file_integration_revision_regexp", file_integration_revision_regexp)
         if folder_integration_revision_regexp is not None:
-            _setter("folder_integration_revision_regexp", folder_integration_revision_regexp)
+            pulumi.set(__self__, "folder_integration_revision_regexp", folder_integration_revision_regexp)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="artifactPathPattern")
@@ -365,10 +297,6 @@ class RepositoryLayout(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            RepositoryLayoutArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

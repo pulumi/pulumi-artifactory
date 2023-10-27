@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['LdapGroupSettingV2Args', 'LdapGroupSettingV2']
@@ -37,74 +37,21 @@ class LdapGroupSettingV2Args:
         :param pulumi.Input[str] name: Ldap group setting name.
         :param pulumi.Input[bool] sub_tree: When set, enables deep search through the sub-tree of the LDAP URL + Search Base. `true` by default. `sub_tree` can be set to true only with `STATIC` or `DYNAMIC` strategy.
         """
-        LdapGroupSettingV2Args._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            description_attribute=description_attribute,
-            filter=filter,
-            group_member_attribute=group_member_attribute,
-            group_name_attribute=group_name_attribute,
-            strategy=strategy,
-            enabled_ldap=enabled_ldap,
-            force_attribute_search=force_attribute_search,
-            group_base_dn=group_base_dn,
-            name=name,
-            sub_tree=sub_tree,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             description_attribute: Optional[pulumi.Input[str]] = None,
-             filter: Optional[pulumi.Input[str]] = None,
-             group_member_attribute: Optional[pulumi.Input[str]] = None,
-             group_name_attribute: Optional[pulumi.Input[str]] = None,
-             strategy: Optional[pulumi.Input[str]] = None,
-             enabled_ldap: Optional[pulumi.Input[str]] = None,
-             force_attribute_search: Optional[pulumi.Input[bool]] = None,
-             group_base_dn: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             sub_tree: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if description_attribute is None and 'descriptionAttribute' in kwargs:
-            description_attribute = kwargs['descriptionAttribute']
-        if description_attribute is None:
-            raise TypeError("Missing 'description_attribute' argument")
-        if filter is None:
-            raise TypeError("Missing 'filter' argument")
-        if group_member_attribute is None and 'groupMemberAttribute' in kwargs:
-            group_member_attribute = kwargs['groupMemberAttribute']
-        if group_member_attribute is None:
-            raise TypeError("Missing 'group_member_attribute' argument")
-        if group_name_attribute is None and 'groupNameAttribute' in kwargs:
-            group_name_attribute = kwargs['groupNameAttribute']
-        if group_name_attribute is None:
-            raise TypeError("Missing 'group_name_attribute' argument")
-        if strategy is None:
-            raise TypeError("Missing 'strategy' argument")
-        if enabled_ldap is None and 'enabledLdap' in kwargs:
-            enabled_ldap = kwargs['enabledLdap']
-        if force_attribute_search is None and 'forceAttributeSearch' in kwargs:
-            force_attribute_search = kwargs['forceAttributeSearch']
-        if group_base_dn is None and 'groupBaseDn' in kwargs:
-            group_base_dn = kwargs['groupBaseDn']
-        if sub_tree is None and 'subTree' in kwargs:
-            sub_tree = kwargs['subTree']
-
-        _setter("description_attribute", description_attribute)
-        _setter("filter", filter)
-        _setter("group_member_attribute", group_member_attribute)
-        _setter("group_name_attribute", group_name_attribute)
-        _setter("strategy", strategy)
+        pulumi.set(__self__, "description_attribute", description_attribute)
+        pulumi.set(__self__, "filter", filter)
+        pulumi.set(__self__, "group_member_attribute", group_member_attribute)
+        pulumi.set(__self__, "group_name_attribute", group_name_attribute)
+        pulumi.set(__self__, "strategy", strategy)
         if enabled_ldap is not None:
-            _setter("enabled_ldap", enabled_ldap)
+            pulumi.set(__self__, "enabled_ldap", enabled_ldap)
         if force_attribute_search is not None:
-            _setter("force_attribute_search", force_attribute_search)
+            pulumi.set(__self__, "force_attribute_search", force_attribute_search)
         if group_base_dn is not None:
-            _setter("group_base_dn", group_base_dn)
+            pulumi.set(__self__, "group_base_dn", group_base_dn)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if sub_tree is not None:
-            _setter("sub_tree", sub_tree)
+            pulumi.set(__self__, "sub_tree", sub_tree)
 
     @property
     @pulumi.getter(name="descriptionAttribute")
@@ -253,69 +200,26 @@ class _LdapGroupSettingV2State:
         :param pulumi.Input[str] strategy: The JFrog Platform Deployment (JPD) supports three ways of mapping groups to LDAP schemas: STATIC: Group objects are aware of their members, however, the users are not aware of the groups they belong to. Each group object such as groupOfNames or groupOfUniqueNames holds its respective member attributes, typically member or uniqueMember, which is a user DN. DYNAMIC: User objects are aware of what groups they belong to, but the group objects are not aware of their members. Each user object contains a custom attribute, such as group, that holds the group DNs or group names of which the user is a member. HIERARCHICAL: The user's DN is indicative of the groups the user belongs to by using group names as part of user DN hierarchy. Each user DN contains a list of ou's or custom attributes that make up the group association. For example, `uid=user1,ou=developers,ou=uk,dc=jfrog,dc=org` indicates that `user1` belongs to two groups: `uk` and `developers`. Valid values are: `STATIC`, `DYNAMIC`, `HIERARCHICAL`, case sensitive, all caps.
         :param pulumi.Input[bool] sub_tree: When set, enables deep search through the sub-tree of the LDAP URL + Search Base. `true` by default. `sub_tree` can be set to true only with `STATIC` or `DYNAMIC` strategy.
         """
-        _LdapGroupSettingV2State._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            description_attribute=description_attribute,
-            enabled_ldap=enabled_ldap,
-            filter=filter,
-            force_attribute_search=force_attribute_search,
-            group_base_dn=group_base_dn,
-            group_member_attribute=group_member_attribute,
-            group_name_attribute=group_name_attribute,
-            name=name,
-            strategy=strategy,
-            sub_tree=sub_tree,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             description_attribute: Optional[pulumi.Input[str]] = None,
-             enabled_ldap: Optional[pulumi.Input[str]] = None,
-             filter: Optional[pulumi.Input[str]] = None,
-             force_attribute_search: Optional[pulumi.Input[bool]] = None,
-             group_base_dn: Optional[pulumi.Input[str]] = None,
-             group_member_attribute: Optional[pulumi.Input[str]] = None,
-             group_name_attribute: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             strategy: Optional[pulumi.Input[str]] = None,
-             sub_tree: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if description_attribute is None and 'descriptionAttribute' in kwargs:
-            description_attribute = kwargs['descriptionAttribute']
-        if enabled_ldap is None and 'enabledLdap' in kwargs:
-            enabled_ldap = kwargs['enabledLdap']
-        if force_attribute_search is None and 'forceAttributeSearch' in kwargs:
-            force_attribute_search = kwargs['forceAttributeSearch']
-        if group_base_dn is None and 'groupBaseDn' in kwargs:
-            group_base_dn = kwargs['groupBaseDn']
-        if group_member_attribute is None and 'groupMemberAttribute' in kwargs:
-            group_member_attribute = kwargs['groupMemberAttribute']
-        if group_name_attribute is None and 'groupNameAttribute' in kwargs:
-            group_name_attribute = kwargs['groupNameAttribute']
-        if sub_tree is None and 'subTree' in kwargs:
-            sub_tree = kwargs['subTree']
-
         if description_attribute is not None:
-            _setter("description_attribute", description_attribute)
+            pulumi.set(__self__, "description_attribute", description_attribute)
         if enabled_ldap is not None:
-            _setter("enabled_ldap", enabled_ldap)
+            pulumi.set(__self__, "enabled_ldap", enabled_ldap)
         if filter is not None:
-            _setter("filter", filter)
+            pulumi.set(__self__, "filter", filter)
         if force_attribute_search is not None:
-            _setter("force_attribute_search", force_attribute_search)
+            pulumi.set(__self__, "force_attribute_search", force_attribute_search)
         if group_base_dn is not None:
-            _setter("group_base_dn", group_base_dn)
+            pulumi.set(__self__, "group_base_dn", group_base_dn)
         if group_member_attribute is not None:
-            _setter("group_member_attribute", group_member_attribute)
+            pulumi.set(__self__, "group_member_attribute", group_member_attribute)
         if group_name_attribute is not None:
-            _setter("group_name_attribute", group_name_attribute)
+            pulumi.set(__self__, "group_name_attribute", group_name_attribute)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if strategy is not None:
-            _setter("strategy", strategy)
+            pulumi.set(__self__, "strategy", strategy)
         if sub_tree is not None:
-            _setter("sub_tree", sub_tree)
+            pulumi.set(__self__, "sub_tree", sub_tree)
 
     @property
     @pulumi.getter(name="descriptionAttribute")
@@ -551,10 +455,6 @@ class LdapGroupSettingV2(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            LdapGroupSettingV2Args._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

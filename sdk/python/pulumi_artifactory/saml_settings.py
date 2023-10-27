@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['SamlSettingsArgs', 'SamlSettings']
@@ -43,92 +43,29 @@ class SamlSettingsArgs:
         :param pulumi.Input[bool] use_encrypted_assertion: When set, an X.509 public certificate will be created by Artifactory. Download this certificate and upload it to your IDP and choose your own encryption algorithm. This process will let you encrypt the assertion section in your SAML response. Default value is `false`.
         :param pulumi.Input[bool] verify_audience_restriction: Enable "audience", or who the SAML assertion is intended for.  Ensures that the correct service provider intended for Artifactory is used on the IdP.  Default value is `true`.
         """
-        SamlSettingsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            login_url=login_url,
-            logout_url=logout_url,
-            service_provider_name=service_provider_name,
-            allow_user_to_access_profile=allow_user_to_access_profile,
-            auto_redirect=auto_redirect,
-            certificate=certificate,
-            email_attribute=email_attribute,
-            enable=enable,
-            group_attribute=group_attribute,
-            no_auto_user_creation=no_auto_user_creation,
-            sync_groups=sync_groups,
-            use_encrypted_assertion=use_encrypted_assertion,
-            verify_audience_restriction=verify_audience_restriction,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             login_url: Optional[pulumi.Input[str]] = None,
-             logout_url: Optional[pulumi.Input[str]] = None,
-             service_provider_name: Optional[pulumi.Input[str]] = None,
-             allow_user_to_access_profile: Optional[pulumi.Input[bool]] = None,
-             auto_redirect: Optional[pulumi.Input[bool]] = None,
-             certificate: Optional[pulumi.Input[str]] = None,
-             email_attribute: Optional[pulumi.Input[str]] = None,
-             enable: Optional[pulumi.Input[bool]] = None,
-             group_attribute: Optional[pulumi.Input[str]] = None,
-             no_auto_user_creation: Optional[pulumi.Input[bool]] = None,
-             sync_groups: Optional[pulumi.Input[bool]] = None,
-             use_encrypted_assertion: Optional[pulumi.Input[bool]] = None,
-             verify_audience_restriction: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if login_url is None and 'loginUrl' in kwargs:
-            login_url = kwargs['loginUrl']
-        if login_url is None:
-            raise TypeError("Missing 'login_url' argument")
-        if logout_url is None and 'logoutUrl' in kwargs:
-            logout_url = kwargs['logoutUrl']
-        if logout_url is None:
-            raise TypeError("Missing 'logout_url' argument")
-        if service_provider_name is None and 'serviceProviderName' in kwargs:
-            service_provider_name = kwargs['serviceProviderName']
-        if service_provider_name is None:
-            raise TypeError("Missing 'service_provider_name' argument")
-        if allow_user_to_access_profile is None and 'allowUserToAccessProfile' in kwargs:
-            allow_user_to_access_profile = kwargs['allowUserToAccessProfile']
-        if auto_redirect is None and 'autoRedirect' in kwargs:
-            auto_redirect = kwargs['autoRedirect']
-        if email_attribute is None and 'emailAttribute' in kwargs:
-            email_attribute = kwargs['emailAttribute']
-        if group_attribute is None and 'groupAttribute' in kwargs:
-            group_attribute = kwargs['groupAttribute']
-        if no_auto_user_creation is None and 'noAutoUserCreation' in kwargs:
-            no_auto_user_creation = kwargs['noAutoUserCreation']
-        if sync_groups is None and 'syncGroups' in kwargs:
-            sync_groups = kwargs['syncGroups']
-        if use_encrypted_assertion is None and 'useEncryptedAssertion' in kwargs:
-            use_encrypted_assertion = kwargs['useEncryptedAssertion']
-        if verify_audience_restriction is None and 'verifyAudienceRestriction' in kwargs:
-            verify_audience_restriction = kwargs['verifyAudienceRestriction']
-
-        _setter("login_url", login_url)
-        _setter("logout_url", logout_url)
-        _setter("service_provider_name", service_provider_name)
+        pulumi.set(__self__, "login_url", login_url)
+        pulumi.set(__self__, "logout_url", logout_url)
+        pulumi.set(__self__, "service_provider_name", service_provider_name)
         if allow_user_to_access_profile is not None:
-            _setter("allow_user_to_access_profile", allow_user_to_access_profile)
+            pulumi.set(__self__, "allow_user_to_access_profile", allow_user_to_access_profile)
         if auto_redirect is not None:
-            _setter("auto_redirect", auto_redirect)
+            pulumi.set(__self__, "auto_redirect", auto_redirect)
         if certificate is not None:
-            _setter("certificate", certificate)
+            pulumi.set(__self__, "certificate", certificate)
         if email_attribute is not None:
-            _setter("email_attribute", email_attribute)
+            pulumi.set(__self__, "email_attribute", email_attribute)
         if enable is not None:
-            _setter("enable", enable)
+            pulumi.set(__self__, "enable", enable)
         if group_attribute is not None:
-            _setter("group_attribute", group_attribute)
+            pulumi.set(__self__, "group_attribute", group_attribute)
         if no_auto_user_creation is not None:
-            _setter("no_auto_user_creation", no_auto_user_creation)
+            pulumi.set(__self__, "no_auto_user_creation", no_auto_user_creation)
         if sync_groups is not None:
-            _setter("sync_groups", sync_groups)
+            pulumi.set(__self__, "sync_groups", sync_groups)
         if use_encrypted_assertion is not None:
-            _setter("use_encrypted_assertion", use_encrypted_assertion)
+            pulumi.set(__self__, "use_encrypted_assertion", use_encrypted_assertion)
         if verify_audience_restriction is not None:
-            _setter("verify_audience_restriction", verify_audience_restriction)
+            pulumi.set(__self__, "verify_audience_restriction", verify_audience_restriction)
 
     @property
     @pulumi.getter(name="loginUrl")
@@ -319,89 +256,32 @@ class _SamlSettingsState:
         :param pulumi.Input[bool] use_encrypted_assertion: When set, an X.509 public certificate will be created by Artifactory. Download this certificate and upload it to your IDP and choose your own encryption algorithm. This process will let you encrypt the assertion section in your SAML response. Default value is `false`.
         :param pulumi.Input[bool] verify_audience_restriction: Enable "audience", or who the SAML assertion is intended for.  Ensures that the correct service provider intended for Artifactory is used on the IdP.  Default value is `true`.
         """
-        _SamlSettingsState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            allow_user_to_access_profile=allow_user_to_access_profile,
-            auto_redirect=auto_redirect,
-            certificate=certificate,
-            email_attribute=email_attribute,
-            enable=enable,
-            group_attribute=group_attribute,
-            login_url=login_url,
-            logout_url=logout_url,
-            no_auto_user_creation=no_auto_user_creation,
-            service_provider_name=service_provider_name,
-            sync_groups=sync_groups,
-            use_encrypted_assertion=use_encrypted_assertion,
-            verify_audience_restriction=verify_audience_restriction,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             allow_user_to_access_profile: Optional[pulumi.Input[bool]] = None,
-             auto_redirect: Optional[pulumi.Input[bool]] = None,
-             certificate: Optional[pulumi.Input[str]] = None,
-             email_attribute: Optional[pulumi.Input[str]] = None,
-             enable: Optional[pulumi.Input[bool]] = None,
-             group_attribute: Optional[pulumi.Input[str]] = None,
-             login_url: Optional[pulumi.Input[str]] = None,
-             logout_url: Optional[pulumi.Input[str]] = None,
-             no_auto_user_creation: Optional[pulumi.Input[bool]] = None,
-             service_provider_name: Optional[pulumi.Input[str]] = None,
-             sync_groups: Optional[pulumi.Input[bool]] = None,
-             use_encrypted_assertion: Optional[pulumi.Input[bool]] = None,
-             verify_audience_restriction: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if allow_user_to_access_profile is None and 'allowUserToAccessProfile' in kwargs:
-            allow_user_to_access_profile = kwargs['allowUserToAccessProfile']
-        if auto_redirect is None and 'autoRedirect' in kwargs:
-            auto_redirect = kwargs['autoRedirect']
-        if email_attribute is None and 'emailAttribute' in kwargs:
-            email_attribute = kwargs['emailAttribute']
-        if group_attribute is None and 'groupAttribute' in kwargs:
-            group_attribute = kwargs['groupAttribute']
-        if login_url is None and 'loginUrl' in kwargs:
-            login_url = kwargs['loginUrl']
-        if logout_url is None and 'logoutUrl' in kwargs:
-            logout_url = kwargs['logoutUrl']
-        if no_auto_user_creation is None and 'noAutoUserCreation' in kwargs:
-            no_auto_user_creation = kwargs['noAutoUserCreation']
-        if service_provider_name is None and 'serviceProviderName' in kwargs:
-            service_provider_name = kwargs['serviceProviderName']
-        if sync_groups is None and 'syncGroups' in kwargs:
-            sync_groups = kwargs['syncGroups']
-        if use_encrypted_assertion is None and 'useEncryptedAssertion' in kwargs:
-            use_encrypted_assertion = kwargs['useEncryptedAssertion']
-        if verify_audience_restriction is None and 'verifyAudienceRestriction' in kwargs:
-            verify_audience_restriction = kwargs['verifyAudienceRestriction']
-
         if allow_user_to_access_profile is not None:
-            _setter("allow_user_to_access_profile", allow_user_to_access_profile)
+            pulumi.set(__self__, "allow_user_to_access_profile", allow_user_to_access_profile)
         if auto_redirect is not None:
-            _setter("auto_redirect", auto_redirect)
+            pulumi.set(__self__, "auto_redirect", auto_redirect)
         if certificate is not None:
-            _setter("certificate", certificate)
+            pulumi.set(__self__, "certificate", certificate)
         if email_attribute is not None:
-            _setter("email_attribute", email_attribute)
+            pulumi.set(__self__, "email_attribute", email_attribute)
         if enable is not None:
-            _setter("enable", enable)
+            pulumi.set(__self__, "enable", enable)
         if group_attribute is not None:
-            _setter("group_attribute", group_attribute)
+            pulumi.set(__self__, "group_attribute", group_attribute)
         if login_url is not None:
-            _setter("login_url", login_url)
+            pulumi.set(__self__, "login_url", login_url)
         if logout_url is not None:
-            _setter("logout_url", logout_url)
+            pulumi.set(__self__, "logout_url", logout_url)
         if no_auto_user_creation is not None:
-            _setter("no_auto_user_creation", no_auto_user_creation)
+            pulumi.set(__self__, "no_auto_user_creation", no_auto_user_creation)
         if service_provider_name is not None:
-            _setter("service_provider_name", service_provider_name)
+            pulumi.set(__self__, "service_provider_name", service_provider_name)
         if sync_groups is not None:
-            _setter("sync_groups", sync_groups)
+            pulumi.set(__self__, "sync_groups", sync_groups)
         if use_encrypted_assertion is not None:
-            _setter("use_encrypted_assertion", use_encrypted_assertion)
+            pulumi.set(__self__, "use_encrypted_assertion", use_encrypted_assertion)
         if verify_audience_restriction is not None:
-            _setter("verify_audience_restriction", verify_audience_restriction)
+            pulumi.set(__self__, "verify_audience_restriction", verify_audience_restriction)
 
     @property
     @pulumi.getter(name="allowUserToAccessProfile")
@@ -687,10 +567,6 @@ class SamlSettings(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            SamlSettingsArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
