@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 
@@ -220,22 +220,7 @@ class AccessTokenAdminToken(dict):
 
     def __init__(__self__, *,
                  instance_id: str):
-        AccessTokenAdminToken._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            instance_id=instance_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             instance_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if instance_id is None and 'instanceId' in kwargs:
-            instance_id = kwargs['instanceId']
-        if instance_id is None:
-            raise TypeError("Missing 'instance_id' argument")
-
-        _setter("instance_id", instance_id)
+        pulumi.set(__self__, "instance_id", instance_id)
 
     @property
     @pulumi.getter(name="instanceId")
@@ -283,48 +268,13 @@ class ArtifactCustomWebhookCriteria(dict):
         :param Sequence[str] exclude_patterns: Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: `org/apache/**`.
         :param Sequence[str] include_patterns: Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: `org/apache/**`.
         """
-        ArtifactCustomWebhookCriteria._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            any_local=any_local,
-            any_remote=any_remote,
-            repo_keys=repo_keys,
-            exclude_patterns=exclude_patterns,
-            include_patterns=include_patterns,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             any_local: Optional[bool] = None,
-             any_remote: Optional[bool] = None,
-             repo_keys: Optional[Sequence[str]] = None,
-             exclude_patterns: Optional[Sequence[str]] = None,
-             include_patterns: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if any_local is None and 'anyLocal' in kwargs:
-            any_local = kwargs['anyLocal']
-        if any_local is None:
-            raise TypeError("Missing 'any_local' argument")
-        if any_remote is None and 'anyRemote' in kwargs:
-            any_remote = kwargs['anyRemote']
-        if any_remote is None:
-            raise TypeError("Missing 'any_remote' argument")
-        if repo_keys is None and 'repoKeys' in kwargs:
-            repo_keys = kwargs['repoKeys']
-        if repo_keys is None:
-            raise TypeError("Missing 'repo_keys' argument")
-        if exclude_patterns is None and 'excludePatterns' in kwargs:
-            exclude_patterns = kwargs['excludePatterns']
-        if include_patterns is None and 'includePatterns' in kwargs:
-            include_patterns = kwargs['includePatterns']
-
-        _setter("any_local", any_local)
-        _setter("any_remote", any_remote)
-        _setter("repo_keys", repo_keys)
+        pulumi.set(__self__, "any_local", any_local)
+        pulumi.set(__self__, "any_remote", any_remote)
+        pulumi.set(__self__, "repo_keys", repo_keys)
         if exclude_patterns is not None:
-            _setter("exclude_patterns", exclude_patterns)
+            pulumi.set(__self__, "exclude_patterns", exclude_patterns)
         if include_patterns is not None:
-            _setter("include_patterns", include_patterns)
+            pulumi.set(__self__, "include_patterns", include_patterns)
 
     @property
     @pulumi.getter(name="anyLocal")
@@ -402,38 +352,15 @@ class ArtifactCustomWebhookHandler(dict):
                import pulumi
                ```
         """
-        ArtifactCustomWebhookHandler._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            url=url,
-            http_headers=http_headers,
-            payload=payload,
-            proxy=proxy,
-            secrets=secrets,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             url: Optional[str] = None,
-             http_headers: Optional[Mapping[str, str]] = None,
-             payload: Optional[str] = None,
-             proxy: Optional[str] = None,
-             secrets: Optional[Mapping[str, str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if url is None:
-            raise TypeError("Missing 'url' argument")
-        if http_headers is None and 'httpHeaders' in kwargs:
-            http_headers = kwargs['httpHeaders']
-
-        _setter("url", url)
+        pulumi.set(__self__, "url", url)
         if http_headers is not None:
-            _setter("http_headers", http_headers)
+            pulumi.set(__self__, "http_headers", http_headers)
         if payload is not None:
-            _setter("payload", payload)
+            pulumi.set(__self__, "payload", payload)
         if proxy is not None:
-            _setter("proxy", proxy)
+            pulumi.set(__self__, "proxy", proxy)
         if secrets is not None:
-            _setter("secrets", secrets)
+            pulumi.set(__self__, "secrets", secrets)
 
     @property
     @pulumi.getter
@@ -517,48 +444,13 @@ class ArtifactPropertyCustomWebhookCriteria(dict):
         :param Sequence[str] exclude_patterns: Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: `org/apache/**`.
         :param Sequence[str] include_patterns: Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: `org/apache/**`.
         """
-        ArtifactPropertyCustomWebhookCriteria._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            any_local=any_local,
-            any_remote=any_remote,
-            repo_keys=repo_keys,
-            exclude_patterns=exclude_patterns,
-            include_patterns=include_patterns,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             any_local: Optional[bool] = None,
-             any_remote: Optional[bool] = None,
-             repo_keys: Optional[Sequence[str]] = None,
-             exclude_patterns: Optional[Sequence[str]] = None,
-             include_patterns: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if any_local is None and 'anyLocal' in kwargs:
-            any_local = kwargs['anyLocal']
-        if any_local is None:
-            raise TypeError("Missing 'any_local' argument")
-        if any_remote is None and 'anyRemote' in kwargs:
-            any_remote = kwargs['anyRemote']
-        if any_remote is None:
-            raise TypeError("Missing 'any_remote' argument")
-        if repo_keys is None and 'repoKeys' in kwargs:
-            repo_keys = kwargs['repoKeys']
-        if repo_keys is None:
-            raise TypeError("Missing 'repo_keys' argument")
-        if exclude_patterns is None and 'excludePatterns' in kwargs:
-            exclude_patterns = kwargs['excludePatterns']
-        if include_patterns is None and 'includePatterns' in kwargs:
-            include_patterns = kwargs['includePatterns']
-
-        _setter("any_local", any_local)
-        _setter("any_remote", any_remote)
-        _setter("repo_keys", repo_keys)
+        pulumi.set(__self__, "any_local", any_local)
+        pulumi.set(__self__, "any_remote", any_remote)
+        pulumi.set(__self__, "repo_keys", repo_keys)
         if exclude_patterns is not None:
-            _setter("exclude_patterns", exclude_patterns)
+            pulumi.set(__self__, "exclude_patterns", exclude_patterns)
         if include_patterns is not None:
-            _setter("include_patterns", include_patterns)
+            pulumi.set(__self__, "include_patterns", include_patterns)
 
     @property
     @pulumi.getter(name="anyLocal")
@@ -636,38 +528,15 @@ class ArtifactPropertyCustomWebhookHandler(dict):
                import pulumi
                ```
         """
-        ArtifactPropertyCustomWebhookHandler._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            url=url,
-            http_headers=http_headers,
-            payload=payload,
-            proxy=proxy,
-            secrets=secrets,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             url: Optional[str] = None,
-             http_headers: Optional[Mapping[str, str]] = None,
-             payload: Optional[str] = None,
-             proxy: Optional[str] = None,
-             secrets: Optional[Mapping[str, str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if url is None:
-            raise TypeError("Missing 'url' argument")
-        if http_headers is None and 'httpHeaders' in kwargs:
-            http_headers = kwargs['httpHeaders']
-
-        _setter("url", url)
+        pulumi.set(__self__, "url", url)
         if http_headers is not None:
-            _setter("http_headers", http_headers)
+            pulumi.set(__self__, "http_headers", http_headers)
         if payload is not None:
-            _setter("payload", payload)
+            pulumi.set(__self__, "payload", payload)
         if proxy is not None:
-            _setter("proxy", proxy)
+            pulumi.set(__self__, "proxy", proxy)
         if secrets is not None:
-            _setter("secrets", secrets)
+            pulumi.set(__self__, "secrets", secrets)
 
     @property
     @pulumi.getter
@@ -751,48 +620,13 @@ class ArtifactPropertyWebhookCriteria(dict):
         :param Sequence[str] exclude_patterns: Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: `org/apache/**`.
         :param Sequence[str] include_patterns: Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: `org/apache/**`.
         """
-        ArtifactPropertyWebhookCriteria._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            any_local=any_local,
-            any_remote=any_remote,
-            repo_keys=repo_keys,
-            exclude_patterns=exclude_patterns,
-            include_patterns=include_patterns,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             any_local: Optional[bool] = None,
-             any_remote: Optional[bool] = None,
-             repo_keys: Optional[Sequence[str]] = None,
-             exclude_patterns: Optional[Sequence[str]] = None,
-             include_patterns: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if any_local is None and 'anyLocal' in kwargs:
-            any_local = kwargs['anyLocal']
-        if any_local is None:
-            raise TypeError("Missing 'any_local' argument")
-        if any_remote is None and 'anyRemote' in kwargs:
-            any_remote = kwargs['anyRemote']
-        if any_remote is None:
-            raise TypeError("Missing 'any_remote' argument")
-        if repo_keys is None and 'repoKeys' in kwargs:
-            repo_keys = kwargs['repoKeys']
-        if repo_keys is None:
-            raise TypeError("Missing 'repo_keys' argument")
-        if exclude_patterns is None and 'excludePatterns' in kwargs:
-            exclude_patterns = kwargs['excludePatterns']
-        if include_patterns is None and 'includePatterns' in kwargs:
-            include_patterns = kwargs['includePatterns']
-
-        _setter("any_local", any_local)
-        _setter("any_remote", any_remote)
-        _setter("repo_keys", repo_keys)
+        pulumi.set(__self__, "any_local", any_local)
+        pulumi.set(__self__, "any_remote", any_remote)
+        pulumi.set(__self__, "repo_keys", repo_keys)
         if exclude_patterns is not None:
-            _setter("exclude_patterns", exclude_patterns)
+            pulumi.set(__self__, "exclude_patterns", exclude_patterns)
         if include_patterns is not None:
-            _setter("include_patterns", include_patterns)
+            pulumi.set(__self__, "include_patterns", include_patterns)
 
     @property
     @pulumi.getter(name="anyLocal")
@@ -865,34 +699,13 @@ class ArtifactPropertyWebhookHandler(dict):
         :param str proxy: Proxy key from Artifactory UI (Administration > Proxies > Configuration).
         :param str secret: Secret authentication token that will be sent to the configured URL. The value will be sent as `x-jfrog-event-auth` header.
         """
-        ArtifactPropertyWebhookHandler._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            url=url,
-            custom_http_headers=custom_http_headers,
-            proxy=proxy,
-            secret=secret,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             url: Optional[str] = None,
-             custom_http_headers: Optional[Mapping[str, str]] = None,
-             proxy: Optional[str] = None,
-             secret: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if url is None:
-            raise TypeError("Missing 'url' argument")
-        if custom_http_headers is None and 'customHttpHeaders' in kwargs:
-            custom_http_headers = kwargs['customHttpHeaders']
-
-        _setter("url", url)
+        pulumi.set(__self__, "url", url)
         if custom_http_headers is not None:
-            _setter("custom_http_headers", custom_http_headers)
+            pulumi.set(__self__, "custom_http_headers", custom_http_headers)
         if proxy is not None:
-            _setter("proxy", proxy)
+            pulumi.set(__self__, "proxy", proxy)
         if secret is not None:
-            _setter("secret", secret)
+            pulumi.set(__self__, "secret", secret)
 
     @property
     @pulumi.getter
@@ -967,48 +780,13 @@ class ArtifactWebhookCriteria(dict):
         :param Sequence[str] exclude_patterns: Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: `org/apache/**`.
         :param Sequence[str] include_patterns: Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: `org/apache/**`.
         """
-        ArtifactWebhookCriteria._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            any_local=any_local,
-            any_remote=any_remote,
-            repo_keys=repo_keys,
-            exclude_patterns=exclude_patterns,
-            include_patterns=include_patterns,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             any_local: Optional[bool] = None,
-             any_remote: Optional[bool] = None,
-             repo_keys: Optional[Sequence[str]] = None,
-             exclude_patterns: Optional[Sequence[str]] = None,
-             include_patterns: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if any_local is None and 'anyLocal' in kwargs:
-            any_local = kwargs['anyLocal']
-        if any_local is None:
-            raise TypeError("Missing 'any_local' argument")
-        if any_remote is None and 'anyRemote' in kwargs:
-            any_remote = kwargs['anyRemote']
-        if any_remote is None:
-            raise TypeError("Missing 'any_remote' argument")
-        if repo_keys is None and 'repoKeys' in kwargs:
-            repo_keys = kwargs['repoKeys']
-        if repo_keys is None:
-            raise TypeError("Missing 'repo_keys' argument")
-        if exclude_patterns is None and 'excludePatterns' in kwargs:
-            exclude_patterns = kwargs['excludePatterns']
-        if include_patterns is None and 'includePatterns' in kwargs:
-            include_patterns = kwargs['includePatterns']
-
-        _setter("any_local", any_local)
-        _setter("any_remote", any_remote)
-        _setter("repo_keys", repo_keys)
+        pulumi.set(__self__, "any_local", any_local)
+        pulumi.set(__self__, "any_remote", any_remote)
+        pulumi.set(__self__, "repo_keys", repo_keys)
         if exclude_patterns is not None:
-            _setter("exclude_patterns", exclude_patterns)
+            pulumi.set(__self__, "exclude_patterns", exclude_patterns)
         if include_patterns is not None:
-            _setter("include_patterns", include_patterns)
+            pulumi.set(__self__, "include_patterns", include_patterns)
 
     @property
     @pulumi.getter(name="anyLocal")
@@ -1081,34 +859,13 @@ class ArtifactWebhookHandler(dict):
         :param str proxy: Proxy key from Artifactory UI (Administration > Proxies > Configuration).
         :param str secret: Secret authentication token that will be sent to the configured URL. The value will be sent as `x-jfrog-event-auth` header.
         """
-        ArtifactWebhookHandler._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            url=url,
-            custom_http_headers=custom_http_headers,
-            proxy=proxy,
-            secret=secret,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             url: Optional[str] = None,
-             custom_http_headers: Optional[Mapping[str, str]] = None,
-             proxy: Optional[str] = None,
-             secret: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if url is None:
-            raise TypeError("Missing 'url' argument")
-        if custom_http_headers is None and 'customHttpHeaders' in kwargs:
-            custom_http_headers = kwargs['customHttpHeaders']
-
-        _setter("url", url)
+        pulumi.set(__self__, "url", url)
         if custom_http_headers is not None:
-            _setter("custom_http_headers", custom_http_headers)
+            pulumi.set(__self__, "custom_http_headers", custom_http_headers)
         if proxy is not None:
-            _setter("proxy", proxy)
+            pulumi.set(__self__, "proxy", proxy)
         if secret is not None:
-            _setter("secret", secret)
+            pulumi.set(__self__, "secret", secret)
 
     @property
     @pulumi.getter
@@ -1179,41 +936,12 @@ class ArtifactoryReleaseBundleCustomWebhookCriteria(dict):
         :param Sequence[str] exclude_patterns: Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: `org/apache/**`
         :param Sequence[str] include_patterns: Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: `org/apache/**`
         """
-        ArtifactoryReleaseBundleCustomWebhookCriteria._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            any_release_bundle=any_release_bundle,
-            registered_release_bundle_names=registered_release_bundle_names,
-            exclude_patterns=exclude_patterns,
-            include_patterns=include_patterns,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             any_release_bundle: Optional[bool] = None,
-             registered_release_bundle_names: Optional[Sequence[str]] = None,
-             exclude_patterns: Optional[Sequence[str]] = None,
-             include_patterns: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if any_release_bundle is None and 'anyReleaseBundle' in kwargs:
-            any_release_bundle = kwargs['anyReleaseBundle']
-        if any_release_bundle is None:
-            raise TypeError("Missing 'any_release_bundle' argument")
-        if registered_release_bundle_names is None and 'registeredReleaseBundleNames' in kwargs:
-            registered_release_bundle_names = kwargs['registeredReleaseBundleNames']
-        if registered_release_bundle_names is None:
-            raise TypeError("Missing 'registered_release_bundle_names' argument")
-        if exclude_patterns is None and 'excludePatterns' in kwargs:
-            exclude_patterns = kwargs['excludePatterns']
-        if include_patterns is None and 'includePatterns' in kwargs:
-            include_patterns = kwargs['includePatterns']
-
-        _setter("any_release_bundle", any_release_bundle)
-        _setter("registered_release_bundle_names", registered_release_bundle_names)
+        pulumi.set(__self__, "any_release_bundle", any_release_bundle)
+        pulumi.set(__self__, "registered_release_bundle_names", registered_release_bundle_names)
         if exclude_patterns is not None:
-            _setter("exclude_patterns", exclude_patterns)
+            pulumi.set(__self__, "exclude_patterns", exclude_patterns)
         if include_patterns is not None:
-            _setter("include_patterns", include_patterns)
+            pulumi.set(__self__, "include_patterns", include_patterns)
 
     @property
     @pulumi.getter(name="anyReleaseBundle")
@@ -1283,38 +1011,15 @@ class ArtifactoryReleaseBundleCustomWebhookHandler(dict):
                import pulumi
                ```
         """
-        ArtifactoryReleaseBundleCustomWebhookHandler._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            url=url,
-            http_headers=http_headers,
-            payload=payload,
-            proxy=proxy,
-            secrets=secrets,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             url: Optional[str] = None,
-             http_headers: Optional[Mapping[str, str]] = None,
-             payload: Optional[str] = None,
-             proxy: Optional[str] = None,
-             secrets: Optional[Mapping[str, str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if url is None:
-            raise TypeError("Missing 'url' argument")
-        if http_headers is None and 'httpHeaders' in kwargs:
-            http_headers = kwargs['httpHeaders']
-
-        _setter("url", url)
+        pulumi.set(__self__, "url", url)
         if http_headers is not None:
-            _setter("http_headers", http_headers)
+            pulumi.set(__self__, "http_headers", http_headers)
         if payload is not None:
-            _setter("payload", payload)
+            pulumi.set(__self__, "payload", payload)
         if proxy is not None:
-            _setter("proxy", proxy)
+            pulumi.set(__self__, "proxy", proxy)
         if secrets is not None:
-            _setter("secrets", secrets)
+            pulumi.set(__self__, "secrets", secrets)
 
     @property
     @pulumi.getter
@@ -1394,41 +1099,12 @@ class ArtifactoryReleaseBundleWebhookCriteria(dict):
         :param Sequence[str] exclude_patterns: Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: `org/apache/**`
         :param Sequence[str] include_patterns: Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: `org/apache/**`
         """
-        ArtifactoryReleaseBundleWebhookCriteria._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            any_release_bundle=any_release_bundle,
-            registered_release_bundle_names=registered_release_bundle_names,
-            exclude_patterns=exclude_patterns,
-            include_patterns=include_patterns,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             any_release_bundle: Optional[bool] = None,
-             registered_release_bundle_names: Optional[Sequence[str]] = None,
-             exclude_patterns: Optional[Sequence[str]] = None,
-             include_patterns: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if any_release_bundle is None and 'anyReleaseBundle' in kwargs:
-            any_release_bundle = kwargs['anyReleaseBundle']
-        if any_release_bundle is None:
-            raise TypeError("Missing 'any_release_bundle' argument")
-        if registered_release_bundle_names is None and 'registeredReleaseBundleNames' in kwargs:
-            registered_release_bundle_names = kwargs['registeredReleaseBundleNames']
-        if registered_release_bundle_names is None:
-            raise TypeError("Missing 'registered_release_bundle_names' argument")
-        if exclude_patterns is None and 'excludePatterns' in kwargs:
-            exclude_patterns = kwargs['excludePatterns']
-        if include_patterns is None and 'includePatterns' in kwargs:
-            include_patterns = kwargs['includePatterns']
-
-        _setter("any_release_bundle", any_release_bundle)
-        _setter("registered_release_bundle_names", registered_release_bundle_names)
+        pulumi.set(__self__, "any_release_bundle", any_release_bundle)
+        pulumi.set(__self__, "registered_release_bundle_names", registered_release_bundle_names)
         if exclude_patterns is not None:
-            _setter("exclude_patterns", exclude_patterns)
+            pulumi.set(__self__, "exclude_patterns", exclude_patterns)
         if include_patterns is not None:
-            _setter("include_patterns", include_patterns)
+            pulumi.set(__self__, "include_patterns", include_patterns)
 
     @property
     @pulumi.getter(name="anyReleaseBundle")
@@ -1493,34 +1169,13 @@ class ArtifactoryReleaseBundleWebhookHandler(dict):
         :param str proxy: Proxy key from Artifactory UI (Administration > Proxies > Configuration).
         :param str secret: Secret authentication token that will be sent to the configured URL. The value will be sent as `x-jfrog-event-auth` header.
         """
-        ArtifactoryReleaseBundleWebhookHandler._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            url=url,
-            custom_http_headers=custom_http_headers,
-            proxy=proxy,
-            secret=secret,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             url: Optional[str] = None,
-             custom_http_headers: Optional[Mapping[str, str]] = None,
-             proxy: Optional[str] = None,
-             secret: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if url is None:
-            raise TypeError("Missing 'url' argument")
-        if custom_http_headers is None and 'customHttpHeaders' in kwargs:
-            custom_http_headers = kwargs['customHttpHeaders']
-
-        _setter("url", url)
+        pulumi.set(__self__, "url", url)
         if custom_http_headers is not None:
-            _setter("custom_http_headers", custom_http_headers)
+            pulumi.set(__self__, "custom_http_headers", custom_http_headers)
         if proxy is not None:
-            _setter("proxy", proxy)
+            pulumi.set(__self__, "proxy", proxy)
         if secret is not None:
-            _setter("secret", secret)
+            pulumi.set(__self__, "secret", secret)
 
     @property
     @pulumi.getter
@@ -1591,41 +1246,12 @@ class BuildCustomWebhookCriteria(dict):
         :param Sequence[str] exclude_patterns: Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: `org/apache/**`.
         :param Sequence[str] include_patterns: Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: `org/apache/**`.
         """
-        BuildCustomWebhookCriteria._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            any_build=any_build,
-            selected_builds=selected_builds,
-            exclude_patterns=exclude_patterns,
-            include_patterns=include_patterns,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             any_build: Optional[bool] = None,
-             selected_builds: Optional[Sequence[str]] = None,
-             exclude_patterns: Optional[Sequence[str]] = None,
-             include_patterns: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if any_build is None and 'anyBuild' in kwargs:
-            any_build = kwargs['anyBuild']
-        if any_build is None:
-            raise TypeError("Missing 'any_build' argument")
-        if selected_builds is None and 'selectedBuilds' in kwargs:
-            selected_builds = kwargs['selectedBuilds']
-        if selected_builds is None:
-            raise TypeError("Missing 'selected_builds' argument")
-        if exclude_patterns is None and 'excludePatterns' in kwargs:
-            exclude_patterns = kwargs['excludePatterns']
-        if include_patterns is None and 'includePatterns' in kwargs:
-            include_patterns = kwargs['includePatterns']
-
-        _setter("any_build", any_build)
-        _setter("selected_builds", selected_builds)
+        pulumi.set(__self__, "any_build", any_build)
+        pulumi.set(__self__, "selected_builds", selected_builds)
         if exclude_patterns is not None:
-            _setter("exclude_patterns", exclude_patterns)
+            pulumi.set(__self__, "exclude_patterns", exclude_patterns)
         if include_patterns is not None:
-            _setter("include_patterns", include_patterns)
+            pulumi.set(__self__, "include_patterns", include_patterns)
 
     @property
     @pulumi.getter(name="anyBuild")
@@ -1695,38 +1321,15 @@ class BuildCustomWebhookHandler(dict):
                import pulumi
                ```
         """
-        BuildCustomWebhookHandler._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            url=url,
-            http_headers=http_headers,
-            payload=payload,
-            proxy=proxy,
-            secrets=secrets,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             url: Optional[str] = None,
-             http_headers: Optional[Mapping[str, str]] = None,
-             payload: Optional[str] = None,
-             proxy: Optional[str] = None,
-             secrets: Optional[Mapping[str, str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if url is None:
-            raise TypeError("Missing 'url' argument")
-        if http_headers is None and 'httpHeaders' in kwargs:
-            http_headers = kwargs['httpHeaders']
-
-        _setter("url", url)
+        pulumi.set(__self__, "url", url)
         if http_headers is not None:
-            _setter("http_headers", http_headers)
+            pulumi.set(__self__, "http_headers", http_headers)
         if payload is not None:
-            _setter("payload", payload)
+            pulumi.set(__self__, "payload", payload)
         if proxy is not None:
-            _setter("proxy", proxy)
+            pulumi.set(__self__, "proxy", proxy)
         if secrets is not None:
-            _setter("secrets", secrets)
+            pulumi.set(__self__, "secrets", secrets)
 
     @property
     @pulumi.getter
@@ -1806,41 +1409,12 @@ class BuildWebhookCriteria(dict):
         :param Sequence[str] exclude_patterns: Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: `org/apache/**`.
         :param Sequence[str] include_patterns: Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: `org/apache/**`.
         """
-        BuildWebhookCriteria._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            any_build=any_build,
-            selected_builds=selected_builds,
-            exclude_patterns=exclude_patterns,
-            include_patterns=include_patterns,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             any_build: Optional[bool] = None,
-             selected_builds: Optional[Sequence[str]] = None,
-             exclude_patterns: Optional[Sequence[str]] = None,
-             include_patterns: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if any_build is None and 'anyBuild' in kwargs:
-            any_build = kwargs['anyBuild']
-        if any_build is None:
-            raise TypeError("Missing 'any_build' argument")
-        if selected_builds is None and 'selectedBuilds' in kwargs:
-            selected_builds = kwargs['selectedBuilds']
-        if selected_builds is None:
-            raise TypeError("Missing 'selected_builds' argument")
-        if exclude_patterns is None and 'excludePatterns' in kwargs:
-            exclude_patterns = kwargs['excludePatterns']
-        if include_patterns is None and 'includePatterns' in kwargs:
-            include_patterns = kwargs['includePatterns']
-
-        _setter("any_build", any_build)
-        _setter("selected_builds", selected_builds)
+        pulumi.set(__self__, "any_build", any_build)
+        pulumi.set(__self__, "selected_builds", selected_builds)
         if exclude_patterns is not None:
-            _setter("exclude_patterns", exclude_patterns)
+            pulumi.set(__self__, "exclude_patterns", exclude_patterns)
         if include_patterns is not None:
-            _setter("include_patterns", include_patterns)
+            pulumi.set(__self__, "include_patterns", include_patterns)
 
     @property
     @pulumi.getter(name="anyBuild")
@@ -1905,34 +1479,13 @@ class BuildWebhookHandler(dict):
         :param str proxy: Proxy key from Artifactory UI (Administration > Proxies > Configuration).
         :param str secret: Secret authentication token that will be sent to the configured URL. The value will be sent as `x-jfrog-event-auth` header.
         """
-        BuildWebhookHandler._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            url=url,
-            custom_http_headers=custom_http_headers,
-            proxy=proxy,
-            secret=secret,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             url: Optional[str] = None,
-             custom_http_headers: Optional[Mapping[str, str]] = None,
-             proxy: Optional[str] = None,
-             secret: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if url is None:
-            raise TypeError("Missing 'url' argument")
-        if custom_http_headers is None and 'customHttpHeaders' in kwargs:
-            custom_http_headers = kwargs['customHttpHeaders']
-
-        _setter("url", url)
+        pulumi.set(__self__, "url", url)
         if custom_http_headers is not None:
-            _setter("custom_http_headers", custom_http_headers)
+            pulumi.set(__self__, "custom_http_headers", custom_http_headers)
         if proxy is not None:
-            _setter("proxy", proxy)
+            pulumi.set(__self__, "proxy", proxy)
         if secret is not None:
-            _setter("secret", secret)
+            pulumi.set(__self__, "secret", secret)
 
     @property
     @pulumi.getter
@@ -2003,41 +1556,12 @@ class DistributionCustomWebhookCriteria(dict):
         :param Sequence[str] exclude_patterns: Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: `org/apache/**`.
         :param Sequence[str] include_patterns: Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: `org/apache/**`.
         """
-        DistributionCustomWebhookCriteria._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            any_release_bundle=any_release_bundle,
-            registered_release_bundle_names=registered_release_bundle_names,
-            exclude_patterns=exclude_patterns,
-            include_patterns=include_patterns,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             any_release_bundle: Optional[bool] = None,
-             registered_release_bundle_names: Optional[Sequence[str]] = None,
-             exclude_patterns: Optional[Sequence[str]] = None,
-             include_patterns: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if any_release_bundle is None and 'anyReleaseBundle' in kwargs:
-            any_release_bundle = kwargs['anyReleaseBundle']
-        if any_release_bundle is None:
-            raise TypeError("Missing 'any_release_bundle' argument")
-        if registered_release_bundle_names is None and 'registeredReleaseBundleNames' in kwargs:
-            registered_release_bundle_names = kwargs['registeredReleaseBundleNames']
-        if registered_release_bundle_names is None:
-            raise TypeError("Missing 'registered_release_bundle_names' argument")
-        if exclude_patterns is None and 'excludePatterns' in kwargs:
-            exclude_patterns = kwargs['excludePatterns']
-        if include_patterns is None and 'includePatterns' in kwargs:
-            include_patterns = kwargs['includePatterns']
-
-        _setter("any_release_bundle", any_release_bundle)
-        _setter("registered_release_bundle_names", registered_release_bundle_names)
+        pulumi.set(__self__, "any_release_bundle", any_release_bundle)
+        pulumi.set(__self__, "registered_release_bundle_names", registered_release_bundle_names)
         if exclude_patterns is not None:
-            _setter("exclude_patterns", exclude_patterns)
+            pulumi.set(__self__, "exclude_patterns", exclude_patterns)
         if include_patterns is not None:
-            _setter("include_patterns", include_patterns)
+            pulumi.set(__self__, "include_patterns", include_patterns)
 
     @property
     @pulumi.getter(name="anyReleaseBundle")
@@ -2107,38 +1631,15 @@ class DistributionCustomWebhookHandler(dict):
                import pulumi
                ```
         """
-        DistributionCustomWebhookHandler._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            url=url,
-            http_headers=http_headers,
-            payload=payload,
-            proxy=proxy,
-            secrets=secrets,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             url: Optional[str] = None,
-             http_headers: Optional[Mapping[str, str]] = None,
-             payload: Optional[str] = None,
-             proxy: Optional[str] = None,
-             secrets: Optional[Mapping[str, str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if url is None:
-            raise TypeError("Missing 'url' argument")
-        if http_headers is None and 'httpHeaders' in kwargs:
-            http_headers = kwargs['httpHeaders']
-
-        _setter("url", url)
+        pulumi.set(__self__, "url", url)
         if http_headers is not None:
-            _setter("http_headers", http_headers)
+            pulumi.set(__self__, "http_headers", http_headers)
         if payload is not None:
-            _setter("payload", payload)
+            pulumi.set(__self__, "payload", payload)
         if proxy is not None:
-            _setter("proxy", proxy)
+            pulumi.set(__self__, "proxy", proxy)
         if secrets is not None:
-            _setter("secrets", secrets)
+            pulumi.set(__self__, "secrets", secrets)
 
     @property
     @pulumi.getter
@@ -2218,41 +1719,12 @@ class DistributionWebhookCriteria(dict):
         :param Sequence[str] exclude_patterns: Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: `org/apache/**`.
         :param Sequence[str] include_patterns: Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: `org/apache/**`.
         """
-        DistributionWebhookCriteria._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            any_release_bundle=any_release_bundle,
-            registered_release_bundle_names=registered_release_bundle_names,
-            exclude_patterns=exclude_patterns,
-            include_patterns=include_patterns,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             any_release_bundle: Optional[bool] = None,
-             registered_release_bundle_names: Optional[Sequence[str]] = None,
-             exclude_patterns: Optional[Sequence[str]] = None,
-             include_patterns: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if any_release_bundle is None and 'anyReleaseBundle' in kwargs:
-            any_release_bundle = kwargs['anyReleaseBundle']
-        if any_release_bundle is None:
-            raise TypeError("Missing 'any_release_bundle' argument")
-        if registered_release_bundle_names is None and 'registeredReleaseBundleNames' in kwargs:
-            registered_release_bundle_names = kwargs['registeredReleaseBundleNames']
-        if registered_release_bundle_names is None:
-            raise TypeError("Missing 'registered_release_bundle_names' argument")
-        if exclude_patterns is None and 'excludePatterns' in kwargs:
-            exclude_patterns = kwargs['excludePatterns']
-        if include_patterns is None and 'includePatterns' in kwargs:
-            include_patterns = kwargs['includePatterns']
-
-        _setter("any_release_bundle", any_release_bundle)
-        _setter("registered_release_bundle_names", registered_release_bundle_names)
+        pulumi.set(__self__, "any_release_bundle", any_release_bundle)
+        pulumi.set(__self__, "registered_release_bundle_names", registered_release_bundle_names)
         if exclude_patterns is not None:
-            _setter("exclude_patterns", exclude_patterns)
+            pulumi.set(__self__, "exclude_patterns", exclude_patterns)
         if include_patterns is not None:
-            _setter("include_patterns", include_patterns)
+            pulumi.set(__self__, "include_patterns", include_patterns)
 
     @property
     @pulumi.getter(name="anyReleaseBundle")
@@ -2317,34 +1789,13 @@ class DistributionWebhookHandler(dict):
         :param str proxy: Proxy key from Artifactory UI (Administration > Proxies > Configuration).
         :param str secret: Secret authentication token that will be sent to the configured URL. The value will be sent as `x-jfrog-event-auth` header.
         """
-        DistributionWebhookHandler._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            url=url,
-            custom_http_headers=custom_http_headers,
-            proxy=proxy,
-            secret=secret,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             url: Optional[str] = None,
-             custom_http_headers: Optional[Mapping[str, str]] = None,
-             proxy: Optional[str] = None,
-             secret: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if url is None:
-            raise TypeError("Missing 'url' argument")
-        if custom_http_headers is None and 'customHttpHeaders' in kwargs:
-            custom_http_headers = kwargs['customHttpHeaders']
-
-        _setter("url", url)
+        pulumi.set(__self__, "url", url)
         if custom_http_headers is not None:
-            _setter("custom_http_headers", custom_http_headers)
+            pulumi.set(__self__, "custom_http_headers", custom_http_headers)
         if proxy is not None:
-            _setter("proxy", proxy)
+            pulumi.set(__self__, "proxy", proxy)
         if secret is not None:
-            _setter("secret", secret)
+            pulumi.set(__self__, "secret", secret)
 
     @property
     @pulumi.getter
@@ -2419,48 +1870,13 @@ class DockerCustomWebhookCriteria(dict):
         :param Sequence[str] exclude_patterns: Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: `org/apache/**`.
         :param Sequence[str] include_patterns: Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: `org/apache/**`.
         """
-        DockerCustomWebhookCriteria._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            any_local=any_local,
-            any_remote=any_remote,
-            repo_keys=repo_keys,
-            exclude_patterns=exclude_patterns,
-            include_patterns=include_patterns,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             any_local: Optional[bool] = None,
-             any_remote: Optional[bool] = None,
-             repo_keys: Optional[Sequence[str]] = None,
-             exclude_patterns: Optional[Sequence[str]] = None,
-             include_patterns: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if any_local is None and 'anyLocal' in kwargs:
-            any_local = kwargs['anyLocal']
-        if any_local is None:
-            raise TypeError("Missing 'any_local' argument")
-        if any_remote is None and 'anyRemote' in kwargs:
-            any_remote = kwargs['anyRemote']
-        if any_remote is None:
-            raise TypeError("Missing 'any_remote' argument")
-        if repo_keys is None and 'repoKeys' in kwargs:
-            repo_keys = kwargs['repoKeys']
-        if repo_keys is None:
-            raise TypeError("Missing 'repo_keys' argument")
-        if exclude_patterns is None and 'excludePatterns' in kwargs:
-            exclude_patterns = kwargs['excludePatterns']
-        if include_patterns is None and 'includePatterns' in kwargs:
-            include_patterns = kwargs['includePatterns']
-
-        _setter("any_local", any_local)
-        _setter("any_remote", any_remote)
-        _setter("repo_keys", repo_keys)
+        pulumi.set(__self__, "any_local", any_local)
+        pulumi.set(__self__, "any_remote", any_remote)
+        pulumi.set(__self__, "repo_keys", repo_keys)
         if exclude_patterns is not None:
-            _setter("exclude_patterns", exclude_patterns)
+            pulumi.set(__self__, "exclude_patterns", exclude_patterns)
         if include_patterns is not None:
-            _setter("include_patterns", include_patterns)
+            pulumi.set(__self__, "include_patterns", include_patterns)
 
     @property
     @pulumi.getter(name="anyLocal")
@@ -2538,38 +1954,15 @@ class DockerCustomWebhookHandler(dict):
                import pulumi
                ```
         """
-        DockerCustomWebhookHandler._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            url=url,
-            http_headers=http_headers,
-            payload=payload,
-            proxy=proxy,
-            secrets=secrets,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             url: Optional[str] = None,
-             http_headers: Optional[Mapping[str, str]] = None,
-             payload: Optional[str] = None,
-             proxy: Optional[str] = None,
-             secrets: Optional[Mapping[str, str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if url is None:
-            raise TypeError("Missing 'url' argument")
-        if http_headers is None and 'httpHeaders' in kwargs:
-            http_headers = kwargs['httpHeaders']
-
-        _setter("url", url)
+        pulumi.set(__self__, "url", url)
         if http_headers is not None:
-            _setter("http_headers", http_headers)
+            pulumi.set(__self__, "http_headers", http_headers)
         if payload is not None:
-            _setter("payload", payload)
+            pulumi.set(__self__, "payload", payload)
         if proxy is not None:
-            _setter("proxy", proxy)
+            pulumi.set(__self__, "proxy", proxy)
         if secrets is not None:
-            _setter("secrets", secrets)
+            pulumi.set(__self__, "secrets", secrets)
 
     @property
     @pulumi.getter
@@ -2653,48 +2046,13 @@ class DockerWebhookCriteria(dict):
         :param Sequence[str] exclude_patterns: Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: `org/apache/**`.
         :param Sequence[str] include_patterns: Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: `org/apache/**`.
         """
-        DockerWebhookCriteria._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            any_local=any_local,
-            any_remote=any_remote,
-            repo_keys=repo_keys,
-            exclude_patterns=exclude_patterns,
-            include_patterns=include_patterns,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             any_local: Optional[bool] = None,
-             any_remote: Optional[bool] = None,
-             repo_keys: Optional[Sequence[str]] = None,
-             exclude_patterns: Optional[Sequence[str]] = None,
-             include_patterns: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if any_local is None and 'anyLocal' in kwargs:
-            any_local = kwargs['anyLocal']
-        if any_local is None:
-            raise TypeError("Missing 'any_local' argument")
-        if any_remote is None and 'anyRemote' in kwargs:
-            any_remote = kwargs['anyRemote']
-        if any_remote is None:
-            raise TypeError("Missing 'any_remote' argument")
-        if repo_keys is None and 'repoKeys' in kwargs:
-            repo_keys = kwargs['repoKeys']
-        if repo_keys is None:
-            raise TypeError("Missing 'repo_keys' argument")
-        if exclude_patterns is None and 'excludePatterns' in kwargs:
-            exclude_patterns = kwargs['excludePatterns']
-        if include_patterns is None and 'includePatterns' in kwargs:
-            include_patterns = kwargs['includePatterns']
-
-        _setter("any_local", any_local)
-        _setter("any_remote", any_remote)
-        _setter("repo_keys", repo_keys)
+        pulumi.set(__self__, "any_local", any_local)
+        pulumi.set(__self__, "any_remote", any_remote)
+        pulumi.set(__self__, "repo_keys", repo_keys)
         if exclude_patterns is not None:
-            _setter("exclude_patterns", exclude_patterns)
+            pulumi.set(__self__, "exclude_patterns", exclude_patterns)
         if include_patterns is not None:
-            _setter("include_patterns", include_patterns)
+            pulumi.set(__self__, "include_patterns", include_patterns)
 
     @property
     @pulumi.getter(name="anyLocal")
@@ -2767,34 +2125,13 @@ class DockerWebhookHandler(dict):
         :param str proxy: Proxy key from Artifactory UI (Administration > Proxies > Configuration).
         :param str secret: Secret authentication token that will be sent to the configured URL. The value will be sent as `x-jfrog-event-auth` header.
         """
-        DockerWebhookHandler._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            url=url,
-            custom_http_headers=custom_http_headers,
-            proxy=proxy,
-            secret=secret,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             url: Optional[str] = None,
-             custom_http_headers: Optional[Mapping[str, str]] = None,
-             proxy: Optional[str] = None,
-             secret: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if url is None:
-            raise TypeError("Missing 'url' argument")
-        if custom_http_headers is None and 'customHttpHeaders' in kwargs:
-            custom_http_headers = kwargs['customHttpHeaders']
-
-        _setter("url", url)
+        pulumi.set(__self__, "url", url)
         if custom_http_headers is not None:
-            _setter("custom_http_headers", custom_http_headers)
+            pulumi.set(__self__, "custom_http_headers", custom_http_headers)
         if proxy is not None:
-            _setter("proxy", proxy)
+            pulumi.set(__self__, "proxy", proxy)
         if secret is not None:
-            _setter("secret", secret)
+            pulumi.set(__self__, "secret", secret)
 
     @property
     @pulumi.getter
@@ -2839,25 +2176,8 @@ class FederatedAlpineRepositoryMember(dict):
                status of my own member. The config will be updated on the other federated members automatically.
         :param str url: Full URL to ending with the repository name.
         """
-        FederatedAlpineRepositoryMember._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            url=url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enabled is None:
-            raise TypeError("Missing 'enabled' argument")
-        if url is None:
-            raise TypeError("Missing 'url' argument")
-
-        _setter("enabled", enabled)
-        _setter("url", url)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
@@ -2887,25 +2207,8 @@ class FederatedBowerRepositoryMember(dict):
                status of my own member. The config will be updated on the other federated members automatically.
         :param str url: Full URL to ending with the repository name.
         """
-        FederatedBowerRepositoryMember._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            url=url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enabled is None:
-            raise TypeError("Missing 'enabled' argument")
-        if url is None:
-            raise TypeError("Missing 'url' argument")
-
-        _setter("enabled", enabled)
-        _setter("url", url)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
@@ -2935,25 +2238,8 @@ class FederatedCargoRepositoryMember(dict):
                status of my own member. The config will be updated on the other federated members automatically.
         :param str url: Full URL to ending with the repository name.
         """
-        FederatedCargoRepositoryMember._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            url=url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enabled is None:
-            raise TypeError("Missing 'enabled' argument")
-        if url is None:
-            raise TypeError("Missing 'url' argument")
-
-        _setter("enabled", enabled)
-        _setter("url", url)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
@@ -2983,25 +2269,8 @@ class FederatedChefRepositoryMember(dict):
                status of my own member. The config will be updated on the other federated members automatically.
         :param str url: Full URL to ending with the repository name.
         """
-        FederatedChefRepositoryMember._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            url=url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enabled is None:
-            raise TypeError("Missing 'enabled' argument")
-        if url is None:
-            raise TypeError("Missing 'url' argument")
-
-        _setter("enabled", enabled)
-        _setter("url", url)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
@@ -3031,25 +2300,8 @@ class FederatedCocoapodsRepositoryMember(dict):
                status of my own member. The config will be updated on the other federated members automatically.
         :param str url: Full URL to ending with the repository name.
         """
-        FederatedCocoapodsRepositoryMember._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            url=url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enabled is None:
-            raise TypeError("Missing 'enabled' argument")
-        if url is None:
-            raise TypeError("Missing 'url' argument")
-
-        _setter("enabled", enabled)
-        _setter("url", url)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
@@ -3079,25 +2331,8 @@ class FederatedComposerRepositoryMember(dict):
                status of my own member. The config will be updated on the other federated members automatically.
         :param str url: Full URL to ending with the repository name.
         """
-        FederatedComposerRepositoryMember._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            url=url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enabled is None:
-            raise TypeError("Missing 'enabled' argument")
-        if url is None:
-            raise TypeError("Missing 'url' argument")
-
-        _setter("enabled", enabled)
-        _setter("url", url)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
@@ -3127,25 +2362,8 @@ class FederatedConanRepositoryMember(dict):
                status of my own member. The config will be updated on the other federated members automatically.
         :param str url: Full URL to ending with the repository name.
         """
-        FederatedConanRepositoryMember._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            url=url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enabled is None:
-            raise TypeError("Missing 'enabled' argument")
-        if url is None:
-            raise TypeError("Missing 'url' argument")
-
-        _setter("enabled", enabled)
-        _setter("url", url)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
@@ -3175,25 +2393,8 @@ class FederatedCondaRepositoryMember(dict):
                status of my own member. The config will be updated on the other federated members automatically.
         :param str url: Full URL to ending with the repository name.
         """
-        FederatedCondaRepositoryMember._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            url=url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enabled is None:
-            raise TypeError("Missing 'enabled' argument")
-        if url is None:
-            raise TypeError("Missing 'url' argument")
-
-        _setter("enabled", enabled)
-        _setter("url", url)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
@@ -3223,25 +2424,8 @@ class FederatedCranRepositoryMember(dict):
                status of my own member. The config will be updated on the other federated members automatically.
         :param str url: Full URL to ending with the repository name.
         """
-        FederatedCranRepositoryMember._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            url=url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enabled is None:
-            raise TypeError("Missing 'enabled' argument")
-        if url is None:
-            raise TypeError("Missing 'url' argument")
-
-        _setter("enabled", enabled)
-        _setter("url", url)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
@@ -3271,25 +2455,8 @@ class FederatedDebianRepositoryMember(dict):
                status of my own member. The config will be updated on the other federated members automatically.
         :param str url: Full URL to ending with the repository name.
         """
-        FederatedDebianRepositoryMember._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            url=url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enabled is None:
-            raise TypeError("Missing 'enabled' argument")
-        if url is None:
-            raise TypeError("Missing 'url' argument")
-
-        _setter("enabled", enabled)
-        _setter("url", url)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
@@ -3319,25 +2486,8 @@ class FederatedDockerRepositoryMember(dict):
                status of my own member. The config will be updated on the other federated members automatically.
         :param str url: Full URL to ending with the repository name.
         """
-        FederatedDockerRepositoryMember._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            url=url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enabled is None:
-            raise TypeError("Missing 'enabled' argument")
-        if url is None:
-            raise TypeError("Missing 'url' argument")
-
-        _setter("enabled", enabled)
-        _setter("url", url)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
@@ -3367,25 +2517,8 @@ class FederatedDockerV1RepositoryMember(dict):
                status of my own member. The config will be updated on the other federated members automatically.
         :param str url: Full URL to ending with the repository name.
         """
-        FederatedDockerV1RepositoryMember._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            url=url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enabled is None:
-            raise TypeError("Missing 'enabled' argument")
-        if url is None:
-            raise TypeError("Missing 'url' argument")
-
-        _setter("enabled", enabled)
-        _setter("url", url)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
@@ -3415,25 +2548,8 @@ class FederatedDockerV2RepositoryMember(dict):
                status of my own member. The config will be updated on the other federated members automatically.
         :param str url: Full URL to ending with the repository name.
         """
-        FederatedDockerV2RepositoryMember._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            url=url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enabled is None:
-            raise TypeError("Missing 'enabled' argument")
-        if url is None:
-            raise TypeError("Missing 'url' argument")
-
-        _setter("enabled", enabled)
-        _setter("url", url)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
@@ -3463,25 +2579,8 @@ class FederatedGemsRepositoryMember(dict):
                status of my own member. The config will be updated on the other federated members automatically.
         :param str url: Full URL to ending with the repository name.
         """
-        FederatedGemsRepositoryMember._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            url=url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enabled is None:
-            raise TypeError("Missing 'enabled' argument")
-        if url is None:
-            raise TypeError("Missing 'url' argument")
-
-        _setter("enabled", enabled)
-        _setter("url", url)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
@@ -3511,25 +2610,8 @@ class FederatedGenericRepositoryMember(dict):
                status of my own member. The config will be updated on the other federated members automatically.
         :param str url: Full URL to ending with the repository name.
         """
-        FederatedGenericRepositoryMember._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            url=url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enabled is None:
-            raise TypeError("Missing 'enabled' argument")
-        if url is None:
-            raise TypeError("Missing 'url' argument")
-
-        _setter("enabled", enabled)
-        _setter("url", url)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
@@ -3559,25 +2641,8 @@ class FederatedGitltfsRepositoryMember(dict):
                status of my own member. The config will be updated on the other federated members automatically.
         :param str url: Full URL to ending with the repository name.
         """
-        FederatedGitltfsRepositoryMember._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            url=url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enabled is None:
-            raise TypeError("Missing 'enabled' argument")
-        if url is None:
-            raise TypeError("Missing 'url' argument")
-
-        _setter("enabled", enabled)
-        _setter("url", url)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
@@ -3607,25 +2672,8 @@ class FederatedGoRepositoryMember(dict):
                status of my own member. The config will be updated on the other federated members automatically.
         :param str url: Full URL to ending with the repository name.
         """
-        FederatedGoRepositoryMember._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            url=url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enabled is None:
-            raise TypeError("Missing 'enabled' argument")
-        if url is None:
-            raise TypeError("Missing 'url' argument")
-
-        _setter("enabled", enabled)
-        _setter("url", url)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
@@ -3655,25 +2703,8 @@ class FederatedGradleRepositoryMember(dict):
                status of my own member. The config will be updated on the other federated members automatically.
         :param str url: Full URL to ending with the repository name.
         """
-        FederatedGradleRepositoryMember._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            url=url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enabled is None:
-            raise TypeError("Missing 'enabled' argument")
-        if url is None:
-            raise TypeError("Missing 'url' argument")
-
-        _setter("enabled", enabled)
-        _setter("url", url)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
@@ -3703,25 +2734,8 @@ class FederatedHelmRepositoryMember(dict):
                status of my own member. The config will be updated on the other federated members automatically.
         :param str url: Full URL to ending with the repository name.
         """
-        FederatedHelmRepositoryMember._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            url=url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enabled is None:
-            raise TypeError("Missing 'enabled' argument")
-        if url is None:
-            raise TypeError("Missing 'url' argument")
-
-        _setter("enabled", enabled)
-        _setter("url", url)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
@@ -3751,25 +2765,8 @@ class FederatedIvyRepositoryMember(dict):
                status of my own member. The config will be updated on the other federated members automatically.
         :param str url: Full URL to ending with the repository name.
         """
-        FederatedIvyRepositoryMember._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            url=url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enabled is None:
-            raise TypeError("Missing 'enabled' argument")
-        if url is None:
-            raise TypeError("Missing 'url' argument")
-
-        _setter("enabled", enabled)
-        _setter("url", url)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
@@ -3799,25 +2796,8 @@ class FederatedMavenRepositoryMember(dict):
                status of my own member. The config will be updated on the other federated members automatically.
         :param str url: Full URL to ending with the repository name.
         """
-        FederatedMavenRepositoryMember._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            url=url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enabled is None:
-            raise TypeError("Missing 'enabled' argument")
-        if url is None:
-            raise TypeError("Missing 'url' argument")
-
-        _setter("enabled", enabled)
-        _setter("url", url)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
@@ -3847,25 +2827,8 @@ class FederatedNpmRepositoryMember(dict):
                status of my own member. The config will be updated on the other federated members automatically.
         :param str url: Full URL to ending with the repository name.
         """
-        FederatedNpmRepositoryMember._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            url=url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enabled is None:
-            raise TypeError("Missing 'enabled' argument")
-        if url is None:
-            raise TypeError("Missing 'url' argument")
-
-        _setter("enabled", enabled)
-        _setter("url", url)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
@@ -3895,25 +2858,8 @@ class FederatedNugetRepositoryMember(dict):
                status of my own member. The config will be updated on the other federated members automatically.
         :param str url: Full URL to ending with the repository name.
         """
-        FederatedNugetRepositoryMember._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            url=url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enabled is None:
-            raise TypeError("Missing 'enabled' argument")
-        if url is None:
-            raise TypeError("Missing 'url' argument")
-
-        _setter("enabled", enabled)
-        _setter("url", url)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
@@ -3943,25 +2889,8 @@ class FederatedOpkgRepositoryMember(dict):
                status of my own member. The config will be updated on the other federated members automatically.
         :param str url: Full URL to ending with the repository name.
         """
-        FederatedOpkgRepositoryMember._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            url=url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enabled is None:
-            raise TypeError("Missing 'enabled' argument")
-        if url is None:
-            raise TypeError("Missing 'url' argument")
-
-        _setter("enabled", enabled)
-        _setter("url", url)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
@@ -3991,25 +2920,8 @@ class FederatedPuppetRepositoryMember(dict):
                status of my own member. The config will be updated on the other federated members automatically.
         :param str url: Full URL to ending with the repository name.
         """
-        FederatedPuppetRepositoryMember._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            url=url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enabled is None:
-            raise TypeError("Missing 'enabled' argument")
-        if url is None:
-            raise TypeError("Missing 'url' argument")
-
-        _setter("enabled", enabled)
-        _setter("url", url)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
@@ -4039,25 +2951,8 @@ class FederatedPypiRepositoryMember(dict):
                status of my own member. The config will be updated on the other federated members automatically.
         :param str url: Full URL to ending with the repository name.
         """
-        FederatedPypiRepositoryMember._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            url=url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enabled is None:
-            raise TypeError("Missing 'enabled' argument")
-        if url is None:
-            raise TypeError("Missing 'url' argument")
-
-        _setter("enabled", enabled)
-        _setter("url", url)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
@@ -4087,25 +2982,8 @@ class FederatedRpmRepositoryMember(dict):
                status of my own member. The config will be updated on the other federated members automatically.
         :param str url: Full URL to ending with the repository name.
         """
-        FederatedRpmRepositoryMember._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            url=url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enabled is None:
-            raise TypeError("Missing 'enabled' argument")
-        if url is None:
-            raise TypeError("Missing 'url' argument")
-
-        _setter("enabled", enabled)
-        _setter("url", url)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
@@ -4135,25 +3013,8 @@ class FederatedSbtRepositoryMember(dict):
                status of my own member. The config will be updated on the other federated members automatically.
         :param str url: Full URL to ending with the repository name.
         """
-        FederatedSbtRepositoryMember._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            url=url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enabled is None:
-            raise TypeError("Missing 'enabled' argument")
-        if url is None:
-            raise TypeError("Missing 'url' argument")
-
-        _setter("enabled", enabled)
-        _setter("url", url)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
@@ -4183,25 +3044,8 @@ class FederatedSwiftRepositoryMember(dict):
                status of my own member. The config will be updated on the other federated members automatically.
         :param str url: Full URL to ending with the repository name.
         """
-        FederatedSwiftRepositoryMember._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            url=url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enabled is None:
-            raise TypeError("Missing 'enabled' argument")
-        if url is None:
-            raise TypeError("Missing 'url' argument")
-
-        _setter("enabled", enabled)
-        _setter("url", url)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
@@ -4231,25 +3075,8 @@ class FederatedTerraformModuleRepositoryMember(dict):
                status of my own member. The config will be updated on the other federated members automatically.
         :param str url: Full URL to ending with the repository name.
         """
-        FederatedTerraformModuleRepositoryMember._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            url=url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enabled is None:
-            raise TypeError("Missing 'enabled' argument")
-        if url is None:
-            raise TypeError("Missing 'url' argument")
-
-        _setter("enabled", enabled)
-        _setter("url", url)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
@@ -4279,25 +3106,8 @@ class FederatedTerraformProviderRepositoryMember(dict):
                status of my own member. The config will be updated on the other federated members automatically.
         :param str url: Full URL to ending with the repository name.
         """
-        FederatedTerraformProviderRepositoryMember._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            url=url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enabled is None:
-            raise TypeError("Missing 'enabled' argument")
-        if url is None:
-            raise TypeError("Missing 'url' argument")
-
-        _setter("enabled", enabled)
-        _setter("url", url)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
@@ -4327,25 +3137,8 @@ class FederatedVagrantRepositoryMember(dict):
                status of my own member. The config will be updated on the other federated members automatically.
         :param str url: Full URL to ending with the repository name.
         """
-        FederatedVagrantRepositoryMember._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            url=url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enabled is None:
-            raise TypeError("Missing 'enabled' argument")
-        if url is None:
-            raise TypeError("Missing 'url' argument")
-
-        _setter("enabled", enabled)
-        _setter("url", url)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
@@ -4427,85 +3220,30 @@ class LocalRepositoryMultiReplicationReplication(dict):
         :param bool sync_properties: When set, the task also synchronizes the properties of replicated artifacts. Default value is `true`.
         :param bool sync_statistics: When set, the task also synchronizes artifact download statistics. Set to avoid inadvertent cleanup at the target instance when setting up replication for disaster recovery. Default value is `false`
         """
-        LocalRepositoryMultiReplicationReplication._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            url=url,
-            username=username,
-            check_binary_existence_in_filestore=check_binary_existence_in_filestore,
-            enabled=enabled,
-            exclude_path_prefix_pattern=exclude_path_prefix_pattern,
-            include_path_prefix_pattern=include_path_prefix_pattern,
-            password=password,
-            proxy=proxy,
-            replication_key=replication_key,
-            socket_timeout_millis=socket_timeout_millis,
-            sync_deletes=sync_deletes,
-            sync_properties=sync_properties,
-            sync_statistics=sync_statistics,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             url: Optional[str] = None,
-             username: Optional[str] = None,
-             check_binary_existence_in_filestore: Optional[bool] = None,
-             enabled: Optional[bool] = None,
-             exclude_path_prefix_pattern: Optional[str] = None,
-             include_path_prefix_pattern: Optional[str] = None,
-             password: Optional[str] = None,
-             proxy: Optional[str] = None,
-             replication_key: Optional[str] = None,
-             socket_timeout_millis: Optional[int] = None,
-             sync_deletes: Optional[bool] = None,
-             sync_properties: Optional[bool] = None,
-             sync_statistics: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if url is None:
-            raise TypeError("Missing 'url' argument")
-        if username is None:
-            raise TypeError("Missing 'username' argument")
-        if check_binary_existence_in_filestore is None and 'checkBinaryExistenceInFilestore' in kwargs:
-            check_binary_existence_in_filestore = kwargs['checkBinaryExistenceInFilestore']
-        if exclude_path_prefix_pattern is None and 'excludePathPrefixPattern' in kwargs:
-            exclude_path_prefix_pattern = kwargs['excludePathPrefixPattern']
-        if include_path_prefix_pattern is None and 'includePathPrefixPattern' in kwargs:
-            include_path_prefix_pattern = kwargs['includePathPrefixPattern']
-        if replication_key is None and 'replicationKey' in kwargs:
-            replication_key = kwargs['replicationKey']
-        if socket_timeout_millis is None and 'socketTimeoutMillis' in kwargs:
-            socket_timeout_millis = kwargs['socketTimeoutMillis']
-        if sync_deletes is None and 'syncDeletes' in kwargs:
-            sync_deletes = kwargs['syncDeletes']
-        if sync_properties is None and 'syncProperties' in kwargs:
-            sync_properties = kwargs['syncProperties']
-        if sync_statistics is None and 'syncStatistics' in kwargs:
-            sync_statistics = kwargs['syncStatistics']
-
-        _setter("url", url)
-        _setter("username", username)
+        pulumi.set(__self__, "url", url)
+        pulumi.set(__self__, "username", username)
         if check_binary_existence_in_filestore is not None:
-            _setter("check_binary_existence_in_filestore", check_binary_existence_in_filestore)
+            pulumi.set(__self__, "check_binary_existence_in_filestore", check_binary_existence_in_filestore)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if exclude_path_prefix_pattern is not None:
-            _setter("exclude_path_prefix_pattern", exclude_path_prefix_pattern)
+            pulumi.set(__self__, "exclude_path_prefix_pattern", exclude_path_prefix_pattern)
         if include_path_prefix_pattern is not None:
-            _setter("include_path_prefix_pattern", include_path_prefix_pattern)
+            pulumi.set(__self__, "include_path_prefix_pattern", include_path_prefix_pattern)
         if password is not None:
-            _setter("password", password)
+            pulumi.set(__self__, "password", password)
         if proxy is not None:
-            _setter("proxy", proxy)
+            pulumi.set(__self__, "proxy", proxy)
         if replication_key is not None:
-            _setter("replication_key", replication_key)
+            pulumi.set(__self__, "replication_key", replication_key)
         if socket_timeout_millis is not None:
-            _setter("socket_timeout_millis", socket_timeout_millis)
+            pulumi.set(__self__, "socket_timeout_millis", socket_timeout_millis)
         if sync_deletes is not None:
-            _setter("sync_deletes", sync_deletes)
+            pulumi.set(__self__, "sync_deletes", sync_deletes)
         if sync_properties is not None:
-            _setter("sync_properties", sync_properties)
+            pulumi.set(__self__, "sync_properties", sync_properties)
         if sync_statistics is not None:
-            _setter("sync_statistics", sync_statistics)
+            pulumi.set(__self__, "sync_statistics", sync_statistics)
 
     @property
     @pulumi.getter
@@ -4658,64 +3396,15 @@ class OauthSettingsOauthProvider(dict):
         :param str type: Type of OAuth provider. (e.g., `github`, `google`, `cloudfoundry`, or `openId`)
         :param bool enabled: Enable the Artifactory OAuth provider.  Default value is `true`.
         """
-        OauthSettingsOauthProvider._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            api_url=api_url,
-            auth_url=auth_url,
-            client_id=client_id,
-            client_secret=client_secret,
-            name=name,
-            token_url=token_url,
-            type=type,
-            enabled=enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             api_url: Optional[str] = None,
-             auth_url: Optional[str] = None,
-             client_id: Optional[str] = None,
-             client_secret: Optional[str] = None,
-             name: Optional[str] = None,
-             token_url: Optional[str] = None,
-             type: Optional[str] = None,
-             enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if api_url is None and 'apiUrl' in kwargs:
-            api_url = kwargs['apiUrl']
-        if api_url is None:
-            raise TypeError("Missing 'api_url' argument")
-        if auth_url is None and 'authUrl' in kwargs:
-            auth_url = kwargs['authUrl']
-        if auth_url is None:
-            raise TypeError("Missing 'auth_url' argument")
-        if client_id is None and 'clientId' in kwargs:
-            client_id = kwargs['clientId']
-        if client_id is None:
-            raise TypeError("Missing 'client_id' argument")
-        if client_secret is None and 'clientSecret' in kwargs:
-            client_secret = kwargs['clientSecret']
-        if client_secret is None:
-            raise TypeError("Missing 'client_secret' argument")
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if token_url is None and 'tokenUrl' in kwargs:
-            token_url = kwargs['tokenUrl']
-        if token_url is None:
-            raise TypeError("Missing 'token_url' argument")
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-
-        _setter("api_url", api_url)
-        _setter("auth_url", auth_url)
-        _setter("client_id", client_id)
-        _setter("client_secret", client_secret)
-        _setter("name", name)
-        _setter("token_url", token_url)
-        _setter("type", type)
+        pulumi.set(__self__, "api_url", api_url)
+        pulumi.set(__self__, "auth_url", auth_url)
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "client_secret", client_secret)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "token_url", token_url)
+        pulumi.set(__self__, "type", type)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
 
     @property
     @pulumi.getter(name="apiUrl")
@@ -4813,36 +3502,13 @@ class PermissionTargetBuild(dict):
         :param Sequence[str] excludes_patterns: Pattern of artifacts to exclude.
         :param Sequence[str] includes_patterns: Pattern of artifacts to include.
         """
-        PermissionTargetBuild._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            repositories=repositories,
-            actions=actions,
-            excludes_patterns=excludes_patterns,
-            includes_patterns=includes_patterns,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             repositories: Optional[Sequence[str]] = None,
-             actions: Optional[Sequence['outputs.PermissionTargetBuildAction']] = None,
-             excludes_patterns: Optional[Sequence[str]] = None,
-             includes_patterns: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if repositories is None:
-            raise TypeError("Missing 'repositories' argument")
-        if excludes_patterns is None and 'excludesPatterns' in kwargs:
-            excludes_patterns = kwargs['excludesPatterns']
-        if includes_patterns is None and 'includesPatterns' in kwargs:
-            includes_patterns = kwargs['includesPatterns']
-
-        _setter("repositories", repositories)
+        pulumi.set(__self__, "repositories", repositories)
         if actions is not None:
-            _setter("actions", actions)
+            pulumi.set(__self__, "actions", actions)
         if excludes_patterns is not None:
-            _setter("excludes_patterns", excludes_patterns)
+            pulumi.set(__self__, "excludes_patterns", excludes_patterns)
         if includes_patterns is not None:
-            _setter("includes_patterns", includes_patterns)
+            pulumi.set(__self__, "includes_patterns", includes_patterns)
 
     @property
     @pulumi.getter
@@ -4883,23 +3549,10 @@ class PermissionTargetBuildAction(dict):
         :param Sequence['PermissionTargetBuildActionGroupArgs'] groups: Groups this permission applies for.
         :param Sequence['PermissionTargetBuildActionUserArgs'] users: Users this permission target applies for.
         """
-        PermissionTargetBuildAction._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            groups=groups,
-            users=users,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             groups: Optional[Sequence['outputs.PermissionTargetBuildActionGroup']] = None,
-             users: Optional[Sequence['outputs.PermissionTargetBuildActionUser']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if groups is not None:
-            _setter("groups", groups)
+            pulumi.set(__self__, "groups", groups)
         if users is not None:
-            _setter("users", users)
+            pulumi.set(__self__, "users", users)
 
     @property
     @pulumi.getter
@@ -4926,25 +3579,8 @@ class PermissionTargetBuildActionGroup(dict):
         """
         :param str name: Name of permission.
         """
-        PermissionTargetBuildActionGroup._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            permissions=permissions,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[str] = None,
-             permissions: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if permissions is None:
-            raise TypeError("Missing 'permissions' argument")
-
-        _setter("name", name)
-        _setter("permissions", permissions)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "permissions", permissions)
 
     @property
     @pulumi.getter
@@ -4968,25 +3604,8 @@ class PermissionTargetBuildActionUser(dict):
         """
         :param str name: Name of permission.
         """
-        PermissionTargetBuildActionUser._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            permissions=permissions,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[str] = None,
-             permissions: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if permissions is None:
-            raise TypeError("Missing 'permissions' argument")
-
-        _setter("name", name)
-        _setter("permissions", permissions)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "permissions", permissions)
 
     @property
     @pulumi.getter
@@ -5033,36 +3652,13 @@ class PermissionTargetReleaseBundle(dict):
         :param Sequence[str] excludes_patterns: Pattern of artifacts to exclude.
         :param Sequence[str] includes_patterns: Pattern of artifacts to include.
         """
-        PermissionTargetReleaseBundle._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            repositories=repositories,
-            actions=actions,
-            excludes_patterns=excludes_patterns,
-            includes_patterns=includes_patterns,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             repositories: Optional[Sequence[str]] = None,
-             actions: Optional[Sequence['outputs.PermissionTargetReleaseBundleAction']] = None,
-             excludes_patterns: Optional[Sequence[str]] = None,
-             includes_patterns: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if repositories is None:
-            raise TypeError("Missing 'repositories' argument")
-        if excludes_patterns is None and 'excludesPatterns' in kwargs:
-            excludes_patterns = kwargs['excludesPatterns']
-        if includes_patterns is None and 'includesPatterns' in kwargs:
-            includes_patterns = kwargs['includesPatterns']
-
-        _setter("repositories", repositories)
+        pulumi.set(__self__, "repositories", repositories)
         if actions is not None:
-            _setter("actions", actions)
+            pulumi.set(__self__, "actions", actions)
         if excludes_patterns is not None:
-            _setter("excludes_patterns", excludes_patterns)
+            pulumi.set(__self__, "excludes_patterns", excludes_patterns)
         if includes_patterns is not None:
-            _setter("includes_patterns", includes_patterns)
+            pulumi.set(__self__, "includes_patterns", includes_patterns)
 
     @property
     @pulumi.getter
@@ -5103,23 +3699,10 @@ class PermissionTargetReleaseBundleAction(dict):
         :param Sequence['PermissionTargetReleaseBundleActionGroupArgs'] groups: Groups this permission applies for.
         :param Sequence['PermissionTargetReleaseBundleActionUserArgs'] users: Users this permission target applies for.
         """
-        PermissionTargetReleaseBundleAction._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            groups=groups,
-            users=users,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             groups: Optional[Sequence['outputs.PermissionTargetReleaseBundleActionGroup']] = None,
-             users: Optional[Sequence['outputs.PermissionTargetReleaseBundleActionUser']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if groups is not None:
-            _setter("groups", groups)
+            pulumi.set(__self__, "groups", groups)
         if users is not None:
-            _setter("users", users)
+            pulumi.set(__self__, "users", users)
 
     @property
     @pulumi.getter
@@ -5146,25 +3729,8 @@ class PermissionTargetReleaseBundleActionGroup(dict):
         """
         :param str name: Name of permission.
         """
-        PermissionTargetReleaseBundleActionGroup._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            permissions=permissions,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[str] = None,
-             permissions: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if permissions is None:
-            raise TypeError("Missing 'permissions' argument")
-
-        _setter("name", name)
-        _setter("permissions", permissions)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "permissions", permissions)
 
     @property
     @pulumi.getter
@@ -5188,25 +3754,8 @@ class PermissionTargetReleaseBundleActionUser(dict):
         """
         :param str name: Name of permission.
         """
-        PermissionTargetReleaseBundleActionUser._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            permissions=permissions,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[str] = None,
-             permissions: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if permissions is None:
-            raise TypeError("Missing 'permissions' argument")
-
-        _setter("name", name)
-        _setter("permissions", permissions)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "permissions", permissions)
 
     @property
     @pulumi.getter
@@ -5253,36 +3802,13 @@ class PermissionTargetRepo(dict):
         :param Sequence[str] excludes_patterns: Pattern of artifacts to exclude.
         :param Sequence[str] includes_patterns: Pattern of artifacts to include.
         """
-        PermissionTargetRepo._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            repositories=repositories,
-            actions=actions,
-            excludes_patterns=excludes_patterns,
-            includes_patterns=includes_patterns,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             repositories: Optional[Sequence[str]] = None,
-             actions: Optional[Sequence['outputs.PermissionTargetRepoAction']] = None,
-             excludes_patterns: Optional[Sequence[str]] = None,
-             includes_patterns: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if repositories is None:
-            raise TypeError("Missing 'repositories' argument")
-        if excludes_patterns is None and 'excludesPatterns' in kwargs:
-            excludes_patterns = kwargs['excludesPatterns']
-        if includes_patterns is None and 'includesPatterns' in kwargs:
-            includes_patterns = kwargs['includesPatterns']
-
-        _setter("repositories", repositories)
+        pulumi.set(__self__, "repositories", repositories)
         if actions is not None:
-            _setter("actions", actions)
+            pulumi.set(__self__, "actions", actions)
         if excludes_patterns is not None:
-            _setter("excludes_patterns", excludes_patterns)
+            pulumi.set(__self__, "excludes_patterns", excludes_patterns)
         if includes_patterns is not None:
-            _setter("includes_patterns", includes_patterns)
+            pulumi.set(__self__, "includes_patterns", includes_patterns)
 
     @property
     @pulumi.getter
@@ -5323,23 +3849,10 @@ class PermissionTargetRepoAction(dict):
         :param Sequence['PermissionTargetRepoActionGroupArgs'] groups: Groups this permission applies for.
         :param Sequence['PermissionTargetRepoActionUserArgs'] users: Users this permission target applies for.
         """
-        PermissionTargetRepoAction._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            groups=groups,
-            users=users,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             groups: Optional[Sequence['outputs.PermissionTargetRepoActionGroup']] = None,
-             users: Optional[Sequence['outputs.PermissionTargetRepoActionUser']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if groups is not None:
-            _setter("groups", groups)
+            pulumi.set(__self__, "groups", groups)
         if users is not None:
-            _setter("users", users)
+            pulumi.set(__self__, "users", users)
 
     @property
     @pulumi.getter
@@ -5366,25 +3879,8 @@ class PermissionTargetRepoActionGroup(dict):
         """
         :param str name: Name of permission.
         """
-        PermissionTargetRepoActionGroup._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            permissions=permissions,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[str] = None,
-             permissions: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if permissions is None:
-            raise TypeError("Missing 'permissions' argument")
-
-        _setter("name", name)
-        _setter("permissions", permissions)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "permissions", permissions)
 
     @property
     @pulumi.getter
@@ -5408,25 +3904,8 @@ class PermissionTargetRepoActionUser(dict):
         """
         :param str name: Name of permission.
         """
-        PermissionTargetRepoActionUser._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            permissions=permissions,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[str] = None,
-             permissions: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if permissions is None:
-            raise TypeError("Missing 'permissions' argument")
-
-        _setter("name", name)
-        _setter("permissions", permissions)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "permissions", permissions)
 
     @property
     @pulumi.getter
@@ -5476,39 +3955,12 @@ class PropertySetProperty(dict):
         :param bool closed_predefined_values: Disables `multiple_choice` if set to `false` at the same time with multiple_choice set to `true`. Default value is `false`
         :param bool multiple_choice: Defines if user can select multiple values. `closed_predefined_values` should be set to `true`. Default value is `false`.
         """
-        PropertySetProperty._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            predefined_values=predefined_values,
-            closed_predefined_values=closed_predefined_values,
-            multiple_choice=multiple_choice,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[str] = None,
-             predefined_values: Optional[Sequence['outputs.PropertySetPropertyPredefinedValue']] = None,
-             closed_predefined_values: Optional[bool] = None,
-             multiple_choice: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if predefined_values is None and 'predefinedValues' in kwargs:
-            predefined_values = kwargs['predefinedValues']
-        if predefined_values is None:
-            raise TypeError("Missing 'predefined_values' argument")
-        if closed_predefined_values is None and 'closedPredefinedValues' in kwargs:
-            closed_predefined_values = kwargs['closedPredefinedValues']
-        if multiple_choice is None and 'multipleChoice' in kwargs:
-            multiple_choice = kwargs['multipleChoice']
-
-        _setter("name", name)
-        _setter("predefined_values", predefined_values)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "predefined_values", predefined_values)
         if closed_predefined_values is not None:
-            _setter("closed_predefined_values", closed_predefined_values)
+            pulumi.set(__self__, "closed_predefined_values", closed_predefined_values)
         if multiple_choice is not None:
-            _setter("multiple_choice", multiple_choice)
+            pulumi.set(__self__, "multiple_choice", multiple_choice)
 
     @property
     @pulumi.getter
@@ -5569,27 +4021,8 @@ class PropertySetPropertyPredefinedValue(dict):
         :param bool default_value: Whether the value is selected by default in the UI.
         :param str name: Predefined property name.
         """
-        PropertySetPropertyPredefinedValue._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            default_value=default_value,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             default_value: Optional[bool] = None,
-             name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if default_value is None and 'defaultValue' in kwargs:
-            default_value = kwargs['defaultValue']
-        if default_value is None:
-            raise TypeError("Missing 'default_value' argument")
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-
-        _setter("default_value", default_value)
-        _setter("name", name)
+        pulumi.set(__self__, "default_value", default_value)
+        pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="defaultValue")
@@ -5664,74 +4097,25 @@ class PushReplicationReplication(dict):
         :param bool sync_properties: When set, the task also synchronizes the properties of replicated artifacts.
         :param bool sync_statistics: When set, artifact download statistics will also be replicated. Set to avoid inadvertent cleanup at the target instance when setting up replication for disaster recovery.
         """
-        PushReplicationReplication._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            password=password,
-            url=url,
-            username=username,
-            check_binary_existence_in_filestore=check_binary_existence_in_filestore,
-            enabled=enabled,
-            path_prefix=path_prefix,
-            proxy=proxy,
-            socket_timeout_millis=socket_timeout_millis,
-            sync_deletes=sync_deletes,
-            sync_properties=sync_properties,
-            sync_statistics=sync_statistics,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             password: Optional[str] = None,
-             url: Optional[str] = None,
-             username: Optional[str] = None,
-             check_binary_existence_in_filestore: Optional[bool] = None,
-             enabled: Optional[bool] = None,
-             path_prefix: Optional[str] = None,
-             proxy: Optional[str] = None,
-             socket_timeout_millis: Optional[int] = None,
-             sync_deletes: Optional[bool] = None,
-             sync_properties: Optional[bool] = None,
-             sync_statistics: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if password is None:
-            raise TypeError("Missing 'password' argument")
-        if url is None:
-            raise TypeError("Missing 'url' argument")
-        if username is None:
-            raise TypeError("Missing 'username' argument")
-        if check_binary_existence_in_filestore is None and 'checkBinaryExistenceInFilestore' in kwargs:
-            check_binary_existence_in_filestore = kwargs['checkBinaryExistenceInFilestore']
-        if path_prefix is None and 'pathPrefix' in kwargs:
-            path_prefix = kwargs['pathPrefix']
-        if socket_timeout_millis is None and 'socketTimeoutMillis' in kwargs:
-            socket_timeout_millis = kwargs['socketTimeoutMillis']
-        if sync_deletes is None and 'syncDeletes' in kwargs:
-            sync_deletes = kwargs['syncDeletes']
-        if sync_properties is None and 'syncProperties' in kwargs:
-            sync_properties = kwargs['syncProperties']
-        if sync_statistics is None and 'syncStatistics' in kwargs:
-            sync_statistics = kwargs['syncStatistics']
-
-        _setter("password", password)
-        _setter("url", url)
-        _setter("username", username)
+        pulumi.set(__self__, "password", password)
+        pulumi.set(__self__, "url", url)
+        pulumi.set(__self__, "username", username)
         if check_binary_existence_in_filestore is not None:
-            _setter("check_binary_existence_in_filestore", check_binary_existence_in_filestore)
+            pulumi.set(__self__, "check_binary_existence_in_filestore", check_binary_existence_in_filestore)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if path_prefix is not None:
-            _setter("path_prefix", path_prefix)
+            pulumi.set(__self__, "path_prefix", path_prefix)
         if proxy is not None:
-            _setter("proxy", proxy)
+            pulumi.set(__self__, "proxy", proxy)
         if socket_timeout_millis is not None:
-            _setter("socket_timeout_millis", socket_timeout_millis)
+            pulumi.set(__self__, "socket_timeout_millis", socket_timeout_millis)
         if sync_deletes is not None:
-            _setter("sync_deletes", sync_deletes)
+            pulumi.set(__self__, "sync_deletes", sync_deletes)
         if sync_properties is not None:
-            _setter("sync_properties", sync_properties)
+            pulumi.set(__self__, "sync_properties", sync_properties)
         if sync_statistics is not None:
-            _setter("sync_statistics", sync_statistics)
+            pulumi.set(__self__, "sync_statistics", sync_statistics)
 
     @property
     @pulumi.getter
@@ -5860,41 +4244,12 @@ class ReleaseBundleCustomWebhookCriteria(dict):
         :param Sequence[str] exclude_patterns: Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: "org/apache/**".
         :param Sequence[str] include_patterns: Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: "org/apache/**".
         """
-        ReleaseBundleCustomWebhookCriteria._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            any_release_bundle=any_release_bundle,
-            registered_release_bundle_names=registered_release_bundle_names,
-            exclude_patterns=exclude_patterns,
-            include_patterns=include_patterns,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             any_release_bundle: Optional[bool] = None,
-             registered_release_bundle_names: Optional[Sequence[str]] = None,
-             exclude_patterns: Optional[Sequence[str]] = None,
-             include_patterns: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if any_release_bundle is None and 'anyReleaseBundle' in kwargs:
-            any_release_bundle = kwargs['anyReleaseBundle']
-        if any_release_bundle is None:
-            raise TypeError("Missing 'any_release_bundle' argument")
-        if registered_release_bundle_names is None and 'registeredReleaseBundleNames' in kwargs:
-            registered_release_bundle_names = kwargs['registeredReleaseBundleNames']
-        if registered_release_bundle_names is None:
-            raise TypeError("Missing 'registered_release_bundle_names' argument")
-        if exclude_patterns is None and 'excludePatterns' in kwargs:
-            exclude_patterns = kwargs['excludePatterns']
-        if include_patterns is None and 'includePatterns' in kwargs:
-            include_patterns = kwargs['includePatterns']
-
-        _setter("any_release_bundle", any_release_bundle)
-        _setter("registered_release_bundle_names", registered_release_bundle_names)
+        pulumi.set(__self__, "any_release_bundle", any_release_bundle)
+        pulumi.set(__self__, "registered_release_bundle_names", registered_release_bundle_names)
         if exclude_patterns is not None:
-            _setter("exclude_patterns", exclude_patterns)
+            pulumi.set(__self__, "exclude_patterns", exclude_patterns)
         if include_patterns is not None:
-            _setter("include_patterns", include_patterns)
+            pulumi.set(__self__, "include_patterns", include_patterns)
 
     @property
     @pulumi.getter(name="anyReleaseBundle")
@@ -5964,38 +4319,15 @@ class ReleaseBundleCustomWebhookHandler(dict):
                import pulumi
                ```
         """
-        ReleaseBundleCustomWebhookHandler._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            url=url,
-            http_headers=http_headers,
-            payload=payload,
-            proxy=proxy,
-            secrets=secrets,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             url: Optional[str] = None,
-             http_headers: Optional[Mapping[str, str]] = None,
-             payload: Optional[str] = None,
-             proxy: Optional[str] = None,
-             secrets: Optional[Mapping[str, str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if url is None:
-            raise TypeError("Missing 'url' argument")
-        if http_headers is None and 'httpHeaders' in kwargs:
-            http_headers = kwargs['httpHeaders']
-
-        _setter("url", url)
+        pulumi.set(__self__, "url", url)
         if http_headers is not None:
-            _setter("http_headers", http_headers)
+            pulumi.set(__self__, "http_headers", http_headers)
         if payload is not None:
-            _setter("payload", payload)
+            pulumi.set(__self__, "payload", payload)
         if proxy is not None:
-            _setter("proxy", proxy)
+            pulumi.set(__self__, "proxy", proxy)
         if secrets is not None:
-            _setter("secrets", secrets)
+            pulumi.set(__self__, "secrets", secrets)
 
     @property
     @pulumi.getter
@@ -6075,41 +4407,12 @@ class ReleaseBundleWebhookCriteria(dict):
         :param Sequence[str] exclude_patterns: Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: "org/apache/**".
         :param Sequence[str] include_patterns: Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\\*, ?). For example: "org/apache/**".
         """
-        ReleaseBundleWebhookCriteria._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            any_release_bundle=any_release_bundle,
-            registered_release_bundle_names=registered_release_bundle_names,
-            exclude_patterns=exclude_patterns,
-            include_patterns=include_patterns,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             any_release_bundle: Optional[bool] = None,
-             registered_release_bundle_names: Optional[Sequence[str]] = None,
-             exclude_patterns: Optional[Sequence[str]] = None,
-             include_patterns: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if any_release_bundle is None and 'anyReleaseBundle' in kwargs:
-            any_release_bundle = kwargs['anyReleaseBundle']
-        if any_release_bundle is None:
-            raise TypeError("Missing 'any_release_bundle' argument")
-        if registered_release_bundle_names is None and 'registeredReleaseBundleNames' in kwargs:
-            registered_release_bundle_names = kwargs['registeredReleaseBundleNames']
-        if registered_release_bundle_names is None:
-            raise TypeError("Missing 'registered_release_bundle_names' argument")
-        if exclude_patterns is None and 'excludePatterns' in kwargs:
-            exclude_patterns = kwargs['excludePatterns']
-        if include_patterns is None and 'includePatterns' in kwargs:
-            include_patterns = kwargs['includePatterns']
-
-        _setter("any_release_bundle", any_release_bundle)
-        _setter("registered_release_bundle_names", registered_release_bundle_names)
+        pulumi.set(__self__, "any_release_bundle", any_release_bundle)
+        pulumi.set(__self__, "registered_release_bundle_names", registered_release_bundle_names)
         if exclude_patterns is not None:
-            _setter("exclude_patterns", exclude_patterns)
+            pulumi.set(__self__, "exclude_patterns", exclude_patterns)
         if include_patterns is not None:
-            _setter("include_patterns", include_patterns)
+            pulumi.set(__self__, "include_patterns", include_patterns)
 
     @property
     @pulumi.getter(name="anyReleaseBundle")
@@ -6174,34 +4477,13 @@ class ReleaseBundleWebhookHandler(dict):
         :param str proxy: Proxy key from Artifactory UI (Administration > Proxies > Configuration).
         :param str secret: Secret authentication token that will be sent to the configured URL. The value will be sent as `x-jfrog-event-auth` header.
         """
-        ReleaseBundleWebhookHandler._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            url=url,
-            custom_http_headers=custom_http_headers,
-            proxy=proxy,
-            secret=secret,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             url: Optional[str] = None,
-             custom_http_headers: Optional[Mapping[str, str]] = None,
-             proxy: Optional[str] = None,
-             secret: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if url is None:
-            raise TypeError("Missing 'url' argument")
-        if custom_http_headers is None and 'customHttpHeaders' in kwargs:
-            custom_http_headers = kwargs['customHttpHeaders']
-
-        _setter("url", url)
+        pulumi.set(__self__, "url", url)
         if custom_http_headers is not None:
-            _setter("custom_http_headers", custom_http_headers)
+            pulumi.set(__self__, "custom_http_headers", custom_http_headers)
         if proxy is not None:
-            _setter("proxy", proxy)
+            pulumi.set(__self__, "proxy", proxy)
         if secret is not None:
-            _setter("secret", secret)
+            pulumi.set(__self__, "secret", secret)
 
     @property
     @pulumi.getter
@@ -6264,37 +4546,14 @@ class RemoteAlpineRepositoryContentSynchronisation(dict):
                  properties_enabled: Optional[bool] = None,
                  source_origin_absence_detection: Optional[bool] = None,
                  statistics_enabled: Optional[bool] = None):
-        RemoteAlpineRepositoryContentSynchronisation._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            properties_enabled=properties_enabled,
-            source_origin_absence_detection=source_origin_absence_detection,
-            statistics_enabled=statistics_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             properties_enabled: Optional[bool] = None,
-             source_origin_absence_detection: Optional[bool] = None,
-             statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if properties_enabled is None and 'propertiesEnabled' in kwargs:
-            properties_enabled = kwargs['propertiesEnabled']
-        if source_origin_absence_detection is None and 'sourceOriginAbsenceDetection' in kwargs:
-            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
-        if statistics_enabled is None and 'statisticsEnabled' in kwargs:
-            statistics_enabled = kwargs['statisticsEnabled']
-
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if properties_enabled is not None:
-            _setter("properties_enabled", properties_enabled)
+            pulumi.set(__self__, "properties_enabled", properties_enabled)
         if source_origin_absence_detection is not None:
-            _setter("source_origin_absence_detection", source_origin_absence_detection)
+            pulumi.set(__self__, "source_origin_absence_detection", source_origin_absence_detection)
         if statistics_enabled is not None:
-            _setter("statistics_enabled", statistics_enabled)
+            pulumi.set(__self__, "statistics_enabled", statistics_enabled)
 
     @property
     @pulumi.getter
@@ -6345,37 +4604,14 @@ class RemoteBowerRepositoryContentSynchronisation(dict):
                  properties_enabled: Optional[bool] = None,
                  source_origin_absence_detection: Optional[bool] = None,
                  statistics_enabled: Optional[bool] = None):
-        RemoteBowerRepositoryContentSynchronisation._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            properties_enabled=properties_enabled,
-            source_origin_absence_detection=source_origin_absence_detection,
-            statistics_enabled=statistics_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             properties_enabled: Optional[bool] = None,
-             source_origin_absence_detection: Optional[bool] = None,
-             statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if properties_enabled is None and 'propertiesEnabled' in kwargs:
-            properties_enabled = kwargs['propertiesEnabled']
-        if source_origin_absence_detection is None and 'sourceOriginAbsenceDetection' in kwargs:
-            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
-        if statistics_enabled is None and 'statisticsEnabled' in kwargs:
-            statistics_enabled = kwargs['statisticsEnabled']
-
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if properties_enabled is not None:
-            _setter("properties_enabled", properties_enabled)
+            pulumi.set(__self__, "properties_enabled", properties_enabled)
         if source_origin_absence_detection is not None:
-            _setter("source_origin_absence_detection", source_origin_absence_detection)
+            pulumi.set(__self__, "source_origin_absence_detection", source_origin_absence_detection)
         if statistics_enabled is not None:
-            _setter("statistics_enabled", statistics_enabled)
+            pulumi.set(__self__, "statistics_enabled", statistics_enabled)
 
     @property
     @pulumi.getter
@@ -6426,37 +4662,14 @@ class RemoteCargoRepositoryContentSynchronisation(dict):
                  properties_enabled: Optional[bool] = None,
                  source_origin_absence_detection: Optional[bool] = None,
                  statistics_enabled: Optional[bool] = None):
-        RemoteCargoRepositoryContentSynchronisation._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            properties_enabled=properties_enabled,
-            source_origin_absence_detection=source_origin_absence_detection,
-            statistics_enabled=statistics_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             properties_enabled: Optional[bool] = None,
-             source_origin_absence_detection: Optional[bool] = None,
-             statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if properties_enabled is None and 'propertiesEnabled' in kwargs:
-            properties_enabled = kwargs['propertiesEnabled']
-        if source_origin_absence_detection is None and 'sourceOriginAbsenceDetection' in kwargs:
-            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
-        if statistics_enabled is None and 'statisticsEnabled' in kwargs:
-            statistics_enabled = kwargs['statisticsEnabled']
-
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if properties_enabled is not None:
-            _setter("properties_enabled", properties_enabled)
+            pulumi.set(__self__, "properties_enabled", properties_enabled)
         if source_origin_absence_detection is not None:
-            _setter("source_origin_absence_detection", source_origin_absence_detection)
+            pulumi.set(__self__, "source_origin_absence_detection", source_origin_absence_detection)
         if statistics_enabled is not None:
-            _setter("statistics_enabled", statistics_enabled)
+            pulumi.set(__self__, "statistics_enabled", statistics_enabled)
 
     @property
     @pulumi.getter
@@ -6507,37 +4720,14 @@ class RemoteChefRepositoryContentSynchronisation(dict):
                  properties_enabled: Optional[bool] = None,
                  source_origin_absence_detection: Optional[bool] = None,
                  statistics_enabled: Optional[bool] = None):
-        RemoteChefRepositoryContentSynchronisation._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            properties_enabled=properties_enabled,
-            source_origin_absence_detection=source_origin_absence_detection,
-            statistics_enabled=statistics_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             properties_enabled: Optional[bool] = None,
-             source_origin_absence_detection: Optional[bool] = None,
-             statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if properties_enabled is None and 'propertiesEnabled' in kwargs:
-            properties_enabled = kwargs['propertiesEnabled']
-        if source_origin_absence_detection is None and 'sourceOriginAbsenceDetection' in kwargs:
-            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
-        if statistics_enabled is None and 'statisticsEnabled' in kwargs:
-            statistics_enabled = kwargs['statisticsEnabled']
-
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if properties_enabled is not None:
-            _setter("properties_enabled", properties_enabled)
+            pulumi.set(__self__, "properties_enabled", properties_enabled)
         if source_origin_absence_detection is not None:
-            _setter("source_origin_absence_detection", source_origin_absence_detection)
+            pulumi.set(__self__, "source_origin_absence_detection", source_origin_absence_detection)
         if statistics_enabled is not None:
-            _setter("statistics_enabled", statistics_enabled)
+            pulumi.set(__self__, "statistics_enabled", statistics_enabled)
 
     @property
     @pulumi.getter
@@ -6588,37 +4778,14 @@ class RemoteCocoapodsRepositoryContentSynchronisation(dict):
                  properties_enabled: Optional[bool] = None,
                  source_origin_absence_detection: Optional[bool] = None,
                  statistics_enabled: Optional[bool] = None):
-        RemoteCocoapodsRepositoryContentSynchronisation._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            properties_enabled=properties_enabled,
-            source_origin_absence_detection=source_origin_absence_detection,
-            statistics_enabled=statistics_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             properties_enabled: Optional[bool] = None,
-             source_origin_absence_detection: Optional[bool] = None,
-             statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if properties_enabled is None and 'propertiesEnabled' in kwargs:
-            properties_enabled = kwargs['propertiesEnabled']
-        if source_origin_absence_detection is None and 'sourceOriginAbsenceDetection' in kwargs:
-            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
-        if statistics_enabled is None and 'statisticsEnabled' in kwargs:
-            statistics_enabled = kwargs['statisticsEnabled']
-
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if properties_enabled is not None:
-            _setter("properties_enabled", properties_enabled)
+            pulumi.set(__self__, "properties_enabled", properties_enabled)
         if source_origin_absence_detection is not None:
-            _setter("source_origin_absence_detection", source_origin_absence_detection)
+            pulumi.set(__self__, "source_origin_absence_detection", source_origin_absence_detection)
         if statistics_enabled is not None:
-            _setter("statistics_enabled", statistics_enabled)
+            pulumi.set(__self__, "statistics_enabled", statistics_enabled)
 
     @property
     @pulumi.getter
@@ -6669,37 +4836,14 @@ class RemoteComposerRepositoryContentSynchronisation(dict):
                  properties_enabled: Optional[bool] = None,
                  source_origin_absence_detection: Optional[bool] = None,
                  statistics_enabled: Optional[bool] = None):
-        RemoteComposerRepositoryContentSynchronisation._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            properties_enabled=properties_enabled,
-            source_origin_absence_detection=source_origin_absence_detection,
-            statistics_enabled=statistics_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             properties_enabled: Optional[bool] = None,
-             source_origin_absence_detection: Optional[bool] = None,
-             statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if properties_enabled is None and 'propertiesEnabled' in kwargs:
-            properties_enabled = kwargs['propertiesEnabled']
-        if source_origin_absence_detection is None and 'sourceOriginAbsenceDetection' in kwargs:
-            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
-        if statistics_enabled is None and 'statisticsEnabled' in kwargs:
-            statistics_enabled = kwargs['statisticsEnabled']
-
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if properties_enabled is not None:
-            _setter("properties_enabled", properties_enabled)
+            pulumi.set(__self__, "properties_enabled", properties_enabled)
         if source_origin_absence_detection is not None:
-            _setter("source_origin_absence_detection", source_origin_absence_detection)
+            pulumi.set(__self__, "source_origin_absence_detection", source_origin_absence_detection)
         if statistics_enabled is not None:
-            _setter("statistics_enabled", statistics_enabled)
+            pulumi.set(__self__, "statistics_enabled", statistics_enabled)
 
     @property
     @pulumi.getter
@@ -6750,37 +4894,14 @@ class RemoteConanRepositoryContentSynchronisation(dict):
                  properties_enabled: Optional[bool] = None,
                  source_origin_absence_detection: Optional[bool] = None,
                  statistics_enabled: Optional[bool] = None):
-        RemoteConanRepositoryContentSynchronisation._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            properties_enabled=properties_enabled,
-            source_origin_absence_detection=source_origin_absence_detection,
-            statistics_enabled=statistics_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             properties_enabled: Optional[bool] = None,
-             source_origin_absence_detection: Optional[bool] = None,
-             statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if properties_enabled is None and 'propertiesEnabled' in kwargs:
-            properties_enabled = kwargs['propertiesEnabled']
-        if source_origin_absence_detection is None and 'sourceOriginAbsenceDetection' in kwargs:
-            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
-        if statistics_enabled is None and 'statisticsEnabled' in kwargs:
-            statistics_enabled = kwargs['statisticsEnabled']
-
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if properties_enabled is not None:
-            _setter("properties_enabled", properties_enabled)
+            pulumi.set(__self__, "properties_enabled", properties_enabled)
         if source_origin_absence_detection is not None:
-            _setter("source_origin_absence_detection", source_origin_absence_detection)
+            pulumi.set(__self__, "source_origin_absence_detection", source_origin_absence_detection)
         if statistics_enabled is not None:
-            _setter("statistics_enabled", statistics_enabled)
+            pulumi.set(__self__, "statistics_enabled", statistics_enabled)
 
     @property
     @pulumi.getter
@@ -6831,37 +4952,14 @@ class RemoteCondaRepositoryContentSynchronisation(dict):
                  properties_enabled: Optional[bool] = None,
                  source_origin_absence_detection: Optional[bool] = None,
                  statistics_enabled: Optional[bool] = None):
-        RemoteCondaRepositoryContentSynchronisation._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            properties_enabled=properties_enabled,
-            source_origin_absence_detection=source_origin_absence_detection,
-            statistics_enabled=statistics_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             properties_enabled: Optional[bool] = None,
-             source_origin_absence_detection: Optional[bool] = None,
-             statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if properties_enabled is None and 'propertiesEnabled' in kwargs:
-            properties_enabled = kwargs['propertiesEnabled']
-        if source_origin_absence_detection is None and 'sourceOriginAbsenceDetection' in kwargs:
-            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
-        if statistics_enabled is None and 'statisticsEnabled' in kwargs:
-            statistics_enabled = kwargs['statisticsEnabled']
-
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if properties_enabled is not None:
-            _setter("properties_enabled", properties_enabled)
+            pulumi.set(__self__, "properties_enabled", properties_enabled)
         if source_origin_absence_detection is not None:
-            _setter("source_origin_absence_detection", source_origin_absence_detection)
+            pulumi.set(__self__, "source_origin_absence_detection", source_origin_absence_detection)
         if statistics_enabled is not None:
-            _setter("statistics_enabled", statistics_enabled)
+            pulumi.set(__self__, "statistics_enabled", statistics_enabled)
 
     @property
     @pulumi.getter
@@ -6912,37 +5010,14 @@ class RemoteCranRepositoryContentSynchronisation(dict):
                  properties_enabled: Optional[bool] = None,
                  source_origin_absence_detection: Optional[bool] = None,
                  statistics_enabled: Optional[bool] = None):
-        RemoteCranRepositoryContentSynchronisation._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            properties_enabled=properties_enabled,
-            source_origin_absence_detection=source_origin_absence_detection,
-            statistics_enabled=statistics_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             properties_enabled: Optional[bool] = None,
-             source_origin_absence_detection: Optional[bool] = None,
-             statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if properties_enabled is None and 'propertiesEnabled' in kwargs:
-            properties_enabled = kwargs['propertiesEnabled']
-        if source_origin_absence_detection is None and 'sourceOriginAbsenceDetection' in kwargs:
-            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
-        if statistics_enabled is None and 'statisticsEnabled' in kwargs:
-            statistics_enabled = kwargs['statisticsEnabled']
-
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if properties_enabled is not None:
-            _setter("properties_enabled", properties_enabled)
+            pulumi.set(__self__, "properties_enabled", properties_enabled)
         if source_origin_absence_detection is not None:
-            _setter("source_origin_absence_detection", source_origin_absence_detection)
+            pulumi.set(__self__, "source_origin_absence_detection", source_origin_absence_detection)
         if statistics_enabled is not None:
-            _setter("statistics_enabled", statistics_enabled)
+            pulumi.set(__self__, "statistics_enabled", statistics_enabled)
 
     @property
     @pulumi.getter
@@ -6993,37 +5068,14 @@ class RemoteDebianRepositoryContentSynchronisation(dict):
                  properties_enabled: Optional[bool] = None,
                  source_origin_absence_detection: Optional[bool] = None,
                  statistics_enabled: Optional[bool] = None):
-        RemoteDebianRepositoryContentSynchronisation._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            properties_enabled=properties_enabled,
-            source_origin_absence_detection=source_origin_absence_detection,
-            statistics_enabled=statistics_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             properties_enabled: Optional[bool] = None,
-             source_origin_absence_detection: Optional[bool] = None,
-             statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if properties_enabled is None and 'propertiesEnabled' in kwargs:
-            properties_enabled = kwargs['propertiesEnabled']
-        if source_origin_absence_detection is None and 'sourceOriginAbsenceDetection' in kwargs:
-            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
-        if statistics_enabled is None and 'statisticsEnabled' in kwargs:
-            statistics_enabled = kwargs['statisticsEnabled']
-
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if properties_enabled is not None:
-            _setter("properties_enabled", properties_enabled)
+            pulumi.set(__self__, "properties_enabled", properties_enabled)
         if source_origin_absence_detection is not None:
-            _setter("source_origin_absence_detection", source_origin_absence_detection)
+            pulumi.set(__self__, "source_origin_absence_detection", source_origin_absence_detection)
         if statistics_enabled is not None:
-            _setter("statistics_enabled", statistics_enabled)
+            pulumi.set(__self__, "statistics_enabled", statistics_enabled)
 
     @property
     @pulumi.getter
@@ -7074,37 +5126,14 @@ class RemoteDockerRepositoryContentSynchronisation(dict):
                  properties_enabled: Optional[bool] = None,
                  source_origin_absence_detection: Optional[bool] = None,
                  statistics_enabled: Optional[bool] = None):
-        RemoteDockerRepositoryContentSynchronisation._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            properties_enabled=properties_enabled,
-            source_origin_absence_detection=source_origin_absence_detection,
-            statistics_enabled=statistics_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             properties_enabled: Optional[bool] = None,
-             source_origin_absence_detection: Optional[bool] = None,
-             statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if properties_enabled is None and 'propertiesEnabled' in kwargs:
-            properties_enabled = kwargs['propertiesEnabled']
-        if source_origin_absence_detection is None and 'sourceOriginAbsenceDetection' in kwargs:
-            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
-        if statistics_enabled is None and 'statisticsEnabled' in kwargs:
-            statistics_enabled = kwargs['statisticsEnabled']
-
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if properties_enabled is not None:
-            _setter("properties_enabled", properties_enabled)
+            pulumi.set(__self__, "properties_enabled", properties_enabled)
         if source_origin_absence_detection is not None:
-            _setter("source_origin_absence_detection", source_origin_absence_detection)
+            pulumi.set(__self__, "source_origin_absence_detection", source_origin_absence_detection)
         if statistics_enabled is not None:
-            _setter("statistics_enabled", statistics_enabled)
+            pulumi.set(__self__, "statistics_enabled", statistics_enabled)
 
     @property
     @pulumi.getter
@@ -7155,37 +5184,14 @@ class RemoteGemsRepositoryContentSynchronisation(dict):
                  properties_enabled: Optional[bool] = None,
                  source_origin_absence_detection: Optional[bool] = None,
                  statistics_enabled: Optional[bool] = None):
-        RemoteGemsRepositoryContentSynchronisation._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            properties_enabled=properties_enabled,
-            source_origin_absence_detection=source_origin_absence_detection,
-            statistics_enabled=statistics_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             properties_enabled: Optional[bool] = None,
-             source_origin_absence_detection: Optional[bool] = None,
-             statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if properties_enabled is None and 'propertiesEnabled' in kwargs:
-            properties_enabled = kwargs['propertiesEnabled']
-        if source_origin_absence_detection is None and 'sourceOriginAbsenceDetection' in kwargs:
-            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
-        if statistics_enabled is None and 'statisticsEnabled' in kwargs:
-            statistics_enabled = kwargs['statisticsEnabled']
-
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if properties_enabled is not None:
-            _setter("properties_enabled", properties_enabled)
+            pulumi.set(__self__, "properties_enabled", properties_enabled)
         if source_origin_absence_detection is not None:
-            _setter("source_origin_absence_detection", source_origin_absence_detection)
+            pulumi.set(__self__, "source_origin_absence_detection", source_origin_absence_detection)
         if statistics_enabled is not None:
-            _setter("statistics_enabled", statistics_enabled)
+            pulumi.set(__self__, "statistics_enabled", statistics_enabled)
 
     @property
     @pulumi.getter
@@ -7236,37 +5242,14 @@ class RemoteGenericRepositoryContentSynchronisation(dict):
                  properties_enabled: Optional[bool] = None,
                  source_origin_absence_detection: Optional[bool] = None,
                  statistics_enabled: Optional[bool] = None):
-        RemoteGenericRepositoryContentSynchronisation._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            properties_enabled=properties_enabled,
-            source_origin_absence_detection=source_origin_absence_detection,
-            statistics_enabled=statistics_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             properties_enabled: Optional[bool] = None,
-             source_origin_absence_detection: Optional[bool] = None,
-             statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if properties_enabled is None and 'propertiesEnabled' in kwargs:
-            properties_enabled = kwargs['propertiesEnabled']
-        if source_origin_absence_detection is None and 'sourceOriginAbsenceDetection' in kwargs:
-            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
-        if statistics_enabled is None and 'statisticsEnabled' in kwargs:
-            statistics_enabled = kwargs['statisticsEnabled']
-
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if properties_enabled is not None:
-            _setter("properties_enabled", properties_enabled)
+            pulumi.set(__self__, "properties_enabled", properties_enabled)
         if source_origin_absence_detection is not None:
-            _setter("source_origin_absence_detection", source_origin_absence_detection)
+            pulumi.set(__self__, "source_origin_absence_detection", source_origin_absence_detection)
         if statistics_enabled is not None:
-            _setter("statistics_enabled", statistics_enabled)
+            pulumi.set(__self__, "statistics_enabled", statistics_enabled)
 
     @property
     @pulumi.getter
@@ -7317,37 +5300,14 @@ class RemoteGitlfsRepositoryContentSynchronisation(dict):
                  properties_enabled: Optional[bool] = None,
                  source_origin_absence_detection: Optional[bool] = None,
                  statistics_enabled: Optional[bool] = None):
-        RemoteGitlfsRepositoryContentSynchronisation._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            properties_enabled=properties_enabled,
-            source_origin_absence_detection=source_origin_absence_detection,
-            statistics_enabled=statistics_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             properties_enabled: Optional[bool] = None,
-             source_origin_absence_detection: Optional[bool] = None,
-             statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if properties_enabled is None and 'propertiesEnabled' in kwargs:
-            properties_enabled = kwargs['propertiesEnabled']
-        if source_origin_absence_detection is None and 'sourceOriginAbsenceDetection' in kwargs:
-            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
-        if statistics_enabled is None and 'statisticsEnabled' in kwargs:
-            statistics_enabled = kwargs['statisticsEnabled']
-
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if properties_enabled is not None:
-            _setter("properties_enabled", properties_enabled)
+            pulumi.set(__self__, "properties_enabled", properties_enabled)
         if source_origin_absence_detection is not None:
-            _setter("source_origin_absence_detection", source_origin_absence_detection)
+            pulumi.set(__self__, "source_origin_absence_detection", source_origin_absence_detection)
         if statistics_enabled is not None:
-            _setter("statistics_enabled", statistics_enabled)
+            pulumi.set(__self__, "statistics_enabled", statistics_enabled)
 
     @property
     @pulumi.getter
@@ -7398,37 +5358,14 @@ class RemoteGoRepositoryContentSynchronisation(dict):
                  properties_enabled: Optional[bool] = None,
                  source_origin_absence_detection: Optional[bool] = None,
                  statistics_enabled: Optional[bool] = None):
-        RemoteGoRepositoryContentSynchronisation._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            properties_enabled=properties_enabled,
-            source_origin_absence_detection=source_origin_absence_detection,
-            statistics_enabled=statistics_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             properties_enabled: Optional[bool] = None,
-             source_origin_absence_detection: Optional[bool] = None,
-             statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if properties_enabled is None and 'propertiesEnabled' in kwargs:
-            properties_enabled = kwargs['propertiesEnabled']
-        if source_origin_absence_detection is None and 'sourceOriginAbsenceDetection' in kwargs:
-            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
-        if statistics_enabled is None and 'statisticsEnabled' in kwargs:
-            statistics_enabled = kwargs['statisticsEnabled']
-
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if properties_enabled is not None:
-            _setter("properties_enabled", properties_enabled)
+            pulumi.set(__self__, "properties_enabled", properties_enabled)
         if source_origin_absence_detection is not None:
-            _setter("source_origin_absence_detection", source_origin_absence_detection)
+            pulumi.set(__self__, "source_origin_absence_detection", source_origin_absence_detection)
         if statistics_enabled is not None:
-            _setter("statistics_enabled", statistics_enabled)
+            pulumi.set(__self__, "statistics_enabled", statistics_enabled)
 
     @property
     @pulumi.getter
@@ -7479,37 +5416,14 @@ class RemoteGradleRepositoryContentSynchronisation(dict):
                  properties_enabled: Optional[bool] = None,
                  source_origin_absence_detection: Optional[bool] = None,
                  statistics_enabled: Optional[bool] = None):
-        RemoteGradleRepositoryContentSynchronisation._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            properties_enabled=properties_enabled,
-            source_origin_absence_detection=source_origin_absence_detection,
-            statistics_enabled=statistics_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             properties_enabled: Optional[bool] = None,
-             source_origin_absence_detection: Optional[bool] = None,
-             statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if properties_enabled is None and 'propertiesEnabled' in kwargs:
-            properties_enabled = kwargs['propertiesEnabled']
-        if source_origin_absence_detection is None and 'sourceOriginAbsenceDetection' in kwargs:
-            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
-        if statistics_enabled is None and 'statisticsEnabled' in kwargs:
-            statistics_enabled = kwargs['statisticsEnabled']
-
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if properties_enabled is not None:
-            _setter("properties_enabled", properties_enabled)
+            pulumi.set(__self__, "properties_enabled", properties_enabled)
         if source_origin_absence_detection is not None:
-            _setter("source_origin_absence_detection", source_origin_absence_detection)
+            pulumi.set(__self__, "source_origin_absence_detection", source_origin_absence_detection)
         if statistics_enabled is not None:
-            _setter("statistics_enabled", statistics_enabled)
+            pulumi.set(__self__, "statistics_enabled", statistics_enabled)
 
     @property
     @pulumi.getter
@@ -7560,37 +5474,14 @@ class RemoteHelmRepositoryContentSynchronisation(dict):
                  properties_enabled: Optional[bool] = None,
                  source_origin_absence_detection: Optional[bool] = None,
                  statistics_enabled: Optional[bool] = None):
-        RemoteHelmRepositoryContentSynchronisation._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            properties_enabled=properties_enabled,
-            source_origin_absence_detection=source_origin_absence_detection,
-            statistics_enabled=statistics_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             properties_enabled: Optional[bool] = None,
-             source_origin_absence_detection: Optional[bool] = None,
-             statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if properties_enabled is None and 'propertiesEnabled' in kwargs:
-            properties_enabled = kwargs['propertiesEnabled']
-        if source_origin_absence_detection is None and 'sourceOriginAbsenceDetection' in kwargs:
-            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
-        if statistics_enabled is None and 'statisticsEnabled' in kwargs:
-            statistics_enabled = kwargs['statisticsEnabled']
-
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if properties_enabled is not None:
-            _setter("properties_enabled", properties_enabled)
+            pulumi.set(__self__, "properties_enabled", properties_enabled)
         if source_origin_absence_detection is not None:
-            _setter("source_origin_absence_detection", source_origin_absence_detection)
+            pulumi.set(__self__, "source_origin_absence_detection", source_origin_absence_detection)
         if statistics_enabled is not None:
-            _setter("statistics_enabled", statistics_enabled)
+            pulumi.set(__self__, "statistics_enabled", statistics_enabled)
 
     @property
     @pulumi.getter
@@ -7641,37 +5532,14 @@ class RemoteHuggingfacemlRepositoryContentSynchronisation(dict):
                  properties_enabled: Optional[bool] = None,
                  source_origin_absence_detection: Optional[bool] = None,
                  statistics_enabled: Optional[bool] = None):
-        RemoteHuggingfacemlRepositoryContentSynchronisation._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            properties_enabled=properties_enabled,
-            source_origin_absence_detection=source_origin_absence_detection,
-            statistics_enabled=statistics_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             properties_enabled: Optional[bool] = None,
-             source_origin_absence_detection: Optional[bool] = None,
-             statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if properties_enabled is None and 'propertiesEnabled' in kwargs:
-            properties_enabled = kwargs['propertiesEnabled']
-        if source_origin_absence_detection is None and 'sourceOriginAbsenceDetection' in kwargs:
-            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
-        if statistics_enabled is None and 'statisticsEnabled' in kwargs:
-            statistics_enabled = kwargs['statisticsEnabled']
-
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if properties_enabled is not None:
-            _setter("properties_enabled", properties_enabled)
+            pulumi.set(__self__, "properties_enabled", properties_enabled)
         if source_origin_absence_detection is not None:
-            _setter("source_origin_absence_detection", source_origin_absence_detection)
+            pulumi.set(__self__, "source_origin_absence_detection", source_origin_absence_detection)
         if statistics_enabled is not None:
-            _setter("statistics_enabled", statistics_enabled)
+            pulumi.set(__self__, "statistics_enabled", statistics_enabled)
 
     @property
     @pulumi.getter
@@ -7722,37 +5590,14 @@ class RemoteIvyRepositoryContentSynchronisation(dict):
                  properties_enabled: Optional[bool] = None,
                  source_origin_absence_detection: Optional[bool] = None,
                  statistics_enabled: Optional[bool] = None):
-        RemoteIvyRepositoryContentSynchronisation._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            properties_enabled=properties_enabled,
-            source_origin_absence_detection=source_origin_absence_detection,
-            statistics_enabled=statistics_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             properties_enabled: Optional[bool] = None,
-             source_origin_absence_detection: Optional[bool] = None,
-             statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if properties_enabled is None and 'propertiesEnabled' in kwargs:
-            properties_enabled = kwargs['propertiesEnabled']
-        if source_origin_absence_detection is None and 'sourceOriginAbsenceDetection' in kwargs:
-            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
-        if statistics_enabled is None and 'statisticsEnabled' in kwargs:
-            statistics_enabled = kwargs['statisticsEnabled']
-
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if properties_enabled is not None:
-            _setter("properties_enabled", properties_enabled)
+            pulumi.set(__self__, "properties_enabled", properties_enabled)
         if source_origin_absence_detection is not None:
-            _setter("source_origin_absence_detection", source_origin_absence_detection)
+            pulumi.set(__self__, "source_origin_absence_detection", source_origin_absence_detection)
         if statistics_enabled is not None:
-            _setter("statistics_enabled", statistics_enabled)
+            pulumi.set(__self__, "statistics_enabled", statistics_enabled)
 
     @property
     @pulumi.getter
@@ -7803,37 +5648,14 @@ class RemoteMavenRepositoryContentSynchronisation(dict):
                  properties_enabled: Optional[bool] = None,
                  source_origin_absence_detection: Optional[bool] = None,
                  statistics_enabled: Optional[bool] = None):
-        RemoteMavenRepositoryContentSynchronisation._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            properties_enabled=properties_enabled,
-            source_origin_absence_detection=source_origin_absence_detection,
-            statistics_enabled=statistics_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             properties_enabled: Optional[bool] = None,
-             source_origin_absence_detection: Optional[bool] = None,
-             statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if properties_enabled is None and 'propertiesEnabled' in kwargs:
-            properties_enabled = kwargs['propertiesEnabled']
-        if source_origin_absence_detection is None and 'sourceOriginAbsenceDetection' in kwargs:
-            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
-        if statistics_enabled is None and 'statisticsEnabled' in kwargs:
-            statistics_enabled = kwargs['statisticsEnabled']
-
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if properties_enabled is not None:
-            _setter("properties_enabled", properties_enabled)
+            pulumi.set(__self__, "properties_enabled", properties_enabled)
         if source_origin_absence_detection is not None:
-            _setter("source_origin_absence_detection", source_origin_absence_detection)
+            pulumi.set(__self__, "source_origin_absence_detection", source_origin_absence_detection)
         if statistics_enabled is not None:
-            _setter("statistics_enabled", statistics_enabled)
+            pulumi.set(__self__, "statistics_enabled", statistics_enabled)
 
     @property
     @pulumi.getter
@@ -7884,37 +5706,14 @@ class RemoteNpmRepositoryContentSynchronisation(dict):
                  properties_enabled: Optional[bool] = None,
                  source_origin_absence_detection: Optional[bool] = None,
                  statistics_enabled: Optional[bool] = None):
-        RemoteNpmRepositoryContentSynchronisation._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            properties_enabled=properties_enabled,
-            source_origin_absence_detection=source_origin_absence_detection,
-            statistics_enabled=statistics_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             properties_enabled: Optional[bool] = None,
-             source_origin_absence_detection: Optional[bool] = None,
-             statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if properties_enabled is None and 'propertiesEnabled' in kwargs:
-            properties_enabled = kwargs['propertiesEnabled']
-        if source_origin_absence_detection is None and 'sourceOriginAbsenceDetection' in kwargs:
-            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
-        if statistics_enabled is None and 'statisticsEnabled' in kwargs:
-            statistics_enabled = kwargs['statisticsEnabled']
-
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if properties_enabled is not None:
-            _setter("properties_enabled", properties_enabled)
+            pulumi.set(__self__, "properties_enabled", properties_enabled)
         if source_origin_absence_detection is not None:
-            _setter("source_origin_absence_detection", source_origin_absence_detection)
+            pulumi.set(__self__, "source_origin_absence_detection", source_origin_absence_detection)
         if statistics_enabled is not None:
-            _setter("statistics_enabled", statistics_enabled)
+            pulumi.set(__self__, "statistics_enabled", statistics_enabled)
 
     @property
     @pulumi.getter
@@ -7965,37 +5764,14 @@ class RemoteNugetRepositoryContentSynchronisation(dict):
                  properties_enabled: Optional[bool] = None,
                  source_origin_absence_detection: Optional[bool] = None,
                  statistics_enabled: Optional[bool] = None):
-        RemoteNugetRepositoryContentSynchronisation._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            properties_enabled=properties_enabled,
-            source_origin_absence_detection=source_origin_absence_detection,
-            statistics_enabled=statistics_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             properties_enabled: Optional[bool] = None,
-             source_origin_absence_detection: Optional[bool] = None,
-             statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if properties_enabled is None and 'propertiesEnabled' in kwargs:
-            properties_enabled = kwargs['propertiesEnabled']
-        if source_origin_absence_detection is None and 'sourceOriginAbsenceDetection' in kwargs:
-            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
-        if statistics_enabled is None and 'statisticsEnabled' in kwargs:
-            statistics_enabled = kwargs['statisticsEnabled']
-
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if properties_enabled is not None:
-            _setter("properties_enabled", properties_enabled)
+            pulumi.set(__self__, "properties_enabled", properties_enabled)
         if source_origin_absence_detection is not None:
-            _setter("source_origin_absence_detection", source_origin_absence_detection)
+            pulumi.set(__self__, "source_origin_absence_detection", source_origin_absence_detection)
         if statistics_enabled is not None:
-            _setter("statistics_enabled", statistics_enabled)
+            pulumi.set(__self__, "statistics_enabled", statistics_enabled)
 
     @property
     @pulumi.getter
@@ -8046,37 +5822,14 @@ class RemoteOpkgRepositoryContentSynchronisation(dict):
                  properties_enabled: Optional[bool] = None,
                  source_origin_absence_detection: Optional[bool] = None,
                  statistics_enabled: Optional[bool] = None):
-        RemoteOpkgRepositoryContentSynchronisation._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            properties_enabled=properties_enabled,
-            source_origin_absence_detection=source_origin_absence_detection,
-            statistics_enabled=statistics_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             properties_enabled: Optional[bool] = None,
-             source_origin_absence_detection: Optional[bool] = None,
-             statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if properties_enabled is None and 'propertiesEnabled' in kwargs:
-            properties_enabled = kwargs['propertiesEnabled']
-        if source_origin_absence_detection is None and 'sourceOriginAbsenceDetection' in kwargs:
-            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
-        if statistics_enabled is None and 'statisticsEnabled' in kwargs:
-            statistics_enabled = kwargs['statisticsEnabled']
-
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if properties_enabled is not None:
-            _setter("properties_enabled", properties_enabled)
+            pulumi.set(__self__, "properties_enabled", properties_enabled)
         if source_origin_absence_detection is not None:
-            _setter("source_origin_absence_detection", source_origin_absence_detection)
+            pulumi.set(__self__, "source_origin_absence_detection", source_origin_absence_detection)
         if statistics_enabled is not None:
-            _setter("statistics_enabled", statistics_enabled)
+            pulumi.set(__self__, "statistics_enabled", statistics_enabled)
 
     @property
     @pulumi.getter
@@ -8127,37 +5880,14 @@ class RemoteP2RepositoryContentSynchronisation(dict):
                  properties_enabled: Optional[bool] = None,
                  source_origin_absence_detection: Optional[bool] = None,
                  statistics_enabled: Optional[bool] = None):
-        RemoteP2RepositoryContentSynchronisation._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            properties_enabled=properties_enabled,
-            source_origin_absence_detection=source_origin_absence_detection,
-            statistics_enabled=statistics_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             properties_enabled: Optional[bool] = None,
-             source_origin_absence_detection: Optional[bool] = None,
-             statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if properties_enabled is None and 'propertiesEnabled' in kwargs:
-            properties_enabled = kwargs['propertiesEnabled']
-        if source_origin_absence_detection is None and 'sourceOriginAbsenceDetection' in kwargs:
-            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
-        if statistics_enabled is None and 'statisticsEnabled' in kwargs:
-            statistics_enabled = kwargs['statisticsEnabled']
-
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if properties_enabled is not None:
-            _setter("properties_enabled", properties_enabled)
+            pulumi.set(__self__, "properties_enabled", properties_enabled)
         if source_origin_absence_detection is not None:
-            _setter("source_origin_absence_detection", source_origin_absence_detection)
+            pulumi.set(__self__, "source_origin_absence_detection", source_origin_absence_detection)
         if statistics_enabled is not None:
-            _setter("statistics_enabled", statistics_enabled)
+            pulumi.set(__self__, "statistics_enabled", statistics_enabled)
 
     @property
     @pulumi.getter
@@ -8208,37 +5938,14 @@ class RemotePubRepositoryContentSynchronisation(dict):
                  properties_enabled: Optional[bool] = None,
                  source_origin_absence_detection: Optional[bool] = None,
                  statistics_enabled: Optional[bool] = None):
-        RemotePubRepositoryContentSynchronisation._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            properties_enabled=properties_enabled,
-            source_origin_absence_detection=source_origin_absence_detection,
-            statistics_enabled=statistics_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             properties_enabled: Optional[bool] = None,
-             source_origin_absence_detection: Optional[bool] = None,
-             statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if properties_enabled is None and 'propertiesEnabled' in kwargs:
-            properties_enabled = kwargs['propertiesEnabled']
-        if source_origin_absence_detection is None and 'sourceOriginAbsenceDetection' in kwargs:
-            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
-        if statistics_enabled is None and 'statisticsEnabled' in kwargs:
-            statistics_enabled = kwargs['statisticsEnabled']
-
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if properties_enabled is not None:
-            _setter("properties_enabled", properties_enabled)
+            pulumi.set(__self__, "properties_enabled", properties_enabled)
         if source_origin_absence_detection is not None:
-            _setter("source_origin_absence_detection", source_origin_absence_detection)
+            pulumi.set(__self__, "source_origin_absence_detection", source_origin_absence_detection)
         if statistics_enabled is not None:
-            _setter("statistics_enabled", statistics_enabled)
+            pulumi.set(__self__, "statistics_enabled", statistics_enabled)
 
     @property
     @pulumi.getter
@@ -8289,37 +5996,14 @@ class RemotePuppetRepositoryContentSynchronisation(dict):
                  properties_enabled: Optional[bool] = None,
                  source_origin_absence_detection: Optional[bool] = None,
                  statistics_enabled: Optional[bool] = None):
-        RemotePuppetRepositoryContentSynchronisation._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            properties_enabled=properties_enabled,
-            source_origin_absence_detection=source_origin_absence_detection,
-            statistics_enabled=statistics_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             properties_enabled: Optional[bool] = None,
-             source_origin_absence_detection: Optional[bool] = None,
-             statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if properties_enabled is None and 'propertiesEnabled' in kwargs:
-            properties_enabled = kwargs['propertiesEnabled']
-        if source_origin_absence_detection is None and 'sourceOriginAbsenceDetection' in kwargs:
-            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
-        if statistics_enabled is None and 'statisticsEnabled' in kwargs:
-            statistics_enabled = kwargs['statisticsEnabled']
-
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if properties_enabled is not None:
-            _setter("properties_enabled", properties_enabled)
+            pulumi.set(__self__, "properties_enabled", properties_enabled)
         if source_origin_absence_detection is not None:
-            _setter("source_origin_absence_detection", source_origin_absence_detection)
+            pulumi.set(__self__, "source_origin_absence_detection", source_origin_absence_detection)
         if statistics_enabled is not None:
-            _setter("statistics_enabled", statistics_enabled)
+            pulumi.set(__self__, "statistics_enabled", statistics_enabled)
 
     @property
     @pulumi.getter
@@ -8370,37 +6054,14 @@ class RemotePypiRepositoryContentSynchronisation(dict):
                  properties_enabled: Optional[bool] = None,
                  source_origin_absence_detection: Optional[bool] = None,
                  statistics_enabled: Optional[bool] = None):
-        RemotePypiRepositoryContentSynchronisation._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            properties_enabled=properties_enabled,
-            source_origin_absence_detection=source_origin_absence_detection,
-            statistics_enabled=statistics_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             properties_enabled: Optional[bool] = None,
-             source_origin_absence_detection: Optional[bool] = None,
-             statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if properties_enabled is None and 'propertiesEnabled' in kwargs:
-            properties_enabled = kwargs['propertiesEnabled']
-        if source_origin_absence_detection is None and 'sourceOriginAbsenceDetection' in kwargs:
-            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
-        if statistics_enabled is None and 'statisticsEnabled' in kwargs:
-            statistics_enabled = kwargs['statisticsEnabled']
-
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if properties_enabled is not None:
-            _setter("properties_enabled", properties_enabled)
+            pulumi.set(__self__, "properties_enabled", properties_enabled)
         if source_origin_absence_detection is not None:
-            _setter("source_origin_absence_detection", source_origin_absence_detection)
+            pulumi.set(__self__, "source_origin_absence_detection", source_origin_absence_detection)
         if statistics_enabled is not None:
-            _setter("statistics_enabled", statistics_enabled)
+            pulumi.set(__self__, "statistics_enabled", statistics_enabled)
 
     @property
     @pulumi.getter
@@ -8451,37 +6112,14 @@ class RemoteRpmRepositoryContentSynchronisation(dict):
                  properties_enabled: Optional[bool] = None,
                  source_origin_absence_detection: Optional[bool] = None,
                  statistics_enabled: Optional[bool] = None):
-        RemoteRpmRepositoryContentSynchronisation._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            properties_enabled=properties_enabled,
-            source_origin_absence_detection=source_origin_absence_detection,
-            statistics_enabled=statistics_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             properties_enabled: Optional[bool] = None,
-             source_origin_absence_detection: Optional[bool] = None,
-             statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if properties_enabled is None and 'propertiesEnabled' in kwargs:
-            properties_enabled = kwargs['propertiesEnabled']
-        if source_origin_absence_detection is None and 'sourceOriginAbsenceDetection' in kwargs:
-            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
-        if statistics_enabled is None and 'statisticsEnabled' in kwargs:
-            statistics_enabled = kwargs['statisticsEnabled']
-
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if properties_enabled is not None:
-            _setter("properties_enabled", properties_enabled)
+            pulumi.set(__self__, "properties_enabled", properties_enabled)
         if source_origin_absence_detection is not None:
-            _setter("source_origin_absence_detection", source_origin_absence_detection)
+            pulumi.set(__self__, "source_origin_absence_detection", source_origin_absence_detection)
         if statistics_enabled is not None:
-            _setter("statistics_enabled", statistics_enabled)
+            pulumi.set(__self__, "statistics_enabled", statistics_enabled)
 
     @property
     @pulumi.getter
@@ -8532,37 +6170,14 @@ class RemoteSbtRepositoryContentSynchronisation(dict):
                  properties_enabled: Optional[bool] = None,
                  source_origin_absence_detection: Optional[bool] = None,
                  statistics_enabled: Optional[bool] = None):
-        RemoteSbtRepositoryContentSynchronisation._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            properties_enabled=properties_enabled,
-            source_origin_absence_detection=source_origin_absence_detection,
-            statistics_enabled=statistics_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             properties_enabled: Optional[bool] = None,
-             source_origin_absence_detection: Optional[bool] = None,
-             statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if properties_enabled is None and 'propertiesEnabled' in kwargs:
-            properties_enabled = kwargs['propertiesEnabled']
-        if source_origin_absence_detection is None and 'sourceOriginAbsenceDetection' in kwargs:
-            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
-        if statistics_enabled is None and 'statisticsEnabled' in kwargs:
-            statistics_enabled = kwargs['statisticsEnabled']
-
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if properties_enabled is not None:
-            _setter("properties_enabled", properties_enabled)
+            pulumi.set(__self__, "properties_enabled", properties_enabled)
         if source_origin_absence_detection is not None:
-            _setter("source_origin_absence_detection", source_origin_absence_detection)
+            pulumi.set(__self__, "source_origin_absence_detection", source_origin_absence_detection)
         if statistics_enabled is not None:
-            _setter("statistics_enabled", statistics_enabled)
+            pulumi.set(__self__, "statistics_enabled", statistics_enabled)
 
     @property
     @pulumi.getter
@@ -8613,37 +6228,14 @@ class RemoteSwiftRepositoryContentSynchronisation(dict):
                  properties_enabled: Optional[bool] = None,
                  source_origin_absence_detection: Optional[bool] = None,
                  statistics_enabled: Optional[bool] = None):
-        RemoteSwiftRepositoryContentSynchronisation._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            properties_enabled=properties_enabled,
-            source_origin_absence_detection=source_origin_absence_detection,
-            statistics_enabled=statistics_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             properties_enabled: Optional[bool] = None,
-             source_origin_absence_detection: Optional[bool] = None,
-             statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if properties_enabled is None and 'propertiesEnabled' in kwargs:
-            properties_enabled = kwargs['propertiesEnabled']
-        if source_origin_absence_detection is None and 'sourceOriginAbsenceDetection' in kwargs:
-            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
-        if statistics_enabled is None and 'statisticsEnabled' in kwargs:
-            statistics_enabled = kwargs['statisticsEnabled']
-
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if properties_enabled is not None:
-            _setter("properties_enabled", properties_enabled)
+            pulumi.set(__self__, "properties_enabled", properties_enabled)
         if source_origin_absence_detection is not None:
-            _setter("source_origin_absence_detection", source_origin_absence_detection)
+            pulumi.set(__self__, "source_origin_absence_detection", source_origin_absence_detection)
         if statistics_enabled is not None:
-            _setter("statistics_enabled", statistics_enabled)
+            pulumi.set(__self__, "statistics_enabled", statistics_enabled)
 
     @property
     @pulumi.getter
@@ -8694,37 +6286,14 @@ class RemoteTerraformRepositoryContentSynchronisation(dict):
                  properties_enabled: Optional[bool] = None,
                  source_origin_absence_detection: Optional[bool] = None,
                  statistics_enabled: Optional[bool] = None):
-        RemoteTerraformRepositoryContentSynchronisation._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            properties_enabled=properties_enabled,
-            source_origin_absence_detection=source_origin_absence_detection,
-            statistics_enabled=statistics_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             properties_enabled: Optional[bool] = None,
-             source_origin_absence_detection: Optional[bool] = None,
-             statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if properties_enabled is None and 'propertiesEnabled' in kwargs:
-            properties_enabled = kwargs['propertiesEnabled']
-        if source_origin_absence_detection is None and 'sourceOriginAbsenceDetection' in kwargs:
-            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
-        if statistics_enabled is None and 'statisticsEnabled' in kwargs:
-            statistics_enabled = kwargs['statisticsEnabled']
-
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if properties_enabled is not None:
-            _setter("properties_enabled", properties_enabled)
+            pulumi.set(__self__, "properties_enabled", properties_enabled)
         if source_origin_absence_detection is not None:
-            _setter("source_origin_absence_detection", source_origin_absence_detection)
+            pulumi.set(__self__, "source_origin_absence_detection", source_origin_absence_detection)
         if statistics_enabled is not None:
-            _setter("statistics_enabled", statistics_enabled)
+            pulumi.set(__self__, "statistics_enabled", statistics_enabled)
 
     @property
     @pulumi.getter
@@ -8775,37 +6344,14 @@ class RemoteVcsRepositoryContentSynchronisation(dict):
                  properties_enabled: Optional[bool] = None,
                  source_origin_absence_detection: Optional[bool] = None,
                  statistics_enabled: Optional[bool] = None):
-        RemoteVcsRepositoryContentSynchronisation._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            properties_enabled=properties_enabled,
-            source_origin_absence_detection=source_origin_absence_detection,
-            statistics_enabled=statistics_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             properties_enabled: Optional[bool] = None,
-             source_origin_absence_detection: Optional[bool] = None,
-             statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if properties_enabled is None and 'propertiesEnabled' in kwargs:
-            properties_enabled = kwargs['propertiesEnabled']
-        if source_origin_absence_detection is None and 'sourceOriginAbsenceDetection' in kwargs:
-            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
-        if statistics_enabled is None and 'statisticsEnabled' in kwargs:
-            statistics_enabled = kwargs['statisticsEnabled']
-
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if properties_enabled is not None:
-            _setter("properties_enabled", properties_enabled)
+            pulumi.set(__self__, "properties_enabled", properties_enabled)
         if source_origin_absence_detection is not None:
-            _setter("source_origin_absence_detection", source_origin_absence_detection)
+            pulumi.set(__self__, "source_origin_absence_detection", source_origin_absence_detection)
         if statistics_enabled is not None:
-            _setter("statistics_enabled", statistics_enabled)
+            pulumi.set(__self__, "statistics_enabled", statistics_enabled)
 
     @property
     @pulumi.getter
@@ -8870,65 +6416,26 @@ class ReplicationConfigReplication(dict):
         :param str password: Requires password encryption to be turned off `POST /api/system/decrypt`.
         :param str proxy: Proxy key from Artifactory Proxies setting
         """
-        ReplicationConfigReplication._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            password=password,
-            path_prefix=path_prefix,
-            proxy=proxy,
-            socket_timeout_millis=socket_timeout_millis,
-            sync_deletes=sync_deletes,
-            sync_properties=sync_properties,
-            sync_statistics=sync_statistics,
-            url=url,
-            username=username,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             password: Optional[str] = None,
-             path_prefix: Optional[str] = None,
-             proxy: Optional[str] = None,
-             socket_timeout_millis: Optional[int] = None,
-             sync_deletes: Optional[bool] = None,
-             sync_properties: Optional[bool] = None,
-             sync_statistics: Optional[bool] = None,
-             url: Optional[str] = None,
-             username: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if path_prefix is None and 'pathPrefix' in kwargs:
-            path_prefix = kwargs['pathPrefix']
-        if socket_timeout_millis is None and 'socketTimeoutMillis' in kwargs:
-            socket_timeout_millis = kwargs['socketTimeoutMillis']
-        if sync_deletes is None and 'syncDeletes' in kwargs:
-            sync_deletes = kwargs['syncDeletes']
-        if sync_properties is None and 'syncProperties' in kwargs:
-            sync_properties = kwargs['syncProperties']
-        if sync_statistics is None and 'syncStatistics' in kwargs:
-            sync_statistics = kwargs['syncStatistics']
-
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if password is not None:
-            _setter("password", password)
+            pulumi.set(__self__, "password", password)
         if path_prefix is not None:
-            _setter("path_prefix", path_prefix)
+            pulumi.set(__self__, "path_prefix", path_prefix)
         if proxy is not None:
-            _setter("proxy", proxy)
+            pulumi.set(__self__, "proxy", proxy)
         if socket_timeout_millis is not None:
-            _setter("socket_timeout_millis", socket_timeout_millis)
+            pulumi.set(__self__, "socket_timeout_millis", socket_timeout_millis)
         if sync_deletes is not None:
-            _setter("sync_deletes", sync_deletes)
+            pulumi.set(__self__, "sync_deletes", sync_deletes)
         if sync_properties is not None:
-            _setter("sync_properties", sync_properties)
+            pulumi.set(__self__, "sync_properties", sync_properties)
         if sync_statistics is not None:
-            _setter("sync_statistics", sync_statistics)
+            pulumi.set(__self__, "sync_statistics", sync_statistics)
         if url is not None:
-            _setter("url", url)
+            pulumi.set(__self__, "url", url)
         if username is not None:
-            _setter("username", username)
+            pulumi.set(__self__, "username", username)
 
     @property
     @pulumi.getter
@@ -8997,25 +6504,8 @@ class GetFederatedAlpineRepositoryMemberResult(dict):
                status of my own member. The config will be updated on the other federated members automatically.
         :param str url: Full URL to ending with the repository name.
         """
-        GetFederatedAlpineRepositoryMemberResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            url=url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enabled is None:
-            raise TypeError("Missing 'enabled' argument")
-        if url is None:
-            raise TypeError("Missing 'url' argument")
-
-        _setter("enabled", enabled)
-        _setter("url", url)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
@@ -9045,25 +6535,8 @@ class GetFederatedBowerRepositoryMemberResult(dict):
                status of my own member. The config will be updated on the other federated members automatically.
         :param str url: Full URL to ending with the repository name.
         """
-        GetFederatedBowerRepositoryMemberResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            url=url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enabled is None:
-            raise TypeError("Missing 'enabled' argument")
-        if url is None:
-            raise TypeError("Missing 'url' argument")
-
-        _setter("enabled", enabled)
-        _setter("url", url)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
@@ -9093,25 +6566,8 @@ class GetFederatedCargoRepositoryMemberResult(dict):
                status of my own member. The config will be updated on the other federated members automatically.
         :param str url: Full URL to ending with the repository name.
         """
-        GetFederatedCargoRepositoryMemberResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            url=url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enabled is None:
-            raise TypeError("Missing 'enabled' argument")
-        if url is None:
-            raise TypeError("Missing 'url' argument")
-
-        _setter("enabled", enabled)
-        _setter("url", url)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
@@ -9141,25 +6597,8 @@ class GetFederatedChefRepositoryMemberResult(dict):
                status of my own member. The config will be updated on the other federated members automatically.
         :param str url: Full URL to ending with the repository name.
         """
-        GetFederatedChefRepositoryMemberResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            url=url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enabled is None:
-            raise TypeError("Missing 'enabled' argument")
-        if url is None:
-            raise TypeError("Missing 'url' argument")
-
-        _setter("enabled", enabled)
-        _setter("url", url)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
@@ -9189,25 +6628,8 @@ class GetFederatedCocoapodsRepositoryMemberResult(dict):
                status of my own member. The config will be updated on the other federated members automatically.
         :param str url: Full URL to ending with the repository name.
         """
-        GetFederatedCocoapodsRepositoryMemberResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            url=url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enabled is None:
-            raise TypeError("Missing 'enabled' argument")
-        if url is None:
-            raise TypeError("Missing 'url' argument")
-
-        _setter("enabled", enabled)
-        _setter("url", url)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
@@ -9237,25 +6659,8 @@ class GetFederatedComposerRepositoryMemberResult(dict):
                status of my own member. The config will be updated on the other federated members automatically.
         :param str url: Full URL to ending with the repository name.
         """
-        GetFederatedComposerRepositoryMemberResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            url=url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enabled is None:
-            raise TypeError("Missing 'enabled' argument")
-        if url is None:
-            raise TypeError("Missing 'url' argument")
-
-        _setter("enabled", enabled)
-        _setter("url", url)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
@@ -9285,25 +6690,8 @@ class GetFederatedConanRepositoryMemberResult(dict):
                status of my own member. The config will be updated on the other federated members automatically.
         :param str url: Full URL to ending with the repository name.
         """
-        GetFederatedConanRepositoryMemberResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            url=url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enabled is None:
-            raise TypeError("Missing 'enabled' argument")
-        if url is None:
-            raise TypeError("Missing 'url' argument")
-
-        _setter("enabled", enabled)
-        _setter("url", url)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
@@ -9333,25 +6721,8 @@ class GetFederatedCondaRepositoryMemberResult(dict):
                status of my own member. The config will be updated on the other federated members automatically.
         :param str url: Full URL to ending with the repository name.
         """
-        GetFederatedCondaRepositoryMemberResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            url=url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enabled is None:
-            raise TypeError("Missing 'enabled' argument")
-        if url is None:
-            raise TypeError("Missing 'url' argument")
-
-        _setter("enabled", enabled)
-        _setter("url", url)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
@@ -9381,25 +6752,8 @@ class GetFederatedCranRepositoryMemberResult(dict):
                status of my own member. The config will be updated on the other federated members automatically.
         :param str url: Full URL to ending with the repository name.
         """
-        GetFederatedCranRepositoryMemberResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            url=url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enabled is None:
-            raise TypeError("Missing 'enabled' argument")
-        if url is None:
-            raise TypeError("Missing 'url' argument")
-
-        _setter("enabled", enabled)
-        _setter("url", url)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
@@ -9429,25 +6783,8 @@ class GetFederatedDebianRepositoryMemberResult(dict):
                status of my own member. The config will be updated on the other federated members automatically.
         :param str url: Full URL to ending with the repository name.
         """
-        GetFederatedDebianRepositoryMemberResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            url=url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enabled is None:
-            raise TypeError("Missing 'enabled' argument")
-        if url is None:
-            raise TypeError("Missing 'url' argument")
-
-        _setter("enabled", enabled)
-        _setter("url", url)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
@@ -9472,25 +6809,8 @@ class GetFederatedDockerRepositoryMemberResult(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  url: str):
-        GetFederatedDockerRepositoryMemberResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            url=url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enabled is None:
-            raise TypeError("Missing 'enabled' argument")
-        if url is None:
-            raise TypeError("Missing 'url' argument")
-
-        _setter("enabled", enabled)
-        _setter("url", url)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
@@ -9513,25 +6833,8 @@ class GetFederatedDockerV1RepositoryMemberResult(dict):
                status of my own member. The config will be updated on the other federated members automatically.
         :param str url: Full URL to ending with the repository name.
         """
-        GetFederatedDockerV1RepositoryMemberResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            url=url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enabled is None:
-            raise TypeError("Missing 'enabled' argument")
-        if url is None:
-            raise TypeError("Missing 'url' argument")
-
-        _setter("enabled", enabled)
-        _setter("url", url)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
@@ -9561,25 +6864,8 @@ class GetFederatedDockerV2RepositoryMemberResult(dict):
                status of my own member. The config will be updated on the other federated members automatically.
         :param str url: Full URL to ending with the repository name.
         """
-        GetFederatedDockerV2RepositoryMemberResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            url=url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enabled is None:
-            raise TypeError("Missing 'enabled' argument")
-        if url is None:
-            raise TypeError("Missing 'url' argument")
-
-        _setter("enabled", enabled)
-        _setter("url", url)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
@@ -9609,25 +6895,8 @@ class GetFederatedGemsRepositoryMemberResult(dict):
                status of my own member. The config will be updated on the other federated members automatically.
         :param str url: Full URL to ending with the repository name.
         """
-        GetFederatedGemsRepositoryMemberResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            url=url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enabled is None:
-            raise TypeError("Missing 'enabled' argument")
-        if url is None:
-            raise TypeError("Missing 'url' argument")
-
-        _setter("enabled", enabled)
-        _setter("url", url)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
@@ -9657,25 +6926,8 @@ class GetFederatedGenericRepositoryMemberResult(dict):
                status of my own member. The config will be updated on the other federated members automatically.
         :param str url: Full URL to ending with the repository name.
         """
-        GetFederatedGenericRepositoryMemberResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            url=url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enabled is None:
-            raise TypeError("Missing 'enabled' argument")
-        if url is None:
-            raise TypeError("Missing 'url' argument")
-
-        _setter("enabled", enabled)
-        _setter("url", url)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
@@ -9705,25 +6957,8 @@ class GetFederatedGitlfsRepositoryMemberResult(dict):
                status of my own member. The config will be updated on the other federated members automatically.
         :param str url: Full URL to ending with the repository name.
         """
-        GetFederatedGitlfsRepositoryMemberResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            url=url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enabled is None:
-            raise TypeError("Missing 'enabled' argument")
-        if url is None:
-            raise TypeError("Missing 'url' argument")
-
-        _setter("enabled", enabled)
-        _setter("url", url)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
@@ -9753,25 +6988,8 @@ class GetFederatedGoRepositoryMemberResult(dict):
                status of my own member. The config will be updated on the other federated members automatically.
         :param str url: Full URL to ending with the repository name.
         """
-        GetFederatedGoRepositoryMemberResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            url=url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enabled is None:
-            raise TypeError("Missing 'enabled' argument")
-        if url is None:
-            raise TypeError("Missing 'url' argument")
-
-        _setter("enabled", enabled)
-        _setter("url", url)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
@@ -9801,25 +7019,8 @@ class GetFederatedGradleRepositoryMemberResult(dict):
                status of my own member. The config will be updated on the other federated members automatically.
         :param str url: Full URL to ending with the repository name.
         """
-        GetFederatedGradleRepositoryMemberResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            url=url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enabled is None:
-            raise TypeError("Missing 'enabled' argument")
-        if url is None:
-            raise TypeError("Missing 'url' argument")
-
-        _setter("enabled", enabled)
-        _setter("url", url)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
@@ -9849,25 +7050,8 @@ class GetFederatedHelmRepositoryMemberResult(dict):
                status of my own member. The config will be updated on the other federated members automatically.
         :param str url: Full URL to ending with the repository name.
         """
-        GetFederatedHelmRepositoryMemberResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            url=url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enabled is None:
-            raise TypeError("Missing 'enabled' argument")
-        if url is None:
-            raise TypeError("Missing 'url' argument")
-
-        _setter("enabled", enabled)
-        _setter("url", url)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
@@ -9897,25 +7081,8 @@ class GetFederatedIvyRepositoryMemberResult(dict):
                status of my own member. The config will be updated on the other federated members automatically.
         :param str url: Full URL to ending with the repository name.
         """
-        GetFederatedIvyRepositoryMemberResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            url=url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enabled is None:
-            raise TypeError("Missing 'enabled' argument")
-        if url is None:
-            raise TypeError("Missing 'url' argument")
-
-        _setter("enabled", enabled)
-        _setter("url", url)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
@@ -9945,25 +7112,8 @@ class GetFederatedMavenRepositoryMemberResult(dict):
                status of my own member. The config will be updated on the other federated members automatically.
         :param str url: Full URL to ending with the repository name.
         """
-        GetFederatedMavenRepositoryMemberResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            url=url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enabled is None:
-            raise TypeError("Missing 'enabled' argument")
-        if url is None:
-            raise TypeError("Missing 'url' argument")
-
-        _setter("enabled", enabled)
-        _setter("url", url)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
@@ -9993,25 +7143,8 @@ class GetFederatedNpmRepositoryMemberResult(dict):
                status of my own member. The config will be updated on the other federated members automatically.
         :param str url: Full URL to ending with the repository name.
         """
-        GetFederatedNpmRepositoryMemberResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            url=url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enabled is None:
-            raise TypeError("Missing 'enabled' argument")
-        if url is None:
-            raise TypeError("Missing 'url' argument")
-
-        _setter("enabled", enabled)
-        _setter("url", url)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
@@ -10041,25 +7174,8 @@ class GetFederatedNugetRepositoryMemberResult(dict):
                status of my own member. The config will be updated on the other federated members automatically.
         :param str url: Full URL to ending with the repository name.
         """
-        GetFederatedNugetRepositoryMemberResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            url=url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enabled is None:
-            raise TypeError("Missing 'enabled' argument")
-        if url is None:
-            raise TypeError("Missing 'url' argument")
-
-        _setter("enabled", enabled)
-        _setter("url", url)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
@@ -10089,25 +7205,8 @@ class GetFederatedOpkgRepositoryMemberResult(dict):
                status of my own member. The config will be updated on the other federated members automatically.
         :param str url: Full URL to ending with the repository name.
         """
-        GetFederatedOpkgRepositoryMemberResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            url=url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enabled is None:
-            raise TypeError("Missing 'enabled' argument")
-        if url is None:
-            raise TypeError("Missing 'url' argument")
-
-        _setter("enabled", enabled)
-        _setter("url", url)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
@@ -10137,25 +7236,8 @@ class GetFederatedPuppetRepositoryMemberResult(dict):
                status of my own member. The config will be updated on the other federated members automatically.
         :param str url: Full URL to ending with the repository name.
         """
-        GetFederatedPuppetRepositoryMemberResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            url=url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enabled is None:
-            raise TypeError("Missing 'enabled' argument")
-        if url is None:
-            raise TypeError("Missing 'url' argument")
-
-        _setter("enabled", enabled)
-        _setter("url", url)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
@@ -10185,25 +7267,8 @@ class GetFederatedPypiRepositoryMemberResult(dict):
                status of my own member. The config will be updated on the other federated members automatically.
         :param str url: Full URL to ending with the repository name.
         """
-        GetFederatedPypiRepositoryMemberResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            url=url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enabled is None:
-            raise TypeError("Missing 'enabled' argument")
-        if url is None:
-            raise TypeError("Missing 'url' argument")
-
-        _setter("enabled", enabled)
-        _setter("url", url)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
@@ -10233,25 +7298,8 @@ class GetFederatedRpmRepositoryMemberResult(dict):
                status of my own member. The config will be updated on the other federated members automatically.
         :param str url: Full URL to ending with the repository name.
         """
-        GetFederatedRpmRepositoryMemberResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            url=url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enabled is None:
-            raise TypeError("Missing 'enabled' argument")
-        if url is None:
-            raise TypeError("Missing 'url' argument")
-
-        _setter("enabled", enabled)
-        _setter("url", url)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
@@ -10281,25 +7329,8 @@ class GetFederatedSbtRepositoryMemberResult(dict):
                status of my own member. The config will be updated on the other federated members automatically.
         :param str url: Full URL to ending with the repository name.
         """
-        GetFederatedSbtRepositoryMemberResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            url=url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enabled is None:
-            raise TypeError("Missing 'enabled' argument")
-        if url is None:
-            raise TypeError("Missing 'url' argument")
-
-        _setter("enabled", enabled)
-        _setter("url", url)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
@@ -10329,25 +7360,8 @@ class GetFederatedSwiftRepositoryMemberResult(dict):
                status of my own member. The config will be updated on the other federated members automatically.
         :param str url: Full URL to ending with the repository name.
         """
-        GetFederatedSwiftRepositoryMemberResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            url=url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enabled is None:
-            raise TypeError("Missing 'enabled' argument")
-        if url is None:
-            raise TypeError("Missing 'url' argument")
-
-        _setter("enabled", enabled)
-        _setter("url", url)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
@@ -10377,25 +7391,8 @@ class GetFederatedTerraformModuleRepositoryMemberResult(dict):
                status of my own member. The config will be updated on the other federated members automatically.
         :param str url: Full URL to ending with the repository name.
         """
-        GetFederatedTerraformModuleRepositoryMemberResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            url=url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enabled is None:
-            raise TypeError("Missing 'enabled' argument")
-        if url is None:
-            raise TypeError("Missing 'url' argument")
-
-        _setter("enabled", enabled)
-        _setter("url", url)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
@@ -10425,25 +7422,8 @@ class GetFederatedTerraformProviderRepositoryMemberResult(dict):
                status of my own member. The config will be updated on the other federated members automatically.
         :param str url: Full URL to ending with the repository name.
         """
-        GetFederatedTerraformProviderRepositoryMemberResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            url=url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enabled is None:
-            raise TypeError("Missing 'enabled' argument")
-        if url is None:
-            raise TypeError("Missing 'url' argument")
-
-        _setter("enabled", enabled)
-        _setter("url", url)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
@@ -10473,25 +7453,8 @@ class GetFederatedVagrantRepositoryMemberResult(dict):
                status of my own member. The config will be updated on the other federated members automatically.
         :param str url: Full URL to ending with the repository name.
         """
-        GetFederatedVagrantRepositoryMemberResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            url=url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enabled is None:
-            raise TypeError("Missing 'enabled' argument")
-        if url is None:
-            raise TypeError("Missing 'url' argument")
-
-        _setter("enabled", enabled)
-        _setter("url", url)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
@@ -10525,36 +7488,13 @@ class GetPermissionTargetBuildResult(dict):
         :param Sequence[str] excludes_patterns: Pattern of artifacts to exclude.
         :param Sequence[str] includes_patterns: Pattern of artifacts to include.
         """
-        GetPermissionTargetBuildResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            repositories=repositories,
-            actions=actions,
-            excludes_patterns=excludes_patterns,
-            includes_patterns=includes_patterns,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             repositories: Optional[Sequence[str]] = None,
-             actions: Optional['outputs.GetPermissionTargetBuildActionsResult'] = None,
-             excludes_patterns: Optional[Sequence[str]] = None,
-             includes_patterns: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if repositories is None:
-            raise TypeError("Missing 'repositories' argument")
-        if excludes_patterns is None and 'excludesPatterns' in kwargs:
-            excludes_patterns = kwargs['excludesPatterns']
-        if includes_patterns is None and 'includesPatterns' in kwargs:
-            includes_patterns = kwargs['includesPatterns']
-
-        _setter("repositories", repositories)
+        pulumi.set(__self__, "repositories", repositories)
         if actions is not None:
-            _setter("actions", actions)
+            pulumi.set(__self__, "actions", actions)
         if excludes_patterns is not None:
-            _setter("excludes_patterns", excludes_patterns)
+            pulumi.set(__self__, "excludes_patterns", excludes_patterns)
         if includes_patterns is not None:
-            _setter("includes_patterns", includes_patterns)
+            pulumi.set(__self__, "includes_patterns", includes_patterns)
 
     @property
     @pulumi.getter
@@ -10597,23 +7537,10 @@ class GetPermissionTargetBuildActionsResult(dict):
         :param Sequence['GetPermissionTargetBuildActionsGroupArgs'] groups: Groups this permission applies for.
         :param Sequence['GetPermissionTargetBuildActionsUserArgs'] users: Users this permission target applies for.
         """
-        GetPermissionTargetBuildActionsResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            groups=groups,
-            users=users,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             groups: Optional[Sequence['outputs.GetPermissionTargetBuildActionsGroupResult']] = None,
-             users: Optional[Sequence['outputs.GetPermissionTargetBuildActionsUserResult']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if groups is not None:
-            _setter("groups", groups)
+            pulumi.set(__self__, "groups", groups)
         if users is not None:
-            _setter("users", users)
+            pulumi.set(__self__, "users", users)
 
     @property
     @pulumi.getter
@@ -10640,25 +7567,8 @@ class GetPermissionTargetBuildActionsGroupResult(dict):
         """
         :param str name: Name of the permission target.
         """
-        GetPermissionTargetBuildActionsGroupResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            permissions=permissions,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[str] = None,
-             permissions: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if permissions is None:
-            raise TypeError("Missing 'permissions' argument")
-
-        _setter("name", name)
-        _setter("permissions", permissions)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "permissions", permissions)
 
     @property
     @pulumi.getter
@@ -10682,25 +7592,8 @@ class GetPermissionTargetBuildActionsUserResult(dict):
         """
         :param str name: Name of the permission target.
         """
-        GetPermissionTargetBuildActionsUserResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            permissions=permissions,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[str] = None,
-             permissions: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if permissions is None:
-            raise TypeError("Missing 'permissions' argument")
-
-        _setter("name", name)
-        _setter("permissions", permissions)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "permissions", permissions)
 
     @property
     @pulumi.getter
@@ -10730,36 +7623,13 @@ class GetPermissionTargetReleaseBundleResult(dict):
         :param Sequence[str] excludes_patterns: Pattern of artifacts to exclude.
         :param Sequence[str] includes_patterns: Pattern of artifacts to include.
         """
-        GetPermissionTargetReleaseBundleResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            repositories=repositories,
-            actions=actions,
-            excludes_patterns=excludes_patterns,
-            includes_patterns=includes_patterns,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             repositories: Optional[Sequence[str]] = None,
-             actions: Optional['outputs.GetPermissionTargetReleaseBundleActionsResult'] = None,
-             excludes_patterns: Optional[Sequence[str]] = None,
-             includes_patterns: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if repositories is None:
-            raise TypeError("Missing 'repositories' argument")
-        if excludes_patterns is None and 'excludesPatterns' in kwargs:
-            excludes_patterns = kwargs['excludesPatterns']
-        if includes_patterns is None and 'includesPatterns' in kwargs:
-            includes_patterns = kwargs['includesPatterns']
-
-        _setter("repositories", repositories)
+        pulumi.set(__self__, "repositories", repositories)
         if actions is not None:
-            _setter("actions", actions)
+            pulumi.set(__self__, "actions", actions)
         if excludes_patterns is not None:
-            _setter("excludes_patterns", excludes_patterns)
+            pulumi.set(__self__, "excludes_patterns", excludes_patterns)
         if includes_patterns is not None:
-            _setter("includes_patterns", includes_patterns)
+            pulumi.set(__self__, "includes_patterns", includes_patterns)
 
     @property
     @pulumi.getter
@@ -10802,23 +7672,10 @@ class GetPermissionTargetReleaseBundleActionsResult(dict):
         :param Sequence['GetPermissionTargetReleaseBundleActionsGroupArgs'] groups: Groups this permission applies for.
         :param Sequence['GetPermissionTargetReleaseBundleActionsUserArgs'] users: Users this permission target applies for.
         """
-        GetPermissionTargetReleaseBundleActionsResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            groups=groups,
-            users=users,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             groups: Optional[Sequence['outputs.GetPermissionTargetReleaseBundleActionsGroupResult']] = None,
-             users: Optional[Sequence['outputs.GetPermissionTargetReleaseBundleActionsUserResult']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if groups is not None:
-            _setter("groups", groups)
+            pulumi.set(__self__, "groups", groups)
         if users is not None:
-            _setter("users", users)
+            pulumi.set(__self__, "users", users)
 
     @property
     @pulumi.getter
@@ -10845,25 +7702,8 @@ class GetPermissionTargetReleaseBundleActionsGroupResult(dict):
         """
         :param str name: Name of the permission target.
         """
-        GetPermissionTargetReleaseBundleActionsGroupResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            permissions=permissions,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[str] = None,
-             permissions: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if permissions is None:
-            raise TypeError("Missing 'permissions' argument")
-
-        _setter("name", name)
-        _setter("permissions", permissions)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "permissions", permissions)
 
     @property
     @pulumi.getter
@@ -10887,25 +7727,8 @@ class GetPermissionTargetReleaseBundleActionsUserResult(dict):
         """
         :param str name: Name of the permission target.
         """
-        GetPermissionTargetReleaseBundleActionsUserResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            permissions=permissions,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[str] = None,
-             permissions: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if permissions is None:
-            raise TypeError("Missing 'permissions' argument")
-
-        _setter("name", name)
-        _setter("permissions", permissions)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "permissions", permissions)
 
     @property
     @pulumi.getter
@@ -10935,36 +7758,13 @@ class GetPermissionTargetRepoResult(dict):
         :param Sequence[str] excludes_patterns: Pattern of artifacts to exclude.
         :param Sequence[str] includes_patterns: Pattern of artifacts to include.
         """
-        GetPermissionTargetRepoResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            repositories=repositories,
-            actions=actions,
-            excludes_patterns=excludes_patterns,
-            includes_patterns=includes_patterns,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             repositories: Optional[Sequence[str]] = None,
-             actions: Optional['outputs.GetPermissionTargetRepoActionsResult'] = None,
-             excludes_patterns: Optional[Sequence[str]] = None,
-             includes_patterns: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if repositories is None:
-            raise TypeError("Missing 'repositories' argument")
-        if excludes_patterns is None and 'excludesPatterns' in kwargs:
-            excludes_patterns = kwargs['excludesPatterns']
-        if includes_patterns is None and 'includesPatterns' in kwargs:
-            includes_patterns = kwargs['includesPatterns']
-
-        _setter("repositories", repositories)
+        pulumi.set(__self__, "repositories", repositories)
         if actions is not None:
-            _setter("actions", actions)
+            pulumi.set(__self__, "actions", actions)
         if excludes_patterns is not None:
-            _setter("excludes_patterns", excludes_patterns)
+            pulumi.set(__self__, "excludes_patterns", excludes_patterns)
         if includes_patterns is not None:
-            _setter("includes_patterns", includes_patterns)
+            pulumi.set(__self__, "includes_patterns", includes_patterns)
 
     @property
     @pulumi.getter
@@ -11007,23 +7807,10 @@ class GetPermissionTargetRepoActionsResult(dict):
         :param Sequence['GetPermissionTargetRepoActionsGroupArgs'] groups: Groups this permission applies for.
         :param Sequence['GetPermissionTargetRepoActionsUserArgs'] users: Users this permission target applies for.
         """
-        GetPermissionTargetRepoActionsResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            groups=groups,
-            users=users,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             groups: Optional[Sequence['outputs.GetPermissionTargetRepoActionsGroupResult']] = None,
-             users: Optional[Sequence['outputs.GetPermissionTargetRepoActionsUserResult']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if groups is not None:
-            _setter("groups", groups)
+            pulumi.set(__self__, "groups", groups)
         if users is not None:
-            _setter("users", users)
+            pulumi.set(__self__, "users", users)
 
     @property
     @pulumi.getter
@@ -11050,25 +7837,8 @@ class GetPermissionTargetRepoActionsGroupResult(dict):
         """
         :param str name: Name of the permission target.
         """
-        GetPermissionTargetRepoActionsGroupResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            permissions=permissions,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[str] = None,
-             permissions: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if permissions is None:
-            raise TypeError("Missing 'permissions' argument")
-
-        _setter("name", name)
-        _setter("permissions", permissions)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "permissions", permissions)
 
     @property
     @pulumi.getter
@@ -11092,25 +7862,8 @@ class GetPermissionTargetRepoActionsUserResult(dict):
         """
         :param str name: Name of the permission target.
         """
-        GetPermissionTargetRepoActionsUserResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            permissions=permissions,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[str] = None,
-             permissions: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if permissions is None:
-            raise TypeError("Missing 'permissions' argument")
-
-        _setter("name", name)
-        _setter("permissions", permissions)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "permissions", permissions)
 
     @property
     @pulumi.getter
@@ -11133,37 +7886,14 @@ class GetRemoteAlpineRepositoryContentSynchronisationResult(dict):
                  properties_enabled: Optional[bool] = None,
                  source_origin_absence_detection: Optional[bool] = None,
                  statistics_enabled: Optional[bool] = None):
-        GetRemoteAlpineRepositoryContentSynchronisationResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            properties_enabled=properties_enabled,
-            source_origin_absence_detection=source_origin_absence_detection,
-            statistics_enabled=statistics_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             properties_enabled: Optional[bool] = None,
-             source_origin_absence_detection: Optional[bool] = None,
-             statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if properties_enabled is None and 'propertiesEnabled' in kwargs:
-            properties_enabled = kwargs['propertiesEnabled']
-        if source_origin_absence_detection is None and 'sourceOriginAbsenceDetection' in kwargs:
-            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
-        if statistics_enabled is None and 'statisticsEnabled' in kwargs:
-            statistics_enabled = kwargs['statisticsEnabled']
-
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if properties_enabled is not None:
-            _setter("properties_enabled", properties_enabled)
+            pulumi.set(__self__, "properties_enabled", properties_enabled)
         if source_origin_absence_detection is not None:
-            _setter("source_origin_absence_detection", source_origin_absence_detection)
+            pulumi.set(__self__, "source_origin_absence_detection", source_origin_absence_detection)
         if statistics_enabled is not None:
-            _setter("statistics_enabled", statistics_enabled)
+            pulumi.set(__self__, "statistics_enabled", statistics_enabled)
 
     @property
     @pulumi.getter
@@ -11193,37 +7923,14 @@ class GetRemoteBowerRepositoryContentSynchronisationResult(dict):
                  properties_enabled: Optional[bool] = None,
                  source_origin_absence_detection: Optional[bool] = None,
                  statistics_enabled: Optional[bool] = None):
-        GetRemoteBowerRepositoryContentSynchronisationResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            properties_enabled=properties_enabled,
-            source_origin_absence_detection=source_origin_absence_detection,
-            statistics_enabled=statistics_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             properties_enabled: Optional[bool] = None,
-             source_origin_absence_detection: Optional[bool] = None,
-             statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if properties_enabled is None and 'propertiesEnabled' in kwargs:
-            properties_enabled = kwargs['propertiesEnabled']
-        if source_origin_absence_detection is None and 'sourceOriginAbsenceDetection' in kwargs:
-            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
-        if statistics_enabled is None and 'statisticsEnabled' in kwargs:
-            statistics_enabled = kwargs['statisticsEnabled']
-
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if properties_enabled is not None:
-            _setter("properties_enabled", properties_enabled)
+            pulumi.set(__self__, "properties_enabled", properties_enabled)
         if source_origin_absence_detection is not None:
-            _setter("source_origin_absence_detection", source_origin_absence_detection)
+            pulumi.set(__self__, "source_origin_absence_detection", source_origin_absence_detection)
         if statistics_enabled is not None:
-            _setter("statistics_enabled", statistics_enabled)
+            pulumi.set(__self__, "statistics_enabled", statistics_enabled)
 
     @property
     @pulumi.getter
@@ -11253,37 +7960,14 @@ class GetRemoteCargoRepositoryContentSynchronisationResult(dict):
                  properties_enabled: Optional[bool] = None,
                  source_origin_absence_detection: Optional[bool] = None,
                  statistics_enabled: Optional[bool] = None):
-        GetRemoteCargoRepositoryContentSynchronisationResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            properties_enabled=properties_enabled,
-            source_origin_absence_detection=source_origin_absence_detection,
-            statistics_enabled=statistics_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             properties_enabled: Optional[bool] = None,
-             source_origin_absence_detection: Optional[bool] = None,
-             statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if properties_enabled is None and 'propertiesEnabled' in kwargs:
-            properties_enabled = kwargs['propertiesEnabled']
-        if source_origin_absence_detection is None and 'sourceOriginAbsenceDetection' in kwargs:
-            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
-        if statistics_enabled is None and 'statisticsEnabled' in kwargs:
-            statistics_enabled = kwargs['statisticsEnabled']
-
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if properties_enabled is not None:
-            _setter("properties_enabled", properties_enabled)
+            pulumi.set(__self__, "properties_enabled", properties_enabled)
         if source_origin_absence_detection is not None:
-            _setter("source_origin_absence_detection", source_origin_absence_detection)
+            pulumi.set(__self__, "source_origin_absence_detection", source_origin_absence_detection)
         if statistics_enabled is not None:
-            _setter("statistics_enabled", statistics_enabled)
+            pulumi.set(__self__, "statistics_enabled", statistics_enabled)
 
     @property
     @pulumi.getter
@@ -11313,37 +7997,14 @@ class GetRemoteChefRepositoryContentSynchronisationResult(dict):
                  properties_enabled: Optional[bool] = None,
                  source_origin_absence_detection: Optional[bool] = None,
                  statistics_enabled: Optional[bool] = None):
-        GetRemoteChefRepositoryContentSynchronisationResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            properties_enabled=properties_enabled,
-            source_origin_absence_detection=source_origin_absence_detection,
-            statistics_enabled=statistics_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             properties_enabled: Optional[bool] = None,
-             source_origin_absence_detection: Optional[bool] = None,
-             statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if properties_enabled is None and 'propertiesEnabled' in kwargs:
-            properties_enabled = kwargs['propertiesEnabled']
-        if source_origin_absence_detection is None and 'sourceOriginAbsenceDetection' in kwargs:
-            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
-        if statistics_enabled is None and 'statisticsEnabled' in kwargs:
-            statistics_enabled = kwargs['statisticsEnabled']
-
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if properties_enabled is not None:
-            _setter("properties_enabled", properties_enabled)
+            pulumi.set(__self__, "properties_enabled", properties_enabled)
         if source_origin_absence_detection is not None:
-            _setter("source_origin_absence_detection", source_origin_absence_detection)
+            pulumi.set(__self__, "source_origin_absence_detection", source_origin_absence_detection)
         if statistics_enabled is not None:
-            _setter("statistics_enabled", statistics_enabled)
+            pulumi.set(__self__, "statistics_enabled", statistics_enabled)
 
     @property
     @pulumi.getter
@@ -11373,37 +8034,14 @@ class GetRemoteCocoapodsRepositoryContentSynchronisationResult(dict):
                  properties_enabled: Optional[bool] = None,
                  source_origin_absence_detection: Optional[bool] = None,
                  statistics_enabled: Optional[bool] = None):
-        GetRemoteCocoapodsRepositoryContentSynchronisationResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            properties_enabled=properties_enabled,
-            source_origin_absence_detection=source_origin_absence_detection,
-            statistics_enabled=statistics_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             properties_enabled: Optional[bool] = None,
-             source_origin_absence_detection: Optional[bool] = None,
-             statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if properties_enabled is None and 'propertiesEnabled' in kwargs:
-            properties_enabled = kwargs['propertiesEnabled']
-        if source_origin_absence_detection is None and 'sourceOriginAbsenceDetection' in kwargs:
-            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
-        if statistics_enabled is None and 'statisticsEnabled' in kwargs:
-            statistics_enabled = kwargs['statisticsEnabled']
-
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if properties_enabled is not None:
-            _setter("properties_enabled", properties_enabled)
+            pulumi.set(__self__, "properties_enabled", properties_enabled)
         if source_origin_absence_detection is not None:
-            _setter("source_origin_absence_detection", source_origin_absence_detection)
+            pulumi.set(__self__, "source_origin_absence_detection", source_origin_absence_detection)
         if statistics_enabled is not None:
-            _setter("statistics_enabled", statistics_enabled)
+            pulumi.set(__self__, "statistics_enabled", statistics_enabled)
 
     @property
     @pulumi.getter
@@ -11433,37 +8071,14 @@ class GetRemoteComposerRepositoryContentSynchronisationResult(dict):
                  properties_enabled: Optional[bool] = None,
                  source_origin_absence_detection: Optional[bool] = None,
                  statistics_enabled: Optional[bool] = None):
-        GetRemoteComposerRepositoryContentSynchronisationResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            properties_enabled=properties_enabled,
-            source_origin_absence_detection=source_origin_absence_detection,
-            statistics_enabled=statistics_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             properties_enabled: Optional[bool] = None,
-             source_origin_absence_detection: Optional[bool] = None,
-             statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if properties_enabled is None and 'propertiesEnabled' in kwargs:
-            properties_enabled = kwargs['propertiesEnabled']
-        if source_origin_absence_detection is None and 'sourceOriginAbsenceDetection' in kwargs:
-            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
-        if statistics_enabled is None and 'statisticsEnabled' in kwargs:
-            statistics_enabled = kwargs['statisticsEnabled']
-
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if properties_enabled is not None:
-            _setter("properties_enabled", properties_enabled)
+            pulumi.set(__self__, "properties_enabled", properties_enabled)
         if source_origin_absence_detection is not None:
-            _setter("source_origin_absence_detection", source_origin_absence_detection)
+            pulumi.set(__self__, "source_origin_absence_detection", source_origin_absence_detection)
         if statistics_enabled is not None:
-            _setter("statistics_enabled", statistics_enabled)
+            pulumi.set(__self__, "statistics_enabled", statistics_enabled)
 
     @property
     @pulumi.getter
@@ -11493,37 +8108,14 @@ class GetRemoteConanRepositoryContentSynchronisationResult(dict):
                  properties_enabled: Optional[bool] = None,
                  source_origin_absence_detection: Optional[bool] = None,
                  statistics_enabled: Optional[bool] = None):
-        GetRemoteConanRepositoryContentSynchronisationResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            properties_enabled=properties_enabled,
-            source_origin_absence_detection=source_origin_absence_detection,
-            statistics_enabled=statistics_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             properties_enabled: Optional[bool] = None,
-             source_origin_absence_detection: Optional[bool] = None,
-             statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if properties_enabled is None and 'propertiesEnabled' in kwargs:
-            properties_enabled = kwargs['propertiesEnabled']
-        if source_origin_absence_detection is None and 'sourceOriginAbsenceDetection' in kwargs:
-            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
-        if statistics_enabled is None and 'statisticsEnabled' in kwargs:
-            statistics_enabled = kwargs['statisticsEnabled']
-
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if properties_enabled is not None:
-            _setter("properties_enabled", properties_enabled)
+            pulumi.set(__self__, "properties_enabled", properties_enabled)
         if source_origin_absence_detection is not None:
-            _setter("source_origin_absence_detection", source_origin_absence_detection)
+            pulumi.set(__self__, "source_origin_absence_detection", source_origin_absence_detection)
         if statistics_enabled is not None:
-            _setter("statistics_enabled", statistics_enabled)
+            pulumi.set(__self__, "statistics_enabled", statistics_enabled)
 
     @property
     @pulumi.getter
@@ -11553,37 +8145,14 @@ class GetRemoteCondaRepositoryContentSynchronisationResult(dict):
                  properties_enabled: Optional[bool] = None,
                  source_origin_absence_detection: Optional[bool] = None,
                  statistics_enabled: Optional[bool] = None):
-        GetRemoteCondaRepositoryContentSynchronisationResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            properties_enabled=properties_enabled,
-            source_origin_absence_detection=source_origin_absence_detection,
-            statistics_enabled=statistics_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             properties_enabled: Optional[bool] = None,
-             source_origin_absence_detection: Optional[bool] = None,
-             statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if properties_enabled is None and 'propertiesEnabled' in kwargs:
-            properties_enabled = kwargs['propertiesEnabled']
-        if source_origin_absence_detection is None and 'sourceOriginAbsenceDetection' in kwargs:
-            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
-        if statistics_enabled is None and 'statisticsEnabled' in kwargs:
-            statistics_enabled = kwargs['statisticsEnabled']
-
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if properties_enabled is not None:
-            _setter("properties_enabled", properties_enabled)
+            pulumi.set(__self__, "properties_enabled", properties_enabled)
         if source_origin_absence_detection is not None:
-            _setter("source_origin_absence_detection", source_origin_absence_detection)
+            pulumi.set(__self__, "source_origin_absence_detection", source_origin_absence_detection)
         if statistics_enabled is not None:
-            _setter("statistics_enabled", statistics_enabled)
+            pulumi.set(__self__, "statistics_enabled", statistics_enabled)
 
     @property
     @pulumi.getter
@@ -11613,37 +8182,14 @@ class GetRemoteCranRepositoryContentSynchronisationResult(dict):
                  properties_enabled: Optional[bool] = None,
                  source_origin_absence_detection: Optional[bool] = None,
                  statistics_enabled: Optional[bool] = None):
-        GetRemoteCranRepositoryContentSynchronisationResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            properties_enabled=properties_enabled,
-            source_origin_absence_detection=source_origin_absence_detection,
-            statistics_enabled=statistics_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             properties_enabled: Optional[bool] = None,
-             source_origin_absence_detection: Optional[bool] = None,
-             statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if properties_enabled is None and 'propertiesEnabled' in kwargs:
-            properties_enabled = kwargs['propertiesEnabled']
-        if source_origin_absence_detection is None and 'sourceOriginAbsenceDetection' in kwargs:
-            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
-        if statistics_enabled is None and 'statisticsEnabled' in kwargs:
-            statistics_enabled = kwargs['statisticsEnabled']
-
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if properties_enabled is not None:
-            _setter("properties_enabled", properties_enabled)
+            pulumi.set(__self__, "properties_enabled", properties_enabled)
         if source_origin_absence_detection is not None:
-            _setter("source_origin_absence_detection", source_origin_absence_detection)
+            pulumi.set(__self__, "source_origin_absence_detection", source_origin_absence_detection)
         if statistics_enabled is not None:
-            _setter("statistics_enabled", statistics_enabled)
+            pulumi.set(__self__, "statistics_enabled", statistics_enabled)
 
     @property
     @pulumi.getter
@@ -11673,37 +8219,14 @@ class GetRemoteDebianRepositoryContentSynchronisationResult(dict):
                  properties_enabled: Optional[bool] = None,
                  source_origin_absence_detection: Optional[bool] = None,
                  statistics_enabled: Optional[bool] = None):
-        GetRemoteDebianRepositoryContentSynchronisationResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            properties_enabled=properties_enabled,
-            source_origin_absence_detection=source_origin_absence_detection,
-            statistics_enabled=statistics_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             properties_enabled: Optional[bool] = None,
-             source_origin_absence_detection: Optional[bool] = None,
-             statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if properties_enabled is None and 'propertiesEnabled' in kwargs:
-            properties_enabled = kwargs['propertiesEnabled']
-        if source_origin_absence_detection is None and 'sourceOriginAbsenceDetection' in kwargs:
-            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
-        if statistics_enabled is None and 'statisticsEnabled' in kwargs:
-            statistics_enabled = kwargs['statisticsEnabled']
-
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if properties_enabled is not None:
-            _setter("properties_enabled", properties_enabled)
+            pulumi.set(__self__, "properties_enabled", properties_enabled)
         if source_origin_absence_detection is not None:
-            _setter("source_origin_absence_detection", source_origin_absence_detection)
+            pulumi.set(__self__, "source_origin_absence_detection", source_origin_absence_detection)
         if statistics_enabled is not None:
-            _setter("statistics_enabled", statistics_enabled)
+            pulumi.set(__self__, "statistics_enabled", statistics_enabled)
 
     @property
     @pulumi.getter
@@ -11733,37 +8256,14 @@ class GetRemoteDockerRepositoryContentSynchronisationResult(dict):
                  properties_enabled: Optional[bool] = None,
                  source_origin_absence_detection: Optional[bool] = None,
                  statistics_enabled: Optional[bool] = None):
-        GetRemoteDockerRepositoryContentSynchronisationResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            properties_enabled=properties_enabled,
-            source_origin_absence_detection=source_origin_absence_detection,
-            statistics_enabled=statistics_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             properties_enabled: Optional[bool] = None,
-             source_origin_absence_detection: Optional[bool] = None,
-             statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if properties_enabled is None and 'propertiesEnabled' in kwargs:
-            properties_enabled = kwargs['propertiesEnabled']
-        if source_origin_absence_detection is None and 'sourceOriginAbsenceDetection' in kwargs:
-            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
-        if statistics_enabled is None and 'statisticsEnabled' in kwargs:
-            statistics_enabled = kwargs['statisticsEnabled']
-
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if properties_enabled is not None:
-            _setter("properties_enabled", properties_enabled)
+            pulumi.set(__self__, "properties_enabled", properties_enabled)
         if source_origin_absence_detection is not None:
-            _setter("source_origin_absence_detection", source_origin_absence_detection)
+            pulumi.set(__self__, "source_origin_absence_detection", source_origin_absence_detection)
         if statistics_enabled is not None:
-            _setter("statistics_enabled", statistics_enabled)
+            pulumi.set(__self__, "statistics_enabled", statistics_enabled)
 
     @property
     @pulumi.getter
@@ -11793,37 +8293,14 @@ class GetRemoteGemsRepositoryContentSynchronisationResult(dict):
                  properties_enabled: Optional[bool] = None,
                  source_origin_absence_detection: Optional[bool] = None,
                  statistics_enabled: Optional[bool] = None):
-        GetRemoteGemsRepositoryContentSynchronisationResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            properties_enabled=properties_enabled,
-            source_origin_absence_detection=source_origin_absence_detection,
-            statistics_enabled=statistics_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             properties_enabled: Optional[bool] = None,
-             source_origin_absence_detection: Optional[bool] = None,
-             statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if properties_enabled is None and 'propertiesEnabled' in kwargs:
-            properties_enabled = kwargs['propertiesEnabled']
-        if source_origin_absence_detection is None and 'sourceOriginAbsenceDetection' in kwargs:
-            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
-        if statistics_enabled is None and 'statisticsEnabled' in kwargs:
-            statistics_enabled = kwargs['statisticsEnabled']
-
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if properties_enabled is not None:
-            _setter("properties_enabled", properties_enabled)
+            pulumi.set(__self__, "properties_enabled", properties_enabled)
         if source_origin_absence_detection is not None:
-            _setter("source_origin_absence_detection", source_origin_absence_detection)
+            pulumi.set(__self__, "source_origin_absence_detection", source_origin_absence_detection)
         if statistics_enabled is not None:
-            _setter("statistics_enabled", statistics_enabled)
+            pulumi.set(__self__, "statistics_enabled", statistics_enabled)
 
     @property
     @pulumi.getter
@@ -11853,37 +8330,14 @@ class GetRemoteGenericRepositoryContentSynchronisationResult(dict):
                  properties_enabled: Optional[bool] = None,
                  source_origin_absence_detection: Optional[bool] = None,
                  statistics_enabled: Optional[bool] = None):
-        GetRemoteGenericRepositoryContentSynchronisationResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            properties_enabled=properties_enabled,
-            source_origin_absence_detection=source_origin_absence_detection,
-            statistics_enabled=statistics_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             properties_enabled: Optional[bool] = None,
-             source_origin_absence_detection: Optional[bool] = None,
-             statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if properties_enabled is None and 'propertiesEnabled' in kwargs:
-            properties_enabled = kwargs['propertiesEnabled']
-        if source_origin_absence_detection is None and 'sourceOriginAbsenceDetection' in kwargs:
-            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
-        if statistics_enabled is None and 'statisticsEnabled' in kwargs:
-            statistics_enabled = kwargs['statisticsEnabled']
-
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if properties_enabled is not None:
-            _setter("properties_enabled", properties_enabled)
+            pulumi.set(__self__, "properties_enabled", properties_enabled)
         if source_origin_absence_detection is not None:
-            _setter("source_origin_absence_detection", source_origin_absence_detection)
+            pulumi.set(__self__, "source_origin_absence_detection", source_origin_absence_detection)
         if statistics_enabled is not None:
-            _setter("statistics_enabled", statistics_enabled)
+            pulumi.set(__self__, "statistics_enabled", statistics_enabled)
 
     @property
     @pulumi.getter
@@ -11913,37 +8367,14 @@ class GetRemoteGitlfsRepositoryContentSynchronisationResult(dict):
                  properties_enabled: Optional[bool] = None,
                  source_origin_absence_detection: Optional[bool] = None,
                  statistics_enabled: Optional[bool] = None):
-        GetRemoteGitlfsRepositoryContentSynchronisationResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            properties_enabled=properties_enabled,
-            source_origin_absence_detection=source_origin_absence_detection,
-            statistics_enabled=statistics_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             properties_enabled: Optional[bool] = None,
-             source_origin_absence_detection: Optional[bool] = None,
-             statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if properties_enabled is None and 'propertiesEnabled' in kwargs:
-            properties_enabled = kwargs['propertiesEnabled']
-        if source_origin_absence_detection is None and 'sourceOriginAbsenceDetection' in kwargs:
-            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
-        if statistics_enabled is None and 'statisticsEnabled' in kwargs:
-            statistics_enabled = kwargs['statisticsEnabled']
-
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if properties_enabled is not None:
-            _setter("properties_enabled", properties_enabled)
+            pulumi.set(__self__, "properties_enabled", properties_enabled)
         if source_origin_absence_detection is not None:
-            _setter("source_origin_absence_detection", source_origin_absence_detection)
+            pulumi.set(__self__, "source_origin_absence_detection", source_origin_absence_detection)
         if statistics_enabled is not None:
-            _setter("statistics_enabled", statistics_enabled)
+            pulumi.set(__self__, "statistics_enabled", statistics_enabled)
 
     @property
     @pulumi.getter
@@ -11973,37 +8404,14 @@ class GetRemoteGoRepositoryContentSynchronisationResult(dict):
                  properties_enabled: Optional[bool] = None,
                  source_origin_absence_detection: Optional[bool] = None,
                  statistics_enabled: Optional[bool] = None):
-        GetRemoteGoRepositoryContentSynchronisationResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            properties_enabled=properties_enabled,
-            source_origin_absence_detection=source_origin_absence_detection,
-            statistics_enabled=statistics_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             properties_enabled: Optional[bool] = None,
-             source_origin_absence_detection: Optional[bool] = None,
-             statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if properties_enabled is None and 'propertiesEnabled' in kwargs:
-            properties_enabled = kwargs['propertiesEnabled']
-        if source_origin_absence_detection is None and 'sourceOriginAbsenceDetection' in kwargs:
-            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
-        if statistics_enabled is None and 'statisticsEnabled' in kwargs:
-            statistics_enabled = kwargs['statisticsEnabled']
-
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if properties_enabled is not None:
-            _setter("properties_enabled", properties_enabled)
+            pulumi.set(__self__, "properties_enabled", properties_enabled)
         if source_origin_absence_detection is not None:
-            _setter("source_origin_absence_detection", source_origin_absence_detection)
+            pulumi.set(__self__, "source_origin_absence_detection", source_origin_absence_detection)
         if statistics_enabled is not None:
-            _setter("statistics_enabled", statistics_enabled)
+            pulumi.set(__self__, "statistics_enabled", statistics_enabled)
 
     @property
     @pulumi.getter
@@ -12033,37 +8441,14 @@ class GetRemoteGradleRepositoryContentSynchronisationResult(dict):
                  properties_enabled: Optional[bool] = None,
                  source_origin_absence_detection: Optional[bool] = None,
                  statistics_enabled: Optional[bool] = None):
-        GetRemoteGradleRepositoryContentSynchronisationResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            properties_enabled=properties_enabled,
-            source_origin_absence_detection=source_origin_absence_detection,
-            statistics_enabled=statistics_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             properties_enabled: Optional[bool] = None,
-             source_origin_absence_detection: Optional[bool] = None,
-             statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if properties_enabled is None and 'propertiesEnabled' in kwargs:
-            properties_enabled = kwargs['propertiesEnabled']
-        if source_origin_absence_detection is None and 'sourceOriginAbsenceDetection' in kwargs:
-            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
-        if statistics_enabled is None and 'statisticsEnabled' in kwargs:
-            statistics_enabled = kwargs['statisticsEnabled']
-
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if properties_enabled is not None:
-            _setter("properties_enabled", properties_enabled)
+            pulumi.set(__self__, "properties_enabled", properties_enabled)
         if source_origin_absence_detection is not None:
-            _setter("source_origin_absence_detection", source_origin_absence_detection)
+            pulumi.set(__self__, "source_origin_absence_detection", source_origin_absence_detection)
         if statistics_enabled is not None:
-            _setter("statistics_enabled", statistics_enabled)
+            pulumi.set(__self__, "statistics_enabled", statistics_enabled)
 
     @property
     @pulumi.getter
@@ -12093,37 +8478,14 @@ class GetRemoteHelmRepositoryContentSynchronisationResult(dict):
                  properties_enabled: Optional[bool] = None,
                  source_origin_absence_detection: Optional[bool] = None,
                  statistics_enabled: Optional[bool] = None):
-        GetRemoteHelmRepositoryContentSynchronisationResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            properties_enabled=properties_enabled,
-            source_origin_absence_detection=source_origin_absence_detection,
-            statistics_enabled=statistics_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             properties_enabled: Optional[bool] = None,
-             source_origin_absence_detection: Optional[bool] = None,
-             statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if properties_enabled is None and 'propertiesEnabled' in kwargs:
-            properties_enabled = kwargs['propertiesEnabled']
-        if source_origin_absence_detection is None and 'sourceOriginAbsenceDetection' in kwargs:
-            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
-        if statistics_enabled is None and 'statisticsEnabled' in kwargs:
-            statistics_enabled = kwargs['statisticsEnabled']
-
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if properties_enabled is not None:
-            _setter("properties_enabled", properties_enabled)
+            pulumi.set(__self__, "properties_enabled", properties_enabled)
         if source_origin_absence_detection is not None:
-            _setter("source_origin_absence_detection", source_origin_absence_detection)
+            pulumi.set(__self__, "source_origin_absence_detection", source_origin_absence_detection)
         if statistics_enabled is not None:
-            _setter("statistics_enabled", statistics_enabled)
+            pulumi.set(__self__, "statistics_enabled", statistics_enabled)
 
     @property
     @pulumi.getter
@@ -12153,37 +8515,14 @@ class GetRemoteIvyRepositoryContentSynchronisationResult(dict):
                  properties_enabled: Optional[bool] = None,
                  source_origin_absence_detection: Optional[bool] = None,
                  statistics_enabled: Optional[bool] = None):
-        GetRemoteIvyRepositoryContentSynchronisationResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            properties_enabled=properties_enabled,
-            source_origin_absence_detection=source_origin_absence_detection,
-            statistics_enabled=statistics_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             properties_enabled: Optional[bool] = None,
-             source_origin_absence_detection: Optional[bool] = None,
-             statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if properties_enabled is None and 'propertiesEnabled' in kwargs:
-            properties_enabled = kwargs['propertiesEnabled']
-        if source_origin_absence_detection is None and 'sourceOriginAbsenceDetection' in kwargs:
-            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
-        if statistics_enabled is None and 'statisticsEnabled' in kwargs:
-            statistics_enabled = kwargs['statisticsEnabled']
-
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if properties_enabled is not None:
-            _setter("properties_enabled", properties_enabled)
+            pulumi.set(__self__, "properties_enabled", properties_enabled)
         if source_origin_absence_detection is not None:
-            _setter("source_origin_absence_detection", source_origin_absence_detection)
+            pulumi.set(__self__, "source_origin_absence_detection", source_origin_absence_detection)
         if statistics_enabled is not None:
-            _setter("statistics_enabled", statistics_enabled)
+            pulumi.set(__self__, "statistics_enabled", statistics_enabled)
 
     @property
     @pulumi.getter
@@ -12213,37 +8552,14 @@ class GetRemoteMavenRepositoryContentSynchronisationResult(dict):
                  properties_enabled: Optional[bool] = None,
                  source_origin_absence_detection: Optional[bool] = None,
                  statistics_enabled: Optional[bool] = None):
-        GetRemoteMavenRepositoryContentSynchronisationResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            properties_enabled=properties_enabled,
-            source_origin_absence_detection=source_origin_absence_detection,
-            statistics_enabled=statistics_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             properties_enabled: Optional[bool] = None,
-             source_origin_absence_detection: Optional[bool] = None,
-             statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if properties_enabled is None and 'propertiesEnabled' in kwargs:
-            properties_enabled = kwargs['propertiesEnabled']
-        if source_origin_absence_detection is None and 'sourceOriginAbsenceDetection' in kwargs:
-            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
-        if statistics_enabled is None and 'statisticsEnabled' in kwargs:
-            statistics_enabled = kwargs['statisticsEnabled']
-
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if properties_enabled is not None:
-            _setter("properties_enabled", properties_enabled)
+            pulumi.set(__self__, "properties_enabled", properties_enabled)
         if source_origin_absence_detection is not None:
-            _setter("source_origin_absence_detection", source_origin_absence_detection)
+            pulumi.set(__self__, "source_origin_absence_detection", source_origin_absence_detection)
         if statistics_enabled is not None:
-            _setter("statistics_enabled", statistics_enabled)
+            pulumi.set(__self__, "statistics_enabled", statistics_enabled)
 
     @property
     @pulumi.getter
@@ -12273,37 +8589,14 @@ class GetRemoteNpmRepositoryContentSynchronisationResult(dict):
                  properties_enabled: Optional[bool] = None,
                  source_origin_absence_detection: Optional[bool] = None,
                  statistics_enabled: Optional[bool] = None):
-        GetRemoteNpmRepositoryContentSynchronisationResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            properties_enabled=properties_enabled,
-            source_origin_absence_detection=source_origin_absence_detection,
-            statistics_enabled=statistics_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             properties_enabled: Optional[bool] = None,
-             source_origin_absence_detection: Optional[bool] = None,
-             statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if properties_enabled is None and 'propertiesEnabled' in kwargs:
-            properties_enabled = kwargs['propertiesEnabled']
-        if source_origin_absence_detection is None and 'sourceOriginAbsenceDetection' in kwargs:
-            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
-        if statistics_enabled is None and 'statisticsEnabled' in kwargs:
-            statistics_enabled = kwargs['statisticsEnabled']
-
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if properties_enabled is not None:
-            _setter("properties_enabled", properties_enabled)
+            pulumi.set(__self__, "properties_enabled", properties_enabled)
         if source_origin_absence_detection is not None:
-            _setter("source_origin_absence_detection", source_origin_absence_detection)
+            pulumi.set(__self__, "source_origin_absence_detection", source_origin_absence_detection)
         if statistics_enabled is not None:
-            _setter("statistics_enabled", statistics_enabled)
+            pulumi.set(__self__, "statistics_enabled", statistics_enabled)
 
     @property
     @pulumi.getter
@@ -12333,37 +8626,14 @@ class GetRemoteNugetRepositoryContentSynchronisationResult(dict):
                  properties_enabled: Optional[bool] = None,
                  source_origin_absence_detection: Optional[bool] = None,
                  statistics_enabled: Optional[bool] = None):
-        GetRemoteNugetRepositoryContentSynchronisationResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            properties_enabled=properties_enabled,
-            source_origin_absence_detection=source_origin_absence_detection,
-            statistics_enabled=statistics_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             properties_enabled: Optional[bool] = None,
-             source_origin_absence_detection: Optional[bool] = None,
-             statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if properties_enabled is None and 'propertiesEnabled' in kwargs:
-            properties_enabled = kwargs['propertiesEnabled']
-        if source_origin_absence_detection is None and 'sourceOriginAbsenceDetection' in kwargs:
-            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
-        if statistics_enabled is None and 'statisticsEnabled' in kwargs:
-            statistics_enabled = kwargs['statisticsEnabled']
-
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if properties_enabled is not None:
-            _setter("properties_enabled", properties_enabled)
+            pulumi.set(__self__, "properties_enabled", properties_enabled)
         if source_origin_absence_detection is not None:
-            _setter("source_origin_absence_detection", source_origin_absence_detection)
+            pulumi.set(__self__, "source_origin_absence_detection", source_origin_absence_detection)
         if statistics_enabled is not None:
-            _setter("statistics_enabled", statistics_enabled)
+            pulumi.set(__self__, "statistics_enabled", statistics_enabled)
 
     @property
     @pulumi.getter
@@ -12393,37 +8663,14 @@ class GetRemoteOpkgRepositoryContentSynchronisationResult(dict):
                  properties_enabled: Optional[bool] = None,
                  source_origin_absence_detection: Optional[bool] = None,
                  statistics_enabled: Optional[bool] = None):
-        GetRemoteOpkgRepositoryContentSynchronisationResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            properties_enabled=properties_enabled,
-            source_origin_absence_detection=source_origin_absence_detection,
-            statistics_enabled=statistics_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             properties_enabled: Optional[bool] = None,
-             source_origin_absence_detection: Optional[bool] = None,
-             statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if properties_enabled is None and 'propertiesEnabled' in kwargs:
-            properties_enabled = kwargs['propertiesEnabled']
-        if source_origin_absence_detection is None and 'sourceOriginAbsenceDetection' in kwargs:
-            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
-        if statistics_enabled is None and 'statisticsEnabled' in kwargs:
-            statistics_enabled = kwargs['statisticsEnabled']
-
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if properties_enabled is not None:
-            _setter("properties_enabled", properties_enabled)
+            pulumi.set(__self__, "properties_enabled", properties_enabled)
         if source_origin_absence_detection is not None:
-            _setter("source_origin_absence_detection", source_origin_absence_detection)
+            pulumi.set(__self__, "source_origin_absence_detection", source_origin_absence_detection)
         if statistics_enabled is not None:
-            _setter("statistics_enabled", statistics_enabled)
+            pulumi.set(__self__, "statistics_enabled", statistics_enabled)
 
     @property
     @pulumi.getter
@@ -12453,37 +8700,14 @@ class GetRemoteP2RepositoryContentSynchronisationResult(dict):
                  properties_enabled: Optional[bool] = None,
                  source_origin_absence_detection: Optional[bool] = None,
                  statistics_enabled: Optional[bool] = None):
-        GetRemoteP2RepositoryContentSynchronisationResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            properties_enabled=properties_enabled,
-            source_origin_absence_detection=source_origin_absence_detection,
-            statistics_enabled=statistics_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             properties_enabled: Optional[bool] = None,
-             source_origin_absence_detection: Optional[bool] = None,
-             statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if properties_enabled is None and 'propertiesEnabled' in kwargs:
-            properties_enabled = kwargs['propertiesEnabled']
-        if source_origin_absence_detection is None and 'sourceOriginAbsenceDetection' in kwargs:
-            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
-        if statistics_enabled is None and 'statisticsEnabled' in kwargs:
-            statistics_enabled = kwargs['statisticsEnabled']
-
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if properties_enabled is not None:
-            _setter("properties_enabled", properties_enabled)
+            pulumi.set(__self__, "properties_enabled", properties_enabled)
         if source_origin_absence_detection is not None:
-            _setter("source_origin_absence_detection", source_origin_absence_detection)
+            pulumi.set(__self__, "source_origin_absence_detection", source_origin_absence_detection)
         if statistics_enabled is not None:
-            _setter("statistics_enabled", statistics_enabled)
+            pulumi.set(__self__, "statistics_enabled", statistics_enabled)
 
     @property
     @pulumi.getter
@@ -12513,37 +8737,14 @@ class GetRemotePubRepositoryContentSynchronisationResult(dict):
                  properties_enabled: Optional[bool] = None,
                  source_origin_absence_detection: Optional[bool] = None,
                  statistics_enabled: Optional[bool] = None):
-        GetRemotePubRepositoryContentSynchronisationResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            properties_enabled=properties_enabled,
-            source_origin_absence_detection=source_origin_absence_detection,
-            statistics_enabled=statistics_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             properties_enabled: Optional[bool] = None,
-             source_origin_absence_detection: Optional[bool] = None,
-             statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if properties_enabled is None and 'propertiesEnabled' in kwargs:
-            properties_enabled = kwargs['propertiesEnabled']
-        if source_origin_absence_detection is None and 'sourceOriginAbsenceDetection' in kwargs:
-            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
-        if statistics_enabled is None and 'statisticsEnabled' in kwargs:
-            statistics_enabled = kwargs['statisticsEnabled']
-
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if properties_enabled is not None:
-            _setter("properties_enabled", properties_enabled)
+            pulumi.set(__self__, "properties_enabled", properties_enabled)
         if source_origin_absence_detection is not None:
-            _setter("source_origin_absence_detection", source_origin_absence_detection)
+            pulumi.set(__self__, "source_origin_absence_detection", source_origin_absence_detection)
         if statistics_enabled is not None:
-            _setter("statistics_enabled", statistics_enabled)
+            pulumi.set(__self__, "statistics_enabled", statistics_enabled)
 
     @property
     @pulumi.getter
@@ -12573,37 +8774,14 @@ class GetRemotePuppetRepositoryContentSynchronisationResult(dict):
                  properties_enabled: Optional[bool] = None,
                  source_origin_absence_detection: Optional[bool] = None,
                  statistics_enabled: Optional[bool] = None):
-        GetRemotePuppetRepositoryContentSynchronisationResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            properties_enabled=properties_enabled,
-            source_origin_absence_detection=source_origin_absence_detection,
-            statistics_enabled=statistics_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             properties_enabled: Optional[bool] = None,
-             source_origin_absence_detection: Optional[bool] = None,
-             statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if properties_enabled is None and 'propertiesEnabled' in kwargs:
-            properties_enabled = kwargs['propertiesEnabled']
-        if source_origin_absence_detection is None and 'sourceOriginAbsenceDetection' in kwargs:
-            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
-        if statistics_enabled is None and 'statisticsEnabled' in kwargs:
-            statistics_enabled = kwargs['statisticsEnabled']
-
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if properties_enabled is not None:
-            _setter("properties_enabled", properties_enabled)
+            pulumi.set(__self__, "properties_enabled", properties_enabled)
         if source_origin_absence_detection is not None:
-            _setter("source_origin_absence_detection", source_origin_absence_detection)
+            pulumi.set(__self__, "source_origin_absence_detection", source_origin_absence_detection)
         if statistics_enabled is not None:
-            _setter("statistics_enabled", statistics_enabled)
+            pulumi.set(__self__, "statistics_enabled", statistics_enabled)
 
     @property
     @pulumi.getter
@@ -12633,37 +8811,14 @@ class GetRemotePypiRepositoryContentSynchronisationResult(dict):
                  properties_enabled: Optional[bool] = None,
                  source_origin_absence_detection: Optional[bool] = None,
                  statistics_enabled: Optional[bool] = None):
-        GetRemotePypiRepositoryContentSynchronisationResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            properties_enabled=properties_enabled,
-            source_origin_absence_detection=source_origin_absence_detection,
-            statistics_enabled=statistics_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             properties_enabled: Optional[bool] = None,
-             source_origin_absence_detection: Optional[bool] = None,
-             statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if properties_enabled is None and 'propertiesEnabled' in kwargs:
-            properties_enabled = kwargs['propertiesEnabled']
-        if source_origin_absence_detection is None and 'sourceOriginAbsenceDetection' in kwargs:
-            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
-        if statistics_enabled is None and 'statisticsEnabled' in kwargs:
-            statistics_enabled = kwargs['statisticsEnabled']
-
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if properties_enabled is not None:
-            _setter("properties_enabled", properties_enabled)
+            pulumi.set(__self__, "properties_enabled", properties_enabled)
         if source_origin_absence_detection is not None:
-            _setter("source_origin_absence_detection", source_origin_absence_detection)
+            pulumi.set(__self__, "source_origin_absence_detection", source_origin_absence_detection)
         if statistics_enabled is not None:
-            _setter("statistics_enabled", statistics_enabled)
+            pulumi.set(__self__, "statistics_enabled", statistics_enabled)
 
     @property
     @pulumi.getter
@@ -12693,37 +8848,14 @@ class GetRemoteRpmRepositoryContentSynchronisationResult(dict):
                  properties_enabled: Optional[bool] = None,
                  source_origin_absence_detection: Optional[bool] = None,
                  statistics_enabled: Optional[bool] = None):
-        GetRemoteRpmRepositoryContentSynchronisationResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            properties_enabled=properties_enabled,
-            source_origin_absence_detection=source_origin_absence_detection,
-            statistics_enabled=statistics_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             properties_enabled: Optional[bool] = None,
-             source_origin_absence_detection: Optional[bool] = None,
-             statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if properties_enabled is None and 'propertiesEnabled' in kwargs:
-            properties_enabled = kwargs['propertiesEnabled']
-        if source_origin_absence_detection is None and 'sourceOriginAbsenceDetection' in kwargs:
-            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
-        if statistics_enabled is None and 'statisticsEnabled' in kwargs:
-            statistics_enabled = kwargs['statisticsEnabled']
-
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if properties_enabled is not None:
-            _setter("properties_enabled", properties_enabled)
+            pulumi.set(__self__, "properties_enabled", properties_enabled)
         if source_origin_absence_detection is not None:
-            _setter("source_origin_absence_detection", source_origin_absence_detection)
+            pulumi.set(__self__, "source_origin_absence_detection", source_origin_absence_detection)
         if statistics_enabled is not None:
-            _setter("statistics_enabled", statistics_enabled)
+            pulumi.set(__self__, "statistics_enabled", statistics_enabled)
 
     @property
     @pulumi.getter
@@ -12753,37 +8885,14 @@ class GetRemoteSbtRepositoryContentSynchronisationResult(dict):
                  properties_enabled: Optional[bool] = None,
                  source_origin_absence_detection: Optional[bool] = None,
                  statistics_enabled: Optional[bool] = None):
-        GetRemoteSbtRepositoryContentSynchronisationResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            properties_enabled=properties_enabled,
-            source_origin_absence_detection=source_origin_absence_detection,
-            statistics_enabled=statistics_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             properties_enabled: Optional[bool] = None,
-             source_origin_absence_detection: Optional[bool] = None,
-             statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if properties_enabled is None and 'propertiesEnabled' in kwargs:
-            properties_enabled = kwargs['propertiesEnabled']
-        if source_origin_absence_detection is None and 'sourceOriginAbsenceDetection' in kwargs:
-            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
-        if statistics_enabled is None and 'statisticsEnabled' in kwargs:
-            statistics_enabled = kwargs['statisticsEnabled']
-
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if properties_enabled is not None:
-            _setter("properties_enabled", properties_enabled)
+            pulumi.set(__self__, "properties_enabled", properties_enabled)
         if source_origin_absence_detection is not None:
-            _setter("source_origin_absence_detection", source_origin_absence_detection)
+            pulumi.set(__self__, "source_origin_absence_detection", source_origin_absence_detection)
         if statistics_enabled is not None:
-            _setter("statistics_enabled", statistics_enabled)
+            pulumi.set(__self__, "statistics_enabled", statistics_enabled)
 
     @property
     @pulumi.getter
@@ -12813,37 +8922,14 @@ class GetRemoteSwiftRepositoryContentSynchronisationResult(dict):
                  properties_enabled: Optional[bool] = None,
                  source_origin_absence_detection: Optional[bool] = None,
                  statistics_enabled: Optional[bool] = None):
-        GetRemoteSwiftRepositoryContentSynchronisationResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            properties_enabled=properties_enabled,
-            source_origin_absence_detection=source_origin_absence_detection,
-            statistics_enabled=statistics_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             properties_enabled: Optional[bool] = None,
-             source_origin_absence_detection: Optional[bool] = None,
-             statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if properties_enabled is None and 'propertiesEnabled' in kwargs:
-            properties_enabled = kwargs['propertiesEnabled']
-        if source_origin_absence_detection is None and 'sourceOriginAbsenceDetection' in kwargs:
-            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
-        if statistics_enabled is None and 'statisticsEnabled' in kwargs:
-            statistics_enabled = kwargs['statisticsEnabled']
-
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if properties_enabled is not None:
-            _setter("properties_enabled", properties_enabled)
+            pulumi.set(__self__, "properties_enabled", properties_enabled)
         if source_origin_absence_detection is not None:
-            _setter("source_origin_absence_detection", source_origin_absence_detection)
+            pulumi.set(__self__, "source_origin_absence_detection", source_origin_absence_detection)
         if statistics_enabled is not None:
-            _setter("statistics_enabled", statistics_enabled)
+            pulumi.set(__self__, "statistics_enabled", statistics_enabled)
 
     @property
     @pulumi.getter
@@ -12873,37 +8959,14 @@ class GetRemoteTerraformRepositoryContentSynchronisationResult(dict):
                  properties_enabled: Optional[bool] = None,
                  source_origin_absence_detection: Optional[bool] = None,
                  statistics_enabled: Optional[bool] = None):
-        GetRemoteTerraformRepositoryContentSynchronisationResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            properties_enabled=properties_enabled,
-            source_origin_absence_detection=source_origin_absence_detection,
-            statistics_enabled=statistics_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             properties_enabled: Optional[bool] = None,
-             source_origin_absence_detection: Optional[bool] = None,
-             statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if properties_enabled is None and 'propertiesEnabled' in kwargs:
-            properties_enabled = kwargs['propertiesEnabled']
-        if source_origin_absence_detection is None and 'sourceOriginAbsenceDetection' in kwargs:
-            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
-        if statistics_enabled is None and 'statisticsEnabled' in kwargs:
-            statistics_enabled = kwargs['statisticsEnabled']
-
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if properties_enabled is not None:
-            _setter("properties_enabled", properties_enabled)
+            pulumi.set(__self__, "properties_enabled", properties_enabled)
         if source_origin_absence_detection is not None:
-            _setter("source_origin_absence_detection", source_origin_absence_detection)
+            pulumi.set(__self__, "source_origin_absence_detection", source_origin_absence_detection)
         if statistics_enabled is not None:
-            _setter("statistics_enabled", statistics_enabled)
+            pulumi.set(__self__, "statistics_enabled", statistics_enabled)
 
     @property
     @pulumi.getter
@@ -12933,37 +8996,14 @@ class GetRemoteVcsRepositoryContentSynchronisationResult(dict):
                  properties_enabled: Optional[bool] = None,
                  source_origin_absence_detection: Optional[bool] = None,
                  statistics_enabled: Optional[bool] = None):
-        GetRemoteVcsRepositoryContentSynchronisationResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            properties_enabled=properties_enabled,
-            source_origin_absence_detection=source_origin_absence_detection,
-            statistics_enabled=statistics_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             properties_enabled: Optional[bool] = None,
-             source_origin_absence_detection: Optional[bool] = None,
-             statistics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if properties_enabled is None and 'propertiesEnabled' in kwargs:
-            properties_enabled = kwargs['propertiesEnabled']
-        if source_origin_absence_detection is None and 'sourceOriginAbsenceDetection' in kwargs:
-            source_origin_absence_detection = kwargs['sourceOriginAbsenceDetection']
-        if statistics_enabled is None and 'statisticsEnabled' in kwargs:
-            statistics_enabled = kwargs['statisticsEnabled']
-
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if properties_enabled is not None:
-            _setter("properties_enabled", properties_enabled)
+            pulumi.set(__self__, "properties_enabled", properties_enabled)
         if source_origin_absence_detection is not None:
-            _setter("source_origin_absence_detection", source_origin_absence_detection)
+            pulumi.set(__self__, "source_origin_absence_detection", source_origin_absence_detection)
         if statistics_enabled is not None:
-            _setter("statistics_enabled", statistics_enabled)
+            pulumi.set(__self__, "statistics_enabled", statistics_enabled)
 
     @property
     @pulumi.getter

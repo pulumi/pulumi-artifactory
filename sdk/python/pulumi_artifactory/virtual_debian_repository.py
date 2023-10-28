@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['VirtualDebianRepositoryArgs', 'VirtualDebianRepository']
@@ -57,104 +57,37 @@ class VirtualDebianRepositoryArgs:
         :param pulumi.Input[int] retrieval_cache_period_seconds: This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
         :param pulumi.Input[str] secondary_keypair_ref: Secondary keypair used to sign artifacts. Default is empty.
         """
-        VirtualDebianRepositoryArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            artifactory_requests_can_retrieve_remote_artifacts=artifactory_requests_can_retrieve_remote_artifacts,
-            debian_default_architectures=debian_default_architectures,
-            default_deployment_repo=default_deployment_repo,
-            description=description,
-            excludes_pattern=excludes_pattern,
-            includes_pattern=includes_pattern,
-            notes=notes,
-            optional_index_compression_formats=optional_index_compression_formats,
-            primary_keypair_ref=primary_keypair_ref,
-            project_environments=project_environments,
-            project_key=project_key,
-            repo_layout_ref=repo_layout_ref,
-            repositories=repositories,
-            retrieval_cache_period_seconds=retrieval_cache_period_seconds,
-            secondary_keypair_ref=secondary_keypair_ref,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: Optional[pulumi.Input[str]] = None,
-             artifactory_requests_can_retrieve_remote_artifacts: Optional[pulumi.Input[bool]] = None,
-             debian_default_architectures: Optional[pulumi.Input[str]] = None,
-             default_deployment_repo: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             excludes_pattern: Optional[pulumi.Input[str]] = None,
-             includes_pattern: Optional[pulumi.Input[str]] = None,
-             notes: Optional[pulumi.Input[str]] = None,
-             optional_index_compression_formats: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             primary_keypair_ref: Optional[pulumi.Input[str]] = None,
-             project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             project_key: Optional[pulumi.Input[str]] = None,
-             repo_layout_ref: Optional[pulumi.Input[str]] = None,
-             repositories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             retrieval_cache_period_seconds: Optional[pulumi.Input[int]] = None,
-             secondary_keypair_ref: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if key is None:
-            raise TypeError("Missing 'key' argument")
-        if artifactory_requests_can_retrieve_remote_artifacts is None and 'artifactoryRequestsCanRetrieveRemoteArtifacts' in kwargs:
-            artifactory_requests_can_retrieve_remote_artifacts = kwargs['artifactoryRequestsCanRetrieveRemoteArtifacts']
-        if debian_default_architectures is None and 'debianDefaultArchitectures' in kwargs:
-            debian_default_architectures = kwargs['debianDefaultArchitectures']
-        if default_deployment_repo is None and 'defaultDeploymentRepo' in kwargs:
-            default_deployment_repo = kwargs['defaultDeploymentRepo']
-        if excludes_pattern is None and 'excludesPattern' in kwargs:
-            excludes_pattern = kwargs['excludesPattern']
-        if includes_pattern is None and 'includesPattern' in kwargs:
-            includes_pattern = kwargs['includesPattern']
-        if optional_index_compression_formats is None and 'optionalIndexCompressionFormats' in kwargs:
-            optional_index_compression_formats = kwargs['optionalIndexCompressionFormats']
-        if primary_keypair_ref is None and 'primaryKeypairRef' in kwargs:
-            primary_keypair_ref = kwargs['primaryKeypairRef']
-        if project_environments is None and 'projectEnvironments' in kwargs:
-            project_environments = kwargs['projectEnvironments']
-        if project_key is None and 'projectKey' in kwargs:
-            project_key = kwargs['projectKey']
-        if repo_layout_ref is None and 'repoLayoutRef' in kwargs:
-            repo_layout_ref = kwargs['repoLayoutRef']
-        if retrieval_cache_period_seconds is None and 'retrievalCachePeriodSeconds' in kwargs:
-            retrieval_cache_period_seconds = kwargs['retrievalCachePeriodSeconds']
-        if secondary_keypair_ref is None and 'secondaryKeypairRef' in kwargs:
-            secondary_keypair_ref = kwargs['secondaryKeypairRef']
-
-        _setter("key", key)
+        pulumi.set(__self__, "key", key)
         if artifactory_requests_can_retrieve_remote_artifacts is not None:
-            _setter("artifactory_requests_can_retrieve_remote_artifacts", artifactory_requests_can_retrieve_remote_artifacts)
+            pulumi.set(__self__, "artifactory_requests_can_retrieve_remote_artifacts", artifactory_requests_can_retrieve_remote_artifacts)
         if debian_default_architectures is not None:
-            _setter("debian_default_architectures", debian_default_architectures)
+            pulumi.set(__self__, "debian_default_architectures", debian_default_architectures)
         if default_deployment_repo is not None:
-            _setter("default_deployment_repo", default_deployment_repo)
+            pulumi.set(__self__, "default_deployment_repo", default_deployment_repo)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if excludes_pattern is not None:
-            _setter("excludes_pattern", excludes_pattern)
+            pulumi.set(__self__, "excludes_pattern", excludes_pattern)
         if includes_pattern is not None:
-            _setter("includes_pattern", includes_pattern)
+            pulumi.set(__self__, "includes_pattern", includes_pattern)
         if notes is not None:
-            _setter("notes", notes)
+            pulumi.set(__self__, "notes", notes)
         if optional_index_compression_formats is not None:
-            _setter("optional_index_compression_formats", optional_index_compression_formats)
+            pulumi.set(__self__, "optional_index_compression_formats", optional_index_compression_formats)
         if primary_keypair_ref is not None:
-            _setter("primary_keypair_ref", primary_keypair_ref)
+            pulumi.set(__self__, "primary_keypair_ref", primary_keypair_ref)
         if project_environments is not None:
-            _setter("project_environments", project_environments)
+            pulumi.set(__self__, "project_environments", project_environments)
         if project_key is not None:
-            _setter("project_key", project_key)
+            pulumi.set(__self__, "project_key", project_key)
         if repo_layout_ref is not None:
-            _setter("repo_layout_ref", repo_layout_ref)
+            pulumi.set(__self__, "repo_layout_ref", repo_layout_ref)
         if repositories is not None:
-            _setter("repositories", repositories)
+            pulumi.set(__self__, "repositories", repositories)
         if retrieval_cache_period_seconds is not None:
-            _setter("retrieval_cache_period_seconds", retrieval_cache_period_seconds)
+            pulumi.set(__self__, "retrieval_cache_period_seconds", retrieval_cache_period_seconds)
         if secondary_keypair_ref is not None:
-            _setter("secondary_keypair_ref", secondary_keypair_ref)
+            pulumi.set(__self__, "secondary_keypair_ref", secondary_keypair_ref)
 
     @property
     @pulumi.getter
@@ -404,109 +337,40 @@ class _VirtualDebianRepositoryState:
         :param pulumi.Input[int] retrieval_cache_period_seconds: This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
         :param pulumi.Input[str] secondary_keypair_ref: Secondary keypair used to sign artifacts. Default is empty.
         """
-        _VirtualDebianRepositoryState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            artifactory_requests_can_retrieve_remote_artifacts=artifactory_requests_can_retrieve_remote_artifacts,
-            debian_default_architectures=debian_default_architectures,
-            default_deployment_repo=default_deployment_repo,
-            description=description,
-            excludes_pattern=excludes_pattern,
-            includes_pattern=includes_pattern,
-            key=key,
-            notes=notes,
-            optional_index_compression_formats=optional_index_compression_formats,
-            package_type=package_type,
-            primary_keypair_ref=primary_keypair_ref,
-            project_environments=project_environments,
-            project_key=project_key,
-            repo_layout_ref=repo_layout_ref,
-            repositories=repositories,
-            retrieval_cache_period_seconds=retrieval_cache_period_seconds,
-            secondary_keypair_ref=secondary_keypair_ref,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             artifactory_requests_can_retrieve_remote_artifacts: Optional[pulumi.Input[bool]] = None,
-             debian_default_architectures: Optional[pulumi.Input[str]] = None,
-             default_deployment_repo: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             excludes_pattern: Optional[pulumi.Input[str]] = None,
-             includes_pattern: Optional[pulumi.Input[str]] = None,
-             key: Optional[pulumi.Input[str]] = None,
-             notes: Optional[pulumi.Input[str]] = None,
-             optional_index_compression_formats: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             package_type: Optional[pulumi.Input[str]] = None,
-             primary_keypair_ref: Optional[pulumi.Input[str]] = None,
-             project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             project_key: Optional[pulumi.Input[str]] = None,
-             repo_layout_ref: Optional[pulumi.Input[str]] = None,
-             repositories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             retrieval_cache_period_seconds: Optional[pulumi.Input[int]] = None,
-             secondary_keypair_ref: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if artifactory_requests_can_retrieve_remote_artifacts is None and 'artifactoryRequestsCanRetrieveRemoteArtifacts' in kwargs:
-            artifactory_requests_can_retrieve_remote_artifacts = kwargs['artifactoryRequestsCanRetrieveRemoteArtifacts']
-        if debian_default_architectures is None and 'debianDefaultArchitectures' in kwargs:
-            debian_default_architectures = kwargs['debianDefaultArchitectures']
-        if default_deployment_repo is None and 'defaultDeploymentRepo' in kwargs:
-            default_deployment_repo = kwargs['defaultDeploymentRepo']
-        if excludes_pattern is None and 'excludesPattern' in kwargs:
-            excludes_pattern = kwargs['excludesPattern']
-        if includes_pattern is None and 'includesPattern' in kwargs:
-            includes_pattern = kwargs['includesPattern']
-        if optional_index_compression_formats is None and 'optionalIndexCompressionFormats' in kwargs:
-            optional_index_compression_formats = kwargs['optionalIndexCompressionFormats']
-        if package_type is None and 'packageType' in kwargs:
-            package_type = kwargs['packageType']
-        if primary_keypair_ref is None and 'primaryKeypairRef' in kwargs:
-            primary_keypair_ref = kwargs['primaryKeypairRef']
-        if project_environments is None and 'projectEnvironments' in kwargs:
-            project_environments = kwargs['projectEnvironments']
-        if project_key is None and 'projectKey' in kwargs:
-            project_key = kwargs['projectKey']
-        if repo_layout_ref is None and 'repoLayoutRef' in kwargs:
-            repo_layout_ref = kwargs['repoLayoutRef']
-        if retrieval_cache_period_seconds is None and 'retrievalCachePeriodSeconds' in kwargs:
-            retrieval_cache_period_seconds = kwargs['retrievalCachePeriodSeconds']
-        if secondary_keypair_ref is None and 'secondaryKeypairRef' in kwargs:
-            secondary_keypair_ref = kwargs['secondaryKeypairRef']
-
         if artifactory_requests_can_retrieve_remote_artifacts is not None:
-            _setter("artifactory_requests_can_retrieve_remote_artifacts", artifactory_requests_can_retrieve_remote_artifacts)
+            pulumi.set(__self__, "artifactory_requests_can_retrieve_remote_artifacts", artifactory_requests_can_retrieve_remote_artifacts)
         if debian_default_architectures is not None:
-            _setter("debian_default_architectures", debian_default_architectures)
+            pulumi.set(__self__, "debian_default_architectures", debian_default_architectures)
         if default_deployment_repo is not None:
-            _setter("default_deployment_repo", default_deployment_repo)
+            pulumi.set(__self__, "default_deployment_repo", default_deployment_repo)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if excludes_pattern is not None:
-            _setter("excludes_pattern", excludes_pattern)
+            pulumi.set(__self__, "excludes_pattern", excludes_pattern)
         if includes_pattern is not None:
-            _setter("includes_pattern", includes_pattern)
+            pulumi.set(__self__, "includes_pattern", includes_pattern)
         if key is not None:
-            _setter("key", key)
+            pulumi.set(__self__, "key", key)
         if notes is not None:
-            _setter("notes", notes)
+            pulumi.set(__self__, "notes", notes)
         if optional_index_compression_formats is not None:
-            _setter("optional_index_compression_formats", optional_index_compression_formats)
+            pulumi.set(__self__, "optional_index_compression_formats", optional_index_compression_formats)
         if package_type is not None:
-            _setter("package_type", package_type)
+            pulumi.set(__self__, "package_type", package_type)
         if primary_keypair_ref is not None:
-            _setter("primary_keypair_ref", primary_keypair_ref)
+            pulumi.set(__self__, "primary_keypair_ref", primary_keypair_ref)
         if project_environments is not None:
-            _setter("project_environments", project_environments)
+            pulumi.set(__self__, "project_environments", project_environments)
         if project_key is not None:
-            _setter("project_key", project_key)
+            pulumi.set(__self__, "project_key", project_key)
         if repo_layout_ref is not None:
-            _setter("repo_layout_ref", repo_layout_ref)
+            pulumi.set(__self__, "repo_layout_ref", repo_layout_ref)
         if repositories is not None:
-            _setter("repositories", repositories)
+            pulumi.set(__self__, "repositories", repositories)
         if retrieval_cache_period_seconds is not None:
-            _setter("retrieval_cache_period_seconds", retrieval_cache_period_seconds)
+            pulumi.set(__self__, "retrieval_cache_period_seconds", retrieval_cache_period_seconds)
         if secondary_keypair_ref is not None:
-            _setter("secondary_keypair_ref", secondary_keypair_ref)
+            pulumi.set(__self__, "secondary_keypair_ref", secondary_keypair_ref)
 
     @property
     @pulumi.getter(name="artifactoryRequestsCanRetrieveRemoteArtifacts")
@@ -847,10 +711,6 @@ class VirtualDebianRepository(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            VirtualDebianRepositoryArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

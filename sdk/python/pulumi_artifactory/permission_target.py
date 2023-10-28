@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,33 +27,14 @@ class PermissionTargetArgs:
         :param pulumi.Input[Sequence[pulumi.Input['PermissionTargetReleaseBundleArgs']]] release_bundles: As for repo for for release-bundles permissions.
         :param pulumi.Input[Sequence[pulumi.Input['PermissionTargetRepoArgs']]] repos: Repository permission configuration.
         """
-        PermissionTargetArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            builds=builds,
-            name=name,
-            release_bundles=release_bundles,
-            repos=repos,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             builds: Optional[pulumi.Input[Sequence[pulumi.Input['PermissionTargetBuildArgs']]]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             release_bundles: Optional[pulumi.Input[Sequence[pulumi.Input['PermissionTargetReleaseBundleArgs']]]] = None,
-             repos: Optional[pulumi.Input[Sequence[pulumi.Input['PermissionTargetRepoArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if release_bundles is None and 'releaseBundles' in kwargs:
-            release_bundles = kwargs['releaseBundles']
-
         if builds is not None:
-            _setter("builds", builds)
+            pulumi.set(__self__, "builds", builds)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if release_bundles is not None:
-            _setter("release_bundles", release_bundles)
+            pulumi.set(__self__, "release_bundles", release_bundles)
         if repos is not None:
-            _setter("repos", repos)
+            pulumi.set(__self__, "repos", repos)
 
     @property
     @pulumi.getter
@@ -118,33 +99,14 @@ class _PermissionTargetState:
         :param pulumi.Input[Sequence[pulumi.Input['PermissionTargetReleaseBundleArgs']]] release_bundles: As for repo for for release-bundles permissions.
         :param pulumi.Input[Sequence[pulumi.Input['PermissionTargetRepoArgs']]] repos: Repository permission configuration.
         """
-        _PermissionTargetState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            builds=builds,
-            name=name,
-            release_bundles=release_bundles,
-            repos=repos,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             builds: Optional[pulumi.Input[Sequence[pulumi.Input['PermissionTargetBuildArgs']]]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             release_bundles: Optional[pulumi.Input[Sequence[pulumi.Input['PermissionTargetReleaseBundleArgs']]]] = None,
-             repos: Optional[pulumi.Input[Sequence[pulumi.Input['PermissionTargetRepoArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if release_bundles is None and 'releaseBundles' in kwargs:
-            release_bundles = kwargs['releaseBundles']
-
         if builds is not None:
-            _setter("builds", builds)
+            pulumi.set(__self__, "builds", builds)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if release_bundles is not None:
-            _setter("release_bundles", release_bundles)
+            pulumi.set(__self__, "release_bundles", release_bundles)
         if repos is not None:
-            _setter("repos", repos)
+            pulumi.set(__self__, "repos", repos)
 
     @property
     @pulumi.getter
@@ -442,10 +404,6 @@ class PermissionTarget(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            PermissionTargetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
