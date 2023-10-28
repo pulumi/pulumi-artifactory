@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['LdapSettingV2Args', 'LdapSettingV2']
@@ -45,97 +45,32 @@ class LdapSettingV2Args:
         :param pulumi.Input[bool] search_sub_tree: When set, enables deep search through the sub tree of the LDAP URL + search base. Default value is `true`.
         :param pulumi.Input[str] user_dn_pattern: A DN pattern that can be used to log users directly in to LDAP. This pattern is used to create a DN string for 'direct' user authentication where the pattern is relative to the base DN in the LDAP URL. The pattern argument {0} is replaced with the username. This only works if anonymous binding is allowed and a direct user DN can be used, which is not the default case for Active Directory (use User DN search filter instead). Example: uid={0},ou=People. Default value is blank/empty.
         """
-        LdapSettingV2Args._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            ldap_url=ldap_url,
-            allow_user_to_access_profile=allow_user_to_access_profile,
-            auto_create_user=auto_create_user,
-            email_attribute=email_attribute,
-            enabled=enabled,
-            ldap_poisoning_protection=ldap_poisoning_protection,
-            manager_dn=manager_dn,
-            manager_password=manager_password,
-            paging_support_enabled=paging_support_enabled,
-            search_base=search_base,
-            search_filter=search_filter,
-            search_sub_tree=search_sub_tree,
-            user_dn_pattern=user_dn_pattern,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: Optional[pulumi.Input[str]] = None,
-             ldap_url: Optional[pulumi.Input[str]] = None,
-             allow_user_to_access_profile: Optional[pulumi.Input[bool]] = None,
-             auto_create_user: Optional[pulumi.Input[bool]] = None,
-             email_attribute: Optional[pulumi.Input[str]] = None,
-             enabled: Optional[pulumi.Input[bool]] = None,
-             ldap_poisoning_protection: Optional[pulumi.Input[bool]] = None,
-             manager_dn: Optional[pulumi.Input[str]] = None,
-             manager_password: Optional[pulumi.Input[str]] = None,
-             paging_support_enabled: Optional[pulumi.Input[bool]] = None,
-             search_base: Optional[pulumi.Input[str]] = None,
-             search_filter: Optional[pulumi.Input[str]] = None,
-             search_sub_tree: Optional[pulumi.Input[bool]] = None,
-             user_dn_pattern: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if key is None:
-            raise TypeError("Missing 'key' argument")
-        if ldap_url is None and 'ldapUrl' in kwargs:
-            ldap_url = kwargs['ldapUrl']
-        if ldap_url is None:
-            raise TypeError("Missing 'ldap_url' argument")
-        if allow_user_to_access_profile is None and 'allowUserToAccessProfile' in kwargs:
-            allow_user_to_access_profile = kwargs['allowUserToAccessProfile']
-        if auto_create_user is None and 'autoCreateUser' in kwargs:
-            auto_create_user = kwargs['autoCreateUser']
-        if email_attribute is None and 'emailAttribute' in kwargs:
-            email_attribute = kwargs['emailAttribute']
-        if ldap_poisoning_protection is None and 'ldapPoisoningProtection' in kwargs:
-            ldap_poisoning_protection = kwargs['ldapPoisoningProtection']
-        if manager_dn is None and 'managerDn' in kwargs:
-            manager_dn = kwargs['managerDn']
-        if manager_password is None and 'managerPassword' in kwargs:
-            manager_password = kwargs['managerPassword']
-        if paging_support_enabled is None and 'pagingSupportEnabled' in kwargs:
-            paging_support_enabled = kwargs['pagingSupportEnabled']
-        if search_base is None and 'searchBase' in kwargs:
-            search_base = kwargs['searchBase']
-        if search_filter is None and 'searchFilter' in kwargs:
-            search_filter = kwargs['searchFilter']
-        if search_sub_tree is None and 'searchSubTree' in kwargs:
-            search_sub_tree = kwargs['searchSubTree']
-        if user_dn_pattern is None and 'userDnPattern' in kwargs:
-            user_dn_pattern = kwargs['userDnPattern']
-
-        _setter("key", key)
-        _setter("ldap_url", ldap_url)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "ldap_url", ldap_url)
         if allow_user_to_access_profile is not None:
-            _setter("allow_user_to_access_profile", allow_user_to_access_profile)
+            pulumi.set(__self__, "allow_user_to_access_profile", allow_user_to_access_profile)
         if auto_create_user is not None:
-            _setter("auto_create_user", auto_create_user)
+            pulumi.set(__self__, "auto_create_user", auto_create_user)
         if email_attribute is not None:
-            _setter("email_attribute", email_attribute)
+            pulumi.set(__self__, "email_attribute", email_attribute)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if ldap_poisoning_protection is not None:
-            _setter("ldap_poisoning_protection", ldap_poisoning_protection)
+            pulumi.set(__self__, "ldap_poisoning_protection", ldap_poisoning_protection)
         if manager_dn is not None:
-            _setter("manager_dn", manager_dn)
+            pulumi.set(__self__, "manager_dn", manager_dn)
         if manager_password is not None:
-            _setter("manager_password", manager_password)
+            pulumi.set(__self__, "manager_password", manager_password)
         if paging_support_enabled is not None:
-            _setter("paging_support_enabled", paging_support_enabled)
+            pulumi.set(__self__, "paging_support_enabled", paging_support_enabled)
         if search_base is not None:
-            _setter("search_base", search_base)
+            pulumi.set(__self__, "search_base", search_base)
         if search_filter is not None:
-            _setter("search_filter", search_filter)
+            pulumi.set(__self__, "search_filter", search_filter)
         if search_sub_tree is not None:
-            _setter("search_sub_tree", search_sub_tree)
+            pulumi.set(__self__, "search_sub_tree", search_sub_tree)
         if user_dn_pattern is not None:
-            _setter("user_dn_pattern", user_dn_pattern)
+            pulumi.set(__self__, "user_dn_pattern", user_dn_pattern)
 
     @property
     @pulumi.getter
@@ -340,95 +275,34 @@ class _LdapSettingV2State:
         :param pulumi.Input[bool] search_sub_tree: When set, enables deep search through the sub tree of the LDAP URL + search base. Default value is `true`.
         :param pulumi.Input[str] user_dn_pattern: A DN pattern that can be used to log users directly in to LDAP. This pattern is used to create a DN string for 'direct' user authentication where the pattern is relative to the base DN in the LDAP URL. The pattern argument {0} is replaced with the username. This only works if anonymous binding is allowed and a direct user DN can be used, which is not the default case for Active Directory (use User DN search filter instead). Example: uid={0},ou=People. Default value is blank/empty.
         """
-        _LdapSettingV2State._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            allow_user_to_access_profile=allow_user_to_access_profile,
-            auto_create_user=auto_create_user,
-            email_attribute=email_attribute,
-            enabled=enabled,
-            key=key,
-            ldap_poisoning_protection=ldap_poisoning_protection,
-            ldap_url=ldap_url,
-            manager_dn=manager_dn,
-            manager_password=manager_password,
-            paging_support_enabled=paging_support_enabled,
-            search_base=search_base,
-            search_filter=search_filter,
-            search_sub_tree=search_sub_tree,
-            user_dn_pattern=user_dn_pattern,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             allow_user_to_access_profile: Optional[pulumi.Input[bool]] = None,
-             auto_create_user: Optional[pulumi.Input[bool]] = None,
-             email_attribute: Optional[pulumi.Input[str]] = None,
-             enabled: Optional[pulumi.Input[bool]] = None,
-             key: Optional[pulumi.Input[str]] = None,
-             ldap_poisoning_protection: Optional[pulumi.Input[bool]] = None,
-             ldap_url: Optional[pulumi.Input[str]] = None,
-             manager_dn: Optional[pulumi.Input[str]] = None,
-             manager_password: Optional[pulumi.Input[str]] = None,
-             paging_support_enabled: Optional[pulumi.Input[bool]] = None,
-             search_base: Optional[pulumi.Input[str]] = None,
-             search_filter: Optional[pulumi.Input[str]] = None,
-             search_sub_tree: Optional[pulumi.Input[bool]] = None,
-             user_dn_pattern: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if allow_user_to_access_profile is None and 'allowUserToAccessProfile' in kwargs:
-            allow_user_to_access_profile = kwargs['allowUserToAccessProfile']
-        if auto_create_user is None and 'autoCreateUser' in kwargs:
-            auto_create_user = kwargs['autoCreateUser']
-        if email_attribute is None and 'emailAttribute' in kwargs:
-            email_attribute = kwargs['emailAttribute']
-        if ldap_poisoning_protection is None and 'ldapPoisoningProtection' in kwargs:
-            ldap_poisoning_protection = kwargs['ldapPoisoningProtection']
-        if ldap_url is None and 'ldapUrl' in kwargs:
-            ldap_url = kwargs['ldapUrl']
-        if manager_dn is None and 'managerDn' in kwargs:
-            manager_dn = kwargs['managerDn']
-        if manager_password is None and 'managerPassword' in kwargs:
-            manager_password = kwargs['managerPassword']
-        if paging_support_enabled is None and 'pagingSupportEnabled' in kwargs:
-            paging_support_enabled = kwargs['pagingSupportEnabled']
-        if search_base is None and 'searchBase' in kwargs:
-            search_base = kwargs['searchBase']
-        if search_filter is None and 'searchFilter' in kwargs:
-            search_filter = kwargs['searchFilter']
-        if search_sub_tree is None and 'searchSubTree' in kwargs:
-            search_sub_tree = kwargs['searchSubTree']
-        if user_dn_pattern is None and 'userDnPattern' in kwargs:
-            user_dn_pattern = kwargs['userDnPattern']
-
         if allow_user_to_access_profile is not None:
-            _setter("allow_user_to_access_profile", allow_user_to_access_profile)
+            pulumi.set(__self__, "allow_user_to_access_profile", allow_user_to_access_profile)
         if auto_create_user is not None:
-            _setter("auto_create_user", auto_create_user)
+            pulumi.set(__self__, "auto_create_user", auto_create_user)
         if email_attribute is not None:
-            _setter("email_attribute", email_attribute)
+            pulumi.set(__self__, "email_attribute", email_attribute)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if key is not None:
-            _setter("key", key)
+            pulumi.set(__self__, "key", key)
         if ldap_poisoning_protection is not None:
-            _setter("ldap_poisoning_protection", ldap_poisoning_protection)
+            pulumi.set(__self__, "ldap_poisoning_protection", ldap_poisoning_protection)
         if ldap_url is not None:
-            _setter("ldap_url", ldap_url)
+            pulumi.set(__self__, "ldap_url", ldap_url)
         if manager_dn is not None:
-            _setter("manager_dn", manager_dn)
+            pulumi.set(__self__, "manager_dn", manager_dn)
         if manager_password is not None:
-            _setter("manager_password", manager_password)
+            pulumi.set(__self__, "manager_password", manager_password)
         if paging_support_enabled is not None:
-            _setter("paging_support_enabled", paging_support_enabled)
+            pulumi.set(__self__, "paging_support_enabled", paging_support_enabled)
         if search_base is not None:
-            _setter("search_base", search_base)
+            pulumi.set(__self__, "search_base", search_base)
         if search_filter is not None:
-            _setter("search_filter", search_filter)
+            pulumi.set(__self__, "search_filter", search_filter)
         if search_sub_tree is not None:
-            _setter("search_sub_tree", search_sub_tree)
+            pulumi.set(__self__, "search_sub_tree", search_sub_tree)
         if user_dn_pattern is not None:
-            _setter("user_dn_pattern", user_dn_pattern)
+            pulumi.set(__self__, "user_dn_pattern", user_dn_pattern)
 
     @property
     @pulumi.getter(name="allowUserToAccessProfile")
@@ -730,10 +604,6 @@ class LdapSettingV2(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            LdapSettingV2Args._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

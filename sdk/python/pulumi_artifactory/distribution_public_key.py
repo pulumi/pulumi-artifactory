@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['DistributionPublicKeyArgs', 'DistributionPublicKey']
@@ -23,27 +23,8 @@ class DistributionPublicKeyArgs:
                
                The following additional attributes are exported:
         """
-        DistributionPublicKeyArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            alias=alias,
-            public_key=public_key,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             alias: Optional[pulumi.Input[str]] = None,
-             public_key: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if alias is None:
-            raise TypeError("Missing 'alias' argument")
-        if public_key is None and 'publicKey' in kwargs:
-            public_key = kwargs['publicKey']
-        if public_key is None:
-            raise TypeError("Missing 'public_key' argument")
-
-        _setter("alias", alias)
-        _setter("public_key", public_key)
+        pulumi.set(__self__, "alias", alias)
+        pulumi.set(__self__, "public_key", public_key)
 
     @property
     @pulumi.getter
@@ -94,53 +75,20 @@ class _DistributionPublicKeyState:
                The following additional attributes are exported:
         :param pulumi.Input[str] valid_until: Returns the date/time when this GPG key expires.
         """
-        _DistributionPublicKeyState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            alias=alias,
-            fingerprint=fingerprint,
-            issued_by=issued_by,
-            issued_on=issued_on,
-            key_id=key_id,
-            public_key=public_key,
-            valid_until=valid_until,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             alias: Optional[pulumi.Input[str]] = None,
-             fingerprint: Optional[pulumi.Input[str]] = None,
-             issued_by: Optional[pulumi.Input[str]] = None,
-             issued_on: Optional[pulumi.Input[str]] = None,
-             key_id: Optional[pulumi.Input[str]] = None,
-             public_key: Optional[pulumi.Input[str]] = None,
-             valid_until: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if issued_by is None and 'issuedBy' in kwargs:
-            issued_by = kwargs['issuedBy']
-        if issued_on is None and 'issuedOn' in kwargs:
-            issued_on = kwargs['issuedOn']
-        if key_id is None and 'keyId' in kwargs:
-            key_id = kwargs['keyId']
-        if public_key is None and 'publicKey' in kwargs:
-            public_key = kwargs['publicKey']
-        if valid_until is None and 'validUntil' in kwargs:
-            valid_until = kwargs['validUntil']
-
         if alias is not None:
-            _setter("alias", alias)
+            pulumi.set(__self__, "alias", alias)
         if fingerprint is not None:
-            _setter("fingerprint", fingerprint)
+            pulumi.set(__self__, "fingerprint", fingerprint)
         if issued_by is not None:
-            _setter("issued_by", issued_by)
+            pulumi.set(__self__, "issued_by", issued_by)
         if issued_on is not None:
-            _setter("issued_on", issued_on)
+            pulumi.set(__self__, "issued_on", issued_on)
         if key_id is not None:
-            _setter("key_id", key_id)
+            pulumi.set(__self__, "key_id", key_id)
         if public_key is not None:
-            _setter("public_key", public_key)
+            pulumi.set(__self__, "public_key", public_key)
         if valid_until is not None:
-            _setter("valid_until", valid_until)
+            pulumi.set(__self__, "valid_until", valid_until)
 
     @property
     @pulumi.getter
@@ -308,10 +256,6 @@ class DistributionPublicKey(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            DistributionPublicKeyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -33,50 +33,19 @@ class AccessTokenArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: (Optional) List of groups. The token is granted access based on the permissions of the groups. Specify `["*"]` for all groups that the user belongs to. `groups` cannot be specified with `admin_token`.
         :param pulumi.Input[bool] refreshable: (Optional) Is this token refreshable? Defaults to `false`
         """
-        AccessTokenArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            username=username,
-            admin_token=admin_token,
-            audience=audience,
-            end_date=end_date,
-            end_date_relative=end_date_relative,
-            groups=groups,
-            refreshable=refreshable,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             username: Optional[pulumi.Input[str]] = None,
-             admin_token: Optional[pulumi.Input['AccessTokenAdminTokenArgs']] = None,
-             audience: Optional[pulumi.Input[str]] = None,
-             end_date: Optional[pulumi.Input[str]] = None,
-             end_date_relative: Optional[pulumi.Input[str]] = None,
-             groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             refreshable: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if username is None:
-            raise TypeError("Missing 'username' argument")
-        if admin_token is None and 'adminToken' in kwargs:
-            admin_token = kwargs['adminToken']
-        if end_date is None and 'endDate' in kwargs:
-            end_date = kwargs['endDate']
-        if end_date_relative is None and 'endDateRelative' in kwargs:
-            end_date_relative = kwargs['endDateRelative']
-
-        _setter("username", username)
+        pulumi.set(__self__, "username", username)
         if admin_token is not None:
-            _setter("admin_token", admin_token)
+            pulumi.set(__self__, "admin_token", admin_token)
         if audience is not None:
-            _setter("audience", audience)
+            pulumi.set(__self__, "audience", audience)
         if end_date is not None:
-            _setter("end_date", end_date)
+            pulumi.set(__self__, "end_date", end_date)
         if end_date_relative is not None:
-            _setter("end_date_relative", end_date_relative)
+            pulumi.set(__self__, "end_date_relative", end_date_relative)
         if groups is not None:
-            _setter("groups", groups)
+            pulumi.set(__self__, "groups", groups)
         if refreshable is not None:
-            _setter("refreshable", refreshable)
+            pulumi.set(__self__, "refreshable", refreshable)
 
     @property
     @pulumi.getter
@@ -187,61 +156,24 @@ class _AccessTokenState:
         :param pulumi.Input[bool] refreshable: (Optional) Is this token refreshable? Defaults to `false`
         :param pulumi.Input[str] username: (Required) The username or subject for the token. A non-admin can only specify their own username. Admins can specify any existing username, or a new name for a temporary token. Temporary tokens require `groups` to be set.
         """
-        _AccessTokenState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            access_token=access_token,
-            admin_token=admin_token,
-            audience=audience,
-            end_date=end_date,
-            end_date_relative=end_date_relative,
-            groups=groups,
-            refresh_token=refresh_token,
-            refreshable=refreshable,
-            username=username,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             access_token: Optional[pulumi.Input[str]] = None,
-             admin_token: Optional[pulumi.Input['AccessTokenAdminTokenArgs']] = None,
-             audience: Optional[pulumi.Input[str]] = None,
-             end_date: Optional[pulumi.Input[str]] = None,
-             end_date_relative: Optional[pulumi.Input[str]] = None,
-             groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             refresh_token: Optional[pulumi.Input[str]] = None,
-             refreshable: Optional[pulumi.Input[bool]] = None,
-             username: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if access_token is None and 'accessToken' in kwargs:
-            access_token = kwargs['accessToken']
-        if admin_token is None and 'adminToken' in kwargs:
-            admin_token = kwargs['adminToken']
-        if end_date is None and 'endDate' in kwargs:
-            end_date = kwargs['endDate']
-        if end_date_relative is None and 'endDateRelative' in kwargs:
-            end_date_relative = kwargs['endDateRelative']
-        if refresh_token is None and 'refreshToken' in kwargs:
-            refresh_token = kwargs['refreshToken']
-
         if access_token is not None:
-            _setter("access_token", access_token)
+            pulumi.set(__self__, "access_token", access_token)
         if admin_token is not None:
-            _setter("admin_token", admin_token)
+            pulumi.set(__self__, "admin_token", admin_token)
         if audience is not None:
-            _setter("audience", audience)
+            pulumi.set(__self__, "audience", audience)
         if end_date is not None:
-            _setter("end_date", end_date)
+            pulumi.set(__self__, "end_date", end_date)
         if end_date_relative is not None:
-            _setter("end_date_relative", end_date_relative)
+            pulumi.set(__self__, "end_date_relative", end_date_relative)
         if groups is not None:
-            _setter("groups", groups)
+            pulumi.set(__self__, "groups", groups)
         if refresh_token is not None:
-            _setter("refresh_token", refresh_token)
+            pulumi.set(__self__, "refresh_token", refresh_token)
         if refreshable is not None:
-            _setter("refreshable", refreshable)
+            pulumi.set(__self__, "refreshable", refreshable)
         if username is not None:
-            _setter("username", username)
+            pulumi.set(__self__, "username", username)
 
     @property
     @pulumi.getter(name="accessToken")
@@ -627,10 +559,6 @@ class AccessToken(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            AccessTokenArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -652,7 +580,6 @@ class AccessToken(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AccessTokenArgs.__new__(AccessTokenArgs)
 
-            admin_token = _utilities.configure(admin_token, AccessTokenAdminTokenArgs, True)
             __props__.__dict__["admin_token"] = admin_token
             __props__.__dict__["audience"] = audience
             __props__.__dict__["end_date"] = end_date

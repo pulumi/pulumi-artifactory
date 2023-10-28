@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['SingleReplicationConfigArgs', 'SingleReplicationConfig']
@@ -31,81 +31,28 @@ class SingleReplicationConfigArgs:
         :param pulumi.Input[str] cron_exp: Cron expression to control the operation frequency.
         :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies setting.
         """
-        SingleReplicationConfigArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cron_exp=cron_exp,
-            repo_key=repo_key,
-            enable_event_replication=enable_event_replication,
-            enabled=enabled,
-            path_prefix=path_prefix,
-            proxy=proxy,
-            socket_timeout_millis=socket_timeout_millis,
-            sync_deletes=sync_deletes,
-            sync_properties=sync_properties,
-            sync_statistics=sync_statistics,
-            url=url,
-            username=username,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cron_exp: Optional[pulumi.Input[str]] = None,
-             repo_key: Optional[pulumi.Input[str]] = None,
-             enable_event_replication: Optional[pulumi.Input[bool]] = None,
-             enabled: Optional[pulumi.Input[bool]] = None,
-             path_prefix: Optional[pulumi.Input[str]] = None,
-             proxy: Optional[pulumi.Input[str]] = None,
-             socket_timeout_millis: Optional[pulumi.Input[int]] = None,
-             sync_deletes: Optional[pulumi.Input[bool]] = None,
-             sync_properties: Optional[pulumi.Input[bool]] = None,
-             sync_statistics: Optional[pulumi.Input[bool]] = None,
-             url: Optional[pulumi.Input[str]] = None,
-             username: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if cron_exp is None and 'cronExp' in kwargs:
-            cron_exp = kwargs['cronExp']
-        if cron_exp is None:
-            raise TypeError("Missing 'cron_exp' argument")
-        if repo_key is None and 'repoKey' in kwargs:
-            repo_key = kwargs['repoKey']
-        if repo_key is None:
-            raise TypeError("Missing 'repo_key' argument")
-        if enable_event_replication is None and 'enableEventReplication' in kwargs:
-            enable_event_replication = kwargs['enableEventReplication']
-        if path_prefix is None and 'pathPrefix' in kwargs:
-            path_prefix = kwargs['pathPrefix']
-        if socket_timeout_millis is None and 'socketTimeoutMillis' in kwargs:
-            socket_timeout_millis = kwargs['socketTimeoutMillis']
-        if sync_deletes is None and 'syncDeletes' in kwargs:
-            sync_deletes = kwargs['syncDeletes']
-        if sync_properties is None and 'syncProperties' in kwargs:
-            sync_properties = kwargs['syncProperties']
-        if sync_statistics is None and 'syncStatistics' in kwargs:
-            sync_statistics = kwargs['syncStatistics']
-
-        _setter("cron_exp", cron_exp)
-        _setter("repo_key", repo_key)
+        pulumi.set(__self__, "cron_exp", cron_exp)
+        pulumi.set(__self__, "repo_key", repo_key)
         if enable_event_replication is not None:
-            _setter("enable_event_replication", enable_event_replication)
+            pulumi.set(__self__, "enable_event_replication", enable_event_replication)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if path_prefix is not None:
-            _setter("path_prefix", path_prefix)
+            pulumi.set(__self__, "path_prefix", path_prefix)
         if proxy is not None:
-            _setter("proxy", proxy)
+            pulumi.set(__self__, "proxy", proxy)
         if socket_timeout_millis is not None:
-            _setter("socket_timeout_millis", socket_timeout_millis)
+            pulumi.set(__self__, "socket_timeout_millis", socket_timeout_millis)
         if sync_deletes is not None:
-            _setter("sync_deletes", sync_deletes)
+            pulumi.set(__self__, "sync_deletes", sync_deletes)
         if sync_properties is not None:
-            _setter("sync_properties", sync_properties)
+            pulumi.set(__self__, "sync_properties", sync_properties)
         if sync_statistics is not None:
-            _setter("sync_statistics", sync_statistics)
+            pulumi.set(__self__, "sync_statistics", sync_statistics)
         if url is not None:
-            _setter("url", url)
+            pulumi.set(__self__, "url", url)
         if username is not None:
-            _setter("username", username)
+            pulumi.set(__self__, "username", username)
 
     @property
     @pulumi.getter(name="cronExp")
@@ -244,83 +191,32 @@ class _SingleReplicationConfigState:
         :param pulumi.Input[str] password: Requires password encryption to be turned off `POST /api/system/decrypt`.
         :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies setting.
         """
-        _SingleReplicationConfigState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cron_exp=cron_exp,
-            enable_event_replication=enable_event_replication,
-            enabled=enabled,
-            password=password,
-            path_prefix=path_prefix,
-            proxy=proxy,
-            repo_key=repo_key,
-            socket_timeout_millis=socket_timeout_millis,
-            sync_deletes=sync_deletes,
-            sync_properties=sync_properties,
-            sync_statistics=sync_statistics,
-            url=url,
-            username=username,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cron_exp: Optional[pulumi.Input[str]] = None,
-             enable_event_replication: Optional[pulumi.Input[bool]] = None,
-             enabled: Optional[pulumi.Input[bool]] = None,
-             password: Optional[pulumi.Input[str]] = None,
-             path_prefix: Optional[pulumi.Input[str]] = None,
-             proxy: Optional[pulumi.Input[str]] = None,
-             repo_key: Optional[pulumi.Input[str]] = None,
-             socket_timeout_millis: Optional[pulumi.Input[int]] = None,
-             sync_deletes: Optional[pulumi.Input[bool]] = None,
-             sync_properties: Optional[pulumi.Input[bool]] = None,
-             sync_statistics: Optional[pulumi.Input[bool]] = None,
-             url: Optional[pulumi.Input[str]] = None,
-             username: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if cron_exp is None and 'cronExp' in kwargs:
-            cron_exp = kwargs['cronExp']
-        if enable_event_replication is None and 'enableEventReplication' in kwargs:
-            enable_event_replication = kwargs['enableEventReplication']
-        if path_prefix is None and 'pathPrefix' in kwargs:
-            path_prefix = kwargs['pathPrefix']
-        if repo_key is None and 'repoKey' in kwargs:
-            repo_key = kwargs['repoKey']
-        if socket_timeout_millis is None and 'socketTimeoutMillis' in kwargs:
-            socket_timeout_millis = kwargs['socketTimeoutMillis']
-        if sync_deletes is None and 'syncDeletes' in kwargs:
-            sync_deletes = kwargs['syncDeletes']
-        if sync_properties is None and 'syncProperties' in kwargs:
-            sync_properties = kwargs['syncProperties']
-        if sync_statistics is None and 'syncStatistics' in kwargs:
-            sync_statistics = kwargs['syncStatistics']
-
         if cron_exp is not None:
-            _setter("cron_exp", cron_exp)
+            pulumi.set(__self__, "cron_exp", cron_exp)
         if enable_event_replication is not None:
-            _setter("enable_event_replication", enable_event_replication)
+            pulumi.set(__self__, "enable_event_replication", enable_event_replication)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if password is not None:
-            _setter("password", password)
+            pulumi.set(__self__, "password", password)
         if path_prefix is not None:
-            _setter("path_prefix", path_prefix)
+            pulumi.set(__self__, "path_prefix", path_prefix)
         if proxy is not None:
-            _setter("proxy", proxy)
+            pulumi.set(__self__, "proxy", proxy)
         if repo_key is not None:
-            _setter("repo_key", repo_key)
+            pulumi.set(__self__, "repo_key", repo_key)
         if socket_timeout_millis is not None:
-            _setter("socket_timeout_millis", socket_timeout_millis)
+            pulumi.set(__self__, "socket_timeout_millis", socket_timeout_millis)
         if sync_deletes is not None:
-            _setter("sync_deletes", sync_deletes)
+            pulumi.set(__self__, "sync_deletes", sync_deletes)
         if sync_properties is not None:
-            _setter("sync_properties", sync_properties)
+            pulumi.set(__self__, "sync_properties", sync_properties)
         if sync_statistics is not None:
-            _setter("sync_statistics", sync_statistics)
+            pulumi.set(__self__, "sync_statistics", sync_statistics)
         if url is not None:
-            _setter("url", url)
+            pulumi.set(__self__, "url", url)
         if username is not None:
-            _setter("username", username)
+            pulumi.set(__self__, "username", username)
 
     @property
     @pulumi.getter(name="cronExp")
@@ -522,10 +418,6 @@ class SingleReplicationConfig(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            SingleReplicationConfigArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

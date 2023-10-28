@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['UnmanagedUserArgs', 'UnmanagedUser']
@@ -33,54 +33,21 @@ class UnmanagedUserArgs:
         :param pulumi.Input[str] password: Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters.
         :param pulumi.Input[bool] profile_updatable: When set, this user can update his profile details (except for the password. Only an administrator can update the password). Default value is `true`.
         """
-        UnmanagedUserArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            email=email,
-            admin=admin,
-            disable_ui_access=disable_ui_access,
-            groups=groups,
-            internal_password_disabled=internal_password_disabled,
-            name=name,
-            password=password,
-            profile_updatable=profile_updatable,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             email: Optional[pulumi.Input[str]] = None,
-             admin: Optional[pulumi.Input[bool]] = None,
-             disable_ui_access: Optional[pulumi.Input[bool]] = None,
-             groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             internal_password_disabled: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             password: Optional[pulumi.Input[str]] = None,
-             profile_updatable: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if email is None:
-            raise TypeError("Missing 'email' argument")
-        if disable_ui_access is None and 'disableUiAccess' in kwargs:
-            disable_ui_access = kwargs['disableUiAccess']
-        if internal_password_disabled is None and 'internalPasswordDisabled' in kwargs:
-            internal_password_disabled = kwargs['internalPasswordDisabled']
-        if profile_updatable is None and 'profileUpdatable' in kwargs:
-            profile_updatable = kwargs['profileUpdatable']
-
-        _setter("email", email)
+        pulumi.set(__self__, "email", email)
         if admin is not None:
-            _setter("admin", admin)
+            pulumi.set(__self__, "admin", admin)
         if disable_ui_access is not None:
-            _setter("disable_ui_access", disable_ui_access)
+            pulumi.set(__self__, "disable_ui_access", disable_ui_access)
         if groups is not None:
-            _setter("groups", groups)
+            pulumi.set(__self__, "groups", groups)
         if internal_password_disabled is not None:
-            _setter("internal_password_disabled", internal_password_disabled)
+            pulumi.set(__self__, "internal_password_disabled", internal_password_disabled)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if password is not None:
-            _setter("password", password)
+            pulumi.set(__self__, "password", password)
         if profile_updatable is not None:
-            _setter("profile_updatable", profile_updatable)
+            pulumi.set(__self__, "profile_updatable", profile_updatable)
 
     @property
     @pulumi.getter
@@ -201,53 +168,22 @@ class _UnmanagedUserState:
         :param pulumi.Input[str] password: Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters.
         :param pulumi.Input[bool] profile_updatable: When set, this user can update his profile details (except for the password. Only an administrator can update the password). Default value is `true`.
         """
-        _UnmanagedUserState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            admin=admin,
-            disable_ui_access=disable_ui_access,
-            email=email,
-            groups=groups,
-            internal_password_disabled=internal_password_disabled,
-            name=name,
-            password=password,
-            profile_updatable=profile_updatable,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             admin: Optional[pulumi.Input[bool]] = None,
-             disable_ui_access: Optional[pulumi.Input[bool]] = None,
-             email: Optional[pulumi.Input[str]] = None,
-             groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             internal_password_disabled: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             password: Optional[pulumi.Input[str]] = None,
-             profile_updatable: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if disable_ui_access is None and 'disableUiAccess' in kwargs:
-            disable_ui_access = kwargs['disableUiAccess']
-        if internal_password_disabled is None and 'internalPasswordDisabled' in kwargs:
-            internal_password_disabled = kwargs['internalPasswordDisabled']
-        if profile_updatable is None and 'profileUpdatable' in kwargs:
-            profile_updatable = kwargs['profileUpdatable']
-
         if admin is not None:
-            _setter("admin", admin)
+            pulumi.set(__self__, "admin", admin)
         if disable_ui_access is not None:
-            _setter("disable_ui_access", disable_ui_access)
+            pulumi.set(__self__, "disable_ui_access", disable_ui_access)
         if email is not None:
-            _setter("email", email)
+            pulumi.set(__self__, "email", email)
         if groups is not None:
-            _setter("groups", groups)
+            pulumi.set(__self__, "groups", groups)
         if internal_password_disabled is not None:
-            _setter("internal_password_disabled", internal_password_disabled)
+            pulumi.set(__self__, "internal_password_disabled", internal_password_disabled)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if password is not None:
-            _setter("password", password)
+            pulumi.set(__self__, "password", password)
         if profile_updatable is not None:
-            _setter("profile_updatable", profile_updatable)
+            pulumi.set(__self__, "profile_updatable", profile_updatable)
 
     @property
     @pulumi.getter
@@ -459,10 +395,6 @@ class UnmanagedUser(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            UnmanagedUserArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['KeypairArgs', 'Keypair']
@@ -31,52 +31,13 @@ class KeypairArgs:
                Artifactory REST API call 'Get Key Pair' doesn't return attributes `private_key` and `passphrase`, but consumes these keys in the POST call.
         :param pulumi.Input[str] passphrase: Passphrase will be used to decrypt the private key. Validated server side.
         """
-        KeypairArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            alias=alias,
-            pair_name=pair_name,
-            pair_type=pair_type,
-            private_key=private_key,
-            public_key=public_key,
-            passphrase=passphrase,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             alias: Optional[pulumi.Input[str]] = None,
-             pair_name: Optional[pulumi.Input[str]] = None,
-             pair_type: Optional[pulumi.Input[str]] = None,
-             private_key: Optional[pulumi.Input[str]] = None,
-             public_key: Optional[pulumi.Input[str]] = None,
-             passphrase: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if alias is None:
-            raise TypeError("Missing 'alias' argument")
-        if pair_name is None and 'pairName' in kwargs:
-            pair_name = kwargs['pairName']
-        if pair_name is None:
-            raise TypeError("Missing 'pair_name' argument")
-        if pair_type is None and 'pairType' in kwargs:
-            pair_type = kwargs['pairType']
-        if pair_type is None:
-            raise TypeError("Missing 'pair_type' argument")
-        if private_key is None and 'privateKey' in kwargs:
-            private_key = kwargs['privateKey']
-        if private_key is None:
-            raise TypeError("Missing 'private_key' argument")
-        if public_key is None and 'publicKey' in kwargs:
-            public_key = kwargs['publicKey']
-        if public_key is None:
-            raise TypeError("Missing 'public_key' argument")
-
-        _setter("alias", alias)
-        _setter("pair_name", pair_name)
-        _setter("pair_type", pair_type)
-        _setter("private_key", private_key)
-        _setter("public_key", public_key)
+        pulumi.set(__self__, "alias", alias)
+        pulumi.set(__self__, "pair_name", pair_name)
+        pulumi.set(__self__, "pair_type", pair_type)
+        pulumi.set(__self__, "private_key", private_key)
+        pulumi.set(__self__, "public_key", public_key)
         if passphrase is not None:
-            _setter("passphrase", passphrase)
+            pulumi.set(__self__, "passphrase", passphrase)
 
     @property
     @pulumi.getter
@@ -173,47 +134,18 @@ class _KeypairState:
                
                Artifactory REST API call 'Get Key Pair' doesn't return attributes `private_key` and `passphrase`, but consumes these keys in the POST call.
         """
-        _KeypairState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            alias=alias,
-            pair_name=pair_name,
-            pair_type=pair_type,
-            passphrase=passphrase,
-            private_key=private_key,
-            public_key=public_key,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             alias: Optional[pulumi.Input[str]] = None,
-             pair_name: Optional[pulumi.Input[str]] = None,
-             pair_type: Optional[pulumi.Input[str]] = None,
-             passphrase: Optional[pulumi.Input[str]] = None,
-             private_key: Optional[pulumi.Input[str]] = None,
-             public_key: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if pair_name is None and 'pairName' in kwargs:
-            pair_name = kwargs['pairName']
-        if pair_type is None and 'pairType' in kwargs:
-            pair_type = kwargs['pairType']
-        if private_key is None and 'privateKey' in kwargs:
-            private_key = kwargs['privateKey']
-        if public_key is None and 'publicKey' in kwargs:
-            public_key = kwargs['publicKey']
-
         if alias is not None:
-            _setter("alias", alias)
+            pulumi.set(__self__, "alias", alias)
         if pair_name is not None:
-            _setter("pair_name", pair_name)
+            pulumi.set(__self__, "pair_name", pair_name)
         if pair_type is not None:
-            _setter("pair_type", pair_type)
+            pulumi.set(__self__, "pair_type", pair_type)
         if passphrase is not None:
-            _setter("passphrase", passphrase)
+            pulumi.set(__self__, "passphrase", passphrase)
         if private_key is not None:
-            _setter("private_key", private_key)
+            pulumi.set(__self__, "private_key", private_key)
         if public_key is not None:
-            _setter("public_key", public_key)
+            pulumi.set(__self__, "public_key", public_key)
 
     @property
     @pulumi.getter
@@ -383,10 +315,6 @@ class Keypair(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            KeypairArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

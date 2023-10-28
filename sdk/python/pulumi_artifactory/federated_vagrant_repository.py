@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -68,111 +68,38 @@ class FederatedVagrantRepositoryArgs:
         :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
                Xray settings.
         """
-        FederatedVagrantRepositoryArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            members=members,
-            archive_browsing_enabled=archive_browsing_enabled,
-            blacked_out=blacked_out,
-            cdn_redirect=cdn_redirect,
-            cleanup_on_delete=cleanup_on_delete,
-            description=description,
-            download_direct=download_direct,
-            excludes_pattern=excludes_pattern,
-            includes_pattern=includes_pattern,
-            notes=notes,
-            priority_resolution=priority_resolution,
-            project_environments=project_environments,
-            project_key=project_key,
-            property_sets=property_sets,
-            repo_layout_ref=repo_layout_ref,
-            xray_index=xray_index,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: Optional[pulumi.Input[str]] = None,
-             members: Optional[pulumi.Input[Sequence[pulumi.Input['FederatedVagrantRepositoryMemberArgs']]]] = None,
-             archive_browsing_enabled: Optional[pulumi.Input[bool]] = None,
-             blacked_out: Optional[pulumi.Input[bool]] = None,
-             cdn_redirect: Optional[pulumi.Input[bool]] = None,
-             cleanup_on_delete: Optional[pulumi.Input[bool]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             download_direct: Optional[pulumi.Input[bool]] = None,
-             excludes_pattern: Optional[pulumi.Input[str]] = None,
-             includes_pattern: Optional[pulumi.Input[str]] = None,
-             notes: Optional[pulumi.Input[str]] = None,
-             priority_resolution: Optional[pulumi.Input[bool]] = None,
-             project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             project_key: Optional[pulumi.Input[str]] = None,
-             property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             repo_layout_ref: Optional[pulumi.Input[str]] = None,
-             xray_index: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if key is None:
-            raise TypeError("Missing 'key' argument")
-        if members is None:
-            raise TypeError("Missing 'members' argument")
-        if archive_browsing_enabled is None and 'archiveBrowsingEnabled' in kwargs:
-            archive_browsing_enabled = kwargs['archiveBrowsingEnabled']
-        if blacked_out is None and 'blackedOut' in kwargs:
-            blacked_out = kwargs['blackedOut']
-        if cdn_redirect is None and 'cdnRedirect' in kwargs:
-            cdn_redirect = kwargs['cdnRedirect']
-        if cleanup_on_delete is None and 'cleanupOnDelete' in kwargs:
-            cleanup_on_delete = kwargs['cleanupOnDelete']
-        if download_direct is None and 'downloadDirect' in kwargs:
-            download_direct = kwargs['downloadDirect']
-        if excludes_pattern is None and 'excludesPattern' in kwargs:
-            excludes_pattern = kwargs['excludesPattern']
-        if includes_pattern is None and 'includesPattern' in kwargs:
-            includes_pattern = kwargs['includesPattern']
-        if priority_resolution is None and 'priorityResolution' in kwargs:
-            priority_resolution = kwargs['priorityResolution']
-        if project_environments is None and 'projectEnvironments' in kwargs:
-            project_environments = kwargs['projectEnvironments']
-        if project_key is None and 'projectKey' in kwargs:
-            project_key = kwargs['projectKey']
-        if property_sets is None and 'propertySets' in kwargs:
-            property_sets = kwargs['propertySets']
-        if repo_layout_ref is None and 'repoLayoutRef' in kwargs:
-            repo_layout_ref = kwargs['repoLayoutRef']
-        if xray_index is None and 'xrayIndex' in kwargs:
-            xray_index = kwargs['xrayIndex']
-
-        _setter("key", key)
-        _setter("members", members)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "members", members)
         if archive_browsing_enabled is not None:
-            _setter("archive_browsing_enabled", archive_browsing_enabled)
+            pulumi.set(__self__, "archive_browsing_enabled", archive_browsing_enabled)
         if blacked_out is not None:
-            _setter("blacked_out", blacked_out)
+            pulumi.set(__self__, "blacked_out", blacked_out)
         if cdn_redirect is not None:
-            _setter("cdn_redirect", cdn_redirect)
+            pulumi.set(__self__, "cdn_redirect", cdn_redirect)
         if cleanup_on_delete is not None:
-            _setter("cleanup_on_delete", cleanup_on_delete)
+            pulumi.set(__self__, "cleanup_on_delete", cleanup_on_delete)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if download_direct is not None:
-            _setter("download_direct", download_direct)
+            pulumi.set(__self__, "download_direct", download_direct)
         if excludes_pattern is not None:
-            _setter("excludes_pattern", excludes_pattern)
+            pulumi.set(__self__, "excludes_pattern", excludes_pattern)
         if includes_pattern is not None:
-            _setter("includes_pattern", includes_pattern)
+            pulumi.set(__self__, "includes_pattern", includes_pattern)
         if notes is not None:
-            _setter("notes", notes)
+            pulumi.set(__self__, "notes", notes)
         if priority_resolution is not None:
-            _setter("priority_resolution", priority_resolution)
+            pulumi.set(__self__, "priority_resolution", priority_resolution)
         if project_environments is not None:
-            _setter("project_environments", project_environments)
+            pulumi.set(__self__, "project_environments", project_environments)
         if project_key is not None:
-            _setter("project_key", project_key)
+            pulumi.set(__self__, "project_key", project_key)
         if property_sets is not None:
-            _setter("property_sets", property_sets)
+            pulumi.set(__self__, "property_sets", property_sets)
         if repo_layout_ref is not None:
-            _setter("repo_layout_ref", repo_layout_ref)
+            pulumi.set(__self__, "repo_layout_ref", repo_layout_ref)
         if xray_index is not None:
-            _setter("xray_index", xray_index)
+            pulumi.set(__self__, "xray_index", xray_index)
 
     @property
     @pulumi.getter
@@ -450,115 +377,42 @@ class _FederatedVagrantRepositoryState:
         :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
                Xray settings.
         """
-        _FederatedVagrantRepositoryState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            archive_browsing_enabled=archive_browsing_enabled,
-            blacked_out=blacked_out,
-            cdn_redirect=cdn_redirect,
-            cleanup_on_delete=cleanup_on_delete,
-            description=description,
-            download_direct=download_direct,
-            excludes_pattern=excludes_pattern,
-            includes_pattern=includes_pattern,
-            key=key,
-            members=members,
-            notes=notes,
-            package_type=package_type,
-            priority_resolution=priority_resolution,
-            project_environments=project_environments,
-            project_key=project_key,
-            property_sets=property_sets,
-            repo_layout_ref=repo_layout_ref,
-            xray_index=xray_index,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             archive_browsing_enabled: Optional[pulumi.Input[bool]] = None,
-             blacked_out: Optional[pulumi.Input[bool]] = None,
-             cdn_redirect: Optional[pulumi.Input[bool]] = None,
-             cleanup_on_delete: Optional[pulumi.Input[bool]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             download_direct: Optional[pulumi.Input[bool]] = None,
-             excludes_pattern: Optional[pulumi.Input[str]] = None,
-             includes_pattern: Optional[pulumi.Input[str]] = None,
-             key: Optional[pulumi.Input[str]] = None,
-             members: Optional[pulumi.Input[Sequence[pulumi.Input['FederatedVagrantRepositoryMemberArgs']]]] = None,
-             notes: Optional[pulumi.Input[str]] = None,
-             package_type: Optional[pulumi.Input[str]] = None,
-             priority_resolution: Optional[pulumi.Input[bool]] = None,
-             project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             project_key: Optional[pulumi.Input[str]] = None,
-             property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             repo_layout_ref: Optional[pulumi.Input[str]] = None,
-             xray_index: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if archive_browsing_enabled is None and 'archiveBrowsingEnabled' in kwargs:
-            archive_browsing_enabled = kwargs['archiveBrowsingEnabled']
-        if blacked_out is None and 'blackedOut' in kwargs:
-            blacked_out = kwargs['blackedOut']
-        if cdn_redirect is None and 'cdnRedirect' in kwargs:
-            cdn_redirect = kwargs['cdnRedirect']
-        if cleanup_on_delete is None and 'cleanupOnDelete' in kwargs:
-            cleanup_on_delete = kwargs['cleanupOnDelete']
-        if download_direct is None and 'downloadDirect' in kwargs:
-            download_direct = kwargs['downloadDirect']
-        if excludes_pattern is None and 'excludesPattern' in kwargs:
-            excludes_pattern = kwargs['excludesPattern']
-        if includes_pattern is None and 'includesPattern' in kwargs:
-            includes_pattern = kwargs['includesPattern']
-        if package_type is None and 'packageType' in kwargs:
-            package_type = kwargs['packageType']
-        if priority_resolution is None and 'priorityResolution' in kwargs:
-            priority_resolution = kwargs['priorityResolution']
-        if project_environments is None and 'projectEnvironments' in kwargs:
-            project_environments = kwargs['projectEnvironments']
-        if project_key is None and 'projectKey' in kwargs:
-            project_key = kwargs['projectKey']
-        if property_sets is None and 'propertySets' in kwargs:
-            property_sets = kwargs['propertySets']
-        if repo_layout_ref is None and 'repoLayoutRef' in kwargs:
-            repo_layout_ref = kwargs['repoLayoutRef']
-        if xray_index is None and 'xrayIndex' in kwargs:
-            xray_index = kwargs['xrayIndex']
-
         if archive_browsing_enabled is not None:
-            _setter("archive_browsing_enabled", archive_browsing_enabled)
+            pulumi.set(__self__, "archive_browsing_enabled", archive_browsing_enabled)
         if blacked_out is not None:
-            _setter("blacked_out", blacked_out)
+            pulumi.set(__self__, "blacked_out", blacked_out)
         if cdn_redirect is not None:
-            _setter("cdn_redirect", cdn_redirect)
+            pulumi.set(__self__, "cdn_redirect", cdn_redirect)
         if cleanup_on_delete is not None:
-            _setter("cleanup_on_delete", cleanup_on_delete)
+            pulumi.set(__self__, "cleanup_on_delete", cleanup_on_delete)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if download_direct is not None:
-            _setter("download_direct", download_direct)
+            pulumi.set(__self__, "download_direct", download_direct)
         if excludes_pattern is not None:
-            _setter("excludes_pattern", excludes_pattern)
+            pulumi.set(__self__, "excludes_pattern", excludes_pattern)
         if includes_pattern is not None:
-            _setter("includes_pattern", includes_pattern)
+            pulumi.set(__self__, "includes_pattern", includes_pattern)
         if key is not None:
-            _setter("key", key)
+            pulumi.set(__self__, "key", key)
         if members is not None:
-            _setter("members", members)
+            pulumi.set(__self__, "members", members)
         if notes is not None:
-            _setter("notes", notes)
+            pulumi.set(__self__, "notes", notes)
         if package_type is not None:
-            _setter("package_type", package_type)
+            pulumi.set(__self__, "package_type", package_type)
         if priority_resolution is not None:
-            _setter("priority_resolution", priority_resolution)
+            pulumi.set(__self__, "priority_resolution", priority_resolution)
         if project_environments is not None:
-            _setter("project_environments", project_environments)
+            pulumi.set(__self__, "project_environments", project_environments)
         if project_key is not None:
-            _setter("project_key", project_key)
+            pulumi.set(__self__, "project_key", project_key)
         if property_sets is not None:
-            _setter("property_sets", property_sets)
+            pulumi.set(__self__, "property_sets", property_sets)
         if repo_layout_ref is not None:
-            _setter("repo_layout_ref", repo_layout_ref)
+            pulumi.set(__self__, "repo_layout_ref", repo_layout_ref)
         if xray_index is not None:
-            _setter("xray_index", xray_index)
+            pulumi.set(__self__, "xray_index", xray_index)
 
     @property
     @pulumi.getter(name="archiveBrowsingEnabled")
@@ -925,10 +779,6 @@ class FederatedVagrantRepository(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            FederatedVagrantRepositoryArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

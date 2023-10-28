@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['CertificateArgs', 'Certificate']
@@ -23,28 +23,11 @@ class CertificateArgs:
         :param pulumi.Input[str] content: PEM-encoded client certificate and private key. Cannot be set with `file` attribute simultaneously.
         :param pulumi.Input[str] file: Path to the PEM file. Cannot be set with `content` attribute simultaneously.
         """
-        CertificateArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            alias=alias,
-            content=content,
-            file=file,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             alias: Optional[pulumi.Input[str]] = None,
-             content: Optional[pulumi.Input[str]] = None,
-             file: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if alias is None:
-            raise TypeError("Missing 'alias' argument")
-
-        _setter("alias", alias)
+        pulumi.set(__self__, "alias", alias)
         if content is not None:
-            _setter("content", content)
+            pulumi.set(__self__, "content", content)
         if file is not None:
-            _setter("file", file)
+            pulumi.set(__self__, "file", file)
 
     @property
     @pulumi.getter
@@ -105,55 +88,22 @@ class _CertificateState:
         :param pulumi.Input[str] issued_to: Name of whom the certificate has been issued to.
         :param pulumi.Input[str] valid_until: The time & date when the certificate expires.
         """
-        _CertificateState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            alias=alias,
-            content=content,
-            file=file,
-            fingerprint=fingerprint,
-            issued_by=issued_by,
-            issued_on=issued_on,
-            issued_to=issued_to,
-            valid_until=valid_until,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             alias: Optional[pulumi.Input[str]] = None,
-             content: Optional[pulumi.Input[str]] = None,
-             file: Optional[pulumi.Input[str]] = None,
-             fingerprint: Optional[pulumi.Input[str]] = None,
-             issued_by: Optional[pulumi.Input[str]] = None,
-             issued_on: Optional[pulumi.Input[str]] = None,
-             issued_to: Optional[pulumi.Input[str]] = None,
-             valid_until: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if issued_by is None and 'issuedBy' in kwargs:
-            issued_by = kwargs['issuedBy']
-        if issued_on is None and 'issuedOn' in kwargs:
-            issued_on = kwargs['issuedOn']
-        if issued_to is None and 'issuedTo' in kwargs:
-            issued_to = kwargs['issuedTo']
-        if valid_until is None and 'validUntil' in kwargs:
-            valid_until = kwargs['validUntil']
-
         if alias is not None:
-            _setter("alias", alias)
+            pulumi.set(__self__, "alias", alias)
         if content is not None:
-            _setter("content", content)
+            pulumi.set(__self__, "content", content)
         if file is not None:
-            _setter("file", file)
+            pulumi.set(__self__, "file", file)
         if fingerprint is not None:
-            _setter("fingerprint", fingerprint)
+            pulumi.set(__self__, "fingerprint", fingerprint)
         if issued_by is not None:
-            _setter("issued_by", issued_by)
+            pulumi.set(__self__, "issued_by", issued_by)
         if issued_on is not None:
-            _setter("issued_on", issued_on)
+            pulumi.set(__self__, "issued_on", issued_on)
         if issued_to is not None:
-            _setter("issued_to", issued_to)
+            pulumi.set(__self__, "issued_to", issued_to)
         if valid_until is not None:
-            _setter("valid_until", valid_until)
+            pulumi.set(__self__, "valid_until", valid_until)
 
     @property
     @pulumi.getter
@@ -333,10 +283,6 @@ class Certificate(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            CertificateArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
