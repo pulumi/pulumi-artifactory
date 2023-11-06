@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a local Gradle repository.
@@ -441,12 +440,6 @@ func (i *LocalGradleRepository) ToLocalGradleRepositoryOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(LocalGradleRepositoryOutput)
 }
 
-func (i *LocalGradleRepository) ToOutput(ctx context.Context) pulumix.Output[*LocalGradleRepository] {
-	return pulumix.Output[*LocalGradleRepository]{
-		OutputState: i.ToLocalGradleRepositoryOutputWithContext(ctx).OutputState,
-	}
-}
-
 // LocalGradleRepositoryArrayInput is an input type that accepts LocalGradleRepositoryArray and LocalGradleRepositoryArrayOutput values.
 // You can construct a concrete instance of `LocalGradleRepositoryArrayInput` via:
 //
@@ -470,12 +463,6 @@ func (i LocalGradleRepositoryArray) ToLocalGradleRepositoryArrayOutput() LocalGr
 
 func (i LocalGradleRepositoryArray) ToLocalGradleRepositoryArrayOutputWithContext(ctx context.Context) LocalGradleRepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LocalGradleRepositoryArrayOutput)
-}
-
-func (i LocalGradleRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*LocalGradleRepository] {
-	return pulumix.Output[[]*LocalGradleRepository]{
-		OutputState: i.ToLocalGradleRepositoryArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // LocalGradleRepositoryMapInput is an input type that accepts LocalGradleRepositoryMap and LocalGradleRepositoryMapOutput values.
@@ -503,12 +490,6 @@ func (i LocalGradleRepositoryMap) ToLocalGradleRepositoryMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(LocalGradleRepositoryMapOutput)
 }
 
-func (i LocalGradleRepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LocalGradleRepository] {
-	return pulumix.Output[map[string]*LocalGradleRepository]{
-		OutputState: i.ToLocalGradleRepositoryMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LocalGradleRepositoryOutput struct{ *pulumi.OutputState }
 
 func (LocalGradleRepositoryOutput) ElementType() reflect.Type {
@@ -521,12 +502,6 @@ func (o LocalGradleRepositoryOutput) ToLocalGradleRepositoryOutput() LocalGradle
 
 func (o LocalGradleRepositoryOutput) ToLocalGradleRepositoryOutputWithContext(ctx context.Context) LocalGradleRepositoryOutput {
 	return o
-}
-
-func (o LocalGradleRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*LocalGradleRepository] {
-	return pulumix.Output[*LocalGradleRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 // When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -671,12 +646,6 @@ func (o LocalGradleRepositoryArrayOutput) ToLocalGradleRepositoryArrayOutputWith
 	return o
 }
 
-func (o LocalGradleRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LocalGradleRepository] {
-	return pulumix.Output[[]*LocalGradleRepository]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LocalGradleRepositoryArrayOutput) Index(i pulumi.IntInput) LocalGradleRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LocalGradleRepository {
 		return vs[0].([]*LocalGradleRepository)[vs[1].(int)]
@@ -695,12 +664,6 @@ func (o LocalGradleRepositoryMapOutput) ToLocalGradleRepositoryMapOutput() Local
 
 func (o LocalGradleRepositoryMapOutput) ToLocalGradleRepositoryMapOutputWithContext(ctx context.Context) LocalGradleRepositoryMapOutput {
 	return o
-}
-
-func (o LocalGradleRepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LocalGradleRepository] {
-	return pulumix.Output[map[string]*LocalGradleRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LocalGradleRepositoryMapOutput) MapIndex(k pulumi.StringInput) LocalGradleRepositoryOutput {

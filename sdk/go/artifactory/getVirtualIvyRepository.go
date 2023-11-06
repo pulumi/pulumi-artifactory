@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieves a virtual Ivy repository.
@@ -153,12 +152,6 @@ func (o LookupVirtualIvyRepositoryResultOutput) ToLookupVirtualIvyRepositoryResu
 
 func (o LookupVirtualIvyRepositoryResultOutput) ToLookupVirtualIvyRepositoryResultOutputWithContext(ctx context.Context) LookupVirtualIvyRepositoryResultOutput {
 	return o
-}
-
-func (o LookupVirtualIvyRepositoryResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupVirtualIvyRepositoryResult] {
-	return pulumix.Output[LookupVirtualIvyRepositoryResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupVirtualIvyRepositoryResultOutput) ArtifactoryRequestsCanRetrieveRemoteArtifacts() pulumi.BoolPtrOutput {

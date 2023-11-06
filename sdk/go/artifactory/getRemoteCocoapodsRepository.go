@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieves a remote CocoaPods repository.
@@ -240,12 +239,6 @@ func (o LookupRemoteCocoapodsRepositoryResultOutput) ToLookupRemoteCocoapodsRepo
 
 func (o LookupRemoteCocoapodsRepositoryResultOutput) ToLookupRemoteCocoapodsRepositoryResultOutputWithContext(ctx context.Context) LookupRemoteCocoapodsRepositoryResultOutput {
 	return o
-}
-
-func (o LookupRemoteCocoapodsRepositoryResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupRemoteCocoapodsRepositoryResult] {
-	return pulumix.Output[LookupRemoteCocoapodsRepositoryResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupRemoteCocoapodsRepositoryResultOutput) AllowAnyHostAuth() pulumi.BoolPtrOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an Artifactory permission target resource. This can be used to create and manage Artifactory permission targets.
@@ -282,12 +281,6 @@ func (i *PermissionTarget) ToPermissionTargetOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(PermissionTargetOutput)
 }
 
-func (i *PermissionTarget) ToOutput(ctx context.Context) pulumix.Output[*PermissionTarget] {
-	return pulumix.Output[*PermissionTarget]{
-		OutputState: i.ToPermissionTargetOutputWithContext(ctx).OutputState,
-	}
-}
-
 // PermissionTargetArrayInput is an input type that accepts PermissionTargetArray and PermissionTargetArrayOutput values.
 // You can construct a concrete instance of `PermissionTargetArrayInput` via:
 //
@@ -311,12 +304,6 @@ func (i PermissionTargetArray) ToPermissionTargetArrayOutput() PermissionTargetA
 
 func (i PermissionTargetArray) ToPermissionTargetArrayOutputWithContext(ctx context.Context) PermissionTargetArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PermissionTargetArrayOutput)
-}
-
-func (i PermissionTargetArray) ToOutput(ctx context.Context) pulumix.Output[[]*PermissionTarget] {
-	return pulumix.Output[[]*PermissionTarget]{
-		OutputState: i.ToPermissionTargetArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // PermissionTargetMapInput is an input type that accepts PermissionTargetMap and PermissionTargetMapOutput values.
@@ -344,12 +331,6 @@ func (i PermissionTargetMap) ToPermissionTargetMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(PermissionTargetMapOutput)
 }
 
-func (i PermissionTargetMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*PermissionTarget] {
-	return pulumix.Output[map[string]*PermissionTarget]{
-		OutputState: i.ToPermissionTargetMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PermissionTargetOutput struct{ *pulumi.OutputState }
 
 func (PermissionTargetOutput) ElementType() reflect.Type {
@@ -362,12 +343,6 @@ func (o PermissionTargetOutput) ToPermissionTargetOutput() PermissionTargetOutpu
 
 func (o PermissionTargetOutput) ToPermissionTargetOutputWithContext(ctx context.Context) PermissionTargetOutput {
 	return o
-}
-
-func (o PermissionTargetOutput) ToOutput(ctx context.Context) pulumix.Output[*PermissionTarget] {
-	return pulumix.Output[*PermissionTarget]{
-		OutputState: o.OutputState,
-	}
 }
 
 // As for repo but for artifactory-build-info permissions.
@@ -404,12 +379,6 @@ func (o PermissionTargetArrayOutput) ToPermissionTargetArrayOutputWithContext(ct
 	return o
 }
 
-func (o PermissionTargetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*PermissionTarget] {
-	return pulumix.Output[[]*PermissionTarget]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PermissionTargetArrayOutput) Index(i pulumi.IntInput) PermissionTargetOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PermissionTarget {
 		return vs[0].([]*PermissionTarget)[vs[1].(int)]
@@ -428,12 +397,6 @@ func (o PermissionTargetMapOutput) ToPermissionTargetMapOutput() PermissionTarge
 
 func (o PermissionTargetMapOutput) ToPermissionTargetMapOutputWithContext(ctx context.Context) PermissionTargetMapOutput {
 	return o
-}
-
-func (o PermissionTargetMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*PermissionTarget] {
-	return pulumix.Output[map[string]*PermissionTarget]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PermissionTargetMapOutput) MapIndex(k pulumi.StringInput) PermissionTargetOutput {

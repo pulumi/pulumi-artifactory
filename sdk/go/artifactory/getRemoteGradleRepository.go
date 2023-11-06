@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieves a remote Gradle repository.
@@ -264,12 +263,6 @@ func (o LookupRemoteGradleRepositoryResultOutput) ToLookupRemoteGradleRepository
 
 func (o LookupRemoteGradleRepositoryResultOutput) ToLookupRemoteGradleRepositoryResultOutputWithContext(ctx context.Context) LookupRemoteGradleRepositoryResultOutput {
 	return o
-}
-
-func (o LookupRemoteGradleRepositoryResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupRemoteGradleRepositoryResult] {
-	return pulumix.Output[LookupRemoteGradleRepositoryResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupRemoteGradleRepositoryResultOutput) AllowAnyHostAuth() pulumi.BoolPtrOutput {

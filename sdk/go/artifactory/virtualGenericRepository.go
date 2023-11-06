@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a virtual Generic repository.
@@ -287,12 +286,6 @@ func (i *VirtualGenericRepository) ToVirtualGenericRepositoryOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualGenericRepositoryOutput)
 }
 
-func (i *VirtualGenericRepository) ToOutput(ctx context.Context) pulumix.Output[*VirtualGenericRepository] {
-	return pulumix.Output[*VirtualGenericRepository]{
-		OutputState: i.ToVirtualGenericRepositoryOutputWithContext(ctx).OutputState,
-	}
-}
-
 // VirtualGenericRepositoryArrayInput is an input type that accepts VirtualGenericRepositoryArray and VirtualGenericRepositoryArrayOutput values.
 // You can construct a concrete instance of `VirtualGenericRepositoryArrayInput` via:
 //
@@ -316,12 +309,6 @@ func (i VirtualGenericRepositoryArray) ToVirtualGenericRepositoryArrayOutput() V
 
 func (i VirtualGenericRepositoryArray) ToVirtualGenericRepositoryArrayOutputWithContext(ctx context.Context) VirtualGenericRepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualGenericRepositoryArrayOutput)
-}
-
-func (i VirtualGenericRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*VirtualGenericRepository] {
-	return pulumix.Output[[]*VirtualGenericRepository]{
-		OutputState: i.ToVirtualGenericRepositoryArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // VirtualGenericRepositoryMapInput is an input type that accepts VirtualGenericRepositoryMap and VirtualGenericRepositoryMapOutput values.
@@ -349,12 +336,6 @@ func (i VirtualGenericRepositoryMap) ToVirtualGenericRepositoryMapOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualGenericRepositoryMapOutput)
 }
 
-func (i VirtualGenericRepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VirtualGenericRepository] {
-	return pulumix.Output[map[string]*VirtualGenericRepository]{
-		OutputState: i.ToVirtualGenericRepositoryMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VirtualGenericRepositoryOutput struct{ *pulumi.OutputState }
 
 func (VirtualGenericRepositoryOutput) ElementType() reflect.Type {
@@ -367,12 +348,6 @@ func (o VirtualGenericRepositoryOutput) ToVirtualGenericRepositoryOutput() Virtu
 
 func (o VirtualGenericRepositoryOutput) ToVirtualGenericRepositoryOutputWithContext(ctx context.Context) VirtualGenericRepositoryOutput {
 	return o
-}
-
-func (o VirtualGenericRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualGenericRepository] {
-	return pulumix.Output[*VirtualGenericRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
@@ -458,12 +433,6 @@ func (o VirtualGenericRepositoryArrayOutput) ToVirtualGenericRepositoryArrayOutp
 	return o
 }
 
-func (o VirtualGenericRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VirtualGenericRepository] {
-	return pulumix.Output[[]*VirtualGenericRepository]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o VirtualGenericRepositoryArrayOutput) Index(i pulumi.IntInput) VirtualGenericRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VirtualGenericRepository {
 		return vs[0].([]*VirtualGenericRepository)[vs[1].(int)]
@@ -482,12 +451,6 @@ func (o VirtualGenericRepositoryMapOutput) ToVirtualGenericRepositoryMapOutput()
 
 func (o VirtualGenericRepositoryMapOutput) ToVirtualGenericRepositoryMapOutputWithContext(ctx context.Context) VirtualGenericRepositoryMapOutput {
 	return o
-}
-
-func (o VirtualGenericRepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VirtualGenericRepository] {
-	return pulumix.Output[map[string]*VirtualGenericRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VirtualGenericRepositoryMapOutput) MapIndex(k pulumi.StringInput) VirtualGenericRepositoryOutput {

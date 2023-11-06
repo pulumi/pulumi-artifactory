@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a remote Generic repository.
@@ -731,12 +730,6 @@ func (i *RemoteGenericRepository) ToRemoteGenericRepositoryOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(RemoteGenericRepositoryOutput)
 }
 
-func (i *RemoteGenericRepository) ToOutput(ctx context.Context) pulumix.Output[*RemoteGenericRepository] {
-	return pulumix.Output[*RemoteGenericRepository]{
-		OutputState: i.ToRemoteGenericRepositoryOutputWithContext(ctx).OutputState,
-	}
-}
-
 // RemoteGenericRepositoryArrayInput is an input type that accepts RemoteGenericRepositoryArray and RemoteGenericRepositoryArrayOutput values.
 // You can construct a concrete instance of `RemoteGenericRepositoryArrayInput` via:
 //
@@ -760,12 +753,6 @@ func (i RemoteGenericRepositoryArray) ToRemoteGenericRepositoryArrayOutput() Rem
 
 func (i RemoteGenericRepositoryArray) ToRemoteGenericRepositoryArrayOutputWithContext(ctx context.Context) RemoteGenericRepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RemoteGenericRepositoryArrayOutput)
-}
-
-func (i RemoteGenericRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*RemoteGenericRepository] {
-	return pulumix.Output[[]*RemoteGenericRepository]{
-		OutputState: i.ToRemoteGenericRepositoryArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // RemoteGenericRepositoryMapInput is an input type that accepts RemoteGenericRepositoryMap and RemoteGenericRepositoryMapOutput values.
@@ -793,12 +780,6 @@ func (i RemoteGenericRepositoryMap) ToRemoteGenericRepositoryMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(RemoteGenericRepositoryMapOutput)
 }
 
-func (i RemoteGenericRepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RemoteGenericRepository] {
-	return pulumix.Output[map[string]*RemoteGenericRepository]{
-		OutputState: i.ToRemoteGenericRepositoryMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RemoteGenericRepositoryOutput struct{ *pulumi.OutputState }
 
 func (RemoteGenericRepositoryOutput) ElementType() reflect.Type {
@@ -811,12 +792,6 @@ func (o RemoteGenericRepositoryOutput) ToRemoteGenericRepositoryOutput() RemoteG
 
 func (o RemoteGenericRepositoryOutput) ToRemoteGenericRepositoryOutputWithContext(ctx context.Context) RemoteGenericRepositoryOutput {
 	return o
-}
-
-func (o RemoteGenericRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*RemoteGenericRepository] {
-	return pulumix.Output[*RemoteGenericRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 // 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any
@@ -1086,12 +1061,6 @@ func (o RemoteGenericRepositoryArrayOutput) ToRemoteGenericRepositoryArrayOutput
 	return o
 }
 
-func (o RemoteGenericRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RemoteGenericRepository] {
-	return pulumix.Output[[]*RemoteGenericRepository]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RemoteGenericRepositoryArrayOutput) Index(i pulumi.IntInput) RemoteGenericRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RemoteGenericRepository {
 		return vs[0].([]*RemoteGenericRepository)[vs[1].(int)]
@@ -1110,12 +1079,6 @@ func (o RemoteGenericRepositoryMapOutput) ToRemoteGenericRepositoryMapOutput() R
 
 func (o RemoteGenericRepositoryMapOutput) ToRemoteGenericRepositoryMapOutputWithContext(ctx context.Context) RemoteGenericRepositoryMapOutput {
 	return o
-}
-
-func (o RemoteGenericRepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RemoteGenericRepository] {
-	return pulumix.Output[map[string]*RemoteGenericRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RemoteGenericRepositoryMapOutput) MapIndex(k pulumi.StringInput) RemoteGenericRepositoryOutput {

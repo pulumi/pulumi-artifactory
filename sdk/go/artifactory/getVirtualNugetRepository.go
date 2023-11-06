@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieves a virtual NPM repository.
@@ -135,12 +134,6 @@ func (o LookupVirtualNugetRepositoryResultOutput) ToLookupVirtualNugetRepository
 
 func (o LookupVirtualNugetRepositoryResultOutput) ToLookupVirtualNugetRepositoryResultOutputWithContext(ctx context.Context) LookupVirtualNugetRepositoryResultOutput {
 	return o
-}
-
-func (o LookupVirtualNugetRepositoryResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupVirtualNugetRepositoryResult] {
-	return pulumix.Output[LookupVirtualNugetRepositoryResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupVirtualNugetRepositoryResultOutput) ArtifactoryRequestsCanRetrieveRemoteArtifacts() pulumi.BoolPtrOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -157,12 +156,6 @@ func (o LookupFederatedTerraformProviderRepositoryResultOutput) ToLookupFederate
 
 func (o LookupFederatedTerraformProviderRepositoryResultOutput) ToLookupFederatedTerraformProviderRepositoryResultOutputWithContext(ctx context.Context) LookupFederatedTerraformProviderRepositoryResultOutput {
 	return o
-}
-
-func (o LookupFederatedTerraformProviderRepositoryResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupFederatedTerraformProviderRepositoryResult] {
-	return pulumix.Output[LookupFederatedTerraformProviderRepositoryResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupFederatedTerraformProviderRepositoryResultOutput) ArchiveBrowsingEnabled() pulumi.BoolPtrOutput {

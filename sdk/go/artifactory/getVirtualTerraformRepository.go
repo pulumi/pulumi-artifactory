@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -127,12 +126,6 @@ func (o LookupVirtualTerraformRepositoryResultOutput) ToLookupVirtualTerraformRe
 
 func (o LookupVirtualTerraformRepositoryResultOutput) ToLookupVirtualTerraformRepositoryResultOutputWithContext(ctx context.Context) LookupVirtualTerraformRepositoryResultOutput {
 	return o
-}
-
-func (o LookupVirtualTerraformRepositoryResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupVirtualTerraformRepositoryResult] {
-	return pulumix.Output[LookupVirtualTerraformRepositoryResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupVirtualTerraformRepositoryResultOutput) ArtifactoryRequestsCanRetrieveRemoteArtifacts() pulumi.BoolPtrOutput {

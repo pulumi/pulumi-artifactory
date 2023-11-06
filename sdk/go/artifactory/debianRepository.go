@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a local Debian repository and allows for the creation of a GPG key.
@@ -432,12 +431,6 @@ func (i *DebianRepository) ToDebianRepositoryOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(DebianRepositoryOutput)
 }
 
-func (i *DebianRepository) ToOutput(ctx context.Context) pulumix.Output[*DebianRepository] {
-	return pulumix.Output[*DebianRepository]{
-		OutputState: i.ToDebianRepositoryOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DebianRepositoryArrayInput is an input type that accepts DebianRepositoryArray and DebianRepositoryArrayOutput values.
 // You can construct a concrete instance of `DebianRepositoryArrayInput` via:
 //
@@ -461,12 +454,6 @@ func (i DebianRepositoryArray) ToDebianRepositoryArrayOutput() DebianRepositoryA
 
 func (i DebianRepositoryArray) ToDebianRepositoryArrayOutputWithContext(ctx context.Context) DebianRepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DebianRepositoryArrayOutput)
-}
-
-func (i DebianRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*DebianRepository] {
-	return pulumix.Output[[]*DebianRepository]{
-		OutputState: i.ToDebianRepositoryArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // DebianRepositoryMapInput is an input type that accepts DebianRepositoryMap and DebianRepositoryMapOutput values.
@@ -494,12 +481,6 @@ func (i DebianRepositoryMap) ToDebianRepositoryMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(DebianRepositoryMapOutput)
 }
 
-func (i DebianRepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DebianRepository] {
-	return pulumix.Output[map[string]*DebianRepository]{
-		OutputState: i.ToDebianRepositoryMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DebianRepositoryOutput struct{ *pulumi.OutputState }
 
 func (DebianRepositoryOutput) ElementType() reflect.Type {
@@ -512,12 +493,6 @@ func (o DebianRepositoryOutput) ToDebianRepositoryOutput() DebianRepositoryOutpu
 
 func (o DebianRepositoryOutput) ToDebianRepositoryOutputWithContext(ctx context.Context) DebianRepositoryOutput {
 	return o
-}
-
-func (o DebianRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*DebianRepository] {
-	return pulumix.Output[*DebianRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 // When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -647,12 +622,6 @@ func (o DebianRepositoryArrayOutput) ToDebianRepositoryArrayOutputWithContext(ct
 	return o
 }
 
-func (o DebianRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DebianRepository] {
-	return pulumix.Output[[]*DebianRepository]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DebianRepositoryArrayOutput) Index(i pulumi.IntInput) DebianRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DebianRepository {
 		return vs[0].([]*DebianRepository)[vs[1].(int)]
@@ -671,12 +640,6 @@ func (o DebianRepositoryMapOutput) ToDebianRepositoryMapOutput() DebianRepositor
 
 func (o DebianRepositoryMapOutput) ToDebianRepositoryMapOutputWithContext(ctx context.Context) DebianRepositoryMapOutput {
 	return o
-}
-
-func (o DebianRepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DebianRepository] {
-	return pulumix.Output[map[string]*DebianRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DebianRepositoryMapOutput) MapIndex(k pulumi.StringInput) DebianRepositoryOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a virtual Conda repository.
@@ -296,12 +295,6 @@ func (i *VirtualCondaRepository) ToVirtualCondaRepositoryOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualCondaRepositoryOutput)
 }
 
-func (i *VirtualCondaRepository) ToOutput(ctx context.Context) pulumix.Output[*VirtualCondaRepository] {
-	return pulumix.Output[*VirtualCondaRepository]{
-		OutputState: i.ToVirtualCondaRepositoryOutputWithContext(ctx).OutputState,
-	}
-}
-
 // VirtualCondaRepositoryArrayInput is an input type that accepts VirtualCondaRepositoryArray and VirtualCondaRepositoryArrayOutput values.
 // You can construct a concrete instance of `VirtualCondaRepositoryArrayInput` via:
 //
@@ -325,12 +318,6 @@ func (i VirtualCondaRepositoryArray) ToVirtualCondaRepositoryArrayOutput() Virtu
 
 func (i VirtualCondaRepositoryArray) ToVirtualCondaRepositoryArrayOutputWithContext(ctx context.Context) VirtualCondaRepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualCondaRepositoryArrayOutput)
-}
-
-func (i VirtualCondaRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*VirtualCondaRepository] {
-	return pulumix.Output[[]*VirtualCondaRepository]{
-		OutputState: i.ToVirtualCondaRepositoryArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // VirtualCondaRepositoryMapInput is an input type that accepts VirtualCondaRepositoryMap and VirtualCondaRepositoryMapOutput values.
@@ -358,12 +345,6 @@ func (i VirtualCondaRepositoryMap) ToVirtualCondaRepositoryMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualCondaRepositoryMapOutput)
 }
 
-func (i VirtualCondaRepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VirtualCondaRepository] {
-	return pulumix.Output[map[string]*VirtualCondaRepository]{
-		OutputState: i.ToVirtualCondaRepositoryMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VirtualCondaRepositoryOutput struct{ *pulumi.OutputState }
 
 func (VirtualCondaRepositoryOutput) ElementType() reflect.Type {
@@ -376,12 +357,6 @@ func (o VirtualCondaRepositoryOutput) ToVirtualCondaRepositoryOutput() VirtualCo
 
 func (o VirtualCondaRepositoryOutput) ToVirtualCondaRepositoryOutputWithContext(ctx context.Context) VirtualCondaRepositoryOutput {
 	return o
-}
-
-func (o VirtualCondaRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualCondaRepository] {
-	return pulumix.Output[*VirtualCondaRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
@@ -472,12 +447,6 @@ func (o VirtualCondaRepositoryArrayOutput) ToVirtualCondaRepositoryArrayOutputWi
 	return o
 }
 
-func (o VirtualCondaRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VirtualCondaRepository] {
-	return pulumix.Output[[]*VirtualCondaRepository]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o VirtualCondaRepositoryArrayOutput) Index(i pulumi.IntInput) VirtualCondaRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VirtualCondaRepository {
 		return vs[0].([]*VirtualCondaRepository)[vs[1].(int)]
@@ -496,12 +465,6 @@ func (o VirtualCondaRepositoryMapOutput) ToVirtualCondaRepositoryMapOutput() Vir
 
 func (o VirtualCondaRepositoryMapOutput) ToVirtualCondaRepositoryMapOutputWithContext(ctx context.Context) VirtualCondaRepositoryMapOutput {
 	return o
-}
-
-func (o VirtualCondaRepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VirtualCondaRepository] {
-	return pulumix.Output[map[string]*VirtualCondaRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VirtualCondaRepositoryMapOutput) MapIndex(k pulumi.StringInput) VirtualCondaRepositoryOutput {

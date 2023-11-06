@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a virtual Pypi repository.
@@ -286,12 +285,6 @@ func (i *VirtualPypiRepository) ToVirtualPypiRepositoryOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualPypiRepositoryOutput)
 }
 
-func (i *VirtualPypiRepository) ToOutput(ctx context.Context) pulumix.Output[*VirtualPypiRepository] {
-	return pulumix.Output[*VirtualPypiRepository]{
-		OutputState: i.ToVirtualPypiRepositoryOutputWithContext(ctx).OutputState,
-	}
-}
-
 // VirtualPypiRepositoryArrayInput is an input type that accepts VirtualPypiRepositoryArray and VirtualPypiRepositoryArrayOutput values.
 // You can construct a concrete instance of `VirtualPypiRepositoryArrayInput` via:
 //
@@ -315,12 +308,6 @@ func (i VirtualPypiRepositoryArray) ToVirtualPypiRepositoryArrayOutput() Virtual
 
 func (i VirtualPypiRepositoryArray) ToVirtualPypiRepositoryArrayOutputWithContext(ctx context.Context) VirtualPypiRepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualPypiRepositoryArrayOutput)
-}
-
-func (i VirtualPypiRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*VirtualPypiRepository] {
-	return pulumix.Output[[]*VirtualPypiRepository]{
-		OutputState: i.ToVirtualPypiRepositoryArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // VirtualPypiRepositoryMapInput is an input type that accepts VirtualPypiRepositoryMap and VirtualPypiRepositoryMapOutput values.
@@ -348,12 +335,6 @@ func (i VirtualPypiRepositoryMap) ToVirtualPypiRepositoryMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualPypiRepositoryMapOutput)
 }
 
-func (i VirtualPypiRepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VirtualPypiRepository] {
-	return pulumix.Output[map[string]*VirtualPypiRepository]{
-		OutputState: i.ToVirtualPypiRepositoryMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VirtualPypiRepositoryOutput struct{ *pulumi.OutputState }
 
 func (VirtualPypiRepositoryOutput) ElementType() reflect.Type {
@@ -366,12 +347,6 @@ func (o VirtualPypiRepositoryOutput) ToVirtualPypiRepositoryOutput() VirtualPypi
 
 func (o VirtualPypiRepositoryOutput) ToVirtualPypiRepositoryOutputWithContext(ctx context.Context) VirtualPypiRepositoryOutput {
 	return o
-}
-
-func (o VirtualPypiRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualPypiRepository] {
-	return pulumix.Output[*VirtualPypiRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
@@ -457,12 +432,6 @@ func (o VirtualPypiRepositoryArrayOutput) ToVirtualPypiRepositoryArrayOutputWith
 	return o
 }
 
-func (o VirtualPypiRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VirtualPypiRepository] {
-	return pulumix.Output[[]*VirtualPypiRepository]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o VirtualPypiRepositoryArrayOutput) Index(i pulumi.IntInput) VirtualPypiRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VirtualPypiRepository {
 		return vs[0].([]*VirtualPypiRepository)[vs[1].(int)]
@@ -481,12 +450,6 @@ func (o VirtualPypiRepositoryMapOutput) ToVirtualPypiRepositoryMapOutput() Virtu
 
 func (o VirtualPypiRepositoryMapOutput) ToVirtualPypiRepositoryMapOutputWithContext(ctx context.Context) VirtualPypiRepositoryMapOutput {
 	return o
-}
-
-func (o VirtualPypiRepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VirtualPypiRepository] {
-	return pulumix.Output[map[string]*VirtualPypiRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VirtualPypiRepositoryMapOutput) MapIndex(k pulumi.StringInput) VirtualPypiRepositoryOutput {

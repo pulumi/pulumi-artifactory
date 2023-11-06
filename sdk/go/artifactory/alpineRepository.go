@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a local Alpine repository.
@@ -378,12 +377,6 @@ func (i *AlpineRepository) ToAlpineRepositoryOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(AlpineRepositoryOutput)
 }
 
-func (i *AlpineRepository) ToOutput(ctx context.Context) pulumix.Output[*AlpineRepository] {
-	return pulumix.Output[*AlpineRepository]{
-		OutputState: i.ToAlpineRepositoryOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AlpineRepositoryArrayInput is an input type that accepts AlpineRepositoryArray and AlpineRepositoryArrayOutput values.
 // You can construct a concrete instance of `AlpineRepositoryArrayInput` via:
 //
@@ -407,12 +400,6 @@ func (i AlpineRepositoryArray) ToAlpineRepositoryArrayOutput() AlpineRepositoryA
 
 func (i AlpineRepositoryArray) ToAlpineRepositoryArrayOutputWithContext(ctx context.Context) AlpineRepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AlpineRepositoryArrayOutput)
-}
-
-func (i AlpineRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*AlpineRepository] {
-	return pulumix.Output[[]*AlpineRepository]{
-		OutputState: i.ToAlpineRepositoryArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // AlpineRepositoryMapInput is an input type that accepts AlpineRepositoryMap and AlpineRepositoryMapOutput values.
@@ -440,12 +427,6 @@ func (i AlpineRepositoryMap) ToAlpineRepositoryMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(AlpineRepositoryMapOutput)
 }
 
-func (i AlpineRepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AlpineRepository] {
-	return pulumix.Output[map[string]*AlpineRepository]{
-		OutputState: i.ToAlpineRepositoryMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AlpineRepositoryOutput struct{ *pulumi.OutputState }
 
 func (AlpineRepositoryOutput) ElementType() reflect.Type {
@@ -458,12 +439,6 @@ func (o AlpineRepositoryOutput) ToAlpineRepositoryOutput() AlpineRepositoryOutpu
 
 func (o AlpineRepositoryOutput) ToAlpineRepositoryOutputWithContext(ctx context.Context) AlpineRepositoryOutput {
 	return o
-}
-
-func (o AlpineRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*AlpineRepository] {
-	return pulumix.Output[*AlpineRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 // When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -580,12 +555,6 @@ func (o AlpineRepositoryArrayOutput) ToAlpineRepositoryArrayOutputWithContext(ct
 	return o
 }
 
-func (o AlpineRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AlpineRepository] {
-	return pulumix.Output[[]*AlpineRepository]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AlpineRepositoryArrayOutput) Index(i pulumi.IntInput) AlpineRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AlpineRepository {
 		return vs[0].([]*AlpineRepository)[vs[1].(int)]
@@ -604,12 +573,6 @@ func (o AlpineRepositoryMapOutput) ToAlpineRepositoryMapOutput() AlpineRepositor
 
 func (o AlpineRepositoryMapOutput) ToAlpineRepositoryMapOutputWithContext(ctx context.Context) AlpineRepositoryMapOutput {
 	return o
-}
-
-func (o AlpineRepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AlpineRepository] {
-	return pulumix.Output[map[string]*AlpineRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AlpineRepositoryMapOutput) MapIndex(k pulumi.StringInput) AlpineRepositoryOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieves a federated Chef repository.
@@ -160,12 +159,6 @@ func (o LookupFederatedChefRepositoryResultOutput) ToLookupFederatedChefReposito
 
 func (o LookupFederatedChefRepositoryResultOutput) ToLookupFederatedChefRepositoryResultOutputWithContext(ctx context.Context) LookupFederatedChefRepositoryResultOutput {
 	return o
-}
-
-func (o LookupFederatedChefRepositoryResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupFederatedChefRepositoryResult] {
-	return pulumix.Output[LookupFederatedChefRepositoryResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupFederatedChefRepositoryResultOutput) ArchiveBrowsingEnabled() pulumi.BoolPtrOutput {

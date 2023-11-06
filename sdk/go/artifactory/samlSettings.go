@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // This resource can be used to manage Artifactory's SAML SSO settings.
@@ -279,12 +278,6 @@ func (i *SamlSettings) ToSamlSettingsOutputWithContext(ctx context.Context) Saml
 	return pulumi.ToOutputWithContext(ctx, i).(SamlSettingsOutput)
 }
 
-func (i *SamlSettings) ToOutput(ctx context.Context) pulumix.Output[*SamlSettings] {
-	return pulumix.Output[*SamlSettings]{
-		OutputState: i.ToSamlSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SamlSettingsArrayInput is an input type that accepts SamlSettingsArray and SamlSettingsArrayOutput values.
 // You can construct a concrete instance of `SamlSettingsArrayInput` via:
 //
@@ -308,12 +301,6 @@ func (i SamlSettingsArray) ToSamlSettingsArrayOutput() SamlSettingsArrayOutput {
 
 func (i SamlSettingsArray) ToSamlSettingsArrayOutputWithContext(ctx context.Context) SamlSettingsArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SamlSettingsArrayOutput)
-}
-
-func (i SamlSettingsArray) ToOutput(ctx context.Context) pulumix.Output[[]*SamlSettings] {
-	return pulumix.Output[[]*SamlSettings]{
-		OutputState: i.ToSamlSettingsArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // SamlSettingsMapInput is an input type that accepts SamlSettingsMap and SamlSettingsMapOutput values.
@@ -341,12 +328,6 @@ func (i SamlSettingsMap) ToSamlSettingsMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(SamlSettingsMapOutput)
 }
 
-func (i SamlSettingsMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SamlSettings] {
-	return pulumix.Output[map[string]*SamlSettings]{
-		OutputState: i.ToSamlSettingsMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SamlSettingsOutput struct{ *pulumi.OutputState }
 
 func (SamlSettingsOutput) ElementType() reflect.Type {
@@ -359,12 +340,6 @@ func (o SamlSettingsOutput) ToSamlSettingsOutput() SamlSettingsOutput {
 
 func (o SamlSettingsOutput) ToSamlSettingsOutputWithContext(ctx context.Context) SamlSettingsOutput {
 	return o
-}
-
-func (o SamlSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[*SamlSettings] {
-	return pulumix.Output[*SamlSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Allow persisted users to access their profile.  Default value is `true`.
@@ -446,12 +421,6 @@ func (o SamlSettingsArrayOutput) ToSamlSettingsArrayOutputWithContext(ctx contex
 	return o
 }
 
-func (o SamlSettingsArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SamlSettings] {
-	return pulumix.Output[[]*SamlSettings]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SamlSettingsArrayOutput) Index(i pulumi.IntInput) SamlSettingsOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SamlSettings {
 		return vs[0].([]*SamlSettings)[vs[1].(int)]
@@ -470,12 +439,6 @@ func (o SamlSettingsMapOutput) ToSamlSettingsMapOutput() SamlSettingsMapOutput {
 
 func (o SamlSettingsMapOutput) ToSamlSettingsMapOutputWithContext(ctx context.Context) SamlSettingsMapOutput {
 	return o
-}
-
-func (o SamlSettingsMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SamlSettings] {
-	return pulumix.Output[map[string]*SamlSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SamlSettingsMapOutput) MapIndex(k pulumi.StringInput) SamlSettingsOutput {

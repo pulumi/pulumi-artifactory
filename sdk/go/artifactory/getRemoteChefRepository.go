@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieves a remote Chef repository.
@@ -222,12 +221,6 @@ func (o LookupRemoteChefRepositoryResultOutput) ToLookupRemoteChefRepositoryResu
 
 func (o LookupRemoteChefRepositoryResultOutput) ToLookupRemoteChefRepositoryResultOutputWithContext(ctx context.Context) LookupRemoteChefRepositoryResultOutput {
 	return o
-}
-
-func (o LookupRemoteChefRepositoryResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupRemoteChefRepositoryResult] {
-	return pulumix.Output[LookupRemoteChefRepositoryResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupRemoteChefRepositoryResultOutput) AllowAnyHostAuth() pulumi.BoolPtrOutput {

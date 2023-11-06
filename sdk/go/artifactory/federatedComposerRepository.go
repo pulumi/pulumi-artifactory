@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a federated Composer repository.
@@ -388,12 +387,6 @@ func (i *FederatedComposerRepository) ToFederatedComposerRepositoryOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedComposerRepositoryOutput)
 }
 
-func (i *FederatedComposerRepository) ToOutput(ctx context.Context) pulumix.Output[*FederatedComposerRepository] {
-	return pulumix.Output[*FederatedComposerRepository]{
-		OutputState: i.ToFederatedComposerRepositoryOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FederatedComposerRepositoryArrayInput is an input type that accepts FederatedComposerRepositoryArray and FederatedComposerRepositoryArrayOutput values.
 // You can construct a concrete instance of `FederatedComposerRepositoryArrayInput` via:
 //
@@ -417,12 +410,6 @@ func (i FederatedComposerRepositoryArray) ToFederatedComposerRepositoryArrayOutp
 
 func (i FederatedComposerRepositoryArray) ToFederatedComposerRepositoryArrayOutputWithContext(ctx context.Context) FederatedComposerRepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedComposerRepositoryArrayOutput)
-}
-
-func (i FederatedComposerRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*FederatedComposerRepository] {
-	return pulumix.Output[[]*FederatedComposerRepository]{
-		OutputState: i.ToFederatedComposerRepositoryArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // FederatedComposerRepositoryMapInput is an input type that accepts FederatedComposerRepositoryMap and FederatedComposerRepositoryMapOutput values.
@@ -450,12 +437,6 @@ func (i FederatedComposerRepositoryMap) ToFederatedComposerRepositoryMapOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedComposerRepositoryMapOutput)
 }
 
-func (i FederatedComposerRepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*FederatedComposerRepository] {
-	return pulumix.Output[map[string]*FederatedComposerRepository]{
-		OutputState: i.ToFederatedComposerRepositoryMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FederatedComposerRepositoryOutput struct{ *pulumi.OutputState }
 
 func (FederatedComposerRepositoryOutput) ElementType() reflect.Type {
@@ -468,12 +449,6 @@ func (o FederatedComposerRepositoryOutput) ToFederatedComposerRepositoryOutput()
 
 func (o FederatedComposerRepositoryOutput) ToFederatedComposerRepositoryOutputWithContext(ctx context.Context) FederatedComposerRepositoryOutput {
 	return o
-}
-
-func (o FederatedComposerRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*FederatedComposerRepository] {
-	return pulumix.Output[*FederatedComposerRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 // When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -594,12 +569,6 @@ func (o FederatedComposerRepositoryArrayOutput) ToFederatedComposerRepositoryArr
 	return o
 }
 
-func (o FederatedComposerRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*FederatedComposerRepository] {
-	return pulumix.Output[[]*FederatedComposerRepository]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FederatedComposerRepositoryArrayOutput) Index(i pulumi.IntInput) FederatedComposerRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FederatedComposerRepository {
 		return vs[0].([]*FederatedComposerRepository)[vs[1].(int)]
@@ -618,12 +587,6 @@ func (o FederatedComposerRepositoryMapOutput) ToFederatedComposerRepositoryMapOu
 
 func (o FederatedComposerRepositoryMapOutput) ToFederatedComposerRepositoryMapOutputWithContext(ctx context.Context) FederatedComposerRepositoryMapOutput {
 	return o
-}
-
-func (o FederatedComposerRepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*FederatedComposerRepository] {
-	return pulumix.Output[map[string]*FederatedComposerRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FederatedComposerRepositoryMapOutput) MapIndex(k pulumi.StringInput) FederatedComposerRepositoryOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a local Generic repository.
@@ -340,12 +339,6 @@ func (i *LocalGenericRepository) ToLocalGenericRepositoryOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(LocalGenericRepositoryOutput)
 }
 
-func (i *LocalGenericRepository) ToOutput(ctx context.Context) pulumix.Output[*LocalGenericRepository] {
-	return pulumix.Output[*LocalGenericRepository]{
-		OutputState: i.ToLocalGenericRepositoryOutputWithContext(ctx).OutputState,
-	}
-}
-
 // LocalGenericRepositoryArrayInput is an input type that accepts LocalGenericRepositoryArray and LocalGenericRepositoryArrayOutput values.
 // You can construct a concrete instance of `LocalGenericRepositoryArrayInput` via:
 //
@@ -369,12 +362,6 @@ func (i LocalGenericRepositoryArray) ToLocalGenericRepositoryArrayOutput() Local
 
 func (i LocalGenericRepositoryArray) ToLocalGenericRepositoryArrayOutputWithContext(ctx context.Context) LocalGenericRepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LocalGenericRepositoryArrayOutput)
-}
-
-func (i LocalGenericRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*LocalGenericRepository] {
-	return pulumix.Output[[]*LocalGenericRepository]{
-		OutputState: i.ToLocalGenericRepositoryArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // LocalGenericRepositoryMapInput is an input type that accepts LocalGenericRepositoryMap and LocalGenericRepositoryMapOutput values.
@@ -402,12 +389,6 @@ func (i LocalGenericRepositoryMap) ToLocalGenericRepositoryMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(LocalGenericRepositoryMapOutput)
 }
 
-func (i LocalGenericRepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LocalGenericRepository] {
-	return pulumix.Output[map[string]*LocalGenericRepository]{
-		OutputState: i.ToLocalGenericRepositoryMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LocalGenericRepositoryOutput struct{ *pulumi.OutputState }
 
 func (LocalGenericRepositoryOutput) ElementType() reflect.Type {
@@ -420,12 +401,6 @@ func (o LocalGenericRepositoryOutput) ToLocalGenericRepositoryOutput() LocalGene
 
 func (o LocalGenericRepositoryOutput) ToLocalGenericRepositoryOutputWithContext(ctx context.Context) LocalGenericRepositoryOutput {
 	return o
-}
-
-func (o LocalGenericRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*LocalGenericRepository] {
-	return pulumix.Output[*LocalGenericRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 // When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -533,12 +508,6 @@ func (o LocalGenericRepositoryArrayOutput) ToLocalGenericRepositoryArrayOutputWi
 	return o
 }
 
-func (o LocalGenericRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LocalGenericRepository] {
-	return pulumix.Output[[]*LocalGenericRepository]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LocalGenericRepositoryArrayOutput) Index(i pulumi.IntInput) LocalGenericRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LocalGenericRepository {
 		return vs[0].([]*LocalGenericRepository)[vs[1].(int)]
@@ -557,12 +526,6 @@ func (o LocalGenericRepositoryMapOutput) ToLocalGenericRepositoryMapOutput() Loc
 
 func (o LocalGenericRepositoryMapOutput) ToLocalGenericRepositoryMapOutputWithContext(ctx context.Context) LocalGenericRepositoryMapOutput {
 	return o
-}
-
-func (o LocalGenericRepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LocalGenericRepository] {
-	return pulumix.Output[map[string]*LocalGenericRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LocalGenericRepositoryMapOutput) MapIndex(k pulumi.StringInput) LocalGenericRepositoryOutput {

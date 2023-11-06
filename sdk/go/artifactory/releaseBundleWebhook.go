@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an Artifactory webhook resource. This can be used to register and manage Artifactory webhook subscription which enables you to be notified or notify other users when such events take place in Artifactory.
@@ -215,12 +214,6 @@ func (i *ReleaseBundleWebhook) ToReleaseBundleWebhookOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(ReleaseBundleWebhookOutput)
 }
 
-func (i *ReleaseBundleWebhook) ToOutput(ctx context.Context) pulumix.Output[*ReleaseBundleWebhook] {
-	return pulumix.Output[*ReleaseBundleWebhook]{
-		OutputState: i.ToReleaseBundleWebhookOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ReleaseBundleWebhookArrayInput is an input type that accepts ReleaseBundleWebhookArray and ReleaseBundleWebhookArrayOutput values.
 // You can construct a concrete instance of `ReleaseBundleWebhookArrayInput` via:
 //
@@ -244,12 +237,6 @@ func (i ReleaseBundleWebhookArray) ToReleaseBundleWebhookArrayOutput() ReleaseBu
 
 func (i ReleaseBundleWebhookArray) ToReleaseBundleWebhookArrayOutputWithContext(ctx context.Context) ReleaseBundleWebhookArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ReleaseBundleWebhookArrayOutput)
-}
-
-func (i ReleaseBundleWebhookArray) ToOutput(ctx context.Context) pulumix.Output[[]*ReleaseBundleWebhook] {
-	return pulumix.Output[[]*ReleaseBundleWebhook]{
-		OutputState: i.ToReleaseBundleWebhookArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ReleaseBundleWebhookMapInput is an input type that accepts ReleaseBundleWebhookMap and ReleaseBundleWebhookMapOutput values.
@@ -277,12 +264,6 @@ func (i ReleaseBundleWebhookMap) ToReleaseBundleWebhookMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ReleaseBundleWebhookMapOutput)
 }
 
-func (i ReleaseBundleWebhookMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ReleaseBundleWebhook] {
-	return pulumix.Output[map[string]*ReleaseBundleWebhook]{
-		OutputState: i.ToReleaseBundleWebhookMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ReleaseBundleWebhookOutput struct{ *pulumi.OutputState }
 
 func (ReleaseBundleWebhookOutput) ElementType() reflect.Type {
@@ -295,12 +276,6 @@ func (o ReleaseBundleWebhookOutput) ToReleaseBundleWebhookOutput() ReleaseBundle
 
 func (o ReleaseBundleWebhookOutput) ToReleaseBundleWebhookOutputWithContext(ctx context.Context) ReleaseBundleWebhookOutput {
 	return o
-}
-
-func (o ReleaseBundleWebhookOutput) ToOutput(ctx context.Context) pulumix.Output[*ReleaseBundleWebhook] {
-	return pulumix.Output[*ReleaseBundleWebhook]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies where the webhook will be applied on which repositories.
@@ -347,12 +322,6 @@ func (o ReleaseBundleWebhookArrayOutput) ToReleaseBundleWebhookArrayOutputWithCo
 	return o
 }
 
-func (o ReleaseBundleWebhookArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ReleaseBundleWebhook] {
-	return pulumix.Output[[]*ReleaseBundleWebhook]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ReleaseBundleWebhookArrayOutput) Index(i pulumi.IntInput) ReleaseBundleWebhookOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ReleaseBundleWebhook {
 		return vs[0].([]*ReleaseBundleWebhook)[vs[1].(int)]
@@ -371,12 +340,6 @@ func (o ReleaseBundleWebhookMapOutput) ToReleaseBundleWebhookMapOutput() Release
 
 func (o ReleaseBundleWebhookMapOutput) ToReleaseBundleWebhookMapOutputWithContext(ctx context.Context) ReleaseBundleWebhookMapOutput {
 	return o
-}
-
-func (o ReleaseBundleWebhookMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ReleaseBundleWebhook] {
-	return pulumix.Output[map[string]*ReleaseBundleWebhook]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ReleaseBundleWebhookMapOutput) MapIndex(k pulumi.StringInput) ReleaseBundleWebhookOutput {

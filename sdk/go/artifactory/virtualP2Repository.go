@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a virtual P2 repository.
@@ -286,12 +285,6 @@ func (i *VirtualP2Repository) ToVirtualP2RepositoryOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualP2RepositoryOutput)
 }
 
-func (i *VirtualP2Repository) ToOutput(ctx context.Context) pulumix.Output[*VirtualP2Repository] {
-	return pulumix.Output[*VirtualP2Repository]{
-		OutputState: i.ToVirtualP2RepositoryOutputWithContext(ctx).OutputState,
-	}
-}
-
 // VirtualP2RepositoryArrayInput is an input type that accepts VirtualP2RepositoryArray and VirtualP2RepositoryArrayOutput values.
 // You can construct a concrete instance of `VirtualP2RepositoryArrayInput` via:
 //
@@ -315,12 +308,6 @@ func (i VirtualP2RepositoryArray) ToVirtualP2RepositoryArrayOutput() VirtualP2Re
 
 func (i VirtualP2RepositoryArray) ToVirtualP2RepositoryArrayOutputWithContext(ctx context.Context) VirtualP2RepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualP2RepositoryArrayOutput)
-}
-
-func (i VirtualP2RepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*VirtualP2Repository] {
-	return pulumix.Output[[]*VirtualP2Repository]{
-		OutputState: i.ToVirtualP2RepositoryArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // VirtualP2RepositoryMapInput is an input type that accepts VirtualP2RepositoryMap and VirtualP2RepositoryMapOutput values.
@@ -348,12 +335,6 @@ func (i VirtualP2RepositoryMap) ToVirtualP2RepositoryMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualP2RepositoryMapOutput)
 }
 
-func (i VirtualP2RepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VirtualP2Repository] {
-	return pulumix.Output[map[string]*VirtualP2Repository]{
-		OutputState: i.ToVirtualP2RepositoryMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VirtualP2RepositoryOutput struct{ *pulumi.OutputState }
 
 func (VirtualP2RepositoryOutput) ElementType() reflect.Type {
@@ -366,12 +347,6 @@ func (o VirtualP2RepositoryOutput) ToVirtualP2RepositoryOutput() VirtualP2Reposi
 
 func (o VirtualP2RepositoryOutput) ToVirtualP2RepositoryOutputWithContext(ctx context.Context) VirtualP2RepositoryOutput {
 	return o
-}
-
-func (o VirtualP2RepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualP2Repository] {
-	return pulumix.Output[*VirtualP2Repository]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
@@ -457,12 +432,6 @@ func (o VirtualP2RepositoryArrayOutput) ToVirtualP2RepositoryArrayOutputWithCont
 	return o
 }
 
-func (o VirtualP2RepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VirtualP2Repository] {
-	return pulumix.Output[[]*VirtualP2Repository]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o VirtualP2RepositoryArrayOutput) Index(i pulumi.IntInput) VirtualP2RepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VirtualP2Repository {
 		return vs[0].([]*VirtualP2Repository)[vs[1].(int)]
@@ -481,12 +450,6 @@ func (o VirtualP2RepositoryMapOutput) ToVirtualP2RepositoryMapOutput() VirtualP2
 
 func (o VirtualP2RepositoryMapOutput) ToVirtualP2RepositoryMapOutputWithContext(ctx context.Context) VirtualP2RepositoryMapOutput {
 	return o
-}
-
-func (o VirtualP2RepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VirtualP2Repository] {
-	return pulumix.Output[map[string]*VirtualP2Repository]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VirtualP2RepositoryMapOutput) MapIndex(k pulumi.StringInput) VirtualP2RepositoryOutput {

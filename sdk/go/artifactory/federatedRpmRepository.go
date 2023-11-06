@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a federated Rpm repository.
@@ -458,12 +457,6 @@ func (i *FederatedRpmRepository) ToFederatedRpmRepositoryOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedRpmRepositoryOutput)
 }
 
-func (i *FederatedRpmRepository) ToOutput(ctx context.Context) pulumix.Output[*FederatedRpmRepository] {
-	return pulumix.Output[*FederatedRpmRepository]{
-		OutputState: i.ToFederatedRpmRepositoryOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FederatedRpmRepositoryArrayInput is an input type that accepts FederatedRpmRepositoryArray and FederatedRpmRepositoryArrayOutput values.
 // You can construct a concrete instance of `FederatedRpmRepositoryArrayInput` via:
 //
@@ -487,12 +480,6 @@ func (i FederatedRpmRepositoryArray) ToFederatedRpmRepositoryArrayOutput() Feder
 
 func (i FederatedRpmRepositoryArray) ToFederatedRpmRepositoryArrayOutputWithContext(ctx context.Context) FederatedRpmRepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedRpmRepositoryArrayOutput)
-}
-
-func (i FederatedRpmRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*FederatedRpmRepository] {
-	return pulumix.Output[[]*FederatedRpmRepository]{
-		OutputState: i.ToFederatedRpmRepositoryArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // FederatedRpmRepositoryMapInput is an input type that accepts FederatedRpmRepositoryMap and FederatedRpmRepositoryMapOutput values.
@@ -520,12 +507,6 @@ func (i FederatedRpmRepositoryMap) ToFederatedRpmRepositoryMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedRpmRepositoryMapOutput)
 }
 
-func (i FederatedRpmRepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*FederatedRpmRepository] {
-	return pulumix.Output[map[string]*FederatedRpmRepository]{
-		OutputState: i.ToFederatedRpmRepositoryMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FederatedRpmRepositoryOutput struct{ *pulumi.OutputState }
 
 func (FederatedRpmRepositoryOutput) ElementType() reflect.Type {
@@ -538,12 +519,6 @@ func (o FederatedRpmRepositoryOutput) ToFederatedRpmRepositoryOutput() Federated
 
 func (o FederatedRpmRepositoryOutput) ToFederatedRpmRepositoryOutputWithContext(ctx context.Context) FederatedRpmRepositoryOutput {
 	return o
-}
-
-func (o FederatedRpmRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*FederatedRpmRepository] {
-	return pulumix.Output[*FederatedRpmRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 // When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -696,12 +671,6 @@ func (o FederatedRpmRepositoryArrayOutput) ToFederatedRpmRepositoryArrayOutputWi
 	return o
 }
 
-func (o FederatedRpmRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*FederatedRpmRepository] {
-	return pulumix.Output[[]*FederatedRpmRepository]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FederatedRpmRepositoryArrayOutput) Index(i pulumi.IntInput) FederatedRpmRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FederatedRpmRepository {
 		return vs[0].([]*FederatedRpmRepository)[vs[1].(int)]
@@ -720,12 +689,6 @@ func (o FederatedRpmRepositoryMapOutput) ToFederatedRpmRepositoryMapOutput() Fed
 
 func (o FederatedRpmRepositoryMapOutput) ToFederatedRpmRepositoryMapOutputWithContext(ctx context.Context) FederatedRpmRepositoryMapOutput {
 	return o
-}
-
-func (o FederatedRpmRepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*FederatedRpmRepository] {
-	return pulumix.Output[map[string]*FederatedRpmRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FederatedRpmRepositoryMapOutput) MapIndex(k pulumi.StringInput) FederatedRpmRepositoryOutput {

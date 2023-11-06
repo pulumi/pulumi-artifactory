@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a federated Generic repository.
@@ -388,12 +387,6 @@ func (i *FederatedGenericRepository) ToFederatedGenericRepositoryOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedGenericRepositoryOutput)
 }
 
-func (i *FederatedGenericRepository) ToOutput(ctx context.Context) pulumix.Output[*FederatedGenericRepository] {
-	return pulumix.Output[*FederatedGenericRepository]{
-		OutputState: i.ToFederatedGenericRepositoryOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FederatedGenericRepositoryArrayInput is an input type that accepts FederatedGenericRepositoryArray and FederatedGenericRepositoryArrayOutput values.
 // You can construct a concrete instance of `FederatedGenericRepositoryArrayInput` via:
 //
@@ -417,12 +410,6 @@ func (i FederatedGenericRepositoryArray) ToFederatedGenericRepositoryArrayOutput
 
 func (i FederatedGenericRepositoryArray) ToFederatedGenericRepositoryArrayOutputWithContext(ctx context.Context) FederatedGenericRepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedGenericRepositoryArrayOutput)
-}
-
-func (i FederatedGenericRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*FederatedGenericRepository] {
-	return pulumix.Output[[]*FederatedGenericRepository]{
-		OutputState: i.ToFederatedGenericRepositoryArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // FederatedGenericRepositoryMapInput is an input type that accepts FederatedGenericRepositoryMap and FederatedGenericRepositoryMapOutput values.
@@ -450,12 +437,6 @@ func (i FederatedGenericRepositoryMap) ToFederatedGenericRepositoryMapOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedGenericRepositoryMapOutput)
 }
 
-func (i FederatedGenericRepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*FederatedGenericRepository] {
-	return pulumix.Output[map[string]*FederatedGenericRepository]{
-		OutputState: i.ToFederatedGenericRepositoryMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FederatedGenericRepositoryOutput struct{ *pulumi.OutputState }
 
 func (FederatedGenericRepositoryOutput) ElementType() reflect.Type {
@@ -468,12 +449,6 @@ func (o FederatedGenericRepositoryOutput) ToFederatedGenericRepositoryOutput() F
 
 func (o FederatedGenericRepositoryOutput) ToFederatedGenericRepositoryOutputWithContext(ctx context.Context) FederatedGenericRepositoryOutput {
 	return o
-}
-
-func (o FederatedGenericRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*FederatedGenericRepository] {
-	return pulumix.Output[*FederatedGenericRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 // When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -594,12 +569,6 @@ func (o FederatedGenericRepositoryArrayOutput) ToFederatedGenericRepositoryArray
 	return o
 }
 
-func (o FederatedGenericRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*FederatedGenericRepository] {
-	return pulumix.Output[[]*FederatedGenericRepository]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FederatedGenericRepositoryArrayOutput) Index(i pulumi.IntInput) FederatedGenericRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FederatedGenericRepository {
 		return vs[0].([]*FederatedGenericRepository)[vs[1].(int)]
@@ -618,12 +587,6 @@ func (o FederatedGenericRepositoryMapOutput) ToFederatedGenericRepositoryMapOutp
 
 func (o FederatedGenericRepositoryMapOutput) ToFederatedGenericRepositoryMapOutputWithContext(ctx context.Context) FederatedGenericRepositoryMapOutput {
 	return o
-}
-
-func (o FederatedGenericRepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*FederatedGenericRepository] {
-	return pulumix.Output[map[string]*FederatedGenericRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FederatedGenericRepositoryMapOutput) MapIndex(k pulumi.StringInput) FederatedGenericRepositoryOutput {

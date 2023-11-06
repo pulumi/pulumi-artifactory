@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieves a remote NuGet repository.
@@ -252,12 +251,6 @@ func (o LookupRemoteNugetRepositoryResultOutput) ToLookupRemoteNugetRepositoryRe
 
 func (o LookupRemoteNugetRepositoryResultOutput) ToLookupRemoteNugetRepositoryResultOutputWithContext(ctx context.Context) LookupRemoteNugetRepositoryResultOutput {
 	return o
-}
-
-func (o LookupRemoteNugetRepositoryResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupRemoteNugetRepositoryResult] {
-	return pulumix.Output[LookupRemoteNugetRepositoryResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupRemoteNugetRepositoryResultOutput) AllowAnyHostAuth() pulumi.BoolPtrOutput {

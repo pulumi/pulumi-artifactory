@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a remote Hugging Face repository.
@@ -719,12 +718,6 @@ func (i *RemoteHuggingfacemlRepository) ToRemoteHuggingfacemlRepositoryOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(RemoteHuggingfacemlRepositoryOutput)
 }
 
-func (i *RemoteHuggingfacemlRepository) ToOutput(ctx context.Context) pulumix.Output[*RemoteHuggingfacemlRepository] {
-	return pulumix.Output[*RemoteHuggingfacemlRepository]{
-		OutputState: i.ToRemoteHuggingfacemlRepositoryOutputWithContext(ctx).OutputState,
-	}
-}
-
 // RemoteHuggingfacemlRepositoryArrayInput is an input type that accepts RemoteHuggingfacemlRepositoryArray and RemoteHuggingfacemlRepositoryArrayOutput values.
 // You can construct a concrete instance of `RemoteHuggingfacemlRepositoryArrayInput` via:
 //
@@ -748,12 +741,6 @@ func (i RemoteHuggingfacemlRepositoryArray) ToRemoteHuggingfacemlRepositoryArray
 
 func (i RemoteHuggingfacemlRepositoryArray) ToRemoteHuggingfacemlRepositoryArrayOutputWithContext(ctx context.Context) RemoteHuggingfacemlRepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RemoteHuggingfacemlRepositoryArrayOutput)
-}
-
-func (i RemoteHuggingfacemlRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*RemoteHuggingfacemlRepository] {
-	return pulumix.Output[[]*RemoteHuggingfacemlRepository]{
-		OutputState: i.ToRemoteHuggingfacemlRepositoryArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // RemoteHuggingfacemlRepositoryMapInput is an input type that accepts RemoteHuggingfacemlRepositoryMap and RemoteHuggingfacemlRepositoryMapOutput values.
@@ -781,12 +768,6 @@ func (i RemoteHuggingfacemlRepositoryMap) ToRemoteHuggingfacemlRepositoryMapOutp
 	return pulumi.ToOutputWithContext(ctx, i).(RemoteHuggingfacemlRepositoryMapOutput)
 }
 
-func (i RemoteHuggingfacemlRepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RemoteHuggingfacemlRepository] {
-	return pulumix.Output[map[string]*RemoteHuggingfacemlRepository]{
-		OutputState: i.ToRemoteHuggingfacemlRepositoryMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RemoteHuggingfacemlRepositoryOutput struct{ *pulumi.OutputState }
 
 func (RemoteHuggingfacemlRepositoryOutput) ElementType() reflect.Type {
@@ -799,12 +780,6 @@ func (o RemoteHuggingfacemlRepositoryOutput) ToRemoteHuggingfacemlRepositoryOutp
 
 func (o RemoteHuggingfacemlRepositoryOutput) ToRemoteHuggingfacemlRepositoryOutputWithContext(ctx context.Context) RemoteHuggingfacemlRepositoryOutput {
 	return o
-}
-
-func (o RemoteHuggingfacemlRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*RemoteHuggingfacemlRepository] {
-	return pulumix.Output[*RemoteHuggingfacemlRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 // 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any
@@ -1071,12 +1046,6 @@ func (o RemoteHuggingfacemlRepositoryArrayOutput) ToRemoteHuggingfacemlRepositor
 	return o
 }
 
-func (o RemoteHuggingfacemlRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RemoteHuggingfacemlRepository] {
-	return pulumix.Output[[]*RemoteHuggingfacemlRepository]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RemoteHuggingfacemlRepositoryArrayOutput) Index(i pulumi.IntInput) RemoteHuggingfacemlRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RemoteHuggingfacemlRepository {
 		return vs[0].([]*RemoteHuggingfacemlRepository)[vs[1].(int)]
@@ -1095,12 +1064,6 @@ func (o RemoteHuggingfacemlRepositoryMapOutput) ToRemoteHuggingfacemlRepositoryM
 
 func (o RemoteHuggingfacemlRepositoryMapOutput) ToRemoteHuggingfacemlRepositoryMapOutputWithContext(ctx context.Context) RemoteHuggingfacemlRepositoryMapOutput {
 	return o
-}
-
-func (o RemoteHuggingfacemlRepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RemoteHuggingfacemlRepository] {
-	return pulumix.Output[map[string]*RemoteHuggingfacemlRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RemoteHuggingfacemlRepositoryMapOutput) MapIndex(k pulumi.StringInput) RemoteHuggingfacemlRepositoryOutput {

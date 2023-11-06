@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a remote Gradle repository resource.
@@ -796,12 +795,6 @@ func (i *RemoteGradleRepository) ToRemoteGradleRepositoryOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(RemoteGradleRepositoryOutput)
 }
 
-func (i *RemoteGradleRepository) ToOutput(ctx context.Context) pulumix.Output[*RemoteGradleRepository] {
-	return pulumix.Output[*RemoteGradleRepository]{
-		OutputState: i.ToRemoteGradleRepositoryOutputWithContext(ctx).OutputState,
-	}
-}
-
 // RemoteGradleRepositoryArrayInput is an input type that accepts RemoteGradleRepositoryArray and RemoteGradleRepositoryArrayOutput values.
 // You can construct a concrete instance of `RemoteGradleRepositoryArrayInput` via:
 //
@@ -825,12 +818,6 @@ func (i RemoteGradleRepositoryArray) ToRemoteGradleRepositoryArrayOutput() Remot
 
 func (i RemoteGradleRepositoryArray) ToRemoteGradleRepositoryArrayOutputWithContext(ctx context.Context) RemoteGradleRepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RemoteGradleRepositoryArrayOutput)
-}
-
-func (i RemoteGradleRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*RemoteGradleRepository] {
-	return pulumix.Output[[]*RemoteGradleRepository]{
-		OutputState: i.ToRemoteGradleRepositoryArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // RemoteGradleRepositoryMapInput is an input type that accepts RemoteGradleRepositoryMap and RemoteGradleRepositoryMapOutput values.
@@ -858,12 +845,6 @@ func (i RemoteGradleRepositoryMap) ToRemoteGradleRepositoryMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(RemoteGradleRepositoryMapOutput)
 }
 
-func (i RemoteGradleRepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RemoteGradleRepository] {
-	return pulumix.Output[map[string]*RemoteGradleRepository]{
-		OutputState: i.ToRemoteGradleRepositoryMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RemoteGradleRepositoryOutput struct{ *pulumi.OutputState }
 
 func (RemoteGradleRepositoryOutput) ElementType() reflect.Type {
@@ -876,12 +857,6 @@ func (o RemoteGradleRepositoryOutput) ToRemoteGradleRepositoryOutput() RemoteGra
 
 func (o RemoteGradleRepositoryOutput) ToRemoteGradleRepositoryOutputWithContext(ctx context.Context) RemoteGradleRepositoryOutput {
 	return o
-}
-
-func (o RemoteGradleRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*RemoteGradleRepository] {
-	return pulumix.Output[*RemoteGradleRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 // 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any
@@ -1181,12 +1156,6 @@ func (o RemoteGradleRepositoryArrayOutput) ToRemoteGradleRepositoryArrayOutputWi
 	return o
 }
 
-func (o RemoteGradleRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RemoteGradleRepository] {
-	return pulumix.Output[[]*RemoteGradleRepository]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RemoteGradleRepositoryArrayOutput) Index(i pulumi.IntInput) RemoteGradleRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RemoteGradleRepository {
 		return vs[0].([]*RemoteGradleRepository)[vs[1].(int)]
@@ -1205,12 +1174,6 @@ func (o RemoteGradleRepositoryMapOutput) ToRemoteGradleRepositoryMapOutput() Rem
 
 func (o RemoteGradleRepositoryMapOutput) ToRemoteGradleRepositoryMapOutputWithContext(ctx context.Context) RemoteGradleRepositoryMapOutput {
 	return o
-}
-
-func (o RemoteGradleRepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RemoteGradleRepository] {
-	return pulumix.Output[map[string]*RemoteGradleRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RemoteGradleRepositoryMapOutput) MapIndex(k pulumi.StringInput) RemoteGradleRepositoryOutput {
