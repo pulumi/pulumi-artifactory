@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['BackupArgs', 'Backup']
@@ -37,24 +37,73 @@ class BackupArgs:
         :param pulumi.Input[bool] send_mail_on_error: If set, all Artifactory administrators will be notified by email if any problem is encountered during backup. Default value is `true`.
         :param pulumi.Input[bool] verify_disk_space: If set, Artifactory will verify that the backup target location has enough disk space available to hold the backed up data. If there is not enough space available, Artifactory will abort the backup and write a message in the log file. Applicable only to non-incremental backups.
         """
-        pulumi.set(__self__, "cron_exp", cron_exp)
-        pulumi.set(__self__, "key", key)
+        BackupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cron_exp=cron_exp,
+            key=key,
+            create_archive=create_archive,
+            enabled=enabled,
+            exclude_new_repositories=exclude_new_repositories,
+            excluded_repositories=excluded_repositories,
+            export_mission_control=export_mission_control,
+            retention_period_hours=retention_period_hours,
+            send_mail_on_error=send_mail_on_error,
+            verify_disk_space=verify_disk_space,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cron_exp: Optional[pulumi.Input[str]] = None,
+             key: Optional[pulumi.Input[str]] = None,
+             create_archive: Optional[pulumi.Input[bool]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             exclude_new_repositories: Optional[pulumi.Input[bool]] = None,
+             excluded_repositories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             export_mission_control: Optional[pulumi.Input[bool]] = None,
+             retention_period_hours: Optional[pulumi.Input[int]] = None,
+             send_mail_on_error: Optional[pulumi.Input[bool]] = None,
+             verify_disk_space: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if cron_exp is None and 'cronExp' in kwargs:
+            cron_exp = kwargs['cronExp']
+        if cron_exp is None:
+            raise TypeError("Missing 'cron_exp' argument")
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if create_archive is None and 'createArchive' in kwargs:
+            create_archive = kwargs['createArchive']
+        if exclude_new_repositories is None and 'excludeNewRepositories' in kwargs:
+            exclude_new_repositories = kwargs['excludeNewRepositories']
+        if excluded_repositories is None and 'excludedRepositories' in kwargs:
+            excluded_repositories = kwargs['excludedRepositories']
+        if export_mission_control is None and 'exportMissionControl' in kwargs:
+            export_mission_control = kwargs['exportMissionControl']
+        if retention_period_hours is None and 'retentionPeriodHours' in kwargs:
+            retention_period_hours = kwargs['retentionPeriodHours']
+        if send_mail_on_error is None and 'sendMailOnError' in kwargs:
+            send_mail_on_error = kwargs['sendMailOnError']
+        if verify_disk_space is None and 'verifyDiskSpace' in kwargs:
+            verify_disk_space = kwargs['verifyDiskSpace']
+
+        _setter("cron_exp", cron_exp)
+        _setter("key", key)
         if create_archive is not None:
-            pulumi.set(__self__, "create_archive", create_archive)
+            _setter("create_archive", create_archive)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if exclude_new_repositories is not None:
-            pulumi.set(__self__, "exclude_new_repositories", exclude_new_repositories)
+            _setter("exclude_new_repositories", exclude_new_repositories)
         if excluded_repositories is not None:
-            pulumi.set(__self__, "excluded_repositories", excluded_repositories)
+            _setter("excluded_repositories", excluded_repositories)
         if export_mission_control is not None:
-            pulumi.set(__self__, "export_mission_control", export_mission_control)
+            _setter("export_mission_control", export_mission_control)
         if retention_period_hours is not None:
-            pulumi.set(__self__, "retention_period_hours", retention_period_hours)
+            _setter("retention_period_hours", retention_period_hours)
         if send_mail_on_error is not None:
-            pulumi.set(__self__, "send_mail_on_error", send_mail_on_error)
+            _setter("send_mail_on_error", send_mail_on_error)
         if verify_disk_space is not None:
-            pulumi.set(__self__, "verify_disk_space", verify_disk_space)
+            _setter("verify_disk_space", verify_disk_space)
 
     @property
     @pulumi.getter(name="cronExp")
@@ -203,26 +252,71 @@ class _BackupState:
         :param pulumi.Input[bool] send_mail_on_error: If set, all Artifactory administrators will be notified by email if any problem is encountered during backup. Default value is `true`.
         :param pulumi.Input[bool] verify_disk_space: If set, Artifactory will verify that the backup target location has enough disk space available to hold the backed up data. If there is not enough space available, Artifactory will abort the backup and write a message in the log file. Applicable only to non-incremental backups.
         """
+        _BackupState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            create_archive=create_archive,
+            cron_exp=cron_exp,
+            enabled=enabled,
+            exclude_new_repositories=exclude_new_repositories,
+            excluded_repositories=excluded_repositories,
+            export_mission_control=export_mission_control,
+            key=key,
+            retention_period_hours=retention_period_hours,
+            send_mail_on_error=send_mail_on_error,
+            verify_disk_space=verify_disk_space,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             create_archive: Optional[pulumi.Input[bool]] = None,
+             cron_exp: Optional[pulumi.Input[str]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             exclude_new_repositories: Optional[pulumi.Input[bool]] = None,
+             excluded_repositories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             export_mission_control: Optional[pulumi.Input[bool]] = None,
+             key: Optional[pulumi.Input[str]] = None,
+             retention_period_hours: Optional[pulumi.Input[int]] = None,
+             send_mail_on_error: Optional[pulumi.Input[bool]] = None,
+             verify_disk_space: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if create_archive is None and 'createArchive' in kwargs:
+            create_archive = kwargs['createArchive']
+        if cron_exp is None and 'cronExp' in kwargs:
+            cron_exp = kwargs['cronExp']
+        if exclude_new_repositories is None and 'excludeNewRepositories' in kwargs:
+            exclude_new_repositories = kwargs['excludeNewRepositories']
+        if excluded_repositories is None and 'excludedRepositories' in kwargs:
+            excluded_repositories = kwargs['excludedRepositories']
+        if export_mission_control is None and 'exportMissionControl' in kwargs:
+            export_mission_control = kwargs['exportMissionControl']
+        if retention_period_hours is None and 'retentionPeriodHours' in kwargs:
+            retention_period_hours = kwargs['retentionPeriodHours']
+        if send_mail_on_error is None and 'sendMailOnError' in kwargs:
+            send_mail_on_error = kwargs['sendMailOnError']
+        if verify_disk_space is None and 'verifyDiskSpace' in kwargs:
+            verify_disk_space = kwargs['verifyDiskSpace']
+
         if create_archive is not None:
-            pulumi.set(__self__, "create_archive", create_archive)
+            _setter("create_archive", create_archive)
         if cron_exp is not None:
-            pulumi.set(__self__, "cron_exp", cron_exp)
+            _setter("cron_exp", cron_exp)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if exclude_new_repositories is not None:
-            pulumi.set(__self__, "exclude_new_repositories", exclude_new_repositories)
+            _setter("exclude_new_repositories", exclude_new_repositories)
         if excluded_repositories is not None:
-            pulumi.set(__self__, "excluded_repositories", excluded_repositories)
+            _setter("excluded_repositories", excluded_repositories)
         if export_mission_control is not None:
-            pulumi.set(__self__, "export_mission_control", export_mission_control)
+            _setter("export_mission_control", export_mission_control)
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if retention_period_hours is not None:
-            pulumi.set(__self__, "retention_period_hours", retention_period_hours)
+            _setter("retention_period_hours", retention_period_hours)
         if send_mail_on_error is not None:
-            pulumi.set(__self__, "send_mail_on_error", send_mail_on_error)
+            _setter("send_mail_on_error", send_mail_on_error)
         if verify_disk_space is not None:
-            pulumi.set(__self__, "verify_disk_space", verify_disk_space)
+            _setter("verify_disk_space", verify_disk_space)
 
     @property
     @pulumi.getter(name="createArchive")
@@ -466,6 +560,10 @@ class Backup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            BackupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

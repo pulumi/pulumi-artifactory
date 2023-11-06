@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['MailServerArgs', 'MailServer']
@@ -37,23 +37,68 @@ class MailServerArgs:
         :param pulumi.Input[bool] use_tls: When set to 'true', uses Transport Layer Security when connecting to the mail server.
         :param pulumi.Input[str] username: The username for authentication with the mail server.
         """
-        pulumi.set(__self__, "enabled", enabled)
-        pulumi.set(__self__, "host", host)
-        pulumi.set(__self__, "port", port)
+        MailServerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            host=host,
+            port=port,
+            artifactory_url=artifactory_url,
+            from_=from_,
+            password=password,
+            subject_prefix=subject_prefix,
+            use_ssl=use_ssl,
+            use_tls=use_tls,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[pulumi.Input[bool]] = None,
+             host: Optional[pulumi.Input[str]] = None,
+             port: Optional[pulumi.Input[int]] = None,
+             artifactory_url: Optional[pulumi.Input[str]] = None,
+             from_: Optional[pulumi.Input[str]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             subject_prefix: Optional[pulumi.Input[str]] = None,
+             use_ssl: Optional[pulumi.Input[bool]] = None,
+             use_tls: Optional[pulumi.Input[bool]] = None,
+             username: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+        if host is None:
+            raise TypeError("Missing 'host' argument")
+        if port is None:
+            raise TypeError("Missing 'port' argument")
+        if artifactory_url is None and 'artifactoryUrl' in kwargs:
+            artifactory_url = kwargs['artifactoryUrl']
+        if from_ is None and 'from' in kwargs:
+            from_ = kwargs['from']
+        if subject_prefix is None and 'subjectPrefix' in kwargs:
+            subject_prefix = kwargs['subjectPrefix']
+        if use_ssl is None and 'useSsl' in kwargs:
+            use_ssl = kwargs['useSsl']
+        if use_tls is None and 'useTls' in kwargs:
+            use_tls = kwargs['useTls']
+
+        _setter("enabled", enabled)
+        _setter("host", host)
+        _setter("port", port)
         if artifactory_url is not None:
-            pulumi.set(__self__, "artifactory_url", artifactory_url)
+            _setter("artifactory_url", artifactory_url)
         if from_ is not None:
-            pulumi.set(__self__, "from_", from_)
+            _setter("from_", from_)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if subject_prefix is not None:
-            pulumi.set(__self__, "subject_prefix", subject_prefix)
+            _setter("subject_prefix", subject_prefix)
         if use_ssl is not None:
-            pulumi.set(__self__, "use_ssl", use_ssl)
+            _setter("use_ssl", use_ssl)
         if use_tls is not None:
-            pulumi.set(__self__, "use_tls", use_tls)
+            _setter("use_tls", use_tls)
         if username is not None:
-            pulumi.set(__self__, "username", username)
+            _setter("username", username)
 
     @property
     @pulumi.getter
@@ -202,26 +247,65 @@ class _MailServerState:
         :param pulumi.Input[bool] use_tls: When set to 'true', uses Transport Layer Security when connecting to the mail server.
         :param pulumi.Input[str] username: The username for authentication with the mail server.
         """
+        _MailServerState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            artifactory_url=artifactory_url,
+            enabled=enabled,
+            from_=from_,
+            host=host,
+            password=password,
+            port=port,
+            subject_prefix=subject_prefix,
+            use_ssl=use_ssl,
+            use_tls=use_tls,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             artifactory_url: Optional[pulumi.Input[str]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             from_: Optional[pulumi.Input[str]] = None,
+             host: Optional[pulumi.Input[str]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             port: Optional[pulumi.Input[int]] = None,
+             subject_prefix: Optional[pulumi.Input[str]] = None,
+             use_ssl: Optional[pulumi.Input[bool]] = None,
+             use_tls: Optional[pulumi.Input[bool]] = None,
+             username: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if artifactory_url is None and 'artifactoryUrl' in kwargs:
+            artifactory_url = kwargs['artifactoryUrl']
+        if from_ is None and 'from' in kwargs:
+            from_ = kwargs['from']
+        if subject_prefix is None and 'subjectPrefix' in kwargs:
+            subject_prefix = kwargs['subjectPrefix']
+        if use_ssl is None and 'useSsl' in kwargs:
+            use_ssl = kwargs['useSsl']
+        if use_tls is None and 'useTls' in kwargs:
+            use_tls = kwargs['useTls']
+
         if artifactory_url is not None:
-            pulumi.set(__self__, "artifactory_url", artifactory_url)
+            _setter("artifactory_url", artifactory_url)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if from_ is not None:
-            pulumi.set(__self__, "from_", from_)
+            _setter("from_", from_)
         if host is not None:
-            pulumi.set(__self__, "host", host)
+            _setter("host", host)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
         if subject_prefix is not None:
-            pulumi.set(__self__, "subject_prefix", subject_prefix)
+            _setter("subject_prefix", subject_prefix)
         if use_ssl is not None:
-            pulumi.set(__self__, "use_ssl", use_ssl)
+            _setter("use_ssl", use_ssl)
         if use_tls is not None:
-            pulumi.set(__self__, "use_tls", use_tls)
+            _setter("use_tls", use_tls)
         if username is not None:
-            pulumi.set(__self__, "username", username)
+            _setter("username", username)
 
     @property
     @pulumi.getter(name="artifactoryUrl")
@@ -451,6 +535,10 @@ class MailServer(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            MailServerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

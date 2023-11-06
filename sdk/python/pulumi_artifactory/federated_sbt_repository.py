@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -89,50 +89,147 @@ class FederatedSbtRepositoryArgs:
         :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
                Xray settings.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "members", members)
+        FederatedSbtRepositoryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            members=members,
+            archive_browsing_enabled=archive_browsing_enabled,
+            blacked_out=blacked_out,
+            cdn_redirect=cdn_redirect,
+            checksum_policy_type=checksum_policy_type,
+            cleanup_on_delete=cleanup_on_delete,
+            description=description,
+            download_direct=download_direct,
+            excludes_pattern=excludes_pattern,
+            handle_releases=handle_releases,
+            handle_snapshots=handle_snapshots,
+            includes_pattern=includes_pattern,
+            max_unique_snapshots=max_unique_snapshots,
+            notes=notes,
+            priority_resolution=priority_resolution,
+            project_environments=project_environments,
+            project_key=project_key,
+            property_sets=property_sets,
+            repo_layout_ref=repo_layout_ref,
+            snapshot_version_behavior=snapshot_version_behavior,
+            suppress_pom_consistency_checks=suppress_pom_consistency_checks,
+            xray_index=xray_index,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: Optional[pulumi.Input[str]] = None,
+             members: Optional[pulumi.Input[Sequence[pulumi.Input['FederatedSbtRepositoryMemberArgs']]]] = None,
+             archive_browsing_enabled: Optional[pulumi.Input[bool]] = None,
+             blacked_out: Optional[pulumi.Input[bool]] = None,
+             cdn_redirect: Optional[pulumi.Input[bool]] = None,
+             checksum_policy_type: Optional[pulumi.Input[str]] = None,
+             cleanup_on_delete: Optional[pulumi.Input[bool]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             download_direct: Optional[pulumi.Input[bool]] = None,
+             excludes_pattern: Optional[pulumi.Input[str]] = None,
+             handle_releases: Optional[pulumi.Input[bool]] = None,
+             handle_snapshots: Optional[pulumi.Input[bool]] = None,
+             includes_pattern: Optional[pulumi.Input[str]] = None,
+             max_unique_snapshots: Optional[pulumi.Input[int]] = None,
+             notes: Optional[pulumi.Input[str]] = None,
+             priority_resolution: Optional[pulumi.Input[bool]] = None,
+             project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             project_key: Optional[pulumi.Input[str]] = None,
+             property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             repo_layout_ref: Optional[pulumi.Input[str]] = None,
+             snapshot_version_behavior: Optional[pulumi.Input[str]] = None,
+             suppress_pom_consistency_checks: Optional[pulumi.Input[bool]] = None,
+             xray_index: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if members is None:
+            raise TypeError("Missing 'members' argument")
+        if archive_browsing_enabled is None and 'archiveBrowsingEnabled' in kwargs:
+            archive_browsing_enabled = kwargs['archiveBrowsingEnabled']
+        if blacked_out is None and 'blackedOut' in kwargs:
+            blacked_out = kwargs['blackedOut']
+        if cdn_redirect is None and 'cdnRedirect' in kwargs:
+            cdn_redirect = kwargs['cdnRedirect']
+        if checksum_policy_type is None and 'checksumPolicyType' in kwargs:
+            checksum_policy_type = kwargs['checksumPolicyType']
+        if cleanup_on_delete is None and 'cleanupOnDelete' in kwargs:
+            cleanup_on_delete = kwargs['cleanupOnDelete']
+        if download_direct is None and 'downloadDirect' in kwargs:
+            download_direct = kwargs['downloadDirect']
+        if excludes_pattern is None and 'excludesPattern' in kwargs:
+            excludes_pattern = kwargs['excludesPattern']
+        if handle_releases is None and 'handleReleases' in kwargs:
+            handle_releases = kwargs['handleReleases']
+        if handle_snapshots is None and 'handleSnapshots' in kwargs:
+            handle_snapshots = kwargs['handleSnapshots']
+        if includes_pattern is None and 'includesPattern' in kwargs:
+            includes_pattern = kwargs['includesPattern']
+        if max_unique_snapshots is None and 'maxUniqueSnapshots' in kwargs:
+            max_unique_snapshots = kwargs['maxUniqueSnapshots']
+        if priority_resolution is None and 'priorityResolution' in kwargs:
+            priority_resolution = kwargs['priorityResolution']
+        if project_environments is None and 'projectEnvironments' in kwargs:
+            project_environments = kwargs['projectEnvironments']
+        if project_key is None and 'projectKey' in kwargs:
+            project_key = kwargs['projectKey']
+        if property_sets is None and 'propertySets' in kwargs:
+            property_sets = kwargs['propertySets']
+        if repo_layout_ref is None and 'repoLayoutRef' in kwargs:
+            repo_layout_ref = kwargs['repoLayoutRef']
+        if snapshot_version_behavior is None and 'snapshotVersionBehavior' in kwargs:
+            snapshot_version_behavior = kwargs['snapshotVersionBehavior']
+        if suppress_pom_consistency_checks is None and 'suppressPomConsistencyChecks' in kwargs:
+            suppress_pom_consistency_checks = kwargs['suppressPomConsistencyChecks']
+        if xray_index is None and 'xrayIndex' in kwargs:
+            xray_index = kwargs['xrayIndex']
+
+        _setter("key", key)
+        _setter("members", members)
         if archive_browsing_enabled is not None:
-            pulumi.set(__self__, "archive_browsing_enabled", archive_browsing_enabled)
+            _setter("archive_browsing_enabled", archive_browsing_enabled)
         if blacked_out is not None:
-            pulumi.set(__self__, "blacked_out", blacked_out)
+            _setter("blacked_out", blacked_out)
         if cdn_redirect is not None:
-            pulumi.set(__self__, "cdn_redirect", cdn_redirect)
+            _setter("cdn_redirect", cdn_redirect)
         if checksum_policy_type is not None:
-            pulumi.set(__self__, "checksum_policy_type", checksum_policy_type)
+            _setter("checksum_policy_type", checksum_policy_type)
         if cleanup_on_delete is not None:
-            pulumi.set(__self__, "cleanup_on_delete", cleanup_on_delete)
+            _setter("cleanup_on_delete", cleanup_on_delete)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if download_direct is not None:
-            pulumi.set(__self__, "download_direct", download_direct)
+            _setter("download_direct", download_direct)
         if excludes_pattern is not None:
-            pulumi.set(__self__, "excludes_pattern", excludes_pattern)
+            _setter("excludes_pattern", excludes_pattern)
         if handle_releases is not None:
-            pulumi.set(__self__, "handle_releases", handle_releases)
+            _setter("handle_releases", handle_releases)
         if handle_snapshots is not None:
-            pulumi.set(__self__, "handle_snapshots", handle_snapshots)
+            _setter("handle_snapshots", handle_snapshots)
         if includes_pattern is not None:
-            pulumi.set(__self__, "includes_pattern", includes_pattern)
+            _setter("includes_pattern", includes_pattern)
         if max_unique_snapshots is not None:
-            pulumi.set(__self__, "max_unique_snapshots", max_unique_snapshots)
+            _setter("max_unique_snapshots", max_unique_snapshots)
         if notes is not None:
-            pulumi.set(__self__, "notes", notes)
+            _setter("notes", notes)
         if priority_resolution is not None:
-            pulumi.set(__self__, "priority_resolution", priority_resolution)
+            _setter("priority_resolution", priority_resolution)
         if project_environments is not None:
-            pulumi.set(__self__, "project_environments", project_environments)
+            _setter("project_environments", project_environments)
         if project_key is not None:
-            pulumi.set(__self__, "project_key", project_key)
+            _setter("project_key", project_key)
         if property_sets is not None:
-            pulumi.set(__self__, "property_sets", property_sets)
+            _setter("property_sets", property_sets)
         if repo_layout_ref is not None:
-            pulumi.set(__self__, "repo_layout_ref", repo_layout_ref)
+            _setter("repo_layout_ref", repo_layout_ref)
         if snapshot_version_behavior is not None:
-            pulumi.set(__self__, "snapshot_version_behavior", snapshot_version_behavior)
+            _setter("snapshot_version_behavior", snapshot_version_behavior)
         if suppress_pom_consistency_checks is not None:
-            pulumi.set(__self__, "suppress_pom_consistency_checks", suppress_pom_consistency_checks)
+            _setter("suppress_pom_consistency_checks", suppress_pom_consistency_checks)
         if xray_index is not None:
-            pulumi.set(__self__, "xray_index", xray_index)
+            _setter("xray_index", xray_index)
 
     @property
     @pulumi.getter
@@ -512,54 +609,151 @@ class _FederatedSbtRepositoryState:
         :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
                Xray settings.
         """
+        _FederatedSbtRepositoryState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            archive_browsing_enabled=archive_browsing_enabled,
+            blacked_out=blacked_out,
+            cdn_redirect=cdn_redirect,
+            checksum_policy_type=checksum_policy_type,
+            cleanup_on_delete=cleanup_on_delete,
+            description=description,
+            download_direct=download_direct,
+            excludes_pattern=excludes_pattern,
+            handle_releases=handle_releases,
+            handle_snapshots=handle_snapshots,
+            includes_pattern=includes_pattern,
+            key=key,
+            max_unique_snapshots=max_unique_snapshots,
+            members=members,
+            notes=notes,
+            package_type=package_type,
+            priority_resolution=priority_resolution,
+            project_environments=project_environments,
+            project_key=project_key,
+            property_sets=property_sets,
+            repo_layout_ref=repo_layout_ref,
+            snapshot_version_behavior=snapshot_version_behavior,
+            suppress_pom_consistency_checks=suppress_pom_consistency_checks,
+            xray_index=xray_index,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             archive_browsing_enabled: Optional[pulumi.Input[bool]] = None,
+             blacked_out: Optional[pulumi.Input[bool]] = None,
+             cdn_redirect: Optional[pulumi.Input[bool]] = None,
+             checksum_policy_type: Optional[pulumi.Input[str]] = None,
+             cleanup_on_delete: Optional[pulumi.Input[bool]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             download_direct: Optional[pulumi.Input[bool]] = None,
+             excludes_pattern: Optional[pulumi.Input[str]] = None,
+             handle_releases: Optional[pulumi.Input[bool]] = None,
+             handle_snapshots: Optional[pulumi.Input[bool]] = None,
+             includes_pattern: Optional[pulumi.Input[str]] = None,
+             key: Optional[pulumi.Input[str]] = None,
+             max_unique_snapshots: Optional[pulumi.Input[int]] = None,
+             members: Optional[pulumi.Input[Sequence[pulumi.Input['FederatedSbtRepositoryMemberArgs']]]] = None,
+             notes: Optional[pulumi.Input[str]] = None,
+             package_type: Optional[pulumi.Input[str]] = None,
+             priority_resolution: Optional[pulumi.Input[bool]] = None,
+             project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             project_key: Optional[pulumi.Input[str]] = None,
+             property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             repo_layout_ref: Optional[pulumi.Input[str]] = None,
+             snapshot_version_behavior: Optional[pulumi.Input[str]] = None,
+             suppress_pom_consistency_checks: Optional[pulumi.Input[bool]] = None,
+             xray_index: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if archive_browsing_enabled is None and 'archiveBrowsingEnabled' in kwargs:
+            archive_browsing_enabled = kwargs['archiveBrowsingEnabled']
+        if blacked_out is None and 'blackedOut' in kwargs:
+            blacked_out = kwargs['blackedOut']
+        if cdn_redirect is None and 'cdnRedirect' in kwargs:
+            cdn_redirect = kwargs['cdnRedirect']
+        if checksum_policy_type is None and 'checksumPolicyType' in kwargs:
+            checksum_policy_type = kwargs['checksumPolicyType']
+        if cleanup_on_delete is None and 'cleanupOnDelete' in kwargs:
+            cleanup_on_delete = kwargs['cleanupOnDelete']
+        if download_direct is None and 'downloadDirect' in kwargs:
+            download_direct = kwargs['downloadDirect']
+        if excludes_pattern is None and 'excludesPattern' in kwargs:
+            excludes_pattern = kwargs['excludesPattern']
+        if handle_releases is None and 'handleReleases' in kwargs:
+            handle_releases = kwargs['handleReleases']
+        if handle_snapshots is None and 'handleSnapshots' in kwargs:
+            handle_snapshots = kwargs['handleSnapshots']
+        if includes_pattern is None and 'includesPattern' in kwargs:
+            includes_pattern = kwargs['includesPattern']
+        if max_unique_snapshots is None and 'maxUniqueSnapshots' in kwargs:
+            max_unique_snapshots = kwargs['maxUniqueSnapshots']
+        if package_type is None and 'packageType' in kwargs:
+            package_type = kwargs['packageType']
+        if priority_resolution is None and 'priorityResolution' in kwargs:
+            priority_resolution = kwargs['priorityResolution']
+        if project_environments is None and 'projectEnvironments' in kwargs:
+            project_environments = kwargs['projectEnvironments']
+        if project_key is None and 'projectKey' in kwargs:
+            project_key = kwargs['projectKey']
+        if property_sets is None and 'propertySets' in kwargs:
+            property_sets = kwargs['propertySets']
+        if repo_layout_ref is None and 'repoLayoutRef' in kwargs:
+            repo_layout_ref = kwargs['repoLayoutRef']
+        if snapshot_version_behavior is None and 'snapshotVersionBehavior' in kwargs:
+            snapshot_version_behavior = kwargs['snapshotVersionBehavior']
+        if suppress_pom_consistency_checks is None and 'suppressPomConsistencyChecks' in kwargs:
+            suppress_pom_consistency_checks = kwargs['suppressPomConsistencyChecks']
+        if xray_index is None and 'xrayIndex' in kwargs:
+            xray_index = kwargs['xrayIndex']
+
         if archive_browsing_enabled is not None:
-            pulumi.set(__self__, "archive_browsing_enabled", archive_browsing_enabled)
+            _setter("archive_browsing_enabled", archive_browsing_enabled)
         if blacked_out is not None:
-            pulumi.set(__self__, "blacked_out", blacked_out)
+            _setter("blacked_out", blacked_out)
         if cdn_redirect is not None:
-            pulumi.set(__self__, "cdn_redirect", cdn_redirect)
+            _setter("cdn_redirect", cdn_redirect)
         if checksum_policy_type is not None:
-            pulumi.set(__self__, "checksum_policy_type", checksum_policy_type)
+            _setter("checksum_policy_type", checksum_policy_type)
         if cleanup_on_delete is not None:
-            pulumi.set(__self__, "cleanup_on_delete", cleanup_on_delete)
+            _setter("cleanup_on_delete", cleanup_on_delete)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if download_direct is not None:
-            pulumi.set(__self__, "download_direct", download_direct)
+            _setter("download_direct", download_direct)
         if excludes_pattern is not None:
-            pulumi.set(__self__, "excludes_pattern", excludes_pattern)
+            _setter("excludes_pattern", excludes_pattern)
         if handle_releases is not None:
-            pulumi.set(__self__, "handle_releases", handle_releases)
+            _setter("handle_releases", handle_releases)
         if handle_snapshots is not None:
-            pulumi.set(__self__, "handle_snapshots", handle_snapshots)
+            _setter("handle_snapshots", handle_snapshots)
         if includes_pattern is not None:
-            pulumi.set(__self__, "includes_pattern", includes_pattern)
+            _setter("includes_pattern", includes_pattern)
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if max_unique_snapshots is not None:
-            pulumi.set(__self__, "max_unique_snapshots", max_unique_snapshots)
+            _setter("max_unique_snapshots", max_unique_snapshots)
         if members is not None:
-            pulumi.set(__self__, "members", members)
+            _setter("members", members)
         if notes is not None:
-            pulumi.set(__self__, "notes", notes)
+            _setter("notes", notes)
         if package_type is not None:
-            pulumi.set(__self__, "package_type", package_type)
+            _setter("package_type", package_type)
         if priority_resolution is not None:
-            pulumi.set(__self__, "priority_resolution", priority_resolution)
+            _setter("priority_resolution", priority_resolution)
         if project_environments is not None:
-            pulumi.set(__self__, "project_environments", project_environments)
+            _setter("project_environments", project_environments)
         if project_key is not None:
-            pulumi.set(__self__, "project_key", project_key)
+            _setter("project_key", project_key)
         if property_sets is not None:
-            pulumi.set(__self__, "property_sets", property_sets)
+            _setter("property_sets", property_sets)
         if repo_layout_ref is not None:
-            pulumi.set(__self__, "repo_layout_ref", repo_layout_ref)
+            _setter("repo_layout_ref", repo_layout_ref)
         if snapshot_version_behavior is not None:
-            pulumi.set(__self__, "snapshot_version_behavior", snapshot_version_behavior)
+            _setter("snapshot_version_behavior", snapshot_version_behavior)
         if suppress_pom_consistency_checks is not None:
-            pulumi.set(__self__, "suppress_pom_consistency_checks", suppress_pom_consistency_checks)
+            _setter("suppress_pom_consistency_checks", suppress_pom_consistency_checks)
         if xray_index is not None:
-            pulumi.set(__self__, "xray_index", xray_index)
+            _setter("xray_index", xray_index)
 
     @property
     @pulumi.getter(name="archiveBrowsingEnabled")
@@ -1028,6 +1222,10 @@ class FederatedSbtRepository(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FederatedSbtRepositoryArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

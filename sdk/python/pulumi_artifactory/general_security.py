@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['GeneralSecurityArgs', 'GeneralSecurity']
@@ -18,8 +18,21 @@ class GeneralSecurityArgs:
         """
         The set of arguments for constructing a GeneralSecurity resource.
         """
+        GeneralSecurityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enable_anonymous_access=enable_anonymous_access,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enable_anonymous_access: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if enable_anonymous_access is None and 'enableAnonymousAccess' in kwargs:
+            enable_anonymous_access = kwargs['enableAnonymousAccess']
+
         if enable_anonymous_access is not None:
-            pulumi.set(__self__, "enable_anonymous_access", enable_anonymous_access)
+            _setter("enable_anonymous_access", enable_anonymous_access)
 
     @property
     @pulumi.getter(name="enableAnonymousAccess")
@@ -38,8 +51,21 @@ class _GeneralSecurityState:
         """
         Input properties used for looking up and filtering GeneralSecurity resources.
         """
+        _GeneralSecurityState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enable_anonymous_access=enable_anonymous_access,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enable_anonymous_access: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if enable_anonymous_access is None and 'enableAnonymousAccess' in kwargs:
+            enable_anonymous_access = kwargs['enableAnonymousAccess']
+
         if enable_anonymous_access is not None:
-            pulumi.set(__self__, "enable_anonymous_access", enable_anonymous_access)
+            _setter("enable_anonymous_access", enable_anonymous_access)
 
     @property
     @pulumi.getter(name="enableAnonymousAccess")
@@ -129,6 +155,10 @@ class GeneralSecurity(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            GeneralSecurityArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['VirtualGradleRepositoryArgs', 'VirtualGradleRepository']
@@ -56,33 +56,92 @@ class VirtualGradleRepositoryArgs:
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the virtual repository
         :param pulumi.Input[Sequence[pulumi.Input[str]]] repositories: The effective list of actual repositories included in this virtual repository.
         """
-        pulumi.set(__self__, "key", key)
+        VirtualGradleRepositoryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            artifactory_requests_can_retrieve_remote_artifacts=artifactory_requests_can_retrieve_remote_artifacts,
+            default_deployment_repo=default_deployment_repo,
+            description=description,
+            excludes_pattern=excludes_pattern,
+            force_maven_authentication=force_maven_authentication,
+            includes_pattern=includes_pattern,
+            key_pair=key_pair,
+            notes=notes,
+            pom_repository_references_cleanup_policy=pom_repository_references_cleanup_policy,
+            project_environments=project_environments,
+            project_key=project_key,
+            repo_layout_ref=repo_layout_ref,
+            repositories=repositories,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: Optional[pulumi.Input[str]] = None,
+             artifactory_requests_can_retrieve_remote_artifacts: Optional[pulumi.Input[bool]] = None,
+             default_deployment_repo: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             excludes_pattern: Optional[pulumi.Input[str]] = None,
+             force_maven_authentication: Optional[pulumi.Input[bool]] = None,
+             includes_pattern: Optional[pulumi.Input[str]] = None,
+             key_pair: Optional[pulumi.Input[str]] = None,
+             notes: Optional[pulumi.Input[str]] = None,
+             pom_repository_references_cleanup_policy: Optional[pulumi.Input[str]] = None,
+             project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             project_key: Optional[pulumi.Input[str]] = None,
+             repo_layout_ref: Optional[pulumi.Input[str]] = None,
+             repositories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if artifactory_requests_can_retrieve_remote_artifacts is None and 'artifactoryRequestsCanRetrieveRemoteArtifacts' in kwargs:
+            artifactory_requests_can_retrieve_remote_artifacts = kwargs['artifactoryRequestsCanRetrieveRemoteArtifacts']
+        if default_deployment_repo is None and 'defaultDeploymentRepo' in kwargs:
+            default_deployment_repo = kwargs['defaultDeploymentRepo']
+        if excludes_pattern is None and 'excludesPattern' in kwargs:
+            excludes_pattern = kwargs['excludesPattern']
+        if force_maven_authentication is None and 'forceMavenAuthentication' in kwargs:
+            force_maven_authentication = kwargs['forceMavenAuthentication']
+        if includes_pattern is None and 'includesPattern' in kwargs:
+            includes_pattern = kwargs['includesPattern']
+        if key_pair is None and 'keyPair' in kwargs:
+            key_pair = kwargs['keyPair']
+        if pom_repository_references_cleanup_policy is None and 'pomRepositoryReferencesCleanupPolicy' in kwargs:
+            pom_repository_references_cleanup_policy = kwargs['pomRepositoryReferencesCleanupPolicy']
+        if project_environments is None and 'projectEnvironments' in kwargs:
+            project_environments = kwargs['projectEnvironments']
+        if project_key is None and 'projectKey' in kwargs:
+            project_key = kwargs['projectKey']
+        if repo_layout_ref is None and 'repoLayoutRef' in kwargs:
+            repo_layout_ref = kwargs['repoLayoutRef']
+
+        _setter("key", key)
         if artifactory_requests_can_retrieve_remote_artifacts is not None:
-            pulumi.set(__self__, "artifactory_requests_can_retrieve_remote_artifacts", artifactory_requests_can_retrieve_remote_artifacts)
+            _setter("artifactory_requests_can_retrieve_remote_artifacts", artifactory_requests_can_retrieve_remote_artifacts)
         if default_deployment_repo is not None:
-            pulumi.set(__self__, "default_deployment_repo", default_deployment_repo)
+            _setter("default_deployment_repo", default_deployment_repo)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if excludes_pattern is not None:
-            pulumi.set(__self__, "excludes_pattern", excludes_pattern)
+            _setter("excludes_pattern", excludes_pattern)
         if force_maven_authentication is not None:
-            pulumi.set(__self__, "force_maven_authentication", force_maven_authentication)
+            _setter("force_maven_authentication", force_maven_authentication)
         if includes_pattern is not None:
-            pulumi.set(__self__, "includes_pattern", includes_pattern)
+            _setter("includes_pattern", includes_pattern)
         if key_pair is not None:
-            pulumi.set(__self__, "key_pair", key_pair)
+            _setter("key_pair", key_pair)
         if notes is not None:
-            pulumi.set(__self__, "notes", notes)
+            _setter("notes", notes)
         if pom_repository_references_cleanup_policy is not None:
-            pulumi.set(__self__, "pom_repository_references_cleanup_policy", pom_repository_references_cleanup_policy)
+            _setter("pom_repository_references_cleanup_policy", pom_repository_references_cleanup_policy)
         if project_environments is not None:
-            pulumi.set(__self__, "project_environments", project_environments)
+            _setter("project_environments", project_environments)
         if project_key is not None:
-            pulumi.set(__self__, "project_key", project_key)
+            _setter("project_key", project_key)
         if repo_layout_ref is not None:
-            pulumi.set(__self__, "repo_layout_ref", repo_layout_ref)
+            _setter("repo_layout_ref", repo_layout_ref)
         if repositories is not None:
-            pulumi.set(__self__, "repositories", repositories)
+            _setter("repositories", repositories)
 
     @property
     @pulumi.getter
@@ -310,36 +369,97 @@ class _VirtualGradleRepositoryState:
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the virtual repository
         :param pulumi.Input[Sequence[pulumi.Input[str]]] repositories: The effective list of actual repositories included in this virtual repository.
         """
+        _VirtualGradleRepositoryState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            artifactory_requests_can_retrieve_remote_artifacts=artifactory_requests_can_retrieve_remote_artifacts,
+            default_deployment_repo=default_deployment_repo,
+            description=description,
+            excludes_pattern=excludes_pattern,
+            force_maven_authentication=force_maven_authentication,
+            includes_pattern=includes_pattern,
+            key=key,
+            key_pair=key_pair,
+            notes=notes,
+            package_type=package_type,
+            pom_repository_references_cleanup_policy=pom_repository_references_cleanup_policy,
+            project_environments=project_environments,
+            project_key=project_key,
+            repo_layout_ref=repo_layout_ref,
+            repositories=repositories,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             artifactory_requests_can_retrieve_remote_artifacts: Optional[pulumi.Input[bool]] = None,
+             default_deployment_repo: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             excludes_pattern: Optional[pulumi.Input[str]] = None,
+             force_maven_authentication: Optional[pulumi.Input[bool]] = None,
+             includes_pattern: Optional[pulumi.Input[str]] = None,
+             key: Optional[pulumi.Input[str]] = None,
+             key_pair: Optional[pulumi.Input[str]] = None,
+             notes: Optional[pulumi.Input[str]] = None,
+             package_type: Optional[pulumi.Input[str]] = None,
+             pom_repository_references_cleanup_policy: Optional[pulumi.Input[str]] = None,
+             project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             project_key: Optional[pulumi.Input[str]] = None,
+             repo_layout_ref: Optional[pulumi.Input[str]] = None,
+             repositories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if artifactory_requests_can_retrieve_remote_artifacts is None and 'artifactoryRequestsCanRetrieveRemoteArtifacts' in kwargs:
+            artifactory_requests_can_retrieve_remote_artifacts = kwargs['artifactoryRequestsCanRetrieveRemoteArtifacts']
+        if default_deployment_repo is None and 'defaultDeploymentRepo' in kwargs:
+            default_deployment_repo = kwargs['defaultDeploymentRepo']
+        if excludes_pattern is None and 'excludesPattern' in kwargs:
+            excludes_pattern = kwargs['excludesPattern']
+        if force_maven_authentication is None and 'forceMavenAuthentication' in kwargs:
+            force_maven_authentication = kwargs['forceMavenAuthentication']
+        if includes_pattern is None and 'includesPattern' in kwargs:
+            includes_pattern = kwargs['includesPattern']
+        if key_pair is None and 'keyPair' in kwargs:
+            key_pair = kwargs['keyPair']
+        if package_type is None and 'packageType' in kwargs:
+            package_type = kwargs['packageType']
+        if pom_repository_references_cleanup_policy is None and 'pomRepositoryReferencesCleanupPolicy' in kwargs:
+            pom_repository_references_cleanup_policy = kwargs['pomRepositoryReferencesCleanupPolicy']
+        if project_environments is None and 'projectEnvironments' in kwargs:
+            project_environments = kwargs['projectEnvironments']
+        if project_key is None and 'projectKey' in kwargs:
+            project_key = kwargs['projectKey']
+        if repo_layout_ref is None and 'repoLayoutRef' in kwargs:
+            repo_layout_ref = kwargs['repoLayoutRef']
+
         if artifactory_requests_can_retrieve_remote_artifacts is not None:
-            pulumi.set(__self__, "artifactory_requests_can_retrieve_remote_artifacts", artifactory_requests_can_retrieve_remote_artifacts)
+            _setter("artifactory_requests_can_retrieve_remote_artifacts", artifactory_requests_can_retrieve_remote_artifacts)
         if default_deployment_repo is not None:
-            pulumi.set(__self__, "default_deployment_repo", default_deployment_repo)
+            _setter("default_deployment_repo", default_deployment_repo)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if excludes_pattern is not None:
-            pulumi.set(__self__, "excludes_pattern", excludes_pattern)
+            _setter("excludes_pattern", excludes_pattern)
         if force_maven_authentication is not None:
-            pulumi.set(__self__, "force_maven_authentication", force_maven_authentication)
+            _setter("force_maven_authentication", force_maven_authentication)
         if includes_pattern is not None:
-            pulumi.set(__self__, "includes_pattern", includes_pattern)
+            _setter("includes_pattern", includes_pattern)
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if key_pair is not None:
-            pulumi.set(__self__, "key_pair", key_pair)
+            _setter("key_pair", key_pair)
         if notes is not None:
-            pulumi.set(__self__, "notes", notes)
+            _setter("notes", notes)
         if package_type is not None:
-            pulumi.set(__self__, "package_type", package_type)
+            _setter("package_type", package_type)
         if pom_repository_references_cleanup_policy is not None:
-            pulumi.set(__self__, "pom_repository_references_cleanup_policy", pom_repository_references_cleanup_policy)
+            _setter("pom_repository_references_cleanup_policy", pom_repository_references_cleanup_policy)
         if project_environments is not None:
-            pulumi.set(__self__, "project_environments", project_environments)
+            _setter("project_environments", project_environments)
         if project_key is not None:
-            pulumi.set(__self__, "project_key", project_key)
+            _setter("project_key", project_key)
         if repo_layout_ref is not None:
-            pulumi.set(__self__, "repo_layout_ref", repo_layout_ref)
+            _setter("repo_layout_ref", repo_layout_ref)
         if repositories is not None:
-            pulumi.set(__self__, "repositories", repositories)
+            _setter("repositories", repositories)
 
     @property
     @pulumi.getter(name="artifactoryRequestsCanRetrieveRemoteArtifacts")
@@ -650,6 +770,10 @@ class VirtualGradleRepository(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VirtualGradleRepositoryArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
