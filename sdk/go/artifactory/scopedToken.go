@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an Artifactory Scoped Token resource. This can be used to create and manage Artifactory Scoped Tokens.
@@ -299,12 +298,6 @@ func (i *ScopedToken) ToScopedTokenOutputWithContext(ctx context.Context) Scoped
 	return pulumi.ToOutputWithContext(ctx, i).(ScopedTokenOutput)
 }
 
-func (i *ScopedToken) ToOutput(ctx context.Context) pulumix.Output[*ScopedToken] {
-	return pulumix.Output[*ScopedToken]{
-		OutputState: i.ToScopedTokenOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ScopedTokenArrayInput is an input type that accepts ScopedTokenArray and ScopedTokenArrayOutput values.
 // You can construct a concrete instance of `ScopedTokenArrayInput` via:
 //
@@ -328,12 +321,6 @@ func (i ScopedTokenArray) ToScopedTokenArrayOutput() ScopedTokenArrayOutput {
 
 func (i ScopedTokenArray) ToScopedTokenArrayOutputWithContext(ctx context.Context) ScopedTokenArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ScopedTokenArrayOutput)
-}
-
-func (i ScopedTokenArray) ToOutput(ctx context.Context) pulumix.Output[[]*ScopedToken] {
-	return pulumix.Output[[]*ScopedToken]{
-		OutputState: i.ToScopedTokenArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ScopedTokenMapInput is an input type that accepts ScopedTokenMap and ScopedTokenMapOutput values.
@@ -361,12 +348,6 @@ func (i ScopedTokenMap) ToScopedTokenMapOutputWithContext(ctx context.Context) S
 	return pulumi.ToOutputWithContext(ctx, i).(ScopedTokenMapOutput)
 }
 
-func (i ScopedTokenMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ScopedToken] {
-	return pulumix.Output[map[string]*ScopedToken]{
-		OutputState: i.ToScopedTokenMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ScopedTokenOutput struct{ *pulumi.OutputState }
 
 func (ScopedTokenOutput) ElementType() reflect.Type {
@@ -379,12 +360,6 @@ func (o ScopedTokenOutput) ToScopedTokenOutput() ScopedTokenOutput {
 
 func (o ScopedTokenOutput) ToScopedTokenOutputWithContext(ctx context.Context) ScopedTokenOutput {
 	return o
-}
-
-func (o ScopedTokenOutput) ToOutput(ctx context.Context) pulumix.Output[*ScopedToken] {
-	return pulumix.Output[*ScopedToken]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Returns the access token to authenticate to Artifactory.
@@ -487,12 +462,6 @@ func (o ScopedTokenArrayOutput) ToScopedTokenArrayOutputWithContext(ctx context.
 	return o
 }
 
-func (o ScopedTokenArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ScopedToken] {
-	return pulumix.Output[[]*ScopedToken]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ScopedTokenArrayOutput) Index(i pulumi.IntInput) ScopedTokenOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ScopedToken {
 		return vs[0].([]*ScopedToken)[vs[1].(int)]
@@ -511,12 +480,6 @@ func (o ScopedTokenMapOutput) ToScopedTokenMapOutput() ScopedTokenMapOutput {
 
 func (o ScopedTokenMapOutput) ToScopedTokenMapOutputWithContext(ctx context.Context) ScopedTokenMapOutput {
 	return o
-}
-
-func (o ScopedTokenMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ScopedToken] {
-	return pulumix.Output[map[string]*ScopedToken]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScopedTokenMapOutput) MapIndex(k pulumi.StringInput) ScopedTokenOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an Artifactory custom webhook resource. This can be used to register and manage Artifactory webhook subscription which enables you to be notified or notify other users when such events take place in Artifactory.
@@ -217,12 +216,6 @@ func (i *ReleaseBundleCustomWebhook) ToReleaseBundleCustomWebhookOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(ReleaseBundleCustomWebhookOutput)
 }
 
-func (i *ReleaseBundleCustomWebhook) ToOutput(ctx context.Context) pulumix.Output[*ReleaseBundleCustomWebhook] {
-	return pulumix.Output[*ReleaseBundleCustomWebhook]{
-		OutputState: i.ToReleaseBundleCustomWebhookOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ReleaseBundleCustomWebhookArrayInput is an input type that accepts ReleaseBundleCustomWebhookArray and ReleaseBundleCustomWebhookArrayOutput values.
 // You can construct a concrete instance of `ReleaseBundleCustomWebhookArrayInput` via:
 //
@@ -246,12 +239,6 @@ func (i ReleaseBundleCustomWebhookArray) ToReleaseBundleCustomWebhookArrayOutput
 
 func (i ReleaseBundleCustomWebhookArray) ToReleaseBundleCustomWebhookArrayOutputWithContext(ctx context.Context) ReleaseBundleCustomWebhookArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ReleaseBundleCustomWebhookArrayOutput)
-}
-
-func (i ReleaseBundleCustomWebhookArray) ToOutput(ctx context.Context) pulumix.Output[[]*ReleaseBundleCustomWebhook] {
-	return pulumix.Output[[]*ReleaseBundleCustomWebhook]{
-		OutputState: i.ToReleaseBundleCustomWebhookArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ReleaseBundleCustomWebhookMapInput is an input type that accepts ReleaseBundleCustomWebhookMap and ReleaseBundleCustomWebhookMapOutput values.
@@ -279,12 +266,6 @@ func (i ReleaseBundleCustomWebhookMap) ToReleaseBundleCustomWebhookMapOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ReleaseBundleCustomWebhookMapOutput)
 }
 
-func (i ReleaseBundleCustomWebhookMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ReleaseBundleCustomWebhook] {
-	return pulumix.Output[map[string]*ReleaseBundleCustomWebhook]{
-		OutputState: i.ToReleaseBundleCustomWebhookMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ReleaseBundleCustomWebhookOutput struct{ *pulumi.OutputState }
 
 func (ReleaseBundleCustomWebhookOutput) ElementType() reflect.Type {
@@ -297,12 +278,6 @@ func (o ReleaseBundleCustomWebhookOutput) ToReleaseBundleCustomWebhookOutput() R
 
 func (o ReleaseBundleCustomWebhookOutput) ToReleaseBundleCustomWebhookOutputWithContext(ctx context.Context) ReleaseBundleCustomWebhookOutput {
 	return o
-}
-
-func (o ReleaseBundleCustomWebhookOutput) ToOutput(ctx context.Context) pulumix.Output[*ReleaseBundleCustomWebhook] {
-	return pulumix.Output[*ReleaseBundleCustomWebhook]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies where the webhook will be applied on which repositories.
@@ -349,12 +324,6 @@ func (o ReleaseBundleCustomWebhookArrayOutput) ToReleaseBundleCustomWebhookArray
 	return o
 }
 
-func (o ReleaseBundleCustomWebhookArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ReleaseBundleCustomWebhook] {
-	return pulumix.Output[[]*ReleaseBundleCustomWebhook]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ReleaseBundleCustomWebhookArrayOutput) Index(i pulumi.IntInput) ReleaseBundleCustomWebhookOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ReleaseBundleCustomWebhook {
 		return vs[0].([]*ReleaseBundleCustomWebhook)[vs[1].(int)]
@@ -373,12 +342,6 @@ func (o ReleaseBundleCustomWebhookMapOutput) ToReleaseBundleCustomWebhookMapOutp
 
 func (o ReleaseBundleCustomWebhookMapOutput) ToReleaseBundleCustomWebhookMapOutputWithContext(ctx context.Context) ReleaseBundleCustomWebhookMapOutput {
 	return o
-}
-
-func (o ReleaseBundleCustomWebhookMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ReleaseBundleCustomWebhook] {
-	return pulumix.Output[map[string]*ReleaseBundleCustomWebhook]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ReleaseBundleCustomWebhookMapOutput) MapIndex(k pulumi.StringInput) ReleaseBundleCustomWebhookOutput {

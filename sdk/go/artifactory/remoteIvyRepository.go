@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a remote Ivy repository.
@@ -796,12 +795,6 @@ func (i *RemoteIvyRepository) ToRemoteIvyRepositoryOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(RemoteIvyRepositoryOutput)
 }
 
-func (i *RemoteIvyRepository) ToOutput(ctx context.Context) pulumix.Output[*RemoteIvyRepository] {
-	return pulumix.Output[*RemoteIvyRepository]{
-		OutputState: i.ToRemoteIvyRepositoryOutputWithContext(ctx).OutputState,
-	}
-}
-
 // RemoteIvyRepositoryArrayInput is an input type that accepts RemoteIvyRepositoryArray and RemoteIvyRepositoryArrayOutput values.
 // You can construct a concrete instance of `RemoteIvyRepositoryArrayInput` via:
 //
@@ -825,12 +818,6 @@ func (i RemoteIvyRepositoryArray) ToRemoteIvyRepositoryArrayOutput() RemoteIvyRe
 
 func (i RemoteIvyRepositoryArray) ToRemoteIvyRepositoryArrayOutputWithContext(ctx context.Context) RemoteIvyRepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RemoteIvyRepositoryArrayOutput)
-}
-
-func (i RemoteIvyRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*RemoteIvyRepository] {
-	return pulumix.Output[[]*RemoteIvyRepository]{
-		OutputState: i.ToRemoteIvyRepositoryArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // RemoteIvyRepositoryMapInput is an input type that accepts RemoteIvyRepositoryMap and RemoteIvyRepositoryMapOutput values.
@@ -858,12 +845,6 @@ func (i RemoteIvyRepositoryMap) ToRemoteIvyRepositoryMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(RemoteIvyRepositoryMapOutput)
 }
 
-func (i RemoteIvyRepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RemoteIvyRepository] {
-	return pulumix.Output[map[string]*RemoteIvyRepository]{
-		OutputState: i.ToRemoteIvyRepositoryMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RemoteIvyRepositoryOutput struct{ *pulumi.OutputState }
 
 func (RemoteIvyRepositoryOutput) ElementType() reflect.Type {
@@ -876,12 +857,6 @@ func (o RemoteIvyRepositoryOutput) ToRemoteIvyRepositoryOutput() RemoteIvyReposi
 
 func (o RemoteIvyRepositoryOutput) ToRemoteIvyRepositoryOutputWithContext(ctx context.Context) RemoteIvyRepositoryOutput {
 	return o
-}
-
-func (o RemoteIvyRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*RemoteIvyRepository] {
-	return pulumix.Output[*RemoteIvyRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 // 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any
@@ -1181,12 +1156,6 @@ func (o RemoteIvyRepositoryArrayOutput) ToRemoteIvyRepositoryArrayOutputWithCont
 	return o
 }
 
-func (o RemoteIvyRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RemoteIvyRepository] {
-	return pulumix.Output[[]*RemoteIvyRepository]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RemoteIvyRepositoryArrayOutput) Index(i pulumi.IntInput) RemoteIvyRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RemoteIvyRepository {
 		return vs[0].([]*RemoteIvyRepository)[vs[1].(int)]
@@ -1205,12 +1174,6 @@ func (o RemoteIvyRepositoryMapOutput) ToRemoteIvyRepositoryMapOutput() RemoteIvy
 
 func (o RemoteIvyRepositoryMapOutput) ToRemoteIvyRepositoryMapOutputWithContext(ctx context.Context) RemoteIvyRepositoryMapOutput {
 	return o
-}
-
-func (o RemoteIvyRepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RemoteIvyRepository] {
-	return pulumix.Output[map[string]*RemoteIvyRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RemoteIvyRepositoryMapOutput) MapIndex(k pulumi.StringInput) RemoteIvyRepositoryOutput {

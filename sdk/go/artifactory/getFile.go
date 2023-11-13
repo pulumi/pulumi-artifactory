@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## # Artifactory File Data Source
@@ -146,12 +145,6 @@ func (o GetFileResultOutput) ToGetFileResultOutput() GetFileResultOutput {
 
 func (o GetFileResultOutput) ToGetFileResultOutputWithContext(ctx context.Context) GetFileResultOutput {
 	return o
-}
-
-func (o GetFileResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetFileResult] {
-	return pulumix.Output[GetFileResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The time & date when the file was created.

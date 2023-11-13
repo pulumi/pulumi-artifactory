@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieves a federated Conan repository.
@@ -162,12 +161,6 @@ func (o LookupFederatedConanRepositoryResultOutput) ToLookupFederatedConanReposi
 
 func (o LookupFederatedConanRepositoryResultOutput) ToLookupFederatedConanRepositoryResultOutputWithContext(ctx context.Context) LookupFederatedConanRepositoryResultOutput {
 	return o
-}
-
-func (o LookupFederatedConanRepositoryResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupFederatedConanRepositoryResult] {
-	return pulumix.Output[LookupFederatedConanRepositoryResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupFederatedConanRepositoryResultOutput) ArchiveBrowsingEnabled() pulumi.BoolPtrOutput {

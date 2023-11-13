@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -333,12 +332,6 @@ func (i *LocalTerraformBackendRepository) ToLocalTerraformBackendRepositoryOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(LocalTerraformBackendRepositoryOutput)
 }
 
-func (i *LocalTerraformBackendRepository) ToOutput(ctx context.Context) pulumix.Output[*LocalTerraformBackendRepository] {
-	return pulumix.Output[*LocalTerraformBackendRepository]{
-		OutputState: i.ToLocalTerraformBackendRepositoryOutputWithContext(ctx).OutputState,
-	}
-}
-
 // LocalTerraformBackendRepositoryArrayInput is an input type that accepts LocalTerraformBackendRepositoryArray and LocalTerraformBackendRepositoryArrayOutput values.
 // You can construct a concrete instance of `LocalTerraformBackendRepositoryArrayInput` via:
 //
@@ -362,12 +355,6 @@ func (i LocalTerraformBackendRepositoryArray) ToLocalTerraformBackendRepositoryA
 
 func (i LocalTerraformBackendRepositoryArray) ToLocalTerraformBackendRepositoryArrayOutputWithContext(ctx context.Context) LocalTerraformBackendRepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LocalTerraformBackendRepositoryArrayOutput)
-}
-
-func (i LocalTerraformBackendRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*LocalTerraformBackendRepository] {
-	return pulumix.Output[[]*LocalTerraformBackendRepository]{
-		OutputState: i.ToLocalTerraformBackendRepositoryArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // LocalTerraformBackendRepositoryMapInput is an input type that accepts LocalTerraformBackendRepositoryMap and LocalTerraformBackendRepositoryMapOutput values.
@@ -395,12 +382,6 @@ func (i LocalTerraformBackendRepositoryMap) ToLocalTerraformBackendRepositoryMap
 	return pulumi.ToOutputWithContext(ctx, i).(LocalTerraformBackendRepositoryMapOutput)
 }
 
-func (i LocalTerraformBackendRepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LocalTerraformBackendRepository] {
-	return pulumix.Output[map[string]*LocalTerraformBackendRepository]{
-		OutputState: i.ToLocalTerraformBackendRepositoryMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LocalTerraformBackendRepositoryOutput struct{ *pulumi.OutputState }
 
 func (LocalTerraformBackendRepositoryOutput) ElementType() reflect.Type {
@@ -413,12 +394,6 @@ func (o LocalTerraformBackendRepositoryOutput) ToLocalTerraformBackendRepository
 
 func (o LocalTerraformBackendRepositoryOutput) ToLocalTerraformBackendRepositoryOutputWithContext(ctx context.Context) LocalTerraformBackendRepositoryOutput {
 	return o
-}
-
-func (o LocalTerraformBackendRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*LocalTerraformBackendRepository] {
-	return pulumix.Output[*LocalTerraformBackendRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 // When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -525,12 +500,6 @@ func (o LocalTerraformBackendRepositoryArrayOutput) ToLocalTerraformBackendRepos
 	return o
 }
 
-func (o LocalTerraformBackendRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LocalTerraformBackendRepository] {
-	return pulumix.Output[[]*LocalTerraformBackendRepository]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LocalTerraformBackendRepositoryArrayOutput) Index(i pulumi.IntInput) LocalTerraformBackendRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LocalTerraformBackendRepository {
 		return vs[0].([]*LocalTerraformBackendRepository)[vs[1].(int)]
@@ -549,12 +518,6 @@ func (o LocalTerraformBackendRepositoryMapOutput) ToLocalTerraformBackendReposit
 
 func (o LocalTerraformBackendRepositoryMapOutput) ToLocalTerraformBackendRepositoryMapOutputWithContext(ctx context.Context) LocalTerraformBackendRepositoryMapOutput {
 	return o
-}
-
-func (o LocalTerraformBackendRepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LocalTerraformBackendRepository] {
-	return pulumix.Output[map[string]*LocalTerraformBackendRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LocalTerraformBackendRepositoryMapOutput) MapIndex(k pulumi.StringInput) LocalTerraformBackendRepositoryOutput {

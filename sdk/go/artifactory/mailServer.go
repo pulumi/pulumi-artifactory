@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an Artifactory Mail Server resource. This can be used to create and manage Artifactory mail server configuration.
@@ -243,12 +242,6 @@ func (i *MailServer) ToMailServerOutputWithContext(ctx context.Context) MailServ
 	return pulumi.ToOutputWithContext(ctx, i).(MailServerOutput)
 }
 
-func (i *MailServer) ToOutput(ctx context.Context) pulumix.Output[*MailServer] {
-	return pulumix.Output[*MailServer]{
-		OutputState: i.ToMailServerOutputWithContext(ctx).OutputState,
-	}
-}
-
 // MailServerArrayInput is an input type that accepts MailServerArray and MailServerArrayOutput values.
 // You can construct a concrete instance of `MailServerArrayInput` via:
 //
@@ -272,12 +265,6 @@ func (i MailServerArray) ToMailServerArrayOutput() MailServerArrayOutput {
 
 func (i MailServerArray) ToMailServerArrayOutputWithContext(ctx context.Context) MailServerArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MailServerArrayOutput)
-}
-
-func (i MailServerArray) ToOutput(ctx context.Context) pulumix.Output[[]*MailServer] {
-	return pulumix.Output[[]*MailServer]{
-		OutputState: i.ToMailServerArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // MailServerMapInput is an input type that accepts MailServerMap and MailServerMapOutput values.
@@ -305,12 +292,6 @@ func (i MailServerMap) ToMailServerMapOutputWithContext(ctx context.Context) Mai
 	return pulumi.ToOutputWithContext(ctx, i).(MailServerMapOutput)
 }
 
-func (i MailServerMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*MailServer] {
-	return pulumix.Output[map[string]*MailServer]{
-		OutputState: i.ToMailServerMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MailServerOutput struct{ *pulumi.OutputState }
 
 func (MailServerOutput) ElementType() reflect.Type {
@@ -323,12 +304,6 @@ func (o MailServerOutput) ToMailServerOutput() MailServerOutput {
 
 func (o MailServerOutput) ToMailServerOutputWithContext(ctx context.Context) MailServerOutput {
 	return o
-}
-
-func (o MailServerOutput) ToOutput(ctx context.Context) pulumix.Output[*MailServer] {
-	return pulumix.Output[*MailServer]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Artifactory URL to to link to in all outgoing messages.
@@ -395,12 +370,6 @@ func (o MailServerArrayOutput) ToMailServerArrayOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o MailServerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*MailServer] {
-	return pulumix.Output[[]*MailServer]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MailServerArrayOutput) Index(i pulumi.IntInput) MailServerOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *MailServer {
 		return vs[0].([]*MailServer)[vs[1].(int)]
@@ -419,12 +388,6 @@ func (o MailServerMapOutput) ToMailServerMapOutput() MailServerMapOutput {
 
 func (o MailServerMapOutput) ToMailServerMapOutputWithContext(ctx context.Context) MailServerMapOutput {
 	return o
-}
-
-func (o MailServerMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*MailServer] {
-	return pulumix.Output[map[string]*MailServer]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MailServerMapOutput) MapIndex(k pulumi.StringInput) MailServerOutput {

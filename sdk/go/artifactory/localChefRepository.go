@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a local Chef repository.
@@ -335,12 +334,6 @@ func (i *LocalChefRepository) ToLocalChefRepositoryOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(LocalChefRepositoryOutput)
 }
 
-func (i *LocalChefRepository) ToOutput(ctx context.Context) pulumix.Output[*LocalChefRepository] {
-	return pulumix.Output[*LocalChefRepository]{
-		OutputState: i.ToLocalChefRepositoryOutputWithContext(ctx).OutputState,
-	}
-}
-
 // LocalChefRepositoryArrayInput is an input type that accepts LocalChefRepositoryArray and LocalChefRepositoryArrayOutput values.
 // You can construct a concrete instance of `LocalChefRepositoryArrayInput` via:
 //
@@ -364,12 +357,6 @@ func (i LocalChefRepositoryArray) ToLocalChefRepositoryArrayOutput() LocalChefRe
 
 func (i LocalChefRepositoryArray) ToLocalChefRepositoryArrayOutputWithContext(ctx context.Context) LocalChefRepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LocalChefRepositoryArrayOutput)
-}
-
-func (i LocalChefRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*LocalChefRepository] {
-	return pulumix.Output[[]*LocalChefRepository]{
-		OutputState: i.ToLocalChefRepositoryArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // LocalChefRepositoryMapInput is an input type that accepts LocalChefRepositoryMap and LocalChefRepositoryMapOutput values.
@@ -397,12 +384,6 @@ func (i LocalChefRepositoryMap) ToLocalChefRepositoryMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(LocalChefRepositoryMapOutput)
 }
 
-func (i LocalChefRepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LocalChefRepository] {
-	return pulumix.Output[map[string]*LocalChefRepository]{
-		OutputState: i.ToLocalChefRepositoryMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LocalChefRepositoryOutput struct{ *pulumi.OutputState }
 
 func (LocalChefRepositoryOutput) ElementType() reflect.Type {
@@ -415,12 +396,6 @@ func (o LocalChefRepositoryOutput) ToLocalChefRepositoryOutput() LocalChefReposi
 
 func (o LocalChefRepositoryOutput) ToLocalChefRepositoryOutputWithContext(ctx context.Context) LocalChefRepositoryOutput {
 	return o
-}
-
-func (o LocalChefRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*LocalChefRepository] {
-	return pulumix.Output[*LocalChefRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 // When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -527,12 +502,6 @@ func (o LocalChefRepositoryArrayOutput) ToLocalChefRepositoryArrayOutputWithCont
 	return o
 }
 
-func (o LocalChefRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LocalChefRepository] {
-	return pulumix.Output[[]*LocalChefRepository]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LocalChefRepositoryArrayOutput) Index(i pulumi.IntInput) LocalChefRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LocalChefRepository {
 		return vs[0].([]*LocalChefRepository)[vs[1].(int)]
@@ -551,12 +520,6 @@ func (o LocalChefRepositoryMapOutput) ToLocalChefRepositoryMapOutput() LocalChef
 
 func (o LocalChefRepositoryMapOutput) ToLocalChefRepositoryMapOutputWithContext(ctx context.Context) LocalChefRepositoryMapOutput {
 	return o
-}
-
-func (o LocalChefRepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LocalChefRepository] {
-	return pulumix.Output[map[string]*LocalChefRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LocalChefRepositoryMapOutput) MapIndex(k pulumi.StringInput) LocalChefRepositoryOutput {

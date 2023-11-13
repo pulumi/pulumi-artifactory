@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a local Docker v1 repository - By choosing a V1 repository, you don't really have many options.
@@ -349,12 +348,6 @@ func (i *DockerV1Repository) ToDockerV1RepositoryOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(DockerV1RepositoryOutput)
 }
 
-func (i *DockerV1Repository) ToOutput(ctx context.Context) pulumix.Output[*DockerV1Repository] {
-	return pulumix.Output[*DockerV1Repository]{
-		OutputState: i.ToDockerV1RepositoryOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DockerV1RepositoryArrayInput is an input type that accepts DockerV1RepositoryArray and DockerV1RepositoryArrayOutput values.
 // You can construct a concrete instance of `DockerV1RepositoryArrayInput` via:
 //
@@ -378,12 +371,6 @@ func (i DockerV1RepositoryArray) ToDockerV1RepositoryArrayOutput() DockerV1Repos
 
 func (i DockerV1RepositoryArray) ToDockerV1RepositoryArrayOutputWithContext(ctx context.Context) DockerV1RepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DockerV1RepositoryArrayOutput)
-}
-
-func (i DockerV1RepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*DockerV1Repository] {
-	return pulumix.Output[[]*DockerV1Repository]{
-		OutputState: i.ToDockerV1RepositoryArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // DockerV1RepositoryMapInput is an input type that accepts DockerV1RepositoryMap and DockerV1RepositoryMapOutput values.
@@ -411,12 +398,6 @@ func (i DockerV1RepositoryMap) ToDockerV1RepositoryMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(DockerV1RepositoryMapOutput)
 }
 
-func (i DockerV1RepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DockerV1Repository] {
-	return pulumix.Output[map[string]*DockerV1Repository]{
-		OutputState: i.ToDockerV1RepositoryMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DockerV1RepositoryOutput struct{ *pulumi.OutputState }
 
 func (DockerV1RepositoryOutput) ElementType() reflect.Type {
@@ -429,12 +410,6 @@ func (o DockerV1RepositoryOutput) ToDockerV1RepositoryOutput() DockerV1Repositor
 
 func (o DockerV1RepositoryOutput) ToDockerV1RepositoryOutputWithContext(ctx context.Context) DockerV1RepositoryOutput {
 	return o
-}
-
-func (o DockerV1RepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*DockerV1Repository] {
-	return pulumix.Output[*DockerV1Repository]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DockerV1RepositoryOutput) ApiVersion() pulumi.StringOutput {
@@ -557,12 +532,6 @@ func (o DockerV1RepositoryArrayOutput) ToDockerV1RepositoryArrayOutputWithContex
 	return o
 }
 
-func (o DockerV1RepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DockerV1Repository] {
-	return pulumix.Output[[]*DockerV1Repository]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DockerV1RepositoryArrayOutput) Index(i pulumi.IntInput) DockerV1RepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DockerV1Repository {
 		return vs[0].([]*DockerV1Repository)[vs[1].(int)]
@@ -581,12 +550,6 @@ func (o DockerV1RepositoryMapOutput) ToDockerV1RepositoryMapOutput() DockerV1Rep
 
 func (o DockerV1RepositoryMapOutput) ToDockerV1RepositoryMapOutputWithContext(ctx context.Context) DockerV1RepositoryMapOutput {
 	return o
-}
-
-func (o DockerV1RepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DockerV1Repository] {
-	return pulumix.Output[map[string]*DockerV1Repository]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DockerV1RepositoryMapOutput) MapIndex(k pulumi.StringInput) DockerV1RepositoryOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a local Maven repository.
@@ -441,12 +440,6 @@ func (i *LocalMavenRepository) ToLocalMavenRepositoryOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(LocalMavenRepositoryOutput)
 }
 
-func (i *LocalMavenRepository) ToOutput(ctx context.Context) pulumix.Output[*LocalMavenRepository] {
-	return pulumix.Output[*LocalMavenRepository]{
-		OutputState: i.ToLocalMavenRepositoryOutputWithContext(ctx).OutputState,
-	}
-}
-
 // LocalMavenRepositoryArrayInput is an input type that accepts LocalMavenRepositoryArray and LocalMavenRepositoryArrayOutput values.
 // You can construct a concrete instance of `LocalMavenRepositoryArrayInput` via:
 //
@@ -470,12 +463,6 @@ func (i LocalMavenRepositoryArray) ToLocalMavenRepositoryArrayOutput() LocalMave
 
 func (i LocalMavenRepositoryArray) ToLocalMavenRepositoryArrayOutputWithContext(ctx context.Context) LocalMavenRepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LocalMavenRepositoryArrayOutput)
-}
-
-func (i LocalMavenRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*LocalMavenRepository] {
-	return pulumix.Output[[]*LocalMavenRepository]{
-		OutputState: i.ToLocalMavenRepositoryArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // LocalMavenRepositoryMapInput is an input type that accepts LocalMavenRepositoryMap and LocalMavenRepositoryMapOutput values.
@@ -503,12 +490,6 @@ func (i LocalMavenRepositoryMap) ToLocalMavenRepositoryMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(LocalMavenRepositoryMapOutput)
 }
 
-func (i LocalMavenRepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LocalMavenRepository] {
-	return pulumix.Output[map[string]*LocalMavenRepository]{
-		OutputState: i.ToLocalMavenRepositoryMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LocalMavenRepositoryOutput struct{ *pulumi.OutputState }
 
 func (LocalMavenRepositoryOutput) ElementType() reflect.Type {
@@ -521,12 +502,6 @@ func (o LocalMavenRepositoryOutput) ToLocalMavenRepositoryOutput() LocalMavenRep
 
 func (o LocalMavenRepositoryOutput) ToLocalMavenRepositoryOutputWithContext(ctx context.Context) LocalMavenRepositoryOutput {
 	return o
-}
-
-func (o LocalMavenRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*LocalMavenRepository] {
-	return pulumix.Output[*LocalMavenRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 // When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -671,12 +646,6 @@ func (o LocalMavenRepositoryArrayOutput) ToLocalMavenRepositoryArrayOutputWithCo
 	return o
 }
 
-func (o LocalMavenRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LocalMavenRepository] {
-	return pulumix.Output[[]*LocalMavenRepository]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LocalMavenRepositoryArrayOutput) Index(i pulumi.IntInput) LocalMavenRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LocalMavenRepository {
 		return vs[0].([]*LocalMavenRepository)[vs[1].(int)]
@@ -695,12 +664,6 @@ func (o LocalMavenRepositoryMapOutput) ToLocalMavenRepositoryMapOutput() LocalMa
 
 func (o LocalMavenRepositoryMapOutput) ToLocalMavenRepositoryMapOutputWithContext(ctx context.Context) LocalMavenRepositoryMapOutput {
 	return o
-}
-
-func (o LocalMavenRepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LocalMavenRepository] {
-	return pulumix.Output[map[string]*LocalMavenRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LocalMavenRepositoryMapOutput) MapIndex(k pulumi.StringInput) LocalMavenRepositoryOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a local Composer repository.
@@ -335,12 +334,6 @@ func (i *LocalComposerRepository) ToLocalComposerRepositoryOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(LocalComposerRepositoryOutput)
 }
 
-func (i *LocalComposerRepository) ToOutput(ctx context.Context) pulumix.Output[*LocalComposerRepository] {
-	return pulumix.Output[*LocalComposerRepository]{
-		OutputState: i.ToLocalComposerRepositoryOutputWithContext(ctx).OutputState,
-	}
-}
-
 // LocalComposerRepositoryArrayInput is an input type that accepts LocalComposerRepositoryArray and LocalComposerRepositoryArrayOutput values.
 // You can construct a concrete instance of `LocalComposerRepositoryArrayInput` via:
 //
@@ -364,12 +357,6 @@ func (i LocalComposerRepositoryArray) ToLocalComposerRepositoryArrayOutput() Loc
 
 func (i LocalComposerRepositoryArray) ToLocalComposerRepositoryArrayOutputWithContext(ctx context.Context) LocalComposerRepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LocalComposerRepositoryArrayOutput)
-}
-
-func (i LocalComposerRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*LocalComposerRepository] {
-	return pulumix.Output[[]*LocalComposerRepository]{
-		OutputState: i.ToLocalComposerRepositoryArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // LocalComposerRepositoryMapInput is an input type that accepts LocalComposerRepositoryMap and LocalComposerRepositoryMapOutput values.
@@ -397,12 +384,6 @@ func (i LocalComposerRepositoryMap) ToLocalComposerRepositoryMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(LocalComposerRepositoryMapOutput)
 }
 
-func (i LocalComposerRepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LocalComposerRepository] {
-	return pulumix.Output[map[string]*LocalComposerRepository]{
-		OutputState: i.ToLocalComposerRepositoryMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LocalComposerRepositoryOutput struct{ *pulumi.OutputState }
 
 func (LocalComposerRepositoryOutput) ElementType() reflect.Type {
@@ -415,12 +396,6 @@ func (o LocalComposerRepositoryOutput) ToLocalComposerRepositoryOutput() LocalCo
 
 func (o LocalComposerRepositoryOutput) ToLocalComposerRepositoryOutputWithContext(ctx context.Context) LocalComposerRepositoryOutput {
 	return o
-}
-
-func (o LocalComposerRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*LocalComposerRepository] {
-	return pulumix.Output[*LocalComposerRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 // When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -527,12 +502,6 @@ func (o LocalComposerRepositoryArrayOutput) ToLocalComposerRepositoryArrayOutput
 	return o
 }
 
-func (o LocalComposerRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LocalComposerRepository] {
-	return pulumix.Output[[]*LocalComposerRepository]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LocalComposerRepositoryArrayOutput) Index(i pulumi.IntInput) LocalComposerRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LocalComposerRepository {
 		return vs[0].([]*LocalComposerRepository)[vs[1].(int)]
@@ -551,12 +520,6 @@ func (o LocalComposerRepositoryMapOutput) ToLocalComposerRepositoryMapOutput() L
 
 func (o LocalComposerRepositoryMapOutput) ToLocalComposerRepositoryMapOutputWithContext(ctx context.Context) LocalComposerRepositoryMapOutput {
 	return o
-}
-
-func (o LocalComposerRepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LocalComposerRepository] {
-	return pulumix.Output[map[string]*LocalComposerRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LocalComposerRepositoryMapOutput) MapIndex(k pulumi.StringInput) LocalComposerRepositoryOutput {

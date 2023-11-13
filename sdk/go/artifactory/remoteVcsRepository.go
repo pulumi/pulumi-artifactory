@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a remote VCS repository.
@@ -775,12 +774,6 @@ func (i *RemoteVcsRepository) ToRemoteVcsRepositoryOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(RemoteVcsRepositoryOutput)
 }
 
-func (i *RemoteVcsRepository) ToOutput(ctx context.Context) pulumix.Output[*RemoteVcsRepository] {
-	return pulumix.Output[*RemoteVcsRepository]{
-		OutputState: i.ToRemoteVcsRepositoryOutputWithContext(ctx).OutputState,
-	}
-}
-
 // RemoteVcsRepositoryArrayInput is an input type that accepts RemoteVcsRepositoryArray and RemoteVcsRepositoryArrayOutput values.
 // You can construct a concrete instance of `RemoteVcsRepositoryArrayInput` via:
 //
@@ -804,12 +797,6 @@ func (i RemoteVcsRepositoryArray) ToRemoteVcsRepositoryArrayOutput() RemoteVcsRe
 
 func (i RemoteVcsRepositoryArray) ToRemoteVcsRepositoryArrayOutputWithContext(ctx context.Context) RemoteVcsRepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RemoteVcsRepositoryArrayOutput)
-}
-
-func (i RemoteVcsRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*RemoteVcsRepository] {
-	return pulumix.Output[[]*RemoteVcsRepository]{
-		OutputState: i.ToRemoteVcsRepositoryArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // RemoteVcsRepositoryMapInput is an input type that accepts RemoteVcsRepositoryMap and RemoteVcsRepositoryMapOutput values.
@@ -837,12 +824,6 @@ func (i RemoteVcsRepositoryMap) ToRemoteVcsRepositoryMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(RemoteVcsRepositoryMapOutput)
 }
 
-func (i RemoteVcsRepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RemoteVcsRepository] {
-	return pulumix.Output[map[string]*RemoteVcsRepository]{
-		OutputState: i.ToRemoteVcsRepositoryMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RemoteVcsRepositoryOutput struct{ *pulumi.OutputState }
 
 func (RemoteVcsRepositoryOutput) ElementType() reflect.Type {
@@ -855,12 +836,6 @@ func (o RemoteVcsRepositoryOutput) ToRemoteVcsRepositoryOutput() RemoteVcsReposi
 
 func (o RemoteVcsRepositoryOutput) ToRemoteVcsRepositoryOutputWithContext(ctx context.Context) RemoteVcsRepositoryOutput {
 	return o
-}
-
-func (o RemoteVcsRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*RemoteVcsRepository] {
-	return pulumix.Output[*RemoteVcsRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 // 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any
@@ -1144,12 +1119,6 @@ func (o RemoteVcsRepositoryArrayOutput) ToRemoteVcsRepositoryArrayOutputWithCont
 	return o
 }
 
-func (o RemoteVcsRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RemoteVcsRepository] {
-	return pulumix.Output[[]*RemoteVcsRepository]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RemoteVcsRepositoryArrayOutput) Index(i pulumi.IntInput) RemoteVcsRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RemoteVcsRepository {
 		return vs[0].([]*RemoteVcsRepository)[vs[1].(int)]
@@ -1168,12 +1137,6 @@ func (o RemoteVcsRepositoryMapOutput) ToRemoteVcsRepositoryMapOutput() RemoteVcs
 
 func (o RemoteVcsRepositoryMapOutput) ToRemoteVcsRepositoryMapOutputWithContext(ctx context.Context) RemoteVcsRepositoryMapOutput {
 	return o
-}
-
-func (o RemoteVcsRepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RemoteVcsRepository] {
-	return pulumix.Output[map[string]*RemoteVcsRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RemoteVcsRepositoryMapOutput) MapIndex(k pulumi.StringInput) RemoteVcsRepositoryOutput {

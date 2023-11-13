@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieves a federated Composer repository.
@@ -159,12 +158,6 @@ func (o LookupFederatedComposerRepositoryResultOutput) ToLookupFederatedComposer
 
 func (o LookupFederatedComposerRepositoryResultOutput) ToLookupFederatedComposerRepositoryResultOutputWithContext(ctx context.Context) LookupFederatedComposerRepositoryResultOutput {
 	return o
-}
-
-func (o LookupFederatedComposerRepositoryResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupFederatedComposerRepositoryResult] {
-	return pulumix.Output[LookupFederatedComposerRepositoryResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupFederatedComposerRepositoryResultOutput) ArchiveBrowsingEnabled() pulumi.BoolPtrOutput {

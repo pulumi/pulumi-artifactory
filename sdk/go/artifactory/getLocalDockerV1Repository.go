@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 func GetLocalDockerV1Repository(ctx *pulumi.Context, args *GetLocalDockerV1RepositoryArgs, opts ...pulumi.InvokeOption) (*GetLocalDockerV1RepositoryResult, error) {
@@ -118,12 +117,6 @@ func (o GetLocalDockerV1RepositoryResultOutput) ToGetLocalDockerV1RepositoryResu
 
 func (o GetLocalDockerV1RepositoryResultOutput) ToGetLocalDockerV1RepositoryResultOutputWithContext(ctx context.Context) GetLocalDockerV1RepositoryResultOutput {
 	return o
-}
-
-func (o GetLocalDockerV1RepositoryResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetLocalDockerV1RepositoryResult] {
-	return pulumix.Output[GetLocalDockerV1RepositoryResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetLocalDockerV1RepositoryResultOutput) ApiVersion() pulumi.StringOutput {

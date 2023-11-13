@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an Artifactory Property Set resource.
@@ -193,12 +192,6 @@ func (i *PropertySet) ToPropertySetOutputWithContext(ctx context.Context) Proper
 	return pulumi.ToOutputWithContext(ctx, i).(PropertySetOutput)
 }
 
-func (i *PropertySet) ToOutput(ctx context.Context) pulumix.Output[*PropertySet] {
-	return pulumix.Output[*PropertySet]{
-		OutputState: i.ToPropertySetOutputWithContext(ctx).OutputState,
-	}
-}
-
 // PropertySetArrayInput is an input type that accepts PropertySetArray and PropertySetArrayOutput values.
 // You can construct a concrete instance of `PropertySetArrayInput` via:
 //
@@ -222,12 +215,6 @@ func (i PropertySetArray) ToPropertySetArrayOutput() PropertySetArrayOutput {
 
 func (i PropertySetArray) ToPropertySetArrayOutputWithContext(ctx context.Context) PropertySetArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PropertySetArrayOutput)
-}
-
-func (i PropertySetArray) ToOutput(ctx context.Context) pulumix.Output[[]*PropertySet] {
-	return pulumix.Output[[]*PropertySet]{
-		OutputState: i.ToPropertySetArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // PropertySetMapInput is an input type that accepts PropertySetMap and PropertySetMapOutput values.
@@ -255,12 +242,6 @@ func (i PropertySetMap) ToPropertySetMapOutputWithContext(ctx context.Context) P
 	return pulumi.ToOutputWithContext(ctx, i).(PropertySetMapOutput)
 }
 
-func (i PropertySetMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*PropertySet] {
-	return pulumix.Output[map[string]*PropertySet]{
-		OutputState: i.ToPropertySetMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PropertySetOutput struct{ *pulumi.OutputState }
 
 func (PropertySetOutput) ElementType() reflect.Type {
@@ -273,12 +254,6 @@ func (o PropertySetOutput) ToPropertySetOutput() PropertySetOutput {
 
 func (o PropertySetOutput) ToPropertySetOutputWithContext(ctx context.Context) PropertySetOutput {
 	return o
-}
-
-func (o PropertySetOutput) ToOutput(ctx context.Context) pulumix.Output[*PropertySet] {
-	return pulumix.Output[*PropertySet]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Predefined property name.
@@ -310,12 +285,6 @@ func (o PropertySetArrayOutput) ToPropertySetArrayOutputWithContext(ctx context.
 	return o
 }
 
-func (o PropertySetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*PropertySet] {
-	return pulumix.Output[[]*PropertySet]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PropertySetArrayOutput) Index(i pulumi.IntInput) PropertySetOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PropertySet {
 		return vs[0].([]*PropertySet)[vs[1].(int)]
@@ -334,12 +303,6 @@ func (o PropertySetMapOutput) ToPropertySetMapOutput() PropertySetMapOutput {
 
 func (o PropertySetMapOutput) ToPropertySetMapOutputWithContext(ctx context.Context) PropertySetMapOutput {
 	return o
-}
-
-func (o PropertySetMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*PropertySet] {
-	return pulumix.Output[map[string]*PropertySet]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PropertySetMapOutput) MapIndex(k pulumi.StringInput) PropertySetOutput {

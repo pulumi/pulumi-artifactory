@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 func LookupLocalConanRepository(ctx *pulumi.Context, args *LookupLocalConanRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupLocalConanRepositoryResult, error) {
@@ -115,12 +114,6 @@ func (o LookupLocalConanRepositoryResultOutput) ToLookupLocalConanRepositoryResu
 
 func (o LookupLocalConanRepositoryResultOutput) ToLookupLocalConanRepositoryResultOutputWithContext(ctx context.Context) LookupLocalConanRepositoryResultOutput {
 	return o
-}
-
-func (o LookupLocalConanRepositoryResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupLocalConanRepositoryResult] {
-	return pulumix.Output[LookupLocalConanRepositoryResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupLocalConanRepositoryResultOutput) ArchiveBrowsingEnabled() pulumi.BoolPtrOutput {

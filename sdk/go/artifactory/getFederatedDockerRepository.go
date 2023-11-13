@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 func LookupFederatedDockerRepository(ctx *pulumi.Context, args *LookupFederatedDockerRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupFederatedDockerRepositoryResult, error) {
@@ -128,12 +127,6 @@ func (o LookupFederatedDockerRepositoryResultOutput) ToLookupFederatedDockerRepo
 
 func (o LookupFederatedDockerRepositoryResultOutput) ToLookupFederatedDockerRepositoryResultOutputWithContext(ctx context.Context) LookupFederatedDockerRepositoryResultOutput {
 	return o
-}
-
-func (o LookupFederatedDockerRepositoryResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupFederatedDockerRepositoryResult] {
-	return pulumix.Output[LookupFederatedDockerRepositoryResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupFederatedDockerRepositoryResultOutput) ApiVersion() pulumi.StringOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a local Gitlfs repository.
@@ -335,12 +334,6 @@ func (i *LocalGitltfsRepository) ToLocalGitltfsRepositoryOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(LocalGitltfsRepositoryOutput)
 }
 
-func (i *LocalGitltfsRepository) ToOutput(ctx context.Context) pulumix.Output[*LocalGitltfsRepository] {
-	return pulumix.Output[*LocalGitltfsRepository]{
-		OutputState: i.ToLocalGitltfsRepositoryOutputWithContext(ctx).OutputState,
-	}
-}
-
 // LocalGitltfsRepositoryArrayInput is an input type that accepts LocalGitltfsRepositoryArray and LocalGitltfsRepositoryArrayOutput values.
 // You can construct a concrete instance of `LocalGitltfsRepositoryArrayInput` via:
 //
@@ -364,12 +357,6 @@ func (i LocalGitltfsRepositoryArray) ToLocalGitltfsRepositoryArrayOutput() Local
 
 func (i LocalGitltfsRepositoryArray) ToLocalGitltfsRepositoryArrayOutputWithContext(ctx context.Context) LocalGitltfsRepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LocalGitltfsRepositoryArrayOutput)
-}
-
-func (i LocalGitltfsRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*LocalGitltfsRepository] {
-	return pulumix.Output[[]*LocalGitltfsRepository]{
-		OutputState: i.ToLocalGitltfsRepositoryArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // LocalGitltfsRepositoryMapInput is an input type that accepts LocalGitltfsRepositoryMap and LocalGitltfsRepositoryMapOutput values.
@@ -397,12 +384,6 @@ func (i LocalGitltfsRepositoryMap) ToLocalGitltfsRepositoryMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(LocalGitltfsRepositoryMapOutput)
 }
 
-func (i LocalGitltfsRepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LocalGitltfsRepository] {
-	return pulumix.Output[map[string]*LocalGitltfsRepository]{
-		OutputState: i.ToLocalGitltfsRepositoryMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LocalGitltfsRepositoryOutput struct{ *pulumi.OutputState }
 
 func (LocalGitltfsRepositoryOutput) ElementType() reflect.Type {
@@ -415,12 +396,6 @@ func (o LocalGitltfsRepositoryOutput) ToLocalGitltfsRepositoryOutput() LocalGitl
 
 func (o LocalGitltfsRepositoryOutput) ToLocalGitltfsRepositoryOutputWithContext(ctx context.Context) LocalGitltfsRepositoryOutput {
 	return o
-}
-
-func (o LocalGitltfsRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*LocalGitltfsRepository] {
-	return pulumix.Output[*LocalGitltfsRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 // When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -527,12 +502,6 @@ func (o LocalGitltfsRepositoryArrayOutput) ToLocalGitltfsRepositoryArrayOutputWi
 	return o
 }
 
-func (o LocalGitltfsRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LocalGitltfsRepository] {
-	return pulumix.Output[[]*LocalGitltfsRepository]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LocalGitltfsRepositoryArrayOutput) Index(i pulumi.IntInput) LocalGitltfsRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LocalGitltfsRepository {
 		return vs[0].([]*LocalGitltfsRepository)[vs[1].(int)]
@@ -551,12 +520,6 @@ func (o LocalGitltfsRepositoryMapOutput) ToLocalGitltfsRepositoryMapOutput() Loc
 
 func (o LocalGitltfsRepositoryMapOutput) ToLocalGitltfsRepositoryMapOutputWithContext(ctx context.Context) LocalGitltfsRepositoryMapOutput {
 	return o
-}
-
-func (o LocalGitltfsRepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LocalGitltfsRepository] {
-	return pulumix.Output[map[string]*LocalGitltfsRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LocalGitltfsRepositoryMapOutput) MapIndex(k pulumi.StringInput) LocalGitltfsRepositoryOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates remote Docker repository resource.
@@ -808,12 +807,6 @@ func (i *RemoteDockerRepository) ToRemoteDockerRepositoryOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(RemoteDockerRepositoryOutput)
 }
 
-func (i *RemoteDockerRepository) ToOutput(ctx context.Context) pulumix.Output[*RemoteDockerRepository] {
-	return pulumix.Output[*RemoteDockerRepository]{
-		OutputState: i.ToRemoteDockerRepositoryOutputWithContext(ctx).OutputState,
-	}
-}
-
 // RemoteDockerRepositoryArrayInput is an input type that accepts RemoteDockerRepositoryArray and RemoteDockerRepositoryArrayOutput values.
 // You can construct a concrete instance of `RemoteDockerRepositoryArrayInput` via:
 //
@@ -837,12 +830,6 @@ func (i RemoteDockerRepositoryArray) ToRemoteDockerRepositoryArrayOutput() Remot
 
 func (i RemoteDockerRepositoryArray) ToRemoteDockerRepositoryArrayOutputWithContext(ctx context.Context) RemoteDockerRepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RemoteDockerRepositoryArrayOutput)
-}
-
-func (i RemoteDockerRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*RemoteDockerRepository] {
-	return pulumix.Output[[]*RemoteDockerRepository]{
-		OutputState: i.ToRemoteDockerRepositoryArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // RemoteDockerRepositoryMapInput is an input type that accepts RemoteDockerRepositoryMap and RemoteDockerRepositoryMapOutput values.
@@ -870,12 +857,6 @@ func (i RemoteDockerRepositoryMap) ToRemoteDockerRepositoryMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(RemoteDockerRepositoryMapOutput)
 }
 
-func (i RemoteDockerRepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RemoteDockerRepository] {
-	return pulumix.Output[map[string]*RemoteDockerRepository]{
-		OutputState: i.ToRemoteDockerRepositoryMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RemoteDockerRepositoryOutput struct{ *pulumi.OutputState }
 
 func (RemoteDockerRepositoryOutput) ElementType() reflect.Type {
@@ -888,12 +869,6 @@ func (o RemoteDockerRepositoryOutput) ToRemoteDockerRepositoryOutput() RemoteDoc
 
 func (o RemoteDockerRepositoryOutput) ToRemoteDockerRepositoryOutputWithContext(ctx context.Context) RemoteDockerRepositoryOutput {
 	return o
-}
-
-func (o RemoteDockerRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*RemoteDockerRepository] {
-	return pulumix.Output[*RemoteDockerRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 // 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any
@@ -1186,12 +1161,6 @@ func (o RemoteDockerRepositoryArrayOutput) ToRemoteDockerRepositoryArrayOutputWi
 	return o
 }
 
-func (o RemoteDockerRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RemoteDockerRepository] {
-	return pulumix.Output[[]*RemoteDockerRepository]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RemoteDockerRepositoryArrayOutput) Index(i pulumi.IntInput) RemoteDockerRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RemoteDockerRepository {
 		return vs[0].([]*RemoteDockerRepository)[vs[1].(int)]
@@ -1210,12 +1179,6 @@ func (o RemoteDockerRepositoryMapOutput) ToRemoteDockerRepositoryMapOutput() Rem
 
 func (o RemoteDockerRepositoryMapOutput) ToRemoteDockerRepositoryMapOutputWithContext(ctx context.Context) RemoteDockerRepositoryMapOutput {
 	return o
-}
-
-func (o RemoteDockerRepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RemoteDockerRepository] {
-	return pulumix.Output[map[string]*RemoteDockerRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RemoteDockerRepositoryMapOutput) MapIndex(k pulumi.StringInput) RemoteDockerRepositoryOutput {

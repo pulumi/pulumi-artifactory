@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a virtual Bower repository.
@@ -316,12 +315,6 @@ func (i *VirtualBowerRepository) ToVirtualBowerRepositoryOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualBowerRepositoryOutput)
 }
 
-func (i *VirtualBowerRepository) ToOutput(ctx context.Context) pulumix.Output[*VirtualBowerRepository] {
-	return pulumix.Output[*VirtualBowerRepository]{
-		OutputState: i.ToVirtualBowerRepositoryOutputWithContext(ctx).OutputState,
-	}
-}
-
 // VirtualBowerRepositoryArrayInput is an input type that accepts VirtualBowerRepositoryArray and VirtualBowerRepositoryArrayOutput values.
 // You can construct a concrete instance of `VirtualBowerRepositoryArrayInput` via:
 //
@@ -345,12 +338,6 @@ func (i VirtualBowerRepositoryArray) ToVirtualBowerRepositoryArrayOutput() Virtu
 
 func (i VirtualBowerRepositoryArray) ToVirtualBowerRepositoryArrayOutputWithContext(ctx context.Context) VirtualBowerRepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualBowerRepositoryArrayOutput)
-}
-
-func (i VirtualBowerRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*VirtualBowerRepository] {
-	return pulumix.Output[[]*VirtualBowerRepository]{
-		OutputState: i.ToVirtualBowerRepositoryArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // VirtualBowerRepositoryMapInput is an input type that accepts VirtualBowerRepositoryMap and VirtualBowerRepositoryMapOutput values.
@@ -378,12 +365,6 @@ func (i VirtualBowerRepositoryMap) ToVirtualBowerRepositoryMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualBowerRepositoryMapOutput)
 }
 
-func (i VirtualBowerRepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VirtualBowerRepository] {
-	return pulumix.Output[map[string]*VirtualBowerRepository]{
-		OutputState: i.ToVirtualBowerRepositoryMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VirtualBowerRepositoryOutput struct{ *pulumi.OutputState }
 
 func (VirtualBowerRepositoryOutput) ElementType() reflect.Type {
@@ -396,12 +377,6 @@ func (o VirtualBowerRepositoryOutput) ToVirtualBowerRepositoryOutput() VirtualBo
 
 func (o VirtualBowerRepositoryOutput) ToVirtualBowerRepositoryOutputWithContext(ctx context.Context) VirtualBowerRepositoryOutput {
 	return o
-}
-
-func (o VirtualBowerRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualBowerRepository] {
-	return pulumix.Output[*VirtualBowerRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
@@ -502,12 +477,6 @@ func (o VirtualBowerRepositoryArrayOutput) ToVirtualBowerRepositoryArrayOutputWi
 	return o
 }
 
-func (o VirtualBowerRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VirtualBowerRepository] {
-	return pulumix.Output[[]*VirtualBowerRepository]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o VirtualBowerRepositoryArrayOutput) Index(i pulumi.IntInput) VirtualBowerRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VirtualBowerRepository {
 		return vs[0].([]*VirtualBowerRepository)[vs[1].(int)]
@@ -526,12 +495,6 @@ func (o VirtualBowerRepositoryMapOutput) ToVirtualBowerRepositoryMapOutput() Vir
 
 func (o VirtualBowerRepositoryMapOutput) ToVirtualBowerRepositoryMapOutputWithContext(ctx context.Context) VirtualBowerRepositoryMapOutput {
 	return o
-}
-
-func (o VirtualBowerRepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VirtualBowerRepository] {
-	return pulumix.Output[map[string]*VirtualBowerRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VirtualBowerRepositoryMapOutput) MapIndex(k pulumi.StringInput) VirtualBowerRepositoryOutput {

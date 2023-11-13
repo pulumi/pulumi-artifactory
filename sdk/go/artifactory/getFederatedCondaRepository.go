@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieves a federated Conda repository.
@@ -159,12 +158,6 @@ func (o LookupFederatedCondaRepositoryResultOutput) ToLookupFederatedCondaReposi
 
 func (o LookupFederatedCondaRepositoryResultOutput) ToLookupFederatedCondaRepositoryResultOutputWithContext(ctx context.Context) LookupFederatedCondaRepositoryResultOutput {
 	return o
-}
-
-func (o LookupFederatedCondaRepositoryResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupFederatedCondaRepositoryResult] {
-	return pulumix.Output[LookupFederatedCondaRepositoryResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupFederatedCondaRepositoryResultOutput) ArchiveBrowsingEnabled() pulumi.BoolPtrOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a federated Gitlfs repository.
@@ -388,12 +387,6 @@ func (i *FederatedGitltfsRepository) ToFederatedGitltfsRepositoryOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedGitltfsRepositoryOutput)
 }
 
-func (i *FederatedGitltfsRepository) ToOutput(ctx context.Context) pulumix.Output[*FederatedGitltfsRepository] {
-	return pulumix.Output[*FederatedGitltfsRepository]{
-		OutputState: i.ToFederatedGitltfsRepositoryOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FederatedGitltfsRepositoryArrayInput is an input type that accepts FederatedGitltfsRepositoryArray and FederatedGitltfsRepositoryArrayOutput values.
 // You can construct a concrete instance of `FederatedGitltfsRepositoryArrayInput` via:
 //
@@ -417,12 +410,6 @@ func (i FederatedGitltfsRepositoryArray) ToFederatedGitltfsRepositoryArrayOutput
 
 func (i FederatedGitltfsRepositoryArray) ToFederatedGitltfsRepositoryArrayOutputWithContext(ctx context.Context) FederatedGitltfsRepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedGitltfsRepositoryArrayOutput)
-}
-
-func (i FederatedGitltfsRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*FederatedGitltfsRepository] {
-	return pulumix.Output[[]*FederatedGitltfsRepository]{
-		OutputState: i.ToFederatedGitltfsRepositoryArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // FederatedGitltfsRepositoryMapInput is an input type that accepts FederatedGitltfsRepositoryMap and FederatedGitltfsRepositoryMapOutput values.
@@ -450,12 +437,6 @@ func (i FederatedGitltfsRepositoryMap) ToFederatedGitltfsRepositoryMapOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedGitltfsRepositoryMapOutput)
 }
 
-func (i FederatedGitltfsRepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*FederatedGitltfsRepository] {
-	return pulumix.Output[map[string]*FederatedGitltfsRepository]{
-		OutputState: i.ToFederatedGitltfsRepositoryMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FederatedGitltfsRepositoryOutput struct{ *pulumi.OutputState }
 
 func (FederatedGitltfsRepositoryOutput) ElementType() reflect.Type {
@@ -468,12 +449,6 @@ func (o FederatedGitltfsRepositoryOutput) ToFederatedGitltfsRepositoryOutput() F
 
 func (o FederatedGitltfsRepositoryOutput) ToFederatedGitltfsRepositoryOutputWithContext(ctx context.Context) FederatedGitltfsRepositoryOutput {
 	return o
-}
-
-func (o FederatedGitltfsRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*FederatedGitltfsRepository] {
-	return pulumix.Output[*FederatedGitltfsRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 // When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -594,12 +569,6 @@ func (o FederatedGitltfsRepositoryArrayOutput) ToFederatedGitltfsRepositoryArray
 	return o
 }
 
-func (o FederatedGitltfsRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*FederatedGitltfsRepository] {
-	return pulumix.Output[[]*FederatedGitltfsRepository]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FederatedGitltfsRepositoryArrayOutput) Index(i pulumi.IntInput) FederatedGitltfsRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FederatedGitltfsRepository {
 		return vs[0].([]*FederatedGitltfsRepository)[vs[1].(int)]
@@ -618,12 +587,6 @@ func (o FederatedGitltfsRepositoryMapOutput) ToFederatedGitltfsRepositoryMapOutp
 
 func (o FederatedGitltfsRepositoryMapOutput) ToFederatedGitltfsRepositoryMapOutputWithContext(ctx context.Context) FederatedGitltfsRepositoryMapOutput {
 	return o
-}
-
-func (o FederatedGitltfsRepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*FederatedGitltfsRepository] {
-	return pulumix.Output[map[string]*FederatedGitltfsRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FederatedGitltfsRepositoryMapOutput) MapIndex(k pulumi.StringInput) FederatedGitltfsRepositoryOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a remote Bower repository.
@@ -753,12 +752,6 @@ func (i *RemoteBowerRepository) ToRemoteBowerRepositoryOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(RemoteBowerRepositoryOutput)
 }
 
-func (i *RemoteBowerRepository) ToOutput(ctx context.Context) pulumix.Output[*RemoteBowerRepository] {
-	return pulumix.Output[*RemoteBowerRepository]{
-		OutputState: i.ToRemoteBowerRepositoryOutputWithContext(ctx).OutputState,
-	}
-}
-
 // RemoteBowerRepositoryArrayInput is an input type that accepts RemoteBowerRepositoryArray and RemoteBowerRepositoryArrayOutput values.
 // You can construct a concrete instance of `RemoteBowerRepositoryArrayInput` via:
 //
@@ -782,12 +775,6 @@ func (i RemoteBowerRepositoryArray) ToRemoteBowerRepositoryArrayOutput() RemoteB
 
 func (i RemoteBowerRepositoryArray) ToRemoteBowerRepositoryArrayOutputWithContext(ctx context.Context) RemoteBowerRepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RemoteBowerRepositoryArrayOutput)
-}
-
-func (i RemoteBowerRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*RemoteBowerRepository] {
-	return pulumix.Output[[]*RemoteBowerRepository]{
-		OutputState: i.ToRemoteBowerRepositoryArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // RemoteBowerRepositoryMapInput is an input type that accepts RemoteBowerRepositoryMap and RemoteBowerRepositoryMapOutput values.
@@ -815,12 +802,6 @@ func (i RemoteBowerRepositoryMap) ToRemoteBowerRepositoryMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(RemoteBowerRepositoryMapOutput)
 }
 
-func (i RemoteBowerRepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RemoteBowerRepository] {
-	return pulumix.Output[map[string]*RemoteBowerRepository]{
-		OutputState: i.ToRemoteBowerRepositoryMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RemoteBowerRepositoryOutput struct{ *pulumi.OutputState }
 
 func (RemoteBowerRepositoryOutput) ElementType() reflect.Type {
@@ -833,12 +814,6 @@ func (o RemoteBowerRepositoryOutput) ToRemoteBowerRepositoryOutput() RemoteBower
 
 func (o RemoteBowerRepositoryOutput) ToRemoteBowerRepositoryOutputWithContext(ctx context.Context) RemoteBowerRepositoryOutput {
 	return o
-}
-
-func (o RemoteBowerRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*RemoteBowerRepository] {
-	return pulumix.Output[*RemoteBowerRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 // 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any
@@ -1118,12 +1093,6 @@ func (o RemoteBowerRepositoryArrayOutput) ToRemoteBowerRepositoryArrayOutputWith
 	return o
 }
 
-func (o RemoteBowerRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RemoteBowerRepository] {
-	return pulumix.Output[[]*RemoteBowerRepository]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RemoteBowerRepositoryArrayOutput) Index(i pulumi.IntInput) RemoteBowerRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RemoteBowerRepository {
 		return vs[0].([]*RemoteBowerRepository)[vs[1].(int)]
@@ -1142,12 +1111,6 @@ func (o RemoteBowerRepositoryMapOutput) ToRemoteBowerRepositoryMapOutput() Remot
 
 func (o RemoteBowerRepositoryMapOutput) ToRemoteBowerRepositoryMapOutputWithContext(ctx context.Context) RemoteBowerRepositoryMapOutput {
 	return o
-}
-
-func (o RemoteBowerRepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RemoteBowerRepository] {
-	return pulumix.Output[map[string]*RemoteBowerRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RemoteBowerRepositoryMapOutput) MapIndex(k pulumi.StringInput) RemoteBowerRepositoryOutput {

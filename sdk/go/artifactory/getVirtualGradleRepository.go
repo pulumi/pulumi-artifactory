@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieves a virtual Gradle repository.
@@ -153,12 +152,6 @@ func (o LookupVirtualGradleRepositoryResultOutput) ToLookupVirtualGradleReposito
 
 func (o LookupVirtualGradleRepositoryResultOutput) ToLookupVirtualGradleRepositoryResultOutputWithContext(ctx context.Context) LookupVirtualGradleRepositoryResultOutput {
 	return o
-}
-
-func (o LookupVirtualGradleRepositoryResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupVirtualGradleRepositoryResult] {
-	return pulumix.Output[LookupVirtualGradleRepositoryResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupVirtualGradleRepositoryResultOutput) ArtifactoryRequestsCanRetrieveRemoteArtifacts() pulumi.BoolPtrOutput {

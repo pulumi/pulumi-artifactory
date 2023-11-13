@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an Artifactory pull replication resource. This can be used to create and manage pull replication in Artifactory
@@ -306,12 +305,6 @@ func (i *PullReplication) ToPullReplicationOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(PullReplicationOutput)
 }
 
-func (i *PullReplication) ToOutput(ctx context.Context) pulumix.Output[*PullReplication] {
-	return pulumix.Output[*PullReplication]{
-		OutputState: i.ToPullReplicationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // PullReplicationArrayInput is an input type that accepts PullReplicationArray and PullReplicationArrayOutput values.
 // You can construct a concrete instance of `PullReplicationArrayInput` via:
 //
@@ -335,12 +328,6 @@ func (i PullReplicationArray) ToPullReplicationArrayOutput() PullReplicationArra
 
 func (i PullReplicationArray) ToPullReplicationArrayOutputWithContext(ctx context.Context) PullReplicationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PullReplicationArrayOutput)
-}
-
-func (i PullReplicationArray) ToOutput(ctx context.Context) pulumix.Output[[]*PullReplication] {
-	return pulumix.Output[[]*PullReplication]{
-		OutputState: i.ToPullReplicationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // PullReplicationMapInput is an input type that accepts PullReplicationMap and PullReplicationMapOutput values.
@@ -368,12 +355,6 @@ func (i PullReplicationMap) ToPullReplicationMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(PullReplicationMapOutput)
 }
 
-func (i PullReplicationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*PullReplication] {
-	return pulumix.Output[map[string]*PullReplication]{
-		OutputState: i.ToPullReplicationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PullReplicationOutput struct{ *pulumi.OutputState }
 
 func (PullReplicationOutput) ElementType() reflect.Type {
@@ -386,12 +367,6 @@ func (o PullReplicationOutput) ToPullReplicationOutput() PullReplicationOutput {
 
 func (o PullReplicationOutput) ToPullReplicationOutputWithContext(ctx context.Context) PullReplicationOutput {
 	return o
-}
-
-func (o PullReplicationOutput) ToOutput(ctx context.Context) pulumix.Output[*PullReplication] {
-	return pulumix.Output[*PullReplication]{
-		OutputState: o.OutputState,
-	}
 }
 
 // When true, enables distributed checksum storage. For more information, see
@@ -480,12 +455,6 @@ func (o PullReplicationArrayOutput) ToPullReplicationArrayOutputWithContext(ctx 
 	return o
 }
 
-func (o PullReplicationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*PullReplication] {
-	return pulumix.Output[[]*PullReplication]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PullReplicationArrayOutput) Index(i pulumi.IntInput) PullReplicationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PullReplication {
 		return vs[0].([]*PullReplication)[vs[1].(int)]
@@ -504,12 +473,6 @@ func (o PullReplicationMapOutput) ToPullReplicationMapOutput() PullReplicationMa
 
 func (o PullReplicationMapOutput) ToPullReplicationMapOutputWithContext(ctx context.Context) PullReplicationMapOutput {
 	return o
-}
-
-func (o PullReplicationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*PullReplication] {
-	return pulumix.Output[map[string]*PullReplication]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PullReplicationMapOutput) MapIndex(k pulumi.StringInput) PullReplicationOutput {

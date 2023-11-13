@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a virtual Git LFS repository.
@@ -286,12 +285,6 @@ func (i *VirtualGitlfsRepository) ToVirtualGitlfsRepositoryOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualGitlfsRepositoryOutput)
 }
 
-func (i *VirtualGitlfsRepository) ToOutput(ctx context.Context) pulumix.Output[*VirtualGitlfsRepository] {
-	return pulumix.Output[*VirtualGitlfsRepository]{
-		OutputState: i.ToVirtualGitlfsRepositoryOutputWithContext(ctx).OutputState,
-	}
-}
-
 // VirtualGitlfsRepositoryArrayInput is an input type that accepts VirtualGitlfsRepositoryArray and VirtualGitlfsRepositoryArrayOutput values.
 // You can construct a concrete instance of `VirtualGitlfsRepositoryArrayInput` via:
 //
@@ -315,12 +308,6 @@ func (i VirtualGitlfsRepositoryArray) ToVirtualGitlfsRepositoryArrayOutput() Vir
 
 func (i VirtualGitlfsRepositoryArray) ToVirtualGitlfsRepositoryArrayOutputWithContext(ctx context.Context) VirtualGitlfsRepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualGitlfsRepositoryArrayOutput)
-}
-
-func (i VirtualGitlfsRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*VirtualGitlfsRepository] {
-	return pulumix.Output[[]*VirtualGitlfsRepository]{
-		OutputState: i.ToVirtualGitlfsRepositoryArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // VirtualGitlfsRepositoryMapInput is an input type that accepts VirtualGitlfsRepositoryMap and VirtualGitlfsRepositoryMapOutput values.
@@ -348,12 +335,6 @@ func (i VirtualGitlfsRepositoryMap) ToVirtualGitlfsRepositoryMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualGitlfsRepositoryMapOutput)
 }
 
-func (i VirtualGitlfsRepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VirtualGitlfsRepository] {
-	return pulumix.Output[map[string]*VirtualGitlfsRepository]{
-		OutputState: i.ToVirtualGitlfsRepositoryMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VirtualGitlfsRepositoryOutput struct{ *pulumi.OutputState }
 
 func (VirtualGitlfsRepositoryOutput) ElementType() reflect.Type {
@@ -366,12 +347,6 @@ func (o VirtualGitlfsRepositoryOutput) ToVirtualGitlfsRepositoryOutput() Virtual
 
 func (o VirtualGitlfsRepositoryOutput) ToVirtualGitlfsRepositoryOutputWithContext(ctx context.Context) VirtualGitlfsRepositoryOutput {
 	return o
-}
-
-func (o VirtualGitlfsRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualGitlfsRepository] {
-	return pulumix.Output[*VirtualGitlfsRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
@@ -457,12 +432,6 @@ func (o VirtualGitlfsRepositoryArrayOutput) ToVirtualGitlfsRepositoryArrayOutput
 	return o
 }
 
-func (o VirtualGitlfsRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VirtualGitlfsRepository] {
-	return pulumix.Output[[]*VirtualGitlfsRepository]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o VirtualGitlfsRepositoryArrayOutput) Index(i pulumi.IntInput) VirtualGitlfsRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VirtualGitlfsRepository {
 		return vs[0].([]*VirtualGitlfsRepository)[vs[1].(int)]
@@ -481,12 +450,6 @@ func (o VirtualGitlfsRepositoryMapOutput) ToVirtualGitlfsRepositoryMapOutput() V
 
 func (o VirtualGitlfsRepositoryMapOutput) ToVirtualGitlfsRepositoryMapOutputWithContext(ctx context.Context) VirtualGitlfsRepositoryMapOutput {
 	return o
-}
-
-func (o VirtualGitlfsRepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VirtualGitlfsRepository] {
-	return pulumix.Output[map[string]*VirtualGitlfsRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VirtualGitlfsRepositoryMapOutput) MapIndex(k pulumi.StringInput) VirtualGitlfsRepositoryOutput {

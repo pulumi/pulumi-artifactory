@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a remote repository replication resource, also referred to as Artifactory pull replication.
@@ -261,12 +260,6 @@ func (i *RemoteRepositoryReplication) ToRemoteRepositoryReplicationOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(RemoteRepositoryReplicationOutput)
 }
 
-func (i *RemoteRepositoryReplication) ToOutput(ctx context.Context) pulumix.Output[*RemoteRepositoryReplication] {
-	return pulumix.Output[*RemoteRepositoryReplication]{
-		OutputState: i.ToRemoteRepositoryReplicationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // RemoteRepositoryReplicationArrayInput is an input type that accepts RemoteRepositoryReplicationArray and RemoteRepositoryReplicationArrayOutput values.
 // You can construct a concrete instance of `RemoteRepositoryReplicationArrayInput` via:
 //
@@ -290,12 +283,6 @@ func (i RemoteRepositoryReplicationArray) ToRemoteRepositoryReplicationArrayOutp
 
 func (i RemoteRepositoryReplicationArray) ToRemoteRepositoryReplicationArrayOutputWithContext(ctx context.Context) RemoteRepositoryReplicationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RemoteRepositoryReplicationArrayOutput)
-}
-
-func (i RemoteRepositoryReplicationArray) ToOutput(ctx context.Context) pulumix.Output[[]*RemoteRepositoryReplication] {
-	return pulumix.Output[[]*RemoteRepositoryReplication]{
-		OutputState: i.ToRemoteRepositoryReplicationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // RemoteRepositoryReplicationMapInput is an input type that accepts RemoteRepositoryReplicationMap and RemoteRepositoryReplicationMapOutput values.
@@ -323,12 +310,6 @@ func (i RemoteRepositoryReplicationMap) ToRemoteRepositoryReplicationMapOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(RemoteRepositoryReplicationMapOutput)
 }
 
-func (i RemoteRepositoryReplicationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RemoteRepositoryReplication] {
-	return pulumix.Output[map[string]*RemoteRepositoryReplication]{
-		OutputState: i.ToRemoteRepositoryReplicationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RemoteRepositoryReplicationOutput struct{ *pulumi.OutputState }
 
 func (RemoteRepositoryReplicationOutput) ElementType() reflect.Type {
@@ -341,12 +322,6 @@ func (o RemoteRepositoryReplicationOutput) ToRemoteRepositoryReplicationOutput()
 
 func (o RemoteRepositoryReplicationOutput) ToRemoteRepositoryReplicationOutputWithContext(ctx context.Context) RemoteRepositoryReplicationOutput {
 	return o
-}
-
-func (o RemoteRepositoryReplicationOutput) ToOutput(ctx context.Context) pulumix.Output[*RemoteRepositoryReplication] {
-	return pulumix.Output[*RemoteRepositoryReplication]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Enabling the `checkBinaryExistenceInFilestore` flag requires an Enterprise Plus license. When true, enables distributed checksum storage. For more information, see [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
@@ -414,12 +389,6 @@ func (o RemoteRepositoryReplicationArrayOutput) ToRemoteRepositoryReplicationArr
 	return o
 }
 
-func (o RemoteRepositoryReplicationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RemoteRepositoryReplication] {
-	return pulumix.Output[[]*RemoteRepositoryReplication]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RemoteRepositoryReplicationArrayOutput) Index(i pulumi.IntInput) RemoteRepositoryReplicationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RemoteRepositoryReplication {
 		return vs[0].([]*RemoteRepositoryReplication)[vs[1].(int)]
@@ -438,12 +407,6 @@ func (o RemoteRepositoryReplicationMapOutput) ToRemoteRepositoryReplicationMapOu
 
 func (o RemoteRepositoryReplicationMapOutput) ToRemoteRepositoryReplicationMapOutputWithContext(ctx context.Context) RemoteRepositoryReplicationMapOutput {
 	return o
-}
-
-func (o RemoteRepositoryReplicationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RemoteRepositoryReplication] {
-	return pulumix.Output[map[string]*RemoteRepositoryReplication]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RemoteRepositoryReplicationMapOutput) MapIndex(k pulumi.StringInput) RemoteRepositoryReplicationOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a global environment resource. This can be used to create and manage global environment.
@@ -129,12 +128,6 @@ func (i *GlobalEnvironment) ToGlobalEnvironmentOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalEnvironmentOutput)
 }
 
-func (i *GlobalEnvironment) ToOutput(ctx context.Context) pulumix.Output[*GlobalEnvironment] {
-	return pulumix.Output[*GlobalEnvironment]{
-		OutputState: i.ToGlobalEnvironmentOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GlobalEnvironmentArrayInput is an input type that accepts GlobalEnvironmentArray and GlobalEnvironmentArrayOutput values.
 // You can construct a concrete instance of `GlobalEnvironmentArrayInput` via:
 //
@@ -158,12 +151,6 @@ func (i GlobalEnvironmentArray) ToGlobalEnvironmentArrayOutput() GlobalEnvironme
 
 func (i GlobalEnvironmentArray) ToGlobalEnvironmentArrayOutputWithContext(ctx context.Context) GlobalEnvironmentArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalEnvironmentArrayOutput)
-}
-
-func (i GlobalEnvironmentArray) ToOutput(ctx context.Context) pulumix.Output[[]*GlobalEnvironment] {
-	return pulumix.Output[[]*GlobalEnvironment]{
-		OutputState: i.ToGlobalEnvironmentArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // GlobalEnvironmentMapInput is an input type that accepts GlobalEnvironmentMap and GlobalEnvironmentMapOutput values.
@@ -191,12 +178,6 @@ func (i GlobalEnvironmentMap) ToGlobalEnvironmentMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalEnvironmentMapOutput)
 }
 
-func (i GlobalEnvironmentMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*GlobalEnvironment] {
-	return pulumix.Output[map[string]*GlobalEnvironment]{
-		OutputState: i.ToGlobalEnvironmentMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GlobalEnvironmentOutput struct{ *pulumi.OutputState }
 
 func (GlobalEnvironmentOutput) ElementType() reflect.Type {
@@ -209,12 +190,6 @@ func (o GlobalEnvironmentOutput) ToGlobalEnvironmentOutput() GlobalEnvironmentOu
 
 func (o GlobalEnvironmentOutput) ToGlobalEnvironmentOutputWithContext(ctx context.Context) GlobalEnvironmentOutput {
 	return o
-}
-
-func (o GlobalEnvironmentOutput) ToOutput(ctx context.Context) pulumix.Output[*GlobalEnvironment] {
-	return pulumix.Output[*GlobalEnvironment]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Name must start with a letter and contain letters, digits and `-` character. The maximum length is 32 characters
@@ -236,12 +211,6 @@ func (o GlobalEnvironmentArrayOutput) ToGlobalEnvironmentArrayOutputWithContext(
 	return o
 }
 
-func (o GlobalEnvironmentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*GlobalEnvironment] {
-	return pulumix.Output[[]*GlobalEnvironment]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GlobalEnvironmentArrayOutput) Index(i pulumi.IntInput) GlobalEnvironmentOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *GlobalEnvironment {
 		return vs[0].([]*GlobalEnvironment)[vs[1].(int)]
@@ -260,12 +229,6 @@ func (o GlobalEnvironmentMapOutput) ToGlobalEnvironmentMapOutput() GlobalEnviron
 
 func (o GlobalEnvironmentMapOutput) ToGlobalEnvironmentMapOutputWithContext(ctx context.Context) GlobalEnvironmentMapOutput {
 	return o
-}
-
-func (o GlobalEnvironmentMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*GlobalEnvironment] {
-	return pulumix.Output[map[string]*GlobalEnvironment]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GlobalEnvironmentMapOutput) MapIndex(k pulumi.StringInput) GlobalEnvironmentOutput {

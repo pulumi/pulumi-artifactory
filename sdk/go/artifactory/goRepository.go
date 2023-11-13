@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a virtual Go repository.
@@ -317,12 +316,6 @@ func (i *GoRepository) ToGoRepositoryOutputWithContext(ctx context.Context) GoRe
 	return pulumi.ToOutputWithContext(ctx, i).(GoRepositoryOutput)
 }
 
-func (i *GoRepository) ToOutput(ctx context.Context) pulumix.Output[*GoRepository] {
-	return pulumix.Output[*GoRepository]{
-		OutputState: i.ToGoRepositoryOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GoRepositoryArrayInput is an input type that accepts GoRepositoryArray and GoRepositoryArrayOutput values.
 // You can construct a concrete instance of `GoRepositoryArrayInput` via:
 //
@@ -346,12 +339,6 @@ func (i GoRepositoryArray) ToGoRepositoryArrayOutput() GoRepositoryArrayOutput {
 
 func (i GoRepositoryArray) ToGoRepositoryArrayOutputWithContext(ctx context.Context) GoRepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GoRepositoryArrayOutput)
-}
-
-func (i GoRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*GoRepository] {
-	return pulumix.Output[[]*GoRepository]{
-		OutputState: i.ToGoRepositoryArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // GoRepositoryMapInput is an input type that accepts GoRepositoryMap and GoRepositoryMapOutput values.
@@ -379,12 +366,6 @@ func (i GoRepositoryMap) ToGoRepositoryMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(GoRepositoryMapOutput)
 }
 
-func (i GoRepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*GoRepository] {
-	return pulumix.Output[map[string]*GoRepository]{
-		OutputState: i.ToGoRepositoryMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GoRepositoryOutput struct{ *pulumi.OutputState }
 
 func (GoRepositoryOutput) ElementType() reflect.Type {
@@ -397,12 +378,6 @@ func (o GoRepositoryOutput) ToGoRepositoryOutput() GoRepositoryOutput {
 
 func (o GoRepositoryOutput) ToGoRepositoryOutputWithContext(ctx context.Context) GoRepositoryOutput {
 	return o
-}
-
-func (o GoRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*GoRepository] {
-	return pulumix.Output[*GoRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
@@ -497,12 +472,6 @@ func (o GoRepositoryArrayOutput) ToGoRepositoryArrayOutputWithContext(ctx contex
 	return o
 }
 
-func (o GoRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*GoRepository] {
-	return pulumix.Output[[]*GoRepository]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GoRepositoryArrayOutput) Index(i pulumi.IntInput) GoRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *GoRepository {
 		return vs[0].([]*GoRepository)[vs[1].(int)]
@@ -521,12 +490,6 @@ func (o GoRepositoryMapOutput) ToGoRepositoryMapOutput() GoRepositoryMapOutput {
 
 func (o GoRepositoryMapOutput) ToGoRepositoryMapOutputWithContext(ctx context.Context) GoRepositoryMapOutput {
 	return o
-}
-
-func (o GoRepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*GoRepository] {
-	return pulumix.Output[map[string]*GoRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GoRepositoryMapOutput) MapIndex(k pulumi.StringInput) GoRepositoryOutput {

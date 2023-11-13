@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a local Ivy repository.
@@ -440,12 +439,6 @@ func (i *LocalIvyRepository) ToLocalIvyRepositoryOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(LocalIvyRepositoryOutput)
 }
 
-func (i *LocalIvyRepository) ToOutput(ctx context.Context) pulumix.Output[*LocalIvyRepository] {
-	return pulumix.Output[*LocalIvyRepository]{
-		OutputState: i.ToLocalIvyRepositoryOutputWithContext(ctx).OutputState,
-	}
-}
-
 // LocalIvyRepositoryArrayInput is an input type that accepts LocalIvyRepositoryArray and LocalIvyRepositoryArrayOutput values.
 // You can construct a concrete instance of `LocalIvyRepositoryArrayInput` via:
 //
@@ -469,12 +462,6 @@ func (i LocalIvyRepositoryArray) ToLocalIvyRepositoryArrayOutput() LocalIvyRepos
 
 func (i LocalIvyRepositoryArray) ToLocalIvyRepositoryArrayOutputWithContext(ctx context.Context) LocalIvyRepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LocalIvyRepositoryArrayOutput)
-}
-
-func (i LocalIvyRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*LocalIvyRepository] {
-	return pulumix.Output[[]*LocalIvyRepository]{
-		OutputState: i.ToLocalIvyRepositoryArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // LocalIvyRepositoryMapInput is an input type that accepts LocalIvyRepositoryMap and LocalIvyRepositoryMapOutput values.
@@ -502,12 +489,6 @@ func (i LocalIvyRepositoryMap) ToLocalIvyRepositoryMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(LocalIvyRepositoryMapOutput)
 }
 
-func (i LocalIvyRepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LocalIvyRepository] {
-	return pulumix.Output[map[string]*LocalIvyRepository]{
-		OutputState: i.ToLocalIvyRepositoryMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LocalIvyRepositoryOutput struct{ *pulumi.OutputState }
 
 func (LocalIvyRepositoryOutput) ElementType() reflect.Type {
@@ -520,12 +501,6 @@ func (o LocalIvyRepositoryOutput) ToLocalIvyRepositoryOutput() LocalIvyRepositor
 
 func (o LocalIvyRepositoryOutput) ToLocalIvyRepositoryOutputWithContext(ctx context.Context) LocalIvyRepositoryOutput {
 	return o
-}
-
-func (o LocalIvyRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*LocalIvyRepository] {
-	return pulumix.Output[*LocalIvyRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 // When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -671,12 +646,6 @@ func (o LocalIvyRepositoryArrayOutput) ToLocalIvyRepositoryArrayOutputWithContex
 	return o
 }
 
-func (o LocalIvyRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LocalIvyRepository] {
-	return pulumix.Output[[]*LocalIvyRepository]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LocalIvyRepositoryArrayOutput) Index(i pulumi.IntInput) LocalIvyRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LocalIvyRepository {
 		return vs[0].([]*LocalIvyRepository)[vs[1].(int)]
@@ -695,12 +664,6 @@ func (o LocalIvyRepositoryMapOutput) ToLocalIvyRepositoryMapOutput() LocalIvyRep
 
 func (o LocalIvyRepositoryMapOutput) ToLocalIvyRepositoryMapOutputWithContext(ctx context.Context) LocalIvyRepositoryMapOutput {
 	return o
-}
-
-func (o LocalIvyRepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LocalIvyRepository] {
-	return pulumix.Output[map[string]*LocalIvyRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LocalIvyRepositoryMapOutput) MapIndex(k pulumi.StringInput) LocalIvyRepositoryOutput {
