@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a virtual Puppet repository.
@@ -286,12 +285,6 @@ func (i *VirtualPuppetRepository) ToVirtualPuppetRepositoryOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualPuppetRepositoryOutput)
 }
 
-func (i *VirtualPuppetRepository) ToOutput(ctx context.Context) pulumix.Output[*VirtualPuppetRepository] {
-	return pulumix.Output[*VirtualPuppetRepository]{
-		OutputState: i.ToVirtualPuppetRepositoryOutputWithContext(ctx).OutputState,
-	}
-}
-
 // VirtualPuppetRepositoryArrayInput is an input type that accepts VirtualPuppetRepositoryArray and VirtualPuppetRepositoryArrayOutput values.
 // You can construct a concrete instance of `VirtualPuppetRepositoryArrayInput` via:
 //
@@ -315,12 +308,6 @@ func (i VirtualPuppetRepositoryArray) ToVirtualPuppetRepositoryArrayOutput() Vir
 
 func (i VirtualPuppetRepositoryArray) ToVirtualPuppetRepositoryArrayOutputWithContext(ctx context.Context) VirtualPuppetRepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualPuppetRepositoryArrayOutput)
-}
-
-func (i VirtualPuppetRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*VirtualPuppetRepository] {
-	return pulumix.Output[[]*VirtualPuppetRepository]{
-		OutputState: i.ToVirtualPuppetRepositoryArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // VirtualPuppetRepositoryMapInput is an input type that accepts VirtualPuppetRepositoryMap and VirtualPuppetRepositoryMapOutput values.
@@ -348,12 +335,6 @@ func (i VirtualPuppetRepositoryMap) ToVirtualPuppetRepositoryMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualPuppetRepositoryMapOutput)
 }
 
-func (i VirtualPuppetRepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VirtualPuppetRepository] {
-	return pulumix.Output[map[string]*VirtualPuppetRepository]{
-		OutputState: i.ToVirtualPuppetRepositoryMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VirtualPuppetRepositoryOutput struct{ *pulumi.OutputState }
 
 func (VirtualPuppetRepositoryOutput) ElementType() reflect.Type {
@@ -366,12 +347,6 @@ func (o VirtualPuppetRepositoryOutput) ToVirtualPuppetRepositoryOutput() Virtual
 
 func (o VirtualPuppetRepositoryOutput) ToVirtualPuppetRepositoryOutputWithContext(ctx context.Context) VirtualPuppetRepositoryOutput {
 	return o
-}
-
-func (o VirtualPuppetRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualPuppetRepository] {
-	return pulumix.Output[*VirtualPuppetRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
@@ -457,12 +432,6 @@ func (o VirtualPuppetRepositoryArrayOutput) ToVirtualPuppetRepositoryArrayOutput
 	return o
 }
 
-func (o VirtualPuppetRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VirtualPuppetRepository] {
-	return pulumix.Output[[]*VirtualPuppetRepository]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o VirtualPuppetRepositoryArrayOutput) Index(i pulumi.IntInput) VirtualPuppetRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VirtualPuppetRepository {
 		return vs[0].([]*VirtualPuppetRepository)[vs[1].(int)]
@@ -481,12 +450,6 @@ func (o VirtualPuppetRepositoryMapOutput) ToVirtualPuppetRepositoryMapOutput() V
 
 func (o VirtualPuppetRepositoryMapOutput) ToVirtualPuppetRepositoryMapOutputWithContext(ctx context.Context) VirtualPuppetRepositoryMapOutput {
 	return o
-}
-
-func (o VirtualPuppetRepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VirtualPuppetRepository] {
-	return pulumix.Output[map[string]*VirtualPuppetRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VirtualPuppetRepositoryMapOutput) MapIndex(k pulumi.StringInput) VirtualPuppetRepositoryOutput {

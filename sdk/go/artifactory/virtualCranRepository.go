@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a virtual Cran repository.
@@ -296,12 +295,6 @@ func (i *VirtualCranRepository) ToVirtualCranRepositoryOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualCranRepositoryOutput)
 }
 
-func (i *VirtualCranRepository) ToOutput(ctx context.Context) pulumix.Output[*VirtualCranRepository] {
-	return pulumix.Output[*VirtualCranRepository]{
-		OutputState: i.ToVirtualCranRepositoryOutputWithContext(ctx).OutputState,
-	}
-}
-
 // VirtualCranRepositoryArrayInput is an input type that accepts VirtualCranRepositoryArray and VirtualCranRepositoryArrayOutput values.
 // You can construct a concrete instance of `VirtualCranRepositoryArrayInput` via:
 //
@@ -325,12 +318,6 @@ func (i VirtualCranRepositoryArray) ToVirtualCranRepositoryArrayOutput() Virtual
 
 func (i VirtualCranRepositoryArray) ToVirtualCranRepositoryArrayOutputWithContext(ctx context.Context) VirtualCranRepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualCranRepositoryArrayOutput)
-}
-
-func (i VirtualCranRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*VirtualCranRepository] {
-	return pulumix.Output[[]*VirtualCranRepository]{
-		OutputState: i.ToVirtualCranRepositoryArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // VirtualCranRepositoryMapInput is an input type that accepts VirtualCranRepositoryMap and VirtualCranRepositoryMapOutput values.
@@ -358,12 +345,6 @@ func (i VirtualCranRepositoryMap) ToVirtualCranRepositoryMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualCranRepositoryMapOutput)
 }
 
-func (i VirtualCranRepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VirtualCranRepository] {
-	return pulumix.Output[map[string]*VirtualCranRepository]{
-		OutputState: i.ToVirtualCranRepositoryMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VirtualCranRepositoryOutput struct{ *pulumi.OutputState }
 
 func (VirtualCranRepositoryOutput) ElementType() reflect.Type {
@@ -376,12 +357,6 @@ func (o VirtualCranRepositoryOutput) ToVirtualCranRepositoryOutput() VirtualCran
 
 func (o VirtualCranRepositoryOutput) ToVirtualCranRepositoryOutputWithContext(ctx context.Context) VirtualCranRepositoryOutput {
 	return o
-}
-
-func (o VirtualCranRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualCranRepository] {
-	return pulumix.Output[*VirtualCranRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
@@ -472,12 +447,6 @@ func (o VirtualCranRepositoryArrayOutput) ToVirtualCranRepositoryArrayOutputWith
 	return o
 }
 
-func (o VirtualCranRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VirtualCranRepository] {
-	return pulumix.Output[[]*VirtualCranRepository]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o VirtualCranRepositoryArrayOutput) Index(i pulumi.IntInput) VirtualCranRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VirtualCranRepository {
 		return vs[0].([]*VirtualCranRepository)[vs[1].(int)]
@@ -496,12 +465,6 @@ func (o VirtualCranRepositoryMapOutput) ToVirtualCranRepositoryMapOutput() Virtu
 
 func (o VirtualCranRepositoryMapOutput) ToVirtualCranRepositoryMapOutputWithContext(ctx context.Context) VirtualCranRepositoryMapOutput {
 	return o
-}
-
-func (o VirtualCranRepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VirtualCranRepository] {
-	return pulumix.Output[map[string]*VirtualCranRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VirtualCranRepositoryMapOutput) MapIndex(k pulumi.StringInput) VirtualCranRepositoryOutput {

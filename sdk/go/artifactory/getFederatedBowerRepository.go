@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieves a federated Bower repository.
@@ -159,12 +158,6 @@ func (o LookupFederatedBowerRepositoryResultOutput) ToLookupFederatedBowerReposi
 
 func (o LookupFederatedBowerRepositoryResultOutput) ToLookupFederatedBowerRepositoryResultOutputWithContext(ctx context.Context) LookupFederatedBowerRepositoryResultOutput {
 	return o
-}
-
-func (o LookupFederatedBowerRepositoryResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupFederatedBowerRepositoryResult] {
-	return pulumix.Output[LookupFederatedBowerRepositoryResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupFederatedBowerRepositoryResultOutput) ArchiveBrowsingEnabled() pulumi.BoolPtrOutput {

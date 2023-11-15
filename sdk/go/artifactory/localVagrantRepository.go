@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a local Vagrant repository.
@@ -335,12 +334,6 @@ func (i *LocalVagrantRepository) ToLocalVagrantRepositoryOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(LocalVagrantRepositoryOutput)
 }
 
-func (i *LocalVagrantRepository) ToOutput(ctx context.Context) pulumix.Output[*LocalVagrantRepository] {
-	return pulumix.Output[*LocalVagrantRepository]{
-		OutputState: i.ToLocalVagrantRepositoryOutputWithContext(ctx).OutputState,
-	}
-}
-
 // LocalVagrantRepositoryArrayInput is an input type that accepts LocalVagrantRepositoryArray and LocalVagrantRepositoryArrayOutput values.
 // You can construct a concrete instance of `LocalVagrantRepositoryArrayInput` via:
 //
@@ -364,12 +357,6 @@ func (i LocalVagrantRepositoryArray) ToLocalVagrantRepositoryArrayOutput() Local
 
 func (i LocalVagrantRepositoryArray) ToLocalVagrantRepositoryArrayOutputWithContext(ctx context.Context) LocalVagrantRepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LocalVagrantRepositoryArrayOutput)
-}
-
-func (i LocalVagrantRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*LocalVagrantRepository] {
-	return pulumix.Output[[]*LocalVagrantRepository]{
-		OutputState: i.ToLocalVagrantRepositoryArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // LocalVagrantRepositoryMapInput is an input type that accepts LocalVagrantRepositoryMap and LocalVagrantRepositoryMapOutput values.
@@ -397,12 +384,6 @@ func (i LocalVagrantRepositoryMap) ToLocalVagrantRepositoryMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(LocalVagrantRepositoryMapOutput)
 }
 
-func (i LocalVagrantRepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LocalVagrantRepository] {
-	return pulumix.Output[map[string]*LocalVagrantRepository]{
-		OutputState: i.ToLocalVagrantRepositoryMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LocalVagrantRepositoryOutput struct{ *pulumi.OutputState }
 
 func (LocalVagrantRepositoryOutput) ElementType() reflect.Type {
@@ -415,12 +396,6 @@ func (o LocalVagrantRepositoryOutput) ToLocalVagrantRepositoryOutput() LocalVagr
 
 func (o LocalVagrantRepositoryOutput) ToLocalVagrantRepositoryOutputWithContext(ctx context.Context) LocalVagrantRepositoryOutput {
 	return o
-}
-
-func (o LocalVagrantRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*LocalVagrantRepository] {
-	return pulumix.Output[*LocalVagrantRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 // When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -527,12 +502,6 @@ func (o LocalVagrantRepositoryArrayOutput) ToLocalVagrantRepositoryArrayOutputWi
 	return o
 }
 
-func (o LocalVagrantRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LocalVagrantRepository] {
-	return pulumix.Output[[]*LocalVagrantRepository]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LocalVagrantRepositoryArrayOutput) Index(i pulumi.IntInput) LocalVagrantRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LocalVagrantRepository {
 		return vs[0].([]*LocalVagrantRepository)[vs[1].(int)]
@@ -551,12 +520,6 @@ func (o LocalVagrantRepositoryMapOutput) ToLocalVagrantRepositoryMapOutput() Loc
 
 func (o LocalVagrantRepositoryMapOutput) ToLocalVagrantRepositoryMapOutputWithContext(ctx context.Context) LocalVagrantRepositoryMapOutput {
 	return o
-}
-
-func (o LocalVagrantRepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LocalVagrantRepository] {
-	return pulumix.Output[map[string]*LocalVagrantRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LocalVagrantRepositoryMapOutput) MapIndex(k pulumi.StringInput) LocalVagrantRepositoryOutput {

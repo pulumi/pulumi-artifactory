@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a virtual SBT repository.
@@ -332,12 +331,6 @@ func (i *VirtualSbtRepository) ToVirtualSbtRepositoryOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualSbtRepositoryOutput)
 }
 
-func (i *VirtualSbtRepository) ToOutput(ctx context.Context) pulumix.Output[*VirtualSbtRepository] {
-	return pulumix.Output[*VirtualSbtRepository]{
-		OutputState: i.ToVirtualSbtRepositoryOutputWithContext(ctx).OutputState,
-	}
-}
-
 // VirtualSbtRepositoryArrayInput is an input type that accepts VirtualSbtRepositoryArray and VirtualSbtRepositoryArrayOutput values.
 // You can construct a concrete instance of `VirtualSbtRepositoryArrayInput` via:
 //
@@ -361,12 +354,6 @@ func (i VirtualSbtRepositoryArray) ToVirtualSbtRepositoryArrayOutput() VirtualSb
 
 func (i VirtualSbtRepositoryArray) ToVirtualSbtRepositoryArrayOutputWithContext(ctx context.Context) VirtualSbtRepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualSbtRepositoryArrayOutput)
-}
-
-func (i VirtualSbtRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*VirtualSbtRepository] {
-	return pulumix.Output[[]*VirtualSbtRepository]{
-		OutputState: i.ToVirtualSbtRepositoryArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // VirtualSbtRepositoryMapInput is an input type that accepts VirtualSbtRepositoryMap and VirtualSbtRepositoryMapOutput values.
@@ -394,12 +381,6 @@ func (i VirtualSbtRepositoryMap) ToVirtualSbtRepositoryMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualSbtRepositoryMapOutput)
 }
 
-func (i VirtualSbtRepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VirtualSbtRepository] {
-	return pulumix.Output[map[string]*VirtualSbtRepository]{
-		OutputState: i.ToVirtualSbtRepositoryMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VirtualSbtRepositoryOutput struct{ *pulumi.OutputState }
 
 func (VirtualSbtRepositoryOutput) ElementType() reflect.Type {
@@ -412,12 +393,6 @@ func (o VirtualSbtRepositoryOutput) ToVirtualSbtRepositoryOutput() VirtualSbtRep
 
 func (o VirtualSbtRepositoryOutput) ToVirtualSbtRepositoryOutputWithContext(ctx context.Context) VirtualSbtRepositoryOutput {
 	return o
-}
-
-func (o VirtualSbtRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualSbtRepository] {
-	return pulumix.Output[*VirtualSbtRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
@@ -521,12 +496,6 @@ func (o VirtualSbtRepositoryArrayOutput) ToVirtualSbtRepositoryArrayOutputWithCo
 	return o
 }
 
-func (o VirtualSbtRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VirtualSbtRepository] {
-	return pulumix.Output[[]*VirtualSbtRepository]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o VirtualSbtRepositoryArrayOutput) Index(i pulumi.IntInput) VirtualSbtRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VirtualSbtRepository {
 		return vs[0].([]*VirtualSbtRepository)[vs[1].(int)]
@@ -545,12 +514,6 @@ func (o VirtualSbtRepositoryMapOutput) ToVirtualSbtRepositoryMapOutput() Virtual
 
 func (o VirtualSbtRepositoryMapOutput) ToVirtualSbtRepositoryMapOutputWithContext(ctx context.Context) VirtualSbtRepositoryMapOutput {
 	return o
-}
-
-func (o VirtualSbtRepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VirtualSbtRepository] {
-	return pulumix.Output[map[string]*VirtualSbtRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VirtualSbtRepositoryMapOutput) MapIndex(k pulumi.StringInput) VirtualSbtRepositoryOutput {

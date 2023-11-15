@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a remote Gems repository.
@@ -722,12 +721,6 @@ func (i *RemoteGemsRepository) ToRemoteGemsRepositoryOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(RemoteGemsRepositoryOutput)
 }
 
-func (i *RemoteGemsRepository) ToOutput(ctx context.Context) pulumix.Output[*RemoteGemsRepository] {
-	return pulumix.Output[*RemoteGemsRepository]{
-		OutputState: i.ToRemoteGemsRepositoryOutputWithContext(ctx).OutputState,
-	}
-}
-
 // RemoteGemsRepositoryArrayInput is an input type that accepts RemoteGemsRepositoryArray and RemoteGemsRepositoryArrayOutput values.
 // You can construct a concrete instance of `RemoteGemsRepositoryArrayInput` via:
 //
@@ -751,12 +744,6 @@ func (i RemoteGemsRepositoryArray) ToRemoteGemsRepositoryArrayOutput() RemoteGem
 
 func (i RemoteGemsRepositoryArray) ToRemoteGemsRepositoryArrayOutputWithContext(ctx context.Context) RemoteGemsRepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RemoteGemsRepositoryArrayOutput)
-}
-
-func (i RemoteGemsRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*RemoteGemsRepository] {
-	return pulumix.Output[[]*RemoteGemsRepository]{
-		OutputState: i.ToRemoteGemsRepositoryArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // RemoteGemsRepositoryMapInput is an input type that accepts RemoteGemsRepositoryMap and RemoteGemsRepositoryMapOutput values.
@@ -784,12 +771,6 @@ func (i RemoteGemsRepositoryMap) ToRemoteGemsRepositoryMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(RemoteGemsRepositoryMapOutput)
 }
 
-func (i RemoteGemsRepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RemoteGemsRepository] {
-	return pulumix.Output[map[string]*RemoteGemsRepository]{
-		OutputState: i.ToRemoteGemsRepositoryMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RemoteGemsRepositoryOutput struct{ *pulumi.OutputState }
 
 func (RemoteGemsRepositoryOutput) ElementType() reflect.Type {
@@ -802,12 +783,6 @@ func (o RemoteGemsRepositoryOutput) ToRemoteGemsRepositoryOutput() RemoteGemsRep
 
 func (o RemoteGemsRepositoryOutput) ToRemoteGemsRepositoryOutputWithContext(ctx context.Context) RemoteGemsRepositoryOutput {
 	return o
-}
-
-func (o RemoteGemsRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*RemoteGemsRepository] {
-	return pulumix.Output[*RemoteGemsRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 // 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any
@@ -1072,12 +1047,6 @@ func (o RemoteGemsRepositoryArrayOutput) ToRemoteGemsRepositoryArrayOutputWithCo
 	return o
 }
 
-func (o RemoteGemsRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RemoteGemsRepository] {
-	return pulumix.Output[[]*RemoteGemsRepository]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RemoteGemsRepositoryArrayOutput) Index(i pulumi.IntInput) RemoteGemsRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RemoteGemsRepository {
 		return vs[0].([]*RemoteGemsRepository)[vs[1].(int)]
@@ -1096,12 +1065,6 @@ func (o RemoteGemsRepositoryMapOutput) ToRemoteGemsRepositoryMapOutput() RemoteG
 
 func (o RemoteGemsRepositoryMapOutput) ToRemoteGemsRepositoryMapOutputWithContext(ctx context.Context) RemoteGemsRepositoryMapOutput {
 	return o
-}
-
-func (o RemoteGemsRepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RemoteGemsRepository] {
-	return pulumix.Output[map[string]*RemoteGemsRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RemoteGemsRepositoryMapOutput) MapIndex(k pulumi.StringInput) RemoteGemsRepositoryOutput {

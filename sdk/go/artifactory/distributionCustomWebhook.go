@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an Artifactory custom webhook resource. This can be used to register and manage Artifactory webhook subscription which enables you to be notified or notify other users when such events take place in Artifactory.
@@ -221,12 +220,6 @@ func (i *DistributionCustomWebhook) ToDistributionCustomWebhookOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionCustomWebhookOutput)
 }
 
-func (i *DistributionCustomWebhook) ToOutput(ctx context.Context) pulumix.Output[*DistributionCustomWebhook] {
-	return pulumix.Output[*DistributionCustomWebhook]{
-		OutputState: i.ToDistributionCustomWebhookOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DistributionCustomWebhookArrayInput is an input type that accepts DistributionCustomWebhookArray and DistributionCustomWebhookArrayOutput values.
 // You can construct a concrete instance of `DistributionCustomWebhookArrayInput` via:
 //
@@ -250,12 +243,6 @@ func (i DistributionCustomWebhookArray) ToDistributionCustomWebhookArrayOutput()
 
 func (i DistributionCustomWebhookArray) ToDistributionCustomWebhookArrayOutputWithContext(ctx context.Context) DistributionCustomWebhookArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionCustomWebhookArrayOutput)
-}
-
-func (i DistributionCustomWebhookArray) ToOutput(ctx context.Context) pulumix.Output[[]*DistributionCustomWebhook] {
-	return pulumix.Output[[]*DistributionCustomWebhook]{
-		OutputState: i.ToDistributionCustomWebhookArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // DistributionCustomWebhookMapInput is an input type that accepts DistributionCustomWebhookMap and DistributionCustomWebhookMapOutput values.
@@ -283,12 +270,6 @@ func (i DistributionCustomWebhookMap) ToDistributionCustomWebhookMapOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionCustomWebhookMapOutput)
 }
 
-func (i DistributionCustomWebhookMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DistributionCustomWebhook] {
-	return pulumix.Output[map[string]*DistributionCustomWebhook]{
-		OutputState: i.ToDistributionCustomWebhookMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DistributionCustomWebhookOutput struct{ *pulumi.OutputState }
 
 func (DistributionCustomWebhookOutput) ElementType() reflect.Type {
@@ -301,12 +282,6 @@ func (o DistributionCustomWebhookOutput) ToDistributionCustomWebhookOutput() Dis
 
 func (o DistributionCustomWebhookOutput) ToDistributionCustomWebhookOutputWithContext(ctx context.Context) DistributionCustomWebhookOutput {
 	return o
-}
-
-func (o DistributionCustomWebhookOutput) ToOutput(ctx context.Context) pulumix.Output[*DistributionCustomWebhook] {
-	return pulumix.Output[*DistributionCustomWebhook]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies where the webhook will be applied on which repositories.
@@ -353,12 +328,6 @@ func (o DistributionCustomWebhookArrayOutput) ToDistributionCustomWebhookArrayOu
 	return o
 }
 
-func (o DistributionCustomWebhookArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DistributionCustomWebhook] {
-	return pulumix.Output[[]*DistributionCustomWebhook]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DistributionCustomWebhookArrayOutput) Index(i pulumi.IntInput) DistributionCustomWebhookOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DistributionCustomWebhook {
 		return vs[0].([]*DistributionCustomWebhook)[vs[1].(int)]
@@ -377,12 +346,6 @@ func (o DistributionCustomWebhookMapOutput) ToDistributionCustomWebhookMapOutput
 
 func (o DistributionCustomWebhookMapOutput) ToDistributionCustomWebhookMapOutputWithContext(ctx context.Context) DistributionCustomWebhookMapOutput {
 	return o
-}
-
-func (o DistributionCustomWebhookMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DistributionCustomWebhook] {
-	return pulumix.Output[map[string]*DistributionCustomWebhook]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DistributionCustomWebhookMapOutput) MapIndex(k pulumi.StringInput) DistributionCustomWebhookOutput {

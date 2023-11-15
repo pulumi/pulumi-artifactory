@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieves a federated Generic repository.
@@ -159,12 +158,6 @@ func (o LookupFederatedGenericRepositoryResultOutput) ToLookupFederatedGenericRe
 
 func (o LookupFederatedGenericRepositoryResultOutput) ToLookupFederatedGenericRepositoryResultOutputWithContext(ctx context.Context) LookupFederatedGenericRepositoryResultOutput {
 	return o
-}
-
-func (o LookupFederatedGenericRepositoryResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupFederatedGenericRepositoryResult] {
-	return pulumix.Output[LookupFederatedGenericRepositoryResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupFederatedGenericRepositoryResultOutput) ArchiveBrowsingEnabled() pulumi.BoolPtrOutput {

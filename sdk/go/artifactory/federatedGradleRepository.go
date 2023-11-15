@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a federated Gradle repository.
@@ -493,12 +492,6 @@ func (i *FederatedGradleRepository) ToFederatedGradleRepositoryOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedGradleRepositoryOutput)
 }
 
-func (i *FederatedGradleRepository) ToOutput(ctx context.Context) pulumix.Output[*FederatedGradleRepository] {
-	return pulumix.Output[*FederatedGradleRepository]{
-		OutputState: i.ToFederatedGradleRepositoryOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FederatedGradleRepositoryArrayInput is an input type that accepts FederatedGradleRepositoryArray and FederatedGradleRepositoryArrayOutput values.
 // You can construct a concrete instance of `FederatedGradleRepositoryArrayInput` via:
 //
@@ -522,12 +515,6 @@ func (i FederatedGradleRepositoryArray) ToFederatedGradleRepositoryArrayOutput()
 
 func (i FederatedGradleRepositoryArray) ToFederatedGradleRepositoryArrayOutputWithContext(ctx context.Context) FederatedGradleRepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedGradleRepositoryArrayOutput)
-}
-
-func (i FederatedGradleRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*FederatedGradleRepository] {
-	return pulumix.Output[[]*FederatedGradleRepository]{
-		OutputState: i.ToFederatedGradleRepositoryArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // FederatedGradleRepositoryMapInput is an input type that accepts FederatedGradleRepositoryMap and FederatedGradleRepositoryMapOutput values.
@@ -555,12 +542,6 @@ func (i FederatedGradleRepositoryMap) ToFederatedGradleRepositoryMapOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedGradleRepositoryMapOutput)
 }
 
-func (i FederatedGradleRepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*FederatedGradleRepository] {
-	return pulumix.Output[map[string]*FederatedGradleRepository]{
-		OutputState: i.ToFederatedGradleRepositoryMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FederatedGradleRepositoryOutput struct{ *pulumi.OutputState }
 
 func (FederatedGradleRepositoryOutput) ElementType() reflect.Type {
@@ -573,12 +554,6 @@ func (o FederatedGradleRepositoryOutput) ToFederatedGradleRepositoryOutput() Fed
 
 func (o FederatedGradleRepositoryOutput) ToFederatedGradleRepositoryOutputWithContext(ctx context.Context) FederatedGradleRepositoryOutput {
 	return o
-}
-
-func (o FederatedGradleRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*FederatedGradleRepository] {
-	return pulumix.Output[*FederatedGradleRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 // When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -738,12 +713,6 @@ func (o FederatedGradleRepositoryArrayOutput) ToFederatedGradleRepositoryArrayOu
 	return o
 }
 
-func (o FederatedGradleRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*FederatedGradleRepository] {
-	return pulumix.Output[[]*FederatedGradleRepository]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FederatedGradleRepositoryArrayOutput) Index(i pulumi.IntInput) FederatedGradleRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FederatedGradleRepository {
 		return vs[0].([]*FederatedGradleRepository)[vs[1].(int)]
@@ -762,12 +731,6 @@ func (o FederatedGradleRepositoryMapOutput) ToFederatedGradleRepositoryMapOutput
 
 func (o FederatedGradleRepositoryMapOutput) ToFederatedGradleRepositoryMapOutputWithContext(ctx context.Context) FederatedGradleRepositoryMapOutput {
 	return o
-}
-
-func (o FederatedGradleRepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*FederatedGradleRepository] {
-	return pulumix.Output[map[string]*FederatedGradleRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FederatedGradleRepositoryMapOutput) MapIndex(k pulumi.StringInput) FederatedGradleRepositoryOutput {

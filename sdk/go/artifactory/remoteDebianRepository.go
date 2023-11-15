@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a remote Debian repository.
@@ -722,12 +721,6 @@ func (i *RemoteDebianRepository) ToRemoteDebianRepositoryOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(RemoteDebianRepositoryOutput)
 }
 
-func (i *RemoteDebianRepository) ToOutput(ctx context.Context) pulumix.Output[*RemoteDebianRepository] {
-	return pulumix.Output[*RemoteDebianRepository]{
-		OutputState: i.ToRemoteDebianRepositoryOutputWithContext(ctx).OutputState,
-	}
-}
-
 // RemoteDebianRepositoryArrayInput is an input type that accepts RemoteDebianRepositoryArray and RemoteDebianRepositoryArrayOutput values.
 // You can construct a concrete instance of `RemoteDebianRepositoryArrayInput` via:
 //
@@ -751,12 +744,6 @@ func (i RemoteDebianRepositoryArray) ToRemoteDebianRepositoryArrayOutput() Remot
 
 func (i RemoteDebianRepositoryArray) ToRemoteDebianRepositoryArrayOutputWithContext(ctx context.Context) RemoteDebianRepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RemoteDebianRepositoryArrayOutput)
-}
-
-func (i RemoteDebianRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*RemoteDebianRepository] {
-	return pulumix.Output[[]*RemoteDebianRepository]{
-		OutputState: i.ToRemoteDebianRepositoryArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // RemoteDebianRepositoryMapInput is an input type that accepts RemoteDebianRepositoryMap and RemoteDebianRepositoryMapOutput values.
@@ -784,12 +771,6 @@ func (i RemoteDebianRepositoryMap) ToRemoteDebianRepositoryMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(RemoteDebianRepositoryMapOutput)
 }
 
-func (i RemoteDebianRepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RemoteDebianRepository] {
-	return pulumix.Output[map[string]*RemoteDebianRepository]{
-		OutputState: i.ToRemoteDebianRepositoryMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RemoteDebianRepositoryOutput struct{ *pulumi.OutputState }
 
 func (RemoteDebianRepositoryOutput) ElementType() reflect.Type {
@@ -802,12 +783,6 @@ func (o RemoteDebianRepositoryOutput) ToRemoteDebianRepositoryOutput() RemoteDeb
 
 func (o RemoteDebianRepositoryOutput) ToRemoteDebianRepositoryOutputWithContext(ctx context.Context) RemoteDebianRepositoryOutput {
 	return o
-}
-
-func (o RemoteDebianRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*RemoteDebianRepository] {
-	return pulumix.Output[*RemoteDebianRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 // 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any
@@ -1072,12 +1047,6 @@ func (o RemoteDebianRepositoryArrayOutput) ToRemoteDebianRepositoryArrayOutputWi
 	return o
 }
 
-func (o RemoteDebianRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RemoteDebianRepository] {
-	return pulumix.Output[[]*RemoteDebianRepository]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RemoteDebianRepositoryArrayOutput) Index(i pulumi.IntInput) RemoteDebianRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RemoteDebianRepository {
 		return vs[0].([]*RemoteDebianRepository)[vs[1].(int)]
@@ -1096,12 +1065,6 @@ func (o RemoteDebianRepositoryMapOutput) ToRemoteDebianRepositoryMapOutput() Rem
 
 func (o RemoteDebianRepositoryMapOutput) ToRemoteDebianRepositoryMapOutputWithContext(ctx context.Context) RemoteDebianRepositoryMapOutput {
 	return o
-}
-
-func (o RemoteDebianRepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RemoteDebianRepository] {
-	return pulumix.Output[map[string]*RemoteDebianRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RemoteDebianRepositoryMapOutput) MapIndex(k pulumi.StringInput) RemoteDebianRepositoryOutput {

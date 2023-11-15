@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a federated Conda repository.
@@ -388,12 +387,6 @@ func (i *FederatedCondaRepository) ToFederatedCondaRepositoryOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedCondaRepositoryOutput)
 }
 
-func (i *FederatedCondaRepository) ToOutput(ctx context.Context) pulumix.Output[*FederatedCondaRepository] {
-	return pulumix.Output[*FederatedCondaRepository]{
-		OutputState: i.ToFederatedCondaRepositoryOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FederatedCondaRepositoryArrayInput is an input type that accepts FederatedCondaRepositoryArray and FederatedCondaRepositoryArrayOutput values.
 // You can construct a concrete instance of `FederatedCondaRepositoryArrayInput` via:
 //
@@ -417,12 +410,6 @@ func (i FederatedCondaRepositoryArray) ToFederatedCondaRepositoryArrayOutput() F
 
 func (i FederatedCondaRepositoryArray) ToFederatedCondaRepositoryArrayOutputWithContext(ctx context.Context) FederatedCondaRepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedCondaRepositoryArrayOutput)
-}
-
-func (i FederatedCondaRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*FederatedCondaRepository] {
-	return pulumix.Output[[]*FederatedCondaRepository]{
-		OutputState: i.ToFederatedCondaRepositoryArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // FederatedCondaRepositoryMapInput is an input type that accepts FederatedCondaRepositoryMap and FederatedCondaRepositoryMapOutput values.
@@ -450,12 +437,6 @@ func (i FederatedCondaRepositoryMap) ToFederatedCondaRepositoryMapOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedCondaRepositoryMapOutput)
 }
 
-func (i FederatedCondaRepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*FederatedCondaRepository] {
-	return pulumix.Output[map[string]*FederatedCondaRepository]{
-		OutputState: i.ToFederatedCondaRepositoryMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FederatedCondaRepositoryOutput struct{ *pulumi.OutputState }
 
 func (FederatedCondaRepositoryOutput) ElementType() reflect.Type {
@@ -468,12 +449,6 @@ func (o FederatedCondaRepositoryOutput) ToFederatedCondaRepositoryOutput() Feder
 
 func (o FederatedCondaRepositoryOutput) ToFederatedCondaRepositoryOutputWithContext(ctx context.Context) FederatedCondaRepositoryOutput {
 	return o
-}
-
-func (o FederatedCondaRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*FederatedCondaRepository] {
-	return pulumix.Output[*FederatedCondaRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 // When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -594,12 +569,6 @@ func (o FederatedCondaRepositoryArrayOutput) ToFederatedCondaRepositoryArrayOutp
 	return o
 }
 
-func (o FederatedCondaRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*FederatedCondaRepository] {
-	return pulumix.Output[[]*FederatedCondaRepository]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FederatedCondaRepositoryArrayOutput) Index(i pulumi.IntInput) FederatedCondaRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FederatedCondaRepository {
 		return vs[0].([]*FederatedCondaRepository)[vs[1].(int)]
@@ -618,12 +587,6 @@ func (o FederatedCondaRepositoryMapOutput) ToFederatedCondaRepositoryMapOutput()
 
 func (o FederatedCondaRepositoryMapOutput) ToFederatedCondaRepositoryMapOutputWithContext(ctx context.Context) FederatedCondaRepositoryMapOutput {
 	return o
-}
-
-func (o FederatedCondaRepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*FederatedCondaRepository] {
-	return pulumix.Output[map[string]*FederatedCondaRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FederatedCondaRepositoryMapOutput) MapIndex(k pulumi.StringInput) FederatedCondaRepositoryOutput {

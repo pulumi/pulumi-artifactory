@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a federated Chef repository.
@@ -388,12 +387,6 @@ func (i *FederatedChefRepository) ToFederatedChefRepositoryOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedChefRepositoryOutput)
 }
 
-func (i *FederatedChefRepository) ToOutput(ctx context.Context) pulumix.Output[*FederatedChefRepository] {
-	return pulumix.Output[*FederatedChefRepository]{
-		OutputState: i.ToFederatedChefRepositoryOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FederatedChefRepositoryArrayInput is an input type that accepts FederatedChefRepositoryArray and FederatedChefRepositoryArrayOutput values.
 // You can construct a concrete instance of `FederatedChefRepositoryArrayInput` via:
 //
@@ -417,12 +410,6 @@ func (i FederatedChefRepositoryArray) ToFederatedChefRepositoryArrayOutput() Fed
 
 func (i FederatedChefRepositoryArray) ToFederatedChefRepositoryArrayOutputWithContext(ctx context.Context) FederatedChefRepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedChefRepositoryArrayOutput)
-}
-
-func (i FederatedChefRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*FederatedChefRepository] {
-	return pulumix.Output[[]*FederatedChefRepository]{
-		OutputState: i.ToFederatedChefRepositoryArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // FederatedChefRepositoryMapInput is an input type that accepts FederatedChefRepositoryMap and FederatedChefRepositoryMapOutput values.
@@ -450,12 +437,6 @@ func (i FederatedChefRepositoryMap) ToFederatedChefRepositoryMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedChefRepositoryMapOutput)
 }
 
-func (i FederatedChefRepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*FederatedChefRepository] {
-	return pulumix.Output[map[string]*FederatedChefRepository]{
-		OutputState: i.ToFederatedChefRepositoryMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FederatedChefRepositoryOutput struct{ *pulumi.OutputState }
 
 func (FederatedChefRepositoryOutput) ElementType() reflect.Type {
@@ -468,12 +449,6 @@ func (o FederatedChefRepositoryOutput) ToFederatedChefRepositoryOutput() Federat
 
 func (o FederatedChefRepositoryOutput) ToFederatedChefRepositoryOutputWithContext(ctx context.Context) FederatedChefRepositoryOutput {
 	return o
-}
-
-func (o FederatedChefRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*FederatedChefRepository] {
-	return pulumix.Output[*FederatedChefRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 // When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -594,12 +569,6 @@ func (o FederatedChefRepositoryArrayOutput) ToFederatedChefRepositoryArrayOutput
 	return o
 }
 
-func (o FederatedChefRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*FederatedChefRepository] {
-	return pulumix.Output[[]*FederatedChefRepository]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FederatedChefRepositoryArrayOutput) Index(i pulumi.IntInput) FederatedChefRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FederatedChefRepository {
 		return vs[0].([]*FederatedChefRepository)[vs[1].(int)]
@@ -618,12 +587,6 @@ func (o FederatedChefRepositoryMapOutput) ToFederatedChefRepositoryMapOutput() F
 
 func (o FederatedChefRepositoryMapOutput) ToFederatedChefRepositoryMapOutputWithContext(ctx context.Context) FederatedChefRepositoryMapOutput {
 	return o
-}
-
-func (o FederatedChefRepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*FederatedChefRepository] {
-	return pulumix.Output[map[string]*FederatedChefRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FederatedChefRepositoryMapOutput) MapIndex(k pulumi.StringInput) FederatedChefRepositoryOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a virtual PHP Composer repository.
@@ -286,12 +285,6 @@ func (i *VirtualComposerRepository) ToVirtualComposerRepositoryOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualComposerRepositoryOutput)
 }
 
-func (i *VirtualComposerRepository) ToOutput(ctx context.Context) pulumix.Output[*VirtualComposerRepository] {
-	return pulumix.Output[*VirtualComposerRepository]{
-		OutputState: i.ToVirtualComposerRepositoryOutputWithContext(ctx).OutputState,
-	}
-}
-
 // VirtualComposerRepositoryArrayInput is an input type that accepts VirtualComposerRepositoryArray and VirtualComposerRepositoryArrayOutput values.
 // You can construct a concrete instance of `VirtualComposerRepositoryArrayInput` via:
 //
@@ -315,12 +308,6 @@ func (i VirtualComposerRepositoryArray) ToVirtualComposerRepositoryArrayOutput()
 
 func (i VirtualComposerRepositoryArray) ToVirtualComposerRepositoryArrayOutputWithContext(ctx context.Context) VirtualComposerRepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualComposerRepositoryArrayOutput)
-}
-
-func (i VirtualComposerRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*VirtualComposerRepository] {
-	return pulumix.Output[[]*VirtualComposerRepository]{
-		OutputState: i.ToVirtualComposerRepositoryArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // VirtualComposerRepositoryMapInput is an input type that accepts VirtualComposerRepositoryMap and VirtualComposerRepositoryMapOutput values.
@@ -348,12 +335,6 @@ func (i VirtualComposerRepositoryMap) ToVirtualComposerRepositoryMapOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualComposerRepositoryMapOutput)
 }
 
-func (i VirtualComposerRepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VirtualComposerRepository] {
-	return pulumix.Output[map[string]*VirtualComposerRepository]{
-		OutputState: i.ToVirtualComposerRepositoryMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VirtualComposerRepositoryOutput struct{ *pulumi.OutputState }
 
 func (VirtualComposerRepositoryOutput) ElementType() reflect.Type {
@@ -366,12 +347,6 @@ func (o VirtualComposerRepositoryOutput) ToVirtualComposerRepositoryOutput() Vir
 
 func (o VirtualComposerRepositoryOutput) ToVirtualComposerRepositoryOutputWithContext(ctx context.Context) VirtualComposerRepositoryOutput {
 	return o
-}
-
-func (o VirtualComposerRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualComposerRepository] {
-	return pulumix.Output[*VirtualComposerRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
@@ -457,12 +432,6 @@ func (o VirtualComposerRepositoryArrayOutput) ToVirtualComposerRepositoryArrayOu
 	return o
 }
 
-func (o VirtualComposerRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VirtualComposerRepository] {
-	return pulumix.Output[[]*VirtualComposerRepository]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o VirtualComposerRepositoryArrayOutput) Index(i pulumi.IntInput) VirtualComposerRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VirtualComposerRepository {
 		return vs[0].([]*VirtualComposerRepository)[vs[1].(int)]
@@ -481,12 +450,6 @@ func (o VirtualComposerRepositoryMapOutput) ToVirtualComposerRepositoryMapOutput
 
 func (o VirtualComposerRepositoryMapOutput) ToVirtualComposerRepositoryMapOutputWithContext(ctx context.Context) VirtualComposerRepositoryMapOutput {
 	return o
-}
-
-func (o VirtualComposerRepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VirtualComposerRepository] {
-	return pulumix.Output[map[string]*VirtualComposerRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VirtualComposerRepositoryMapOutput) MapIndex(k pulumi.StringInput) VirtualComposerRepositoryOutput {

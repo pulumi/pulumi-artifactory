@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieves a remote GitLfs repository.
@@ -222,12 +221,6 @@ func (o LookupRemoteGitlfsRepositoryResultOutput) ToLookupRemoteGitlfsRepository
 
 func (o LookupRemoteGitlfsRepositoryResultOutput) ToLookupRemoteGitlfsRepositoryResultOutputWithContext(ctx context.Context) LookupRemoteGitlfsRepositoryResultOutput {
 	return o
-}
-
-func (o LookupRemoteGitlfsRepositoryResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupRemoteGitlfsRepositoryResult] {
-	return pulumix.Output[LookupRemoteGitlfsRepositoryResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupRemoteGitlfsRepositoryResultOutput) AllowAnyHostAuth() pulumi.BoolPtrOutput {

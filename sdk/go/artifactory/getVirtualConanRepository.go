@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieves a virtual Conan repository.
@@ -144,12 +143,6 @@ func (o LookupVirtualConanRepositoryResultOutput) ToLookupVirtualConanRepository
 
 func (o LookupVirtualConanRepositoryResultOutput) ToLookupVirtualConanRepositoryResultOutputWithContext(ctx context.Context) LookupVirtualConanRepositoryResultOutput {
 	return o
-}
-
-func (o LookupVirtualConanRepositoryResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupVirtualConanRepositoryResult] {
-	return pulumix.Output[LookupVirtualConanRepositoryResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupVirtualConanRepositoryResultOutput) ArtifactoryRequestsCanRetrieveRemoteArtifacts() pulumi.BoolPtrOutput {

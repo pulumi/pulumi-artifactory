@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a remote Maven repository.
@@ -792,12 +791,6 @@ func (i *RemoteMavenRepository) ToRemoteMavenRepositoryOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(RemoteMavenRepositoryOutput)
 }
 
-func (i *RemoteMavenRepository) ToOutput(ctx context.Context) pulumix.Output[*RemoteMavenRepository] {
-	return pulumix.Output[*RemoteMavenRepository]{
-		OutputState: i.ToRemoteMavenRepositoryOutputWithContext(ctx).OutputState,
-	}
-}
-
 // RemoteMavenRepositoryArrayInput is an input type that accepts RemoteMavenRepositoryArray and RemoteMavenRepositoryArrayOutput values.
 // You can construct a concrete instance of `RemoteMavenRepositoryArrayInput` via:
 //
@@ -821,12 +814,6 @@ func (i RemoteMavenRepositoryArray) ToRemoteMavenRepositoryArrayOutput() RemoteM
 
 func (i RemoteMavenRepositoryArray) ToRemoteMavenRepositoryArrayOutputWithContext(ctx context.Context) RemoteMavenRepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RemoteMavenRepositoryArrayOutput)
-}
-
-func (i RemoteMavenRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*RemoteMavenRepository] {
-	return pulumix.Output[[]*RemoteMavenRepository]{
-		OutputState: i.ToRemoteMavenRepositoryArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // RemoteMavenRepositoryMapInput is an input type that accepts RemoteMavenRepositoryMap and RemoteMavenRepositoryMapOutput values.
@@ -854,12 +841,6 @@ func (i RemoteMavenRepositoryMap) ToRemoteMavenRepositoryMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(RemoteMavenRepositoryMapOutput)
 }
 
-func (i RemoteMavenRepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RemoteMavenRepository] {
-	return pulumix.Output[map[string]*RemoteMavenRepository]{
-		OutputState: i.ToRemoteMavenRepositoryMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RemoteMavenRepositoryOutput struct{ *pulumi.OutputState }
 
 func (RemoteMavenRepositoryOutput) ElementType() reflect.Type {
@@ -872,12 +853,6 @@ func (o RemoteMavenRepositoryOutput) ToRemoteMavenRepositoryOutput() RemoteMaven
 
 func (o RemoteMavenRepositoryOutput) ToRemoteMavenRepositoryOutputWithContext(ctx context.Context) RemoteMavenRepositoryOutput {
 	return o
-}
-
-func (o RemoteMavenRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*RemoteMavenRepository] {
-	return pulumix.Output[*RemoteMavenRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 // 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any
@@ -1176,12 +1151,6 @@ func (o RemoteMavenRepositoryArrayOutput) ToRemoteMavenRepositoryArrayOutputWith
 	return o
 }
 
-func (o RemoteMavenRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RemoteMavenRepository] {
-	return pulumix.Output[[]*RemoteMavenRepository]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RemoteMavenRepositoryArrayOutput) Index(i pulumi.IntInput) RemoteMavenRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RemoteMavenRepository {
 		return vs[0].([]*RemoteMavenRepository)[vs[1].(int)]
@@ -1200,12 +1169,6 @@ func (o RemoteMavenRepositoryMapOutput) ToRemoteMavenRepositoryMapOutput() Remot
 
 func (o RemoteMavenRepositoryMapOutput) ToRemoteMavenRepositoryMapOutputWithContext(ctx context.Context) RemoteMavenRepositoryMapOutput {
 	return o
-}
-
-func (o RemoteMavenRepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RemoteMavenRepository] {
-	return pulumix.Output[map[string]*RemoteMavenRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RemoteMavenRepositoryMapOutput) MapIndex(k pulumi.StringInput) RemoteMavenRepositoryOutput {

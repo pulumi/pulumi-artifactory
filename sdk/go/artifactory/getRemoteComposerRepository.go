@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieves a remote Composer repository.
@@ -240,12 +239,6 @@ func (o LookupRemoteComposerRepositoryResultOutput) ToLookupRemoteComposerReposi
 
 func (o LookupRemoteComposerRepositoryResultOutput) ToLookupRemoteComposerRepositoryResultOutputWithContext(ctx context.Context) LookupRemoteComposerRepositoryResultOutput {
 	return o
-}
-
-func (o LookupRemoteComposerRepositoryResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupRemoteComposerRepositoryResult] {
-	return pulumix.Output[LookupRemoteComposerRepositoryResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupRemoteComposerRepositoryResultOutput) AllowAnyHostAuth() pulumi.BoolPtrOutput {

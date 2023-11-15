@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a federated Ivy repository.
@@ -493,12 +492,6 @@ func (i *FederatedIvyRepository) ToFederatedIvyRepositoryOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedIvyRepositoryOutput)
 }
 
-func (i *FederatedIvyRepository) ToOutput(ctx context.Context) pulumix.Output[*FederatedIvyRepository] {
-	return pulumix.Output[*FederatedIvyRepository]{
-		OutputState: i.ToFederatedIvyRepositoryOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FederatedIvyRepositoryArrayInput is an input type that accepts FederatedIvyRepositoryArray and FederatedIvyRepositoryArrayOutput values.
 // You can construct a concrete instance of `FederatedIvyRepositoryArrayInput` via:
 //
@@ -522,12 +515,6 @@ func (i FederatedIvyRepositoryArray) ToFederatedIvyRepositoryArrayOutput() Feder
 
 func (i FederatedIvyRepositoryArray) ToFederatedIvyRepositoryArrayOutputWithContext(ctx context.Context) FederatedIvyRepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedIvyRepositoryArrayOutput)
-}
-
-func (i FederatedIvyRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*FederatedIvyRepository] {
-	return pulumix.Output[[]*FederatedIvyRepository]{
-		OutputState: i.ToFederatedIvyRepositoryArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // FederatedIvyRepositoryMapInput is an input type that accepts FederatedIvyRepositoryMap and FederatedIvyRepositoryMapOutput values.
@@ -555,12 +542,6 @@ func (i FederatedIvyRepositoryMap) ToFederatedIvyRepositoryMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedIvyRepositoryMapOutput)
 }
 
-func (i FederatedIvyRepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*FederatedIvyRepository] {
-	return pulumix.Output[map[string]*FederatedIvyRepository]{
-		OutputState: i.ToFederatedIvyRepositoryMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FederatedIvyRepositoryOutput struct{ *pulumi.OutputState }
 
 func (FederatedIvyRepositoryOutput) ElementType() reflect.Type {
@@ -573,12 +554,6 @@ func (o FederatedIvyRepositoryOutput) ToFederatedIvyRepositoryOutput() Federated
 
 func (o FederatedIvyRepositoryOutput) ToFederatedIvyRepositoryOutputWithContext(ctx context.Context) FederatedIvyRepositoryOutput {
 	return o
-}
-
-func (o FederatedIvyRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*FederatedIvyRepository] {
-	return pulumix.Output[*FederatedIvyRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 // When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -738,12 +713,6 @@ func (o FederatedIvyRepositoryArrayOutput) ToFederatedIvyRepositoryArrayOutputWi
 	return o
 }
 
-func (o FederatedIvyRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*FederatedIvyRepository] {
-	return pulumix.Output[[]*FederatedIvyRepository]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FederatedIvyRepositoryArrayOutput) Index(i pulumi.IntInput) FederatedIvyRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FederatedIvyRepository {
 		return vs[0].([]*FederatedIvyRepository)[vs[1].(int)]
@@ -762,12 +731,6 @@ func (o FederatedIvyRepositoryMapOutput) ToFederatedIvyRepositoryMapOutput() Fed
 
 func (o FederatedIvyRepositoryMapOutput) ToFederatedIvyRepositoryMapOutputWithContext(ctx context.Context) FederatedIvyRepositoryMapOutput {
 	return o
-}
-
-func (o FederatedIvyRepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*FederatedIvyRepository] {
-	return pulumix.Output[map[string]*FederatedIvyRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FederatedIvyRepositoryMapOutput) MapIndex(k pulumi.StringInput) FederatedIvyRepositoryOutput {

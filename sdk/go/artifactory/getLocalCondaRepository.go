@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 func LookupLocalCondaRepository(ctx *pulumi.Context, args *LookupLocalCondaRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupLocalCondaRepositoryResult, error) {
@@ -112,12 +111,6 @@ func (o LookupLocalCondaRepositoryResultOutput) ToLookupLocalCondaRepositoryResu
 
 func (o LookupLocalCondaRepositoryResultOutput) ToLookupLocalCondaRepositoryResultOutputWithContext(ctx context.Context) LookupLocalCondaRepositoryResultOutput {
 	return o
-}
-
-func (o LookupLocalCondaRepositoryResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupLocalCondaRepositoryResult] {
-	return pulumix.Output[LookupLocalCondaRepositoryResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupLocalCondaRepositoryResultOutput) ArchiveBrowsingEnabled() pulumi.BoolPtrOutput {

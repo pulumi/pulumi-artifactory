@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieves a virtual Chef repository.
@@ -135,12 +134,6 @@ func (o LookupVirtualChefRepositoryResultOutput) ToLookupVirtualChefRepositoryRe
 
 func (o LookupVirtualChefRepositoryResultOutput) ToLookupVirtualChefRepositoryResultOutputWithContext(ctx context.Context) LookupVirtualChefRepositoryResultOutput {
 	return o
-}
-
-func (o LookupVirtualChefRepositoryResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupVirtualChefRepositoryResult] {
-	return pulumix.Output[LookupVirtualChefRepositoryResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupVirtualChefRepositoryResultOutput) ArtifactoryRequestsCanRetrieveRemoteArtifacts() pulumi.BoolPtrOutput {

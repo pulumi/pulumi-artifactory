@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a local Cran repository.
@@ -335,12 +334,6 @@ func (i *LocalCranRepository) ToLocalCranRepositoryOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(LocalCranRepositoryOutput)
 }
 
-func (i *LocalCranRepository) ToOutput(ctx context.Context) pulumix.Output[*LocalCranRepository] {
-	return pulumix.Output[*LocalCranRepository]{
-		OutputState: i.ToLocalCranRepositoryOutputWithContext(ctx).OutputState,
-	}
-}
-
 // LocalCranRepositoryArrayInput is an input type that accepts LocalCranRepositoryArray and LocalCranRepositoryArrayOutput values.
 // You can construct a concrete instance of `LocalCranRepositoryArrayInput` via:
 //
@@ -364,12 +357,6 @@ func (i LocalCranRepositoryArray) ToLocalCranRepositoryArrayOutput() LocalCranRe
 
 func (i LocalCranRepositoryArray) ToLocalCranRepositoryArrayOutputWithContext(ctx context.Context) LocalCranRepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LocalCranRepositoryArrayOutput)
-}
-
-func (i LocalCranRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*LocalCranRepository] {
-	return pulumix.Output[[]*LocalCranRepository]{
-		OutputState: i.ToLocalCranRepositoryArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // LocalCranRepositoryMapInput is an input type that accepts LocalCranRepositoryMap and LocalCranRepositoryMapOutput values.
@@ -397,12 +384,6 @@ func (i LocalCranRepositoryMap) ToLocalCranRepositoryMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(LocalCranRepositoryMapOutput)
 }
 
-func (i LocalCranRepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LocalCranRepository] {
-	return pulumix.Output[map[string]*LocalCranRepository]{
-		OutputState: i.ToLocalCranRepositoryMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LocalCranRepositoryOutput struct{ *pulumi.OutputState }
 
 func (LocalCranRepositoryOutput) ElementType() reflect.Type {
@@ -415,12 +396,6 @@ func (o LocalCranRepositoryOutput) ToLocalCranRepositoryOutput() LocalCranReposi
 
 func (o LocalCranRepositoryOutput) ToLocalCranRepositoryOutputWithContext(ctx context.Context) LocalCranRepositoryOutput {
 	return o
-}
-
-func (o LocalCranRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*LocalCranRepository] {
-	return pulumix.Output[*LocalCranRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 // When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -527,12 +502,6 @@ func (o LocalCranRepositoryArrayOutput) ToLocalCranRepositoryArrayOutputWithCont
 	return o
 }
 
-func (o LocalCranRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LocalCranRepository] {
-	return pulumix.Output[[]*LocalCranRepository]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LocalCranRepositoryArrayOutput) Index(i pulumi.IntInput) LocalCranRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LocalCranRepository {
 		return vs[0].([]*LocalCranRepository)[vs[1].(int)]
@@ -551,12 +520,6 @@ func (o LocalCranRepositoryMapOutput) ToLocalCranRepositoryMapOutput() LocalCran
 
 func (o LocalCranRepositoryMapOutput) ToLocalCranRepositoryMapOutputWithContext(ctx context.Context) LocalCranRepositoryMapOutput {
 	return o
-}
-
-func (o LocalCranRepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LocalCranRepository] {
-	return pulumix.Output[map[string]*LocalCranRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LocalCranRepositoryMapOutput) MapIndex(k pulumi.StringInput) LocalCranRepositoryOutput {
