@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieves a federated Cocoapods repository.
@@ -159,12 +158,6 @@ func (o LookupFederatedCocoapodsRepositoryResultOutput) ToLookupFederatedCocoapo
 
 func (o LookupFederatedCocoapodsRepositoryResultOutput) ToLookupFederatedCocoapodsRepositoryResultOutputWithContext(ctx context.Context) LookupFederatedCocoapodsRepositoryResultOutput {
 	return o
-}
-
-func (o LookupFederatedCocoapodsRepositoryResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupFederatedCocoapodsRepositoryResult] {
-	return pulumix.Output[LookupFederatedCocoapodsRepositoryResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupFederatedCocoapodsRepositoryResultOutput) ArchiveBrowsingEnabled() pulumi.BoolPtrOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a remote Sbt repository.
@@ -796,12 +795,6 @@ func (i *RemoteSbtRepository) ToRemoteSbtRepositoryOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(RemoteSbtRepositoryOutput)
 }
 
-func (i *RemoteSbtRepository) ToOutput(ctx context.Context) pulumix.Output[*RemoteSbtRepository] {
-	return pulumix.Output[*RemoteSbtRepository]{
-		OutputState: i.ToRemoteSbtRepositoryOutputWithContext(ctx).OutputState,
-	}
-}
-
 // RemoteSbtRepositoryArrayInput is an input type that accepts RemoteSbtRepositoryArray and RemoteSbtRepositoryArrayOutput values.
 // You can construct a concrete instance of `RemoteSbtRepositoryArrayInput` via:
 //
@@ -825,12 +818,6 @@ func (i RemoteSbtRepositoryArray) ToRemoteSbtRepositoryArrayOutput() RemoteSbtRe
 
 func (i RemoteSbtRepositoryArray) ToRemoteSbtRepositoryArrayOutputWithContext(ctx context.Context) RemoteSbtRepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RemoteSbtRepositoryArrayOutput)
-}
-
-func (i RemoteSbtRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*RemoteSbtRepository] {
-	return pulumix.Output[[]*RemoteSbtRepository]{
-		OutputState: i.ToRemoteSbtRepositoryArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // RemoteSbtRepositoryMapInput is an input type that accepts RemoteSbtRepositoryMap and RemoteSbtRepositoryMapOutput values.
@@ -858,12 +845,6 @@ func (i RemoteSbtRepositoryMap) ToRemoteSbtRepositoryMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(RemoteSbtRepositoryMapOutput)
 }
 
-func (i RemoteSbtRepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RemoteSbtRepository] {
-	return pulumix.Output[map[string]*RemoteSbtRepository]{
-		OutputState: i.ToRemoteSbtRepositoryMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RemoteSbtRepositoryOutput struct{ *pulumi.OutputState }
 
 func (RemoteSbtRepositoryOutput) ElementType() reflect.Type {
@@ -876,12 +857,6 @@ func (o RemoteSbtRepositoryOutput) ToRemoteSbtRepositoryOutput() RemoteSbtReposi
 
 func (o RemoteSbtRepositoryOutput) ToRemoteSbtRepositoryOutputWithContext(ctx context.Context) RemoteSbtRepositoryOutput {
 	return o
-}
-
-func (o RemoteSbtRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*RemoteSbtRepository] {
-	return pulumix.Output[*RemoteSbtRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 // 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any
@@ -1181,12 +1156,6 @@ func (o RemoteSbtRepositoryArrayOutput) ToRemoteSbtRepositoryArrayOutputWithCont
 	return o
 }
 
-func (o RemoteSbtRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RemoteSbtRepository] {
-	return pulumix.Output[[]*RemoteSbtRepository]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RemoteSbtRepositoryArrayOutput) Index(i pulumi.IntInput) RemoteSbtRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RemoteSbtRepository {
 		return vs[0].([]*RemoteSbtRepository)[vs[1].(int)]
@@ -1205,12 +1174,6 @@ func (o RemoteSbtRepositoryMapOutput) ToRemoteSbtRepositoryMapOutput() RemoteSbt
 
 func (o RemoteSbtRepositoryMapOutput) ToRemoteSbtRepositoryMapOutputWithContext(ctx context.Context) RemoteSbtRepositoryMapOutput {
 	return o
-}
-
-func (o RemoteSbtRepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RemoteSbtRepository] {
-	return pulumix.Output[map[string]*RemoteSbtRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RemoteSbtRepositoryMapOutput) MapIndex(k pulumi.StringInput) RemoteSbtRepositoryOutput {

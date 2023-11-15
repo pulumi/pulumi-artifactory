@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a federated Pypi repository.
@@ -388,12 +387,6 @@ func (i *FederatedPypiRepository) ToFederatedPypiRepositoryOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedPypiRepositoryOutput)
 }
 
-func (i *FederatedPypiRepository) ToOutput(ctx context.Context) pulumix.Output[*FederatedPypiRepository] {
-	return pulumix.Output[*FederatedPypiRepository]{
-		OutputState: i.ToFederatedPypiRepositoryOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FederatedPypiRepositoryArrayInput is an input type that accepts FederatedPypiRepositoryArray and FederatedPypiRepositoryArrayOutput values.
 // You can construct a concrete instance of `FederatedPypiRepositoryArrayInput` via:
 //
@@ -417,12 +410,6 @@ func (i FederatedPypiRepositoryArray) ToFederatedPypiRepositoryArrayOutput() Fed
 
 func (i FederatedPypiRepositoryArray) ToFederatedPypiRepositoryArrayOutputWithContext(ctx context.Context) FederatedPypiRepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedPypiRepositoryArrayOutput)
-}
-
-func (i FederatedPypiRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*FederatedPypiRepository] {
-	return pulumix.Output[[]*FederatedPypiRepository]{
-		OutputState: i.ToFederatedPypiRepositoryArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // FederatedPypiRepositoryMapInput is an input type that accepts FederatedPypiRepositoryMap and FederatedPypiRepositoryMapOutput values.
@@ -450,12 +437,6 @@ func (i FederatedPypiRepositoryMap) ToFederatedPypiRepositoryMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedPypiRepositoryMapOutput)
 }
 
-func (i FederatedPypiRepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*FederatedPypiRepository] {
-	return pulumix.Output[map[string]*FederatedPypiRepository]{
-		OutputState: i.ToFederatedPypiRepositoryMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FederatedPypiRepositoryOutput struct{ *pulumi.OutputState }
 
 func (FederatedPypiRepositoryOutput) ElementType() reflect.Type {
@@ -468,12 +449,6 @@ func (o FederatedPypiRepositoryOutput) ToFederatedPypiRepositoryOutput() Federat
 
 func (o FederatedPypiRepositoryOutput) ToFederatedPypiRepositoryOutputWithContext(ctx context.Context) FederatedPypiRepositoryOutput {
 	return o
-}
-
-func (o FederatedPypiRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*FederatedPypiRepository] {
-	return pulumix.Output[*FederatedPypiRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 // When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -594,12 +569,6 @@ func (o FederatedPypiRepositoryArrayOutput) ToFederatedPypiRepositoryArrayOutput
 	return o
 }
 
-func (o FederatedPypiRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*FederatedPypiRepository] {
-	return pulumix.Output[[]*FederatedPypiRepository]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FederatedPypiRepositoryArrayOutput) Index(i pulumi.IntInput) FederatedPypiRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FederatedPypiRepository {
 		return vs[0].([]*FederatedPypiRepository)[vs[1].(int)]
@@ -618,12 +587,6 @@ func (o FederatedPypiRepositoryMapOutput) ToFederatedPypiRepositoryMapOutput() F
 
 func (o FederatedPypiRepositoryMapOutput) ToFederatedPypiRepositoryMapOutputWithContext(ctx context.Context) FederatedPypiRepositoryMapOutput {
 	return o
-}
-
-func (o FederatedPypiRepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*FederatedPypiRepository] {
-	return pulumix.Output[map[string]*FederatedPypiRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FederatedPypiRepositoryMapOutput) MapIndex(k pulumi.StringInput) FederatedPypiRepositoryOutput {

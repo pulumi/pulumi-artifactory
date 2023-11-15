@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieves a federated Helm repository.
@@ -159,12 +158,6 @@ func (o LookupFederatedHelmRepositoryResultOutput) ToLookupFederatedHelmReposito
 
 func (o LookupFederatedHelmRepositoryResultOutput) ToLookupFederatedHelmRepositoryResultOutputWithContext(ctx context.Context) LookupFederatedHelmRepositoryResultOutput {
 	return o
-}
-
-func (o LookupFederatedHelmRepositoryResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupFederatedHelmRepositoryResult] {
-	return pulumix.Output[LookupFederatedHelmRepositoryResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupFederatedHelmRepositoryResultOutput) ArchiveBrowsingEnabled() pulumi.BoolPtrOutput {

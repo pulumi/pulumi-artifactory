@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an Artifactory custom webhook resource. This can be used to register and manage Artifactory webhook subscription which enables you to be notified or notify other users when such events take place in Artifactory.
@@ -219,12 +218,6 @@ func (i *ArtifactoryReleaseBundleCustomWebhook) ToArtifactoryReleaseBundleCustom
 	return pulumi.ToOutputWithContext(ctx, i).(ArtifactoryReleaseBundleCustomWebhookOutput)
 }
 
-func (i *ArtifactoryReleaseBundleCustomWebhook) ToOutput(ctx context.Context) pulumix.Output[*ArtifactoryReleaseBundleCustomWebhook] {
-	return pulumix.Output[*ArtifactoryReleaseBundleCustomWebhook]{
-		OutputState: i.ToArtifactoryReleaseBundleCustomWebhookOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ArtifactoryReleaseBundleCustomWebhookArrayInput is an input type that accepts ArtifactoryReleaseBundleCustomWebhookArray and ArtifactoryReleaseBundleCustomWebhookArrayOutput values.
 // You can construct a concrete instance of `ArtifactoryReleaseBundleCustomWebhookArrayInput` via:
 //
@@ -248,12 +241,6 @@ func (i ArtifactoryReleaseBundleCustomWebhookArray) ToArtifactoryReleaseBundleCu
 
 func (i ArtifactoryReleaseBundleCustomWebhookArray) ToArtifactoryReleaseBundleCustomWebhookArrayOutputWithContext(ctx context.Context) ArtifactoryReleaseBundleCustomWebhookArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ArtifactoryReleaseBundleCustomWebhookArrayOutput)
-}
-
-func (i ArtifactoryReleaseBundleCustomWebhookArray) ToOutput(ctx context.Context) pulumix.Output[[]*ArtifactoryReleaseBundleCustomWebhook] {
-	return pulumix.Output[[]*ArtifactoryReleaseBundleCustomWebhook]{
-		OutputState: i.ToArtifactoryReleaseBundleCustomWebhookArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ArtifactoryReleaseBundleCustomWebhookMapInput is an input type that accepts ArtifactoryReleaseBundleCustomWebhookMap and ArtifactoryReleaseBundleCustomWebhookMapOutput values.
@@ -281,12 +268,6 @@ func (i ArtifactoryReleaseBundleCustomWebhookMap) ToArtifactoryReleaseBundleCust
 	return pulumi.ToOutputWithContext(ctx, i).(ArtifactoryReleaseBundleCustomWebhookMapOutput)
 }
 
-func (i ArtifactoryReleaseBundleCustomWebhookMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ArtifactoryReleaseBundleCustomWebhook] {
-	return pulumix.Output[map[string]*ArtifactoryReleaseBundleCustomWebhook]{
-		OutputState: i.ToArtifactoryReleaseBundleCustomWebhookMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ArtifactoryReleaseBundleCustomWebhookOutput struct{ *pulumi.OutputState }
 
 func (ArtifactoryReleaseBundleCustomWebhookOutput) ElementType() reflect.Type {
@@ -299,12 +280,6 @@ func (o ArtifactoryReleaseBundleCustomWebhookOutput) ToArtifactoryReleaseBundleC
 
 func (o ArtifactoryReleaseBundleCustomWebhookOutput) ToArtifactoryReleaseBundleCustomWebhookOutputWithContext(ctx context.Context) ArtifactoryReleaseBundleCustomWebhookOutput {
 	return o
-}
-
-func (o ArtifactoryReleaseBundleCustomWebhookOutput) ToOutput(ctx context.Context) pulumix.Output[*ArtifactoryReleaseBundleCustomWebhook] {
-	return pulumix.Output[*ArtifactoryReleaseBundleCustomWebhook]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies where the webhook will be applied on which repositories.
@@ -355,12 +330,6 @@ func (o ArtifactoryReleaseBundleCustomWebhookArrayOutput) ToArtifactoryReleaseBu
 	return o
 }
 
-func (o ArtifactoryReleaseBundleCustomWebhookArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ArtifactoryReleaseBundleCustomWebhook] {
-	return pulumix.Output[[]*ArtifactoryReleaseBundleCustomWebhook]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ArtifactoryReleaseBundleCustomWebhookArrayOutput) Index(i pulumi.IntInput) ArtifactoryReleaseBundleCustomWebhookOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ArtifactoryReleaseBundleCustomWebhook {
 		return vs[0].([]*ArtifactoryReleaseBundleCustomWebhook)[vs[1].(int)]
@@ -379,12 +348,6 @@ func (o ArtifactoryReleaseBundleCustomWebhookMapOutput) ToArtifactoryReleaseBund
 
 func (o ArtifactoryReleaseBundleCustomWebhookMapOutput) ToArtifactoryReleaseBundleCustomWebhookMapOutputWithContext(ctx context.Context) ArtifactoryReleaseBundleCustomWebhookMapOutput {
 	return o
-}
-
-func (o ArtifactoryReleaseBundleCustomWebhookMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ArtifactoryReleaseBundleCustomWebhook] {
-	return pulumix.Output[map[string]*ArtifactoryReleaseBundleCustomWebhook]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ArtifactoryReleaseBundleCustomWebhookMapOutput) MapIndex(k pulumi.StringInput) ArtifactoryReleaseBundleCustomWebhookOutput {

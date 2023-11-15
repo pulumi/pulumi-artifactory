@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a local Hugging Face repository.
@@ -337,12 +336,6 @@ func (i *LocalHuggingfacemlRepository) ToLocalHuggingfacemlRepositoryOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(LocalHuggingfacemlRepositoryOutput)
 }
 
-func (i *LocalHuggingfacemlRepository) ToOutput(ctx context.Context) pulumix.Output[*LocalHuggingfacemlRepository] {
-	return pulumix.Output[*LocalHuggingfacemlRepository]{
-		OutputState: i.ToLocalHuggingfacemlRepositoryOutputWithContext(ctx).OutputState,
-	}
-}
-
 // LocalHuggingfacemlRepositoryArrayInput is an input type that accepts LocalHuggingfacemlRepositoryArray and LocalHuggingfacemlRepositoryArrayOutput values.
 // You can construct a concrete instance of `LocalHuggingfacemlRepositoryArrayInput` via:
 //
@@ -366,12 +359,6 @@ func (i LocalHuggingfacemlRepositoryArray) ToLocalHuggingfacemlRepositoryArrayOu
 
 func (i LocalHuggingfacemlRepositoryArray) ToLocalHuggingfacemlRepositoryArrayOutputWithContext(ctx context.Context) LocalHuggingfacemlRepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LocalHuggingfacemlRepositoryArrayOutput)
-}
-
-func (i LocalHuggingfacemlRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*LocalHuggingfacemlRepository] {
-	return pulumix.Output[[]*LocalHuggingfacemlRepository]{
-		OutputState: i.ToLocalHuggingfacemlRepositoryArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // LocalHuggingfacemlRepositoryMapInput is an input type that accepts LocalHuggingfacemlRepositoryMap and LocalHuggingfacemlRepositoryMapOutput values.
@@ -399,12 +386,6 @@ func (i LocalHuggingfacemlRepositoryMap) ToLocalHuggingfacemlRepositoryMapOutput
 	return pulumi.ToOutputWithContext(ctx, i).(LocalHuggingfacemlRepositoryMapOutput)
 }
 
-func (i LocalHuggingfacemlRepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LocalHuggingfacemlRepository] {
-	return pulumix.Output[map[string]*LocalHuggingfacemlRepository]{
-		OutputState: i.ToLocalHuggingfacemlRepositoryMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LocalHuggingfacemlRepositoryOutput struct{ *pulumi.OutputState }
 
 func (LocalHuggingfacemlRepositoryOutput) ElementType() reflect.Type {
@@ -417,12 +398,6 @@ func (o LocalHuggingfacemlRepositoryOutput) ToLocalHuggingfacemlRepositoryOutput
 
 func (o LocalHuggingfacemlRepositoryOutput) ToLocalHuggingfacemlRepositoryOutputWithContext(ctx context.Context) LocalHuggingfacemlRepositoryOutput {
 	return o
-}
-
-func (o LocalHuggingfacemlRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*LocalHuggingfacemlRepository] {
-	return pulumix.Output[*LocalHuggingfacemlRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 // When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -529,12 +504,6 @@ func (o LocalHuggingfacemlRepositoryArrayOutput) ToLocalHuggingfacemlRepositoryA
 	return o
 }
 
-func (o LocalHuggingfacemlRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LocalHuggingfacemlRepository] {
-	return pulumix.Output[[]*LocalHuggingfacemlRepository]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LocalHuggingfacemlRepositoryArrayOutput) Index(i pulumi.IntInput) LocalHuggingfacemlRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LocalHuggingfacemlRepository {
 		return vs[0].([]*LocalHuggingfacemlRepository)[vs[1].(int)]
@@ -553,12 +522,6 @@ func (o LocalHuggingfacemlRepositoryMapOutput) ToLocalHuggingfacemlRepositoryMap
 
 func (o LocalHuggingfacemlRepositoryMapOutput) ToLocalHuggingfacemlRepositoryMapOutputWithContext(ctx context.Context) LocalHuggingfacemlRepositoryMapOutput {
 	return o
-}
-
-func (o LocalHuggingfacemlRepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LocalHuggingfacemlRepository] {
-	return pulumix.Output[map[string]*LocalHuggingfacemlRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LocalHuggingfacemlRepositoryMapOutput) MapIndex(k pulumi.StringInput) LocalHuggingfacemlRepositoryOutput {

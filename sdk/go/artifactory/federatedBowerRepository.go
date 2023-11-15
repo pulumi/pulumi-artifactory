@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a federated Bower repository.
@@ -388,12 +387,6 @@ func (i *FederatedBowerRepository) ToFederatedBowerRepositoryOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedBowerRepositoryOutput)
 }
 
-func (i *FederatedBowerRepository) ToOutput(ctx context.Context) pulumix.Output[*FederatedBowerRepository] {
-	return pulumix.Output[*FederatedBowerRepository]{
-		OutputState: i.ToFederatedBowerRepositoryOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FederatedBowerRepositoryArrayInput is an input type that accepts FederatedBowerRepositoryArray and FederatedBowerRepositoryArrayOutput values.
 // You can construct a concrete instance of `FederatedBowerRepositoryArrayInput` via:
 //
@@ -417,12 +410,6 @@ func (i FederatedBowerRepositoryArray) ToFederatedBowerRepositoryArrayOutput() F
 
 func (i FederatedBowerRepositoryArray) ToFederatedBowerRepositoryArrayOutputWithContext(ctx context.Context) FederatedBowerRepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedBowerRepositoryArrayOutput)
-}
-
-func (i FederatedBowerRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*FederatedBowerRepository] {
-	return pulumix.Output[[]*FederatedBowerRepository]{
-		OutputState: i.ToFederatedBowerRepositoryArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // FederatedBowerRepositoryMapInput is an input type that accepts FederatedBowerRepositoryMap and FederatedBowerRepositoryMapOutput values.
@@ -450,12 +437,6 @@ func (i FederatedBowerRepositoryMap) ToFederatedBowerRepositoryMapOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedBowerRepositoryMapOutput)
 }
 
-func (i FederatedBowerRepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*FederatedBowerRepository] {
-	return pulumix.Output[map[string]*FederatedBowerRepository]{
-		OutputState: i.ToFederatedBowerRepositoryMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FederatedBowerRepositoryOutput struct{ *pulumi.OutputState }
 
 func (FederatedBowerRepositoryOutput) ElementType() reflect.Type {
@@ -468,12 +449,6 @@ func (o FederatedBowerRepositoryOutput) ToFederatedBowerRepositoryOutput() Feder
 
 func (o FederatedBowerRepositoryOutput) ToFederatedBowerRepositoryOutputWithContext(ctx context.Context) FederatedBowerRepositoryOutput {
 	return o
-}
-
-func (o FederatedBowerRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*FederatedBowerRepository] {
-	return pulumix.Output[*FederatedBowerRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 // When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -594,12 +569,6 @@ func (o FederatedBowerRepositoryArrayOutput) ToFederatedBowerRepositoryArrayOutp
 	return o
 }
 
-func (o FederatedBowerRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*FederatedBowerRepository] {
-	return pulumix.Output[[]*FederatedBowerRepository]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FederatedBowerRepositoryArrayOutput) Index(i pulumi.IntInput) FederatedBowerRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FederatedBowerRepository {
 		return vs[0].([]*FederatedBowerRepository)[vs[1].(int)]
@@ -618,12 +587,6 @@ func (o FederatedBowerRepositoryMapOutput) ToFederatedBowerRepositoryMapOutput()
 
 func (o FederatedBowerRepositoryMapOutput) ToFederatedBowerRepositoryMapOutputWithContext(ctx context.Context) FederatedBowerRepositoryMapOutput {
 	return o
-}
-
-func (o FederatedBowerRepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*FederatedBowerRepository] {
-	return pulumix.Output[map[string]*FederatedBowerRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FederatedBowerRepositoryMapOutput) MapIndex(k pulumi.StringInput) FederatedBowerRepositoryOutput {

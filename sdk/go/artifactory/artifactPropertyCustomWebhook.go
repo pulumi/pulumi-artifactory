@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an Artifactory custom webhook resource. This can be used to register and manage Artifactory webhook subscription which enables you to be notified or notify other users when such events take place in Artifactory.
@@ -225,12 +224,6 @@ func (i *ArtifactPropertyCustomWebhook) ToArtifactPropertyCustomWebhookOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ArtifactPropertyCustomWebhookOutput)
 }
 
-func (i *ArtifactPropertyCustomWebhook) ToOutput(ctx context.Context) pulumix.Output[*ArtifactPropertyCustomWebhook] {
-	return pulumix.Output[*ArtifactPropertyCustomWebhook]{
-		OutputState: i.ToArtifactPropertyCustomWebhookOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ArtifactPropertyCustomWebhookArrayInput is an input type that accepts ArtifactPropertyCustomWebhookArray and ArtifactPropertyCustomWebhookArrayOutput values.
 // You can construct a concrete instance of `ArtifactPropertyCustomWebhookArrayInput` via:
 //
@@ -254,12 +247,6 @@ func (i ArtifactPropertyCustomWebhookArray) ToArtifactPropertyCustomWebhookArray
 
 func (i ArtifactPropertyCustomWebhookArray) ToArtifactPropertyCustomWebhookArrayOutputWithContext(ctx context.Context) ArtifactPropertyCustomWebhookArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ArtifactPropertyCustomWebhookArrayOutput)
-}
-
-func (i ArtifactPropertyCustomWebhookArray) ToOutput(ctx context.Context) pulumix.Output[[]*ArtifactPropertyCustomWebhook] {
-	return pulumix.Output[[]*ArtifactPropertyCustomWebhook]{
-		OutputState: i.ToArtifactPropertyCustomWebhookArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ArtifactPropertyCustomWebhookMapInput is an input type that accepts ArtifactPropertyCustomWebhookMap and ArtifactPropertyCustomWebhookMapOutput values.
@@ -287,12 +274,6 @@ func (i ArtifactPropertyCustomWebhookMap) ToArtifactPropertyCustomWebhookMapOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ArtifactPropertyCustomWebhookMapOutput)
 }
 
-func (i ArtifactPropertyCustomWebhookMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ArtifactPropertyCustomWebhook] {
-	return pulumix.Output[map[string]*ArtifactPropertyCustomWebhook]{
-		OutputState: i.ToArtifactPropertyCustomWebhookMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ArtifactPropertyCustomWebhookOutput struct{ *pulumi.OutputState }
 
 func (ArtifactPropertyCustomWebhookOutput) ElementType() reflect.Type {
@@ -305,12 +286,6 @@ func (o ArtifactPropertyCustomWebhookOutput) ToArtifactPropertyCustomWebhookOutp
 
 func (o ArtifactPropertyCustomWebhookOutput) ToArtifactPropertyCustomWebhookOutputWithContext(ctx context.Context) ArtifactPropertyCustomWebhookOutput {
 	return o
-}
-
-func (o ArtifactPropertyCustomWebhookOutput) ToOutput(ctx context.Context) pulumix.Output[*ArtifactPropertyCustomWebhook] {
-	return pulumix.Output[*ArtifactPropertyCustomWebhook]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies where the webhook will be applied on which repositories.
@@ -359,12 +334,6 @@ func (o ArtifactPropertyCustomWebhookArrayOutput) ToArtifactPropertyCustomWebhoo
 	return o
 }
 
-func (o ArtifactPropertyCustomWebhookArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ArtifactPropertyCustomWebhook] {
-	return pulumix.Output[[]*ArtifactPropertyCustomWebhook]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ArtifactPropertyCustomWebhookArrayOutput) Index(i pulumi.IntInput) ArtifactPropertyCustomWebhookOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ArtifactPropertyCustomWebhook {
 		return vs[0].([]*ArtifactPropertyCustomWebhook)[vs[1].(int)]
@@ -383,12 +352,6 @@ func (o ArtifactPropertyCustomWebhookMapOutput) ToArtifactPropertyCustomWebhookM
 
 func (o ArtifactPropertyCustomWebhookMapOutput) ToArtifactPropertyCustomWebhookMapOutputWithContext(ctx context.Context) ArtifactPropertyCustomWebhookMapOutput {
 	return o
-}
-
-func (o ArtifactPropertyCustomWebhookMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ArtifactPropertyCustomWebhook] {
-	return pulumix.Output[map[string]*ArtifactPropertyCustomWebhook]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ArtifactPropertyCustomWebhookMapOutput) MapIndex(k pulumi.StringInput) ArtifactPropertyCustomWebhookOutput {

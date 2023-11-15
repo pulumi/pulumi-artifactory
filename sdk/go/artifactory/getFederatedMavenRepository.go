@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieves a federated Maven repository.
@@ -177,12 +176,6 @@ func (o LookupFederatedMavenRepositoryResultOutput) ToLookupFederatedMavenReposi
 
 func (o LookupFederatedMavenRepositoryResultOutput) ToLookupFederatedMavenRepositoryResultOutputWithContext(ctx context.Context) LookupFederatedMavenRepositoryResultOutput {
 	return o
-}
-
-func (o LookupFederatedMavenRepositoryResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupFederatedMavenRepositoryResult] {
-	return pulumix.Output[LookupFederatedMavenRepositoryResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupFederatedMavenRepositoryResultOutput) ArchiveBrowsingEnabled() pulumi.BoolPtrOutput {

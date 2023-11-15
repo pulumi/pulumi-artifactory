@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieves a federated Vagrant repository.
@@ -159,12 +158,6 @@ func (o LookupFederatedVagrantRepositoryResultOutput) ToLookupFederatedVagrantRe
 
 func (o LookupFederatedVagrantRepositoryResultOutput) ToLookupFederatedVagrantRepositoryResultOutputWithContext(ctx context.Context) LookupFederatedVagrantRepositoryResultOutput {
 	return o
-}
-
-func (o LookupFederatedVagrantRepositoryResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupFederatedVagrantRepositoryResult] {
-	return pulumix.Output[LookupFederatedVagrantRepositoryResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupFederatedVagrantRepositoryResultOutput) ArchiveBrowsingEnabled() pulumi.BoolPtrOutput {

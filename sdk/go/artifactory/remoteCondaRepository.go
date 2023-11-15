@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a remote Conda repository.
@@ -722,12 +721,6 @@ func (i *RemoteCondaRepository) ToRemoteCondaRepositoryOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(RemoteCondaRepositoryOutput)
 }
 
-func (i *RemoteCondaRepository) ToOutput(ctx context.Context) pulumix.Output[*RemoteCondaRepository] {
-	return pulumix.Output[*RemoteCondaRepository]{
-		OutputState: i.ToRemoteCondaRepositoryOutputWithContext(ctx).OutputState,
-	}
-}
-
 // RemoteCondaRepositoryArrayInput is an input type that accepts RemoteCondaRepositoryArray and RemoteCondaRepositoryArrayOutput values.
 // You can construct a concrete instance of `RemoteCondaRepositoryArrayInput` via:
 //
@@ -751,12 +744,6 @@ func (i RemoteCondaRepositoryArray) ToRemoteCondaRepositoryArrayOutput() RemoteC
 
 func (i RemoteCondaRepositoryArray) ToRemoteCondaRepositoryArrayOutputWithContext(ctx context.Context) RemoteCondaRepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RemoteCondaRepositoryArrayOutput)
-}
-
-func (i RemoteCondaRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*RemoteCondaRepository] {
-	return pulumix.Output[[]*RemoteCondaRepository]{
-		OutputState: i.ToRemoteCondaRepositoryArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // RemoteCondaRepositoryMapInput is an input type that accepts RemoteCondaRepositoryMap and RemoteCondaRepositoryMapOutput values.
@@ -784,12 +771,6 @@ func (i RemoteCondaRepositoryMap) ToRemoteCondaRepositoryMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(RemoteCondaRepositoryMapOutput)
 }
 
-func (i RemoteCondaRepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RemoteCondaRepository] {
-	return pulumix.Output[map[string]*RemoteCondaRepository]{
-		OutputState: i.ToRemoteCondaRepositoryMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RemoteCondaRepositoryOutput struct{ *pulumi.OutputState }
 
 func (RemoteCondaRepositoryOutput) ElementType() reflect.Type {
@@ -802,12 +783,6 @@ func (o RemoteCondaRepositoryOutput) ToRemoteCondaRepositoryOutput() RemoteConda
 
 func (o RemoteCondaRepositoryOutput) ToRemoteCondaRepositoryOutputWithContext(ctx context.Context) RemoteCondaRepositoryOutput {
 	return o
-}
-
-func (o RemoteCondaRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*RemoteCondaRepository] {
-	return pulumix.Output[*RemoteCondaRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 // 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any
@@ -1072,12 +1047,6 @@ func (o RemoteCondaRepositoryArrayOutput) ToRemoteCondaRepositoryArrayOutputWith
 	return o
 }
 
-func (o RemoteCondaRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RemoteCondaRepository] {
-	return pulumix.Output[[]*RemoteCondaRepository]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RemoteCondaRepositoryArrayOutput) Index(i pulumi.IntInput) RemoteCondaRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RemoteCondaRepository {
 		return vs[0].([]*RemoteCondaRepository)[vs[1].(int)]
@@ -1096,12 +1065,6 @@ func (o RemoteCondaRepositoryMapOutput) ToRemoteCondaRepositoryMapOutput() Remot
 
 func (o RemoteCondaRepositoryMapOutput) ToRemoteCondaRepositoryMapOutputWithContext(ctx context.Context) RemoteCondaRepositoryMapOutput {
 	return o
-}
-
-func (o RemoteCondaRepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RemoteCondaRepository] {
-	return pulumix.Output[map[string]*RemoteCondaRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RemoteCondaRepositoryMapOutput) MapIndex(k pulumi.StringInput) RemoteCondaRepositoryOutput {

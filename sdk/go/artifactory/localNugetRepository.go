@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a local Nuget repository.
@@ -372,12 +371,6 @@ func (i *LocalNugetRepository) ToLocalNugetRepositoryOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(LocalNugetRepositoryOutput)
 }
 
-func (i *LocalNugetRepository) ToOutput(ctx context.Context) pulumix.Output[*LocalNugetRepository] {
-	return pulumix.Output[*LocalNugetRepository]{
-		OutputState: i.ToLocalNugetRepositoryOutputWithContext(ctx).OutputState,
-	}
-}
-
 // LocalNugetRepositoryArrayInput is an input type that accepts LocalNugetRepositoryArray and LocalNugetRepositoryArrayOutput values.
 // You can construct a concrete instance of `LocalNugetRepositoryArrayInput` via:
 //
@@ -401,12 +394,6 @@ func (i LocalNugetRepositoryArray) ToLocalNugetRepositoryArrayOutput() LocalNuge
 
 func (i LocalNugetRepositoryArray) ToLocalNugetRepositoryArrayOutputWithContext(ctx context.Context) LocalNugetRepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LocalNugetRepositoryArrayOutput)
-}
-
-func (i LocalNugetRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*LocalNugetRepository] {
-	return pulumix.Output[[]*LocalNugetRepository]{
-		OutputState: i.ToLocalNugetRepositoryArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // LocalNugetRepositoryMapInput is an input type that accepts LocalNugetRepositoryMap and LocalNugetRepositoryMapOutput values.
@@ -434,12 +421,6 @@ func (i LocalNugetRepositoryMap) ToLocalNugetRepositoryMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(LocalNugetRepositoryMapOutput)
 }
 
-func (i LocalNugetRepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LocalNugetRepository] {
-	return pulumix.Output[map[string]*LocalNugetRepository]{
-		OutputState: i.ToLocalNugetRepositoryMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LocalNugetRepositoryOutput struct{ *pulumi.OutputState }
 
 func (LocalNugetRepositoryOutput) ElementType() reflect.Type {
@@ -452,12 +433,6 @@ func (o LocalNugetRepositoryOutput) ToLocalNugetRepositoryOutput() LocalNugetRep
 
 func (o LocalNugetRepositoryOutput) ToLocalNugetRepositoryOutputWithContext(ctx context.Context) LocalNugetRepositoryOutput {
 	return o
-}
-
-func (o LocalNugetRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*LocalNugetRepository] {
-	return pulumix.Output[*LocalNugetRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 // When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -577,12 +552,6 @@ func (o LocalNugetRepositoryArrayOutput) ToLocalNugetRepositoryArrayOutputWithCo
 	return o
 }
 
-func (o LocalNugetRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LocalNugetRepository] {
-	return pulumix.Output[[]*LocalNugetRepository]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LocalNugetRepositoryArrayOutput) Index(i pulumi.IntInput) LocalNugetRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LocalNugetRepository {
 		return vs[0].([]*LocalNugetRepository)[vs[1].(int)]
@@ -601,12 +570,6 @@ func (o LocalNugetRepositoryMapOutput) ToLocalNugetRepositoryMapOutput() LocalNu
 
 func (o LocalNugetRepositoryMapOutput) ToLocalNugetRepositoryMapOutputWithContext(ctx context.Context) LocalNugetRepositoryMapOutput {
 	return o
-}
-
-func (o LocalNugetRepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LocalNugetRepository] {
-	return pulumix.Output[map[string]*LocalNugetRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LocalNugetRepositoryMapOutput) MapIndex(k pulumi.StringInput) LocalNugetRepositoryOutput {

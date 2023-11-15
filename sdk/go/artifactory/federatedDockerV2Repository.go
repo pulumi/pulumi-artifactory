@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a federated Docker repository.
@@ -439,12 +438,6 @@ func (i *FederatedDockerV2Repository) ToFederatedDockerV2RepositoryOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedDockerV2RepositoryOutput)
 }
 
-func (i *FederatedDockerV2Repository) ToOutput(ctx context.Context) pulumix.Output[*FederatedDockerV2Repository] {
-	return pulumix.Output[*FederatedDockerV2Repository]{
-		OutputState: i.ToFederatedDockerV2RepositoryOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FederatedDockerV2RepositoryArrayInput is an input type that accepts FederatedDockerV2RepositoryArray and FederatedDockerV2RepositoryArrayOutput values.
 // You can construct a concrete instance of `FederatedDockerV2RepositoryArrayInput` via:
 //
@@ -468,12 +461,6 @@ func (i FederatedDockerV2RepositoryArray) ToFederatedDockerV2RepositoryArrayOutp
 
 func (i FederatedDockerV2RepositoryArray) ToFederatedDockerV2RepositoryArrayOutputWithContext(ctx context.Context) FederatedDockerV2RepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedDockerV2RepositoryArrayOutput)
-}
-
-func (i FederatedDockerV2RepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*FederatedDockerV2Repository] {
-	return pulumix.Output[[]*FederatedDockerV2Repository]{
-		OutputState: i.ToFederatedDockerV2RepositoryArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // FederatedDockerV2RepositoryMapInput is an input type that accepts FederatedDockerV2RepositoryMap and FederatedDockerV2RepositoryMapOutput values.
@@ -501,12 +488,6 @@ func (i FederatedDockerV2RepositoryMap) ToFederatedDockerV2RepositoryMapOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedDockerV2RepositoryMapOutput)
 }
 
-func (i FederatedDockerV2RepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*FederatedDockerV2Repository] {
-	return pulumix.Output[map[string]*FederatedDockerV2Repository]{
-		OutputState: i.ToFederatedDockerV2RepositoryMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FederatedDockerV2RepositoryOutput struct{ *pulumi.OutputState }
 
 func (FederatedDockerV2RepositoryOutput) ElementType() reflect.Type {
@@ -519,12 +500,6 @@ func (o FederatedDockerV2RepositoryOutput) ToFederatedDockerV2RepositoryOutput()
 
 func (o FederatedDockerV2RepositoryOutput) ToFederatedDockerV2RepositoryOutputWithContext(ctx context.Context) FederatedDockerV2RepositoryOutput {
 	return o
-}
-
-func (o FederatedDockerV2RepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*FederatedDockerV2Repository] {
-	return pulumix.Output[*FederatedDockerV2Repository]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Docker API version to use. This cannot be set
@@ -668,12 +643,6 @@ func (o FederatedDockerV2RepositoryArrayOutput) ToFederatedDockerV2RepositoryArr
 	return o
 }
 
-func (o FederatedDockerV2RepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*FederatedDockerV2Repository] {
-	return pulumix.Output[[]*FederatedDockerV2Repository]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FederatedDockerV2RepositoryArrayOutput) Index(i pulumi.IntInput) FederatedDockerV2RepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FederatedDockerV2Repository {
 		return vs[0].([]*FederatedDockerV2Repository)[vs[1].(int)]
@@ -692,12 +661,6 @@ func (o FederatedDockerV2RepositoryMapOutput) ToFederatedDockerV2RepositoryMapOu
 
 func (o FederatedDockerV2RepositoryMapOutput) ToFederatedDockerV2RepositoryMapOutputWithContext(ctx context.Context) FederatedDockerV2RepositoryMapOutput {
 	return o
-}
-
-func (o FederatedDockerV2RepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*FederatedDockerV2Repository] {
-	return pulumix.Output[map[string]*FederatedDockerV2Repository]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FederatedDockerV2RepositoryMapOutput) MapIndex(k pulumi.StringInput) FederatedDockerV2RepositoryOutput {

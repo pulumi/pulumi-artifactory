@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a local Pypi repository.
@@ -335,12 +334,6 @@ func (i *LocalPypiRepository) ToLocalPypiRepositoryOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(LocalPypiRepositoryOutput)
 }
 
-func (i *LocalPypiRepository) ToOutput(ctx context.Context) pulumix.Output[*LocalPypiRepository] {
-	return pulumix.Output[*LocalPypiRepository]{
-		OutputState: i.ToLocalPypiRepositoryOutputWithContext(ctx).OutputState,
-	}
-}
-
 // LocalPypiRepositoryArrayInput is an input type that accepts LocalPypiRepositoryArray and LocalPypiRepositoryArrayOutput values.
 // You can construct a concrete instance of `LocalPypiRepositoryArrayInput` via:
 //
@@ -364,12 +357,6 @@ func (i LocalPypiRepositoryArray) ToLocalPypiRepositoryArrayOutput() LocalPypiRe
 
 func (i LocalPypiRepositoryArray) ToLocalPypiRepositoryArrayOutputWithContext(ctx context.Context) LocalPypiRepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LocalPypiRepositoryArrayOutput)
-}
-
-func (i LocalPypiRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*LocalPypiRepository] {
-	return pulumix.Output[[]*LocalPypiRepository]{
-		OutputState: i.ToLocalPypiRepositoryArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // LocalPypiRepositoryMapInput is an input type that accepts LocalPypiRepositoryMap and LocalPypiRepositoryMapOutput values.
@@ -397,12 +384,6 @@ func (i LocalPypiRepositoryMap) ToLocalPypiRepositoryMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(LocalPypiRepositoryMapOutput)
 }
 
-func (i LocalPypiRepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LocalPypiRepository] {
-	return pulumix.Output[map[string]*LocalPypiRepository]{
-		OutputState: i.ToLocalPypiRepositoryMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LocalPypiRepositoryOutput struct{ *pulumi.OutputState }
 
 func (LocalPypiRepositoryOutput) ElementType() reflect.Type {
@@ -415,12 +396,6 @@ func (o LocalPypiRepositoryOutput) ToLocalPypiRepositoryOutput() LocalPypiReposi
 
 func (o LocalPypiRepositoryOutput) ToLocalPypiRepositoryOutputWithContext(ctx context.Context) LocalPypiRepositoryOutput {
 	return o
-}
-
-func (o LocalPypiRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*LocalPypiRepository] {
-	return pulumix.Output[*LocalPypiRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 // When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -527,12 +502,6 @@ func (o LocalPypiRepositoryArrayOutput) ToLocalPypiRepositoryArrayOutputWithCont
 	return o
 }
 
-func (o LocalPypiRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LocalPypiRepository] {
-	return pulumix.Output[[]*LocalPypiRepository]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LocalPypiRepositoryArrayOutput) Index(i pulumi.IntInput) LocalPypiRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LocalPypiRepository {
 		return vs[0].([]*LocalPypiRepository)[vs[1].(int)]
@@ -551,12 +520,6 @@ func (o LocalPypiRepositoryMapOutput) ToLocalPypiRepositoryMapOutput() LocalPypi
 
 func (o LocalPypiRepositoryMapOutput) ToLocalPypiRepositoryMapOutputWithContext(ctx context.Context) LocalPypiRepositoryMapOutput {
 	return o
-}
-
-func (o LocalPypiRepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LocalPypiRepository] {
-	return pulumix.Output[map[string]*LocalPypiRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LocalPypiRepositoryMapOutput) MapIndex(k pulumi.StringInput) LocalPypiRepositoryOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a remote Opkg repository.
@@ -722,12 +721,6 @@ func (i *RemoteOpkgRepository) ToRemoteOpkgRepositoryOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(RemoteOpkgRepositoryOutput)
 }
 
-func (i *RemoteOpkgRepository) ToOutput(ctx context.Context) pulumix.Output[*RemoteOpkgRepository] {
-	return pulumix.Output[*RemoteOpkgRepository]{
-		OutputState: i.ToRemoteOpkgRepositoryOutputWithContext(ctx).OutputState,
-	}
-}
-
 // RemoteOpkgRepositoryArrayInput is an input type that accepts RemoteOpkgRepositoryArray and RemoteOpkgRepositoryArrayOutput values.
 // You can construct a concrete instance of `RemoteOpkgRepositoryArrayInput` via:
 //
@@ -751,12 +744,6 @@ func (i RemoteOpkgRepositoryArray) ToRemoteOpkgRepositoryArrayOutput() RemoteOpk
 
 func (i RemoteOpkgRepositoryArray) ToRemoteOpkgRepositoryArrayOutputWithContext(ctx context.Context) RemoteOpkgRepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RemoteOpkgRepositoryArrayOutput)
-}
-
-func (i RemoteOpkgRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*RemoteOpkgRepository] {
-	return pulumix.Output[[]*RemoteOpkgRepository]{
-		OutputState: i.ToRemoteOpkgRepositoryArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // RemoteOpkgRepositoryMapInput is an input type that accepts RemoteOpkgRepositoryMap and RemoteOpkgRepositoryMapOutput values.
@@ -784,12 +771,6 @@ func (i RemoteOpkgRepositoryMap) ToRemoteOpkgRepositoryMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(RemoteOpkgRepositoryMapOutput)
 }
 
-func (i RemoteOpkgRepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RemoteOpkgRepository] {
-	return pulumix.Output[map[string]*RemoteOpkgRepository]{
-		OutputState: i.ToRemoteOpkgRepositoryMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RemoteOpkgRepositoryOutput struct{ *pulumi.OutputState }
 
 func (RemoteOpkgRepositoryOutput) ElementType() reflect.Type {
@@ -802,12 +783,6 @@ func (o RemoteOpkgRepositoryOutput) ToRemoteOpkgRepositoryOutput() RemoteOpkgRep
 
 func (o RemoteOpkgRepositoryOutput) ToRemoteOpkgRepositoryOutputWithContext(ctx context.Context) RemoteOpkgRepositoryOutput {
 	return o
-}
-
-func (o RemoteOpkgRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*RemoteOpkgRepository] {
-	return pulumix.Output[*RemoteOpkgRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 // 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any
@@ -1072,12 +1047,6 @@ func (o RemoteOpkgRepositoryArrayOutput) ToRemoteOpkgRepositoryArrayOutputWithCo
 	return o
 }
 
-func (o RemoteOpkgRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RemoteOpkgRepository] {
-	return pulumix.Output[[]*RemoteOpkgRepository]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RemoteOpkgRepositoryArrayOutput) Index(i pulumi.IntInput) RemoteOpkgRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RemoteOpkgRepository {
 		return vs[0].([]*RemoteOpkgRepository)[vs[1].(int)]
@@ -1096,12 +1065,6 @@ func (o RemoteOpkgRepositoryMapOutput) ToRemoteOpkgRepositoryMapOutput() RemoteO
 
 func (o RemoteOpkgRepositoryMapOutput) ToRemoteOpkgRepositoryMapOutputWithContext(ctx context.Context) RemoteOpkgRepositoryMapOutput {
 	return o
-}
-
-func (o RemoteOpkgRepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RemoteOpkgRepository] {
-	return pulumix.Output[map[string]*RemoteOpkgRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RemoteOpkgRepositoryMapOutput) MapIndex(k pulumi.StringInput) RemoteOpkgRepositoryOutput {

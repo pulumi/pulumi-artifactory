@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a virtual Alpine repository.
@@ -306,12 +305,6 @@ func (i *VirtualAlpineRepository) ToVirtualAlpineRepositoryOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualAlpineRepositoryOutput)
 }
 
-func (i *VirtualAlpineRepository) ToOutput(ctx context.Context) pulumix.Output[*VirtualAlpineRepository] {
-	return pulumix.Output[*VirtualAlpineRepository]{
-		OutputState: i.ToVirtualAlpineRepositoryOutputWithContext(ctx).OutputState,
-	}
-}
-
 // VirtualAlpineRepositoryArrayInput is an input type that accepts VirtualAlpineRepositoryArray and VirtualAlpineRepositoryArrayOutput values.
 // You can construct a concrete instance of `VirtualAlpineRepositoryArrayInput` via:
 //
@@ -335,12 +328,6 @@ func (i VirtualAlpineRepositoryArray) ToVirtualAlpineRepositoryArrayOutput() Vir
 
 func (i VirtualAlpineRepositoryArray) ToVirtualAlpineRepositoryArrayOutputWithContext(ctx context.Context) VirtualAlpineRepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualAlpineRepositoryArrayOutput)
-}
-
-func (i VirtualAlpineRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*VirtualAlpineRepository] {
-	return pulumix.Output[[]*VirtualAlpineRepository]{
-		OutputState: i.ToVirtualAlpineRepositoryArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // VirtualAlpineRepositoryMapInput is an input type that accepts VirtualAlpineRepositoryMap and VirtualAlpineRepositoryMapOutput values.
@@ -368,12 +355,6 @@ func (i VirtualAlpineRepositoryMap) ToVirtualAlpineRepositoryMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualAlpineRepositoryMapOutput)
 }
 
-func (i VirtualAlpineRepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VirtualAlpineRepository] {
-	return pulumix.Output[map[string]*VirtualAlpineRepository]{
-		OutputState: i.ToVirtualAlpineRepositoryMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VirtualAlpineRepositoryOutput struct{ *pulumi.OutputState }
 
 func (VirtualAlpineRepositoryOutput) ElementType() reflect.Type {
@@ -386,12 +367,6 @@ func (o VirtualAlpineRepositoryOutput) ToVirtualAlpineRepositoryOutput() Virtual
 
 func (o VirtualAlpineRepositoryOutput) ToVirtualAlpineRepositoryOutputWithContext(ctx context.Context) VirtualAlpineRepositoryOutput {
 	return o
-}
-
-func (o VirtualAlpineRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualAlpineRepository] {
-	return pulumix.Output[*VirtualAlpineRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
@@ -487,12 +462,6 @@ func (o VirtualAlpineRepositoryArrayOutput) ToVirtualAlpineRepositoryArrayOutput
 	return o
 }
 
-func (o VirtualAlpineRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VirtualAlpineRepository] {
-	return pulumix.Output[[]*VirtualAlpineRepository]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o VirtualAlpineRepositoryArrayOutput) Index(i pulumi.IntInput) VirtualAlpineRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VirtualAlpineRepository {
 		return vs[0].([]*VirtualAlpineRepository)[vs[1].(int)]
@@ -511,12 +480,6 @@ func (o VirtualAlpineRepositoryMapOutput) ToVirtualAlpineRepositoryMapOutput() V
 
 func (o VirtualAlpineRepositoryMapOutput) ToVirtualAlpineRepositoryMapOutputWithContext(ctx context.Context) VirtualAlpineRepositoryMapOutput {
 	return o
-}
-
-func (o VirtualAlpineRepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VirtualAlpineRepository] {
-	return pulumix.Output[map[string]*VirtualAlpineRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VirtualAlpineRepositoryMapOutput) MapIndex(k pulumi.StringInput) VirtualAlpineRepositoryOutput {

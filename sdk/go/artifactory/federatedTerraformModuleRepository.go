@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a federated Generic repository.
@@ -388,12 +387,6 @@ func (i *FederatedTerraformModuleRepository) ToFederatedTerraformModuleRepositor
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedTerraformModuleRepositoryOutput)
 }
 
-func (i *FederatedTerraformModuleRepository) ToOutput(ctx context.Context) pulumix.Output[*FederatedTerraformModuleRepository] {
-	return pulumix.Output[*FederatedTerraformModuleRepository]{
-		OutputState: i.ToFederatedTerraformModuleRepositoryOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FederatedTerraformModuleRepositoryArrayInput is an input type that accepts FederatedTerraformModuleRepositoryArray and FederatedTerraformModuleRepositoryArrayOutput values.
 // You can construct a concrete instance of `FederatedTerraformModuleRepositoryArrayInput` via:
 //
@@ -417,12 +410,6 @@ func (i FederatedTerraformModuleRepositoryArray) ToFederatedTerraformModuleRepos
 
 func (i FederatedTerraformModuleRepositoryArray) ToFederatedTerraformModuleRepositoryArrayOutputWithContext(ctx context.Context) FederatedTerraformModuleRepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedTerraformModuleRepositoryArrayOutput)
-}
-
-func (i FederatedTerraformModuleRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*FederatedTerraformModuleRepository] {
-	return pulumix.Output[[]*FederatedTerraformModuleRepository]{
-		OutputState: i.ToFederatedTerraformModuleRepositoryArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // FederatedTerraformModuleRepositoryMapInput is an input type that accepts FederatedTerraformModuleRepositoryMap and FederatedTerraformModuleRepositoryMapOutput values.
@@ -450,12 +437,6 @@ func (i FederatedTerraformModuleRepositoryMap) ToFederatedTerraformModuleReposit
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedTerraformModuleRepositoryMapOutput)
 }
 
-func (i FederatedTerraformModuleRepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*FederatedTerraformModuleRepository] {
-	return pulumix.Output[map[string]*FederatedTerraformModuleRepository]{
-		OutputState: i.ToFederatedTerraformModuleRepositoryMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FederatedTerraformModuleRepositoryOutput struct{ *pulumi.OutputState }
 
 func (FederatedTerraformModuleRepositoryOutput) ElementType() reflect.Type {
@@ -468,12 +449,6 @@ func (o FederatedTerraformModuleRepositoryOutput) ToFederatedTerraformModuleRepo
 
 func (o FederatedTerraformModuleRepositoryOutput) ToFederatedTerraformModuleRepositoryOutputWithContext(ctx context.Context) FederatedTerraformModuleRepositoryOutput {
 	return o
-}
-
-func (o FederatedTerraformModuleRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*FederatedTerraformModuleRepository] {
-	return pulumix.Output[*FederatedTerraformModuleRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 // When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -596,12 +571,6 @@ func (o FederatedTerraformModuleRepositoryArrayOutput) ToFederatedTerraformModul
 	return o
 }
 
-func (o FederatedTerraformModuleRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*FederatedTerraformModuleRepository] {
-	return pulumix.Output[[]*FederatedTerraformModuleRepository]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FederatedTerraformModuleRepositoryArrayOutput) Index(i pulumi.IntInput) FederatedTerraformModuleRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FederatedTerraformModuleRepository {
 		return vs[0].([]*FederatedTerraformModuleRepository)[vs[1].(int)]
@@ -620,12 +589,6 @@ func (o FederatedTerraformModuleRepositoryMapOutput) ToFederatedTerraformModuleR
 
 func (o FederatedTerraformModuleRepositoryMapOutput) ToFederatedTerraformModuleRepositoryMapOutputWithContext(ctx context.Context) FederatedTerraformModuleRepositoryMapOutput {
 	return o
-}
-
-func (o FederatedTerraformModuleRepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*FederatedTerraformModuleRepository] {
-	return pulumix.Output[map[string]*FederatedTerraformModuleRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FederatedTerraformModuleRepositoryMapOutput) MapIndex(k pulumi.StringInput) FederatedTerraformModuleRepositoryOutput {

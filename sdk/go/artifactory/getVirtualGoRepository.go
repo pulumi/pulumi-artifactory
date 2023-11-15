@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieves a virtual Go repository.
@@ -144,12 +143,6 @@ func (o GetVirtualGoRepositoryResultOutput) ToGetVirtualGoRepositoryResultOutput
 
 func (o GetVirtualGoRepositoryResultOutput) ToGetVirtualGoRepositoryResultOutputWithContext(ctx context.Context) GetVirtualGoRepositoryResultOutput {
 	return o
-}
-
-func (o GetVirtualGoRepositoryResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetVirtualGoRepositoryResult] {
-	return pulumix.Output[GetVirtualGoRepositoryResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetVirtualGoRepositoryResultOutput) ArtifactoryRequestsCanRetrieveRemoteArtifacts() pulumi.BoolPtrOutput {

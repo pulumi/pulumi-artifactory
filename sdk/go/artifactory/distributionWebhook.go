@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an Artifactory webhook resource. This can be used to register and manage Artifactory webhook subscription which enables you to be notified or notify other users when such events take place in Artifactory.
@@ -219,12 +218,6 @@ func (i *DistributionWebhook) ToDistributionWebhookOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionWebhookOutput)
 }
 
-func (i *DistributionWebhook) ToOutput(ctx context.Context) pulumix.Output[*DistributionWebhook] {
-	return pulumix.Output[*DistributionWebhook]{
-		OutputState: i.ToDistributionWebhookOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DistributionWebhookArrayInput is an input type that accepts DistributionWebhookArray and DistributionWebhookArrayOutput values.
 // You can construct a concrete instance of `DistributionWebhookArrayInput` via:
 //
@@ -248,12 +241,6 @@ func (i DistributionWebhookArray) ToDistributionWebhookArrayOutput() Distributio
 
 func (i DistributionWebhookArray) ToDistributionWebhookArrayOutputWithContext(ctx context.Context) DistributionWebhookArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionWebhookArrayOutput)
-}
-
-func (i DistributionWebhookArray) ToOutput(ctx context.Context) pulumix.Output[[]*DistributionWebhook] {
-	return pulumix.Output[[]*DistributionWebhook]{
-		OutputState: i.ToDistributionWebhookArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // DistributionWebhookMapInput is an input type that accepts DistributionWebhookMap and DistributionWebhookMapOutput values.
@@ -281,12 +268,6 @@ func (i DistributionWebhookMap) ToDistributionWebhookMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionWebhookMapOutput)
 }
 
-func (i DistributionWebhookMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DistributionWebhook] {
-	return pulumix.Output[map[string]*DistributionWebhook]{
-		OutputState: i.ToDistributionWebhookMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DistributionWebhookOutput struct{ *pulumi.OutputState }
 
 func (DistributionWebhookOutput) ElementType() reflect.Type {
@@ -299,12 +280,6 @@ func (o DistributionWebhookOutput) ToDistributionWebhookOutput() DistributionWeb
 
 func (o DistributionWebhookOutput) ToDistributionWebhookOutputWithContext(ctx context.Context) DistributionWebhookOutput {
 	return o
-}
-
-func (o DistributionWebhookOutput) ToOutput(ctx context.Context) pulumix.Output[*DistributionWebhook] {
-	return pulumix.Output[*DistributionWebhook]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies where the webhook will be applied on which repositories.
@@ -351,12 +326,6 @@ func (o DistributionWebhookArrayOutput) ToDistributionWebhookArrayOutputWithCont
 	return o
 }
 
-func (o DistributionWebhookArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DistributionWebhook] {
-	return pulumix.Output[[]*DistributionWebhook]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DistributionWebhookArrayOutput) Index(i pulumi.IntInput) DistributionWebhookOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DistributionWebhook {
 		return vs[0].([]*DistributionWebhook)[vs[1].(int)]
@@ -375,12 +344,6 @@ func (o DistributionWebhookMapOutput) ToDistributionWebhookMapOutput() Distribut
 
 func (o DistributionWebhookMapOutput) ToDistributionWebhookMapOutputWithContext(ctx context.Context) DistributionWebhookMapOutput {
 	return o
-}
-
-func (o DistributionWebhookMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DistributionWebhook] {
-	return pulumix.Output[map[string]*DistributionWebhook]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DistributionWebhookMapOutput) MapIndex(k pulumi.StringInput) DistributionWebhookOutput {

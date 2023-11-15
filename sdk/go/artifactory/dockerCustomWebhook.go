@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an Artifactory custom webhook resource. This can be used to register and manage Artifactory webhook subscription which enables you to be notified or notify other users when such events take place in Artifactory.
@@ -226,12 +225,6 @@ func (i *DockerCustomWebhook) ToDockerCustomWebhookOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(DockerCustomWebhookOutput)
 }
 
-func (i *DockerCustomWebhook) ToOutput(ctx context.Context) pulumix.Output[*DockerCustomWebhook] {
-	return pulumix.Output[*DockerCustomWebhook]{
-		OutputState: i.ToDockerCustomWebhookOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DockerCustomWebhookArrayInput is an input type that accepts DockerCustomWebhookArray and DockerCustomWebhookArrayOutput values.
 // You can construct a concrete instance of `DockerCustomWebhookArrayInput` via:
 //
@@ -255,12 +248,6 @@ func (i DockerCustomWebhookArray) ToDockerCustomWebhookArrayOutput() DockerCusto
 
 func (i DockerCustomWebhookArray) ToDockerCustomWebhookArrayOutputWithContext(ctx context.Context) DockerCustomWebhookArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DockerCustomWebhookArrayOutput)
-}
-
-func (i DockerCustomWebhookArray) ToOutput(ctx context.Context) pulumix.Output[[]*DockerCustomWebhook] {
-	return pulumix.Output[[]*DockerCustomWebhook]{
-		OutputState: i.ToDockerCustomWebhookArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // DockerCustomWebhookMapInput is an input type that accepts DockerCustomWebhookMap and DockerCustomWebhookMapOutput values.
@@ -288,12 +275,6 @@ func (i DockerCustomWebhookMap) ToDockerCustomWebhookMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(DockerCustomWebhookMapOutput)
 }
 
-func (i DockerCustomWebhookMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DockerCustomWebhook] {
-	return pulumix.Output[map[string]*DockerCustomWebhook]{
-		OutputState: i.ToDockerCustomWebhookMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DockerCustomWebhookOutput struct{ *pulumi.OutputState }
 
 func (DockerCustomWebhookOutput) ElementType() reflect.Type {
@@ -306,12 +287,6 @@ func (o DockerCustomWebhookOutput) ToDockerCustomWebhookOutput() DockerCustomWeb
 
 func (o DockerCustomWebhookOutput) ToDockerCustomWebhookOutputWithContext(ctx context.Context) DockerCustomWebhookOutput {
 	return o
-}
-
-func (o DockerCustomWebhookOutput) ToOutput(ctx context.Context) pulumix.Output[*DockerCustomWebhook] {
-	return pulumix.Output[*DockerCustomWebhook]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies where the webhook will be applied on which repositories.
@@ -358,12 +333,6 @@ func (o DockerCustomWebhookArrayOutput) ToDockerCustomWebhookArrayOutputWithCont
 	return o
 }
 
-func (o DockerCustomWebhookArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DockerCustomWebhook] {
-	return pulumix.Output[[]*DockerCustomWebhook]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DockerCustomWebhookArrayOutput) Index(i pulumi.IntInput) DockerCustomWebhookOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DockerCustomWebhook {
 		return vs[0].([]*DockerCustomWebhook)[vs[1].(int)]
@@ -382,12 +351,6 @@ func (o DockerCustomWebhookMapOutput) ToDockerCustomWebhookMapOutput() DockerCus
 
 func (o DockerCustomWebhookMapOutput) ToDockerCustomWebhookMapOutputWithContext(ctx context.Context) DockerCustomWebhookMapOutput {
 	return o
-}
-
-func (o DockerCustomWebhookMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DockerCustomWebhook] {
-	return pulumix.Output[map[string]*DockerCustomWebhook]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DockerCustomWebhookMapOutput) MapIndex(k pulumi.StringInput) DockerCustomWebhookOutput {

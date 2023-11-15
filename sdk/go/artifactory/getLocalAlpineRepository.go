@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 func GetLocalAlpineRepository(ctx *pulumi.Context, args *GetLocalAlpineRepositoryArgs, opts ...pulumi.InvokeOption) (*GetLocalAlpineRepositoryResult, error) {
@@ -118,12 +117,6 @@ func (o GetLocalAlpineRepositoryResultOutput) ToGetLocalAlpineRepositoryResultOu
 
 func (o GetLocalAlpineRepositoryResultOutput) ToGetLocalAlpineRepositoryResultOutputWithContext(ctx context.Context) GetLocalAlpineRepositoryResultOutput {
 	return o
-}
-
-func (o GetLocalAlpineRepositoryResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetLocalAlpineRepositoryResult] {
-	return pulumix.Output[GetLocalAlpineRepositoryResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetLocalAlpineRepositoryResultOutput) ArchiveBrowsingEnabled() pulumi.BoolPtrOutput {

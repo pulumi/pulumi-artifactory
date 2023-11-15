@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieves a remote VCS repository.
@@ -240,12 +239,6 @@ func (o LookupRemoteVcsRepositoryResultOutput) ToLookupRemoteVcsRepositoryResult
 
 func (o LookupRemoteVcsRepositoryResultOutput) ToLookupRemoteVcsRepositoryResultOutputWithContext(ctx context.Context) LookupRemoteVcsRepositoryResultOutput {
 	return o
-}
-
-func (o LookupRemoteVcsRepositoryResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupRemoteVcsRepositoryResult] {
-	return pulumix.Output[LookupRemoteVcsRepositoryResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupRemoteVcsRepositoryResultOutput) AllowAnyHostAuth() pulumi.BoolPtrOutput {

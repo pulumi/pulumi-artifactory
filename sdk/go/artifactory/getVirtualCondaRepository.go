@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieves a virtual Conda repository.
@@ -135,12 +134,6 @@ func (o LookupVirtualCondaRepositoryResultOutput) ToLookupVirtualCondaRepository
 
 func (o LookupVirtualCondaRepositoryResultOutput) ToLookupVirtualCondaRepositoryResultOutputWithContext(ctx context.Context) LookupVirtualCondaRepositoryResultOutput {
 	return o
-}
-
-func (o LookupVirtualCondaRepositoryResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupVirtualCondaRepositoryResult] {
-	return pulumix.Output[LookupVirtualCondaRepositoryResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupVirtualCondaRepositoryResultOutput) ArtifactoryRequestsCanRetrieveRemoteArtifacts() pulumi.BoolPtrOutput {

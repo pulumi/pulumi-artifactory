@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieves a remote Pub repository.
@@ -222,12 +221,6 @@ func (o LookupRemotePubRepositoryResultOutput) ToLookupRemotePubRepositoryResult
 
 func (o LookupRemotePubRepositoryResultOutput) ToLookupRemotePubRepositoryResultOutputWithContext(ctx context.Context) LookupRemotePubRepositoryResultOutput {
 	return o
-}
-
-func (o LookupRemotePubRepositoryResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupRemotePubRepositoryResult] {
-	return pulumix.Output[LookupRemotePubRepositoryResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupRemotePubRepositoryResultOutput) AllowAnyHostAuth() pulumi.BoolPtrOutput {
