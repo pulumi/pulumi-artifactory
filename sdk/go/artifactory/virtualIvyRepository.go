@@ -83,7 +83,7 @@ type VirtualIvyRepository struct {
 	// Internal description.
 	Notes       pulumi.StringPtrOutput `pulumi:"notes"`
 	PackageType pulumi.StringOutput    `pulumi:"packageType"`
-	// - (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
+	// (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
 	// - (2: discard_any_reference) Discard Any References - Removes all repository elements regardless of whether they are included in an active profile or not.
 	// - (3: nothing) Nothing - Does not remove any repository elements declared in the POM.
 	PomRepositoryReferencesCleanupPolicy pulumi.StringOutput `pulumi:"pomRepositoryReferencesCleanupPolicy"`
@@ -158,7 +158,7 @@ type virtualIvyRepositoryState struct {
 	// Internal description.
 	Notes       *string `pulumi:"notes"`
 	PackageType *string `pulumi:"packageType"`
-	// - (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
+	// (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
 	// - (2: discard_any_reference) Discard Any References - Removes all repository elements regardless of whether they are included in an active profile or not.
 	// - (3: nothing) Nothing - Does not remove any repository elements declared in the POM.
 	PomRepositoryReferencesCleanupPolicy *string `pulumi:"pomRepositoryReferencesCleanupPolicy"`
@@ -201,7 +201,7 @@ type VirtualIvyRepositoryState struct {
 	// Internal description.
 	Notes       pulumi.StringPtrInput
 	PackageType pulumi.StringPtrInput
-	// - (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
+	// (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
 	// - (2: discard_any_reference) Discard Any References - Removes all repository elements regardless of whether they are included in an active profile or not.
 	// - (3: nothing) Nothing - Does not remove any repository elements declared in the POM.
 	PomRepositoryReferencesCleanupPolicy pulumi.StringPtrInput
@@ -247,7 +247,7 @@ type virtualIvyRepositoryArgs struct {
 	KeyPair *string `pulumi:"keyPair"`
 	// Internal description.
 	Notes *string `pulumi:"notes"`
-	// - (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
+	// (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
 	// - (2: discard_any_reference) Discard Any References - Removes all repository elements regardless of whether they are included in an active profile or not.
 	// - (3: nothing) Nothing - Does not remove any repository elements declared in the POM.
 	PomRepositoryReferencesCleanupPolicy *string `pulumi:"pomRepositoryReferencesCleanupPolicy"`
@@ -290,7 +290,7 @@ type VirtualIvyRepositoryArgs struct {
 	KeyPair pulumi.StringPtrInput
 	// Internal description.
 	Notes pulumi.StringPtrInput
-	// - (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
+	// (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
 	// - (2: discard_any_reference) Discard Any References - Removes all repository elements regardless of whether they are included in an active profile or not.
 	// - (3: nothing) Nothing - Does not remove any repository elements declared in the POM.
 	PomRepositoryReferencesCleanupPolicy pulumi.StringPtrInput
@@ -451,7 +451,7 @@ func (o VirtualIvyRepositoryOutput) PackageType() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualIvyRepository) pulumi.StringOutput { return v.PackageType }).(pulumi.StringOutput)
 }
 
-// - (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
+// (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
 // - (2: discard_any_reference) Discard Any References - Removes all repository elements regardless of whether they are included in an active profile or not.
 // - (3: nothing) Nothing - Does not remove any repository elements declared in the POM.
 func (o VirtualIvyRepositoryOutput) PomRepositoryReferencesCleanupPolicy() pulumi.StringOutput {

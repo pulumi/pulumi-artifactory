@@ -44,7 +44,7 @@ class VirtualGradleRepositoryArgs:
                used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         :param pulumi.Input[str] key_pair: The keypair used to sign artifacts.
         :param pulumi.Input[str] notes: Internal description.
-        :param pulumi.Input[str] pom_repository_references_cleanup_policy: - (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
+        :param pulumi.Input[str] pom_repository_references_cleanup_policy: (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
                - (2: discard_any_reference) Discard Any References - Removes all repository elements regardless of whether they are included in an active profile or not.
                - (3: nothing) Nothing - Does not remove any repository elements declared in the POM.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
@@ -201,7 +201,7 @@ class VirtualGradleRepositoryArgs:
     @pulumi.getter(name="pomRepositoryReferencesCleanupPolicy")
     def pom_repository_references_cleanup_policy(self) -> Optional[pulumi.Input[str]]:
         """
-        - (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
+        (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
         - (2: discard_any_reference) Discard Any References - Removes all repository elements regardless of whether they are included in an active profile or not.
         - (3: nothing) Nothing - Does not remove any repository elements declared in the POM.
         """
@@ -298,7 +298,7 @@ class _VirtualGradleRepositoryState:
                contain spaces or special characters.
         :param pulumi.Input[str] key_pair: The keypair used to sign artifacts.
         :param pulumi.Input[str] notes: Internal description.
-        :param pulumi.Input[str] pom_repository_references_cleanup_policy: - (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
+        :param pulumi.Input[str] pom_repository_references_cleanup_policy: (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
                - (2: discard_any_reference) Discard Any References - Removes all repository elements regardless of whether they are included in an active profile or not.
                - (3: nothing) Nothing - Does not remove any repository elements declared in the POM.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
@@ -467,7 +467,7 @@ class _VirtualGradleRepositoryState:
     @pulumi.getter(name="pomRepositoryReferencesCleanupPolicy")
     def pom_repository_references_cleanup_policy(self) -> Optional[pulumi.Input[str]]:
         """
-        - (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
+        (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
         - (2: discard_any_reference) Discard Any References - Removes all repository elements regardless of whether they are included in an active profile or not.
         - (3: nothing) Nothing - Does not remove any repository elements declared in the POM.
         """
@@ -594,7 +594,7 @@ class VirtualGradleRepository(pulumi.CustomResource):
                contain spaces or special characters.
         :param pulumi.Input[str] key_pair: The keypair used to sign artifacts.
         :param pulumi.Input[str] notes: Internal description.
-        :param pulumi.Input[str] pom_repository_references_cleanup_policy: - (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
+        :param pulumi.Input[str] pom_repository_references_cleanup_policy: (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
                - (2: discard_any_reference) Discard Any References - Removes all repository elements regardless of whether they are included in an active profile or not.
                - (3: nothing) Nothing - Does not remove any repository elements declared in the POM.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
@@ -741,7 +741,7 @@ class VirtualGradleRepository(pulumi.CustomResource):
                contain spaces or special characters.
         :param pulumi.Input[str] key_pair: The keypair used to sign artifacts.
         :param pulumi.Input[str] notes: Internal description.
-        :param pulumi.Input[str] pom_repository_references_cleanup_policy: - (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
+        :param pulumi.Input[str] pom_repository_references_cleanup_policy: (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
                - (2: discard_any_reference) Discard Any References - Removes all repository elements regardless of whether they are included in an active profile or not.
                - (3: nothing) Nothing - Does not remove any repository elements declared in the POM.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV", "PROD", or one of custom environment. Before
@@ -860,7 +860,7 @@ class VirtualGradleRepository(pulumi.CustomResource):
     @pulumi.getter(name="pomRepositoryReferencesCleanupPolicy")
     def pom_repository_references_cleanup_policy(self) -> pulumi.Output[str]:
         """
-        - (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
+        (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
         - (2: discard_any_reference) Discard Any References - Removes all repository elements regardless of whether they are included in an active profile or not.
         - (3: nothing) Nothing - Does not remove any repository elements declared in the POM.
         """

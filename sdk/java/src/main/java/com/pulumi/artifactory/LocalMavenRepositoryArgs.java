@@ -71,9 +71,6 @@ public final class LocalMavenRepositoryArgs extends com.pulumi.resources.Resourc
 
     /**
      * Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or conflicts with the locally calculated checksum (bad checksum). The options are:
-     * - `client-checksums`
-     * - `server-generated-checksums`.
-     *   For more details, please refer to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy).
      * 
      */
     @Import(name="checksumPolicyType")
@@ -81,9 +78,6 @@ public final class LocalMavenRepositoryArgs extends com.pulumi.resources.Resourc
 
     /**
      * @return Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or conflicts with the locally calculated checksum (bad checksum). The options are:
-     * - `client-checksums`
-     * - `server-generated-checksums`.
-     *   For more details, please refer to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy).
      * 
      */
     public Optional<Output<String>> checksumPolicyType() {
@@ -486,9 +480,6 @@ public final class LocalMavenRepositoryArgs extends com.pulumi.resources.Resourc
 
         /**
          * @param checksumPolicyType Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or conflicts with the locally calculated checksum (bad checksum). The options are:
-         * - `client-checksums`
-         * - `server-generated-checksums`.
-         *   For more details, please refer to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy).
          * 
          * @return builder
          * 
@@ -500,9 +491,6 @@ public final class LocalMavenRepositoryArgs extends com.pulumi.resources.Resourc
 
         /**
          * @param checksumPolicyType Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or conflicts with the locally calculated checksum (bad checksum). The options are:
-         * - `client-checksums`
-         * - `server-generated-checksums`.
-         *   For more details, please refer to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy).
          * 
          * @return builder
          * 

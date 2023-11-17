@@ -16,7 +16,7 @@ public final class PropertySetPropertyPredefinedValue {
      */
     private Boolean defaultValue;
     /**
-     * @return Predefined property name.
+     * @return Property set name.
      * 
      */
     private String name;
@@ -30,7 +30,7 @@ public final class PropertySetPropertyPredefinedValue {
         return this.defaultValue;
     }
     /**
-     * @return Predefined property name.
+     * @return Property set name.
      * 
      */
     public String name() {

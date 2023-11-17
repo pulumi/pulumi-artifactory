@@ -77,7 +77,7 @@ export class LocalGradleRepository extends pulumi.CustomResource {
     public readonly cdnRedirect!: pulumi.Output<boolean | undefined>;
     /**
      * Checksum policy determines how Artifactory behaves when a client checksum for a deployed
-     * resource is missing or conflicts with the locally calculated checksum (bad checksum). The options are
+     * resource is missing or conflicts with the locally calculated checksum (bad checksum). The options are 
      * `client-checksums` and `generated-checksums`. For more details,
      * please refer to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy).
      */
@@ -254,7 +254,7 @@ export interface LocalGradleRepositoryState {
     cdnRedirect?: pulumi.Input<boolean>;
     /**
      * Checksum policy determines how Artifactory behaves when a client checksum for a deployed
-     * resource is missing or conflicts with the locally calculated checksum (bad checksum). The options are
+     * resource is missing or conflicts with the locally calculated checksum (bad checksum). The options are 
      * `client-checksums` and `generated-checksums`. For more details,
      * please refer to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy).
      */
@@ -364,7 +364,7 @@ export interface LocalGradleRepositoryArgs {
     cdnRedirect?: pulumi.Input<boolean>;
     /**
      * Checksum policy determines how Artifactory behaves when a client checksum for a deployed
-     * resource is missing or conflicts with the locally calculated checksum (bad checksum). The options are
+     * resource is missing or conflicts with the locally calculated checksum (bad checksum). The options are 
      * `client-checksums` and `generated-checksums`. For more details,
      * please refer to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy).
      */

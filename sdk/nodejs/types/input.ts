@@ -43,7 +43,7 @@ export interface ArtifactCustomWebhookHandler {
      */
     proxy?: pulumi.Input<string>;
     /**
-     * Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example: 
+     * Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
      *
      * ```typescript
      * import * as pulumi from "@pulumi/pulumi";
@@ -2590,7 +2590,7 @@ export interface PropertySetProperty {
      */
     multipleChoice?: pulumi.Input<boolean>;
     /**
-     * Predefined property name.
+     * The name pf the property.
      */
     name: pulumi.Input<string>;
     /**
@@ -2605,7 +2605,7 @@ export interface PropertySetPropertyPredefinedValue {
      */
     defaultValue: pulumi.Input<boolean>;
     /**
-     * Predefined property name.
+     * Property set name.
      */
     name: pulumi.Input<string>;
 }

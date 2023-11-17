@@ -25,7 +25,7 @@ namespace Pulumi.Artifactory.Inputs
         public Input<bool>? MultipleChoice { get; set; }
 
         /// <summary>
-        /// Predefined property name.
+        /// The name pf the property.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

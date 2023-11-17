@@ -51,7 +51,7 @@ class DockerV2RepositoryArgs:
         :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
                used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         :param pulumi.Input[int] max_unique_tags: The maximum number of unique tags of a single Docker image to store in this 
-               repository. Once the number tags for an image exceeds this setting, older tags are removed.
+               repository. Once the number tags for an image exceeds this setting, older tags are removed. 
                A value of 0 (default) indicates there is no limit. This only applies to manifest v2.
         :param pulumi.Input[str] notes: Internal description.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
@@ -224,7 +224,7 @@ class DockerV2RepositoryArgs:
     def max_unique_tags(self) -> Optional[pulumi.Input[int]]:
         """
         The maximum number of unique tags of a single Docker image to store in this 
-        repository. Once the number tags for an image exceeds this setting, older tags are removed.
+        repository. Once the number tags for an image exceeds this setting, older tags are removed. 
         A value of 0 (default) indicates there is no limit. This only applies to manifest v2.
         """
         return pulumi.get(self, "max_unique_tags")
@@ -379,7 +379,7 @@ class _DockerV2RepositoryState:
                used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         :param pulumi.Input[str] key: the identity key of the repo.
         :param pulumi.Input[int] max_unique_tags: The maximum number of unique tags of a single Docker image to store in this 
-               repository. Once the number tags for an image exceeds this setting, older tags are removed.
+               repository. Once the number tags for an image exceeds this setting, older tags are removed. 
                A value of 0 (default) indicates there is no limit. This only applies to manifest v2.
         :param pulumi.Input[str] notes: Internal description.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
@@ -569,7 +569,7 @@ class _DockerV2RepositoryState:
     def max_unique_tags(self) -> Optional[pulumi.Input[int]]:
         """
         The maximum number of unique tags of a single Docker image to store in this 
-        repository. Once the number tags for an image exceeds this setting, older tags are removed.
+        repository. Once the number tags for an image exceeds this setting, older tags are removed. 
         A value of 0 (default) indicates there is no limit. This only applies to manifest v2.
         """
         return pulumi.get(self, "max_unique_tags")
@@ -756,7 +756,7 @@ class DockerV2Repository(pulumi.CustomResource):
                used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         :param pulumi.Input[str] key: the identity key of the repo.
         :param pulumi.Input[int] max_unique_tags: The maximum number of unique tags of a single Docker image to store in this 
-               repository. Once the number tags for an image exceeds this setting, older tags are removed.
+               repository. Once the number tags for an image exceeds this setting, older tags are removed. 
                A value of 0 (default) indicates there is no limit. This only applies to manifest v2.
         :param pulumi.Input[str] notes: Internal description.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
@@ -921,7 +921,7 @@ class DockerV2Repository(pulumi.CustomResource):
                used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         :param pulumi.Input[str] key: the identity key of the repo.
         :param pulumi.Input[int] max_unique_tags: The maximum number of unique tags of a single Docker image to store in this 
-               repository. Once the number tags for an image exceeds this setting, older tags are removed.
+               repository. Once the number tags for an image exceeds this setting, older tags are removed. 
                A value of 0 (default) indicates there is no limit. This only applies to manifest v2.
         :param pulumi.Input[str] notes: Internal description.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
@@ -1056,7 +1056,7 @@ class DockerV2Repository(pulumi.CustomResource):
     def max_unique_tags(self) -> pulumi.Output[Optional[int]]:
         """
         The maximum number of unique tags of a single Docker image to store in this 
-        repository. Once the number tags for an image exceeds this setting, older tags are removed.
+        repository. Once the number tags for an image exceeds this setting, older tags are removed. 
         A value of 0 (default) indicates there is no limit. This only applies to manifest v2.
         """
         return pulumi.get(self, "max_unique_tags")

@@ -96,14 +96,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="artifactory:index/propertySet:PropertySet")
 public class PropertySet extends com.pulumi.resources.CustomResource {
     /**
-     * Predefined property name.
+     * Property set name.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Predefined property name.
+     * @return Property set name.
      * 
      */
     public Output<String> name() {

@@ -346,7 +346,7 @@ class ArtifactCustomWebhookHandler(dict):
         :param str url: Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
         :param Mapping[str, str] http_headers: HTTP headers you wish to use to invoke the Webhook, comprise key/value pair.
         :param str proxy: Proxy key from Artifactory UI (Administration > Proxies > Configuration).
-        :param Mapping[str, str] secrets: Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example: 
+        :param Mapping[str, str] secrets: Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
                
                ```python
                import pulumi
@@ -395,7 +395,7 @@ class ArtifactCustomWebhookHandler(dict):
     @pulumi.getter
     def secrets(self) -> Optional[Mapping[str, str]]:
         """
-        Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example: 
+        Defines a set of sensitive values (such as, tokens and passwords) that can be injected in the headers and/or payload.Secrets’ values are encrypted. In the header/payload, the value can be invoked using the `{{.secrets.token}}` format, where token is the name provided for the secret value. Comprise key/value pair. **Note:** if multiple handlers are used, same secret name and different secret value for the same url won't work. Example:
 
         ```python
         import pulumi
@@ -3950,7 +3950,7 @@ class PropertySetProperty(dict):
                  closed_predefined_values: Optional[bool] = None,
                  multiple_choice: Optional[bool] = None):
         """
-        :param str name: Predefined property name.
+        :param str name: The name pf the property.
         :param Sequence['PropertySetPropertyPredefinedValueArgs'] predefined_values: Properties in the property set.
         :param bool closed_predefined_values: Disables `multiple_choice` if set to `false` at the same time with multiple_choice set to `true`. Default value is `false`
         :param bool multiple_choice: Defines if user can select multiple values. `closed_predefined_values` should be set to `true`. Default value is `false`.
@@ -3966,7 +3966,7 @@ class PropertySetProperty(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        Predefined property name.
+        The name pf the property.
         """
         return pulumi.get(self, "name")
 
@@ -4019,7 +4019,7 @@ class PropertySetPropertyPredefinedValue(dict):
                  name: str):
         """
         :param bool default_value: Whether the value is selected by default in the UI.
-        :param str name: Predefined property name.
+        :param str name: Property set name.
         """
         pulumi.set(__self__, "default_value", default_value)
         pulumi.set(__self__, "name", name)
@@ -4036,7 +4036,7 @@ class PropertySetPropertyPredefinedValue(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        Predefined property name.
+        Property set name.
         """
         return pulumi.get(self, "name")
 

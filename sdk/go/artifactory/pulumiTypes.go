@@ -9541,7 +9541,7 @@ type PropertySetProperty struct {
 	ClosedPredefinedValues *bool `pulumi:"closedPredefinedValues"`
 	// Defines if user can select multiple values. `closedPredefinedValues` should be set to `true`. Default value is `false`.
 	MultipleChoice *bool `pulumi:"multipleChoice"`
-	// Predefined property name.
+	// The name pf the property.
 	Name string `pulumi:"name"`
 	// Properties in the property set.
 	PredefinedValues []PropertySetPropertyPredefinedValue `pulumi:"predefinedValues"`
@@ -9563,7 +9563,7 @@ type PropertySetPropertyArgs struct {
 	ClosedPredefinedValues pulumi.BoolPtrInput `pulumi:"closedPredefinedValues"`
 	// Defines if user can select multiple values. `closedPredefinedValues` should be set to `true`. Default value is `false`.
 	MultipleChoice pulumi.BoolPtrInput `pulumi:"multipleChoice"`
-	// Predefined property name.
+	// The name pf the property.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Properties in the property set.
 	PredefinedValues PropertySetPropertyPredefinedValueArrayInput `pulumi:"predefinedValues"`
@@ -9630,7 +9630,7 @@ func (o PropertySetPropertyOutput) MultipleChoice() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PropertySetProperty) *bool { return v.MultipleChoice }).(pulumi.BoolPtrOutput)
 }
 
-// Predefined property name.
+// The name pf the property.
 func (o PropertySetPropertyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PropertySetProperty) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -9663,7 +9663,7 @@ func (o PropertySetPropertyArrayOutput) Index(i pulumi.IntInput) PropertySetProp
 type PropertySetPropertyPredefinedValue struct {
 	// Whether the value is selected by default in the UI.
 	DefaultValue bool `pulumi:"defaultValue"`
-	// Predefined property name.
+	// Property set name.
 	Name string `pulumi:"name"`
 }
 
@@ -9681,7 +9681,7 @@ type PropertySetPropertyPredefinedValueInput interface {
 type PropertySetPropertyPredefinedValueArgs struct {
 	// Whether the value is selected by default in the UI.
 	DefaultValue pulumi.BoolInput `pulumi:"defaultValue"`
-	// Predefined property name.
+	// Property set name.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -9741,7 +9741,7 @@ func (o PropertySetPropertyPredefinedValueOutput) DefaultValue() pulumi.BoolOutp
 	return o.ApplyT(func(v PropertySetPropertyPredefinedValue) bool { return v.DefaultValue }).(pulumi.BoolOutput)
 }
 
-// Predefined property name.
+// Property set name.
 func (o PropertySetPropertyPredefinedValueOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PropertySetPropertyPredefinedValue) string { return v.Name }).(pulumi.StringOutput)
 }

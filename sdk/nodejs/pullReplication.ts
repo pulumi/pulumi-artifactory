@@ -116,7 +116,7 @@ export class PullReplication extends pulumi.CustomResource {
     public readonly syncStatistics!: pulumi.Output<boolean>;
     /**
      * The URL of the target local repository on a remote Artifactory server. For some package types, you need to prefix the repository key in the URL with api/<pkg>. 
-     * For a list of package types where this is required, see the [note](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-anchorPREFIX).
+     * For a list of package types where this is required, see the [note](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-anchorPREFIX). 
      * Required for local repository, but not needed for remote repository.
      */
     public readonly url!: pulumi.Output<string | undefined>;
@@ -231,7 +231,7 @@ export interface PullReplicationState {
     syncStatistics?: pulumi.Input<boolean>;
     /**
      * The URL of the target local repository on a remote Artifactory server. For some package types, you need to prefix the repository key in the URL with api/<pkg>. 
-     * For a list of package types where this is required, see the [note](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-anchorPREFIX).
+     * For a list of package types where this is required, see the [note](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-anchorPREFIX). 
      * Required for local repository, but not needed for remote repository.
      */
     url?: pulumi.Input<string>;
@@ -293,7 +293,7 @@ export interface PullReplicationArgs {
     syncStatistics?: pulumi.Input<boolean>;
     /**
      * The URL of the target local repository on a remote Artifactory server. For some package types, you need to prefix the repository key in the URL with api/<pkg>. 
-     * For a list of package types where this is required, see the [note](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-anchorPREFIX).
+     * For a list of package types where this is required, see the [note](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-anchorPREFIX). 
      * Required for local repository, but not needed for remote repository.
      */
     url?: pulumi.Input<string>;

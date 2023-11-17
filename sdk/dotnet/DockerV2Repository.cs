@@ -112,7 +112,7 @@ namespace Pulumi.Artifactory
 
         /// <summary>
         /// The maximum number of unique tags of a single Docker image to store in this 
-        /// repository. Once the number tags for an image exceeds this setting, older tags are removed.
+        /// repository. Once the number tags for an image exceeds this setting, older tags are removed. 
         /// A value of 0 (default) indicates there is no limit. This only applies to manifest v2.
         /// </summary>
         [Output("maxUniqueTags")]
@@ -284,7 +284,7 @@ namespace Pulumi.Artifactory
 
         /// <summary>
         /// The maximum number of unique tags of a single Docker image to store in this 
-        /// repository. Once the number tags for an image exceeds this setting, older tags are removed.
+        /// repository. Once the number tags for an image exceeds this setting, older tags are removed. 
         /// A value of 0 (default) indicates there is no limit. This only applies to manifest v2.
         /// </summary>
         [Input("maxUniqueTags")]
@@ -433,7 +433,7 @@ namespace Pulumi.Artifactory
 
         /// <summary>
         /// The maximum number of unique tags of a single Docker image to store in this 
-        /// repository. Once the number tags for an image exceeds this setting, older tags are removed.
+        /// repository. Once the number tags for an image exceeds this setting, older tags are removed. 
         /// A value of 0 (default) indicates there is no limit. This only applies to manifest v2.
         /// </summary>
         [Input("maxUniqueTags")]

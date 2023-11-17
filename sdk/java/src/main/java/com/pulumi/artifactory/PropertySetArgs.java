@@ -19,14 +19,14 @@ public final class PropertySetArgs extends com.pulumi.resources.ResourceArgs {
     public static final PropertySetArgs Empty = new PropertySetArgs();
 
     /**
-     * Predefined property name.
+     * Property set name.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Predefined property name.
+     * @return Property set name.
      * 
      */
     public Optional<Output<String>> name() {
@@ -90,7 +90,7 @@ public final class PropertySetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Predefined property name.
+         * @param name Property set name.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class PropertySetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Predefined property name.
+         * @param name Property set name.
          * 
          * @return builder
          * 

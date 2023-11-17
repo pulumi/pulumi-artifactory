@@ -68,9 +68,6 @@ type LocalMavenRepository struct {
 	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
 	CdnRedirect pulumi.BoolPtrOutput `pulumi:"cdnRedirect"`
 	// Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or conflicts with the locally calculated checksum (bad checksum). The options are:
-	// - `client-checksums`
-	// - `server-generated-checksums`.
-	//   For more details, please refer to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy).
 	ChecksumPolicyType pulumi.StringPtrOutput `pulumi:"checksumPolicyType"`
 	// Public description.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -165,9 +162,6 @@ type localMavenRepositoryState struct {
 	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
 	CdnRedirect *bool `pulumi:"cdnRedirect"`
 	// Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or conflicts with the locally calculated checksum (bad checksum). The options are:
-	// - `client-checksums`
-	// - `server-generated-checksums`.
-	//   For more details, please refer to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy).
 	ChecksumPolicyType *string `pulumi:"checksumPolicyType"`
 	// Public description.
 	Description *string `pulumi:"description"`
@@ -230,9 +224,6 @@ type LocalMavenRepositoryState struct {
 	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
 	CdnRedirect pulumi.BoolPtrInput
 	// Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or conflicts with the locally calculated checksum (bad checksum). The options are:
-	// - `client-checksums`
-	// - `server-generated-checksums`.
-	//   For more details, please refer to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy).
 	ChecksumPolicyType pulumi.StringPtrInput
 	// Public description.
 	Description pulumi.StringPtrInput
@@ -299,9 +290,6 @@ type localMavenRepositoryArgs struct {
 	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
 	CdnRedirect *bool `pulumi:"cdnRedirect"`
 	// Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or conflicts with the locally calculated checksum (bad checksum). The options are:
-	// - `client-checksums`
-	// - `server-generated-checksums`.
-	//   For more details, please refer to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy).
 	ChecksumPolicyType *string `pulumi:"checksumPolicyType"`
 	// Public description.
 	Description *string `pulumi:"description"`
@@ -364,9 +352,6 @@ type LocalMavenRepositoryArgs struct {
 	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
 	CdnRedirect pulumi.BoolPtrInput
 	// Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or conflicts with the locally calculated checksum (bad checksum). The options are:
-	// - `client-checksums`
-	// - `server-generated-checksums`.
-	//   For more details, please refer to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy).
 	ChecksumPolicyType pulumi.StringPtrInput
 	// Public description.
 	Description pulumi.StringPtrInput
@@ -523,9 +508,6 @@ func (o LocalMavenRepositoryOutput) CdnRedirect() pulumi.BoolPtrOutput {
 }
 
 // Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or conflicts with the locally calculated checksum (bad checksum). The options are:
-//   - `client-checksums`
-//   - `server-generated-checksums`.
-//     For more details, please refer to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy).
 func (o LocalMavenRepositoryOutput) ChecksumPolicyType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LocalMavenRepository) pulumi.StringPtrOutput { return v.ChecksumPolicyType }).(pulumi.StringPtrOutput)
 }

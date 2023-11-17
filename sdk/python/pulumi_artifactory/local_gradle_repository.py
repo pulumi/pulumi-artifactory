@@ -45,7 +45,7 @@ class LocalGradleRepositoryArgs:
         :param pulumi.Input[bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS
                CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         :param pulumi.Input[str] checksum_policy_type: Checksum policy determines how Artifactory behaves when a client checksum for a deployed
-               resource is missing or conflicts with the locally calculated checksum (bad checksum). The options are
+               resource is missing or conflicts with the locally calculated checksum (bad checksum). The options are 
                `client-checksums` and `generated-checksums`. For more details,
                please refer to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy).
         :param pulumi.Input[str] description: Public description.
@@ -176,7 +176,7 @@ class LocalGradleRepositoryArgs:
     def checksum_policy_type(self) -> Optional[pulumi.Input[str]]:
         """
         Checksum policy determines how Artifactory behaves when a client checksum for a deployed
-        resource is missing or conflicts with the locally calculated checksum (bad checksum). The options are
+        resource is missing or conflicts with the locally calculated checksum (bad checksum). The options are 
         `client-checksums` and `generated-checksums`. For more details,
         please refer to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy).
         """
@@ -426,7 +426,7 @@ class _LocalGradleRepositoryState:
         :param pulumi.Input[bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS
                CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         :param pulumi.Input[str] checksum_policy_type: Checksum policy determines how Artifactory behaves when a client checksum for a deployed
-               resource is missing or conflicts with the locally calculated checksum (bad checksum). The options are
+               resource is missing or conflicts with the locally calculated checksum (bad checksum). The options are 
                `client-checksums` and `generated-checksums`. For more details,
                please refer to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy).
         :param pulumi.Input[str] description: Public description.
@@ -549,7 +549,7 @@ class _LocalGradleRepositoryState:
     def checksum_policy_type(self) -> Optional[pulumi.Input[str]]:
         """
         Checksum policy determines how Artifactory behaves when a client checksum for a deployed
-        resource is missing or conflicts with the locally calculated checksum (bad checksum). The options are
+        resource is missing or conflicts with the locally calculated checksum (bad checksum). The options are 
         `client-checksums` and `generated-checksums`. For more details,
         please refer to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy).
         """
@@ -849,7 +849,7 @@ class LocalGradleRepository(pulumi.CustomResource):
         :param pulumi.Input[bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS
                CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         :param pulumi.Input[str] checksum_policy_type: Checksum policy determines how Artifactory behaves when a client checksum for a deployed
-               resource is missing or conflicts with the locally calculated checksum (bad checksum). The options are
+               resource is missing or conflicts with the locally calculated checksum (bad checksum). The options are 
                `client-checksums` and `generated-checksums`. For more details,
                please refer to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy).
         :param pulumi.Input[str] description: Public description.
@@ -1031,7 +1031,7 @@ class LocalGradleRepository(pulumi.CustomResource):
         :param pulumi.Input[bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS
                CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         :param pulumi.Input[str] checksum_policy_type: Checksum policy determines how Artifactory behaves when a client checksum for a deployed
-               resource is missing or conflicts with the locally calculated checksum (bad checksum). The options are
+               resource is missing or conflicts with the locally calculated checksum (bad checksum). The options are 
                `client-checksums` and `generated-checksums`. For more details,
                please refer to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy).
         :param pulumi.Input[str] description: Public description.
@@ -1125,7 +1125,7 @@ class LocalGradleRepository(pulumi.CustomResource):
     def checksum_policy_type(self) -> pulumi.Output[Optional[str]]:
         """
         Checksum policy determines how Artifactory behaves when a client checksum for a deployed
-        resource is missing or conflicts with the locally calculated checksum (bad checksum). The options are
+        resource is missing or conflicts with the locally calculated checksum (bad checksum). The options are 
         `client-checksums` and `generated-checksums`. For more details,
         please refer to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy).
         """

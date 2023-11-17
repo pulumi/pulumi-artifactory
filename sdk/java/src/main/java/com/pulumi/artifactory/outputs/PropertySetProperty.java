@@ -25,7 +25,7 @@ public final class PropertySetProperty {
      */
     private @Nullable Boolean multipleChoice;
     /**
-     * @return Predefined property name.
+     * @return The name pf the property.
      * 
      */
     private String name;
@@ -51,7 +51,7 @@ public final class PropertySetProperty {
         return Optional.ofNullable(this.multipleChoice);
     }
     /**
-     * @return Predefined property name.
+     * @return The name pf the property.
      * 
      */
     public String name() {

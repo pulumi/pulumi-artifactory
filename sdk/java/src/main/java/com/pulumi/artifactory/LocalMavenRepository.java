@@ -117,9 +117,6 @@ public class LocalMavenRepository extends com.pulumi.resources.CustomResource {
     }
     /**
      * Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or conflicts with the locally calculated checksum (bad checksum). The options are:
-     * - `client-checksums`
-     * - `server-generated-checksums`.
-     *   For more details, please refer to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy).
      * 
      */
     @Export(name="checksumPolicyType", refs={String.class}, tree="[0]")
@@ -127,9 +124,6 @@ public class LocalMavenRepository extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or conflicts with the locally calculated checksum (bad checksum). The options are:
-     * - `client-checksums`
-     * - `server-generated-checksums`.
-     *   For more details, please refer to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy).
      * 
      */
     public Output<Optional<String>> checksumPolicyType() {

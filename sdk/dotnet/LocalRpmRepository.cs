@@ -203,7 +203,7 @@ namespace Pulumi.Artifactory
 
         /// <summary>
         /// A comma separated list of XML file names containing RPM group component definitions. 
-        /// Artifactory includes the group definitions as part of the calculated RPM metadata, as well as automatically
+        /// Artifactory includes the group definitions as part of the calculated RPM metadata, as well as automatically 
         /// generating a gzipped version of the group files, if required. Default is empty string.
         /// </summary>
         [Output("yumGroupFileNames")]
@@ -211,9 +211,9 @@ namespace Pulumi.Artifactory
 
         /// <summary>
         /// The depth, relative to the repository's root folder, where RPM metadata is created. 
-        /// This is useful when your repository contains multiple RPM repositories under parallel hierarchies. For example, if
-        /// your RPMs are stored under 'fedora/linux/$releasever/$basearch', specify a depth of 4. Once the number of snapshots
-        /// exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique
+        /// This is useful when your repository contains multiple RPM repositories under parallel hierarchies. For example, if 
+        /// your RPMs are stored under 'fedora/linux/$releasever/$basearch', specify a depth of 4. Once the number of snapshots 
+        /// exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique 
         /// snapshots are not cleaned up.
         /// </summary>
         [Output("yumRootDepth")]
@@ -404,7 +404,7 @@ namespace Pulumi.Artifactory
 
         /// <summary>
         /// A comma separated list of XML file names containing RPM group component definitions. 
-        /// Artifactory includes the group definitions as part of the calculated RPM metadata, as well as automatically
+        /// Artifactory includes the group definitions as part of the calculated RPM metadata, as well as automatically 
         /// generating a gzipped version of the group files, if required. Default is empty string.
         /// </summary>
         [Input("yumGroupFileNames")]
@@ -412,9 +412,9 @@ namespace Pulumi.Artifactory
 
         /// <summary>
         /// The depth, relative to the repository's root folder, where RPM metadata is created. 
-        /// This is useful when your repository contains multiple RPM repositories under parallel hierarchies. For example, if
-        /// your RPMs are stored under 'fedora/linux/$releasever/$basearch', specify a depth of 4. Once the number of snapshots
-        /// exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique
+        /// This is useful when your repository contains multiple RPM repositories under parallel hierarchies. For example, if 
+        /// your RPMs are stored under 'fedora/linux/$releasever/$basearch', specify a depth of 4. Once the number of snapshots 
+        /// exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique 
         /// snapshots are not cleaned up.
         /// </summary>
         [Input("yumRootDepth")]
@@ -570,7 +570,7 @@ namespace Pulumi.Artifactory
 
         /// <summary>
         /// A comma separated list of XML file names containing RPM group component definitions. 
-        /// Artifactory includes the group definitions as part of the calculated RPM metadata, as well as automatically
+        /// Artifactory includes the group definitions as part of the calculated RPM metadata, as well as automatically 
         /// generating a gzipped version of the group files, if required. Default is empty string.
         /// </summary>
         [Input("yumGroupFileNames")]
@@ -578,9 +578,9 @@ namespace Pulumi.Artifactory
 
         /// <summary>
         /// The depth, relative to the repository's root folder, where RPM metadata is created. 
-        /// This is useful when your repository contains multiple RPM repositories under parallel hierarchies. For example, if
-        /// your RPMs are stored under 'fedora/linux/$releasever/$basearch', specify a depth of 4. Once the number of snapshots
-        /// exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique
+        /// This is useful when your repository contains multiple RPM repositories under parallel hierarchies. For example, if 
+        /// your RPMs are stored under 'fedora/linux/$releasever/$basearch', specify a depth of 4. Once the number of snapshots 
+        /// exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique 
         /// snapshots are not cleaned up.
         /// </summary>
         [Input("yumRootDepth")]

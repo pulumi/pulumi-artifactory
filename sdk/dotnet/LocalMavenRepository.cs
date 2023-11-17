@@ -70,9 +70,6 @@ namespace Pulumi.Artifactory
 
         /// <summary>
         /// Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or conflicts with the locally calculated checksum (bad checksum). The options are:
-        /// - `client-checksums`
-        /// - `server-generated-checksums`.
-        /// For more details, please refer to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy).
         /// </summary>
         [Output("checksumPolicyType")]
         public Output<string?> ChecksumPolicyType { get; private set; } = null!;
@@ -264,9 +261,6 @@ namespace Pulumi.Artifactory
 
         /// <summary>
         /// Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or conflicts with the locally calculated checksum (bad checksum). The options are:
-        /// - `client-checksums`
-        /// - `server-generated-checksums`.
-        /// For more details, please refer to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy).
         /// </summary>
         [Input("checksumPolicyType")]
         public Input<string>? ChecksumPolicyType { get; set; }
@@ -429,9 +423,6 @@ namespace Pulumi.Artifactory
 
         /// <summary>
         /// Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or conflicts with the locally calculated checksum (bad checksum). The options are:
-        /// - `client-checksums`
-        /// - `server-generated-checksums`.
-        /// For more details, please refer to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy).
         /// </summary>
         [Input("checksumPolicyType")]
         public Input<string>? ChecksumPolicyType { get; set; }

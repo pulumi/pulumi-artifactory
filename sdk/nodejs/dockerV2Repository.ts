@@ -105,7 +105,7 @@ export class DockerV2Repository extends pulumi.CustomResource {
     public readonly key!: pulumi.Output<string>;
     /**
      * The maximum number of unique tags of a single Docker image to store in this 
-     * repository. Once the number tags for an image exceeds this setting, older tags are removed.
+     * repository. Once the number tags for an image exceeds this setting, older tags are removed. 
      * A value of 0 (default) indicates there is no limit. This only applies to manifest v2.
      */
     public readonly maxUniqueTags!: pulumi.Output<number | undefined>;
@@ -266,7 +266,7 @@ export interface DockerV2RepositoryState {
     key?: pulumi.Input<string>;
     /**
      * The maximum number of unique tags of a single Docker image to store in this 
-     * repository. Once the number tags for an image exceeds this setting, older tags are removed.
+     * repository. Once the number tags for an image exceeds this setting, older tags are removed. 
      * A value of 0 (default) indicates there is no limit. This only applies to manifest v2.
      */
     maxUniqueTags?: pulumi.Input<number>;
@@ -360,7 +360,7 @@ export interface DockerV2RepositoryArgs {
     key: pulumi.Input<string>;
     /**
      * The maximum number of unique tags of a single Docker image to store in this 
-     * repository. Once the number tags for an image exceeds this setting, older tags are removed.
+     * repository. Once the number tags for an image exceeds this setting, older tags are removed. 
      * A value of 0 (default) indicates there is no limit. This only applies to manifest v2.
      */
     maxUniqueTags?: pulumi.Input<number>;
