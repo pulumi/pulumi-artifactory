@@ -80,6 +80,8 @@ type RemoteNpmRepository struct {
 	// Client TLS certificate name.
 	ClientTlsCertificate   pulumi.StringOutput                             `pulumi:"clientTlsCertificate"`
 	ContentSynchronisation RemoteNpmRepositoryContentSynchronisationOutput `pulumi:"contentSynchronisation"`
+	// Enable repository to be protected by the Curation service.
+	Curated pulumi.BoolPtrOutput `pulumi:"curated"`
 	// Public description.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
@@ -242,6 +244,8 @@ type remoteNpmRepositoryState struct {
 	// Client TLS certificate name.
 	ClientTlsCertificate   *string                                    `pulumi:"clientTlsCertificate"`
 	ContentSynchronisation *RemoteNpmRepositoryContentSynchronisation `pulumi:"contentSynchronisation"`
+	// Enable repository to be protected by the Curation service.
+	Curated *bool `pulumi:"curated"`
 	// Public description.
 	Description *string `pulumi:"description"`
 	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
@@ -362,6 +366,8 @@ type RemoteNpmRepositoryState struct {
 	// Client TLS certificate name.
 	ClientTlsCertificate   pulumi.StringPtrInput
 	ContentSynchronisation RemoteNpmRepositoryContentSynchronisationPtrInput
+	// Enable repository to be protected by the Curation service.
+	Curated pulumi.BoolPtrInput
 	// Public description.
 	Description pulumi.StringPtrInput
 	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
@@ -486,6 +492,8 @@ type remoteNpmRepositoryArgs struct {
 	// Client TLS certificate name.
 	ClientTlsCertificate   *string                                    `pulumi:"clientTlsCertificate"`
 	ContentSynchronisation *RemoteNpmRepositoryContentSynchronisation `pulumi:"contentSynchronisation"`
+	// Enable repository to be protected by the Curation service.
+	Curated *bool `pulumi:"curated"`
 	// Public description.
 	Description *string `pulumi:"description"`
 	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
@@ -606,6 +614,8 @@ type RemoteNpmRepositoryArgs struct {
 	// Client TLS certificate name.
 	ClientTlsCertificate   pulumi.StringPtrInput
 	ContentSynchronisation RemoteNpmRepositoryContentSynchronisationPtrInput
+	// Enable repository to be protected by the Curation service.
+	Curated pulumi.BoolPtrInput
 	// Public description.
 	Description pulumi.StringPtrInput
 	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
@@ -835,6 +845,11 @@ func (o RemoteNpmRepositoryOutput) ContentSynchronisation() RemoteNpmRepositoryC
 	return o.ApplyT(func(v *RemoteNpmRepository) RemoteNpmRepositoryContentSynchronisationOutput {
 		return v.ContentSynchronisation
 	}).(RemoteNpmRepositoryContentSynchronisationOutput)
+}
+
+// Enable repository to be protected by the Curation service.
+func (o RemoteNpmRepositoryOutput) Curated() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RemoteNpmRepository) pulumi.BoolPtrOutput { return v.Curated }).(pulumi.BoolPtrOutput)
 }
 
 // Public description.

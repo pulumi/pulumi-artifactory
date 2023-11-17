@@ -29,6 +29,7 @@ export function getFederatedDebianRepository(args: GetFederatedDebianRepositoryA
         "cdnRedirect": args.cdnRedirect,
         "cleanupOnDelete": args.cleanupOnDelete,
         "description": args.description,
+        "disableProxy": args.disableProxy,
         "downloadDirect": args.downloadDirect,
         "excludesPattern": args.excludesPattern,
         "includesPattern": args.includesPattern,
@@ -41,6 +42,7 @@ export function getFederatedDebianRepository(args: GetFederatedDebianRepositoryA
         "projectEnvironments": args.projectEnvironments,
         "projectKey": args.projectKey,
         "propertySets": args.propertySets,
+        "proxy": args.proxy,
         "repoLayoutRef": args.repoLayoutRef,
         "secondaryKeypairRef": args.secondaryKeypairRef,
         "trivialLayout": args.trivialLayout,
@@ -57,6 +59,10 @@ export interface GetFederatedDebianRepositoryArgs {
     cdnRedirect?: boolean;
     cleanupOnDelete?: boolean;
     description?: string;
+    /**
+     * When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
+     */
+    disableProxy?: boolean;
     downloadDirect?: boolean;
     excludesPattern?: string;
     includesPattern?: string;
@@ -78,6 +84,10 @@ export interface GetFederatedDebianRepositoryArgs {
     projectEnvironments?: string[];
     projectKey?: string;
     propertySets?: string[];
+    /**
+     * Proxy key from Artifactory Proxies settings.
+     */
+    proxy?: string;
     repoLayoutRef?: string;
     secondaryKeypairRef?: string;
     /**
@@ -96,6 +106,10 @@ export interface GetFederatedDebianRepositoryResult {
     readonly cdnRedirect?: boolean;
     readonly cleanupOnDelete?: boolean;
     readonly description?: string;
+    /**
+     * When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
+     */
+    readonly disableProxy?: boolean;
     readonly downloadDirect?: boolean;
     readonly excludesPattern?: string;
     /**
@@ -119,6 +133,10 @@ export interface GetFederatedDebianRepositoryResult {
     readonly projectEnvironments: string[];
     readonly projectKey?: string;
     readonly propertySets?: string[];
+    /**
+     * Proxy key from Artifactory Proxies settings.
+     */
+    readonly proxy?: string;
     readonly repoLayoutRef?: string;
     readonly secondaryKeypairRef?: string;
     /**
@@ -154,6 +172,10 @@ export interface GetFederatedDebianRepositoryOutputArgs {
     cdnRedirect?: pulumi.Input<boolean>;
     cleanupOnDelete?: pulumi.Input<boolean>;
     description?: pulumi.Input<string>;
+    /**
+     * When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
+     */
+    disableProxy?: pulumi.Input<boolean>;
     downloadDirect?: pulumi.Input<boolean>;
     excludesPattern?: pulumi.Input<string>;
     includesPattern?: pulumi.Input<string>;
@@ -175,6 +197,10 @@ export interface GetFederatedDebianRepositoryOutputArgs {
     projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
     projectKey?: pulumi.Input<string>;
     propertySets?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Proxy key from Artifactory Proxies settings.
+     */
+    proxy?: pulumi.Input<string>;
     repoLayoutRef?: pulumi.Input<string>;
     secondaryKeypairRef?: pulumi.Input<string>;
     /**

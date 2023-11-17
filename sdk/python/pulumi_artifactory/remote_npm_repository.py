@@ -26,6 +26,7 @@ class RemoteNpmRepositoryArgs:
                  cdn_redirect: Optional[pulumi.Input[bool]] = None,
                  client_tls_certificate: Optional[pulumi.Input[str]] = None,
                  content_synchronisation: Optional[pulumi.Input['RemoteNpmRepositoryContentSynchronisationArgs']] = None,
+                 curated: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  disable_proxy: Optional[pulumi.Input[bool]] = None,
                  disable_url_normalization: Optional[pulumi.Input[bool]] = None,
@@ -79,6 +80,7 @@ class RemoteNpmRepositoryArgs:
         :param pulumi.Input[bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS
                CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         :param pulumi.Input[str] client_tls_certificate: Client TLS certificate name.
+        :param pulumi.Input[bool] curated: Enable repository to be protected by the Curation service.
         :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[bool] disable_proxy: When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
                for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
@@ -153,6 +155,8 @@ class RemoteNpmRepositoryArgs:
             pulumi.set(__self__, "client_tls_certificate", client_tls_certificate)
         if content_synchronisation is not None:
             pulumi.set(__self__, "content_synchronisation", content_synchronisation)
+        if curated is not None:
+            pulumi.set(__self__, "curated", curated)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if disable_proxy is not None:
@@ -344,6 +348,18 @@ class RemoteNpmRepositoryArgs:
     @content_synchronisation.setter
     def content_synchronisation(self, value: Optional[pulumi.Input['RemoteNpmRepositoryContentSynchronisationArgs']]):
         pulumi.set(self, "content_synchronisation", value)
+
+    @property
+    @pulumi.getter
+    def curated(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable repository to be protected by the Curation service.
+        """
+        return pulumi.get(self, "curated")
+
+    @curated.setter
+    def curated(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "curated", value)
 
     @property
     @pulumi.getter
@@ -758,6 +774,7 @@ class _RemoteNpmRepositoryState:
                  cdn_redirect: Optional[pulumi.Input[bool]] = None,
                  client_tls_certificate: Optional[pulumi.Input[str]] = None,
                  content_synchronisation: Optional[pulumi.Input['RemoteNpmRepositoryContentSynchronisationArgs']] = None,
+                 curated: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  disable_proxy: Optional[pulumi.Input[bool]] = None,
                  disable_url_normalization: Optional[pulumi.Input[bool]] = None,
@@ -811,6 +828,7 @@ class _RemoteNpmRepositoryState:
         :param pulumi.Input[bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS
                CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         :param pulumi.Input[str] client_tls_certificate: Client TLS certificate name.
+        :param pulumi.Input[bool] curated: Enable repository to be protected by the Curation service.
         :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[bool] disable_proxy: When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
                for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
@@ -886,6 +904,8 @@ class _RemoteNpmRepositoryState:
             pulumi.set(__self__, "client_tls_certificate", client_tls_certificate)
         if content_synchronisation is not None:
             pulumi.set(__self__, "content_synchronisation", content_synchronisation)
+        if curated is not None:
+            pulumi.set(__self__, "curated", curated)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if disable_proxy is not None:
@@ -1058,6 +1078,18 @@ class _RemoteNpmRepositoryState:
     @content_synchronisation.setter
     def content_synchronisation(self, value: Optional[pulumi.Input['RemoteNpmRepositoryContentSynchronisationArgs']]):
         pulumi.set(self, "content_synchronisation", value)
+
+    @property
+    @pulumi.getter
+    def curated(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable repository to be protected by the Curation service.
+        """
+        return pulumi.get(self, "curated")
+
+    @curated.setter
+    def curated(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "curated", value)
 
     @property
     @pulumi.getter
@@ -1508,6 +1540,7 @@ class RemoteNpmRepository(pulumi.CustomResource):
                  cdn_redirect: Optional[pulumi.Input[bool]] = None,
                  client_tls_certificate: Optional[pulumi.Input[str]] = None,
                  content_synchronisation: Optional[pulumi.Input[pulumi.InputType['RemoteNpmRepositoryContentSynchronisationArgs']]] = None,
+                 curated: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  disable_proxy: Optional[pulumi.Input[bool]] = None,
                  disable_url_normalization: Optional[pulumi.Input[bool]] = None,
@@ -1586,6 +1619,7 @@ class RemoteNpmRepository(pulumi.CustomResource):
         :param pulumi.Input[bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS
                CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         :param pulumi.Input[str] client_tls_certificate: Client TLS certificate name.
+        :param pulumi.Input[bool] curated: Enable repository to be protected by the Curation service.
         :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[bool] disable_proxy: When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
                for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
@@ -1699,6 +1733,7 @@ class RemoteNpmRepository(pulumi.CustomResource):
                  cdn_redirect: Optional[pulumi.Input[bool]] = None,
                  client_tls_certificate: Optional[pulumi.Input[str]] = None,
                  content_synchronisation: Optional[pulumi.Input[pulumi.InputType['RemoteNpmRepositoryContentSynchronisationArgs']]] = None,
+                 curated: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  disable_proxy: Optional[pulumi.Input[bool]] = None,
                  disable_url_normalization: Optional[pulumi.Input[bool]] = None,
@@ -1750,6 +1785,7 @@ class RemoteNpmRepository(pulumi.CustomResource):
             __props__.__dict__["cdn_redirect"] = cdn_redirect
             __props__.__dict__["client_tls_certificate"] = client_tls_certificate
             __props__.__dict__["content_synchronisation"] = content_synchronisation
+            __props__.__dict__["curated"] = curated
             __props__.__dict__["description"] = description
             __props__.__dict__["disable_proxy"] = disable_proxy
             __props__.__dict__["disable_url_normalization"] = disable_url_normalization
@@ -1809,6 +1845,7 @@ class RemoteNpmRepository(pulumi.CustomResource):
             cdn_redirect: Optional[pulumi.Input[bool]] = None,
             client_tls_certificate: Optional[pulumi.Input[str]] = None,
             content_synchronisation: Optional[pulumi.Input[pulumi.InputType['RemoteNpmRepositoryContentSynchronisationArgs']]] = None,
+            curated: Optional[pulumi.Input[bool]] = None,
             description: Optional[pulumi.Input[str]] = None,
             disable_proxy: Optional[pulumi.Input[bool]] = None,
             disable_url_normalization: Optional[pulumi.Input[bool]] = None,
@@ -1867,6 +1904,7 @@ class RemoteNpmRepository(pulumi.CustomResource):
         :param pulumi.Input[bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS
                CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         :param pulumi.Input[str] client_tls_certificate: Client TLS certificate name.
+        :param pulumi.Input[bool] curated: Enable repository to be protected by the Curation service.
         :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[bool] disable_proxy: When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set
                for the Artifactory instance, it will be ignored, too. Introduced since Artifactory 7.41.7.
@@ -1938,6 +1976,7 @@ class RemoteNpmRepository(pulumi.CustomResource):
         __props__.__dict__["cdn_redirect"] = cdn_redirect
         __props__.__dict__["client_tls_certificate"] = client_tls_certificate
         __props__.__dict__["content_synchronisation"] = content_synchronisation
+        __props__.__dict__["curated"] = curated
         __props__.__dict__["description"] = description
         __props__.__dict__["disable_proxy"] = disable_proxy
         __props__.__dict__["disable_url_normalization"] = disable_url_normalization
@@ -2044,6 +2083,14 @@ class RemoteNpmRepository(pulumi.CustomResource):
     @pulumi.getter(name="contentSynchronisation")
     def content_synchronisation(self) -> pulumi.Output['outputs.RemoteNpmRepositoryContentSynchronisation']:
         return pulumi.get(self, "content_synchronisation")
+
+    @property
+    @pulumi.getter
+    def curated(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Enable repository to be protected by the Curation service.
+        """
+        return pulumi.get(self, "curated")
 
     @property
     @pulumi.getter

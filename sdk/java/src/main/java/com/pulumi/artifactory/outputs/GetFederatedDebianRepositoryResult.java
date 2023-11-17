@@ -19,6 +19,11 @@ public final class GetFederatedDebianRepositoryResult {
     private @Nullable Boolean cdnRedirect;
     private @Nullable Boolean cleanupOnDelete;
     private @Nullable String description;
+    /**
+     * @return When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
+     * 
+     */
+    private @Nullable Boolean disableProxy;
     private @Nullable Boolean downloadDirect;
     private @Nullable String excludesPattern;
     /**
@@ -44,6 +49,11 @@ public final class GetFederatedDebianRepositoryResult {
     private List<String> projectEnvironments;
     private @Nullable String projectKey;
     private @Nullable List<String> propertySets;
+    /**
+     * @return Proxy key from Artifactory Proxies settings.
+     * 
+     */
+    private @Nullable String proxy;
     private @Nullable String repoLayoutRef;
     private @Nullable String secondaryKeypairRef;
     /**
@@ -70,6 +80,13 @@ public final class GetFederatedDebianRepositoryResult {
     }
     public Optional<String> description() {
         return Optional.ofNullable(this.description);
+    }
+    /**
+     * @return When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
+     * 
+     */
+    public Optional<Boolean> disableProxy() {
+        return Optional.ofNullable(this.disableProxy);
     }
     public Optional<Boolean> downloadDirect() {
         return Optional.ofNullable(this.downloadDirect);
@@ -124,6 +141,13 @@ public final class GetFederatedDebianRepositoryResult {
     public List<String> propertySets() {
         return this.propertySets == null ? List.of() : this.propertySets;
     }
+    /**
+     * @return Proxy key from Artifactory Proxies settings.
+     * 
+     */
+    public Optional<String> proxy() {
+        return Optional.ofNullable(this.proxy);
+    }
     public Optional<String> repoLayoutRef() {
         return Optional.ofNullable(this.repoLayoutRef);
     }
@@ -157,6 +181,7 @@ public final class GetFederatedDebianRepositoryResult {
         private @Nullable Boolean cdnRedirect;
         private @Nullable Boolean cleanupOnDelete;
         private @Nullable String description;
+        private @Nullable Boolean disableProxy;
         private @Nullable Boolean downloadDirect;
         private @Nullable String excludesPattern;
         private String id;
@@ -171,6 +196,7 @@ public final class GetFederatedDebianRepositoryResult {
         private List<String> projectEnvironments;
         private @Nullable String projectKey;
         private @Nullable List<String> propertySets;
+        private @Nullable String proxy;
         private @Nullable String repoLayoutRef;
         private @Nullable String secondaryKeypairRef;
         private @Nullable Boolean trivialLayout;
@@ -183,6 +209,7 @@ public final class GetFederatedDebianRepositoryResult {
     	      this.cdnRedirect = defaults.cdnRedirect;
     	      this.cleanupOnDelete = defaults.cleanupOnDelete;
     	      this.description = defaults.description;
+    	      this.disableProxy = defaults.disableProxy;
     	      this.downloadDirect = defaults.downloadDirect;
     	      this.excludesPattern = defaults.excludesPattern;
     	      this.id = defaults.id;
@@ -197,6 +224,7 @@ public final class GetFederatedDebianRepositoryResult {
     	      this.projectEnvironments = defaults.projectEnvironments;
     	      this.projectKey = defaults.projectKey;
     	      this.propertySets = defaults.propertySets;
+    	      this.proxy = defaults.proxy;
     	      this.repoLayoutRef = defaults.repoLayoutRef;
     	      this.secondaryKeypairRef = defaults.secondaryKeypairRef;
     	      this.trivialLayout = defaults.trivialLayout;
@@ -226,6 +254,11 @@ public final class GetFederatedDebianRepositoryResult {
         @CustomType.Setter
         public Builder description(@Nullable String description) {
             this.description = description;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder disableProxy(@Nullable Boolean disableProxy) {
+            this.disableProxy = disableProxy;
             return this;
         }
         @CustomType.Setter
@@ -311,6 +344,11 @@ public final class GetFederatedDebianRepositoryResult {
             return propertySets(List.of(propertySets));
         }
         @CustomType.Setter
+        public Builder proxy(@Nullable String proxy) {
+            this.proxy = proxy;
+            return this;
+        }
+        @CustomType.Setter
         public Builder repoLayoutRef(@Nullable String repoLayoutRef) {
             this.repoLayoutRef = repoLayoutRef;
             return this;
@@ -337,6 +375,7 @@ public final class GetFederatedDebianRepositoryResult {
             o.cdnRedirect = cdnRedirect;
             o.cleanupOnDelete = cleanupOnDelete;
             o.description = description;
+            o.disableProxy = disableProxy;
             o.downloadDirect = downloadDirect;
             o.excludesPattern = excludesPattern;
             o.id = id;
@@ -351,6 +390,7 @@ public final class GetFederatedDebianRepositoryResult {
             o.projectEnvironments = projectEnvironments;
             o.projectKey = projectKey;
             o.propertySets = propertySets;
+            o.proxy = proxy;
             o.repoLayoutRef = repoLayoutRef;
             o.secondaryKeypairRef = secondaryKeypairRef;
             o.trivialLayout = trivialLayout;

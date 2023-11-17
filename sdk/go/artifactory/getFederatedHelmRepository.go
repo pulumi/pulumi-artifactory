@@ -55,9 +55,11 @@ type LookupFederatedHelmRepositoryArgs struct {
 	CdnRedirect            *bool   `pulumi:"cdnRedirect"`
 	CleanupOnDelete        *bool   `pulumi:"cleanupOnDelete"`
 	Description            *string `pulumi:"description"`
-	DownloadDirect         *bool   `pulumi:"downloadDirect"`
-	ExcludesPattern        *string `pulumi:"excludesPattern"`
-	IncludesPattern        *string `pulumi:"includesPattern"`
+	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
+	DisableProxy    *bool   `pulumi:"disableProxy"`
+	DownloadDirect  *bool   `pulumi:"downloadDirect"`
+	ExcludesPattern *string `pulumi:"excludesPattern"`
+	IncludesPattern *string `pulumi:"includesPattern"`
 	// the identity key of the repo.
 	Key string `pulumi:"key"`
 	// The list of Federated members and must contain this repository URL (configured base URL
@@ -70,8 +72,10 @@ type LookupFederatedHelmRepositoryArgs struct {
 	ProjectEnvironments []string                           `pulumi:"projectEnvironments"`
 	ProjectKey          *string                            `pulumi:"projectKey"`
 	PropertySets        []string                           `pulumi:"propertySets"`
-	RepoLayoutRef       *string                            `pulumi:"repoLayoutRef"`
-	XrayIndex           *bool                              `pulumi:"xrayIndex"`
+	// Proxy key from Artifactory Proxies settings.
+	Proxy         *string `pulumi:"proxy"`
+	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
+	XrayIndex     *bool   `pulumi:"xrayIndex"`
 }
 
 // A collection of values returned by getFederatedHelmRepository.
@@ -81,8 +85,10 @@ type LookupFederatedHelmRepositoryResult struct {
 	CdnRedirect            *bool   `pulumi:"cdnRedirect"`
 	CleanupOnDelete        *bool   `pulumi:"cleanupOnDelete"`
 	Description            *string `pulumi:"description"`
-	DownloadDirect         *bool   `pulumi:"downloadDirect"`
-	ExcludesPattern        *string `pulumi:"excludesPattern"`
+	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
+	DisableProxy    *bool   `pulumi:"disableProxy"`
+	DownloadDirect  *bool   `pulumi:"downloadDirect"`
+	ExcludesPattern *string `pulumi:"excludesPattern"`
 	// The provider-assigned unique ID for this managed resource.
 	Id              string  `pulumi:"id"`
 	IncludesPattern *string `pulumi:"includesPattern"`
@@ -98,8 +104,10 @@ type LookupFederatedHelmRepositoryResult struct {
 	ProjectEnvironments []string                           `pulumi:"projectEnvironments"`
 	ProjectKey          *string                            `pulumi:"projectKey"`
 	PropertySets        []string                           `pulumi:"propertySets"`
-	RepoLayoutRef       *string                            `pulumi:"repoLayoutRef"`
-	XrayIndex           *bool                              `pulumi:"xrayIndex"`
+	// Proxy key from Artifactory Proxies settings.
+	Proxy         *string `pulumi:"proxy"`
+	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
+	XrayIndex     *bool   `pulumi:"xrayIndex"`
 }
 
 func LookupFederatedHelmRepositoryOutput(ctx *pulumi.Context, args LookupFederatedHelmRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupFederatedHelmRepositoryResultOutput {
@@ -122,9 +130,11 @@ type LookupFederatedHelmRepositoryOutputArgs struct {
 	CdnRedirect            pulumi.BoolPtrInput   `pulumi:"cdnRedirect"`
 	CleanupOnDelete        pulumi.BoolPtrInput   `pulumi:"cleanupOnDelete"`
 	Description            pulumi.StringPtrInput `pulumi:"description"`
-	DownloadDirect         pulumi.BoolPtrInput   `pulumi:"downloadDirect"`
-	ExcludesPattern        pulumi.StringPtrInput `pulumi:"excludesPattern"`
-	IncludesPattern        pulumi.StringPtrInput `pulumi:"includesPattern"`
+	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
+	DisableProxy    pulumi.BoolPtrInput   `pulumi:"disableProxy"`
+	DownloadDirect  pulumi.BoolPtrInput   `pulumi:"downloadDirect"`
+	ExcludesPattern pulumi.StringPtrInput `pulumi:"excludesPattern"`
+	IncludesPattern pulumi.StringPtrInput `pulumi:"includesPattern"`
 	// the identity key of the repo.
 	Key pulumi.StringInput `pulumi:"key"`
 	// The list of Federated members and must contain this repository URL (configured base URL
@@ -137,8 +147,10 @@ type LookupFederatedHelmRepositoryOutputArgs struct {
 	ProjectEnvironments pulumi.StringArrayInput                    `pulumi:"projectEnvironments"`
 	ProjectKey          pulumi.StringPtrInput                      `pulumi:"projectKey"`
 	PropertySets        pulumi.StringArrayInput                    `pulumi:"propertySets"`
-	RepoLayoutRef       pulumi.StringPtrInput                      `pulumi:"repoLayoutRef"`
-	XrayIndex           pulumi.BoolPtrInput                        `pulumi:"xrayIndex"`
+	// Proxy key from Artifactory Proxies settings.
+	Proxy         pulumi.StringPtrInput `pulumi:"proxy"`
+	RepoLayoutRef pulumi.StringPtrInput `pulumi:"repoLayoutRef"`
+	XrayIndex     pulumi.BoolPtrInput   `pulumi:"xrayIndex"`
 }
 
 func (LookupFederatedHelmRepositoryOutputArgs) ElementType() reflect.Type {
@@ -178,6 +190,11 @@ func (o LookupFederatedHelmRepositoryResultOutput) CleanupOnDelete() pulumi.Bool
 
 func (o LookupFederatedHelmRepositoryResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFederatedHelmRepositoryResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
+func (o LookupFederatedHelmRepositoryResultOutput) DisableProxy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupFederatedHelmRepositoryResult) *bool { return v.DisableProxy }).(pulumi.BoolPtrOutput)
 }
 
 func (o LookupFederatedHelmRepositoryResultOutput) DownloadDirect() pulumi.BoolPtrOutput {
@@ -231,6 +248,11 @@ func (o LookupFederatedHelmRepositoryResultOutput) ProjectKey() pulumi.StringPtr
 
 func (o LookupFederatedHelmRepositoryResultOutput) PropertySets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupFederatedHelmRepositoryResult) []string { return v.PropertySets }).(pulumi.StringArrayOutput)
+}
+
+// Proxy key from Artifactory Proxies settings.
+func (o LookupFederatedHelmRepositoryResultOutput) Proxy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFederatedHelmRepositoryResult) *string { return v.Proxy }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupFederatedHelmRepositoryResultOutput) RepoLayoutRef() pulumi.StringPtrOutput {

@@ -19,6 +19,11 @@ public final class GetFederatedConanRepositoryResult {
     private @Nullable Boolean cdnRedirect;
     private @Nullable Boolean cleanupOnDelete;
     private @Nullable String description;
+    /**
+     * @return When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
+     * 
+     */
+    private @Nullable Boolean disableProxy;
     private @Nullable Boolean downloadDirect;
     private @Nullable String excludesPattern;
     private @Nullable Boolean forceConanAuthentication;
@@ -43,6 +48,11 @@ public final class GetFederatedConanRepositoryResult {
     private List<String> projectEnvironments;
     private @Nullable String projectKey;
     private @Nullable List<String> propertySets;
+    /**
+     * @return Proxy key from Artifactory Proxies settings.
+     * 
+     */
+    private @Nullable String proxy;
     private @Nullable String repoLayoutRef;
     private @Nullable Boolean xrayIndex;
 
@@ -61,6 +71,13 @@ public final class GetFederatedConanRepositoryResult {
     }
     public Optional<String> description() {
         return Optional.ofNullable(this.description);
+    }
+    /**
+     * @return When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
+     * 
+     */
+    public Optional<Boolean> disableProxy() {
+        return Optional.ofNullable(this.disableProxy);
     }
     public Optional<Boolean> downloadDirect() {
         return Optional.ofNullable(this.downloadDirect);
@@ -112,6 +129,13 @@ public final class GetFederatedConanRepositoryResult {
     public List<String> propertySets() {
         return this.propertySets == null ? List.of() : this.propertySets;
     }
+    /**
+     * @return Proxy key from Artifactory Proxies settings.
+     * 
+     */
+    public Optional<String> proxy() {
+        return Optional.ofNullable(this.proxy);
+    }
     public Optional<String> repoLayoutRef() {
         return Optional.ofNullable(this.repoLayoutRef);
     }
@@ -133,6 +157,7 @@ public final class GetFederatedConanRepositoryResult {
         private @Nullable Boolean cdnRedirect;
         private @Nullable Boolean cleanupOnDelete;
         private @Nullable String description;
+        private @Nullable Boolean disableProxy;
         private @Nullable Boolean downloadDirect;
         private @Nullable String excludesPattern;
         private @Nullable Boolean forceConanAuthentication;
@@ -146,6 +171,7 @@ public final class GetFederatedConanRepositoryResult {
         private List<String> projectEnvironments;
         private @Nullable String projectKey;
         private @Nullable List<String> propertySets;
+        private @Nullable String proxy;
         private @Nullable String repoLayoutRef;
         private @Nullable Boolean xrayIndex;
         public Builder() {}
@@ -156,6 +182,7 @@ public final class GetFederatedConanRepositoryResult {
     	      this.cdnRedirect = defaults.cdnRedirect;
     	      this.cleanupOnDelete = defaults.cleanupOnDelete;
     	      this.description = defaults.description;
+    	      this.disableProxy = defaults.disableProxy;
     	      this.downloadDirect = defaults.downloadDirect;
     	      this.excludesPattern = defaults.excludesPattern;
     	      this.forceConanAuthentication = defaults.forceConanAuthentication;
@@ -169,6 +196,7 @@ public final class GetFederatedConanRepositoryResult {
     	      this.projectEnvironments = defaults.projectEnvironments;
     	      this.projectKey = defaults.projectKey;
     	      this.propertySets = defaults.propertySets;
+    	      this.proxy = defaults.proxy;
     	      this.repoLayoutRef = defaults.repoLayoutRef;
     	      this.xrayIndex = defaults.xrayIndex;
         }
@@ -196,6 +224,11 @@ public final class GetFederatedConanRepositoryResult {
         @CustomType.Setter
         public Builder description(@Nullable String description) {
             this.description = description;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder disableProxy(@Nullable Boolean disableProxy) {
+            this.disableProxy = disableProxy;
             return this;
         }
         @CustomType.Setter
@@ -273,6 +306,11 @@ public final class GetFederatedConanRepositoryResult {
             return propertySets(List.of(propertySets));
         }
         @CustomType.Setter
+        public Builder proxy(@Nullable String proxy) {
+            this.proxy = proxy;
+            return this;
+        }
+        @CustomType.Setter
         public Builder repoLayoutRef(@Nullable String repoLayoutRef) {
             this.repoLayoutRef = repoLayoutRef;
             return this;
@@ -289,6 +327,7 @@ public final class GetFederatedConanRepositoryResult {
             o.cdnRedirect = cdnRedirect;
             o.cleanupOnDelete = cleanupOnDelete;
             o.description = description;
+            o.disableProxy = disableProxy;
             o.downloadDirect = downloadDirect;
             o.excludesPattern = excludesPattern;
             o.forceConanAuthentication = forceConanAuthentication;
@@ -302,6 +341,7 @@ public final class GetFederatedConanRepositoryResult {
             o.projectEnvironments = projectEnvironments;
             o.projectKey = projectKey;
             o.propertySets = propertySets;
+            o.proxy = proxy;
             o.repoLayoutRef = repoLayoutRef;
             o.xrayIndex = xrayIndex;
             return o;

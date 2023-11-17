@@ -30,6 +30,7 @@ export function getFederatedGradleRepository(args: GetFederatedGradleRepositoryA
         "checksumPolicyType": args.checksumPolicyType,
         "cleanupOnDelete": args.cleanupOnDelete,
         "description": args.description,
+        "disableProxy": args.disableProxy,
         "downloadDirect": args.downloadDirect,
         "excludesPattern": args.excludesPattern,
         "handleReleases": args.handleReleases,
@@ -43,6 +44,7 @@ export function getFederatedGradleRepository(args: GetFederatedGradleRepositoryA
         "projectEnvironments": args.projectEnvironments,
         "projectKey": args.projectKey,
         "propertySets": args.propertySets,
+        "proxy": args.proxy,
         "repoLayoutRef": args.repoLayoutRef,
         "snapshotVersionBehavior": args.snapshotVersionBehavior,
         "suppressPomConsistencyChecks": args.suppressPomConsistencyChecks,
@@ -60,6 +62,10 @@ export interface GetFederatedGradleRepositoryArgs {
     checksumPolicyType?: string;
     cleanupOnDelete?: boolean;
     description?: string;
+    /**
+     * When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
+     */
+    disableProxy?: boolean;
     downloadDirect?: boolean;
     excludesPattern?: string;
     handleReleases?: boolean;
@@ -82,6 +88,10 @@ export interface GetFederatedGradleRepositoryArgs {
     projectEnvironments?: string[];
     projectKey?: string;
     propertySets?: string[];
+    /**
+     * Proxy key from Artifactory Proxies settings.
+     */
+    proxy?: string;
     repoLayoutRef?: string;
     snapshotVersionBehavior?: string;
     suppressPomConsistencyChecks?: boolean;
@@ -98,6 +108,10 @@ export interface GetFederatedGradleRepositoryResult {
     readonly checksumPolicyType?: string;
     readonly cleanupOnDelete?: boolean;
     readonly description?: string;
+    /**
+     * When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
+     */
+    readonly disableProxy?: boolean;
     readonly downloadDirect?: boolean;
     readonly excludesPattern?: string;
     readonly handleReleases?: boolean;
@@ -122,6 +136,10 @@ export interface GetFederatedGradleRepositoryResult {
     readonly projectEnvironments: string[];
     readonly projectKey?: string;
     readonly propertySets?: string[];
+    /**
+     * Proxy key from Artifactory Proxies settings.
+     */
+    readonly proxy?: string;
     readonly repoLayoutRef?: string;
     readonly snapshotVersionBehavior?: string;
     readonly suppressPomConsistencyChecks?: boolean;
@@ -155,6 +173,10 @@ export interface GetFederatedGradleRepositoryOutputArgs {
     checksumPolicyType?: pulumi.Input<string>;
     cleanupOnDelete?: pulumi.Input<boolean>;
     description?: pulumi.Input<string>;
+    /**
+     * When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
+     */
+    disableProxy?: pulumi.Input<boolean>;
     downloadDirect?: pulumi.Input<boolean>;
     excludesPattern?: pulumi.Input<string>;
     handleReleases?: pulumi.Input<boolean>;
@@ -177,6 +199,10 @@ export interface GetFederatedGradleRepositoryOutputArgs {
     projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
     projectKey?: pulumi.Input<string>;
     propertySets?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Proxy key from Artifactory Proxies settings.
+     */
+    proxy?: pulumi.Input<string>;
     repoLayoutRef?: pulumi.Input<string>;
     snapshotVersionBehavior?: pulumi.Input<string>;
     suppressPomConsistencyChecks?: pulumi.Input<boolean>;

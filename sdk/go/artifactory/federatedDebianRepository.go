@@ -76,6 +76,8 @@ type FederatedDebianRepository struct {
 	CleanupOnDelete pulumi.BoolPtrOutput `pulumi:"cleanupOnDelete"`
 	// Public description.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
+	DisableProxy pulumi.BoolPtrOutput `pulumi:"disableProxy"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
 	// storage provider. Available in Enterprise+ and Edge licenses only.
 	DownloadDirect pulumi.BoolPtrOutput `pulumi:"downloadDirect"`
@@ -110,6 +112,8 @@ type FederatedDebianRepository struct {
 	ProjectKey pulumi.StringPtrOutput `pulumi:"projectKey"`
 	// List of property set name
 	PropertySets pulumi.StringArrayOutput `pulumi:"propertySets"`
+	// Proxy key from Artifactory Proxies settings. Default is empty field. Can't be set if `disableProxy = true`.
+	Proxy pulumi.StringPtrOutput `pulumi:"proxy"`
 	// Repository layout key for the federated repository
 	RepoLayoutRef pulumi.StringPtrOutput `pulumi:"repoLayoutRef"`
 	// Used to sign index files in Debian artifacts.
@@ -173,6 +177,8 @@ type federatedDebianRepositoryState struct {
 	CleanupOnDelete *bool `pulumi:"cleanupOnDelete"`
 	// Public description.
 	Description *string `pulumi:"description"`
+	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
+	DisableProxy *bool `pulumi:"disableProxy"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
 	// storage provider. Available in Enterprise+ and Edge licenses only.
 	DownloadDirect *bool `pulumi:"downloadDirect"`
@@ -207,6 +213,8 @@ type federatedDebianRepositoryState struct {
 	ProjectKey *string `pulumi:"projectKey"`
 	// List of property set name
 	PropertySets []string `pulumi:"propertySets"`
+	// Proxy key from Artifactory Proxies settings. Default is empty field. Can't be set if `disableProxy = true`.
+	Proxy *string `pulumi:"proxy"`
 	// Repository layout key for the federated repository
 	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
 	// Used to sign index files in Debian artifacts.
@@ -235,6 +243,8 @@ type FederatedDebianRepositoryState struct {
 	CleanupOnDelete pulumi.BoolPtrInput
 	// Public description.
 	Description pulumi.StringPtrInput
+	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
+	DisableProxy pulumi.BoolPtrInput
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
 	// storage provider. Available in Enterprise+ and Edge licenses only.
 	DownloadDirect pulumi.BoolPtrInput
@@ -269,6 +279,8 @@ type FederatedDebianRepositoryState struct {
 	ProjectKey pulumi.StringPtrInput
 	// List of property set name
 	PropertySets pulumi.StringArrayInput
+	// Proxy key from Artifactory Proxies settings. Default is empty field. Can't be set if `disableProxy = true`.
+	Proxy pulumi.StringPtrInput
 	// Repository layout key for the federated repository
 	RepoLayoutRef pulumi.StringPtrInput
 	// Used to sign index files in Debian artifacts.
@@ -301,6 +313,8 @@ type federatedDebianRepositoryArgs struct {
 	CleanupOnDelete *bool `pulumi:"cleanupOnDelete"`
 	// Public description.
 	Description *string `pulumi:"description"`
+	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
+	DisableProxy *bool `pulumi:"disableProxy"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
 	// storage provider. Available in Enterprise+ and Edge licenses only.
 	DownloadDirect *bool `pulumi:"downloadDirect"`
@@ -334,6 +348,8 @@ type federatedDebianRepositoryArgs struct {
 	ProjectKey *string `pulumi:"projectKey"`
 	// List of property set name
 	PropertySets []string `pulumi:"propertySets"`
+	// Proxy key from Artifactory Proxies settings. Default is empty field. Can't be set if `disableProxy = true`.
+	Proxy *string `pulumi:"proxy"`
 	// Repository layout key for the federated repository
 	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
 	// Used to sign index files in Debian artifacts.
@@ -363,6 +379,8 @@ type FederatedDebianRepositoryArgs struct {
 	CleanupOnDelete pulumi.BoolPtrInput
 	// Public description.
 	Description pulumi.StringPtrInput
+	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
+	DisableProxy pulumi.BoolPtrInput
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
 	// storage provider. Available in Enterprise+ and Edge licenses only.
 	DownloadDirect pulumi.BoolPtrInput
@@ -396,6 +414,8 @@ type FederatedDebianRepositoryArgs struct {
 	ProjectKey pulumi.StringPtrInput
 	// List of property set name
 	PropertySets pulumi.StringArrayInput
+	// Proxy key from Artifactory Proxies settings. Default is empty field. Can't be set if `disableProxy = true`.
+	Proxy pulumi.StringPtrInput
 	// Repository layout key for the federated repository
 	RepoLayoutRef pulumi.StringPtrInput
 	// Used to sign index files in Debian artifacts.
@@ -525,6 +545,11 @@ func (o FederatedDebianRepositoryOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FederatedDebianRepository) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
+func (o FederatedDebianRepositoryOutput) DisableProxy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FederatedDebianRepository) pulumi.BoolPtrOutput { return v.DisableProxy }).(pulumi.BoolPtrOutput)
+}
+
 // When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
 // storage provider. Available in Enterprise+ and Edge licenses only.
 func (o FederatedDebianRepositoryOutput) DownloadDirect() pulumi.BoolPtrOutput {
@@ -596,6 +621,11 @@ func (o FederatedDebianRepositoryOutput) ProjectKey() pulumi.StringPtrOutput {
 // List of property set name
 func (o FederatedDebianRepositoryOutput) PropertySets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FederatedDebianRepository) pulumi.StringArrayOutput { return v.PropertySets }).(pulumi.StringArrayOutput)
+}
+
+// Proxy key from Artifactory Proxies settings. Default is empty field. Can't be set if `disableProxy = true`.
+func (o FederatedDebianRepositoryOutput) Proxy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FederatedDebianRepository) pulumi.StringPtrOutput { return v.Proxy }).(pulumi.StringPtrOutput)
 }
 
 // Repository layout key for the federated repository

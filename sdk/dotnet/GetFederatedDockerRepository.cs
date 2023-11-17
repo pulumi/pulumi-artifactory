@@ -39,6 +39,9 @@ namespace Pulumi.Artifactory
         [Input("description")]
         public string? Description { get; set; }
 
+        [Input("disableProxy")]
+        public bool? DisableProxy { get; set; }
+
         [Input("downloadDirect")]
         public bool? DownloadDirect { get; set; }
 
@@ -87,6 +90,9 @@ namespace Pulumi.Artifactory
             set => _propertySets = value;
         }
 
+        [Input("proxy")]
+        public string? Proxy { get; set; }
+
         [Input("repoLayoutRef")]
         public string? RepoLayoutRef { get; set; }
 
@@ -121,6 +127,9 @@ namespace Pulumi.Artifactory
 
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        [Input("disableProxy")]
+        public Input<bool>? DisableProxy { get; set; }
 
         [Input("downloadDirect")]
         public Input<bool>? DownloadDirect { get; set; }
@@ -170,6 +179,9 @@ namespace Pulumi.Artifactory
             set => _propertySets = value;
         }
 
+        [Input("proxy")]
+        public Input<string>? Proxy { get; set; }
+
         [Input("repoLayoutRef")]
         public Input<string>? RepoLayoutRef { get; set; }
 
@@ -196,6 +208,7 @@ namespace Pulumi.Artifactory
         public readonly bool? CdnRedirect;
         public readonly bool? CleanupOnDelete;
         public readonly string? Description;
+        public readonly bool? DisableProxy;
         public readonly bool? DownloadDirect;
         public readonly string? ExcludesPattern;
         /// <summary>
@@ -212,6 +225,7 @@ namespace Pulumi.Artifactory
         public readonly ImmutableArray<string> ProjectEnvironments;
         public readonly string? ProjectKey;
         public readonly ImmutableArray<string> PropertySets;
+        public readonly string? Proxy;
         public readonly string? RepoLayoutRef;
         public readonly int? TagRetention;
         public readonly bool? XrayIndex;
@@ -231,6 +245,8 @@ namespace Pulumi.Artifactory
             bool? cleanupOnDelete,
 
             string? description,
+
+            bool? disableProxy,
 
             bool? downloadDirect,
 
@@ -258,6 +274,8 @@ namespace Pulumi.Artifactory
 
             ImmutableArray<string> propertySets,
 
+            string? proxy,
+
             string? repoLayoutRef,
 
             int? tagRetention,
@@ -271,6 +289,7 @@ namespace Pulumi.Artifactory
             CdnRedirect = cdnRedirect;
             CleanupOnDelete = cleanupOnDelete;
             Description = description;
+            DisableProxy = disableProxy;
             DownloadDirect = downloadDirect;
             ExcludesPattern = excludesPattern;
             Id = id;
@@ -284,6 +303,7 @@ namespace Pulumi.Artifactory
             ProjectEnvironments = projectEnvironments;
             ProjectKey = projectKey;
             PropertySets = propertySets;
+            Proxy = proxy;
             RepoLayoutRef = repoLayoutRef;
             TagRetention = tagRetention;
             XrayIndex = xrayIndex;

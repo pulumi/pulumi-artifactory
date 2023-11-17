@@ -29,6 +29,7 @@ type LookupFederatedDockerRepositoryArgs struct {
 	CdnRedirect            *bool                                `pulumi:"cdnRedirect"`
 	CleanupOnDelete        *bool                                `pulumi:"cleanupOnDelete"`
 	Description            *string                              `pulumi:"description"`
+	DisableProxy           *bool                                `pulumi:"disableProxy"`
 	DownloadDirect         *bool                                `pulumi:"downloadDirect"`
 	ExcludesPattern        *string                              `pulumi:"excludesPattern"`
 	IncludesPattern        *string                              `pulumi:"includesPattern"`
@@ -40,6 +41,7 @@ type LookupFederatedDockerRepositoryArgs struct {
 	ProjectEnvironments    []string                             `pulumi:"projectEnvironments"`
 	ProjectKey             *string                              `pulumi:"projectKey"`
 	PropertySets           []string                             `pulumi:"propertySets"`
+	Proxy                  *string                              `pulumi:"proxy"`
 	RepoLayoutRef          *string                              `pulumi:"repoLayoutRef"`
 	TagRetention           *int                                 `pulumi:"tagRetention"`
 	XrayIndex              *bool                                `pulumi:"xrayIndex"`
@@ -54,6 +56,7 @@ type LookupFederatedDockerRepositoryResult struct {
 	CdnRedirect            *bool   `pulumi:"cdnRedirect"`
 	CleanupOnDelete        *bool   `pulumi:"cleanupOnDelete"`
 	Description            *string `pulumi:"description"`
+	DisableProxy           *bool   `pulumi:"disableProxy"`
 	DownloadDirect         *bool   `pulumi:"downloadDirect"`
 	ExcludesPattern        *string `pulumi:"excludesPattern"`
 	// The provider-assigned unique ID for this managed resource.
@@ -68,6 +71,7 @@ type LookupFederatedDockerRepositoryResult struct {
 	ProjectEnvironments []string                             `pulumi:"projectEnvironments"`
 	ProjectKey          *string                              `pulumi:"projectKey"`
 	PropertySets        []string                             `pulumi:"propertySets"`
+	Proxy               *string                              `pulumi:"proxy"`
 	RepoLayoutRef       *string                              `pulumi:"repoLayoutRef"`
 	TagRetention        *int                                 `pulumi:"tagRetention"`
 	XrayIndex           *bool                                `pulumi:"xrayIndex"`
@@ -94,6 +98,7 @@ type LookupFederatedDockerRepositoryOutputArgs struct {
 	CdnRedirect            pulumi.BoolPtrInput                          `pulumi:"cdnRedirect"`
 	CleanupOnDelete        pulumi.BoolPtrInput                          `pulumi:"cleanupOnDelete"`
 	Description            pulumi.StringPtrInput                        `pulumi:"description"`
+	DisableProxy           pulumi.BoolPtrInput                          `pulumi:"disableProxy"`
 	DownloadDirect         pulumi.BoolPtrInput                          `pulumi:"downloadDirect"`
 	ExcludesPattern        pulumi.StringPtrInput                        `pulumi:"excludesPattern"`
 	IncludesPattern        pulumi.StringPtrInput                        `pulumi:"includesPattern"`
@@ -105,6 +110,7 @@ type LookupFederatedDockerRepositoryOutputArgs struct {
 	ProjectEnvironments    pulumi.StringArrayInput                      `pulumi:"projectEnvironments"`
 	ProjectKey             pulumi.StringPtrInput                        `pulumi:"projectKey"`
 	PropertySets           pulumi.StringArrayInput                      `pulumi:"propertySets"`
+	Proxy                  pulumi.StringPtrInput                        `pulumi:"proxy"`
 	RepoLayoutRef          pulumi.StringPtrInput                        `pulumi:"repoLayoutRef"`
 	TagRetention           pulumi.IntPtrInput                           `pulumi:"tagRetention"`
 	XrayIndex              pulumi.BoolPtrInput                          `pulumi:"xrayIndex"`
@@ -155,6 +161,10 @@ func (o LookupFederatedDockerRepositoryResultOutput) CleanupOnDelete() pulumi.Bo
 
 func (o LookupFederatedDockerRepositoryResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFederatedDockerRepositoryResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupFederatedDockerRepositoryResultOutput) DisableProxy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupFederatedDockerRepositoryResult) *bool { return v.DisableProxy }).(pulumi.BoolPtrOutput)
 }
 
 func (o LookupFederatedDockerRepositoryResultOutput) DownloadDirect() pulumi.BoolPtrOutput {
@@ -208,6 +218,10 @@ func (o LookupFederatedDockerRepositoryResultOutput) ProjectKey() pulumi.StringP
 
 func (o LookupFederatedDockerRepositoryResultOutput) PropertySets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupFederatedDockerRepositoryResult) []string { return v.PropertySets }).(pulumi.StringArrayOutput)
+}
+
+func (o LookupFederatedDockerRepositoryResultOutput) Proxy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFederatedDockerRepositoryResult) *string { return v.Proxy }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupFederatedDockerRepositoryResultOutput) RepoLayoutRef() pulumi.StringPtrOutput {

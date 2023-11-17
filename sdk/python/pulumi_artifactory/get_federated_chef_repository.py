@@ -23,7 +23,7 @@ class GetFederatedChefRepositoryResult:
     """
     A collection of values returned by getFederatedChefRepository.
     """
-    def __init__(__self__, archive_browsing_enabled=None, blacked_out=None, cdn_redirect=None, cleanup_on_delete=None, description=None, download_direct=None, excludes_pattern=None, id=None, includes_pattern=None, key=None, members=None, notes=None, package_type=None, priority_resolution=None, project_environments=None, project_key=None, property_sets=None, repo_layout_ref=None, xray_index=None):
+    def __init__(__self__, archive_browsing_enabled=None, blacked_out=None, cdn_redirect=None, cleanup_on_delete=None, description=None, disable_proxy=None, download_direct=None, excludes_pattern=None, id=None, includes_pattern=None, key=None, members=None, notes=None, package_type=None, priority_resolution=None, project_environments=None, project_key=None, property_sets=None, proxy=None, repo_layout_ref=None, xray_index=None):
         if archive_browsing_enabled and not isinstance(archive_browsing_enabled, bool):
             raise TypeError("Expected argument 'archive_browsing_enabled' to be a bool")
         pulumi.set(__self__, "archive_browsing_enabled", archive_browsing_enabled)
@@ -39,6 +39,9 @@ class GetFederatedChefRepositoryResult:
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if disable_proxy and not isinstance(disable_proxy, bool):
+            raise TypeError("Expected argument 'disable_proxy' to be a bool")
+        pulumi.set(__self__, "disable_proxy", disable_proxy)
         if download_direct and not isinstance(download_direct, bool):
             raise TypeError("Expected argument 'download_direct' to be a bool")
         pulumi.set(__self__, "download_direct", download_direct)
@@ -75,6 +78,9 @@ class GetFederatedChefRepositoryResult:
         if property_sets and not isinstance(property_sets, list):
             raise TypeError("Expected argument 'property_sets' to be a list")
         pulumi.set(__self__, "property_sets", property_sets)
+        if proxy and not isinstance(proxy, str):
+            raise TypeError("Expected argument 'proxy' to be a str")
+        pulumi.set(__self__, "proxy", proxy)
         if repo_layout_ref and not isinstance(repo_layout_ref, str):
             raise TypeError("Expected argument 'repo_layout_ref' to be a str")
         pulumi.set(__self__, "repo_layout_ref", repo_layout_ref)
@@ -106,6 +112,14 @@ class GetFederatedChefRepositoryResult:
     @pulumi.getter
     def description(self) -> Optional[str]:
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="disableProxy")
+    def disable_proxy(self) -> Optional[bool]:
+        """
+        When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
+        """
+        return pulumi.get(self, "disable_proxy")
 
     @property
     @pulumi.getter(name="downloadDirect")
@@ -180,6 +194,14 @@ class GetFederatedChefRepositoryResult:
         return pulumi.get(self, "property_sets")
 
     @property
+    @pulumi.getter
+    def proxy(self) -> Optional[str]:
+        """
+        Proxy key from Artifactory Proxies settings.
+        """
+        return pulumi.get(self, "proxy")
+
+    @property
     @pulumi.getter(name="repoLayoutRef")
     def repo_layout_ref(self) -> Optional[str]:
         return pulumi.get(self, "repo_layout_ref")
@@ -201,6 +223,7 @@ class AwaitableGetFederatedChefRepositoryResult(GetFederatedChefRepositoryResult
             cdn_redirect=self.cdn_redirect,
             cleanup_on_delete=self.cleanup_on_delete,
             description=self.description,
+            disable_proxy=self.disable_proxy,
             download_direct=self.download_direct,
             excludes_pattern=self.excludes_pattern,
             id=self.id,
@@ -213,6 +236,7 @@ class AwaitableGetFederatedChefRepositoryResult(GetFederatedChefRepositoryResult
             project_environments=self.project_environments,
             project_key=self.project_key,
             property_sets=self.property_sets,
+            proxy=self.proxy,
             repo_layout_ref=self.repo_layout_ref,
             xray_index=self.xray_index)
 
@@ -222,6 +246,7 @@ def get_federated_chef_repository(archive_browsing_enabled: Optional[bool] = Non
                                   cdn_redirect: Optional[bool] = None,
                                   cleanup_on_delete: Optional[bool] = None,
                                   description: Optional[str] = None,
+                                  disable_proxy: Optional[bool] = None,
                                   download_direct: Optional[bool] = None,
                                   excludes_pattern: Optional[str] = None,
                                   includes_pattern: Optional[str] = None,
@@ -232,6 +257,7 @@ def get_federated_chef_repository(archive_browsing_enabled: Optional[bool] = Non
                                   project_environments: Optional[Sequence[str]] = None,
                                   project_key: Optional[str] = None,
                                   property_sets: Optional[Sequence[str]] = None,
+                                  proxy: Optional[str] = None,
                                   repo_layout_ref: Optional[str] = None,
                                   xray_index: Optional[bool] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFederatedChefRepositoryResult:
@@ -248,11 +274,13 @@ def get_federated_chef_repository(archive_browsing_enabled: Optional[bool] = Non
     ```
 
 
+    :param bool disable_proxy: When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
     :param str key: the identity key of the repo.
     :param Sequence[pulumi.InputType['GetFederatedChefRepositoryMemberArgs']] members: The list of Federated members and must contain this repository URL (configured base URL
            `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
            Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
            to set up Federated repositories correctly.
+    :param str proxy: Proxy key from Artifactory Proxies settings.
     """
     __args__ = dict()
     __args__['archiveBrowsingEnabled'] = archive_browsing_enabled
@@ -260,6 +288,7 @@ def get_federated_chef_repository(archive_browsing_enabled: Optional[bool] = Non
     __args__['cdnRedirect'] = cdn_redirect
     __args__['cleanupOnDelete'] = cleanup_on_delete
     __args__['description'] = description
+    __args__['disableProxy'] = disable_proxy
     __args__['downloadDirect'] = download_direct
     __args__['excludesPattern'] = excludes_pattern
     __args__['includesPattern'] = includes_pattern
@@ -270,6 +299,7 @@ def get_federated_chef_repository(archive_browsing_enabled: Optional[bool] = Non
     __args__['projectEnvironments'] = project_environments
     __args__['projectKey'] = project_key
     __args__['propertySets'] = property_sets
+    __args__['proxy'] = proxy
     __args__['repoLayoutRef'] = repo_layout_ref
     __args__['xrayIndex'] = xray_index
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -281,6 +311,7 @@ def get_federated_chef_repository(archive_browsing_enabled: Optional[bool] = Non
         cdn_redirect=pulumi.get(__ret__, 'cdn_redirect'),
         cleanup_on_delete=pulumi.get(__ret__, 'cleanup_on_delete'),
         description=pulumi.get(__ret__, 'description'),
+        disable_proxy=pulumi.get(__ret__, 'disable_proxy'),
         download_direct=pulumi.get(__ret__, 'download_direct'),
         excludes_pattern=pulumi.get(__ret__, 'excludes_pattern'),
         id=pulumi.get(__ret__, 'id'),
@@ -293,6 +324,7 @@ def get_federated_chef_repository(archive_browsing_enabled: Optional[bool] = Non
         project_environments=pulumi.get(__ret__, 'project_environments'),
         project_key=pulumi.get(__ret__, 'project_key'),
         property_sets=pulumi.get(__ret__, 'property_sets'),
+        proxy=pulumi.get(__ret__, 'proxy'),
         repo_layout_ref=pulumi.get(__ret__, 'repo_layout_ref'),
         xray_index=pulumi.get(__ret__, 'xray_index'))
 
@@ -303,6 +335,7 @@ def get_federated_chef_repository_output(archive_browsing_enabled: Optional[pulu
                                          cdn_redirect: Optional[pulumi.Input[Optional[bool]]] = None,
                                          cleanup_on_delete: Optional[pulumi.Input[Optional[bool]]] = None,
                                          description: Optional[pulumi.Input[Optional[str]]] = None,
+                                         disable_proxy: Optional[pulumi.Input[Optional[bool]]] = None,
                                          download_direct: Optional[pulumi.Input[Optional[bool]]] = None,
                                          excludes_pattern: Optional[pulumi.Input[Optional[str]]] = None,
                                          includes_pattern: Optional[pulumi.Input[Optional[str]]] = None,
@@ -313,6 +346,7 @@ def get_federated_chef_repository_output(archive_browsing_enabled: Optional[pulu
                                          project_environments: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                                          project_key: Optional[pulumi.Input[Optional[str]]] = None,
                                          property_sets: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
+                                         proxy: Optional[pulumi.Input[Optional[str]]] = None,
                                          repo_layout_ref: Optional[pulumi.Input[Optional[str]]] = None,
                                          xray_index: Optional[pulumi.Input[Optional[bool]]] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFederatedChefRepositoryResult]:
@@ -329,10 +363,12 @@ def get_federated_chef_repository_output(archive_browsing_enabled: Optional[pulu
     ```
 
 
+    :param bool disable_proxy: When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
     :param str key: the identity key of the repo.
     :param Sequence[pulumi.InputType['GetFederatedChefRepositoryMemberArgs']] members: The list of Federated members and must contain this repository URL (configured base URL
            `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
            Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
            to set up Federated repositories correctly.
+    :param str proxy: Proxy key from Artifactory Proxies settings.
     """
     ...

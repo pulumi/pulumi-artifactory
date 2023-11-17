@@ -1727,11 +1727,11 @@ export interface PermissionTargetBuild {
     /**
      * Pattern of artifacts to exclude.
      */
-    excludesPatterns: string[];
+    excludesPatterns?: string[];
     /**
      * Pattern of artifacts to include.
      */
-    includesPatterns: string[];
+    includesPatterns?: string[];
     /**
      * List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
      */
@@ -1770,11 +1770,11 @@ export interface PermissionTargetReleaseBundle {
     /**
      * Pattern of artifacts to exclude.
      */
-    excludesPatterns: string[];
+    excludesPatterns?: string[];
     /**
      * Pattern of artifacts to include.
      */
-    includesPatterns: string[];
+    includesPatterns?: string[];
     /**
      * List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
      */
@@ -1813,11 +1813,11 @@ export interface PermissionTargetRepo {
     /**
      * Pattern of artifacts to exclude.
      */
-    excludesPatterns: string[];
+    excludesPatterns?: string[];
     /**
      * Pattern of artifacts to include.
      */
-    includesPatterns: string[];
+    includesPatterns?: string[];
     /**
      * List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
      */

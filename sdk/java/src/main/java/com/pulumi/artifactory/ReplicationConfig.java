@@ -18,7 +18,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Note: this resource is deprecated in favor of `artifactory.PushReplication` resource.
+ * &gt; This resource is deprecated in favor of `artifactory.PushReplication` resource.
  * 
  * Provides an Artifactory replication config resource. This can be used to create and manage Artifactory replications.
  * 

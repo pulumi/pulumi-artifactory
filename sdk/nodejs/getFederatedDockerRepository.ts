@@ -16,6 +16,7 @@ export function getFederatedDockerRepository(args: GetFederatedDockerRepositoryA
         "cdnRedirect": args.cdnRedirect,
         "cleanupOnDelete": args.cleanupOnDelete,
         "description": args.description,
+        "disableProxy": args.disableProxy,
         "downloadDirect": args.downloadDirect,
         "excludesPattern": args.excludesPattern,
         "includesPattern": args.includesPattern,
@@ -27,6 +28,7 @@ export function getFederatedDockerRepository(args: GetFederatedDockerRepositoryA
         "projectEnvironments": args.projectEnvironments,
         "projectKey": args.projectKey,
         "propertySets": args.propertySets,
+        "proxy": args.proxy,
         "repoLayoutRef": args.repoLayoutRef,
         "tagRetention": args.tagRetention,
         "xrayIndex": args.xrayIndex,
@@ -43,6 +45,7 @@ export interface GetFederatedDockerRepositoryArgs {
     cdnRedirect?: boolean;
     cleanupOnDelete?: boolean;
     description?: string;
+    disableProxy?: boolean;
     downloadDirect?: boolean;
     excludesPattern?: string;
     includesPattern?: string;
@@ -54,6 +57,7 @@ export interface GetFederatedDockerRepositoryArgs {
     projectEnvironments?: string[];
     projectKey?: string;
     propertySets?: string[];
+    proxy?: string;
     repoLayoutRef?: string;
     tagRetention?: number;
     xrayIndex?: boolean;
@@ -70,6 +74,7 @@ export interface GetFederatedDockerRepositoryResult {
     readonly cdnRedirect?: boolean;
     readonly cleanupOnDelete?: boolean;
     readonly description?: string;
+    readonly disableProxy?: boolean;
     readonly downloadDirect?: boolean;
     readonly excludesPattern?: string;
     /**
@@ -86,6 +91,7 @@ export interface GetFederatedDockerRepositoryResult {
     readonly projectEnvironments: string[];
     readonly projectKey?: string;
     readonly propertySets?: string[];
+    readonly proxy?: string;
     readonly repoLayoutRef?: string;
     readonly tagRetention?: number;
     readonly xrayIndex?: boolean;
@@ -104,6 +110,7 @@ export interface GetFederatedDockerRepositoryOutputArgs {
     cdnRedirect?: pulumi.Input<boolean>;
     cleanupOnDelete?: pulumi.Input<boolean>;
     description?: pulumi.Input<string>;
+    disableProxy?: pulumi.Input<boolean>;
     downloadDirect?: pulumi.Input<boolean>;
     excludesPattern?: pulumi.Input<string>;
     includesPattern?: pulumi.Input<string>;
@@ -115,6 +122,7 @@ export interface GetFederatedDockerRepositoryOutputArgs {
     projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
     projectKey?: pulumi.Input<string>;
     propertySets?: pulumi.Input<pulumi.Input<string>[]>;
+    proxy?: pulumi.Input<string>;
     repoLayoutRef?: pulumi.Input<string>;
     tagRetention?: pulumi.Input<number>;
     xrayIndex?: pulumi.Input<boolean>;

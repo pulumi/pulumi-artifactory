@@ -89,6 +89,12 @@ namespace Pulumi.Artifactory
         [Input("description")]
         public string? Description { get; set; }
 
+        /// <summary>
+        /// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
+        /// </summary>
+        [Input("disableProxy")]
+        public bool? DisableProxy { get; set; }
+
         [Input("downloadDirect")]
         public bool? DownloadDirect { get; set; }
 
@@ -155,6 +161,12 @@ namespace Pulumi.Artifactory
             set => _propertySets = value;
         }
 
+        /// <summary>
+        /// Proxy key from Artifactory Proxies settings.
+        /// </summary>
+        [Input("proxy")]
+        public string? Proxy { get; set; }
+
         [Input("repoLayoutRef")]
         public string? RepoLayoutRef { get; set; }
 
@@ -186,6 +198,12 @@ namespace Pulumi.Artifactory
 
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
+        /// </summary>
+        [Input("disableProxy")]
+        public Input<bool>? DisableProxy { get; set; }
 
         [Input("downloadDirect")]
         public Input<bool>? DownloadDirect { get; set; }
@@ -253,6 +271,12 @@ namespace Pulumi.Artifactory
             set => _propertySets = value;
         }
 
+        /// <summary>
+        /// Proxy key from Artifactory Proxies settings.
+        /// </summary>
+        [Input("proxy")]
+        public Input<string>? Proxy { get; set; }
+
         [Input("repoLayoutRef")]
         public Input<string>? RepoLayoutRef { get; set; }
 
@@ -275,6 +299,10 @@ namespace Pulumi.Artifactory
         public readonly bool? CdnRedirect;
         public readonly bool? CleanupOnDelete;
         public readonly string? Description;
+        /// <summary>
+        /// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
+        /// </summary>
+        public readonly bool? DisableProxy;
         public readonly bool? DownloadDirect;
         public readonly bool? EnableSparseIndex;
         public readonly string? ExcludesPattern;
@@ -298,6 +326,10 @@ namespace Pulumi.Artifactory
         public readonly ImmutableArray<string> ProjectEnvironments;
         public readonly string? ProjectKey;
         public readonly ImmutableArray<string> PropertySets;
+        /// <summary>
+        /// Proxy key from Artifactory Proxies settings.
+        /// </summary>
+        public readonly string? Proxy;
         public readonly string? RepoLayoutRef;
         public readonly bool? XrayIndex;
 
@@ -314,6 +346,8 @@ namespace Pulumi.Artifactory
             bool? cleanupOnDelete,
 
             string? description,
+
+            bool? disableProxy,
 
             bool? downloadDirect,
 
@@ -343,6 +377,8 @@ namespace Pulumi.Artifactory
 
             ImmutableArray<string> propertySets,
 
+            string? proxy,
+
             string? repoLayoutRef,
 
             bool? xrayIndex)
@@ -353,6 +389,7 @@ namespace Pulumi.Artifactory
             CdnRedirect = cdnRedirect;
             CleanupOnDelete = cleanupOnDelete;
             Description = description;
+            DisableProxy = disableProxy;
             DownloadDirect = downloadDirect;
             EnableSparseIndex = enableSparseIndex;
             ExcludesPattern = excludesPattern;
@@ -367,6 +404,7 @@ namespace Pulumi.Artifactory
             ProjectEnvironments = projectEnvironments;
             ProjectKey = projectKey;
             PropertySets = propertySets;
+            Proxy = proxy;
             RepoLayoutRef = repoLayoutRef;
             XrayIndex = xrayIndex;
         }

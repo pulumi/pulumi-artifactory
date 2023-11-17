@@ -61,6 +61,21 @@ public final class GetFederatedRpmRepositoryArgs extends com.pulumi.resources.In
         return Optional.ofNullable(this.description);
     }
 
+    /**
+     * When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
+     * 
+     */
+    @Import(name="disableProxy")
+    private @Nullable Output<Boolean> disableProxy;
+
+    /**
+     * @return When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
+     * 
+     */
+    public Optional<Output<Boolean>> disableProxy() {
+        return Optional.ofNullable(this.disableProxy);
+    }
+
     @Import(name="downloadDirect")
     private @Nullable Output<Boolean> downloadDirect;
 
@@ -167,6 +182,21 @@ public final class GetFederatedRpmRepositoryArgs extends com.pulumi.resources.In
         return Optional.ofNullable(this.propertySets);
     }
 
+    /**
+     * Proxy key from Artifactory Proxies settings.
+     * 
+     */
+    @Import(name="proxy")
+    private @Nullable Output<String> proxy;
+
+    /**
+     * @return Proxy key from Artifactory Proxies settings.
+     * 
+     */
+    public Optional<Output<String>> proxy() {
+        return Optional.ofNullable(this.proxy);
+    }
+
     @Import(name="repoLayoutRef")
     private @Nullable Output<String> repoLayoutRef;
 
@@ -211,6 +241,7 @@ public final class GetFederatedRpmRepositoryArgs extends com.pulumi.resources.In
         this.cdnRedirect = $.cdnRedirect;
         this.cleanupOnDelete = $.cleanupOnDelete;
         this.description = $.description;
+        this.disableProxy = $.disableProxy;
         this.downloadDirect = $.downloadDirect;
         this.enableFileListsIndexing = $.enableFileListsIndexing;
         this.excludesPattern = $.excludesPattern;
@@ -223,6 +254,7 @@ public final class GetFederatedRpmRepositoryArgs extends com.pulumi.resources.In
         this.projectEnvironments = $.projectEnvironments;
         this.projectKey = $.projectKey;
         this.propertySets = $.propertySets;
+        this.proxy = $.proxy;
         this.repoLayoutRef = $.repoLayoutRef;
         this.secondaryKeypairRef = $.secondaryKeypairRef;
         this.xrayIndex = $.xrayIndex;
@@ -300,6 +332,27 @@ public final class GetFederatedRpmRepositoryArgs extends com.pulumi.resources.In
 
         public Builder description(String description) {
             return description(Output.of(description));
+        }
+
+        /**
+         * @param disableProxy When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder disableProxy(@Nullable Output<Boolean> disableProxy) {
+            $.disableProxy = disableProxy;
+            return this;
+        }
+
+        /**
+         * @param disableProxy When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder disableProxy(Boolean disableProxy) {
+            return disableProxy(Output.of(disableProxy));
         }
 
         public Builder downloadDirect(@Nullable Output<Boolean> downloadDirect) {
@@ -459,6 +512,27 @@ public final class GetFederatedRpmRepositoryArgs extends com.pulumi.resources.In
 
         public Builder propertySets(String... propertySets) {
             return propertySets(List.of(propertySets));
+        }
+
+        /**
+         * @param proxy Proxy key from Artifactory Proxies settings.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder proxy(@Nullable Output<String> proxy) {
+            $.proxy = proxy;
+            return this;
+        }
+
+        /**
+         * @param proxy Proxy key from Artifactory Proxies settings.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder proxy(String proxy) {
+            return proxy(Output.of(proxy));
         }
 
         public Builder repoLayoutRef(@Nullable Output<String> repoLayoutRef) {

@@ -97,6 +97,10 @@ export class FederatedCargoRepository extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
+     * When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
+     */
+    public readonly disableProxy!: pulumi.Output<boolean | undefined>;
+    /**
      * When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
      * storage provider. Available in Enterprise+ and Edge licenses only.
      */
@@ -154,6 +158,10 @@ export class FederatedCargoRepository extends pulumi.CustomResource {
      */
     public readonly propertySets!: pulumi.Output<string[] | undefined>;
     /**
+     * Proxy key from Artifactory Proxies settings. Default is empty field. Can't be set if `disableProxy = true`.
+     */
+    public readonly proxy!: pulumi.Output<string | undefined>;
+    /**
      * Repository layout key for the federated repository
      */
     public readonly repoLayoutRef!: pulumi.Output<string | undefined>;
@@ -182,6 +190,7 @@ export class FederatedCargoRepository extends pulumi.CustomResource {
             resourceInputs["cdnRedirect"] = state ? state.cdnRedirect : undefined;
             resourceInputs["cleanupOnDelete"] = state ? state.cleanupOnDelete : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["disableProxy"] = state ? state.disableProxy : undefined;
             resourceInputs["downloadDirect"] = state ? state.downloadDirect : undefined;
             resourceInputs["enableSparseIndex"] = state ? state.enableSparseIndex : undefined;
             resourceInputs["excludesPattern"] = state ? state.excludesPattern : undefined;
@@ -195,6 +204,7 @@ export class FederatedCargoRepository extends pulumi.CustomResource {
             resourceInputs["projectEnvironments"] = state ? state.projectEnvironments : undefined;
             resourceInputs["projectKey"] = state ? state.projectKey : undefined;
             resourceInputs["propertySets"] = state ? state.propertySets : undefined;
+            resourceInputs["proxy"] = state ? state.proxy : undefined;
             resourceInputs["repoLayoutRef"] = state ? state.repoLayoutRef : undefined;
             resourceInputs["xrayIndex"] = state ? state.xrayIndex : undefined;
         } else {
@@ -211,6 +221,7 @@ export class FederatedCargoRepository extends pulumi.CustomResource {
             resourceInputs["cdnRedirect"] = args ? args.cdnRedirect : undefined;
             resourceInputs["cleanupOnDelete"] = args ? args.cleanupOnDelete : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["disableProxy"] = args ? args.disableProxy : undefined;
             resourceInputs["downloadDirect"] = args ? args.downloadDirect : undefined;
             resourceInputs["enableSparseIndex"] = args ? args.enableSparseIndex : undefined;
             resourceInputs["excludesPattern"] = args ? args.excludesPattern : undefined;
@@ -223,6 +234,7 @@ export class FederatedCargoRepository extends pulumi.CustomResource {
             resourceInputs["projectEnvironments"] = args ? args.projectEnvironments : undefined;
             resourceInputs["projectKey"] = args ? args.projectKey : undefined;
             resourceInputs["propertySets"] = args ? args.propertySets : undefined;
+            resourceInputs["proxy"] = args ? args.proxy : undefined;
             resourceInputs["repoLayoutRef"] = args ? args.repoLayoutRef : undefined;
             resourceInputs["xrayIndex"] = args ? args.xrayIndex : undefined;
             resourceInputs["packageType"] = undefined /*out*/;
@@ -266,6 +278,10 @@ export interface FederatedCargoRepositoryState {
      * Public description.
      */
     description?: pulumi.Input<string>;
+    /**
+     * When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
+     */
+    disableProxy?: pulumi.Input<boolean>;
     /**
      * When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
      * storage provider. Available in Enterprise+ and Edge licenses only.
@@ -324,6 +340,10 @@ export interface FederatedCargoRepositoryState {
      */
     propertySets?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * Proxy key from Artifactory Proxies settings. Default is empty field. Can't be set if `disableProxy = true`.
+     */
+    proxy?: pulumi.Input<string>;
+    /**
      * Repository layout key for the federated repository
      */
     repoLayoutRef?: pulumi.Input<string>;
@@ -368,6 +388,10 @@ export interface FederatedCargoRepositoryArgs {
      * Public description.
      */
     description?: pulumi.Input<string>;
+    /**
+     * When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
+     */
+    disableProxy?: pulumi.Input<boolean>;
     /**
      * When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
      * storage provider. Available in Enterprise+ and Edge licenses only.
@@ -424,6 +448,10 @@ export interface FederatedCargoRepositoryArgs {
      * List of property set name
      */
     propertySets?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Proxy key from Artifactory Proxies settings. Default is empty field. Can't be set if `disableProxy = true`.
+     */
+    proxy?: pulumi.Input<string>;
     /**
      * Repository layout key for the federated repository
      */

@@ -150,6 +150,20 @@ public class FederatedOpkgRepository extends com.pulumi.resources.CustomResource
         return Codegen.optional(this.description);
     }
     /**
+     * When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
+     * 
+     */
+    @Export(name="disableProxy", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> disableProxy;
+
+    /**
+     * @return When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
+     * 
+     */
+    public Output<Optional<Boolean>> disableProxy() {
+        return Codegen.optional(this.disableProxy);
+    }
+    /**
      * When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
      * storage provider. Available in Enterprise+ and Edge licenses only.
      * 
@@ -314,6 +328,20 @@ public class FederatedOpkgRepository extends com.pulumi.resources.CustomResource
      */
     public Output<Optional<List<String>>> propertySets() {
         return Codegen.optional(this.propertySets);
+    }
+    /**
+     * Proxy key from Artifactory Proxies settings. Default is empty field. Can&#39;t be set if `disable_proxy = true`.
+     * 
+     */
+    @Export(name="proxy", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> proxy;
+
+    /**
+     * @return Proxy key from Artifactory Proxies settings. Default is empty field. Can&#39;t be set if `disable_proxy = true`.
+     * 
+     */
+    public Output<Optional<String>> proxy() {
+        return Codegen.optional(this.proxy);
     }
     /**
      * Repository layout key for the federated repository

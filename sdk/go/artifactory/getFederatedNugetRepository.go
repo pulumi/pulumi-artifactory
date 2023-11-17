@@ -50,11 +50,13 @@ func LookupFederatedNugetRepository(ctx *pulumi.Context, args *LookupFederatedNu
 
 // A collection of arguments for invoking getFederatedNugetRepository.
 type LookupFederatedNugetRepositoryArgs struct {
-	ArchiveBrowsingEnabled   *bool   `pulumi:"archiveBrowsingEnabled"`
-	BlackedOut               *bool   `pulumi:"blackedOut"`
-	CdnRedirect              *bool   `pulumi:"cdnRedirect"`
-	CleanupOnDelete          *bool   `pulumi:"cleanupOnDelete"`
-	Description              *string `pulumi:"description"`
+	ArchiveBrowsingEnabled *bool   `pulumi:"archiveBrowsingEnabled"`
+	BlackedOut             *bool   `pulumi:"blackedOut"`
+	CdnRedirect            *bool   `pulumi:"cdnRedirect"`
+	CleanupOnDelete        *bool   `pulumi:"cleanupOnDelete"`
+	Description            *string `pulumi:"description"`
+	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
+	DisableProxy             *bool   `pulumi:"disableProxy"`
 	DownloadDirect           *bool   `pulumi:"downloadDirect"`
 	ExcludesPattern          *string `pulumi:"excludesPattern"`
 	ForceNugetAuthentication *bool   `pulumi:"forceNugetAuthentication"`
@@ -72,17 +74,21 @@ type LookupFederatedNugetRepositoryArgs struct {
 	ProjectEnvironments []string                            `pulumi:"projectEnvironments"`
 	ProjectKey          *string                             `pulumi:"projectKey"`
 	PropertySets        []string                            `pulumi:"propertySets"`
-	RepoLayoutRef       *string                             `pulumi:"repoLayoutRef"`
-	XrayIndex           *bool                               `pulumi:"xrayIndex"`
+	// Proxy key from Artifactory Proxies settings.
+	Proxy         *string `pulumi:"proxy"`
+	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
+	XrayIndex     *bool   `pulumi:"xrayIndex"`
 }
 
 // A collection of values returned by getFederatedNugetRepository.
 type LookupFederatedNugetRepositoryResult struct {
-	ArchiveBrowsingEnabled   *bool   `pulumi:"archiveBrowsingEnabled"`
-	BlackedOut               *bool   `pulumi:"blackedOut"`
-	CdnRedirect              *bool   `pulumi:"cdnRedirect"`
-	CleanupOnDelete          *bool   `pulumi:"cleanupOnDelete"`
-	Description              *string `pulumi:"description"`
+	ArchiveBrowsingEnabled *bool   `pulumi:"archiveBrowsingEnabled"`
+	BlackedOut             *bool   `pulumi:"blackedOut"`
+	CdnRedirect            *bool   `pulumi:"cdnRedirect"`
+	CleanupOnDelete        *bool   `pulumi:"cleanupOnDelete"`
+	Description            *string `pulumi:"description"`
+	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
+	DisableProxy             *bool   `pulumi:"disableProxy"`
 	DownloadDirect           *bool   `pulumi:"downloadDirect"`
 	ExcludesPattern          *string `pulumi:"excludesPattern"`
 	ForceNugetAuthentication *bool   `pulumi:"forceNugetAuthentication"`
@@ -102,8 +108,10 @@ type LookupFederatedNugetRepositoryResult struct {
 	ProjectEnvironments []string                            `pulumi:"projectEnvironments"`
 	ProjectKey          *string                             `pulumi:"projectKey"`
 	PropertySets        []string                            `pulumi:"propertySets"`
-	RepoLayoutRef       *string                             `pulumi:"repoLayoutRef"`
-	XrayIndex           *bool                               `pulumi:"xrayIndex"`
+	// Proxy key from Artifactory Proxies settings.
+	Proxy         *string `pulumi:"proxy"`
+	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
+	XrayIndex     *bool   `pulumi:"xrayIndex"`
 }
 
 func LookupFederatedNugetRepositoryOutput(ctx *pulumi.Context, args LookupFederatedNugetRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupFederatedNugetRepositoryResultOutput {
@@ -121,11 +129,13 @@ func LookupFederatedNugetRepositoryOutput(ctx *pulumi.Context, args LookupFedera
 
 // A collection of arguments for invoking getFederatedNugetRepository.
 type LookupFederatedNugetRepositoryOutputArgs struct {
-	ArchiveBrowsingEnabled   pulumi.BoolPtrInput   `pulumi:"archiveBrowsingEnabled"`
-	BlackedOut               pulumi.BoolPtrInput   `pulumi:"blackedOut"`
-	CdnRedirect              pulumi.BoolPtrInput   `pulumi:"cdnRedirect"`
-	CleanupOnDelete          pulumi.BoolPtrInput   `pulumi:"cleanupOnDelete"`
-	Description              pulumi.StringPtrInput `pulumi:"description"`
+	ArchiveBrowsingEnabled pulumi.BoolPtrInput   `pulumi:"archiveBrowsingEnabled"`
+	BlackedOut             pulumi.BoolPtrInput   `pulumi:"blackedOut"`
+	CdnRedirect            pulumi.BoolPtrInput   `pulumi:"cdnRedirect"`
+	CleanupOnDelete        pulumi.BoolPtrInput   `pulumi:"cleanupOnDelete"`
+	Description            pulumi.StringPtrInput `pulumi:"description"`
+	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
+	DisableProxy             pulumi.BoolPtrInput   `pulumi:"disableProxy"`
 	DownloadDirect           pulumi.BoolPtrInput   `pulumi:"downloadDirect"`
 	ExcludesPattern          pulumi.StringPtrInput `pulumi:"excludesPattern"`
 	ForceNugetAuthentication pulumi.BoolPtrInput   `pulumi:"forceNugetAuthentication"`
@@ -143,8 +153,10 @@ type LookupFederatedNugetRepositoryOutputArgs struct {
 	ProjectEnvironments pulumi.StringArrayInput                     `pulumi:"projectEnvironments"`
 	ProjectKey          pulumi.StringPtrInput                       `pulumi:"projectKey"`
 	PropertySets        pulumi.StringArrayInput                     `pulumi:"propertySets"`
-	RepoLayoutRef       pulumi.StringPtrInput                       `pulumi:"repoLayoutRef"`
-	XrayIndex           pulumi.BoolPtrInput                         `pulumi:"xrayIndex"`
+	// Proxy key from Artifactory Proxies settings.
+	Proxy         pulumi.StringPtrInput `pulumi:"proxy"`
+	RepoLayoutRef pulumi.StringPtrInput `pulumi:"repoLayoutRef"`
+	XrayIndex     pulumi.BoolPtrInput   `pulumi:"xrayIndex"`
 }
 
 func (LookupFederatedNugetRepositoryOutputArgs) ElementType() reflect.Type {
@@ -184,6 +196,11 @@ func (o LookupFederatedNugetRepositoryResultOutput) CleanupOnDelete() pulumi.Boo
 
 func (o LookupFederatedNugetRepositoryResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFederatedNugetRepositoryResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
+func (o LookupFederatedNugetRepositoryResultOutput) DisableProxy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupFederatedNugetRepositoryResult) *bool { return v.DisableProxy }).(pulumi.BoolPtrOutput)
 }
 
 func (o LookupFederatedNugetRepositoryResultOutput) DownloadDirect() pulumi.BoolPtrOutput {
@@ -245,6 +262,11 @@ func (o LookupFederatedNugetRepositoryResultOutput) ProjectKey() pulumi.StringPt
 
 func (o LookupFederatedNugetRepositoryResultOutput) PropertySets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupFederatedNugetRepositoryResult) []string { return v.PropertySets }).(pulumi.StringArrayOutput)
+}
+
+// Proxy key from Artifactory Proxies settings.
+func (o LookupFederatedNugetRepositoryResultOutput) Proxy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFederatedNugetRepositoryResult) *string { return v.Proxy }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupFederatedNugetRepositoryResultOutput) RepoLayoutRef() pulumi.StringPtrOutput {

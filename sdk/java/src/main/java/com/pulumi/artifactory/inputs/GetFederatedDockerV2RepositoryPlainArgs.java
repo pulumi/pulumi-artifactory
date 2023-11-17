@@ -60,6 +60,21 @@ public final class GetFederatedDockerV2RepositoryPlainArgs extends com.pulumi.re
         return Optional.ofNullable(this.description);
     }
 
+    /**
+     * When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
+     * 
+     */
+    @Import(name="disableProxy")
+    private @Nullable Boolean disableProxy;
+
+    /**
+     * @return When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
+     * 
+     */
+    public Optional<Boolean> disableProxy() {
+        return Optional.ofNullable(this.disableProxy);
+    }
+
     @Import(name="downloadDirect")
     private @Nullable Boolean downloadDirect;
 
@@ -159,6 +174,21 @@ public final class GetFederatedDockerV2RepositoryPlainArgs extends com.pulumi.re
         return Optional.ofNullable(this.propertySets);
     }
 
+    /**
+     * Proxy key from Artifactory Proxies settings.
+     * 
+     */
+    @Import(name="proxy")
+    private @Nullable String proxy;
+
+    /**
+     * @return Proxy key from Artifactory Proxies settings.
+     * 
+     */
+    public Optional<String> proxy() {
+        return Optional.ofNullable(this.proxy);
+    }
+
     @Import(name="repoLayoutRef")
     private @Nullable String repoLayoutRef;
 
@@ -189,6 +219,7 @@ public final class GetFederatedDockerV2RepositoryPlainArgs extends com.pulumi.re
         this.cdnRedirect = $.cdnRedirect;
         this.cleanupOnDelete = $.cleanupOnDelete;
         this.description = $.description;
+        this.disableProxy = $.disableProxy;
         this.downloadDirect = $.downloadDirect;
         this.excludesPattern = $.excludesPattern;
         this.includesPattern = $.includesPattern;
@@ -200,6 +231,7 @@ public final class GetFederatedDockerV2RepositoryPlainArgs extends com.pulumi.re
         this.projectEnvironments = $.projectEnvironments;
         this.projectKey = $.projectKey;
         this.propertySets = $.propertySets;
+        this.proxy = $.proxy;
         this.repoLayoutRef = $.repoLayoutRef;
         this.tagRetention = $.tagRetention;
         this.xrayIndex = $.xrayIndex;
@@ -250,6 +282,17 @@ public final class GetFederatedDockerV2RepositoryPlainArgs extends com.pulumi.re
 
         public Builder description(@Nullable String description) {
             $.description = description;
+            return this;
+        }
+
+        /**
+         * @param disableProxy When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder disableProxy(@Nullable Boolean disableProxy) {
+            $.disableProxy = disableProxy;
             return this;
         }
 
@@ -342,6 +385,17 @@ public final class GetFederatedDockerV2RepositoryPlainArgs extends com.pulumi.re
 
         public Builder propertySets(String... propertySets) {
             return propertySets(List.of(propertySets));
+        }
+
+        /**
+         * @param proxy Proxy key from Artifactory Proxies settings.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder proxy(@Nullable String proxy) {
+            $.proxy = proxy;
+            return this;
         }
 
         public Builder repoLayoutRef(@Nullable String repoLayoutRef) {

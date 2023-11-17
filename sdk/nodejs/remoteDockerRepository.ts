@@ -107,6 +107,10 @@ export class RemoteDockerRepository extends pulumi.CustomResource {
     public readonly clientTlsCertificate!: pulumi.Output<string>;
     public readonly contentSynchronisation!: pulumi.Output<outputs.RemoteDockerRepositoryContentSynchronisation>;
     /**
+     * Enable repository to be protected by the Curation service.
+     */
+    public readonly curated!: pulumi.Output<boolean | undefined>;
+    /**
      * Public description.
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -302,6 +306,7 @@ export class RemoteDockerRepository extends pulumi.CustomResource {
             resourceInputs["cdnRedirect"] = state ? state.cdnRedirect : undefined;
             resourceInputs["clientTlsCertificate"] = state ? state.clientTlsCertificate : undefined;
             resourceInputs["contentSynchronisation"] = state ? state.contentSynchronisation : undefined;
+            resourceInputs["curated"] = state ? state.curated : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["disableProxy"] = state ? state.disableProxy : undefined;
             resourceInputs["disableUrlNormalization"] = state ? state.disableUrlNormalization : undefined;
@@ -357,6 +362,7 @@ export class RemoteDockerRepository extends pulumi.CustomResource {
             resourceInputs["cdnRedirect"] = args ? args.cdnRedirect : undefined;
             resourceInputs["clientTlsCertificate"] = args ? args.clientTlsCertificate : undefined;
             resourceInputs["contentSynchronisation"] = args ? args.contentSynchronisation : undefined;
+            resourceInputs["curated"] = args ? args.curated : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["disableProxy"] = args ? args.disableProxy : undefined;
             resourceInputs["disableUrlNormalization"] = args ? args.disableUrlNormalization : undefined;
@@ -451,6 +457,10 @@ export interface RemoteDockerRepositoryState {
      */
     clientTlsCertificate?: pulumi.Input<string>;
     contentSynchronisation?: pulumi.Input<inputs.RemoteDockerRepositoryContentSynchronisation>;
+    /**
+     * Enable repository to be protected by the Curation service.
+     */
+    curated?: pulumi.Input<boolean>;
     /**
      * Public description.
      */
@@ -674,6 +684,10 @@ export interface RemoteDockerRepositoryArgs {
      */
     clientTlsCertificate?: pulumi.Input<string>;
     contentSynchronisation?: pulumi.Input<inputs.RemoteDockerRepositoryContentSynchronisation>;
+    /**
+     * Enable repository to be protected by the Curation service.
+     */
+    curated?: pulumi.Input<boolean>;
     /**
      * Public description.
      */

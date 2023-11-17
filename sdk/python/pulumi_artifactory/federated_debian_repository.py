@@ -23,6 +23,7 @@ class FederatedDebianRepositoryArgs:
                  cdn_redirect: Optional[pulumi.Input[bool]] = None,
                  cleanup_on_delete: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 disable_proxy: Optional[pulumi.Input[bool]] = None,
                  download_direct: Optional[pulumi.Input[bool]] = None,
                  excludes_pattern: Optional[pulumi.Input[str]] = None,
                  includes_pattern: Optional[pulumi.Input[str]] = None,
@@ -33,6 +34,7 @@ class FederatedDebianRepositoryArgs:
                  project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  project_key: Optional[pulumi.Input[str]] = None,
                  property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 proxy: Optional[pulumi.Input[str]] = None,
                  repo_layout_ref: Optional[pulumi.Input[str]] = None,
                  secondary_keypair_ref: Optional[pulumi.Input[str]] = None,
                  trivial_layout: Optional[pulumi.Input[bool]] = None,
@@ -53,6 +55,7 @@ class FederatedDebianRepositoryArgs:
         :param pulumi.Input[bool] cleanup_on_delete: Delete all federated members on `terraform destroy` if set to `true`. Caution: it will delete all the repositories in
                the federation on other Artifactory instances.
         :param pulumi.Input[str] description: Public description.
+        :param pulumi.Input[bool] disable_proxy: When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
@@ -69,6 +72,7 @@ class FederatedDebianRepositoryArgs:
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
+        :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies settings. Default is empty field. Can't be set if `disable_proxy = true`.
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the federated repository
         :param pulumi.Input[str] secondary_keypair_ref: Used to sign index files in Debian artifacts.
         :param pulumi.Input[bool] trivial_layout: When set, the repository will use the deprecated trivial layout.
@@ -87,6 +91,8 @@ class FederatedDebianRepositoryArgs:
             pulumi.set(__self__, "cleanup_on_delete", cleanup_on_delete)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if disable_proxy is not None:
+            pulumi.set(__self__, "disable_proxy", disable_proxy)
         if download_direct is not None:
             pulumi.set(__self__, "download_direct", download_direct)
         if excludes_pattern is not None:
@@ -107,6 +113,8 @@ class FederatedDebianRepositoryArgs:
             pulumi.set(__self__, "project_key", project_key)
         if property_sets is not None:
             pulumi.set(__self__, "property_sets", property_sets)
+        if proxy is not None:
+            pulumi.set(__self__, "proxy", proxy)
         if repo_layout_ref is not None:
             pulumi.set(__self__, "repo_layout_ref", repo_layout_ref)
         if secondary_keypair_ref is not None:
@@ -209,6 +217,18 @@ class FederatedDebianRepositoryArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="disableProxy")
+    def disable_proxy(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
+        """
+        return pulumi.get(self, "disable_proxy")
+
+    @disable_proxy.setter
+    def disable_proxy(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "disable_proxy", value)
 
     @property
     @pulumi.getter(name="downloadDirect")
@@ -335,6 +355,18 @@ class FederatedDebianRepositoryArgs:
         pulumi.set(self, "property_sets", value)
 
     @property
+    @pulumi.getter
+    def proxy(self) -> Optional[pulumi.Input[str]]:
+        """
+        Proxy key from Artifactory Proxies settings. Default is empty field. Can't be set if `disable_proxy = true`.
+        """
+        return pulumi.get(self, "proxy")
+
+    @proxy.setter
+    def proxy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "proxy", value)
+
+    @property
     @pulumi.getter(name="repoLayoutRef")
     def repo_layout_ref(self) -> Optional[pulumi.Input[str]]:
         """
@@ -395,6 +427,7 @@ class _FederatedDebianRepositoryState:
                  cdn_redirect: Optional[pulumi.Input[bool]] = None,
                  cleanup_on_delete: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 disable_proxy: Optional[pulumi.Input[bool]] = None,
                  download_direct: Optional[pulumi.Input[bool]] = None,
                  excludes_pattern: Optional[pulumi.Input[str]] = None,
                  includes_pattern: Optional[pulumi.Input[str]] = None,
@@ -408,6 +441,7 @@ class _FederatedDebianRepositoryState:
                  project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  project_key: Optional[pulumi.Input[str]] = None,
                  property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 proxy: Optional[pulumi.Input[str]] = None,
                  repo_layout_ref: Optional[pulumi.Input[str]] = None,
                  secondary_keypair_ref: Optional[pulumi.Input[str]] = None,
                  trivial_layout: Optional[pulumi.Input[bool]] = None,
@@ -423,6 +457,7 @@ class _FederatedDebianRepositoryState:
         :param pulumi.Input[bool] cleanup_on_delete: Delete all federated members on `terraform destroy` if set to `true`. Caution: it will delete all the repositories in
                the federation on other Artifactory instances.
         :param pulumi.Input[str] description: Public description.
+        :param pulumi.Input[bool] disable_proxy: When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
@@ -444,6 +479,7 @@ class _FederatedDebianRepositoryState:
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
+        :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies settings. Default is empty field. Can't be set if `disable_proxy = true`.
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the federated repository
         :param pulumi.Input[str] secondary_keypair_ref: Used to sign index files in Debian artifacts.
         :param pulumi.Input[bool] trivial_layout: When set, the repository will use the deprecated trivial layout.
@@ -460,6 +496,8 @@ class _FederatedDebianRepositoryState:
             pulumi.set(__self__, "cleanup_on_delete", cleanup_on_delete)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if disable_proxy is not None:
+            pulumi.set(__self__, "disable_proxy", disable_proxy)
         if download_direct is not None:
             pulumi.set(__self__, "download_direct", download_direct)
         if excludes_pattern is not None:
@@ -486,6 +524,8 @@ class _FederatedDebianRepositoryState:
             pulumi.set(__self__, "project_key", project_key)
         if property_sets is not None:
             pulumi.set(__self__, "property_sets", property_sets)
+        if proxy is not None:
+            pulumi.set(__self__, "proxy", proxy)
         if repo_layout_ref is not None:
             pulumi.set(__self__, "repo_layout_ref", repo_layout_ref)
         if secondary_keypair_ref is not None:
@@ -561,6 +601,18 @@ class _FederatedDebianRepositoryState:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="disableProxy")
+    def disable_proxy(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
+        """
+        return pulumi.get(self, "disable_proxy")
+
+    @disable_proxy.setter
+    def disable_proxy(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "disable_proxy", value)
 
     @property
     @pulumi.getter(name="downloadDirect")
@@ -723,6 +775,18 @@ class _FederatedDebianRepositoryState:
         pulumi.set(self, "property_sets", value)
 
     @property
+    @pulumi.getter
+    def proxy(self) -> Optional[pulumi.Input[str]]:
+        """
+        Proxy key from Artifactory Proxies settings. Default is empty field. Can't be set if `disable_proxy = true`.
+        """
+        return pulumi.get(self, "proxy")
+
+    @proxy.setter
+    def proxy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "proxy", value)
+
+    @property
     @pulumi.getter(name="repoLayoutRef")
     def repo_layout_ref(self) -> Optional[pulumi.Input[str]]:
         """
@@ -785,6 +849,7 @@ class FederatedDebianRepository(pulumi.CustomResource):
                  cdn_redirect: Optional[pulumi.Input[bool]] = None,
                  cleanup_on_delete: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 disable_proxy: Optional[pulumi.Input[bool]] = None,
                  download_direct: Optional[pulumi.Input[bool]] = None,
                  excludes_pattern: Optional[pulumi.Input[str]] = None,
                  includes_pattern: Optional[pulumi.Input[str]] = None,
@@ -797,6 +862,7 @@ class FederatedDebianRepository(pulumi.CustomResource):
                  project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  project_key: Optional[pulumi.Input[str]] = None,
                  property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 proxy: Optional[pulumi.Input[str]] = None,
                  repo_layout_ref: Optional[pulumi.Input[str]] = None,
                  secondary_keypair_ref: Optional[pulumi.Input[str]] = None,
                  trivial_layout: Optional[pulumi.Input[bool]] = None,
@@ -844,6 +910,7 @@ class FederatedDebianRepository(pulumi.CustomResource):
         :param pulumi.Input[bool] cleanup_on_delete: Delete all federated members on `terraform destroy` if set to `true`. Caution: it will delete all the repositories in
                the federation on other Artifactory instances.
         :param pulumi.Input[str] description: Public description.
+        :param pulumi.Input[bool] disable_proxy: When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
@@ -865,6 +932,7 @@ class FederatedDebianRepository(pulumi.CustomResource):
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
+        :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies settings. Default is empty field. Can't be set if `disable_proxy = true`.
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the federated repository
         :param pulumi.Input[str] secondary_keypair_ref: Used to sign index files in Debian artifacts.
         :param pulumi.Input[bool] trivial_layout: When set, the repository will use the deprecated trivial layout.
@@ -928,6 +996,7 @@ class FederatedDebianRepository(pulumi.CustomResource):
                  cdn_redirect: Optional[pulumi.Input[bool]] = None,
                  cleanup_on_delete: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 disable_proxy: Optional[pulumi.Input[bool]] = None,
                  download_direct: Optional[pulumi.Input[bool]] = None,
                  excludes_pattern: Optional[pulumi.Input[str]] = None,
                  includes_pattern: Optional[pulumi.Input[str]] = None,
@@ -940,6 +1009,7 @@ class FederatedDebianRepository(pulumi.CustomResource):
                  project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  project_key: Optional[pulumi.Input[str]] = None,
                  property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 proxy: Optional[pulumi.Input[str]] = None,
                  repo_layout_ref: Optional[pulumi.Input[str]] = None,
                  secondary_keypair_ref: Optional[pulumi.Input[str]] = None,
                  trivial_layout: Optional[pulumi.Input[bool]] = None,
@@ -958,6 +1028,7 @@ class FederatedDebianRepository(pulumi.CustomResource):
             __props__.__dict__["cdn_redirect"] = cdn_redirect
             __props__.__dict__["cleanup_on_delete"] = cleanup_on_delete
             __props__.__dict__["description"] = description
+            __props__.__dict__["disable_proxy"] = disable_proxy
             __props__.__dict__["download_direct"] = download_direct
             __props__.__dict__["excludes_pattern"] = excludes_pattern
             __props__.__dict__["includes_pattern"] = includes_pattern
@@ -974,6 +1045,7 @@ class FederatedDebianRepository(pulumi.CustomResource):
             __props__.__dict__["project_environments"] = project_environments
             __props__.__dict__["project_key"] = project_key
             __props__.__dict__["property_sets"] = property_sets
+            __props__.__dict__["proxy"] = proxy
             __props__.__dict__["repo_layout_ref"] = repo_layout_ref
             __props__.__dict__["secondary_keypair_ref"] = secondary_keypair_ref
             __props__.__dict__["trivial_layout"] = trivial_layout
@@ -994,6 +1066,7 @@ class FederatedDebianRepository(pulumi.CustomResource):
             cdn_redirect: Optional[pulumi.Input[bool]] = None,
             cleanup_on_delete: Optional[pulumi.Input[bool]] = None,
             description: Optional[pulumi.Input[str]] = None,
+            disable_proxy: Optional[pulumi.Input[bool]] = None,
             download_direct: Optional[pulumi.Input[bool]] = None,
             excludes_pattern: Optional[pulumi.Input[str]] = None,
             includes_pattern: Optional[pulumi.Input[str]] = None,
@@ -1007,6 +1080,7 @@ class FederatedDebianRepository(pulumi.CustomResource):
             project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             project_key: Optional[pulumi.Input[str]] = None,
             property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            proxy: Optional[pulumi.Input[str]] = None,
             repo_layout_ref: Optional[pulumi.Input[str]] = None,
             secondary_keypair_ref: Optional[pulumi.Input[str]] = None,
             trivial_layout: Optional[pulumi.Input[bool]] = None,
@@ -1027,6 +1101,7 @@ class FederatedDebianRepository(pulumi.CustomResource):
         :param pulumi.Input[bool] cleanup_on_delete: Delete all federated members on `terraform destroy` if set to `true`. Caution: it will delete all the repositories in
                the federation on other Artifactory instances.
         :param pulumi.Input[str] description: Public description.
+        :param pulumi.Input[bool] disable_proxy: When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
@@ -1048,6 +1123,7 @@ class FederatedDebianRepository(pulumi.CustomResource):
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
+        :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies settings. Default is empty field. Can't be set if `disable_proxy = true`.
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the federated repository
         :param pulumi.Input[str] secondary_keypair_ref: Used to sign index files in Debian artifacts.
         :param pulumi.Input[bool] trivial_layout: When set, the repository will use the deprecated trivial layout.
@@ -1063,6 +1139,7 @@ class FederatedDebianRepository(pulumi.CustomResource):
         __props__.__dict__["cdn_redirect"] = cdn_redirect
         __props__.__dict__["cleanup_on_delete"] = cleanup_on_delete
         __props__.__dict__["description"] = description
+        __props__.__dict__["disable_proxy"] = disable_proxy
         __props__.__dict__["download_direct"] = download_direct
         __props__.__dict__["excludes_pattern"] = excludes_pattern
         __props__.__dict__["includes_pattern"] = includes_pattern
@@ -1076,6 +1153,7 @@ class FederatedDebianRepository(pulumi.CustomResource):
         __props__.__dict__["project_environments"] = project_environments
         __props__.__dict__["project_key"] = project_key
         __props__.__dict__["property_sets"] = property_sets
+        __props__.__dict__["proxy"] = proxy
         __props__.__dict__["repo_layout_ref"] = repo_layout_ref
         __props__.__dict__["secondary_keypair_ref"] = secondary_keypair_ref
         __props__.__dict__["trivial_layout"] = trivial_layout
@@ -1125,6 +1203,14 @@ class FederatedDebianRepository(pulumi.CustomResource):
         Public description.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="disableProxy")
+    def disable_proxy(self) -> pulumi.Output[Optional[bool]]:
+        """
+        When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
+        """
+        return pulumi.get(self, "disable_proxy")
 
     @property
     @pulumi.getter(name="downloadDirect")
@@ -1233,6 +1319,14 @@ class FederatedDebianRepository(pulumi.CustomResource):
         List of property set name
         """
         return pulumi.get(self, "property_sets")
+
+    @property
+    @pulumi.getter
+    def proxy(self) -> pulumi.Output[Optional[str]]:
+        """
+        Proxy key from Artifactory Proxies settings. Default is empty field. Can't be set if `disable_proxy = true`.
+        """
+        return pulumi.get(self, "proxy")
 
     @property
     @pulumi.getter(name="repoLayoutRef")

@@ -23,7 +23,7 @@ class GetRemoteDockerRepositoryResult:
     """
     A collection of values returned by getRemoteDockerRepository.
     """
-    def __init__(__self__, allow_any_host_auth=None, assumed_offline_period_secs=None, blacked_out=None, block_mismatching_mime_types=None, block_pushing_schema1=None, bypass_head_requests=None, cdn_redirect=None, client_tls_certificate=None, content_synchronisation=None, description=None, disable_proxy=None, disable_url_normalization=None, download_direct=None, enable_cookie_management=None, enable_token_authentication=None, excludes_pattern=None, external_dependencies_enabled=None, external_dependencies_patterns=None, hard_fail=None, id=None, includes_pattern=None, key=None, list_remote_folder_items=None, local_address=None, metadata_retrieval_timeout_secs=None, mismatching_mime_types_override_list=None, missed_cache_period_seconds=None, notes=None, offline=None, package_type=None, password=None, priority_resolution=None, project_environments=None, project_key=None, property_sets=None, proxy=None, query_params=None, remote_repo_layout_ref=None, repo_layout_ref=None, retrieval_cache_period_seconds=None, share_configuration=None, socket_timeout_millis=None, store_artifacts_locally=None, synchronize_properties=None, unused_artifacts_cleanup_period_hours=None, url=None, username=None, xray_index=None):
+    def __init__(__self__, allow_any_host_auth=None, assumed_offline_period_secs=None, blacked_out=None, block_mismatching_mime_types=None, block_pushing_schema1=None, bypass_head_requests=None, cdn_redirect=None, client_tls_certificate=None, content_synchronisation=None, curated=None, description=None, disable_proxy=None, disable_url_normalization=None, download_direct=None, enable_cookie_management=None, enable_token_authentication=None, excludes_pattern=None, external_dependencies_enabled=None, external_dependencies_patterns=None, hard_fail=None, id=None, includes_pattern=None, key=None, list_remote_folder_items=None, local_address=None, metadata_retrieval_timeout_secs=None, mismatching_mime_types_override_list=None, missed_cache_period_seconds=None, notes=None, offline=None, package_type=None, password=None, priority_resolution=None, project_environments=None, project_key=None, property_sets=None, proxy=None, query_params=None, remote_repo_layout_ref=None, repo_layout_ref=None, retrieval_cache_period_seconds=None, share_configuration=None, socket_timeout_millis=None, store_artifacts_locally=None, synchronize_properties=None, unused_artifacts_cleanup_period_hours=None, url=None, username=None, xray_index=None):
         if allow_any_host_auth and not isinstance(allow_any_host_auth, bool):
             raise TypeError("Expected argument 'allow_any_host_auth' to be a bool")
         pulumi.set(__self__, "allow_any_host_auth", allow_any_host_auth)
@@ -51,6 +51,9 @@ class GetRemoteDockerRepositoryResult:
         if content_synchronisation and not isinstance(content_synchronisation, dict):
             raise TypeError("Expected argument 'content_synchronisation' to be a dict")
         pulumi.set(__self__, "content_synchronisation", content_synchronisation)
+        if curated and not isinstance(curated, bool):
+            raise TypeError("Expected argument 'curated' to be a bool")
+        pulumi.set(__self__, "curated", curated)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -216,6 +219,11 @@ class GetRemoteDockerRepositoryResult:
     @pulumi.getter(name="contentSynchronisation")
     def content_synchronisation(self) -> 'outputs.GetRemoteDockerRepositoryContentSynchronisationResult':
         return pulumi.get(self, "content_synchronisation")
+
+    @property
+    @pulumi.getter
+    def curated(self) -> Optional[bool]:
+        return pulumi.get(self, "curated")
 
     @property
     @pulumi.getter
@@ -443,6 +451,7 @@ class AwaitableGetRemoteDockerRepositoryResult(GetRemoteDockerRepositoryResult):
             cdn_redirect=self.cdn_redirect,
             client_tls_certificate=self.client_tls_certificate,
             content_synchronisation=self.content_synchronisation,
+            curated=self.curated,
             description=self.description,
             disable_proxy=self.disable_proxy,
             disable_url_normalization=self.disable_url_normalization,
@@ -493,6 +502,7 @@ def get_remote_docker_repository(allow_any_host_auth: Optional[bool] = None,
                                  cdn_redirect: Optional[bool] = None,
                                  client_tls_certificate: Optional[str] = None,
                                  content_synchronisation: Optional[pulumi.InputType['GetRemoteDockerRepositoryContentSynchronisationArgs']] = None,
+                                 curated: Optional[bool] = None,
                                  description: Optional[str] = None,
                                  disable_proxy: Optional[bool] = None,
                                  disable_url_normalization: Optional[bool] = None,
@@ -561,6 +571,7 @@ def get_remote_docker_repository(allow_any_host_auth: Optional[bool] = None,
     __args__['cdnRedirect'] = cdn_redirect
     __args__['clientTlsCertificate'] = client_tls_certificate
     __args__['contentSynchronisation'] = content_synchronisation
+    __args__['curated'] = curated
     __args__['description'] = description
     __args__['disableProxy'] = disable_proxy
     __args__['disableUrlNormalization'] = disable_url_normalization
@@ -611,6 +622,7 @@ def get_remote_docker_repository(allow_any_host_auth: Optional[bool] = None,
         cdn_redirect=pulumi.get(__ret__, 'cdn_redirect'),
         client_tls_certificate=pulumi.get(__ret__, 'client_tls_certificate'),
         content_synchronisation=pulumi.get(__ret__, 'content_synchronisation'),
+        curated=pulumi.get(__ret__, 'curated'),
         description=pulumi.get(__ret__, 'description'),
         disable_proxy=pulumi.get(__ret__, 'disable_proxy'),
         disable_url_normalization=pulumi.get(__ret__, 'disable_url_normalization'),
@@ -662,6 +674,7 @@ def get_remote_docker_repository_output(allow_any_host_auth: Optional[pulumi.Inp
                                         cdn_redirect: Optional[pulumi.Input[Optional[bool]]] = None,
                                         client_tls_certificate: Optional[pulumi.Input[Optional[str]]] = None,
                                         content_synchronisation: Optional[pulumi.Input[Optional[pulumi.InputType['GetRemoteDockerRepositoryContentSynchronisationArgs']]]] = None,
+                                        curated: Optional[pulumi.Input[Optional[bool]]] = None,
                                         description: Optional[pulumi.Input[Optional[str]]] = None,
                                         disable_proxy: Optional[pulumi.Input[Optional[bool]]] = None,
                                         disable_url_normalization: Optional[pulumi.Input[Optional[bool]]] = None,

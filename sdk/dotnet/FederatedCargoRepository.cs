@@ -97,6 +97,12 @@ namespace Pulumi.Artifactory
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
+        /// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
+        /// </summary>
+        [Output("disableProxy")]
+        public Output<bool?> DisableProxy { get; private set; } = null!;
+
+        /// <summary>
         /// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
         /// storage provider. Available in Enterprise+ and Edge licenses only.
         /// </summary>
@@ -178,6 +184,12 @@ namespace Pulumi.Artifactory
         /// </summary>
         [Output("propertySets")]
         public Output<ImmutableArray<string>> PropertySets { get; private set; } = null!;
+
+        /// <summary>
+        /// Proxy key from Artifactory Proxies settings. Default is empty field. Can't be set if `disable_proxy = true`.
+        /// </summary>
+        [Output("proxy")]
+        public Output<string?> Proxy { get; private set; } = null!;
 
         /// <summary>
         /// Repository layout key for the federated repository
@@ -279,6 +291,12 @@ namespace Pulumi.Artifactory
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
+        /// </summary>
+        [Input("disableProxy")]
+        public Input<bool>? DisableProxy { get; set; }
 
         /// <summary>
         /// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
@@ -384,6 +402,12 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
+        /// Proxy key from Artifactory Proxies settings. Default is empty field. Can't be set if `disable_proxy = true`.
+        /// </summary>
+        [Input("proxy")]
+        public Input<string>? Proxy { get; set; }
+
+        /// <summary>
         /// Repository layout key for the federated repository
         /// </summary>
         [Input("repoLayoutRef")]
@@ -445,6 +469,12 @@ namespace Pulumi.Artifactory
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
+        /// </summary>
+        [Input("disableProxy")]
+        public Input<bool>? DisableProxy { get; set; }
 
         /// <summary>
         /// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
@@ -551,6 +581,12 @@ namespace Pulumi.Artifactory
             get => _propertySets ?? (_propertySets = new InputList<string>());
             set => _propertySets = value;
         }
+
+        /// <summary>
+        /// Proxy key from Artifactory Proxies settings. Default is empty field. Can't be set if `disable_proxy = true`.
+        /// </summary>
+        [Input("proxy")]
+        public Input<string>? Proxy { get; set; }
 
         /// <summary>
         /// Repository layout key for the federated repository
