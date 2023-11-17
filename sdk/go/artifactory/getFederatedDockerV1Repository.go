@@ -55,9 +55,11 @@ type LookupFederatedDockerV1RepositoryArgs struct {
 	CdnRedirect            *bool   `pulumi:"cdnRedirect"`
 	CleanupOnDelete        *bool   `pulumi:"cleanupOnDelete"`
 	Description            *string `pulumi:"description"`
-	DownloadDirect         *bool   `pulumi:"downloadDirect"`
-	ExcludesPattern        *string `pulumi:"excludesPattern"`
-	IncludesPattern        *string `pulumi:"includesPattern"`
+	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
+	DisableProxy    *bool   `pulumi:"disableProxy"`
+	DownloadDirect  *bool   `pulumi:"downloadDirect"`
+	ExcludesPattern *string `pulumi:"excludesPattern"`
+	IncludesPattern *string `pulumi:"includesPattern"`
 	// the identity key of the repo.
 	Key           string `pulumi:"key"`
 	MaxUniqueTags *int   `pulumi:"maxUniqueTags"`
@@ -71,8 +73,10 @@ type LookupFederatedDockerV1RepositoryArgs struct {
 	ProjectEnvironments []string                               `pulumi:"projectEnvironments"`
 	ProjectKey          *string                                `pulumi:"projectKey"`
 	PropertySets        []string                               `pulumi:"propertySets"`
-	RepoLayoutRef       *string                                `pulumi:"repoLayoutRef"`
-	XrayIndex           *bool                                  `pulumi:"xrayIndex"`
+	// Proxy key from Artifactory Proxies settings.
+	Proxy         *string `pulumi:"proxy"`
+	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
+	XrayIndex     *bool   `pulumi:"xrayIndex"`
 }
 
 // A collection of values returned by getFederatedDockerV1Repository.
@@ -84,8 +88,10 @@ type LookupFederatedDockerV1RepositoryResult struct {
 	CdnRedirect            *bool   `pulumi:"cdnRedirect"`
 	CleanupOnDelete        *bool   `pulumi:"cleanupOnDelete"`
 	Description            *string `pulumi:"description"`
-	DownloadDirect         *bool   `pulumi:"downloadDirect"`
-	ExcludesPattern        *string `pulumi:"excludesPattern"`
+	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
+	DisableProxy    *bool   `pulumi:"disableProxy"`
+	DownloadDirect  *bool   `pulumi:"downloadDirect"`
+	ExcludesPattern *string `pulumi:"excludesPattern"`
 	// The provider-assigned unique ID for this managed resource.
 	Id              string  `pulumi:"id"`
 	IncludesPattern *string `pulumi:"includesPattern"`
@@ -102,9 +108,11 @@ type LookupFederatedDockerV1RepositoryResult struct {
 	ProjectEnvironments []string                               `pulumi:"projectEnvironments"`
 	ProjectKey          *string                                `pulumi:"projectKey"`
 	PropertySets        []string                               `pulumi:"propertySets"`
-	RepoLayoutRef       *string                                `pulumi:"repoLayoutRef"`
-	TagRetention        int                                    `pulumi:"tagRetention"`
-	XrayIndex           *bool                                  `pulumi:"xrayIndex"`
+	// Proxy key from Artifactory Proxies settings.
+	Proxy         *string `pulumi:"proxy"`
+	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
+	TagRetention  int     `pulumi:"tagRetention"`
+	XrayIndex     *bool   `pulumi:"xrayIndex"`
 }
 
 func LookupFederatedDockerV1RepositoryOutput(ctx *pulumi.Context, args LookupFederatedDockerV1RepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupFederatedDockerV1RepositoryResultOutput {
@@ -127,9 +135,11 @@ type LookupFederatedDockerV1RepositoryOutputArgs struct {
 	CdnRedirect            pulumi.BoolPtrInput   `pulumi:"cdnRedirect"`
 	CleanupOnDelete        pulumi.BoolPtrInput   `pulumi:"cleanupOnDelete"`
 	Description            pulumi.StringPtrInput `pulumi:"description"`
-	DownloadDirect         pulumi.BoolPtrInput   `pulumi:"downloadDirect"`
-	ExcludesPattern        pulumi.StringPtrInput `pulumi:"excludesPattern"`
-	IncludesPattern        pulumi.StringPtrInput `pulumi:"includesPattern"`
+	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
+	DisableProxy    pulumi.BoolPtrInput   `pulumi:"disableProxy"`
+	DownloadDirect  pulumi.BoolPtrInput   `pulumi:"downloadDirect"`
+	ExcludesPattern pulumi.StringPtrInput `pulumi:"excludesPattern"`
+	IncludesPattern pulumi.StringPtrInput `pulumi:"includesPattern"`
 	// the identity key of the repo.
 	Key           pulumi.StringInput `pulumi:"key"`
 	MaxUniqueTags pulumi.IntPtrInput `pulumi:"maxUniqueTags"`
@@ -143,8 +153,10 @@ type LookupFederatedDockerV1RepositoryOutputArgs struct {
 	ProjectEnvironments pulumi.StringArrayInput                        `pulumi:"projectEnvironments"`
 	ProjectKey          pulumi.StringPtrInput                          `pulumi:"projectKey"`
 	PropertySets        pulumi.StringArrayInput                        `pulumi:"propertySets"`
-	RepoLayoutRef       pulumi.StringPtrInput                          `pulumi:"repoLayoutRef"`
-	XrayIndex           pulumi.BoolPtrInput                            `pulumi:"xrayIndex"`
+	// Proxy key from Artifactory Proxies settings.
+	Proxy         pulumi.StringPtrInput `pulumi:"proxy"`
+	RepoLayoutRef pulumi.StringPtrInput `pulumi:"repoLayoutRef"`
+	XrayIndex     pulumi.BoolPtrInput   `pulumi:"xrayIndex"`
 }
 
 func (LookupFederatedDockerV1RepositoryOutputArgs) ElementType() reflect.Type {
@@ -192,6 +204,11 @@ func (o LookupFederatedDockerV1RepositoryResultOutput) CleanupOnDelete() pulumi.
 
 func (o LookupFederatedDockerV1RepositoryResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFederatedDockerV1RepositoryResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
+func (o LookupFederatedDockerV1RepositoryResultOutput) DisableProxy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupFederatedDockerV1RepositoryResult) *bool { return v.DisableProxy }).(pulumi.BoolPtrOutput)
 }
 
 func (o LookupFederatedDockerV1RepositoryResultOutput) DownloadDirect() pulumi.BoolPtrOutput {
@@ -251,6 +268,11 @@ func (o LookupFederatedDockerV1RepositoryResultOutput) ProjectKey() pulumi.Strin
 
 func (o LookupFederatedDockerV1RepositoryResultOutput) PropertySets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupFederatedDockerV1RepositoryResult) []string { return v.PropertySets }).(pulumi.StringArrayOutput)
+}
+
+// Proxy key from Artifactory Proxies settings.
+func (o LookupFederatedDockerV1RepositoryResultOutput) Proxy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFederatedDockerV1RepositoryResult) *string { return v.Proxy }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupFederatedDockerV1RepositoryResultOutput) RepoLayoutRef() pulumi.StringPtrOutput {

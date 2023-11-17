@@ -56,11 +56,13 @@ type LookupFederatedIvyRepositoryArgs struct {
 	ChecksumPolicyType     *string `pulumi:"checksumPolicyType"`
 	CleanupOnDelete        *bool   `pulumi:"cleanupOnDelete"`
 	Description            *string `pulumi:"description"`
-	DownloadDirect         *bool   `pulumi:"downloadDirect"`
-	ExcludesPattern        *string `pulumi:"excludesPattern"`
-	HandleReleases         *bool   `pulumi:"handleReleases"`
-	HandleSnapshots        *bool   `pulumi:"handleSnapshots"`
-	IncludesPattern        *string `pulumi:"includesPattern"`
+	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
+	DisableProxy    *bool   `pulumi:"disableProxy"`
+	DownloadDirect  *bool   `pulumi:"downloadDirect"`
+	ExcludesPattern *string `pulumi:"excludesPattern"`
+	HandleReleases  *bool   `pulumi:"handleReleases"`
+	HandleSnapshots *bool   `pulumi:"handleSnapshots"`
+	IncludesPattern *string `pulumi:"includesPattern"`
 	// the identity key of the repo.
 	Key                string `pulumi:"key"`
 	MaxUniqueSnapshots *int   `pulumi:"maxUniqueSnapshots"`
@@ -68,16 +70,18 @@ type LookupFederatedIvyRepositoryArgs struct {
 	// `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
 	// Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
 	// to set up Federated repositories correctly.
-	Members                      []GetFederatedIvyRepositoryMember `pulumi:"members"`
-	Notes                        *string                           `pulumi:"notes"`
-	PriorityResolution           *bool                             `pulumi:"priorityResolution"`
-	ProjectEnvironments          []string                          `pulumi:"projectEnvironments"`
-	ProjectKey                   *string                           `pulumi:"projectKey"`
-	PropertySets                 []string                          `pulumi:"propertySets"`
-	RepoLayoutRef                *string                           `pulumi:"repoLayoutRef"`
-	SnapshotVersionBehavior      *string                           `pulumi:"snapshotVersionBehavior"`
-	SuppressPomConsistencyChecks *bool                             `pulumi:"suppressPomConsistencyChecks"`
-	XrayIndex                    *bool                             `pulumi:"xrayIndex"`
+	Members             []GetFederatedIvyRepositoryMember `pulumi:"members"`
+	Notes               *string                           `pulumi:"notes"`
+	PriorityResolution  *bool                             `pulumi:"priorityResolution"`
+	ProjectEnvironments []string                          `pulumi:"projectEnvironments"`
+	ProjectKey          *string                           `pulumi:"projectKey"`
+	PropertySets        []string                          `pulumi:"propertySets"`
+	// Proxy key from Artifactory Proxies settings.
+	Proxy                        *string `pulumi:"proxy"`
+	RepoLayoutRef                *string `pulumi:"repoLayoutRef"`
+	SnapshotVersionBehavior      *string `pulumi:"snapshotVersionBehavior"`
+	SuppressPomConsistencyChecks *bool   `pulumi:"suppressPomConsistencyChecks"`
+	XrayIndex                    *bool   `pulumi:"xrayIndex"`
 }
 
 // A collection of values returned by getFederatedIvyRepository.
@@ -88,10 +92,12 @@ type LookupFederatedIvyRepositoryResult struct {
 	ChecksumPolicyType     *string `pulumi:"checksumPolicyType"`
 	CleanupOnDelete        *bool   `pulumi:"cleanupOnDelete"`
 	Description            *string `pulumi:"description"`
-	DownloadDirect         *bool   `pulumi:"downloadDirect"`
-	ExcludesPattern        *string `pulumi:"excludesPattern"`
-	HandleReleases         *bool   `pulumi:"handleReleases"`
-	HandleSnapshots        *bool   `pulumi:"handleSnapshots"`
+	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
+	DisableProxy    *bool   `pulumi:"disableProxy"`
+	DownloadDirect  *bool   `pulumi:"downloadDirect"`
+	ExcludesPattern *string `pulumi:"excludesPattern"`
+	HandleReleases  *bool   `pulumi:"handleReleases"`
+	HandleSnapshots *bool   `pulumi:"handleSnapshots"`
 	// The provider-assigned unique ID for this managed resource.
 	Id                 string  `pulumi:"id"`
 	IncludesPattern    *string `pulumi:"includesPattern"`
@@ -101,17 +107,19 @@ type LookupFederatedIvyRepositoryResult struct {
 	// `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
 	// Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
 	// to set up Federated repositories correctly.
-	Members                      []GetFederatedIvyRepositoryMember `pulumi:"members"`
-	Notes                        *string                           `pulumi:"notes"`
-	PackageType                  string                            `pulumi:"packageType"`
-	PriorityResolution           *bool                             `pulumi:"priorityResolution"`
-	ProjectEnvironments          []string                          `pulumi:"projectEnvironments"`
-	ProjectKey                   *string                           `pulumi:"projectKey"`
-	PropertySets                 []string                          `pulumi:"propertySets"`
-	RepoLayoutRef                *string                           `pulumi:"repoLayoutRef"`
-	SnapshotVersionBehavior      *string                           `pulumi:"snapshotVersionBehavior"`
-	SuppressPomConsistencyChecks *bool                             `pulumi:"suppressPomConsistencyChecks"`
-	XrayIndex                    *bool                             `pulumi:"xrayIndex"`
+	Members             []GetFederatedIvyRepositoryMember `pulumi:"members"`
+	Notes               *string                           `pulumi:"notes"`
+	PackageType         string                            `pulumi:"packageType"`
+	PriorityResolution  *bool                             `pulumi:"priorityResolution"`
+	ProjectEnvironments []string                          `pulumi:"projectEnvironments"`
+	ProjectKey          *string                           `pulumi:"projectKey"`
+	PropertySets        []string                          `pulumi:"propertySets"`
+	// Proxy key from Artifactory Proxies settings.
+	Proxy                        *string `pulumi:"proxy"`
+	RepoLayoutRef                *string `pulumi:"repoLayoutRef"`
+	SnapshotVersionBehavior      *string `pulumi:"snapshotVersionBehavior"`
+	SuppressPomConsistencyChecks *bool   `pulumi:"suppressPomConsistencyChecks"`
+	XrayIndex                    *bool   `pulumi:"xrayIndex"`
 }
 
 func LookupFederatedIvyRepositoryOutput(ctx *pulumi.Context, args LookupFederatedIvyRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupFederatedIvyRepositoryResultOutput {
@@ -135,11 +143,13 @@ type LookupFederatedIvyRepositoryOutputArgs struct {
 	ChecksumPolicyType     pulumi.StringPtrInput `pulumi:"checksumPolicyType"`
 	CleanupOnDelete        pulumi.BoolPtrInput   `pulumi:"cleanupOnDelete"`
 	Description            pulumi.StringPtrInput `pulumi:"description"`
-	DownloadDirect         pulumi.BoolPtrInput   `pulumi:"downloadDirect"`
-	ExcludesPattern        pulumi.StringPtrInput `pulumi:"excludesPattern"`
-	HandleReleases         pulumi.BoolPtrInput   `pulumi:"handleReleases"`
-	HandleSnapshots        pulumi.BoolPtrInput   `pulumi:"handleSnapshots"`
-	IncludesPattern        pulumi.StringPtrInput `pulumi:"includesPattern"`
+	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
+	DisableProxy    pulumi.BoolPtrInput   `pulumi:"disableProxy"`
+	DownloadDirect  pulumi.BoolPtrInput   `pulumi:"downloadDirect"`
+	ExcludesPattern pulumi.StringPtrInput `pulumi:"excludesPattern"`
+	HandleReleases  pulumi.BoolPtrInput   `pulumi:"handleReleases"`
+	HandleSnapshots pulumi.BoolPtrInput   `pulumi:"handleSnapshots"`
+	IncludesPattern pulumi.StringPtrInput `pulumi:"includesPattern"`
 	// the identity key of the repo.
 	Key                pulumi.StringInput `pulumi:"key"`
 	MaxUniqueSnapshots pulumi.IntPtrInput `pulumi:"maxUniqueSnapshots"`
@@ -147,16 +157,18 @@ type LookupFederatedIvyRepositoryOutputArgs struct {
 	// `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
 	// Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
 	// to set up Federated repositories correctly.
-	Members                      GetFederatedIvyRepositoryMemberArrayInput `pulumi:"members"`
-	Notes                        pulumi.StringPtrInput                     `pulumi:"notes"`
-	PriorityResolution           pulumi.BoolPtrInput                       `pulumi:"priorityResolution"`
-	ProjectEnvironments          pulumi.StringArrayInput                   `pulumi:"projectEnvironments"`
-	ProjectKey                   pulumi.StringPtrInput                     `pulumi:"projectKey"`
-	PropertySets                 pulumi.StringArrayInput                   `pulumi:"propertySets"`
-	RepoLayoutRef                pulumi.StringPtrInput                     `pulumi:"repoLayoutRef"`
-	SnapshotVersionBehavior      pulumi.StringPtrInput                     `pulumi:"snapshotVersionBehavior"`
-	SuppressPomConsistencyChecks pulumi.BoolPtrInput                       `pulumi:"suppressPomConsistencyChecks"`
-	XrayIndex                    pulumi.BoolPtrInput                       `pulumi:"xrayIndex"`
+	Members             GetFederatedIvyRepositoryMemberArrayInput `pulumi:"members"`
+	Notes               pulumi.StringPtrInput                     `pulumi:"notes"`
+	PriorityResolution  pulumi.BoolPtrInput                       `pulumi:"priorityResolution"`
+	ProjectEnvironments pulumi.StringArrayInput                   `pulumi:"projectEnvironments"`
+	ProjectKey          pulumi.StringPtrInput                     `pulumi:"projectKey"`
+	PropertySets        pulumi.StringArrayInput                   `pulumi:"propertySets"`
+	// Proxy key from Artifactory Proxies settings.
+	Proxy                        pulumi.StringPtrInput `pulumi:"proxy"`
+	RepoLayoutRef                pulumi.StringPtrInput `pulumi:"repoLayoutRef"`
+	SnapshotVersionBehavior      pulumi.StringPtrInput `pulumi:"snapshotVersionBehavior"`
+	SuppressPomConsistencyChecks pulumi.BoolPtrInput   `pulumi:"suppressPomConsistencyChecks"`
+	XrayIndex                    pulumi.BoolPtrInput   `pulumi:"xrayIndex"`
 }
 
 func (LookupFederatedIvyRepositoryOutputArgs) ElementType() reflect.Type {
@@ -200,6 +212,11 @@ func (o LookupFederatedIvyRepositoryResultOutput) CleanupOnDelete() pulumi.BoolP
 
 func (o LookupFederatedIvyRepositoryResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFederatedIvyRepositoryResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
+func (o LookupFederatedIvyRepositoryResultOutput) DisableProxy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupFederatedIvyRepositoryResult) *bool { return v.DisableProxy }).(pulumi.BoolPtrOutput)
 }
 
 func (o LookupFederatedIvyRepositoryResultOutput) DownloadDirect() pulumi.BoolPtrOutput {
@@ -265,6 +282,11 @@ func (o LookupFederatedIvyRepositoryResultOutput) ProjectKey() pulumi.StringPtrO
 
 func (o LookupFederatedIvyRepositoryResultOutput) PropertySets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupFederatedIvyRepositoryResult) []string { return v.PropertySets }).(pulumi.StringArrayOutput)
+}
+
+// Proxy key from Artifactory Proxies settings.
+func (o LookupFederatedIvyRepositoryResultOutput) Proxy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFederatedIvyRepositoryResult) *string { return v.Proxy }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupFederatedIvyRepositoryResultOutput) RepoLayoutRef() pulumi.StringPtrOutput {

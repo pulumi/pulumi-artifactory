@@ -32,6 +32,7 @@ export function getRemotePypiRepository(args: GetRemotePypiRepositoryArgs, opts?
         "cdnRedirect": args.cdnRedirect,
         "clientTlsCertificate": args.clientTlsCertificate,
         "contentSynchronisation": args.contentSynchronisation,
+        "curated": args.curated,
         "description": args.description,
         "disableProxy": args.disableProxy,
         "disableUrlNormalization": args.disableUrlNormalization,
@@ -83,6 +84,7 @@ export interface GetRemotePypiRepositoryArgs {
     cdnRedirect?: boolean;
     clientTlsCertificate?: string;
     contentSynchronisation?: inputs.GetRemotePypiRepositoryContentSynchronisation;
+    curated?: boolean;
     description?: string;
     disableProxy?: boolean;
     disableUrlNormalization?: boolean;
@@ -142,6 +144,7 @@ export interface GetRemotePypiRepositoryResult {
     readonly cdnRedirect?: boolean;
     readonly clientTlsCertificate: string;
     readonly contentSynchronisation: outputs.GetRemotePypiRepositoryContentSynchronisation;
+    readonly curated?: boolean;
     readonly description?: string;
     readonly disableProxy?: boolean;
     readonly disableUrlNormalization?: boolean;
@@ -220,6 +223,7 @@ export interface GetRemotePypiRepositoryOutputArgs {
     cdnRedirect?: pulumi.Input<boolean>;
     clientTlsCertificate?: pulumi.Input<string>;
     contentSynchronisation?: pulumi.Input<inputs.GetRemotePypiRepositoryContentSynchronisationArgs>;
+    curated?: pulumi.Input<boolean>;
     description?: pulumi.Input<string>;
     disableProxy?: pulumi.Input<boolean>;
     disableUrlNormalization?: pulumi.Input<boolean>;

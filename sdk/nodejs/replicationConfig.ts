@@ -7,7 +7,7 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * Note: this resource is deprecated in favor of `artifactory.PushReplication` resource.
+ * > This resource is deprecated in favor of `artifactory.PushReplication` resource.
  *
  * Provides an Artifactory replication config resource. This can be used to create and manage Artifactory replications.
  *

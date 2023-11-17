@@ -28,6 +28,7 @@ public final class GetRemoteDockerRepositoryResult {
     private @Nullable Boolean cdnRedirect;
     private String clientTlsCertificate;
     private GetRemoteDockerRepositoryContentSynchronisation contentSynchronisation;
+    private @Nullable Boolean curated;
     private @Nullable String description;
     private @Nullable Boolean disableProxy;
     /**
@@ -119,6 +120,9 @@ public final class GetRemoteDockerRepositoryResult {
     }
     public GetRemoteDockerRepositoryContentSynchronisation contentSynchronisation() {
         return this.contentSynchronisation;
+    }
+    public Optional<Boolean> curated() {
+        return Optional.ofNullable(this.curated);
     }
     public Optional<String> description() {
         return Optional.ofNullable(this.description);
@@ -276,6 +280,7 @@ public final class GetRemoteDockerRepositoryResult {
         private @Nullable Boolean cdnRedirect;
         private String clientTlsCertificate;
         private GetRemoteDockerRepositoryContentSynchronisation contentSynchronisation;
+        private @Nullable Boolean curated;
         private @Nullable String description;
         private @Nullable Boolean disableProxy;
         private @Nullable Boolean disableUrlNormalization;
@@ -327,6 +332,7 @@ public final class GetRemoteDockerRepositoryResult {
     	      this.cdnRedirect = defaults.cdnRedirect;
     	      this.clientTlsCertificate = defaults.clientTlsCertificate;
     	      this.contentSynchronisation = defaults.contentSynchronisation;
+    	      this.curated = defaults.curated;
     	      this.description = defaults.description;
     	      this.disableProxy = defaults.disableProxy;
     	      this.disableUrlNormalization = defaults.disableUrlNormalization;
@@ -411,6 +417,11 @@ public final class GetRemoteDockerRepositoryResult {
         @CustomType.Setter
         public Builder contentSynchronisation(GetRemoteDockerRepositoryContentSynchronisation contentSynchronisation) {
             this.contentSynchronisation = Objects.requireNonNull(contentSynchronisation);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder curated(@Nullable Boolean curated) {
+            this.curated = curated;
             return this;
         }
         @CustomType.Setter
@@ -628,6 +639,7 @@ public final class GetRemoteDockerRepositoryResult {
             o.cdnRedirect = cdnRedirect;
             o.clientTlsCertificate = clientTlsCertificate;
             o.contentSynchronisation = contentSynchronisation;
+            o.curated = curated;
             o.description = description;
             o.disableProxy = disableProxy;
             o.disableUrlNormalization = disableUrlNormalization;

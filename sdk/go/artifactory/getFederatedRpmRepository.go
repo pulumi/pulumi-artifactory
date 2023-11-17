@@ -50,12 +50,14 @@ func LookupFederatedRpmRepository(ctx *pulumi.Context, args *LookupFederatedRpmR
 
 // A collection of arguments for invoking getFederatedRpmRepository.
 type LookupFederatedRpmRepositoryArgs struct {
-	ArchiveBrowsingEnabled  *bool   `pulumi:"archiveBrowsingEnabled"`
-	BlackedOut              *bool   `pulumi:"blackedOut"`
-	CalculateYumMetadata    *bool   `pulumi:"calculateYumMetadata"`
-	CdnRedirect             *bool   `pulumi:"cdnRedirect"`
-	CleanupOnDelete         *bool   `pulumi:"cleanupOnDelete"`
-	Description             *string `pulumi:"description"`
+	ArchiveBrowsingEnabled *bool   `pulumi:"archiveBrowsingEnabled"`
+	BlackedOut             *bool   `pulumi:"blackedOut"`
+	CalculateYumMetadata   *bool   `pulumi:"calculateYumMetadata"`
+	CdnRedirect            *bool   `pulumi:"cdnRedirect"`
+	CleanupOnDelete        *bool   `pulumi:"cleanupOnDelete"`
+	Description            *string `pulumi:"description"`
+	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
+	DisableProxy            *bool   `pulumi:"disableProxy"`
 	DownloadDirect          *bool   `pulumi:"downloadDirect"`
 	EnableFileListsIndexing *bool   `pulumi:"enableFileListsIndexing"`
 	ExcludesPattern         *string `pulumi:"excludesPattern"`
@@ -73,21 +75,25 @@ type LookupFederatedRpmRepositoryArgs struct {
 	ProjectEnvironments []string                          `pulumi:"projectEnvironments"`
 	ProjectKey          *string                           `pulumi:"projectKey"`
 	PropertySets        []string                          `pulumi:"propertySets"`
-	RepoLayoutRef       *string                           `pulumi:"repoLayoutRef"`
-	SecondaryKeypairRef *string                           `pulumi:"secondaryKeypairRef"`
-	XrayIndex           *bool                             `pulumi:"xrayIndex"`
-	YumGroupFileNames   *string                           `pulumi:"yumGroupFileNames"`
-	YumRootDepth        *int                              `pulumi:"yumRootDepth"`
+	// Proxy key from Artifactory Proxies settings.
+	Proxy               *string `pulumi:"proxy"`
+	RepoLayoutRef       *string `pulumi:"repoLayoutRef"`
+	SecondaryKeypairRef *string `pulumi:"secondaryKeypairRef"`
+	XrayIndex           *bool   `pulumi:"xrayIndex"`
+	YumGroupFileNames   *string `pulumi:"yumGroupFileNames"`
+	YumRootDepth        *int    `pulumi:"yumRootDepth"`
 }
 
 // A collection of values returned by getFederatedRpmRepository.
 type LookupFederatedRpmRepositoryResult struct {
-	ArchiveBrowsingEnabled  *bool   `pulumi:"archiveBrowsingEnabled"`
-	BlackedOut              *bool   `pulumi:"blackedOut"`
-	CalculateYumMetadata    *bool   `pulumi:"calculateYumMetadata"`
-	CdnRedirect             *bool   `pulumi:"cdnRedirect"`
-	CleanupOnDelete         *bool   `pulumi:"cleanupOnDelete"`
-	Description             *string `pulumi:"description"`
+	ArchiveBrowsingEnabled *bool   `pulumi:"archiveBrowsingEnabled"`
+	BlackedOut             *bool   `pulumi:"blackedOut"`
+	CalculateYumMetadata   *bool   `pulumi:"calculateYumMetadata"`
+	CdnRedirect            *bool   `pulumi:"cdnRedirect"`
+	CleanupOnDelete        *bool   `pulumi:"cleanupOnDelete"`
+	Description            *string `pulumi:"description"`
+	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
+	DisableProxy            *bool   `pulumi:"disableProxy"`
 	DownloadDirect          *bool   `pulumi:"downloadDirect"`
 	EnableFileListsIndexing *bool   `pulumi:"enableFileListsIndexing"`
 	ExcludesPattern         *string `pulumi:"excludesPattern"`
@@ -107,11 +113,13 @@ type LookupFederatedRpmRepositoryResult struct {
 	ProjectEnvironments []string                          `pulumi:"projectEnvironments"`
 	ProjectKey          *string                           `pulumi:"projectKey"`
 	PropertySets        []string                          `pulumi:"propertySets"`
-	RepoLayoutRef       *string                           `pulumi:"repoLayoutRef"`
-	SecondaryKeypairRef *string                           `pulumi:"secondaryKeypairRef"`
-	XrayIndex           *bool                             `pulumi:"xrayIndex"`
-	YumGroupFileNames   *string                           `pulumi:"yumGroupFileNames"`
-	YumRootDepth        *int                              `pulumi:"yumRootDepth"`
+	// Proxy key from Artifactory Proxies settings.
+	Proxy               *string `pulumi:"proxy"`
+	RepoLayoutRef       *string `pulumi:"repoLayoutRef"`
+	SecondaryKeypairRef *string `pulumi:"secondaryKeypairRef"`
+	XrayIndex           *bool   `pulumi:"xrayIndex"`
+	YumGroupFileNames   *string `pulumi:"yumGroupFileNames"`
+	YumRootDepth        *int    `pulumi:"yumRootDepth"`
 }
 
 func LookupFederatedRpmRepositoryOutput(ctx *pulumi.Context, args LookupFederatedRpmRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupFederatedRpmRepositoryResultOutput {
@@ -129,12 +137,14 @@ func LookupFederatedRpmRepositoryOutput(ctx *pulumi.Context, args LookupFederate
 
 // A collection of arguments for invoking getFederatedRpmRepository.
 type LookupFederatedRpmRepositoryOutputArgs struct {
-	ArchiveBrowsingEnabled  pulumi.BoolPtrInput   `pulumi:"archiveBrowsingEnabled"`
-	BlackedOut              pulumi.BoolPtrInput   `pulumi:"blackedOut"`
-	CalculateYumMetadata    pulumi.BoolPtrInput   `pulumi:"calculateYumMetadata"`
-	CdnRedirect             pulumi.BoolPtrInput   `pulumi:"cdnRedirect"`
-	CleanupOnDelete         pulumi.BoolPtrInput   `pulumi:"cleanupOnDelete"`
-	Description             pulumi.StringPtrInput `pulumi:"description"`
+	ArchiveBrowsingEnabled pulumi.BoolPtrInput   `pulumi:"archiveBrowsingEnabled"`
+	BlackedOut             pulumi.BoolPtrInput   `pulumi:"blackedOut"`
+	CalculateYumMetadata   pulumi.BoolPtrInput   `pulumi:"calculateYumMetadata"`
+	CdnRedirect            pulumi.BoolPtrInput   `pulumi:"cdnRedirect"`
+	CleanupOnDelete        pulumi.BoolPtrInput   `pulumi:"cleanupOnDelete"`
+	Description            pulumi.StringPtrInput `pulumi:"description"`
+	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
+	DisableProxy            pulumi.BoolPtrInput   `pulumi:"disableProxy"`
 	DownloadDirect          pulumi.BoolPtrInput   `pulumi:"downloadDirect"`
 	EnableFileListsIndexing pulumi.BoolPtrInput   `pulumi:"enableFileListsIndexing"`
 	ExcludesPattern         pulumi.StringPtrInput `pulumi:"excludesPattern"`
@@ -152,11 +162,13 @@ type LookupFederatedRpmRepositoryOutputArgs struct {
 	ProjectEnvironments pulumi.StringArrayInput                   `pulumi:"projectEnvironments"`
 	ProjectKey          pulumi.StringPtrInput                     `pulumi:"projectKey"`
 	PropertySets        pulumi.StringArrayInput                   `pulumi:"propertySets"`
-	RepoLayoutRef       pulumi.StringPtrInput                     `pulumi:"repoLayoutRef"`
-	SecondaryKeypairRef pulumi.StringPtrInput                     `pulumi:"secondaryKeypairRef"`
-	XrayIndex           pulumi.BoolPtrInput                       `pulumi:"xrayIndex"`
-	YumGroupFileNames   pulumi.StringPtrInput                     `pulumi:"yumGroupFileNames"`
-	YumRootDepth        pulumi.IntPtrInput                        `pulumi:"yumRootDepth"`
+	// Proxy key from Artifactory Proxies settings.
+	Proxy               pulumi.StringPtrInput `pulumi:"proxy"`
+	RepoLayoutRef       pulumi.StringPtrInput `pulumi:"repoLayoutRef"`
+	SecondaryKeypairRef pulumi.StringPtrInput `pulumi:"secondaryKeypairRef"`
+	XrayIndex           pulumi.BoolPtrInput   `pulumi:"xrayIndex"`
+	YumGroupFileNames   pulumi.StringPtrInput `pulumi:"yumGroupFileNames"`
+	YumRootDepth        pulumi.IntPtrInput    `pulumi:"yumRootDepth"`
 }
 
 func (LookupFederatedRpmRepositoryOutputArgs) ElementType() reflect.Type {
@@ -200,6 +212,11 @@ func (o LookupFederatedRpmRepositoryResultOutput) CleanupOnDelete() pulumi.BoolP
 
 func (o LookupFederatedRpmRepositoryResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFederatedRpmRepositoryResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
+func (o LookupFederatedRpmRepositoryResultOutput) DisableProxy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupFederatedRpmRepositoryResult) *bool { return v.DisableProxy }).(pulumi.BoolPtrOutput)
 }
 
 func (o LookupFederatedRpmRepositoryResultOutput) DownloadDirect() pulumi.BoolPtrOutput {
@@ -261,6 +278,11 @@ func (o LookupFederatedRpmRepositoryResultOutput) ProjectKey() pulumi.StringPtrO
 
 func (o LookupFederatedRpmRepositoryResultOutput) PropertySets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupFederatedRpmRepositoryResult) []string { return v.PropertySets }).(pulumi.StringArrayOutput)
+}
+
+// Proxy key from Artifactory Proxies settings.
+func (o LookupFederatedRpmRepositoryResultOutput) Proxy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFederatedRpmRepositoryResult) *string { return v.Proxy }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupFederatedRpmRepositoryResultOutput) RepoLayoutRef() pulumi.StringPtrOutput {

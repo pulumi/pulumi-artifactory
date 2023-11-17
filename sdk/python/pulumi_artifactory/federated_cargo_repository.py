@@ -24,6 +24,7 @@ class FederatedCargoRepositoryArgs:
                  cdn_redirect: Optional[pulumi.Input[bool]] = None,
                  cleanup_on_delete: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 disable_proxy: Optional[pulumi.Input[bool]] = None,
                  download_direct: Optional[pulumi.Input[bool]] = None,
                  enable_sparse_index: Optional[pulumi.Input[bool]] = None,
                  excludes_pattern: Optional[pulumi.Input[str]] = None,
@@ -34,6 +35,7 @@ class FederatedCargoRepositoryArgs:
                  project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  project_key: Optional[pulumi.Input[str]] = None,
                  property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 proxy: Optional[pulumi.Input[str]] = None,
                  repo_layout_ref: Optional[pulumi.Input[str]] = None,
                  xray_index: Optional[pulumi.Input[bool]] = None):
         """
@@ -55,6 +57,7 @@ class FederatedCargoRepositoryArgs:
         :param pulumi.Input[bool] cleanup_on_delete: Delete all federated members on `terraform destroy` if set to `true`. Caution: it will delete all the repositories in
                the federation on other Artifactory instances.
         :param pulumi.Input[str] description: Public description.
+        :param pulumi.Input[bool] disable_proxy: When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only.
         :param pulumi.Input[bool] enable_sparse_index: Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default
@@ -72,6 +75,7 @@ class FederatedCargoRepositoryArgs:
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
+        :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies settings. Default is empty field. Can't be set if `disable_proxy = true`.
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the federated repository
         :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
                Xray settings.
@@ -90,6 +94,8 @@ class FederatedCargoRepositoryArgs:
             pulumi.set(__self__, "cleanup_on_delete", cleanup_on_delete)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if disable_proxy is not None:
+            pulumi.set(__self__, "disable_proxy", disable_proxy)
         if download_direct is not None:
             pulumi.set(__self__, "download_direct", download_direct)
         if enable_sparse_index is not None:
@@ -110,6 +116,8 @@ class FederatedCargoRepositoryArgs:
             pulumi.set(__self__, "project_key", project_key)
         if property_sets is not None:
             pulumi.set(__self__, "property_sets", property_sets)
+        if proxy is not None:
+            pulumi.set(__self__, "proxy", proxy)
         if repo_layout_ref is not None:
             pulumi.set(__self__, "repo_layout_ref", repo_layout_ref)
         if xray_index is not None:
@@ -219,6 +227,18 @@ class FederatedCargoRepositoryArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="disableProxy")
+    def disable_proxy(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
+        """
+        return pulumi.get(self, "disable_proxy")
+
+    @disable_proxy.setter
+    def disable_proxy(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "disable_proxy", value)
 
     @property
     @pulumi.getter(name="downloadDirect")
@@ -346,6 +366,18 @@ class FederatedCargoRepositoryArgs:
         pulumi.set(self, "property_sets", value)
 
     @property
+    @pulumi.getter
+    def proxy(self) -> Optional[pulumi.Input[str]]:
+        """
+        Proxy key from Artifactory Proxies settings. Default is empty field. Can't be set if `disable_proxy = true`.
+        """
+        return pulumi.get(self, "proxy")
+
+    @proxy.setter
+    def proxy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "proxy", value)
+
+    @property
     @pulumi.getter(name="repoLayoutRef")
     def repo_layout_ref(self) -> Optional[pulumi.Input[str]]:
         """
@@ -380,6 +412,7 @@ class _FederatedCargoRepositoryState:
                  cdn_redirect: Optional[pulumi.Input[bool]] = None,
                  cleanup_on_delete: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 disable_proxy: Optional[pulumi.Input[bool]] = None,
                  download_direct: Optional[pulumi.Input[bool]] = None,
                  enable_sparse_index: Optional[pulumi.Input[bool]] = None,
                  excludes_pattern: Optional[pulumi.Input[str]] = None,
@@ -393,6 +426,7 @@ class _FederatedCargoRepositoryState:
                  project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  project_key: Optional[pulumi.Input[str]] = None,
                  property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 proxy: Optional[pulumi.Input[str]] = None,
                  repo_layout_ref: Optional[pulumi.Input[str]] = None,
                  xray_index: Optional[pulumi.Input[bool]] = None):
         """
@@ -409,6 +443,7 @@ class _FederatedCargoRepositoryState:
         :param pulumi.Input[bool] cleanup_on_delete: Delete all federated members on `terraform destroy` if set to `true`. Caution: it will delete all the repositories in
                the federation on other Artifactory instances.
         :param pulumi.Input[str] description: Public description.
+        :param pulumi.Input[bool] disable_proxy: When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only.
         :param pulumi.Input[bool] enable_sparse_index: Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default
@@ -431,6 +466,7 @@ class _FederatedCargoRepositoryState:
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
+        :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies settings. Default is empty field. Can't be set if `disable_proxy = true`.
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the federated repository
         :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
                Xray settings.
@@ -447,6 +483,8 @@ class _FederatedCargoRepositoryState:
             pulumi.set(__self__, "cleanup_on_delete", cleanup_on_delete)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if disable_proxy is not None:
+            pulumi.set(__self__, "disable_proxy", disable_proxy)
         if download_direct is not None:
             pulumi.set(__self__, "download_direct", download_direct)
         if enable_sparse_index is not None:
@@ -473,6 +511,8 @@ class _FederatedCargoRepositoryState:
             pulumi.set(__self__, "project_key", project_key)
         if property_sets is not None:
             pulumi.set(__self__, "property_sets", property_sets)
+        if proxy is not None:
+            pulumi.set(__self__, "proxy", proxy)
         if repo_layout_ref is not None:
             pulumi.set(__self__, "repo_layout_ref", repo_layout_ref)
         if xray_index is not None:
@@ -555,6 +595,18 @@ class _FederatedCargoRepositoryState:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="disableProxy")
+    def disable_proxy(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
+        """
+        return pulumi.get(self, "disable_proxy")
+
+    @disable_proxy.setter
+    def disable_proxy(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "disable_proxy", value)
 
     @property
     @pulumi.getter(name="downloadDirect")
@@ -718,6 +770,18 @@ class _FederatedCargoRepositoryState:
         pulumi.set(self, "property_sets", value)
 
     @property
+    @pulumi.getter
+    def proxy(self) -> Optional[pulumi.Input[str]]:
+        """
+        Proxy key from Artifactory Proxies settings. Default is empty field. Can't be set if `disable_proxy = true`.
+        """
+        return pulumi.get(self, "proxy")
+
+    @proxy.setter
+    def proxy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "proxy", value)
+
+    @property
     @pulumi.getter(name="repoLayoutRef")
     def repo_layout_ref(self) -> Optional[pulumi.Input[str]]:
         """
@@ -754,6 +818,7 @@ class FederatedCargoRepository(pulumi.CustomResource):
                  cdn_redirect: Optional[pulumi.Input[bool]] = None,
                  cleanup_on_delete: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 disable_proxy: Optional[pulumi.Input[bool]] = None,
                  download_direct: Optional[pulumi.Input[bool]] = None,
                  enable_sparse_index: Optional[pulumi.Input[bool]] = None,
                  excludes_pattern: Optional[pulumi.Input[str]] = None,
@@ -766,6 +831,7 @@ class FederatedCargoRepository(pulumi.CustomResource):
                  project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  project_key: Optional[pulumi.Input[str]] = None,
                  property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 proxy: Optional[pulumi.Input[str]] = None,
                  repo_layout_ref: Optional[pulumi.Input[str]] = None,
                  xray_index: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
@@ -814,6 +880,7 @@ class FederatedCargoRepository(pulumi.CustomResource):
         :param pulumi.Input[bool] cleanup_on_delete: Delete all federated members on `terraform destroy` if set to `true`. Caution: it will delete all the repositories in
                the federation on other Artifactory instances.
         :param pulumi.Input[str] description: Public description.
+        :param pulumi.Input[bool] disable_proxy: When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only.
         :param pulumi.Input[bool] enable_sparse_index: Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default
@@ -836,6 +903,7 @@ class FederatedCargoRepository(pulumi.CustomResource):
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
+        :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies settings. Default is empty field. Can't be set if `disable_proxy = true`.
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the federated repository
         :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
                Xray settings.
@@ -898,6 +966,7 @@ class FederatedCargoRepository(pulumi.CustomResource):
                  cdn_redirect: Optional[pulumi.Input[bool]] = None,
                  cleanup_on_delete: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 disable_proxy: Optional[pulumi.Input[bool]] = None,
                  download_direct: Optional[pulumi.Input[bool]] = None,
                  enable_sparse_index: Optional[pulumi.Input[bool]] = None,
                  excludes_pattern: Optional[pulumi.Input[str]] = None,
@@ -910,6 +979,7 @@ class FederatedCargoRepository(pulumi.CustomResource):
                  project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  project_key: Optional[pulumi.Input[str]] = None,
                  property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 proxy: Optional[pulumi.Input[str]] = None,
                  repo_layout_ref: Optional[pulumi.Input[str]] = None,
                  xray_index: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
@@ -927,6 +997,7 @@ class FederatedCargoRepository(pulumi.CustomResource):
             __props__.__dict__["cdn_redirect"] = cdn_redirect
             __props__.__dict__["cleanup_on_delete"] = cleanup_on_delete
             __props__.__dict__["description"] = description
+            __props__.__dict__["disable_proxy"] = disable_proxy
             __props__.__dict__["download_direct"] = download_direct
             __props__.__dict__["enable_sparse_index"] = enable_sparse_index
             __props__.__dict__["excludes_pattern"] = excludes_pattern
@@ -943,6 +1014,7 @@ class FederatedCargoRepository(pulumi.CustomResource):
             __props__.__dict__["project_environments"] = project_environments
             __props__.__dict__["project_key"] = project_key
             __props__.__dict__["property_sets"] = property_sets
+            __props__.__dict__["proxy"] = proxy
             __props__.__dict__["repo_layout_ref"] = repo_layout_ref
             __props__.__dict__["xray_index"] = xray_index
             __props__.__dict__["package_type"] = None
@@ -962,6 +1034,7 @@ class FederatedCargoRepository(pulumi.CustomResource):
             cdn_redirect: Optional[pulumi.Input[bool]] = None,
             cleanup_on_delete: Optional[pulumi.Input[bool]] = None,
             description: Optional[pulumi.Input[str]] = None,
+            disable_proxy: Optional[pulumi.Input[bool]] = None,
             download_direct: Optional[pulumi.Input[bool]] = None,
             enable_sparse_index: Optional[pulumi.Input[bool]] = None,
             excludes_pattern: Optional[pulumi.Input[str]] = None,
@@ -975,6 +1048,7 @@ class FederatedCargoRepository(pulumi.CustomResource):
             project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             project_key: Optional[pulumi.Input[str]] = None,
             property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            proxy: Optional[pulumi.Input[str]] = None,
             repo_layout_ref: Optional[pulumi.Input[str]] = None,
             xray_index: Optional[pulumi.Input[bool]] = None) -> 'FederatedCargoRepository':
         """
@@ -996,6 +1070,7 @@ class FederatedCargoRepository(pulumi.CustomResource):
         :param pulumi.Input[bool] cleanup_on_delete: Delete all federated members on `terraform destroy` if set to `true`. Caution: it will delete all the repositories in
                the federation on other Artifactory instances.
         :param pulumi.Input[str] description: Public description.
+        :param pulumi.Input[bool] disable_proxy: When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only.
         :param pulumi.Input[bool] enable_sparse_index: Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default
@@ -1018,6 +1093,7 @@ class FederatedCargoRepository(pulumi.CustomResource):
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
+        :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies settings. Default is empty field. Can't be set if `disable_proxy = true`.
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the federated repository
         :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
                Xray settings.
@@ -1032,6 +1108,7 @@ class FederatedCargoRepository(pulumi.CustomResource):
         __props__.__dict__["cdn_redirect"] = cdn_redirect
         __props__.__dict__["cleanup_on_delete"] = cleanup_on_delete
         __props__.__dict__["description"] = description
+        __props__.__dict__["disable_proxy"] = disable_proxy
         __props__.__dict__["download_direct"] = download_direct
         __props__.__dict__["enable_sparse_index"] = enable_sparse_index
         __props__.__dict__["excludes_pattern"] = excludes_pattern
@@ -1045,6 +1122,7 @@ class FederatedCargoRepository(pulumi.CustomResource):
         __props__.__dict__["project_environments"] = project_environments
         __props__.__dict__["project_key"] = project_key
         __props__.__dict__["property_sets"] = property_sets
+        __props__.__dict__["proxy"] = proxy
         __props__.__dict__["repo_layout_ref"] = repo_layout_ref
         __props__.__dict__["xray_index"] = xray_index
         return FederatedCargoRepository(resource_name, opts=opts, __props__=__props__)
@@ -1102,6 +1180,14 @@ class FederatedCargoRepository(pulumi.CustomResource):
         Public description.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="disableProxy")
+    def disable_proxy(self) -> pulumi.Output[Optional[bool]]:
+        """
+        When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
+        """
+        return pulumi.get(self, "disable_proxy")
 
     @property
     @pulumi.getter(name="downloadDirect")
@@ -1211,6 +1297,14 @@ class FederatedCargoRepository(pulumi.CustomResource):
         List of property set name
         """
         return pulumi.get(self, "property_sets")
+
+    @property
+    @pulumi.getter
+    def proxy(self) -> pulumi.Output[Optional[str]]:
+        """
+        Proxy key from Artifactory Proxies settings. Default is empty field. Can't be set if `disable_proxy = true`.
+        """
+        return pulumi.get(self, "proxy")
 
     @property
     @pulumi.getter(name="repoLayoutRef")

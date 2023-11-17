@@ -103,6 +103,21 @@ public final class FederatedNugetRepositoryState extends com.pulumi.resources.Re
     }
 
     /**
+     * When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
+     * 
+     */
+    @Import(name="disableProxy")
+    private @Nullable Output<Boolean> disableProxy;
+
+    /**
+     * @return When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
+     * 
+     */
+    public Optional<Output<Boolean>> disableProxy() {
+        return Optional.ofNullable(this.disableProxy);
+    }
+
+    /**
      * When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
      * storage provider. Available in Enterprise+ and Edge licenses only.
      * 
@@ -312,6 +327,21 @@ public final class FederatedNugetRepositoryState extends com.pulumi.resources.Re
     }
 
     /**
+     * Proxy key from Artifactory Proxies settings. Default is empty field. Can&#39;t be set if `disable_proxy = true`.
+     * 
+     */
+    @Import(name="proxy")
+    private @Nullable Output<String> proxy;
+
+    /**
+     * @return Proxy key from Artifactory Proxies settings. Default is empty field. Can&#39;t be set if `disable_proxy = true`.
+     * 
+     */
+    public Optional<Output<String>> proxy() {
+        return Optional.ofNullable(this.proxy);
+    }
+
+    /**
      * Repository layout key for the federated repository
      * 
      */
@@ -351,6 +381,7 @@ public final class FederatedNugetRepositoryState extends com.pulumi.resources.Re
         this.cdnRedirect = $.cdnRedirect;
         this.cleanupOnDelete = $.cleanupOnDelete;
         this.description = $.description;
+        this.disableProxy = $.disableProxy;
         this.downloadDirect = $.downloadDirect;
         this.excludesPattern = $.excludesPattern;
         this.forceNugetAuthentication = $.forceNugetAuthentication;
@@ -364,6 +395,7 @@ public final class FederatedNugetRepositoryState extends com.pulumi.resources.Re
         this.projectEnvironments = $.projectEnvironments;
         this.projectKey = $.projectKey;
         this.propertySets = $.propertySets;
+        this.proxy = $.proxy;
         this.repoLayoutRef = $.repoLayoutRef;
         this.xrayIndex = $.xrayIndex;
     }
@@ -497,6 +529,27 @@ public final class FederatedNugetRepositoryState extends com.pulumi.resources.Re
          */
         public Builder description(String description) {
             return description(Output.of(description));
+        }
+
+        /**
+         * @param disableProxy When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder disableProxy(@Nullable Output<Boolean> disableProxy) {
+            $.disableProxy = disableProxy;
+            return this;
+        }
+
+        /**
+         * @param disableProxy When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder disableProxy(Boolean disableProxy) {
+            return disableProxy(Output.of(disableProxy));
         }
 
         /**
@@ -816,6 +869,27 @@ public final class FederatedNugetRepositoryState extends com.pulumi.resources.Re
          */
         public Builder propertySets(String... propertySets) {
             return propertySets(List.of(propertySets));
+        }
+
+        /**
+         * @param proxy Proxy key from Artifactory Proxies settings. Default is empty field. Can&#39;t be set if `disable_proxy = true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder proxy(@Nullable Output<String> proxy) {
+            $.proxy = proxy;
+            return this;
+        }
+
+        /**
+         * @param proxy Proxy key from Artifactory Proxies settings. Default is empty field. Can&#39;t be set if `disable_proxy = true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder proxy(String proxy) {
+            return proxy(Output.of(proxy));
         }
 
         /**

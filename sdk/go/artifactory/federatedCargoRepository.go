@@ -80,6 +80,8 @@ type FederatedCargoRepository struct {
 	CleanupOnDelete pulumi.BoolPtrOutput `pulumi:"cleanupOnDelete"`
 	// Public description.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
+	DisableProxy pulumi.BoolPtrOutput `pulumi:"disableProxy"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
 	// storage provider. Available in Enterprise+ and Edge licenses only.
 	DownloadDirect pulumi.BoolPtrOutput `pulumi:"downloadDirect"`
@@ -115,6 +117,8 @@ type FederatedCargoRepository struct {
 	ProjectKey pulumi.StringPtrOutput `pulumi:"projectKey"`
 	// List of property set name
 	PropertySets pulumi.StringArrayOutput `pulumi:"propertySets"`
+	// Proxy key from Artifactory Proxies settings. Default is empty field. Can't be set if `disableProxy = true`.
+	Proxy pulumi.StringPtrOutput `pulumi:"proxy"`
 	// Repository layout key for the federated repository
 	RepoLayoutRef pulumi.StringPtrOutput `pulumi:"repoLayoutRef"`
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
@@ -176,6 +180,8 @@ type federatedCargoRepositoryState struct {
 	CleanupOnDelete *bool `pulumi:"cleanupOnDelete"`
 	// Public description.
 	Description *string `pulumi:"description"`
+	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
+	DisableProxy *bool `pulumi:"disableProxy"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
 	// storage provider. Available in Enterprise+ and Edge licenses only.
 	DownloadDirect *bool `pulumi:"downloadDirect"`
@@ -211,6 +217,8 @@ type federatedCargoRepositoryState struct {
 	ProjectKey *string `pulumi:"projectKey"`
 	// List of property set name
 	PropertySets []string `pulumi:"propertySets"`
+	// Proxy key from Artifactory Proxies settings. Default is empty field. Can't be set if `disableProxy = true`.
+	Proxy *string `pulumi:"proxy"`
 	// Repository layout key for the federated repository
 	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
@@ -237,6 +245,8 @@ type FederatedCargoRepositoryState struct {
 	CleanupOnDelete pulumi.BoolPtrInput
 	// Public description.
 	Description pulumi.StringPtrInput
+	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
+	DisableProxy pulumi.BoolPtrInput
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
 	// storage provider. Available in Enterprise+ and Edge licenses only.
 	DownloadDirect pulumi.BoolPtrInput
@@ -272,6 +282,8 @@ type FederatedCargoRepositoryState struct {
 	ProjectKey pulumi.StringPtrInput
 	// List of property set name
 	PropertySets pulumi.StringArrayInput
+	// Proxy key from Artifactory Proxies settings. Default is empty field. Can't be set if `disableProxy = true`.
+	Proxy pulumi.StringPtrInput
 	// Repository layout key for the federated repository
 	RepoLayoutRef pulumi.StringPtrInput
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
@@ -302,6 +314,8 @@ type federatedCargoRepositoryArgs struct {
 	CleanupOnDelete *bool `pulumi:"cleanupOnDelete"`
 	// Public description.
 	Description *string `pulumi:"description"`
+	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
+	DisableProxy *bool `pulumi:"disableProxy"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
 	// storage provider. Available in Enterprise+ and Edge licenses only.
 	DownloadDirect *bool `pulumi:"downloadDirect"`
@@ -336,6 +350,8 @@ type federatedCargoRepositoryArgs struct {
 	ProjectKey *string `pulumi:"projectKey"`
 	// List of property set name
 	PropertySets []string `pulumi:"propertySets"`
+	// Proxy key from Artifactory Proxies settings. Default is empty field. Can't be set if `disableProxy = true`.
+	Proxy *string `pulumi:"proxy"`
 	// Repository layout key for the federated repository
 	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
@@ -363,6 +379,8 @@ type FederatedCargoRepositoryArgs struct {
 	CleanupOnDelete pulumi.BoolPtrInput
 	// Public description.
 	Description pulumi.StringPtrInput
+	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
+	DisableProxy pulumi.BoolPtrInput
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
 	// storage provider. Available in Enterprise+ and Edge licenses only.
 	DownloadDirect pulumi.BoolPtrInput
@@ -397,6 +415,8 @@ type FederatedCargoRepositoryArgs struct {
 	ProjectKey pulumi.StringPtrInput
 	// List of property set name
 	PropertySets pulumi.StringArrayInput
+	// Proxy key from Artifactory Proxies settings. Default is empty field. Can't be set if `disableProxy = true`.
+	Proxy pulumi.StringPtrInput
 	// Repository layout key for the federated repository
 	RepoLayoutRef pulumi.StringPtrInput
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
@@ -527,6 +547,11 @@ func (o FederatedCargoRepositoryOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FederatedCargoRepository) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
+func (o FederatedCargoRepositoryOutput) DisableProxy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FederatedCargoRepository) pulumi.BoolPtrOutput { return v.DisableProxy }).(pulumi.BoolPtrOutput)
+}
+
 // When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
 // storage provider. Available in Enterprise+ and Edge licenses only.
 func (o FederatedCargoRepositoryOutput) DownloadDirect() pulumi.BoolPtrOutput {
@@ -599,6 +624,11 @@ func (o FederatedCargoRepositoryOutput) ProjectKey() pulumi.StringPtrOutput {
 // List of property set name
 func (o FederatedCargoRepositoryOutput) PropertySets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FederatedCargoRepository) pulumi.StringArrayOutput { return v.PropertySets }).(pulumi.StringArrayOutput)
+}
+
+// Proxy key from Artifactory Proxies settings. Default is empty field. Can't be set if `disableProxy = true`.
+func (o FederatedCargoRepositoryOutput) Proxy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FederatedCargoRepository) pulumi.StringPtrOutput { return v.Proxy }).(pulumi.StringPtrOutput)
 }
 
 // Repository layout key for the federated repository

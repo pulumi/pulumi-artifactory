@@ -18,9 +18,10 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Provides an Artifactory pull replication resource. This can be used to create and manage pull replication in Artifactory
- * for a local or remote repo. Pull replication provides a convenient way to proactively populate a remote cache, and is very useful
- * when waiting for new artifacts to arrive on demand (when first requested) is not desirable due to network latency.
+ * &gt; This resource is deprecated and replaced by `artifactory.RemoteRepositoryReplication` for clarity.
+ * 
+ * Provides an Artifactory pull replication resource. This can be used to create and manage pull replication in Artifactory for a local or remote repo. Pull replication provides a convenient way to proactively populate a remote cache, and is very useful when waiting for new artifacts to arrive on demand (when first requested) is not desirable due to network latency.
+ * 
  * See the [Official Documentation](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-PullReplication).
  * 
  * ## Example Usage

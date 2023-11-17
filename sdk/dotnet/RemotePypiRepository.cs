@@ -100,6 +100,12 @@ namespace Pulumi.Artifactory
         public Output<Outputs.RemotePypiRepositoryContentSynchronisation> ContentSynchronisation { get; private set; } = null!;
 
         /// <summary>
+        /// Enable repository to be protected by the Curation service.
+        /// </summary>
+        [Output("curated")]
+        public Output<bool?> Curated { get; private set; } = null!;
+
+        /// <summary>
         /// Public description.
         /// </summary>
         [Output("description")]
@@ -441,6 +447,12 @@ namespace Pulumi.Artifactory
         public Input<Inputs.RemotePypiRepositoryContentSynchronisationArgs>? ContentSynchronisation { get; set; }
 
         /// <summary>
+        /// Enable repository to be protected by the Curation service.
+        /// </summary>
+        [Input("curated")]
+        public Input<bool>? Curated { get; set; }
+
+        /// <summary>
         /// Public description.
         /// </summary>
         [Input("description")]
@@ -756,6 +768,12 @@ namespace Pulumi.Artifactory
 
         [Input("contentSynchronisation")]
         public Input<Inputs.RemotePypiRepositoryContentSynchronisationGetArgs>? ContentSynchronisation { get; set; }
+
+        /// <summary>
+        /// Enable repository to be protected by the Curation service.
+        /// </summary>
+        [Input("curated")]
+        public Input<bool>? Curated { get; set; }
 
         /// <summary>
         /// Public description.

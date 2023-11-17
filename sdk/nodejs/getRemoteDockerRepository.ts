@@ -33,6 +33,7 @@ export function getRemoteDockerRepository(args: GetRemoteDockerRepositoryArgs, o
         "cdnRedirect": args.cdnRedirect,
         "clientTlsCertificate": args.clientTlsCertificate,
         "contentSynchronisation": args.contentSynchronisation,
+        "curated": args.curated,
         "description": args.description,
         "disableProxy": args.disableProxy,
         "disableUrlNormalization": args.disableUrlNormalization,
@@ -89,6 +90,7 @@ export interface GetRemoteDockerRepositoryArgs {
     cdnRedirect?: boolean;
     clientTlsCertificate?: string;
     contentSynchronisation?: inputs.GetRemoteDockerRepositoryContentSynchronisation;
+    curated?: boolean;
     description?: string;
     disableProxy?: boolean;
     /**
@@ -159,6 +161,7 @@ export interface GetRemoteDockerRepositoryResult {
     readonly cdnRedirect?: boolean;
     readonly clientTlsCertificate: string;
     readonly contentSynchronisation: outputs.GetRemoteDockerRepositoryContentSynchronisation;
+    readonly curated?: boolean;
     readonly description?: string;
     readonly disableProxy?: boolean;
     /**
@@ -248,6 +251,7 @@ export interface GetRemoteDockerRepositoryOutputArgs {
     cdnRedirect?: pulumi.Input<boolean>;
     clientTlsCertificate?: pulumi.Input<string>;
     contentSynchronisation?: pulumi.Input<inputs.GetRemoteDockerRepositoryContentSynchronisationArgs>;
+    curated?: pulumi.Input<boolean>;
     description?: pulumi.Input<string>;
     disableProxy?: pulumi.Input<boolean>;
     /**

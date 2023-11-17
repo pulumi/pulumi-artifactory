@@ -58,6 +58,7 @@ type LookupRemotePypiRepositoryArgs struct {
 	CdnRedirect               *bool                                          `pulumi:"cdnRedirect"`
 	ClientTlsCertificate      *string                                        `pulumi:"clientTlsCertificate"`
 	ContentSynchronisation    *GetRemotePypiRepositoryContentSynchronisation `pulumi:"contentSynchronisation"`
+	Curated                   *bool                                          `pulumi:"curated"`
 	Description               *string                                        `pulumi:"description"`
 	DisableProxy              *bool                                          `pulumi:"disableProxy"`
 	DisableUrlNormalization   *bool                                          `pulumi:"disableUrlNormalization"`
@@ -109,6 +110,7 @@ type LookupRemotePypiRepositoryResult struct {
 	CdnRedirect               *bool                                         `pulumi:"cdnRedirect"`
 	ClientTlsCertificate      string                                        `pulumi:"clientTlsCertificate"`
 	ContentSynchronisation    GetRemotePypiRepositoryContentSynchronisation `pulumi:"contentSynchronisation"`
+	Curated                   *bool                                         `pulumi:"curated"`
 	Description               *string                                       `pulumi:"description"`
 	DisableProxy              *bool                                         `pulumi:"disableProxy"`
 	DisableUrlNormalization   *bool                                         `pulumi:"disableUrlNormalization"`
@@ -175,6 +177,7 @@ type LookupRemotePypiRepositoryOutputArgs struct {
 	CdnRedirect               pulumi.BoolPtrInput                                   `pulumi:"cdnRedirect"`
 	ClientTlsCertificate      pulumi.StringPtrInput                                 `pulumi:"clientTlsCertificate"`
 	ContentSynchronisation    GetRemotePypiRepositoryContentSynchronisationPtrInput `pulumi:"contentSynchronisation"`
+	Curated                   pulumi.BoolPtrInput                                   `pulumi:"curated"`
 	Description               pulumi.StringPtrInput                                 `pulumi:"description"`
 	DisableProxy              pulumi.BoolPtrInput                                   `pulumi:"disableProxy"`
 	DisableUrlNormalization   pulumi.BoolPtrInput                                   `pulumi:"disableUrlNormalization"`
@@ -267,6 +270,10 @@ func (o LookupRemotePypiRepositoryResultOutput) ContentSynchronisation() GetRemo
 	return o.ApplyT(func(v LookupRemotePypiRepositoryResult) GetRemotePypiRepositoryContentSynchronisation {
 		return v.ContentSynchronisation
 	}).(GetRemotePypiRepositoryContentSynchronisationOutput)
+}
+
+func (o LookupRemotePypiRepositoryResultOutput) Curated() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupRemotePypiRepositoryResult) *bool { return v.Curated }).(pulumi.BoolPtrOutput)
 }
 
 func (o LookupRemotePypiRepositoryResultOutput) Description() pulumi.StringPtrOutput {

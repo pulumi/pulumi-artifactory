@@ -80,6 +80,8 @@ type FederatedDockerV2Repository struct {
 	CleanupOnDelete pulumi.BoolPtrOutput `pulumi:"cleanupOnDelete"`
 	// Public description.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
+	DisableProxy pulumi.BoolPtrOutput `pulumi:"disableProxy"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
 	// storage provider. Available in Enterprise+ and Edge licenses only.
 	DownloadDirect pulumi.BoolPtrOutput `pulumi:"downloadDirect"`
@@ -115,6 +117,8 @@ type FederatedDockerV2Repository struct {
 	ProjectKey pulumi.StringPtrOutput `pulumi:"projectKey"`
 	// List of property set name
 	PropertySets pulumi.StringArrayOutput `pulumi:"propertySets"`
+	// Proxy key from Artifactory Proxies settings. Default is empty field. Can't be set if `disableProxy = true`.
+	Proxy pulumi.StringPtrOutput `pulumi:"proxy"`
 	// Repository layout key for the federated repository
 	RepoLayoutRef pulumi.StringPtrOutput `pulumi:"repoLayoutRef"`
 	// If greater than 1, overwritten tags will be saved by their digest, up to the set up number. This only applies to
@@ -179,6 +183,8 @@ type federatedDockerV2RepositoryState struct {
 	CleanupOnDelete *bool `pulumi:"cleanupOnDelete"`
 	// Public description.
 	Description *string `pulumi:"description"`
+	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
+	DisableProxy *bool `pulumi:"disableProxy"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
 	// storage provider. Available in Enterprise+ and Edge licenses only.
 	DownloadDirect *bool `pulumi:"downloadDirect"`
@@ -214,6 +220,8 @@ type federatedDockerV2RepositoryState struct {
 	ProjectKey *string `pulumi:"projectKey"`
 	// List of property set name
 	PropertySets []string `pulumi:"propertySets"`
+	// Proxy key from Artifactory Proxies settings. Default is empty field. Can't be set if `disableProxy = true`.
+	Proxy *string `pulumi:"proxy"`
 	// Repository layout key for the federated repository
 	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
 	// If greater than 1, overwritten tags will be saved by their digest, up to the set up number. This only applies to
@@ -243,6 +251,8 @@ type FederatedDockerV2RepositoryState struct {
 	CleanupOnDelete pulumi.BoolPtrInput
 	// Public description.
 	Description pulumi.StringPtrInput
+	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
+	DisableProxy pulumi.BoolPtrInput
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
 	// storage provider. Available in Enterprise+ and Edge licenses only.
 	DownloadDirect pulumi.BoolPtrInput
@@ -278,6 +288,8 @@ type FederatedDockerV2RepositoryState struct {
 	ProjectKey pulumi.StringPtrInput
 	// List of property set name
 	PropertySets pulumi.StringArrayInput
+	// Proxy key from Artifactory Proxies settings. Default is empty field. Can't be set if `disableProxy = true`.
+	Proxy pulumi.StringPtrInput
 	// Repository layout key for the federated repository
 	RepoLayoutRef pulumi.StringPtrInput
 	// If greater than 1, overwritten tags will be saved by their digest, up to the set up number. This only applies to
@@ -309,6 +321,8 @@ type federatedDockerV2RepositoryArgs struct {
 	CleanupOnDelete *bool `pulumi:"cleanupOnDelete"`
 	// Public description.
 	Description *string `pulumi:"description"`
+	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
+	DisableProxy *bool `pulumi:"disableProxy"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
 	// storage provider. Available in Enterprise+ and Edge licenses only.
 	DownloadDirect *bool `pulumi:"downloadDirect"`
@@ -343,6 +357,8 @@ type federatedDockerV2RepositoryArgs struct {
 	ProjectKey *string `pulumi:"projectKey"`
 	// List of property set name
 	PropertySets []string `pulumi:"propertySets"`
+	// Proxy key from Artifactory Proxies settings. Default is empty field. Can't be set if `disableProxy = true`.
+	Proxy *string `pulumi:"proxy"`
 	// Repository layout key for the federated repository
 	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
 	// If greater than 1, overwritten tags will be saved by their digest, up to the set up number. This only applies to
@@ -371,6 +387,8 @@ type FederatedDockerV2RepositoryArgs struct {
 	CleanupOnDelete pulumi.BoolPtrInput
 	// Public description.
 	Description pulumi.StringPtrInput
+	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
+	DisableProxy pulumi.BoolPtrInput
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
 	// storage provider. Available in Enterprise+ and Edge licenses only.
 	DownloadDirect pulumi.BoolPtrInput
@@ -405,6 +423,8 @@ type FederatedDockerV2RepositoryArgs struct {
 	ProjectKey pulumi.StringPtrInput
 	// List of property set name
 	PropertySets pulumi.StringArrayInput
+	// Proxy key from Artifactory Proxies settings. Default is empty field. Can't be set if `disableProxy = true`.
+	Proxy pulumi.StringPtrInput
 	// Repository layout key for the federated repository
 	RepoLayoutRef pulumi.StringPtrInput
 	// If greater than 1, overwritten tags will be saved by their digest, up to the set up number. This only applies to
@@ -541,6 +561,11 @@ func (o FederatedDockerV2RepositoryOutput) Description() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v *FederatedDockerV2Repository) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
+func (o FederatedDockerV2RepositoryOutput) DisableProxy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FederatedDockerV2Repository) pulumi.BoolPtrOutput { return v.DisableProxy }).(pulumi.BoolPtrOutput)
+}
+
 // When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
 // storage provider. Available in Enterprise+ and Edge licenses only.
 func (o FederatedDockerV2RepositoryOutput) DownloadDirect() pulumi.BoolPtrOutput {
@@ -610,6 +635,11 @@ func (o FederatedDockerV2RepositoryOutput) ProjectKey() pulumi.StringPtrOutput {
 // List of property set name
 func (o FederatedDockerV2RepositoryOutput) PropertySets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FederatedDockerV2Repository) pulumi.StringArrayOutput { return v.PropertySets }).(pulumi.StringArrayOutput)
+}
+
+// Proxy key from Artifactory Proxies settings. Default is empty field. Can't be set if `disableProxy = true`.
+func (o FederatedDockerV2RepositoryOutput) Proxy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FederatedDockerV2Repository) pulumi.StringPtrOutput { return v.Proxy }).(pulumi.StringPtrOutput)
 }
 
 // Repository layout key for the federated repository

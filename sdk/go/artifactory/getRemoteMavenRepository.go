@@ -58,6 +58,7 @@ type LookupRemoteMavenRepositoryArgs struct {
 	CdnRedirect               *bool                                           `pulumi:"cdnRedirect"`
 	ClientTlsCertificate      *string                                         `pulumi:"clientTlsCertificate"`
 	ContentSynchronisation    *GetRemoteMavenRepositoryContentSynchronisation `pulumi:"contentSynchronisation"`
+	Curated                   *bool                                           `pulumi:"curated"`
 	Description               *string                                         `pulumi:"description"`
 	DisableProxy              *bool                                           `pulumi:"disableProxy"`
 	DisableUrlNormalization   *bool                                           `pulumi:"disableUrlNormalization"`
@@ -120,6 +121,7 @@ type LookupRemoteMavenRepositoryResult struct {
 	CdnRedirect               *bool                                          `pulumi:"cdnRedirect"`
 	ClientTlsCertificate      string                                         `pulumi:"clientTlsCertificate"`
 	ContentSynchronisation    GetRemoteMavenRepositoryContentSynchronisation `pulumi:"contentSynchronisation"`
+	Curated                   *bool                                          `pulumi:"curated"`
 	Description               *string                                        `pulumi:"description"`
 	DisableProxy              *bool                                          `pulumi:"disableProxy"`
 	DisableUrlNormalization   *bool                                          `pulumi:"disableUrlNormalization"`
@@ -197,6 +199,7 @@ type LookupRemoteMavenRepositoryOutputArgs struct {
 	CdnRedirect               pulumi.BoolPtrInput                                    `pulumi:"cdnRedirect"`
 	ClientTlsCertificate      pulumi.StringPtrInput                                  `pulumi:"clientTlsCertificate"`
 	ContentSynchronisation    GetRemoteMavenRepositoryContentSynchronisationPtrInput `pulumi:"contentSynchronisation"`
+	Curated                   pulumi.BoolPtrInput                                    `pulumi:"curated"`
 	Description               pulumi.StringPtrInput                                  `pulumi:"description"`
 	DisableProxy              pulumi.BoolPtrInput                                    `pulumi:"disableProxy"`
 	DisableUrlNormalization   pulumi.BoolPtrInput                                    `pulumi:"disableUrlNormalization"`
@@ -300,6 +303,10 @@ func (o LookupRemoteMavenRepositoryResultOutput) ContentSynchronisation() GetRem
 	return o.ApplyT(func(v LookupRemoteMavenRepositoryResult) GetRemoteMavenRepositoryContentSynchronisation {
 		return v.ContentSynchronisation
 	}).(GetRemoteMavenRepositoryContentSynchronisationOutput)
+}
+
+func (o LookupRemoteMavenRepositoryResultOutput) Curated() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupRemoteMavenRepositoryResult) *bool { return v.Curated }).(pulumi.BoolPtrOutput)
 }
 
 func (o LookupRemoteMavenRepositoryResultOutput) Description() pulumi.StringPtrOutput {

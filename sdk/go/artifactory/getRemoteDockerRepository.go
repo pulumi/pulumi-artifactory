@@ -60,6 +60,7 @@ type LookupRemoteDockerRepositoryArgs struct {
 	CdnRedirect            *bool                                            `pulumi:"cdnRedirect"`
 	ClientTlsCertificate   *string                                          `pulumi:"clientTlsCertificate"`
 	ContentSynchronisation *GetRemoteDockerRepositoryContentSynchronisation `pulumi:"contentSynchronisation"`
+	Curated                *bool                                            `pulumi:"curated"`
 	Description            *string                                          `pulumi:"description"`
 	DisableProxy           *bool                                            `pulumi:"disableProxy"`
 	// (Optional) Whether to disable URL normalization.
@@ -116,6 +117,7 @@ type LookupRemoteDockerRepositoryResult struct {
 	CdnRedirect            *bool                                           `pulumi:"cdnRedirect"`
 	ClientTlsCertificate   string                                          `pulumi:"clientTlsCertificate"`
 	ContentSynchronisation GetRemoteDockerRepositoryContentSynchronisation `pulumi:"contentSynchronisation"`
+	Curated                *bool                                           `pulumi:"curated"`
 	Description            *string                                         `pulumi:"description"`
 	DisableProxy           *bool                                           `pulumi:"disableProxy"`
 	// (Optional) Whether to disable URL normalization.
@@ -187,6 +189,7 @@ type LookupRemoteDockerRepositoryOutputArgs struct {
 	CdnRedirect            pulumi.BoolPtrInput                                     `pulumi:"cdnRedirect"`
 	ClientTlsCertificate   pulumi.StringPtrInput                                   `pulumi:"clientTlsCertificate"`
 	ContentSynchronisation GetRemoteDockerRepositoryContentSynchronisationPtrInput `pulumi:"contentSynchronisation"`
+	Curated                pulumi.BoolPtrInput                                     `pulumi:"curated"`
 	Description            pulumi.StringPtrInput                                   `pulumi:"description"`
 	DisableProxy           pulumi.BoolPtrInput                                     `pulumi:"disableProxy"`
 	// (Optional) Whether to disable URL normalization.
@@ -287,6 +290,10 @@ func (o LookupRemoteDockerRepositoryResultOutput) ContentSynchronisation() GetRe
 	return o.ApplyT(func(v LookupRemoteDockerRepositoryResult) GetRemoteDockerRepositoryContentSynchronisation {
 		return v.ContentSynchronisation
 	}).(GetRemoteDockerRepositoryContentSynchronisationOutput)
+}
+
+func (o LookupRemoteDockerRepositoryResultOutput) Curated() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupRemoteDockerRepositoryResult) *bool { return v.Curated }).(pulumi.BoolPtrOutput)
 }
 
 func (o LookupRemoteDockerRepositoryResultOutput) Description() pulumi.StringPtrOutput {

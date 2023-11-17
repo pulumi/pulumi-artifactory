@@ -60,6 +60,13 @@ public final class GetFederatedDockerRepositoryPlainArgs extends com.pulumi.reso
         return Optional.ofNullable(this.description);
     }
 
+    @Import(name="disableProxy")
+    private @Nullable Boolean disableProxy;
+
+    public Optional<Boolean> disableProxy() {
+        return Optional.ofNullable(this.disableProxy);
+    }
+
     @Import(name="downloadDirect")
     private @Nullable Boolean downloadDirect;
 
@@ -137,6 +144,13 @@ public final class GetFederatedDockerRepositoryPlainArgs extends com.pulumi.reso
         return Optional.ofNullable(this.propertySets);
     }
 
+    @Import(name="proxy")
+    private @Nullable String proxy;
+
+    public Optional<String> proxy() {
+        return Optional.ofNullable(this.proxy);
+    }
+
     @Import(name="repoLayoutRef")
     private @Nullable String repoLayoutRef;
 
@@ -167,6 +181,7 @@ public final class GetFederatedDockerRepositoryPlainArgs extends com.pulumi.reso
         this.cdnRedirect = $.cdnRedirect;
         this.cleanupOnDelete = $.cleanupOnDelete;
         this.description = $.description;
+        this.disableProxy = $.disableProxy;
         this.downloadDirect = $.downloadDirect;
         this.excludesPattern = $.excludesPattern;
         this.includesPattern = $.includesPattern;
@@ -178,6 +193,7 @@ public final class GetFederatedDockerRepositoryPlainArgs extends com.pulumi.reso
         this.projectEnvironments = $.projectEnvironments;
         this.projectKey = $.projectKey;
         this.propertySets = $.propertySets;
+        this.proxy = $.proxy;
         this.repoLayoutRef = $.repoLayoutRef;
         this.tagRetention = $.tagRetention;
         this.xrayIndex = $.xrayIndex;
@@ -228,6 +244,11 @@ public final class GetFederatedDockerRepositoryPlainArgs extends com.pulumi.reso
 
         public Builder description(@Nullable String description) {
             $.description = description;
+            return this;
+        }
+
+        public Builder disableProxy(@Nullable Boolean disableProxy) {
+            $.disableProxy = disableProxy;
             return this;
         }
 
@@ -296,6 +317,11 @@ public final class GetFederatedDockerRepositoryPlainArgs extends com.pulumi.reso
 
         public Builder propertySets(String... propertySets) {
             return propertySets(List.of(propertySets));
+        }
+
+        public Builder proxy(@Nullable String proxy) {
+            $.proxy = proxy;
+            return this;
         }
 
         public Builder repoLayoutRef(@Nullable String repoLayoutRef) {

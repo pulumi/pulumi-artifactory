@@ -50,12 +50,14 @@ func LookupFederatedCargoRepository(ctx *pulumi.Context, args *LookupFederatedCa
 
 // A collection of arguments for invoking getFederatedCargoRepository.
 type LookupFederatedCargoRepositoryArgs struct {
-	AnonymousAccess         *bool    `pulumi:"anonymousAccess"`
-	ArchiveBrowsingEnabled  *bool    `pulumi:"archiveBrowsingEnabled"`
-	BlackedOut              *bool    `pulumi:"blackedOut"`
-	CdnRedirect             *bool    `pulumi:"cdnRedirect"`
-	CleanupOnDelete         *bool    `pulumi:"cleanupOnDelete"`
-	Description             *string  `pulumi:"description"`
+	AnonymousAccess        *bool   `pulumi:"anonymousAccess"`
+	ArchiveBrowsingEnabled *bool   `pulumi:"archiveBrowsingEnabled"`
+	BlackedOut             *bool   `pulumi:"blackedOut"`
+	CdnRedirect            *bool   `pulumi:"cdnRedirect"`
+	CleanupOnDelete        *bool   `pulumi:"cleanupOnDelete"`
+	Description            *string `pulumi:"description"`
+	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
+	DisableProxy            *bool    `pulumi:"disableProxy"`
 	DownloadDirect          *bool    `pulumi:"downloadDirect"`
 	EnableSparseIndex       *bool    `pulumi:"enableSparseIndex"`
 	ExcludesPattern         *string  `pulumi:"excludesPattern"`
@@ -73,8 +75,10 @@ type LookupFederatedCargoRepositoryArgs struct {
 	ProjectEnvironments []string                            `pulumi:"projectEnvironments"`
 	ProjectKey          *string                             `pulumi:"projectKey"`
 	PropertySets        []string                            `pulumi:"propertySets"`
-	RepoLayoutRef       *string                             `pulumi:"repoLayoutRef"`
-	XrayIndex           *bool                               `pulumi:"xrayIndex"`
+	// Proxy key from Artifactory Proxies settings.
+	Proxy         *string `pulumi:"proxy"`
+	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
+	XrayIndex     *bool   `pulumi:"xrayIndex"`
 }
 
 // A collection of values returned by getFederatedCargoRepository.
@@ -85,9 +89,11 @@ type LookupFederatedCargoRepositoryResult struct {
 	CdnRedirect            *bool   `pulumi:"cdnRedirect"`
 	CleanupOnDelete        *bool   `pulumi:"cleanupOnDelete"`
 	Description            *string `pulumi:"description"`
-	DownloadDirect         *bool   `pulumi:"downloadDirect"`
-	EnableSparseIndex      *bool   `pulumi:"enableSparseIndex"`
-	ExcludesPattern        *string `pulumi:"excludesPattern"`
+	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
+	DisableProxy      *bool   `pulumi:"disableProxy"`
+	DownloadDirect    *bool   `pulumi:"downloadDirect"`
+	EnableSparseIndex *bool   `pulumi:"enableSparseIndex"`
+	ExcludesPattern   *string `pulumi:"excludesPattern"`
 	// The provider-assigned unique ID for this managed resource.
 	Id                      string   `pulumi:"id"`
 	IncludesPattern         *string  `pulumi:"includesPattern"`
@@ -104,8 +110,10 @@ type LookupFederatedCargoRepositoryResult struct {
 	ProjectEnvironments []string                            `pulumi:"projectEnvironments"`
 	ProjectKey          *string                             `pulumi:"projectKey"`
 	PropertySets        []string                            `pulumi:"propertySets"`
-	RepoLayoutRef       *string                             `pulumi:"repoLayoutRef"`
-	XrayIndex           *bool                               `pulumi:"xrayIndex"`
+	// Proxy key from Artifactory Proxies settings.
+	Proxy         *string `pulumi:"proxy"`
+	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
+	XrayIndex     *bool   `pulumi:"xrayIndex"`
 }
 
 func LookupFederatedCargoRepositoryOutput(ctx *pulumi.Context, args LookupFederatedCargoRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupFederatedCargoRepositoryResultOutput {
@@ -123,12 +131,14 @@ func LookupFederatedCargoRepositoryOutput(ctx *pulumi.Context, args LookupFedera
 
 // A collection of arguments for invoking getFederatedCargoRepository.
 type LookupFederatedCargoRepositoryOutputArgs struct {
-	AnonymousAccess         pulumi.BoolPtrInput     `pulumi:"anonymousAccess"`
-	ArchiveBrowsingEnabled  pulumi.BoolPtrInput     `pulumi:"archiveBrowsingEnabled"`
-	BlackedOut              pulumi.BoolPtrInput     `pulumi:"blackedOut"`
-	CdnRedirect             pulumi.BoolPtrInput     `pulumi:"cdnRedirect"`
-	CleanupOnDelete         pulumi.BoolPtrInput     `pulumi:"cleanupOnDelete"`
-	Description             pulumi.StringPtrInput   `pulumi:"description"`
+	AnonymousAccess        pulumi.BoolPtrInput   `pulumi:"anonymousAccess"`
+	ArchiveBrowsingEnabled pulumi.BoolPtrInput   `pulumi:"archiveBrowsingEnabled"`
+	BlackedOut             pulumi.BoolPtrInput   `pulumi:"blackedOut"`
+	CdnRedirect            pulumi.BoolPtrInput   `pulumi:"cdnRedirect"`
+	CleanupOnDelete        pulumi.BoolPtrInput   `pulumi:"cleanupOnDelete"`
+	Description            pulumi.StringPtrInput `pulumi:"description"`
+	// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
+	DisableProxy            pulumi.BoolPtrInput     `pulumi:"disableProxy"`
 	DownloadDirect          pulumi.BoolPtrInput     `pulumi:"downloadDirect"`
 	EnableSparseIndex       pulumi.BoolPtrInput     `pulumi:"enableSparseIndex"`
 	ExcludesPattern         pulumi.StringPtrInput   `pulumi:"excludesPattern"`
@@ -146,8 +156,10 @@ type LookupFederatedCargoRepositoryOutputArgs struct {
 	ProjectEnvironments pulumi.StringArrayInput                     `pulumi:"projectEnvironments"`
 	ProjectKey          pulumi.StringPtrInput                       `pulumi:"projectKey"`
 	PropertySets        pulumi.StringArrayInput                     `pulumi:"propertySets"`
-	RepoLayoutRef       pulumi.StringPtrInput                       `pulumi:"repoLayoutRef"`
-	XrayIndex           pulumi.BoolPtrInput                         `pulumi:"xrayIndex"`
+	// Proxy key from Artifactory Proxies settings.
+	Proxy         pulumi.StringPtrInput `pulumi:"proxy"`
+	RepoLayoutRef pulumi.StringPtrInput `pulumi:"repoLayoutRef"`
+	XrayIndex     pulumi.BoolPtrInput   `pulumi:"xrayIndex"`
 }
 
 func (LookupFederatedCargoRepositoryOutputArgs) ElementType() reflect.Type {
@@ -191,6 +203,11 @@ func (o LookupFederatedCargoRepositoryResultOutput) CleanupOnDelete() pulumi.Boo
 
 func (o LookupFederatedCargoRepositoryResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFederatedCargoRepositoryResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// When set to `true`, the proxy is disabled, and not returned in the API response body. If there is a default proxy set for the Artifactory instance, it will be ignored, too.
+func (o LookupFederatedCargoRepositoryResultOutput) DisableProxy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupFederatedCargoRepositoryResult) *bool { return v.DisableProxy }).(pulumi.BoolPtrOutput)
 }
 
 func (o LookupFederatedCargoRepositoryResultOutput) DownloadDirect() pulumi.BoolPtrOutput {
@@ -252,6 +269,11 @@ func (o LookupFederatedCargoRepositoryResultOutput) ProjectKey() pulumi.StringPt
 
 func (o LookupFederatedCargoRepositoryResultOutput) PropertySets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupFederatedCargoRepositoryResult) []string { return v.PropertySets }).(pulumi.StringArrayOutput)
+}
+
+// Proxy key from Artifactory Proxies settings.
+func (o LookupFederatedCargoRepositoryResultOutput) Proxy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFederatedCargoRepositoryResult) *string { return v.Proxy }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupFederatedCargoRepositoryResultOutput) RepoLayoutRef() pulumi.StringPtrOutput {

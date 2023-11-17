@@ -101,6 +101,9 @@ namespace Pulumi.Artifactory
         [Input("contentSynchronisation")]
         public Inputs.GetRemoteDockerRepositoryContentSynchronisationArgs? ContentSynchronisation { get; set; }
 
+        [Input("curated")]
+        public bool? Curated { get; set; }
+
         [Input("description")]
         public string? Description { get; set; }
 
@@ -286,6 +289,9 @@ namespace Pulumi.Artifactory
         [Input("contentSynchronisation")]
         public Input<Inputs.GetRemoteDockerRepositoryContentSynchronisationInputArgs>? ContentSynchronisation { get; set; }
 
+        [Input("curated")]
+        public Input<bool>? Curated { get; set; }
+
         [Input("description")]
         public Input<string>? Description { get; set; }
 
@@ -459,6 +465,7 @@ namespace Pulumi.Artifactory
         public readonly bool? CdnRedirect;
         public readonly string ClientTlsCertificate;
         public readonly Outputs.GetRemoteDockerRepositoryContentSynchronisationResult ContentSynchronisation;
+        public readonly bool? Curated;
         public readonly string? Description;
         public readonly bool? DisableProxy;
         /// <summary>
@@ -533,6 +540,8 @@ namespace Pulumi.Artifactory
             string clientTlsCertificate,
 
             Outputs.GetRemoteDockerRepositoryContentSynchronisationResult contentSynchronisation,
+
+            bool? curated,
 
             string? description,
 
@@ -621,6 +630,7 @@ namespace Pulumi.Artifactory
             CdnRedirect = cdnRedirect;
             ClientTlsCertificate = clientTlsCertificate;
             ContentSynchronisation = contentSynchronisation;
+            Curated = curated;
             Description = description;
             DisableProxy = disableProxy;
             DisableUrlNormalization = disableUrlNormalization;
