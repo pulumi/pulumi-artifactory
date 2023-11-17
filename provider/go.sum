@@ -1753,8 +1753,8 @@ github.com/jbenet/go-context v0.0.0-20150711004518-d14ea06fba99 h1:BQSFePA1RWJOl
 github.com/jbenet/go-context v0.0.0-20150711004518-d14ea06fba99/go.mod h1:1lJo3i6rXxKeerYnT8Nvf0QmHCRC1n8sfWVwXF2Frvo=
 github.com/jessevdk/go-flags v1.4.0/go.mod h1:4FA24M0QyGHXBuZZK/XkWh8h0e1EYbRYJSGM75WSRxI=
 github.com/jessevdk/go-flags v1.5.0/go.mod h1:Fw0T6WPc1dYxT4mKEZRfG5kJhaTDP9pj1c2EWnYs/m4=
-github.com/jfrog/terraform-provider-artifactory/v9 v9.7.3 h1:mpbMT3EpHfClvZEEcixnaadSK8x+opIhzDQ4E/aTaNU=
-github.com/jfrog/terraform-provider-artifactory/v9 v9.7.3/go.mod h1:3/v6owPvTt4ztlVphsHEyJwZ0Xf1GNivf/xuMJMW9vk=
+github.com/jfrog/terraform-provider-artifactory/v9 v9.9.0 h1:PWxWAGiwXvTbwdsjRF/Fu2LHh7SUzboLog862JiZ8Ss=
+github.com/jfrog/terraform-provider-artifactory/v9 v9.9.0/go.mod h1:O+G5HtTvO11HsrnOByGxwnKXMgcIgqmM8VXnPIo8xeQ=
 github.com/jfrog/terraform-provider-shared v1.20.0 h1:T5AFbn4Su3tlNZTIXwb8Bi4vq/LZMFH312V2z8d3IsI=
 github.com/jfrog/terraform-provider-shared v1.20.0/go.mod h1:KEYnVOggRuQT6qLR05ra0QfQa0SeYnkMnN0ZqIgQHqI=
 github.com/jhump/gopoet v0.0.0-20190322174617-17282ff210b3/go.mod h1:me9yfT6IJSlOL3FCfrg+L6yzUEZ+5jW6WHt4Sk+UPUI=
