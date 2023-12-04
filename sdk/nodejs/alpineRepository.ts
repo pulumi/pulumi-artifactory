@@ -18,8 +18,8 @@ import * as utilities from "./utilities";
  *     pairName: "some-keypair",
  *     pairType: "RSA",
  *     alias: "foo-alias",
- *     privateKey: fs.readFileSync("samples/rsa.priv"),
- *     publicKey: fs.readFileSync("samples/rsa.pub"),
+ *     privateKey: fs.readFileSync("samples/rsa.priv", "utf8"),
+ *     publicKey: fs.readFileSync("samples/rsa.pub", "utf8"),
  * });
  * const terraform_local_test_alpine_repo_basic = new artifactory.AlpineRepository("terraform-local-test-alpine-repo-basic", {
  *     key: "terraform-local-test-alpine-repo-basic",

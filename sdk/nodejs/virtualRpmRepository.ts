@@ -19,15 +19,15 @@ import * as utilities from "./utilities";
  *     pairName: "primary-keypair",
  *     pairType: "GPG",
  *     alias: "foo-alias-1",
- *     privateKey: fs.readFileSync("samples/gpg.priv"),
- *     publicKey: fs.readFileSync("samples/gpg.pub"),
+ *     privateKey: fs.readFileSync("samples/gpg.priv", "utf8"),
+ *     publicKey: fs.readFileSync("samples/gpg.pub", "utf8"),
  * });
  * const secondary_keypair = new artifactory.Keypair("secondary-keypair", {
  *     pairName: "secondary-keypair",
  *     pairType: "GPG",
  *     alias: "foo-alias-2",
- *     privateKey: fs.readFileSync("samples/gpg.priv"),
- *     publicKey: fs.readFileSync("samples/gpg.pub"),
+ *     privateKey: fs.readFileSync("samples/gpg.priv", "utf8"),
+ *     publicKey: fs.readFileSync("samples/gpg.pub", "utf8"),
  * });
  * const foo_rpm_virtual = new artifactory.VirtualRpmRepository("foo-rpm-virtual", {
  *     key: "foo-rpm-virtual",

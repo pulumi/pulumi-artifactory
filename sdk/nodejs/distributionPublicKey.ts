@@ -18,7 +18,7 @@ import * as utilities from "./utilities";
  *
  * const my_key = new artifactory.DistributionPublicKey("my-key", {
  *     alias: "my-key",
- *     publicKey: fs.readFileSync("samples/rsa.pub"),
+ *     publicKey: fs.readFileSync("samples/rsa.pub", "utf8"),
  * });
  * ```
  *
