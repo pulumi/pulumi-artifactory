@@ -17,7 +17,7 @@ import * as utilities from "./utilities";
  * // Create a new Artifactory certificate called my-cert
  * const my_cert = new artifactory.Certificate("my-cert", {
  *     alias: "my-cert",
- *     content: fs.readFileSync("/path/to/bundle.pem"),
+ *     content: fs.readFileSync("/path/to/bundle.pem", "utf8"),
  * });
  * // This can then be used by a remote repository
  * const my_remote = new artifactory.RemoteMavenRepository("my-remote", {clientTlsCertificate: my_cert.alias});
