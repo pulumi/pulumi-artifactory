@@ -18,15 +18,15 @@ import * as utilities from "./utilities";
  *     pairName: `some-keypair${random_id.randid.id}`,
  *     pairType: "GPG",
  *     alias: "foo-alias1",
- *     privateKey: fs.readFileSync("samples/gpg.priv"),
- *     publicKey: fs.readFileSync("samples/gpg.pub"),
+ *     privateKey: fs.readFileSync("samples/gpg.priv", "utf8"),
+ *     publicKey: fs.readFileSync("samples/gpg.pub", "utf8"),
  * });
  * const some_keypairGPG2 = new artifactory.Keypair("some-keypairGPG2", {
  *     pairName: `some-keypair4${random_id.randid.id}`,
  *     pairType: "GPG",
  *     alias: "foo-alias2",
- *     privateKey: fs.readFileSync("samples/gpg.priv"),
- *     publicKey: fs.readFileSync("samples/gpg.pub"),
+ *     privateKey: fs.readFileSync("samples/gpg.priv", "utf8"),
+ *     publicKey: fs.readFileSync("samples/gpg.pub", "utf8"),
  * });
  * const my_debian_repo = new artifactory.DebianRepository("my-debian-repo", {
  *     key: "my-debian-repo",

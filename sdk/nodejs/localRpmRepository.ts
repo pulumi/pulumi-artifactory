@@ -18,15 +18,15 @@ import * as utilities from "./utilities";
  *     pairName: `some-keypair${random_id.randid.id}`,
  *     pairType: "GPG",
  *     alias: "foo-alias1",
- *     privateKey: fs.readFileSync("samples/gpg.priv"),
- *     publicKey: fs.readFileSync("samples/gpg.pub"),
+ *     privateKey: fs.readFileSync("samples/gpg.priv", "utf8"),
+ *     publicKey: fs.readFileSync("samples/gpg.pub", "utf8"),
  * });
  * const some_keypair_gpg_2 = new artifactory.Keypair("some-keypair-gpg-2", {
  *     pairName: `some-keypair${random_id.randid.id}`,
  *     pairType: "GPG",
  *     alias: "foo-alias2",
- *     privateKey: fs.readFileSync("samples/gpg.priv"),
- *     publicKey: fs.readFileSync("samples/gpg.pub"),
+ *     privateKey: fs.readFileSync("samples/gpg.priv", "utf8"),
+ *     publicKey: fs.readFileSync("samples/gpg.pub", "utf8"),
  * });
  * const terraform_local_test_rpm_repo_basic = new artifactory.LocalRpmRepository("terraform-local-test-rpm-repo-basic", {
  *     key: "terraform-local-test-rpm-repo-basic",

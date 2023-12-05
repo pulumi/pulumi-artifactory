@@ -19,8 +19,8 @@ import * as utilities from "./utilities";
  *     pairName: "some-keypair-6543461672124900137",
  *     pairType: "RSA",
  *     alias: "some-alias-6543461672124900137",
- *     privateKey: fs.readFileSync("samples/rsa.priv"),
- *     publicKey: fs.readFileSync("samples/rsa.pub"),
+ *     privateKey: fs.readFileSync("samples/rsa.priv", "utf8"),
+ *     publicKey: fs.readFileSync("samples/rsa.pub", "utf8"),
  *     passphrase: "PASSPHRASE",
  * });
  * ```
