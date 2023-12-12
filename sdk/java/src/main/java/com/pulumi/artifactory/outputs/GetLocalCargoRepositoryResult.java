@@ -268,28 +268,28 @@ public final class GetLocalCargoRepositoryResult {
             return this;
         }
         public GetLocalCargoRepositoryResult build() {
-            final var o = new GetLocalCargoRepositoryResult();
-            o.anonymousAccess = anonymousAccess;
-            o.archiveBrowsingEnabled = archiveBrowsingEnabled;
-            o.blackedOut = blackedOut;
-            o.cdnRedirect = cdnRedirect;
-            o.description = description;
-            o.downloadDirect = downloadDirect;
-            o.enableSparseIndex = enableSparseIndex;
-            o.excludesPattern = excludesPattern;
-            o.id = id;
-            o.includesPattern = includesPattern;
-            o.indexCompressionFormats = indexCompressionFormats;
-            o.key = key;
-            o.notes = notes;
-            o.packageType = packageType;
-            o.priorityResolution = priorityResolution;
-            o.projectEnvironments = projectEnvironments;
-            o.projectKey = projectKey;
-            o.propertySets = propertySets;
-            o.repoLayoutRef = repoLayoutRef;
-            o.xrayIndex = xrayIndex;
-            return o;
+            final var _resultValue = new GetLocalCargoRepositoryResult();
+            _resultValue.anonymousAccess = anonymousAccess;
+            _resultValue.archiveBrowsingEnabled = archiveBrowsingEnabled;
+            _resultValue.blackedOut = blackedOut;
+            _resultValue.cdnRedirect = cdnRedirect;
+            _resultValue.description = description;
+            _resultValue.downloadDirect = downloadDirect;
+            _resultValue.enableSparseIndex = enableSparseIndex;
+            _resultValue.excludesPattern = excludesPattern;
+            _resultValue.id = id;
+            _resultValue.includesPattern = includesPattern;
+            _resultValue.indexCompressionFormats = indexCompressionFormats;
+            _resultValue.key = key;
+            _resultValue.notes = notes;
+            _resultValue.packageType = packageType;
+            _resultValue.priorityResolution = priorityResolution;
+            _resultValue.projectEnvironments = projectEnvironments;
+            _resultValue.projectKey = projectKey;
+            _resultValue.propertySets = propertySets;
+            _resultValue.repoLayoutRef = repoLayoutRef;
+            _resultValue.xrayIndex = xrayIndex;
+            return _resultValue;
         }
     }
 }

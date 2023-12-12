@@ -68,10 +68,10 @@ public final class FederatedPuppetRepositoryMember {
             return this;
         }
         public FederatedPuppetRepositoryMember build() {
-            final var o = new FederatedPuppetRepositoryMember();
-            o.enabled = enabled;
-            o.url = url;
-            return o;
+            final var _resultValue = new FederatedPuppetRepositoryMember();
+            _resultValue.enabled = enabled;
+            _resultValue.url = url;
+            return _resultValue;
         }
     }
 }

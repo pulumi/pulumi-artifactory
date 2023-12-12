@@ -68,10 +68,10 @@ public final class GetFederatedOpkgRepositoryMember {
             return this;
         }
         public GetFederatedOpkgRepositoryMember build() {
-            final var o = new GetFederatedOpkgRepositoryMember();
-            o.enabled = enabled;
-            o.url = url;
-            return o;
+            final var _resultValue = new GetFederatedOpkgRepositoryMember();
+            _resultValue.enabled = enabled;
+            _resultValue.url = url;
+            return _resultValue;
         }
     }
 }

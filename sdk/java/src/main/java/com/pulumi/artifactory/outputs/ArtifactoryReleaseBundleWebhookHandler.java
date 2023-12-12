@@ -106,12 +106,12 @@ public final class ArtifactoryReleaseBundleWebhookHandler {
             return this;
         }
         public ArtifactoryReleaseBundleWebhookHandler build() {
-            final var o = new ArtifactoryReleaseBundleWebhookHandler();
-            o.customHttpHeaders = customHttpHeaders;
-            o.proxy = proxy;
-            o.secret = secret;
-            o.url = url;
-            return o;
+            final var _resultValue = new ArtifactoryReleaseBundleWebhookHandler();
+            _resultValue.customHttpHeaders = customHttpHeaders;
+            _resultValue.proxy = proxy;
+            _resultValue.secret = secret;
+            _resultValue.url = url;
+            return _resultValue;
         }
     }
 }

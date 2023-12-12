@@ -73,12 +73,12 @@ public final class GetRemoteChefRepositoryContentSynchronisation {
             return this;
         }
         public GetRemoteChefRepositoryContentSynchronisation build() {
-            final var o = new GetRemoteChefRepositoryContentSynchronisation();
-            o.enabled = enabled;
-            o.propertiesEnabled = propertiesEnabled;
-            o.sourceOriginAbsenceDetection = sourceOriginAbsenceDetection;
-            o.statisticsEnabled = statisticsEnabled;
-            return o;
+            final var _resultValue = new GetRemoteChefRepositoryContentSynchronisation();
+            _resultValue.enabled = enabled;
+            _resultValue.propertiesEnabled = propertiesEnabled;
+            _resultValue.sourceOriginAbsenceDetection = sourceOriginAbsenceDetection;
+            _resultValue.statisticsEnabled = statisticsEnabled;
+            return _resultValue;
         }
     }
 }

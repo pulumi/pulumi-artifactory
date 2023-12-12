@@ -115,12 +115,12 @@ public final class DistributionCustomWebhookCriteria {
             return registeredReleaseBundleNames(List.of(registeredReleaseBundleNames));
         }
         public DistributionCustomWebhookCriteria build() {
-            final var o = new DistributionCustomWebhookCriteria();
-            o.anyReleaseBundle = anyReleaseBundle;
-            o.excludePatterns = excludePatterns;
-            o.includePatterns = includePatterns;
-            o.registeredReleaseBundleNames = registeredReleaseBundleNames;
-            return o;
+            final var _resultValue = new DistributionCustomWebhookCriteria();
+            _resultValue.anyReleaseBundle = anyReleaseBundle;
+            _resultValue.excludePatterns = excludePatterns;
+            _resultValue.includePatterns = includePatterns;
+            _resultValue.registeredReleaseBundleNames = registeredReleaseBundleNames;
+            return _resultValue;
         }
     }
 }

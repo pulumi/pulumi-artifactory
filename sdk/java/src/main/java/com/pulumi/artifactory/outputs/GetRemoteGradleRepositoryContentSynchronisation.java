@@ -73,12 +73,12 @@ public final class GetRemoteGradleRepositoryContentSynchronisation {
             return this;
         }
         public GetRemoteGradleRepositoryContentSynchronisation build() {
-            final var o = new GetRemoteGradleRepositoryContentSynchronisation();
-            o.enabled = enabled;
-            o.propertiesEnabled = propertiesEnabled;
-            o.sourceOriginAbsenceDetection = sourceOriginAbsenceDetection;
-            o.statisticsEnabled = statisticsEnabled;
-            return o;
+            final var _resultValue = new GetRemoteGradleRepositoryContentSynchronisation();
+            _resultValue.enabled = enabled;
+            _resultValue.propertiesEnabled = propertiesEnabled;
+            _resultValue.sourceOriginAbsenceDetection = sourceOriginAbsenceDetection;
+            _resultValue.statisticsEnabled = statisticsEnabled;
+            return _resultValue;
         }
     }
 }

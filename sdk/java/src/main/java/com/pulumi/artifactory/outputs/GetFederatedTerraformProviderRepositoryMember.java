@@ -68,10 +68,10 @@ public final class GetFederatedTerraformProviderRepositoryMember {
             return this;
         }
         public GetFederatedTerraformProviderRepositoryMember build() {
-            final var o = new GetFederatedTerraformProviderRepositoryMember();
-            o.enabled = enabled;
-            o.url = url;
-            return o;
+            final var _resultValue = new GetFederatedTerraformProviderRepositoryMember();
+            _resultValue.enabled = enabled;
+            _resultValue.url = url;
+            return _resultValue;
         }
     }
 }

@@ -68,10 +68,10 @@ public final class FederatedNpmRepositoryMember {
             return this;
         }
         public FederatedNpmRepositoryMember build() {
-            final var o = new FederatedNpmRepositoryMember();
-            o.enabled = enabled;
-            o.url = url;
-            return o;
+            final var _resultValue = new FederatedNpmRepositoryMember();
+            _resultValue.enabled = enabled;
+            _resultValue.url = url;
+            return _resultValue;
         }
     }
 }

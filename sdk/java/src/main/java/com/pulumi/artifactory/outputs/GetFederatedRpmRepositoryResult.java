@@ -377,35 +377,35 @@ public final class GetFederatedRpmRepositoryResult {
             return this;
         }
         public GetFederatedRpmRepositoryResult build() {
-            final var o = new GetFederatedRpmRepositoryResult();
-            o.archiveBrowsingEnabled = archiveBrowsingEnabled;
-            o.blackedOut = blackedOut;
-            o.calculateYumMetadata = calculateYumMetadata;
-            o.cdnRedirect = cdnRedirect;
-            o.cleanupOnDelete = cleanupOnDelete;
-            o.description = description;
-            o.disableProxy = disableProxy;
-            o.downloadDirect = downloadDirect;
-            o.enableFileListsIndexing = enableFileListsIndexing;
-            o.excludesPattern = excludesPattern;
-            o.id = id;
-            o.includesPattern = includesPattern;
-            o.key = key;
-            o.members = members;
-            o.notes = notes;
-            o.packageType = packageType;
-            o.primaryKeypairRef = primaryKeypairRef;
-            o.priorityResolution = priorityResolution;
-            o.projectEnvironments = projectEnvironments;
-            o.projectKey = projectKey;
-            o.propertySets = propertySets;
-            o.proxy = proxy;
-            o.repoLayoutRef = repoLayoutRef;
-            o.secondaryKeypairRef = secondaryKeypairRef;
-            o.xrayIndex = xrayIndex;
-            o.yumGroupFileNames = yumGroupFileNames;
-            o.yumRootDepth = yumRootDepth;
-            return o;
+            final var _resultValue = new GetFederatedRpmRepositoryResult();
+            _resultValue.archiveBrowsingEnabled = archiveBrowsingEnabled;
+            _resultValue.blackedOut = blackedOut;
+            _resultValue.calculateYumMetadata = calculateYumMetadata;
+            _resultValue.cdnRedirect = cdnRedirect;
+            _resultValue.cleanupOnDelete = cleanupOnDelete;
+            _resultValue.description = description;
+            _resultValue.disableProxy = disableProxy;
+            _resultValue.downloadDirect = downloadDirect;
+            _resultValue.enableFileListsIndexing = enableFileListsIndexing;
+            _resultValue.excludesPattern = excludesPattern;
+            _resultValue.id = id;
+            _resultValue.includesPattern = includesPattern;
+            _resultValue.key = key;
+            _resultValue.members = members;
+            _resultValue.notes = notes;
+            _resultValue.packageType = packageType;
+            _resultValue.primaryKeypairRef = primaryKeypairRef;
+            _resultValue.priorityResolution = priorityResolution;
+            _resultValue.projectEnvironments = projectEnvironments;
+            _resultValue.projectKey = projectKey;
+            _resultValue.propertySets = propertySets;
+            _resultValue.proxy = proxy;
+            _resultValue.repoLayoutRef = repoLayoutRef;
+            _resultValue.secondaryKeypairRef = secondaryKeypairRef;
+            _resultValue.xrayIndex = xrayIndex;
+            _resultValue.yumGroupFileNames = yumGroupFileNames;
+            _resultValue.yumRootDepth = yumRootDepth;
+            return _resultValue;
         }
     }
 }

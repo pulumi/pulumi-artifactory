@@ -106,12 +106,12 @@ public final class DistributionWebhookHandler {
             return this;
         }
         public DistributionWebhookHandler build() {
-            final var o = new DistributionWebhookHandler();
-            o.customHttpHeaders = customHttpHeaders;
-            o.proxy = proxy;
-            o.secret = secret;
-            o.url = url;
-            return o;
+            final var _resultValue = new DistributionWebhookHandler();
+            _resultValue.customHttpHeaders = customHttpHeaders;
+            _resultValue.proxy = proxy;
+            _resultValue.secret = secret;
+            _resultValue.url = url;
+            return _resultValue;
         }
     }
 }

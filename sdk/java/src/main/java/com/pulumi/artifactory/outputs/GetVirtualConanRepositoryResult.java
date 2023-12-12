@@ -229,23 +229,23 @@ public final class GetVirtualConanRepositoryResult {
             return this;
         }
         public GetVirtualConanRepositoryResult build() {
-            final var o = new GetVirtualConanRepositoryResult();
-            o.artifactoryRequestsCanRetrieveRemoteArtifacts = artifactoryRequestsCanRetrieveRemoteArtifacts;
-            o.defaultDeploymentRepo = defaultDeploymentRepo;
-            o.description = description;
-            o.excludesPattern = excludesPattern;
-            o.forceConanAuthentication = forceConanAuthentication;
-            o.id = id;
-            o.includesPattern = includesPattern;
-            o.key = key;
-            o.notes = notes;
-            o.packageType = packageType;
-            o.projectEnvironments = projectEnvironments;
-            o.projectKey = projectKey;
-            o.repoLayoutRef = repoLayoutRef;
-            o.repositories = repositories;
-            o.retrievalCachePeriodSeconds = retrievalCachePeriodSeconds;
-            return o;
+            final var _resultValue = new GetVirtualConanRepositoryResult();
+            _resultValue.artifactoryRequestsCanRetrieveRemoteArtifacts = artifactoryRequestsCanRetrieveRemoteArtifacts;
+            _resultValue.defaultDeploymentRepo = defaultDeploymentRepo;
+            _resultValue.description = description;
+            _resultValue.excludesPattern = excludesPattern;
+            _resultValue.forceConanAuthentication = forceConanAuthentication;
+            _resultValue.id = id;
+            _resultValue.includesPattern = includesPattern;
+            _resultValue.key = key;
+            _resultValue.notes = notes;
+            _resultValue.packageType = packageType;
+            _resultValue.projectEnvironments = projectEnvironments;
+            _resultValue.projectKey = projectKey;
+            _resultValue.repoLayoutRef = repoLayoutRef;
+            _resultValue.repositories = repositories;
+            _resultValue.retrievalCachePeriodSeconds = retrievalCachePeriodSeconds;
+            return _resultValue;
         }
     }
 }

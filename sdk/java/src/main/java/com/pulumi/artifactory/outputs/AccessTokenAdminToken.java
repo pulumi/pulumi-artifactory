@@ -38,9 +38,9 @@ public final class AccessTokenAdminToken {
             return this;
         }
         public AccessTokenAdminToken build() {
-            final var o = new AccessTokenAdminToken();
-            o.instanceId = instanceId;
-            return o;
+            final var _resultValue = new AccessTokenAdminToken();
+            _resultValue.instanceId = instanceId;
+            return _resultValue;
         }
     }
 }

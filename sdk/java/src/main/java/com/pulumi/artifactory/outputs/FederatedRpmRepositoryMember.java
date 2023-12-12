@@ -68,10 +68,10 @@ public final class FederatedRpmRepositoryMember {
             return this;
         }
         public FederatedRpmRepositoryMember build() {
-            final var o = new FederatedRpmRepositoryMember();
-            o.enabled = enabled;
-            o.url = url;
-            return o;
+            final var _resultValue = new FederatedRpmRepositoryMember();
+            _resultValue.enabled = enabled;
+            _resultValue.url = url;
+            return _resultValue;
         }
     }
 }

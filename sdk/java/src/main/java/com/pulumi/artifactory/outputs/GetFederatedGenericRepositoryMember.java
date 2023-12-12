@@ -68,10 +68,10 @@ public final class GetFederatedGenericRepositoryMember {
             return this;
         }
         public GetFederatedGenericRepositoryMember build() {
-            final var o = new GetFederatedGenericRepositoryMember();
-            o.enabled = enabled;
-            o.url = url;
-            return o;
+            final var _resultValue = new GetFederatedGenericRepositoryMember();
+            _resultValue.enabled = enabled;
+            _resultValue.url = url;
+            return _resultValue;
         }
     }
 }

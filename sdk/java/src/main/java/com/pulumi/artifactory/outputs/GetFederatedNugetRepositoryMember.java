@@ -68,10 +68,10 @@ public final class GetFederatedNugetRepositoryMember {
             return this;
         }
         public GetFederatedNugetRepositoryMember build() {
-            final var o = new GetFederatedNugetRepositoryMember();
-            o.enabled = enabled;
-            o.url = url;
-            return o;
+            final var _resultValue = new GetFederatedNugetRepositoryMember();
+            _resultValue.enabled = enabled;
+            _resultValue.url = url;
+            return _resultValue;
         }
     }
 }

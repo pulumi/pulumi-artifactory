@@ -73,12 +73,12 @@ public final class RemoteDockerRepositoryContentSynchronisation {
             return this;
         }
         public RemoteDockerRepositoryContentSynchronisation build() {
-            final var o = new RemoteDockerRepositoryContentSynchronisation();
-            o.enabled = enabled;
-            o.propertiesEnabled = propertiesEnabled;
-            o.sourceOriginAbsenceDetection = sourceOriginAbsenceDetection;
-            o.statisticsEnabled = statisticsEnabled;
-            return o;
+            final var _resultValue = new RemoteDockerRepositoryContentSynchronisation();
+            _resultValue.enabled = enabled;
+            _resultValue.propertiesEnabled = propertiesEnabled;
+            _resultValue.sourceOriginAbsenceDetection = sourceOriginAbsenceDetection;
+            _resultValue.statisticsEnabled = statisticsEnabled;
+            return _resultValue;
         }
     }
 }

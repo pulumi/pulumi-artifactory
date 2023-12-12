@@ -68,10 +68,10 @@ public final class GetFederatedCargoRepositoryMember {
             return this;
         }
         public GetFederatedCargoRepositoryMember build() {
-            final var o = new GetFederatedCargoRepositoryMember();
-            o.enabled = enabled;
-            o.url = url;
-            return o;
+            final var _resultValue = new GetFederatedCargoRepositoryMember();
+            _resultValue.enabled = enabled;
+            _resultValue.url = url;
+            return _resultValue;
         }
     }
 }

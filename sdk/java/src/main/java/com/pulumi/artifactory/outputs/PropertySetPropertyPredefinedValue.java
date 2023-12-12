@@ -66,10 +66,10 @@ public final class PropertySetPropertyPredefinedValue {
             return this;
         }
         public PropertySetPropertyPredefinedValue build() {
-            final var o = new PropertySetPropertyPredefinedValue();
-            o.defaultValue = defaultValue;
-            o.name = name;
-            return o;
+            final var _resultValue = new PropertySetPropertyPredefinedValue();
+            _resultValue.defaultValue = defaultValue;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

@@ -106,12 +106,12 @@ public final class BuildWebhookHandler {
             return this;
         }
         public BuildWebhookHandler build() {
-            final var o = new BuildWebhookHandler();
-            o.customHttpHeaders = customHttpHeaders;
-            o.proxy = proxy;
-            o.secret = secret;
-            o.url = url;
-            return o;
+            final var _resultValue = new BuildWebhookHandler();
+            _resultValue.customHttpHeaders = customHttpHeaders;
+            _resultValue.proxy = proxy;
+            _resultValue.secret = secret;
+            _resultValue.url = url;
+            return _resultValue;
         }
     }
 }

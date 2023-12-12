@@ -115,12 +115,12 @@ public final class ArtifactoryReleaseBundleWebhookCriteria {
             return registeredReleaseBundleNames(List.of(registeredReleaseBundleNames));
         }
         public ArtifactoryReleaseBundleWebhookCriteria build() {
-            final var o = new ArtifactoryReleaseBundleWebhookCriteria();
-            o.anyReleaseBundle = anyReleaseBundle;
-            o.excludePatterns = excludePatterns;
-            o.includePatterns = includePatterns;
-            o.registeredReleaseBundleNames = registeredReleaseBundleNames;
-            return o;
+            final var _resultValue = new ArtifactoryReleaseBundleWebhookCriteria();
+            _resultValue.anyReleaseBundle = anyReleaseBundle;
+            _resultValue.excludePatterns = excludePatterns;
+            _resultValue.includePatterns = includePatterns;
+            _resultValue.registeredReleaseBundleNames = registeredReleaseBundleNames;
+            return _resultValue;
         }
     }
 }

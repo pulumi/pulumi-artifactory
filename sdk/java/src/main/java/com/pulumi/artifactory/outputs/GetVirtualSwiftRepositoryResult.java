@@ -188,21 +188,21 @@ public final class GetVirtualSwiftRepositoryResult {
             return repositories(List.of(repositories));
         }
         public GetVirtualSwiftRepositoryResult build() {
-            final var o = new GetVirtualSwiftRepositoryResult();
-            o.artifactoryRequestsCanRetrieveRemoteArtifacts = artifactoryRequestsCanRetrieveRemoteArtifacts;
-            o.defaultDeploymentRepo = defaultDeploymentRepo;
-            o.description = description;
-            o.excludesPattern = excludesPattern;
-            o.id = id;
-            o.includesPattern = includesPattern;
-            o.key = key;
-            o.notes = notes;
-            o.packageType = packageType;
-            o.projectEnvironments = projectEnvironments;
-            o.projectKey = projectKey;
-            o.repoLayoutRef = repoLayoutRef;
-            o.repositories = repositories;
-            return o;
+            final var _resultValue = new GetVirtualSwiftRepositoryResult();
+            _resultValue.artifactoryRequestsCanRetrieveRemoteArtifacts = artifactoryRequestsCanRetrieveRemoteArtifacts;
+            _resultValue.defaultDeploymentRepo = defaultDeploymentRepo;
+            _resultValue.description = description;
+            _resultValue.excludesPattern = excludesPattern;
+            _resultValue.id = id;
+            _resultValue.includesPattern = includesPattern;
+            _resultValue.key = key;
+            _resultValue.notes = notes;
+            _resultValue.packageType = packageType;
+            _resultValue.projectEnvironments = projectEnvironments;
+            _resultValue.projectKey = projectKey;
+            _resultValue.repoLayoutRef = repoLayoutRef;
+            _resultValue.repositories = repositories;
+            return _resultValue;
         }
     }
 }

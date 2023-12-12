@@ -157,18 +157,18 @@ public final class ReplicationConfigReplication {
             return this;
         }
         public ReplicationConfigReplication build() {
-            final var o = new ReplicationConfigReplication();
-            o.enabled = enabled;
-            o.password = password;
-            o.pathPrefix = pathPrefix;
-            o.proxy = proxy;
-            o.socketTimeoutMillis = socketTimeoutMillis;
-            o.syncDeletes = syncDeletes;
-            o.syncProperties = syncProperties;
-            o.syncStatistics = syncStatistics;
-            o.url = url;
-            o.username = username;
-            return o;
+            final var _resultValue = new ReplicationConfigReplication();
+            _resultValue.enabled = enabled;
+            _resultValue.password = password;
+            _resultValue.pathPrefix = pathPrefix;
+            _resultValue.proxy = proxy;
+            _resultValue.socketTimeoutMillis = socketTimeoutMillis;
+            _resultValue.syncDeletes = syncDeletes;
+            _resultValue.syncProperties = syncProperties;
+            _resultValue.syncStatistics = syncStatistics;
+            _resultValue.url = url;
+            _resultValue.username = username;
+            return _resultValue;
         }
     }
 }

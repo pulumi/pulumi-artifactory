@@ -73,12 +73,12 @@ public final class RemoteP2RepositoryContentSynchronisation {
             return this;
         }
         public RemoteP2RepositoryContentSynchronisation build() {
-            final var o = new RemoteP2RepositoryContentSynchronisation();
-            o.enabled = enabled;
-            o.propertiesEnabled = propertiesEnabled;
-            o.sourceOriginAbsenceDetection = sourceOriginAbsenceDetection;
-            o.statisticsEnabled = statisticsEnabled;
-            return o;
+            final var _resultValue = new RemoteP2RepositoryContentSynchronisation();
+            _resultValue.enabled = enabled;
+            _resultValue.propertiesEnabled = propertiesEnabled;
+            _resultValue.sourceOriginAbsenceDetection = sourceOriginAbsenceDetection;
+            _resultValue.statisticsEnabled = statisticsEnabled;
+            return _resultValue;
         }
     }
 }

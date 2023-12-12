@@ -68,10 +68,10 @@ public final class GetFederatedGitlfsRepositoryMember {
             return this;
         }
         public GetFederatedGitlfsRepositoryMember build() {
-            final var o = new GetFederatedGitlfsRepositoryMember();
-            o.enabled = enabled;
-            o.url = url;
-            return o;
+            final var _resultValue = new GetFederatedGitlfsRepositoryMember();
+            _resultValue.enabled = enabled;
+            _resultValue.url = url;
+            return _resultValue;
         }
     }
 }

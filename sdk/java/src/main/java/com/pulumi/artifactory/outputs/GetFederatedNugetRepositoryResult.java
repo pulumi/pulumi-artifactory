@@ -333,31 +333,31 @@ public final class GetFederatedNugetRepositoryResult {
             return this;
         }
         public GetFederatedNugetRepositoryResult build() {
-            final var o = new GetFederatedNugetRepositoryResult();
-            o.archiveBrowsingEnabled = archiveBrowsingEnabled;
-            o.blackedOut = blackedOut;
-            o.cdnRedirect = cdnRedirect;
-            o.cleanupOnDelete = cleanupOnDelete;
-            o.description = description;
-            o.disableProxy = disableProxy;
-            o.downloadDirect = downloadDirect;
-            o.excludesPattern = excludesPattern;
-            o.forceNugetAuthentication = forceNugetAuthentication;
-            o.id = id;
-            o.includesPattern = includesPattern;
-            o.key = key;
-            o.maxUniqueSnapshots = maxUniqueSnapshots;
-            o.members = members;
-            o.notes = notes;
-            o.packageType = packageType;
-            o.priorityResolution = priorityResolution;
-            o.projectEnvironments = projectEnvironments;
-            o.projectKey = projectKey;
-            o.propertySets = propertySets;
-            o.proxy = proxy;
-            o.repoLayoutRef = repoLayoutRef;
-            o.xrayIndex = xrayIndex;
-            return o;
+            final var _resultValue = new GetFederatedNugetRepositoryResult();
+            _resultValue.archiveBrowsingEnabled = archiveBrowsingEnabled;
+            _resultValue.blackedOut = blackedOut;
+            _resultValue.cdnRedirect = cdnRedirect;
+            _resultValue.cleanupOnDelete = cleanupOnDelete;
+            _resultValue.description = description;
+            _resultValue.disableProxy = disableProxy;
+            _resultValue.downloadDirect = downloadDirect;
+            _resultValue.excludesPattern = excludesPattern;
+            _resultValue.forceNugetAuthentication = forceNugetAuthentication;
+            _resultValue.id = id;
+            _resultValue.includesPattern = includesPattern;
+            _resultValue.key = key;
+            _resultValue.maxUniqueSnapshots = maxUniqueSnapshots;
+            _resultValue.members = members;
+            _resultValue.notes = notes;
+            _resultValue.packageType = packageType;
+            _resultValue.priorityResolution = priorityResolution;
+            _resultValue.projectEnvironments = projectEnvironments;
+            _resultValue.projectKey = projectKey;
+            _resultValue.propertySets = propertySets;
+            _resultValue.proxy = proxy;
+            _resultValue.repoLayoutRef = repoLayoutRef;
+            _resultValue.xrayIndex = xrayIndex;
+            return _resultValue;
         }
     }
 }

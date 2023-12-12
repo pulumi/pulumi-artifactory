@@ -68,10 +68,10 @@ public final class FederatedChefRepositoryMember {
             return this;
         }
         public FederatedChefRepositoryMember build() {
-            final var o = new FederatedChefRepositoryMember();
-            o.enabled = enabled;
-            o.url = url;
-            return o;
+            final var _resultValue = new FederatedChefRepositoryMember();
+            _resultValue.enabled = enabled;
+            _resultValue.url = url;
+            return _resultValue;
         }
     }
 }

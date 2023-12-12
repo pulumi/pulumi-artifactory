@@ -68,10 +68,10 @@ public final class FederatedAlpineRepositoryMember {
             return this;
         }
         public FederatedAlpineRepositoryMember build() {
-            final var o = new FederatedAlpineRepositoryMember();
-            o.enabled = enabled;
-            o.url = url;
-            return o;
+            final var _resultValue = new FederatedAlpineRepositoryMember();
+            _resultValue.enabled = enabled;
+            _resultValue.url = url;
+            return _resultValue;
         }
     }
 }

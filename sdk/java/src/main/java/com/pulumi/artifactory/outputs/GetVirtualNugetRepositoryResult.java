@@ -207,22 +207,22 @@ public final class GetVirtualNugetRepositoryResult {
             return repositories(List.of(repositories));
         }
         public GetVirtualNugetRepositoryResult build() {
-            final var o = new GetVirtualNugetRepositoryResult();
-            o.artifactoryRequestsCanRetrieveRemoteArtifacts = artifactoryRequestsCanRetrieveRemoteArtifacts;
-            o.defaultDeploymentRepo = defaultDeploymentRepo;
-            o.description = description;
-            o.excludesPattern = excludesPattern;
-            o.forceNugetAuthentication = forceNugetAuthentication;
-            o.id = id;
-            o.includesPattern = includesPattern;
-            o.key = key;
-            o.notes = notes;
-            o.packageType = packageType;
-            o.projectEnvironments = projectEnvironments;
-            o.projectKey = projectKey;
-            o.repoLayoutRef = repoLayoutRef;
-            o.repositories = repositories;
-            return o;
+            final var _resultValue = new GetVirtualNugetRepositoryResult();
+            _resultValue.artifactoryRequestsCanRetrieveRemoteArtifacts = artifactoryRequestsCanRetrieveRemoteArtifacts;
+            _resultValue.defaultDeploymentRepo = defaultDeploymentRepo;
+            _resultValue.description = description;
+            _resultValue.excludesPattern = excludesPattern;
+            _resultValue.forceNugetAuthentication = forceNugetAuthentication;
+            _resultValue.id = id;
+            _resultValue.includesPattern = includesPattern;
+            _resultValue.key = key;
+            _resultValue.notes = notes;
+            _resultValue.packageType = packageType;
+            _resultValue.projectEnvironments = projectEnvironments;
+            _resultValue.projectKey = projectKey;
+            _resultValue.repoLayoutRef = repoLayoutRef;
+            _resultValue.repositories = repositories;
+            return _resultValue;
         }
     }
 }

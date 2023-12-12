@@ -74,10 +74,10 @@ public final class GetPermissionTargetBuildActions {
             return users(List.of(users));
         }
         public GetPermissionTargetBuildActions build() {
-            final var o = new GetPermissionTargetBuildActions();
-            o.groups = groups;
-            o.users = users;
-            return o;
+            final var _resultValue = new GetPermissionTargetBuildActions();
+            _resultValue.groups = groups;
+            _resultValue.users = users;
+            return _resultValue;
         }
     }
 }

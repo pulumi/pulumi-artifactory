@@ -68,10 +68,10 @@ public final class GetFederatedMavenRepositoryMember {
             return this;
         }
         public GetFederatedMavenRepositoryMember build() {
-            final var o = new GetFederatedMavenRepositoryMember();
-            o.enabled = enabled;
-            o.url = url;
-            return o;
+            final var _resultValue = new GetFederatedMavenRepositoryMember();
+            _resultValue.enabled = enabled;
+            _resultValue.url = url;
+            return _resultValue;
         }
     }
 }

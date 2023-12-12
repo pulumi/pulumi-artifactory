@@ -74,10 +74,10 @@ public final class PermissionTargetRepoAction {
             return users(List.of(users));
         }
         public PermissionTargetRepoAction build() {
-            final var o = new PermissionTargetRepoAction();
-            o.groups = groups;
-            o.users = users;
-            return o;
+            final var _resultValue = new PermissionTargetRepoAction();
+            _resultValue.groups = groups;
+            _resultValue.users = users;
+            return _resultValue;
         }
     }
 }

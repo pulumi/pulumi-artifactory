@@ -73,12 +73,12 @@ public final class RemoteConanRepositoryContentSynchronisation {
             return this;
         }
         public RemoteConanRepositoryContentSynchronisation build() {
-            final var o = new RemoteConanRepositoryContentSynchronisation();
-            o.enabled = enabled;
-            o.propertiesEnabled = propertiesEnabled;
-            o.sourceOriginAbsenceDetection = sourceOriginAbsenceDetection;
-            o.statisticsEnabled = statisticsEnabled;
-            return o;
+            final var _resultValue = new RemoteConanRepositoryContentSynchronisation();
+            _resultValue.enabled = enabled;
+            _resultValue.propertiesEnabled = propertiesEnabled;
+            _resultValue.sourceOriginAbsenceDetection = sourceOriginAbsenceDetection;
+            _resultValue.statisticsEnabled = statisticsEnabled;
+            return _resultValue;
         }
     }
 }

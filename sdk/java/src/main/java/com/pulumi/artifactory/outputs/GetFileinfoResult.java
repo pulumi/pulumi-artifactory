@@ -278,22 +278,22 @@ public final class GetFileinfoResult {
             return this;
         }
         public GetFileinfoResult build() {
-            final var o = new GetFileinfoResult();
-            o.created = created;
-            o.createdBy = createdBy;
-            o.downloadUri = downloadUri;
-            o.id = id;
-            o.lastModified = lastModified;
-            o.lastUpdated = lastUpdated;
-            o.md5 = md5;
-            o.mimetype = mimetype;
-            o.modifiedBy = modifiedBy;
-            o.path = path;
-            o.repository = repository;
-            o.sha1 = sha1;
-            o.sha256 = sha256;
-            o.size = size;
-            return o;
+            final var _resultValue = new GetFileinfoResult();
+            _resultValue.created = created;
+            _resultValue.createdBy = createdBy;
+            _resultValue.downloadUri = downloadUri;
+            _resultValue.id = id;
+            _resultValue.lastModified = lastModified;
+            _resultValue.lastUpdated = lastUpdated;
+            _resultValue.md5 = md5;
+            _resultValue.mimetype = mimetype;
+            _resultValue.modifiedBy = modifiedBy;
+            _resultValue.path = path;
+            _resultValue.repository = repository;
+            _resultValue.sha1 = sha1;
+            _resultValue.sha256 = sha256;
+            _resultValue.size = size;
+            return _resultValue;
         }
     }
 }

@@ -68,10 +68,10 @@ public final class FederatedGradleRepositoryMember {
             return this;
         }
         public FederatedGradleRepositoryMember build() {
-            final var o = new FederatedGradleRepositoryMember();
-            o.enabled = enabled;
-            o.url = url;
-            return o;
+            final var _resultValue = new FederatedGradleRepositoryMember();
+            _resultValue.enabled = enabled;
+            _resultValue.url = url;
+            return _resultValue;
         }
     }
 }

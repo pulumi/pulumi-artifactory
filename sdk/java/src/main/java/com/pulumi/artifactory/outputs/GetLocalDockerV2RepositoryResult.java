@@ -277,29 +277,29 @@ public final class GetLocalDockerV2RepositoryResult {
             return this;
         }
         public GetLocalDockerV2RepositoryResult build() {
-            final var o = new GetLocalDockerV2RepositoryResult();
-            o.apiVersion = apiVersion;
-            o.archiveBrowsingEnabled = archiveBrowsingEnabled;
-            o.blackedOut = blackedOut;
-            o.blockPushingSchema1 = blockPushingSchema1;
-            o.cdnRedirect = cdnRedirect;
-            o.description = description;
-            o.downloadDirect = downloadDirect;
-            o.excludesPattern = excludesPattern;
-            o.id = id;
-            o.includesPattern = includesPattern;
-            o.key = key;
-            o.maxUniqueTags = maxUniqueTags;
-            o.notes = notes;
-            o.packageType = packageType;
-            o.priorityResolution = priorityResolution;
-            o.projectEnvironments = projectEnvironments;
-            o.projectKey = projectKey;
-            o.propertySets = propertySets;
-            o.repoLayoutRef = repoLayoutRef;
-            o.tagRetention = tagRetention;
-            o.xrayIndex = xrayIndex;
-            return o;
+            final var _resultValue = new GetLocalDockerV2RepositoryResult();
+            _resultValue.apiVersion = apiVersion;
+            _resultValue.archiveBrowsingEnabled = archiveBrowsingEnabled;
+            _resultValue.blackedOut = blackedOut;
+            _resultValue.blockPushingSchema1 = blockPushingSchema1;
+            _resultValue.cdnRedirect = cdnRedirect;
+            _resultValue.description = description;
+            _resultValue.downloadDirect = downloadDirect;
+            _resultValue.excludesPattern = excludesPattern;
+            _resultValue.id = id;
+            _resultValue.includesPattern = includesPattern;
+            _resultValue.key = key;
+            _resultValue.maxUniqueTags = maxUniqueTags;
+            _resultValue.notes = notes;
+            _resultValue.packageType = packageType;
+            _resultValue.priorityResolution = priorityResolution;
+            _resultValue.projectEnvironments = projectEnvironments;
+            _resultValue.projectKey = projectKey;
+            _resultValue.propertySets = propertySets;
+            _resultValue.repoLayoutRef = repoLayoutRef;
+            _resultValue.tagRetention = tagRetention;
+            _resultValue.xrayIndex = xrayIndex;
+            return _resultValue;
         }
     }
 }

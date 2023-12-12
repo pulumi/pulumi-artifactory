@@ -61,10 +61,10 @@ public final class GetPermissionTargetReleaseBundleActionsUser {
             return permissions(List.of(permissions));
         }
         public GetPermissionTargetReleaseBundleActionsUser build() {
-            final var o = new GetPermissionTargetReleaseBundleActionsUser();
-            o.name = name;
-            o.permissions = permissions;
-            return o;
+            final var _resultValue = new GetPermissionTargetReleaseBundleActionsUser();
+            _resultValue.name = name;
+            _resultValue.permissions = permissions;
+            return _resultValue;
         }
     }
 }

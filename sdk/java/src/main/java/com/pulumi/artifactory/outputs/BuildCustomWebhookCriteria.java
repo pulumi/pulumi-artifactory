@@ -115,12 +115,12 @@ public final class BuildCustomWebhookCriteria {
             return selectedBuilds(List.of(selectedBuilds));
         }
         public BuildCustomWebhookCriteria build() {
-            final var o = new BuildCustomWebhookCriteria();
-            o.anyBuild = anyBuild;
-            o.excludePatterns = excludePatterns;
-            o.includePatterns = includePatterns;
-            o.selectedBuilds = selectedBuilds;
-            return o;
+            final var _resultValue = new BuildCustomWebhookCriteria();
+            _resultValue.anyBuild = anyBuild;
+            _resultValue.excludePatterns = excludePatterns;
+            _resultValue.includePatterns = includePatterns;
+            _resultValue.selectedBuilds = selectedBuilds;
+            return _resultValue;
         }
     }
 }

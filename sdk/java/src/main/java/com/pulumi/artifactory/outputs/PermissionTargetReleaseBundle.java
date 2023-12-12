@@ -110,12 +110,12 @@ public final class PermissionTargetReleaseBundle {
             return repositories(List.of(repositories));
         }
         public PermissionTargetReleaseBundle build() {
-            final var o = new PermissionTargetReleaseBundle();
-            o.actions = actions;
-            o.excludesPatterns = excludesPatterns;
-            o.includesPatterns = includesPatterns;
-            o.repositories = repositories;
-            return o;
+            final var _resultValue = new PermissionTargetReleaseBundle();
+            _resultValue.actions = actions;
+            _resultValue.excludesPatterns = excludesPatterns;
+            _resultValue.includesPatterns = includesPatterns;
+            _resultValue.repositories = repositories;
+            return _resultValue;
         }
     }
 }

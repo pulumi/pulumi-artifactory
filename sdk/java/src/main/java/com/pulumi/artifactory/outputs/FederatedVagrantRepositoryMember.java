@@ -68,10 +68,10 @@ public final class FederatedVagrantRepositoryMember {
             return this;
         }
         public FederatedVagrantRepositoryMember build() {
-            final var o = new FederatedVagrantRepositoryMember();
-            o.enabled = enabled;
-            o.url = url;
-            return o;
+            final var _resultValue = new FederatedVagrantRepositoryMember();
+            _resultValue.enabled = enabled;
+            _resultValue.url = url;
+            return _resultValue;
         }
     }
 }

@@ -115,12 +115,12 @@ public final class ReleaseBundleWebhookCriteria {
             return registeredReleaseBundleNames(List.of(registeredReleaseBundleNames));
         }
         public ReleaseBundleWebhookCriteria build() {
-            final var o = new ReleaseBundleWebhookCriteria();
-            o.anyReleaseBundle = anyReleaseBundle;
-            o.excludePatterns = excludePatterns;
-            o.includePatterns = includePatterns;
-            o.registeredReleaseBundleNames = registeredReleaseBundleNames;
-            return o;
+            final var _resultValue = new ReleaseBundleWebhookCriteria();
+            _resultValue.anyReleaseBundle = anyReleaseBundle;
+            _resultValue.excludePatterns = excludePatterns;
+            _resultValue.includePatterns = includePatterns;
+            _resultValue.registeredReleaseBundleNames = registeredReleaseBundleNames;
+            return _resultValue;
         }
     }
 }

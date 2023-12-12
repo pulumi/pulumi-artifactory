@@ -68,10 +68,10 @@ public final class GetFederatedHelmRepositoryMember {
             return this;
         }
         public GetFederatedHelmRepositoryMember build() {
-            final var o = new GetFederatedHelmRepositoryMember();
-            o.enabled = enabled;
-            o.url = url;
-            return o;
+            final var _resultValue = new GetFederatedHelmRepositoryMember();
+            _resultValue.enabled = enabled;
+            _resultValue.url = url;
+            return _resultValue;
         }
     }
 }

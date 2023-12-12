@@ -226,23 +226,23 @@ public final class GetVirtualRpmRepositoryResult {
             return this;
         }
         public GetVirtualRpmRepositoryResult build() {
-            final var o = new GetVirtualRpmRepositoryResult();
-            o.artifactoryRequestsCanRetrieveRemoteArtifacts = artifactoryRequestsCanRetrieveRemoteArtifacts;
-            o.defaultDeploymentRepo = defaultDeploymentRepo;
-            o.description = description;
-            o.excludesPattern = excludesPattern;
-            o.id = id;
-            o.includesPattern = includesPattern;
-            o.key = key;
-            o.notes = notes;
-            o.packageType = packageType;
-            o.primaryKeypairRef = primaryKeypairRef;
-            o.projectEnvironments = projectEnvironments;
-            o.projectKey = projectKey;
-            o.repoLayoutRef = repoLayoutRef;
-            o.repositories = repositories;
-            o.secondaryKeypairRef = secondaryKeypairRef;
-            return o;
+            final var _resultValue = new GetVirtualRpmRepositoryResult();
+            _resultValue.artifactoryRequestsCanRetrieveRemoteArtifacts = artifactoryRequestsCanRetrieveRemoteArtifacts;
+            _resultValue.defaultDeploymentRepo = defaultDeploymentRepo;
+            _resultValue.description = description;
+            _resultValue.excludesPattern = excludesPattern;
+            _resultValue.id = id;
+            _resultValue.includesPattern = includesPattern;
+            _resultValue.key = key;
+            _resultValue.notes = notes;
+            _resultValue.packageType = packageType;
+            _resultValue.primaryKeypairRef = primaryKeypairRef;
+            _resultValue.projectEnvironments = projectEnvironments;
+            _resultValue.projectKey = projectKey;
+            _resultValue.repoLayoutRef = repoLayoutRef;
+            _resultValue.repositories = repositories;
+            _resultValue.secondaryKeypairRef = secondaryKeypairRef;
+            return _resultValue;
         }
     }
 }

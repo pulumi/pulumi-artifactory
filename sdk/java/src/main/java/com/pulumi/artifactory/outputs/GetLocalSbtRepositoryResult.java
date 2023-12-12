@@ -299,31 +299,31 @@ public final class GetLocalSbtRepositoryResult {
             return this;
         }
         public GetLocalSbtRepositoryResult build() {
-            final var o = new GetLocalSbtRepositoryResult();
-            o.archiveBrowsingEnabled = archiveBrowsingEnabled;
-            o.blackedOut = blackedOut;
-            o.cdnRedirect = cdnRedirect;
-            o.checksumPolicyType = checksumPolicyType;
-            o.description = description;
-            o.downloadDirect = downloadDirect;
-            o.excludesPattern = excludesPattern;
-            o.handleReleases = handleReleases;
-            o.handleSnapshots = handleSnapshots;
-            o.id = id;
-            o.includesPattern = includesPattern;
-            o.key = key;
-            o.maxUniqueSnapshots = maxUniqueSnapshots;
-            o.notes = notes;
-            o.packageType = packageType;
-            o.priorityResolution = priorityResolution;
-            o.projectEnvironments = projectEnvironments;
-            o.projectKey = projectKey;
-            o.propertySets = propertySets;
-            o.repoLayoutRef = repoLayoutRef;
-            o.snapshotVersionBehavior = snapshotVersionBehavior;
-            o.suppressPomConsistencyChecks = suppressPomConsistencyChecks;
-            o.xrayIndex = xrayIndex;
-            return o;
+            final var _resultValue = new GetLocalSbtRepositoryResult();
+            _resultValue.archiveBrowsingEnabled = archiveBrowsingEnabled;
+            _resultValue.blackedOut = blackedOut;
+            _resultValue.cdnRedirect = cdnRedirect;
+            _resultValue.checksumPolicyType = checksumPolicyType;
+            _resultValue.description = description;
+            _resultValue.downloadDirect = downloadDirect;
+            _resultValue.excludesPattern = excludesPattern;
+            _resultValue.handleReleases = handleReleases;
+            _resultValue.handleSnapshots = handleSnapshots;
+            _resultValue.id = id;
+            _resultValue.includesPattern = includesPattern;
+            _resultValue.key = key;
+            _resultValue.maxUniqueSnapshots = maxUniqueSnapshots;
+            _resultValue.notes = notes;
+            _resultValue.packageType = packageType;
+            _resultValue.priorityResolution = priorityResolution;
+            _resultValue.projectEnvironments = projectEnvironments;
+            _resultValue.projectKey = projectKey;
+            _resultValue.propertySets = propertySets;
+            _resultValue.repoLayoutRef = repoLayoutRef;
+            _resultValue.snapshotVersionBehavior = snapshotVersionBehavior;
+            _resultValue.suppressPomConsistencyChecks = suppressPomConsistencyChecks;
+            _resultValue.xrayIndex = xrayIndex;
+            return _resultValue;
         }
     }
 }

@@ -265,21 +265,21 @@ public final class GetGroupResult {
             return this;
         }
         public GetGroupResult build() {
-            final var o = new GetGroupResult();
-            o.adminPrivileges = adminPrivileges;
-            o.autoJoin = autoJoin;
-            o.description = description;
-            o.externalId = externalId;
-            o.id = id;
-            o.includeUsers = includeUsers;
-            o.name = name;
-            o.policyManager = policyManager;
-            o.realm = realm;
-            o.realmAttributes = realmAttributes;
-            o.reportsManager = reportsManager;
-            o.usersNames = usersNames;
-            o.watchManager = watchManager;
-            return o;
+            final var _resultValue = new GetGroupResult();
+            _resultValue.adminPrivileges = adminPrivileges;
+            _resultValue.autoJoin = autoJoin;
+            _resultValue.description = description;
+            _resultValue.externalId = externalId;
+            _resultValue.id = id;
+            _resultValue.includeUsers = includeUsers;
+            _resultValue.name = name;
+            _resultValue.policyManager = policyManager;
+            _resultValue.realm = realm;
+            _resultValue.realmAttributes = realmAttributes;
+            _resultValue.reportsManager = reportsManager;
+            _resultValue.usersNames = usersNames;
+            _resultValue.watchManager = watchManager;
+            return _resultValue;
         }
     }
 }

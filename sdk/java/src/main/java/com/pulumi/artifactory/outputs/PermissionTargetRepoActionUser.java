@@ -61,10 +61,10 @@ public final class PermissionTargetRepoActionUser {
             return permissions(List.of(permissions));
         }
         public PermissionTargetRepoActionUser build() {
-            final var o = new PermissionTargetRepoActionUser();
-            o.name = name;
-            o.permissions = permissions;
-            return o;
+            final var _resultValue = new PermissionTargetRepoActionUser();
+            _resultValue.name = name;
+            _resultValue.permissions = permissions;
+            return _resultValue;
         }
     }
 }

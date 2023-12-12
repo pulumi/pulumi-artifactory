@@ -134,13 +134,13 @@ public final class ArtifactCustomWebhookCriteria {
             return repoKeys(List.of(repoKeys));
         }
         public ArtifactCustomWebhookCriteria build() {
-            final var o = new ArtifactCustomWebhookCriteria();
-            o.anyLocal = anyLocal;
-            o.anyRemote = anyRemote;
-            o.excludePatterns = excludePatterns;
-            o.includePatterns = includePatterns;
-            o.repoKeys = repoKeys;
-            return o;
+            final var _resultValue = new ArtifactCustomWebhookCriteria();
+            _resultValue.anyLocal = anyLocal;
+            _resultValue.anyRemote = anyRemote;
+            _resultValue.excludePatterns = excludePatterns;
+            _resultValue.includePatterns = includePatterns;
+            _resultValue.repoKeys = repoKeys;
+            return _resultValue;
         }
     }
 }
