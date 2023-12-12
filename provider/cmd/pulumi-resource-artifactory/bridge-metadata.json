@@ -1487,141 +1487,6 @@
                     }
                 }
             },
-            "artifactory_permission_targets": {
-                "current": "artifactory:index/permissionTargets:PermissionTargets",
-                "majorVersion": 3,
-                "fields": {
-                    "build": {
-                        "maxItemsOne": true,
-                        "elem": {
-                            "fields": {
-                                "actions": {
-                                    "maxItemsOne": true,
-                                    "elem": {
-                                        "fields": {
-                                            "groups": {
-                                                "maxItemsOne": false,
-                                                "elem": {
-                                                    "fields": {
-                                                        "permissions": {
-                                                            "maxItemsOne": false
-                                                        }
-                                                    }
-                                                }
-                                            },
-                                            "users": {
-                                                "maxItemsOne": false,
-                                                "elem": {
-                                                    "fields": {
-                                                        "permissions": {
-                                                            "maxItemsOne": false
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                },
-                                "excludes_pattern": {
-                                    "maxItemsOne": false
-                                },
-                                "includes_pattern": {
-                                    "maxItemsOne": false
-                                },
-                                "repositories": {
-                                    "maxItemsOne": false
-                                }
-                            }
-                        }
-                    },
-                    "release_bundle": {
-                        "maxItemsOne": true,
-                        "elem": {
-                            "fields": {
-                                "actions": {
-                                    "maxItemsOne": true,
-                                    "elem": {
-                                        "fields": {
-                                            "groups": {
-                                                "maxItemsOne": false,
-                                                "elem": {
-                                                    "fields": {
-                                                        "permissions": {
-                                                            "maxItemsOne": false
-                                                        }
-                                                    }
-                                                }
-                                            },
-                                            "users": {
-                                                "maxItemsOne": false,
-                                                "elem": {
-                                                    "fields": {
-                                                        "permissions": {
-                                                            "maxItemsOne": false
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                },
-                                "excludes_pattern": {
-                                    "maxItemsOne": false
-                                },
-                                "includes_pattern": {
-                                    "maxItemsOne": false
-                                },
-                                "repositories": {
-                                    "maxItemsOne": false
-                                }
-                            }
-                        }
-                    },
-                    "repo": {
-                        "maxItemsOne": true,
-                        "elem": {
-                            "fields": {
-                                "actions": {
-                                    "maxItemsOne": true,
-                                    "elem": {
-                                        "fields": {
-                                            "groups": {
-                                                "maxItemsOne": false,
-                                                "elem": {
-                                                    "fields": {
-                                                        "permissions": {
-                                                            "maxItemsOne": false
-                                                        }
-                                                    }
-                                                }
-                                            },
-                                            "users": {
-                                                "maxItemsOne": false,
-                                                "elem": {
-                                                    "fields": {
-                                                        "permissions": {
-                                                            "maxItemsOne": false
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                },
-                                "excludes_pattern": {
-                                    "maxItemsOne": false
-                                },
-                                "includes_pattern": {
-                                    "maxItemsOne": false
-                                },
-                                "repositories": {
-                                    "maxItemsOne": false
-                                }
-                            }
-                        }
-                    }
-                }
-            },
             "artifactory_property_set": {
                 "current": "artifactory:index/propertySet:PropertySet",
                 "majorVersion": 5,
@@ -4458,6 +4323,20 @@
                     "repositories": {
                         "maxItemsOne": false
                     }
+                }
+            }
+        }
+    },
+    "auto-settings": {
+        "resources": {
+            "artifactory_permission_target": {
+                "maxItemsOneOverrides": {
+                    "build": false,
+                    "build.$.actions": false,
+                    "release_bundle": false,
+                    "release_bundle.$.actions": false,
+                    "repo": false,
+                    "repo.$.actions": false
                 }
             }
         }
