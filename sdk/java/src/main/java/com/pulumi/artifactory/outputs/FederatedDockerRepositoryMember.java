@@ -68,10 +68,10 @@ public final class FederatedDockerRepositoryMember {
             return this;
         }
         public FederatedDockerRepositoryMember build() {
-            final var o = new FederatedDockerRepositoryMember();
-            o.enabled = enabled;
-            o.url = url;
-            return o;
+            final var _resultValue = new FederatedDockerRepositoryMember();
+            _resultValue.enabled = enabled;
+            _resultValue.url = url;
+            return _resultValue;
         }
     }
 }

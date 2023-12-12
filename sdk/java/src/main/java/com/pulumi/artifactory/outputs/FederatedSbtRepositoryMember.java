@@ -68,10 +68,10 @@ public final class FederatedSbtRepositoryMember {
             return this;
         }
         public FederatedSbtRepositoryMember build() {
-            final var o = new FederatedSbtRepositoryMember();
-            o.enabled = enabled;
-            o.url = url;
-            return o;
+            final var _resultValue = new FederatedSbtRepositoryMember();
+            _resultValue.enabled = enabled;
+            _resultValue.url = url;
+            return _resultValue;
         }
     }
 }

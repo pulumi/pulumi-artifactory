@@ -134,13 +134,13 @@ public final class DockerCustomWebhookCriteria {
             return repoKeys(List.of(repoKeys));
         }
         public DockerCustomWebhookCriteria build() {
-            final var o = new DockerCustomWebhookCriteria();
-            o.anyLocal = anyLocal;
-            o.anyRemote = anyRemote;
-            o.excludePatterns = excludePatterns;
-            o.includePatterns = includePatterns;
-            o.repoKeys = repoKeys;
-            return o;
+            final var _resultValue = new DockerCustomWebhookCriteria();
+            _resultValue.anyLocal = anyLocal;
+            _resultValue.anyRemote = anyRemote;
+            _resultValue.excludePatterns = excludePatterns;
+            _resultValue.includePatterns = includePatterns;
+            _resultValue.repoKeys = repoKeys;
+            return _resultValue;
         }
     }
 }

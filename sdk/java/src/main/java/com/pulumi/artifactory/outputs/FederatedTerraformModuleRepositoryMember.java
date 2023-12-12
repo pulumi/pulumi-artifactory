@@ -68,10 +68,10 @@ public final class FederatedTerraformModuleRepositoryMember {
             return this;
         }
         public FederatedTerraformModuleRepositoryMember build() {
-            final var o = new FederatedTerraformModuleRepositoryMember();
-            o.enabled = enabled;
-            o.url = url;
-            return o;
+            final var _resultValue = new FederatedTerraformModuleRepositoryMember();
+            _resultValue.enabled = enabled;
+            _resultValue.url = url;
+            return _resultValue;
         }
     }
 }

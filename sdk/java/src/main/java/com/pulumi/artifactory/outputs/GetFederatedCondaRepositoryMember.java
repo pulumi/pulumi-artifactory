@@ -68,10 +68,10 @@ public final class GetFederatedCondaRepositoryMember {
             return this;
         }
         public GetFederatedCondaRepositoryMember build() {
-            final var o = new GetFederatedCondaRepositoryMember();
-            o.enabled = enabled;
-            o.url = url;
-            return o;
+            final var _resultValue = new GetFederatedCondaRepositoryMember();
+            _resultValue.enabled = enabled;
+            _resultValue.url = url;
+            return _resultValue;
         }
     }
 }

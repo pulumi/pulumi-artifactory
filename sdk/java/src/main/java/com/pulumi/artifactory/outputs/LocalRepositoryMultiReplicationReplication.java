@@ -278,21 +278,21 @@ public final class LocalRepositoryMultiReplicationReplication {
             return this;
         }
         public LocalRepositoryMultiReplicationReplication build() {
-            final var o = new LocalRepositoryMultiReplicationReplication();
-            o.checkBinaryExistenceInFilestore = checkBinaryExistenceInFilestore;
-            o.enabled = enabled;
-            o.excludePathPrefixPattern = excludePathPrefixPattern;
-            o.includePathPrefixPattern = includePathPrefixPattern;
-            o.password = password;
-            o.proxy = proxy;
-            o.replicationKey = replicationKey;
-            o.socketTimeoutMillis = socketTimeoutMillis;
-            o.syncDeletes = syncDeletes;
-            o.syncProperties = syncProperties;
-            o.syncStatistics = syncStatistics;
-            o.url = url;
-            o.username = username;
-            return o;
+            final var _resultValue = new LocalRepositoryMultiReplicationReplication();
+            _resultValue.checkBinaryExistenceInFilestore = checkBinaryExistenceInFilestore;
+            _resultValue.enabled = enabled;
+            _resultValue.excludePathPrefixPattern = excludePathPrefixPattern;
+            _resultValue.includePathPrefixPattern = includePathPrefixPattern;
+            _resultValue.password = password;
+            _resultValue.proxy = proxy;
+            _resultValue.replicationKey = replicationKey;
+            _resultValue.socketTimeoutMillis = socketTimeoutMillis;
+            _resultValue.syncDeletes = syncDeletes;
+            _resultValue.syncProperties = syncProperties;
+            _resultValue.syncStatistics = syncStatistics;
+            _resultValue.url = url;
+            _resultValue.username = username;
+            return _resultValue;
         }
     }
 }

@@ -111,12 +111,12 @@ public final class PropertySetProperty {
             return predefinedValues(List.of(predefinedValues));
         }
         public PropertySetProperty build() {
-            final var o = new PropertySetProperty();
-            o.closedPredefinedValues = closedPredefinedValues;
-            o.multipleChoice = multipleChoice;
-            o.name = name;
-            o.predefinedValues = predefinedValues;
-            return o;
+            final var _resultValue = new PropertySetProperty();
+            _resultValue.closedPredefinedValues = closedPredefinedValues;
+            _resultValue.multipleChoice = multipleChoice;
+            _resultValue.name = name;
+            _resultValue.predefinedValues = predefinedValues;
+            return _resultValue;
         }
     }
 }

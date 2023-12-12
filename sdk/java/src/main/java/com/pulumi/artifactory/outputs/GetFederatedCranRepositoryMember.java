@@ -68,10 +68,10 @@ public final class GetFederatedCranRepositoryMember {
             return this;
         }
         public GetFederatedCranRepositoryMember build() {
-            final var o = new GetFederatedCranRepositoryMember();
-            o.enabled = enabled;
-            o.url = url;
-            return o;
+            final var _resultValue = new GetFederatedCranRepositoryMember();
+            _resultValue.enabled = enabled;
+            _resultValue.url = url;
+            return _resultValue;
         }
     }
 }

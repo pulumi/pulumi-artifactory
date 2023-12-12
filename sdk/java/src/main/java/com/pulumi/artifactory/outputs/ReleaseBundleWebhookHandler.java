@@ -106,12 +106,12 @@ public final class ReleaseBundleWebhookHandler {
             return this;
         }
         public ReleaseBundleWebhookHandler build() {
-            final var o = new ReleaseBundleWebhookHandler();
-            o.customHttpHeaders = customHttpHeaders;
-            o.proxy = proxy;
-            o.secret = secret;
-            o.url = url;
-            return o;
+            final var _resultValue = new ReleaseBundleWebhookHandler();
+            _resultValue.customHttpHeaders = customHttpHeaders;
+            _resultValue.proxy = proxy;
+            _resultValue.secret = secret;
+            _resultValue.url = url;
+            return _resultValue;
         }
     }
 }

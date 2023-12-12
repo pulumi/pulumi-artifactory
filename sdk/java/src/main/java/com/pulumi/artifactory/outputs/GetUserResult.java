@@ -178,16 +178,16 @@ public final class GetUserResult {
             return this;
         }
         public GetUserResult build() {
-            final var o = new GetUserResult();
-            o.admin = admin;
-            o.disableUiAccess = disableUiAccess;
-            o.email = email;
-            o.groups = groups;
-            o.id = id;
-            o.internalPasswordDisabled = internalPasswordDisabled;
-            o.name = name;
-            o.profileUpdatable = profileUpdatable;
-            return o;
+            final var _resultValue = new GetUserResult();
+            _resultValue.admin = admin;
+            _resultValue.disableUiAccess = disableUiAccess;
+            _resultValue.email = email;
+            _resultValue.groups = groups;
+            _resultValue.id = id;
+            _resultValue.internalPasswordDisabled = internalPasswordDisabled;
+            _resultValue.name = name;
+            _resultValue.profileUpdatable = profileUpdatable;
+            return _resultValue;
         }
     }
 }

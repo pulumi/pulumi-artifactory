@@ -106,12 +106,12 @@ public final class ArtifactPropertyWebhookHandler {
             return this;
         }
         public ArtifactPropertyWebhookHandler build() {
-            final var o = new ArtifactPropertyWebhookHandler();
-            o.customHttpHeaders = customHttpHeaders;
-            o.proxy = proxy;
-            o.secret = secret;
-            o.url = url;
-            return o;
+            final var _resultValue = new ArtifactPropertyWebhookHandler();
+            _resultValue.customHttpHeaders = customHttpHeaders;
+            _resultValue.proxy = proxy;
+            _resultValue.secret = secret;
+            _resultValue.url = url;
+            return _resultValue;
         }
     }
 }

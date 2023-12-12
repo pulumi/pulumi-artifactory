@@ -68,10 +68,10 @@ public final class FederatedCocoapodsRepositoryMember {
             return this;
         }
         public FederatedCocoapodsRepositoryMember build() {
-            final var o = new FederatedCocoapodsRepositoryMember();
-            o.enabled = enabled;
-            o.url = url;
-            return o;
+            final var _resultValue = new FederatedCocoapodsRepositoryMember();
+            _resultValue.enabled = enabled;
+            _resultValue.url = url;
+            return _resultValue;
         }
     }
 }

@@ -161,13 +161,13 @@ public final class BuildCustomWebhookHandler {
             return this;
         }
         public BuildCustomWebhookHandler build() {
-            final var o = new BuildCustomWebhookHandler();
-            o.httpHeaders = httpHeaders;
-            o.payload = payload;
-            o.proxy = proxy;
-            o.secrets = secrets;
-            o.url = url;
-            return o;
+            final var _resultValue = new BuildCustomWebhookHandler();
+            _resultValue.httpHeaders = httpHeaders;
+            _resultValue.payload = payload;
+            _resultValue.proxy = proxy;
+            _resultValue.secrets = secrets;
+            _resultValue.url = url;
+            return _resultValue;
         }
     }
 }

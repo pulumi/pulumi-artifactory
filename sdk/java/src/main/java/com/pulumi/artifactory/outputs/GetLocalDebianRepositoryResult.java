@@ -291,29 +291,29 @@ public final class GetLocalDebianRepositoryResult {
             return this;
         }
         public GetLocalDebianRepositoryResult build() {
-            final var o = new GetLocalDebianRepositoryResult();
-            o.archiveBrowsingEnabled = archiveBrowsingEnabled;
-            o.blackedOut = blackedOut;
-            o.cdnRedirect = cdnRedirect;
-            o.description = description;
-            o.downloadDirect = downloadDirect;
-            o.excludesPattern = excludesPattern;
-            o.id = id;
-            o.includesPattern = includesPattern;
-            o.indexCompressionFormats = indexCompressionFormats;
-            o.key = key;
-            o.notes = notes;
-            o.packageType = packageType;
-            o.primaryKeypairRef = primaryKeypairRef;
-            o.priorityResolution = priorityResolution;
-            o.projectEnvironments = projectEnvironments;
-            o.projectKey = projectKey;
-            o.propertySets = propertySets;
-            o.repoLayoutRef = repoLayoutRef;
-            o.secondaryKeypairRef = secondaryKeypairRef;
-            o.trivialLayout = trivialLayout;
-            o.xrayIndex = xrayIndex;
-            return o;
+            final var _resultValue = new GetLocalDebianRepositoryResult();
+            _resultValue.archiveBrowsingEnabled = archiveBrowsingEnabled;
+            _resultValue.blackedOut = blackedOut;
+            _resultValue.cdnRedirect = cdnRedirect;
+            _resultValue.description = description;
+            _resultValue.downloadDirect = downloadDirect;
+            _resultValue.excludesPattern = excludesPattern;
+            _resultValue.id = id;
+            _resultValue.includesPattern = includesPattern;
+            _resultValue.indexCompressionFormats = indexCompressionFormats;
+            _resultValue.key = key;
+            _resultValue.notes = notes;
+            _resultValue.packageType = packageType;
+            _resultValue.primaryKeypairRef = primaryKeypairRef;
+            _resultValue.priorityResolution = priorityResolution;
+            _resultValue.projectEnvironments = projectEnvironments;
+            _resultValue.projectKey = projectKey;
+            _resultValue.propertySets = propertySets;
+            _resultValue.repoLayoutRef = repoLayoutRef;
+            _resultValue.secondaryKeypairRef = secondaryKeypairRef;
+            _resultValue.trivialLayout = trivialLayout;
+            _resultValue.xrayIndex = xrayIndex;
+            return _resultValue;
         }
     }
 }

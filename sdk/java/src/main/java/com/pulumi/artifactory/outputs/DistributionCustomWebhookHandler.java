@@ -161,13 +161,13 @@ public final class DistributionCustomWebhookHandler {
             return this;
         }
         public DistributionCustomWebhookHandler build() {
-            final var o = new DistributionCustomWebhookHandler();
-            o.httpHeaders = httpHeaders;
-            o.payload = payload;
-            o.proxy = proxy;
-            o.secrets = secrets;
-            o.url = url;
-            return o;
+            final var _resultValue = new DistributionCustomWebhookHandler();
+            _resultValue.httpHeaders = httpHeaders;
+            _resultValue.payload = payload;
+            _resultValue.proxy = proxy;
+            _resultValue.secrets = secrets;
+            _resultValue.url = url;
+            return _resultValue;
         }
     }
 }

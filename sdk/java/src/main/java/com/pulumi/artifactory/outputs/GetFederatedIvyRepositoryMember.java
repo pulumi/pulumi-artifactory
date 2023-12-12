@@ -68,10 +68,10 @@ public final class GetFederatedIvyRepositoryMember {
             return this;
         }
         public GetFederatedIvyRepositoryMember build() {
-            final var o = new GetFederatedIvyRepositoryMember();
-            o.enabled = enabled;
-            o.url = url;
-            return o;
+            final var _resultValue = new GetFederatedIvyRepositoryMember();
+            _resultValue.enabled = enabled;
+            _resultValue.url = url;
+            return _resultValue;
         }
     }
 }

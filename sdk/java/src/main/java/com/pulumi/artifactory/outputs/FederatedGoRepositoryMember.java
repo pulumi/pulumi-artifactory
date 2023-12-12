@@ -68,10 +68,10 @@ public final class FederatedGoRepositoryMember {
             return this;
         }
         public FederatedGoRepositoryMember build() {
-            final var o = new FederatedGoRepositoryMember();
-            o.enabled = enabled;
-            o.url = url;
-            return o;
+            final var _resultValue = new FederatedGoRepositoryMember();
+            _resultValue.enabled = enabled;
+            _resultValue.url = url;
+            return _resultValue;
         }
     }
 }

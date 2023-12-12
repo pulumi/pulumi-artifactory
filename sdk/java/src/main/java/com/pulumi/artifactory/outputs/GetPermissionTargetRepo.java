@@ -112,12 +112,12 @@ public final class GetPermissionTargetRepo {
             return repositories(List.of(repositories));
         }
         public GetPermissionTargetRepo build() {
-            final var o = new GetPermissionTargetRepo();
-            o.actions = actions;
-            o.excludesPatterns = excludesPatterns;
-            o.includesPatterns = includesPatterns;
-            o.repositories = repositories;
-            return o;
+            final var _resultValue = new GetPermissionTargetRepo();
+            _resultValue.actions = actions;
+            _resultValue.excludesPatterns = excludesPatterns;
+            _resultValue.includesPatterns = includesPatterns;
+            _resultValue.repositories = repositories;
+            return _resultValue;
         }
     }
 }

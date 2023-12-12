@@ -68,10 +68,10 @@ public final class GetFederatedCocoapodsRepositoryMember {
             return this;
         }
         public GetFederatedCocoapodsRepositoryMember build() {
-            final var o = new GetFederatedCocoapodsRepositoryMember();
-            o.enabled = enabled;
-            o.url = url;
-            return o;
+            final var _resultValue = new GetFederatedCocoapodsRepositoryMember();
+            _resultValue.enabled = enabled;
+            _resultValue.url = url;
+            return _resultValue;
         }
     }
 }

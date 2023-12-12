@@ -119,13 +119,13 @@ public final class GetPermissionTargetResult {
             return this;
         }
         public GetPermissionTargetResult build() {
-            final var o = new GetPermissionTargetResult();
-            o.build = build;
-            o.id = id;
-            o.name = name;
-            o.releaseBundle = releaseBundle;
-            o.repo = repo;
-            return o;
+            final var _resultValue = new GetPermissionTargetResult();
+            _resultValue.build = build;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.releaseBundle = releaseBundle;
+            _resultValue.repo = repo;
+            return _resultValue;
         }
     }
 }

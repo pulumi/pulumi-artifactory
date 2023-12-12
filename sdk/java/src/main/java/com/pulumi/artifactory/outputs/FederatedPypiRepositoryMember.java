@@ -68,10 +68,10 @@ public final class FederatedPypiRepositoryMember {
             return this;
         }
         public FederatedPypiRepositoryMember build() {
-            final var o = new FederatedPypiRepositoryMember();
-            o.enabled = enabled;
-            o.url = url;
-            return o;
+            final var _resultValue = new FederatedPypiRepositoryMember();
+            _resultValue.enabled = enabled;
+            _resultValue.url = url;
+            return _resultValue;
         }
     }
 }

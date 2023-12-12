@@ -68,10 +68,10 @@ public final class GetFederatedSwiftRepositoryMember {
             return this;
         }
         public GetFederatedSwiftRepositoryMember build() {
-            final var o = new GetFederatedSwiftRepositoryMember();
-            o.enabled = enabled;
-            o.url = url;
-            return o;
+            final var _resultValue = new GetFederatedSwiftRepositoryMember();
+            _resultValue.enabled = enabled;
+            _resultValue.url = url;
+            return _resultValue;
         }
     }
 }

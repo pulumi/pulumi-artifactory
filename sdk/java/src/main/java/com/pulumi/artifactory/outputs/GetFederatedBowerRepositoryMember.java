@@ -68,10 +68,10 @@ public final class GetFederatedBowerRepositoryMember {
             return this;
         }
         public GetFederatedBowerRepositoryMember build() {
-            final var o = new GetFederatedBowerRepositoryMember();
-            o.enabled = enabled;
-            o.url = url;
-            return o;
+            final var _resultValue = new GetFederatedBowerRepositoryMember();
+            _resultValue.enabled = enabled;
+            _resultValue.url = url;
+            return _resultValue;
         }
     }
 }

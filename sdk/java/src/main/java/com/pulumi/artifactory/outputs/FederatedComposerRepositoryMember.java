@@ -68,10 +68,10 @@ public final class FederatedComposerRepositoryMember {
             return this;
         }
         public FederatedComposerRepositoryMember build() {
-            final var o = new FederatedComposerRepositoryMember();
-            o.enabled = enabled;
-            o.url = url;
-            return o;
+            final var _resultValue = new FederatedComposerRepositoryMember();
+            _resultValue.enabled = enabled;
+            _resultValue.url = url;
+            return _resultValue;
         }
     }
 }

@@ -68,10 +68,10 @@ public final class FederatedGitltfsRepositoryMember {
             return this;
         }
         public FederatedGitltfsRepositoryMember build() {
-            final var o = new FederatedGitltfsRepositoryMember();
-            o.enabled = enabled;
-            o.url = url;
-            return o;
+            final var _resultValue = new FederatedGitltfsRepositoryMember();
+            _resultValue.enabled = enabled;
+            _resultValue.url = url;
+            return _resultValue;
         }
     }
 }

@@ -346,32 +346,32 @@ public final class GetFederatedCargoRepositoryResult {
             return this;
         }
         public GetFederatedCargoRepositoryResult build() {
-            final var o = new GetFederatedCargoRepositoryResult();
-            o.anonymousAccess = anonymousAccess;
-            o.archiveBrowsingEnabled = archiveBrowsingEnabled;
-            o.blackedOut = blackedOut;
-            o.cdnRedirect = cdnRedirect;
-            o.cleanupOnDelete = cleanupOnDelete;
-            o.description = description;
-            o.disableProxy = disableProxy;
-            o.downloadDirect = downloadDirect;
-            o.enableSparseIndex = enableSparseIndex;
-            o.excludesPattern = excludesPattern;
-            o.id = id;
-            o.includesPattern = includesPattern;
-            o.indexCompressionFormats = indexCompressionFormats;
-            o.key = key;
-            o.members = members;
-            o.notes = notes;
-            o.packageType = packageType;
-            o.priorityResolution = priorityResolution;
-            o.projectEnvironments = projectEnvironments;
-            o.projectKey = projectKey;
-            o.propertySets = propertySets;
-            o.proxy = proxy;
-            o.repoLayoutRef = repoLayoutRef;
-            o.xrayIndex = xrayIndex;
-            return o;
+            final var _resultValue = new GetFederatedCargoRepositoryResult();
+            _resultValue.anonymousAccess = anonymousAccess;
+            _resultValue.archiveBrowsingEnabled = archiveBrowsingEnabled;
+            _resultValue.blackedOut = blackedOut;
+            _resultValue.cdnRedirect = cdnRedirect;
+            _resultValue.cleanupOnDelete = cleanupOnDelete;
+            _resultValue.description = description;
+            _resultValue.disableProxy = disableProxy;
+            _resultValue.downloadDirect = downloadDirect;
+            _resultValue.enableSparseIndex = enableSparseIndex;
+            _resultValue.excludesPattern = excludesPattern;
+            _resultValue.id = id;
+            _resultValue.includesPattern = includesPattern;
+            _resultValue.indexCompressionFormats = indexCompressionFormats;
+            _resultValue.key = key;
+            _resultValue.members = members;
+            _resultValue.notes = notes;
+            _resultValue.packageType = packageType;
+            _resultValue.priorityResolution = priorityResolution;
+            _resultValue.projectEnvironments = projectEnvironments;
+            _resultValue.projectKey = projectKey;
+            _resultValue.propertySets = propertySets;
+            _resultValue.proxy = proxy;
+            _resultValue.repoLayoutRef = repoLayoutRef;
+            _resultValue.xrayIndex = xrayIndex;
+            return _resultValue;
         }
     }
 }

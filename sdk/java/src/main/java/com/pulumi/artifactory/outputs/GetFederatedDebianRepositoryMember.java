@@ -68,10 +68,10 @@ public final class GetFederatedDebianRepositoryMember {
             return this;
         }
         public GetFederatedDebianRepositoryMember build() {
-            final var o = new GetFederatedDebianRepositoryMember();
-            o.enabled = enabled;
-            o.url = url;
-            return o;
+            final var _resultValue = new GetFederatedDebianRepositoryMember();
+            _resultValue.enabled = enabled;
+            _resultValue.url = url;
+            return _resultValue;
         }
     }
 }

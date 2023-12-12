@@ -68,10 +68,10 @@ public final class GetFederatedSbtRepositoryMember {
             return this;
         }
         public GetFederatedSbtRepositoryMember build() {
-            final var o = new GetFederatedSbtRepositoryMember();
-            o.enabled = enabled;
-            o.url = url;
-            return o;
+            final var _resultValue = new GetFederatedSbtRepositoryMember();
+            _resultValue.enabled = enabled;
+            _resultValue.url = url;
+            return _resultValue;
         }
     }
 }

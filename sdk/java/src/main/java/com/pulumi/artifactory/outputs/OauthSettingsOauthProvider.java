@@ -182,16 +182,16 @@ public final class OauthSettingsOauthProvider {
             return this;
         }
         public OauthSettingsOauthProvider build() {
-            final var o = new OauthSettingsOauthProvider();
-            o.apiUrl = apiUrl;
-            o.authUrl = authUrl;
-            o.clientId = clientId;
-            o.clientSecret = clientSecret;
-            o.enabled = enabled;
-            o.name = name;
-            o.tokenUrl = tokenUrl;
-            o.type = type;
-            return o;
+            final var _resultValue = new OauthSettingsOauthProvider();
+            _resultValue.apiUrl = apiUrl;
+            _resultValue.authUrl = authUrl;
+            _resultValue.clientId = clientId;
+            _resultValue.clientSecret = clientSecret;
+            _resultValue.enabled = enabled;
+            _resultValue.name = name;
+            _resultValue.tokenUrl = tokenUrl;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

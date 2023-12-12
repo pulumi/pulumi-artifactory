@@ -68,10 +68,10 @@ public final class GetFederatedGemsRepositoryMember {
             return this;
         }
         public GetFederatedGemsRepositoryMember build() {
-            final var o = new GetFederatedGemsRepositoryMember();
-            o.enabled = enabled;
-            o.url = url;
-            return o;
+            final var _resultValue = new GetFederatedGemsRepositoryMember();
+            _resultValue.enabled = enabled;
+            _resultValue.url = url;
+            return _resultValue;
         }
     }
 }

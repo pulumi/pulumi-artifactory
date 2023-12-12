@@ -68,10 +68,10 @@ public final class GetFederatedConanRepositoryMember {
             return this;
         }
         public GetFederatedConanRepositoryMember build() {
-            final var o = new GetFederatedConanRepositoryMember();
-            o.enabled = enabled;
-            o.url = url;
-            return o;
+            final var _resultValue = new GetFederatedConanRepositoryMember();
+            _resultValue.enabled = enabled;
+            _resultValue.url = url;
+            return _resultValue;
         }
     }
 }
