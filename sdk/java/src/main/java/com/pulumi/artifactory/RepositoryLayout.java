@@ -15,89 +15,121 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * This resource can be used to manage Artifactory&#39;s Repository Layout settings. See [Repository Layouts](https://www.jfrog.com/confluence/display/JFROG/Repository+Layouts) in the Artifactory Wiki documentation for more details.
+ * 
+ * ~&gt;The `artifactory.RepositoryLayout` resource utilizes endpoints which are blocked/removed in SaaS environments (i.e. in Artifactory online), rendering this resource incompatible with Artifactory SaaS environments.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.artifactory.RepositoryLayout;
+ * import com.pulumi.artifactory.RepositoryLayoutArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var custom_layout = new RepositoryLayout(&#34;custom-layout&#34;, RepositoryLayoutArgs.builder()        
+ *             .artifactPathPattern(&#34;[orgPath]/[module]/[baseRev](-[folderItegRev])/[module]-[baseRev](-[fileItegRev])(-[classifier]).[ext]&#34;)
+ *             .descriptorPathPattern(&#34;[orgPath]/[module]/[baseRev](-[folderItegRev])/[module]-[baseRev](-[fileItegRev])(-[classifier]).pom&#34;)
+ *             .distinctiveDescriptorPathPattern(true)
+ *             .fileIntegrationRevisionRegexp(&#34;Foo|(?:(?:[0-9]{8}.[0-9]{6})-(?:[0-9]+))&#34;)
+ *             .folderIntegrationRevisionRegexp(&#34;Foo&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Repository layout can be imported using its name, e.g.
+ * 
+ * ```sh
+ *  $ pulumi import artifactory:index/repositoryLayout:RepositoryLayout custom-layout custom-layout
+ * ```
+ * 
+ */
 @ResourceType(type="artifactory:index/repositoryLayout:RepositoryLayout")
 public class RepositoryLayout extends com.pulumi.resources.CustomResource {
     /**
-     * Please refer to: [Path
-     * Patterns](https://www.jfrog.com/confluence/display/JFROG/Repository+Layouts#RepositoryLayouts-ModulesandPathPatternsusedbyRepositoryLayouts)
-     * in the Artifactory Wiki documentation.
+     * Please refer to: [Path Patterns](https://www.jfrog.com/confluence/display/JFROG/Repository+Layouts#RepositoryLayouts-ModulesandPathPatternsusedbyRepositoryLayouts) in the Artifactory Wiki documentation.
      * 
      */
     @Export(name="artifactPathPattern", refs={String.class}, tree="[0]")
     private Output<String> artifactPathPattern;
 
     /**
-     * @return Please refer to: [Path
-     * Patterns](https://www.jfrog.com/confluence/display/JFROG/Repository+Layouts#RepositoryLayouts-ModulesandPathPatternsusedbyRepositoryLayouts)
-     * in the Artifactory Wiki documentation.
+     * @return Please refer to: [Path Patterns](https://www.jfrog.com/confluence/display/JFROG/Repository+Layouts#RepositoryLayouts-ModulesandPathPatternsusedbyRepositoryLayouts) in the Artifactory Wiki documentation.
      * 
      */
     public Output<String> artifactPathPattern() {
         return this.artifactPathPattern;
     }
     /**
-     * Please refer to: [Descriptor Path
-     * Patterns](https://www.jfrog.com/confluence/display/JFROG/Repository+Layouts#RepositoryLayouts-DescriptorPathPatterns) in
-     * the Artifactory Wiki documentation.
+     * Please refer to: [Descriptor Path Patterns](https://www.jfrog.com/confluence/display/JFROG/Repository+Layouts#RepositoryLayouts-DescriptorPathPatterns) in the Artifactory Wiki documentation.
      * 
      */
     @Export(name="descriptorPathPattern", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> descriptorPathPattern;
 
     /**
-     * @return Please refer to: [Descriptor Path
-     * Patterns](https://www.jfrog.com/confluence/display/JFROG/Repository+Layouts#RepositoryLayouts-DescriptorPathPatterns) in
-     * the Artifactory Wiki documentation.
+     * @return Please refer to: [Descriptor Path Patterns](https://www.jfrog.com/confluence/display/JFROG/Repository+Layouts#RepositoryLayouts-DescriptorPathPatterns) in the Artifactory Wiki documentation.
      * 
      */
     public Output<Optional<String>> descriptorPathPattern() {
         return Codegen.optional(this.descriptorPathPattern);
     }
     /**
-     * When set, &#39;descriptor_path_pattern&#39; will be used. Default to &#39;false&#39;.
+     * When set, `descriptor_path_pattern` will be used. Default to `false`.
      * 
      */
     @Export(name="distinctiveDescriptorPathPattern", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> distinctiveDescriptorPathPattern;
 
     /**
-     * @return When set, &#39;descriptor_path_pattern&#39; will be used. Default to &#39;false&#39;.
+     * @return When set, `descriptor_path_pattern` will be used. Default to `false`.
      * 
      */
     public Output<Optional<Boolean>> distinctiveDescriptorPathPattern() {
         return Codegen.optional(this.distinctiveDescriptorPathPattern);
     }
     /**
-     * A regular expression matching the integration revision string appearing in a file name as part of the artifact&#39;s path.
-     * For example, &#39;SNAPSHOT|(?:(?:[0-9]{8}.[0-9]{6})-(?:[0-9]+))&#39;, in Maven. Note! Take care not to introduce any regexp
-     * capturing groups within this expression. If not applicable use &#39;.*&#39;
+     * A regular expression matching the integration revision string appearing in a file name as part of the artifact&#39;s path. For example, `SNAPSHOT|(?:(?:[0-9]{8}.[0-9]{6})-(?:[0-9]+))`, in Maven. Note! Take care not to introduce any regexp capturing groups within this expression. If not applicable use `.*`
      * 
      */
     @Export(name="fileIntegrationRevisionRegexp", refs={String.class}, tree="[0]")
     private Output<String> fileIntegrationRevisionRegexp;
 
     /**
-     * @return A regular expression matching the integration revision string appearing in a file name as part of the artifact&#39;s path.
-     * For example, &#39;SNAPSHOT|(?:(?:[0-9]{8}.[0-9]{6})-(?:[0-9]+))&#39;, in Maven. Note! Take care not to introduce any regexp
-     * capturing groups within this expression. If not applicable use &#39;.*&#39;
+     * @return A regular expression matching the integration revision string appearing in a file name as part of the artifact&#39;s path. For example, `SNAPSHOT|(?:(?:[0-9]{8}.[0-9]{6})-(?:[0-9]+))`, in Maven. Note! Take care not to introduce any regexp capturing groups within this expression. If not applicable use `.*`
      * 
      */
     public Output<String> fileIntegrationRevisionRegexp() {
         return this.fileIntegrationRevisionRegexp;
     }
     /**
-     * A regular expression matching the integration revision string appearing in a folder name as part of the artifact&#39;s path.
-     * For example, &#39;SNAPSHOT&#39;, in Maven. Note! Take care not to introduce any regexp capturing groups within this expression.
-     * If not applicable use &#39;.*&#39;
+     * A regular expression matching the integration revision string appearing in a folder name as part of the artifact&#39;s path. For example, `SNAPSHOT`, in Maven. Note! Take care not to introduce any regexp capturing groups within this expression. If not applicable use `.*`
      * 
      */
     @Export(name="folderIntegrationRevisionRegexp", refs={String.class}, tree="[0]")
     private Output<String> folderIntegrationRevisionRegexp;
 
     /**
-     * @return A regular expression matching the integration revision string appearing in a folder name as part of the artifact&#39;s path.
-     * For example, &#39;SNAPSHOT&#39;, in Maven. Note! Take care not to introduce any regexp capturing groups within this expression.
-     * If not applicable use &#39;.*&#39;
+     * @return A regular expression matching the integration revision string appearing in a folder name as part of the artifact&#39;s path. For example, `SNAPSHOT`, in Maven. Note! Take care not to introduce any regexp capturing groups within this expression. If not applicable use `.*`
      * 
      */
     public Output<String> folderIntegrationRevisionRegexp() {

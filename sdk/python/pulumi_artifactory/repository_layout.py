@@ -22,19 +22,11 @@ class RepositoryLayoutArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a RepositoryLayout resource.
-        :param pulumi.Input[str] artifact_path_pattern: Please refer to: [Path
-               Patterns](https://www.jfrog.com/confluence/display/JFROG/Repository+Layouts#RepositoryLayouts-ModulesandPathPatternsusedbyRepositoryLayouts)
-               in the Artifactory Wiki documentation.
-        :param pulumi.Input[str] file_integration_revision_regexp: A regular expression matching the integration revision string appearing in a file name as part of the artifact's path.
-               For example, 'SNAPSHOT|(?:(?:[0-9]{8}.[0-9]{6})-(?:[0-9]+))', in Maven. Note! Take care not to introduce any regexp
-               capturing groups within this expression. If not applicable use '.*'
-        :param pulumi.Input[str] folder_integration_revision_regexp: A regular expression matching the integration revision string appearing in a folder name as part of the artifact's path.
-               For example, 'SNAPSHOT', in Maven. Note! Take care not to introduce any regexp capturing groups within this expression.
-               If not applicable use '.*'
-        :param pulumi.Input[str] descriptor_path_pattern: Please refer to: [Descriptor Path
-               Patterns](https://www.jfrog.com/confluence/display/JFROG/Repository+Layouts#RepositoryLayouts-DescriptorPathPatterns) in
-               the Artifactory Wiki documentation.
-        :param pulumi.Input[bool] distinctive_descriptor_path_pattern: When set, 'descriptor_path_pattern' will be used. Default to 'false'.
+        :param pulumi.Input[str] artifact_path_pattern: Please refer to: [Path Patterns](https://www.jfrog.com/confluence/display/JFROG/Repository+Layouts#RepositoryLayouts-ModulesandPathPatternsusedbyRepositoryLayouts) in the Artifactory Wiki documentation.
+        :param pulumi.Input[str] file_integration_revision_regexp: A regular expression matching the integration revision string appearing in a file name as part of the artifact's path. For example, `SNAPSHOT|(?:(?:[0-9]{8}.[0-9]{6})-(?:[0-9]+))`, in Maven. Note! Take care not to introduce any regexp capturing groups within this expression. If not applicable use `.*`
+        :param pulumi.Input[str] folder_integration_revision_regexp: A regular expression matching the integration revision string appearing in a folder name as part of the artifact's path. For example, `SNAPSHOT`, in Maven. Note! Take care not to introduce any regexp capturing groups within this expression. If not applicable use `.*`
+        :param pulumi.Input[str] descriptor_path_pattern: Please refer to: [Descriptor Path Patterns](https://www.jfrog.com/confluence/display/JFROG/Repository+Layouts#RepositoryLayouts-DescriptorPathPatterns) in the Artifactory Wiki documentation.
+        :param pulumi.Input[bool] distinctive_descriptor_path_pattern: When set, `descriptor_path_pattern` will be used. Default to `false`.
         :param pulumi.Input[str] name: Layout name
         """
         pulumi.set(__self__, "artifact_path_pattern", artifact_path_pattern)
@@ -51,9 +43,7 @@ class RepositoryLayoutArgs:
     @pulumi.getter(name="artifactPathPattern")
     def artifact_path_pattern(self) -> pulumi.Input[str]:
         """
-        Please refer to: [Path
-        Patterns](https://www.jfrog.com/confluence/display/JFROG/Repository+Layouts#RepositoryLayouts-ModulesandPathPatternsusedbyRepositoryLayouts)
-        in the Artifactory Wiki documentation.
+        Please refer to: [Path Patterns](https://www.jfrog.com/confluence/display/JFROG/Repository+Layouts#RepositoryLayouts-ModulesandPathPatternsusedbyRepositoryLayouts) in the Artifactory Wiki documentation.
         """
         return pulumi.get(self, "artifact_path_pattern")
 
@@ -65,9 +55,7 @@ class RepositoryLayoutArgs:
     @pulumi.getter(name="fileIntegrationRevisionRegexp")
     def file_integration_revision_regexp(self) -> pulumi.Input[str]:
         """
-        A regular expression matching the integration revision string appearing in a file name as part of the artifact's path.
-        For example, 'SNAPSHOT|(?:(?:[0-9]{8}.[0-9]{6})-(?:[0-9]+))', in Maven. Note! Take care not to introduce any regexp
-        capturing groups within this expression. If not applicable use '.*'
+        A regular expression matching the integration revision string appearing in a file name as part of the artifact's path. For example, `SNAPSHOT|(?:(?:[0-9]{8}.[0-9]{6})-(?:[0-9]+))`, in Maven. Note! Take care not to introduce any regexp capturing groups within this expression. If not applicable use `.*`
         """
         return pulumi.get(self, "file_integration_revision_regexp")
 
@@ -79,9 +67,7 @@ class RepositoryLayoutArgs:
     @pulumi.getter(name="folderIntegrationRevisionRegexp")
     def folder_integration_revision_regexp(self) -> pulumi.Input[str]:
         """
-        A regular expression matching the integration revision string appearing in a folder name as part of the artifact's path.
-        For example, 'SNAPSHOT', in Maven. Note! Take care not to introduce any regexp capturing groups within this expression.
-        If not applicable use '.*'
+        A regular expression matching the integration revision string appearing in a folder name as part of the artifact's path. For example, `SNAPSHOT`, in Maven. Note! Take care not to introduce any regexp capturing groups within this expression. If not applicable use `.*`
         """
         return pulumi.get(self, "folder_integration_revision_regexp")
 
@@ -93,9 +79,7 @@ class RepositoryLayoutArgs:
     @pulumi.getter(name="descriptorPathPattern")
     def descriptor_path_pattern(self) -> Optional[pulumi.Input[str]]:
         """
-        Please refer to: [Descriptor Path
-        Patterns](https://www.jfrog.com/confluence/display/JFROG/Repository+Layouts#RepositoryLayouts-DescriptorPathPatterns) in
-        the Artifactory Wiki documentation.
+        Please refer to: [Descriptor Path Patterns](https://www.jfrog.com/confluence/display/JFROG/Repository+Layouts#RepositoryLayouts-DescriptorPathPatterns) in the Artifactory Wiki documentation.
         """
         return pulumi.get(self, "descriptor_path_pattern")
 
@@ -107,7 +91,7 @@ class RepositoryLayoutArgs:
     @pulumi.getter(name="distinctiveDescriptorPathPattern")
     def distinctive_descriptor_path_pattern(self) -> Optional[pulumi.Input[bool]]:
         """
-        When set, 'descriptor_path_pattern' will be used. Default to 'false'.
+        When set, `descriptor_path_pattern` will be used. Default to `false`.
         """
         return pulumi.get(self, "distinctive_descriptor_path_pattern")
 
@@ -139,19 +123,11 @@ class _RepositoryLayoutState:
                  name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering RepositoryLayout resources.
-        :param pulumi.Input[str] artifact_path_pattern: Please refer to: [Path
-               Patterns](https://www.jfrog.com/confluence/display/JFROG/Repository+Layouts#RepositoryLayouts-ModulesandPathPatternsusedbyRepositoryLayouts)
-               in the Artifactory Wiki documentation.
-        :param pulumi.Input[str] descriptor_path_pattern: Please refer to: [Descriptor Path
-               Patterns](https://www.jfrog.com/confluence/display/JFROG/Repository+Layouts#RepositoryLayouts-DescriptorPathPatterns) in
-               the Artifactory Wiki documentation.
-        :param pulumi.Input[bool] distinctive_descriptor_path_pattern: When set, 'descriptor_path_pattern' will be used. Default to 'false'.
-        :param pulumi.Input[str] file_integration_revision_regexp: A regular expression matching the integration revision string appearing in a file name as part of the artifact's path.
-               For example, 'SNAPSHOT|(?:(?:[0-9]{8}.[0-9]{6})-(?:[0-9]+))', in Maven. Note! Take care not to introduce any regexp
-               capturing groups within this expression. If not applicable use '.*'
-        :param pulumi.Input[str] folder_integration_revision_regexp: A regular expression matching the integration revision string appearing in a folder name as part of the artifact's path.
-               For example, 'SNAPSHOT', in Maven. Note! Take care not to introduce any regexp capturing groups within this expression.
-               If not applicable use '.*'
+        :param pulumi.Input[str] artifact_path_pattern: Please refer to: [Path Patterns](https://www.jfrog.com/confluence/display/JFROG/Repository+Layouts#RepositoryLayouts-ModulesandPathPatternsusedbyRepositoryLayouts) in the Artifactory Wiki documentation.
+        :param pulumi.Input[str] descriptor_path_pattern: Please refer to: [Descriptor Path Patterns](https://www.jfrog.com/confluence/display/JFROG/Repository+Layouts#RepositoryLayouts-DescriptorPathPatterns) in the Artifactory Wiki documentation.
+        :param pulumi.Input[bool] distinctive_descriptor_path_pattern: When set, `descriptor_path_pattern` will be used. Default to `false`.
+        :param pulumi.Input[str] file_integration_revision_regexp: A regular expression matching the integration revision string appearing in a file name as part of the artifact's path. For example, `SNAPSHOT|(?:(?:[0-9]{8}.[0-9]{6})-(?:[0-9]+))`, in Maven. Note! Take care not to introduce any regexp capturing groups within this expression. If not applicable use `.*`
+        :param pulumi.Input[str] folder_integration_revision_regexp: A regular expression matching the integration revision string appearing in a folder name as part of the artifact's path. For example, `SNAPSHOT`, in Maven. Note! Take care not to introduce any regexp capturing groups within this expression. If not applicable use `.*`
         :param pulumi.Input[str] name: Layout name
         """
         if artifact_path_pattern is not None:
@@ -171,9 +147,7 @@ class _RepositoryLayoutState:
     @pulumi.getter(name="artifactPathPattern")
     def artifact_path_pattern(self) -> Optional[pulumi.Input[str]]:
         """
-        Please refer to: [Path
-        Patterns](https://www.jfrog.com/confluence/display/JFROG/Repository+Layouts#RepositoryLayouts-ModulesandPathPatternsusedbyRepositoryLayouts)
-        in the Artifactory Wiki documentation.
+        Please refer to: [Path Patterns](https://www.jfrog.com/confluence/display/JFROG/Repository+Layouts#RepositoryLayouts-ModulesandPathPatternsusedbyRepositoryLayouts) in the Artifactory Wiki documentation.
         """
         return pulumi.get(self, "artifact_path_pattern")
 
@@ -185,9 +159,7 @@ class _RepositoryLayoutState:
     @pulumi.getter(name="descriptorPathPattern")
     def descriptor_path_pattern(self) -> Optional[pulumi.Input[str]]:
         """
-        Please refer to: [Descriptor Path
-        Patterns](https://www.jfrog.com/confluence/display/JFROG/Repository+Layouts#RepositoryLayouts-DescriptorPathPatterns) in
-        the Artifactory Wiki documentation.
+        Please refer to: [Descriptor Path Patterns](https://www.jfrog.com/confluence/display/JFROG/Repository+Layouts#RepositoryLayouts-DescriptorPathPatterns) in the Artifactory Wiki documentation.
         """
         return pulumi.get(self, "descriptor_path_pattern")
 
@@ -199,7 +171,7 @@ class _RepositoryLayoutState:
     @pulumi.getter(name="distinctiveDescriptorPathPattern")
     def distinctive_descriptor_path_pattern(self) -> Optional[pulumi.Input[bool]]:
         """
-        When set, 'descriptor_path_pattern' will be used. Default to 'false'.
+        When set, `descriptor_path_pattern` will be used. Default to `false`.
         """
         return pulumi.get(self, "distinctive_descriptor_path_pattern")
 
@@ -211,9 +183,7 @@ class _RepositoryLayoutState:
     @pulumi.getter(name="fileIntegrationRevisionRegexp")
     def file_integration_revision_regexp(self) -> Optional[pulumi.Input[str]]:
         """
-        A regular expression matching the integration revision string appearing in a file name as part of the artifact's path.
-        For example, 'SNAPSHOT|(?:(?:[0-9]{8}.[0-9]{6})-(?:[0-9]+))', in Maven. Note! Take care not to introduce any regexp
-        capturing groups within this expression. If not applicable use '.*'
+        A regular expression matching the integration revision string appearing in a file name as part of the artifact's path. For example, `SNAPSHOT|(?:(?:[0-9]{8}.[0-9]{6})-(?:[0-9]+))`, in Maven. Note! Take care not to introduce any regexp capturing groups within this expression. If not applicable use `.*`
         """
         return pulumi.get(self, "file_integration_revision_regexp")
 
@@ -225,9 +195,7 @@ class _RepositoryLayoutState:
     @pulumi.getter(name="folderIntegrationRevisionRegexp")
     def folder_integration_revision_regexp(self) -> Optional[pulumi.Input[str]]:
         """
-        A regular expression matching the integration revision string appearing in a folder name as part of the artifact's path.
-        For example, 'SNAPSHOT', in Maven. Note! Take care not to introduce any regexp capturing groups within this expression.
-        If not applicable use '.*'
+        A regular expression matching the integration revision string appearing in a folder name as part of the artifact's path. For example, `SNAPSHOT`, in Maven. Note! Take care not to introduce any regexp capturing groups within this expression. If not applicable use `.*`
         """
         return pulumi.get(self, "folder_integration_revision_regexp")
 
@@ -261,22 +229,39 @@ class RepositoryLayout(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a RepositoryLayout resource with the given unique name, props, and options.
+        This resource can be used to manage Artifactory's Repository Layout settings. See [Repository Layouts](https://www.jfrog.com/confluence/display/JFROG/Repository+Layouts) in the Artifactory Wiki documentation for more details.
+
+        ~>The `RepositoryLayout` resource utilizes endpoints which are blocked/removed in SaaS environments (i.e. in Artifactory online), rendering this resource incompatible with Artifactory SaaS environments.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        custom_layout = artifactory.RepositoryLayout("custom-layout",
+            artifact_path_pattern="[orgPath]/[module]/[baseRev](-[folderItegRev])/[module]-[baseRev](-[fileItegRev])(-[classifier]).[ext]",
+            descriptor_path_pattern="[orgPath]/[module]/[baseRev](-[folderItegRev])/[module]-[baseRev](-[fileItegRev])(-[classifier]).pom",
+            distinctive_descriptor_path_pattern=True,
+            file_integration_revision_regexp="Foo|(?:(?:[0-9]{8}.[0-9]{6})-(?:[0-9]+))",
+            folder_integration_revision_regexp="Foo")
+        ```
+
+        ## Import
+
+        Repository layout can be imported using its name, e.g.
+
+        ```sh
+         $ pulumi import artifactory:index/repositoryLayout:RepositoryLayout custom-layout custom-layout
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] artifact_path_pattern: Please refer to: [Path
-               Patterns](https://www.jfrog.com/confluence/display/JFROG/Repository+Layouts#RepositoryLayouts-ModulesandPathPatternsusedbyRepositoryLayouts)
-               in the Artifactory Wiki documentation.
-        :param pulumi.Input[str] descriptor_path_pattern: Please refer to: [Descriptor Path
-               Patterns](https://www.jfrog.com/confluence/display/JFROG/Repository+Layouts#RepositoryLayouts-DescriptorPathPatterns) in
-               the Artifactory Wiki documentation.
-        :param pulumi.Input[bool] distinctive_descriptor_path_pattern: When set, 'descriptor_path_pattern' will be used. Default to 'false'.
-        :param pulumi.Input[str] file_integration_revision_regexp: A regular expression matching the integration revision string appearing in a file name as part of the artifact's path.
-               For example, 'SNAPSHOT|(?:(?:[0-9]{8}.[0-9]{6})-(?:[0-9]+))', in Maven. Note! Take care not to introduce any regexp
-               capturing groups within this expression. If not applicable use '.*'
-        :param pulumi.Input[str] folder_integration_revision_regexp: A regular expression matching the integration revision string appearing in a folder name as part of the artifact's path.
-               For example, 'SNAPSHOT', in Maven. Note! Take care not to introduce any regexp capturing groups within this expression.
-               If not applicable use '.*'
+        :param pulumi.Input[str] artifact_path_pattern: Please refer to: [Path Patterns](https://www.jfrog.com/confluence/display/JFROG/Repository+Layouts#RepositoryLayouts-ModulesandPathPatternsusedbyRepositoryLayouts) in the Artifactory Wiki documentation.
+        :param pulumi.Input[str] descriptor_path_pattern: Please refer to: [Descriptor Path Patterns](https://www.jfrog.com/confluence/display/JFROG/Repository+Layouts#RepositoryLayouts-DescriptorPathPatterns) in the Artifactory Wiki documentation.
+        :param pulumi.Input[bool] distinctive_descriptor_path_pattern: When set, `descriptor_path_pattern` will be used. Default to `false`.
+        :param pulumi.Input[str] file_integration_revision_regexp: A regular expression matching the integration revision string appearing in a file name as part of the artifact's path. For example, `SNAPSHOT|(?:(?:[0-9]{8}.[0-9]{6})-(?:[0-9]+))`, in Maven. Note! Take care not to introduce any regexp capturing groups within this expression. If not applicable use `.*`
+        :param pulumi.Input[str] folder_integration_revision_regexp: A regular expression matching the integration revision string appearing in a folder name as part of the artifact's path. For example, `SNAPSHOT`, in Maven. Note! Take care not to introduce any regexp capturing groups within this expression. If not applicable use `.*`
         :param pulumi.Input[str] name: Layout name
         """
         ...
@@ -286,7 +271,32 @@ class RepositoryLayout(pulumi.CustomResource):
                  args: RepositoryLayoutArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a RepositoryLayout resource with the given unique name, props, and options.
+        This resource can be used to manage Artifactory's Repository Layout settings. See [Repository Layouts](https://www.jfrog.com/confluence/display/JFROG/Repository+Layouts) in the Artifactory Wiki documentation for more details.
+
+        ~>The `RepositoryLayout` resource utilizes endpoints which are blocked/removed in SaaS environments (i.e. in Artifactory online), rendering this resource incompatible with Artifactory SaaS environments.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        custom_layout = artifactory.RepositoryLayout("custom-layout",
+            artifact_path_pattern="[orgPath]/[module]/[baseRev](-[folderItegRev])/[module]-[baseRev](-[fileItegRev])(-[classifier]).[ext]",
+            descriptor_path_pattern="[orgPath]/[module]/[baseRev](-[folderItegRev])/[module]-[baseRev](-[fileItegRev])(-[classifier]).pom",
+            distinctive_descriptor_path_pattern=True,
+            file_integration_revision_regexp="Foo|(?:(?:[0-9]{8}.[0-9]{6})-(?:[0-9]+))",
+            folder_integration_revision_regexp="Foo")
+        ```
+
+        ## Import
+
+        Repository layout can be imported using its name, e.g.
+
+        ```sh
+         $ pulumi import artifactory:index/repositoryLayout:RepositoryLayout custom-layout custom-layout
+        ```
+
         :param str resource_name: The name of the resource.
         :param RepositoryLayoutArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -352,19 +362,11 @@ class RepositoryLayout(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] artifact_path_pattern: Please refer to: [Path
-               Patterns](https://www.jfrog.com/confluence/display/JFROG/Repository+Layouts#RepositoryLayouts-ModulesandPathPatternsusedbyRepositoryLayouts)
-               in the Artifactory Wiki documentation.
-        :param pulumi.Input[str] descriptor_path_pattern: Please refer to: [Descriptor Path
-               Patterns](https://www.jfrog.com/confluence/display/JFROG/Repository+Layouts#RepositoryLayouts-DescriptorPathPatterns) in
-               the Artifactory Wiki documentation.
-        :param pulumi.Input[bool] distinctive_descriptor_path_pattern: When set, 'descriptor_path_pattern' will be used. Default to 'false'.
-        :param pulumi.Input[str] file_integration_revision_regexp: A regular expression matching the integration revision string appearing in a file name as part of the artifact's path.
-               For example, 'SNAPSHOT|(?:(?:[0-9]{8}.[0-9]{6})-(?:[0-9]+))', in Maven. Note! Take care not to introduce any regexp
-               capturing groups within this expression. If not applicable use '.*'
-        :param pulumi.Input[str] folder_integration_revision_regexp: A regular expression matching the integration revision string appearing in a folder name as part of the artifact's path.
-               For example, 'SNAPSHOT', in Maven. Note! Take care not to introduce any regexp capturing groups within this expression.
-               If not applicable use '.*'
+        :param pulumi.Input[str] artifact_path_pattern: Please refer to: [Path Patterns](https://www.jfrog.com/confluence/display/JFROG/Repository+Layouts#RepositoryLayouts-ModulesandPathPatternsusedbyRepositoryLayouts) in the Artifactory Wiki documentation.
+        :param pulumi.Input[str] descriptor_path_pattern: Please refer to: [Descriptor Path Patterns](https://www.jfrog.com/confluence/display/JFROG/Repository+Layouts#RepositoryLayouts-DescriptorPathPatterns) in the Artifactory Wiki documentation.
+        :param pulumi.Input[bool] distinctive_descriptor_path_pattern: When set, `descriptor_path_pattern` will be used. Default to `false`.
+        :param pulumi.Input[str] file_integration_revision_regexp: A regular expression matching the integration revision string appearing in a file name as part of the artifact's path. For example, `SNAPSHOT|(?:(?:[0-9]{8}.[0-9]{6})-(?:[0-9]+))`, in Maven. Note! Take care not to introduce any regexp capturing groups within this expression. If not applicable use `.*`
+        :param pulumi.Input[str] folder_integration_revision_regexp: A regular expression matching the integration revision string appearing in a folder name as part of the artifact's path. For example, `SNAPSHOT`, in Maven. Note! Take care not to introduce any regexp capturing groups within this expression. If not applicable use `.*`
         :param pulumi.Input[str] name: Layout name
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -383,9 +385,7 @@ class RepositoryLayout(pulumi.CustomResource):
     @pulumi.getter(name="artifactPathPattern")
     def artifact_path_pattern(self) -> pulumi.Output[str]:
         """
-        Please refer to: [Path
-        Patterns](https://www.jfrog.com/confluence/display/JFROG/Repository+Layouts#RepositoryLayouts-ModulesandPathPatternsusedbyRepositoryLayouts)
-        in the Artifactory Wiki documentation.
+        Please refer to: [Path Patterns](https://www.jfrog.com/confluence/display/JFROG/Repository+Layouts#RepositoryLayouts-ModulesandPathPatternsusedbyRepositoryLayouts) in the Artifactory Wiki documentation.
         """
         return pulumi.get(self, "artifact_path_pattern")
 
@@ -393,9 +393,7 @@ class RepositoryLayout(pulumi.CustomResource):
     @pulumi.getter(name="descriptorPathPattern")
     def descriptor_path_pattern(self) -> pulumi.Output[Optional[str]]:
         """
-        Please refer to: [Descriptor Path
-        Patterns](https://www.jfrog.com/confluence/display/JFROG/Repository+Layouts#RepositoryLayouts-DescriptorPathPatterns) in
-        the Artifactory Wiki documentation.
+        Please refer to: [Descriptor Path Patterns](https://www.jfrog.com/confluence/display/JFROG/Repository+Layouts#RepositoryLayouts-DescriptorPathPatterns) in the Artifactory Wiki documentation.
         """
         return pulumi.get(self, "descriptor_path_pattern")
 
@@ -403,7 +401,7 @@ class RepositoryLayout(pulumi.CustomResource):
     @pulumi.getter(name="distinctiveDescriptorPathPattern")
     def distinctive_descriptor_path_pattern(self) -> pulumi.Output[Optional[bool]]:
         """
-        When set, 'descriptor_path_pattern' will be used. Default to 'false'.
+        When set, `descriptor_path_pattern` will be used. Default to `false`.
         """
         return pulumi.get(self, "distinctive_descriptor_path_pattern")
 
@@ -411,9 +409,7 @@ class RepositoryLayout(pulumi.CustomResource):
     @pulumi.getter(name="fileIntegrationRevisionRegexp")
     def file_integration_revision_regexp(self) -> pulumi.Output[str]:
         """
-        A regular expression matching the integration revision string appearing in a file name as part of the artifact's path.
-        For example, 'SNAPSHOT|(?:(?:[0-9]{8}.[0-9]{6})-(?:[0-9]+))', in Maven. Note! Take care not to introduce any regexp
-        capturing groups within this expression. If not applicable use '.*'
+        A regular expression matching the integration revision string appearing in a file name as part of the artifact's path. For example, `SNAPSHOT|(?:(?:[0-9]{8}.[0-9]{6})-(?:[0-9]+))`, in Maven. Note! Take care not to introduce any regexp capturing groups within this expression. If not applicable use `.*`
         """
         return pulumi.get(self, "file_integration_revision_regexp")
 
@@ -421,9 +417,7 @@ class RepositoryLayout(pulumi.CustomResource):
     @pulumi.getter(name="folderIntegrationRevisionRegexp")
     def folder_integration_revision_regexp(self) -> pulumi.Output[str]:
         """
-        A regular expression matching the integration revision string appearing in a folder name as part of the artifact's path.
-        For example, 'SNAPSHOT', in Maven. Note! Take care not to introduce any regexp capturing groups within this expression.
-        If not applicable use '.*'
+        A regular expression matching the integration revision string appearing in a folder name as part of the artifact's path. For example, `SNAPSHOT`, in Maven. Note! Take care not to introduce any regexp capturing groups within this expression. If not applicable use `.*`
         """
         return pulumi.get(self, "folder_integration_revision_regexp")
 

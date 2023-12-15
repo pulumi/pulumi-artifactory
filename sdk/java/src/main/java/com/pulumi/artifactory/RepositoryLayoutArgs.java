@@ -17,18 +17,14 @@ public final class RepositoryLayoutArgs extends com.pulumi.resources.ResourceArg
     public static final RepositoryLayoutArgs Empty = new RepositoryLayoutArgs();
 
     /**
-     * Please refer to: [Path
-     * Patterns](https://www.jfrog.com/confluence/display/JFROG/Repository+Layouts#RepositoryLayouts-ModulesandPathPatternsusedbyRepositoryLayouts)
-     * in the Artifactory Wiki documentation.
+     * Please refer to: [Path Patterns](https://www.jfrog.com/confluence/display/JFROG/Repository+Layouts#RepositoryLayouts-ModulesandPathPatternsusedbyRepositoryLayouts) in the Artifactory Wiki documentation.
      * 
      */
     @Import(name="artifactPathPattern", required=true)
     private Output<String> artifactPathPattern;
 
     /**
-     * @return Please refer to: [Path
-     * Patterns](https://www.jfrog.com/confluence/display/JFROG/Repository+Layouts#RepositoryLayouts-ModulesandPathPatternsusedbyRepositoryLayouts)
-     * in the Artifactory Wiki documentation.
+     * @return Please refer to: [Path Patterns](https://www.jfrog.com/confluence/display/JFROG/Repository+Layouts#RepositoryLayouts-ModulesandPathPatternsusedbyRepositoryLayouts) in the Artifactory Wiki documentation.
      * 
      */
     public Output<String> artifactPathPattern() {
@@ -36,18 +32,14 @@ public final class RepositoryLayoutArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Please refer to: [Descriptor Path
-     * Patterns](https://www.jfrog.com/confluence/display/JFROG/Repository+Layouts#RepositoryLayouts-DescriptorPathPatterns) in
-     * the Artifactory Wiki documentation.
+     * Please refer to: [Descriptor Path Patterns](https://www.jfrog.com/confluence/display/JFROG/Repository+Layouts#RepositoryLayouts-DescriptorPathPatterns) in the Artifactory Wiki documentation.
      * 
      */
     @Import(name="descriptorPathPattern")
     private @Nullable Output<String> descriptorPathPattern;
 
     /**
-     * @return Please refer to: [Descriptor Path
-     * Patterns](https://www.jfrog.com/confluence/display/JFROG/Repository+Layouts#RepositoryLayouts-DescriptorPathPatterns) in
-     * the Artifactory Wiki documentation.
+     * @return Please refer to: [Descriptor Path Patterns](https://www.jfrog.com/confluence/display/JFROG/Repository+Layouts#RepositoryLayouts-DescriptorPathPatterns) in the Artifactory Wiki documentation.
      * 
      */
     public Optional<Output<String>> descriptorPathPattern() {
@@ -55,14 +47,14 @@ public final class RepositoryLayoutArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * When set, &#39;descriptor_path_pattern&#39; will be used. Default to &#39;false&#39;.
+     * When set, `descriptor_path_pattern` will be used. Default to `false`.
      * 
      */
     @Import(name="distinctiveDescriptorPathPattern")
     private @Nullable Output<Boolean> distinctiveDescriptorPathPattern;
 
     /**
-     * @return When set, &#39;descriptor_path_pattern&#39; will be used. Default to &#39;false&#39;.
+     * @return When set, `descriptor_path_pattern` will be used. Default to `false`.
      * 
      */
     public Optional<Output<Boolean>> distinctiveDescriptorPathPattern() {
@@ -70,18 +62,14 @@ public final class RepositoryLayoutArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * A regular expression matching the integration revision string appearing in a file name as part of the artifact&#39;s path.
-     * For example, &#39;SNAPSHOT|(?:(?:[0-9]{8}.[0-9]{6})-(?:[0-9]+))&#39;, in Maven. Note! Take care not to introduce any regexp
-     * capturing groups within this expression. If not applicable use &#39;.*&#39;
+     * A regular expression matching the integration revision string appearing in a file name as part of the artifact&#39;s path. For example, `SNAPSHOT|(?:(?:[0-9]{8}.[0-9]{6})-(?:[0-9]+))`, in Maven. Note! Take care not to introduce any regexp capturing groups within this expression. If not applicable use `.*`
      * 
      */
     @Import(name="fileIntegrationRevisionRegexp", required=true)
     private Output<String> fileIntegrationRevisionRegexp;
 
     /**
-     * @return A regular expression matching the integration revision string appearing in a file name as part of the artifact&#39;s path.
-     * For example, &#39;SNAPSHOT|(?:(?:[0-9]{8}.[0-9]{6})-(?:[0-9]+))&#39;, in Maven. Note! Take care not to introduce any regexp
-     * capturing groups within this expression. If not applicable use &#39;.*&#39;
+     * @return A regular expression matching the integration revision string appearing in a file name as part of the artifact&#39;s path. For example, `SNAPSHOT|(?:(?:[0-9]{8}.[0-9]{6})-(?:[0-9]+))`, in Maven. Note! Take care not to introduce any regexp capturing groups within this expression. If not applicable use `.*`
      * 
      */
     public Output<String> fileIntegrationRevisionRegexp() {
@@ -89,18 +77,14 @@ public final class RepositoryLayoutArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * A regular expression matching the integration revision string appearing in a folder name as part of the artifact&#39;s path.
-     * For example, &#39;SNAPSHOT&#39;, in Maven. Note! Take care not to introduce any regexp capturing groups within this expression.
-     * If not applicable use &#39;.*&#39;
+     * A regular expression matching the integration revision string appearing in a folder name as part of the artifact&#39;s path. For example, `SNAPSHOT`, in Maven. Note! Take care not to introduce any regexp capturing groups within this expression. If not applicable use `.*`
      * 
      */
     @Import(name="folderIntegrationRevisionRegexp", required=true)
     private Output<String> folderIntegrationRevisionRegexp;
 
     /**
-     * @return A regular expression matching the integration revision string appearing in a folder name as part of the artifact&#39;s path.
-     * For example, &#39;SNAPSHOT&#39;, in Maven. Note! Take care not to introduce any regexp capturing groups within this expression.
-     * If not applicable use &#39;.*&#39;
+     * @return A regular expression matching the integration revision string appearing in a folder name as part of the artifact&#39;s path. For example, `SNAPSHOT`, in Maven. Note! Take care not to introduce any regexp capturing groups within this expression. If not applicable use `.*`
      * 
      */
     public Output<String> folderIntegrationRevisionRegexp() {
@@ -152,9 +136,7 @@ public final class RepositoryLayoutArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param artifactPathPattern Please refer to: [Path
-         * Patterns](https://www.jfrog.com/confluence/display/JFROG/Repository+Layouts#RepositoryLayouts-ModulesandPathPatternsusedbyRepositoryLayouts)
-         * in the Artifactory Wiki documentation.
+         * @param artifactPathPattern Please refer to: [Path Patterns](https://www.jfrog.com/confluence/display/JFROG/Repository+Layouts#RepositoryLayouts-ModulesandPathPatternsusedbyRepositoryLayouts) in the Artifactory Wiki documentation.
          * 
          * @return builder
          * 
@@ -165,9 +147,7 @@ public final class RepositoryLayoutArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param artifactPathPattern Please refer to: [Path
-         * Patterns](https://www.jfrog.com/confluence/display/JFROG/Repository+Layouts#RepositoryLayouts-ModulesandPathPatternsusedbyRepositoryLayouts)
-         * in the Artifactory Wiki documentation.
+         * @param artifactPathPattern Please refer to: [Path Patterns](https://www.jfrog.com/confluence/display/JFROG/Repository+Layouts#RepositoryLayouts-ModulesandPathPatternsusedbyRepositoryLayouts) in the Artifactory Wiki documentation.
          * 
          * @return builder
          * 
@@ -177,9 +157,7 @@ public final class RepositoryLayoutArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param descriptorPathPattern Please refer to: [Descriptor Path
-         * Patterns](https://www.jfrog.com/confluence/display/JFROG/Repository+Layouts#RepositoryLayouts-DescriptorPathPatterns) in
-         * the Artifactory Wiki documentation.
+         * @param descriptorPathPattern Please refer to: [Descriptor Path Patterns](https://www.jfrog.com/confluence/display/JFROG/Repository+Layouts#RepositoryLayouts-DescriptorPathPatterns) in the Artifactory Wiki documentation.
          * 
          * @return builder
          * 
@@ -190,9 +168,7 @@ public final class RepositoryLayoutArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param descriptorPathPattern Please refer to: [Descriptor Path
-         * Patterns](https://www.jfrog.com/confluence/display/JFROG/Repository+Layouts#RepositoryLayouts-DescriptorPathPatterns) in
-         * the Artifactory Wiki documentation.
+         * @param descriptorPathPattern Please refer to: [Descriptor Path Patterns](https://www.jfrog.com/confluence/display/JFROG/Repository+Layouts#RepositoryLayouts-DescriptorPathPatterns) in the Artifactory Wiki documentation.
          * 
          * @return builder
          * 
@@ -202,7 +178,7 @@ public final class RepositoryLayoutArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param distinctiveDescriptorPathPattern When set, &#39;descriptor_path_pattern&#39; will be used. Default to &#39;false&#39;.
+         * @param distinctiveDescriptorPathPattern When set, `descriptor_path_pattern` will be used. Default to `false`.
          * 
          * @return builder
          * 
@@ -213,7 +189,7 @@ public final class RepositoryLayoutArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param distinctiveDescriptorPathPattern When set, &#39;descriptor_path_pattern&#39; will be used. Default to &#39;false&#39;.
+         * @param distinctiveDescriptorPathPattern When set, `descriptor_path_pattern` will be used. Default to `false`.
          * 
          * @return builder
          * 
@@ -223,9 +199,7 @@ public final class RepositoryLayoutArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param fileIntegrationRevisionRegexp A regular expression matching the integration revision string appearing in a file name as part of the artifact&#39;s path.
-         * For example, &#39;SNAPSHOT|(?:(?:[0-9]{8}.[0-9]{6})-(?:[0-9]+))&#39;, in Maven. Note! Take care not to introduce any regexp
-         * capturing groups within this expression. If not applicable use &#39;.*&#39;
+         * @param fileIntegrationRevisionRegexp A regular expression matching the integration revision string appearing in a file name as part of the artifact&#39;s path. For example, `SNAPSHOT|(?:(?:[0-9]{8}.[0-9]{6})-(?:[0-9]+))`, in Maven. Note! Take care not to introduce any regexp capturing groups within this expression. If not applicable use `.*`
          * 
          * @return builder
          * 
@@ -236,9 +210,7 @@ public final class RepositoryLayoutArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param fileIntegrationRevisionRegexp A regular expression matching the integration revision string appearing in a file name as part of the artifact&#39;s path.
-         * For example, &#39;SNAPSHOT|(?:(?:[0-9]{8}.[0-9]{6})-(?:[0-9]+))&#39;, in Maven. Note! Take care not to introduce any regexp
-         * capturing groups within this expression. If not applicable use &#39;.*&#39;
+         * @param fileIntegrationRevisionRegexp A regular expression matching the integration revision string appearing in a file name as part of the artifact&#39;s path. For example, `SNAPSHOT|(?:(?:[0-9]{8}.[0-9]{6})-(?:[0-9]+))`, in Maven. Note! Take care not to introduce any regexp capturing groups within this expression. If not applicable use `.*`
          * 
          * @return builder
          * 
@@ -248,9 +220,7 @@ public final class RepositoryLayoutArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param folderIntegrationRevisionRegexp A regular expression matching the integration revision string appearing in a folder name as part of the artifact&#39;s path.
-         * For example, &#39;SNAPSHOT&#39;, in Maven. Note! Take care not to introduce any regexp capturing groups within this expression.
-         * If not applicable use &#39;.*&#39;
+         * @param folderIntegrationRevisionRegexp A regular expression matching the integration revision string appearing in a folder name as part of the artifact&#39;s path. For example, `SNAPSHOT`, in Maven. Note! Take care not to introduce any regexp capturing groups within this expression. If not applicable use `.*`
          * 
          * @return builder
          * 
@@ -261,9 +231,7 @@ public final class RepositoryLayoutArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param folderIntegrationRevisionRegexp A regular expression matching the integration revision string appearing in a folder name as part of the artifact&#39;s path.
-         * For example, &#39;SNAPSHOT&#39;, in Maven. Note! Take care not to introduce any regexp capturing groups within this expression.
-         * If not applicable use &#39;.*&#39;
+         * @param folderIntegrationRevisionRegexp A regular expression matching the integration revision string appearing in a folder name as part of the artifact&#39;s path. For example, `SNAPSHOT`, in Maven. Note! Take care not to introduce any regexp capturing groups within this expression. If not applicable use `.*`
          * 
          * @return builder
          * 
