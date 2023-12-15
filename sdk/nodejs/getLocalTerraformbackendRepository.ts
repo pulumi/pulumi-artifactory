@@ -4,6 +4,18 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const local-test-terraformbackend-repo = artifactory.getLocalTerraformbackendRepository({
+ *     key: "local-test-terraformbackend-repo",
+ * });
+ * ```
+ */
 export function getLocalTerraformbackendRepository(args: GetLocalTerraformbackendRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalTerraformbackendRepositoryResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -37,6 +49,9 @@ export interface GetLocalTerraformbackendRepositoryArgs {
     downloadDirect?: boolean;
     excludesPattern?: string;
     includesPattern?: string;
+    /**
+     * the identity key of the repo.
+     */
     key: string;
     notes?: string;
     priorityResolution?: boolean;
@@ -62,6 +77,9 @@ export interface GetLocalTerraformbackendRepositoryResult {
      */
     readonly id: string;
     readonly includesPattern?: string;
+    /**
+     * the identity key of the repo.
+     */
     readonly key: string;
     readonly notes?: string;
     readonly packageType: string;
@@ -72,6 +90,18 @@ export interface GetLocalTerraformbackendRepositoryResult {
     readonly repoLayoutRef?: string;
     readonly xrayIndex?: boolean;
 }
+/**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const local-test-terraformbackend-repo = artifactory.getLocalTerraformbackendRepository({
+ *     key: "local-test-terraformbackend-repo",
+ * });
+ * ```
+ */
 export function getLocalTerraformbackendRepositoryOutput(args: GetLocalTerraformbackendRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalTerraformbackendRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getLocalTerraformbackendRepository(a, opts))
 }
@@ -87,6 +117,9 @@ export interface GetLocalTerraformbackendRepositoryOutputArgs {
     downloadDirect?: pulumi.Input<boolean>;
     excludesPattern?: pulumi.Input<string>;
     includesPattern?: pulumi.Input<string>;
+    /**
+     * the identity key of the repo.
+     */
     key: pulumi.Input<string>;
     notes?: pulumi.Input<string>;
     priorityResolution?: pulumi.Input<boolean>;

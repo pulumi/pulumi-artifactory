@@ -7,10 +7,37 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
+	"github.com/pulumi/pulumi-artifactory/sdk/v6/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Retrieves a local RPM repository.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v6/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.LookupLocalRpmRepository(ctx, &artifactory.LookupLocalRpmRepositoryArgs{
+//				Key: "local-test-rpm-repo-basic",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupLocalRpmRepository(ctx *pulumi.Context, args *LookupLocalRpmRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupLocalRpmRepositoryResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupLocalRpmRepositoryResult
@@ -23,55 +50,80 @@ func LookupLocalRpmRepository(ctx *pulumi.Context, args *LookupLocalRpmRepositor
 
 // A collection of arguments for invoking getLocalRpmRepository.
 type LookupLocalRpmRepositoryArgs struct {
-	ArchiveBrowsingEnabled  *bool    `pulumi:"archiveBrowsingEnabled"`
-	BlackedOut              *bool    `pulumi:"blackedOut"`
-	CalculateYumMetadata    *bool    `pulumi:"calculateYumMetadata"`
-	CdnRedirect             *bool    `pulumi:"cdnRedirect"`
-	Description             *string  `pulumi:"description"`
-	DownloadDirect          *bool    `pulumi:"downloadDirect"`
-	EnableFileListsIndexing *bool    `pulumi:"enableFileListsIndexing"`
-	ExcludesPattern         *string  `pulumi:"excludesPattern"`
-	IncludesPattern         *string  `pulumi:"includesPattern"`
-	Key                     string   `pulumi:"key"`
-	Notes                   *string  `pulumi:"notes"`
-	PrimaryKeypairRef       *string  `pulumi:"primaryKeypairRef"`
-	PriorityResolution      *bool    `pulumi:"priorityResolution"`
-	ProjectEnvironments     []string `pulumi:"projectEnvironments"`
-	ProjectKey              *string  `pulumi:"projectKey"`
-	PropertySets            []string `pulumi:"propertySets"`
-	RepoLayoutRef           *string  `pulumi:"repoLayoutRef"`
-	SecondaryKeypairRef     *string  `pulumi:"secondaryKeypairRef"`
-	XrayIndex               *bool    `pulumi:"xrayIndex"`
-	YumGroupFileNames       *string  `pulumi:"yumGroupFileNames"`
-	YumRootDepth            *int     `pulumi:"yumRootDepth"`
-}
-
-// A collection of values returned by getLocalRpmRepository.
-type LookupLocalRpmRepositoryResult struct {
-	ArchiveBrowsingEnabled  *bool   `pulumi:"archiveBrowsingEnabled"`
-	BlackedOut              *bool   `pulumi:"blackedOut"`
-	CalculateYumMetadata    *bool   `pulumi:"calculateYumMetadata"`
-	CdnRedirect             *bool   `pulumi:"cdnRedirect"`
-	Description             *string `pulumi:"description"`
-	DownloadDirect          *bool   `pulumi:"downloadDirect"`
+	ArchiveBrowsingEnabled *bool `pulumi:"archiveBrowsingEnabled"`
+	BlackedOut             *bool `pulumi:"blackedOut"`
+	// Default: `false`.
+	CalculateYumMetadata *bool   `pulumi:"calculateYumMetadata"`
+	CdnRedirect          *bool   `pulumi:"cdnRedirect"`
+	Description          *string `pulumi:"description"`
+	DownloadDirect       *bool   `pulumi:"downloadDirect"`
+	// Default: `false`.
 	EnableFileListsIndexing *bool   `pulumi:"enableFileListsIndexing"`
 	ExcludesPattern         *string `pulumi:"excludesPattern"`
-	// The provider-assigned unique ID for this managed resource.
-	Id                  string   `pulumi:"id"`
-	IncludesPattern     *string  `pulumi:"includesPattern"`
-	Key                 string   `pulumi:"key"`
-	Notes               *string  `pulumi:"notes"`
-	PackageType         string   `pulumi:"packageType"`
+	IncludesPattern         *string `pulumi:"includesPattern"`
+	// the identity key of the repo.
+	Key   string  `pulumi:"key"`
+	Notes *string `pulumi:"notes"`
+	// The primary GPG key to be used to sign packages.
 	PrimaryKeypairRef   *string  `pulumi:"primaryKeypairRef"`
 	PriorityResolution  *bool    `pulumi:"priorityResolution"`
 	ProjectEnvironments []string `pulumi:"projectEnvironments"`
 	ProjectKey          *string  `pulumi:"projectKey"`
 	PropertySets        []string `pulumi:"propertySets"`
 	RepoLayoutRef       *string  `pulumi:"repoLayoutRef"`
-	SecondaryKeypairRef *string  `pulumi:"secondaryKeypairRef"`
-	XrayIndex           *bool    `pulumi:"xrayIndex"`
-	YumGroupFileNames   *string  `pulumi:"yumGroupFileNames"`
-	YumRootDepth        *int     `pulumi:"yumRootDepth"`
+	// The secondary GPG key to be used to sign packages.
+	SecondaryKeypairRef *string `pulumi:"secondaryKeypairRef"`
+	XrayIndex           *bool   `pulumi:"xrayIndex"`
+	// A comma separated list of XML file names containing RPM group component
+	// definitions. Artifactory includes the group definitions as part of the calculated RPM metadata, as well as
+	// automatically generating a gzipped version of the group files, if required. Default is empty string.
+	YumGroupFileNames *string `pulumi:"yumGroupFileNames"`
+	// The depth, relative to the repository's root folder, where RPM metadata is created. This
+	// is useful when your repository contains multiple RPM repositories under parallel hierarchies. For example, if your
+	// RPMs are stored under 'fedora/linux/$releasever/$basearch', specify a depth of 4. Once the number of snapshots exceeds
+	// this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are
+	// not cleaned up.
+	YumRootDepth *int `pulumi:"yumRootDepth"`
+}
+
+// A collection of values returned by getLocalRpmRepository.
+type LookupLocalRpmRepositoryResult struct {
+	ArchiveBrowsingEnabled *bool `pulumi:"archiveBrowsingEnabled"`
+	BlackedOut             *bool `pulumi:"blackedOut"`
+	// Default: `false`.
+	CalculateYumMetadata *bool   `pulumi:"calculateYumMetadata"`
+	CdnRedirect          *bool   `pulumi:"cdnRedirect"`
+	Description          *string `pulumi:"description"`
+	DownloadDirect       *bool   `pulumi:"downloadDirect"`
+	// Default: `false`.
+	EnableFileListsIndexing *bool   `pulumi:"enableFileListsIndexing"`
+	ExcludesPattern         *string `pulumi:"excludesPattern"`
+	// The provider-assigned unique ID for this managed resource.
+	Id              string  `pulumi:"id"`
+	IncludesPattern *string `pulumi:"includesPattern"`
+	Key             string  `pulumi:"key"`
+	Notes           *string `pulumi:"notes"`
+	PackageType     string  `pulumi:"packageType"`
+	// The primary GPG key to be used to sign packages.
+	PrimaryKeypairRef   *string  `pulumi:"primaryKeypairRef"`
+	PriorityResolution  *bool    `pulumi:"priorityResolution"`
+	ProjectEnvironments []string `pulumi:"projectEnvironments"`
+	ProjectKey          *string  `pulumi:"projectKey"`
+	PropertySets        []string `pulumi:"propertySets"`
+	RepoLayoutRef       *string  `pulumi:"repoLayoutRef"`
+	// The secondary GPG key to be used to sign packages.
+	SecondaryKeypairRef *string `pulumi:"secondaryKeypairRef"`
+	XrayIndex           *bool   `pulumi:"xrayIndex"`
+	// A comma separated list of XML file names containing RPM group component
+	// definitions. Artifactory includes the group definitions as part of the calculated RPM metadata, as well as
+	// automatically generating a gzipped version of the group files, if required. Default is empty string.
+	YumGroupFileNames *string `pulumi:"yumGroupFileNames"`
+	// The depth, relative to the repository's root folder, where RPM metadata is created. This
+	// is useful when your repository contains multiple RPM repositories under parallel hierarchies. For example, if your
+	// RPMs are stored under 'fedora/linux/$releasever/$basearch', specify a depth of 4. Once the number of snapshots exceeds
+	// this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are
+	// not cleaned up.
+	YumRootDepth *int `pulumi:"yumRootDepth"`
 }
 
 func LookupLocalRpmRepositoryOutput(ctx *pulumi.Context, args LookupLocalRpmRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupLocalRpmRepositoryResultOutput {
@@ -89,27 +141,40 @@ func LookupLocalRpmRepositoryOutput(ctx *pulumi.Context, args LookupLocalRpmRepo
 
 // A collection of arguments for invoking getLocalRpmRepository.
 type LookupLocalRpmRepositoryOutputArgs struct {
-	ArchiveBrowsingEnabled  pulumi.BoolPtrInput     `pulumi:"archiveBrowsingEnabled"`
-	BlackedOut              pulumi.BoolPtrInput     `pulumi:"blackedOut"`
-	CalculateYumMetadata    pulumi.BoolPtrInput     `pulumi:"calculateYumMetadata"`
-	CdnRedirect             pulumi.BoolPtrInput     `pulumi:"cdnRedirect"`
-	Description             pulumi.StringPtrInput   `pulumi:"description"`
-	DownloadDirect          pulumi.BoolPtrInput     `pulumi:"downloadDirect"`
-	EnableFileListsIndexing pulumi.BoolPtrInput     `pulumi:"enableFileListsIndexing"`
-	ExcludesPattern         pulumi.StringPtrInput   `pulumi:"excludesPattern"`
-	IncludesPattern         pulumi.StringPtrInput   `pulumi:"includesPattern"`
-	Key                     pulumi.StringInput      `pulumi:"key"`
-	Notes                   pulumi.StringPtrInput   `pulumi:"notes"`
-	PrimaryKeypairRef       pulumi.StringPtrInput   `pulumi:"primaryKeypairRef"`
-	PriorityResolution      pulumi.BoolPtrInput     `pulumi:"priorityResolution"`
-	ProjectEnvironments     pulumi.StringArrayInput `pulumi:"projectEnvironments"`
-	ProjectKey              pulumi.StringPtrInput   `pulumi:"projectKey"`
-	PropertySets            pulumi.StringArrayInput `pulumi:"propertySets"`
-	RepoLayoutRef           pulumi.StringPtrInput   `pulumi:"repoLayoutRef"`
-	SecondaryKeypairRef     pulumi.StringPtrInput   `pulumi:"secondaryKeypairRef"`
-	XrayIndex               pulumi.BoolPtrInput     `pulumi:"xrayIndex"`
-	YumGroupFileNames       pulumi.StringPtrInput   `pulumi:"yumGroupFileNames"`
-	YumRootDepth            pulumi.IntPtrInput      `pulumi:"yumRootDepth"`
+	ArchiveBrowsingEnabled pulumi.BoolPtrInput `pulumi:"archiveBrowsingEnabled"`
+	BlackedOut             pulumi.BoolPtrInput `pulumi:"blackedOut"`
+	// Default: `false`.
+	CalculateYumMetadata pulumi.BoolPtrInput   `pulumi:"calculateYumMetadata"`
+	CdnRedirect          pulumi.BoolPtrInput   `pulumi:"cdnRedirect"`
+	Description          pulumi.StringPtrInput `pulumi:"description"`
+	DownloadDirect       pulumi.BoolPtrInput   `pulumi:"downloadDirect"`
+	// Default: `false`.
+	EnableFileListsIndexing pulumi.BoolPtrInput   `pulumi:"enableFileListsIndexing"`
+	ExcludesPattern         pulumi.StringPtrInput `pulumi:"excludesPattern"`
+	IncludesPattern         pulumi.StringPtrInput `pulumi:"includesPattern"`
+	// the identity key of the repo.
+	Key   pulumi.StringInput    `pulumi:"key"`
+	Notes pulumi.StringPtrInput `pulumi:"notes"`
+	// The primary GPG key to be used to sign packages.
+	PrimaryKeypairRef   pulumi.StringPtrInput   `pulumi:"primaryKeypairRef"`
+	PriorityResolution  pulumi.BoolPtrInput     `pulumi:"priorityResolution"`
+	ProjectEnvironments pulumi.StringArrayInput `pulumi:"projectEnvironments"`
+	ProjectKey          pulumi.StringPtrInput   `pulumi:"projectKey"`
+	PropertySets        pulumi.StringArrayInput `pulumi:"propertySets"`
+	RepoLayoutRef       pulumi.StringPtrInput   `pulumi:"repoLayoutRef"`
+	// The secondary GPG key to be used to sign packages.
+	SecondaryKeypairRef pulumi.StringPtrInput `pulumi:"secondaryKeypairRef"`
+	XrayIndex           pulumi.BoolPtrInput   `pulumi:"xrayIndex"`
+	// A comma separated list of XML file names containing RPM group component
+	// definitions. Artifactory includes the group definitions as part of the calculated RPM metadata, as well as
+	// automatically generating a gzipped version of the group files, if required. Default is empty string.
+	YumGroupFileNames pulumi.StringPtrInput `pulumi:"yumGroupFileNames"`
+	// The depth, relative to the repository's root folder, where RPM metadata is created. This
+	// is useful when your repository contains multiple RPM repositories under parallel hierarchies. For example, if your
+	// RPMs are stored under 'fedora/linux/$releasever/$basearch', specify a depth of 4. Once the number of snapshots exceeds
+	// this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are
+	// not cleaned up.
+	YumRootDepth pulumi.IntPtrInput `pulumi:"yumRootDepth"`
 }
 
 func (LookupLocalRpmRepositoryOutputArgs) ElementType() reflect.Type {
@@ -139,6 +204,7 @@ func (o LookupLocalRpmRepositoryResultOutput) BlackedOut() pulumi.BoolPtrOutput 
 	return o.ApplyT(func(v LookupLocalRpmRepositoryResult) *bool { return v.BlackedOut }).(pulumi.BoolPtrOutput)
 }
 
+// Default: `false`.
 func (o LookupLocalRpmRepositoryResultOutput) CalculateYumMetadata() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupLocalRpmRepositoryResult) *bool { return v.CalculateYumMetadata }).(pulumi.BoolPtrOutput)
 }
@@ -155,6 +221,7 @@ func (o LookupLocalRpmRepositoryResultOutput) DownloadDirect() pulumi.BoolPtrOut
 	return o.ApplyT(func(v LookupLocalRpmRepositoryResult) *bool { return v.DownloadDirect }).(pulumi.BoolPtrOutput)
 }
 
+// Default: `false`.
 func (o LookupLocalRpmRepositoryResultOutput) EnableFileListsIndexing() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupLocalRpmRepositoryResult) *bool { return v.EnableFileListsIndexing }).(pulumi.BoolPtrOutput)
 }
@@ -184,6 +251,7 @@ func (o LookupLocalRpmRepositoryResultOutput) PackageType() pulumi.StringOutput 
 	return o.ApplyT(func(v LookupLocalRpmRepositoryResult) string { return v.PackageType }).(pulumi.StringOutput)
 }
 
+// The primary GPG key to be used to sign packages.
 func (o LookupLocalRpmRepositoryResultOutput) PrimaryKeypairRef() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupLocalRpmRepositoryResult) *string { return v.PrimaryKeypairRef }).(pulumi.StringPtrOutput)
 }
@@ -208,6 +276,7 @@ func (o LookupLocalRpmRepositoryResultOutput) RepoLayoutRef() pulumi.StringPtrOu
 	return o.ApplyT(func(v LookupLocalRpmRepositoryResult) *string { return v.RepoLayoutRef }).(pulumi.StringPtrOutput)
 }
 
+// The secondary GPG key to be used to sign packages.
 func (o LookupLocalRpmRepositoryResultOutput) SecondaryKeypairRef() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupLocalRpmRepositoryResult) *string { return v.SecondaryKeypairRef }).(pulumi.StringPtrOutput)
 }
@@ -216,10 +285,18 @@ func (o LookupLocalRpmRepositoryResultOutput) XrayIndex() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupLocalRpmRepositoryResult) *bool { return v.XrayIndex }).(pulumi.BoolPtrOutput)
 }
 
+// A comma separated list of XML file names containing RPM group component
+// definitions. Artifactory includes the group definitions as part of the calculated RPM metadata, as well as
+// automatically generating a gzipped version of the group files, if required. Default is empty string.
 func (o LookupLocalRpmRepositoryResultOutput) YumGroupFileNames() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupLocalRpmRepositoryResult) *string { return v.YumGroupFileNames }).(pulumi.StringPtrOutput)
 }
 
+// The depth, relative to the repository's root folder, where RPM metadata is created. This
+// is useful when your repository contains multiple RPM repositories under parallel hierarchies. For example, if your
+// RPMs are stored under 'fedora/linux/$releasever/$basearch', specify a depth of 4. Once the number of snapshots exceeds
+// this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are
+// not cleaned up.
 func (o LookupLocalRpmRepositoryResultOutput) YumRootDepth() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupLocalRpmRepositoryResult) *int { return v.YumRootDepth }).(pulumi.IntPtrOutput)
 }

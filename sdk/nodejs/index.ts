@@ -445,6 +445,11 @@ export const getFile: typeof import("./getFile").getFile = null as any;
 export const getFileOutput: typeof import("./getFile").getFileOutput = null as any;
 utilities.lazyLoad(exports, ["getFile","getFileOutput"], () => require("./getFile"));
 
+export { GetFileListArgs, GetFileListResult, GetFileListOutputArgs } from "./getFileList";
+export const getFileList: typeof import("./getFileList").getFileList = null as any;
+export const getFileListOutput: typeof import("./getFileList").getFileListOutput = null as any;
+utilities.lazyLoad(exports, ["getFileList","getFileListOutput"], () => require("./getFileList"));
+
 export { GetFileinfoArgs, GetFileinfoResult, GetFileinfoOutputArgs } from "./getFileinfo";
 export const getFileinfo: typeof import("./getFileinfo").getFileinfo = null as any;
 export const getFileinfoOutput: typeof import("./getFileinfo").getFileinfoOutput = null as any;
@@ -784,6 +789,11 @@ export { GetRemoteVcsRepositoryArgs, GetRemoteVcsRepositoryResult, GetRemoteVcsR
 export const getRemoteVcsRepository: typeof import("./getRemoteVcsRepository").getRemoteVcsRepository = null as any;
 export const getRemoteVcsRepositoryOutput: typeof import("./getRemoteVcsRepository").getRemoteVcsRepositoryOutput = null as any;
 utilities.lazyLoad(exports, ["getRemoteVcsRepository","getRemoteVcsRepositoryOutput"], () => require("./getRemoteVcsRepository"));
+
+export { GetRepositoriesArgs, GetRepositoriesResult, GetRepositoriesOutputArgs } from "./getRepositories";
+export const getRepositories: typeof import("./getRepositories").getRepositories = null as any;
+export const getRepositoriesOutput: typeof import("./getRepositories").getRepositoriesOutput = null as any;
+utilities.lazyLoad(exports, ["getRepositories","getRepositoriesOutput"], () => require("./getRepositories"));
 
 export { GetUserArgs, GetUserResult, GetUserOutputArgs } from "./getUser";
 export const getUser: typeof import("./getUser").getUser = null as any;

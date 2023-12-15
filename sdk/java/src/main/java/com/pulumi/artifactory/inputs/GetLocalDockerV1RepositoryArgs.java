@@ -67,16 +67,36 @@ public final class GetLocalDockerV1RepositoryArgs extends com.pulumi.resources.I
         return Optional.ofNullable(this.includesPattern);
     }
 
+    /**
+     * the identity key of the repo.
+     * 
+     */
     @Import(name="key", required=true)
     private Output<String> key;
 
+    /**
+     * @return the identity key of the repo.
+     * 
+     */
     public Output<String> key() {
         return this.key;
     }
 
+    /**
+     * The maximum number of unique tags of a single Docker image to store in this repository. Once the
+     * number tags for an image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no
+     * limit. This only applies to manifest v2.
+     * 
+     */
     @Import(name="maxUniqueTags")
     private @Nullable Output<Integer> maxUniqueTags;
 
+    /**
+     * @return The maximum number of unique tags of a single Docker image to store in this repository. Once the
+     * number tags for an image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no
+     * limit. This only applies to manifest v2.
+     * 
+     */
     public Optional<Output<Integer>> maxUniqueTags() {
         return Optional.ofNullable(this.maxUniqueTags);
     }
@@ -232,20 +252,48 @@ public final class GetLocalDockerV1RepositoryArgs extends com.pulumi.resources.I
             return includesPattern(Output.of(includesPattern));
         }
 
+        /**
+         * @param key the identity key of the repo.
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(Output<String> key) {
             $.key = key;
             return this;
         }
 
+        /**
+         * @param key the identity key of the repo.
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(String key) {
             return key(Output.of(key));
         }
 
+        /**
+         * @param maxUniqueTags The maximum number of unique tags of a single Docker image to store in this repository. Once the
+         * number tags for an image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no
+         * limit. This only applies to manifest v2.
+         * 
+         * @return builder
+         * 
+         */
         public Builder maxUniqueTags(@Nullable Output<Integer> maxUniqueTags) {
             $.maxUniqueTags = maxUniqueTags;
             return this;
         }
 
+        /**
+         * @param maxUniqueTags The maximum number of unique tags of a single Docker image to store in this repository. Once the
+         * number tags for an image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no
+         * limit. This only applies to manifest v2.
+         * 
+         * @return builder
+         * 
+         */
         public Builder maxUniqueTags(Integer maxUniqueTags) {
             return maxUniqueTags(Output.of(maxUniqueTags));
         }

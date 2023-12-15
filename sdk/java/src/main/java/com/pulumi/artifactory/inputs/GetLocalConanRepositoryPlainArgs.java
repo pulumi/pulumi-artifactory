@@ -58,9 +58,19 @@ public final class GetLocalConanRepositoryPlainArgs extends com.pulumi.resources
         return Optional.ofNullable(this.excludesPattern);
     }
 
+    /**
+     * Force basic authentication credentials in order to use this repository.
+     * Default is `false`.
+     * 
+     */
     @Import(name="forceConanAuthentication")
     private @Nullable Boolean forceConanAuthentication;
 
+    /**
+     * @return Force basic authentication credentials in order to use this repository.
+     * Default is `false`.
+     * 
+     */
     public Optional<Boolean> forceConanAuthentication() {
         return Optional.ofNullable(this.forceConanAuthentication);
     }
@@ -72,9 +82,17 @@ public final class GetLocalConanRepositoryPlainArgs extends com.pulumi.resources
         return Optional.ofNullable(this.includesPattern);
     }
 
+    /**
+     * the identity key of the repo.
+     * 
+     */
     @Import(name="key", required=true)
     private String key;
 
+    /**
+     * @return the identity key of the repo.
+     * 
+     */
     public String key() {
         return this.key;
     }
@@ -197,6 +215,13 @@ public final class GetLocalConanRepositoryPlainArgs extends com.pulumi.resources
             return this;
         }
 
+        /**
+         * @param forceConanAuthentication Force basic authentication credentials in order to use this repository.
+         * Default is `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder forceConanAuthentication(@Nullable Boolean forceConanAuthentication) {
             $.forceConanAuthentication = forceConanAuthentication;
             return this;
@@ -207,6 +232,12 @@ public final class GetLocalConanRepositoryPlainArgs extends com.pulumi.resources
             return this;
         }
 
+        /**
+         * @param key the identity key of the repo.
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(String key) {
             $.key = key;
             return this;

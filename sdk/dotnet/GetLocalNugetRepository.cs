@@ -11,9 +11,59 @@ namespace Pulumi.Artifactory
 {
     public static class GetLocalNugetRepository
     {
+        /// <summary>
+        /// Retrieves a local Nuget repository.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var local_test_nuget_repo_basic = Artifactory.GetLocalNugetRepository.Invoke(new()
+        ///     {
+        ///         Key = "local-test-nuget-repo-basic",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetLocalNugetRepositoryResult> InvokeAsync(GetLocalNugetRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLocalNugetRepositoryResult>("artifactory:index/getLocalNugetRepository:getLocalNugetRepository", args ?? new GetLocalNugetRepositoryArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Retrieves a local Nuget repository.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var local_test_nuget_repo_basic = Artifactory.GetLocalNugetRepository.Invoke(new()
+        ///     {
+        ///         Key = "local-test-nuget-repo-basic",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetLocalNugetRepositoryResult> Invoke(GetLocalNugetRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocalNugetRepositoryResult>("artifactory:index/getLocalNugetRepository:getLocalNugetRepository", args ?? new GetLocalNugetRepositoryInvokeArgs(), options.WithDefaults());
     }
@@ -39,15 +89,27 @@ namespace Pulumi.Artifactory
         [Input("excludesPattern")]
         public string? ExcludesPattern { get; set; }
 
+        /// <summary>
+        /// Force basic authentication credentials in order to use this repository.
+        /// Default is `false`.
+        /// </summary>
         [Input("forceNugetAuthentication")]
         public bool? ForceNugetAuthentication { get; set; }
 
         [Input("includesPattern")]
         public string? IncludesPattern { get; set; }
 
+        /// <summary>
+        /// the identity key of the repo.
+        /// </summary>
         [Input("key", required: true)]
         public string Key { get; set; } = null!;
 
+        /// <summary>
+        /// The maximum number of unique snapshots of a single artifact to store Once the
+        /// number of snapshots exceeds this setting, older versions are removed A value of 0 (default) indicates there is no
+        /// limit, and unique snapshots are not cleaned up.
+        /// </summary>
         [Input("maxUniqueSnapshots")]
         public int? MaxUniqueSnapshots { get; set; }
 
@@ -108,15 +170,27 @@ namespace Pulumi.Artifactory
         [Input("excludesPattern")]
         public Input<string>? ExcludesPattern { get; set; }
 
+        /// <summary>
+        /// Force basic authentication credentials in order to use this repository.
+        /// Default is `false`.
+        /// </summary>
         [Input("forceNugetAuthentication")]
         public Input<bool>? ForceNugetAuthentication { get; set; }
 
         [Input("includesPattern")]
         public Input<string>? IncludesPattern { get; set; }
 
+        /// <summary>
+        /// the identity key of the repo.
+        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
+        /// <summary>
+        /// The maximum number of unique snapshots of a single artifact to store Once the
+        /// number of snapshots exceeds this setting, older versions are removed A value of 0 (default) indicates there is no
+        /// limit, and unique snapshots are not cleaned up.
+        /// </summary>
         [Input("maxUniqueSnapshots")]
         public Input<int>? MaxUniqueSnapshots { get; set; }
 
@@ -167,6 +241,10 @@ namespace Pulumi.Artifactory
         public readonly string? Description;
         public readonly bool? DownloadDirect;
         public readonly string? ExcludesPattern;
+        /// <summary>
+        /// Force basic authentication credentials in order to use this repository.
+        /// Default is `false`.
+        /// </summary>
         public readonly bool? ForceNugetAuthentication;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
@@ -174,6 +252,11 @@ namespace Pulumi.Artifactory
         public readonly string Id;
         public readonly string? IncludesPattern;
         public readonly string Key;
+        /// <summary>
+        /// The maximum number of unique snapshots of a single artifact to store Once the
+        /// number of snapshots exceeds this setting, older versions are removed A value of 0 (default) indicates there is no
+        /// limit, and unique snapshots are not cleaned up.
+        /// </summary>
         public readonly int? MaxUniqueSnapshots;
         public readonly string? Notes;
         public readonly string PackageType;

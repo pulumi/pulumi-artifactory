@@ -16,9 +16,21 @@ public final class GetLocalCargoRepositoryPlainArgs extends com.pulumi.resources
 
     public static final GetLocalCargoRepositoryPlainArgs Empty = new GetLocalCargoRepositoryPlainArgs();
 
+    /**
+     * Cargo client does not send credentials when performing download and search for crates.
+     * Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous
+     * access option. Default value is `false`.
+     * 
+     */
     @Import(name="anonymousAccess")
     private @Nullable Boolean anonymousAccess;
 
+    /**
+     * @return Cargo client does not send credentials when performing download and search for crates.
+     * Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous
+     * access option. Default value is `false`.
+     * 
+     */
     public Optional<Boolean> anonymousAccess() {
         return Optional.ofNullable(this.anonymousAccess);
     }
@@ -58,9 +70,19 @@ public final class GetLocalCargoRepositoryPlainArgs extends com.pulumi.resources
         return Optional.ofNullable(this.downloadDirect);
     }
 
+    /**
+     * Enable internal index support based on Cargo sparse index specifications, instead
+     * of the default git index. Default value is `false`.
+     * 
+     */
     @Import(name="enableSparseIndex")
     private @Nullable Boolean enableSparseIndex;
 
+    /**
+     * @return Enable internal index support based on Cargo sparse index specifications, instead
+     * of the default git index. Default value is `false`.
+     * 
+     */
     public Optional<Boolean> enableSparseIndex() {
         return Optional.ofNullable(this.enableSparseIndex);
     }
@@ -86,9 +108,17 @@ public final class GetLocalCargoRepositoryPlainArgs extends com.pulumi.resources
         return Optional.ofNullable(this.indexCompressionFormats);
     }
 
+    /**
+     * the identity key of the repo.
+     * 
+     */
     @Import(name="key", required=true)
     private String key;
 
+    /**
+     * @return the identity key of the repo.
+     * 
+     */
     public String key() {
         return this.key;
     }
@@ -183,6 +213,14 @@ public final class GetLocalCargoRepositoryPlainArgs extends com.pulumi.resources
             $ = new GetLocalCargoRepositoryPlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param anonymousAccess Cargo client does not send credentials when performing download and search for crates.
+         * Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous
+         * access option. Default value is `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder anonymousAccess(@Nullable Boolean anonymousAccess) {
             $.anonymousAccess = anonymousAccess;
             return this;
@@ -213,6 +251,13 @@ public final class GetLocalCargoRepositoryPlainArgs extends com.pulumi.resources
             return this;
         }
 
+        /**
+         * @param enableSparseIndex Enable internal index support based on Cargo sparse index specifications, instead
+         * of the default git index. Default value is `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enableSparseIndex(@Nullable Boolean enableSparseIndex) {
             $.enableSparseIndex = enableSparseIndex;
             return this;
@@ -237,6 +282,12 @@ public final class GetLocalCargoRepositoryPlainArgs extends com.pulumi.resources
             return indexCompressionFormats(List.of(indexCompressionFormats));
         }
 
+        /**
+         * @param key the identity key of the repo.
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(String key) {
             $.key = key;
             return this;

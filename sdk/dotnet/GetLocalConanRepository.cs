@@ -11,9 +11,59 @@ namespace Pulumi.Artifactory
 {
     public static class GetLocalConanRepository
     {
+        /// <summary>
+        /// Retrieves a local conan repository.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var local_test_conan_repo = Artifactory.GetLocalConanRepository.Invoke(new()
+        ///     {
+        ///         Key = "local-test-conan-repo",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetLocalConanRepositoryResult> InvokeAsync(GetLocalConanRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLocalConanRepositoryResult>("artifactory:index/getLocalConanRepository:getLocalConanRepository", args ?? new GetLocalConanRepositoryArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Retrieves a local conan repository.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var local_test_conan_repo = Artifactory.GetLocalConanRepository.Invoke(new()
+        ///     {
+        ///         Key = "local-test-conan-repo",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetLocalConanRepositoryResult> Invoke(GetLocalConanRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocalConanRepositoryResult>("artifactory:index/getLocalConanRepository:getLocalConanRepository", args ?? new GetLocalConanRepositoryInvokeArgs(), options.WithDefaults());
     }
@@ -39,12 +89,19 @@ namespace Pulumi.Artifactory
         [Input("excludesPattern")]
         public string? ExcludesPattern { get; set; }
 
+        /// <summary>
+        /// Force basic authentication credentials in order to use this repository.
+        /// Default is `false`.
+        /// </summary>
         [Input("forceConanAuthentication")]
         public bool? ForceConanAuthentication { get; set; }
 
         [Input("includesPattern")]
         public string? IncludesPattern { get; set; }
 
+        /// <summary>
+        /// the identity key of the repo.
+        /// </summary>
         [Input("key", required: true)]
         public string Key { get; set; } = null!;
 
@@ -105,12 +162,19 @@ namespace Pulumi.Artifactory
         [Input("excludesPattern")]
         public Input<string>? ExcludesPattern { get; set; }
 
+        /// <summary>
+        /// Force basic authentication credentials in order to use this repository.
+        /// Default is `false`.
+        /// </summary>
         [Input("forceConanAuthentication")]
         public Input<bool>? ForceConanAuthentication { get; set; }
 
         [Input("includesPattern")]
         public Input<string>? IncludesPattern { get; set; }
 
+        /// <summary>
+        /// the identity key of the repo.
+        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
@@ -161,12 +225,19 @@ namespace Pulumi.Artifactory
         public readonly string? Description;
         public readonly bool? DownloadDirect;
         public readonly string? ExcludesPattern;
+        /// <summary>
+        /// Force basic authentication credentials in order to use this repository.
+        /// Default is `false`.
+        /// </summary>
         public readonly bool? ForceConanAuthentication;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         public readonly string? IncludesPattern;
+        /// <summary>
+        /// the identity key of the repo.
+        /// </summary>
         public readonly string Key;
         public readonly string? Notes;
         public readonly string PackageType;

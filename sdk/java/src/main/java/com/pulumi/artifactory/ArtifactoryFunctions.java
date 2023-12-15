@@ -69,6 +69,8 @@ import com.pulumi.artifactory.inputs.GetFederatedTerraformProviderRepositoryPlai
 import com.pulumi.artifactory.inputs.GetFederatedVagrantRepositoryArgs;
 import com.pulumi.artifactory.inputs.GetFederatedVagrantRepositoryPlainArgs;
 import com.pulumi.artifactory.inputs.GetFileArgs;
+import com.pulumi.artifactory.inputs.GetFileListArgs;
+import com.pulumi.artifactory.inputs.GetFileListPlainArgs;
 import com.pulumi.artifactory.inputs.GetFilePlainArgs;
 import com.pulumi.artifactory.inputs.GetFileinfoArgs;
 import com.pulumi.artifactory.inputs.GetFileinfoPlainArgs;
@@ -206,6 +208,8 @@ import com.pulumi.artifactory.inputs.GetRemoteTerraformRepositoryArgs;
 import com.pulumi.artifactory.inputs.GetRemoteTerraformRepositoryPlainArgs;
 import com.pulumi.artifactory.inputs.GetRemoteVcsRepositoryArgs;
 import com.pulumi.artifactory.inputs.GetRemoteVcsRepositoryPlainArgs;
+import com.pulumi.artifactory.inputs.GetRepositoriesArgs;
+import com.pulumi.artifactory.inputs.GetRepositoriesPlainArgs;
 import com.pulumi.artifactory.inputs.GetUserArgs;
 import com.pulumi.artifactory.inputs.GetUserPlainArgs;
 import com.pulumi.artifactory.inputs.GetVirtualAlpineRepositoryArgs;
@@ -292,6 +296,7 @@ import com.pulumi.artifactory.outputs.GetFederatedSwiftRepositoryResult;
 import com.pulumi.artifactory.outputs.GetFederatedTerraformModuleRepositoryResult;
 import com.pulumi.artifactory.outputs.GetFederatedTerraformProviderRepositoryResult;
 import com.pulumi.artifactory.outputs.GetFederatedVagrantRepositoryResult;
+import com.pulumi.artifactory.outputs.GetFileListResult;
 import com.pulumi.artifactory.outputs.GetFileResult;
 import com.pulumi.artifactory.outputs.GetFileinfoResult;
 import com.pulumi.artifactory.outputs.GetGroupResult;
@@ -361,6 +366,7 @@ import com.pulumi.artifactory.outputs.GetRemoteSbtRepositoryResult;
 import com.pulumi.artifactory.outputs.GetRemoteSwiftRepositoryResult;
 import com.pulumi.artifactory.outputs.GetRemoteTerraformRepositoryResult;
 import com.pulumi.artifactory.outputs.GetRemoteVcsRepositoryResult;
+import com.pulumi.artifactory.outputs.GetRepositoriesResult;
 import com.pulumi.artifactory.outputs.GetUserResult;
 import com.pulumi.artifactory.outputs.GetVirtualAlpineRepositoryResult;
 import com.pulumi.artifactory.outputs.GetVirtualBowerRepositoryResult;
@@ -5144,6 +5150,158 @@ public final class ArtifactoryFunctions {
         return Deployment.getInstance().invokeAsync("artifactory:index/getFile:getFile", TypeShape.of(GetFileResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Get a flat (the default) or deep listing of the files and folders (not included by default) within a folder. For deep listing you can specify an optional depth to limit the results. Optionally include a map of metadata timestamp values as part of the result.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetFileListArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var my-repo-file-list = ArtifactoryFunctions.getFileList(GetFileListArgs.builder()
+     *             .folderPath(&#34;path/to/artifact&#34;)
+     *             .repositoryKey(&#34;my-generic-local&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetFileListResult> getFileList(GetFileListArgs args) {
+        return getFileList(args, InvokeOptions.Empty);
+    }
+    /**
+     * Get a flat (the default) or deep listing of the files and folders (not included by default) within a folder. For deep listing you can specify an optional depth to limit the results. Optionally include a map of metadata timestamp values as part of the result.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetFileListArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var my-repo-file-list = ArtifactoryFunctions.getFileList(GetFileListArgs.builder()
+     *             .folderPath(&#34;path/to/artifact&#34;)
+     *             .repositoryKey(&#34;my-generic-local&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetFileListResult> getFileListPlain(GetFileListPlainArgs args) {
+        return getFileListPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Get a flat (the default) or deep listing of the files and folders (not included by default) within a folder. For deep listing you can specify an optional depth to limit the results. Optionally include a map of metadata timestamp values as part of the result.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetFileListArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var my-repo-file-list = ArtifactoryFunctions.getFileList(GetFileListArgs.builder()
+     *             .folderPath(&#34;path/to/artifact&#34;)
+     *             .repositoryKey(&#34;my-generic-local&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetFileListResult> getFileList(GetFileListArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("artifactory:index/getFileList:getFileList", TypeShape.of(GetFileListResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get a flat (the default) or deep listing of the files and folders (not included by default) within a folder. For deep listing you can specify an optional depth to limit the results. Optionally include a map of metadata timestamp values as part of the result.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetFileListArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var my-repo-file-list = ArtifactoryFunctions.getFileList(GetFileListArgs.builder()
+     *             .folderPath(&#34;path/to/artifact&#34;)
+     *             .repositoryKey(&#34;my-generic-local&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetFileListResult> getFileListPlain(GetFileListPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("artifactory:index/getFileList:getFileList", TypeShape.of(GetFileListResult.class), args, Utilities.withVersion(options));
+    }
+    /**
      * ## # Artifactory File Info Data Source
      * 
      * Provides an Artifactory fileinfo datasource. This can be used to read metadata of files stored in Artifactory repositories.
@@ -5463,411 +5621,4891 @@ public final class ArtifactoryFunctions {
     public static CompletableFuture<GetGroupResult> getGroupPlain(GetGroupPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("artifactory:index/getGroup:getGroup", TypeShape.of(GetGroupResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Retrieves a local alpine repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalAlpineRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-alpine-repo-basic = ArtifactoryFunctions.getLocalAlpineRepository(GetLocalAlpineRepositoryArgs.builder()
+     *             .key(&#34;local-test-alpine-repo-basic&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetLocalAlpineRepositoryResult> getLocalAlpineRepository(GetLocalAlpineRepositoryArgs args) {
         return getLocalAlpineRepository(args, InvokeOptions.Empty);
     }
+    /**
+     * Retrieves a local alpine repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalAlpineRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-alpine-repo-basic = ArtifactoryFunctions.getLocalAlpineRepository(GetLocalAlpineRepositoryArgs.builder()
+     *             .key(&#34;local-test-alpine-repo-basic&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetLocalAlpineRepositoryResult> getLocalAlpineRepositoryPlain(GetLocalAlpineRepositoryPlainArgs args) {
         return getLocalAlpineRepositoryPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * Retrieves a local alpine repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalAlpineRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-alpine-repo-basic = ArtifactoryFunctions.getLocalAlpineRepository(GetLocalAlpineRepositoryArgs.builder()
+     *             .key(&#34;local-test-alpine-repo-basic&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetLocalAlpineRepositoryResult> getLocalAlpineRepository(GetLocalAlpineRepositoryArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("artifactory:index/getLocalAlpineRepository:getLocalAlpineRepository", TypeShape.of(GetLocalAlpineRepositoryResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Retrieves a local alpine repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalAlpineRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-alpine-repo-basic = ArtifactoryFunctions.getLocalAlpineRepository(GetLocalAlpineRepositoryArgs.builder()
+     *             .key(&#34;local-test-alpine-repo-basic&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetLocalAlpineRepositoryResult> getLocalAlpineRepositoryPlain(GetLocalAlpineRepositoryPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("artifactory:index/getLocalAlpineRepository:getLocalAlpineRepository", TypeShape.of(GetLocalAlpineRepositoryResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Retrieves a local Bower repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalBowerRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-bower-repo = ArtifactoryFunctions.getLocalBowerRepository(GetLocalBowerRepositoryArgs.builder()
+     *             .key(&#34;local-test-bower-repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetLocalBowerRepositoryResult> getLocalBowerRepository(GetLocalBowerRepositoryArgs args) {
         return getLocalBowerRepository(args, InvokeOptions.Empty);
     }
+    /**
+     * Retrieves a local Bower repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalBowerRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-bower-repo = ArtifactoryFunctions.getLocalBowerRepository(GetLocalBowerRepositoryArgs.builder()
+     *             .key(&#34;local-test-bower-repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetLocalBowerRepositoryResult> getLocalBowerRepositoryPlain(GetLocalBowerRepositoryPlainArgs args) {
         return getLocalBowerRepositoryPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * Retrieves a local Bower repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalBowerRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-bower-repo = ArtifactoryFunctions.getLocalBowerRepository(GetLocalBowerRepositoryArgs.builder()
+     *             .key(&#34;local-test-bower-repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetLocalBowerRepositoryResult> getLocalBowerRepository(GetLocalBowerRepositoryArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("artifactory:index/getLocalBowerRepository:getLocalBowerRepository", TypeShape.of(GetLocalBowerRepositoryResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Retrieves a local Bower repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalBowerRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-bower-repo = ArtifactoryFunctions.getLocalBowerRepository(GetLocalBowerRepositoryArgs.builder()
+     *             .key(&#34;local-test-bower-repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetLocalBowerRepositoryResult> getLocalBowerRepositoryPlain(GetLocalBowerRepositoryPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("artifactory:index/getLocalBowerRepository:getLocalBowerRepository", TypeShape.of(GetLocalBowerRepositoryResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Retrieves a local cargo repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalCargoRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-cargo-repo-basic = ArtifactoryFunctions.getLocalCargoRepository(GetLocalCargoRepositoryArgs.builder()
+     *             .key(&#34;local-test-cargo-repo-basic&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetLocalCargoRepositoryResult> getLocalCargoRepository(GetLocalCargoRepositoryArgs args) {
         return getLocalCargoRepository(args, InvokeOptions.Empty);
     }
+    /**
+     * Retrieves a local cargo repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalCargoRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-cargo-repo-basic = ArtifactoryFunctions.getLocalCargoRepository(GetLocalCargoRepositoryArgs.builder()
+     *             .key(&#34;local-test-cargo-repo-basic&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetLocalCargoRepositoryResult> getLocalCargoRepositoryPlain(GetLocalCargoRepositoryPlainArgs args) {
         return getLocalCargoRepositoryPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * Retrieves a local cargo repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalCargoRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-cargo-repo-basic = ArtifactoryFunctions.getLocalCargoRepository(GetLocalCargoRepositoryArgs.builder()
+     *             .key(&#34;local-test-cargo-repo-basic&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetLocalCargoRepositoryResult> getLocalCargoRepository(GetLocalCargoRepositoryArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("artifactory:index/getLocalCargoRepository:getLocalCargoRepository", TypeShape.of(GetLocalCargoRepositoryResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Retrieves a local cargo repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalCargoRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-cargo-repo-basic = ArtifactoryFunctions.getLocalCargoRepository(GetLocalCargoRepositoryArgs.builder()
+     *             .key(&#34;local-test-cargo-repo-basic&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetLocalCargoRepositoryResult> getLocalCargoRepositoryPlain(GetLocalCargoRepositoryPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("artifactory:index/getLocalCargoRepository:getLocalCargoRepository", TypeShape.of(GetLocalCargoRepositoryResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Retrieves a local Chef repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalChefRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-chef-repo = ArtifactoryFunctions.getLocalChefRepository(GetLocalChefRepositoryArgs.builder()
+     *             .key(&#34;local-test-chef-repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetLocalChefRepositoryResult> getLocalChefRepository(GetLocalChefRepositoryArgs args) {
         return getLocalChefRepository(args, InvokeOptions.Empty);
     }
+    /**
+     * Retrieves a local Chef repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalChefRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-chef-repo = ArtifactoryFunctions.getLocalChefRepository(GetLocalChefRepositoryArgs.builder()
+     *             .key(&#34;local-test-chef-repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetLocalChefRepositoryResult> getLocalChefRepositoryPlain(GetLocalChefRepositoryPlainArgs args) {
         return getLocalChefRepositoryPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * Retrieves a local Chef repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalChefRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-chef-repo = ArtifactoryFunctions.getLocalChefRepository(GetLocalChefRepositoryArgs.builder()
+     *             .key(&#34;local-test-chef-repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetLocalChefRepositoryResult> getLocalChefRepository(GetLocalChefRepositoryArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("artifactory:index/getLocalChefRepository:getLocalChefRepository", TypeShape.of(GetLocalChefRepositoryResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Retrieves a local Chef repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalChefRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-chef-repo = ArtifactoryFunctions.getLocalChefRepository(GetLocalChefRepositoryArgs.builder()
+     *             .key(&#34;local-test-chef-repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetLocalChefRepositoryResult> getLocalChefRepositoryPlain(GetLocalChefRepositoryPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("artifactory:index/getLocalChefRepository:getLocalChefRepository", TypeShape.of(GetLocalChefRepositoryResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Retrieves a local cocoapods repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalCocoapodsRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-cocoapods-repo = ArtifactoryFunctions.getLocalCocoapodsRepository(GetLocalCocoapodsRepositoryArgs.builder()
+     *             .key(&#34;local-test-cocoapods-repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetLocalCocoapodsRepositoryResult> getLocalCocoapodsRepository(GetLocalCocoapodsRepositoryArgs args) {
         return getLocalCocoapodsRepository(args, InvokeOptions.Empty);
     }
+    /**
+     * Retrieves a local cocoapods repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalCocoapodsRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-cocoapods-repo = ArtifactoryFunctions.getLocalCocoapodsRepository(GetLocalCocoapodsRepositoryArgs.builder()
+     *             .key(&#34;local-test-cocoapods-repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetLocalCocoapodsRepositoryResult> getLocalCocoapodsRepositoryPlain(GetLocalCocoapodsRepositoryPlainArgs args) {
         return getLocalCocoapodsRepositoryPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * Retrieves a local cocoapods repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalCocoapodsRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-cocoapods-repo = ArtifactoryFunctions.getLocalCocoapodsRepository(GetLocalCocoapodsRepositoryArgs.builder()
+     *             .key(&#34;local-test-cocoapods-repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetLocalCocoapodsRepositoryResult> getLocalCocoapodsRepository(GetLocalCocoapodsRepositoryArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("artifactory:index/getLocalCocoapodsRepository:getLocalCocoapodsRepository", TypeShape.of(GetLocalCocoapodsRepositoryResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Retrieves a local cocoapods repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalCocoapodsRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-cocoapods-repo = ArtifactoryFunctions.getLocalCocoapodsRepository(GetLocalCocoapodsRepositoryArgs.builder()
+     *             .key(&#34;local-test-cocoapods-repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetLocalCocoapodsRepositoryResult> getLocalCocoapodsRepositoryPlain(GetLocalCocoapodsRepositoryPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("artifactory:index/getLocalCocoapodsRepository:getLocalCocoapodsRepository", TypeShape.of(GetLocalCocoapodsRepositoryResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Retrieves a local composer repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalComposerRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-composer-repo = ArtifactoryFunctions.getLocalComposerRepository(GetLocalComposerRepositoryArgs.builder()
+     *             .key(&#34;local-test-composer-repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetLocalComposerRepositoryResult> getLocalComposerRepository(GetLocalComposerRepositoryArgs args) {
         return getLocalComposerRepository(args, InvokeOptions.Empty);
     }
+    /**
+     * Retrieves a local composer repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalComposerRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-composer-repo = ArtifactoryFunctions.getLocalComposerRepository(GetLocalComposerRepositoryArgs.builder()
+     *             .key(&#34;local-test-composer-repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetLocalComposerRepositoryResult> getLocalComposerRepositoryPlain(GetLocalComposerRepositoryPlainArgs args) {
         return getLocalComposerRepositoryPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * Retrieves a local composer repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalComposerRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-composer-repo = ArtifactoryFunctions.getLocalComposerRepository(GetLocalComposerRepositoryArgs.builder()
+     *             .key(&#34;local-test-composer-repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetLocalComposerRepositoryResult> getLocalComposerRepository(GetLocalComposerRepositoryArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("artifactory:index/getLocalComposerRepository:getLocalComposerRepository", TypeShape.of(GetLocalComposerRepositoryResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Retrieves a local composer repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalComposerRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-composer-repo = ArtifactoryFunctions.getLocalComposerRepository(GetLocalComposerRepositoryArgs.builder()
+     *             .key(&#34;local-test-composer-repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetLocalComposerRepositoryResult> getLocalComposerRepositoryPlain(GetLocalComposerRepositoryPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("artifactory:index/getLocalComposerRepository:getLocalComposerRepository", TypeShape.of(GetLocalComposerRepositoryResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Retrieves a local conan repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalConanRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-conan-repo = ArtifactoryFunctions.getLocalConanRepository(GetLocalConanRepositoryArgs.builder()
+     *             .key(&#34;local-test-conan-repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetLocalConanRepositoryResult> getLocalConanRepository(GetLocalConanRepositoryArgs args) {
         return getLocalConanRepository(args, InvokeOptions.Empty);
     }
+    /**
+     * Retrieves a local conan repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalConanRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-conan-repo = ArtifactoryFunctions.getLocalConanRepository(GetLocalConanRepositoryArgs.builder()
+     *             .key(&#34;local-test-conan-repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetLocalConanRepositoryResult> getLocalConanRepositoryPlain(GetLocalConanRepositoryPlainArgs args) {
         return getLocalConanRepositoryPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * Retrieves a local conan repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalConanRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-conan-repo = ArtifactoryFunctions.getLocalConanRepository(GetLocalConanRepositoryArgs.builder()
+     *             .key(&#34;local-test-conan-repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetLocalConanRepositoryResult> getLocalConanRepository(GetLocalConanRepositoryArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("artifactory:index/getLocalConanRepository:getLocalConanRepository", TypeShape.of(GetLocalConanRepositoryResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Retrieves a local conan repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalConanRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-conan-repo = ArtifactoryFunctions.getLocalConanRepository(GetLocalConanRepositoryArgs.builder()
+     *             .key(&#34;local-test-conan-repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetLocalConanRepositoryResult> getLocalConanRepositoryPlain(GetLocalConanRepositoryPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("artifactory:index/getLocalConanRepository:getLocalConanRepository", TypeShape.of(GetLocalConanRepositoryResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Retrieves a local conda repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalCondaRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-conda-repo = ArtifactoryFunctions.getLocalCondaRepository(GetLocalCondaRepositoryArgs.builder()
+     *             .key(&#34;local-test-conda-repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetLocalCondaRepositoryResult> getLocalCondaRepository(GetLocalCondaRepositoryArgs args) {
         return getLocalCondaRepository(args, InvokeOptions.Empty);
     }
+    /**
+     * Retrieves a local conda repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalCondaRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-conda-repo = ArtifactoryFunctions.getLocalCondaRepository(GetLocalCondaRepositoryArgs.builder()
+     *             .key(&#34;local-test-conda-repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetLocalCondaRepositoryResult> getLocalCondaRepositoryPlain(GetLocalCondaRepositoryPlainArgs args) {
         return getLocalCondaRepositoryPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * Retrieves a local conda repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalCondaRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-conda-repo = ArtifactoryFunctions.getLocalCondaRepository(GetLocalCondaRepositoryArgs.builder()
+     *             .key(&#34;local-test-conda-repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetLocalCondaRepositoryResult> getLocalCondaRepository(GetLocalCondaRepositoryArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("artifactory:index/getLocalCondaRepository:getLocalCondaRepository", TypeShape.of(GetLocalCondaRepositoryResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Retrieves a local conda repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalCondaRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-conda-repo = ArtifactoryFunctions.getLocalCondaRepository(GetLocalCondaRepositoryArgs.builder()
+     *             .key(&#34;local-test-conda-repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetLocalCondaRepositoryResult> getLocalCondaRepositoryPlain(GetLocalCondaRepositoryPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("artifactory:index/getLocalCondaRepository:getLocalCondaRepository", TypeShape.of(GetLocalCondaRepositoryResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Retrieves a local cran repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalCranRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-cran-repo = ArtifactoryFunctions.getLocalCranRepository(GetLocalCranRepositoryArgs.builder()
+     *             .key(&#34;local-test-cran-repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetLocalCranRepositoryResult> getLocalCranRepository(GetLocalCranRepositoryArgs args) {
         return getLocalCranRepository(args, InvokeOptions.Empty);
     }
+    /**
+     * Retrieves a local cran repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalCranRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-cran-repo = ArtifactoryFunctions.getLocalCranRepository(GetLocalCranRepositoryArgs.builder()
+     *             .key(&#34;local-test-cran-repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetLocalCranRepositoryResult> getLocalCranRepositoryPlain(GetLocalCranRepositoryPlainArgs args) {
         return getLocalCranRepositoryPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * Retrieves a local cran repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalCranRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-cran-repo = ArtifactoryFunctions.getLocalCranRepository(GetLocalCranRepositoryArgs.builder()
+     *             .key(&#34;local-test-cran-repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetLocalCranRepositoryResult> getLocalCranRepository(GetLocalCranRepositoryArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("artifactory:index/getLocalCranRepository:getLocalCranRepository", TypeShape.of(GetLocalCranRepositoryResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Retrieves a local cran repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalCranRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-cran-repo = ArtifactoryFunctions.getLocalCranRepository(GetLocalCranRepositoryArgs.builder()
+     *             .key(&#34;local-test-cran-repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetLocalCranRepositoryResult> getLocalCranRepositoryPlain(GetLocalCranRepositoryPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("artifactory:index/getLocalCranRepository:getLocalCranRepository", TypeShape.of(GetLocalCranRepositoryResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Retrieves a local Debian repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalDebianRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-debian-repo-basic = ArtifactoryFunctions.getLocalDebianRepository(GetLocalDebianRepositoryArgs.builder()
+     *             .key(&#34;local-test-debian-repo-basic&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetLocalDebianRepositoryResult> getLocalDebianRepository(GetLocalDebianRepositoryArgs args) {
         return getLocalDebianRepository(args, InvokeOptions.Empty);
     }
+    /**
+     * Retrieves a local Debian repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalDebianRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-debian-repo-basic = ArtifactoryFunctions.getLocalDebianRepository(GetLocalDebianRepositoryArgs.builder()
+     *             .key(&#34;local-test-debian-repo-basic&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetLocalDebianRepositoryResult> getLocalDebianRepositoryPlain(GetLocalDebianRepositoryPlainArgs args) {
         return getLocalDebianRepositoryPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * Retrieves a local Debian repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalDebianRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-debian-repo-basic = ArtifactoryFunctions.getLocalDebianRepository(GetLocalDebianRepositoryArgs.builder()
+     *             .key(&#34;local-test-debian-repo-basic&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetLocalDebianRepositoryResult> getLocalDebianRepository(GetLocalDebianRepositoryArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("artifactory:index/getLocalDebianRepository:getLocalDebianRepository", TypeShape.of(GetLocalDebianRepositoryResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Retrieves a local Debian repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalDebianRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-debian-repo-basic = ArtifactoryFunctions.getLocalDebianRepository(GetLocalDebianRepositoryArgs.builder()
+     *             .key(&#34;local-test-debian-repo-basic&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetLocalDebianRepositoryResult> getLocalDebianRepositoryPlain(GetLocalDebianRepositoryPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("artifactory:index/getLocalDebianRepository:getLocalDebianRepository", TypeShape.of(GetLocalDebianRepositoryResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Retrieves a local Docker (v1) repository resource.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.DockerV1Repository;
+     * import com.pulumi.artifactory.DockerV1RepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var artifactoryLocalTestDockerV1Repository = new DockerV1Repository(&#34;artifactoryLocalTestDockerV1Repository&#34;, DockerV1RepositoryArgs.builder()        
+     *             .key(&#34;artifactory_local_test_docker_v1_repository&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetLocalDockerV1RepositoryResult> getLocalDockerV1Repository(GetLocalDockerV1RepositoryArgs args) {
         return getLocalDockerV1Repository(args, InvokeOptions.Empty);
     }
+    /**
+     * Retrieves a local Docker (v1) repository resource.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.DockerV1Repository;
+     * import com.pulumi.artifactory.DockerV1RepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var artifactoryLocalTestDockerV1Repository = new DockerV1Repository(&#34;artifactoryLocalTestDockerV1Repository&#34;, DockerV1RepositoryArgs.builder()        
+     *             .key(&#34;artifactory_local_test_docker_v1_repository&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetLocalDockerV1RepositoryResult> getLocalDockerV1RepositoryPlain(GetLocalDockerV1RepositoryPlainArgs args) {
         return getLocalDockerV1RepositoryPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * Retrieves a local Docker (v1) repository resource.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.DockerV1Repository;
+     * import com.pulumi.artifactory.DockerV1RepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var artifactoryLocalTestDockerV1Repository = new DockerV1Repository(&#34;artifactoryLocalTestDockerV1Repository&#34;, DockerV1RepositoryArgs.builder()        
+     *             .key(&#34;artifactory_local_test_docker_v1_repository&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetLocalDockerV1RepositoryResult> getLocalDockerV1Repository(GetLocalDockerV1RepositoryArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("artifactory:index/getLocalDockerV1Repository:getLocalDockerV1Repository", TypeShape.of(GetLocalDockerV1RepositoryResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Retrieves a local Docker (v1) repository resource.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.DockerV1Repository;
+     * import com.pulumi.artifactory.DockerV1RepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var artifactoryLocalTestDockerV1Repository = new DockerV1Repository(&#34;artifactoryLocalTestDockerV1Repository&#34;, DockerV1RepositoryArgs.builder()        
+     *             .key(&#34;artifactory_local_test_docker_v1_repository&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetLocalDockerV1RepositoryResult> getLocalDockerV1RepositoryPlain(GetLocalDockerV1RepositoryPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("artifactory:index/getLocalDockerV1Repository:getLocalDockerV1Repository", TypeShape.of(GetLocalDockerV1RepositoryResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Retrieves a local Docker (V2) repository resource
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.DockerV2Repository;
+     * import com.pulumi.artifactory.DockerV2RepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var artifactoryLocalTestDockerV2Repository = new DockerV2Repository(&#34;artifactoryLocalTestDockerV2Repository&#34;, DockerV2RepositoryArgs.builder()        
+     *             .key(&#34;artifactory_local_test_docker_v2_repository&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetLocalDockerV2RepositoryResult> getLocalDockerV2Repository(GetLocalDockerV2RepositoryArgs args) {
         return getLocalDockerV2Repository(args, InvokeOptions.Empty);
     }
+    /**
+     * Retrieves a local Docker (V2) repository resource
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.DockerV2Repository;
+     * import com.pulumi.artifactory.DockerV2RepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var artifactoryLocalTestDockerV2Repository = new DockerV2Repository(&#34;artifactoryLocalTestDockerV2Repository&#34;, DockerV2RepositoryArgs.builder()        
+     *             .key(&#34;artifactory_local_test_docker_v2_repository&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetLocalDockerV2RepositoryResult> getLocalDockerV2RepositoryPlain(GetLocalDockerV2RepositoryPlainArgs args) {
         return getLocalDockerV2RepositoryPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * Retrieves a local Docker (V2) repository resource
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.DockerV2Repository;
+     * import com.pulumi.artifactory.DockerV2RepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var artifactoryLocalTestDockerV2Repository = new DockerV2Repository(&#34;artifactoryLocalTestDockerV2Repository&#34;, DockerV2RepositoryArgs.builder()        
+     *             .key(&#34;artifactory_local_test_docker_v2_repository&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetLocalDockerV2RepositoryResult> getLocalDockerV2Repository(GetLocalDockerV2RepositoryArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("artifactory:index/getLocalDockerV2Repository:getLocalDockerV2Repository", TypeShape.of(GetLocalDockerV2RepositoryResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Retrieves a local Docker (V2) repository resource
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.DockerV2Repository;
+     * import com.pulumi.artifactory.DockerV2RepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var artifactoryLocalTestDockerV2Repository = new DockerV2Repository(&#34;artifactoryLocalTestDockerV2Repository&#34;, DockerV2RepositoryArgs.builder()        
+     *             .key(&#34;artifactory_local_test_docker_v2_repository&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetLocalDockerV2RepositoryResult> getLocalDockerV2RepositoryPlain(GetLocalDockerV2RepositoryPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("artifactory:index/getLocalDockerV2Repository:getLocalDockerV2Repository", TypeShape.of(GetLocalDockerV2RepositoryResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Retrieves a local gems repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalGemsRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-gems-repo = ArtifactoryFunctions.getLocalGemsRepository(GetLocalGemsRepositoryArgs.builder()
+     *             .key(&#34;local-test-gems-repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetLocalGemsRepositoryResult> getLocalGemsRepository(GetLocalGemsRepositoryArgs args) {
         return getLocalGemsRepository(args, InvokeOptions.Empty);
     }
+    /**
+     * Retrieves a local gems repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalGemsRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-gems-repo = ArtifactoryFunctions.getLocalGemsRepository(GetLocalGemsRepositoryArgs.builder()
+     *             .key(&#34;local-test-gems-repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetLocalGemsRepositoryResult> getLocalGemsRepositoryPlain(GetLocalGemsRepositoryPlainArgs args) {
         return getLocalGemsRepositoryPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * Retrieves a local gems repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalGemsRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-gems-repo = ArtifactoryFunctions.getLocalGemsRepository(GetLocalGemsRepositoryArgs.builder()
+     *             .key(&#34;local-test-gems-repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetLocalGemsRepositoryResult> getLocalGemsRepository(GetLocalGemsRepositoryArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("artifactory:index/getLocalGemsRepository:getLocalGemsRepository", TypeShape.of(GetLocalGemsRepositoryResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Retrieves a local gems repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalGemsRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-gems-repo = ArtifactoryFunctions.getLocalGemsRepository(GetLocalGemsRepositoryArgs.builder()
+     *             .key(&#34;local-test-gems-repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetLocalGemsRepositoryResult> getLocalGemsRepositoryPlain(GetLocalGemsRepositoryPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("artifactory:index/getLocalGemsRepository:getLocalGemsRepository", TypeShape.of(GetLocalGemsRepositoryResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Retrieves a local generic repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalGenericRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-generic-repo = ArtifactoryFunctions.getLocalGenericRepository(GetLocalGenericRepositoryArgs.builder()
+     *             .key(&#34;local-test-generic-repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetLocalGenericRepositoryResult> getLocalGenericRepository(GetLocalGenericRepositoryArgs args) {
         return getLocalGenericRepository(args, InvokeOptions.Empty);
     }
+    /**
+     * Retrieves a local generic repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalGenericRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-generic-repo = ArtifactoryFunctions.getLocalGenericRepository(GetLocalGenericRepositoryArgs.builder()
+     *             .key(&#34;local-test-generic-repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetLocalGenericRepositoryResult> getLocalGenericRepositoryPlain(GetLocalGenericRepositoryPlainArgs args) {
         return getLocalGenericRepositoryPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * Retrieves a local generic repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalGenericRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-generic-repo = ArtifactoryFunctions.getLocalGenericRepository(GetLocalGenericRepositoryArgs.builder()
+     *             .key(&#34;local-test-generic-repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetLocalGenericRepositoryResult> getLocalGenericRepository(GetLocalGenericRepositoryArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("artifactory:index/getLocalGenericRepository:getLocalGenericRepository", TypeShape.of(GetLocalGenericRepositoryResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Retrieves a local generic repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalGenericRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-generic-repo = ArtifactoryFunctions.getLocalGenericRepository(GetLocalGenericRepositoryArgs.builder()
+     *             .key(&#34;local-test-generic-repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetLocalGenericRepositoryResult> getLocalGenericRepositoryPlain(GetLocalGenericRepositoryPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("artifactory:index/getLocalGenericRepository:getLocalGenericRepository", TypeShape.of(GetLocalGenericRepositoryResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Retrieves a local gitlfs repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalGitlfsRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-gitlfs-repo = ArtifactoryFunctions.getLocalGitlfsRepository(GetLocalGitlfsRepositoryArgs.builder()
+     *             .key(&#34;local-test-gitlfs-repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetLocalGitlfsRepositoryResult> getLocalGitlfsRepository(GetLocalGitlfsRepositoryArgs args) {
         return getLocalGitlfsRepository(args, InvokeOptions.Empty);
     }
+    /**
+     * Retrieves a local gitlfs repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalGitlfsRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-gitlfs-repo = ArtifactoryFunctions.getLocalGitlfsRepository(GetLocalGitlfsRepositoryArgs.builder()
+     *             .key(&#34;local-test-gitlfs-repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetLocalGitlfsRepositoryResult> getLocalGitlfsRepositoryPlain(GetLocalGitlfsRepositoryPlainArgs args) {
         return getLocalGitlfsRepositoryPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * Retrieves a local gitlfs repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalGitlfsRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-gitlfs-repo = ArtifactoryFunctions.getLocalGitlfsRepository(GetLocalGitlfsRepositoryArgs.builder()
+     *             .key(&#34;local-test-gitlfs-repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetLocalGitlfsRepositoryResult> getLocalGitlfsRepository(GetLocalGitlfsRepositoryArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("artifactory:index/getLocalGitlfsRepository:getLocalGitlfsRepository", TypeShape.of(GetLocalGitlfsRepositoryResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Retrieves a local gitlfs repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalGitlfsRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-gitlfs-repo = ArtifactoryFunctions.getLocalGitlfsRepository(GetLocalGitlfsRepositoryArgs.builder()
+     *             .key(&#34;local-test-gitlfs-repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetLocalGitlfsRepositoryResult> getLocalGitlfsRepositoryPlain(GetLocalGitlfsRepositoryPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("artifactory:index/getLocalGitlfsRepository:getLocalGitlfsRepository", TypeShape.of(GetLocalGitlfsRepositoryResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Retrieves a local go repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalGoRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-go-repo = ArtifactoryFunctions.getLocalGoRepository(GetLocalGoRepositoryArgs.builder()
+     *             .key(&#34;local-test-go-repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetLocalGoRepositoryResult> getLocalGoRepository(GetLocalGoRepositoryArgs args) {
         return getLocalGoRepository(args, InvokeOptions.Empty);
     }
+    /**
+     * Retrieves a local go repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalGoRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-go-repo = ArtifactoryFunctions.getLocalGoRepository(GetLocalGoRepositoryArgs.builder()
+     *             .key(&#34;local-test-go-repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetLocalGoRepositoryResult> getLocalGoRepositoryPlain(GetLocalGoRepositoryPlainArgs args) {
         return getLocalGoRepositoryPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * Retrieves a local go repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalGoRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-go-repo = ArtifactoryFunctions.getLocalGoRepository(GetLocalGoRepositoryArgs.builder()
+     *             .key(&#34;local-test-go-repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetLocalGoRepositoryResult> getLocalGoRepository(GetLocalGoRepositoryArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("artifactory:index/getLocalGoRepository:getLocalGoRepository", TypeShape.of(GetLocalGoRepositoryResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Retrieves a local go repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalGoRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-go-repo = ArtifactoryFunctions.getLocalGoRepository(GetLocalGoRepositoryArgs.builder()
+     *             .key(&#34;local-test-go-repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetLocalGoRepositoryResult> getLocalGoRepositoryPlain(GetLocalGoRepositoryPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("artifactory:index/getLocalGoRepository:getLocalGoRepository", TypeShape.of(GetLocalGoRepositoryResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Retrieves a local Gradle repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalGradleRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-gradle-repo-basic = ArtifactoryFunctions.getLocalGradleRepository(GetLocalGradleRepositoryArgs.builder()
+     *             .key(&#34;local-test-gradle-repo-basic&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetLocalGradleRepositoryResult> getLocalGradleRepository(GetLocalGradleRepositoryArgs args) {
         return getLocalGradleRepository(args, InvokeOptions.Empty);
     }
+    /**
+     * Retrieves a local Gradle repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalGradleRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-gradle-repo-basic = ArtifactoryFunctions.getLocalGradleRepository(GetLocalGradleRepositoryArgs.builder()
+     *             .key(&#34;local-test-gradle-repo-basic&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetLocalGradleRepositoryResult> getLocalGradleRepositoryPlain(GetLocalGradleRepositoryPlainArgs args) {
         return getLocalGradleRepositoryPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * Retrieves a local Gradle repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalGradleRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-gradle-repo-basic = ArtifactoryFunctions.getLocalGradleRepository(GetLocalGradleRepositoryArgs.builder()
+     *             .key(&#34;local-test-gradle-repo-basic&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetLocalGradleRepositoryResult> getLocalGradleRepository(GetLocalGradleRepositoryArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("artifactory:index/getLocalGradleRepository:getLocalGradleRepository", TypeShape.of(GetLocalGradleRepositoryResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Retrieves a local Gradle repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalGradleRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-gradle-repo-basic = ArtifactoryFunctions.getLocalGradleRepository(GetLocalGradleRepositoryArgs.builder()
+     *             .key(&#34;local-test-gradle-repo-basic&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetLocalGradleRepositoryResult> getLocalGradleRepositoryPlain(GetLocalGradleRepositoryPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("artifactory:index/getLocalGradleRepository:getLocalGradleRepository", TypeShape.of(GetLocalGradleRepositoryResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Retrieves a local helm repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalHelmRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-helm-repo = ArtifactoryFunctions.getLocalHelmRepository(GetLocalHelmRepositoryArgs.builder()
+     *             .key(&#34;local-test-helm-repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetLocalHelmRepositoryResult> getLocalHelmRepository(GetLocalHelmRepositoryArgs args) {
         return getLocalHelmRepository(args, InvokeOptions.Empty);
     }
+    /**
+     * Retrieves a local helm repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalHelmRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-helm-repo = ArtifactoryFunctions.getLocalHelmRepository(GetLocalHelmRepositoryArgs.builder()
+     *             .key(&#34;local-test-helm-repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetLocalHelmRepositoryResult> getLocalHelmRepositoryPlain(GetLocalHelmRepositoryPlainArgs args) {
         return getLocalHelmRepositoryPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * Retrieves a local helm repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalHelmRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-helm-repo = ArtifactoryFunctions.getLocalHelmRepository(GetLocalHelmRepositoryArgs.builder()
+     *             .key(&#34;local-test-helm-repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetLocalHelmRepositoryResult> getLocalHelmRepository(GetLocalHelmRepositoryArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("artifactory:index/getLocalHelmRepository:getLocalHelmRepository", TypeShape.of(GetLocalHelmRepositoryResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Retrieves a local helm repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalHelmRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-helm-repo = ArtifactoryFunctions.getLocalHelmRepository(GetLocalHelmRepositoryArgs.builder()
+     *             .key(&#34;local-test-helm-repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetLocalHelmRepositoryResult> getLocalHelmRepositoryPlain(GetLocalHelmRepositoryPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("artifactory:index/getLocalHelmRepository:getLocalHelmRepository", TypeShape.of(GetLocalHelmRepositoryResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Provides a data source for a local huggingfaceml repository
+     * 
+     */
     public static Output<GetLocalHuggingfacemlRepositoryResult> getLocalHuggingfacemlRepository(GetLocalHuggingfacemlRepositoryArgs args) {
         return getLocalHuggingfacemlRepository(args, InvokeOptions.Empty);
     }
+    /**
+     * Provides a data source for a local huggingfaceml repository
+     * 
+     */
     public static CompletableFuture<GetLocalHuggingfacemlRepositoryResult> getLocalHuggingfacemlRepositoryPlain(GetLocalHuggingfacemlRepositoryPlainArgs args) {
         return getLocalHuggingfacemlRepositoryPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * Provides a data source for a local huggingfaceml repository
+     * 
+     */
     public static Output<GetLocalHuggingfacemlRepositoryResult> getLocalHuggingfacemlRepository(GetLocalHuggingfacemlRepositoryArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("artifactory:index/getLocalHuggingfacemlRepository:getLocalHuggingfacemlRepository", TypeShape.of(GetLocalHuggingfacemlRepositoryResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Provides a data source for a local huggingfaceml repository
+     * 
+     */
     public static CompletableFuture<GetLocalHuggingfacemlRepositoryResult> getLocalHuggingfacemlRepositoryPlain(GetLocalHuggingfacemlRepositoryPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("artifactory:index/getLocalHuggingfacemlRepository:getLocalHuggingfacemlRepository", TypeShape.of(GetLocalHuggingfacemlRepositoryResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Retrieves a local Ivy repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalIvyRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-ivy-repo = ArtifactoryFunctions.getLocalIvyRepository(GetLocalIvyRepositoryArgs.builder()
+     *             .key(&#34;local-test-ivy-repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetLocalIvyRepositoryResult> getLocalIvyRepository(GetLocalIvyRepositoryArgs args) {
         return getLocalIvyRepository(args, InvokeOptions.Empty);
     }
+    /**
+     * Retrieves a local Ivy repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalIvyRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-ivy-repo = ArtifactoryFunctions.getLocalIvyRepository(GetLocalIvyRepositoryArgs.builder()
+     *             .key(&#34;local-test-ivy-repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetLocalIvyRepositoryResult> getLocalIvyRepositoryPlain(GetLocalIvyRepositoryPlainArgs args) {
         return getLocalIvyRepositoryPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * Retrieves a local Ivy repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalIvyRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-ivy-repo = ArtifactoryFunctions.getLocalIvyRepository(GetLocalIvyRepositoryArgs.builder()
+     *             .key(&#34;local-test-ivy-repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetLocalIvyRepositoryResult> getLocalIvyRepository(GetLocalIvyRepositoryArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("artifactory:index/getLocalIvyRepository:getLocalIvyRepository", TypeShape.of(GetLocalIvyRepositoryResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Retrieves a local Ivy repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalIvyRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-ivy-repo = ArtifactoryFunctions.getLocalIvyRepository(GetLocalIvyRepositoryArgs.builder()
+     *             .key(&#34;local-test-ivy-repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetLocalIvyRepositoryResult> getLocalIvyRepositoryPlain(GetLocalIvyRepositoryPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("artifactory:index/getLocalIvyRepository:getLocalIvyRepository", TypeShape.of(GetLocalIvyRepositoryResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Retrieves a local Maven repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.LocalMavenRepository;
+     * import com.pulumi.artifactory.LocalMavenRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var local_test_maven_repo_basic = new LocalMavenRepository(&#34;local-test-maven-repo-basic&#34;, LocalMavenRepositoryArgs.builder()        
+     *             .key(&#34;local-test-maven-repo-basic&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetLocalMavenRepositoryResult> getLocalMavenRepository(GetLocalMavenRepositoryArgs args) {
         return getLocalMavenRepository(args, InvokeOptions.Empty);
     }
+    /**
+     * Retrieves a local Maven repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.LocalMavenRepository;
+     * import com.pulumi.artifactory.LocalMavenRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var local_test_maven_repo_basic = new LocalMavenRepository(&#34;local-test-maven-repo-basic&#34;, LocalMavenRepositoryArgs.builder()        
+     *             .key(&#34;local-test-maven-repo-basic&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetLocalMavenRepositoryResult> getLocalMavenRepositoryPlain(GetLocalMavenRepositoryPlainArgs args) {
         return getLocalMavenRepositoryPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * Retrieves a local Maven repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.LocalMavenRepository;
+     * import com.pulumi.artifactory.LocalMavenRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var local_test_maven_repo_basic = new LocalMavenRepository(&#34;local-test-maven-repo-basic&#34;, LocalMavenRepositoryArgs.builder()        
+     *             .key(&#34;local-test-maven-repo-basic&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetLocalMavenRepositoryResult> getLocalMavenRepository(GetLocalMavenRepositoryArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("artifactory:index/getLocalMavenRepository:getLocalMavenRepository", TypeShape.of(GetLocalMavenRepositoryResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Retrieves a local Maven repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.LocalMavenRepository;
+     * import com.pulumi.artifactory.LocalMavenRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var local_test_maven_repo_basic = new LocalMavenRepository(&#34;local-test-maven-repo-basic&#34;, LocalMavenRepositoryArgs.builder()        
+     *             .key(&#34;local-test-maven-repo-basic&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetLocalMavenRepositoryResult> getLocalMavenRepositoryPlain(GetLocalMavenRepositoryPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("artifactory:index/getLocalMavenRepository:getLocalMavenRepository", TypeShape.of(GetLocalMavenRepositoryResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Retrieves a local npm repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalNpmRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-npm-repo = ArtifactoryFunctions.getLocalNpmRepository(GetLocalNpmRepositoryArgs.builder()
+     *             .key(&#34;local-test-npm-repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetLocalNpmRepositoryResult> getLocalNpmRepository(GetLocalNpmRepositoryArgs args) {
         return getLocalNpmRepository(args, InvokeOptions.Empty);
     }
+    /**
+     * Retrieves a local npm repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalNpmRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-npm-repo = ArtifactoryFunctions.getLocalNpmRepository(GetLocalNpmRepositoryArgs.builder()
+     *             .key(&#34;local-test-npm-repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetLocalNpmRepositoryResult> getLocalNpmRepositoryPlain(GetLocalNpmRepositoryPlainArgs args) {
         return getLocalNpmRepositoryPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * Retrieves a local npm repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalNpmRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-npm-repo = ArtifactoryFunctions.getLocalNpmRepository(GetLocalNpmRepositoryArgs.builder()
+     *             .key(&#34;local-test-npm-repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetLocalNpmRepositoryResult> getLocalNpmRepository(GetLocalNpmRepositoryArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("artifactory:index/getLocalNpmRepository:getLocalNpmRepository", TypeShape.of(GetLocalNpmRepositoryResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Retrieves a local npm repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalNpmRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-npm-repo = ArtifactoryFunctions.getLocalNpmRepository(GetLocalNpmRepositoryArgs.builder()
+     *             .key(&#34;local-test-npm-repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetLocalNpmRepositoryResult> getLocalNpmRepositoryPlain(GetLocalNpmRepositoryPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("artifactory:index/getLocalNpmRepository:getLocalNpmRepository", TypeShape.of(GetLocalNpmRepositoryResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Retrieves a local Nuget repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalNugetRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-nuget-repo-basic = ArtifactoryFunctions.getLocalNugetRepository(GetLocalNugetRepositoryArgs.builder()
+     *             .key(&#34;local-test-nuget-repo-basic&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetLocalNugetRepositoryResult> getLocalNugetRepository(GetLocalNugetRepositoryArgs args) {
         return getLocalNugetRepository(args, InvokeOptions.Empty);
     }
+    /**
+     * Retrieves a local Nuget repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalNugetRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-nuget-repo-basic = ArtifactoryFunctions.getLocalNugetRepository(GetLocalNugetRepositoryArgs.builder()
+     *             .key(&#34;local-test-nuget-repo-basic&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetLocalNugetRepositoryResult> getLocalNugetRepositoryPlain(GetLocalNugetRepositoryPlainArgs args) {
         return getLocalNugetRepositoryPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * Retrieves a local Nuget repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalNugetRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-nuget-repo-basic = ArtifactoryFunctions.getLocalNugetRepository(GetLocalNugetRepositoryArgs.builder()
+     *             .key(&#34;local-test-nuget-repo-basic&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetLocalNugetRepositoryResult> getLocalNugetRepository(GetLocalNugetRepositoryArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("artifactory:index/getLocalNugetRepository:getLocalNugetRepository", TypeShape.of(GetLocalNugetRepositoryResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Retrieves a local Nuget repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalNugetRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-nuget-repo-basic = ArtifactoryFunctions.getLocalNugetRepository(GetLocalNugetRepositoryArgs.builder()
+     *             .key(&#34;local-test-nuget-repo-basic&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetLocalNugetRepositoryResult> getLocalNugetRepositoryPlain(GetLocalNugetRepositoryPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("artifactory:index/getLocalNugetRepository:getLocalNugetRepository", TypeShape.of(GetLocalNugetRepositoryResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Retrieves a local opkg repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalOpkgRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-opkg-repo = ArtifactoryFunctions.getLocalOpkgRepository(GetLocalOpkgRepositoryArgs.builder()
+     *             .key(&#34;local-test-opkg-repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetLocalOpkgRepositoryResult> getLocalOpkgRepository(GetLocalOpkgRepositoryArgs args) {
         return getLocalOpkgRepository(args, InvokeOptions.Empty);
     }
+    /**
+     * Retrieves a local opkg repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalOpkgRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-opkg-repo = ArtifactoryFunctions.getLocalOpkgRepository(GetLocalOpkgRepositoryArgs.builder()
+     *             .key(&#34;local-test-opkg-repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetLocalOpkgRepositoryResult> getLocalOpkgRepositoryPlain(GetLocalOpkgRepositoryPlainArgs args) {
         return getLocalOpkgRepositoryPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * Retrieves a local opkg repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalOpkgRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-opkg-repo = ArtifactoryFunctions.getLocalOpkgRepository(GetLocalOpkgRepositoryArgs.builder()
+     *             .key(&#34;local-test-opkg-repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetLocalOpkgRepositoryResult> getLocalOpkgRepository(GetLocalOpkgRepositoryArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("artifactory:index/getLocalOpkgRepository:getLocalOpkgRepository", TypeShape.of(GetLocalOpkgRepositoryResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Retrieves a local opkg repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalOpkgRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-opkg-repo = ArtifactoryFunctions.getLocalOpkgRepository(GetLocalOpkgRepositoryArgs.builder()
+     *             .key(&#34;local-test-opkg-repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetLocalOpkgRepositoryResult> getLocalOpkgRepositoryPlain(GetLocalOpkgRepositoryPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("artifactory:index/getLocalOpkgRepository:getLocalOpkgRepository", TypeShape.of(GetLocalOpkgRepositoryResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Retrieves a local pub repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalPubRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-pub-repo = ArtifactoryFunctions.getLocalPubRepository(GetLocalPubRepositoryArgs.builder()
+     *             .key(&#34;local-test-pub-repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetLocalPubRepositoryResult> getLocalPubRepository(GetLocalPubRepositoryArgs args) {
         return getLocalPubRepository(args, InvokeOptions.Empty);
     }
+    /**
+     * Retrieves a local pub repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalPubRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-pub-repo = ArtifactoryFunctions.getLocalPubRepository(GetLocalPubRepositoryArgs.builder()
+     *             .key(&#34;local-test-pub-repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetLocalPubRepositoryResult> getLocalPubRepositoryPlain(GetLocalPubRepositoryPlainArgs args) {
         return getLocalPubRepositoryPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * Retrieves a local pub repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalPubRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-pub-repo = ArtifactoryFunctions.getLocalPubRepository(GetLocalPubRepositoryArgs.builder()
+     *             .key(&#34;local-test-pub-repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetLocalPubRepositoryResult> getLocalPubRepository(GetLocalPubRepositoryArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("artifactory:index/getLocalPubRepository:getLocalPubRepository", TypeShape.of(GetLocalPubRepositoryResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Retrieves a local pub repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalPubRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-pub-repo = ArtifactoryFunctions.getLocalPubRepository(GetLocalPubRepositoryArgs.builder()
+     *             .key(&#34;local-test-pub-repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetLocalPubRepositoryResult> getLocalPubRepositoryPlain(GetLocalPubRepositoryPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("artifactory:index/getLocalPubRepository:getLocalPubRepository", TypeShape.of(GetLocalPubRepositoryResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Retrieves a local puppet repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalPuppetRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-puppet-repo = ArtifactoryFunctions.getLocalPuppetRepository(GetLocalPuppetRepositoryArgs.builder()
+     *             .key(&#34;local-test-puppet-repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetLocalPuppetRepositoryResult> getLocalPuppetRepository(GetLocalPuppetRepositoryArgs args) {
         return getLocalPuppetRepository(args, InvokeOptions.Empty);
     }
+    /**
+     * Retrieves a local puppet repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalPuppetRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-puppet-repo = ArtifactoryFunctions.getLocalPuppetRepository(GetLocalPuppetRepositoryArgs.builder()
+     *             .key(&#34;local-test-puppet-repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetLocalPuppetRepositoryResult> getLocalPuppetRepositoryPlain(GetLocalPuppetRepositoryPlainArgs args) {
         return getLocalPuppetRepositoryPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * Retrieves a local puppet repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalPuppetRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-puppet-repo = ArtifactoryFunctions.getLocalPuppetRepository(GetLocalPuppetRepositoryArgs.builder()
+     *             .key(&#34;local-test-puppet-repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetLocalPuppetRepositoryResult> getLocalPuppetRepository(GetLocalPuppetRepositoryArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("artifactory:index/getLocalPuppetRepository:getLocalPuppetRepository", TypeShape.of(GetLocalPuppetRepositoryResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Retrieves a local puppet repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalPuppetRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-puppet-repo = ArtifactoryFunctions.getLocalPuppetRepository(GetLocalPuppetRepositoryArgs.builder()
+     *             .key(&#34;local-test-puppet-repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetLocalPuppetRepositoryResult> getLocalPuppetRepositoryPlain(GetLocalPuppetRepositoryPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("artifactory:index/getLocalPuppetRepository:getLocalPuppetRepository", TypeShape.of(GetLocalPuppetRepositoryResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Retrieves a local pypi repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalPypiRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-pypi-repo = ArtifactoryFunctions.getLocalPypiRepository(GetLocalPypiRepositoryArgs.builder()
+     *             .key(&#34;local-test-pypi-repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetLocalPypiRepositoryResult> getLocalPypiRepository(GetLocalPypiRepositoryArgs args) {
         return getLocalPypiRepository(args, InvokeOptions.Empty);
     }
+    /**
+     * Retrieves a local pypi repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalPypiRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-pypi-repo = ArtifactoryFunctions.getLocalPypiRepository(GetLocalPypiRepositoryArgs.builder()
+     *             .key(&#34;local-test-pypi-repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetLocalPypiRepositoryResult> getLocalPypiRepositoryPlain(GetLocalPypiRepositoryPlainArgs args) {
         return getLocalPypiRepositoryPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * Retrieves a local pypi repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalPypiRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-pypi-repo = ArtifactoryFunctions.getLocalPypiRepository(GetLocalPypiRepositoryArgs.builder()
+     *             .key(&#34;local-test-pypi-repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetLocalPypiRepositoryResult> getLocalPypiRepository(GetLocalPypiRepositoryArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("artifactory:index/getLocalPypiRepository:getLocalPypiRepository", TypeShape.of(GetLocalPypiRepositoryResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Retrieves a local pypi repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalPypiRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-pypi-repo = ArtifactoryFunctions.getLocalPypiRepository(GetLocalPypiRepositoryArgs.builder()
+     *             .key(&#34;local-test-pypi-repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetLocalPypiRepositoryResult> getLocalPypiRepositoryPlain(GetLocalPypiRepositoryPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("artifactory:index/getLocalPypiRepository:getLocalPypiRepository", TypeShape.of(GetLocalPypiRepositoryResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Retrieves a local RPM repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalRpmRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-rpm-repo-basic = ArtifactoryFunctions.getLocalRpmRepository(GetLocalRpmRepositoryArgs.builder()
+     *             .key(&#34;local-test-rpm-repo-basic&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetLocalRpmRepositoryResult> getLocalRpmRepository(GetLocalRpmRepositoryArgs args) {
         return getLocalRpmRepository(args, InvokeOptions.Empty);
     }
+    /**
+     * Retrieves a local RPM repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalRpmRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-rpm-repo-basic = ArtifactoryFunctions.getLocalRpmRepository(GetLocalRpmRepositoryArgs.builder()
+     *             .key(&#34;local-test-rpm-repo-basic&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetLocalRpmRepositoryResult> getLocalRpmRepositoryPlain(GetLocalRpmRepositoryPlainArgs args) {
         return getLocalRpmRepositoryPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * Retrieves a local RPM repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalRpmRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-rpm-repo-basic = ArtifactoryFunctions.getLocalRpmRepository(GetLocalRpmRepositoryArgs.builder()
+     *             .key(&#34;local-test-rpm-repo-basic&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetLocalRpmRepositoryResult> getLocalRpmRepository(GetLocalRpmRepositoryArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("artifactory:index/getLocalRpmRepository:getLocalRpmRepository", TypeShape.of(GetLocalRpmRepositoryResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Retrieves a local RPM repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalRpmRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-rpm-repo-basic = ArtifactoryFunctions.getLocalRpmRepository(GetLocalRpmRepositoryArgs.builder()
+     *             .key(&#34;local-test-rpm-repo-basic&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetLocalRpmRepositoryResult> getLocalRpmRepositoryPlain(GetLocalRpmRepositoryPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("artifactory:index/getLocalRpmRepository:getLocalRpmRepository", TypeShape.of(GetLocalRpmRepositoryResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Retrieves a local Sbt repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalSbtRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-sbt-repo = ArtifactoryFunctions.getLocalSbtRepository(GetLocalSbtRepositoryArgs.builder()
+     *             .key(&#34;local-test-sbt-repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetLocalSbtRepositoryResult> getLocalSbtRepository(GetLocalSbtRepositoryArgs args) {
         return getLocalSbtRepository(args, InvokeOptions.Empty);
     }
+    /**
+     * Retrieves a local Sbt repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalSbtRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-sbt-repo = ArtifactoryFunctions.getLocalSbtRepository(GetLocalSbtRepositoryArgs.builder()
+     *             .key(&#34;local-test-sbt-repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetLocalSbtRepositoryResult> getLocalSbtRepositoryPlain(GetLocalSbtRepositoryPlainArgs args) {
         return getLocalSbtRepositoryPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * Retrieves a local Sbt repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalSbtRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-sbt-repo = ArtifactoryFunctions.getLocalSbtRepository(GetLocalSbtRepositoryArgs.builder()
+     *             .key(&#34;local-test-sbt-repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetLocalSbtRepositoryResult> getLocalSbtRepository(GetLocalSbtRepositoryArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("artifactory:index/getLocalSbtRepository:getLocalSbtRepository", TypeShape.of(GetLocalSbtRepositoryResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Retrieves a local Sbt repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalSbtRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-sbt-repo = ArtifactoryFunctions.getLocalSbtRepository(GetLocalSbtRepositoryArgs.builder()
+     *             .key(&#34;local-test-sbt-repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetLocalSbtRepositoryResult> getLocalSbtRepositoryPlain(GetLocalSbtRepositoryPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("artifactory:index/getLocalSbtRepository:getLocalSbtRepository", TypeShape.of(GetLocalSbtRepositoryResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Retrieves a local swift repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalSwiftRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-swift-repo = ArtifactoryFunctions.getLocalSwiftRepository(GetLocalSwiftRepositoryArgs.builder()
+     *             .key(&#34;local-test-swift-repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetLocalSwiftRepositoryResult> getLocalSwiftRepository(GetLocalSwiftRepositoryArgs args) {
         return getLocalSwiftRepository(args, InvokeOptions.Empty);
     }
+    /**
+     * Retrieves a local swift repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalSwiftRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-swift-repo = ArtifactoryFunctions.getLocalSwiftRepository(GetLocalSwiftRepositoryArgs.builder()
+     *             .key(&#34;local-test-swift-repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetLocalSwiftRepositoryResult> getLocalSwiftRepositoryPlain(GetLocalSwiftRepositoryPlainArgs args) {
         return getLocalSwiftRepositoryPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * Retrieves a local swift repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalSwiftRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-swift-repo = ArtifactoryFunctions.getLocalSwiftRepository(GetLocalSwiftRepositoryArgs.builder()
+     *             .key(&#34;local-test-swift-repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetLocalSwiftRepositoryResult> getLocalSwiftRepository(GetLocalSwiftRepositoryArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("artifactory:index/getLocalSwiftRepository:getLocalSwiftRepository", TypeShape.of(GetLocalSwiftRepositoryResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Retrieves a local swift repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalSwiftRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-swift-repo = ArtifactoryFunctions.getLocalSwiftRepository(GetLocalSwiftRepositoryArgs.builder()
+     *             .key(&#34;local-test-swift-repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetLocalSwiftRepositoryResult> getLocalSwiftRepositoryPlain(GetLocalSwiftRepositoryPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("artifactory:index/getLocalSwiftRepository:getLocalSwiftRepository", TypeShape.of(GetLocalSwiftRepositoryResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.LocalTerraformModuleRepository;
+     * import com.pulumi.artifactory.LocalTerraformModuleRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var terraform_local_test_terraform_module_repo = new LocalTerraformModuleRepository(&#34;terraform-local-test-terraform-module-repo&#34;, LocalTerraformModuleRepositoryArgs.builder()        
+     *             .key(&#34;terraform-local-test-terraform-module-repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetLocalTerraformModuleRepositoryResult> getLocalTerraformModuleRepository(GetLocalTerraformModuleRepositoryArgs args) {
         return getLocalTerraformModuleRepository(args, InvokeOptions.Empty);
     }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.LocalTerraformModuleRepository;
+     * import com.pulumi.artifactory.LocalTerraformModuleRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var terraform_local_test_terraform_module_repo = new LocalTerraformModuleRepository(&#34;terraform-local-test-terraform-module-repo&#34;, LocalTerraformModuleRepositoryArgs.builder()        
+     *             .key(&#34;terraform-local-test-terraform-module-repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetLocalTerraformModuleRepositoryResult> getLocalTerraformModuleRepositoryPlain(GetLocalTerraformModuleRepositoryPlainArgs args) {
         return getLocalTerraformModuleRepositoryPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.LocalTerraformModuleRepository;
+     * import com.pulumi.artifactory.LocalTerraformModuleRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var terraform_local_test_terraform_module_repo = new LocalTerraformModuleRepository(&#34;terraform-local-test-terraform-module-repo&#34;, LocalTerraformModuleRepositoryArgs.builder()        
+     *             .key(&#34;terraform-local-test-terraform-module-repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetLocalTerraformModuleRepositoryResult> getLocalTerraformModuleRepository(GetLocalTerraformModuleRepositoryArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("artifactory:index/getLocalTerraformModuleRepository:getLocalTerraformModuleRepository", TypeShape.of(GetLocalTerraformModuleRepositoryResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.LocalTerraformModuleRepository;
+     * import com.pulumi.artifactory.LocalTerraformModuleRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var terraform_local_test_terraform_module_repo = new LocalTerraformModuleRepository(&#34;terraform-local-test-terraform-module-repo&#34;, LocalTerraformModuleRepositoryArgs.builder()        
+     *             .key(&#34;terraform-local-test-terraform-module-repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetLocalTerraformModuleRepositoryResult> getLocalTerraformModuleRepositoryPlain(GetLocalTerraformModuleRepositoryPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("artifactory:index/getLocalTerraformModuleRepository:getLocalTerraformModuleRepository", TypeShape.of(GetLocalTerraformModuleRepositoryResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalTerraformProviderRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-terraform-provider-repo = ArtifactoryFunctions.getLocalTerraformProviderRepository(GetLocalTerraformProviderRepositoryArgs.builder()
+     *             .key(&#34;local-test-terraform-provider-repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetLocalTerraformProviderRepositoryResult> getLocalTerraformProviderRepository(GetLocalTerraformProviderRepositoryArgs args) {
         return getLocalTerraformProviderRepository(args, InvokeOptions.Empty);
     }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalTerraformProviderRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-terraform-provider-repo = ArtifactoryFunctions.getLocalTerraformProviderRepository(GetLocalTerraformProviderRepositoryArgs.builder()
+     *             .key(&#34;local-test-terraform-provider-repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetLocalTerraformProviderRepositoryResult> getLocalTerraformProviderRepositoryPlain(GetLocalTerraformProviderRepositoryPlainArgs args) {
         return getLocalTerraformProviderRepositoryPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalTerraformProviderRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-terraform-provider-repo = ArtifactoryFunctions.getLocalTerraformProviderRepository(GetLocalTerraformProviderRepositoryArgs.builder()
+     *             .key(&#34;local-test-terraform-provider-repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetLocalTerraformProviderRepositoryResult> getLocalTerraformProviderRepository(GetLocalTerraformProviderRepositoryArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("artifactory:index/getLocalTerraformProviderRepository:getLocalTerraformProviderRepository", TypeShape.of(GetLocalTerraformProviderRepositoryResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalTerraformProviderRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-terraform-provider-repo = ArtifactoryFunctions.getLocalTerraformProviderRepository(GetLocalTerraformProviderRepositoryArgs.builder()
+     *             .key(&#34;local-test-terraform-provider-repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetLocalTerraformProviderRepositoryResult> getLocalTerraformProviderRepositoryPlain(GetLocalTerraformProviderRepositoryPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("artifactory:index/getLocalTerraformProviderRepository:getLocalTerraformProviderRepository", TypeShape.of(GetLocalTerraformProviderRepositoryResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalTerraformbackendRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-terraformbackend-repo = ArtifactoryFunctions.getLocalTerraformbackendRepository(GetLocalTerraformbackendRepositoryArgs.builder()
+     *             .key(&#34;local-test-terraformbackend-repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetLocalTerraformbackendRepositoryResult> getLocalTerraformbackendRepository(GetLocalTerraformbackendRepositoryArgs args) {
         return getLocalTerraformbackendRepository(args, InvokeOptions.Empty);
     }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalTerraformbackendRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-terraformbackend-repo = ArtifactoryFunctions.getLocalTerraformbackendRepository(GetLocalTerraformbackendRepositoryArgs.builder()
+     *             .key(&#34;local-test-terraformbackend-repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetLocalTerraformbackendRepositoryResult> getLocalTerraformbackendRepositoryPlain(GetLocalTerraformbackendRepositoryPlainArgs args) {
         return getLocalTerraformbackendRepositoryPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalTerraformbackendRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-terraformbackend-repo = ArtifactoryFunctions.getLocalTerraformbackendRepository(GetLocalTerraformbackendRepositoryArgs.builder()
+     *             .key(&#34;local-test-terraformbackend-repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetLocalTerraformbackendRepositoryResult> getLocalTerraformbackendRepository(GetLocalTerraformbackendRepositoryArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("artifactory:index/getLocalTerraformbackendRepository:getLocalTerraformbackendRepository", TypeShape.of(GetLocalTerraformbackendRepositoryResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalTerraformbackendRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-terraformbackend-repo = ArtifactoryFunctions.getLocalTerraformbackendRepository(GetLocalTerraformbackendRepositoryArgs.builder()
+     *             .key(&#34;local-test-terraformbackend-repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetLocalTerraformbackendRepositoryResult> getLocalTerraformbackendRepositoryPlain(GetLocalTerraformbackendRepositoryPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("artifactory:index/getLocalTerraformbackendRepository:getLocalTerraformbackendRepository", TypeShape.of(GetLocalTerraformbackendRepositoryResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Retrieves a local vagrant repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalVagrantRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-vagrant-repo = ArtifactoryFunctions.getLocalVagrantRepository(GetLocalVagrantRepositoryArgs.builder()
+     *             .key(&#34;local-test-vagrant-repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetLocalVagrantRepositoryResult> getLocalVagrantRepository(GetLocalVagrantRepositoryArgs args) {
         return getLocalVagrantRepository(args, InvokeOptions.Empty);
     }
+    /**
+     * Retrieves a local vagrant repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalVagrantRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-vagrant-repo = ArtifactoryFunctions.getLocalVagrantRepository(GetLocalVagrantRepositoryArgs.builder()
+     *             .key(&#34;local-test-vagrant-repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetLocalVagrantRepositoryResult> getLocalVagrantRepositoryPlain(GetLocalVagrantRepositoryPlainArgs args) {
         return getLocalVagrantRepositoryPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * Retrieves a local vagrant repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalVagrantRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-vagrant-repo = ArtifactoryFunctions.getLocalVagrantRepository(GetLocalVagrantRepositoryArgs.builder()
+     *             .key(&#34;local-test-vagrant-repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetLocalVagrantRepositoryResult> getLocalVagrantRepository(GetLocalVagrantRepositoryArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("artifactory:index/getLocalVagrantRepository:getLocalVagrantRepository", TypeShape.of(GetLocalVagrantRepositoryResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Retrieves a local vagrant repository.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetLocalVagrantRepositoryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var local-test-vagrant-repo = ArtifactoryFunctions.getLocalVagrantRepository(GetLocalVagrantRepositoryArgs.builder()
+     *             .key(&#34;local-test-vagrant-repo&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetLocalVagrantRepositoryResult> getLocalVagrantRepositoryPlain(GetLocalVagrantRepositoryPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("artifactory:index/getLocalVagrantRepository:getLocalVagrantRepository", TypeShape.of(GetLocalVagrantRepositoryResult.class), args, Utilities.withVersion(options));
     }
@@ -10486,6 +15124,234 @@ public final class ArtifactoryFunctions {
      */
     public static CompletableFuture<GetRemoteVcsRepositoryResult> getRemoteVcsRepositoryPlain(GetRemoteVcsRepositoryPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("artifactory:index/getRemoteVcsRepository:getRemoteVcsRepository", TypeShape.of(GetRemoteVcsRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Returns a list of minimal repository details for all repositories of the specified type.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetRepositoriesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all-alpine-local = ArtifactoryFunctions.getRepositories(GetRepositoriesArgs.builder()
+     *             .packageType(&#34;alpine&#34;)
+     *             .repositoryType(&#34;local&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetRepositoriesResult> getRepositories() {
+        return getRepositories(GetRepositoriesArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Returns a list of minimal repository details for all repositories of the specified type.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetRepositoriesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all-alpine-local = ArtifactoryFunctions.getRepositories(GetRepositoriesArgs.builder()
+     *             .packageType(&#34;alpine&#34;)
+     *             .repositoryType(&#34;local&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetRepositoriesResult> getRepositoriesPlain() {
+        return getRepositoriesPlain(GetRepositoriesPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Returns a list of minimal repository details for all repositories of the specified type.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetRepositoriesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all-alpine-local = ArtifactoryFunctions.getRepositories(GetRepositoriesArgs.builder()
+     *             .packageType(&#34;alpine&#34;)
+     *             .repositoryType(&#34;local&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetRepositoriesResult> getRepositories(GetRepositoriesArgs args) {
+        return getRepositories(args, InvokeOptions.Empty);
+    }
+    /**
+     * Returns a list of minimal repository details for all repositories of the specified type.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetRepositoriesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all-alpine-local = ArtifactoryFunctions.getRepositories(GetRepositoriesArgs.builder()
+     *             .packageType(&#34;alpine&#34;)
+     *             .repositoryType(&#34;local&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetRepositoriesResult> getRepositoriesPlain(GetRepositoriesPlainArgs args) {
+        return getRepositoriesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Returns a list of minimal repository details for all repositories of the specified type.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetRepositoriesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all-alpine-local = ArtifactoryFunctions.getRepositories(GetRepositoriesArgs.builder()
+     *             .packageType(&#34;alpine&#34;)
+     *             .repositoryType(&#34;local&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetRepositoriesResult> getRepositories(GetRepositoriesArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("artifactory:index/getRepositories:getRepositories", TypeShape.of(GetRepositoriesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Returns a list of minimal repository details for all repositories of the specified type.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.artifactory.ArtifactoryFunctions;
+     * import com.pulumi.artifactory.inputs.GetRepositoriesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all-alpine-local = ArtifactoryFunctions.getRepositories(GetRepositoriesArgs.builder()
+     *             .packageType(&#34;alpine&#34;)
+     *             .repositoryType(&#34;local&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetRepositoriesResult> getRepositoriesPlain(GetRepositoriesPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("artifactory:index/getRepositories:getRepositories", TypeShape.of(GetRepositoriesResult.class), args, Utilities.withVersion(options));
     }
     /**
      * ## # Artifactory User Data Source

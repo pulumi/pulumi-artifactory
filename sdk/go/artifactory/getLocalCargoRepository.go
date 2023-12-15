@@ -7,10 +7,37 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
+	"github.com/pulumi/pulumi-artifactory/sdk/v6/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Retrieves a local cargo repository.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v6/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.LookupLocalCargoRepository(ctx, &artifactory.LookupLocalCargoRepositoryArgs{
+//				Key: "local-test-cargo-repo-basic",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupLocalCargoRepository(ctx *pulumi.Context, args *LookupLocalCargoRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupLocalCargoRepositoryResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupLocalCargoRepositoryResult
@@ -23,36 +50,47 @@ func LookupLocalCargoRepository(ctx *pulumi.Context, args *LookupLocalCargoRepos
 
 // A collection of arguments for invoking getLocalCargoRepository.
 type LookupLocalCargoRepositoryArgs struct {
-	AnonymousAccess         *bool    `pulumi:"anonymousAccess"`
-	ArchiveBrowsingEnabled  *bool    `pulumi:"archiveBrowsingEnabled"`
-	BlackedOut              *bool    `pulumi:"blackedOut"`
-	CdnRedirect             *bool    `pulumi:"cdnRedirect"`
-	Description             *string  `pulumi:"description"`
-	DownloadDirect          *bool    `pulumi:"downloadDirect"`
-	EnableSparseIndex       *bool    `pulumi:"enableSparseIndex"`
-	ExcludesPattern         *string  `pulumi:"excludesPattern"`
-	IncludesPattern         *string  `pulumi:"includesPattern"`
-	IndexCompressionFormats []string `pulumi:"indexCompressionFormats"`
-	Key                     string   `pulumi:"key"`
-	Notes                   *string  `pulumi:"notes"`
-	PriorityResolution      *bool    `pulumi:"priorityResolution"`
-	ProjectEnvironments     []string `pulumi:"projectEnvironments"`
-	ProjectKey              *string  `pulumi:"projectKey"`
-	PropertySets            []string `pulumi:"propertySets"`
-	RepoLayoutRef           *string  `pulumi:"repoLayoutRef"`
-	XrayIndex               *bool    `pulumi:"xrayIndex"`
-}
-
-// A collection of values returned by getLocalCargoRepository.
-type LookupLocalCargoRepositoryResult struct {
+	// Cargo client does not send credentials when performing download and search for crates.
+	// Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous
+	// access option. Default value is `false`.
 	AnonymousAccess        *bool   `pulumi:"anonymousAccess"`
 	ArchiveBrowsingEnabled *bool   `pulumi:"archiveBrowsingEnabled"`
 	BlackedOut             *bool   `pulumi:"blackedOut"`
 	CdnRedirect            *bool   `pulumi:"cdnRedirect"`
 	Description            *string `pulumi:"description"`
 	DownloadDirect         *bool   `pulumi:"downloadDirect"`
-	EnableSparseIndex      *bool   `pulumi:"enableSparseIndex"`
-	ExcludesPattern        *string `pulumi:"excludesPattern"`
+	// Enable internal index support based on Cargo sparse index specifications, instead
+	// of the default git index. Default value is `false`.
+	EnableSparseIndex       *bool    `pulumi:"enableSparseIndex"`
+	ExcludesPattern         *string  `pulumi:"excludesPattern"`
+	IncludesPattern         *string  `pulumi:"includesPattern"`
+	IndexCompressionFormats []string `pulumi:"indexCompressionFormats"`
+	// the identity key of the repo.
+	Key                 string   `pulumi:"key"`
+	Notes               *string  `pulumi:"notes"`
+	PriorityResolution  *bool    `pulumi:"priorityResolution"`
+	ProjectEnvironments []string `pulumi:"projectEnvironments"`
+	ProjectKey          *string  `pulumi:"projectKey"`
+	PropertySets        []string `pulumi:"propertySets"`
+	RepoLayoutRef       *string  `pulumi:"repoLayoutRef"`
+	XrayIndex           *bool    `pulumi:"xrayIndex"`
+}
+
+// A collection of values returned by getLocalCargoRepository.
+type LookupLocalCargoRepositoryResult struct {
+	// Cargo client does not send credentials when performing download and search for crates.
+	// Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous
+	// access option. Default value is `false`.
+	AnonymousAccess        *bool   `pulumi:"anonymousAccess"`
+	ArchiveBrowsingEnabled *bool   `pulumi:"archiveBrowsingEnabled"`
+	BlackedOut             *bool   `pulumi:"blackedOut"`
+	CdnRedirect            *bool   `pulumi:"cdnRedirect"`
+	Description            *string `pulumi:"description"`
+	DownloadDirect         *bool   `pulumi:"downloadDirect"`
+	// Enable internal index support based on Cargo sparse index specifications, instead
+	// of the default git index. Default value is `false`.
+	EnableSparseIndex *bool   `pulumi:"enableSparseIndex"`
+	ExcludesPattern   *string `pulumi:"excludesPattern"`
 	// The provider-assigned unique ID for this managed resource.
 	Id                      string   `pulumi:"id"`
 	IncludesPattern         *string  `pulumi:"includesPattern"`
@@ -83,24 +121,30 @@ func LookupLocalCargoRepositoryOutput(ctx *pulumi.Context, args LookupLocalCargo
 
 // A collection of arguments for invoking getLocalCargoRepository.
 type LookupLocalCargoRepositoryOutputArgs struct {
-	AnonymousAccess         pulumi.BoolPtrInput     `pulumi:"anonymousAccess"`
-	ArchiveBrowsingEnabled  pulumi.BoolPtrInput     `pulumi:"archiveBrowsingEnabled"`
-	BlackedOut              pulumi.BoolPtrInput     `pulumi:"blackedOut"`
-	CdnRedirect             pulumi.BoolPtrInput     `pulumi:"cdnRedirect"`
-	Description             pulumi.StringPtrInput   `pulumi:"description"`
-	DownloadDirect          pulumi.BoolPtrInput     `pulumi:"downloadDirect"`
+	// Cargo client does not send credentials when performing download and search for crates.
+	// Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous
+	// access option. Default value is `false`.
+	AnonymousAccess        pulumi.BoolPtrInput   `pulumi:"anonymousAccess"`
+	ArchiveBrowsingEnabled pulumi.BoolPtrInput   `pulumi:"archiveBrowsingEnabled"`
+	BlackedOut             pulumi.BoolPtrInput   `pulumi:"blackedOut"`
+	CdnRedirect            pulumi.BoolPtrInput   `pulumi:"cdnRedirect"`
+	Description            pulumi.StringPtrInput `pulumi:"description"`
+	DownloadDirect         pulumi.BoolPtrInput   `pulumi:"downloadDirect"`
+	// Enable internal index support based on Cargo sparse index specifications, instead
+	// of the default git index. Default value is `false`.
 	EnableSparseIndex       pulumi.BoolPtrInput     `pulumi:"enableSparseIndex"`
 	ExcludesPattern         pulumi.StringPtrInput   `pulumi:"excludesPattern"`
 	IncludesPattern         pulumi.StringPtrInput   `pulumi:"includesPattern"`
 	IndexCompressionFormats pulumi.StringArrayInput `pulumi:"indexCompressionFormats"`
-	Key                     pulumi.StringInput      `pulumi:"key"`
-	Notes                   pulumi.StringPtrInput   `pulumi:"notes"`
-	PriorityResolution      pulumi.BoolPtrInput     `pulumi:"priorityResolution"`
-	ProjectEnvironments     pulumi.StringArrayInput `pulumi:"projectEnvironments"`
-	ProjectKey              pulumi.StringPtrInput   `pulumi:"projectKey"`
-	PropertySets            pulumi.StringArrayInput `pulumi:"propertySets"`
-	RepoLayoutRef           pulumi.StringPtrInput   `pulumi:"repoLayoutRef"`
-	XrayIndex               pulumi.BoolPtrInput     `pulumi:"xrayIndex"`
+	// the identity key of the repo.
+	Key                 pulumi.StringInput      `pulumi:"key"`
+	Notes               pulumi.StringPtrInput   `pulumi:"notes"`
+	PriorityResolution  pulumi.BoolPtrInput     `pulumi:"priorityResolution"`
+	ProjectEnvironments pulumi.StringArrayInput `pulumi:"projectEnvironments"`
+	ProjectKey          pulumi.StringPtrInput   `pulumi:"projectKey"`
+	PropertySets        pulumi.StringArrayInput `pulumi:"propertySets"`
+	RepoLayoutRef       pulumi.StringPtrInput   `pulumi:"repoLayoutRef"`
+	XrayIndex           pulumi.BoolPtrInput     `pulumi:"xrayIndex"`
 }
 
 func (LookupLocalCargoRepositoryOutputArgs) ElementType() reflect.Type {
@@ -122,6 +166,9 @@ func (o LookupLocalCargoRepositoryResultOutput) ToLookupLocalCargoRepositoryResu
 	return o
 }
 
+// Cargo client does not send credentials when performing download and search for crates.
+// Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous
+// access option. Default value is `false`.
 func (o LookupLocalCargoRepositoryResultOutput) AnonymousAccess() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupLocalCargoRepositoryResult) *bool { return v.AnonymousAccess }).(pulumi.BoolPtrOutput)
 }
@@ -146,6 +193,8 @@ func (o LookupLocalCargoRepositoryResultOutput) DownloadDirect() pulumi.BoolPtrO
 	return o.ApplyT(func(v LookupLocalCargoRepositoryResult) *bool { return v.DownloadDirect }).(pulumi.BoolPtrOutput)
 }
 
+// Enable internal index support based on Cargo sparse index specifications, instead
+// of the default git index. Default value is `false`.
 func (o LookupLocalCargoRepositoryResultOutput) EnableSparseIndex() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupLocalCargoRepositoryResult) *bool { return v.EnableSparseIndex }).(pulumi.BoolPtrOutput)
 }

@@ -1,10 +1,10 @@
 provider: artifactory
-major-version: 5
+major-version: 6
 env:
   ARTIFACTORY_URL: ${{ secrets.ARTIFACTORY_URL }}
   ARTIFACTORY_ACCESS_TOKEN: ${{ secrets.ARTIFACTORY_ACCESS_TOKEN}}
   PULUMI_MISSING_DOCS_ERROR: true
-upstream-provider-major-version: /v7
+upstream-provider-major-version: /v10
 providerDefaultBranch: main
 makeTemplate: bridged
 plugins:

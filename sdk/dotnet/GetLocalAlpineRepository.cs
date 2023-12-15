@@ -11,9 +11,59 @@ namespace Pulumi.Artifactory
 {
     public static class GetLocalAlpineRepository
     {
+        /// <summary>
+        /// Retrieves a local alpine repository.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var local_test_alpine_repo_basic = Artifactory.GetLocalAlpineRepository.Invoke(new()
+        ///     {
+        ///         Key = "local-test-alpine-repo-basic",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetLocalAlpineRepositoryResult> InvokeAsync(GetLocalAlpineRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLocalAlpineRepositoryResult>("artifactory:index/getLocalAlpineRepository:getLocalAlpineRepository", args ?? new GetLocalAlpineRepositoryArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Retrieves a local alpine repository.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var local_test_alpine_repo_basic = Artifactory.GetLocalAlpineRepository.Invoke(new()
+        ///     {
+        ///         Key = "local-test-alpine-repo-basic",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetLocalAlpineRepositoryResult> Invoke(GetLocalAlpineRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocalAlpineRepositoryResult>("artifactory:index/getLocalAlpineRepository:getLocalAlpineRepository", args ?? new GetLocalAlpineRepositoryInvokeArgs(), options.WithDefaults());
     }
@@ -50,12 +100,18 @@ namespace Pulumi.Artifactory
             set => _indexCompressionFormats = value;
         }
 
+        /// <summary>
+        /// the identity key of the repo.
+        /// </summary>
         [Input("key", required: true)]
         public string Key { get; set; } = null!;
 
         [Input("notes")]
         public string? Notes { get; set; }
 
+        /// <summary>
+        /// The RSA key to be used to sign alpine indices.
+        /// </summary>
         [Input("primaryKeypairRef")]
         public string? PrimaryKeypairRef { get; set; }
 
@@ -124,12 +180,18 @@ namespace Pulumi.Artifactory
             set => _indexCompressionFormats = value;
         }
 
+        /// <summary>
+        /// the identity key of the repo.
+        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
         [Input("notes")]
         public Input<string>? Notes { get; set; }
 
+        /// <summary>
+        /// The RSA key to be used to sign alpine indices.
+        /// </summary>
         [Input("primaryKeypairRef")]
         public Input<string>? PrimaryKeypairRef { get; set; }
 
@@ -186,6 +248,9 @@ namespace Pulumi.Artifactory
         public readonly string Key;
         public readonly string? Notes;
         public readonly string PackageType;
+        /// <summary>
+        /// The RSA key to be used to sign alpine indices.
+        /// </summary>
         public readonly string? PrimaryKeypairRef;
         public readonly bool? PriorityResolution;
         public readonly ImmutableArray<string> ProjectEnvironments;

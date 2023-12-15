@@ -11,9 +11,59 @@ namespace Pulumi.Artifactory
 {
     public static class GetLocalBowerRepository
     {
+        /// <summary>
+        /// Retrieves a local Bower repository.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var local_test_bower_repo = Artifactory.GetLocalBowerRepository.Invoke(new()
+        ///     {
+        ///         Key = "local-test-bower-repo",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetLocalBowerRepositoryResult> InvokeAsync(GetLocalBowerRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLocalBowerRepositoryResult>("artifactory:index/getLocalBowerRepository:getLocalBowerRepository", args ?? new GetLocalBowerRepositoryArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Retrieves a local Bower repository.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var local_test_bower_repo = Artifactory.GetLocalBowerRepository.Invoke(new()
+        ///     {
+        ///         Key = "local-test-bower-repo",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetLocalBowerRepositoryResult> Invoke(GetLocalBowerRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocalBowerRepositoryResult>("artifactory:index/getLocalBowerRepository:getLocalBowerRepository", args ?? new GetLocalBowerRepositoryInvokeArgs(), options.WithDefaults());
     }
@@ -30,6 +80,9 @@ namespace Pulumi.Artifactory
         [Input("cdnRedirect")]
         public bool? CdnRedirect { get; set; }
 
+        /// <summary>
+        /// (Optional)
+        /// </summary>
         [Input("description")]
         public string? Description { get; set; }
 
@@ -42,9 +95,15 @@ namespace Pulumi.Artifactory
         [Input("includesPattern")]
         public string? IncludesPattern { get; set; }
 
+        /// <summary>
+        /// (Required) the identity key of the repo.
+        /// </summary>
         [Input("key", required: true)]
         public string Key { get; set; } = null!;
 
+        /// <summary>
+        /// (Optional)
+        /// </summary>
         [Input("notes")]
         public string? Notes { get; set; }
 
@@ -93,6 +152,9 @@ namespace Pulumi.Artifactory
         [Input("cdnRedirect")]
         public Input<bool>? CdnRedirect { get; set; }
 
+        /// <summary>
+        /// (Optional)
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
@@ -105,9 +167,15 @@ namespace Pulumi.Artifactory
         [Input("includesPattern")]
         public Input<string>? IncludesPattern { get; set; }
 
+        /// <summary>
+        /// (Required) the identity key of the repo.
+        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
+        /// <summary>
+        /// (Optional)
+        /// </summary>
         [Input("notes")]
         public Input<string>? Notes { get; set; }
 
@@ -152,6 +220,9 @@ namespace Pulumi.Artifactory
         public readonly bool? ArchiveBrowsingEnabled;
         public readonly bool? BlackedOut;
         public readonly bool? CdnRedirect;
+        /// <summary>
+        /// (Optional)
+        /// </summary>
         public readonly string? Description;
         public readonly bool? DownloadDirect;
         public readonly string? ExcludesPattern;
@@ -160,7 +231,13 @@ namespace Pulumi.Artifactory
         /// </summary>
         public readonly string Id;
         public readonly string? IncludesPattern;
+        /// <summary>
+        /// (Required) the identity key of the repo.
+        /// </summary>
         public readonly string Key;
+        /// <summary>
+        /// (Optional)
+        /// </summary>
         public readonly string? Notes;
         public readonly string PackageType;
         public readonly bool? PriorityResolution;

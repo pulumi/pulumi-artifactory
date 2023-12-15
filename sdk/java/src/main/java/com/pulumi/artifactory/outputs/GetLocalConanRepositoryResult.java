@@ -19,6 +19,11 @@ public final class GetLocalConanRepositoryResult {
     private @Nullable String description;
     private @Nullable Boolean downloadDirect;
     private @Nullable String excludesPattern;
+    /**
+     * @return Force basic authentication credentials in order to use this repository.
+     * Default is `false`.
+     * 
+     */
     private @Nullable Boolean forceConanAuthentication;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -26,6 +31,10 @@ public final class GetLocalConanRepositoryResult {
      */
     private String id;
     private @Nullable String includesPattern;
+    /**
+     * @return the identity key of the repo.
+     * 
+     */
     private String key;
     private @Nullable String notes;
     private String packageType;
@@ -55,6 +64,11 @@ public final class GetLocalConanRepositoryResult {
     public Optional<String> excludesPattern() {
         return Optional.ofNullable(this.excludesPattern);
     }
+    /**
+     * @return Force basic authentication credentials in order to use this repository.
+     * Default is `false`.
+     * 
+     */
     public Optional<Boolean> forceConanAuthentication() {
         return Optional.ofNullable(this.forceConanAuthentication);
     }
@@ -68,6 +82,10 @@ public final class GetLocalConanRepositoryResult {
     public Optional<String> includesPattern() {
         return Optional.ofNullable(this.includesPattern);
     }
+    /**
+     * @return the identity key of the repo.
+     * 
+     */
     public String key() {
         return this.key;
     }

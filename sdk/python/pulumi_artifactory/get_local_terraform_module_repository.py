@@ -205,7 +205,17 @@ def get_local_terraform_module_repository(archive_browsing_enabled: Optional[boo
                                           xray_index: Optional[bool] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLocalTerraformModuleRepositoryResult:
     """
-    Use this data source to access information about an existing resource.
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_artifactory as artifactory
+
+    terraform_local_test_terraform_module_repo = artifactory.LocalTerraformModuleRepository("terraform-local-test-terraform-module-repo", key="terraform-local-test-terraform-module-repo")
+    ```
+
+
+    :param str key: the identity key of the repo.
     """
     __args__ = dict()
     __args__['archiveBrowsingEnabled'] = archive_browsing_enabled
@@ -264,6 +274,16 @@ def get_local_terraform_module_repository_output(archive_browsing_enabled: Optio
                                                  xray_index: Optional[pulumi.Input[Optional[bool]]] = None,
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocalTerraformModuleRepositoryResult]:
     """
-    Use this data source to access information about an existing resource.
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_artifactory as artifactory
+
+    terraform_local_test_terraform_module_repo = artifactory.LocalTerraformModuleRepository("terraform-local-test-terraform-module-repo", key="terraform-local-test-terraform-module-repo")
+    ```
+
+
+    :param str key: the identity key of the repo.
     """
     ...

@@ -132,6 +132,10 @@ class GetLocalDebianRepositoryResult:
     @property
     @pulumi.getter(name="indexCompressionFormats")
     def index_compression_formats(self) -> Optional[Sequence[str]]:
+        """
+        The options are Bzip2 (.bz2 extension) (default), LZMA (.lzma extension)
+        and XZ (.xz extension).
+        """
         return pulumi.get(self, "index_compression_formats")
 
     @property
@@ -152,6 +156,9 @@ class GetLocalDebianRepositoryResult:
     @property
     @pulumi.getter(name="primaryKeypairRef")
     def primary_keypair_ref(self) -> Optional[str]:
+        """
+        The primary RSA key to be used to sign packages.
+        """
         return pulumi.get(self, "primary_keypair_ref")
 
     @property
@@ -182,11 +189,17 @@ class GetLocalDebianRepositoryResult:
     @property
     @pulumi.getter(name="secondaryKeypairRef")
     def secondary_keypair_ref(self) -> Optional[str]:
+        """
+        The secondary RSA key to be used to sign packages.
+        """
         return pulumi.get(self, "secondary_keypair_ref")
 
     @property
     @pulumi.getter(name="trivialLayout")
     def trivial_layout(self) -> Optional[bool]:
+        """
+        When set, the repository will use the deprecated trivial layout.
+        """
         warnings.warn("""You shouldn't be using this""", DeprecationWarning)
         pulumi.log.warn("""trivial_layout is deprecated: You shouldn't be using this""")
 
@@ -248,7 +261,24 @@ def get_local_debian_repository(archive_browsing_enabled: Optional[bool] = None,
                                 xray_index: Optional[bool] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLocalDebianRepositoryResult:
     """
-    Use this data source to access information about an existing resource.
+    Retrieves a local Debian repository.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_artifactory as artifactory
+
+    local_test_debian_repo_basic = artifactory.get_local_debian_repository(key="local-test-debian-repo-basic")
+    ```
+
+
+    :param Sequence[str] index_compression_formats: The options are Bzip2 (.bz2 extension) (default), LZMA (.lzma extension)
+           and XZ (.xz extension).
+    :param str key: the identity key of the repo.
+    :param str primary_keypair_ref: The primary RSA key to be used to sign packages.
+    :param str secondary_keypair_ref: The secondary RSA key to be used to sign packages.
+    :param bool trivial_layout: When set, the repository will use the deprecated trivial layout.
     """
     __args__ = dict()
     __args__['archiveBrowsingEnabled'] = archive_browsing_enabled
@@ -319,6 +349,23 @@ def get_local_debian_repository_output(archive_browsing_enabled: Optional[pulumi
                                        xray_index: Optional[pulumi.Input[Optional[bool]]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocalDebianRepositoryResult]:
     """
-    Use this data source to access information about an existing resource.
+    Retrieves a local Debian repository.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_artifactory as artifactory
+
+    local_test_debian_repo_basic = artifactory.get_local_debian_repository(key="local-test-debian-repo-basic")
+    ```
+
+
+    :param Sequence[str] index_compression_formats: The options are Bzip2 (.bz2 extension) (default), LZMA (.lzma extension)
+           and XZ (.xz extension).
+    :param str key: the identity key of the repo.
+    :param str primary_keypair_ref: The primary RSA key to be used to sign packages.
+    :param str secondary_keypair_ref: The secondary RSA key to be used to sign packages.
+    :param bool trivial_layout: When set, the repository will use the deprecated trivial layout.
     """
     ...

@@ -4,6 +4,20 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * Retrieves a local Nuget repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const local-test-nuget-repo-basic = artifactory.getLocalNugetRepository({
+ *     key: "local-test-nuget-repo-basic",
+ * });
+ * ```
+ */
 export function getLocalNugetRepository(args: GetLocalNugetRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalNugetRepositoryResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -38,9 +52,21 @@ export interface GetLocalNugetRepositoryArgs {
     description?: string;
     downloadDirect?: boolean;
     excludesPattern?: string;
+    /**
+     * Force basic authentication credentials in order to use this repository.
+     * Default is `false`.
+     */
     forceNugetAuthentication?: boolean;
     includesPattern?: string;
+    /**
+     * the identity key of the repo.
+     */
     key: string;
+    /**
+     * The maximum number of unique snapshots of a single artifact to store Once the
+     * number of snapshots exceeds this setting, older versions are removed A value of 0 (default) indicates there is no
+     * limit, and unique snapshots are not cleaned up.
+     */
     maxUniqueSnapshots?: number;
     notes?: string;
     priorityResolution?: boolean;
@@ -61,6 +87,10 @@ export interface GetLocalNugetRepositoryResult {
     readonly description?: string;
     readonly downloadDirect?: boolean;
     readonly excludesPattern?: string;
+    /**
+     * Force basic authentication credentials in order to use this repository.
+     * Default is `false`.
+     */
     readonly forceNugetAuthentication?: boolean;
     /**
      * The provider-assigned unique ID for this managed resource.
@@ -68,6 +98,11 @@ export interface GetLocalNugetRepositoryResult {
     readonly id: string;
     readonly includesPattern?: string;
     readonly key: string;
+    /**
+     * The maximum number of unique snapshots of a single artifact to store Once the
+     * number of snapshots exceeds this setting, older versions are removed A value of 0 (default) indicates there is no
+     * limit, and unique snapshots are not cleaned up.
+     */
     readonly maxUniqueSnapshots?: number;
     readonly notes?: string;
     readonly packageType: string;
@@ -78,6 +113,20 @@ export interface GetLocalNugetRepositoryResult {
     readonly repoLayoutRef?: string;
     readonly xrayIndex?: boolean;
 }
+/**
+ * Retrieves a local Nuget repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const local-test-nuget-repo-basic = artifactory.getLocalNugetRepository({
+ *     key: "local-test-nuget-repo-basic",
+ * });
+ * ```
+ */
 export function getLocalNugetRepositoryOutput(args: GetLocalNugetRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalNugetRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getLocalNugetRepository(a, opts))
 }
@@ -92,9 +141,21 @@ export interface GetLocalNugetRepositoryOutputArgs {
     description?: pulumi.Input<string>;
     downloadDirect?: pulumi.Input<boolean>;
     excludesPattern?: pulumi.Input<string>;
+    /**
+     * Force basic authentication credentials in order to use this repository.
+     * Default is `false`.
+     */
     forceNugetAuthentication?: pulumi.Input<boolean>;
     includesPattern?: pulumi.Input<string>;
+    /**
+     * the identity key of the repo.
+     */
     key: pulumi.Input<string>;
+    /**
+     * The maximum number of unique snapshots of a single artifact to store Once the
+     * number of snapshots exceeds this setting, older versions are removed A value of 0 (default) indicates there is no
+     * limit, and unique snapshots are not cleaned up.
+     */
     maxUniqueSnapshots?: pulumi.Input<number>;
     notes?: pulumi.Input<string>;
     priorityResolution?: pulumi.Input<boolean>;

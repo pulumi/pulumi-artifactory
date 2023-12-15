@@ -11,9 +11,59 @@ namespace Pulumi.Artifactory
 {
     public static class GetLocalDockerV1Repository
     {
+        /// <summary>
+        /// Retrieves a local Docker (v1) repository resource.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var artifactoryLocalTestDockerV1Repository = new Artifactory.DockerV1Repository("artifactoryLocalTestDockerV1Repository", new()
+        ///     {
+        ///         Key = "artifactory_local_test_docker_v1_repository",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetLocalDockerV1RepositoryResult> InvokeAsync(GetLocalDockerV1RepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLocalDockerV1RepositoryResult>("artifactory:index/getLocalDockerV1Repository:getLocalDockerV1Repository", args ?? new GetLocalDockerV1RepositoryArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Retrieves a local Docker (v1) repository resource.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var artifactoryLocalTestDockerV1Repository = new Artifactory.DockerV1Repository("artifactoryLocalTestDockerV1Repository", new()
+        ///     {
+        ///         Key = "artifactory_local_test_docker_v1_repository",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetLocalDockerV1RepositoryResult> Invoke(GetLocalDockerV1RepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocalDockerV1RepositoryResult>("artifactory:index/getLocalDockerV1Repository:getLocalDockerV1Repository", args ?? new GetLocalDockerV1RepositoryInvokeArgs(), options.WithDefaults());
     }
@@ -42,9 +92,17 @@ namespace Pulumi.Artifactory
         [Input("includesPattern")]
         public string? IncludesPattern { get; set; }
 
+        /// <summary>
+        /// the identity key of the repo.
+        /// </summary>
         [Input("key", required: true)]
         public string Key { get; set; } = null!;
 
+        /// <summary>
+        /// The maximum number of unique tags of a single Docker image to store in this repository. Once the
+        /// number tags for an image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no
+        /// limit. This only applies to manifest v2.
+        /// </summary>
         [Input("maxUniqueTags")]
         public int? MaxUniqueTags { get; set; }
 
@@ -108,9 +166,17 @@ namespace Pulumi.Artifactory
         [Input("includesPattern")]
         public Input<string>? IncludesPattern { get; set; }
 
+        /// <summary>
+        /// the identity key of the repo.
+        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
+        /// <summary>
+        /// The maximum number of unique tags of a single Docker image to store in this repository. Once the
+        /// number tags for an image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no
+        /// limit. This only applies to manifest v2.
+        /// </summary>
         [Input("maxUniqueTags")]
         public Input<int>? MaxUniqueTags { get; set; }
 
@@ -155,9 +221,16 @@ namespace Pulumi.Artifactory
     [OutputType]
     public sealed class GetLocalDockerV1RepositoryResult
     {
+        /// <summary>
+        /// The Docker API version in use.
+        /// </summary>
         public readonly string ApiVersion;
         public readonly bool? ArchiveBrowsingEnabled;
         public readonly bool? BlackedOut;
+        /// <summary>
+        /// When set, Artifactory will block the pushing of Docker images with manifest v2 schema 1 to
+        /// this repository.
+        /// </summary>
         public readonly bool BlockPushingSchema1;
         public readonly bool? CdnRedirect;
         public readonly string? Description;
@@ -169,6 +242,11 @@ namespace Pulumi.Artifactory
         public readonly string Id;
         public readonly string? IncludesPattern;
         public readonly string Key;
+        /// <summary>
+        /// The maximum number of unique tags of a single Docker image to store in this repository. Once the
+        /// number tags for an image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no
+        /// limit. This only applies to manifest v2.
+        /// </summary>
         public readonly int MaxUniqueTags;
         public readonly string? Notes;
         public readonly string PackageType;
@@ -177,6 +255,10 @@ namespace Pulumi.Artifactory
         public readonly string? ProjectKey;
         public readonly ImmutableArray<string> PropertySets;
         public readonly string? RepoLayoutRef;
+        /// <summary>
+        /// If greater than 1, overwritten tags will be saved by their digest, up to the set up number. This
+        /// only applies to manifest V2.
+        /// </summary>
         public readonly int TagRetention;
         public readonly bool? XrayIndex;
 

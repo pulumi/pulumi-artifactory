@@ -11,9 +11,55 @@ namespace Pulumi.Artifactory
 {
     public static class GetLocalTerraformProviderRepository
     {
+        /// <summary>
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var local_test_terraform_provider_repo = Artifactory.GetLocalTerraformProviderRepository.Invoke(new()
+        ///     {
+        ///         Key = "local-test-terraform-provider-repo",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetLocalTerraformProviderRepositoryResult> InvokeAsync(GetLocalTerraformProviderRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLocalTerraformProviderRepositoryResult>("artifactory:index/getLocalTerraformProviderRepository:getLocalTerraformProviderRepository", args ?? new GetLocalTerraformProviderRepositoryArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var local_test_terraform_provider_repo = Artifactory.GetLocalTerraformProviderRepository.Invoke(new()
+        ///     {
+        ///         Key = "local-test-terraform-provider-repo",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetLocalTerraformProviderRepositoryResult> Invoke(GetLocalTerraformProviderRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocalTerraformProviderRepositoryResult>("artifactory:index/getLocalTerraformProviderRepository:getLocalTerraformProviderRepository", args ?? new GetLocalTerraformProviderRepositoryInvokeArgs(), options.WithDefaults());
     }
@@ -30,6 +76,9 @@ namespace Pulumi.Artifactory
         [Input("cdnRedirect")]
         public bool? CdnRedirect { get; set; }
 
+        /// <summary>
+        /// (Optional)
+        /// </summary>
         [Input("description")]
         public string? Description { get; set; }
 
@@ -42,9 +91,15 @@ namespace Pulumi.Artifactory
         [Input("includesPattern")]
         public string? IncludesPattern { get; set; }
 
+        /// <summary>
+        /// the identity key of the repo.
+        /// </summary>
         [Input("key", required: true)]
         public string Key { get; set; } = null!;
 
+        /// <summary>
+        /// (Optional)
+        /// </summary>
         [Input("notes")]
         public string? Notes { get; set; }
 
@@ -93,6 +148,9 @@ namespace Pulumi.Artifactory
         [Input("cdnRedirect")]
         public Input<bool>? CdnRedirect { get; set; }
 
+        /// <summary>
+        /// (Optional)
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
@@ -105,9 +163,15 @@ namespace Pulumi.Artifactory
         [Input("includesPattern")]
         public Input<string>? IncludesPattern { get; set; }
 
+        /// <summary>
+        /// the identity key of the repo.
+        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
+        /// <summary>
+        /// (Optional)
+        /// </summary>
         [Input("notes")]
         public Input<string>? Notes { get; set; }
 
@@ -152,6 +216,9 @@ namespace Pulumi.Artifactory
         public readonly bool? ArchiveBrowsingEnabled;
         public readonly bool? BlackedOut;
         public readonly bool? CdnRedirect;
+        /// <summary>
+        /// (Optional)
+        /// </summary>
         public readonly string? Description;
         public readonly bool? DownloadDirect;
         public readonly string? ExcludesPattern;
@@ -161,6 +228,9 @@ namespace Pulumi.Artifactory
         public readonly string Id;
         public readonly string? IncludesPattern;
         public readonly string Key;
+        /// <summary>
+        /// (Optional)
+        /// </summary>
         public readonly string? Notes;
         public readonly string PackageType;
         public readonly bool? PriorityResolution;

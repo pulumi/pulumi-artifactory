@@ -89,6 +89,9 @@ class GetLocalDockerV2RepositoryResult:
     @property
     @pulumi.getter(name="apiVersion")
     def api_version(self) -> str:
+        """
+        "The Docker API version to use. This cannot be set"
+        """
         return pulumi.get(self, "api_version")
 
     @property
@@ -104,6 +107,10 @@ class GetLocalDockerV2RepositoryResult:
     @property
     @pulumi.getter(name="blockPushingSchema1")
     def block_pushing_schema1(self) -> bool:
+        """
+        When set, Artifactory will block the pushing of Docker images with manifest v2
+        schema 1 to this repository.
+        """
         return pulumi.get(self, "block_pushing_schema1")
 
     @property
@@ -147,6 +154,11 @@ class GetLocalDockerV2RepositoryResult:
     @property
     @pulumi.getter(name="maxUniqueTags")
     def max_unique_tags(self) -> Optional[int]:
+        """
+        The maximum number of unique tags of a single Docker image to store in this repository.
+        Once the number tags for an image exceeds this setting, older tags are removed. A value of 0 (default) indicates there
+        is no limit. This only applies to manifest v2.
+        """
         return pulumi.get(self, "max_unique_tags")
 
     @property
@@ -187,6 +199,10 @@ class GetLocalDockerV2RepositoryResult:
     @property
     @pulumi.getter(name="tagRetention")
     def tag_retention(self) -> Optional[int]:
+        """
+        If greater than 1, overwritten tags will be saved by their digest, up to the set up
+        number. This only applies to manifest V2.
+        """
         return pulumi.get(self, "tag_retention")
 
     @property
@@ -244,7 +260,26 @@ def get_local_docker_v2_repository(archive_browsing_enabled: Optional[bool] = No
                                    xray_index: Optional[bool] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLocalDockerV2RepositoryResult:
     """
-    Use this data source to access information about an existing resource.
+    Retrieves a local Docker (V2) repository resource
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_artifactory as artifactory
+
+    artifactory_local_test_docker_v2_repository = artifactory.DockerV2Repository("artifactoryLocalTestDockerV2Repository", key="artifactory_local_test_docker_v2_repository")
+    ```
+
+
+    :param bool block_pushing_schema1: When set, Artifactory will block the pushing of Docker images with manifest v2
+           schema 1 to this repository.
+    :param str key: the identity key of the repo.
+    :param int max_unique_tags: The maximum number of unique tags of a single Docker image to store in this repository.
+           Once the number tags for an image exceeds this setting, older tags are removed. A value of 0 (default) indicates there
+           is no limit. This only applies to manifest v2.
+    :param int tag_retention: If greater than 1, overwritten tags will be saved by their digest, up to the set up
+           number. This only applies to manifest V2.
     """
     __args__ = dict()
     __args__['archiveBrowsingEnabled'] = archive_browsing_enabled
@@ -313,6 +348,25 @@ def get_local_docker_v2_repository_output(archive_browsing_enabled: Optional[pul
                                           xray_index: Optional[pulumi.Input[Optional[bool]]] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocalDockerV2RepositoryResult]:
     """
-    Use this data source to access information about an existing resource.
+    Retrieves a local Docker (V2) repository resource
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_artifactory as artifactory
+
+    artifactory_local_test_docker_v2_repository = artifactory.DockerV2Repository("artifactoryLocalTestDockerV2Repository", key="artifactory_local_test_docker_v2_repository")
+    ```
+
+
+    :param bool block_pushing_schema1: When set, Artifactory will block the pushing of Docker images with manifest v2
+           schema 1 to this repository.
+    :param str key: the identity key of the repo.
+    :param int max_unique_tags: The maximum number of unique tags of a single Docker image to store in this repository.
+           Once the number tags for an image exceeds this setting, older tags are removed. A value of 0 (default) indicates there
+           is no limit. This only applies to manifest v2.
+    :param int tag_retention: If greater than 1, overwritten tags will be saved by their digest, up to the set up
+           number. This only applies to manifest V2.
     """
     ...

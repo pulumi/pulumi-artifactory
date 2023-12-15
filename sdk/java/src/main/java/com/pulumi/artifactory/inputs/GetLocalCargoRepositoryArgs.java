@@ -17,9 +17,21 @@ public final class GetLocalCargoRepositoryArgs extends com.pulumi.resources.Invo
 
     public static final GetLocalCargoRepositoryArgs Empty = new GetLocalCargoRepositoryArgs();
 
+    /**
+     * Cargo client does not send credentials when performing download and search for crates.
+     * Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous
+     * access option. Default value is `false`.
+     * 
+     */
     @Import(name="anonymousAccess")
     private @Nullable Output<Boolean> anonymousAccess;
 
+    /**
+     * @return Cargo client does not send credentials when performing download and search for crates.
+     * Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous
+     * access option. Default value is `false`.
+     * 
+     */
     public Optional<Output<Boolean>> anonymousAccess() {
         return Optional.ofNullable(this.anonymousAccess);
     }
@@ -59,9 +71,19 @@ public final class GetLocalCargoRepositoryArgs extends com.pulumi.resources.Invo
         return Optional.ofNullable(this.downloadDirect);
     }
 
+    /**
+     * Enable internal index support based on Cargo sparse index specifications, instead
+     * of the default git index. Default value is `false`.
+     * 
+     */
     @Import(name="enableSparseIndex")
     private @Nullable Output<Boolean> enableSparseIndex;
 
+    /**
+     * @return Enable internal index support based on Cargo sparse index specifications, instead
+     * of the default git index. Default value is `false`.
+     * 
+     */
     public Optional<Output<Boolean>> enableSparseIndex() {
         return Optional.ofNullable(this.enableSparseIndex);
     }
@@ -87,9 +109,17 @@ public final class GetLocalCargoRepositoryArgs extends com.pulumi.resources.Invo
         return Optional.ofNullable(this.indexCompressionFormats);
     }
 
+    /**
+     * the identity key of the repo.
+     * 
+     */
     @Import(name="key", required=true)
     private Output<String> key;
 
+    /**
+     * @return the identity key of the repo.
+     * 
+     */
     public Output<String> key() {
         return this.key;
     }
@@ -184,11 +214,27 @@ public final class GetLocalCargoRepositoryArgs extends com.pulumi.resources.Invo
             $ = new GetLocalCargoRepositoryArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param anonymousAccess Cargo client does not send credentials when performing download and search for crates.
+         * Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous
+         * access option. Default value is `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder anonymousAccess(@Nullable Output<Boolean> anonymousAccess) {
             $.anonymousAccess = anonymousAccess;
             return this;
         }
 
+        /**
+         * @param anonymousAccess Cargo client does not send credentials when performing download and search for crates.
+         * Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous
+         * access option. Default value is `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder anonymousAccess(Boolean anonymousAccess) {
             return anonymousAccess(Output.of(anonymousAccess));
         }
@@ -238,11 +284,25 @@ public final class GetLocalCargoRepositoryArgs extends com.pulumi.resources.Invo
             return downloadDirect(Output.of(downloadDirect));
         }
 
+        /**
+         * @param enableSparseIndex Enable internal index support based on Cargo sparse index specifications, instead
+         * of the default git index. Default value is `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enableSparseIndex(@Nullable Output<Boolean> enableSparseIndex) {
             $.enableSparseIndex = enableSparseIndex;
             return this;
         }
 
+        /**
+         * @param enableSparseIndex Enable internal index support based on Cargo sparse index specifications, instead
+         * of the default git index. Default value is `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enableSparseIndex(Boolean enableSparseIndex) {
             return enableSparseIndex(Output.of(enableSparseIndex));
         }
@@ -278,11 +338,23 @@ public final class GetLocalCargoRepositoryArgs extends com.pulumi.resources.Invo
             return indexCompressionFormats(List.of(indexCompressionFormats));
         }
 
+        /**
+         * @param key the identity key of the repo.
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(Output<String> key) {
             $.key = key;
             return this;
         }
 
+        /**
+         * @param key the identity key of the repo.
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(String key) {
             return key(Output.of(key));
         }

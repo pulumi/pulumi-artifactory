@@ -93,6 +93,7 @@ from .get_federated_terraform_module_repository import *
 from .get_federated_terraform_provider_repository import *
 from .get_federated_vagrant_repository import *
 from .get_file import *
+from .get_file_list import *
 from .get_fileinfo import *
 from .get_group import *
 from .get_local_alpine_repository import *
@@ -161,6 +162,7 @@ from .get_remote_sbt_repository import *
 from .get_remote_swift_repository import *
 from .get_remote_terraform_repository import *
 from .get_remote_vcs_repository import *
+from .get_repositories import *
 from .get_user import *
 from .get_virtual_alpine_repository import *
 from .get_virtual_bower_repository import *

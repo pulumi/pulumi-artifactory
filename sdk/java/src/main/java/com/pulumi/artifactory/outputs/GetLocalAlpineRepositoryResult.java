@@ -29,6 +29,10 @@ public final class GetLocalAlpineRepositoryResult {
     private String key;
     private @Nullable String notes;
     private String packageType;
+    /**
+     * @return The RSA key to be used to sign alpine indices.
+     * 
+     */
     private @Nullable String primaryKeypairRef;
     private @Nullable Boolean priorityResolution;
     private List<String> projectEnvironments;
@@ -78,6 +82,10 @@ public final class GetLocalAlpineRepositoryResult {
     public String packageType() {
         return this.packageType;
     }
+    /**
+     * @return The RSA key to be used to sign alpine indices.
+     * 
+     */
     public Optional<String> primaryKeypairRef() {
         return Optional.ofNullable(this.primaryKeypairRef);
     }

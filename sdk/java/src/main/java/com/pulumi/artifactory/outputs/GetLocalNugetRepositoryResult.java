@@ -20,6 +20,11 @@ public final class GetLocalNugetRepositoryResult {
     private @Nullable String description;
     private @Nullable Boolean downloadDirect;
     private @Nullable String excludesPattern;
+    /**
+     * @return Force basic authentication credentials in order to use this repository.
+     * Default is `false`.
+     * 
+     */
     private @Nullable Boolean forceNugetAuthentication;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -28,6 +33,12 @@ public final class GetLocalNugetRepositoryResult {
     private String id;
     private @Nullable String includesPattern;
     private String key;
+    /**
+     * @return The maximum number of unique snapshots of a single artifact to store Once the
+     * number of snapshots exceeds this setting, older versions are removed A value of 0 (default) indicates there is no
+     * limit, and unique snapshots are not cleaned up.
+     * 
+     */
     private @Nullable Integer maxUniqueSnapshots;
     private @Nullable String notes;
     private String packageType;
@@ -57,6 +68,11 @@ public final class GetLocalNugetRepositoryResult {
     public Optional<String> excludesPattern() {
         return Optional.ofNullable(this.excludesPattern);
     }
+    /**
+     * @return Force basic authentication credentials in order to use this repository.
+     * Default is `false`.
+     * 
+     */
     public Optional<Boolean> forceNugetAuthentication() {
         return Optional.ofNullable(this.forceNugetAuthentication);
     }
@@ -73,6 +89,12 @@ public final class GetLocalNugetRepositoryResult {
     public String key() {
         return this.key;
     }
+    /**
+     * @return The maximum number of unique snapshots of a single artifact to store Once the
+     * number of snapshots exceeds this setting, older versions are removed A value of 0 (default) indicates there is no
+     * limit, and unique snapshots are not cleaned up.
+     * 
+     */
     public Optional<Integer> maxUniqueSnapshots() {
         return Optional.ofNullable(this.maxUniqueSnapshots);
     }

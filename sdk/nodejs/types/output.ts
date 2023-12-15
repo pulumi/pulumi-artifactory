@@ -1280,6 +1280,44 @@ export interface GetFederatedVagrantRepositoryMember {
     url: string;
 }
 
+export interface GetFileListFile {
+    /**
+     * Is this a folder
+     */
+    folder: boolean;
+    /**
+     * Last modified time
+     */
+    lastModified: string;
+    /**
+     * File metadata
+     */
+    metadataTimestamps: outputs.GetFileListFileMetadataTimestamps;
+    /**
+     * SHA-1 checksum
+     */
+    sha1: string;
+    /**
+     * SHA-256 checksum
+     */
+    sha2: string;
+    /**
+     * File size in bytes
+     */
+    size: number;
+    /**
+     * URL to file
+     */
+    uri: string;
+}
+
+export interface GetFileListFileMetadataTimestamps {
+    /**
+     * Properties timestamp
+     */
+    properties: string;
+}
+
 export interface GetPermissionTargetBuild {
     actions?: outputs.GetPermissionTargetBuildActions;
     /**
@@ -1632,6 +1670,14 @@ export interface GetRemoteVcsRepositoryContentSynchronisation {
     statisticsEnabled?: boolean;
 }
 
+export interface GetRepositoriesRepo {
+    description: string;
+    key: string;
+    packageType: string;
+    type: string;
+    url: string;
+}
+
 export interface LocalRepositoryMultiReplicationReplication {
     /**
      * Enabling the `checkBinaryExistenceInFilestore` flag requires an Enterprise Plus license. When true, enables distributed checksum storage. For more information, see [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
@@ -1723,7 +1769,7 @@ export interface OauthSettingsOauthProvider {
 }
 
 export interface PermissionTargetBuild {
-    actions?: outputs.PermissionTargetBuildAction[];
+    actions?: outputs.PermissionTargetBuildActions;
     /**
      * Pattern of artifacts to exclude.
      */
@@ -1738,18 +1784,18 @@ export interface PermissionTargetBuild {
     repositories: string[];
 }
 
-export interface PermissionTargetBuildAction {
+export interface PermissionTargetBuildActions {
     /**
      * Groups this permission applies for.
      */
-    groups?: outputs.PermissionTargetBuildActionGroup[];
+    groups?: outputs.PermissionTargetBuildActionsGroup[];
     /**
      * Users this permission target applies for.
      */
-    users?: outputs.PermissionTargetBuildActionUser[];
+    users?: outputs.PermissionTargetBuildActionsUser[];
 }
 
-export interface PermissionTargetBuildActionGroup {
+export interface PermissionTargetBuildActionsGroup {
     /**
      * Name of permission.
      */
@@ -1757,7 +1803,7 @@ export interface PermissionTargetBuildActionGroup {
     permissions: string[];
 }
 
-export interface PermissionTargetBuildActionUser {
+export interface PermissionTargetBuildActionsUser {
     /**
      * Name of permission.
      */
@@ -1766,7 +1812,7 @@ export interface PermissionTargetBuildActionUser {
 }
 
 export interface PermissionTargetReleaseBundle {
-    actions?: outputs.PermissionTargetReleaseBundleAction[];
+    actions?: outputs.PermissionTargetReleaseBundleActions;
     /**
      * Pattern of artifacts to exclude.
      */
@@ -1781,18 +1827,18 @@ export interface PermissionTargetReleaseBundle {
     repositories: string[];
 }
 
-export interface PermissionTargetReleaseBundleAction {
+export interface PermissionTargetReleaseBundleActions {
     /**
      * Groups this permission applies for.
      */
-    groups?: outputs.PermissionTargetReleaseBundleActionGroup[];
+    groups?: outputs.PermissionTargetReleaseBundleActionsGroup[];
     /**
      * Users this permission target applies for.
      */
-    users?: outputs.PermissionTargetReleaseBundleActionUser[];
+    users?: outputs.PermissionTargetReleaseBundleActionsUser[];
 }
 
-export interface PermissionTargetReleaseBundleActionGroup {
+export interface PermissionTargetReleaseBundleActionsGroup {
     /**
      * Name of permission.
      */
@@ -1800,7 +1846,7 @@ export interface PermissionTargetReleaseBundleActionGroup {
     permissions: string[];
 }
 
-export interface PermissionTargetReleaseBundleActionUser {
+export interface PermissionTargetReleaseBundleActionsUser {
     /**
      * Name of permission.
      */
@@ -1809,7 +1855,7 @@ export interface PermissionTargetReleaseBundleActionUser {
 }
 
 export interface PermissionTargetRepo {
-    actions?: outputs.PermissionTargetRepoAction[];
+    actions?: outputs.PermissionTargetRepoActions;
     /**
      * Pattern of artifacts to exclude.
      */
@@ -1824,18 +1870,18 @@ export interface PermissionTargetRepo {
     repositories: string[];
 }
 
-export interface PermissionTargetRepoAction {
+export interface PermissionTargetRepoActions {
     /**
      * Groups this permission applies for.
      */
-    groups?: outputs.PermissionTargetRepoActionGroup[];
+    groups?: outputs.PermissionTargetRepoActionsGroup[];
     /**
      * Users this permission target applies for.
      */
-    users?: outputs.PermissionTargetRepoActionUser[];
+    users?: outputs.PermissionTargetRepoActionsUser[];
 }
 
-export interface PermissionTargetRepoActionGroup {
+export interface PermissionTargetRepoActionsGroup {
     /**
      * Name of permission.
      */
@@ -1843,7 +1889,7 @@ export interface PermissionTargetRepoActionGroup {
     permissions: string[];
 }
 
-export interface PermissionTargetRepoActionUser {
+export interface PermissionTargetRepoActionsUser {
     /**
      * Name of permission.
      */

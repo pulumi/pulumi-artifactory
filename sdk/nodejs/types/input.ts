@@ -2452,7 +2452,7 @@ export interface OauthSettingsOauthProvider {
 }
 
 export interface PermissionTargetBuild {
-    actions?: pulumi.Input<pulumi.Input<inputs.PermissionTargetBuildAction>[]>;
+    actions?: pulumi.Input<inputs.PermissionTargetBuildActions>;
     /**
      * Pattern of artifacts to exclude.
      */
@@ -2467,18 +2467,18 @@ export interface PermissionTargetBuild {
     repositories: pulumi.Input<pulumi.Input<string>[]>;
 }
 
-export interface PermissionTargetBuildAction {
+export interface PermissionTargetBuildActions {
     /**
      * Groups this permission applies for.
      */
-    groups?: pulumi.Input<pulumi.Input<inputs.PermissionTargetBuildActionGroup>[]>;
+    groups?: pulumi.Input<pulumi.Input<inputs.PermissionTargetBuildActionsGroup>[]>;
     /**
      * Users this permission target applies for.
      */
-    users?: pulumi.Input<pulumi.Input<inputs.PermissionTargetBuildActionUser>[]>;
+    users?: pulumi.Input<pulumi.Input<inputs.PermissionTargetBuildActionsUser>[]>;
 }
 
-export interface PermissionTargetBuildActionGroup {
+export interface PermissionTargetBuildActionsGroup {
     /**
      * Name of permission.
      */
@@ -2486,7 +2486,7 @@ export interface PermissionTargetBuildActionGroup {
     permissions: pulumi.Input<pulumi.Input<string>[]>;
 }
 
-export interface PermissionTargetBuildActionUser {
+export interface PermissionTargetBuildActionsUser {
     /**
      * Name of permission.
      */
@@ -2495,7 +2495,7 @@ export interface PermissionTargetBuildActionUser {
 }
 
 export interface PermissionTargetReleaseBundle {
-    actions?: pulumi.Input<pulumi.Input<inputs.PermissionTargetReleaseBundleAction>[]>;
+    actions?: pulumi.Input<inputs.PermissionTargetReleaseBundleActions>;
     /**
      * Pattern of artifacts to exclude.
      */
@@ -2510,18 +2510,18 @@ export interface PermissionTargetReleaseBundle {
     repositories: pulumi.Input<pulumi.Input<string>[]>;
 }
 
-export interface PermissionTargetReleaseBundleAction {
+export interface PermissionTargetReleaseBundleActions {
     /**
      * Groups this permission applies for.
      */
-    groups?: pulumi.Input<pulumi.Input<inputs.PermissionTargetReleaseBundleActionGroup>[]>;
+    groups?: pulumi.Input<pulumi.Input<inputs.PermissionTargetReleaseBundleActionsGroup>[]>;
     /**
      * Users this permission target applies for.
      */
-    users?: pulumi.Input<pulumi.Input<inputs.PermissionTargetReleaseBundleActionUser>[]>;
+    users?: pulumi.Input<pulumi.Input<inputs.PermissionTargetReleaseBundleActionsUser>[]>;
 }
 
-export interface PermissionTargetReleaseBundleActionGroup {
+export interface PermissionTargetReleaseBundleActionsGroup {
     /**
      * Name of permission.
      */
@@ -2529,7 +2529,7 @@ export interface PermissionTargetReleaseBundleActionGroup {
     permissions: pulumi.Input<pulumi.Input<string>[]>;
 }
 
-export interface PermissionTargetReleaseBundleActionUser {
+export interface PermissionTargetReleaseBundleActionsUser {
     /**
      * Name of permission.
      */
@@ -2538,7 +2538,7 @@ export interface PermissionTargetReleaseBundleActionUser {
 }
 
 export interface PermissionTargetRepo {
-    actions?: pulumi.Input<pulumi.Input<inputs.PermissionTargetRepoAction>[]>;
+    actions?: pulumi.Input<inputs.PermissionTargetRepoActions>;
     /**
      * Pattern of artifacts to exclude.
      */
@@ -2553,18 +2553,18 @@ export interface PermissionTargetRepo {
     repositories: pulumi.Input<pulumi.Input<string>[]>;
 }
 
-export interface PermissionTargetRepoAction {
+export interface PermissionTargetRepoActions {
     /**
      * Groups this permission applies for.
      */
-    groups?: pulumi.Input<pulumi.Input<inputs.PermissionTargetRepoActionGroup>[]>;
+    groups?: pulumi.Input<pulumi.Input<inputs.PermissionTargetRepoActionsGroup>[]>;
     /**
      * Users this permission target applies for.
      */
-    users?: pulumi.Input<pulumi.Input<inputs.PermissionTargetRepoActionUser>[]>;
+    users?: pulumi.Input<pulumi.Input<inputs.PermissionTargetRepoActionsUser>[]>;
 }
 
-export interface PermissionTargetRepoActionGroup {
+export interface PermissionTargetRepoActionsGroup {
     /**
      * Name of permission.
      */
@@ -2572,7 +2572,7 @@ export interface PermissionTargetRepoActionGroup {
     permissions: pulumi.Input<pulumi.Input<string>[]>;
 }
 
-export interface PermissionTargetRepoActionUser {
+export interface PermissionTargetRepoActionsUser {
     /**
      * Name of permission.
      */

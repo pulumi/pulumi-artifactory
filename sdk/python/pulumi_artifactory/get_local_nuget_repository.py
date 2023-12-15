@@ -113,6 +113,10 @@ class GetLocalNugetRepositoryResult:
     @property
     @pulumi.getter(name="forceNugetAuthentication")
     def force_nuget_authentication(self) -> Optional[bool]:
+        """
+        Force basic authentication credentials in order to use this repository.
+        Default is `false`.
+        """
         return pulumi.get(self, "force_nuget_authentication")
 
     @property
@@ -136,6 +140,11 @@ class GetLocalNugetRepositoryResult:
     @property
     @pulumi.getter(name="maxUniqueSnapshots")
     def max_unique_snapshots(self) -> Optional[int]:
+        """
+        The maximum number of unique snapshots of a single artifact to store Once the
+        number of snapshots exceeds this setting, older versions are removed A value of 0 (default) indicates there is no
+        limit, and unique snapshots are not cleaned up.
+        """
         return pulumi.get(self, "max_unique_snapshots")
 
     @property
@@ -225,7 +234,24 @@ def get_local_nuget_repository(archive_browsing_enabled: Optional[bool] = None,
                                xray_index: Optional[bool] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLocalNugetRepositoryResult:
     """
-    Use this data source to access information about an existing resource.
+    Retrieves a local Nuget repository.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_artifactory as artifactory
+
+    local_test_nuget_repo_basic = artifactory.get_local_nuget_repository(key="local-test-nuget-repo-basic")
+    ```
+
+
+    :param bool force_nuget_authentication: Force basic authentication credentials in order to use this repository.
+           Default is `false`.
+    :param str key: the identity key of the repo.
+    :param int max_unique_snapshots: The maximum number of unique snapshots of a single artifact to store Once the
+           number of snapshots exceeds this setting, older versions are removed A value of 0 (default) indicates there is no
+           limit, and unique snapshots are not cleaned up.
     """
     __args__ = dict()
     __args__['archiveBrowsingEnabled'] = archive_browsing_enabled
@@ -290,6 +316,23 @@ def get_local_nuget_repository_output(archive_browsing_enabled: Optional[pulumi.
                                       xray_index: Optional[pulumi.Input[Optional[bool]]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocalNugetRepositoryResult]:
     """
-    Use this data source to access information about an existing resource.
+    Retrieves a local Nuget repository.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_artifactory as artifactory
+
+    local_test_nuget_repo_basic = artifactory.get_local_nuget_repository(key="local-test-nuget-repo-basic")
+    ```
+
+
+    :param bool force_nuget_authentication: Force basic authentication credentials in order to use this repository.
+           Default is `false`.
+    :param str key: the identity key of the repo.
+    :param int max_unique_snapshots: The maximum number of unique snapshots of a single artifact to store Once the
+           number of snapshots exceeds this setting, older versions are removed A value of 0 (default) indicates there is no
+           limit, and unique snapshots are not cleaned up.
     """
     ...

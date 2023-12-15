@@ -4,6 +4,20 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * Retrieves a local Debian repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const local-test-debian-repo-basic = artifactory.getLocalDebianRepository({
+ *     key: "local-test-debian-repo-basic",
+ * });
+ * ```
+ */
 export function getLocalDebianRepository(args: GetLocalDebianRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalDebianRepositoryResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -41,17 +55,32 @@ export interface GetLocalDebianRepositoryArgs {
     downloadDirect?: boolean;
     excludesPattern?: string;
     includesPattern?: string;
+    /**
+     * The options are Bzip2 (.bz2 extension) (default), LZMA (.lzma extension)
+     * and XZ (.xz extension).
+     */
     indexCompressionFormats?: string[];
+    /**
+     * the identity key of the repo.
+     */
     key: string;
     notes?: string;
+    /**
+     * The primary RSA key to be used to sign packages.
+     */
     primaryKeypairRef?: string;
     priorityResolution?: boolean;
     projectEnvironments?: string[];
     projectKey?: string;
     propertySets?: string[];
     repoLayoutRef?: string;
+    /**
+     * The secondary RSA key to be used to sign packages.
+     */
     secondaryKeypairRef?: string;
     /**
+     * When set, the repository will use the deprecated trivial layout.
+     *
      * @deprecated You shouldn't be using this
      */
     trivialLayout?: boolean;
@@ -73,23 +102,49 @@ export interface GetLocalDebianRepositoryResult {
      */
     readonly id: string;
     readonly includesPattern?: string;
+    /**
+     * The options are Bzip2 (.bz2 extension) (default), LZMA (.lzma extension)
+     * and XZ (.xz extension).
+     */
     readonly indexCompressionFormats?: string[];
     readonly key: string;
     readonly notes?: string;
     readonly packageType: string;
+    /**
+     * The primary RSA key to be used to sign packages.
+     */
     readonly primaryKeypairRef?: string;
     readonly priorityResolution?: boolean;
     readonly projectEnvironments: string[];
     readonly projectKey?: string;
     readonly propertySets?: string[];
     readonly repoLayoutRef?: string;
+    /**
+     * The secondary RSA key to be used to sign packages.
+     */
     readonly secondaryKeypairRef?: string;
     /**
+     * When set, the repository will use the deprecated trivial layout.
+     *
      * @deprecated You shouldn't be using this
      */
     readonly trivialLayout?: boolean;
     readonly xrayIndex?: boolean;
 }
+/**
+ * Retrieves a local Debian repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const local-test-debian-repo-basic = artifactory.getLocalDebianRepository({
+ *     key: "local-test-debian-repo-basic",
+ * });
+ * ```
+ */
 export function getLocalDebianRepositoryOutput(args: GetLocalDebianRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalDebianRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getLocalDebianRepository(a, opts))
 }
@@ -105,17 +160,32 @@ export interface GetLocalDebianRepositoryOutputArgs {
     downloadDirect?: pulumi.Input<boolean>;
     excludesPattern?: pulumi.Input<string>;
     includesPattern?: pulumi.Input<string>;
+    /**
+     * The options are Bzip2 (.bz2 extension) (default), LZMA (.lzma extension)
+     * and XZ (.xz extension).
+     */
     indexCompressionFormats?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * the identity key of the repo.
+     */
     key: pulumi.Input<string>;
     notes?: pulumi.Input<string>;
+    /**
+     * The primary RSA key to be used to sign packages.
+     */
     primaryKeypairRef?: pulumi.Input<string>;
     priorityResolution?: pulumi.Input<boolean>;
     projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
     projectKey?: pulumi.Input<string>;
     propertySets?: pulumi.Input<pulumi.Input<string>[]>;
     repoLayoutRef?: pulumi.Input<string>;
+    /**
+     * The secondary RSA key to be used to sign packages.
+     */
     secondaryKeypairRef?: pulumi.Input<string>;
     /**
+     * When set, the repository will use the deprecated trivial layout.
+     *
      * @deprecated You shouldn't be using this
      */
     trivialLayout?: pulumi.Input<boolean>;

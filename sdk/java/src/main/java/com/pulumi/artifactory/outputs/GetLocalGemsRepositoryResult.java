@@ -25,6 +25,10 @@ public final class GetLocalGemsRepositoryResult {
      */
     private String id;
     private @Nullable String includesPattern;
+    /**
+     * @return the identity key of the repo.
+     * 
+     */
     private String key;
     private @Nullable String notes;
     private String packageType;
@@ -64,6 +68,10 @@ public final class GetLocalGemsRepositoryResult {
     public Optional<String> includesPattern() {
         return Optional.ofNullable(this.includesPattern);
     }
+    /**
+     * @return the identity key of the repo.
+     * 
+     */
     public String key() {
         return this.key;
     }

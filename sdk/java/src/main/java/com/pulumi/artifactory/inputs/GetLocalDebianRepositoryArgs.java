@@ -66,16 +66,34 @@ public final class GetLocalDebianRepositoryArgs extends com.pulumi.resources.Inv
         return Optional.ofNullable(this.includesPattern);
     }
 
+    /**
+     * The options are Bzip2 (.bz2 extension) (default), LZMA (.lzma extension)
+     * and XZ (.xz extension).
+     * 
+     */
     @Import(name="indexCompressionFormats")
     private @Nullable Output<List<String>> indexCompressionFormats;
 
+    /**
+     * @return The options are Bzip2 (.bz2 extension) (default), LZMA (.lzma extension)
+     * and XZ (.xz extension).
+     * 
+     */
     public Optional<Output<List<String>>> indexCompressionFormats() {
         return Optional.ofNullable(this.indexCompressionFormats);
     }
 
+    /**
+     * the identity key of the repo.
+     * 
+     */
     @Import(name="key", required=true)
     private Output<String> key;
 
+    /**
+     * @return the identity key of the repo.
+     * 
+     */
     public Output<String> key() {
         return this.key;
     }
@@ -87,9 +105,17 @@ public final class GetLocalDebianRepositoryArgs extends com.pulumi.resources.Inv
         return Optional.ofNullable(this.notes);
     }
 
+    /**
+     * The primary RSA key to be used to sign packages.
+     * 
+     */
     @Import(name="primaryKeypairRef")
     private @Nullable Output<String> primaryKeypairRef;
 
+    /**
+     * @return The primary RSA key to be used to sign packages.
+     * 
+     */
     public Optional<Output<String>> primaryKeypairRef() {
         return Optional.ofNullable(this.primaryKeypairRef);
     }
@@ -129,14 +155,24 @@ public final class GetLocalDebianRepositoryArgs extends com.pulumi.resources.Inv
         return Optional.ofNullable(this.repoLayoutRef);
     }
 
+    /**
+     * The secondary RSA key to be used to sign packages.
+     * 
+     */
     @Import(name="secondaryKeypairRef")
     private @Nullable Output<String> secondaryKeypairRef;
 
+    /**
+     * @return The secondary RSA key to be used to sign packages.
+     * 
+     */
     public Optional<Output<String>> secondaryKeypairRef() {
         return Optional.ofNullable(this.secondaryKeypairRef);
     }
 
     /**
+     * When set, the repository will use the deprecated trivial layout.
+     * 
      * @deprecated
      * You shouldn&#39;t be using this
      * 
@@ -146,6 +182,8 @@ public final class GetLocalDebianRepositoryArgs extends com.pulumi.resources.Inv
     private @Nullable Output<Boolean> trivialLayout;
 
     /**
+     * @return When set, the repository will use the deprecated trivial layout.
+     * 
      * @deprecated
      * You shouldn&#39;t be using this
      * 
@@ -267,24 +305,57 @@ public final class GetLocalDebianRepositoryArgs extends com.pulumi.resources.Inv
             return includesPattern(Output.of(includesPattern));
         }
 
+        /**
+         * @param indexCompressionFormats The options are Bzip2 (.bz2 extension) (default), LZMA (.lzma extension)
+         * and XZ (.xz extension).
+         * 
+         * @return builder
+         * 
+         */
         public Builder indexCompressionFormats(@Nullable Output<List<String>> indexCompressionFormats) {
             $.indexCompressionFormats = indexCompressionFormats;
             return this;
         }
 
+        /**
+         * @param indexCompressionFormats The options are Bzip2 (.bz2 extension) (default), LZMA (.lzma extension)
+         * and XZ (.xz extension).
+         * 
+         * @return builder
+         * 
+         */
         public Builder indexCompressionFormats(List<String> indexCompressionFormats) {
             return indexCompressionFormats(Output.of(indexCompressionFormats));
         }
 
+        /**
+         * @param indexCompressionFormats The options are Bzip2 (.bz2 extension) (default), LZMA (.lzma extension)
+         * and XZ (.xz extension).
+         * 
+         * @return builder
+         * 
+         */
         public Builder indexCompressionFormats(String... indexCompressionFormats) {
             return indexCompressionFormats(List.of(indexCompressionFormats));
         }
 
+        /**
+         * @param key the identity key of the repo.
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(Output<String> key) {
             $.key = key;
             return this;
         }
 
+        /**
+         * @param key the identity key of the repo.
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(String key) {
             return key(Output.of(key));
         }
@@ -298,11 +369,23 @@ public final class GetLocalDebianRepositoryArgs extends com.pulumi.resources.Inv
             return notes(Output.of(notes));
         }
 
+        /**
+         * @param primaryKeypairRef The primary RSA key to be used to sign packages.
+         * 
+         * @return builder
+         * 
+         */
         public Builder primaryKeypairRef(@Nullable Output<String> primaryKeypairRef) {
             $.primaryKeypairRef = primaryKeypairRef;
             return this;
         }
 
+        /**
+         * @param primaryKeypairRef The primary RSA key to be used to sign packages.
+         * 
+         * @return builder
+         * 
+         */
         public Builder primaryKeypairRef(String primaryKeypairRef) {
             return primaryKeypairRef(Output.of(primaryKeypairRef));
         }
@@ -360,16 +443,30 @@ public final class GetLocalDebianRepositoryArgs extends com.pulumi.resources.Inv
             return repoLayoutRef(Output.of(repoLayoutRef));
         }
 
+        /**
+         * @param secondaryKeypairRef The secondary RSA key to be used to sign packages.
+         * 
+         * @return builder
+         * 
+         */
         public Builder secondaryKeypairRef(@Nullable Output<String> secondaryKeypairRef) {
             $.secondaryKeypairRef = secondaryKeypairRef;
             return this;
         }
 
+        /**
+         * @param secondaryKeypairRef The secondary RSA key to be used to sign packages.
+         * 
+         * @return builder
+         * 
+         */
         public Builder secondaryKeypairRef(String secondaryKeypairRef) {
             return secondaryKeypairRef(Output.of(secondaryKeypairRef));
         }
 
         /**
+         * @param trivialLayout When set, the repository will use the deprecated trivial layout.
+         * 
          * @return builder
          * 
          * @deprecated
@@ -383,6 +480,8 @@ public final class GetLocalDebianRepositoryArgs extends com.pulumi.resources.Inv
         }
 
         /**
+         * @param trivialLayout When set, the repository will use the deprecated trivial layout.
+         * 
          * @return builder
          * 
          * @deprecated

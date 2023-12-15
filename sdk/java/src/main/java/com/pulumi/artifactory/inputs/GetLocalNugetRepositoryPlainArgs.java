@@ -59,9 +59,19 @@ public final class GetLocalNugetRepositoryPlainArgs extends com.pulumi.resources
         return Optional.ofNullable(this.excludesPattern);
     }
 
+    /**
+     * Force basic authentication credentials in order to use this repository.
+     * Default is `false`.
+     * 
+     */
     @Import(name="forceNugetAuthentication")
     private @Nullable Boolean forceNugetAuthentication;
 
+    /**
+     * @return Force basic authentication credentials in order to use this repository.
+     * Default is `false`.
+     * 
+     */
     public Optional<Boolean> forceNugetAuthentication() {
         return Optional.ofNullable(this.forceNugetAuthentication);
     }
@@ -73,16 +83,36 @@ public final class GetLocalNugetRepositoryPlainArgs extends com.pulumi.resources
         return Optional.ofNullable(this.includesPattern);
     }
 
+    /**
+     * the identity key of the repo.
+     * 
+     */
     @Import(name="key", required=true)
     private String key;
 
+    /**
+     * @return the identity key of the repo.
+     * 
+     */
     public String key() {
         return this.key;
     }
 
+    /**
+     * The maximum number of unique snapshots of a single artifact to store Once the
+     * number of snapshots exceeds this setting, older versions are removed A value of 0 (default) indicates there is no
+     * limit, and unique snapshots are not cleaned up.
+     * 
+     */
     @Import(name="maxUniqueSnapshots")
     private @Nullable Integer maxUniqueSnapshots;
 
+    /**
+     * @return The maximum number of unique snapshots of a single artifact to store Once the
+     * number of snapshots exceeds this setting, older versions are removed A value of 0 (default) indicates there is no
+     * limit, and unique snapshots are not cleaned up.
+     * 
+     */
     public Optional<Integer> maxUniqueSnapshots() {
         return Optional.ofNullable(this.maxUniqueSnapshots);
     }
@@ -206,6 +236,13 @@ public final class GetLocalNugetRepositoryPlainArgs extends com.pulumi.resources
             return this;
         }
 
+        /**
+         * @param forceNugetAuthentication Force basic authentication credentials in order to use this repository.
+         * Default is `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder forceNugetAuthentication(@Nullable Boolean forceNugetAuthentication) {
             $.forceNugetAuthentication = forceNugetAuthentication;
             return this;
@@ -216,11 +253,25 @@ public final class GetLocalNugetRepositoryPlainArgs extends com.pulumi.resources
             return this;
         }
 
+        /**
+         * @param key the identity key of the repo.
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(String key) {
             $.key = key;
             return this;
         }
 
+        /**
+         * @param maxUniqueSnapshots The maximum number of unique snapshots of a single artifact to store Once the
+         * number of snapshots exceeds this setting, older versions are removed A value of 0 (default) indicates there is no
+         * limit, and unique snapshots are not cleaned up.
+         * 
+         * @return builder
+         * 
+         */
         public Builder maxUniqueSnapshots(@Nullable Integer maxUniqueSnapshots) {
             $.maxUniqueSnapshots = maxUniqueSnapshots;
             return this;

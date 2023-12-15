@@ -7,10 +7,37 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
+	"github.com/pulumi/pulumi-artifactory/sdk/v6/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Retrieves a local alpine repository.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v6/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.GetLocalAlpineRepository(ctx, &artifactory.GetLocalAlpineRepositoryArgs{
+//				Key: "local-test-alpine-repo-basic",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetLocalAlpineRepository(ctx *pulumi.Context, args *GetLocalAlpineRepositoryArgs, opts ...pulumi.InvokeOption) (*GetLocalAlpineRepositoryResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetLocalAlpineRepositoryResult
@@ -31,15 +58,17 @@ type GetLocalAlpineRepositoryArgs struct {
 	ExcludesPattern         *string  `pulumi:"excludesPattern"`
 	IncludesPattern         *string  `pulumi:"includesPattern"`
 	IndexCompressionFormats []string `pulumi:"indexCompressionFormats"`
-	Key                     string   `pulumi:"key"`
-	Notes                   *string  `pulumi:"notes"`
-	PrimaryKeypairRef       *string  `pulumi:"primaryKeypairRef"`
-	PriorityResolution      *bool    `pulumi:"priorityResolution"`
-	ProjectEnvironments     []string `pulumi:"projectEnvironments"`
-	ProjectKey              *string  `pulumi:"projectKey"`
-	PropertySets            []string `pulumi:"propertySets"`
-	RepoLayoutRef           *string  `pulumi:"repoLayoutRef"`
-	XrayIndex               *bool    `pulumi:"xrayIndex"`
+	// the identity key of the repo.
+	Key   string  `pulumi:"key"`
+	Notes *string `pulumi:"notes"`
+	// The RSA key to be used to sign alpine indices.
+	PrimaryKeypairRef   *string  `pulumi:"primaryKeypairRef"`
+	PriorityResolution  *bool    `pulumi:"priorityResolution"`
+	ProjectEnvironments []string `pulumi:"projectEnvironments"`
+	ProjectKey          *string  `pulumi:"projectKey"`
+	PropertySets        []string `pulumi:"propertySets"`
+	RepoLayoutRef       *string  `pulumi:"repoLayoutRef"`
+	XrayIndex           *bool    `pulumi:"xrayIndex"`
 }
 
 // A collection of values returned by getLocalAlpineRepository.
@@ -57,13 +86,14 @@ type GetLocalAlpineRepositoryResult struct {
 	Key                     string   `pulumi:"key"`
 	Notes                   *string  `pulumi:"notes"`
 	PackageType             string   `pulumi:"packageType"`
-	PrimaryKeypairRef       *string  `pulumi:"primaryKeypairRef"`
-	PriorityResolution      *bool    `pulumi:"priorityResolution"`
-	ProjectEnvironments     []string `pulumi:"projectEnvironments"`
-	ProjectKey              *string  `pulumi:"projectKey"`
-	PropertySets            []string `pulumi:"propertySets"`
-	RepoLayoutRef           *string  `pulumi:"repoLayoutRef"`
-	XrayIndex               *bool    `pulumi:"xrayIndex"`
+	// The RSA key to be used to sign alpine indices.
+	PrimaryKeypairRef   *string  `pulumi:"primaryKeypairRef"`
+	PriorityResolution  *bool    `pulumi:"priorityResolution"`
+	ProjectEnvironments []string `pulumi:"projectEnvironments"`
+	ProjectKey          *string  `pulumi:"projectKey"`
+	PropertySets        []string `pulumi:"propertySets"`
+	RepoLayoutRef       *string  `pulumi:"repoLayoutRef"`
+	XrayIndex           *bool    `pulumi:"xrayIndex"`
 }
 
 func GetLocalAlpineRepositoryOutput(ctx *pulumi.Context, args GetLocalAlpineRepositoryOutputArgs, opts ...pulumi.InvokeOption) GetLocalAlpineRepositoryResultOutput {
@@ -89,15 +119,17 @@ type GetLocalAlpineRepositoryOutputArgs struct {
 	ExcludesPattern         pulumi.StringPtrInput   `pulumi:"excludesPattern"`
 	IncludesPattern         pulumi.StringPtrInput   `pulumi:"includesPattern"`
 	IndexCompressionFormats pulumi.StringArrayInput `pulumi:"indexCompressionFormats"`
-	Key                     pulumi.StringInput      `pulumi:"key"`
-	Notes                   pulumi.StringPtrInput   `pulumi:"notes"`
-	PrimaryKeypairRef       pulumi.StringPtrInput   `pulumi:"primaryKeypairRef"`
-	PriorityResolution      pulumi.BoolPtrInput     `pulumi:"priorityResolution"`
-	ProjectEnvironments     pulumi.StringArrayInput `pulumi:"projectEnvironments"`
-	ProjectKey              pulumi.StringPtrInput   `pulumi:"projectKey"`
-	PropertySets            pulumi.StringArrayInput `pulumi:"propertySets"`
-	RepoLayoutRef           pulumi.StringPtrInput   `pulumi:"repoLayoutRef"`
-	XrayIndex               pulumi.BoolPtrInput     `pulumi:"xrayIndex"`
+	// the identity key of the repo.
+	Key   pulumi.StringInput    `pulumi:"key"`
+	Notes pulumi.StringPtrInput `pulumi:"notes"`
+	// The RSA key to be used to sign alpine indices.
+	PrimaryKeypairRef   pulumi.StringPtrInput   `pulumi:"primaryKeypairRef"`
+	PriorityResolution  pulumi.BoolPtrInput     `pulumi:"priorityResolution"`
+	ProjectEnvironments pulumi.StringArrayInput `pulumi:"projectEnvironments"`
+	ProjectKey          pulumi.StringPtrInput   `pulumi:"projectKey"`
+	PropertySets        pulumi.StringArrayInput `pulumi:"propertySets"`
+	RepoLayoutRef       pulumi.StringPtrInput   `pulumi:"repoLayoutRef"`
+	XrayIndex           pulumi.BoolPtrInput     `pulumi:"xrayIndex"`
 }
 
 func (GetLocalAlpineRepositoryOutputArgs) ElementType() reflect.Type {
@@ -168,6 +200,7 @@ func (o GetLocalAlpineRepositoryResultOutput) PackageType() pulumi.StringOutput 
 	return o.ApplyT(func(v GetLocalAlpineRepositoryResult) string { return v.PackageType }).(pulumi.StringOutput)
 }
 
+// The RSA key to be used to sign alpine indices.
 func (o GetLocalAlpineRepositoryResultOutput) PrimaryKeypairRef() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetLocalAlpineRepositoryResult) *string { return v.PrimaryKeypairRef }).(pulumi.StringPtrOutput)
 }

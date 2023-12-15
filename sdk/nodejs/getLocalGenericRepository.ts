@@ -4,6 +4,20 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * Retrieves a local generic repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const local-test-generic-repo = artifactory.getLocalGenericRepository({
+ *     key: "local-test-generic-repo",
+ * });
+ * ```
+ */
 export function getLocalGenericRepository(args: GetLocalGenericRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalGenericRepositoryResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -37,6 +51,9 @@ export interface GetLocalGenericRepositoryArgs {
     downloadDirect?: boolean;
     excludesPattern?: string;
     includesPattern?: string;
+    /**
+     * the identity key of the repo.
+     */
     key: string;
     notes?: string;
     priorityResolution?: boolean;
@@ -62,6 +79,9 @@ export interface GetLocalGenericRepositoryResult {
      */
     readonly id: string;
     readonly includesPattern?: string;
+    /**
+     * the identity key of the repo.
+     */
     readonly key: string;
     readonly notes?: string;
     readonly packageType: string;
@@ -72,6 +92,20 @@ export interface GetLocalGenericRepositoryResult {
     readonly repoLayoutRef?: string;
     readonly xrayIndex?: boolean;
 }
+/**
+ * Retrieves a local generic repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const local-test-generic-repo = artifactory.getLocalGenericRepository({
+ *     key: "local-test-generic-repo",
+ * });
+ * ```
+ */
 export function getLocalGenericRepositoryOutput(args: GetLocalGenericRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalGenericRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getLocalGenericRepository(a, opts))
 }
@@ -87,6 +121,9 @@ export interface GetLocalGenericRepositoryOutputArgs {
     downloadDirect?: pulumi.Input<boolean>;
     excludesPattern?: pulumi.Input<string>;
     includesPattern?: pulumi.Input<string>;
+    /**
+     * the identity key of the repo.
+     */
     key: pulumi.Input<string>;
     notes?: pulumi.Input<string>;
     priorityResolution?: pulumi.Input<boolean>;

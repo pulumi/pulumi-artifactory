@@ -31,9 +31,17 @@ public final class GetLocalRpmRepositoryPlainArgs extends com.pulumi.resources.I
         return Optional.ofNullable(this.blackedOut);
     }
 
+    /**
+     * Default: `false`.
+     * 
+     */
     @Import(name="calculateYumMetadata")
     private @Nullable Boolean calculateYumMetadata;
 
+    /**
+     * @return Default: `false`.
+     * 
+     */
     public Optional<Boolean> calculateYumMetadata() {
         return Optional.ofNullable(this.calculateYumMetadata);
     }
@@ -59,9 +67,17 @@ public final class GetLocalRpmRepositoryPlainArgs extends com.pulumi.resources.I
         return Optional.ofNullable(this.downloadDirect);
     }
 
+    /**
+     * Default: `false`.
+     * 
+     */
     @Import(name="enableFileListsIndexing")
     private @Nullable Boolean enableFileListsIndexing;
 
+    /**
+     * @return Default: `false`.
+     * 
+     */
     public Optional<Boolean> enableFileListsIndexing() {
         return Optional.ofNullable(this.enableFileListsIndexing);
     }
@@ -80,9 +96,17 @@ public final class GetLocalRpmRepositoryPlainArgs extends com.pulumi.resources.I
         return Optional.ofNullable(this.includesPattern);
     }
 
+    /**
+     * the identity key of the repo.
+     * 
+     */
     @Import(name="key", required=true)
     private String key;
 
+    /**
+     * @return the identity key of the repo.
+     * 
+     */
     public String key() {
         return this.key;
     }
@@ -94,9 +118,17 @@ public final class GetLocalRpmRepositoryPlainArgs extends com.pulumi.resources.I
         return Optional.ofNullable(this.notes);
     }
 
+    /**
+     * The primary GPG key to be used to sign packages.
+     * 
+     */
     @Import(name="primaryKeypairRef")
     private @Nullable String primaryKeypairRef;
 
+    /**
+     * @return The primary GPG key to be used to sign packages.
+     * 
+     */
     public Optional<String> primaryKeypairRef() {
         return Optional.ofNullable(this.primaryKeypairRef);
     }
@@ -136,9 +168,17 @@ public final class GetLocalRpmRepositoryPlainArgs extends com.pulumi.resources.I
         return Optional.ofNullable(this.repoLayoutRef);
     }
 
+    /**
+     * The secondary GPG key to be used to sign packages.
+     * 
+     */
     @Import(name="secondaryKeypairRef")
     private @Nullable String secondaryKeypairRef;
 
+    /**
+     * @return The secondary GPG key to be used to sign packages.
+     * 
+     */
     public Optional<String> secondaryKeypairRef() {
         return Optional.ofNullable(this.secondaryKeypairRef);
     }
@@ -150,16 +190,44 @@ public final class GetLocalRpmRepositoryPlainArgs extends com.pulumi.resources.I
         return Optional.ofNullable(this.xrayIndex);
     }
 
+    /**
+     * A comma separated list of XML file names containing RPM group component
+     * definitions. Artifactory includes the group definitions as part of the calculated RPM metadata, as well as
+     * automatically generating a gzipped version of the group files, if required. Default is empty string.
+     * 
+     */
     @Import(name="yumGroupFileNames")
     private @Nullable String yumGroupFileNames;
 
+    /**
+     * @return A comma separated list of XML file names containing RPM group component
+     * definitions. Artifactory includes the group definitions as part of the calculated RPM metadata, as well as
+     * automatically generating a gzipped version of the group files, if required. Default is empty string.
+     * 
+     */
     public Optional<String> yumGroupFileNames() {
         return Optional.ofNullable(this.yumGroupFileNames);
     }
 
+    /**
+     * The depth, relative to the repository&#39;s root folder, where RPM metadata is created. This
+     * is useful when your repository contains multiple RPM repositories under parallel hierarchies. For example, if your
+     * RPMs are stored under &#39;fedora/linux/$releasever/$basearch&#39;, specify a depth of 4. Once the number of snapshots exceeds
+     * this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are
+     * not cleaned up.
+     * 
+     */
     @Import(name="yumRootDepth")
     private @Nullable Integer yumRootDepth;
 
+    /**
+     * @return The depth, relative to the repository&#39;s root folder, where RPM metadata is created. This
+     * is useful when your repository contains multiple RPM repositories under parallel hierarchies. For example, if your
+     * RPMs are stored under &#39;fedora/linux/$releasever/$basearch&#39;, specify a depth of 4. Once the number of snapshots exceeds
+     * this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are
+     * not cleaned up.
+     * 
+     */
     public Optional<Integer> yumRootDepth() {
         return Optional.ofNullable(this.yumRootDepth);
     }
@@ -218,6 +286,12 @@ public final class GetLocalRpmRepositoryPlainArgs extends com.pulumi.resources.I
             return this;
         }
 
+        /**
+         * @param calculateYumMetadata Default: `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder calculateYumMetadata(@Nullable Boolean calculateYumMetadata) {
             $.calculateYumMetadata = calculateYumMetadata;
             return this;
@@ -238,6 +312,12 @@ public final class GetLocalRpmRepositoryPlainArgs extends com.pulumi.resources.I
             return this;
         }
 
+        /**
+         * @param enableFileListsIndexing Default: `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enableFileListsIndexing(@Nullable Boolean enableFileListsIndexing) {
             $.enableFileListsIndexing = enableFileListsIndexing;
             return this;
@@ -253,6 +333,12 @@ public final class GetLocalRpmRepositoryPlainArgs extends com.pulumi.resources.I
             return this;
         }
 
+        /**
+         * @param key the identity key of the repo.
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(String key) {
             $.key = key;
             return this;
@@ -263,6 +349,12 @@ public final class GetLocalRpmRepositoryPlainArgs extends com.pulumi.resources.I
             return this;
         }
 
+        /**
+         * @param primaryKeypairRef The primary GPG key to be used to sign packages.
+         * 
+         * @return builder
+         * 
+         */
         public Builder primaryKeypairRef(@Nullable String primaryKeypairRef) {
             $.primaryKeypairRef = primaryKeypairRef;
             return this;
@@ -301,6 +393,12 @@ public final class GetLocalRpmRepositoryPlainArgs extends com.pulumi.resources.I
             return this;
         }
 
+        /**
+         * @param secondaryKeypairRef The secondary GPG key to be used to sign packages.
+         * 
+         * @return builder
+         * 
+         */
         public Builder secondaryKeypairRef(@Nullable String secondaryKeypairRef) {
             $.secondaryKeypairRef = secondaryKeypairRef;
             return this;
@@ -311,11 +409,29 @@ public final class GetLocalRpmRepositoryPlainArgs extends com.pulumi.resources.I
             return this;
         }
 
+        /**
+         * @param yumGroupFileNames A comma separated list of XML file names containing RPM group component
+         * definitions. Artifactory includes the group definitions as part of the calculated RPM metadata, as well as
+         * automatically generating a gzipped version of the group files, if required. Default is empty string.
+         * 
+         * @return builder
+         * 
+         */
         public Builder yumGroupFileNames(@Nullable String yumGroupFileNames) {
             $.yumGroupFileNames = yumGroupFileNames;
             return this;
         }
 
+        /**
+         * @param yumRootDepth The depth, relative to the repository&#39;s root folder, where RPM metadata is created. This
+         * is useful when your repository contains multiple RPM repositories under parallel hierarchies. For example, if your
+         * RPMs are stored under &#39;fedora/linux/$releasever/$basearch&#39;, specify a depth of 4. Once the number of snapshots exceeds
+         * this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are
+         * not cleaned up.
+         * 
+         * @return builder
+         * 
+         */
         public Builder yumRootDepth(@Nullable Integer yumRootDepth) {
             $.yumRootDepth = yumRootDepth;
             return this;

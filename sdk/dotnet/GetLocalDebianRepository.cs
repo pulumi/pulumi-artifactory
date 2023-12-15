@@ -11,9 +11,59 @@ namespace Pulumi.Artifactory
 {
     public static class GetLocalDebianRepository
     {
+        /// <summary>
+        /// Retrieves a local Debian repository.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var local_test_debian_repo_basic = Artifactory.GetLocalDebianRepository.Invoke(new()
+        ///     {
+        ///         Key = "local-test-debian-repo-basic",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetLocalDebianRepositoryResult> InvokeAsync(GetLocalDebianRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLocalDebianRepositoryResult>("artifactory:index/getLocalDebianRepository:getLocalDebianRepository", args ?? new GetLocalDebianRepositoryArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Retrieves a local Debian repository.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var local_test_debian_repo_basic = Artifactory.GetLocalDebianRepository.Invoke(new()
+        ///     {
+        ///         Key = "local-test-debian-repo-basic",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetLocalDebianRepositoryResult> Invoke(GetLocalDebianRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocalDebianRepositoryResult>("artifactory:index/getLocalDebianRepository:getLocalDebianRepository", args ?? new GetLocalDebianRepositoryInvokeArgs(), options.WithDefaults());
     }
@@ -44,18 +94,29 @@ namespace Pulumi.Artifactory
 
         [Input("indexCompressionFormats")]
         private List<string>? _indexCompressionFormats;
+
+        /// <summary>
+        /// The options are Bzip2 (.bz2 extension) (default), LZMA (.lzma extension)
+        /// and XZ (.xz extension).
+        /// </summary>
         public List<string> IndexCompressionFormats
         {
             get => _indexCompressionFormats ?? (_indexCompressionFormats = new List<string>());
             set => _indexCompressionFormats = value;
         }
 
+        /// <summary>
+        /// the identity key of the repo.
+        /// </summary>
         [Input("key", required: true)]
         public string Key { get; set; } = null!;
 
         [Input("notes")]
         public string? Notes { get; set; }
 
+        /// <summary>
+        /// The primary RSA key to be used to sign packages.
+        /// </summary>
         [Input("primaryKeypairRef")]
         public string? PrimaryKeypairRef { get; set; }
 
@@ -84,9 +145,15 @@ namespace Pulumi.Artifactory
         [Input("repoLayoutRef")]
         public string? RepoLayoutRef { get; set; }
 
+        /// <summary>
+        /// The secondary RSA key to be used to sign packages.
+        /// </summary>
         [Input("secondaryKeypairRef")]
         public string? SecondaryKeypairRef { get; set; }
 
+        /// <summary>
+        /// When set, the repository will use the deprecated trivial layout.
+        /// </summary>
         [Input("trivialLayout")]
         public bool? TrivialLayout { get; set; }
 
@@ -124,18 +191,29 @@ namespace Pulumi.Artifactory
 
         [Input("indexCompressionFormats")]
         private InputList<string>? _indexCompressionFormats;
+
+        /// <summary>
+        /// The options are Bzip2 (.bz2 extension) (default), LZMA (.lzma extension)
+        /// and XZ (.xz extension).
+        /// </summary>
         public InputList<string> IndexCompressionFormats
         {
             get => _indexCompressionFormats ?? (_indexCompressionFormats = new InputList<string>());
             set => _indexCompressionFormats = value;
         }
 
+        /// <summary>
+        /// the identity key of the repo.
+        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
         [Input("notes")]
         public Input<string>? Notes { get; set; }
 
+        /// <summary>
+        /// The primary RSA key to be used to sign packages.
+        /// </summary>
         [Input("primaryKeypairRef")]
         public Input<string>? PrimaryKeypairRef { get; set; }
 
@@ -164,9 +242,15 @@ namespace Pulumi.Artifactory
         [Input("repoLayoutRef")]
         public Input<string>? RepoLayoutRef { get; set; }
 
+        /// <summary>
+        /// The secondary RSA key to be used to sign packages.
+        /// </summary>
         [Input("secondaryKeypairRef")]
         public Input<string>? SecondaryKeypairRef { get; set; }
 
+        /// <summary>
+        /// When set, the repository will use the deprecated trivial layout.
+        /// </summary>
         [Input("trivialLayout")]
         public Input<bool>? TrivialLayout { get; set; }
 
@@ -194,17 +278,30 @@ namespace Pulumi.Artifactory
         /// </summary>
         public readonly string Id;
         public readonly string? IncludesPattern;
+        /// <summary>
+        /// The options are Bzip2 (.bz2 extension) (default), LZMA (.lzma extension)
+        /// and XZ (.xz extension).
+        /// </summary>
         public readonly ImmutableArray<string> IndexCompressionFormats;
         public readonly string Key;
         public readonly string? Notes;
         public readonly string PackageType;
+        /// <summary>
+        /// The primary RSA key to be used to sign packages.
+        /// </summary>
         public readonly string? PrimaryKeypairRef;
         public readonly bool? PriorityResolution;
         public readonly ImmutableArray<string> ProjectEnvironments;
         public readonly string? ProjectKey;
         public readonly ImmutableArray<string> PropertySets;
         public readonly string? RepoLayoutRef;
+        /// <summary>
+        /// The secondary RSA key to be used to sign packages.
+        /// </summary>
         public readonly string? SecondaryKeypairRef;
+        /// <summary>
+        /// When set, the repository will use the deprecated trivial layout.
+        /// </summary>
         public readonly bool? TrivialLayout;
         public readonly bool? XrayIndex;
 

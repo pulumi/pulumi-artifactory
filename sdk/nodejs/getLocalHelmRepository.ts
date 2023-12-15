@@ -4,6 +4,20 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * Retrieves a local helm repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const local-test-helm-repo = artifactory.getLocalHelmRepository({
+ *     key: "local-test-helm-repo",
+ * });
+ * ```
+ */
 export function getLocalHelmRepository(args: GetLocalHelmRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalHelmRepositoryResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -37,6 +51,9 @@ export interface GetLocalHelmRepositoryArgs {
     downloadDirect?: boolean;
     excludesPattern?: string;
     includesPattern?: string;
+    /**
+     * the identity key of the repo.
+     */
     key: string;
     notes?: string;
     priorityResolution?: boolean;
@@ -62,6 +79,9 @@ export interface GetLocalHelmRepositoryResult {
      */
     readonly id: string;
     readonly includesPattern?: string;
+    /**
+     * the identity key of the repo.
+     */
     readonly key: string;
     readonly notes?: string;
     readonly packageType: string;
@@ -72,6 +92,20 @@ export interface GetLocalHelmRepositoryResult {
     readonly repoLayoutRef?: string;
     readonly xrayIndex?: boolean;
 }
+/**
+ * Retrieves a local helm repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const local-test-helm-repo = artifactory.getLocalHelmRepository({
+ *     key: "local-test-helm-repo",
+ * });
+ * ```
+ */
 export function getLocalHelmRepositoryOutput(args: GetLocalHelmRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalHelmRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getLocalHelmRepository(a, opts))
 }
@@ -87,6 +121,9 @@ export interface GetLocalHelmRepositoryOutputArgs {
     downloadDirect?: pulumi.Input<boolean>;
     excludesPattern?: pulumi.Input<string>;
     includesPattern?: pulumi.Input<string>;
+    /**
+     * the identity key of the repo.
+     */
     key: pulumi.Input<string>;
     notes?: pulumi.Input<string>;
     priorityResolution?: pulumi.Input<boolean>;

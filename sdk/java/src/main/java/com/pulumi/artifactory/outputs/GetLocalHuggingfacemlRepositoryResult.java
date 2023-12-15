@@ -13,44 +13,126 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetLocalHuggingfacemlRepositoryResult {
+    /**
+     * @return When set, you may view content such as HTML or Javadoc files directly from Artifactory.
+     * This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
+     * 
+     */
     private @Nullable Boolean archiveBrowsingEnabled;
+    /**
+     * @return When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
+     * 
+     */
     private @Nullable Boolean blackedOut;
+    /**
+     * @return When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
+     * 
+     */
     private @Nullable Boolean cdnRedirect;
+    /**
+     * @return Public description.
+     * 
+     */
     private @Nullable String description;
+    /**
+     * @return When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
+     * 
+     */
     private @Nullable Boolean downloadDirect;
+    /**
+     * @return List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**{@literal /}z/*.By default no artifacts are excluded.
+     * 
+     */
     private @Nullable String excludesPattern;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
+    /**
+     * @return List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**{@literal /}z/*. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**{@literal /}*).
+     * 
+     */
     private @Nullable String includesPattern;
+    /**
+     * @return A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen characters. It cannot begin with a number or contain spaces or special characters.
+     * 
+     */
     private String key;
+    /**
+     * @return Internal description.
+     * 
+     */
     private @Nullable String notes;
     private String packageType;
+    /**
+     * @return Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+     * 
+     */
     private @Nullable Boolean priorityResolution;
     private List<String> projectEnvironments;
+    /**
+     * @return Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+     * 
+     */
     private @Nullable String projectKey;
+    /**
+     * @return List of property set name
+     * 
+     */
     private @Nullable List<String> propertySets;
+    /**
+     * @return Repository layout key for the local repository
+     * 
+     */
     private @Nullable String repoLayoutRef;
+    /**
+     * @return Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
+     * 
+     */
     private @Nullable Boolean xrayIndex;
 
     private GetLocalHuggingfacemlRepositoryResult() {}
+    /**
+     * @return When set, you may view content such as HTML or Javadoc files directly from Artifactory.
+     * This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
+     * 
+     */
     public Optional<Boolean> archiveBrowsingEnabled() {
         return Optional.ofNullable(this.archiveBrowsingEnabled);
     }
+    /**
+     * @return When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
+     * 
+     */
     public Optional<Boolean> blackedOut() {
         return Optional.ofNullable(this.blackedOut);
     }
+    /**
+     * @return When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
+     * 
+     */
     public Optional<Boolean> cdnRedirect() {
         return Optional.ofNullable(this.cdnRedirect);
     }
+    /**
+     * @return Public description.
+     * 
+     */
     public Optional<String> description() {
         return Optional.ofNullable(this.description);
     }
+    /**
+     * @return When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
+     * 
+     */
     public Optional<Boolean> downloadDirect() {
         return Optional.ofNullable(this.downloadDirect);
     }
+    /**
+     * @return List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**{@literal /}z/*.By default no artifacts are excluded.
+     * 
+     */
     public Optional<String> excludesPattern() {
         return Optional.ofNullable(this.excludesPattern);
     }
@@ -61,33 +143,65 @@ public final class GetLocalHuggingfacemlRepositoryResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**{@literal /}z/*. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**{@literal /}*).
+     * 
+     */
     public Optional<String> includesPattern() {
         return Optional.ofNullable(this.includesPattern);
     }
+    /**
+     * @return A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen characters. It cannot begin with a number or contain spaces or special characters.
+     * 
+     */
     public String key() {
         return this.key;
     }
+    /**
+     * @return Internal description.
+     * 
+     */
     public Optional<String> notes() {
         return Optional.ofNullable(this.notes);
     }
     public String packageType() {
         return this.packageType;
     }
+    /**
+     * @return Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+     * 
+     */
     public Optional<Boolean> priorityResolution() {
         return Optional.ofNullable(this.priorityResolution);
     }
     public List<String> projectEnvironments() {
         return this.projectEnvironments;
     }
+    /**
+     * @return Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+     * 
+     */
     public Optional<String> projectKey() {
         return Optional.ofNullable(this.projectKey);
     }
+    /**
+     * @return List of property set name
+     * 
+     */
     public List<String> propertySets() {
         return this.propertySets == null ? List.of() : this.propertySets;
     }
+    /**
+     * @return Repository layout key for the local repository
+     * 
+     */
     public Optional<String> repoLayoutRef() {
         return Optional.ofNullable(this.repoLayoutRef);
     }
+    /**
+     * @return Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
+     * 
+     */
     public Optional<Boolean> xrayIndex() {
         return Optional.ofNullable(this.xrayIndex);
     }

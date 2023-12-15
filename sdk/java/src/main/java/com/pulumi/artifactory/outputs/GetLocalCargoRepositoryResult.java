@@ -13,12 +13,23 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetLocalCargoRepositoryResult {
+    /**
+     * @return Cargo client does not send credentials when performing download and search for crates.
+     * Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous
+     * access option. Default value is `false`.
+     * 
+     */
     private @Nullable Boolean anonymousAccess;
     private @Nullable Boolean archiveBrowsingEnabled;
     private @Nullable Boolean blackedOut;
     private @Nullable Boolean cdnRedirect;
     private @Nullable String description;
     private @Nullable Boolean downloadDirect;
+    /**
+     * @return Enable internal index support based on Cargo sparse index specifications, instead
+     * of the default git index. Default value is `false`.
+     * 
+     */
     private @Nullable Boolean enableSparseIndex;
     private @Nullable String excludesPattern;
     /**
@@ -39,6 +50,12 @@ public final class GetLocalCargoRepositoryResult {
     private @Nullable Boolean xrayIndex;
 
     private GetLocalCargoRepositoryResult() {}
+    /**
+     * @return Cargo client does not send credentials when performing download and search for crates.
+     * Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous
+     * access option. Default value is `false`.
+     * 
+     */
     public Optional<Boolean> anonymousAccess() {
         return Optional.ofNullable(this.anonymousAccess);
     }
@@ -57,6 +74,11 @@ public final class GetLocalCargoRepositoryResult {
     public Optional<Boolean> downloadDirect() {
         return Optional.ofNullable(this.downloadDirect);
     }
+    /**
+     * @return Enable internal index support based on Cargo sparse index specifications, instead
+     * of the default git index. Default value is `false`.
+     * 
+     */
     public Optional<Boolean> enableSparseIndex() {
         return Optional.ofNullable(this.enableSparseIndex);
     }
