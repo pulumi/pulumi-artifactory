@@ -3,7 +3,7 @@
         "resources": {
             "artifactory_access_token": {
                 "current": "artifactory:index/accessToken:AccessToken",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "admin_token": {
                         "maxItemsOne": true
@@ -15,15 +15,15 @@
             },
             "artifactory_anonymous_user": {
                 "current": "artifactory:index/anonymousUser:AnonymousUser",
-                "majorVersion": 5
+                "majorVersion": 6
             },
             "artifactory_api_key": {
                 "current": "artifactory:index/apiKey:ApiKey",
-                "majorVersion": 5
+                "majorVersion": 6
             },
             "artifactory_artifact_custom_webhook": {
                 "current": "artifactory:index/artifactCustomWebhook:ArtifactCustomWebhook",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "criteria": {
                         "maxItemsOne": true,
@@ -51,7 +51,7 @@
             },
             "artifactory_artifact_property_custom_webhook": {
                 "current": "artifactory:index/artifactPropertyCustomWebhook:ArtifactPropertyCustomWebhook",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "criteria": {
                         "maxItemsOne": true,
@@ -79,7 +79,7 @@
             },
             "artifactory_artifact_property_webhook": {
                 "current": "artifactory:index/artifactPropertyWebhook:ArtifactPropertyWebhook",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "criteria": {
                         "maxItemsOne": true,
@@ -107,7 +107,7 @@
             },
             "artifactory_artifact_webhook": {
                 "current": "artifactory:index/artifactWebhook:ArtifactWebhook",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "criteria": {
                         "maxItemsOne": true,
@@ -135,7 +135,7 @@
             },
             "artifactory_artifactory_release_bundle_custom_webhook": {
                 "current": "artifactory:index/artifactoryReleaseBundleCustomWebhook:ArtifactoryReleaseBundleCustomWebhook",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "criteria": {
                         "maxItemsOne": true,
@@ -163,7 +163,7 @@
             },
             "artifactory_artifactory_release_bundle_webhook": {
                 "current": "artifactory:index/artifactoryReleaseBundleWebhook:ArtifactoryReleaseBundleWebhook",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "criteria": {
                         "maxItemsOne": true,
@@ -191,7 +191,7 @@
             },
             "artifactory_backup": {
                 "current": "artifactory:index/backup:Backup",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "excluded_repositories": {
                         "maxItemsOne": false
@@ -200,7 +200,7 @@
             },
             "artifactory_build_custom_webhook": {
                 "current": "artifactory:index/buildCustomWebhook:BuildCustomWebhook",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "criteria": {
                         "maxItemsOne": true,
@@ -228,7 +228,7 @@
             },
             "artifactory_build_webhook": {
                 "current": "artifactory:index/buildWebhook:BuildWebhook",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "criteria": {
                         "maxItemsOne": true,
@@ -256,11 +256,11 @@
             },
             "artifactory_certificate": {
                 "current": "artifactory:index/certificate:Certificate",
-                "majorVersion": 5
+                "majorVersion": 6
             },
             "artifactory_distribution_custom_webhook": {
                 "current": "artifactory:index/distributionCustomWebhook:DistributionCustomWebhook",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "criteria": {
                         "maxItemsOne": true,
@@ -288,11 +288,11 @@
             },
             "artifactory_distribution_public_key": {
                 "current": "artifactory:index/distributionPublicKey:DistributionPublicKey",
-                "majorVersion": 5
+                "majorVersion": 6
             },
             "artifactory_distribution_webhook": {
                 "current": "artifactory:index/distributionWebhook:DistributionWebhook",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "criteria": {
                         "maxItemsOne": true,
@@ -320,7 +320,7 @@
             },
             "artifactory_docker_custom_webhook": {
                 "current": "artifactory:index/dockerCustomWebhook:DockerCustomWebhook",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "criteria": {
                         "maxItemsOne": true,
@@ -348,7 +348,7 @@
             },
             "artifactory_docker_webhook": {
                 "current": "artifactory:index/dockerWebhook:DockerWebhook",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "criteria": {
                         "maxItemsOne": true,
@@ -376,7 +376,7 @@
             },
             "artifactory_federated_alpine_repository": {
                 "current": "artifactory:index/federatedAlpineRepository:FederatedAlpineRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "index_compression_formats": {
                         "maxItemsOne": false
@@ -394,7 +394,7 @@
             },
             "artifactory_federated_bower_repository": {
                 "current": "artifactory:index/federatedBowerRepository:FederatedBowerRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "member": {
                         "maxItemsOne": false
@@ -409,7 +409,7 @@
             },
             "artifactory_federated_cargo_repository": {
                 "current": "artifactory:index/federatedCargoRepository:FederatedCargoRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "index_compression_formats": {
                         "maxItemsOne": false
@@ -427,7 +427,7 @@
             },
             "artifactory_federated_chef_repository": {
                 "current": "artifactory:index/federatedChefRepository:FederatedChefRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "member": {
                         "maxItemsOne": false
@@ -442,7 +442,7 @@
             },
             "artifactory_federated_cocoapods_repository": {
                 "current": "artifactory:index/federatedCocoapodsRepository:FederatedCocoapodsRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "member": {
                         "maxItemsOne": false
@@ -457,7 +457,7 @@
             },
             "artifactory_federated_composer_repository": {
                 "current": "artifactory:index/federatedComposerRepository:FederatedComposerRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "member": {
                         "maxItemsOne": false
@@ -472,7 +472,7 @@
             },
             "artifactory_federated_conan_repository": {
                 "current": "artifactory:index/federatedConanRepository:FederatedConanRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "member": {
                         "maxItemsOne": false
@@ -487,7 +487,7 @@
             },
             "artifactory_federated_conda_repository": {
                 "current": "artifactory:index/federatedCondaRepository:FederatedCondaRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "member": {
                         "maxItemsOne": false
@@ -502,7 +502,7 @@
             },
             "artifactory_federated_cran_repository": {
                 "current": "artifactory:index/federatedCranRepository:FederatedCranRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "member": {
                         "maxItemsOne": false
@@ -517,7 +517,7 @@
             },
             "artifactory_federated_debian_repository": {
                 "current": "artifactory:index/federatedDebianRepository:FederatedDebianRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "index_compression_formats": {
                         "maxItemsOne": false
@@ -535,7 +535,7 @@
             },
             "artifactory_federated_docker_repository": {
                 "current": "artifactory:index/federatedDockerRepository:FederatedDockerRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "member": {
                         "maxItemsOne": false
@@ -550,7 +550,7 @@
             },
             "artifactory_federated_docker_v1_repository": {
                 "current": "artifactory:index/federatedDockerV1Repository:FederatedDockerV1Repository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "member": {
                         "maxItemsOne": false
@@ -565,7 +565,7 @@
             },
             "artifactory_federated_docker_v2_repository": {
                 "current": "artifactory:index/federatedDockerV2Repository:FederatedDockerV2Repository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "member": {
                         "maxItemsOne": false
@@ -580,7 +580,7 @@
             },
             "artifactory_federated_gems_repository": {
                 "current": "artifactory:index/federatedGemsRepository:FederatedGemsRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "member": {
                         "maxItemsOne": false
@@ -595,7 +595,7 @@
             },
             "artifactory_federated_generic_repository": {
                 "current": "artifactory:index/federatedGenericRepository:FederatedGenericRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "member": {
                         "maxItemsOne": false
@@ -610,7 +610,7 @@
             },
             "artifactory_federated_gitlfs_repository": {
                 "current": "artifactory:index/federatedGitltfsRepository:FederatedGitltfsRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "member": {
                         "maxItemsOne": false
@@ -625,7 +625,7 @@
             },
             "artifactory_federated_go_repository": {
                 "current": "artifactory:index/federatedGoRepository:FederatedGoRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "member": {
                         "maxItemsOne": false
@@ -640,7 +640,7 @@
             },
             "artifactory_federated_gradle_repository": {
                 "current": "artifactory:index/federatedGradleRepository:FederatedGradleRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "member": {
                         "maxItemsOne": false
@@ -655,7 +655,7 @@
             },
             "artifactory_federated_helm_repository": {
                 "current": "artifactory:index/federatedHelmRepository:FederatedHelmRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "member": {
                         "maxItemsOne": false
@@ -670,7 +670,7 @@
             },
             "artifactory_federated_ivy_repository": {
                 "current": "artifactory:index/federatedIvyRepository:FederatedIvyRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "member": {
                         "maxItemsOne": false
@@ -685,7 +685,7 @@
             },
             "artifactory_federated_maven_repository": {
                 "current": "artifactory:index/federatedMavenRepository:FederatedMavenRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "member": {
                         "maxItemsOne": false
@@ -700,7 +700,7 @@
             },
             "artifactory_federated_npm_repository": {
                 "current": "artifactory:index/federatedNpmRepository:FederatedNpmRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "member": {
                         "maxItemsOne": false
@@ -715,7 +715,7 @@
             },
             "artifactory_federated_nuget_repository": {
                 "current": "artifactory:index/federatedNugetRepository:FederatedNugetRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "member": {
                         "maxItemsOne": false
@@ -730,7 +730,7 @@
             },
             "artifactory_federated_opkg_repository": {
                 "current": "artifactory:index/federatedOpkgRepository:FederatedOpkgRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "member": {
                         "maxItemsOne": false
@@ -745,7 +745,7 @@
             },
             "artifactory_federated_puppet_repository": {
                 "current": "artifactory:index/federatedPuppetRepository:FederatedPuppetRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "member": {
                         "maxItemsOne": false
@@ -760,7 +760,7 @@
             },
             "artifactory_federated_pypi_repository": {
                 "current": "artifactory:index/federatedPypiRepository:FederatedPypiRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "member": {
                         "maxItemsOne": false
@@ -775,7 +775,7 @@
             },
             "artifactory_federated_rpm_repository": {
                 "current": "artifactory:index/federatedRpmRepository:FederatedRpmRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "member": {
                         "maxItemsOne": false
@@ -790,7 +790,7 @@
             },
             "artifactory_federated_sbt_repository": {
                 "current": "artifactory:index/federatedSbtRepository:FederatedSbtRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "member": {
                         "maxItemsOne": false
@@ -805,7 +805,7 @@
             },
             "artifactory_federated_swift_repository": {
                 "current": "artifactory:index/federatedSwiftRepository:FederatedSwiftRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "member": {
                         "maxItemsOne": false
@@ -820,7 +820,7 @@
             },
             "artifactory_federated_terraform_module_repository": {
                 "current": "artifactory:index/federatedTerraformModuleRepository:FederatedTerraformModuleRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "member": {
                         "maxItemsOne": false
@@ -835,7 +835,7 @@
             },
             "artifactory_federated_terraform_provider_repository": {
                 "current": "artifactory:index/federatedTerraformProviderRepository:FederatedTerraformProviderRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "member": {
                         "maxItemsOne": false
@@ -850,7 +850,7 @@
             },
             "artifactory_federated_vagrant_repository": {
                 "current": "artifactory:index/federatedVagrantRepository:FederatedVagrantRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "member": {
                         "maxItemsOne": false
@@ -865,15 +865,15 @@
             },
             "artifactory_general_security": {
                 "current": "artifactory:index/generalSecurity:GeneralSecurity",
-                "majorVersion": 5
+                "majorVersion": 6
             },
             "artifactory_global_environment": {
                 "current": "artifactory:index/globalEnvironment:GlobalEnvironment",
-                "majorVersion": 5
+                "majorVersion": 6
             },
             "artifactory_group": {
                 "current": "artifactory:index/group:Group",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "users_names": {
                         "maxItemsOne": false
@@ -882,27 +882,27 @@
             },
             "artifactory_keypair": {
                 "current": "artifactory:index/keypair:Keypair",
-                "majorVersion": 5
+                "majorVersion": 6
             },
             "artifactory_ldap_group_setting": {
                 "current": "artifactory:index/ldapGroupSetting:LdapGroupSetting",
-                "majorVersion": 5
+                "majorVersion": 6
             },
             "artifactory_ldap_group_setting_v2": {
                 "current": "artifactory:index/ldapGroupSettingV2:LdapGroupSettingV2",
-                "majorVersion": 5
+                "majorVersion": 6
             },
             "artifactory_ldap_setting": {
                 "current": "artifactory:index/ldapSetting:LdapSetting",
-                "majorVersion": 5
+                "majorVersion": 6
             },
             "artifactory_ldap_setting_v2": {
                 "current": "artifactory:index/ldapSettingV2:LdapSettingV2",
-                "majorVersion": 5
+                "majorVersion": 6
             },
             "artifactory_local_alpine_repository": {
                 "current": "artifactory:index/alpineRepository:AlpineRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "index_compression_formats": {
                         "maxItemsOne": false
@@ -917,7 +917,7 @@
             },
             "artifactory_local_bower_repository": {
                 "current": "artifactory:index/localBowerRepository:LocalBowerRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -929,7 +929,7 @@
             },
             "artifactory_local_cargo_repository": {
                 "current": "artifactory:index/localCargoRepository:LocalCargoRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "index_compression_formats": {
                         "maxItemsOne": false
@@ -944,7 +944,7 @@
             },
             "artifactory_local_chef_repository": {
                 "current": "artifactory:index/localChefRepository:LocalChefRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -956,7 +956,7 @@
             },
             "artifactory_local_cocoapods_repository": {
                 "current": "artifactory:index/localCocoapodsRepository:LocalCocoapodsRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -968,7 +968,7 @@
             },
             "artifactory_local_composer_repository": {
                 "current": "artifactory:index/localComposerRepository:LocalComposerRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -980,7 +980,7 @@
             },
             "artifactory_local_conan_repository": {
                 "current": "artifactory:index/localConanRepository:LocalConanRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -992,7 +992,7 @@
             },
             "artifactory_local_conda_repository": {
                 "current": "artifactory:index/localCondaRepository:LocalCondaRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -1004,7 +1004,7 @@
             },
             "artifactory_local_cran_repository": {
                 "current": "artifactory:index/localCranRepository:LocalCranRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -1016,7 +1016,7 @@
             },
             "artifactory_local_debian_repository": {
                 "current": "artifactory:index/debianRepository:DebianRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "index_compression_formats": {
                         "maxItemsOne": false
@@ -1031,7 +1031,7 @@
             },
             "artifactory_local_docker_v1_repository": {
                 "current": "artifactory:index/dockerV1Repository:DockerV1Repository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -1043,7 +1043,7 @@
             },
             "artifactory_local_docker_v2_repository": {
                 "current": "artifactory:index/dockerV2Repository:DockerV2Repository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -1055,7 +1055,7 @@
             },
             "artifactory_local_gems_repository": {
                 "current": "artifactory:index/localGemsRepository:LocalGemsRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -1067,7 +1067,7 @@
             },
             "artifactory_local_generic_repository": {
                 "current": "artifactory:index/localGenericRepository:LocalGenericRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -1079,7 +1079,7 @@
             },
             "artifactory_local_gitlfs_repository": {
                 "current": "artifactory:index/localGitltfsRepository:LocalGitltfsRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -1091,7 +1091,7 @@
             },
             "artifactory_local_go_repository": {
                 "current": "artifactory:index/localGoRepository:LocalGoRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -1103,7 +1103,7 @@
             },
             "artifactory_local_gradle_repository": {
                 "current": "artifactory:index/localGradleRepository:LocalGradleRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -1115,7 +1115,7 @@
             },
             "artifactory_local_helm_repository": {
                 "current": "artifactory:index/localHelmRepository:LocalHelmRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -1127,7 +1127,7 @@
             },
             "artifactory_local_huggingfaceml_repository": {
                 "current": "artifactory:index/localHuggingfacemlRepository:LocalHuggingfacemlRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -1139,7 +1139,7 @@
             },
             "artifactory_local_ivy_repository": {
                 "current": "artifactory:index/localIvyRepository:LocalIvyRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -1151,7 +1151,7 @@
             },
             "artifactory_local_maven_repository": {
                 "current": "artifactory:index/localMavenRepository:LocalMavenRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -1163,7 +1163,7 @@
             },
             "artifactory_local_npm_repository": {
                 "current": "artifactory:index/localNpmRepository:LocalNpmRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -1175,7 +1175,7 @@
             },
             "artifactory_local_nuget_repository": {
                 "current": "artifactory:index/localNugetRepository:LocalNugetRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -1187,7 +1187,7 @@
             },
             "artifactory_local_opkg_repository": {
                 "current": "artifactory:index/localOpkgRepository:LocalOpkgRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -1199,7 +1199,7 @@
             },
             "artifactory_local_pub_repository": {
                 "current": "artifactory:index/localPubRepository:LocalPubRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -1211,7 +1211,7 @@
             },
             "artifactory_local_puppet_repository": {
                 "current": "artifactory:index/localPuppetRepository:LocalPuppetRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -1223,7 +1223,7 @@
             },
             "artifactory_local_pypi_repository": {
                 "current": "artifactory:index/localPypiRepository:LocalPypiRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -1235,7 +1235,7 @@
             },
             "artifactory_local_repository_multi_replication": {
                 "current": "artifactory:index/localRepositoryMultiReplication:LocalRepositoryMultiReplication",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "replication": {
                         "maxItemsOne": false
@@ -1244,11 +1244,11 @@
             },
             "artifactory_local_repository_single_replication": {
                 "current": "artifactory:index/localRepositorySingleReplication:LocalRepositorySingleReplication",
-                "majorVersion": 5
+                "majorVersion": 6
             },
             "artifactory_local_rpm_repository": {
                 "current": "artifactory:index/localRpmRepository:LocalRpmRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -1260,7 +1260,7 @@
             },
             "artifactory_local_sbt_repository": {
                 "current": "artifactory:index/localSbtRepository:LocalSbtRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -1272,7 +1272,7 @@
             },
             "artifactory_local_swift_repository": {
                 "current": "artifactory:index/localSwiftRepository:LocalSwiftRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -1284,7 +1284,7 @@
             },
             "artifactory_local_terraform_module_repository": {
                 "current": "artifactory:index/localTerraformModuleRepository:LocalTerraformModuleRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -1296,7 +1296,7 @@
             },
             "artifactory_local_terraform_provider_repository": {
                 "current": "artifactory:index/localTerraformProviderRepository:LocalTerraformProviderRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -1308,7 +1308,7 @@
             },
             "artifactory_local_terraformbackend_repository": {
                 "current": "artifactory:index/localTerraformBackendRepository:LocalTerraformBackendRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -1320,7 +1320,7 @@
             },
             "artifactory_local_vagrant_repository": {
                 "current": "artifactory:index/localVagrantRepository:LocalVagrantRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -1332,11 +1332,11 @@
             },
             "artifactory_mail_server": {
                 "current": "artifactory:index/mailServer:MailServer",
-                "majorVersion": 5
+                "majorVersion": 6
             },
             "artifactory_managed_user": {
                 "current": "artifactory:index/managedUser:ManagedUser",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "groups": {
                         "maxItemsOne": false
@@ -1345,7 +1345,7 @@
             },
             "artifactory_oauth_settings": {
                 "current": "artifactory:index/oauthSettings:OauthSettings",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "oauth_provider": {
                         "maxItemsOne": false
@@ -1354,14 +1354,14 @@
             },
             "artifactory_permission_target": {
                 "current": "artifactory:index/permissionTarget:PermissionTarget",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "build": {
-                        "maxItemsOne": false,
+                        "maxItemsOne": true,
                         "elem": {
                             "fields": {
                                 "actions": {
-                                    "maxItemsOne": false,
+                                    "maxItemsOne": true,
                                     "elem": {
                                         "fields": {
                                             "groups": {
@@ -1400,11 +1400,11 @@
                         }
                     },
                     "release_bundle": {
-                        "maxItemsOne": false,
+                        "maxItemsOne": true,
                         "elem": {
                             "fields": {
                                 "actions": {
-                                    "maxItemsOne": false,
+                                    "maxItemsOne": true,
                                     "elem": {
                                         "fields": {
                                             "groups": {
@@ -1443,11 +1443,11 @@
                         }
                     },
                     "repo": {
-                        "maxItemsOne": false,
+                        "maxItemsOne": true,
                         "elem": {
                             "fields": {
                                 "actions": {
-                                    "maxItemsOne": false,
+                                    "maxItemsOne": true,
                                     "elem": {
                                         "fields": {
                                             "groups": {
@@ -1624,7 +1624,7 @@
             },
             "artifactory_property_set": {
                 "current": "artifactory:index/propertySet:PropertySet",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "property": {
                         "maxItemsOne": false,
@@ -1640,7 +1640,7 @@
             },
             "artifactory_proxy": {
                 "current": "artifactory:index/proxy:Proxy",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "redirect_to_hosts": {
                         "maxItemsOne": false
@@ -1652,11 +1652,11 @@
             },
             "artifactory_pull_replication": {
                 "current": "artifactory:index/pullReplication:PullReplication",
-                "majorVersion": 5
+                "majorVersion": 6
             },
             "artifactory_push_replication": {
                 "current": "artifactory:index/pushReplication:PushReplication",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "replications": {
                         "maxItemsOne": false
@@ -1665,7 +1665,7 @@
             },
             "artifactory_release_bundle_custom_webhook": {
                 "current": "artifactory:index/releaseBundleCustomWebhook:ReleaseBundleCustomWebhook",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "criteria": {
                         "maxItemsOne": true,
@@ -1693,7 +1693,7 @@
             },
             "artifactory_release_bundle_webhook": {
                 "current": "artifactory:index/releaseBundleWebhook:ReleaseBundleWebhook",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "criteria": {
                         "maxItemsOne": true,
@@ -1721,7 +1721,7 @@
             },
             "artifactory_remote_alpine_repository": {
                 "current": "artifactory:index/remoteAlpineRepository:RemoteAlpineRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "content_synchronisation": {
                         "maxItemsOne": true
@@ -1736,7 +1736,7 @@
             },
             "artifactory_remote_bower_repository": {
                 "current": "artifactory:index/remoteBowerRepository:RemoteBowerRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "content_synchronisation": {
                         "maxItemsOne": true
@@ -1751,7 +1751,7 @@
             },
             "artifactory_remote_cargo_repository": {
                 "current": "artifactory:index/remoteCargoRepository:RemoteCargoRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "content_synchronisation": {
                         "maxItemsOne": true
@@ -1766,7 +1766,7 @@
             },
             "artifactory_remote_chef_repository": {
                 "current": "artifactory:index/remoteChefRepository:RemoteChefRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "content_synchronisation": {
                         "maxItemsOne": true
@@ -1781,7 +1781,7 @@
             },
             "artifactory_remote_cocoapods_repository": {
                 "current": "artifactory:index/remoteCocoapodsRepository:RemoteCocoapodsRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "content_synchronisation": {
                         "maxItemsOne": true
@@ -1796,7 +1796,7 @@
             },
             "artifactory_remote_composer_repository": {
                 "current": "artifactory:index/remoteComposerRepository:RemoteComposerRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "content_synchronisation": {
                         "maxItemsOne": true
@@ -1811,7 +1811,7 @@
             },
             "artifactory_remote_conan_repository": {
                 "current": "artifactory:index/remoteConanRepository:RemoteConanRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "content_synchronisation": {
                         "maxItemsOne": true
@@ -1826,7 +1826,7 @@
             },
             "artifactory_remote_conda_repository": {
                 "current": "artifactory:index/remoteCondaRepository:RemoteCondaRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "content_synchronisation": {
                         "maxItemsOne": true
@@ -1841,7 +1841,7 @@
             },
             "artifactory_remote_cran_repository": {
                 "current": "artifactory:index/remoteCranRepository:RemoteCranRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "content_synchronisation": {
                         "maxItemsOne": true
@@ -1856,7 +1856,7 @@
             },
             "artifactory_remote_debian_repository": {
                 "current": "artifactory:index/remoteDebianRepository:RemoteDebianRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "content_synchronisation": {
                         "maxItemsOne": true
@@ -1871,7 +1871,7 @@
             },
             "artifactory_remote_docker_repository": {
                 "current": "artifactory:index/remoteDockerRepository:RemoteDockerRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "content_synchronisation": {
                         "maxItemsOne": true
@@ -1889,7 +1889,7 @@
             },
             "artifactory_remote_gems_repository": {
                 "current": "artifactory:index/remoteGemsRepository:RemoteGemsRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "content_synchronisation": {
                         "maxItemsOne": true
@@ -1904,7 +1904,7 @@
             },
             "artifactory_remote_generic_repository": {
                 "current": "artifactory:index/remoteGenericRepository:RemoteGenericRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "content_synchronisation": {
                         "maxItemsOne": true
@@ -1919,7 +1919,7 @@
             },
             "artifactory_remote_gitlfs_repository": {
                 "current": "artifactory:index/remoteGitlfsRepository:RemoteGitlfsRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "content_synchronisation": {
                         "maxItemsOne": true
@@ -1934,7 +1934,7 @@
             },
             "artifactory_remote_go_repository": {
                 "current": "artifactory:index/remoteGoRepository:RemoteGoRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "content_synchronisation": {
                         "maxItemsOne": true
@@ -1949,7 +1949,7 @@
             },
             "artifactory_remote_gradle_repository": {
                 "current": "artifactory:index/remoteGradleRepository:RemoteGradleRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "content_synchronisation": {
                         "maxItemsOne": true
@@ -1964,7 +1964,7 @@
             },
             "artifactory_remote_helm_repository": {
                 "current": "artifactory:index/remoteHelmRepository:RemoteHelmRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "content_synchronisation": {
                         "maxItemsOne": true
@@ -1982,7 +1982,7 @@
             },
             "artifactory_remote_huggingfaceml_repository": {
                 "current": "artifactory:index/remoteHuggingfacemlRepository:RemoteHuggingfacemlRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "content_synchronisation": {
                         "maxItemsOne": true
@@ -1997,7 +1997,7 @@
             },
             "artifactory_remote_ivy_repository": {
                 "current": "artifactory:index/remoteIvyRepository:RemoteIvyRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "content_synchronisation": {
                         "maxItemsOne": true
@@ -2012,7 +2012,7 @@
             },
             "artifactory_remote_maven_repository": {
                 "current": "artifactory:index/remoteMavenRepository:RemoteMavenRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "content_synchronisation": {
                         "maxItemsOne": true
@@ -2027,7 +2027,7 @@
             },
             "artifactory_remote_npm_repository": {
                 "current": "artifactory:index/remoteNpmRepository:RemoteNpmRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "content_synchronisation": {
                         "maxItemsOne": true
@@ -2042,7 +2042,7 @@
             },
             "artifactory_remote_nuget_repository": {
                 "current": "artifactory:index/remoteNugetRepository:RemoteNugetRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "content_synchronisation": {
                         "maxItemsOne": true
@@ -2057,7 +2057,7 @@
             },
             "artifactory_remote_opkg_repository": {
                 "current": "artifactory:index/remoteOpkgRepository:RemoteOpkgRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "content_synchronisation": {
                         "maxItemsOne": true
@@ -2072,7 +2072,7 @@
             },
             "artifactory_remote_p2_repository": {
                 "current": "artifactory:index/remoteP2Repository:RemoteP2Repository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "content_synchronisation": {
                         "maxItemsOne": true
@@ -2087,7 +2087,7 @@
             },
             "artifactory_remote_pub_repository": {
                 "current": "artifactory:index/remotePubRepository:RemotePubRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "content_synchronisation": {
                         "maxItemsOne": true
@@ -2102,7 +2102,7 @@
             },
             "artifactory_remote_puppet_repository": {
                 "current": "artifactory:index/remotePuppetRepository:RemotePuppetRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "content_synchronisation": {
                         "maxItemsOne": true
@@ -2117,7 +2117,7 @@
             },
             "artifactory_remote_pypi_repository": {
                 "current": "artifactory:index/remotePypiRepository:RemotePypiRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "content_synchronisation": {
                         "maxItemsOne": true
@@ -2132,11 +2132,11 @@
             },
             "artifactory_remote_repository_replication": {
                 "current": "artifactory:index/remoteRepositoryReplication:RemoteRepositoryReplication",
-                "majorVersion": 5
+                "majorVersion": 6
             },
             "artifactory_remote_rpm_repository": {
                 "current": "artifactory:index/remoteRpmRepository:RemoteRpmRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "content_synchronisation": {
                         "maxItemsOne": true
@@ -2151,7 +2151,7 @@
             },
             "artifactory_remote_sbt_repository": {
                 "current": "artifactory:index/remoteSbtRepository:RemoteSbtRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "content_synchronisation": {
                         "maxItemsOne": true
@@ -2166,7 +2166,7 @@
             },
             "artifactory_remote_swift_repository": {
                 "current": "artifactory:index/remoteSwiftRepository:RemoteSwiftRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "content_synchronisation": {
                         "maxItemsOne": true
@@ -2181,7 +2181,7 @@
             },
             "artifactory_remote_terraform_repository": {
                 "current": "artifactory:index/remoteTerraformRepository:RemoteTerraformRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "content_synchronisation": {
                         "maxItemsOne": true
@@ -2196,7 +2196,7 @@
             },
             "artifactory_remote_vcs_repository": {
                 "current": "artifactory:index/remoteVcsRepository:RemoteVcsRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "content_synchronisation": {
                         "maxItemsOne": true
@@ -2211,7 +2211,7 @@
             },
             "artifactory_replication_config": {
                 "current": "artifactory:index/replicationConfig:ReplicationConfig",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "replications": {
                         "maxItemsOne": false
@@ -2220,15 +2220,15 @@
             },
             "artifactory_repository_layout": {
                 "current": "artifactory:index/repositoryLayout:RepositoryLayout",
-                "majorVersion": 5
+                "majorVersion": 6
             },
             "artifactory_saml_settings": {
                 "current": "artifactory:index/samlSettings:SamlSettings",
-                "majorVersion": 5
+                "majorVersion": 6
             },
             "artifactory_scoped_token": {
                 "current": "artifactory:index/scopedToken:ScopedToken",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "audiences": {
                         "maxItemsOne": false
@@ -2240,11 +2240,11 @@
             },
             "artifactory_single_replication_config": {
                 "current": "artifactory:index/singleReplicationConfig:SingleReplicationConfig",
-                "majorVersion": 5
+                "majorVersion": 6
             },
             "artifactory_unmanaged_user": {
                 "current": "artifactory:index/unmanagedUser:UnmanagedUser",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "groups": {
                         "maxItemsOne": false
@@ -2253,7 +2253,7 @@
             },
             "artifactory_user": {
                 "current": "artifactory:index/user:User",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "groups": {
                         "maxItemsOne": false
@@ -2262,7 +2262,7 @@
             },
             "artifactory_virtual_alpine_repository": {
                 "current": "artifactory:index/virtualAlpineRepository:VirtualAlpineRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -2274,7 +2274,7 @@
             },
             "artifactory_virtual_bower_repository": {
                 "current": "artifactory:index/virtualBowerRepository:VirtualBowerRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "external_dependencies_patterns": {
                         "maxItemsOne": false
@@ -2289,7 +2289,7 @@
             },
             "artifactory_virtual_chef_repository": {
                 "current": "artifactory:index/virtualChefRepository:VirtualChefRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -2301,7 +2301,7 @@
             },
             "artifactory_virtual_composer_repository": {
                 "current": "artifactory:index/virtualComposerRepository:VirtualComposerRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -2313,7 +2313,7 @@
             },
             "artifactory_virtual_conan_repository": {
                 "current": "artifactory:index/virtualConanRepository:VirtualConanRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -2325,7 +2325,7 @@
             },
             "artifactory_virtual_conda_repository": {
                 "current": "artifactory:index/virtualCondaRepository:VirtualCondaRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -2337,7 +2337,7 @@
             },
             "artifactory_virtual_cran_repository": {
                 "current": "artifactory:index/virtualCranRepository:VirtualCranRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -2349,7 +2349,7 @@
             },
             "artifactory_virtual_debian_repository": {
                 "current": "artifactory:index/virtualDebianRepository:VirtualDebianRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "optional_index_compression_formats": {
                         "maxItemsOne": false
@@ -2364,7 +2364,7 @@
             },
             "artifactory_virtual_docker_repository": {
                 "current": "artifactory:index/virtualDockerRepository:VirtualDockerRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -2376,7 +2376,7 @@
             },
             "artifactory_virtual_gems_repository": {
                 "current": "artifactory:index/virtualGemsRepository:VirtualGemsRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -2388,7 +2388,7 @@
             },
             "artifactory_virtual_generic_repository": {
                 "current": "artifactory:index/virtualGenericRepository:VirtualGenericRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -2400,7 +2400,7 @@
             },
             "artifactory_virtual_gitlfs_repository": {
                 "current": "artifactory:index/virtualGitlfsRepository:VirtualGitlfsRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -2412,7 +2412,7 @@
             },
             "artifactory_virtual_go_repository": {
                 "current": "artifactory:index/goRepository:GoRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "external_dependencies_patterns": {
                         "maxItemsOne": false
@@ -2427,7 +2427,7 @@
             },
             "artifactory_virtual_gradle_repository": {
                 "current": "artifactory:index/virtualGradleRepository:VirtualGradleRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -2439,7 +2439,7 @@
             },
             "artifactory_virtual_helm_repository": {
                 "current": "artifactory:index/virtualHelmRepository:VirtualHelmRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -2451,7 +2451,7 @@
             },
             "artifactory_virtual_ivy_repository": {
                 "current": "artifactory:index/virtualIvyRepository:VirtualIvyRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -2463,7 +2463,7 @@
             },
             "artifactory_virtual_maven_repository": {
                 "current": "artifactory:index/mavenRepository:MavenRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -2475,7 +2475,7 @@
             },
             "artifactory_virtual_npm_repository": {
                 "current": "artifactory:index/virtualNpmRepository:VirtualNpmRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "external_dependencies_patterns": {
                         "maxItemsOne": false
@@ -2490,7 +2490,7 @@
             },
             "artifactory_virtual_nuget_repository": {
                 "current": "artifactory:index/virtualNugetRepository:VirtualNugetRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -2502,7 +2502,7 @@
             },
             "artifactory_virtual_p2_repository": {
                 "current": "artifactory:index/virtualP2Repository:VirtualP2Repository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -2514,7 +2514,7 @@
             },
             "artifactory_virtual_pub_repository": {
                 "current": "artifactory:index/virtualPubRepository:VirtualPubRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -2526,7 +2526,7 @@
             },
             "artifactory_virtual_puppet_repository": {
                 "current": "artifactory:index/virtualPuppetRepository:VirtualPuppetRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -2538,7 +2538,7 @@
             },
             "artifactory_virtual_pypi_repository": {
                 "current": "artifactory:index/virtualPypiRepository:VirtualPypiRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -2550,7 +2550,7 @@
             },
             "artifactory_virtual_rpm_repository": {
                 "current": "artifactory:index/virtualRpmRepository:VirtualRpmRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -2562,7 +2562,7 @@
             },
             "artifactory_virtual_sbt_repository": {
                 "current": "artifactory:index/virtualSbtRepository:VirtualSbtRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -2574,7 +2574,7 @@
             },
             "artifactory_virtual_swift_repository": {
                 "current": "artifactory:index/virtualSwiftRepository:VirtualSwiftRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -2586,7 +2586,7 @@
             },
             "artifactory_virtual_terraform_repository": {
                 "current": "artifactory:index/virtualTerraformRepository:VirtualTerraformRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -2600,7 +2600,7 @@
         "datasources": {
             "artifactory_federated_alpine_repository": {
                 "current": "artifactory:index/getFederatedAlpineRepository:getFederatedAlpineRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "index_compression_formats": {
                         "maxItemsOne": false
@@ -2618,7 +2618,7 @@
             },
             "artifactory_federated_bower_repository": {
                 "current": "artifactory:index/getFederatedBowerRepository:getFederatedBowerRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "member": {
                         "maxItemsOne": false
@@ -2633,7 +2633,7 @@
             },
             "artifactory_federated_cargo_repository": {
                 "current": "artifactory:index/getFederatedCargoRepository:getFederatedCargoRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "index_compression_formats": {
                         "maxItemsOne": false
@@ -2651,7 +2651,7 @@
             },
             "artifactory_federated_chef_repository": {
                 "current": "artifactory:index/getFederatedChefRepository:getFederatedChefRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "member": {
                         "maxItemsOne": false
@@ -2666,7 +2666,7 @@
             },
             "artifactory_federated_cocoapods_repository": {
                 "current": "artifactory:index/getFederatedCocoapodsRepository:getFederatedCocoapodsRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "member": {
                         "maxItemsOne": false
@@ -2681,7 +2681,7 @@
             },
             "artifactory_federated_composer_repository": {
                 "current": "artifactory:index/getFederatedComposerRepository:getFederatedComposerRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "member": {
                         "maxItemsOne": false
@@ -2696,7 +2696,7 @@
             },
             "artifactory_federated_conan_repository": {
                 "current": "artifactory:index/getFederatedConanRepository:getFederatedConanRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "member": {
                         "maxItemsOne": false
@@ -2711,7 +2711,7 @@
             },
             "artifactory_federated_conda_repository": {
                 "current": "artifactory:index/getFederatedCondaRepository:getFederatedCondaRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "member": {
                         "maxItemsOne": false
@@ -2726,7 +2726,7 @@
             },
             "artifactory_federated_cran_repository": {
                 "current": "artifactory:index/getFederatedCranRepository:getFederatedCranRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "member": {
                         "maxItemsOne": false
@@ -2741,7 +2741,7 @@
             },
             "artifactory_federated_debian_repository": {
                 "current": "artifactory:index/getFederatedDebianRepository:getFederatedDebianRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "index_compression_formats": {
                         "maxItemsOne": false
@@ -2759,7 +2759,7 @@
             },
             "artifactory_federated_docker_repository": {
                 "current": "artifactory:index/getFederatedDockerRepository:getFederatedDockerRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "member": {
                         "maxItemsOne": false
@@ -2774,7 +2774,7 @@
             },
             "artifactory_federated_docker_v1_repository": {
                 "current": "artifactory:index/getFederatedDockerV1Repository:getFederatedDockerV1Repository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "member": {
                         "maxItemsOne": false
@@ -2789,7 +2789,7 @@
             },
             "artifactory_federated_docker_v2_repository": {
                 "current": "artifactory:index/getFederatedDockerV2Repository:getFederatedDockerV2Repository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "member": {
                         "maxItemsOne": false
@@ -2804,7 +2804,7 @@
             },
             "artifactory_federated_gems_repository": {
                 "current": "artifactory:index/getFederatedGemsRepository:getFederatedGemsRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "member": {
                         "maxItemsOne": false
@@ -2819,7 +2819,7 @@
             },
             "artifactory_federated_generic_repository": {
                 "current": "artifactory:index/getFederatedGenericRepository:getFederatedGenericRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "member": {
                         "maxItemsOne": false
@@ -2834,7 +2834,7 @@
             },
             "artifactory_federated_gitlfs_repository": {
                 "current": "artifactory:index/getFederatedGitlfsRepository:getFederatedGitlfsRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "member": {
                         "maxItemsOne": false
@@ -2849,7 +2849,7 @@
             },
             "artifactory_federated_go_repository": {
                 "current": "artifactory:index/getFederatedGoRepository:getFederatedGoRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "member": {
                         "maxItemsOne": false
@@ -2864,7 +2864,7 @@
             },
             "artifactory_federated_gradle_repository": {
                 "current": "artifactory:index/getFederatedGradleRepository:getFederatedGradleRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "member": {
                         "maxItemsOne": false
@@ -2879,7 +2879,7 @@
             },
             "artifactory_federated_helm_repository": {
                 "current": "artifactory:index/getFederatedHelmRepository:getFederatedHelmRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "member": {
                         "maxItemsOne": false
@@ -2894,7 +2894,7 @@
             },
             "artifactory_federated_ivy_repository": {
                 "current": "artifactory:index/getFederatedIvyRepository:getFederatedIvyRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "member": {
                         "maxItemsOne": false
@@ -2909,7 +2909,7 @@
             },
             "artifactory_federated_maven_repository": {
                 "current": "artifactory:index/getFederatedMavenRepository:getFederatedMavenRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "member": {
                         "maxItemsOne": false
@@ -2924,7 +2924,7 @@
             },
             "artifactory_federated_npm_repository": {
                 "current": "artifactory:index/getFederatedNpmRepository:getFederatedNpmRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "member": {
                         "maxItemsOne": false
@@ -2939,7 +2939,7 @@
             },
             "artifactory_federated_nuget_repository": {
                 "current": "artifactory:index/getFederatedNugetRepository:getFederatedNugetRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "member": {
                         "maxItemsOne": false
@@ -2954,7 +2954,7 @@
             },
             "artifactory_federated_opkg_repository": {
                 "current": "artifactory:index/getFederatedOpkgRepository:getFederatedOpkgRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "member": {
                         "maxItemsOne": false
@@ -2969,7 +2969,7 @@
             },
             "artifactory_federated_puppet_repository": {
                 "current": "artifactory:index/getFederatedPuppetRepository:getFederatedPuppetRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "member": {
                         "maxItemsOne": false
@@ -2984,7 +2984,7 @@
             },
             "artifactory_federated_pypi_repository": {
                 "current": "artifactory:index/getFederatedPypiRepository:getFederatedPypiRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "member": {
                         "maxItemsOne": false
@@ -2999,7 +2999,7 @@
             },
             "artifactory_federated_rpm_repository": {
                 "current": "artifactory:index/getFederatedRpmRepository:getFederatedRpmRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "member": {
                         "maxItemsOne": false
@@ -3014,7 +3014,7 @@
             },
             "artifactory_federated_sbt_repository": {
                 "current": "artifactory:index/getFederatedSbtRepository:getFederatedSbtRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "member": {
                         "maxItemsOne": false
@@ -3029,7 +3029,7 @@
             },
             "artifactory_federated_swift_repository": {
                 "current": "artifactory:index/getFederatedSwiftRepository:getFederatedSwiftRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "member": {
                         "maxItemsOne": false
@@ -3044,7 +3044,7 @@
             },
             "artifactory_federated_terraform_module_repository": {
                 "current": "artifactory:index/getFederatedTerraformModuleRepository:getFederatedTerraformModuleRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "member": {
                         "maxItemsOne": false
@@ -3059,7 +3059,7 @@
             },
             "artifactory_federated_terraform_provider_repository": {
                 "current": "artifactory:index/getFederatedTerraformProviderRepository:getFederatedTerraformProviderRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "member": {
                         "maxItemsOne": false
@@ -3074,7 +3074,7 @@
             },
             "artifactory_federated_vagrant_repository": {
                 "current": "artifactory:index/getFederatedVagrantRepository:getFederatedVagrantRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "member": {
                         "maxItemsOne": false
@@ -3089,11 +3089,11 @@
             },
             "artifactory_file": {
                 "current": "artifactory:index/getFile:getFile",
-                "majorVersion": 5
+                "majorVersion": 6
             },
             "artifactory_file_list": {
                 "current": "artifactory:index/getFileList:getFileList",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "files": {
                         "maxItemsOne": false
@@ -3102,11 +3102,11 @@
             },
             "artifactory_fileinfo": {
                 "current": "artifactory:index/getFileinfo:getFileinfo",
-                "majorVersion": 5
+                "majorVersion": 6
             },
             "artifactory_group": {
                 "current": "artifactory:index/getGroup:getGroup",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "users_names": {
                         "maxItemsOne": false
@@ -3115,7 +3115,7 @@
             },
             "artifactory_local_alpine_repository": {
                 "current": "artifactory:index/getLocalAlpineRepository:getLocalAlpineRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "index_compression_formats": {
                         "maxItemsOne": false
@@ -3130,7 +3130,7 @@
             },
             "artifactory_local_bower_repository": {
                 "current": "artifactory:index/getLocalBowerRepository:getLocalBowerRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -3142,7 +3142,7 @@
             },
             "artifactory_local_cargo_repository": {
                 "current": "artifactory:index/getLocalCargoRepository:getLocalCargoRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "index_compression_formats": {
                         "maxItemsOne": false
@@ -3157,7 +3157,7 @@
             },
             "artifactory_local_chef_repository": {
                 "current": "artifactory:index/getLocalChefRepository:getLocalChefRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -3169,7 +3169,7 @@
             },
             "artifactory_local_cocoapods_repository": {
                 "current": "artifactory:index/getLocalCocoapodsRepository:getLocalCocoapodsRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -3181,7 +3181,7 @@
             },
             "artifactory_local_composer_repository": {
                 "current": "artifactory:index/getLocalComposerRepository:getLocalComposerRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -3193,7 +3193,7 @@
             },
             "artifactory_local_conan_repository": {
                 "current": "artifactory:index/getLocalConanRepository:getLocalConanRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -3205,7 +3205,7 @@
             },
             "artifactory_local_conda_repository": {
                 "current": "artifactory:index/getLocalCondaRepository:getLocalCondaRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -3217,7 +3217,7 @@
             },
             "artifactory_local_cran_repository": {
                 "current": "artifactory:index/getLocalCranRepository:getLocalCranRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -3229,7 +3229,7 @@
             },
             "artifactory_local_debian_repository": {
                 "current": "artifactory:index/getLocalDebianRepository:getLocalDebianRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "index_compression_formats": {
                         "maxItemsOne": false
@@ -3244,7 +3244,7 @@
             },
             "artifactory_local_docker_v1_repository": {
                 "current": "artifactory:index/getLocalDockerV1Repository:getLocalDockerV1Repository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -3256,7 +3256,7 @@
             },
             "artifactory_local_docker_v2_repository": {
                 "current": "artifactory:index/getLocalDockerV2Repository:getLocalDockerV2Repository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -3268,7 +3268,7 @@
             },
             "artifactory_local_gems_repository": {
                 "current": "artifactory:index/getLocalGemsRepository:getLocalGemsRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -3280,7 +3280,7 @@
             },
             "artifactory_local_generic_repository": {
                 "current": "artifactory:index/getLocalGenericRepository:getLocalGenericRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -3292,7 +3292,7 @@
             },
             "artifactory_local_gitlfs_repository": {
                 "current": "artifactory:index/getLocalGitlfsRepository:getLocalGitlfsRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -3304,7 +3304,7 @@
             },
             "artifactory_local_go_repository": {
                 "current": "artifactory:index/getLocalGoRepository:getLocalGoRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -3316,7 +3316,7 @@
             },
             "artifactory_local_gradle_repository": {
                 "current": "artifactory:index/getLocalGradleRepository:getLocalGradleRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -3328,7 +3328,7 @@
             },
             "artifactory_local_helm_repository": {
                 "current": "artifactory:index/getLocalHelmRepository:getLocalHelmRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -3340,7 +3340,7 @@
             },
             "artifactory_local_huggingfaceml_repository": {
                 "current": "artifactory:index/getLocalHuggingfacemlRepository:getLocalHuggingfacemlRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -3352,7 +3352,7 @@
             },
             "artifactory_local_ivy_repository": {
                 "current": "artifactory:index/getLocalIvyRepository:getLocalIvyRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -3364,7 +3364,7 @@
             },
             "artifactory_local_maven_repository": {
                 "current": "artifactory:index/getLocalMavenRepository:getLocalMavenRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -3376,7 +3376,7 @@
             },
             "artifactory_local_npm_repository": {
                 "current": "artifactory:index/getLocalNpmRepository:getLocalNpmRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -3388,7 +3388,7 @@
             },
             "artifactory_local_nuget_repository": {
                 "current": "artifactory:index/getLocalNugetRepository:getLocalNugetRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -3400,7 +3400,7 @@
             },
             "artifactory_local_opkg_repository": {
                 "current": "artifactory:index/getLocalOpkgRepository:getLocalOpkgRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -3412,7 +3412,7 @@
             },
             "artifactory_local_pub_repository": {
                 "current": "artifactory:index/getLocalPubRepository:getLocalPubRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -3424,7 +3424,7 @@
             },
             "artifactory_local_puppet_repository": {
                 "current": "artifactory:index/getLocalPuppetRepository:getLocalPuppetRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -3436,7 +3436,7 @@
             },
             "artifactory_local_pypi_repository": {
                 "current": "artifactory:index/getLocalPypiRepository:getLocalPypiRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -3448,7 +3448,7 @@
             },
             "artifactory_local_rpm_repository": {
                 "current": "artifactory:index/getLocalRpmRepository:getLocalRpmRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -3460,7 +3460,7 @@
             },
             "artifactory_local_sbt_repository": {
                 "current": "artifactory:index/getLocalSbtRepository:getLocalSbtRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -3472,7 +3472,7 @@
             },
             "artifactory_local_swift_repository": {
                 "current": "artifactory:index/getLocalSwiftRepository:getLocalSwiftRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -3484,7 +3484,7 @@
             },
             "artifactory_local_terraform_module_repository": {
                 "current": "artifactory:index/getLocalTerraformModuleRepository:getLocalTerraformModuleRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -3496,7 +3496,7 @@
             },
             "artifactory_local_terraform_provider_repository": {
                 "current": "artifactory:index/getLocalTerraformProviderRepository:getLocalTerraformProviderRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -3508,7 +3508,7 @@
             },
             "artifactory_local_terraformbackend_repository": {
                 "current": "artifactory:index/getLocalTerraformbackendRepository:getLocalTerraformbackendRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -3520,7 +3520,7 @@
             },
             "artifactory_local_vagrant_repository": {
                 "current": "artifactory:index/getLocalVagrantRepository:getLocalVagrantRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -3532,7 +3532,7 @@
             },
             "artifactory_permission_target": {
                 "current": "artifactory:index/getPermissionTarget:getPermissionTarget",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "build": {
                         "maxItemsOne": true,
@@ -3667,7 +3667,7 @@
             },
             "artifactory_remote_alpine_repository": {
                 "current": "artifactory:index/getRemoteAlpineRepository:getRemoteAlpineRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "content_synchronisation": {
                         "maxItemsOne": true
@@ -3682,7 +3682,7 @@
             },
             "artifactory_remote_bower_repository": {
                 "current": "artifactory:index/getRemoteBowerRepository:getRemoteBowerRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "content_synchronisation": {
                         "maxItemsOne": true
@@ -3697,7 +3697,7 @@
             },
             "artifactory_remote_cargo_repository": {
                 "current": "artifactory:index/getRemoteCargoRepository:getRemoteCargoRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "content_synchronisation": {
                         "maxItemsOne": true
@@ -3712,7 +3712,7 @@
             },
             "artifactory_remote_chef_repository": {
                 "current": "artifactory:index/getRemoteChefRepository:getRemoteChefRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "content_synchronisation": {
                         "maxItemsOne": true
@@ -3727,7 +3727,7 @@
             },
             "artifactory_remote_cocoapods_repository": {
                 "current": "artifactory:index/getRemoteCocoapodsRepository:getRemoteCocoapodsRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "content_synchronisation": {
                         "maxItemsOne": true
@@ -3742,7 +3742,7 @@
             },
             "artifactory_remote_composer_repository": {
                 "current": "artifactory:index/getRemoteComposerRepository:getRemoteComposerRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "content_synchronisation": {
                         "maxItemsOne": true
@@ -3757,7 +3757,7 @@
             },
             "artifactory_remote_conan_repository": {
                 "current": "artifactory:index/getRemoteConanRepository:getRemoteConanRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "content_synchronisation": {
                         "maxItemsOne": true
@@ -3772,7 +3772,7 @@
             },
             "artifactory_remote_conda_repository": {
                 "current": "artifactory:index/getRemoteCondaRepository:getRemoteCondaRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "content_synchronisation": {
                         "maxItemsOne": true
@@ -3787,7 +3787,7 @@
             },
             "artifactory_remote_cran_repository": {
                 "current": "artifactory:index/getRemoteCranRepository:getRemoteCranRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "content_synchronisation": {
                         "maxItemsOne": true
@@ -3802,7 +3802,7 @@
             },
             "artifactory_remote_debian_repository": {
                 "current": "artifactory:index/getRemoteDebianRepository:getRemoteDebianRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "content_synchronisation": {
                         "maxItemsOne": true
@@ -3817,7 +3817,7 @@
             },
             "artifactory_remote_docker_repository": {
                 "current": "artifactory:index/getRemoteDockerRepository:getRemoteDockerRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "content_synchronisation": {
                         "maxItemsOne": true
@@ -3835,7 +3835,7 @@
             },
             "artifactory_remote_gems_repository": {
                 "current": "artifactory:index/getRemoteGemsRepository:getRemoteGemsRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "content_synchronisation": {
                         "maxItemsOne": true
@@ -3850,7 +3850,7 @@
             },
             "artifactory_remote_generic_repository": {
                 "current": "artifactory:index/getRemoteGenericRepository:getRemoteGenericRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "content_synchronisation": {
                         "maxItemsOne": true
@@ -3865,7 +3865,7 @@
             },
             "artifactory_remote_gitlfs_repository": {
                 "current": "artifactory:index/getRemoteGitlfsRepository:getRemoteGitlfsRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "content_synchronisation": {
                         "maxItemsOne": true
@@ -3880,7 +3880,7 @@
             },
             "artifactory_remote_go_repository": {
                 "current": "artifactory:index/getRemoteGoRepository:getRemoteGoRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "content_synchronisation": {
                         "maxItemsOne": true
@@ -3895,7 +3895,7 @@
             },
             "artifactory_remote_gradle_repository": {
                 "current": "artifactory:index/getRemoteGradleRepository:getRemoteGradleRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "content_synchronisation": {
                         "maxItemsOne": true
@@ -3910,7 +3910,7 @@
             },
             "artifactory_remote_helm_repository": {
                 "current": "artifactory:index/getRemoteHelmRepository:getRemoteHelmRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "content_synchronisation": {
                         "maxItemsOne": true
@@ -3928,7 +3928,7 @@
             },
             "artifactory_remote_ivy_repository": {
                 "current": "artifactory:index/getRemoteIvyRepository:getRemoteIvyRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "content_synchronisation": {
                         "maxItemsOne": true
@@ -3943,7 +3943,7 @@
             },
             "artifactory_remote_maven_repository": {
                 "current": "artifactory:index/getRemoteMavenRepository:getRemoteMavenRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "content_synchronisation": {
                         "maxItemsOne": true
@@ -3958,7 +3958,7 @@
             },
             "artifactory_remote_npm_repository": {
                 "current": "artifactory:index/getRemoteNpmRepository:getRemoteNpmRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "content_synchronisation": {
                         "maxItemsOne": true
@@ -3973,7 +3973,7 @@
             },
             "artifactory_remote_nuget_repository": {
                 "current": "artifactory:index/getRemoteNugetRepository:getRemoteNugetRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "content_synchronisation": {
                         "maxItemsOne": true
@@ -3988,7 +3988,7 @@
             },
             "artifactory_remote_opkg_repository": {
                 "current": "artifactory:index/getRemoteOpkgRepository:getRemoteOpkgRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "content_synchronisation": {
                         "maxItemsOne": true
@@ -4003,7 +4003,7 @@
             },
             "artifactory_remote_p2_repository": {
                 "current": "artifactory:index/getRemoteP2Repository:getRemoteP2Repository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "content_synchronisation": {
                         "maxItemsOne": true
@@ -4018,7 +4018,7 @@
             },
             "artifactory_remote_pub_repository": {
                 "current": "artifactory:index/getRemotePubRepository:getRemotePubRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "content_synchronisation": {
                         "maxItemsOne": true
@@ -4033,7 +4033,7 @@
             },
             "artifactory_remote_puppet_repository": {
                 "current": "artifactory:index/getRemotePuppetRepository:getRemotePuppetRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "content_synchronisation": {
                         "maxItemsOne": true
@@ -4048,7 +4048,7 @@
             },
             "artifactory_remote_pypi_repository": {
                 "current": "artifactory:index/getRemotePypiRepository:getRemotePypiRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "content_synchronisation": {
                         "maxItemsOne": true
@@ -4063,7 +4063,7 @@
             },
             "artifactory_remote_rpm_repository": {
                 "current": "artifactory:index/getRemoteRpmRepository:getRemoteRpmRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "content_synchronisation": {
                         "maxItemsOne": true
@@ -4078,7 +4078,7 @@
             },
             "artifactory_remote_sbt_repository": {
                 "current": "artifactory:index/getRemoteSbtRepository:getRemoteSbtRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "content_synchronisation": {
                         "maxItemsOne": true
@@ -4093,7 +4093,7 @@
             },
             "artifactory_remote_swift_repository": {
                 "current": "artifactory:index/getRemoteSwiftRepository:getRemoteSwiftRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "content_synchronisation": {
                         "maxItemsOne": true
@@ -4108,7 +4108,7 @@
             },
             "artifactory_remote_terraform_repository": {
                 "current": "artifactory:index/getRemoteTerraformRepository:getRemoteTerraformRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "content_synchronisation": {
                         "maxItemsOne": true
@@ -4123,7 +4123,7 @@
             },
             "artifactory_remote_vcs_repository": {
                 "current": "artifactory:index/getRemoteVcsRepository:getRemoteVcsRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "content_synchronisation": {
                         "maxItemsOne": true
@@ -4138,7 +4138,7 @@
             },
             "artifactory_repositories": {
                 "current": "artifactory:index/getRepositories:getRepositories",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "repos": {
                         "maxItemsOne": false
@@ -4147,7 +4147,7 @@
             },
             "artifactory_user": {
                 "current": "artifactory:index/getUser:getUser",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "groups": {
                         "maxItemsOne": false
@@ -4156,7 +4156,7 @@
             },
             "artifactory_virtual_alpine_repository": {
                 "current": "artifactory:index/getVirtualAlpineRepository:getVirtualAlpineRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -4168,7 +4168,7 @@
             },
             "artifactory_virtual_bower_repository": {
                 "current": "artifactory:index/getVirtualBowerRepository:getVirtualBowerRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "external_dependencies_patterns": {
                         "maxItemsOne": false
@@ -4183,7 +4183,7 @@
             },
             "artifactory_virtual_chef_repository": {
                 "current": "artifactory:index/getVirtualChefRepository:getVirtualChefRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -4195,7 +4195,7 @@
             },
             "artifactory_virtual_composer_repository": {
                 "current": "artifactory:index/getVirtualComposerRepository:getVirtualComposerRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -4207,7 +4207,7 @@
             },
             "artifactory_virtual_conan_repository": {
                 "current": "artifactory:index/getVirtualConanRepository:getVirtualConanRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -4219,7 +4219,7 @@
             },
             "artifactory_virtual_conda_repository": {
                 "current": "artifactory:index/getVirtualCondaRepository:getVirtualCondaRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -4231,7 +4231,7 @@
             },
             "artifactory_virtual_cran_repository": {
                 "current": "artifactory:index/getVirtualCranRepository:getVirtualCranRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -4243,7 +4243,7 @@
             },
             "artifactory_virtual_debian_repository": {
                 "current": "artifactory:index/getVirtualDebianRepository:getVirtualDebianRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "optional_index_compression_formats": {
                         "maxItemsOne": false
@@ -4258,7 +4258,7 @@
             },
             "artifactory_virtual_docker_repository": {
                 "current": "artifactory:index/getVirtualDockerRepository:getVirtualDockerRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -4270,7 +4270,7 @@
             },
             "artifactory_virtual_gems_repository": {
                 "current": "artifactory:index/getVirtualGemsRepository:getVirtualGemsRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -4282,7 +4282,7 @@
             },
             "artifactory_virtual_generic_repository": {
                 "current": "artifactory:index/getVirtualGenericRepository:getVirtualGenericRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -4294,7 +4294,7 @@
             },
             "artifactory_virtual_gitlfs_repository": {
                 "current": "artifactory:index/getVirtualGitlfsRepository:getVirtualGitlfsRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -4306,7 +4306,7 @@
             },
             "artifactory_virtual_go_repository": {
                 "current": "artifactory:index/getVirtualGoRepository:getVirtualGoRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "external_dependencies_patterns": {
                         "maxItemsOne": false
@@ -4321,7 +4321,7 @@
             },
             "artifactory_virtual_gradle_repository": {
                 "current": "artifactory:index/getVirtualGradleRepository:getVirtualGradleRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -4333,7 +4333,7 @@
             },
             "artifactory_virtual_helm_repository": {
                 "current": "artifactory:index/getVirtualHelmRepository:getVirtualHelmRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -4345,7 +4345,7 @@
             },
             "artifactory_virtual_ivy_repository": {
                 "current": "artifactory:index/getVirtualIvyRepository:getVirtualIvyRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -4357,7 +4357,7 @@
             },
             "artifactory_virtual_npm_repository": {
                 "current": "artifactory:index/getVirtualNpmRepository:getVirtualNpmRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "external_dependencies_patterns": {
                         "maxItemsOne": false
@@ -4372,7 +4372,7 @@
             },
             "artifactory_virtual_nuget_repository": {
                 "current": "artifactory:index/getVirtualNugetRepository:getVirtualNugetRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -4384,7 +4384,7 @@
             },
             "artifactory_virtual_p2_repository": {
                 "current": "artifactory:index/getVirtualP2Repository:getVirtualP2Repository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -4396,7 +4396,7 @@
             },
             "artifactory_virtual_pub_repository": {
                 "current": "artifactory:index/getVirtualPubRepository:getVirtualPubRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -4408,7 +4408,7 @@
             },
             "artifactory_virtual_puppet_repository": {
                 "current": "artifactory:index/getVirtualPuppetRepository:getVirtualPuppetRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -4420,7 +4420,7 @@
             },
             "artifactory_virtual_pypi_repository": {
                 "current": "artifactory:index/getVirtualPypiRepository:getVirtualPypiRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -4432,7 +4432,7 @@
             },
             "artifactory_virtual_rpm_repository": {
                 "current": "artifactory:index/getVirtualRpmRepository:getVirtualRpmRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -4444,7 +4444,7 @@
             },
             "artifactory_virtual_sbt_repository": {
                 "current": "artifactory:index/getVirtualSbtRepository:getVirtualSbtRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -4456,7 +4456,7 @@
             },
             "artifactory_virtual_swift_repository": {
                 "current": "artifactory:index/getVirtualSwiftRepository:getVirtualSwiftRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -4468,7 +4468,7 @@
             },
             "artifactory_virtual_terraform_repository": {
                 "current": "artifactory:index/getVirtualTerraformRepository:getVirtualTerraformRepository",
-                "majorVersion": 5,
+                "majorVersion": 6,
                 "fields": {
                     "project_environments": {
                         "maxItemsOne": false
@@ -9756,9 +9756,7 @@
                 "persistUsers": "persist_users"
             },
             "artifactory:index/permissionTarget:PermissionTarget": {
-                "builds": "build",
-                "releaseBundles": "release_bundle",
-                "repos": "repo"
+                "releaseBundle": "release_bundle"
             },
             "artifactory:index/propertySet:PropertySet": {
                 "properties": "property"

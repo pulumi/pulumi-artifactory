@@ -3,16 +3,17 @@
 
 package com.pulumi.artifactory.outputs;
 
-import com.pulumi.artifactory.outputs.PermissionTargetRepoAction;
+import com.pulumi.artifactory.outputs.PermissionTargetRepoActions;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
 public final class PermissionTargetRepo {
-    private @Nullable List<PermissionTargetRepoAction> actions;
+    private @Nullable PermissionTargetRepoActions actions;
     /**
      * @return Pattern of artifacts to exclude.
      * 
@@ -30,8 +31,8 @@ public final class PermissionTargetRepo {
     private List<String> repositories;
 
     private PermissionTargetRepo() {}
-    public List<PermissionTargetRepoAction> actions() {
-        return this.actions == null ? List.of() : this.actions;
+    public Optional<PermissionTargetRepoActions> actions() {
+        return Optional.ofNullable(this.actions);
     }
     /**
      * @return Pattern of artifacts to exclude.
@@ -64,7 +65,7 @@ public final class PermissionTargetRepo {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable List<PermissionTargetRepoAction> actions;
+        private @Nullable PermissionTargetRepoActions actions;
         private @Nullable List<String> excludesPatterns;
         private @Nullable List<String> includesPatterns;
         private List<String> repositories;
@@ -78,12 +79,9 @@ public final class PermissionTargetRepo {
         }
 
         @CustomType.Setter
-        public Builder actions(@Nullable List<PermissionTargetRepoAction> actions) {
+        public Builder actions(@Nullable PermissionTargetRepoActions actions) {
             this.actions = actions;
             return this;
-        }
-        public Builder actions(PermissionTargetRepoAction... actions) {
-            return actions(List.of(actions));
         }
         @CustomType.Setter
         public Builder excludesPatterns(@Nullable List<String> excludesPatterns) {

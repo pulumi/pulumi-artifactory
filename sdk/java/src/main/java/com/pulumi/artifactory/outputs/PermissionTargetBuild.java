@@ -3,16 +3,17 @@
 
 package com.pulumi.artifactory.outputs;
 
-import com.pulumi.artifactory.outputs.PermissionTargetBuildAction;
+import com.pulumi.artifactory.outputs.PermissionTargetBuildActions;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
 public final class PermissionTargetBuild {
-    private @Nullable List<PermissionTargetBuildAction> actions;
+    private @Nullable PermissionTargetBuildActions actions;
     /**
      * @return Pattern of artifacts to exclude.
      * 
@@ -30,8 +31,8 @@ public final class PermissionTargetBuild {
     private List<String> repositories;
 
     private PermissionTargetBuild() {}
-    public List<PermissionTargetBuildAction> actions() {
-        return this.actions == null ? List.of() : this.actions;
+    public Optional<PermissionTargetBuildActions> actions() {
+        return Optional.ofNullable(this.actions);
     }
     /**
      * @return Pattern of artifacts to exclude.
@@ -64,7 +65,7 @@ public final class PermissionTargetBuild {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable List<PermissionTargetBuildAction> actions;
+        private @Nullable PermissionTargetBuildActions actions;
         private @Nullable List<String> excludesPatterns;
         private @Nullable List<String> includesPatterns;
         private List<String> repositories;
@@ -78,12 +79,9 @@ public final class PermissionTargetBuild {
         }
 
         @CustomType.Setter
-        public Builder actions(@Nullable List<PermissionTargetBuildAction> actions) {
+        public Builder actions(@Nullable PermissionTargetBuildActions actions) {
             this.actions = actions;
             return this;
-        }
-        public Builder actions(PermissionTargetBuildAction... actions) {
-            return actions(List.of(actions));
         }
         @CustomType.Setter
         public Builder excludesPatterns(@Nullable List<String> excludesPatterns) {

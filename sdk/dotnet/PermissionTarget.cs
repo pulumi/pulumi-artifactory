@@ -25,140 +25,122 @@ namespace Pulumi.Artifactory
     ///     // Create a new Artifactory permission target called testpermission
     ///     var test_perm = new Artifactory.PermissionTarget("test-perm", new()
     ///     {
-    ///         Builds = new[]
+    ///         Build = new Artifactory.Inputs.PermissionTargetBuildArgs
     ///         {
-    ///             new Artifactory.Inputs.PermissionTargetBuildArgs
+    ///             Actions = new Artifactory.Inputs.PermissionTargetBuildActionsArgs
     ///             {
-    ///                 Actions = new[]
+    ///                 Users = new[]
     ///                 {
-    ///                     new Artifactory.Inputs.PermissionTargetBuildActionArgs
+    ///                     new Artifactory.Inputs.PermissionTargetBuildActionsUserArgs
     ///                     {
-    ///                         Users = new[]
+    ///                         Name = "anonymous",
+    ///                         Permissions = new[]
     ///                         {
-    ///                             new Artifactory.Inputs.PermissionTargetBuildActionUserArgs
-    ///                             {
-    ///                                 Name = "anonymous",
-    ///                                 Permissions = new[]
-    ///                                 {
-    ///                                     "read",
-    ///                                 },
-    ///                             },
-    ///                             new Artifactory.Inputs.PermissionTargetBuildActionUserArgs
-    ///                             {
-    ///                                 Name = "user1",
-    ///                                 Permissions = new[]
-    ///                                 {
-    ///                                     "read",
-    ///                                     "write",
-    ///                                 },
-    ///                             },
+    ///                             "read",
     ///                         },
     ///                     },
-    ///                 },
-    ///                 IncludesPatterns = new[]
-    ///                 {
-    ///                     "**",
-    ///                 },
-    ///                 Repositories = new[]
-    ///                 {
-    ///                     "artifactory-build-info",
+    ///                     new Artifactory.Inputs.PermissionTargetBuildActionsUserArgs
+    ///                     {
+    ///                         Name = "user1",
+    ///                         Permissions = new[]
+    ///                         {
+    ///                             "read",
+    ///                             "write",
+    ///                         },
+    ///                     },
     ///                 },
     ///             },
-    ///         },
-    ///         ReleaseBundles = new[]
-    ///         {
-    ///             new Artifactory.Inputs.PermissionTargetReleaseBundleArgs
+    ///             IncludesPatterns = new[]
     ///             {
-    ///                 Actions = new[]
-    ///                 {
-    ///                     new Artifactory.Inputs.PermissionTargetReleaseBundleActionArgs
-    ///                     {
-    ///                         Users = new[]
-    ///                         {
-    ///                             new Artifactory.Inputs.PermissionTargetReleaseBundleActionUserArgs
-    ///                             {
-    ///                                 Name = "anonymous",
-    ///                                 Permissions = new[]
-    ///                                 {
-    ///                                     "read",
-    ///                                 },
-    ///                             },
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 IncludesPatterns = new[]
-    ///                 {
-    ///                     "**",
-    ///                 },
-    ///                 Repositories = new[]
-    ///                 {
-    ///                     "release-bundles",
-    ///                 },
+    ///                 "**",
+    ///             },
+    ///             Repositories = new[]
+    ///             {
+    ///                 "artifactory-build-info",
     ///             },
     ///         },
-    ///         Repos = new[]
+    ///         ReleaseBundle = new Artifactory.Inputs.PermissionTargetReleaseBundleArgs
     ///         {
-    ///             new Artifactory.Inputs.PermissionTargetRepoArgs
+    ///             Actions = new Artifactory.Inputs.PermissionTargetReleaseBundleActionsArgs
     ///             {
-    ///                 Actions = new[]
+    ///                 Users = new[]
     ///                 {
-    ///                     new Artifactory.Inputs.PermissionTargetRepoActionArgs
+    ///                     new Artifactory.Inputs.PermissionTargetReleaseBundleActionsUserArgs
     ///                     {
-    ///                         Groups = new[]
+    ///                         Name = "anonymous",
+    ///                         Permissions = new[]
     ///                         {
-    ///                             new Artifactory.Inputs.PermissionTargetRepoActionGroupArgs
-    ///                             {
-    ///                                 Name = "readers",
-    ///                                 Permissions = new[]
-    ///                                 {
-    ///                                     "read",
-    ///                                 },
-    ///                             },
-    ///                             new Artifactory.Inputs.PermissionTargetRepoActionGroupArgs
-    ///                             {
-    ///                                 Name = "dev",
-    ///                                 Permissions = new[]
-    ///                                 {
-    ///                                     "read",
-    ///                                     "write",
-    ///                                 },
-    ///                             },
-    ///                         },
-    ///                         Users = new[]
-    ///                         {
-    ///                             new Artifactory.Inputs.PermissionTargetRepoActionUserArgs
-    ///                             {
-    ///                                 Name = "anonymous",
-    ///                                 Permissions = new[]
-    ///                                 {
-    ///                                     "read",
-    ///                                     "write",
-    ///                                 },
-    ///                             },
-    ///                             new Artifactory.Inputs.PermissionTargetRepoActionUserArgs
-    ///                             {
-    ///                                 Name = "user1",
-    ///                                 Permissions = new[]
-    ///                                 {
-    ///                                     "read",
-    ///                                     "write",
-    ///                                 },
-    ///                             },
+    ///                             "read",
     ///                         },
     ///                     },
     ///                 },
-    ///                 ExcludesPatterns = new[]
+    ///             },
+    ///             IncludesPatterns = new[]
+    ///             {
+    ///                 "**",
+    ///             },
+    ///             Repositories = new[]
+    ///             {
+    ///                 "release-bundles",
+    ///             },
+    ///         },
+    ///         Repo = new Artifactory.Inputs.PermissionTargetRepoArgs
+    ///         {
+    ///             Actions = new Artifactory.Inputs.PermissionTargetRepoActionsArgs
+    ///             {
+    ///                 Groups = new[]
     ///                 {
-    ///                     "bar/**",
+    ///                     new Artifactory.Inputs.PermissionTargetRepoActionsGroupArgs
+    ///                     {
+    ///                         Name = "readers",
+    ///                         Permissions = new[]
+    ///                         {
+    ///                             "read",
+    ///                         },
+    ///                     },
+    ///                     new Artifactory.Inputs.PermissionTargetRepoActionsGroupArgs
+    ///                     {
+    ///                         Name = "dev",
+    ///                         Permissions = new[]
+    ///                         {
+    ///                             "read",
+    ///                             "write",
+    ///                         },
+    ///                     },
     ///                 },
-    ///                 IncludesPatterns = new[]
+    ///                 Users = new[]
     ///                 {
-    ///                     "foo/**",
+    ///                     new Artifactory.Inputs.PermissionTargetRepoActionsUserArgs
+    ///                     {
+    ///                         Name = "anonymous",
+    ///                         Permissions = new[]
+    ///                         {
+    ///                             "read",
+    ///                             "write",
+    ///                         },
+    ///                     },
+    ///                     new Artifactory.Inputs.PermissionTargetRepoActionsUserArgs
+    ///                     {
+    ///                         Name = "user1",
+    ///                         Permissions = new[]
+    ///                         {
+    ///                             "read",
+    ///                             "write",
+    ///                         },
+    ///                     },
     ///                 },
-    ///                 Repositories = new[]
-    ///                 {
-    ///                     "example-repo-local",
-    ///                 },
+    ///             },
+    ///             ExcludesPatterns = new[]
+    ///             {
+    ///                 "bar/**",
+    ///             },
+    ///             IncludesPatterns = new[]
+    ///             {
+    ///                 "foo/**",
+    ///             },
+    ///             Repositories = new[]
+    ///             {
+    ///                 "example-repo-local",
     ///             },
     ///         },
     ///     });
@@ -201,8 +183,8 @@ namespace Pulumi.Artifactory
         /// <summary>
         /// As for repo but for artifactory-build-info permissions.
         /// </summary>
-        [Output("builds")]
-        public Output<ImmutableArray<Outputs.PermissionTargetBuild>> Builds { get; private set; } = null!;
+        [Output("build")]
+        public Output<Outputs.PermissionTargetBuild?> Build { get; private set; } = null!;
 
         /// <summary>
         /// Name of permission.
@@ -213,14 +195,14 @@ namespace Pulumi.Artifactory
         /// <summary>
         /// As for repo for for release-bundles permissions.
         /// </summary>
-        [Output("releaseBundles")]
-        public Output<ImmutableArray<Outputs.PermissionTargetReleaseBundle>> ReleaseBundles { get; private set; } = null!;
+        [Output("releaseBundle")]
+        public Output<Outputs.PermissionTargetReleaseBundle?> ReleaseBundle { get; private set; } = null!;
 
         /// <summary>
         /// Repository permission configuration.
         /// </summary>
-        [Output("repos")]
-        public Output<ImmutableArray<Outputs.PermissionTargetRepo>> Repos { get; private set; } = null!;
+        [Output("repo")]
+        public Output<Outputs.PermissionTargetRepo?> Repo { get; private set; } = null!;
 
 
         /// <summary>
@@ -268,17 +250,11 @@ namespace Pulumi.Artifactory
 
     public sealed class PermissionTargetArgs : global::Pulumi.ResourceArgs
     {
-        [Input("builds")]
-        private InputList<Inputs.PermissionTargetBuildArgs>? _builds;
-
         /// <summary>
         /// As for repo but for artifactory-build-info permissions.
         /// </summary>
-        public InputList<Inputs.PermissionTargetBuildArgs> Builds
-        {
-            get => _builds ?? (_builds = new InputList<Inputs.PermissionTargetBuildArgs>());
-            set => _builds = value;
-        }
+        [Input("build")]
+        public Input<Inputs.PermissionTargetBuildArgs>? Build { get; set; }
 
         /// <summary>
         /// Name of permission.
@@ -286,29 +262,17 @@ namespace Pulumi.Artifactory
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        [Input("releaseBundles")]
-        private InputList<Inputs.PermissionTargetReleaseBundleArgs>? _releaseBundles;
-
         /// <summary>
         /// As for repo for for release-bundles permissions.
         /// </summary>
-        public InputList<Inputs.PermissionTargetReleaseBundleArgs> ReleaseBundles
-        {
-            get => _releaseBundles ?? (_releaseBundles = new InputList<Inputs.PermissionTargetReleaseBundleArgs>());
-            set => _releaseBundles = value;
-        }
-
-        [Input("repos")]
-        private InputList<Inputs.PermissionTargetRepoArgs>? _repos;
+        [Input("releaseBundle")]
+        public Input<Inputs.PermissionTargetReleaseBundleArgs>? ReleaseBundle { get; set; }
 
         /// <summary>
         /// Repository permission configuration.
         /// </summary>
-        public InputList<Inputs.PermissionTargetRepoArgs> Repos
-        {
-            get => _repos ?? (_repos = new InputList<Inputs.PermissionTargetRepoArgs>());
-            set => _repos = value;
-        }
+        [Input("repo")]
+        public Input<Inputs.PermissionTargetRepoArgs>? Repo { get; set; }
 
         public PermissionTargetArgs()
         {
@@ -318,17 +282,11 @@ namespace Pulumi.Artifactory
 
     public sealed class PermissionTargetState : global::Pulumi.ResourceArgs
     {
-        [Input("builds")]
-        private InputList<Inputs.PermissionTargetBuildGetArgs>? _builds;
-
         /// <summary>
         /// As for repo but for artifactory-build-info permissions.
         /// </summary>
-        public InputList<Inputs.PermissionTargetBuildGetArgs> Builds
-        {
-            get => _builds ?? (_builds = new InputList<Inputs.PermissionTargetBuildGetArgs>());
-            set => _builds = value;
-        }
+        [Input("build")]
+        public Input<Inputs.PermissionTargetBuildGetArgs>? Build { get; set; }
 
         /// <summary>
         /// Name of permission.
@@ -336,29 +294,17 @@ namespace Pulumi.Artifactory
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        [Input("releaseBundles")]
-        private InputList<Inputs.PermissionTargetReleaseBundleGetArgs>? _releaseBundles;
-
         /// <summary>
         /// As for repo for for release-bundles permissions.
         /// </summary>
-        public InputList<Inputs.PermissionTargetReleaseBundleGetArgs> ReleaseBundles
-        {
-            get => _releaseBundles ?? (_releaseBundles = new InputList<Inputs.PermissionTargetReleaseBundleGetArgs>());
-            set => _releaseBundles = value;
-        }
-
-        [Input("repos")]
-        private InputList<Inputs.PermissionTargetRepoGetArgs>? _repos;
+        [Input("releaseBundle")]
+        public Input<Inputs.PermissionTargetReleaseBundleGetArgs>? ReleaseBundle { get; set; }
 
         /// <summary>
         /// Repository permission configuration.
         /// </summary>
-        public InputList<Inputs.PermissionTargetRepoGetArgs> Repos
-        {
-            get => _repos ?? (_repos = new InputList<Inputs.PermissionTargetRepoGetArgs>());
-            set => _repos = value;
-        }
+        [Input("repo")]
+        public Input<Inputs.PermissionTargetRepoGetArgs>? Repo { get; set; }
 
         public PermissionTargetState()
         {

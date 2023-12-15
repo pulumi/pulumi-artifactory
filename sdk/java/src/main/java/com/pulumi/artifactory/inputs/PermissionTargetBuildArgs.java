@@ -3,7 +3,7 @@
 
 package com.pulumi.artifactory.inputs;
 
-import com.pulumi.artifactory.inputs.PermissionTargetBuildActionArgs;
+import com.pulumi.artifactory.inputs.PermissionTargetBuildActionsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -18,9 +18,9 @@ public final class PermissionTargetBuildArgs extends com.pulumi.resources.Resour
     public static final PermissionTargetBuildArgs Empty = new PermissionTargetBuildArgs();
 
     @Import(name="actions")
-    private @Nullable Output<List<PermissionTargetBuildActionArgs>> actions;
+    private @Nullable Output<PermissionTargetBuildActionsArgs> actions;
 
-    public Optional<Output<List<PermissionTargetBuildActionArgs>>> actions() {
+    public Optional<Output<PermissionTargetBuildActionsArgs>> actions() {
         return Optional.ofNullable(this.actions);
     }
 
@@ -96,17 +96,13 @@ public final class PermissionTargetBuildArgs extends com.pulumi.resources.Resour
             $ = new PermissionTargetBuildArgs(Objects.requireNonNull(defaults));
         }
 
-        public Builder actions(@Nullable Output<List<PermissionTargetBuildActionArgs>> actions) {
+        public Builder actions(@Nullable Output<PermissionTargetBuildActionsArgs> actions) {
             $.actions = actions;
             return this;
         }
 
-        public Builder actions(List<PermissionTargetBuildActionArgs> actions) {
+        public Builder actions(PermissionTargetBuildActionsArgs actions) {
             return actions(Output.of(actions));
-        }
-
-        public Builder actions(PermissionTargetBuildActionArgs... actions) {
-            return actions(List.of(actions));
         }
 
         /**

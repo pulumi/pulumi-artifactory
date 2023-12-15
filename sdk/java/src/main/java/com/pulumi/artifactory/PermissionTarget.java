@@ -14,7 +14,6 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
-import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
@@ -31,8 +30,11 @@ import javax.annotation.Nullable;
  * import com.pulumi.artifactory.PermissionTarget;
  * import com.pulumi.artifactory.PermissionTargetArgs;
  * import com.pulumi.artifactory.inputs.PermissionTargetBuildArgs;
+ * import com.pulumi.artifactory.inputs.PermissionTargetBuildActionsArgs;
  * import com.pulumi.artifactory.inputs.PermissionTargetReleaseBundleArgs;
+ * import com.pulumi.artifactory.inputs.PermissionTargetReleaseBundleActionsArgs;
  * import com.pulumi.artifactory.inputs.PermissionTargetRepoArgs;
+ * import com.pulumi.artifactory.inputs.PermissionTargetRepoActionsArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -47,14 +49,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test_perm = new PermissionTarget(&#34;test-perm&#34;, PermissionTargetArgs.builder()        
- *             .builds(PermissionTargetBuildArgs.builder()
- *                 .actions(PermissionTargetBuildActionArgs.builder()
+ *             .build(PermissionTargetBuildArgs.builder()
+ *                 .actions(PermissionTargetBuildActionsArgs.builder()
  *                     .users(                    
- *                         PermissionTargetBuildActionUserArgs.builder()
+ *                         PermissionTargetBuildActionsUserArgs.builder()
  *                             .name(&#34;anonymous&#34;)
  *                             .permissions(&#34;read&#34;)
  *                             .build(),
- *                         PermissionTargetBuildActionUserArgs.builder()
+ *                         PermissionTargetBuildActionsUserArgs.builder()
  *                             .name(&#34;user1&#34;)
  *                             .permissions(                            
  *                                 &#34;read&#34;,
@@ -64,9 +66,9 @@ import javax.annotation.Nullable;
  *                 .includesPatterns(&#34;**&#34;)
  *                 .repositories(&#34;artifactory-build-info&#34;)
  *                 .build())
- *             .releaseBundles(PermissionTargetReleaseBundleArgs.builder()
- *                 .actions(PermissionTargetReleaseBundleActionArgs.builder()
- *                     .users(PermissionTargetReleaseBundleActionUserArgs.builder()
+ *             .releaseBundle(PermissionTargetReleaseBundleArgs.builder()
+ *                 .actions(PermissionTargetReleaseBundleActionsArgs.builder()
+ *                     .users(PermissionTargetReleaseBundleActionsUserArgs.builder()
  *                         .name(&#34;anonymous&#34;)
  *                         .permissions(&#34;read&#34;)
  *                         .build())
@@ -74,27 +76,27 @@ import javax.annotation.Nullable;
  *                 .includesPatterns(&#34;**&#34;)
  *                 .repositories(&#34;release-bundles&#34;)
  *                 .build())
- *             .repos(PermissionTargetRepoArgs.builder()
- *                 .actions(PermissionTargetRepoActionArgs.builder()
+ *             .repo(PermissionTargetRepoArgs.builder()
+ *                 .actions(PermissionTargetRepoActionsArgs.builder()
  *                     .groups(                    
- *                         PermissionTargetRepoActionGroupArgs.builder()
+ *                         PermissionTargetRepoActionsGroupArgs.builder()
  *                             .name(&#34;readers&#34;)
  *                             .permissions(&#34;read&#34;)
  *                             .build(),
- *                         PermissionTargetRepoActionGroupArgs.builder()
+ *                         PermissionTargetRepoActionsGroupArgs.builder()
  *                             .name(&#34;dev&#34;)
  *                             .permissions(                            
  *                                 &#34;read&#34;,
  *                                 &#34;write&#34;)
  *                             .build())
  *                     .users(                    
- *                         PermissionTargetRepoActionUserArgs.builder()
+ *                         PermissionTargetRepoActionsUserArgs.builder()
  *                             .name(&#34;anonymous&#34;)
  *                             .permissions(                            
  *                                 &#34;read&#34;,
  *                                 &#34;write&#34;)
  *                             .build(),
- *                         PermissionTargetRepoActionUserArgs.builder()
+ *                         PermissionTargetRepoActionsUserArgs.builder()
  *                             .name(&#34;user1&#34;)
  *                             .permissions(                            
  *                                 &#34;read&#34;,
@@ -147,15 +149,15 @@ public class PermissionTarget extends com.pulumi.resources.CustomResource {
      * As for repo but for artifactory-build-info permissions.
      * 
      */
-    @Export(name="builds", refs={List.class,PermissionTargetBuild.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<PermissionTargetBuild>> builds;
+    @Export(name="build", refs={PermissionTargetBuild.class}, tree="[0]")
+    private Output</* @Nullable */ PermissionTargetBuild> build;
 
     /**
      * @return As for repo but for artifactory-build-info permissions.
      * 
      */
-    public Output<Optional<List<PermissionTargetBuild>>> builds() {
-        return Codegen.optional(this.builds);
+    public Output<Optional<PermissionTargetBuild>> build() {
+        return Codegen.optional(this.build);
     }
     /**
      * Name of permission.
@@ -175,29 +177,29 @@ public class PermissionTarget extends com.pulumi.resources.CustomResource {
      * As for repo for for release-bundles permissions.
      * 
      */
-    @Export(name="releaseBundles", refs={List.class,PermissionTargetReleaseBundle.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<PermissionTargetReleaseBundle>> releaseBundles;
+    @Export(name="releaseBundle", refs={PermissionTargetReleaseBundle.class}, tree="[0]")
+    private Output</* @Nullable */ PermissionTargetReleaseBundle> releaseBundle;
 
     /**
      * @return As for repo for for release-bundles permissions.
      * 
      */
-    public Output<Optional<List<PermissionTargetReleaseBundle>>> releaseBundles() {
-        return Codegen.optional(this.releaseBundles);
+    public Output<Optional<PermissionTargetReleaseBundle>> releaseBundle() {
+        return Codegen.optional(this.releaseBundle);
     }
     /**
      * Repository permission configuration.
      * 
      */
-    @Export(name="repos", refs={List.class,PermissionTargetRepo.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<PermissionTargetRepo>> repos;
+    @Export(name="repo", refs={PermissionTargetRepo.class}, tree="[0]")
+    private Output</* @Nullable */ PermissionTargetRepo> repo;
 
     /**
      * @return Repository permission configuration.
      * 
      */
-    public Output<Optional<List<PermissionTargetRepo>>> repos() {
-        return Codegen.optional(this.repos);
+    public Output<Optional<PermissionTargetRepo>> repo() {
+        return Codegen.optional(this.repo);
     }
 
     /**

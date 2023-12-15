@@ -9,7 +9,6 @@ import com.pulumi.artifactory.inputs.PermissionTargetRepoArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
-import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -23,15 +22,15 @@ public final class PermissionTargetArgs extends com.pulumi.resources.ResourceArg
      * As for repo but for artifactory-build-info permissions.
      * 
      */
-    @Import(name="builds")
-    private @Nullable Output<List<PermissionTargetBuildArgs>> builds;
+    @Import(name="build")
+    private @Nullable Output<PermissionTargetBuildArgs> build;
 
     /**
      * @return As for repo but for artifactory-build-info permissions.
      * 
      */
-    public Optional<Output<List<PermissionTargetBuildArgs>>> builds() {
-        return Optional.ofNullable(this.builds);
+    public Optional<Output<PermissionTargetBuildArgs>> build() {
+        return Optional.ofNullable(this.build);
     }
 
     /**
@@ -53,39 +52,39 @@ public final class PermissionTargetArgs extends com.pulumi.resources.ResourceArg
      * As for repo for for release-bundles permissions.
      * 
      */
-    @Import(name="releaseBundles")
-    private @Nullable Output<List<PermissionTargetReleaseBundleArgs>> releaseBundles;
+    @Import(name="releaseBundle")
+    private @Nullable Output<PermissionTargetReleaseBundleArgs> releaseBundle;
 
     /**
      * @return As for repo for for release-bundles permissions.
      * 
      */
-    public Optional<Output<List<PermissionTargetReleaseBundleArgs>>> releaseBundles() {
-        return Optional.ofNullable(this.releaseBundles);
+    public Optional<Output<PermissionTargetReleaseBundleArgs>> releaseBundle() {
+        return Optional.ofNullable(this.releaseBundle);
     }
 
     /**
      * Repository permission configuration.
      * 
      */
-    @Import(name="repos")
-    private @Nullable Output<List<PermissionTargetRepoArgs>> repos;
+    @Import(name="repo")
+    private @Nullable Output<PermissionTargetRepoArgs> repo;
 
     /**
      * @return Repository permission configuration.
      * 
      */
-    public Optional<Output<List<PermissionTargetRepoArgs>>> repos() {
-        return Optional.ofNullable(this.repos);
+    public Optional<Output<PermissionTargetRepoArgs>> repo() {
+        return Optional.ofNullable(this.repo);
     }
 
     private PermissionTargetArgs() {}
 
     private PermissionTargetArgs(PermissionTargetArgs $) {
-        this.builds = $.builds;
+        this.build = $.build;
         this.name = $.name;
-        this.releaseBundles = $.releaseBundles;
-        this.repos = $.repos;
+        this.releaseBundle = $.releaseBundle;
+        this.repo = $.repo;
     }
 
     public static Builder builder() {
@@ -107,34 +106,24 @@ public final class PermissionTargetArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param builds As for repo but for artifactory-build-info permissions.
+         * @param build As for repo but for artifactory-build-info permissions.
          * 
          * @return builder
          * 
          */
-        public Builder builds(@Nullable Output<List<PermissionTargetBuildArgs>> builds) {
-            $.builds = builds;
+        public Builder build(@Nullable Output<PermissionTargetBuildArgs> build) {
+            $.build = build;
             return this;
         }
 
         /**
-         * @param builds As for repo but for artifactory-build-info permissions.
+         * @param build As for repo but for artifactory-build-info permissions.
          * 
          * @return builder
          * 
          */
-        public Builder builds(List<PermissionTargetBuildArgs> builds) {
-            return builds(Output.of(builds));
-        }
-
-        /**
-         * @param builds As for repo but for artifactory-build-info permissions.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder builds(PermissionTargetBuildArgs... builds) {
-            return builds(List.of(builds));
+        public Builder build(PermissionTargetBuildArgs build) {
+            return build(Output.of(build));
         }
 
         /**
@@ -159,65 +148,45 @@ public final class PermissionTargetArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param releaseBundles As for repo for for release-bundles permissions.
+         * @param releaseBundle As for repo for for release-bundles permissions.
          * 
          * @return builder
          * 
          */
-        public Builder releaseBundles(@Nullable Output<List<PermissionTargetReleaseBundleArgs>> releaseBundles) {
-            $.releaseBundles = releaseBundles;
+        public Builder releaseBundle(@Nullable Output<PermissionTargetReleaseBundleArgs> releaseBundle) {
+            $.releaseBundle = releaseBundle;
             return this;
         }
 
         /**
-         * @param releaseBundles As for repo for for release-bundles permissions.
+         * @param releaseBundle As for repo for for release-bundles permissions.
          * 
          * @return builder
          * 
          */
-        public Builder releaseBundles(List<PermissionTargetReleaseBundleArgs> releaseBundles) {
-            return releaseBundles(Output.of(releaseBundles));
+        public Builder releaseBundle(PermissionTargetReleaseBundleArgs releaseBundle) {
+            return releaseBundle(Output.of(releaseBundle));
         }
 
         /**
-         * @param releaseBundles As for repo for for release-bundles permissions.
+         * @param repo Repository permission configuration.
          * 
          * @return builder
          * 
          */
-        public Builder releaseBundles(PermissionTargetReleaseBundleArgs... releaseBundles) {
-            return releaseBundles(List.of(releaseBundles));
-        }
-
-        /**
-         * @param repos Repository permission configuration.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder repos(@Nullable Output<List<PermissionTargetRepoArgs>> repos) {
-            $.repos = repos;
+        public Builder repo(@Nullable Output<PermissionTargetRepoArgs> repo) {
+            $.repo = repo;
             return this;
         }
 
         /**
-         * @param repos Repository permission configuration.
+         * @param repo Repository permission configuration.
          * 
          * @return builder
          * 
          */
-        public Builder repos(List<PermissionTargetRepoArgs> repos) {
-            return repos(Output.of(repos));
-        }
-
-        /**
-         * @param repos Repository permission configuration.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder repos(PermissionTargetRepoArgs... repos) {
-            return repos(List.of(repos));
+        public Builder repo(PermissionTargetRepoArgs repo) {
+            return repo(Output.of(repo));
         }
 
         public PermissionTargetArgs build() {

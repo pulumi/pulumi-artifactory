@@ -1769,7 +1769,7 @@ export interface OauthSettingsOauthProvider {
 }
 
 export interface PermissionTargetBuild {
-    actions?: outputs.PermissionTargetBuildAction[];
+    actions?: outputs.PermissionTargetBuildActions;
     /**
      * Pattern of artifacts to exclude.
      */
@@ -1784,18 +1784,18 @@ export interface PermissionTargetBuild {
     repositories: string[];
 }
 
-export interface PermissionTargetBuildAction {
+export interface PermissionTargetBuildActions {
     /**
      * Groups this permission applies for.
      */
-    groups?: outputs.PermissionTargetBuildActionGroup[];
+    groups?: outputs.PermissionTargetBuildActionsGroup[];
     /**
      * Users this permission target applies for.
      */
-    users?: outputs.PermissionTargetBuildActionUser[];
+    users?: outputs.PermissionTargetBuildActionsUser[];
 }
 
-export interface PermissionTargetBuildActionGroup {
+export interface PermissionTargetBuildActionsGroup {
     /**
      * Name of permission.
      */
@@ -1803,7 +1803,7 @@ export interface PermissionTargetBuildActionGroup {
     permissions: string[];
 }
 
-export interface PermissionTargetBuildActionUser {
+export interface PermissionTargetBuildActionsUser {
     /**
      * Name of permission.
      */
@@ -1812,7 +1812,7 @@ export interface PermissionTargetBuildActionUser {
 }
 
 export interface PermissionTargetReleaseBundle {
-    actions?: outputs.PermissionTargetReleaseBundleAction[];
+    actions?: outputs.PermissionTargetReleaseBundleActions;
     /**
      * Pattern of artifacts to exclude.
      */
@@ -1827,18 +1827,18 @@ export interface PermissionTargetReleaseBundle {
     repositories: string[];
 }
 
-export interface PermissionTargetReleaseBundleAction {
+export interface PermissionTargetReleaseBundleActions {
     /**
      * Groups this permission applies for.
      */
-    groups?: outputs.PermissionTargetReleaseBundleActionGroup[];
+    groups?: outputs.PermissionTargetReleaseBundleActionsGroup[];
     /**
      * Users this permission target applies for.
      */
-    users?: outputs.PermissionTargetReleaseBundleActionUser[];
+    users?: outputs.PermissionTargetReleaseBundleActionsUser[];
 }
 
-export interface PermissionTargetReleaseBundleActionGroup {
+export interface PermissionTargetReleaseBundleActionsGroup {
     /**
      * Name of permission.
      */
@@ -1846,7 +1846,7 @@ export interface PermissionTargetReleaseBundleActionGroup {
     permissions: string[];
 }
 
-export interface PermissionTargetReleaseBundleActionUser {
+export interface PermissionTargetReleaseBundleActionsUser {
     /**
      * Name of permission.
      */
@@ -1855,7 +1855,7 @@ export interface PermissionTargetReleaseBundleActionUser {
 }
 
 export interface PermissionTargetRepo {
-    actions?: outputs.PermissionTargetRepoAction[];
+    actions?: outputs.PermissionTargetRepoActions;
     /**
      * Pattern of artifacts to exclude.
      */
@@ -1870,18 +1870,18 @@ export interface PermissionTargetRepo {
     repositories: string[];
 }
 
-export interface PermissionTargetRepoAction {
+export interface PermissionTargetRepoActions {
     /**
      * Groups this permission applies for.
      */
-    groups?: outputs.PermissionTargetRepoActionGroup[];
+    groups?: outputs.PermissionTargetRepoActionsGroup[];
     /**
      * Users this permission target applies for.
      */
-    users?: outputs.PermissionTargetRepoActionUser[];
+    users?: outputs.PermissionTargetRepoActionsUser[];
 }
 
-export interface PermissionTargetRepoActionGroup {
+export interface PermissionTargetRepoActionsGroup {
     /**
      * Name of permission.
      */
@@ -1889,7 +1889,7 @@ export interface PermissionTargetRepoActionGroup {
     permissions: string[];
 }
 
-export interface PermissionTargetRepoActionUser {
+export interface PermissionTargetRepoActionsUser {
     /**
      * Name of permission.
      */

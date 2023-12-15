@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory/internal"
+	"github.com/pulumi/pulumi-artifactory/sdk/v6/go/artifactory/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory"
+//	"github.com/pulumi/pulumi-artifactory/sdk/v6/go/artifactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -49,7 +49,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory"
+//	"github.com/pulumi/pulumi-artifactory/sdk/v6/go/artifactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -84,7 +84,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory"
+//	"github.com/pulumi/pulumi-artifactory/sdk/v6/go/artifactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -112,7 +112,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory"
+//	"github.com/pulumi/pulumi-artifactory/sdk/v6/go/artifactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -137,7 +137,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory"
+//	"github.com/pulumi/pulumi-artifactory/sdk/v6/go/artifactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -166,7 +166,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory"
+//	"github.com/pulumi/pulumi-artifactory/sdk/v6/go/artifactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -194,7 +194,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory"
+//	"github.com/pulumi/pulumi-artifactory/sdk/v6/go/artifactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -221,7 +221,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory"
+//	"github.com/pulumi/pulumi-artifactory/sdk/v6/go/artifactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -254,7 +254,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory"
+//	"github.com/pulumi/pulumi-artifactory/sdk/v6/go/artifactory"
 //	"github.com/pulumi/pulumi-time/sdk/go/time"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
