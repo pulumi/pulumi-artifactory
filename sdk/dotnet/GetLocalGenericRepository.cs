@@ -11,9 +11,59 @@ namespace Pulumi.Artifactory
 {
     public static class GetLocalGenericRepository
     {
+        /// <summary>
+        /// Retrieves a local generic repository.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var local_test_generic_repo = Artifactory.GetLocalGenericRepository.Invoke(new()
+        ///     {
+        ///         Key = "local-test-generic-repo",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetLocalGenericRepositoryResult> InvokeAsync(GetLocalGenericRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLocalGenericRepositoryResult>("artifactory:index/getLocalGenericRepository:getLocalGenericRepository", args ?? new GetLocalGenericRepositoryArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Retrieves a local generic repository.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var local_test_generic_repo = Artifactory.GetLocalGenericRepository.Invoke(new()
+        ///     {
+        ///         Key = "local-test-generic-repo",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetLocalGenericRepositoryResult> Invoke(GetLocalGenericRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocalGenericRepositoryResult>("artifactory:index/getLocalGenericRepository:getLocalGenericRepository", args ?? new GetLocalGenericRepositoryInvokeArgs(), options.WithDefaults());
     }
@@ -42,6 +92,9 @@ namespace Pulumi.Artifactory
         [Input("includesPattern")]
         public string? IncludesPattern { get; set; }
 
+        /// <summary>
+        /// the identity key of the repo.
+        /// </summary>
         [Input("key", required: true)]
         public string Key { get; set; } = null!;
 
@@ -105,6 +158,9 @@ namespace Pulumi.Artifactory
         [Input("includesPattern")]
         public Input<string>? IncludesPattern { get; set; }
 
+        /// <summary>
+        /// the identity key of the repo.
+        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
@@ -160,6 +216,9 @@ namespace Pulumi.Artifactory
         /// </summary>
         public readonly string Id;
         public readonly string? IncludesPattern;
+        /// <summary>
+        /// the identity key of the repo.
+        /// </summary>
         public readonly string Key;
         public readonly string? Notes;
         public readonly string PackageType;

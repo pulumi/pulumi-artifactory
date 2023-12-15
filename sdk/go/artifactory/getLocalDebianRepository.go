@@ -11,6 +11,33 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Retrieves a local Debian repository.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.GetLocalDebianRepository(ctx, &artifactory.GetLocalDebianRepositoryArgs{
+//				Key: "local-test-debian-repo-basic",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetLocalDebianRepository(ctx *pulumi.Context, args *GetLocalDebianRepositoryArgs, opts ...pulumi.InvokeOption) (*GetLocalDebianRepositoryResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetLocalDebianRepositoryResult
@@ -23,23 +50,30 @@ func GetLocalDebianRepository(ctx *pulumi.Context, args *GetLocalDebianRepositor
 
 // A collection of arguments for invoking getLocalDebianRepository.
 type GetLocalDebianRepositoryArgs struct {
-	ArchiveBrowsingEnabled  *bool    `pulumi:"archiveBrowsingEnabled"`
-	BlackedOut              *bool    `pulumi:"blackedOut"`
-	CdnRedirect             *bool    `pulumi:"cdnRedirect"`
-	Description             *string  `pulumi:"description"`
-	DownloadDirect          *bool    `pulumi:"downloadDirect"`
-	ExcludesPattern         *string  `pulumi:"excludesPattern"`
-	IncludesPattern         *string  `pulumi:"includesPattern"`
+	ArchiveBrowsingEnabled *bool   `pulumi:"archiveBrowsingEnabled"`
+	BlackedOut             *bool   `pulumi:"blackedOut"`
+	CdnRedirect            *bool   `pulumi:"cdnRedirect"`
+	Description            *string `pulumi:"description"`
+	DownloadDirect         *bool   `pulumi:"downloadDirect"`
+	ExcludesPattern        *string `pulumi:"excludesPattern"`
+	IncludesPattern        *string `pulumi:"includesPattern"`
+	// The options are Bzip2 (.bz2 extension) (default), LZMA (.lzma extension)
+	// and XZ (.xz extension).
 	IndexCompressionFormats []string `pulumi:"indexCompressionFormats"`
-	Key                     string   `pulumi:"key"`
-	Notes                   *string  `pulumi:"notes"`
-	PrimaryKeypairRef       *string  `pulumi:"primaryKeypairRef"`
-	PriorityResolution      *bool    `pulumi:"priorityResolution"`
-	ProjectEnvironments     []string `pulumi:"projectEnvironments"`
-	ProjectKey              *string  `pulumi:"projectKey"`
-	PropertySets            []string `pulumi:"propertySets"`
-	RepoLayoutRef           *string  `pulumi:"repoLayoutRef"`
-	SecondaryKeypairRef     *string  `pulumi:"secondaryKeypairRef"`
+	// the identity key of the repo.
+	Key   string  `pulumi:"key"`
+	Notes *string `pulumi:"notes"`
+	// The primary RSA key to be used to sign packages.
+	PrimaryKeypairRef   *string  `pulumi:"primaryKeypairRef"`
+	PriorityResolution  *bool    `pulumi:"priorityResolution"`
+	ProjectEnvironments []string `pulumi:"projectEnvironments"`
+	ProjectKey          *string  `pulumi:"projectKey"`
+	PropertySets        []string `pulumi:"propertySets"`
+	RepoLayoutRef       *string  `pulumi:"repoLayoutRef"`
+	// The secondary RSA key to be used to sign packages.
+	SecondaryKeypairRef *string `pulumi:"secondaryKeypairRef"`
+	// When set, the repository will use the deprecated trivial layout.
+	//
 	// Deprecated: You shouldn't be using this
 	TrivialLayout *bool `pulumi:"trivialLayout"`
 	XrayIndex     *bool `pulumi:"xrayIndex"`
@@ -54,19 +88,25 @@ type GetLocalDebianRepositoryResult struct {
 	DownloadDirect         *bool   `pulumi:"downloadDirect"`
 	ExcludesPattern        *string `pulumi:"excludesPattern"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                      string   `pulumi:"id"`
-	IncludesPattern         *string  `pulumi:"includesPattern"`
+	Id              string  `pulumi:"id"`
+	IncludesPattern *string `pulumi:"includesPattern"`
+	// The options are Bzip2 (.bz2 extension) (default), LZMA (.lzma extension)
+	// and XZ (.xz extension).
 	IndexCompressionFormats []string `pulumi:"indexCompressionFormats"`
 	Key                     string   `pulumi:"key"`
 	Notes                   *string  `pulumi:"notes"`
 	PackageType             string   `pulumi:"packageType"`
-	PrimaryKeypairRef       *string  `pulumi:"primaryKeypairRef"`
-	PriorityResolution      *bool    `pulumi:"priorityResolution"`
-	ProjectEnvironments     []string `pulumi:"projectEnvironments"`
-	ProjectKey              *string  `pulumi:"projectKey"`
-	PropertySets            []string `pulumi:"propertySets"`
-	RepoLayoutRef           *string  `pulumi:"repoLayoutRef"`
-	SecondaryKeypairRef     *string  `pulumi:"secondaryKeypairRef"`
+	// The primary RSA key to be used to sign packages.
+	PrimaryKeypairRef   *string  `pulumi:"primaryKeypairRef"`
+	PriorityResolution  *bool    `pulumi:"priorityResolution"`
+	ProjectEnvironments []string `pulumi:"projectEnvironments"`
+	ProjectKey          *string  `pulumi:"projectKey"`
+	PropertySets        []string `pulumi:"propertySets"`
+	RepoLayoutRef       *string  `pulumi:"repoLayoutRef"`
+	// The secondary RSA key to be used to sign packages.
+	SecondaryKeypairRef *string `pulumi:"secondaryKeypairRef"`
+	// When set, the repository will use the deprecated trivial layout.
+	//
 	// Deprecated: You shouldn't be using this
 	TrivialLayout *bool `pulumi:"trivialLayout"`
 	XrayIndex     *bool `pulumi:"xrayIndex"`
@@ -87,23 +127,30 @@ func GetLocalDebianRepositoryOutput(ctx *pulumi.Context, args GetLocalDebianRepo
 
 // A collection of arguments for invoking getLocalDebianRepository.
 type GetLocalDebianRepositoryOutputArgs struct {
-	ArchiveBrowsingEnabled  pulumi.BoolPtrInput     `pulumi:"archiveBrowsingEnabled"`
-	BlackedOut              pulumi.BoolPtrInput     `pulumi:"blackedOut"`
-	CdnRedirect             pulumi.BoolPtrInput     `pulumi:"cdnRedirect"`
-	Description             pulumi.StringPtrInput   `pulumi:"description"`
-	DownloadDirect          pulumi.BoolPtrInput     `pulumi:"downloadDirect"`
-	ExcludesPattern         pulumi.StringPtrInput   `pulumi:"excludesPattern"`
-	IncludesPattern         pulumi.StringPtrInput   `pulumi:"includesPattern"`
+	ArchiveBrowsingEnabled pulumi.BoolPtrInput   `pulumi:"archiveBrowsingEnabled"`
+	BlackedOut             pulumi.BoolPtrInput   `pulumi:"blackedOut"`
+	CdnRedirect            pulumi.BoolPtrInput   `pulumi:"cdnRedirect"`
+	Description            pulumi.StringPtrInput `pulumi:"description"`
+	DownloadDirect         pulumi.BoolPtrInput   `pulumi:"downloadDirect"`
+	ExcludesPattern        pulumi.StringPtrInput `pulumi:"excludesPattern"`
+	IncludesPattern        pulumi.StringPtrInput `pulumi:"includesPattern"`
+	// The options are Bzip2 (.bz2 extension) (default), LZMA (.lzma extension)
+	// and XZ (.xz extension).
 	IndexCompressionFormats pulumi.StringArrayInput `pulumi:"indexCompressionFormats"`
-	Key                     pulumi.StringInput      `pulumi:"key"`
-	Notes                   pulumi.StringPtrInput   `pulumi:"notes"`
-	PrimaryKeypairRef       pulumi.StringPtrInput   `pulumi:"primaryKeypairRef"`
-	PriorityResolution      pulumi.BoolPtrInput     `pulumi:"priorityResolution"`
-	ProjectEnvironments     pulumi.StringArrayInput `pulumi:"projectEnvironments"`
-	ProjectKey              pulumi.StringPtrInput   `pulumi:"projectKey"`
-	PropertySets            pulumi.StringArrayInput `pulumi:"propertySets"`
-	RepoLayoutRef           pulumi.StringPtrInput   `pulumi:"repoLayoutRef"`
-	SecondaryKeypairRef     pulumi.StringPtrInput   `pulumi:"secondaryKeypairRef"`
+	// the identity key of the repo.
+	Key   pulumi.StringInput    `pulumi:"key"`
+	Notes pulumi.StringPtrInput `pulumi:"notes"`
+	// The primary RSA key to be used to sign packages.
+	PrimaryKeypairRef   pulumi.StringPtrInput   `pulumi:"primaryKeypairRef"`
+	PriorityResolution  pulumi.BoolPtrInput     `pulumi:"priorityResolution"`
+	ProjectEnvironments pulumi.StringArrayInput `pulumi:"projectEnvironments"`
+	ProjectKey          pulumi.StringPtrInput   `pulumi:"projectKey"`
+	PropertySets        pulumi.StringArrayInput `pulumi:"propertySets"`
+	RepoLayoutRef       pulumi.StringPtrInput   `pulumi:"repoLayoutRef"`
+	// The secondary RSA key to be used to sign packages.
+	SecondaryKeypairRef pulumi.StringPtrInput `pulumi:"secondaryKeypairRef"`
+	// When set, the repository will use the deprecated trivial layout.
+	//
 	// Deprecated: You shouldn't be using this
 	TrivialLayout pulumi.BoolPtrInput `pulumi:"trivialLayout"`
 	XrayIndex     pulumi.BoolPtrInput `pulumi:"xrayIndex"`
@@ -161,6 +208,8 @@ func (o GetLocalDebianRepositoryResultOutput) IncludesPattern() pulumi.StringPtr
 	return o.ApplyT(func(v GetLocalDebianRepositoryResult) *string { return v.IncludesPattern }).(pulumi.StringPtrOutput)
 }
 
+// The options are Bzip2 (.bz2 extension) (default), LZMA (.lzma extension)
+// and XZ (.xz extension).
 func (o GetLocalDebianRepositoryResultOutput) IndexCompressionFormats() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetLocalDebianRepositoryResult) []string { return v.IndexCompressionFormats }).(pulumi.StringArrayOutput)
 }
@@ -177,6 +226,7 @@ func (o GetLocalDebianRepositoryResultOutput) PackageType() pulumi.StringOutput 
 	return o.ApplyT(func(v GetLocalDebianRepositoryResult) string { return v.PackageType }).(pulumi.StringOutput)
 }
 
+// The primary RSA key to be used to sign packages.
 func (o GetLocalDebianRepositoryResultOutput) PrimaryKeypairRef() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetLocalDebianRepositoryResult) *string { return v.PrimaryKeypairRef }).(pulumi.StringPtrOutput)
 }
@@ -201,10 +251,13 @@ func (o GetLocalDebianRepositoryResultOutput) RepoLayoutRef() pulumi.StringPtrOu
 	return o.ApplyT(func(v GetLocalDebianRepositoryResult) *string { return v.RepoLayoutRef }).(pulumi.StringPtrOutput)
 }
 
+// The secondary RSA key to be used to sign packages.
 func (o GetLocalDebianRepositoryResultOutput) SecondaryKeypairRef() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetLocalDebianRepositoryResult) *string { return v.SecondaryKeypairRef }).(pulumi.StringPtrOutput)
 }
 
+// When set, the repository will use the deprecated trivial layout.
+//
 // Deprecated: You shouldn't be using this
 func (o GetLocalDebianRepositoryResultOutput) TrivialLayout() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetLocalDebianRepositoryResult) *bool { return v.TrivialLayout }).(pulumi.BoolPtrOutput)

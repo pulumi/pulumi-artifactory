@@ -25,18 +25,33 @@ public final class GetLocalDebianRepositoryResult {
      */
     private String id;
     private @Nullable String includesPattern;
+    /**
+     * @return The options are Bzip2 (.bz2 extension) (default), LZMA (.lzma extension)
+     * and XZ (.xz extension).
+     * 
+     */
     private @Nullable List<String> indexCompressionFormats;
     private String key;
     private @Nullable String notes;
     private String packageType;
+    /**
+     * @return The primary RSA key to be used to sign packages.
+     * 
+     */
     private @Nullable String primaryKeypairRef;
     private @Nullable Boolean priorityResolution;
     private List<String> projectEnvironments;
     private @Nullable String projectKey;
     private @Nullable List<String> propertySets;
     private @Nullable String repoLayoutRef;
+    /**
+     * @return The secondary RSA key to be used to sign packages.
+     * 
+     */
     private @Nullable String secondaryKeypairRef;
     /**
+     * @return When set, the repository will use the deprecated trivial layout.
+     * 
      * @deprecated
      * You shouldn&#39;t be using this
      * 
@@ -74,6 +89,11 @@ public final class GetLocalDebianRepositoryResult {
     public Optional<String> includesPattern() {
         return Optional.ofNullable(this.includesPattern);
     }
+    /**
+     * @return The options are Bzip2 (.bz2 extension) (default), LZMA (.lzma extension)
+     * and XZ (.xz extension).
+     * 
+     */
     public List<String> indexCompressionFormats() {
         return this.indexCompressionFormats == null ? List.of() : this.indexCompressionFormats;
     }
@@ -86,6 +106,10 @@ public final class GetLocalDebianRepositoryResult {
     public String packageType() {
         return this.packageType;
     }
+    /**
+     * @return The primary RSA key to be used to sign packages.
+     * 
+     */
     public Optional<String> primaryKeypairRef() {
         return Optional.ofNullable(this.primaryKeypairRef);
     }
@@ -104,10 +128,16 @@ public final class GetLocalDebianRepositoryResult {
     public Optional<String> repoLayoutRef() {
         return Optional.ofNullable(this.repoLayoutRef);
     }
+    /**
+     * @return The secondary RSA key to be used to sign packages.
+     * 
+     */
     public Optional<String> secondaryKeypairRef() {
         return Optional.ofNullable(this.secondaryKeypairRef);
     }
     /**
+     * @return When set, the repository will use the deprecated trivial layout.
+     * 
      * @deprecated
      * You shouldn&#39;t be using this
      * 

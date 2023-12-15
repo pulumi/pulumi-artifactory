@@ -77,31 +77,50 @@ class GetLocalHuggingfacemlRepositoryResult:
     @property
     @pulumi.getter(name="archiveBrowsingEnabled")
     def archive_browsing_enabled(self) -> Optional[bool]:
+        """
+        When set, you may view content such as HTML or Javadoc files directly from Artifactory.
+        This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
+        """
         return pulumi.get(self, "archive_browsing_enabled")
 
     @property
     @pulumi.getter(name="blackedOut")
     def blacked_out(self) -> Optional[bool]:
+        """
+        When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
+        """
         return pulumi.get(self, "blacked_out")
 
     @property
     @pulumi.getter(name="cdnRedirect")
     def cdn_redirect(self) -> Optional[bool]:
+        """
+        When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+        """
         return pulumi.get(self, "cdn_redirect")
 
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        Public description.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="downloadDirect")
     def download_direct(self) -> Optional[bool]:
+        """
+        When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
+        """
         return pulumi.get(self, "download_direct")
 
     @property
     @pulumi.getter(name="excludesPattern")
     def excludes_pattern(self) -> Optional[str]:
+        """
+        List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no artifacts are excluded.
+        """
         return pulumi.get(self, "excludes_pattern")
 
     @property
@@ -115,16 +134,25 @@ class GetLocalHuggingfacemlRepositoryResult:
     @property
     @pulumi.getter(name="includesPattern")
     def includes_pattern(self) -> Optional[str]:
+        """
+        List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        """
         return pulumi.get(self, "includes_pattern")
 
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen characters. It cannot begin with a number or contain spaces or special characters.
+        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def notes(self) -> Optional[str]:
+        """
+        Internal description.
+        """
         return pulumi.get(self, "notes")
 
     @property
@@ -135,6 +163,9 @@ class GetLocalHuggingfacemlRepositoryResult:
     @property
     @pulumi.getter(name="priorityResolution")
     def priority_resolution(self) -> Optional[bool]:
+        """
+        Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+        """
         return pulumi.get(self, "priority_resolution")
 
     @property
@@ -145,21 +176,33 @@ class GetLocalHuggingfacemlRepositoryResult:
     @property
     @pulumi.getter(name="projectKey")
     def project_key(self) -> Optional[str]:
+        """
+        Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+        """
         return pulumi.get(self, "project_key")
 
     @property
     @pulumi.getter(name="propertySets")
     def property_sets(self) -> Optional[Sequence[str]]:
+        """
+        List of property set name
+        """
         return pulumi.get(self, "property_sets")
 
     @property
     @pulumi.getter(name="repoLayoutRef")
     def repo_layout_ref(self) -> Optional[str]:
+        """
+        Repository layout key for the local repository
+        """
         return pulumi.get(self, "repo_layout_ref")
 
     @property
     @pulumi.getter(name="xrayIndex")
     def xray_index(self) -> Optional[bool]:
+        """
+        Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
+        """
         return pulumi.get(self, "xray_index")
 
 
@@ -205,7 +248,24 @@ def get_local_huggingfaceml_repository(archive_browsing_enabled: Optional[bool] 
                                        xray_index: Optional[bool] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLocalHuggingfacemlRepositoryResult:
     """
-    Use this data source to access information about an existing resource.
+    Provides a data source for a local huggingfaceml repository
+
+
+    :param bool archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory.
+           This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
+    :param bool blacked_out: When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
+    :param bool cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+    :param str description: Public description.
+    :param bool download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
+    :param str excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no artifacts are excluded.
+    :param str includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+    :param str key: A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen characters. It cannot begin with a number or contain spaces or special characters.
+    :param str notes: Internal description.
+    :param bool priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+    :param str project_key: Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+    :param Sequence[str] property_sets: List of property set name
+    :param str repo_layout_ref: Repository layout key for the local repository
+    :param bool xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
     """
     __args__ = dict()
     __args__['archiveBrowsingEnabled'] = archive_browsing_enabled
@@ -264,6 +324,23 @@ def get_local_huggingfaceml_repository_output(archive_browsing_enabled: Optional
                                               xray_index: Optional[pulumi.Input[Optional[bool]]] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocalHuggingfacemlRepositoryResult]:
     """
-    Use this data source to access information about an existing resource.
+    Provides a data source for a local huggingfaceml repository
+
+
+    :param bool archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory.
+           This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
+    :param bool blacked_out: When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
+    :param bool cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+    :param str description: Public description.
+    :param bool download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
+    :param str excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no artifacts are excluded.
+    :param str includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+    :param str key: A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen characters. It cannot begin with a number or contain spaces or special characters.
+    :param str notes: Internal description.
+    :param bool priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+    :param str project_key: Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+    :param Sequence[str] property_sets: List of property set name
+    :param str repo_layout_ref: Repository layout key for the local repository
+    :param bool xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
     """
     ...

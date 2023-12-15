@@ -16,6 +16,10 @@ public final class GetLocalChefRepositoryResult {
     private @Nullable Boolean archiveBrowsingEnabled;
     private @Nullable Boolean blackedOut;
     private @Nullable Boolean cdnRedirect;
+    /**
+     * @return (Optional)
+     * 
+     */
     private @Nullable String description;
     private @Nullable Boolean downloadDirect;
     private @Nullable String excludesPattern;
@@ -25,7 +29,15 @@ public final class GetLocalChefRepositoryResult {
      */
     private String id;
     private @Nullable String includesPattern;
+    /**
+     * @return (Required) the identity key of the repo.
+     * 
+     */
     private String key;
+    /**
+     * @return (Optional)
+     * 
+     */
     private @Nullable String notes;
     private String packageType;
     private @Nullable Boolean priorityResolution;
@@ -45,6 +57,10 @@ public final class GetLocalChefRepositoryResult {
     public Optional<Boolean> cdnRedirect() {
         return Optional.ofNullable(this.cdnRedirect);
     }
+    /**
+     * @return (Optional)
+     * 
+     */
     public Optional<String> description() {
         return Optional.ofNullable(this.description);
     }
@@ -64,9 +80,17 @@ public final class GetLocalChefRepositoryResult {
     public Optional<String> includesPattern() {
         return Optional.ofNullable(this.includesPattern);
     }
+    /**
+     * @return (Required) the identity key of the repo.
+     * 
+     */
     public String key() {
         return this.key;
     }
+    /**
+     * @return (Optional)
+     * 
+     */
     public Optional<String> notes() {
         return Optional.ofNullable(this.notes);
     }

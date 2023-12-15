@@ -11,6 +11,31 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v5/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.GetLocalTerraformbackendRepository(ctx, &artifactory.GetLocalTerraformbackendRepositoryArgs{
+//				Key: "local-test-terraformbackend-repo",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetLocalTerraformbackendRepository(ctx *pulumi.Context, args *GetLocalTerraformbackendRepositoryArgs, opts ...pulumi.InvokeOption) (*GetLocalTerraformbackendRepositoryResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetLocalTerraformbackendRepositoryResult
@@ -23,21 +48,22 @@ func GetLocalTerraformbackendRepository(ctx *pulumi.Context, args *GetLocalTerra
 
 // A collection of arguments for invoking getLocalTerraformbackendRepository.
 type GetLocalTerraformbackendRepositoryArgs struct {
-	ArchiveBrowsingEnabled *bool    `pulumi:"archiveBrowsingEnabled"`
-	BlackedOut             *bool    `pulumi:"blackedOut"`
-	CdnRedirect            *bool    `pulumi:"cdnRedirect"`
-	Description            *string  `pulumi:"description"`
-	DownloadDirect         *bool    `pulumi:"downloadDirect"`
-	ExcludesPattern        *string  `pulumi:"excludesPattern"`
-	IncludesPattern        *string  `pulumi:"includesPattern"`
-	Key                    string   `pulumi:"key"`
-	Notes                  *string  `pulumi:"notes"`
-	PriorityResolution     *bool    `pulumi:"priorityResolution"`
-	ProjectEnvironments    []string `pulumi:"projectEnvironments"`
-	ProjectKey             *string  `pulumi:"projectKey"`
-	PropertySets           []string `pulumi:"propertySets"`
-	RepoLayoutRef          *string  `pulumi:"repoLayoutRef"`
-	XrayIndex              *bool    `pulumi:"xrayIndex"`
+	ArchiveBrowsingEnabled *bool   `pulumi:"archiveBrowsingEnabled"`
+	BlackedOut             *bool   `pulumi:"blackedOut"`
+	CdnRedirect            *bool   `pulumi:"cdnRedirect"`
+	Description            *string `pulumi:"description"`
+	DownloadDirect         *bool   `pulumi:"downloadDirect"`
+	ExcludesPattern        *string `pulumi:"excludesPattern"`
+	IncludesPattern        *string `pulumi:"includesPattern"`
+	// the identity key of the repo.
+	Key                 string   `pulumi:"key"`
+	Notes               *string  `pulumi:"notes"`
+	PriorityResolution  *bool    `pulumi:"priorityResolution"`
+	ProjectEnvironments []string `pulumi:"projectEnvironments"`
+	ProjectKey          *string  `pulumi:"projectKey"`
+	PropertySets        []string `pulumi:"propertySets"`
+	RepoLayoutRef       *string  `pulumi:"repoLayoutRef"`
+	XrayIndex           *bool    `pulumi:"xrayIndex"`
 }
 
 // A collection of values returned by getLocalTerraformbackendRepository.
@@ -49,8 +75,9 @@ type GetLocalTerraformbackendRepositoryResult struct {
 	DownloadDirect         *bool   `pulumi:"downloadDirect"`
 	ExcludesPattern        *string `pulumi:"excludesPattern"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                  string   `pulumi:"id"`
-	IncludesPattern     *string  `pulumi:"includesPattern"`
+	Id              string  `pulumi:"id"`
+	IncludesPattern *string `pulumi:"includesPattern"`
+	// the identity key of the repo.
 	Key                 string   `pulumi:"key"`
 	Notes               *string  `pulumi:"notes"`
 	PackageType         string   `pulumi:"packageType"`
@@ -77,21 +104,22 @@ func GetLocalTerraformbackendRepositoryOutput(ctx *pulumi.Context, args GetLocal
 
 // A collection of arguments for invoking getLocalTerraformbackendRepository.
 type GetLocalTerraformbackendRepositoryOutputArgs struct {
-	ArchiveBrowsingEnabled pulumi.BoolPtrInput     `pulumi:"archiveBrowsingEnabled"`
-	BlackedOut             pulumi.BoolPtrInput     `pulumi:"blackedOut"`
-	CdnRedirect            pulumi.BoolPtrInput     `pulumi:"cdnRedirect"`
-	Description            pulumi.StringPtrInput   `pulumi:"description"`
-	DownloadDirect         pulumi.BoolPtrInput     `pulumi:"downloadDirect"`
-	ExcludesPattern        pulumi.StringPtrInput   `pulumi:"excludesPattern"`
-	IncludesPattern        pulumi.StringPtrInput   `pulumi:"includesPattern"`
-	Key                    pulumi.StringInput      `pulumi:"key"`
-	Notes                  pulumi.StringPtrInput   `pulumi:"notes"`
-	PriorityResolution     pulumi.BoolPtrInput     `pulumi:"priorityResolution"`
-	ProjectEnvironments    pulumi.StringArrayInput `pulumi:"projectEnvironments"`
-	ProjectKey             pulumi.StringPtrInput   `pulumi:"projectKey"`
-	PropertySets           pulumi.StringArrayInput `pulumi:"propertySets"`
-	RepoLayoutRef          pulumi.StringPtrInput   `pulumi:"repoLayoutRef"`
-	XrayIndex              pulumi.BoolPtrInput     `pulumi:"xrayIndex"`
+	ArchiveBrowsingEnabled pulumi.BoolPtrInput   `pulumi:"archiveBrowsingEnabled"`
+	BlackedOut             pulumi.BoolPtrInput   `pulumi:"blackedOut"`
+	CdnRedirect            pulumi.BoolPtrInput   `pulumi:"cdnRedirect"`
+	Description            pulumi.StringPtrInput `pulumi:"description"`
+	DownloadDirect         pulumi.BoolPtrInput   `pulumi:"downloadDirect"`
+	ExcludesPattern        pulumi.StringPtrInput `pulumi:"excludesPattern"`
+	IncludesPattern        pulumi.StringPtrInput `pulumi:"includesPattern"`
+	// the identity key of the repo.
+	Key                 pulumi.StringInput      `pulumi:"key"`
+	Notes               pulumi.StringPtrInput   `pulumi:"notes"`
+	PriorityResolution  pulumi.BoolPtrInput     `pulumi:"priorityResolution"`
+	ProjectEnvironments pulumi.StringArrayInput `pulumi:"projectEnvironments"`
+	ProjectKey          pulumi.StringPtrInput   `pulumi:"projectKey"`
+	PropertySets        pulumi.StringArrayInput `pulumi:"propertySets"`
+	RepoLayoutRef       pulumi.StringPtrInput   `pulumi:"repoLayoutRef"`
+	XrayIndex           pulumi.BoolPtrInput     `pulumi:"xrayIndex"`
 }
 
 func (GetLocalTerraformbackendRepositoryOutputArgs) ElementType() reflect.Type {
@@ -146,6 +174,7 @@ func (o GetLocalTerraformbackendRepositoryResultOutput) IncludesPattern() pulumi
 	return o.ApplyT(func(v GetLocalTerraformbackendRepositoryResult) *string { return v.IncludesPattern }).(pulumi.StringPtrOutput)
 }
 
+// the identity key of the repo.
 func (o GetLocalTerraformbackendRepositoryResultOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLocalTerraformbackendRepositoryResult) string { return v.Key }).(pulumi.StringOutput)
 }

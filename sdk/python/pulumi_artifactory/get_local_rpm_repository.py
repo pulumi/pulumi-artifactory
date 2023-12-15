@@ -105,6 +105,9 @@ class GetLocalRpmRepositoryResult:
     @property
     @pulumi.getter(name="calculateYumMetadata")
     def calculate_yum_metadata(self) -> Optional[bool]:
+        """
+        Default: `false`.
+        """
         return pulumi.get(self, "calculate_yum_metadata")
 
     @property
@@ -125,6 +128,9 @@ class GetLocalRpmRepositoryResult:
     @property
     @pulumi.getter(name="enableFileListsIndexing")
     def enable_file_lists_indexing(self) -> Optional[bool]:
+        """
+        Default: `false`.
+        """
         return pulumi.get(self, "enable_file_lists_indexing")
 
     @property
@@ -163,6 +169,9 @@ class GetLocalRpmRepositoryResult:
     @property
     @pulumi.getter(name="primaryKeypairRef")
     def primary_keypair_ref(self) -> Optional[str]:
+        """
+        The primary GPG key to be used to sign packages.
+        """
         return pulumi.get(self, "primary_keypair_ref")
 
     @property
@@ -193,6 +202,9 @@ class GetLocalRpmRepositoryResult:
     @property
     @pulumi.getter(name="secondaryKeypairRef")
     def secondary_keypair_ref(self) -> Optional[str]:
+        """
+        The secondary GPG key to be used to sign packages.
+        """
         return pulumi.get(self, "secondary_keypair_ref")
 
     @property
@@ -203,11 +215,23 @@ class GetLocalRpmRepositoryResult:
     @property
     @pulumi.getter(name="yumGroupFileNames")
     def yum_group_file_names(self) -> Optional[str]:
+        """
+        A comma separated list of XML file names containing RPM group component
+        definitions. Artifactory includes the group definitions as part of the calculated RPM metadata, as well as
+        automatically generating a gzipped version of the group files, if required. Default is empty string.
+        """
         return pulumi.get(self, "yum_group_file_names")
 
     @property
     @pulumi.getter(name="yumRootDepth")
     def yum_root_depth(self) -> Optional[int]:
+        """
+        The depth, relative to the repository's root folder, where RPM metadata is created. This
+        is useful when your repository contains multiple RPM repositories under parallel hierarchies. For example, if your
+        RPMs are stored under 'fedora/linux/$releasever/$basearch', specify a depth of 4. Once the number of snapshots exceeds
+        this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are
+        not cleaned up.
+        """
         return pulumi.get(self, "yum_root_depth")
 
 
@@ -265,7 +289,31 @@ def get_local_rpm_repository(archive_browsing_enabled: Optional[bool] = None,
                              yum_root_depth: Optional[int] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLocalRpmRepositoryResult:
     """
-    Use this data source to access information about an existing resource.
+    Retrieves a local RPM repository.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_artifactory as artifactory
+
+    local_test_rpm_repo_basic = artifactory.get_local_rpm_repository(key="local-test-rpm-repo-basic")
+    ```
+
+
+    :param bool calculate_yum_metadata: Default: `false`.
+    :param bool enable_file_lists_indexing: Default: `false`.
+    :param str key: the identity key of the repo.
+    :param str primary_keypair_ref: The primary GPG key to be used to sign packages.
+    :param str secondary_keypair_ref: The secondary GPG key to be used to sign packages.
+    :param str yum_group_file_names: A comma separated list of XML file names containing RPM group component
+           definitions. Artifactory includes the group definitions as part of the calculated RPM metadata, as well as
+           automatically generating a gzipped version of the group files, if required. Default is empty string.
+    :param int yum_root_depth: The depth, relative to the repository's root folder, where RPM metadata is created. This
+           is useful when your repository contains multiple RPM repositories under parallel hierarchies. For example, if your
+           RPMs are stored under 'fedora/linux/$releasever/$basearch', specify a depth of 4. Once the number of snapshots exceeds
+           this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are
+           not cleaned up.
     """
     __args__ = dict()
     __args__['archiveBrowsingEnabled'] = archive_browsing_enabled
@@ -342,6 +390,30 @@ def get_local_rpm_repository_output(archive_browsing_enabled: Optional[pulumi.In
                                     yum_root_depth: Optional[pulumi.Input[Optional[int]]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocalRpmRepositoryResult]:
     """
-    Use this data source to access information about an existing resource.
+    Retrieves a local RPM repository.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_artifactory as artifactory
+
+    local_test_rpm_repo_basic = artifactory.get_local_rpm_repository(key="local-test-rpm-repo-basic")
+    ```
+
+
+    :param bool calculate_yum_metadata: Default: `false`.
+    :param bool enable_file_lists_indexing: Default: `false`.
+    :param str key: the identity key of the repo.
+    :param str primary_keypair_ref: The primary GPG key to be used to sign packages.
+    :param str secondary_keypair_ref: The secondary GPG key to be used to sign packages.
+    :param str yum_group_file_names: A comma separated list of XML file names containing RPM group component
+           definitions. Artifactory includes the group definitions as part of the calculated RPM metadata, as well as
+           automatically generating a gzipped version of the group files, if required. Default is empty string.
+    :param int yum_root_depth: The depth, relative to the repository's root folder, where RPM metadata is created. This
+           is useful when your repository contains multiple RPM repositories under parallel hierarchies. For example, if your
+           RPMs are stored under 'fedora/linux/$releasever/$basearch', specify a depth of 4. Once the number of snapshots exceeds
+           this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are
+           not cleaned up.
     """
     ...

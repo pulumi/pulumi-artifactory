@@ -92,6 +92,9 @@ class GetLocalTerraformProviderRepositoryResult:
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        (Optional)
+        """
         return pulumi.get(self, "description")
 
     @property
@@ -125,6 +128,9 @@ class GetLocalTerraformProviderRepositoryResult:
     @property
     @pulumi.getter
     def notes(self) -> Optional[str]:
+        """
+        (Optional)
+        """
         return pulumi.get(self, "notes")
 
     @property
@@ -205,7 +211,19 @@ def get_local_terraform_provider_repository(archive_browsing_enabled: Optional[b
                                             xray_index: Optional[bool] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLocalTerraformProviderRepositoryResult:
     """
-    Use this data source to access information about an existing resource.
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_artifactory as artifactory
+
+    local_test_terraform_provider_repo = artifactory.get_local_terraform_provider_repository(key="local-test-terraform-provider-repo")
+    ```
+
+
+    :param str description: (Optional)
+    :param str key: the identity key of the repo.
+    :param str notes: (Optional)
     """
     __args__ = dict()
     __args__['archiveBrowsingEnabled'] = archive_browsing_enabled
@@ -264,6 +282,18 @@ def get_local_terraform_provider_repository_output(archive_browsing_enabled: Opt
                                                    xray_index: Optional[pulumi.Input[Optional[bool]]] = None,
                                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocalTerraformProviderRepositoryResult]:
     """
-    Use this data source to access information about an existing resource.
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_artifactory as artifactory
+
+    local_test_terraform_provider_repo = artifactory.get_local_terraform_provider_repository(key="local-test-terraform-provider-repo")
+    ```
+
+
+    :param str description: (Optional)
+    :param str key: the identity key of the repo.
+    :param str notes: (Optional)
     """
     ...

@@ -11,9 +11,59 @@ namespace Pulumi.Artifactory
 {
     public static class GetLocalDockerV2Repository
     {
+        /// <summary>
+        /// Retrieves a local Docker (V2) repository resource
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var artifactoryLocalTestDockerV2Repository = new Artifactory.DockerV2Repository("artifactoryLocalTestDockerV2Repository", new()
+        ///     {
+        ///         Key = "artifactory_local_test_docker_v2_repository",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetLocalDockerV2RepositoryResult> InvokeAsync(GetLocalDockerV2RepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLocalDockerV2RepositoryResult>("artifactory:index/getLocalDockerV2Repository:getLocalDockerV2Repository", args ?? new GetLocalDockerV2RepositoryArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Retrieves a local Docker (V2) repository resource
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var artifactoryLocalTestDockerV2Repository = new Artifactory.DockerV2Repository("artifactoryLocalTestDockerV2Repository", new()
+        ///     {
+        ///         Key = "artifactory_local_test_docker_v2_repository",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetLocalDockerV2RepositoryResult> Invoke(GetLocalDockerV2RepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocalDockerV2RepositoryResult>("artifactory:index/getLocalDockerV2Repository:getLocalDockerV2Repository", args ?? new GetLocalDockerV2RepositoryInvokeArgs(), options.WithDefaults());
     }
@@ -27,6 +77,10 @@ namespace Pulumi.Artifactory
         [Input("blackedOut")]
         public bool? BlackedOut { get; set; }
 
+        /// <summary>
+        /// When set, Artifactory will block the pushing of Docker images with manifest v2
+        /// schema 1 to this repository.
+        /// </summary>
         [Input("blockPushingSchema1")]
         public bool? BlockPushingSchema1 { get; set; }
 
@@ -45,9 +99,17 @@ namespace Pulumi.Artifactory
         [Input("includesPattern")]
         public string? IncludesPattern { get; set; }
 
+        /// <summary>
+        /// the identity key of the repo.
+        /// </summary>
         [Input("key", required: true)]
         public string Key { get; set; } = null!;
 
+        /// <summary>
+        /// The maximum number of unique tags of a single Docker image to store in this repository.
+        /// Once the number tags for an image exceeds this setting, older tags are removed. A value of 0 (default) indicates there
+        /// is no limit. This only applies to manifest v2.
+        /// </summary>
         [Input("maxUniqueTags")]
         public int? MaxUniqueTags { get; set; }
 
@@ -79,6 +141,10 @@ namespace Pulumi.Artifactory
         [Input("repoLayoutRef")]
         public string? RepoLayoutRef { get; set; }
 
+        /// <summary>
+        /// If greater than 1, overwritten tags will be saved by their digest, up to the set up
+        /// number. This only applies to manifest V2.
+        /// </summary>
         [Input("tagRetention")]
         public int? TagRetention { get; set; }
 
@@ -99,6 +165,10 @@ namespace Pulumi.Artifactory
         [Input("blackedOut")]
         public Input<bool>? BlackedOut { get; set; }
 
+        /// <summary>
+        /// When set, Artifactory will block the pushing of Docker images with manifest v2
+        /// schema 1 to this repository.
+        /// </summary>
         [Input("blockPushingSchema1")]
         public Input<bool>? BlockPushingSchema1 { get; set; }
 
@@ -117,9 +187,17 @@ namespace Pulumi.Artifactory
         [Input("includesPattern")]
         public Input<string>? IncludesPattern { get; set; }
 
+        /// <summary>
+        /// the identity key of the repo.
+        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
+        /// <summary>
+        /// The maximum number of unique tags of a single Docker image to store in this repository.
+        /// Once the number tags for an image exceeds this setting, older tags are removed. A value of 0 (default) indicates there
+        /// is no limit. This only applies to manifest v2.
+        /// </summary>
         [Input("maxUniqueTags")]
         public Input<int>? MaxUniqueTags { get; set; }
 
@@ -151,6 +229,10 @@ namespace Pulumi.Artifactory
         [Input("repoLayoutRef")]
         public Input<string>? RepoLayoutRef { get; set; }
 
+        /// <summary>
+        /// If greater than 1, overwritten tags will be saved by their digest, up to the set up
+        /// number. This only applies to manifest V2.
+        /// </summary>
         [Input("tagRetention")]
         public Input<int>? TagRetention { get; set; }
 
@@ -167,9 +249,16 @@ namespace Pulumi.Artifactory
     [OutputType]
     public sealed class GetLocalDockerV2RepositoryResult
     {
+        /// <summary>
+        /// "The Docker API version to use. This cannot be set"
+        /// </summary>
         public readonly string ApiVersion;
         public readonly bool? ArchiveBrowsingEnabled;
         public readonly bool? BlackedOut;
+        /// <summary>
+        /// When set, Artifactory will block the pushing of Docker images with manifest v2
+        /// schema 1 to this repository.
+        /// </summary>
         public readonly bool BlockPushingSchema1;
         public readonly bool? CdnRedirect;
         public readonly string? Description;
@@ -181,6 +270,11 @@ namespace Pulumi.Artifactory
         public readonly string Id;
         public readonly string? IncludesPattern;
         public readonly string Key;
+        /// <summary>
+        /// The maximum number of unique tags of a single Docker image to store in this repository.
+        /// Once the number tags for an image exceeds this setting, older tags are removed. A value of 0 (default) indicates there
+        /// is no limit. This only applies to manifest v2.
+        /// </summary>
         public readonly int? MaxUniqueTags;
         public readonly string? Notes;
         public readonly string PackageType;
@@ -189,6 +283,10 @@ namespace Pulumi.Artifactory
         public readonly string? ProjectKey;
         public readonly ImmutableArray<string> PropertySets;
         public readonly string? RepoLayoutRef;
+        /// <summary>
+        /// If greater than 1, overwritten tags will be saved by their digest, up to the set up
+        /// number. This only applies to manifest V2.
+        /// </summary>
         public readonly int? TagRetention;
         public readonly bool? XrayIndex;
 

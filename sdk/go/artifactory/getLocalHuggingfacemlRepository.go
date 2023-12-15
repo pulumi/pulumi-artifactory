@@ -11,6 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides a data source for a local huggingfaceml repository
 func LookupLocalHuggingfacemlRepository(ctx *pulumi.Context, args *LookupLocalHuggingfacemlRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupLocalHuggingfacemlRepositoryResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupLocalHuggingfacemlRepositoryResult
@@ -23,43 +24,73 @@ func LookupLocalHuggingfacemlRepository(ctx *pulumi.Context, args *LookupLocalHu
 
 // A collection of arguments for invoking getLocalHuggingfacemlRepository.
 type LookupLocalHuggingfacemlRepositoryArgs struct {
-	ArchiveBrowsingEnabled *bool    `pulumi:"archiveBrowsingEnabled"`
-	BlackedOut             *bool    `pulumi:"blackedOut"`
-	CdnRedirect            *bool    `pulumi:"cdnRedirect"`
-	Description            *string  `pulumi:"description"`
-	DownloadDirect         *bool    `pulumi:"downloadDirect"`
-	ExcludesPattern        *string  `pulumi:"excludesPattern"`
-	IncludesPattern        *string  `pulumi:"includesPattern"`
-	Key                    string   `pulumi:"key"`
-	Notes                  *string  `pulumi:"notes"`
-	PriorityResolution     *bool    `pulumi:"priorityResolution"`
-	ProjectEnvironments    []string `pulumi:"projectEnvironments"`
-	ProjectKey             *string  `pulumi:"projectKey"`
-	PropertySets           []string `pulumi:"propertySets"`
-	RepoLayoutRef          *string  `pulumi:"repoLayoutRef"`
-	XrayIndex              *bool    `pulumi:"xrayIndex"`
+	// When set, you may view content such as HTML or Javadoc files directly from Artifactory.
+	// This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
+	ArchiveBrowsingEnabled *bool `pulumi:"archiveBrowsingEnabled"`
+	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
+	BlackedOut *bool `pulumi:"blackedOut"`
+	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+	CdnRedirect *bool `pulumi:"cdnRedirect"`
+	// Public description.
+	Description *string `pulumi:"description"`
+	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
+	DownloadDirect *bool `pulumi:"downloadDirect"`
+	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no artifacts are excluded.
+	ExcludesPattern *string `pulumi:"excludesPattern"`
+	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+	IncludesPattern *string `pulumi:"includesPattern"`
+	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen characters. It cannot begin with a number or contain spaces or special characters.
+	Key string `pulumi:"key"`
+	// Internal description.
+	Notes *string `pulumi:"notes"`
+	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+	PriorityResolution  *bool    `pulumi:"priorityResolution"`
+	ProjectEnvironments []string `pulumi:"projectEnvironments"`
+	// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+	ProjectKey *string `pulumi:"projectKey"`
+	// List of property set name
+	PropertySets []string `pulumi:"propertySets"`
+	// Repository layout key for the local repository
+	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
+	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
+	XrayIndex *bool `pulumi:"xrayIndex"`
 }
 
 // A collection of values returned by getLocalHuggingfacemlRepository.
 type LookupLocalHuggingfacemlRepositoryResult struct {
-	ArchiveBrowsingEnabled *bool   `pulumi:"archiveBrowsingEnabled"`
-	BlackedOut             *bool   `pulumi:"blackedOut"`
-	CdnRedirect            *bool   `pulumi:"cdnRedirect"`
-	Description            *string `pulumi:"description"`
-	DownloadDirect         *bool   `pulumi:"downloadDirect"`
-	ExcludesPattern        *string `pulumi:"excludesPattern"`
+	// When set, you may view content such as HTML or Javadoc files directly from Artifactory.
+	// This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
+	ArchiveBrowsingEnabled *bool `pulumi:"archiveBrowsingEnabled"`
+	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
+	BlackedOut *bool `pulumi:"blackedOut"`
+	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+	CdnRedirect *bool `pulumi:"cdnRedirect"`
+	// Public description.
+	Description *string `pulumi:"description"`
+	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
+	DownloadDirect *bool `pulumi:"downloadDirect"`
+	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no artifacts are excluded.
+	ExcludesPattern *string `pulumi:"excludesPattern"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                  string   `pulumi:"id"`
-	IncludesPattern     *string  `pulumi:"includesPattern"`
-	Key                 string   `pulumi:"key"`
-	Notes               *string  `pulumi:"notes"`
-	PackageType         string   `pulumi:"packageType"`
+	Id string `pulumi:"id"`
+	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+	IncludesPattern *string `pulumi:"includesPattern"`
+	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen characters. It cannot begin with a number or contain spaces or special characters.
+	Key string `pulumi:"key"`
+	// Internal description.
+	Notes       *string `pulumi:"notes"`
+	PackageType string  `pulumi:"packageType"`
+	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution  *bool    `pulumi:"priorityResolution"`
 	ProjectEnvironments []string `pulumi:"projectEnvironments"`
-	ProjectKey          *string  `pulumi:"projectKey"`
-	PropertySets        []string `pulumi:"propertySets"`
-	RepoLayoutRef       *string  `pulumi:"repoLayoutRef"`
-	XrayIndex           *bool    `pulumi:"xrayIndex"`
+	// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+	ProjectKey *string `pulumi:"projectKey"`
+	// List of property set name
+	PropertySets []string `pulumi:"propertySets"`
+	// Repository layout key for the local repository
+	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
+	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
+	XrayIndex *bool `pulumi:"xrayIndex"`
 }
 
 func LookupLocalHuggingfacemlRepositoryOutput(ctx *pulumi.Context, args LookupLocalHuggingfacemlRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupLocalHuggingfacemlRepositoryResultOutput {
@@ -77,21 +108,36 @@ func LookupLocalHuggingfacemlRepositoryOutput(ctx *pulumi.Context, args LookupLo
 
 // A collection of arguments for invoking getLocalHuggingfacemlRepository.
 type LookupLocalHuggingfacemlRepositoryOutputArgs struct {
-	ArchiveBrowsingEnabled pulumi.BoolPtrInput     `pulumi:"archiveBrowsingEnabled"`
-	BlackedOut             pulumi.BoolPtrInput     `pulumi:"blackedOut"`
-	CdnRedirect            pulumi.BoolPtrInput     `pulumi:"cdnRedirect"`
-	Description            pulumi.StringPtrInput   `pulumi:"description"`
-	DownloadDirect         pulumi.BoolPtrInput     `pulumi:"downloadDirect"`
-	ExcludesPattern        pulumi.StringPtrInput   `pulumi:"excludesPattern"`
-	IncludesPattern        pulumi.StringPtrInput   `pulumi:"includesPattern"`
-	Key                    pulumi.StringInput      `pulumi:"key"`
-	Notes                  pulumi.StringPtrInput   `pulumi:"notes"`
-	PriorityResolution     pulumi.BoolPtrInput     `pulumi:"priorityResolution"`
-	ProjectEnvironments    pulumi.StringArrayInput `pulumi:"projectEnvironments"`
-	ProjectKey             pulumi.StringPtrInput   `pulumi:"projectKey"`
-	PropertySets           pulumi.StringArrayInput `pulumi:"propertySets"`
-	RepoLayoutRef          pulumi.StringPtrInput   `pulumi:"repoLayoutRef"`
-	XrayIndex              pulumi.BoolPtrInput     `pulumi:"xrayIndex"`
+	// When set, you may view content such as HTML or Javadoc files directly from Artifactory.
+	// This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
+	ArchiveBrowsingEnabled pulumi.BoolPtrInput `pulumi:"archiveBrowsingEnabled"`
+	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
+	BlackedOut pulumi.BoolPtrInput `pulumi:"blackedOut"`
+	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+	CdnRedirect pulumi.BoolPtrInput `pulumi:"cdnRedirect"`
+	// Public description.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
+	DownloadDirect pulumi.BoolPtrInput `pulumi:"downloadDirect"`
+	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no artifacts are excluded.
+	ExcludesPattern pulumi.StringPtrInput `pulumi:"excludesPattern"`
+	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+	IncludesPattern pulumi.StringPtrInput `pulumi:"includesPattern"`
+	// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen characters. It cannot begin with a number or contain spaces or special characters.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Internal description.
+	Notes pulumi.StringPtrInput `pulumi:"notes"`
+	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+	PriorityResolution  pulumi.BoolPtrInput     `pulumi:"priorityResolution"`
+	ProjectEnvironments pulumi.StringArrayInput `pulumi:"projectEnvironments"`
+	// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+	ProjectKey pulumi.StringPtrInput `pulumi:"projectKey"`
+	// List of property set name
+	PropertySets pulumi.StringArrayInput `pulumi:"propertySets"`
+	// Repository layout key for the local repository
+	RepoLayoutRef pulumi.StringPtrInput `pulumi:"repoLayoutRef"`
+	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
+	XrayIndex pulumi.BoolPtrInput `pulumi:"xrayIndex"`
 }
 
 func (LookupLocalHuggingfacemlRepositoryOutputArgs) ElementType() reflect.Type {
@@ -113,26 +159,33 @@ func (o LookupLocalHuggingfacemlRepositoryResultOutput) ToLookupLocalHuggingface
 	return o
 }
 
+// When set, you may view content such as HTML or Javadoc files directly from Artifactory.
+// This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
 func (o LookupLocalHuggingfacemlRepositoryResultOutput) ArchiveBrowsingEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupLocalHuggingfacemlRepositoryResult) *bool { return v.ArchiveBrowsingEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
 func (o LookupLocalHuggingfacemlRepositoryResultOutput) BlackedOut() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupLocalHuggingfacemlRepositoryResult) *bool { return v.BlackedOut }).(pulumi.BoolPtrOutput)
 }
 
+// When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
 func (o LookupLocalHuggingfacemlRepositoryResultOutput) CdnRedirect() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupLocalHuggingfacemlRepositoryResult) *bool { return v.CdnRedirect }).(pulumi.BoolPtrOutput)
 }
 
+// Public description.
 func (o LookupLocalHuggingfacemlRepositoryResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupLocalHuggingfacemlRepositoryResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
 func (o LookupLocalHuggingfacemlRepositoryResultOutput) DownloadDirect() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupLocalHuggingfacemlRepositoryResult) *bool { return v.DownloadDirect }).(pulumi.BoolPtrOutput)
 }
 
+// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no artifacts are excluded.
 func (o LookupLocalHuggingfacemlRepositoryResultOutput) ExcludesPattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupLocalHuggingfacemlRepositoryResult) *string { return v.ExcludesPattern }).(pulumi.StringPtrOutput)
 }
@@ -142,14 +195,17 @@ func (o LookupLocalHuggingfacemlRepositoryResultOutput) Id() pulumi.StringOutput
 	return o.ApplyT(func(v LookupLocalHuggingfacemlRepositoryResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 func (o LookupLocalHuggingfacemlRepositoryResultOutput) IncludesPattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupLocalHuggingfacemlRepositoryResult) *string { return v.IncludesPattern }).(pulumi.StringPtrOutput)
 }
 
+// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen characters. It cannot begin with a number or contain spaces or special characters.
 func (o LookupLocalHuggingfacemlRepositoryResultOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLocalHuggingfacemlRepositoryResult) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// Internal description.
 func (o LookupLocalHuggingfacemlRepositoryResultOutput) Notes() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupLocalHuggingfacemlRepositoryResult) *string { return v.Notes }).(pulumi.StringPtrOutput)
 }
@@ -158,6 +214,7 @@ func (o LookupLocalHuggingfacemlRepositoryResultOutput) PackageType() pulumi.Str
 	return o.ApplyT(func(v LookupLocalHuggingfacemlRepositoryResult) string { return v.PackageType }).(pulumi.StringOutput)
 }
 
+// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 func (o LookupLocalHuggingfacemlRepositoryResultOutput) PriorityResolution() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupLocalHuggingfacemlRepositoryResult) *bool { return v.PriorityResolution }).(pulumi.BoolPtrOutput)
 }
@@ -166,18 +223,22 @@ func (o LookupLocalHuggingfacemlRepositoryResultOutput) ProjectEnvironments() pu
 	return o.ApplyT(func(v LookupLocalHuggingfacemlRepositoryResult) []string { return v.ProjectEnvironments }).(pulumi.StringArrayOutput)
 }
 
+// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 func (o LookupLocalHuggingfacemlRepositoryResultOutput) ProjectKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupLocalHuggingfacemlRepositoryResult) *string { return v.ProjectKey }).(pulumi.StringPtrOutput)
 }
 
+// List of property set name
 func (o LookupLocalHuggingfacemlRepositoryResultOutput) PropertySets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupLocalHuggingfacemlRepositoryResult) []string { return v.PropertySets }).(pulumi.StringArrayOutput)
 }
 
+// Repository layout key for the local repository
 func (o LookupLocalHuggingfacemlRepositoryResultOutput) RepoLayoutRef() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupLocalHuggingfacemlRepositoryResult) *string { return v.RepoLayoutRef }).(pulumi.StringPtrOutput)
 }
 
+// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
 func (o LookupLocalHuggingfacemlRepositoryResultOutput) XrayIndex() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupLocalHuggingfacemlRepositoryResult) *bool { return v.XrayIndex }).(pulumi.BoolPtrOutput)
 }

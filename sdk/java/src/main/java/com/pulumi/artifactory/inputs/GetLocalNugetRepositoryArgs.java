@@ -60,9 +60,19 @@ public final class GetLocalNugetRepositoryArgs extends com.pulumi.resources.Invo
         return Optional.ofNullable(this.excludesPattern);
     }
 
+    /**
+     * Force basic authentication credentials in order to use this repository.
+     * Default is `false`.
+     * 
+     */
     @Import(name="forceNugetAuthentication")
     private @Nullable Output<Boolean> forceNugetAuthentication;
 
+    /**
+     * @return Force basic authentication credentials in order to use this repository.
+     * Default is `false`.
+     * 
+     */
     public Optional<Output<Boolean>> forceNugetAuthentication() {
         return Optional.ofNullable(this.forceNugetAuthentication);
     }
@@ -74,16 +84,36 @@ public final class GetLocalNugetRepositoryArgs extends com.pulumi.resources.Invo
         return Optional.ofNullable(this.includesPattern);
     }
 
+    /**
+     * the identity key of the repo.
+     * 
+     */
     @Import(name="key", required=true)
     private Output<String> key;
 
+    /**
+     * @return the identity key of the repo.
+     * 
+     */
     public Output<String> key() {
         return this.key;
     }
 
+    /**
+     * The maximum number of unique snapshots of a single artifact to store Once the
+     * number of snapshots exceeds this setting, older versions are removed A value of 0 (default) indicates there is no
+     * limit, and unique snapshots are not cleaned up.
+     * 
+     */
     @Import(name="maxUniqueSnapshots")
     private @Nullable Output<Integer> maxUniqueSnapshots;
 
+    /**
+     * @return The maximum number of unique snapshots of a single artifact to store Once the
+     * number of snapshots exceeds this setting, older versions are removed A value of 0 (default) indicates there is no
+     * limit, and unique snapshots are not cleaned up.
+     * 
+     */
     public Optional<Output<Integer>> maxUniqueSnapshots() {
         return Optional.ofNullable(this.maxUniqueSnapshots);
     }
@@ -231,11 +261,25 @@ public final class GetLocalNugetRepositoryArgs extends com.pulumi.resources.Invo
             return excludesPattern(Output.of(excludesPattern));
         }
 
+        /**
+         * @param forceNugetAuthentication Force basic authentication credentials in order to use this repository.
+         * Default is `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder forceNugetAuthentication(@Nullable Output<Boolean> forceNugetAuthentication) {
             $.forceNugetAuthentication = forceNugetAuthentication;
             return this;
         }
 
+        /**
+         * @param forceNugetAuthentication Force basic authentication credentials in order to use this repository.
+         * Default is `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder forceNugetAuthentication(Boolean forceNugetAuthentication) {
             return forceNugetAuthentication(Output.of(forceNugetAuthentication));
         }
@@ -249,20 +293,48 @@ public final class GetLocalNugetRepositoryArgs extends com.pulumi.resources.Invo
             return includesPattern(Output.of(includesPattern));
         }
 
+        /**
+         * @param key the identity key of the repo.
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(Output<String> key) {
             $.key = key;
             return this;
         }
 
+        /**
+         * @param key the identity key of the repo.
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(String key) {
             return key(Output.of(key));
         }
 
+        /**
+         * @param maxUniqueSnapshots The maximum number of unique snapshots of a single artifact to store Once the
+         * number of snapshots exceeds this setting, older versions are removed A value of 0 (default) indicates there is no
+         * limit, and unique snapshots are not cleaned up.
+         * 
+         * @return builder
+         * 
+         */
         public Builder maxUniqueSnapshots(@Nullable Output<Integer> maxUniqueSnapshots) {
             $.maxUniqueSnapshots = maxUniqueSnapshots;
             return this;
         }
 
+        /**
+         * @param maxUniqueSnapshots The maximum number of unique snapshots of a single artifact to store Once the
+         * number of snapshots exceeds this setting, older versions are removed A value of 0 (default) indicates there is no
+         * limit, and unique snapshots are not cleaned up.
+         * 
+         * @return builder
+         * 
+         */
         public Builder maxUniqueSnapshots(Integer maxUniqueSnapshots) {
             return maxUniqueSnapshots(Output.of(maxUniqueSnapshots));
         }

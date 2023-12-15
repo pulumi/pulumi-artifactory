@@ -120,6 +120,9 @@ class GetLocalGemsRepositoryResult:
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        the identity key of the repo.
+        """
         return pulumi.get(self, "key")
 
     @property
@@ -205,7 +208,19 @@ def get_local_gems_repository(archive_browsing_enabled: Optional[bool] = None,
                               xray_index: Optional[bool] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLocalGemsRepositoryResult:
     """
-    Use this data source to access information about an existing resource.
+    Retrieves a local gems repository.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_artifactory as artifactory
+
+    local_test_gems_repo = artifactory.get_local_gems_repository(key="local-test-gems-repo")
+    ```
+
+
+    :param str key: the identity key of the repo.
     """
     __args__ = dict()
     __args__['archiveBrowsingEnabled'] = archive_browsing_enabled
@@ -264,6 +279,18 @@ def get_local_gems_repository_output(archive_browsing_enabled: Optional[pulumi.I
                                      xray_index: Optional[pulumi.Input[Optional[bool]]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocalGemsRepositoryResult]:
     """
-    Use this data source to access information about an existing resource.
+    Retrieves a local gems repository.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_artifactory as artifactory
+
+    local_test_gems_repo = artifactory.get_local_gems_repository(key="local-test-gems-repo")
+    ```
+
+
+    :param str key: the identity key of the repo.
     """
     ...

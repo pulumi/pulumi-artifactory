@@ -37,9 +37,17 @@ public final class GetLocalChefRepositoryPlainArgs extends com.pulumi.resources.
         return Optional.ofNullable(this.cdnRedirect);
     }
 
+    /**
+     * (Optional)
+     * 
+     */
     @Import(name="description")
     private @Nullable String description;
 
+    /**
+     * @return (Optional)
+     * 
+     */
     public Optional<String> description() {
         return Optional.ofNullable(this.description);
     }
@@ -65,16 +73,32 @@ public final class GetLocalChefRepositoryPlainArgs extends com.pulumi.resources.
         return Optional.ofNullable(this.includesPattern);
     }
 
+    /**
+     * (Required) the identity key of the repo.
+     * 
+     */
     @Import(name="key", required=true)
     private String key;
 
+    /**
+     * @return (Required) the identity key of the repo.
+     * 
+     */
     public String key() {
         return this.key;
     }
 
+    /**
+     * (Optional)
+     * 
+     */
     @Import(name="notes")
     private @Nullable String notes;
 
+    /**
+     * @return (Optional)
+     * 
+     */
     public Optional<String> notes() {
         return Optional.ofNullable(this.notes);
     }
@@ -174,6 +198,12 @@ public final class GetLocalChefRepositoryPlainArgs extends com.pulumi.resources.
             return this;
         }
 
+        /**
+         * @param description (Optional)
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(@Nullable String description) {
             $.description = description;
             return this;
@@ -194,11 +224,23 @@ public final class GetLocalChefRepositoryPlainArgs extends com.pulumi.resources.
             return this;
         }
 
+        /**
+         * @param key (Required) the identity key of the repo.
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(String key) {
             $.key = key;
             return this;
         }
 
+        /**
+         * @param notes (Optional)
+         * 
+         * @return builder
+         * 
+         */
         public Builder notes(@Nullable String notes) {
             $.notes = notes;
             return this;

@@ -11,9 +11,59 @@ namespace Pulumi.Artifactory
 {
     public static class GetLocalCargoRepository
     {
+        /// <summary>
+        /// Retrieves a local cargo repository.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var local_test_cargo_repo_basic = Artifactory.GetLocalCargoRepository.Invoke(new()
+        ///     {
+        ///         Key = "local-test-cargo-repo-basic",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetLocalCargoRepositoryResult> InvokeAsync(GetLocalCargoRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLocalCargoRepositoryResult>("artifactory:index/getLocalCargoRepository:getLocalCargoRepository", args ?? new GetLocalCargoRepositoryArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Retrieves a local cargo repository.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var local_test_cargo_repo_basic = Artifactory.GetLocalCargoRepository.Invoke(new()
+        ///     {
+        ///         Key = "local-test-cargo-repo-basic",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetLocalCargoRepositoryResult> Invoke(GetLocalCargoRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocalCargoRepositoryResult>("artifactory:index/getLocalCargoRepository:getLocalCargoRepository", args ?? new GetLocalCargoRepositoryInvokeArgs(), options.WithDefaults());
     }
@@ -21,6 +71,11 @@ namespace Pulumi.Artifactory
 
     public sealed class GetLocalCargoRepositoryArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Cargo client does not send credentials when performing download and search for crates.
+        /// Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous
+        /// access option. Default value is `false`.
+        /// </summary>
         [Input("anonymousAccess")]
         public bool? AnonymousAccess { get; set; }
 
@@ -39,6 +94,10 @@ namespace Pulumi.Artifactory
         [Input("downloadDirect")]
         public bool? DownloadDirect { get; set; }
 
+        /// <summary>
+        /// Enable internal index support based on Cargo sparse index specifications, instead
+        /// of the default git index. Default value is `false`.
+        /// </summary>
         [Input("enableSparseIndex")]
         public bool? EnableSparseIndex { get; set; }
 
@@ -56,6 +115,9 @@ namespace Pulumi.Artifactory
             set => _indexCompressionFormats = value;
         }
 
+        /// <summary>
+        /// the identity key of the repo.
+        /// </summary>
         [Input("key", required: true)]
         public string Key { get; set; } = null!;
 
@@ -98,6 +160,11 @@ namespace Pulumi.Artifactory
 
     public sealed class GetLocalCargoRepositoryInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Cargo client does not send credentials when performing download and search for crates.
+        /// Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous
+        /// access option. Default value is `false`.
+        /// </summary>
         [Input("anonymousAccess")]
         public Input<bool>? AnonymousAccess { get; set; }
 
@@ -116,6 +183,10 @@ namespace Pulumi.Artifactory
         [Input("downloadDirect")]
         public Input<bool>? DownloadDirect { get; set; }
 
+        /// <summary>
+        /// Enable internal index support based on Cargo sparse index specifications, instead
+        /// of the default git index. Default value is `false`.
+        /// </summary>
         [Input("enableSparseIndex")]
         public Input<bool>? EnableSparseIndex { get; set; }
 
@@ -133,6 +204,9 @@ namespace Pulumi.Artifactory
             set => _indexCompressionFormats = value;
         }
 
+        /// <summary>
+        /// the identity key of the repo.
+        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
@@ -177,12 +251,21 @@ namespace Pulumi.Artifactory
     [OutputType]
     public sealed class GetLocalCargoRepositoryResult
     {
+        /// <summary>
+        /// Cargo client does not send credentials when performing download and search for crates.
+        /// Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous
+        /// access option. Default value is `false`.
+        /// </summary>
         public readonly bool? AnonymousAccess;
         public readonly bool? ArchiveBrowsingEnabled;
         public readonly bool? BlackedOut;
         public readonly bool? CdnRedirect;
         public readonly string? Description;
         public readonly bool? DownloadDirect;
+        /// <summary>
+        /// Enable internal index support based on Cargo sparse index specifications, instead
+        /// of the default git index. Default value is `false`.
+        /// </summary>
         public readonly bool? EnableSparseIndex;
         public readonly string? ExcludesPattern;
         /// <summary>

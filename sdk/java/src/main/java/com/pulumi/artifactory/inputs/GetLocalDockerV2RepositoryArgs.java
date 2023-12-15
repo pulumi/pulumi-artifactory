@@ -32,9 +32,19 @@ public final class GetLocalDockerV2RepositoryArgs extends com.pulumi.resources.I
         return Optional.ofNullable(this.blackedOut);
     }
 
+    /**
+     * When set, Artifactory will block the pushing of Docker images with manifest v2
+     * schema 1 to this repository.
+     * 
+     */
     @Import(name="blockPushingSchema1")
     private @Nullable Output<Boolean> blockPushingSchema1;
 
+    /**
+     * @return When set, Artifactory will block the pushing of Docker images with manifest v2
+     * schema 1 to this repository.
+     * 
+     */
     public Optional<Output<Boolean>> blockPushingSchema1() {
         return Optional.ofNullable(this.blockPushingSchema1);
     }
@@ -74,16 +84,36 @@ public final class GetLocalDockerV2RepositoryArgs extends com.pulumi.resources.I
         return Optional.ofNullable(this.includesPattern);
     }
 
+    /**
+     * the identity key of the repo.
+     * 
+     */
     @Import(name="key", required=true)
     private Output<String> key;
 
+    /**
+     * @return the identity key of the repo.
+     * 
+     */
     public Output<String> key() {
         return this.key;
     }
 
+    /**
+     * The maximum number of unique tags of a single Docker image to store in this repository.
+     * Once the number tags for an image exceeds this setting, older tags are removed. A value of 0 (default) indicates there
+     * is no limit. This only applies to manifest v2.
+     * 
+     */
     @Import(name="maxUniqueTags")
     private @Nullable Output<Integer> maxUniqueTags;
 
+    /**
+     * @return The maximum number of unique tags of a single Docker image to store in this repository.
+     * Once the number tags for an image exceeds this setting, older tags are removed. A value of 0 (default) indicates there
+     * is no limit. This only applies to manifest v2.
+     * 
+     */
     public Optional<Output<Integer>> maxUniqueTags() {
         return Optional.ofNullable(this.maxUniqueTags);
     }
@@ -130,9 +160,19 @@ public final class GetLocalDockerV2RepositoryArgs extends com.pulumi.resources.I
         return Optional.ofNullable(this.repoLayoutRef);
     }
 
+    /**
+     * If greater than 1, overwritten tags will be saved by their digest, up to the set up
+     * number. This only applies to manifest V2.
+     * 
+     */
     @Import(name="tagRetention")
     private @Nullable Output<Integer> tagRetention;
 
+    /**
+     * @return If greater than 1, overwritten tags will be saved by their digest, up to the set up
+     * number. This only applies to manifest V2.
+     * 
+     */
     public Optional<Output<Integer>> tagRetention() {
         return Optional.ofNullable(this.tagRetention);
     }
@@ -203,11 +243,25 @@ public final class GetLocalDockerV2RepositoryArgs extends com.pulumi.resources.I
             return blackedOut(Output.of(blackedOut));
         }
 
+        /**
+         * @param blockPushingSchema1 When set, Artifactory will block the pushing of Docker images with manifest v2
+         * schema 1 to this repository.
+         * 
+         * @return builder
+         * 
+         */
         public Builder blockPushingSchema1(@Nullable Output<Boolean> blockPushingSchema1) {
             $.blockPushingSchema1 = blockPushingSchema1;
             return this;
         }
 
+        /**
+         * @param blockPushingSchema1 When set, Artifactory will block the pushing of Docker images with manifest v2
+         * schema 1 to this repository.
+         * 
+         * @return builder
+         * 
+         */
         public Builder blockPushingSchema1(Boolean blockPushingSchema1) {
             return blockPushingSchema1(Output.of(blockPushingSchema1));
         }
@@ -257,20 +311,48 @@ public final class GetLocalDockerV2RepositoryArgs extends com.pulumi.resources.I
             return includesPattern(Output.of(includesPattern));
         }
 
+        /**
+         * @param key the identity key of the repo.
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(Output<String> key) {
             $.key = key;
             return this;
         }
 
+        /**
+         * @param key the identity key of the repo.
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(String key) {
             return key(Output.of(key));
         }
 
+        /**
+         * @param maxUniqueTags The maximum number of unique tags of a single Docker image to store in this repository.
+         * Once the number tags for an image exceeds this setting, older tags are removed. A value of 0 (default) indicates there
+         * is no limit. This only applies to manifest v2.
+         * 
+         * @return builder
+         * 
+         */
         public Builder maxUniqueTags(@Nullable Output<Integer> maxUniqueTags) {
             $.maxUniqueTags = maxUniqueTags;
             return this;
         }
 
+        /**
+         * @param maxUniqueTags The maximum number of unique tags of a single Docker image to store in this repository.
+         * Once the number tags for an image exceeds this setting, older tags are removed. A value of 0 (default) indicates there
+         * is no limit. This only applies to manifest v2.
+         * 
+         * @return builder
+         * 
+         */
         public Builder maxUniqueTags(Integer maxUniqueTags) {
             return maxUniqueTags(Output.of(maxUniqueTags));
         }
@@ -337,11 +419,25 @@ public final class GetLocalDockerV2RepositoryArgs extends com.pulumi.resources.I
             return repoLayoutRef(Output.of(repoLayoutRef));
         }
 
+        /**
+         * @param tagRetention If greater than 1, overwritten tags will be saved by their digest, up to the set up
+         * number. This only applies to manifest V2.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tagRetention(@Nullable Output<Integer> tagRetention) {
             $.tagRetention = tagRetention;
             return this;
         }
 
+        /**
+         * @param tagRetention If greater than 1, overwritten tags will be saved by their digest, up to the set up
+         * number. This only applies to manifest V2.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tagRetention(Integer tagRetention) {
             return tagRetention(Output.of(tagRetention));
         }

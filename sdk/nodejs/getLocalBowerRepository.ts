@@ -4,6 +4,20 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * Retrieves a local Bower repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const local-test-bower-repo = artifactory.getLocalBowerRepository({
+ *     key: "local-test-bower-repo",
+ * });
+ * ```
+ */
 export function getLocalBowerRepository(args: GetLocalBowerRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalBowerRepositoryResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -33,11 +47,20 @@ export interface GetLocalBowerRepositoryArgs {
     archiveBrowsingEnabled?: boolean;
     blackedOut?: boolean;
     cdnRedirect?: boolean;
+    /**
+     * (Optional)
+     */
     description?: string;
     downloadDirect?: boolean;
     excludesPattern?: string;
     includesPattern?: string;
+    /**
+     * (Required) the identity key of the repo.
+     */
     key: string;
+    /**
+     * (Optional)
+     */
     notes?: string;
     priorityResolution?: boolean;
     projectEnvironments?: string[];
@@ -54,6 +77,9 @@ export interface GetLocalBowerRepositoryResult {
     readonly archiveBrowsingEnabled?: boolean;
     readonly blackedOut?: boolean;
     readonly cdnRedirect?: boolean;
+    /**
+     * (Optional)
+     */
     readonly description?: string;
     readonly downloadDirect?: boolean;
     readonly excludesPattern?: string;
@@ -62,7 +88,13 @@ export interface GetLocalBowerRepositoryResult {
      */
     readonly id: string;
     readonly includesPattern?: string;
+    /**
+     * (Required) the identity key of the repo.
+     */
     readonly key: string;
+    /**
+     * (Optional)
+     */
     readonly notes?: string;
     readonly packageType: string;
     readonly priorityResolution?: boolean;
@@ -72,6 +104,20 @@ export interface GetLocalBowerRepositoryResult {
     readonly repoLayoutRef?: string;
     readonly xrayIndex?: boolean;
 }
+/**
+ * Retrieves a local Bower repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const local-test-bower-repo = artifactory.getLocalBowerRepository({
+ *     key: "local-test-bower-repo",
+ * });
+ * ```
+ */
 export function getLocalBowerRepositoryOutput(args: GetLocalBowerRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalBowerRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getLocalBowerRepository(a, opts))
 }
@@ -83,11 +129,20 @@ export interface GetLocalBowerRepositoryOutputArgs {
     archiveBrowsingEnabled?: pulumi.Input<boolean>;
     blackedOut?: pulumi.Input<boolean>;
     cdnRedirect?: pulumi.Input<boolean>;
+    /**
+     * (Optional)
+     */
     description?: pulumi.Input<string>;
     downloadDirect?: pulumi.Input<boolean>;
     excludesPattern?: pulumi.Input<string>;
     includesPattern?: pulumi.Input<string>;
+    /**
+     * (Required) the identity key of the repo.
+     */
     key: pulumi.Input<string>;
+    /**
+     * (Optional)
+     */
     notes?: pulumi.Input<string>;
     priorityResolution?: pulumi.Input<boolean>;
     projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;

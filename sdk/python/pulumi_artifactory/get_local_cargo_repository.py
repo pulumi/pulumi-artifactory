@@ -86,6 +86,11 @@ class GetLocalCargoRepositoryResult:
     @property
     @pulumi.getter(name="anonymousAccess")
     def anonymous_access(self) -> Optional[bool]:
+        """
+        Cargo client does not send credentials when performing download and search for crates.
+        Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous
+        access option. Default value is `false`.
+        """
         return pulumi.get(self, "anonymous_access")
 
     @property
@@ -116,6 +121,10 @@ class GetLocalCargoRepositoryResult:
     @property
     @pulumi.getter(name="enableSparseIndex")
     def enable_sparse_index(self) -> Optional[bool]:
+        """
+        Enable internal index support based on Cargo sparse index specifications, instead
+        of the default git index. Default value is `false`.
+        """
         return pulumi.get(self, "enable_sparse_index")
 
     @property
@@ -235,7 +244,24 @@ def get_local_cargo_repository(anonymous_access: Optional[bool] = None,
                                xray_index: Optional[bool] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLocalCargoRepositoryResult:
     """
-    Use this data source to access information about an existing resource.
+    Retrieves a local cargo repository.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_artifactory as artifactory
+
+    local_test_cargo_repo_basic = artifactory.get_local_cargo_repository(key="local-test-cargo-repo-basic")
+    ```
+
+
+    :param bool anonymous_access: Cargo client does not send credentials when performing download and search for crates.
+           Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous
+           access option. Default value is `false`.
+    :param bool enable_sparse_index: Enable internal index support based on Cargo sparse index specifications, instead
+           of the default git index. Default value is `false`.
+    :param str key: the identity key of the repo.
     """
     __args__ = dict()
     __args__['anonymousAccess'] = anonymous_access
@@ -303,6 +329,23 @@ def get_local_cargo_repository_output(anonymous_access: Optional[pulumi.Input[Op
                                       xray_index: Optional[pulumi.Input[Optional[bool]]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocalCargoRepositoryResult]:
     """
-    Use this data source to access information about an existing resource.
+    Retrieves a local cargo repository.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_artifactory as artifactory
+
+    local_test_cargo_repo_basic = artifactory.get_local_cargo_repository(key="local-test-cargo-repo-basic")
+    ```
+
+
+    :param bool anonymous_access: Cargo client does not send credentials when performing download and search for crates.
+           Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous
+           access option. Default value is `false`.
+    :param bool enable_sparse_index: Enable internal index support based on Cargo sparse index specifications, instead
+           of the default git index. Default value is `false`.
+    :param str key: the identity key of the repo.
     """
     ...

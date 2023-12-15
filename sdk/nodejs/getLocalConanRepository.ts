@@ -4,6 +4,20 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * Retrieves a local conan repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const local-test-conan-repo = artifactory.getLocalConanRepository({
+ *     key: "local-test-conan-repo",
+ * });
+ * ```
+ */
 export function getLocalConanRepository(args: GetLocalConanRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalConanRepositoryResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -37,8 +51,15 @@ export interface GetLocalConanRepositoryArgs {
     description?: string;
     downloadDirect?: boolean;
     excludesPattern?: string;
+    /**
+     * Force basic authentication credentials in order to use this repository.
+     * Default is `false`.
+     */
     forceConanAuthentication?: boolean;
     includesPattern?: string;
+    /**
+     * the identity key of the repo.
+     */
     key: string;
     notes?: string;
     priorityResolution?: boolean;
@@ -59,12 +80,19 @@ export interface GetLocalConanRepositoryResult {
     readonly description?: string;
     readonly downloadDirect?: boolean;
     readonly excludesPattern?: string;
+    /**
+     * Force basic authentication credentials in order to use this repository.
+     * Default is `false`.
+     */
     readonly forceConanAuthentication?: boolean;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
     readonly includesPattern?: string;
+    /**
+     * the identity key of the repo.
+     */
     readonly key: string;
     readonly notes?: string;
     readonly packageType: string;
@@ -75,6 +103,20 @@ export interface GetLocalConanRepositoryResult {
     readonly repoLayoutRef?: string;
     readonly xrayIndex?: boolean;
 }
+/**
+ * Retrieves a local conan repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const local-test-conan-repo = artifactory.getLocalConanRepository({
+ *     key: "local-test-conan-repo",
+ * });
+ * ```
+ */
 export function getLocalConanRepositoryOutput(args: GetLocalConanRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalConanRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getLocalConanRepository(a, opts))
 }
@@ -89,8 +131,15 @@ export interface GetLocalConanRepositoryOutputArgs {
     description?: pulumi.Input<string>;
     downloadDirect?: pulumi.Input<boolean>;
     excludesPattern?: pulumi.Input<string>;
+    /**
+     * Force basic authentication credentials in order to use this repository.
+     * Default is `false`.
+     */
     forceConanAuthentication?: pulumi.Input<boolean>;
     includesPattern?: pulumi.Input<string>;
+    /**
+     * the identity key of the repo.
+     */
     key: pulumi.Input<string>;
     notes?: pulumi.Input<string>;
     priorityResolution?: pulumi.Input<boolean>;

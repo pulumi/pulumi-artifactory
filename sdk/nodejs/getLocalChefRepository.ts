@@ -4,6 +4,20 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * Retrieves a local Chef repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const local-test-chef-repo = artifactory.getLocalChefRepository({
+ *     key: "local-test-chef-repo",
+ * });
+ * ```
+ */
 export function getLocalChefRepository(args: GetLocalChefRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalChefRepositoryResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -33,11 +47,20 @@ export interface GetLocalChefRepositoryArgs {
     archiveBrowsingEnabled?: boolean;
     blackedOut?: boolean;
     cdnRedirect?: boolean;
+    /**
+     * (Optional)
+     */
     description?: string;
     downloadDirect?: boolean;
     excludesPattern?: string;
     includesPattern?: string;
+    /**
+     * (Required) the identity key of the repo.
+     */
     key: string;
+    /**
+     * (Optional)
+     */
     notes?: string;
     priorityResolution?: boolean;
     projectEnvironments?: string[];
@@ -54,6 +77,9 @@ export interface GetLocalChefRepositoryResult {
     readonly archiveBrowsingEnabled?: boolean;
     readonly blackedOut?: boolean;
     readonly cdnRedirect?: boolean;
+    /**
+     * (Optional)
+     */
     readonly description?: string;
     readonly downloadDirect?: boolean;
     readonly excludesPattern?: string;
@@ -62,7 +88,13 @@ export interface GetLocalChefRepositoryResult {
      */
     readonly id: string;
     readonly includesPattern?: string;
+    /**
+     * (Required) the identity key of the repo.
+     */
     readonly key: string;
+    /**
+     * (Optional)
+     */
     readonly notes?: string;
     readonly packageType: string;
     readonly priorityResolution?: boolean;
@@ -72,6 +104,20 @@ export interface GetLocalChefRepositoryResult {
     readonly repoLayoutRef?: string;
     readonly xrayIndex?: boolean;
 }
+/**
+ * Retrieves a local Chef repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const local-test-chef-repo = artifactory.getLocalChefRepository({
+ *     key: "local-test-chef-repo",
+ * });
+ * ```
+ */
 export function getLocalChefRepositoryOutput(args: GetLocalChefRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalChefRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getLocalChefRepository(a, opts))
 }
@@ -83,11 +129,20 @@ export interface GetLocalChefRepositoryOutputArgs {
     archiveBrowsingEnabled?: pulumi.Input<boolean>;
     blackedOut?: pulumi.Input<boolean>;
     cdnRedirect?: pulumi.Input<boolean>;
+    /**
+     * (Optional)
+     */
     description?: pulumi.Input<string>;
     downloadDirect?: pulumi.Input<boolean>;
     excludesPattern?: pulumi.Input<string>;
     includesPattern?: pulumi.Input<string>;
+    /**
+     * (Required) the identity key of the repo.
+     */
     key: pulumi.Input<string>;
+    /**
+     * (Optional)
+     */
     notes?: pulumi.Input<string>;
     priorityResolution?: pulumi.Input<boolean>;
     projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;

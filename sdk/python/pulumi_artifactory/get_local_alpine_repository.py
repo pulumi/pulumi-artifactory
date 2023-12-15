@@ -146,6 +146,9 @@ class GetLocalAlpineRepositoryResult:
     @property
     @pulumi.getter(name="primaryKeypairRef")
     def primary_keypair_ref(self) -> Optional[str]:
+        """
+        The RSA key to be used to sign alpine indices.
+        """
         return pulumi.get(self, "primary_keypair_ref")
 
     @property
@@ -225,7 +228,20 @@ def get_local_alpine_repository(archive_browsing_enabled: Optional[bool] = None,
                                 xray_index: Optional[bool] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLocalAlpineRepositoryResult:
     """
-    Use this data source to access information about an existing resource.
+    Retrieves a local alpine repository.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_artifactory as artifactory
+
+    local_test_alpine_repo_basic = artifactory.get_local_alpine_repository(key="local-test-alpine-repo-basic")
+    ```
+
+
+    :param str key: the identity key of the repo.
+    :param str primary_keypair_ref: The RSA key to be used to sign alpine indices.
     """
     __args__ = dict()
     __args__['archiveBrowsingEnabled'] = archive_browsing_enabled
@@ -290,6 +306,19 @@ def get_local_alpine_repository_output(archive_browsing_enabled: Optional[pulumi
                                        xray_index: Optional[pulumi.Input[Optional[bool]]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocalAlpineRepositoryResult]:
     """
-    Use this data source to access information about an existing resource.
+    Retrieves a local alpine repository.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_artifactory as artifactory
+
+    local_test_alpine_repo_basic = artifactory.get_local_alpine_repository(key="local-test-alpine-repo-basic")
+    ```
+
+
+    :param str key: the identity key of the repo.
+    :param str primary_keypair_ref: The RSA key to be used to sign alpine indices.
     """
     ...

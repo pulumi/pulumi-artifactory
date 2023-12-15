@@ -17,11 +17,30 @@ public final class GetLocalMavenRepositoryResult {
     private @Nullable Boolean archiveBrowsingEnabled;
     private @Nullable Boolean blackedOut;
     private @Nullable Boolean cdnRedirect;
+    /**
+     * @return Checksum policy determines how Artifactory behaves when a client checksum for a
+     * deployed resource is missing or conflicts with the locally calculated checksum (bad checksum). The options are:
+     * - `client-checksums`
+     * - `server-generated-checksums`. For more details, please refer
+     *   to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy)
+     *   .
+     * 
+     */
     private @Nullable String checksumPolicyType;
     private @Nullable String description;
     private @Nullable Boolean downloadDirect;
     private @Nullable String excludesPattern;
+    /**
+     * @return If set, Artifactory allows you to deploy release artifacts into this repository.
+     * Default is `true`.
+     * 
+     */
     private @Nullable Boolean handleReleases;
+    /**
+     * @return If set, Artifactory allows you to deploy snapshot artifacts into this repository.
+     * Default is `true`.
+     * 
+     */
     private @Nullable Boolean handleSnapshots;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -30,6 +49,12 @@ public final class GetLocalMavenRepositoryResult {
     private String id;
     private @Nullable String includesPattern;
     private String key;
+    /**
+     * @return The maximum number of unique snapshots of a single artifact to store. Once the
+     * number of snapshots exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no
+     * limit, and unique snapshots are not cleaned up.
+     * 
+     */
     private @Nullable Integer maxUniqueSnapshots;
     private @Nullable String notes;
     private String packageType;
@@ -38,7 +63,19 @@ public final class GetLocalMavenRepositoryResult {
     private @Nullable String projectKey;
     private @Nullable List<String> propertySets;
     private @Nullable String repoLayoutRef;
+    /**
+     * @return Specifies the naming convention for Maven SNAPSHOT versions. The options are
+     * ---
+     * 
+     */
     private @Nullable String snapshotVersionBehavior;
+    /**
+     * @return By default, Artifactory keeps your repositories healthy by refusing
+     * POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match
+     * the deployed path, Artifactory rejects the deployment with a &#34;409 Conflict&#34; error. You can disable this behavior by
+     * setting the Suppress POM Consistency Checks checkbox. False by default for Maven repository.
+     * 
+     */
     private @Nullable Boolean suppressPomConsistencyChecks;
     private @Nullable Boolean xrayIndex;
 
@@ -52,6 +89,15 @@ public final class GetLocalMavenRepositoryResult {
     public Optional<Boolean> cdnRedirect() {
         return Optional.ofNullable(this.cdnRedirect);
     }
+    /**
+     * @return Checksum policy determines how Artifactory behaves when a client checksum for a
+     * deployed resource is missing or conflicts with the locally calculated checksum (bad checksum). The options are:
+     * - `client-checksums`
+     * - `server-generated-checksums`. For more details, please refer
+     *   to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy)
+     *   .
+     * 
+     */
     public Optional<String> checksumPolicyType() {
         return Optional.ofNullable(this.checksumPolicyType);
     }
@@ -64,9 +110,19 @@ public final class GetLocalMavenRepositoryResult {
     public Optional<String> excludesPattern() {
         return Optional.ofNullable(this.excludesPattern);
     }
+    /**
+     * @return If set, Artifactory allows you to deploy release artifacts into this repository.
+     * Default is `true`.
+     * 
+     */
     public Optional<Boolean> handleReleases() {
         return Optional.ofNullable(this.handleReleases);
     }
+    /**
+     * @return If set, Artifactory allows you to deploy snapshot artifacts into this repository.
+     * Default is `true`.
+     * 
+     */
     public Optional<Boolean> handleSnapshots() {
         return Optional.ofNullable(this.handleSnapshots);
     }
@@ -83,6 +139,12 @@ public final class GetLocalMavenRepositoryResult {
     public String key() {
         return this.key;
     }
+    /**
+     * @return The maximum number of unique snapshots of a single artifact to store. Once the
+     * number of snapshots exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no
+     * limit, and unique snapshots are not cleaned up.
+     * 
+     */
     public Optional<Integer> maxUniqueSnapshots() {
         return Optional.ofNullable(this.maxUniqueSnapshots);
     }
@@ -107,9 +169,21 @@ public final class GetLocalMavenRepositoryResult {
     public Optional<String> repoLayoutRef() {
         return Optional.ofNullable(this.repoLayoutRef);
     }
+    /**
+     * @return Specifies the naming convention for Maven SNAPSHOT versions. The options are
+     * ---
+     * 
+     */
     public Optional<String> snapshotVersionBehavior() {
         return Optional.ofNullable(this.snapshotVersionBehavior);
     }
+    /**
+     * @return By default, Artifactory keeps your repositories healthy by refusing
+     * POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match
+     * the deployed path, Artifactory rejects the deployment with a &#34;409 Conflict&#34; error. You can disable this behavior by
+     * setting the Suppress POM Consistency Checks checkbox. False by default for Maven repository.
+     * 
+     */
     public Optional<Boolean> suppressPomConsistencyChecks() {
         return Optional.ofNullable(this.suppressPomConsistencyChecks);
     }

@@ -154,6 +154,8 @@ __all__ = [
     'GetFederatedTerraformModuleRepositoryMemberResult',
     'GetFederatedTerraformProviderRepositoryMemberResult',
     'GetFederatedVagrantRepositoryMemberResult',
+    'GetFileListFileResult',
+    'GetFileListFileMetadataTimestampsResult',
     'GetPermissionTargetBuildResult',
     'GetPermissionTargetBuildActionsResult',
     'GetPermissionTargetBuildActionsGroupResult',
@@ -197,6 +199,7 @@ __all__ = [
     'GetRemoteSwiftRepositoryContentSynchronisationResult',
     'GetRemoteTerraformRepositoryContentSynchronisationResult',
     'GetRemoteVcsRepositoryContentSynchronisationResult',
+    'GetRepositoriesRepoResult',
 ]
 
 @pulumi.output_type
@@ -7475,6 +7478,108 @@ class GetFederatedVagrantRepositoryMemberResult(dict):
 
 
 @pulumi.output_type
+class GetFileListFileResult(dict):
+    def __init__(__self__, *,
+                 folder: bool,
+                 last_modified: str,
+                 metadata_timestamps: 'outputs.GetFileListFileMetadataTimestampsResult',
+                 sha1: str,
+                 sha2: str,
+                 size: int,
+                 uri: str):
+        """
+        :param bool folder: Is this a folder
+        :param str last_modified: Last modified time
+        :param 'GetFileListFileMetadataTimestampsArgs' metadata_timestamps: File metadata
+        :param str sha1: SHA-1 checksum
+        :param str sha2: SHA-256 checksum
+        :param int size: File size in bytes
+        :param str uri: URL to file
+        """
+        pulumi.set(__self__, "folder", folder)
+        pulumi.set(__self__, "last_modified", last_modified)
+        pulumi.set(__self__, "metadata_timestamps", metadata_timestamps)
+        pulumi.set(__self__, "sha1", sha1)
+        pulumi.set(__self__, "sha2", sha2)
+        pulumi.set(__self__, "size", size)
+        pulumi.set(__self__, "uri", uri)
+
+    @property
+    @pulumi.getter
+    def folder(self) -> bool:
+        """
+        Is this a folder
+        """
+        return pulumi.get(self, "folder")
+
+    @property
+    @pulumi.getter(name="lastModified")
+    def last_modified(self) -> str:
+        """
+        Last modified time
+        """
+        return pulumi.get(self, "last_modified")
+
+    @property
+    @pulumi.getter(name="metadataTimestamps")
+    def metadata_timestamps(self) -> 'outputs.GetFileListFileMetadataTimestampsResult':
+        """
+        File metadata
+        """
+        return pulumi.get(self, "metadata_timestamps")
+
+    @property
+    @pulumi.getter
+    def sha1(self) -> str:
+        """
+        SHA-1 checksum
+        """
+        return pulumi.get(self, "sha1")
+
+    @property
+    @pulumi.getter
+    def sha2(self) -> str:
+        """
+        SHA-256 checksum
+        """
+        return pulumi.get(self, "sha2")
+
+    @property
+    @pulumi.getter
+    def size(self) -> int:
+        """
+        File size in bytes
+        """
+        return pulumi.get(self, "size")
+
+    @property
+    @pulumi.getter
+    def uri(self) -> str:
+        """
+        URL to file
+        """
+        return pulumi.get(self, "uri")
+
+
+@pulumi.output_type
+class GetFileListFileMetadataTimestampsResult(dict):
+    def __init__(__self__, *,
+                 properties: str):
+        """
+        :param str properties: Properties timestamp
+        """
+        pulumi.set(__self__, "properties", properties)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> str:
+        """
+        Properties timestamp
+        """
+        return pulumi.get(self, "properties")
+
+
+@pulumi.output_type
 class GetPermissionTargetBuildResult(dict):
     def __init__(__self__, *,
                  repositories: Sequence[str],
@@ -9024,5 +9129,45 @@ class GetRemoteVcsRepositoryContentSynchronisationResult(dict):
     @pulumi.getter(name="statisticsEnabled")
     def statistics_enabled(self) -> Optional[bool]:
         return pulumi.get(self, "statistics_enabled")
+
+
+@pulumi.output_type
+class GetRepositoriesRepoResult(dict):
+    def __init__(__self__, *,
+                 description: str,
+                 key: str,
+                 package_type: str,
+                 type: str,
+                 url: str):
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "package_type", package_type)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter(name="packageType")
+    def package_type(self) -> str:
+        return pulumi.get(self, "package_type")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        return pulumi.get(self, "url")
 
 

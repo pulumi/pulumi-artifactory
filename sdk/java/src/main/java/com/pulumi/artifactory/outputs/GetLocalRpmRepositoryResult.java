@@ -16,10 +16,18 @@ import javax.annotation.Nullable;
 public final class GetLocalRpmRepositoryResult {
     private @Nullable Boolean archiveBrowsingEnabled;
     private @Nullable Boolean blackedOut;
+    /**
+     * @return Default: `false`.
+     * 
+     */
     private @Nullable Boolean calculateYumMetadata;
     private @Nullable Boolean cdnRedirect;
     private @Nullable String description;
     private @Nullable Boolean downloadDirect;
+    /**
+     * @return Default: `false`.
+     * 
+     */
     private @Nullable Boolean enableFileListsIndexing;
     private @Nullable String excludesPattern;
     /**
@@ -31,15 +39,37 @@ public final class GetLocalRpmRepositoryResult {
     private String key;
     private @Nullable String notes;
     private String packageType;
+    /**
+     * @return The primary GPG key to be used to sign packages.
+     * 
+     */
     private @Nullable String primaryKeypairRef;
     private @Nullable Boolean priorityResolution;
     private List<String> projectEnvironments;
     private @Nullable String projectKey;
     private @Nullable List<String> propertySets;
     private @Nullable String repoLayoutRef;
+    /**
+     * @return The secondary GPG key to be used to sign packages.
+     * 
+     */
     private @Nullable String secondaryKeypairRef;
     private @Nullable Boolean xrayIndex;
+    /**
+     * @return A comma separated list of XML file names containing RPM group component
+     * definitions. Artifactory includes the group definitions as part of the calculated RPM metadata, as well as
+     * automatically generating a gzipped version of the group files, if required. Default is empty string.
+     * 
+     */
     private @Nullable String yumGroupFileNames;
+    /**
+     * @return The depth, relative to the repository&#39;s root folder, where RPM metadata is created. This
+     * is useful when your repository contains multiple RPM repositories under parallel hierarchies. For example, if your
+     * RPMs are stored under &#39;fedora/linux/$releasever/$basearch&#39;, specify a depth of 4. Once the number of snapshots exceeds
+     * this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are
+     * not cleaned up.
+     * 
+     */
     private @Nullable Integer yumRootDepth;
 
     private GetLocalRpmRepositoryResult() {}
@@ -49,6 +79,10 @@ public final class GetLocalRpmRepositoryResult {
     public Optional<Boolean> blackedOut() {
         return Optional.ofNullable(this.blackedOut);
     }
+    /**
+     * @return Default: `false`.
+     * 
+     */
     public Optional<Boolean> calculateYumMetadata() {
         return Optional.ofNullable(this.calculateYumMetadata);
     }
@@ -61,6 +95,10 @@ public final class GetLocalRpmRepositoryResult {
     public Optional<Boolean> downloadDirect() {
         return Optional.ofNullable(this.downloadDirect);
     }
+    /**
+     * @return Default: `false`.
+     * 
+     */
     public Optional<Boolean> enableFileListsIndexing() {
         return Optional.ofNullable(this.enableFileListsIndexing);
     }
@@ -86,6 +124,10 @@ public final class GetLocalRpmRepositoryResult {
     public String packageType() {
         return this.packageType;
     }
+    /**
+     * @return The primary GPG key to be used to sign packages.
+     * 
+     */
     public Optional<String> primaryKeypairRef() {
         return Optional.ofNullable(this.primaryKeypairRef);
     }
@@ -104,15 +146,33 @@ public final class GetLocalRpmRepositoryResult {
     public Optional<String> repoLayoutRef() {
         return Optional.ofNullable(this.repoLayoutRef);
     }
+    /**
+     * @return The secondary GPG key to be used to sign packages.
+     * 
+     */
     public Optional<String> secondaryKeypairRef() {
         return Optional.ofNullable(this.secondaryKeypairRef);
     }
     public Optional<Boolean> xrayIndex() {
         return Optional.ofNullable(this.xrayIndex);
     }
+    /**
+     * @return A comma separated list of XML file names containing RPM group component
+     * definitions. Artifactory includes the group definitions as part of the calculated RPM metadata, as well as
+     * automatically generating a gzipped version of the group files, if required. Default is empty string.
+     * 
+     */
     public Optional<String> yumGroupFileNames() {
         return Optional.ofNullable(this.yumGroupFileNames);
     }
+    /**
+     * @return The depth, relative to the repository&#39;s root folder, where RPM metadata is created. This
+     * is useful when your repository contains multiple RPM repositories under parallel hierarchies. For example, if your
+     * RPMs are stored under &#39;fedora/linux/$releasever/$basearch&#39;, specify a depth of 4. Once the number of snapshots exceeds
+     * this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are
+     * not cleaned up.
+     * 
+     */
     public Optional<Integer> yumRootDepth() {
         return Optional.ofNullable(this.yumRootDepth);
     }

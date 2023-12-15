@@ -73,9 +73,17 @@ public final class GetLocalAlpineRepositoryArgs extends com.pulumi.resources.Inv
         return Optional.ofNullable(this.indexCompressionFormats);
     }
 
+    /**
+     * the identity key of the repo.
+     * 
+     */
     @Import(name="key", required=true)
     private Output<String> key;
 
+    /**
+     * @return the identity key of the repo.
+     * 
+     */
     public Output<String> key() {
         return this.key;
     }
@@ -87,9 +95,17 @@ public final class GetLocalAlpineRepositoryArgs extends com.pulumi.resources.Inv
         return Optional.ofNullable(this.notes);
     }
 
+    /**
+     * The RSA key to be used to sign alpine indices.
+     * 
+     */
     @Import(name="primaryKeypairRef")
     private @Nullable Output<String> primaryKeypairRef;
 
+    /**
+     * @return The RSA key to be used to sign alpine indices.
+     * 
+     */
     public Optional<Output<String>> primaryKeypairRef() {
         return Optional.ofNullable(this.primaryKeypairRef);
     }
@@ -252,11 +268,23 @@ public final class GetLocalAlpineRepositoryArgs extends com.pulumi.resources.Inv
             return indexCompressionFormats(List.of(indexCompressionFormats));
         }
 
+        /**
+         * @param key the identity key of the repo.
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(Output<String> key) {
             $.key = key;
             return this;
         }
 
+        /**
+         * @param key the identity key of the repo.
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(String key) {
             return key(Output.of(key));
         }
@@ -270,11 +298,23 @@ public final class GetLocalAlpineRepositoryArgs extends com.pulumi.resources.Inv
             return notes(Output.of(notes));
         }
 
+        /**
+         * @param primaryKeypairRef The RSA key to be used to sign alpine indices.
+         * 
+         * @return builder
+         * 
+         */
         public Builder primaryKeypairRef(@Nullable Output<String> primaryKeypairRef) {
             $.primaryKeypairRef = primaryKeypairRef;
             return this;
         }
 
+        /**
+         * @param primaryKeypairRef The RSA key to be used to sign alpine indices.
+         * 
+         * @return builder
+         * 
+         */
         public Builder primaryKeypairRef(String primaryKeypairRef) {
             return primaryKeypairRef(Output.of(primaryKeypairRef));
         }

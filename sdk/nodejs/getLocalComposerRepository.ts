@@ -4,6 +4,20 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * Retrieves a local composer repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const local-test-composer-repo = artifactory.getLocalComposerRepository({
+ *     key: "local-test-composer-repo",
+ * });
+ * ```
+ */
 export function getLocalComposerRepository(args: GetLocalComposerRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalComposerRepositoryResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -37,6 +51,9 @@ export interface GetLocalComposerRepositoryArgs {
     downloadDirect?: boolean;
     excludesPattern?: string;
     includesPattern?: string;
+    /**
+     * the identity key of the repo.
+     */
     key: string;
     notes?: string;
     priorityResolution?: boolean;
@@ -62,6 +79,9 @@ export interface GetLocalComposerRepositoryResult {
      */
     readonly id: string;
     readonly includesPattern?: string;
+    /**
+     * the identity key of the repo.
+     */
     readonly key: string;
     readonly notes?: string;
     readonly packageType: string;
@@ -72,6 +92,20 @@ export interface GetLocalComposerRepositoryResult {
     readonly repoLayoutRef?: string;
     readonly xrayIndex?: boolean;
 }
+/**
+ * Retrieves a local composer repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const local-test-composer-repo = artifactory.getLocalComposerRepository({
+ *     key: "local-test-composer-repo",
+ * });
+ * ```
+ */
 export function getLocalComposerRepositoryOutput(args: GetLocalComposerRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalComposerRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getLocalComposerRepository(a, opts))
 }
@@ -87,6 +121,9 @@ export interface GetLocalComposerRepositoryOutputArgs {
     downloadDirect?: pulumi.Input<boolean>;
     excludesPattern?: pulumi.Input<string>;
     includesPattern?: pulumi.Input<string>;
+    /**
+     * the identity key of the repo.
+     */
     key: pulumi.Input<string>;
     notes?: pulumi.Input<string>;
     priorityResolution?: pulumi.Input<boolean>;

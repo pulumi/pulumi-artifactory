@@ -38,9 +38,17 @@ public final class GetLocalChefRepositoryArgs extends com.pulumi.resources.Invok
         return Optional.ofNullable(this.cdnRedirect);
     }
 
+    /**
+     * (Optional)
+     * 
+     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
+    /**
+     * @return (Optional)
+     * 
+     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
@@ -66,16 +74,32 @@ public final class GetLocalChefRepositoryArgs extends com.pulumi.resources.Invok
         return Optional.ofNullable(this.includesPattern);
     }
 
+    /**
+     * (Required) the identity key of the repo.
+     * 
+     */
     @Import(name="key", required=true)
     private Output<String> key;
 
+    /**
+     * @return (Required) the identity key of the repo.
+     * 
+     */
     public Output<String> key() {
         return this.key;
     }
 
+    /**
+     * (Optional)
+     * 
+     */
     @Import(name="notes")
     private @Nullable Output<String> notes;
 
+    /**
+     * @return (Optional)
+     * 
+     */
     public Optional<Output<String>> notes() {
         return Optional.ofNullable(this.notes);
     }
@@ -187,11 +211,23 @@ public final class GetLocalChefRepositoryArgs extends com.pulumi.resources.Invok
             return cdnRedirect(Output.of(cdnRedirect));
         }
 
+        /**
+         * @param description (Optional)
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
+        /**
+         * @param description (Optional)
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
@@ -223,20 +259,44 @@ public final class GetLocalChefRepositoryArgs extends com.pulumi.resources.Invok
             return includesPattern(Output.of(includesPattern));
         }
 
+        /**
+         * @param key (Required) the identity key of the repo.
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(Output<String> key) {
             $.key = key;
             return this;
         }
 
+        /**
+         * @param key (Required) the identity key of the repo.
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(String key) {
             return key(Output.of(key));
         }
 
+        /**
+         * @param notes (Optional)
+         * 
+         * @return builder
+         * 
+         */
         public Builder notes(@Nullable Output<String> notes) {
             $.notes = notes;
             return this;
         }
 
+        /**
+         * @param notes (Optional)
+         * 
+         * @return builder
+         * 
+         */
         public Builder notes(String notes) {
             return notes(Output.of(notes));
         }

@@ -110,6 +110,10 @@ class GetLocalConanRepositoryResult:
     @property
     @pulumi.getter(name="forceConanAuthentication")
     def force_conan_authentication(self) -> Optional[bool]:
+        """
+        Force basic authentication credentials in order to use this repository.
+        Default is `false`.
+        """
         return pulumi.get(self, "force_conan_authentication")
 
     @property
@@ -128,6 +132,9 @@ class GetLocalConanRepositoryResult:
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        the identity key of the repo.
+        """
         return pulumi.get(self, "key")
 
     @property
@@ -215,7 +222,21 @@ def get_local_conan_repository(archive_browsing_enabled: Optional[bool] = None,
                                xray_index: Optional[bool] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLocalConanRepositoryResult:
     """
-    Use this data source to access information about an existing resource.
+    Retrieves a local conan repository.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_artifactory as artifactory
+
+    local_test_conan_repo = artifactory.get_local_conan_repository(key="local-test-conan-repo")
+    ```
+
+
+    :param bool force_conan_authentication: Force basic authentication credentials in order to use this repository.
+           Default is `false`.
+    :param str key: the identity key of the repo.
     """
     __args__ = dict()
     __args__['archiveBrowsingEnabled'] = archive_browsing_enabled
@@ -277,6 +298,20 @@ def get_local_conan_repository_output(archive_browsing_enabled: Optional[pulumi.
                                       xray_index: Optional[pulumi.Input[Optional[bool]]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocalConanRepositoryResult]:
     """
-    Use this data source to access information about an existing resource.
+    Retrieves a local conan repository.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_artifactory as artifactory
+
+    local_test_conan_repo = artifactory.get_local_conan_repository(key="local-test-conan-repo")
+    ```
+
+
+    :param bool force_conan_authentication: Force basic authentication credentials in order to use this repository.
+           Default is `false`.
+    :param str key: the identity key of the repo.
     """
     ...

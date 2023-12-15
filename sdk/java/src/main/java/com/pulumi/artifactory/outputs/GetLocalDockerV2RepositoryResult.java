@@ -14,9 +14,18 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetLocalDockerV2RepositoryResult {
+    /**
+     * @return &#34;The Docker API version to use. This cannot be set&#34;
+     * 
+     */
     private String apiVersion;
     private @Nullable Boolean archiveBrowsingEnabled;
     private @Nullable Boolean blackedOut;
+    /**
+     * @return When set, Artifactory will block the pushing of Docker images with manifest v2
+     * schema 1 to this repository.
+     * 
+     */
     private Boolean blockPushingSchema1;
     private @Nullable Boolean cdnRedirect;
     private @Nullable String description;
@@ -29,6 +38,12 @@ public final class GetLocalDockerV2RepositoryResult {
     private String id;
     private @Nullable String includesPattern;
     private String key;
+    /**
+     * @return The maximum number of unique tags of a single Docker image to store in this repository.
+     * Once the number tags for an image exceeds this setting, older tags are removed. A value of 0 (default) indicates there
+     * is no limit. This only applies to manifest v2.
+     * 
+     */
     private @Nullable Integer maxUniqueTags;
     private @Nullable String notes;
     private String packageType;
@@ -37,10 +52,19 @@ public final class GetLocalDockerV2RepositoryResult {
     private @Nullable String projectKey;
     private @Nullable List<String> propertySets;
     private @Nullable String repoLayoutRef;
+    /**
+     * @return If greater than 1, overwritten tags will be saved by their digest, up to the set up
+     * number. This only applies to manifest V2.
+     * 
+     */
     private @Nullable Integer tagRetention;
     private @Nullable Boolean xrayIndex;
 
     private GetLocalDockerV2RepositoryResult() {}
+    /**
+     * @return &#34;The Docker API version to use. This cannot be set&#34;
+     * 
+     */
     public String apiVersion() {
         return this.apiVersion;
     }
@@ -50,6 +74,11 @@ public final class GetLocalDockerV2RepositoryResult {
     public Optional<Boolean> blackedOut() {
         return Optional.ofNullable(this.blackedOut);
     }
+    /**
+     * @return When set, Artifactory will block the pushing of Docker images with manifest v2
+     * schema 1 to this repository.
+     * 
+     */
     public Boolean blockPushingSchema1() {
         return this.blockPushingSchema1;
     }
@@ -78,6 +107,12 @@ public final class GetLocalDockerV2RepositoryResult {
     public String key() {
         return this.key;
     }
+    /**
+     * @return The maximum number of unique tags of a single Docker image to store in this repository.
+     * Once the number tags for an image exceeds this setting, older tags are removed. A value of 0 (default) indicates there
+     * is no limit. This only applies to manifest v2.
+     * 
+     */
     public Optional<Integer> maxUniqueTags() {
         return Optional.ofNullable(this.maxUniqueTags);
     }
@@ -102,6 +137,11 @@ public final class GetLocalDockerV2RepositoryResult {
     public Optional<String> repoLayoutRef() {
         return Optional.ofNullable(this.repoLayoutRef);
     }
+    /**
+     * @return If greater than 1, overwritten tags will be saved by their digest, up to the set up
+     * number. This only applies to manifest V2.
+     * 
+     */
     public Optional<Integer> tagRetention() {
         return Optional.ofNullable(this.tagRetention);
     }

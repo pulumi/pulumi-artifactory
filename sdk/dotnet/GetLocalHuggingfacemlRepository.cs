@@ -11,9 +11,15 @@ namespace Pulumi.Artifactory
 {
     public static class GetLocalHuggingfacemlRepository
     {
+        /// <summary>
+        /// Provides a data source for a local huggingfaceml repository
+        /// </summary>
         public static Task<GetLocalHuggingfacemlRepositoryResult> InvokeAsync(GetLocalHuggingfacemlRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLocalHuggingfacemlRepositoryResult>("artifactory:index/getLocalHuggingfacemlRepository:getLocalHuggingfacemlRepository", args ?? new GetLocalHuggingfacemlRepositoryArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Provides a data source for a local huggingfaceml repository
+        /// </summary>
         public static Output<GetLocalHuggingfacemlRepositoryResult> Invoke(GetLocalHuggingfacemlRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocalHuggingfacemlRepositoryResult>("artifactory:index/getLocalHuggingfacemlRepository:getLocalHuggingfacemlRepository", args ?? new GetLocalHuggingfacemlRepositoryInvokeArgs(), options.WithDefaults());
     }
@@ -21,33 +27,64 @@ namespace Pulumi.Artifactory
 
     public sealed class GetLocalHuggingfacemlRepositoryArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// When set, you may view content such as HTML or Javadoc files directly from Artifactory.
+        /// This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
+        /// </summary>
         [Input("archiveBrowsingEnabled")]
         public bool? ArchiveBrowsingEnabled { get; set; }
 
+        /// <summary>
+        /// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
+        /// </summary>
         [Input("blackedOut")]
         public bool? BlackedOut { get; set; }
 
+        /// <summary>
+        /// When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+        /// </summary>
         [Input("cdnRedirect")]
         public bool? CdnRedirect { get; set; }
 
+        /// <summary>
+        /// Public description.
+        /// </summary>
         [Input("description")]
         public string? Description { get; set; }
 
+        /// <summary>
+        /// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
+        /// </summary>
         [Input("downloadDirect")]
         public bool? DownloadDirect { get; set; }
 
+        /// <summary>
+        /// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no artifacts are excluded.
+        /// </summary>
         [Input("excludesPattern")]
         public string? ExcludesPattern { get; set; }
 
+        /// <summary>
+        /// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        /// </summary>
         [Input("includesPattern")]
         public string? IncludesPattern { get; set; }
 
+        /// <summary>
+        /// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen characters. It cannot begin with a number or contain spaces or special characters.
+        /// </summary>
         [Input("key", required: true)]
         public string Key { get; set; } = null!;
 
+        /// <summary>
+        /// Internal description.
+        /// </summary>
         [Input("notes")]
         public string? Notes { get; set; }
 
+        /// <summary>
+        /// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+        /// </summary>
         [Input("priorityResolution")]
         public bool? PriorityResolution { get; set; }
 
@@ -59,20 +96,33 @@ namespace Pulumi.Artifactory
             set => _projectEnvironments = value;
         }
 
+        /// <summary>
+        /// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+        /// </summary>
         [Input("projectKey")]
         public string? ProjectKey { get; set; }
 
         [Input("propertySets")]
         private List<string>? _propertySets;
+
+        /// <summary>
+        /// List of property set name
+        /// </summary>
         public List<string> PropertySets
         {
             get => _propertySets ?? (_propertySets = new List<string>());
             set => _propertySets = value;
         }
 
+        /// <summary>
+        /// Repository layout key for the local repository
+        /// </summary>
         [Input("repoLayoutRef")]
         public string? RepoLayoutRef { get; set; }
 
+        /// <summary>
+        /// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
+        /// </summary>
         [Input("xrayIndex")]
         public bool? XrayIndex { get; set; }
 
@@ -84,33 +134,64 @@ namespace Pulumi.Artifactory
 
     public sealed class GetLocalHuggingfacemlRepositoryInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// When set, you may view content such as HTML or Javadoc files directly from Artifactory.
+        /// This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
+        /// </summary>
         [Input("archiveBrowsingEnabled")]
         public Input<bool>? ArchiveBrowsingEnabled { get; set; }
 
+        /// <summary>
+        /// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
+        /// </summary>
         [Input("blackedOut")]
         public Input<bool>? BlackedOut { get; set; }
 
+        /// <summary>
+        /// When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+        /// </summary>
         [Input("cdnRedirect")]
         public Input<bool>? CdnRedirect { get; set; }
 
+        /// <summary>
+        /// Public description.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
+        /// </summary>
         [Input("downloadDirect")]
         public Input<bool>? DownloadDirect { get; set; }
 
+        /// <summary>
+        /// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no artifacts are excluded.
+        /// </summary>
         [Input("excludesPattern")]
         public Input<string>? ExcludesPattern { get; set; }
 
+        /// <summary>
+        /// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        /// </summary>
         [Input("includesPattern")]
         public Input<string>? IncludesPattern { get; set; }
 
+        /// <summary>
+        /// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen characters. It cannot begin with a number or contain spaces or special characters.
+        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
+        /// <summary>
+        /// Internal description.
+        /// </summary>
         [Input("notes")]
         public Input<string>? Notes { get; set; }
 
+        /// <summary>
+        /// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+        /// </summary>
         [Input("priorityResolution")]
         public Input<bool>? PriorityResolution { get; set; }
 
@@ -122,20 +203,33 @@ namespace Pulumi.Artifactory
             set => _projectEnvironments = value;
         }
 
+        /// <summary>
+        /// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+        /// </summary>
         [Input("projectKey")]
         public Input<string>? ProjectKey { get; set; }
 
         [Input("propertySets")]
         private InputList<string>? _propertySets;
+
+        /// <summary>
+        /// List of property set name
+        /// </summary>
         public InputList<string> PropertySets
         {
             get => _propertySets ?? (_propertySets = new InputList<string>());
             set => _propertySets = value;
         }
 
+        /// <summary>
+        /// Repository layout key for the local repository
+        /// </summary>
         [Input("repoLayoutRef")]
         public Input<string>? RepoLayoutRef { get; set; }
 
+        /// <summary>
+        /// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
+        /// </summary>
         [Input("xrayIndex")]
         public Input<bool>? XrayIndex { get; set; }
 
@@ -149,25 +243,68 @@ namespace Pulumi.Artifactory
     [OutputType]
     public sealed class GetLocalHuggingfacemlRepositoryResult
     {
+        /// <summary>
+        /// When set, you may view content such as HTML or Javadoc files directly from Artifactory.
+        /// This may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
+        /// </summary>
         public readonly bool? ArchiveBrowsingEnabled;
+        /// <summary>
+        /// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
+        /// </summary>
         public readonly bool? BlackedOut;
+        /// <summary>
+        /// When set, download requests to this repository will redirect the client to download the artifact directly from AWS CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+        /// </summary>
         public readonly bool? CdnRedirect;
+        /// <summary>
+        /// Public description.
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
+        /// </summary>
         public readonly bool? DownloadDirect;
+        /// <summary>
+        /// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no artifacts are excluded.
+        /// </summary>
         public readonly string? ExcludesPattern;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        /// </summary>
         public readonly string? IncludesPattern;
+        /// <summary>
+        /// A mandatory identifier for the repository that must be unique. Must be 3 - 10 lowercase alphanumeric and hyphen characters. It cannot begin with a number or contain spaces or special characters.
+        /// </summary>
         public readonly string Key;
+        /// <summary>
+        /// Internal description.
+        /// </summary>
         public readonly string? Notes;
         public readonly string PackageType;
+        /// <summary>
+        /// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+        /// </summary>
         public readonly bool? PriorityResolution;
         public readonly ImmutableArray<string> ProjectEnvironments;
+        /// <summary>
+        /// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+        /// </summary>
         public readonly string? ProjectKey;
+        /// <summary>
+        /// List of property set name
+        /// </summary>
         public readonly ImmutableArray<string> PropertySets;
+        /// <summary>
+        /// Repository layout key for the local repository
+        /// </summary>
         public readonly string? RepoLayoutRef;
+        /// <summary>
+        /// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
+        /// </summary>
         public readonly bool? XrayIndex;
 
         [OutputConstructor]

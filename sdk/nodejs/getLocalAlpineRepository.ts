@@ -4,6 +4,20 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * Retrieves a local alpine repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const local-test-alpine-repo-basic = artifactory.getLocalAlpineRepository({
+ *     key: "local-test-alpine-repo-basic",
+ * });
+ * ```
+ */
 export function getLocalAlpineRepository(args: GetLocalAlpineRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalAlpineRepositoryResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -40,8 +54,14 @@ export interface GetLocalAlpineRepositoryArgs {
     excludesPattern?: string;
     includesPattern?: string;
     indexCompressionFormats?: string[];
+    /**
+     * the identity key of the repo.
+     */
     key: string;
     notes?: string;
+    /**
+     * The RSA key to be used to sign alpine indices.
+     */
     primaryKeypairRef?: string;
     priorityResolution?: boolean;
     projectEnvironments?: string[];
@@ -70,6 +90,9 @@ export interface GetLocalAlpineRepositoryResult {
     readonly key: string;
     readonly notes?: string;
     readonly packageType: string;
+    /**
+     * The RSA key to be used to sign alpine indices.
+     */
     readonly primaryKeypairRef?: string;
     readonly priorityResolution?: boolean;
     readonly projectEnvironments: string[];
@@ -78,6 +101,20 @@ export interface GetLocalAlpineRepositoryResult {
     readonly repoLayoutRef?: string;
     readonly xrayIndex?: boolean;
 }
+/**
+ * Retrieves a local alpine repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const local-test-alpine-repo-basic = artifactory.getLocalAlpineRepository({
+ *     key: "local-test-alpine-repo-basic",
+ * });
+ * ```
+ */
 export function getLocalAlpineRepositoryOutput(args: GetLocalAlpineRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalAlpineRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getLocalAlpineRepository(a, opts))
 }
@@ -94,8 +131,14 @@ export interface GetLocalAlpineRepositoryOutputArgs {
     excludesPattern?: pulumi.Input<string>;
     includesPattern?: pulumi.Input<string>;
     indexCompressionFormats?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * the identity key of the repo.
+     */
     key: pulumi.Input<string>;
     notes?: pulumi.Input<string>;
+    /**
+     * The RSA key to be used to sign alpine indices.
+     */
     primaryKeypairRef?: pulumi.Input<string>;
     priorityResolution?: pulumi.Input<boolean>;
     projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;

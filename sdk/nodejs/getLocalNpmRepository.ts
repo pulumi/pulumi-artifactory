@@ -4,6 +4,20 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * Retrieves a local npm repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const local-test-npm-repo = artifactory.getLocalNpmRepository({
+ *     key: "local-test-npm-repo",
+ * });
+ * ```
+ */
 export function getLocalNpmRepository(args: GetLocalNpmRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalNpmRepositoryResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -37,6 +51,9 @@ export interface GetLocalNpmRepositoryArgs {
     downloadDirect?: boolean;
     excludesPattern?: string;
     includesPattern?: string;
+    /**
+     * the identity key of the repo.
+     */
     key: string;
     notes?: string;
     priorityResolution?: boolean;
@@ -62,6 +79,9 @@ export interface GetLocalNpmRepositoryResult {
      */
     readonly id: string;
     readonly includesPattern?: string;
+    /**
+     * the identity key of the repo.
+     */
     readonly key: string;
     readonly notes?: string;
     readonly packageType: string;
@@ -72,6 +92,20 @@ export interface GetLocalNpmRepositoryResult {
     readonly repoLayoutRef?: string;
     readonly xrayIndex?: boolean;
 }
+/**
+ * Retrieves a local npm repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const local-test-npm-repo = artifactory.getLocalNpmRepository({
+ *     key: "local-test-npm-repo",
+ * });
+ * ```
+ */
 export function getLocalNpmRepositoryOutput(args: GetLocalNpmRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalNpmRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getLocalNpmRepository(a, opts))
 }
@@ -87,6 +121,9 @@ export interface GetLocalNpmRepositoryOutputArgs {
     downloadDirect?: pulumi.Input<boolean>;
     excludesPattern?: pulumi.Input<string>;
     includesPattern?: pulumi.Input<string>;
+    /**
+     * the identity key of the repo.
+     */
     key: pulumi.Input<string>;
     notes?: pulumi.Input<string>;
     priorityResolution?: pulumi.Input<boolean>;

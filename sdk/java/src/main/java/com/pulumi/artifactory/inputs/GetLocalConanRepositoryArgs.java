@@ -59,9 +59,19 @@ public final class GetLocalConanRepositoryArgs extends com.pulumi.resources.Invo
         return Optional.ofNullable(this.excludesPattern);
     }
 
+    /**
+     * Force basic authentication credentials in order to use this repository.
+     * Default is `false`.
+     * 
+     */
     @Import(name="forceConanAuthentication")
     private @Nullable Output<Boolean> forceConanAuthentication;
 
+    /**
+     * @return Force basic authentication credentials in order to use this repository.
+     * Default is `false`.
+     * 
+     */
     public Optional<Output<Boolean>> forceConanAuthentication() {
         return Optional.ofNullable(this.forceConanAuthentication);
     }
@@ -73,9 +83,17 @@ public final class GetLocalConanRepositoryArgs extends com.pulumi.resources.Invo
         return Optional.ofNullable(this.includesPattern);
     }
 
+    /**
+     * the identity key of the repo.
+     * 
+     */
     @Import(name="key", required=true)
     private Output<String> key;
 
+    /**
+     * @return the identity key of the repo.
+     * 
+     */
     public Output<String> key() {
         return this.key;
     }
@@ -222,11 +240,25 @@ public final class GetLocalConanRepositoryArgs extends com.pulumi.resources.Invo
             return excludesPattern(Output.of(excludesPattern));
         }
 
+        /**
+         * @param forceConanAuthentication Force basic authentication credentials in order to use this repository.
+         * Default is `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder forceConanAuthentication(@Nullable Output<Boolean> forceConanAuthentication) {
             $.forceConanAuthentication = forceConanAuthentication;
             return this;
         }
 
+        /**
+         * @param forceConanAuthentication Force basic authentication credentials in order to use this repository.
+         * Default is `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder forceConanAuthentication(Boolean forceConanAuthentication) {
             return forceConanAuthentication(Output.of(forceConanAuthentication));
         }
@@ -240,11 +272,23 @@ public final class GetLocalConanRepositoryArgs extends com.pulumi.resources.Invo
             return includesPattern(Output.of(includesPattern));
         }
 
+        /**
+         * @param key the identity key of the repo.
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(Output<String> key) {
             $.key = key;
             return this;
         }
 
+        /**
+         * @param key the identity key of the repo.
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(String key) {
             return key(Output.of(key));
         }

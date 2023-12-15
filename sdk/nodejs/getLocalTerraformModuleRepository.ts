@@ -4,6 +4,16 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const terraform_local_test_terraform_module_repo = new artifactory.LocalTerraformModuleRepository("terraform-local-test-terraform-module-repo", {key: "terraform-local-test-terraform-module-repo"});
+ * ```
+ */
 export function getLocalTerraformModuleRepository(args: GetLocalTerraformModuleRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalTerraformModuleRepositoryResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -37,6 +47,9 @@ export interface GetLocalTerraformModuleRepositoryArgs {
     downloadDirect?: boolean;
     excludesPattern?: string;
     includesPattern?: string;
+    /**
+     * the identity key of the repo.
+     */
     key: string;
     notes?: string;
     priorityResolution?: boolean;
@@ -72,6 +85,16 @@ export interface GetLocalTerraformModuleRepositoryResult {
     readonly repoLayoutRef?: string;
     readonly xrayIndex?: boolean;
 }
+/**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const terraform_local_test_terraform_module_repo = new artifactory.LocalTerraformModuleRepository("terraform-local-test-terraform-module-repo", {key: "terraform-local-test-terraform-module-repo"});
+ * ```
+ */
 export function getLocalTerraformModuleRepositoryOutput(args: GetLocalTerraformModuleRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalTerraformModuleRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getLocalTerraformModuleRepository(a, opts))
 }
@@ -87,6 +110,9 @@ export interface GetLocalTerraformModuleRepositoryOutputArgs {
     downloadDirect?: pulumi.Input<boolean>;
     excludesPattern?: pulumi.Input<string>;
     includesPattern?: pulumi.Input<string>;
+    /**
+     * the identity key of the repo.
+     */
     key: pulumi.Input<string>;
     notes?: pulumi.Input<string>;
     priorityResolution?: pulumi.Input<boolean>;

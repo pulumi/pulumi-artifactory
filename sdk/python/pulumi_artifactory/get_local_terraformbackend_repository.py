@@ -120,6 +120,9 @@ class GetLocalTerraformbackendRepositoryResult:
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        the identity key of the repo.
+        """
         return pulumi.get(self, "key")
 
     @property
@@ -205,7 +208,17 @@ def get_local_terraformbackend_repository(archive_browsing_enabled: Optional[boo
                                           xray_index: Optional[bool] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLocalTerraformbackendRepositoryResult:
     """
-    Use this data source to access information about an existing resource.
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_artifactory as artifactory
+
+    local_test_terraformbackend_repo = artifactory.get_local_terraformbackend_repository(key="local-test-terraformbackend-repo")
+    ```
+
+
+    :param str key: the identity key of the repo.
     """
     __args__ = dict()
     __args__['archiveBrowsingEnabled'] = archive_browsing_enabled
@@ -264,6 +277,16 @@ def get_local_terraformbackend_repository_output(archive_browsing_enabled: Optio
                                                  xray_index: Optional[pulumi.Input[Optional[bool]]] = None,
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocalTerraformbackendRepositoryResult]:
     """
-    Use this data source to access information about an existing resource.
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_artifactory as artifactory
+
+    local_test_terraformbackend_repo = artifactory.get_local_terraformbackend_repository(key="local-test-terraformbackend-repo")
+    ```
+
+
+    :param str key: the identity key of the repo.
     """
     ...

@@ -11,9 +11,59 @@ namespace Pulumi.Artifactory
 {
     public static class GetLocalSwiftRepository
     {
+        /// <summary>
+        /// Retrieves a local swift repository.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var local_test_swift_repo = Artifactory.GetLocalSwiftRepository.Invoke(new()
+        ///     {
+        ///         Key = "local-test-swift-repo",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetLocalSwiftRepositoryResult> InvokeAsync(GetLocalSwiftRepositoryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLocalSwiftRepositoryResult>("artifactory:index/getLocalSwiftRepository:getLocalSwiftRepository", args ?? new GetLocalSwiftRepositoryArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Retrieves a local swift repository.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var local_test_swift_repo = Artifactory.GetLocalSwiftRepository.Invoke(new()
+        ///     {
+        ///         Key = "local-test-swift-repo",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetLocalSwiftRepositoryResult> Invoke(GetLocalSwiftRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocalSwiftRepositoryResult>("artifactory:index/getLocalSwiftRepository:getLocalSwiftRepository", args ?? new GetLocalSwiftRepositoryInvokeArgs(), options.WithDefaults());
     }
@@ -42,6 +92,9 @@ namespace Pulumi.Artifactory
         [Input("includesPattern")]
         public string? IncludesPattern { get; set; }
 
+        /// <summary>
+        /// the identity key of the repo.
+        /// </summary>
         [Input("key", required: true)]
         public string Key { get; set; } = null!;
 
@@ -105,6 +158,9 @@ namespace Pulumi.Artifactory
         [Input("includesPattern")]
         public Input<string>? IncludesPattern { get; set; }
 
+        /// <summary>
+        /// the identity key of the repo.
+        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
@@ -160,6 +216,9 @@ namespace Pulumi.Artifactory
         /// </summary>
         public readonly string Id;
         public readonly string? IncludesPattern;
+        /// <summary>
+        /// the identity key of the repo.
+        /// </summary>
         public readonly string Key;
         public readonly string? Notes;
         public readonly string PackageType;

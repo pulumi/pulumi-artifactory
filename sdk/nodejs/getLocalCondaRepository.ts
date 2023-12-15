@@ -4,6 +4,20 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * Retrieves a local conda repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const local-test-conda-repo = artifactory.getLocalCondaRepository({
+ *     key: "local-test-conda-repo",
+ * });
+ * ```
+ */
 export function getLocalCondaRepository(args: GetLocalCondaRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalCondaRepositoryResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -37,6 +51,9 @@ export interface GetLocalCondaRepositoryArgs {
     downloadDirect?: boolean;
     excludesPattern?: string;
     includesPattern?: string;
+    /**
+     * the identity key of the repo.
+     */
     key: string;
     notes?: string;
     priorityResolution?: boolean;
@@ -62,6 +79,9 @@ export interface GetLocalCondaRepositoryResult {
      */
     readonly id: string;
     readonly includesPattern?: string;
+    /**
+     * the identity key of the repo.
+     */
     readonly key: string;
     readonly notes?: string;
     readonly packageType: string;
@@ -72,6 +92,20 @@ export interface GetLocalCondaRepositoryResult {
     readonly repoLayoutRef?: string;
     readonly xrayIndex?: boolean;
 }
+/**
+ * Retrieves a local conda repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const local-test-conda-repo = artifactory.getLocalCondaRepository({
+ *     key: "local-test-conda-repo",
+ * });
+ * ```
+ */
 export function getLocalCondaRepositoryOutput(args: GetLocalCondaRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalCondaRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getLocalCondaRepository(a, opts))
 }
@@ -87,6 +121,9 @@ export interface GetLocalCondaRepositoryOutputArgs {
     downloadDirect?: pulumi.Input<boolean>;
     excludesPattern?: pulumi.Input<string>;
     includesPattern?: pulumi.Input<string>;
+    /**
+     * the identity key of the repo.
+     */
     key: pulumi.Input<string>;
     notes?: pulumi.Input<string>;
     priorityResolution?: pulumi.Input<boolean>;

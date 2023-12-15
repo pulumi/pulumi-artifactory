@@ -4,6 +4,18 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const local-test-terraform-provider-repo = artifactory.getLocalTerraformProviderRepository({
+ *     key: "local-test-terraform-provider-repo",
+ * });
+ * ```
+ */
 export function getLocalTerraformProviderRepository(args: GetLocalTerraformProviderRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalTerraformProviderRepositoryResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -33,11 +45,20 @@ export interface GetLocalTerraformProviderRepositoryArgs {
     archiveBrowsingEnabled?: boolean;
     blackedOut?: boolean;
     cdnRedirect?: boolean;
+    /**
+     * (Optional)
+     */
     description?: string;
     downloadDirect?: boolean;
     excludesPattern?: string;
     includesPattern?: string;
+    /**
+     * the identity key of the repo.
+     */
     key: string;
+    /**
+     * (Optional)
+     */
     notes?: string;
     priorityResolution?: boolean;
     projectEnvironments?: string[];
@@ -54,6 +75,9 @@ export interface GetLocalTerraformProviderRepositoryResult {
     readonly archiveBrowsingEnabled?: boolean;
     readonly blackedOut?: boolean;
     readonly cdnRedirect?: boolean;
+    /**
+     * (Optional)
+     */
     readonly description?: string;
     readonly downloadDirect?: boolean;
     readonly excludesPattern?: string;
@@ -63,6 +87,9 @@ export interface GetLocalTerraformProviderRepositoryResult {
     readonly id: string;
     readonly includesPattern?: string;
     readonly key: string;
+    /**
+     * (Optional)
+     */
     readonly notes?: string;
     readonly packageType: string;
     readonly priorityResolution?: boolean;
@@ -72,6 +99,18 @@ export interface GetLocalTerraformProviderRepositoryResult {
     readonly repoLayoutRef?: string;
     readonly xrayIndex?: boolean;
 }
+/**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const local-test-terraform-provider-repo = artifactory.getLocalTerraformProviderRepository({
+ *     key: "local-test-terraform-provider-repo",
+ * });
+ * ```
+ */
 export function getLocalTerraformProviderRepositoryOutput(args: GetLocalTerraformProviderRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalTerraformProviderRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getLocalTerraformProviderRepository(a, opts))
 }
@@ -83,11 +122,20 @@ export interface GetLocalTerraformProviderRepositoryOutputArgs {
     archiveBrowsingEnabled?: pulumi.Input<boolean>;
     blackedOut?: pulumi.Input<boolean>;
     cdnRedirect?: pulumi.Input<boolean>;
+    /**
+     * (Optional)
+     */
     description?: pulumi.Input<string>;
     downloadDirect?: pulumi.Input<boolean>;
     excludesPattern?: pulumi.Input<string>;
     includesPattern?: pulumi.Input<string>;
+    /**
+     * the identity key of the repo.
+     */
     key: pulumi.Input<string>;
+    /**
+     * (Optional)
+     */
     notes?: pulumi.Input<string>;
     priorityResolution?: pulumi.Input<boolean>;
     projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;

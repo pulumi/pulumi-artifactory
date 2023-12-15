@@ -4,6 +4,20 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * Retrieves a local vagrant repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const local-test-vagrant-repo = artifactory.getLocalVagrantRepository({
+ *     key: "local-test-vagrant-repo",
+ * });
+ * ```
+ */
 export function getLocalVagrantRepository(args: GetLocalVagrantRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalVagrantRepositoryResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -37,6 +51,9 @@ export interface GetLocalVagrantRepositoryArgs {
     downloadDirect?: boolean;
     excludesPattern?: string;
     includesPattern?: string;
+    /**
+     * the identity key of the repo.
+     */
     key: string;
     notes?: string;
     priorityResolution?: boolean;
@@ -62,6 +79,9 @@ export interface GetLocalVagrantRepositoryResult {
      */
     readonly id: string;
     readonly includesPattern?: string;
+    /**
+     * the identity key of the repo.
+     */
     readonly key: string;
     readonly notes?: string;
     readonly packageType: string;
@@ -72,6 +92,20 @@ export interface GetLocalVagrantRepositoryResult {
     readonly repoLayoutRef?: string;
     readonly xrayIndex?: boolean;
 }
+/**
+ * Retrieves a local vagrant repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const local-test-vagrant-repo = artifactory.getLocalVagrantRepository({
+ *     key: "local-test-vagrant-repo",
+ * });
+ * ```
+ */
 export function getLocalVagrantRepositoryOutput(args: GetLocalVagrantRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalVagrantRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getLocalVagrantRepository(a, opts))
 }
@@ -87,6 +121,9 @@ export interface GetLocalVagrantRepositoryOutputArgs {
     downloadDirect?: pulumi.Input<boolean>;
     excludesPattern?: pulumi.Input<string>;
     includesPattern?: pulumi.Input<string>;
+    /**
+     * the identity key of the repo.
+     */
     key: pulumi.Input<string>;
     notes?: pulumi.Input<string>;
     priorityResolution?: pulumi.Input<boolean>;

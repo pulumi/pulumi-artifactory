@@ -110,6 +110,13 @@ class GetLocalSbtRepositoryResult:
     @property
     @pulumi.getter(name="checksumPolicyType")
     def checksum_policy_type(self) -> Optional[str]:
+        """
+        Checksum policy determines how Artifactory behaves when a client checksum for a deployed
+        resource is missing or conflicts with the locally calculated checksum (bad checksum). The options are
+        `client-checksums` and `generated-checksums`. For more details, please refer
+        to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy)
+        .
+        """
         return pulumi.get(self, "checksum_policy_type")
 
     @property
@@ -130,11 +137,19 @@ class GetLocalSbtRepositoryResult:
     @property
     @pulumi.getter(name="handleReleases")
     def handle_releases(self) -> Optional[bool]:
+        """
+        If set, Artifactory allows you to deploy release artifacts into this repository. Default is `true`
+        .
+        """
         return pulumi.get(self, "handle_releases")
 
     @property
     @pulumi.getter(name="handleSnapshots")
     def handle_snapshots(self) -> Optional[bool]:
+        """
+        If set, Artifactory allows you to deploy snapshot artifacts into this repository. Default
+        is `true`.
+        """
         return pulumi.get(self, "handle_snapshots")
 
     @property
@@ -158,6 +173,11 @@ class GetLocalSbtRepositoryResult:
     @property
     @pulumi.getter(name="maxUniqueSnapshots")
     def max_unique_snapshots(self) -> Optional[int]:
+        """
+        The maximum number of unique snapshots of a single artifact to store. Once the number of
+        snapshots exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and
+        unique snapshots are not cleaned up.
+        """
         return pulumi.get(self, "max_unique_snapshots")
 
     @property
@@ -198,11 +218,21 @@ class GetLocalSbtRepositoryResult:
     @property
     @pulumi.getter(name="snapshotVersionBehavior")
     def snapshot_version_behavior(self) -> Optional[str]:
+        """
+        Specifies the naming convention for Maven SNAPSHOT versions. The options are
+        -
+        """
         return pulumi.get(self, "snapshot_version_behavior")
 
     @property
     @pulumi.getter(name="suppressPomConsistencyChecks")
     def suppress_pom_consistency_checks(self) -> Optional[bool]:
+        """
+        By default, Artifactory keeps your repositories healthy by refusing POMs with
+        incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed
+        path, Artifactory rejects the deployment with a "409 Conflict" error. You can disable this behavior by setting the
+        Suppress POM Consistency Checks checkbox. True by default for Gradle repository.
+        """
         return pulumi.get(self, "suppress_pom_consistency_checks")
 
     @property
@@ -265,7 +295,37 @@ def get_local_sbt_repository(archive_browsing_enabled: Optional[bool] = None,
                              xray_index: Optional[bool] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLocalSbtRepositoryResult:
     """
-    Use this data source to access information about an existing resource.
+    Retrieves a local Sbt repository.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_artifactory as artifactory
+
+    local_test_sbt_repo = artifactory.get_local_sbt_repository(key="local-test-sbt-repo")
+    ```
+
+
+    :param str checksum_policy_type: Checksum policy determines how Artifactory behaves when a client checksum for a deployed
+           resource is missing or conflicts with the locally calculated checksum (bad checksum). The options are
+           `client-checksums` and `generated-checksums`. For more details, please refer
+           to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy)
+           .
+    :param bool handle_releases: If set, Artifactory allows you to deploy release artifacts into this repository. Default is `true`
+           .
+    :param bool handle_snapshots: If set, Artifactory allows you to deploy snapshot artifacts into this repository. Default
+           is `true`.
+    :param str key: the identity key of the repo.
+    :param int max_unique_snapshots: The maximum number of unique snapshots of a single artifact to store. Once the number of
+           snapshots exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and
+           unique snapshots are not cleaned up.
+    :param str snapshot_version_behavior: Specifies the naming convention for Maven SNAPSHOT versions. The options are
+           -
+    :param bool suppress_pom_consistency_checks: By default, Artifactory keeps your repositories healthy by refusing POMs with
+           incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed
+           path, Artifactory rejects the deployment with a "409 Conflict" error. You can disable this behavior by setting the
+           Suppress POM Consistency Checks checkbox. True by default for Gradle repository.
     """
     __args__ = dict()
     __args__['archiveBrowsingEnabled'] = archive_browsing_enabled
@@ -342,6 +402,36 @@ def get_local_sbt_repository_output(archive_browsing_enabled: Optional[pulumi.In
                                     xray_index: Optional[pulumi.Input[Optional[bool]]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocalSbtRepositoryResult]:
     """
-    Use this data source to access information about an existing resource.
+    Retrieves a local Sbt repository.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_artifactory as artifactory
+
+    local_test_sbt_repo = artifactory.get_local_sbt_repository(key="local-test-sbt-repo")
+    ```
+
+
+    :param str checksum_policy_type: Checksum policy determines how Artifactory behaves when a client checksum for a deployed
+           resource is missing or conflicts with the locally calculated checksum (bad checksum). The options are
+           `client-checksums` and `generated-checksums`. For more details, please refer
+           to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy)
+           .
+    :param bool handle_releases: If set, Artifactory allows you to deploy release artifacts into this repository. Default is `true`
+           .
+    :param bool handle_snapshots: If set, Artifactory allows you to deploy snapshot artifacts into this repository. Default
+           is `true`.
+    :param str key: the identity key of the repo.
+    :param int max_unique_snapshots: The maximum number of unique snapshots of a single artifact to store. Once the number of
+           snapshots exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and
+           unique snapshots are not cleaned up.
+    :param str snapshot_version_behavior: Specifies the naming convention for Maven SNAPSHOT versions. The options are
+           -
+    :param bool suppress_pom_consistency_checks: By default, Artifactory keeps your repositories healthy by refusing POMs with
+           incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed
+           path, Artifactory rejects the deployment with a "409 Conflict" error. You can disable this behavior by setting the
+           Suppress POM Consistency Checks checkbox. True by default for Gradle repository.
     """
     ...

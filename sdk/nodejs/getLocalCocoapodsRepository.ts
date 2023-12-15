@@ -4,6 +4,20 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * Retrieves a local cocoapods repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const local-test-cocoapods-repo = artifactory.getLocalCocoapodsRepository({
+ *     key: "local-test-cocoapods-repo",
+ * });
+ * ```
+ */
 export function getLocalCocoapodsRepository(args: GetLocalCocoapodsRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalCocoapodsRepositoryResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -37,6 +51,9 @@ export interface GetLocalCocoapodsRepositoryArgs {
     downloadDirect?: boolean;
     excludesPattern?: string;
     includesPattern?: string;
+    /**
+     * the identity key of the repo.
+     */
     key: string;
     notes?: string;
     priorityResolution?: boolean;
@@ -62,6 +79,9 @@ export interface GetLocalCocoapodsRepositoryResult {
      */
     readonly id: string;
     readonly includesPattern?: string;
+    /**
+     * the identity key of the repo.
+     */
     readonly key: string;
     readonly notes?: string;
     readonly packageType: string;
@@ -72,6 +92,20 @@ export interface GetLocalCocoapodsRepositoryResult {
     readonly repoLayoutRef?: string;
     readonly xrayIndex?: boolean;
 }
+/**
+ * Retrieves a local cocoapods repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const local-test-cocoapods-repo = artifactory.getLocalCocoapodsRepository({
+ *     key: "local-test-cocoapods-repo",
+ * });
+ * ```
+ */
 export function getLocalCocoapodsRepositoryOutput(args: GetLocalCocoapodsRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalCocoapodsRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getLocalCocoapodsRepository(a, opts))
 }
@@ -87,6 +121,9 @@ export interface GetLocalCocoapodsRepositoryOutputArgs {
     downloadDirect?: pulumi.Input<boolean>;
     excludesPattern?: pulumi.Input<string>;
     includesPattern?: pulumi.Input<string>;
+    /**
+     * the identity key of the repo.
+     */
     key: pulumi.Input<string>;
     notes?: pulumi.Input<string>;
     priorityResolution?: pulumi.Input<boolean>;

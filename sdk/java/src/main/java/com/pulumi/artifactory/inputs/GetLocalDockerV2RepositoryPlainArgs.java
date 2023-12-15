@@ -31,9 +31,19 @@ public final class GetLocalDockerV2RepositoryPlainArgs extends com.pulumi.resour
         return Optional.ofNullable(this.blackedOut);
     }
 
+    /**
+     * When set, Artifactory will block the pushing of Docker images with manifest v2
+     * schema 1 to this repository.
+     * 
+     */
     @Import(name="blockPushingSchema1")
     private @Nullable Boolean blockPushingSchema1;
 
+    /**
+     * @return When set, Artifactory will block the pushing of Docker images with manifest v2
+     * schema 1 to this repository.
+     * 
+     */
     public Optional<Boolean> blockPushingSchema1() {
         return Optional.ofNullable(this.blockPushingSchema1);
     }
@@ -73,16 +83,36 @@ public final class GetLocalDockerV2RepositoryPlainArgs extends com.pulumi.resour
         return Optional.ofNullable(this.includesPattern);
     }
 
+    /**
+     * the identity key of the repo.
+     * 
+     */
     @Import(name="key", required=true)
     private String key;
 
+    /**
+     * @return the identity key of the repo.
+     * 
+     */
     public String key() {
         return this.key;
     }
 
+    /**
+     * The maximum number of unique tags of a single Docker image to store in this repository.
+     * Once the number tags for an image exceeds this setting, older tags are removed. A value of 0 (default) indicates there
+     * is no limit. This only applies to manifest v2.
+     * 
+     */
     @Import(name="maxUniqueTags")
     private @Nullable Integer maxUniqueTags;
 
+    /**
+     * @return The maximum number of unique tags of a single Docker image to store in this repository.
+     * Once the number tags for an image exceeds this setting, older tags are removed. A value of 0 (default) indicates there
+     * is no limit. This only applies to manifest v2.
+     * 
+     */
     public Optional<Integer> maxUniqueTags() {
         return Optional.ofNullable(this.maxUniqueTags);
     }
@@ -129,9 +159,19 @@ public final class GetLocalDockerV2RepositoryPlainArgs extends com.pulumi.resour
         return Optional.ofNullable(this.repoLayoutRef);
     }
 
+    /**
+     * If greater than 1, overwritten tags will be saved by their digest, up to the set up
+     * number. This only applies to manifest V2.
+     * 
+     */
     @Import(name="tagRetention")
     private @Nullable Integer tagRetention;
 
+    /**
+     * @return If greater than 1, overwritten tags will be saved by their digest, up to the set up
+     * number. This only applies to manifest V2.
+     * 
+     */
     public Optional<Integer> tagRetention() {
         return Optional.ofNullable(this.tagRetention);
     }
@@ -194,6 +234,13 @@ public final class GetLocalDockerV2RepositoryPlainArgs extends com.pulumi.resour
             return this;
         }
 
+        /**
+         * @param blockPushingSchema1 When set, Artifactory will block the pushing of Docker images with manifest v2
+         * schema 1 to this repository.
+         * 
+         * @return builder
+         * 
+         */
         public Builder blockPushingSchema1(@Nullable Boolean blockPushingSchema1) {
             $.blockPushingSchema1 = blockPushingSchema1;
             return this;
@@ -224,11 +271,25 @@ public final class GetLocalDockerV2RepositoryPlainArgs extends com.pulumi.resour
             return this;
         }
 
+        /**
+         * @param key the identity key of the repo.
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(String key) {
             $.key = key;
             return this;
         }
 
+        /**
+         * @param maxUniqueTags The maximum number of unique tags of a single Docker image to store in this repository.
+         * Once the number tags for an image exceeds this setting, older tags are removed. A value of 0 (default) indicates there
+         * is no limit. This only applies to manifest v2.
+         * 
+         * @return builder
+         * 
+         */
         public Builder maxUniqueTags(@Nullable Integer maxUniqueTags) {
             $.maxUniqueTags = maxUniqueTags;
             return this;
@@ -272,6 +333,13 @@ public final class GetLocalDockerV2RepositoryPlainArgs extends com.pulumi.resour
             return this;
         }
 
+        /**
+         * @param tagRetention If greater than 1, overwritten tags will be saved by their digest, up to the set up
+         * number. This only applies to manifest V2.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tagRetention(@Nullable Integer tagRetention) {
             $.tagRetention = tagRetention;
             return this;

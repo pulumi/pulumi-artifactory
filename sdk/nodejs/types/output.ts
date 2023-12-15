@@ -1280,6 +1280,44 @@ export interface GetFederatedVagrantRepositoryMember {
     url: string;
 }
 
+export interface GetFileListFile {
+    /**
+     * Is this a folder
+     */
+    folder: boolean;
+    /**
+     * Last modified time
+     */
+    lastModified: string;
+    /**
+     * File metadata
+     */
+    metadataTimestamps: outputs.GetFileListFileMetadataTimestamps;
+    /**
+     * SHA-1 checksum
+     */
+    sha1: string;
+    /**
+     * SHA-256 checksum
+     */
+    sha2: string;
+    /**
+     * File size in bytes
+     */
+    size: number;
+    /**
+     * URL to file
+     */
+    uri: string;
+}
+
+export interface GetFileListFileMetadataTimestamps {
+    /**
+     * Properties timestamp
+     */
+    properties: string;
+}
+
 export interface GetPermissionTargetBuild {
     actions?: outputs.GetPermissionTargetBuildActions;
     /**
@@ -1630,6 +1668,14 @@ export interface GetRemoteVcsRepositoryContentSynchronisation {
     propertiesEnabled?: boolean;
     sourceOriginAbsenceDetection?: boolean;
     statisticsEnabled?: boolean;
+}
+
+export interface GetRepositoriesRepo {
+    description: string;
+    key: string;
+    packageType: string;
+    type: string;
+    url: string;
 }
 
 export interface LocalRepositoryMultiReplicationReplication {

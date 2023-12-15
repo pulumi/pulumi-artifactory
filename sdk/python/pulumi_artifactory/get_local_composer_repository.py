@@ -120,6 +120,9 @@ class GetLocalComposerRepositoryResult:
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        the identity key of the repo.
+        """
         return pulumi.get(self, "key")
 
     @property
@@ -205,7 +208,19 @@ def get_local_composer_repository(archive_browsing_enabled: Optional[bool] = Non
                                   xray_index: Optional[bool] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLocalComposerRepositoryResult:
     """
-    Use this data source to access information about an existing resource.
+    Retrieves a local composer repository.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_artifactory as artifactory
+
+    local_test_composer_repo = artifactory.get_local_composer_repository(key="local-test-composer-repo")
+    ```
+
+
+    :param str key: the identity key of the repo.
     """
     __args__ = dict()
     __args__['archiveBrowsingEnabled'] = archive_browsing_enabled
@@ -264,6 +279,18 @@ def get_local_composer_repository_output(archive_browsing_enabled: Optional[pulu
                                          xray_index: Optional[pulumi.Input[Optional[bool]]] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocalComposerRepositoryResult]:
     """
-    Use this data source to access information about an existing resource.
+    Retrieves a local composer repository.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_artifactory as artifactory
+
+    local_test_composer_repo = artifactory.get_local_composer_repository(key="local-test-composer-repo")
+    ```
+
+
+    :param str key: the identity key of the repo.
     """
     ...

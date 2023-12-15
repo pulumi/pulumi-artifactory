@@ -92,6 +92,9 @@ class GetLocalChefRepositoryResult:
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        (Optional)
+        """
         return pulumi.get(self, "description")
 
     @property
@@ -120,11 +123,17 @@ class GetLocalChefRepositoryResult:
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        (Required) the identity key of the repo.
+        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def notes(self) -> Optional[str]:
+        """
+        (Optional)
+        """
         return pulumi.get(self, "notes")
 
     @property
@@ -205,7 +214,21 @@ def get_local_chef_repository(archive_browsing_enabled: Optional[bool] = None,
                               xray_index: Optional[bool] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLocalChefRepositoryResult:
     """
-    Use this data source to access information about an existing resource.
+    Retrieves a local Chef repository.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_artifactory as artifactory
+
+    local_test_chef_repo = artifactory.get_local_chef_repository(key="local-test-chef-repo")
+    ```
+
+
+    :param str description: (Optional)
+    :param str key: (Required) the identity key of the repo.
+    :param str notes: (Optional)
     """
     __args__ = dict()
     __args__['archiveBrowsingEnabled'] = archive_browsing_enabled
@@ -264,6 +287,20 @@ def get_local_chef_repository_output(archive_browsing_enabled: Optional[pulumi.I
                                      xray_index: Optional[pulumi.Input[Optional[bool]]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocalChefRepositoryResult]:
     """
-    Use this data source to access information about an existing resource.
+    Retrieves a local Chef repository.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_artifactory as artifactory
+
+    local_test_chef_repo = artifactory.get_local_chef_repository(key="local-test-chef-repo")
+    ```
+
+
+    :param str description: (Optional)
+    :param str key: (Required) the identity key of the repo.
+    :param str notes: (Optional)
     """
     ...

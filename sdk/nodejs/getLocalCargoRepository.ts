@@ -4,6 +4,20 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * Retrieves a local cargo repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const local-test-cargo-repo-basic = artifactory.getLocalCargoRepository({
+ *     key: "local-test-cargo-repo-basic",
+ * });
+ * ```
+ */
 export function getLocalCargoRepository(args: GetLocalCargoRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalCargoRepositoryResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -33,16 +47,28 @@ export function getLocalCargoRepository(args: GetLocalCargoRepositoryArgs, opts?
  * A collection of arguments for invoking getLocalCargoRepository.
  */
 export interface GetLocalCargoRepositoryArgs {
+    /**
+     * Cargo client does not send credentials when performing download and search for crates.
+     * Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous
+     * access option. Default value is `false`.
+     */
     anonymousAccess?: boolean;
     archiveBrowsingEnabled?: boolean;
     blackedOut?: boolean;
     cdnRedirect?: boolean;
     description?: string;
     downloadDirect?: boolean;
+    /**
+     * Enable internal index support based on Cargo sparse index specifications, instead
+     * of the default git index. Default value is `false`.
+     */
     enableSparseIndex?: boolean;
     excludesPattern?: string;
     includesPattern?: string;
     indexCompressionFormats?: string[];
+    /**
+     * the identity key of the repo.
+     */
     key: string;
     notes?: string;
     priorityResolution?: boolean;
@@ -57,12 +83,21 @@ export interface GetLocalCargoRepositoryArgs {
  * A collection of values returned by getLocalCargoRepository.
  */
 export interface GetLocalCargoRepositoryResult {
+    /**
+     * Cargo client does not send credentials when performing download and search for crates.
+     * Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous
+     * access option. Default value is `false`.
+     */
     readonly anonymousAccess?: boolean;
     readonly archiveBrowsingEnabled?: boolean;
     readonly blackedOut?: boolean;
     readonly cdnRedirect?: boolean;
     readonly description?: string;
     readonly downloadDirect?: boolean;
+    /**
+     * Enable internal index support based on Cargo sparse index specifications, instead
+     * of the default git index. Default value is `false`.
+     */
     readonly enableSparseIndex?: boolean;
     readonly excludesPattern?: string;
     /**
@@ -81,6 +116,20 @@ export interface GetLocalCargoRepositoryResult {
     readonly repoLayoutRef?: string;
     readonly xrayIndex?: boolean;
 }
+/**
+ * Retrieves a local cargo repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const local-test-cargo-repo-basic = artifactory.getLocalCargoRepository({
+ *     key: "local-test-cargo-repo-basic",
+ * });
+ * ```
+ */
 export function getLocalCargoRepositoryOutput(args: GetLocalCargoRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalCargoRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getLocalCargoRepository(a, opts))
 }
@@ -89,16 +138,28 @@ export function getLocalCargoRepositoryOutput(args: GetLocalCargoRepositoryOutpu
  * A collection of arguments for invoking getLocalCargoRepository.
  */
 export interface GetLocalCargoRepositoryOutputArgs {
+    /**
+     * Cargo client does not send credentials when performing download and search for crates.
+     * Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous
+     * access option. Default value is `false`.
+     */
     anonymousAccess?: pulumi.Input<boolean>;
     archiveBrowsingEnabled?: pulumi.Input<boolean>;
     blackedOut?: pulumi.Input<boolean>;
     cdnRedirect?: pulumi.Input<boolean>;
     description?: pulumi.Input<string>;
     downloadDirect?: pulumi.Input<boolean>;
+    /**
+     * Enable internal index support based on Cargo sparse index specifications, instead
+     * of the default git index. Default value is `false`.
+     */
     enableSparseIndex?: pulumi.Input<boolean>;
     excludesPattern?: pulumi.Input<string>;
     includesPattern?: pulumi.Input<string>;
     indexCompressionFormats?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * the identity key of the repo.
+     */
     key: pulumi.Input<string>;
     notes?: pulumi.Input<string>;
     priorityResolution?: pulumi.Input<boolean>;

@@ -4,6 +4,20 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * Retrieves a local puppet repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const local-test-puppet-repo = artifactory.getLocalPuppetRepository({
+ *     key: "local-test-puppet-repo",
+ * });
+ * ```
+ */
 export function getLocalPuppetRepository(args: GetLocalPuppetRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalPuppetRepositoryResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -37,6 +51,9 @@ export interface GetLocalPuppetRepositoryArgs {
     downloadDirect?: boolean;
     excludesPattern?: string;
     includesPattern?: string;
+    /**
+     * the identity key of the repo.
+     */
     key: string;
     notes?: string;
     priorityResolution?: boolean;
@@ -62,6 +79,9 @@ export interface GetLocalPuppetRepositoryResult {
      */
     readonly id: string;
     readonly includesPattern?: string;
+    /**
+     * the identity key of the repo.
+     */
     readonly key: string;
     readonly notes?: string;
     readonly packageType: string;
@@ -72,6 +92,20 @@ export interface GetLocalPuppetRepositoryResult {
     readonly repoLayoutRef?: string;
     readonly xrayIndex?: boolean;
 }
+/**
+ * Retrieves a local puppet repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const local-test-puppet-repo = artifactory.getLocalPuppetRepository({
+ *     key: "local-test-puppet-repo",
+ * });
+ * ```
+ */
 export function getLocalPuppetRepositoryOutput(args: GetLocalPuppetRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalPuppetRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getLocalPuppetRepository(a, opts))
 }
@@ -87,6 +121,9 @@ export interface GetLocalPuppetRepositoryOutputArgs {
     downloadDirect?: pulumi.Input<boolean>;
     excludesPattern?: pulumi.Input<string>;
     includesPattern?: pulumi.Input<string>;
+    /**
+     * the identity key of the repo.
+     */
     key: pulumi.Input<string>;
     notes?: pulumi.Input<string>;
     priorityResolution?: pulumi.Input<boolean>;

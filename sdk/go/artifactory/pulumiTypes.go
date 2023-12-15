@@ -19977,6 +19977,209 @@ func (o GetFederatedVagrantRepositoryMemberArrayOutput) Index(i pulumi.IntInput)
 	}).(GetFederatedVagrantRepositoryMemberOutput)
 }
 
+type GetFileListFile struct {
+	// Is this a folder
+	Folder bool `pulumi:"folder"`
+	// Last modified time
+	LastModified string `pulumi:"lastModified"`
+	// File metadata
+	MetadataTimestamps GetFileListFileMetadataTimestamps `pulumi:"metadataTimestamps"`
+	// SHA-1 checksum
+	Sha1 string `pulumi:"sha1"`
+	// SHA-256 checksum
+	Sha2 string `pulumi:"sha2"`
+	// File size in bytes
+	Size int `pulumi:"size"`
+	// URL to file
+	Uri string `pulumi:"uri"`
+}
+
+// GetFileListFileInput is an input type that accepts GetFileListFileArgs and GetFileListFileOutput values.
+// You can construct a concrete instance of `GetFileListFileInput` via:
+//
+//	GetFileListFileArgs{...}
+type GetFileListFileInput interface {
+	pulumi.Input
+
+	ToGetFileListFileOutput() GetFileListFileOutput
+	ToGetFileListFileOutputWithContext(context.Context) GetFileListFileOutput
+}
+
+type GetFileListFileArgs struct {
+	// Is this a folder
+	Folder pulumi.BoolInput `pulumi:"folder"`
+	// Last modified time
+	LastModified pulumi.StringInput `pulumi:"lastModified"`
+	// File metadata
+	MetadataTimestamps GetFileListFileMetadataTimestampsInput `pulumi:"metadataTimestamps"`
+	// SHA-1 checksum
+	Sha1 pulumi.StringInput `pulumi:"sha1"`
+	// SHA-256 checksum
+	Sha2 pulumi.StringInput `pulumi:"sha2"`
+	// File size in bytes
+	Size pulumi.IntInput `pulumi:"size"`
+	// URL to file
+	Uri pulumi.StringInput `pulumi:"uri"`
+}
+
+func (GetFileListFileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFileListFile)(nil)).Elem()
+}
+
+func (i GetFileListFileArgs) ToGetFileListFileOutput() GetFileListFileOutput {
+	return i.ToGetFileListFileOutputWithContext(context.Background())
+}
+
+func (i GetFileListFileArgs) ToGetFileListFileOutputWithContext(ctx context.Context) GetFileListFileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFileListFileOutput)
+}
+
+// GetFileListFileArrayInput is an input type that accepts GetFileListFileArray and GetFileListFileArrayOutput values.
+// You can construct a concrete instance of `GetFileListFileArrayInput` via:
+//
+//	GetFileListFileArray{ GetFileListFileArgs{...} }
+type GetFileListFileArrayInput interface {
+	pulumi.Input
+
+	ToGetFileListFileArrayOutput() GetFileListFileArrayOutput
+	ToGetFileListFileArrayOutputWithContext(context.Context) GetFileListFileArrayOutput
+}
+
+type GetFileListFileArray []GetFileListFileInput
+
+func (GetFileListFileArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFileListFile)(nil)).Elem()
+}
+
+func (i GetFileListFileArray) ToGetFileListFileArrayOutput() GetFileListFileArrayOutput {
+	return i.ToGetFileListFileArrayOutputWithContext(context.Background())
+}
+
+func (i GetFileListFileArray) ToGetFileListFileArrayOutputWithContext(ctx context.Context) GetFileListFileArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFileListFileArrayOutput)
+}
+
+type GetFileListFileOutput struct{ *pulumi.OutputState }
+
+func (GetFileListFileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFileListFile)(nil)).Elem()
+}
+
+func (o GetFileListFileOutput) ToGetFileListFileOutput() GetFileListFileOutput {
+	return o
+}
+
+func (o GetFileListFileOutput) ToGetFileListFileOutputWithContext(ctx context.Context) GetFileListFileOutput {
+	return o
+}
+
+// Is this a folder
+func (o GetFileListFileOutput) Folder() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetFileListFile) bool { return v.Folder }).(pulumi.BoolOutput)
+}
+
+// Last modified time
+func (o GetFileListFileOutput) LastModified() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFileListFile) string { return v.LastModified }).(pulumi.StringOutput)
+}
+
+// File metadata
+func (o GetFileListFileOutput) MetadataTimestamps() GetFileListFileMetadataTimestampsOutput {
+	return o.ApplyT(func(v GetFileListFile) GetFileListFileMetadataTimestamps { return v.MetadataTimestamps }).(GetFileListFileMetadataTimestampsOutput)
+}
+
+// SHA-1 checksum
+func (o GetFileListFileOutput) Sha1() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFileListFile) string { return v.Sha1 }).(pulumi.StringOutput)
+}
+
+// SHA-256 checksum
+func (o GetFileListFileOutput) Sha2() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFileListFile) string { return v.Sha2 }).(pulumi.StringOutput)
+}
+
+// File size in bytes
+func (o GetFileListFileOutput) Size() pulumi.IntOutput {
+	return o.ApplyT(func(v GetFileListFile) int { return v.Size }).(pulumi.IntOutput)
+}
+
+// URL to file
+func (o GetFileListFileOutput) Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFileListFile) string { return v.Uri }).(pulumi.StringOutput)
+}
+
+type GetFileListFileArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFileListFileArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFileListFile)(nil)).Elem()
+}
+
+func (o GetFileListFileArrayOutput) ToGetFileListFileArrayOutput() GetFileListFileArrayOutput {
+	return o
+}
+
+func (o GetFileListFileArrayOutput) ToGetFileListFileArrayOutputWithContext(ctx context.Context) GetFileListFileArrayOutput {
+	return o
+}
+
+func (o GetFileListFileArrayOutput) Index(i pulumi.IntInput) GetFileListFileOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFileListFile {
+		return vs[0].([]GetFileListFile)[vs[1].(int)]
+	}).(GetFileListFileOutput)
+}
+
+type GetFileListFileMetadataTimestamps struct {
+	// Properties timestamp
+	Properties string `pulumi:"properties"`
+}
+
+// GetFileListFileMetadataTimestampsInput is an input type that accepts GetFileListFileMetadataTimestampsArgs and GetFileListFileMetadataTimestampsOutput values.
+// You can construct a concrete instance of `GetFileListFileMetadataTimestampsInput` via:
+//
+//	GetFileListFileMetadataTimestampsArgs{...}
+type GetFileListFileMetadataTimestampsInput interface {
+	pulumi.Input
+
+	ToGetFileListFileMetadataTimestampsOutput() GetFileListFileMetadataTimestampsOutput
+	ToGetFileListFileMetadataTimestampsOutputWithContext(context.Context) GetFileListFileMetadataTimestampsOutput
+}
+
+type GetFileListFileMetadataTimestampsArgs struct {
+	// Properties timestamp
+	Properties pulumi.StringInput `pulumi:"properties"`
+}
+
+func (GetFileListFileMetadataTimestampsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFileListFileMetadataTimestamps)(nil)).Elem()
+}
+
+func (i GetFileListFileMetadataTimestampsArgs) ToGetFileListFileMetadataTimestampsOutput() GetFileListFileMetadataTimestampsOutput {
+	return i.ToGetFileListFileMetadataTimestampsOutputWithContext(context.Background())
+}
+
+func (i GetFileListFileMetadataTimestampsArgs) ToGetFileListFileMetadataTimestampsOutputWithContext(ctx context.Context) GetFileListFileMetadataTimestampsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFileListFileMetadataTimestampsOutput)
+}
+
+type GetFileListFileMetadataTimestampsOutput struct{ *pulumi.OutputState }
+
+func (GetFileListFileMetadataTimestampsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFileListFileMetadataTimestamps)(nil)).Elem()
+}
+
+func (o GetFileListFileMetadataTimestampsOutput) ToGetFileListFileMetadataTimestampsOutput() GetFileListFileMetadataTimestampsOutput {
+	return o
+}
+
+func (o GetFileListFileMetadataTimestampsOutput) ToGetFileListFileMetadataTimestampsOutputWithContext(ctx context.Context) GetFileListFileMetadataTimestampsOutput {
+	return o
+}
+
+// Properties timestamp
+func (o GetFileListFileMetadataTimestampsOutput) Properties() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFileListFileMetadataTimestamps) string { return v.Properties }).(pulumi.StringOutput)
+}
+
 type GetPermissionTargetBuild struct {
 	Actions *GetPermissionTargetBuildActions `pulumi:"actions"`
 	// Pattern of artifacts to exclude.
@@ -27183,6 +27386,124 @@ func (o GetRemoteVcsRepositoryContentSynchronisationPtrOutput) StatisticsEnabled
 	}).(pulumi.BoolPtrOutput)
 }
 
+type GetRepositoriesRepo struct {
+	Description string `pulumi:"description"`
+	Key         string `pulumi:"key"`
+	PackageType string `pulumi:"packageType"`
+	Type        string `pulumi:"type"`
+	Url         string `pulumi:"url"`
+}
+
+// GetRepositoriesRepoInput is an input type that accepts GetRepositoriesRepoArgs and GetRepositoriesRepoOutput values.
+// You can construct a concrete instance of `GetRepositoriesRepoInput` via:
+//
+//	GetRepositoriesRepoArgs{...}
+type GetRepositoriesRepoInput interface {
+	pulumi.Input
+
+	ToGetRepositoriesRepoOutput() GetRepositoriesRepoOutput
+	ToGetRepositoriesRepoOutputWithContext(context.Context) GetRepositoriesRepoOutput
+}
+
+type GetRepositoriesRepoArgs struct {
+	Description pulumi.StringInput `pulumi:"description"`
+	Key         pulumi.StringInput `pulumi:"key"`
+	PackageType pulumi.StringInput `pulumi:"packageType"`
+	Type        pulumi.StringInput `pulumi:"type"`
+	Url         pulumi.StringInput `pulumi:"url"`
+}
+
+func (GetRepositoriesRepoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRepositoriesRepo)(nil)).Elem()
+}
+
+func (i GetRepositoriesRepoArgs) ToGetRepositoriesRepoOutput() GetRepositoriesRepoOutput {
+	return i.ToGetRepositoriesRepoOutputWithContext(context.Background())
+}
+
+func (i GetRepositoriesRepoArgs) ToGetRepositoriesRepoOutputWithContext(ctx context.Context) GetRepositoriesRepoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRepositoriesRepoOutput)
+}
+
+// GetRepositoriesRepoArrayInput is an input type that accepts GetRepositoriesRepoArray and GetRepositoriesRepoArrayOutput values.
+// You can construct a concrete instance of `GetRepositoriesRepoArrayInput` via:
+//
+//	GetRepositoriesRepoArray{ GetRepositoriesRepoArgs{...} }
+type GetRepositoriesRepoArrayInput interface {
+	pulumi.Input
+
+	ToGetRepositoriesRepoArrayOutput() GetRepositoriesRepoArrayOutput
+	ToGetRepositoriesRepoArrayOutputWithContext(context.Context) GetRepositoriesRepoArrayOutput
+}
+
+type GetRepositoriesRepoArray []GetRepositoriesRepoInput
+
+func (GetRepositoriesRepoArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRepositoriesRepo)(nil)).Elem()
+}
+
+func (i GetRepositoriesRepoArray) ToGetRepositoriesRepoArrayOutput() GetRepositoriesRepoArrayOutput {
+	return i.ToGetRepositoriesRepoArrayOutputWithContext(context.Background())
+}
+
+func (i GetRepositoriesRepoArray) ToGetRepositoriesRepoArrayOutputWithContext(ctx context.Context) GetRepositoriesRepoArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRepositoriesRepoArrayOutput)
+}
+
+type GetRepositoriesRepoOutput struct{ *pulumi.OutputState }
+
+func (GetRepositoriesRepoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRepositoriesRepo)(nil)).Elem()
+}
+
+func (o GetRepositoriesRepoOutput) ToGetRepositoriesRepoOutput() GetRepositoriesRepoOutput {
+	return o
+}
+
+func (o GetRepositoriesRepoOutput) ToGetRepositoriesRepoOutputWithContext(ctx context.Context) GetRepositoriesRepoOutput {
+	return o
+}
+
+func (o GetRepositoriesRepoOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRepositoriesRepo) string { return v.Description }).(pulumi.StringOutput)
+}
+
+func (o GetRepositoriesRepoOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRepositoriesRepo) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o GetRepositoriesRepoOutput) PackageType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRepositoriesRepo) string { return v.PackageType }).(pulumi.StringOutput)
+}
+
+func (o GetRepositoriesRepoOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRepositoriesRepo) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func (o GetRepositoriesRepoOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRepositoriesRepo) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type GetRepositoriesRepoArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRepositoriesRepoArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRepositoriesRepo)(nil)).Elem()
+}
+
+func (o GetRepositoriesRepoArrayOutput) ToGetRepositoriesRepoArrayOutput() GetRepositoriesRepoArrayOutput {
+	return o
+}
+
+func (o GetRepositoriesRepoArrayOutput) ToGetRepositoriesRepoArrayOutputWithContext(ctx context.Context) GetRepositoriesRepoArrayOutput {
+	return o
+}
+
+func (o GetRepositoriesRepoArrayOutput) Index(i pulumi.IntInput) GetRepositoriesRepoOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRepositoriesRepo {
+		return vs[0].([]GetRepositoriesRepo)[vs[1].(int)]
+	}).(GetRepositoriesRepoOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessTokenAdminTokenInput)(nil)).Elem(), AccessTokenAdminTokenArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessTokenAdminTokenPtrInput)(nil)).Elem(), AccessTokenAdminTokenArgs{})
@@ -27470,6 +27791,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedTerraformProviderRepositoryMemberArrayInput)(nil)).Elem(), GetFederatedTerraformProviderRepositoryMemberArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedVagrantRepositoryMemberInput)(nil)).Elem(), GetFederatedVagrantRepositoryMemberArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFederatedVagrantRepositoryMemberArrayInput)(nil)).Elem(), GetFederatedVagrantRepositoryMemberArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFileListFileInput)(nil)).Elem(), GetFileListFileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFileListFileArrayInput)(nil)).Elem(), GetFileListFileArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFileListFileMetadataTimestampsInput)(nil)).Elem(), GetFileListFileMetadataTimestampsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPermissionTargetBuildInput)(nil)).Elem(), GetPermissionTargetBuildArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPermissionTargetBuildPtrInput)(nil)).Elem(), GetPermissionTargetBuildArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPermissionTargetBuildActionsInput)(nil)).Elem(), GetPermissionTargetBuildActionsArgs{})
@@ -27556,6 +27880,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRemoteTerraformRepositoryContentSynchronisationPtrInput)(nil)).Elem(), GetRemoteTerraformRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRemoteVcsRepositoryContentSynchronisationInput)(nil)).Elem(), GetRemoteVcsRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRemoteVcsRepositoryContentSynchronisationPtrInput)(nil)).Elem(), GetRemoteVcsRepositoryContentSynchronisationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoriesRepoInput)(nil)).Elem(), GetRepositoriesRepoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoriesRepoArrayInput)(nil)).Elem(), GetRepositoriesRepoArray{})
 	pulumi.RegisterOutputType(AccessTokenAdminTokenOutput{})
 	pulumi.RegisterOutputType(AccessTokenAdminTokenPtrOutput{})
 	pulumi.RegisterOutputType(ArtifactCustomWebhookCriteriaOutput{})
@@ -27842,6 +28168,9 @@ func init() {
 	pulumi.RegisterOutputType(GetFederatedTerraformProviderRepositoryMemberArrayOutput{})
 	pulumi.RegisterOutputType(GetFederatedVagrantRepositoryMemberOutput{})
 	pulumi.RegisterOutputType(GetFederatedVagrantRepositoryMemberArrayOutput{})
+	pulumi.RegisterOutputType(GetFileListFileOutput{})
+	pulumi.RegisterOutputType(GetFileListFileArrayOutput{})
+	pulumi.RegisterOutputType(GetFileListFileMetadataTimestampsOutput{})
 	pulumi.RegisterOutputType(GetPermissionTargetBuildOutput{})
 	pulumi.RegisterOutputType(GetPermissionTargetBuildPtrOutput{})
 	pulumi.RegisterOutputType(GetPermissionTargetBuildActionsOutput{})
@@ -27928,4 +28257,6 @@ func init() {
 	pulumi.RegisterOutputType(GetRemoteTerraformRepositoryContentSynchronisationPtrOutput{})
 	pulumi.RegisterOutputType(GetRemoteVcsRepositoryContentSynchronisationOutput{})
 	pulumi.RegisterOutputType(GetRemoteVcsRepositoryContentSynchronisationPtrOutput{})
+	pulumi.RegisterOutputType(GetRepositoriesRepoOutput{})
+	pulumi.RegisterOutputType(GetRepositoriesRepoArrayOutput{})
 }
