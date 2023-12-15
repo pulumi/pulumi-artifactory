@@ -18,14 +18,14 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/pulumi/pulumi-artifactory/provider/v5/pkg/version"
+	"github.com/pulumi/pulumi-artifactory/provider/v6/pkg/version"
 
 	// embed is used to store bridge-metadata.json in the compiled binary
 	_ "embed"
 	"path/filepath"
 	"unicode"
 
-	artifactoryProvider "github.com/jfrog/terraform-provider-artifactory/v9/pkg/artifactory/provider"
+	artifactoryProvider "github.com/jfrog/terraform-provider-artifactory/v10/pkg/artifactory/provider"
 	pfbridge "github.com/pulumi/pulumi-terraform-bridge/pf/tfbridge"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	tks "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/tokens"
@@ -79,7 +79,7 @@ func Provider() tfbridge.ProviderInfo {
 		Homepage:                "https://pulumi.io",
 		Repository:              "https://github.com/pulumi/pulumi-artifactory",
 		GitHubOrg:               "jfrog",
-		TFProviderModuleVersion: "v9",
+		TFProviderModuleVersion: "v10",
 		Version:                 version.Version,
 		Config: map[string]*tfbridge.SchemaInfo{
 			"check_license": {
@@ -352,9 +352,7 @@ func Provider() tfbridge.ProviderInfo {
 		"artifactory_local_vagrant_repository",
 	}
 
-	missingDocInfo := &tfbridge.DocInfo{
-		Markdown: []byte{' '},
-	}
+	missingDocInfo := &tfbridge.DocInfo{AllowMissing: true}
 	for _, s := range docLessDataSources {
 		prov.DataSources[s].Docs = missingDocInfo
 	}

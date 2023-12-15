@@ -3091,6 +3091,15 @@
                 "current": "artifactory:index/getFile:getFile",
                 "majorVersion": 5
             },
+            "artifactory_file_list": {
+                "current": "artifactory:index/getFileList:getFileList",
+                "majorVersion": 5,
+                "fields": {
+                    "files": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "artifactory_fileinfo": {
                 "current": "artifactory:index/getFileinfo:getFileinfo",
                 "majorVersion": 5
@@ -4127,6 +4136,15 @@
                     }
                 }
             },
+            "artifactory_repositories": {
+                "current": "artifactory:index/getRepositories:getRepositories",
+                "majorVersion": 5,
+                "fields": {
+                    "repos": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "artifactory_user": {
                 "current": "artifactory:index/getUser:getUser",
                 "majorVersion": 5,
@@ -4670,6 +4688,7 @@
             "artifactory:index/getFederatedTerraformProviderRepository:getFederatedTerraformProviderRepository": 0,
             "artifactory:index/getFederatedVagrantRepository:getFederatedVagrantRepository": 0,
             "artifactory:index/getFile:getFile": 0,
+            "artifactory:index/getFileList:getFileList": 1,
             "artifactory:index/getFileinfo:getFileinfo": 0,
             "artifactory:index/getGroup:getGroup": 0,
             "artifactory:index/getLocalAlpineRepository:getLocalAlpineRepository": 0,
@@ -4738,6 +4757,7 @@
             "artifactory:index/getRemoteSwiftRepository:getRemoteSwiftRepository": 0,
             "artifactory:index/getRemoteTerraformRepository:getRemoteTerraformRepository": 0,
             "artifactory:index/getRemoteVcsRepository:getRemoteVcsRepository": 0,
+            "artifactory:index/getRepositories:getRepositories": 1,
             "artifactory:index/getUser:getUser": 0,
             "artifactory:index/getVirtualAlpineRepository:getVirtualAlpineRepository": 0,
             "artifactory:index/getVirtualBowerRepository:getVirtualBowerRepository": 0,
@@ -4975,6 +4995,7 @@
             "artifactory:index/getFederatedTerraformProviderRepository:getFederatedTerraformProviderRepository": "artifactory_federated_terraform_provider_repository",
             "artifactory:index/getFederatedVagrantRepository:getFederatedVagrantRepository": "artifactory_federated_vagrant_repository",
             "artifactory:index/getFile:getFile": "artifactory_file",
+            "artifactory:index/getFileList:getFileList": "artifactory_file_list",
             "artifactory:index/getFileinfo:getFileinfo": "artifactory_fileinfo",
             "artifactory:index/getGroup:getGroup": "artifactory_group",
             "artifactory:index/getLocalAlpineRepository:getLocalAlpineRepository": "artifactory_local_alpine_repository",
@@ -5043,6 +5064,7 @@
             "artifactory:index/getRemoteSwiftRepository:getRemoteSwiftRepository": "artifactory_remote_swift_repository",
             "artifactory:index/getRemoteTerraformRepository:getRemoteTerraformRepository": "artifactory_remote_terraform_repository",
             "artifactory:index/getRemoteVcsRepository:getRemoteVcsRepository": "artifactory_remote_vcs_repository",
+            "artifactory:index/getRepositories:getRepositories": "artifactory_repositories",
             "artifactory:index/getUser:getUser": "artifactory_user",
             "artifactory:index/getVirtualAlpineRepository:getVirtualAlpineRepository": "artifactory_virtual_alpine_repository",
             "artifactory:index/getVirtualBowerRepository:getVirtualBowerRepository": "artifactory_virtual_bower_repository",
@@ -6846,6 +6868,18 @@
                 "modifiedBy": "modified_by",
                 "outputPath": "output_path",
                 "pathIsAliased": "path_is_aliased"
+            },
+            "artifactory:index/getFileList:getFileList": {
+                "deepListing": "deep_listing",
+                "folderPath": "folder_path",
+                "includeRootPath": "include_root_path",
+                "listFolders": "list_folders",
+                "metadataTimestamps": "metadata_timestamps",
+                "repositoryKey": "repository_key"
+            },
+            "artifactory:index/getFileListFile:getFileListFile": {
+                "lastModified": "last_modified",
+                "metadataTimestamps": "metadata_timestamps"
             },
             "artifactory:index/getFileinfo:getFileinfo": {
                 "createdBy": "created_by",
@@ -8803,6 +8837,14 @@
                 "propertiesEnabled": "properties_enabled",
                 "sourceOriginAbsenceDetection": "source_origin_absence_detection",
                 "statisticsEnabled": "statistics_enabled"
+            },
+            "artifactory:index/getRepositories:getRepositories": {
+                "packageType": "package_type",
+                "projectKey": "project_key",
+                "repositoryType": "repository_type"
+            },
+            "artifactory:index/getRepositoriesRepo:getRepositoriesRepo": {
+                "packageType": "package_type"
             },
             "artifactory:index/getUser:getUser": {
                 "disableUiAccess": "disable_ui_access",
