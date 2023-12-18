@@ -80,17 +80,28 @@ type ScopedToken struct {
 
 	// Returns the access token to authenticate to Artifactory.
 	AccessToken pulumi.StringOutput `pulumi:"accessToken"`
-	// A list of the other instances or services that should accept this token identified by their Service-IDs. Limited to total 255 characters. Default to '*@*' if not set. Service ID must begin with valid JFrog service type. Options: jfrt, jfxr, jfpip, jfds, jfmc, jfac, jfevt, jfmd, jfcon, or *. For instructions to retrieve the Artifactory Service ID see this [documentation](https://jfrog.com/help/r/jfrog-rest-apis/get-service-id)
+	// A list of the other instances or services that should accept this token identified by their Service-IDs. Limited to
+	// total 255 characters. Default to '*@*' if not set. Service ID must begin with valid JFrog service type. Options: jfrt,
+	// jfxr, jfpip, jfds, jfmc, jfac, jfevt, jfmd, jfcon, or *. For instructions to retrieve the Artifactory Service ID see
+	// this [documentation](https://jfrog.com/help/r/jfrog-rest-apis/get-service-id)
 	Audiences pulumi.StringArrayOutput `pulumi:"audiences"`
 	// Free text token description. Useful for filtering and managing tokens. Limited to 1024 characters.
 	Description pulumi.StringOutput `pulumi:"description"`
-	// The amount of time, in seconds, it would take for the token to expire. An admin shall be able to set whether expiry is mandatory, what is the default expiry, and what is the maximum expiry allowed. Must be non-negative. Default value is based on configuration in 'access.config.yaml'. See [API documentation](https://jfrog.com/help/r/jfrog-rest-apis/create-token) for details. Access Token would not be saved by Artifactory if this is less than the persistence threshold value (default to 10800 seconds) set in Access configuration. See [official documentation](https://jfrog.com/help/r/jfrog-platform-administration-documentation/using-the-revocable-and-persistency-thresholds) for details.
+	// The amount of time, in seconds, it would take for the token to expire. An admin shall be able to set whether expiry is
+	// mandatory, what is the default expiry, and what is the maximum expiry allowed. Must be non-negative. Default value is
+	// based on configuration in 'access.config.yaml'. See [API
+	// documentation](https://jfrog.com/help/r/jfrog-rest-apis/revoke-token-by-id) for details. Access Token would not be saved
+	// by Artifactory if this is less than the persistence threshold value (default to 10800 seconds) set in Access
+	// configuration. See [official
+	// documentation](https://jfrog.com/help/r/jfrog-platform-administration-documentation/using-the-revocable-and-persistency-thresholds)
+	// for details.
 	ExpiresIn pulumi.IntOutput `pulumi:"expiresIn"`
 	// Returns the token expiry.
 	Expiry pulumi.IntOutput `pulumi:"expiry"`
-	// The grant type used to authenticate the request. In this case, the only value supported is `clientCredentials` which is also the default value if this parameter is not specified.
+	// The grant type used to authenticate the request. In this case, the only value supported is `client_credentials` which is
+	// also the default value if this parameter is not specified.
 	GrantType pulumi.StringOutput `pulumi:"grantType"`
-	// Also create a reference token which can be used like an API key.
+	// Also create a reference token which can be used like an API key. Default is `false`.
 	IncludeReferenceToken pulumi.BoolOutput `pulumi:"includeReferenceToken"`
 	// Returns the token issued at date/time.
 	IssuedAt pulumi.IntOutput `pulumi:"issuedAt"`
@@ -104,14 +115,31 @@ type ScopedToken struct {
 	RefreshToken pulumi.StringOutput `pulumi:"refreshToken"`
 	// Is this token refreshable? Default is `false`.
 	Refreshable pulumi.BoolOutput `pulumi:"refreshable"`
-	// The scope of access that the token provides. Access to the REST API is always provided by default. Administrators can set any scope, while non-admin users can only set the scope to a subset of the groups to which they belong.
-	// The supported scopes include:
+	// The scope of access that the token provides. Access to the REST API is always provided by default. Administrators can
+	// set any scope, while non-admin users can only set the scope to a subset of the groups to which they belong. The
+	// supported scopes include: * `applied-permissions/user` - provides user access. If left at the default setting, the token
+	// will be created with the user-identity scope, which allows users to identify themselves in the Platform but does not
+	// grant any specific access permissions.* `applied-permissions/admin` - the scope assigned to admin users.*
+	// `applied-permissions/groups` - the group to which permissions are assigned by group name (use username to inicate the
+	// group name)* `system:metrics:r` - for getting the service metrics* `system:livelogs:r` - for getting the service
+	// livelogsrThe scope to assign to the token should be provided as a list of scope tokens, limited to 500 characters in
+	// total. Resource Permissions From Artifactory 7.38.x, resource permissions scoped tokens are also supported in the REST
+	// API. A permission can be represented as a scope token string in the following format:
+	// `<resource-type>:<target>[/<sub-resource>]:<actions>` Where: `<resource-type>` - one of the permission resource types,
+	// from a predefined closed list. Currently, the only resource type that is supported is the artifact resource type.
+	// `<target>` - the target resource, can be exact name or a pattern `<sub-resource>` - optional, the target sub-resource,
+	// can be exact name or a pattern `<actions>` - comma-separated list of action acronyms.The actions allowed are <r, w, d,
+	// a, m> or any combination of these actions .To allow all actions - use `*` Examples: `["applied-permissions/user",
+	// "artifact:generic-local:r"]` `["applied-permissions/group", "artifact:generic-local/path:*"]`
+	// `["applied-permissions/admin", "system:metrics:r", "artifact:generic-local:*"]`
 	Scopes pulumi.StringArrayOutput `pulumi:"scopes"`
 	// Returns the token type.
 	Subject pulumi.StringOutput `pulumi:"subject"`
 	// Returns the token type.
 	TokenType pulumi.StringOutput `pulumi:"tokenType"`
-	// The user name for which this token is created. The username is based on the authenticated user - either from the user of the authenticated token or based on the username (if basic auth was used). The username is then used to set the subject of the token: \n\n/users/\n\n. Limited to 255 characters.
+	// The user name for which this token is created. The username is based on the authenticated user - either from the user of
+	// the authenticated token or based on the username (if basic auth was used). The username is then used to set the subject
+	// of the token: <service-id>/users/<username>. Limited to 255 characters.
 	Username pulumi.StringPtrOutput `pulumi:"username"`
 }
 
@@ -153,17 +181,28 @@ func GetScopedToken(ctx *pulumi.Context,
 type scopedTokenState struct {
 	// Returns the access token to authenticate to Artifactory.
 	AccessToken *string `pulumi:"accessToken"`
-	// A list of the other instances or services that should accept this token identified by their Service-IDs. Limited to total 255 characters. Default to '*@*' if not set. Service ID must begin with valid JFrog service type. Options: jfrt, jfxr, jfpip, jfds, jfmc, jfac, jfevt, jfmd, jfcon, or *. For instructions to retrieve the Artifactory Service ID see this [documentation](https://jfrog.com/help/r/jfrog-rest-apis/get-service-id)
+	// A list of the other instances or services that should accept this token identified by their Service-IDs. Limited to
+	// total 255 characters. Default to '*@*' if not set. Service ID must begin with valid JFrog service type. Options: jfrt,
+	// jfxr, jfpip, jfds, jfmc, jfac, jfevt, jfmd, jfcon, or *. For instructions to retrieve the Artifactory Service ID see
+	// this [documentation](https://jfrog.com/help/r/jfrog-rest-apis/get-service-id)
 	Audiences []string `pulumi:"audiences"`
 	// Free text token description. Useful for filtering and managing tokens. Limited to 1024 characters.
 	Description *string `pulumi:"description"`
-	// The amount of time, in seconds, it would take for the token to expire. An admin shall be able to set whether expiry is mandatory, what is the default expiry, and what is the maximum expiry allowed. Must be non-negative. Default value is based on configuration in 'access.config.yaml'. See [API documentation](https://jfrog.com/help/r/jfrog-rest-apis/create-token) for details. Access Token would not be saved by Artifactory if this is less than the persistence threshold value (default to 10800 seconds) set in Access configuration. See [official documentation](https://jfrog.com/help/r/jfrog-platform-administration-documentation/using-the-revocable-and-persistency-thresholds) for details.
+	// The amount of time, in seconds, it would take for the token to expire. An admin shall be able to set whether expiry is
+	// mandatory, what is the default expiry, and what is the maximum expiry allowed. Must be non-negative. Default value is
+	// based on configuration in 'access.config.yaml'. See [API
+	// documentation](https://jfrog.com/help/r/jfrog-rest-apis/revoke-token-by-id) for details. Access Token would not be saved
+	// by Artifactory if this is less than the persistence threshold value (default to 10800 seconds) set in Access
+	// configuration. See [official
+	// documentation](https://jfrog.com/help/r/jfrog-platform-administration-documentation/using-the-revocable-and-persistency-thresholds)
+	// for details.
 	ExpiresIn *int `pulumi:"expiresIn"`
 	// Returns the token expiry.
 	Expiry *int `pulumi:"expiry"`
-	// The grant type used to authenticate the request. In this case, the only value supported is `clientCredentials` which is also the default value if this parameter is not specified.
+	// The grant type used to authenticate the request. In this case, the only value supported is `client_credentials` which is
+	// also the default value if this parameter is not specified.
 	GrantType *string `pulumi:"grantType"`
-	// Also create a reference token which can be used like an API key.
+	// Also create a reference token which can be used like an API key. Default is `false`.
 	IncludeReferenceToken *bool `pulumi:"includeReferenceToken"`
 	// Returns the token issued at date/time.
 	IssuedAt *int `pulumi:"issuedAt"`
@@ -177,31 +216,59 @@ type scopedTokenState struct {
 	RefreshToken *string `pulumi:"refreshToken"`
 	// Is this token refreshable? Default is `false`.
 	Refreshable *bool `pulumi:"refreshable"`
-	// The scope of access that the token provides. Access to the REST API is always provided by default. Administrators can set any scope, while non-admin users can only set the scope to a subset of the groups to which they belong.
-	// The supported scopes include:
+	// The scope of access that the token provides. Access to the REST API is always provided by default. Administrators can
+	// set any scope, while non-admin users can only set the scope to a subset of the groups to which they belong. The
+	// supported scopes include: * `applied-permissions/user` - provides user access. If left at the default setting, the token
+	// will be created with the user-identity scope, which allows users to identify themselves in the Platform but does not
+	// grant any specific access permissions.* `applied-permissions/admin` - the scope assigned to admin users.*
+	// `applied-permissions/groups` - the group to which permissions are assigned by group name (use username to inicate the
+	// group name)* `system:metrics:r` - for getting the service metrics* `system:livelogs:r` - for getting the service
+	// livelogsrThe scope to assign to the token should be provided as a list of scope tokens, limited to 500 characters in
+	// total. Resource Permissions From Artifactory 7.38.x, resource permissions scoped tokens are also supported in the REST
+	// API. A permission can be represented as a scope token string in the following format:
+	// `<resource-type>:<target>[/<sub-resource>]:<actions>` Where: `<resource-type>` - one of the permission resource types,
+	// from a predefined closed list. Currently, the only resource type that is supported is the artifact resource type.
+	// `<target>` - the target resource, can be exact name or a pattern `<sub-resource>` - optional, the target sub-resource,
+	// can be exact name or a pattern `<actions>` - comma-separated list of action acronyms.The actions allowed are <r, w, d,
+	// a, m> or any combination of these actions .To allow all actions - use `*` Examples: `["applied-permissions/user",
+	// "artifact:generic-local:r"]` `["applied-permissions/group", "artifact:generic-local/path:*"]`
+	// `["applied-permissions/admin", "system:metrics:r", "artifact:generic-local:*"]`
 	Scopes []string `pulumi:"scopes"`
 	// Returns the token type.
 	Subject *string `pulumi:"subject"`
 	// Returns the token type.
 	TokenType *string `pulumi:"tokenType"`
-	// The user name for which this token is created. The username is based on the authenticated user - either from the user of the authenticated token or based on the username (if basic auth was used). The username is then used to set the subject of the token: \n\n/users/\n\n. Limited to 255 characters.
+	// The user name for which this token is created. The username is based on the authenticated user - either from the user of
+	// the authenticated token or based on the username (if basic auth was used). The username is then used to set the subject
+	// of the token: <service-id>/users/<username>. Limited to 255 characters.
 	Username *string `pulumi:"username"`
 }
 
 type ScopedTokenState struct {
 	// Returns the access token to authenticate to Artifactory.
 	AccessToken pulumi.StringPtrInput
-	// A list of the other instances or services that should accept this token identified by their Service-IDs. Limited to total 255 characters. Default to '*@*' if not set. Service ID must begin with valid JFrog service type. Options: jfrt, jfxr, jfpip, jfds, jfmc, jfac, jfevt, jfmd, jfcon, or *. For instructions to retrieve the Artifactory Service ID see this [documentation](https://jfrog.com/help/r/jfrog-rest-apis/get-service-id)
+	// A list of the other instances or services that should accept this token identified by their Service-IDs. Limited to
+	// total 255 characters. Default to '*@*' if not set. Service ID must begin with valid JFrog service type. Options: jfrt,
+	// jfxr, jfpip, jfds, jfmc, jfac, jfevt, jfmd, jfcon, or *. For instructions to retrieve the Artifactory Service ID see
+	// this [documentation](https://jfrog.com/help/r/jfrog-rest-apis/get-service-id)
 	Audiences pulumi.StringArrayInput
 	// Free text token description. Useful for filtering and managing tokens. Limited to 1024 characters.
 	Description pulumi.StringPtrInput
-	// The amount of time, in seconds, it would take for the token to expire. An admin shall be able to set whether expiry is mandatory, what is the default expiry, and what is the maximum expiry allowed. Must be non-negative. Default value is based on configuration in 'access.config.yaml'. See [API documentation](https://jfrog.com/help/r/jfrog-rest-apis/create-token) for details. Access Token would not be saved by Artifactory if this is less than the persistence threshold value (default to 10800 seconds) set in Access configuration. See [official documentation](https://jfrog.com/help/r/jfrog-platform-administration-documentation/using-the-revocable-and-persistency-thresholds) for details.
+	// The amount of time, in seconds, it would take for the token to expire. An admin shall be able to set whether expiry is
+	// mandatory, what is the default expiry, and what is the maximum expiry allowed. Must be non-negative. Default value is
+	// based on configuration in 'access.config.yaml'. See [API
+	// documentation](https://jfrog.com/help/r/jfrog-rest-apis/revoke-token-by-id) for details. Access Token would not be saved
+	// by Artifactory if this is less than the persistence threshold value (default to 10800 seconds) set in Access
+	// configuration. See [official
+	// documentation](https://jfrog.com/help/r/jfrog-platform-administration-documentation/using-the-revocable-and-persistency-thresholds)
+	// for details.
 	ExpiresIn pulumi.IntPtrInput
 	// Returns the token expiry.
 	Expiry pulumi.IntPtrInput
-	// The grant type used to authenticate the request. In this case, the only value supported is `clientCredentials` which is also the default value if this parameter is not specified.
+	// The grant type used to authenticate the request. In this case, the only value supported is `client_credentials` which is
+	// also the default value if this parameter is not specified.
 	GrantType pulumi.StringPtrInput
-	// Also create a reference token which can be used like an API key.
+	// Also create a reference token which can be used like an API key. Default is `false`.
 	IncludeReferenceToken pulumi.BoolPtrInput
 	// Returns the token issued at date/time.
 	IssuedAt pulumi.IntPtrInput
@@ -215,14 +282,31 @@ type ScopedTokenState struct {
 	RefreshToken pulumi.StringPtrInput
 	// Is this token refreshable? Default is `false`.
 	Refreshable pulumi.BoolPtrInput
-	// The scope of access that the token provides. Access to the REST API is always provided by default. Administrators can set any scope, while non-admin users can only set the scope to a subset of the groups to which they belong.
-	// The supported scopes include:
+	// The scope of access that the token provides. Access to the REST API is always provided by default. Administrators can
+	// set any scope, while non-admin users can only set the scope to a subset of the groups to which they belong. The
+	// supported scopes include: * `applied-permissions/user` - provides user access. If left at the default setting, the token
+	// will be created with the user-identity scope, which allows users to identify themselves in the Platform but does not
+	// grant any specific access permissions.* `applied-permissions/admin` - the scope assigned to admin users.*
+	// `applied-permissions/groups` - the group to which permissions are assigned by group name (use username to inicate the
+	// group name)* `system:metrics:r` - for getting the service metrics* `system:livelogs:r` - for getting the service
+	// livelogsrThe scope to assign to the token should be provided as a list of scope tokens, limited to 500 characters in
+	// total. Resource Permissions From Artifactory 7.38.x, resource permissions scoped tokens are also supported in the REST
+	// API. A permission can be represented as a scope token string in the following format:
+	// `<resource-type>:<target>[/<sub-resource>]:<actions>` Where: `<resource-type>` - one of the permission resource types,
+	// from a predefined closed list. Currently, the only resource type that is supported is the artifact resource type.
+	// `<target>` - the target resource, can be exact name or a pattern `<sub-resource>` - optional, the target sub-resource,
+	// can be exact name or a pattern `<actions>` - comma-separated list of action acronyms.The actions allowed are <r, w, d,
+	// a, m> or any combination of these actions .To allow all actions - use `*` Examples: `["applied-permissions/user",
+	// "artifact:generic-local:r"]` `["applied-permissions/group", "artifact:generic-local/path:*"]`
+	// `["applied-permissions/admin", "system:metrics:r", "artifact:generic-local:*"]`
 	Scopes pulumi.StringArrayInput
 	// Returns the token type.
 	Subject pulumi.StringPtrInput
 	// Returns the token type.
 	TokenType pulumi.StringPtrInput
-	// The user name for which this token is created. The username is based on the authenticated user - either from the user of the authenticated token or based on the username (if basic auth was used). The username is then used to set the subject of the token: \n\n/users/\n\n. Limited to 255 characters.
+	// The user name for which this token is created. The username is based on the authenticated user - either from the user of
+	// the authenticated token or based on the username (if basic auth was used). The username is then used to set the subject
+	// of the token: <service-id>/users/<username>. Limited to 255 characters.
 	Username pulumi.StringPtrInput
 }
 
@@ -231,47 +315,103 @@ func (ScopedTokenState) ElementType() reflect.Type {
 }
 
 type scopedTokenArgs struct {
-	// A list of the other instances or services that should accept this token identified by their Service-IDs. Limited to total 255 characters. Default to '*@*' if not set. Service ID must begin with valid JFrog service type. Options: jfrt, jfxr, jfpip, jfds, jfmc, jfac, jfevt, jfmd, jfcon, or *. For instructions to retrieve the Artifactory Service ID see this [documentation](https://jfrog.com/help/r/jfrog-rest-apis/get-service-id)
+	// A list of the other instances or services that should accept this token identified by their Service-IDs. Limited to
+	// total 255 characters. Default to '*@*' if not set. Service ID must begin with valid JFrog service type. Options: jfrt,
+	// jfxr, jfpip, jfds, jfmc, jfac, jfevt, jfmd, jfcon, or *. For instructions to retrieve the Artifactory Service ID see
+	// this [documentation](https://jfrog.com/help/r/jfrog-rest-apis/get-service-id)
 	Audiences []string `pulumi:"audiences"`
 	// Free text token description. Useful for filtering and managing tokens. Limited to 1024 characters.
 	Description *string `pulumi:"description"`
-	// The amount of time, in seconds, it would take for the token to expire. An admin shall be able to set whether expiry is mandatory, what is the default expiry, and what is the maximum expiry allowed. Must be non-negative. Default value is based on configuration in 'access.config.yaml'. See [API documentation](https://jfrog.com/help/r/jfrog-rest-apis/create-token) for details. Access Token would not be saved by Artifactory if this is less than the persistence threshold value (default to 10800 seconds) set in Access configuration. See [official documentation](https://jfrog.com/help/r/jfrog-platform-administration-documentation/using-the-revocable-and-persistency-thresholds) for details.
+	// The amount of time, in seconds, it would take for the token to expire. An admin shall be able to set whether expiry is
+	// mandatory, what is the default expiry, and what is the maximum expiry allowed. Must be non-negative. Default value is
+	// based on configuration in 'access.config.yaml'. See [API
+	// documentation](https://jfrog.com/help/r/jfrog-rest-apis/revoke-token-by-id) for details. Access Token would not be saved
+	// by Artifactory if this is less than the persistence threshold value (default to 10800 seconds) set in Access
+	// configuration. See [official
+	// documentation](https://jfrog.com/help/r/jfrog-platform-administration-documentation/using-the-revocable-and-persistency-thresholds)
+	// for details.
 	ExpiresIn *int `pulumi:"expiresIn"`
-	// The grant type used to authenticate the request. In this case, the only value supported is `clientCredentials` which is also the default value if this parameter is not specified.
+	// The grant type used to authenticate the request. In this case, the only value supported is `client_credentials` which is
+	// also the default value if this parameter is not specified.
 	GrantType *string `pulumi:"grantType"`
-	// Also create a reference token which can be used like an API key.
+	// Also create a reference token which can be used like an API key. Default is `false`.
 	IncludeReferenceToken *bool `pulumi:"includeReferenceToken"`
 	// The project for which this token is created. Enter the project name on which you want to apply this token.
 	ProjectKey *string `pulumi:"projectKey"`
 	// Is this token refreshable? Default is `false`.
 	Refreshable *bool `pulumi:"refreshable"`
-	// The scope of access that the token provides. Access to the REST API is always provided by default. Administrators can set any scope, while non-admin users can only set the scope to a subset of the groups to which they belong.
-	// The supported scopes include:
+	// The scope of access that the token provides. Access to the REST API is always provided by default. Administrators can
+	// set any scope, while non-admin users can only set the scope to a subset of the groups to which they belong. The
+	// supported scopes include: * `applied-permissions/user` - provides user access. If left at the default setting, the token
+	// will be created with the user-identity scope, which allows users to identify themselves in the Platform but does not
+	// grant any specific access permissions.* `applied-permissions/admin` - the scope assigned to admin users.*
+	// `applied-permissions/groups` - the group to which permissions are assigned by group name (use username to inicate the
+	// group name)* `system:metrics:r` - for getting the service metrics* `system:livelogs:r` - for getting the service
+	// livelogsrThe scope to assign to the token should be provided as a list of scope tokens, limited to 500 characters in
+	// total. Resource Permissions From Artifactory 7.38.x, resource permissions scoped tokens are also supported in the REST
+	// API. A permission can be represented as a scope token string in the following format:
+	// `<resource-type>:<target>[/<sub-resource>]:<actions>` Where: `<resource-type>` - one of the permission resource types,
+	// from a predefined closed list. Currently, the only resource type that is supported is the artifact resource type.
+	// `<target>` - the target resource, can be exact name or a pattern `<sub-resource>` - optional, the target sub-resource,
+	// can be exact name or a pattern `<actions>` - comma-separated list of action acronyms.The actions allowed are <r, w, d,
+	// a, m> or any combination of these actions .To allow all actions - use `*` Examples: `["applied-permissions/user",
+	// "artifact:generic-local:r"]` `["applied-permissions/group", "artifact:generic-local/path:*"]`
+	// `["applied-permissions/admin", "system:metrics:r", "artifact:generic-local:*"]`
 	Scopes []string `pulumi:"scopes"`
-	// The user name for which this token is created. The username is based on the authenticated user - either from the user of the authenticated token or based on the username (if basic auth was used). The username is then used to set the subject of the token: \n\n/users/\n\n. Limited to 255 characters.
+	// The user name for which this token is created. The username is based on the authenticated user - either from the user of
+	// the authenticated token or based on the username (if basic auth was used). The username is then used to set the subject
+	// of the token: <service-id>/users/<username>. Limited to 255 characters.
 	Username *string `pulumi:"username"`
 }
 
 // The set of arguments for constructing a ScopedToken resource.
 type ScopedTokenArgs struct {
-	// A list of the other instances or services that should accept this token identified by their Service-IDs. Limited to total 255 characters. Default to '*@*' if not set. Service ID must begin with valid JFrog service type. Options: jfrt, jfxr, jfpip, jfds, jfmc, jfac, jfevt, jfmd, jfcon, or *. For instructions to retrieve the Artifactory Service ID see this [documentation](https://jfrog.com/help/r/jfrog-rest-apis/get-service-id)
+	// A list of the other instances or services that should accept this token identified by their Service-IDs. Limited to
+	// total 255 characters. Default to '*@*' if not set. Service ID must begin with valid JFrog service type. Options: jfrt,
+	// jfxr, jfpip, jfds, jfmc, jfac, jfevt, jfmd, jfcon, or *. For instructions to retrieve the Artifactory Service ID see
+	// this [documentation](https://jfrog.com/help/r/jfrog-rest-apis/get-service-id)
 	Audiences pulumi.StringArrayInput
 	// Free text token description. Useful for filtering and managing tokens. Limited to 1024 characters.
 	Description pulumi.StringPtrInput
-	// The amount of time, in seconds, it would take for the token to expire. An admin shall be able to set whether expiry is mandatory, what is the default expiry, and what is the maximum expiry allowed. Must be non-negative. Default value is based on configuration in 'access.config.yaml'. See [API documentation](https://jfrog.com/help/r/jfrog-rest-apis/create-token) for details. Access Token would not be saved by Artifactory if this is less than the persistence threshold value (default to 10800 seconds) set in Access configuration. See [official documentation](https://jfrog.com/help/r/jfrog-platform-administration-documentation/using-the-revocable-and-persistency-thresholds) for details.
+	// The amount of time, in seconds, it would take for the token to expire. An admin shall be able to set whether expiry is
+	// mandatory, what is the default expiry, and what is the maximum expiry allowed. Must be non-negative. Default value is
+	// based on configuration in 'access.config.yaml'. See [API
+	// documentation](https://jfrog.com/help/r/jfrog-rest-apis/revoke-token-by-id) for details. Access Token would not be saved
+	// by Artifactory if this is less than the persistence threshold value (default to 10800 seconds) set in Access
+	// configuration. See [official
+	// documentation](https://jfrog.com/help/r/jfrog-platform-administration-documentation/using-the-revocable-and-persistency-thresholds)
+	// for details.
 	ExpiresIn pulumi.IntPtrInput
-	// The grant type used to authenticate the request. In this case, the only value supported is `clientCredentials` which is also the default value if this parameter is not specified.
+	// The grant type used to authenticate the request. In this case, the only value supported is `client_credentials` which is
+	// also the default value if this parameter is not specified.
 	GrantType pulumi.StringPtrInput
-	// Also create a reference token which can be used like an API key.
+	// Also create a reference token which can be used like an API key. Default is `false`.
 	IncludeReferenceToken pulumi.BoolPtrInput
 	// The project for which this token is created. Enter the project name on which you want to apply this token.
 	ProjectKey pulumi.StringPtrInput
 	// Is this token refreshable? Default is `false`.
 	Refreshable pulumi.BoolPtrInput
-	// The scope of access that the token provides. Access to the REST API is always provided by default. Administrators can set any scope, while non-admin users can only set the scope to a subset of the groups to which they belong.
-	// The supported scopes include:
+	// The scope of access that the token provides. Access to the REST API is always provided by default. Administrators can
+	// set any scope, while non-admin users can only set the scope to a subset of the groups to which they belong. The
+	// supported scopes include: * `applied-permissions/user` - provides user access. If left at the default setting, the token
+	// will be created with the user-identity scope, which allows users to identify themselves in the Platform but does not
+	// grant any specific access permissions.* `applied-permissions/admin` - the scope assigned to admin users.*
+	// `applied-permissions/groups` - the group to which permissions are assigned by group name (use username to inicate the
+	// group name)* `system:metrics:r` - for getting the service metrics* `system:livelogs:r` - for getting the service
+	// livelogsrThe scope to assign to the token should be provided as a list of scope tokens, limited to 500 characters in
+	// total. Resource Permissions From Artifactory 7.38.x, resource permissions scoped tokens are also supported in the REST
+	// API. A permission can be represented as a scope token string in the following format:
+	// `<resource-type>:<target>[/<sub-resource>]:<actions>` Where: `<resource-type>` - one of the permission resource types,
+	// from a predefined closed list. Currently, the only resource type that is supported is the artifact resource type.
+	// `<target>` - the target resource, can be exact name or a pattern `<sub-resource>` - optional, the target sub-resource,
+	// can be exact name or a pattern `<actions>` - comma-separated list of action acronyms.The actions allowed are <r, w, d,
+	// a, m> or any combination of these actions .To allow all actions - use `*` Examples: `["applied-permissions/user",
+	// "artifact:generic-local:r"]` `["applied-permissions/group", "artifact:generic-local/path:*"]`
+	// `["applied-permissions/admin", "system:metrics:r", "artifact:generic-local:*"]`
 	Scopes pulumi.StringArrayInput
-	// The user name for which this token is created. The username is based on the authenticated user - either from the user of the authenticated token or based on the username (if basic auth was used). The username is then used to set the subject of the token: \n\n/users/\n\n. Limited to 255 characters.
+	// The user name for which this token is created. The username is based on the authenticated user - either from the user of
+	// the authenticated token or based on the username (if basic auth was used). The username is then used to set the subject
+	// of the token: <service-id>/users/<username>. Limited to 255 characters.
 	Username pulumi.StringPtrInput
 }
 
@@ -367,7 +507,10 @@ func (o ScopedTokenOutput) AccessToken() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScopedToken) pulumi.StringOutput { return v.AccessToken }).(pulumi.StringOutput)
 }
 
-// A list of the other instances or services that should accept this token identified by their Service-IDs. Limited to total 255 characters. Default to '*@*' if not set. Service ID must begin with valid JFrog service type. Options: jfrt, jfxr, jfpip, jfds, jfmc, jfac, jfevt, jfmd, jfcon, or *. For instructions to retrieve the Artifactory Service ID see this [documentation](https://jfrog.com/help/r/jfrog-rest-apis/get-service-id)
+// A list of the other instances or services that should accept this token identified by their Service-IDs. Limited to
+// total 255 characters. Default to '*@*' if not set. Service ID must begin with valid JFrog service type. Options: jfrt,
+// jfxr, jfpip, jfds, jfmc, jfac, jfevt, jfmd, jfcon, or *. For instructions to retrieve the Artifactory Service ID see
+// this [documentation](https://jfrog.com/help/r/jfrog-rest-apis/get-service-id)
 func (o ScopedTokenOutput) Audiences() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ScopedToken) pulumi.StringArrayOutput { return v.Audiences }).(pulumi.StringArrayOutput)
 }
@@ -377,7 +520,14 @@ func (o ScopedTokenOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScopedToken) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
 
-// The amount of time, in seconds, it would take for the token to expire. An admin shall be able to set whether expiry is mandatory, what is the default expiry, and what is the maximum expiry allowed. Must be non-negative. Default value is based on configuration in 'access.config.yaml'. See [API documentation](https://jfrog.com/help/r/jfrog-rest-apis/create-token) for details. Access Token would not be saved by Artifactory if this is less than the persistence threshold value (default to 10800 seconds) set in Access configuration. See [official documentation](https://jfrog.com/help/r/jfrog-platform-administration-documentation/using-the-revocable-and-persistency-thresholds) for details.
+// The amount of time, in seconds, it would take for the token to expire. An admin shall be able to set whether expiry is
+// mandatory, what is the default expiry, and what is the maximum expiry allowed. Must be non-negative. Default value is
+// based on configuration in 'access.config.yaml'. See [API
+// documentation](https://jfrog.com/help/r/jfrog-rest-apis/revoke-token-by-id) for details. Access Token would not be saved
+// by Artifactory if this is less than the persistence threshold value (default to 10800 seconds) set in Access
+// configuration. See [official
+// documentation](https://jfrog.com/help/r/jfrog-platform-administration-documentation/using-the-revocable-and-persistency-thresholds)
+// for details.
 func (o ScopedTokenOutput) ExpiresIn() pulumi.IntOutput {
 	return o.ApplyT(func(v *ScopedToken) pulumi.IntOutput { return v.ExpiresIn }).(pulumi.IntOutput)
 }
@@ -387,12 +537,13 @@ func (o ScopedTokenOutput) Expiry() pulumi.IntOutput {
 	return o.ApplyT(func(v *ScopedToken) pulumi.IntOutput { return v.Expiry }).(pulumi.IntOutput)
 }
 
-// The grant type used to authenticate the request. In this case, the only value supported is `clientCredentials` which is also the default value if this parameter is not specified.
+// The grant type used to authenticate the request. In this case, the only value supported is `client_credentials` which is
+// also the default value if this parameter is not specified.
 func (o ScopedTokenOutput) GrantType() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScopedToken) pulumi.StringOutput { return v.GrantType }).(pulumi.StringOutput)
 }
 
-// Also create a reference token which can be used like an API key.
+// Also create a reference token which can be used like an API key. Default is `false`.
 func (o ScopedTokenOutput) IncludeReferenceToken() pulumi.BoolOutput {
 	return o.ApplyT(func(v *ScopedToken) pulumi.BoolOutput { return v.IncludeReferenceToken }).(pulumi.BoolOutput)
 }
@@ -427,8 +578,23 @@ func (o ScopedTokenOutput) Refreshable() pulumi.BoolOutput {
 	return o.ApplyT(func(v *ScopedToken) pulumi.BoolOutput { return v.Refreshable }).(pulumi.BoolOutput)
 }
 
-// The scope of access that the token provides. Access to the REST API is always provided by default. Administrators can set any scope, while non-admin users can only set the scope to a subset of the groups to which they belong.
-// The supported scopes include:
+// The scope of access that the token provides. Access to the REST API is always provided by default. Administrators can
+// set any scope, while non-admin users can only set the scope to a subset of the groups to which they belong. The
+// supported scopes include: * `applied-permissions/user` - provides user access. If left at the default setting, the token
+// will be created with the user-identity scope, which allows users to identify themselves in the Platform but does not
+// grant any specific access permissions.* `applied-permissions/admin` - the scope assigned to admin users.*
+// `applied-permissions/groups` - the group to which permissions are assigned by group name (use username to inicate the
+// group name)* `system:metrics:r` - for getting the service metrics* `system:livelogs:r` - for getting the service
+// livelogsrThe scope to assign to the token should be provided as a list of scope tokens, limited to 500 characters in
+// total. Resource Permissions From Artifactory 7.38.x, resource permissions scoped tokens are also supported in the REST
+// API. A permission can be represented as a scope token string in the following format:
+// `<resource-type>:<target>[/<sub-resource>]:<actions>` Where: `<resource-type>` - one of the permission resource types,
+// from a predefined closed list. Currently, the only resource type that is supported is the artifact resource type.
+// `<target>` - the target resource, can be exact name or a pattern `<sub-resource>` - optional, the target sub-resource,
+// can be exact name or a pattern `<actions>` - comma-separated list of action acronyms.The actions allowed are <r, w, d,
+// a, m> or any combination of these actions .To allow all actions - use `*` Examples: `["applied-permissions/user",
+// "artifact:generic-local:r"]` `["applied-permissions/group", "artifact:generic-local/path:*"]`
+// `["applied-permissions/admin", "system:metrics:r", "artifact:generic-local:*"]`
 func (o ScopedTokenOutput) Scopes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ScopedToken) pulumi.StringArrayOutput { return v.Scopes }).(pulumi.StringArrayOutput)
 }
@@ -443,7 +609,9 @@ func (o ScopedTokenOutput) TokenType() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScopedToken) pulumi.StringOutput { return v.TokenType }).(pulumi.StringOutput)
 }
 
-// The user name for which this token is created. The username is based on the authenticated user - either from the user of the authenticated token or based on the username (if basic auth was used). The username is then used to set the subject of the token: \n\n/users/\n\n. Limited to 255 characters.
+// The user name for which this token is created. The username is based on the authenticated user - either from the user of
+// the authenticated token or based on the username (if basic auth was used). The username is then used to set the subject
+// of the token: <service-id>/users/<username>. Limited to 255 characters.
 func (o ScopedTokenOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScopedToken) pulumi.StringPtrOutput { return v.Username }).(pulumi.StringPtrOutput)
 }
