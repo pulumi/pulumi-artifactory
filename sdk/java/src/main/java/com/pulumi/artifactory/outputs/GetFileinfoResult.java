@@ -4,6 +4,7 @@
 package com.pulumi.artifactory.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -209,72 +210,114 @@ public final class GetFileinfoResult {
 
         @CustomType.Setter
         public Builder created(String created) {
-            this.created = Objects.requireNonNull(created);
+            if (created == null) {
+              throw new MissingRequiredPropertyException("GetFileinfoResult", "created");
+            }
+            this.created = created;
             return this;
         }
         @CustomType.Setter
         public Builder createdBy(String createdBy) {
-            this.createdBy = Objects.requireNonNull(createdBy);
+            if (createdBy == null) {
+              throw new MissingRequiredPropertyException("GetFileinfoResult", "createdBy");
+            }
+            this.createdBy = createdBy;
             return this;
         }
         @CustomType.Setter
         public Builder downloadUri(String downloadUri) {
-            this.downloadUri = Objects.requireNonNull(downloadUri);
+            if (downloadUri == null) {
+              throw new MissingRequiredPropertyException("GetFileinfoResult", "downloadUri");
+            }
+            this.downloadUri = downloadUri;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetFileinfoResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder lastModified(String lastModified) {
-            this.lastModified = Objects.requireNonNull(lastModified);
+            if (lastModified == null) {
+              throw new MissingRequiredPropertyException("GetFileinfoResult", "lastModified");
+            }
+            this.lastModified = lastModified;
             return this;
         }
         @CustomType.Setter
         public Builder lastUpdated(String lastUpdated) {
-            this.lastUpdated = Objects.requireNonNull(lastUpdated);
+            if (lastUpdated == null) {
+              throw new MissingRequiredPropertyException("GetFileinfoResult", "lastUpdated");
+            }
+            this.lastUpdated = lastUpdated;
             return this;
         }
         @CustomType.Setter
         public Builder md5(String md5) {
-            this.md5 = Objects.requireNonNull(md5);
+            if (md5 == null) {
+              throw new MissingRequiredPropertyException("GetFileinfoResult", "md5");
+            }
+            this.md5 = md5;
             return this;
         }
         @CustomType.Setter
         public Builder mimetype(String mimetype) {
-            this.mimetype = Objects.requireNonNull(mimetype);
+            if (mimetype == null) {
+              throw new MissingRequiredPropertyException("GetFileinfoResult", "mimetype");
+            }
+            this.mimetype = mimetype;
             return this;
         }
         @CustomType.Setter
         public Builder modifiedBy(String modifiedBy) {
-            this.modifiedBy = Objects.requireNonNull(modifiedBy);
+            if (modifiedBy == null) {
+              throw new MissingRequiredPropertyException("GetFileinfoResult", "modifiedBy");
+            }
+            this.modifiedBy = modifiedBy;
             return this;
         }
         @CustomType.Setter
         public Builder path(String path) {
-            this.path = Objects.requireNonNull(path);
+            if (path == null) {
+              throw new MissingRequiredPropertyException("GetFileinfoResult", "path");
+            }
+            this.path = path;
             return this;
         }
         @CustomType.Setter
         public Builder repository(String repository) {
-            this.repository = Objects.requireNonNull(repository);
+            if (repository == null) {
+              throw new MissingRequiredPropertyException("GetFileinfoResult", "repository");
+            }
+            this.repository = repository;
             return this;
         }
         @CustomType.Setter
         public Builder sha1(String sha1) {
-            this.sha1 = Objects.requireNonNull(sha1);
+            if (sha1 == null) {
+              throw new MissingRequiredPropertyException("GetFileinfoResult", "sha1");
+            }
+            this.sha1 = sha1;
             return this;
         }
         @CustomType.Setter
         public Builder sha256(String sha256) {
-            this.sha256 = Objects.requireNonNull(sha256);
+            if (sha256 == null) {
+              throw new MissingRequiredPropertyException("GetFileinfoResult", "sha256");
+            }
+            this.sha256 = sha256;
             return this;
         }
         @CustomType.Setter
         public Builder size(Integer size) {
-            this.size = Objects.requireNonNull(size);
+            if (size == null) {
+              throw new MissingRequiredPropertyException("GetFileinfoResult", "size");
+            }
+            this.size = size;
             return this;
         }
         public GetFileinfoResult build() {

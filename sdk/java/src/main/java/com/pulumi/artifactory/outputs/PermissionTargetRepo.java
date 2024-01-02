@@ -5,6 +5,7 @@ package com.pulumi.artifactory.outputs;
 
 import com.pulumi.artifactory.outputs.PermissionTargetRepoActions;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -80,11 +81,13 @@ public final class PermissionTargetRepo {
 
         @CustomType.Setter
         public Builder actions(@Nullable PermissionTargetRepoActions actions) {
+
             this.actions = actions;
             return this;
         }
         @CustomType.Setter
         public Builder excludesPatterns(@Nullable List<String> excludesPatterns) {
+
             this.excludesPatterns = excludesPatterns;
             return this;
         }
@@ -93,6 +96,7 @@ public final class PermissionTargetRepo {
         }
         @CustomType.Setter
         public Builder includesPatterns(@Nullable List<String> includesPatterns) {
+
             this.includesPatterns = includesPatterns;
             return this;
         }
@@ -101,7 +105,10 @@ public final class PermissionTargetRepo {
         }
         @CustomType.Setter
         public Builder repositories(List<String> repositories) {
-            this.repositories = Objects.requireNonNull(repositories);
+            if (repositories == null) {
+              throw new MissingRequiredPropertyException("PermissionTargetRepo", "repositories");
+            }
+            this.repositories = repositories;
             return this;
         }
         public Builder repositories(String... repositories) {

@@ -6,6 +6,7 @@ package com.pulumi.artifactory;
 import com.pulumi.artifactory.inputs.FederatedChefRepositoryMemberArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -841,8 +842,12 @@ public final class FederatedChefRepositoryArgs extends com.pulumi.resources.Reso
         }
 
         public FederatedChefRepositoryArgs build() {
-            $.key = Objects.requireNonNull($.key, "expected parameter 'key' to be non-null");
-            $.members = Objects.requireNonNull($.members, "expected parameter 'members' to be non-null");
+            if ($.key == null) {
+                throw new MissingRequiredPropertyException("FederatedChefRepositoryArgs", "key");
+            }
+            if ($.members == null) {
+                throw new MissingRequiredPropertyException("FederatedChefRepositoryArgs", "members");
+            }
             return $;
         }
     }

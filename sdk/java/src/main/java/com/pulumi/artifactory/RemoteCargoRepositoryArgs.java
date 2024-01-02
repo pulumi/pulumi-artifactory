@@ -6,6 +6,7 @@ package com.pulumi.artifactory;
 import com.pulumi.artifactory.inputs.RemoteCargoRepositoryContentSynchronisationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -1795,9 +1796,15 @@ public final class RemoteCargoRepositoryArgs extends com.pulumi.resources.Resour
         }
 
         public RemoteCargoRepositoryArgs build() {
-            $.gitRegistryUrl = Objects.requireNonNull($.gitRegistryUrl, "expected parameter 'gitRegistryUrl' to be non-null");
-            $.key = Objects.requireNonNull($.key, "expected parameter 'key' to be non-null");
-            $.url = Objects.requireNonNull($.url, "expected parameter 'url' to be non-null");
+            if ($.gitRegistryUrl == null) {
+                throw new MissingRequiredPropertyException("RemoteCargoRepositoryArgs", "gitRegistryUrl");
+            }
+            if ($.key == null) {
+                throw new MissingRequiredPropertyException("RemoteCargoRepositoryArgs", "key");
+            }
+            if ($.url == null) {
+                throw new MissingRequiredPropertyException("RemoteCargoRepositoryArgs", "url");
+            }
             return $;
         }
     }

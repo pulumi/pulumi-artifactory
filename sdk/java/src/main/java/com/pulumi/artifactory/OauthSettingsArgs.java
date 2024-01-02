@@ -6,6 +6,7 @@ package com.pulumi.artifactory;
 import com.pulumi.artifactory.inputs.OauthSettingsOauthProviderArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.List;
 import java.util.Objects;
@@ -199,7 +200,9 @@ public final class OauthSettingsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public OauthSettingsArgs build() {
-            $.oauthProviders = Objects.requireNonNull($.oauthProviders, "expected parameter 'oauthProviders' to be non-null");
+            if ($.oauthProviders == null) {
+                throw new MissingRequiredPropertyException("OauthSettingsArgs", "oauthProviders");
+            }
             return $;
         }
     }

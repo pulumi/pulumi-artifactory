@@ -5,6 +5,7 @@ package com.pulumi.artifactory.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -256,9 +257,15 @@ public final class DockerCustomWebhookCriteriaArgs extends com.pulumi.resources.
         }
 
         public DockerCustomWebhookCriteriaArgs build() {
-            $.anyLocal = Objects.requireNonNull($.anyLocal, "expected parameter 'anyLocal' to be non-null");
-            $.anyRemote = Objects.requireNonNull($.anyRemote, "expected parameter 'anyRemote' to be non-null");
-            $.repoKeys = Objects.requireNonNull($.repoKeys, "expected parameter 'repoKeys' to be non-null");
+            if ($.anyLocal == null) {
+                throw new MissingRequiredPropertyException("DockerCustomWebhookCriteriaArgs", "anyLocal");
+            }
+            if ($.anyRemote == null) {
+                throw new MissingRequiredPropertyException("DockerCustomWebhookCriteriaArgs", "anyRemote");
+            }
+            if ($.repoKeys == null) {
+                throw new MissingRequiredPropertyException("DockerCustomWebhookCriteriaArgs", "repoKeys");
+            }
             return $;
         }
     }

@@ -4,6 +4,7 @@
 package com.pulumi.artifactory.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -239,82 +240,106 @@ public final class GetLocalRpmRepositoryResult {
 
         @CustomType.Setter
         public Builder archiveBrowsingEnabled(@Nullable Boolean archiveBrowsingEnabled) {
+
             this.archiveBrowsingEnabled = archiveBrowsingEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder blackedOut(@Nullable Boolean blackedOut) {
+
             this.blackedOut = blackedOut;
             return this;
         }
         @CustomType.Setter
         public Builder calculateYumMetadata(@Nullable Boolean calculateYumMetadata) {
+
             this.calculateYumMetadata = calculateYumMetadata;
             return this;
         }
         @CustomType.Setter
         public Builder cdnRedirect(@Nullable Boolean cdnRedirect) {
+
             this.cdnRedirect = cdnRedirect;
             return this;
         }
         @CustomType.Setter
         public Builder description(@Nullable String description) {
+
             this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder downloadDirect(@Nullable Boolean downloadDirect) {
+
             this.downloadDirect = downloadDirect;
             return this;
         }
         @CustomType.Setter
         public Builder enableFileListsIndexing(@Nullable Boolean enableFileListsIndexing) {
+
             this.enableFileListsIndexing = enableFileListsIndexing;
             return this;
         }
         @CustomType.Setter
         public Builder excludesPattern(@Nullable String excludesPattern) {
+
             this.excludesPattern = excludesPattern;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetLocalRpmRepositoryResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder includesPattern(@Nullable String includesPattern) {
+
             this.includesPattern = includesPattern;
             return this;
         }
         @CustomType.Setter
         public Builder key(String key) {
-            this.key = Objects.requireNonNull(key);
+            if (key == null) {
+              throw new MissingRequiredPropertyException("GetLocalRpmRepositoryResult", "key");
+            }
+            this.key = key;
             return this;
         }
         @CustomType.Setter
         public Builder notes(@Nullable String notes) {
+
             this.notes = notes;
             return this;
         }
         @CustomType.Setter
         public Builder packageType(String packageType) {
-            this.packageType = Objects.requireNonNull(packageType);
+            if (packageType == null) {
+              throw new MissingRequiredPropertyException("GetLocalRpmRepositoryResult", "packageType");
+            }
+            this.packageType = packageType;
             return this;
         }
         @CustomType.Setter
         public Builder primaryKeypairRef(@Nullable String primaryKeypairRef) {
+
             this.primaryKeypairRef = primaryKeypairRef;
             return this;
         }
         @CustomType.Setter
         public Builder priorityResolution(@Nullable Boolean priorityResolution) {
+
             this.priorityResolution = priorityResolution;
             return this;
         }
         @CustomType.Setter
         public Builder projectEnvironments(List<String> projectEnvironments) {
-            this.projectEnvironments = Objects.requireNonNull(projectEnvironments);
+            if (projectEnvironments == null) {
+              throw new MissingRequiredPropertyException("GetLocalRpmRepositoryResult", "projectEnvironments");
+            }
+            this.projectEnvironments = projectEnvironments;
             return this;
         }
         public Builder projectEnvironments(String... projectEnvironments) {
@@ -322,11 +347,13 @@ public final class GetLocalRpmRepositoryResult {
         }
         @CustomType.Setter
         public Builder projectKey(@Nullable String projectKey) {
+
             this.projectKey = projectKey;
             return this;
         }
         @CustomType.Setter
         public Builder propertySets(@Nullable List<String> propertySets) {
+
             this.propertySets = propertySets;
             return this;
         }
@@ -335,26 +362,31 @@ public final class GetLocalRpmRepositoryResult {
         }
         @CustomType.Setter
         public Builder repoLayoutRef(@Nullable String repoLayoutRef) {
+
             this.repoLayoutRef = repoLayoutRef;
             return this;
         }
         @CustomType.Setter
         public Builder secondaryKeypairRef(@Nullable String secondaryKeypairRef) {
+
             this.secondaryKeypairRef = secondaryKeypairRef;
             return this;
         }
         @CustomType.Setter
         public Builder xrayIndex(@Nullable Boolean xrayIndex) {
+
             this.xrayIndex = xrayIndex;
             return this;
         }
         @CustomType.Setter
         public Builder yumGroupFileNames(@Nullable String yumGroupFileNames) {
+
             this.yumGroupFileNames = yumGroupFileNames;
             return this;
         }
         @CustomType.Setter
         public Builder yumRootDepth(@Nullable Integer yumRootDepth) {
+
             this.yumRootDepth = yumRootDepth;
             return this;
         }

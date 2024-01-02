@@ -7,6 +7,7 @@ import com.pulumi.artifactory.inputs.ArtifactCustomWebhookCriteriaArgs;
 import com.pulumi.artifactory.inputs.ArtifactCustomWebhookHandlerArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -285,10 +286,18 @@ public final class ArtifactCustomWebhookArgs extends com.pulumi.resources.Resour
         }
 
         public ArtifactCustomWebhookArgs build() {
-            $.criteria = Objects.requireNonNull($.criteria, "expected parameter 'criteria' to be non-null");
-            $.eventTypes = Objects.requireNonNull($.eventTypes, "expected parameter 'eventTypes' to be non-null");
-            $.handlers = Objects.requireNonNull($.handlers, "expected parameter 'handlers' to be non-null");
-            $.key = Objects.requireNonNull($.key, "expected parameter 'key' to be non-null");
+            if ($.criteria == null) {
+                throw new MissingRequiredPropertyException("ArtifactCustomWebhookArgs", "criteria");
+            }
+            if ($.eventTypes == null) {
+                throw new MissingRequiredPropertyException("ArtifactCustomWebhookArgs", "eventTypes");
+            }
+            if ($.handlers == null) {
+                throw new MissingRequiredPropertyException("ArtifactCustomWebhookArgs", "handlers");
+            }
+            if ($.key == null) {
+                throw new MissingRequiredPropertyException("ArtifactCustomWebhookArgs", "key");
+            }
             return $;
         }
     }

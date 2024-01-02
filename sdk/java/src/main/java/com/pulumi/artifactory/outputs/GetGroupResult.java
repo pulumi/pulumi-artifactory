@@ -4,6 +4,7 @@
 package com.pulumi.artifactory.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -198,61 +199,83 @@ public final class GetGroupResult {
 
         @CustomType.Setter
         public Builder adminPrivileges(Boolean adminPrivileges) {
-            this.adminPrivileges = Objects.requireNonNull(adminPrivileges);
+            if (adminPrivileges == null) {
+              throw new MissingRequiredPropertyException("GetGroupResult", "adminPrivileges");
+            }
+            this.adminPrivileges = adminPrivileges;
             return this;
         }
         @CustomType.Setter
         public Builder autoJoin(Boolean autoJoin) {
-            this.autoJoin = Objects.requireNonNull(autoJoin);
+            if (autoJoin == null) {
+              throw new MissingRequiredPropertyException("GetGroupResult", "autoJoin");
+            }
+            this.autoJoin = autoJoin;
             return this;
         }
         @CustomType.Setter
         public Builder description(@Nullable String description) {
+
             this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder externalId(@Nullable String externalId) {
+
             this.externalId = externalId;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetGroupResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder includeUsers(@Nullable String includeUsers) {
+
             this.includeUsers = includeUsers;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetGroupResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder policyManager(@Nullable Boolean policyManager) {
+
             this.policyManager = policyManager;
             return this;
         }
         @CustomType.Setter
         public Builder realm(String realm) {
-            this.realm = Objects.requireNonNull(realm);
+            if (realm == null) {
+              throw new MissingRequiredPropertyException("GetGroupResult", "realm");
+            }
+            this.realm = realm;
             return this;
         }
         @CustomType.Setter
         public Builder realmAttributes(@Nullable String realmAttributes) {
+
             this.realmAttributes = realmAttributes;
             return this;
         }
         @CustomType.Setter
         public Builder reportsManager(@Nullable Boolean reportsManager) {
+
             this.reportsManager = reportsManager;
             return this;
         }
         @CustomType.Setter
         public Builder usersNames(@Nullable List<String> usersNames) {
+
             this.usersNames = usersNames;
             return this;
         }
@@ -261,6 +284,7 @@ public final class GetGroupResult {
         }
         @CustomType.Setter
         public Builder watchManager(@Nullable Boolean watchManager) {
+
             this.watchManager = watchManager;
             return this;
         }

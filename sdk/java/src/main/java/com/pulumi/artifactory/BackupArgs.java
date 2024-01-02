@@ -5,6 +5,7 @@ package com.pulumi.artifactory;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -422,8 +423,12 @@ public final class BackupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public BackupArgs build() {
-            $.cronExp = Objects.requireNonNull($.cronExp, "expected parameter 'cronExp' to be non-null");
-            $.key = Objects.requireNonNull($.key, "expected parameter 'key' to be non-null");
+            if ($.cronExp == null) {
+                throw new MissingRequiredPropertyException("BackupArgs", "cronExp");
+            }
+            if ($.key == null) {
+                throw new MissingRequiredPropertyException("BackupArgs", "key");
+            }
             return $;
         }
     }

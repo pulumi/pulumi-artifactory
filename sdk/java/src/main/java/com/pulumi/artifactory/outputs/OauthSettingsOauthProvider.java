@@ -4,6 +4,7 @@
 package com.pulumi.artifactory.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -143,42 +144,64 @@ public final class OauthSettingsOauthProvider {
 
         @CustomType.Setter
         public Builder apiUrl(String apiUrl) {
-            this.apiUrl = Objects.requireNonNull(apiUrl);
+            if (apiUrl == null) {
+              throw new MissingRequiredPropertyException("OauthSettingsOauthProvider", "apiUrl");
+            }
+            this.apiUrl = apiUrl;
             return this;
         }
         @CustomType.Setter
         public Builder authUrl(String authUrl) {
-            this.authUrl = Objects.requireNonNull(authUrl);
+            if (authUrl == null) {
+              throw new MissingRequiredPropertyException("OauthSettingsOauthProvider", "authUrl");
+            }
+            this.authUrl = authUrl;
             return this;
         }
         @CustomType.Setter
         public Builder clientId(String clientId) {
-            this.clientId = Objects.requireNonNull(clientId);
+            if (clientId == null) {
+              throw new MissingRequiredPropertyException("OauthSettingsOauthProvider", "clientId");
+            }
+            this.clientId = clientId;
             return this;
         }
         @CustomType.Setter
         public Builder clientSecret(String clientSecret) {
-            this.clientSecret = Objects.requireNonNull(clientSecret);
+            if (clientSecret == null) {
+              throw new MissingRequiredPropertyException("OauthSettingsOauthProvider", "clientSecret");
+            }
+            this.clientSecret = clientSecret;
             return this;
         }
         @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
+
             this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("OauthSettingsOauthProvider", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder tokenUrl(String tokenUrl) {
-            this.tokenUrl = Objects.requireNonNull(tokenUrl);
+            if (tokenUrl == null) {
+              throw new MissingRequiredPropertyException("OauthSettingsOauthProvider", "tokenUrl");
+            }
+            this.tokenUrl = tokenUrl;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("OauthSettingsOauthProvider", "type");
+            }
+            this.type = type;
             return this;
         }
         public OauthSettingsOauthProvider build() {

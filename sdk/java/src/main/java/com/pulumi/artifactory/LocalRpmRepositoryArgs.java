@@ -5,6 +5,7 @@ package com.pulumi.artifactory;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -910,7 +911,9 @@ public final class LocalRpmRepositoryArgs extends com.pulumi.resources.ResourceA
         }
 
         public LocalRpmRepositoryArgs build() {
-            $.key = Objects.requireNonNull($.key, "expected parameter 'key' to be non-null");
+            if ($.key == null) {
+                throw new MissingRequiredPropertyException("LocalRpmRepositoryArgs", "key");
+            }
             return $;
         }
     }

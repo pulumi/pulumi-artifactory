@@ -4,6 +4,7 @@
 package com.pulumi.artifactory.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -49,12 +50,18 @@ public final class PermissionTargetReleaseBundleActionsUser {
 
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("PermissionTargetReleaseBundleActionsUser", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder permissions(List<String> permissions) {
-            this.permissions = Objects.requireNonNull(permissions);
+            if (permissions == null) {
+              throw new MissingRequiredPropertyException("PermissionTargetReleaseBundleActionsUser", "permissions");
+            }
+            this.permissions = permissions;
             return this;
         }
         public Builder permissions(String... permissions) {

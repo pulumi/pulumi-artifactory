@@ -7,6 +7,7 @@ import com.pulumi.artifactory.inputs.ArtifactWebhookCriteriaArgs;
 import com.pulumi.artifactory.inputs.ArtifactWebhookHandlerArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -285,10 +286,18 @@ public final class ArtifactWebhookArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public ArtifactWebhookArgs build() {
-            $.criteria = Objects.requireNonNull($.criteria, "expected parameter 'criteria' to be non-null");
-            $.eventTypes = Objects.requireNonNull($.eventTypes, "expected parameter 'eventTypes' to be non-null");
-            $.handlers = Objects.requireNonNull($.handlers, "expected parameter 'handlers' to be non-null");
-            $.key = Objects.requireNonNull($.key, "expected parameter 'key' to be non-null");
+            if ($.criteria == null) {
+                throw new MissingRequiredPropertyException("ArtifactWebhookArgs", "criteria");
+            }
+            if ($.eventTypes == null) {
+                throw new MissingRequiredPropertyException("ArtifactWebhookArgs", "eventTypes");
+            }
+            if ($.handlers == null) {
+                throw new MissingRequiredPropertyException("ArtifactWebhookArgs", "handlers");
+            }
+            if ($.key == null) {
+                throw new MissingRequiredPropertyException("ArtifactWebhookArgs", "key");
+            }
             return $;
         }
     }

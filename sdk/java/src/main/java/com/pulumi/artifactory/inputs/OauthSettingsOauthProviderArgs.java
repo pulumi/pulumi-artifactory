@@ -5,6 +5,7 @@ package com.pulumi.artifactory.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -336,13 +337,27 @@ public final class OauthSettingsOauthProviderArgs extends com.pulumi.resources.R
         }
 
         public OauthSettingsOauthProviderArgs build() {
-            $.apiUrl = Objects.requireNonNull($.apiUrl, "expected parameter 'apiUrl' to be non-null");
-            $.authUrl = Objects.requireNonNull($.authUrl, "expected parameter 'authUrl' to be non-null");
-            $.clientId = Objects.requireNonNull($.clientId, "expected parameter 'clientId' to be non-null");
-            $.clientSecret = Objects.requireNonNull($.clientSecret, "expected parameter 'clientSecret' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.tokenUrl = Objects.requireNonNull($.tokenUrl, "expected parameter 'tokenUrl' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.apiUrl == null) {
+                throw new MissingRequiredPropertyException("OauthSettingsOauthProviderArgs", "apiUrl");
+            }
+            if ($.authUrl == null) {
+                throw new MissingRequiredPropertyException("OauthSettingsOauthProviderArgs", "authUrl");
+            }
+            if ($.clientId == null) {
+                throw new MissingRequiredPropertyException("OauthSettingsOauthProviderArgs", "clientId");
+            }
+            if ($.clientSecret == null) {
+                throw new MissingRequiredPropertyException("OauthSettingsOauthProviderArgs", "clientSecret");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("OauthSettingsOauthProviderArgs", "name");
+            }
+            if ($.tokenUrl == null) {
+                throw new MissingRequiredPropertyException("OauthSettingsOauthProviderArgs", "tokenUrl");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("OauthSettingsOauthProviderArgs", "type");
+            }
             return $;
         }
     }

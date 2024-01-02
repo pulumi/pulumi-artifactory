@@ -4,6 +4,7 @@
 package com.pulumi.artifactory.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -285,7 +286,9 @@ public final class GetLocalChefRepositoryPlainArgs extends com.pulumi.resources.
         }
 
         public GetLocalChefRepositoryPlainArgs build() {
-            $.key = Objects.requireNonNull($.key, "expected parameter 'key' to be non-null");
+            if ($.key == null) {
+                throw new MissingRequiredPropertyException("GetLocalChefRepositoryPlainArgs", "key");
+            }
             return $;
         }
     }

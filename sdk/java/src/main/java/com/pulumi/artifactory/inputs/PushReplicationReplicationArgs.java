@@ -5,6 +5,7 @@ package com.pulumi.artifactory.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -456,9 +457,15 @@ public final class PushReplicationReplicationArgs extends com.pulumi.resources.R
         }
 
         public PushReplicationReplicationArgs build() {
-            $.password = Objects.requireNonNull($.password, "expected parameter 'password' to be non-null");
-            $.url = Objects.requireNonNull($.url, "expected parameter 'url' to be non-null");
-            $.username = Objects.requireNonNull($.username, "expected parameter 'username' to be non-null");
+            if ($.password == null) {
+                throw new MissingRequiredPropertyException("PushReplicationReplicationArgs", "password");
+            }
+            if ($.url == null) {
+                throw new MissingRequiredPropertyException("PushReplicationReplicationArgs", "url");
+            }
+            if ($.username == null) {
+                throw new MissingRequiredPropertyException("PushReplicationReplicationArgs", "username");
+            }
             return $;
         }
     }

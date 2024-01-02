@@ -5,6 +5,7 @@ package com.pulumi.artifactory;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -414,7 +415,9 @@ public final class RemoteRepositoryReplicationArgs extends com.pulumi.resources.
         }
 
         public RemoteRepositoryReplicationArgs build() {
-            $.repoKey = Objects.requireNonNull($.repoKey, "expected parameter 'repoKey' to be non-null");
+            if ($.repoKey == null) {
+                throw new MissingRequiredPropertyException("RemoteRepositoryReplicationArgs", "repoKey");
+            }
             return $;
         }
     }

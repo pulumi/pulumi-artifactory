@@ -4,6 +4,7 @@
 package com.pulumi.artifactory.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -87,11 +88,15 @@ public final class ReleaseBundleWebhookCriteria {
 
         @CustomType.Setter
         public Builder anyReleaseBundle(Boolean anyReleaseBundle) {
-            this.anyReleaseBundle = Objects.requireNonNull(anyReleaseBundle);
+            if (anyReleaseBundle == null) {
+              throw new MissingRequiredPropertyException("ReleaseBundleWebhookCriteria", "anyReleaseBundle");
+            }
+            this.anyReleaseBundle = anyReleaseBundle;
             return this;
         }
         @CustomType.Setter
         public Builder excludePatterns(@Nullable List<String> excludePatterns) {
+
             this.excludePatterns = excludePatterns;
             return this;
         }
@@ -100,6 +105,7 @@ public final class ReleaseBundleWebhookCriteria {
         }
         @CustomType.Setter
         public Builder includePatterns(@Nullable List<String> includePatterns) {
+
             this.includePatterns = includePatterns;
             return this;
         }
@@ -108,7 +114,10 @@ public final class ReleaseBundleWebhookCriteria {
         }
         @CustomType.Setter
         public Builder registeredReleaseBundleNames(List<String> registeredReleaseBundleNames) {
-            this.registeredReleaseBundleNames = Objects.requireNonNull(registeredReleaseBundleNames);
+            if (registeredReleaseBundleNames == null) {
+              throw new MissingRequiredPropertyException("ReleaseBundleWebhookCriteria", "registeredReleaseBundleNames");
+            }
+            this.registeredReleaseBundleNames = registeredReleaseBundleNames;
             return this;
         }
         public Builder registeredReleaseBundleNames(String... registeredReleaseBundleNames) {

@@ -5,6 +5,7 @@ package com.pulumi.artifactory.inputs;
 
 import com.pulumi.artifactory.inputs.GetRemotePubRepositoryContentSynchronisation;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -610,7 +611,9 @@ public final class GetRemotePubRepositoryPlainArgs extends com.pulumi.resources.
         }
 
         public GetRemotePubRepositoryPlainArgs build() {
-            $.key = Objects.requireNonNull($.key, "expected parameter 'key' to be non-null");
+            if ($.key == null) {
+                throw new MissingRequiredPropertyException("GetRemotePubRepositoryPlainArgs", "key");
+            }
             return $;
         }
     }

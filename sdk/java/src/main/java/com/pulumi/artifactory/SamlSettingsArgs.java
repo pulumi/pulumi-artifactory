@@ -5,6 +5,7 @@ package com.pulumi.artifactory;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -521,9 +522,15 @@ public final class SamlSettingsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public SamlSettingsArgs build() {
-            $.loginUrl = Objects.requireNonNull($.loginUrl, "expected parameter 'loginUrl' to be non-null");
-            $.logoutUrl = Objects.requireNonNull($.logoutUrl, "expected parameter 'logoutUrl' to be non-null");
-            $.serviceProviderName = Objects.requireNonNull($.serviceProviderName, "expected parameter 'serviceProviderName' to be non-null");
+            if ($.loginUrl == null) {
+                throw new MissingRequiredPropertyException("SamlSettingsArgs", "loginUrl");
+            }
+            if ($.logoutUrl == null) {
+                throw new MissingRequiredPropertyException("SamlSettingsArgs", "logoutUrl");
+            }
+            if ($.serviceProviderName == null) {
+                throw new MissingRequiredPropertyException("SamlSettingsArgs", "serviceProviderName");
+            }
             return $;
         }
     }

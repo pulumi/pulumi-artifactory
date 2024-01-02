@@ -5,6 +5,7 @@ package com.pulumi.artifactory;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -119,8 +120,12 @@ public final class DistributionPublicKeyArgs extends com.pulumi.resources.Resour
         }
 
         public DistributionPublicKeyArgs build() {
-            $.alias = Objects.requireNonNull($.alias, "expected parameter 'alias' to be non-null");
-            $.publicKey = Objects.requireNonNull($.publicKey, "expected parameter 'publicKey' to be non-null");
+            if ($.alias == null) {
+                throw new MissingRequiredPropertyException("DistributionPublicKeyArgs", "alias");
+            }
+            if ($.publicKey == null) {
+                throw new MissingRequiredPropertyException("DistributionPublicKeyArgs", "publicKey");
+            }
             return $;
         }
     }

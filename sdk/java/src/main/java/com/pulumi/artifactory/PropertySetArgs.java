@@ -6,6 +6,7 @@ package com.pulumi.artifactory;
 import com.pulumi.artifactory.inputs.PropertySetPropertyArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -163,7 +164,9 @@ public final class PropertySetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public PropertySetArgs build() {
-            $.properties = Objects.requireNonNull($.properties, "expected parameter 'properties' to be non-null");
+            if ($.properties == null) {
+                throw new MissingRequiredPropertyException("PropertySetArgs", "properties");
+            }
             return $;
         }
     }

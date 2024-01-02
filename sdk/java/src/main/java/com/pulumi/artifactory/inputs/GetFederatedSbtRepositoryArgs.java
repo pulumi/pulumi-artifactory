@@ -6,6 +6,7 @@ package com.pulumi.artifactory.inputs;
 import com.pulumi.artifactory.inputs.GetFederatedSbtRepositoryMemberArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -581,7 +582,9 @@ public final class GetFederatedSbtRepositoryArgs extends com.pulumi.resources.In
         }
 
         public GetFederatedSbtRepositoryArgs build() {
-            $.key = Objects.requireNonNull($.key, "expected parameter 'key' to be non-null");
+            if ($.key == null) {
+                throw new MissingRequiredPropertyException("GetFederatedSbtRepositoryArgs", "key");
+            }
             return $;
         }
     }

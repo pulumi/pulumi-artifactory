@@ -54,21 +54,25 @@ public final class RemoteGitlfsRepositoryContentSynchronisation {
 
         @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
+
             this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder propertiesEnabled(@Nullable Boolean propertiesEnabled) {
+
             this.propertiesEnabled = propertiesEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder sourceOriginAbsenceDetection(@Nullable Boolean sourceOriginAbsenceDetection) {
+
             this.sourceOriginAbsenceDetection = sourceOriginAbsenceDetection;
             return this;
         }
         @CustomType.Setter
         public Builder statisticsEnabled(@Nullable Boolean statisticsEnabled) {
+
             this.statisticsEnabled = statisticsEnabled;
             return this;
         }
