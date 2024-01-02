@@ -5,6 +5,7 @@ package com.pulumi.artifactory;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -432,9 +433,15 @@ public final class ProxyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ProxyArgs build() {
-            $.host = Objects.requireNonNull($.host, "expected parameter 'host' to be non-null");
-            $.key = Objects.requireNonNull($.key, "expected parameter 'key' to be non-null");
-            $.port = Objects.requireNonNull($.port, "expected parameter 'port' to be non-null");
+            if ($.host == null) {
+                throw new MissingRequiredPropertyException("ProxyArgs", "host");
+            }
+            if ($.key == null) {
+                throw new MissingRequiredPropertyException("ProxyArgs", "key");
+            }
+            if ($.port == null) {
+                throw new MissingRequiredPropertyException("ProxyArgs", "port");
+            }
             return $;
         }
     }

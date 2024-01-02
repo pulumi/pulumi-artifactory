@@ -6,6 +6,7 @@ package com.pulumi.artifactory.inputs;
 import com.pulumi.artifactory.inputs.PropertySetPropertyPredefinedValueArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -200,8 +201,12 @@ public final class PropertySetPropertyArgs extends com.pulumi.resources.Resource
         }
 
         public PropertySetPropertyArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.predefinedValues = Objects.requireNonNull($.predefinedValues, "expected parameter 'predefinedValues' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("PropertySetPropertyArgs", "name");
+            }
+            if ($.predefinedValues == null) {
+                throw new MissingRequiredPropertyException("PropertySetPropertyArgs", "predefinedValues");
+            }
             return $;
         }
     }

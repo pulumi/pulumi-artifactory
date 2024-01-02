@@ -5,6 +5,7 @@ package com.pulumi.artifactory.outputs;
 
 import com.pulumi.artifactory.outputs.GetFederatedCargoRepositoryMember;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -215,66 +216,81 @@ public final class GetFederatedCargoRepositoryResult {
 
         @CustomType.Setter
         public Builder anonymousAccess(@Nullable Boolean anonymousAccess) {
+
             this.anonymousAccess = anonymousAccess;
             return this;
         }
         @CustomType.Setter
         public Builder archiveBrowsingEnabled(@Nullable Boolean archiveBrowsingEnabled) {
+
             this.archiveBrowsingEnabled = archiveBrowsingEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder blackedOut(@Nullable Boolean blackedOut) {
+
             this.blackedOut = blackedOut;
             return this;
         }
         @CustomType.Setter
         public Builder cdnRedirect(@Nullable Boolean cdnRedirect) {
+
             this.cdnRedirect = cdnRedirect;
             return this;
         }
         @CustomType.Setter
         public Builder cleanupOnDelete(@Nullable Boolean cleanupOnDelete) {
+
             this.cleanupOnDelete = cleanupOnDelete;
             return this;
         }
         @CustomType.Setter
         public Builder description(@Nullable String description) {
+
             this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder disableProxy(@Nullable Boolean disableProxy) {
+
             this.disableProxy = disableProxy;
             return this;
         }
         @CustomType.Setter
         public Builder downloadDirect(@Nullable Boolean downloadDirect) {
+
             this.downloadDirect = downloadDirect;
             return this;
         }
         @CustomType.Setter
         public Builder enableSparseIndex(@Nullable Boolean enableSparseIndex) {
+
             this.enableSparseIndex = enableSparseIndex;
             return this;
         }
         @CustomType.Setter
         public Builder excludesPattern(@Nullable String excludesPattern) {
+
             this.excludesPattern = excludesPattern;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetFederatedCargoRepositoryResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder includesPattern(@Nullable String includesPattern) {
+
             this.includesPattern = includesPattern;
             return this;
         }
         @CustomType.Setter
         public Builder indexCompressionFormats(@Nullable List<String> indexCompressionFormats) {
+
             this.indexCompressionFormats = indexCompressionFormats;
             return this;
         }
@@ -283,11 +299,15 @@ public final class GetFederatedCargoRepositoryResult {
         }
         @CustomType.Setter
         public Builder key(String key) {
-            this.key = Objects.requireNonNull(key);
+            if (key == null) {
+              throw new MissingRequiredPropertyException("GetFederatedCargoRepositoryResult", "key");
+            }
+            this.key = key;
             return this;
         }
         @CustomType.Setter
         public Builder members(@Nullable List<GetFederatedCargoRepositoryMember> members) {
+
             this.members = members;
             return this;
         }
@@ -296,22 +316,30 @@ public final class GetFederatedCargoRepositoryResult {
         }
         @CustomType.Setter
         public Builder notes(@Nullable String notes) {
+
             this.notes = notes;
             return this;
         }
         @CustomType.Setter
         public Builder packageType(String packageType) {
-            this.packageType = Objects.requireNonNull(packageType);
+            if (packageType == null) {
+              throw new MissingRequiredPropertyException("GetFederatedCargoRepositoryResult", "packageType");
+            }
+            this.packageType = packageType;
             return this;
         }
         @CustomType.Setter
         public Builder priorityResolution(@Nullable Boolean priorityResolution) {
+
             this.priorityResolution = priorityResolution;
             return this;
         }
         @CustomType.Setter
         public Builder projectEnvironments(List<String> projectEnvironments) {
-            this.projectEnvironments = Objects.requireNonNull(projectEnvironments);
+            if (projectEnvironments == null) {
+              throw new MissingRequiredPropertyException("GetFederatedCargoRepositoryResult", "projectEnvironments");
+            }
+            this.projectEnvironments = projectEnvironments;
             return this;
         }
         public Builder projectEnvironments(String... projectEnvironments) {
@@ -319,11 +347,13 @@ public final class GetFederatedCargoRepositoryResult {
         }
         @CustomType.Setter
         public Builder projectKey(@Nullable String projectKey) {
+
             this.projectKey = projectKey;
             return this;
         }
         @CustomType.Setter
         public Builder propertySets(@Nullable List<String> propertySets) {
+
             this.propertySets = propertySets;
             return this;
         }
@@ -332,16 +362,19 @@ public final class GetFederatedCargoRepositoryResult {
         }
         @CustomType.Setter
         public Builder proxy(@Nullable String proxy) {
+
             this.proxy = proxy;
             return this;
         }
         @CustomType.Setter
         public Builder repoLayoutRef(@Nullable String repoLayoutRef) {
+
             this.repoLayoutRef = repoLayoutRef;
             return this;
         }
         @CustomType.Setter
         public Builder xrayIndex(@Nullable Boolean xrayIndex) {
+
             this.xrayIndex = xrayIndex;
             return this;
         }

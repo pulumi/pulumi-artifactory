@@ -6,6 +6,7 @@ package com.pulumi.artifactory.inputs;
 import com.pulumi.artifactory.inputs.GetRemoteCondaRepositoryContentSynchronisationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -785,7 +786,9 @@ public final class GetRemoteCondaRepositoryArgs extends com.pulumi.resources.Inv
         }
 
         public GetRemoteCondaRepositoryArgs build() {
-            $.key = Objects.requireNonNull($.key, "expected parameter 'key' to be non-null");
+            if ($.key == null) {
+                throw new MissingRequiredPropertyException("GetRemoteCondaRepositoryArgs", "key");
+            }
             return $;
         }
     }

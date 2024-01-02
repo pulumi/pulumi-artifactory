@@ -6,6 +6,7 @@ package com.pulumi.artifactory;
 import com.pulumi.artifactory.inputs.ReplicationConfigReplicationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -134,8 +135,12 @@ public final class ReplicationConfigArgs extends com.pulumi.resources.ResourceAr
         }
 
         public ReplicationConfigArgs build() {
-            $.cronExp = Objects.requireNonNull($.cronExp, "expected parameter 'cronExp' to be non-null");
-            $.repoKey = Objects.requireNonNull($.repoKey, "expected parameter 'repoKey' to be non-null");
+            if ($.cronExp == null) {
+                throw new MissingRequiredPropertyException("ReplicationConfigArgs", "cronExp");
+            }
+            if ($.repoKey == null) {
+                throw new MissingRequiredPropertyException("ReplicationConfigArgs", "repoKey");
+            }
             return $;
         }
     }

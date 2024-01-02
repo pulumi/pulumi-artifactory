@@ -7,6 +7,7 @@ import com.pulumi.artifactory.inputs.DistributionCustomWebhookCriteriaArgs;
 import com.pulumi.artifactory.inputs.DistributionCustomWebhookHandlerArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -285,10 +286,18 @@ public final class DistributionCustomWebhookArgs extends com.pulumi.resources.Re
         }
 
         public DistributionCustomWebhookArgs build() {
-            $.criteria = Objects.requireNonNull($.criteria, "expected parameter 'criteria' to be non-null");
-            $.eventTypes = Objects.requireNonNull($.eventTypes, "expected parameter 'eventTypes' to be non-null");
-            $.handlers = Objects.requireNonNull($.handlers, "expected parameter 'handlers' to be non-null");
-            $.key = Objects.requireNonNull($.key, "expected parameter 'key' to be non-null");
+            if ($.criteria == null) {
+                throw new MissingRequiredPropertyException("DistributionCustomWebhookArgs", "criteria");
+            }
+            if ($.eventTypes == null) {
+                throw new MissingRequiredPropertyException("DistributionCustomWebhookArgs", "eventTypes");
+            }
+            if ($.handlers == null) {
+                throw new MissingRequiredPropertyException("DistributionCustomWebhookArgs", "handlers");
+            }
+            if ($.key == null) {
+                throw new MissingRequiredPropertyException("DistributionCustomWebhookArgs", "key");
+            }
             return $;
         }
     }

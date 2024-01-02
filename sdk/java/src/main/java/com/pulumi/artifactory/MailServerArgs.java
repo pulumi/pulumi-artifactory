@@ -5,6 +5,7 @@ package com.pulumi.artifactory;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -411,9 +412,15 @@ public final class MailServerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public MailServerArgs build() {
-            $.enabled = Objects.requireNonNull($.enabled, "expected parameter 'enabled' to be non-null");
-            $.host = Objects.requireNonNull($.host, "expected parameter 'host' to be non-null");
-            $.port = Objects.requireNonNull($.port, "expected parameter 'port' to be non-null");
+            if ($.enabled == null) {
+                throw new MissingRequiredPropertyException("MailServerArgs", "enabled");
+            }
+            if ($.host == null) {
+                throw new MissingRequiredPropertyException("MailServerArgs", "host");
+            }
+            if ($.port == null) {
+                throw new MissingRequiredPropertyException("MailServerArgs", "port");
+            }
             return $;
         }
     }

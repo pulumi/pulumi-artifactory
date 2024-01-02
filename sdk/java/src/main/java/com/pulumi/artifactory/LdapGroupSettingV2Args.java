@@ -5,6 +5,7 @@ package com.pulumi.artifactory;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -410,11 +411,21 @@ public final class LdapGroupSettingV2Args extends com.pulumi.resources.ResourceA
         }
 
         public LdapGroupSettingV2Args build() {
-            $.descriptionAttribute = Objects.requireNonNull($.descriptionAttribute, "expected parameter 'descriptionAttribute' to be non-null");
-            $.filter = Objects.requireNonNull($.filter, "expected parameter 'filter' to be non-null");
-            $.groupMemberAttribute = Objects.requireNonNull($.groupMemberAttribute, "expected parameter 'groupMemberAttribute' to be non-null");
-            $.groupNameAttribute = Objects.requireNonNull($.groupNameAttribute, "expected parameter 'groupNameAttribute' to be non-null");
-            $.strategy = Objects.requireNonNull($.strategy, "expected parameter 'strategy' to be non-null");
+            if ($.descriptionAttribute == null) {
+                throw new MissingRequiredPropertyException("LdapGroupSettingV2Args", "descriptionAttribute");
+            }
+            if ($.filter == null) {
+                throw new MissingRequiredPropertyException("LdapGroupSettingV2Args", "filter");
+            }
+            if ($.groupMemberAttribute == null) {
+                throw new MissingRequiredPropertyException("LdapGroupSettingV2Args", "groupMemberAttribute");
+            }
+            if ($.groupNameAttribute == null) {
+                throw new MissingRequiredPropertyException("LdapGroupSettingV2Args", "groupNameAttribute");
+            }
+            if ($.strategy == null) {
+                throw new MissingRequiredPropertyException("LdapGroupSettingV2Args", "strategy");
+            }
             return $;
         }
     }

@@ -59,6 +59,7 @@ public final class GetPermissionTargetReleaseBundleActions {
 
         @CustomType.Setter
         public Builder groups(@Nullable List<GetPermissionTargetReleaseBundleActionsGroup> groups) {
+
             this.groups = groups;
             return this;
         }
@@ -67,6 +68,7 @@ public final class GetPermissionTargetReleaseBundleActions {
         }
         @CustomType.Setter
         public Builder users(@Nullable List<GetPermissionTargetReleaseBundleActionsUser> users) {
+
             this.users = users;
             return this;
         }

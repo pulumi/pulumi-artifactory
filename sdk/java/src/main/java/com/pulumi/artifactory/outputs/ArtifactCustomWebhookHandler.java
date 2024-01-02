@@ -4,6 +4,7 @@
 package com.pulumi.artifactory.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -137,27 +138,34 @@ public final class ArtifactCustomWebhookHandler {
 
         @CustomType.Setter
         public Builder httpHeaders(@Nullable Map<String,String> httpHeaders) {
+
             this.httpHeaders = httpHeaders;
             return this;
         }
         @CustomType.Setter
         public Builder payload(@Nullable String payload) {
+
             this.payload = payload;
             return this;
         }
         @CustomType.Setter
         public Builder proxy(@Nullable String proxy) {
+
             this.proxy = proxy;
             return this;
         }
         @CustomType.Setter
         public Builder secrets(@Nullable Map<String,String> secrets) {
+
             this.secrets = secrets;
             return this;
         }
         @CustomType.Setter
         public Builder url(String url) {
-            this.url = Objects.requireNonNull(url);
+            if (url == null) {
+              throw new MissingRequiredPropertyException("ArtifactCustomWebhookHandler", "url");
+            }
+            this.url = url;
             return this;
         }
         public ArtifactCustomWebhookHandler build() {

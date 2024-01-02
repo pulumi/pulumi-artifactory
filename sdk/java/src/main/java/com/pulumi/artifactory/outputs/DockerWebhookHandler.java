@@ -4,6 +4,7 @@
 package com.pulumi.artifactory.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -87,22 +88,28 @@ public final class DockerWebhookHandler {
 
         @CustomType.Setter
         public Builder customHttpHeaders(@Nullable Map<String,String> customHttpHeaders) {
+
             this.customHttpHeaders = customHttpHeaders;
             return this;
         }
         @CustomType.Setter
         public Builder proxy(@Nullable String proxy) {
+
             this.proxy = proxy;
             return this;
         }
         @CustomType.Setter
         public Builder secret(@Nullable String secret) {
+
             this.secret = secret;
             return this;
         }
         @CustomType.Setter
         public Builder url(String url) {
-            this.url = Objects.requireNonNull(url);
+            if (url == null) {
+              throw new MissingRequiredPropertyException("DockerWebhookHandler", "url");
+            }
+            this.url = url;
             return this;
         }
         public DockerWebhookHandler build() {

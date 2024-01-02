@@ -6,6 +6,7 @@ package com.pulumi.artifactory;
 import com.pulumi.artifactory.inputs.AccessTokenAdminTokenArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -311,7 +312,9 @@ public final class AccessTokenArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public AccessTokenArgs build() {
-            $.username = Objects.requireNonNull($.username, "expected parameter 'username' to be non-null");
+            if ($.username == null) {
+                throw new MissingRequiredPropertyException("AccessTokenArgs", "username");
+            }
             return $;
         }
     }

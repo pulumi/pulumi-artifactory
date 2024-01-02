@@ -7,6 +7,7 @@ import com.pulumi.artifactory.inputs.GetPermissionTargetBuild;
 import com.pulumi.artifactory.inputs.GetPermissionTargetReleaseBundle;
 import com.pulumi.artifactory.inputs.GetPermissionTargetRepo;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -149,7 +150,9 @@ public final class GetPermissionTargetPlainArgs extends com.pulumi.resources.Inv
         }
 
         public GetPermissionTargetPlainArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("GetPermissionTargetPlainArgs", "name");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.artifactory.inputs;
 
 import com.pulumi.artifactory.inputs.GetRemoteConanRepositoryContentSynchronisation;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -637,7 +638,9 @@ public final class GetRemoteConanRepositoryPlainArgs extends com.pulumi.resource
         }
 
         public GetRemoteConanRepositoryPlainArgs build() {
-            $.key = Objects.requireNonNull($.key, "expected parameter 'key' to be non-null");
+            if ($.key == null) {
+                throw new MissingRequiredPropertyException("GetRemoteConanRepositoryPlainArgs", "key");
+            }
             return $;
         }
     }

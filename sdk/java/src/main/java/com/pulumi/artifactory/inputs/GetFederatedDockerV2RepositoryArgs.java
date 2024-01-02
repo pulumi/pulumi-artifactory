@@ -6,6 +6,7 @@ package com.pulumi.artifactory.inputs;
 import com.pulumi.artifactory.inputs.GetFederatedDockerV2RepositoryMemberArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -530,7 +531,9 @@ public final class GetFederatedDockerV2RepositoryArgs extends com.pulumi.resourc
         }
 
         public GetFederatedDockerV2RepositoryArgs build() {
-            $.key = Objects.requireNonNull($.key, "expected parameter 'key' to be non-null");
+            if ($.key == null) {
+                throw new MissingRequiredPropertyException("GetFederatedDockerV2RepositoryArgs", "key");
+            }
             return $;
         }
     }

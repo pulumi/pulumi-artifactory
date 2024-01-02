@@ -4,6 +4,7 @@
 package com.pulumi.artifactory.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -214,67 +215,84 @@ public final class LocalRepositoryMultiReplicationReplication {
 
         @CustomType.Setter
         public Builder checkBinaryExistenceInFilestore(@Nullable Boolean checkBinaryExistenceInFilestore) {
+
             this.checkBinaryExistenceInFilestore = checkBinaryExistenceInFilestore;
             return this;
         }
         @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
+
             this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder excludePathPrefixPattern(@Nullable String excludePathPrefixPattern) {
+
             this.excludePathPrefixPattern = excludePathPrefixPattern;
             return this;
         }
         @CustomType.Setter
         public Builder includePathPrefixPattern(@Nullable String includePathPrefixPattern) {
+
             this.includePathPrefixPattern = includePathPrefixPattern;
             return this;
         }
         @CustomType.Setter
         public Builder password(@Nullable String password) {
+
             this.password = password;
             return this;
         }
         @CustomType.Setter
         public Builder proxy(@Nullable String proxy) {
+
             this.proxy = proxy;
             return this;
         }
         @CustomType.Setter
         public Builder replicationKey(@Nullable String replicationKey) {
+
             this.replicationKey = replicationKey;
             return this;
         }
         @CustomType.Setter
         public Builder socketTimeoutMillis(@Nullable Integer socketTimeoutMillis) {
+
             this.socketTimeoutMillis = socketTimeoutMillis;
             return this;
         }
         @CustomType.Setter
         public Builder syncDeletes(@Nullable Boolean syncDeletes) {
+
             this.syncDeletes = syncDeletes;
             return this;
         }
         @CustomType.Setter
         public Builder syncProperties(@Nullable Boolean syncProperties) {
+
             this.syncProperties = syncProperties;
             return this;
         }
         @CustomType.Setter
         public Builder syncStatistics(@Nullable Boolean syncStatistics) {
+
             this.syncStatistics = syncStatistics;
             return this;
         }
         @CustomType.Setter
         public Builder url(String url) {
-            this.url = Objects.requireNonNull(url);
+            if (url == null) {
+              throw new MissingRequiredPropertyException("LocalRepositoryMultiReplicationReplication", "url");
+            }
+            this.url = url;
             return this;
         }
         @CustomType.Setter
         public Builder username(String username) {
-            this.username = Objects.requireNonNull(username);
+            if (username == null) {
+              throw new MissingRequiredPropertyException("LocalRepositoryMultiReplicationReplication", "username");
+            }
+            this.username = username;
             return this;
         }
         public LocalRepositoryMultiReplicationReplication build() {

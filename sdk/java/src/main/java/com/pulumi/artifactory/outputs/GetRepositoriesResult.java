@@ -5,6 +5,7 @@ package com.pulumi.artifactory.outputs;
 
 import com.pulumi.artifactory.outputs.GetRepositoriesRepo;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -94,22 +95,30 @@ public final class GetRepositoriesResult {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetRepositoriesResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder packageType(@Nullable String packageType) {
+
             this.packageType = packageType;
             return this;
         }
         @CustomType.Setter
         public Builder projectKey(@Nullable String projectKey) {
+
             this.projectKey = projectKey;
             return this;
         }
         @CustomType.Setter
         public Builder repos(List<GetRepositoriesRepo> repos) {
-            this.repos = Objects.requireNonNull(repos);
+            if (repos == null) {
+              throw new MissingRequiredPropertyException("GetRepositoriesResult", "repos");
+            }
+            this.repos = repos;
             return this;
         }
         public Builder repos(GetRepositoriesRepo... repos) {
@@ -117,6 +126,7 @@ public final class GetRepositoriesResult {
         }
         @CustomType.Setter
         public Builder repositoryType(@Nullable String repositoryType) {
+
             this.repositoryType = repositoryType;
             return this;
         }

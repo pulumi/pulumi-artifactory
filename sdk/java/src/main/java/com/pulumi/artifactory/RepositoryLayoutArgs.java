@@ -5,6 +5,7 @@ package com.pulumi.artifactory;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -262,9 +263,15 @@ public final class RepositoryLayoutArgs extends com.pulumi.resources.ResourceArg
         }
 
         public RepositoryLayoutArgs build() {
-            $.artifactPathPattern = Objects.requireNonNull($.artifactPathPattern, "expected parameter 'artifactPathPattern' to be non-null");
-            $.fileIntegrationRevisionRegexp = Objects.requireNonNull($.fileIntegrationRevisionRegexp, "expected parameter 'fileIntegrationRevisionRegexp' to be non-null");
-            $.folderIntegrationRevisionRegexp = Objects.requireNonNull($.folderIntegrationRevisionRegexp, "expected parameter 'folderIntegrationRevisionRegexp' to be non-null");
+            if ($.artifactPathPattern == null) {
+                throw new MissingRequiredPropertyException("RepositoryLayoutArgs", "artifactPathPattern");
+            }
+            if ($.fileIntegrationRevisionRegexp == null) {
+                throw new MissingRequiredPropertyException("RepositoryLayoutArgs", "fileIntegrationRevisionRegexp");
+            }
+            if ($.folderIntegrationRevisionRegexp == null) {
+                throw new MissingRequiredPropertyException("RepositoryLayoutArgs", "folderIntegrationRevisionRegexp");
+            }
             return $;
         }
     }
