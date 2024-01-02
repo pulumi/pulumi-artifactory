@@ -5,6 +5,7 @@ package com.pulumi.artifactory.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -219,8 +220,12 @@ public final class BuildWebhookCriteriaArgs extends com.pulumi.resources.Resourc
         }
 
         public BuildWebhookCriteriaArgs build() {
-            $.anyBuild = Objects.requireNonNull($.anyBuild, "expected parameter 'anyBuild' to be non-null");
-            $.selectedBuilds = Objects.requireNonNull($.selectedBuilds, "expected parameter 'selectedBuilds' to be non-null");
+            if ($.anyBuild == null) {
+                throw new MissingRequiredPropertyException("BuildWebhookCriteriaArgs", "anyBuild");
+            }
+            if ($.selectedBuilds == null) {
+                throw new MissingRequiredPropertyException("BuildWebhookCriteriaArgs", "selectedBuilds");
+            }
             return $;
         }
     }

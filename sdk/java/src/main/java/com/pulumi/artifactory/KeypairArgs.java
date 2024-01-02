@@ -5,6 +5,7 @@ package com.pulumi.artifactory;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -269,11 +270,21 @@ public final class KeypairArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public KeypairArgs build() {
-            $.alias = Objects.requireNonNull($.alias, "expected parameter 'alias' to be non-null");
-            $.pairName = Objects.requireNonNull($.pairName, "expected parameter 'pairName' to be non-null");
-            $.pairType = Objects.requireNonNull($.pairType, "expected parameter 'pairType' to be non-null");
-            $.privateKey = Objects.requireNonNull($.privateKey, "expected parameter 'privateKey' to be non-null");
-            $.publicKey = Objects.requireNonNull($.publicKey, "expected parameter 'publicKey' to be non-null");
+            if ($.alias == null) {
+                throw new MissingRequiredPropertyException("KeypairArgs", "alias");
+            }
+            if ($.pairName == null) {
+                throw new MissingRequiredPropertyException("KeypairArgs", "pairName");
+            }
+            if ($.pairType == null) {
+                throw new MissingRequiredPropertyException("KeypairArgs", "pairType");
+            }
+            if ($.privateKey == null) {
+                throw new MissingRequiredPropertyException("KeypairArgs", "privateKey");
+            }
+            if ($.publicKey == null) {
+                throw new MissingRequiredPropertyException("KeypairArgs", "publicKey");
+            }
             return $;
         }
     }

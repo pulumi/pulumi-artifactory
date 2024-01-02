@@ -4,6 +4,7 @@
 package com.pulumi.artifactory.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -147,52 +148,70 @@ public final class GetVirtualHelmRepositoryResult {
 
         @CustomType.Setter
         public Builder artifactoryRequestsCanRetrieveRemoteArtifacts(@Nullable Boolean artifactoryRequestsCanRetrieveRemoteArtifacts) {
+
             this.artifactoryRequestsCanRetrieveRemoteArtifacts = artifactoryRequestsCanRetrieveRemoteArtifacts;
             return this;
         }
         @CustomType.Setter
         public Builder defaultDeploymentRepo(@Nullable String defaultDeploymentRepo) {
+
             this.defaultDeploymentRepo = defaultDeploymentRepo;
             return this;
         }
         @CustomType.Setter
         public Builder description(@Nullable String description) {
+
             this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder excludesPattern(@Nullable String excludesPattern) {
+
             this.excludesPattern = excludesPattern;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetVirtualHelmRepositoryResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder includesPattern(@Nullable String includesPattern) {
+
             this.includesPattern = includesPattern;
             return this;
         }
         @CustomType.Setter
         public Builder key(String key) {
-            this.key = Objects.requireNonNull(key);
+            if (key == null) {
+              throw new MissingRequiredPropertyException("GetVirtualHelmRepositoryResult", "key");
+            }
+            this.key = key;
             return this;
         }
         @CustomType.Setter
         public Builder notes(@Nullable String notes) {
+
             this.notes = notes;
             return this;
         }
         @CustomType.Setter
         public Builder packageType(String packageType) {
-            this.packageType = Objects.requireNonNull(packageType);
+            if (packageType == null) {
+              throw new MissingRequiredPropertyException("GetVirtualHelmRepositoryResult", "packageType");
+            }
+            this.packageType = packageType;
             return this;
         }
         @CustomType.Setter
         public Builder projectEnvironments(List<String> projectEnvironments) {
-            this.projectEnvironments = Objects.requireNonNull(projectEnvironments);
+            if (projectEnvironments == null) {
+              throw new MissingRequiredPropertyException("GetVirtualHelmRepositoryResult", "projectEnvironments");
+            }
+            this.projectEnvironments = projectEnvironments;
             return this;
         }
         public Builder projectEnvironments(String... projectEnvironments) {
@@ -200,16 +219,19 @@ public final class GetVirtualHelmRepositoryResult {
         }
         @CustomType.Setter
         public Builder projectKey(@Nullable String projectKey) {
+
             this.projectKey = projectKey;
             return this;
         }
         @CustomType.Setter
         public Builder repoLayoutRef(@Nullable String repoLayoutRef) {
+
             this.repoLayoutRef = repoLayoutRef;
             return this;
         }
         @CustomType.Setter
         public Builder repositories(@Nullable List<String> repositories) {
+
             this.repositories = repositories;
             return this;
         }
@@ -218,11 +240,13 @@ public final class GetVirtualHelmRepositoryResult {
         }
         @CustomType.Setter
         public Builder retrievalCachePeriodSeconds(@Nullable Integer retrievalCachePeriodSeconds) {
+
             this.retrievalCachePeriodSeconds = retrievalCachePeriodSeconds;
             return this;
         }
         @CustomType.Setter
         public Builder useNamespaces(@Nullable Boolean useNamespaces) {
+
             this.useNamespaces = useNamespaces;
             return this;
         }

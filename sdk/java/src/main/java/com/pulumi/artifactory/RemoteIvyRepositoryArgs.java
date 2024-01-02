@@ -6,6 +6,7 @@ package com.pulumi.artifactory;
 import com.pulumi.artifactory.inputs.RemoteIvyRepositoryContentSynchronisationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -1943,8 +1944,12 @@ public final class RemoteIvyRepositoryArgs extends com.pulumi.resources.Resource
         }
 
         public RemoteIvyRepositoryArgs build() {
-            $.key = Objects.requireNonNull($.key, "expected parameter 'key' to be non-null");
-            $.url = Objects.requireNonNull($.url, "expected parameter 'url' to be non-null");
+            if ($.key == null) {
+                throw new MissingRequiredPropertyException("RemoteIvyRepositoryArgs", "key");
+            }
+            if ($.url == null) {
+                throw new MissingRequiredPropertyException("RemoteIvyRepositoryArgs", "url");
+            }
             return $;
         }
     }

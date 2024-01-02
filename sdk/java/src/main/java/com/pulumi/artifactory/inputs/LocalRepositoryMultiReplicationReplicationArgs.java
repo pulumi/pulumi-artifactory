@@ -5,6 +5,7 @@ package com.pulumi.artifactory.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -522,8 +523,12 @@ public final class LocalRepositoryMultiReplicationReplicationArgs extends com.pu
         }
 
         public LocalRepositoryMultiReplicationReplicationArgs build() {
-            $.url = Objects.requireNonNull($.url, "expected parameter 'url' to be non-null");
-            $.username = Objects.requireNonNull($.username, "expected parameter 'username' to be non-null");
+            if ($.url == null) {
+                throw new MissingRequiredPropertyException("LocalRepositoryMultiReplicationReplicationArgs", "url");
+            }
+            if ($.username == null) {
+                throw new MissingRequiredPropertyException("LocalRepositoryMultiReplicationReplicationArgs", "username");
+            }
             return $;
         }
     }

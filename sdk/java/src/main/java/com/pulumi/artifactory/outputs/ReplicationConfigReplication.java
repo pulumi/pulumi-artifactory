@@ -108,51 +108,61 @@ public final class ReplicationConfigReplication {
 
         @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
+
             this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder password(@Nullable String password) {
+
             this.password = password;
             return this;
         }
         @CustomType.Setter
         public Builder pathPrefix(@Nullable String pathPrefix) {
+
             this.pathPrefix = pathPrefix;
             return this;
         }
         @CustomType.Setter
         public Builder proxy(@Nullable String proxy) {
+
             this.proxy = proxy;
             return this;
         }
         @CustomType.Setter
         public Builder socketTimeoutMillis(@Nullable Integer socketTimeoutMillis) {
+
             this.socketTimeoutMillis = socketTimeoutMillis;
             return this;
         }
         @CustomType.Setter
         public Builder syncDeletes(@Nullable Boolean syncDeletes) {
+
             this.syncDeletes = syncDeletes;
             return this;
         }
         @CustomType.Setter
         public Builder syncProperties(@Nullable Boolean syncProperties) {
+
             this.syncProperties = syncProperties;
             return this;
         }
         @CustomType.Setter
         public Builder syncStatistics(@Nullable Boolean syncStatistics) {
+
             this.syncStatistics = syncStatistics;
             return this;
         }
         @CustomType.Setter
         public Builder url(@Nullable String url) {
+
             this.url = url;
             return this;
         }
         @CustomType.Setter
         public Builder username(@Nullable String username) {
+
             this.username = username;
             return this;
         }

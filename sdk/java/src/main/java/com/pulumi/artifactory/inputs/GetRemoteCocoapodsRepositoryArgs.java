@@ -6,6 +6,7 @@ package com.pulumi.artifactory.inputs;
 import com.pulumi.artifactory.inputs.GetRemoteCocoapodsRepositoryContentSynchronisationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -896,7 +897,9 @@ public final class GetRemoteCocoapodsRepositoryArgs extends com.pulumi.resources
         }
 
         public GetRemoteCocoapodsRepositoryArgs build() {
-            $.key = Objects.requireNonNull($.key, "expected parameter 'key' to be non-null");
+            if ($.key == null) {
+                throw new MissingRequiredPropertyException("GetRemoteCocoapodsRepositoryArgs", "key");
+            }
             return $;
         }
     }

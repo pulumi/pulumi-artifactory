@@ -4,6 +4,7 @@
 package com.pulumi.artifactory.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -136,21 +137,25 @@ public final class GetUserResult {
 
         @CustomType.Setter
         public Builder admin(@Nullable Boolean admin) {
+
             this.admin = admin;
             return this;
         }
         @CustomType.Setter
         public Builder disableUiAccess(@Nullable Boolean disableUiAccess) {
+
             this.disableUiAccess = disableUiAccess;
             return this;
         }
         @CustomType.Setter
         public Builder email(@Nullable String email) {
+
             this.email = email;
             return this;
         }
         @CustomType.Setter
         public Builder groups(@Nullable List<String> groups) {
+
             this.groups = groups;
             return this;
         }
@@ -159,21 +164,29 @@ public final class GetUserResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder internalPasswordDisabled(@Nullable Boolean internalPasswordDisabled) {
+
             this.internalPasswordDisabled = internalPasswordDisabled;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder profileUpdatable(@Nullable Boolean profileUpdatable) {
+
             this.profileUpdatable = profileUpdatable;
             return this;
         }

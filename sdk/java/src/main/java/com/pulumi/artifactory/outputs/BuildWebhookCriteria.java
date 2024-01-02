@@ -4,6 +4,7 @@
 package com.pulumi.artifactory.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -87,11 +88,15 @@ public final class BuildWebhookCriteria {
 
         @CustomType.Setter
         public Builder anyBuild(Boolean anyBuild) {
-            this.anyBuild = Objects.requireNonNull(anyBuild);
+            if (anyBuild == null) {
+              throw new MissingRequiredPropertyException("BuildWebhookCriteria", "anyBuild");
+            }
+            this.anyBuild = anyBuild;
             return this;
         }
         @CustomType.Setter
         public Builder excludePatterns(@Nullable List<String> excludePatterns) {
+
             this.excludePatterns = excludePatterns;
             return this;
         }
@@ -100,6 +105,7 @@ public final class BuildWebhookCriteria {
         }
         @CustomType.Setter
         public Builder includePatterns(@Nullable List<String> includePatterns) {
+
             this.includePatterns = includePatterns;
             return this;
         }
@@ -108,7 +114,10 @@ public final class BuildWebhookCriteria {
         }
         @CustomType.Setter
         public Builder selectedBuilds(List<String> selectedBuilds) {
-            this.selectedBuilds = Objects.requireNonNull(selectedBuilds);
+            if (selectedBuilds == null) {
+              throw new MissingRequiredPropertyException("BuildWebhookCriteria", "selectedBuilds");
+            }
+            this.selectedBuilds = selectedBuilds;
             return this;
         }
         public Builder selectedBuilds(String... selectedBuilds) {

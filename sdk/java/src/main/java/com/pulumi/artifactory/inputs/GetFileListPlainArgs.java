@@ -4,6 +4,7 @@
 package com.pulumi.artifactory.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -229,8 +230,12 @@ public final class GetFileListPlainArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         public GetFileListPlainArgs build() {
-            $.folderPath = Objects.requireNonNull($.folderPath, "expected parameter 'folderPath' to be non-null");
-            $.repositoryKey = Objects.requireNonNull($.repositoryKey, "expected parameter 'repositoryKey' to be non-null");
+            if ($.folderPath == null) {
+                throw new MissingRequiredPropertyException("GetFileListPlainArgs", "folderPath");
+            }
+            if ($.repositoryKey == null) {
+                throw new MissingRequiredPropertyException("GetFileListPlainArgs", "repositoryKey");
+            }
             return $;
         }
     }

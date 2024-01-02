@@ -5,6 +5,7 @@ package com.pulumi.artifactory;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -385,12 +386,24 @@ public final class LdapGroupSettingArgs extends com.pulumi.resources.ResourceArg
         }
 
         public LdapGroupSettingArgs build() {
-            $.descriptionAttribute = Objects.requireNonNull($.descriptionAttribute, "expected parameter 'descriptionAttribute' to be non-null");
-            $.filter = Objects.requireNonNull($.filter, "expected parameter 'filter' to be non-null");
-            $.groupMemberAttribute = Objects.requireNonNull($.groupMemberAttribute, "expected parameter 'groupMemberAttribute' to be non-null");
-            $.groupNameAttribute = Objects.requireNonNull($.groupNameAttribute, "expected parameter 'groupNameAttribute' to be non-null");
-            $.ldapSettingKey = Objects.requireNonNull($.ldapSettingKey, "expected parameter 'ldapSettingKey' to be non-null");
-            $.strategy = Objects.requireNonNull($.strategy, "expected parameter 'strategy' to be non-null");
+            if ($.descriptionAttribute == null) {
+                throw new MissingRequiredPropertyException("LdapGroupSettingArgs", "descriptionAttribute");
+            }
+            if ($.filter == null) {
+                throw new MissingRequiredPropertyException("LdapGroupSettingArgs", "filter");
+            }
+            if ($.groupMemberAttribute == null) {
+                throw new MissingRequiredPropertyException("LdapGroupSettingArgs", "groupMemberAttribute");
+            }
+            if ($.groupNameAttribute == null) {
+                throw new MissingRequiredPropertyException("LdapGroupSettingArgs", "groupNameAttribute");
+            }
+            if ($.ldapSettingKey == null) {
+                throw new MissingRequiredPropertyException("LdapGroupSettingArgs", "ldapSettingKey");
+            }
+            if ($.strategy == null) {
+                throw new MissingRequiredPropertyException("LdapGroupSettingArgs", "strategy");
+            }
             return $;
         }
     }

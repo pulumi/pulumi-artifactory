@@ -5,6 +5,7 @@ package com.pulumi.artifactory.inputs;
 
 import com.pulumi.artifactory.inputs.GetFederatedDebianRepositoryMember;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -450,7 +451,9 @@ public final class GetFederatedDebianRepositoryPlainArgs extends com.pulumi.reso
         }
 
         public GetFederatedDebianRepositoryPlainArgs build() {
-            $.key = Objects.requireNonNull($.key, "expected parameter 'key' to be non-null");
+            if ($.key == null) {
+                throw new MissingRequiredPropertyException("GetFederatedDebianRepositoryPlainArgs", "key");
+            }
             return $;
         }
     }

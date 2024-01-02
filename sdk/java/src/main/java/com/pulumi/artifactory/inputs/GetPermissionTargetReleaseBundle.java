@@ -5,6 +5,7 @@ package com.pulumi.artifactory.inputs;
 
 import com.pulumi.artifactory.inputs.GetPermissionTargetReleaseBundleActions;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -172,7 +173,9 @@ public final class GetPermissionTargetReleaseBundle extends com.pulumi.resources
         }
 
         public GetPermissionTargetReleaseBundle build() {
-            $.repositories = Objects.requireNonNull($.repositories, "expected parameter 'repositories' to be non-null");
+            if ($.repositories == null) {
+                throw new MissingRequiredPropertyException("GetPermissionTargetReleaseBundle", "repositories");
+            }
             return $;
         }
     }

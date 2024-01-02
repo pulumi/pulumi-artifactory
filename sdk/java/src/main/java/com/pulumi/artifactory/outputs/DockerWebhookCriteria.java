@@ -4,6 +4,7 @@
 package com.pulumi.artifactory.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -101,16 +102,23 @@ public final class DockerWebhookCriteria {
 
         @CustomType.Setter
         public Builder anyLocal(Boolean anyLocal) {
-            this.anyLocal = Objects.requireNonNull(anyLocal);
+            if (anyLocal == null) {
+              throw new MissingRequiredPropertyException("DockerWebhookCriteria", "anyLocal");
+            }
+            this.anyLocal = anyLocal;
             return this;
         }
         @CustomType.Setter
         public Builder anyRemote(Boolean anyRemote) {
-            this.anyRemote = Objects.requireNonNull(anyRemote);
+            if (anyRemote == null) {
+              throw new MissingRequiredPropertyException("DockerWebhookCriteria", "anyRemote");
+            }
+            this.anyRemote = anyRemote;
             return this;
         }
         @CustomType.Setter
         public Builder excludePatterns(@Nullable List<String> excludePatterns) {
+
             this.excludePatterns = excludePatterns;
             return this;
         }
@@ -119,6 +127,7 @@ public final class DockerWebhookCriteria {
         }
         @CustomType.Setter
         public Builder includePatterns(@Nullable List<String> includePatterns) {
+
             this.includePatterns = includePatterns;
             return this;
         }
@@ -127,7 +136,10 @@ public final class DockerWebhookCriteria {
         }
         @CustomType.Setter
         public Builder repoKeys(List<String> repoKeys) {
-            this.repoKeys = Objects.requireNonNull(repoKeys);
+            if (repoKeys == null) {
+              throw new MissingRequiredPropertyException("DockerWebhookCriteria", "repoKeys");
+            }
+            this.repoKeys = repoKeys;
             return this;
         }
         public Builder repoKeys(String... repoKeys) {

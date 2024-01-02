@@ -5,6 +5,7 @@ package com.pulumi.artifactory.outputs;
 
 import com.pulumi.artifactory.outputs.PropertySetPropertyPredefinedValue;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -89,22 +90,30 @@ public final class PropertySetProperty {
 
         @CustomType.Setter
         public Builder closedPredefinedValues(@Nullable Boolean closedPredefinedValues) {
+
             this.closedPredefinedValues = closedPredefinedValues;
             return this;
         }
         @CustomType.Setter
         public Builder multipleChoice(@Nullable Boolean multipleChoice) {
+
             this.multipleChoice = multipleChoice;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("PropertySetProperty", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder predefinedValues(List<PropertySetPropertyPredefinedValue> predefinedValues) {
-            this.predefinedValues = Objects.requireNonNull(predefinedValues);
+            if (predefinedValues == null) {
+              throw new MissingRequiredPropertyException("PropertySetProperty", "predefinedValues");
+            }
+            this.predefinedValues = predefinedValues;
             return this;
         }
         public Builder predefinedValues(PropertySetPropertyPredefinedValue... predefinedValues) {

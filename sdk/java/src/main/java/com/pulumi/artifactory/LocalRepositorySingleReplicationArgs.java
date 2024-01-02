@@ -5,6 +5,7 @@ package com.pulumi.artifactory;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -633,9 +634,15 @@ public final class LocalRepositorySingleReplicationArgs extends com.pulumi.resou
         }
 
         public LocalRepositorySingleReplicationArgs build() {
-            $.repoKey = Objects.requireNonNull($.repoKey, "expected parameter 'repoKey' to be non-null");
-            $.url = Objects.requireNonNull($.url, "expected parameter 'url' to be non-null");
-            $.username = Objects.requireNonNull($.username, "expected parameter 'username' to be non-null");
+            if ($.repoKey == null) {
+                throw new MissingRequiredPropertyException("LocalRepositorySingleReplicationArgs", "repoKey");
+            }
+            if ($.url == null) {
+                throw new MissingRequiredPropertyException("LocalRepositorySingleReplicationArgs", "url");
+            }
+            if ($.username == null) {
+                throw new MissingRequiredPropertyException("LocalRepositorySingleReplicationArgs", "username");
+            }
             return $;
         }
     }

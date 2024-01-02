@@ -7,6 +7,7 @@ import com.pulumi.artifactory.outputs.GetPermissionTargetBuild;
 import com.pulumi.artifactory.outputs.GetPermissionTargetReleaseBundle;
 import com.pulumi.artifactory.outputs.GetPermissionTargetRepo;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -95,26 +96,35 @@ public final class GetPermissionTargetResult {
 
         @CustomType.Setter
         public Builder build(@Nullable GetPermissionTargetBuild build) {
+
             this.build = build;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetPermissionTargetResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetPermissionTargetResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder releaseBundle(@Nullable GetPermissionTargetReleaseBundle releaseBundle) {
+
             this.releaseBundle = releaseBundle;
             return this;
         }
         @CustomType.Setter
         public Builder repo(@Nullable GetPermissionTargetRepo repo) {
+
             this.repo = repo;
             return this;
         }

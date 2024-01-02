@@ -5,6 +5,7 @@ package com.pulumi.artifactory.outputs;
 
 import com.pulumi.artifactory.outputs.GetRemoteDockerRepositoryContentSynchronisation;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -376,96 +377,123 @@ public final class GetRemoteDockerRepositoryResult {
 
         @CustomType.Setter
         public Builder allowAnyHostAuth(@Nullable Boolean allowAnyHostAuth) {
+
             this.allowAnyHostAuth = allowAnyHostAuth;
             return this;
         }
         @CustomType.Setter
         public Builder assumedOfflinePeriodSecs(@Nullable Integer assumedOfflinePeriodSecs) {
+
             this.assumedOfflinePeriodSecs = assumedOfflinePeriodSecs;
             return this;
         }
         @CustomType.Setter
         public Builder blackedOut(@Nullable Boolean blackedOut) {
+
             this.blackedOut = blackedOut;
             return this;
         }
         @CustomType.Setter
         public Builder blockMismatchingMimeTypes(@Nullable Boolean blockMismatchingMimeTypes) {
+
             this.blockMismatchingMimeTypes = blockMismatchingMimeTypes;
             return this;
         }
         @CustomType.Setter
         public Builder blockPushingSchema1(Boolean blockPushingSchema1) {
-            this.blockPushingSchema1 = Objects.requireNonNull(blockPushingSchema1);
+            if (blockPushingSchema1 == null) {
+              throw new MissingRequiredPropertyException("GetRemoteDockerRepositoryResult", "blockPushingSchema1");
+            }
+            this.blockPushingSchema1 = blockPushingSchema1;
             return this;
         }
         @CustomType.Setter
         public Builder bypassHeadRequests(@Nullable Boolean bypassHeadRequests) {
+
             this.bypassHeadRequests = bypassHeadRequests;
             return this;
         }
         @CustomType.Setter
         public Builder cdnRedirect(@Nullable Boolean cdnRedirect) {
+
             this.cdnRedirect = cdnRedirect;
             return this;
         }
         @CustomType.Setter
         public Builder clientTlsCertificate(String clientTlsCertificate) {
-            this.clientTlsCertificate = Objects.requireNonNull(clientTlsCertificate);
+            if (clientTlsCertificate == null) {
+              throw new MissingRequiredPropertyException("GetRemoteDockerRepositoryResult", "clientTlsCertificate");
+            }
+            this.clientTlsCertificate = clientTlsCertificate;
             return this;
         }
         @CustomType.Setter
         public Builder contentSynchronisation(GetRemoteDockerRepositoryContentSynchronisation contentSynchronisation) {
-            this.contentSynchronisation = Objects.requireNonNull(contentSynchronisation);
+            if (contentSynchronisation == null) {
+              throw new MissingRequiredPropertyException("GetRemoteDockerRepositoryResult", "contentSynchronisation");
+            }
+            this.contentSynchronisation = contentSynchronisation;
             return this;
         }
         @CustomType.Setter
         public Builder curated(@Nullable Boolean curated) {
+
             this.curated = curated;
             return this;
         }
         @CustomType.Setter
         public Builder description(@Nullable String description) {
+
             this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder disableProxy(@Nullable Boolean disableProxy) {
+
             this.disableProxy = disableProxy;
             return this;
         }
         @CustomType.Setter
         public Builder disableUrlNormalization(@Nullable Boolean disableUrlNormalization) {
+
             this.disableUrlNormalization = disableUrlNormalization;
             return this;
         }
         @CustomType.Setter
         public Builder downloadDirect(@Nullable Boolean downloadDirect) {
+
             this.downloadDirect = downloadDirect;
             return this;
         }
         @CustomType.Setter
         public Builder enableCookieManagement(@Nullable Boolean enableCookieManagement) {
+
             this.enableCookieManagement = enableCookieManagement;
             return this;
         }
         @CustomType.Setter
         public Builder enableTokenAuthentication(Boolean enableTokenAuthentication) {
-            this.enableTokenAuthentication = Objects.requireNonNull(enableTokenAuthentication);
+            if (enableTokenAuthentication == null) {
+              throw new MissingRequiredPropertyException("GetRemoteDockerRepositoryResult", "enableTokenAuthentication");
+            }
+            this.enableTokenAuthentication = enableTokenAuthentication;
             return this;
         }
         @CustomType.Setter
         public Builder excludesPattern(@Nullable String excludesPattern) {
+
             this.excludesPattern = excludesPattern;
             return this;
         }
         @CustomType.Setter
         public Builder externalDependenciesEnabled(@Nullable Boolean externalDependenciesEnabled) {
+
             this.externalDependenciesEnabled = externalDependenciesEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder externalDependenciesPatterns(@Nullable List<String> externalDependenciesPatterns) {
+
             this.externalDependenciesPatterns = externalDependenciesPatterns;
             return this;
         }
@@ -474,77 +502,100 @@ public final class GetRemoteDockerRepositoryResult {
         }
         @CustomType.Setter
         public Builder hardFail(@Nullable Boolean hardFail) {
+
             this.hardFail = hardFail;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetRemoteDockerRepositoryResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder includesPattern(@Nullable String includesPattern) {
+
             this.includesPattern = includesPattern;
             return this;
         }
         @CustomType.Setter
         public Builder key(String key) {
-            this.key = Objects.requireNonNull(key);
+            if (key == null) {
+              throw new MissingRequiredPropertyException("GetRemoteDockerRepositoryResult", "key");
+            }
+            this.key = key;
             return this;
         }
         @CustomType.Setter
         public Builder listRemoteFolderItems(@Nullable Boolean listRemoteFolderItems) {
+
             this.listRemoteFolderItems = listRemoteFolderItems;
             return this;
         }
         @CustomType.Setter
         public Builder localAddress(@Nullable String localAddress) {
+
             this.localAddress = localAddress;
             return this;
         }
         @CustomType.Setter
         public Builder metadataRetrievalTimeoutSecs(@Nullable Integer metadataRetrievalTimeoutSecs) {
+
             this.metadataRetrievalTimeoutSecs = metadataRetrievalTimeoutSecs;
             return this;
         }
         @CustomType.Setter
         public Builder mismatchingMimeTypesOverrideList(@Nullable String mismatchingMimeTypesOverrideList) {
+
             this.mismatchingMimeTypesOverrideList = mismatchingMimeTypesOverrideList;
             return this;
         }
         @CustomType.Setter
         public Builder missedCachePeriodSeconds(@Nullable Integer missedCachePeriodSeconds) {
+
             this.missedCachePeriodSeconds = missedCachePeriodSeconds;
             return this;
         }
         @CustomType.Setter
         public Builder notes(@Nullable String notes) {
+
             this.notes = notes;
             return this;
         }
         @CustomType.Setter
         public Builder offline(@Nullable Boolean offline) {
+
             this.offline = offline;
             return this;
         }
         @CustomType.Setter
         public Builder packageType(String packageType) {
-            this.packageType = Objects.requireNonNull(packageType);
+            if (packageType == null) {
+              throw new MissingRequiredPropertyException("GetRemoteDockerRepositoryResult", "packageType");
+            }
+            this.packageType = packageType;
             return this;
         }
         @CustomType.Setter
         public Builder password(@Nullable String password) {
+
             this.password = password;
             return this;
         }
         @CustomType.Setter
         public Builder priorityResolution(@Nullable Boolean priorityResolution) {
+
             this.priorityResolution = priorityResolution;
             return this;
         }
         @CustomType.Setter
         public Builder projectEnvironments(List<String> projectEnvironments) {
-            this.projectEnvironments = Objects.requireNonNull(projectEnvironments);
+            if (projectEnvironments == null) {
+              throw new MissingRequiredPropertyException("GetRemoteDockerRepositoryResult", "projectEnvironments");
+            }
+            this.projectEnvironments = projectEnvironments;
             return this;
         }
         public Builder projectEnvironments(String... projectEnvironments) {
@@ -552,11 +603,13 @@ public final class GetRemoteDockerRepositoryResult {
         }
         @CustomType.Setter
         public Builder projectKey(@Nullable String projectKey) {
+
             this.projectKey = projectKey;
             return this;
         }
         @CustomType.Setter
         public Builder propertySets(@Nullable List<String> propertySets) {
+
             this.propertySets = propertySets;
             return this;
         }
@@ -565,66 +618,81 @@ public final class GetRemoteDockerRepositoryResult {
         }
         @CustomType.Setter
         public Builder proxy(@Nullable String proxy) {
+
             this.proxy = proxy;
             return this;
         }
         @CustomType.Setter
         public Builder queryParams(@Nullable String queryParams) {
+
             this.queryParams = queryParams;
             return this;
         }
         @CustomType.Setter
         public Builder remoteRepoLayoutRef(@Nullable String remoteRepoLayoutRef) {
+
             this.remoteRepoLayoutRef = remoteRepoLayoutRef;
             return this;
         }
         @CustomType.Setter
         public Builder repoLayoutRef(@Nullable String repoLayoutRef) {
+
             this.repoLayoutRef = repoLayoutRef;
             return this;
         }
         @CustomType.Setter
         public Builder retrievalCachePeriodSeconds(@Nullable Integer retrievalCachePeriodSeconds) {
+
             this.retrievalCachePeriodSeconds = retrievalCachePeriodSeconds;
             return this;
         }
         @CustomType.Setter
         public Builder shareConfiguration(Boolean shareConfiguration) {
-            this.shareConfiguration = Objects.requireNonNull(shareConfiguration);
+            if (shareConfiguration == null) {
+              throw new MissingRequiredPropertyException("GetRemoteDockerRepositoryResult", "shareConfiguration");
+            }
+            this.shareConfiguration = shareConfiguration;
             return this;
         }
         @CustomType.Setter
         public Builder socketTimeoutMillis(@Nullable Integer socketTimeoutMillis) {
+
             this.socketTimeoutMillis = socketTimeoutMillis;
             return this;
         }
         @CustomType.Setter
         public Builder storeArtifactsLocally(@Nullable Boolean storeArtifactsLocally) {
+
             this.storeArtifactsLocally = storeArtifactsLocally;
             return this;
         }
         @CustomType.Setter
         public Builder synchronizeProperties(@Nullable Boolean synchronizeProperties) {
+
             this.synchronizeProperties = synchronizeProperties;
             return this;
         }
         @CustomType.Setter
         public Builder unusedArtifactsCleanupPeriodHours(@Nullable Integer unusedArtifactsCleanupPeriodHours) {
+
             this.unusedArtifactsCleanupPeriodHours = unusedArtifactsCleanupPeriodHours;
             return this;
         }
         @CustomType.Setter
         public Builder url(@Nullable String url) {
+
             this.url = url;
             return this;
         }
         @CustomType.Setter
         public Builder username(@Nullable String username) {
+
             this.username = username;
             return this;
         }
         @CustomType.Setter
         public Builder xrayIndex(@Nullable Boolean xrayIndex) {
+
             this.xrayIndex = xrayIndex;
             return this;
         }

@@ -5,6 +5,7 @@ package com.pulumi.artifactory;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -285,8 +286,12 @@ public final class SingleReplicationConfigArgs extends com.pulumi.resources.Reso
         }
 
         public SingleReplicationConfigArgs build() {
-            $.cronExp = Objects.requireNonNull($.cronExp, "expected parameter 'cronExp' to be non-null");
-            $.repoKey = Objects.requireNonNull($.repoKey, "expected parameter 'repoKey' to be non-null");
+            if ($.cronExp == null) {
+                throw new MissingRequiredPropertyException("SingleReplicationConfigArgs", "cronExp");
+            }
+            if ($.repoKey == null) {
+                throw new MissingRequiredPropertyException("SingleReplicationConfigArgs", "repoKey");
+            }
             return $;
         }
     }

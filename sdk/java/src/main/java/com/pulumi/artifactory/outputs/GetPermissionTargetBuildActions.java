@@ -59,6 +59,7 @@ public final class GetPermissionTargetBuildActions {
 
         @CustomType.Setter
         public Builder groups(@Nullable List<GetPermissionTargetBuildActionsGroup> groups) {
+
             this.groups = groups;
             return this;
         }
@@ -67,6 +68,7 @@ public final class GetPermissionTargetBuildActions {
         }
         @CustomType.Setter
         public Builder users(@Nullable List<GetPermissionTargetBuildActionsUser> users) {
+
             this.users = users;
             return this;
         }

@@ -5,6 +5,7 @@ package com.pulumi.artifactory.inputs;
 
 import com.pulumi.artifactory.inputs.GetRemoteDockerRepositoryContentSynchronisation;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -755,7 +756,9 @@ public final class GetRemoteDockerRepositoryPlainArgs extends com.pulumi.resourc
         }
 
         public GetRemoteDockerRepositoryPlainArgs build() {
-            $.key = Objects.requireNonNull($.key, "expected parameter 'key' to be non-null");
+            if ($.key == null) {
+                throw new MissingRequiredPropertyException("GetRemoteDockerRepositoryPlainArgs", "key");
+            }
             return $;
         }
     }

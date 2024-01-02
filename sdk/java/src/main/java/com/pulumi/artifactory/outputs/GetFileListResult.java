@@ -5,6 +5,7 @@ package com.pulumi.artifactory.outputs;
 
 import com.pulumi.artifactory.outputs.GetFileListFile;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -188,22 +189,30 @@ public final class GetFileListResult {
 
         @CustomType.Setter
         public Builder created(String created) {
-            this.created = Objects.requireNonNull(created);
+            if (created == null) {
+              throw new MissingRequiredPropertyException("GetFileListResult", "created");
+            }
+            this.created = created;
             return this;
         }
         @CustomType.Setter
         public Builder deepListing(@Nullable Boolean deepListing) {
+
             this.deepListing = deepListing;
             return this;
         }
         @CustomType.Setter
         public Builder depth(@Nullable Integer depth) {
+
             this.depth = depth;
             return this;
         }
         @CustomType.Setter
         public Builder files(List<GetFileListFile> files) {
-            this.files = Objects.requireNonNull(files);
+            if (files == null) {
+              throw new MissingRequiredPropertyException("GetFileListResult", "files");
+            }
+            this.files = files;
             return this;
         }
         public Builder files(GetFileListFile... files) {
@@ -211,37 +220,52 @@ public final class GetFileListResult {
         }
         @CustomType.Setter
         public Builder folderPath(String folderPath) {
-            this.folderPath = Objects.requireNonNull(folderPath);
+            if (folderPath == null) {
+              throw new MissingRequiredPropertyException("GetFileListResult", "folderPath");
+            }
+            this.folderPath = folderPath;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetFileListResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder includeRootPath(@Nullable Boolean includeRootPath) {
+
             this.includeRootPath = includeRootPath;
             return this;
         }
         @CustomType.Setter
         public Builder listFolders(@Nullable Boolean listFolders) {
+
             this.listFolders = listFolders;
             return this;
         }
         @CustomType.Setter
         public Builder metadataTimestamps(@Nullable Boolean metadataTimestamps) {
+
             this.metadataTimestamps = metadataTimestamps;
             return this;
         }
         @CustomType.Setter
         public Builder repositoryKey(String repositoryKey) {
-            this.repositoryKey = Objects.requireNonNull(repositoryKey);
+            if (repositoryKey == null) {
+              throw new MissingRequiredPropertyException("GetFileListResult", "repositoryKey");
+            }
+            this.repositoryKey = repositoryKey;
             return this;
         }
         @CustomType.Setter
         public Builder uri(String uri) {
-            this.uri = Objects.requireNonNull(uri);
+            if (uri == null) {
+              throw new MissingRequiredPropertyException("GetFileListResult", "uri");
+            }
+            this.uri = uri;
             return this;
         }
         public GetFileListResult build() {

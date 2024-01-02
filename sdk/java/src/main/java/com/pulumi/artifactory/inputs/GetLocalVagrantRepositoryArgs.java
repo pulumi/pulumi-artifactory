@@ -5,6 +5,7 @@ package com.pulumi.artifactory.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -324,7 +325,9 @@ public final class GetLocalVagrantRepositoryArgs extends com.pulumi.resources.In
         }
 
         public GetLocalVagrantRepositoryArgs build() {
-            $.key = Objects.requireNonNull($.key, "expected parameter 'key' to be non-null");
+            if ($.key == null) {
+                throw new MissingRequiredPropertyException("GetLocalVagrantRepositoryArgs", "key");
+            }
             return $;
         }
     }

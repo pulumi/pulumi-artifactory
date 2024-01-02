@@ -5,6 +5,7 @@ package com.pulumi.artifactory.outputs;
 
 import com.pulumi.artifactory.outputs.GetFileListFileMetadataTimestamps;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -129,37 +130,58 @@ public final class GetFileListFile {
 
         @CustomType.Setter
         public Builder folder(Boolean folder) {
-            this.folder = Objects.requireNonNull(folder);
+            if (folder == null) {
+              throw new MissingRequiredPropertyException("GetFileListFile", "folder");
+            }
+            this.folder = folder;
             return this;
         }
         @CustomType.Setter
         public Builder lastModified(String lastModified) {
-            this.lastModified = Objects.requireNonNull(lastModified);
+            if (lastModified == null) {
+              throw new MissingRequiredPropertyException("GetFileListFile", "lastModified");
+            }
+            this.lastModified = lastModified;
             return this;
         }
         @CustomType.Setter
         public Builder metadataTimestamps(GetFileListFileMetadataTimestamps metadataTimestamps) {
-            this.metadataTimestamps = Objects.requireNonNull(metadataTimestamps);
+            if (metadataTimestamps == null) {
+              throw new MissingRequiredPropertyException("GetFileListFile", "metadataTimestamps");
+            }
+            this.metadataTimestamps = metadataTimestamps;
             return this;
         }
         @CustomType.Setter
         public Builder sha1(String sha1) {
-            this.sha1 = Objects.requireNonNull(sha1);
+            if (sha1 == null) {
+              throw new MissingRequiredPropertyException("GetFileListFile", "sha1");
+            }
+            this.sha1 = sha1;
             return this;
         }
         @CustomType.Setter
         public Builder sha2(String sha2) {
-            this.sha2 = Objects.requireNonNull(sha2);
+            if (sha2 == null) {
+              throw new MissingRequiredPropertyException("GetFileListFile", "sha2");
+            }
+            this.sha2 = sha2;
             return this;
         }
         @CustomType.Setter
         public Builder size(Integer size) {
-            this.size = Objects.requireNonNull(size);
+            if (size == null) {
+              throw new MissingRequiredPropertyException("GetFileListFile", "size");
+            }
+            this.size = size;
             return this;
         }
         @CustomType.Setter
         public Builder uri(String uri) {
-            this.uri = Objects.requireNonNull(uri);
+            if (uri == null) {
+              throw new MissingRequiredPropertyException("GetFileListFile", "uri");
+            }
+            this.uri = uri;
             return this;
         }
         public GetFileListFile build() {
