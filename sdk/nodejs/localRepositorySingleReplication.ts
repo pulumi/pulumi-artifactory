@@ -10,6 +10,37 @@ import * as utilities from "./utilities";
  * See the [Official Documentation](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-PushReplication).
  * This resource can create the replication of local repository to single repository on the remote server.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const config = new pulumi.Config();
+ * const artifactoryUrl = config.require("artifactoryUrl");
+ * const artifactoryUsername = config.require("artifactoryUsername");
+ * const artifactoryPassword = config.require("artifactoryPassword");
+ * // Create a replication between two artifactory local repositories
+ * const providerTestSource = new artifactory.LocalMavenRepository("providerTestSource", {key: "provider_test_source"});
+ * const providerTestDest = new artifactory.LocalMavenRepository("providerTestDest", {key: "provider_test_dest"});
+ * const foo_rep = new artifactory.LocalRepositorySingleReplication("foo-rep", {
+ *     repoKey: providerTestSource.key,
+ *     cronExp: "0 0 * * * ?",
+ *     enableEventReplication: true,
+ *     url: pulumi.interpolate`${artifactoryUrl}/artifactory/${providerTestDest.key}`,
+ *     username: "$var.artifactory_username",
+ *     password: "$var.artifactory_password",
+ *     enabled: true,
+ *     socketTimeoutMillis: 16000,
+ *     syncDeletes: false,
+ *     syncProperties: true,
+ *     syncStatistics: true,
+ *     includePathPrefixPattern: "/some-repo/",
+ *     excludePathPrefixPattern: "/some-other-repo/",
+ *     checkBinaryExistenceInFilestore: true,
+ * });
+ * ```
+ *
  * ## Import
  *
  * Push replication configs can be imported using their repo key, e.g.

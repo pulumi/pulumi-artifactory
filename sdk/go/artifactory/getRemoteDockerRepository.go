@@ -88,6 +88,7 @@ type LookupRemoteDockerRepositoryArgs struct {
 	Password                          *string  `pulumi:"password"`
 	PriorityResolution                *bool    `pulumi:"priorityResolution"`
 	ProjectEnvironments               []string `pulumi:"projectEnvironments"`
+	ProjectId                         *string  `pulumi:"projectId"`
 	ProjectKey                        *string  `pulumi:"projectKey"`
 	PropertySets                      []string `pulumi:"propertySets"`
 	Proxy                             *string  `pulumi:"proxy"`
@@ -147,6 +148,7 @@ type LookupRemoteDockerRepositoryResult struct {
 	Password                          *string  `pulumi:"password"`
 	PriorityResolution                *bool    `pulumi:"priorityResolution"`
 	ProjectEnvironments               []string `pulumi:"projectEnvironments"`
+	ProjectId                         *string  `pulumi:"projectId"`
 	ProjectKey                        *string  `pulumi:"projectKey"`
 	PropertySets                      []string `pulumi:"propertySets"`
 	Proxy                             *string  `pulumi:"proxy"`
@@ -217,6 +219,7 @@ type LookupRemoteDockerRepositoryOutputArgs struct {
 	Password                          pulumi.StringPtrInput   `pulumi:"password"`
 	PriorityResolution                pulumi.BoolPtrInput     `pulumi:"priorityResolution"`
 	ProjectEnvironments               pulumi.StringArrayInput `pulumi:"projectEnvironments"`
+	ProjectId                         pulumi.StringPtrInput   `pulumi:"projectId"`
 	ProjectKey                        pulumi.StringPtrInput   `pulumi:"projectKey"`
 	PropertySets                      pulumi.StringArrayInput `pulumi:"propertySets"`
 	Proxy                             pulumi.StringPtrInput   `pulumi:"proxy"`
@@ -395,6 +398,10 @@ func (o LookupRemoteDockerRepositoryResultOutput) PriorityResolution() pulumi.Bo
 
 func (o LookupRemoteDockerRepositoryResultOutput) ProjectEnvironments() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupRemoteDockerRepositoryResult) []string { return v.ProjectEnvironments }).(pulumi.StringArrayOutput)
+}
+
+func (o LookupRemoteDockerRepositoryResultOutput) ProjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRemoteDockerRepositoryResult) *string { return v.ProjectId }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupRemoteDockerRepositoryResultOutput) ProjectKey() pulumi.StringPtrOutput {

@@ -12,5 +12,3 @@ plugins:
     version: "4.3.1"
   - name: time
     version: "0.0.15"
-team: ecosystem
-javaGenVersion: v0.9.7

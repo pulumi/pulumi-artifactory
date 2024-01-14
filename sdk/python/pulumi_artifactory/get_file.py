@@ -247,8 +247,7 @@ def get_file(force_overwrite: Optional[bool] = None,
     :param bool force_overwrite: If set to true, an existing file in the output_path will be overwritten. Default: `false`
     :param str output_path: The local path the file should be downloaded to.
     :param str path: The path to the file within the repository.
-    :param bool path_is_aliased: If set to `true`, the provider will get the artifact directly from Artifactory without attempting to resolve it or verify it and will delegate this to artifactory
-           if the file exists. More details in the [official documentation](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-RetrieveLatestArtifact)
+    :param bool path_is_aliased: If set to `true`, the provider will get the artifact directly from Artifactory without attempting to resolve it or verify it and will delegate this to artifactory if the file exists. When using a smart remote repository, it is recommended to set this attribute to `true`. This is necessary to ensure that the provider fetches the artifact directly from Artifactory. If this attribute is not set or is set to `false`, there is a risk of fetching the `-cache` directory in Artifactory, potentially resulting in resource expiration and a 404 error.
     :param str repository: Name of the repository where the file is stored.
     """
     __args__ = dict()
@@ -307,8 +306,7 @@ def get_file_output(force_overwrite: Optional[pulumi.Input[Optional[bool]]] = No
     :param bool force_overwrite: If set to true, an existing file in the output_path will be overwritten. Default: `false`
     :param str output_path: The local path the file should be downloaded to.
     :param str path: The path to the file within the repository.
-    :param bool path_is_aliased: If set to `true`, the provider will get the artifact directly from Artifactory without attempting to resolve it or verify it and will delegate this to artifactory
-           if the file exists. More details in the [official documentation](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-RetrieveLatestArtifact)
+    :param bool path_is_aliased: If set to `true`, the provider will get the artifact directly from Artifactory without attempting to resolve it or verify it and will delegate this to artifactory if the file exists. When using a smart remote repository, it is recommended to set this attribute to `true`. This is necessary to ensure that the provider fetches the artifact directly from Artifactory. If this attribute is not set or is set to `false`, there is a risk of fetching the `-cache` directory in Artifactory, potentially resulting in resource expiration and a 404 error.
     :param str repository: Name of the repository where the file is stored.
     """
     ...

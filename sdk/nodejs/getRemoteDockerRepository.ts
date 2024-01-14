@@ -56,6 +56,7 @@ export function getRemoteDockerRepository(args: GetRemoteDockerRepositoryArgs, o
         "password": args.password,
         "priorityResolution": args.priorityResolution,
         "projectEnvironments": args.projectEnvironments,
+        "projectId": args.projectId,
         "projectKey": args.projectKey,
         "propertySets": args.propertySets,
         "proxy": args.proxy,
@@ -128,6 +129,7 @@ export interface GetRemoteDockerRepositoryArgs {
     password?: string;
     priorityResolution?: boolean;
     projectEnvironments?: string[];
+    projectId?: string;
     projectKey?: string;
     propertySets?: string[];
     proxy?: string;
@@ -201,6 +203,7 @@ export interface GetRemoteDockerRepositoryResult {
     readonly password?: string;
     readonly priorityResolution?: boolean;
     readonly projectEnvironments: string[];
+    readonly projectId?: string;
     readonly projectKey?: string;
     readonly propertySets?: string[];
     readonly proxy?: string;
@@ -289,6 +292,7 @@ export interface GetRemoteDockerRepositoryOutputArgs {
     password?: pulumi.Input<string>;
     priorityResolution?: pulumi.Input<boolean>;
     projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
+    projectId?: pulumi.Input<string>;
     projectKey?: pulumi.Input<string>;
     propertySets?: pulumi.Input<pulumi.Input<string>[]>;
     proxy?: pulumi.Input<string>;

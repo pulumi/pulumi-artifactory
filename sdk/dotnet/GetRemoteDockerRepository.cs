@@ -201,6 +201,9 @@ namespace Pulumi.Artifactory
             set => _projectEnvironments = value;
         }
 
+        [Input("projectId")]
+        public string? ProjectId { get; set; }
+
         [Input("projectKey")]
         public string? ProjectKey { get; set; }
 
@@ -393,6 +396,9 @@ namespace Pulumi.Artifactory
             set => _projectEnvironments = value;
         }
 
+        [Input("projectId")]
+        public Input<string>? ProjectId { get; set; }
+
         [Input("projectKey")]
         public Input<string>? ProjectKey { get; set; }
 
@@ -505,6 +511,7 @@ namespace Pulumi.Artifactory
         public readonly string? Password;
         public readonly bool? PriorityResolution;
         public readonly ImmutableArray<string> ProjectEnvironments;
+        public readonly string? ProjectId;
         public readonly string? ProjectKey;
         public readonly ImmutableArray<string> PropertySets;
         public readonly string? Proxy;
@@ -591,6 +598,8 @@ namespace Pulumi.Artifactory
 
             ImmutableArray<string> projectEnvironments,
 
+            string? projectId,
+
             string? projectKey,
 
             ImmutableArray<string> propertySets,
@@ -655,6 +664,7 @@ namespace Pulumi.Artifactory
             Password = password;
             PriorityResolution = priorityResolution;
             ProjectEnvironments = projectEnvironments;
+            ProjectId = projectId;
             ProjectKey = projectKey;
             PropertySets = propertySets;
             Proxy = proxy;

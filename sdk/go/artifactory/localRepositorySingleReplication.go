@@ -17,6 +17,66 @@ import (
 // See the [Official Documentation](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-PushReplication).
 // This resource can create the replication of local repository to single repository on the remote server.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v6/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			cfg := config.New(ctx, "")
+//			artifactoryUrl := cfg.Require("artifactoryUrl")
+//			artifactoryUsername := cfg.Require("artifactoryUsername")
+//			artifactoryPassword := cfg.Require("artifactoryPassword")
+//			providerTestSource, err := artifactory.NewLocalMavenRepository(ctx, "providerTestSource", &artifactory.LocalMavenRepositoryArgs{
+//				Key: pulumi.String("provider_test_source"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			providerTestDest, err := artifactory.NewLocalMavenRepository(ctx, "providerTestDest", &artifactory.LocalMavenRepositoryArgs{
+//				Key: pulumi.String("provider_test_dest"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = artifactory.NewLocalRepositorySingleReplication(ctx, "foo-rep", &artifactory.LocalRepositorySingleReplicationArgs{
+//				RepoKey:                providerTestSource.Key,
+//				CronExp:                pulumi.String("0 0 * * * ?"),
+//				EnableEventReplication: pulumi.Bool(true),
+//				Url: providerTestDest.Key.ApplyT(func(key string) (string, error) {
+//					return fmt.Sprintf("%v/artifactory/%v", artifactoryUrl, key), nil
+//				}).(pulumi.StringOutput),
+//				Username:                        pulumi.String("$var.artifactory_username"),
+//				Password:                        pulumi.String("$var.artifactory_password"),
+//				Enabled:                         pulumi.Bool(true),
+//				SocketTimeoutMillis:             pulumi.Int(16000),
+//				SyncDeletes:                     pulumi.Bool(false),
+//				SyncProperties:                  pulumi.Bool(true),
+//				SyncStatistics:                  pulumi.Bool(true),
+//				IncludePathPrefixPattern:        pulumi.String("/some-repo/"),
+//				ExcludePathPrefixPattern:        pulumi.String("/some-other-repo/"),
+//				CheckBinaryExistenceInFilestore: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Push replication configs can be imported using their repo key, e.g.

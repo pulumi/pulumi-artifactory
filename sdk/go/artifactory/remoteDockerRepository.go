@@ -156,6 +156,8 @@ type RemoteDockerRepository struct {
 	// attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
 	// be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments pulumi.StringArrayOutput `pulumi:"projectEnvironments"`
+	// Use this attribute to enter your GCR, GAR Project Id to limit the scope of this remote repo to a specific project in your third-party registry. When leaving this field blank or unset, remote repositories that support project id will default to their default project as you have set up in your account.
+	ProjectId pulumi.StringPtrOutput `pulumi:"projectId"`
 	// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringPtrOutput `pulumi:"projectKey"`
@@ -336,6 +338,8 @@ type remoteDockerRepositoryState struct {
 	// attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
 	// be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments []string `pulumi:"projectEnvironments"`
+	// Use this attribute to enter your GCR, GAR Project Id to limit the scope of this remote repo to a specific project in your third-party registry. When leaving this field blank or unset, remote repositories that support project id will default to their default project as you have set up in your account.
+	ProjectId *string `pulumi:"projectId"`
 	// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey *string `pulumi:"projectKey"`
@@ -474,6 +478,8 @@ type RemoteDockerRepositoryState struct {
 	// attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
 	// be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments pulumi.StringArrayInput
+	// Use this attribute to enter your GCR, GAR Project Id to limit the scope of this remote repo to a specific project in your third-party registry. When leaving this field blank or unset, remote repositories that support project id will default to their default project as you have set up in your account.
+	ProjectId pulumi.StringPtrInput
 	// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringPtrInput
@@ -615,6 +621,8 @@ type remoteDockerRepositoryArgs struct {
 	// attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
 	// be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments []string `pulumi:"projectEnvironments"`
+	// Use this attribute to enter your GCR, GAR Project Id to limit the scope of this remote repo to a specific project in your third-party registry. When leaving this field blank or unset, remote repositories that support project id will default to their default project as you have set up in your account.
+	ProjectId *string `pulumi:"projectId"`
 	// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey *string `pulumi:"projectKey"`
@@ -753,6 +761,8 @@ type RemoteDockerRepositoryArgs struct {
 	// attribute should only be used if the repository is already assigned to the existing project. If not, the attribute will
 	// be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments pulumi.StringArrayInput
+	// Use this attribute to enter your GCR, GAR Project Id to limit the scope of this remote repo to a specific project in your third-party registry. When leaving this field blank or unset, remote repositories that support project id will default to their default project as you have set up in your account.
+	ProjectId pulumi.StringPtrInput
 	// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringPtrInput
@@ -1076,6 +1086,11 @@ func (o RemoteDockerRepositoryOutput) PriorityResolution() pulumi.BoolPtrOutput 
 // be ignored by Artifactory, but will remain in the Terraform state, which will create state drift during the update.
 func (o RemoteDockerRepositoryOutput) ProjectEnvironments() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RemoteDockerRepository) pulumi.StringArrayOutput { return v.ProjectEnvironments }).(pulumi.StringArrayOutput)
+}
+
+// Use this attribute to enter your GCR, GAR Project Id to limit the scope of this remote repo to a specific project in your third-party registry. When leaving this field blank or unset, remote repositories that support project id will default to their default project as you have set up in your account.
+func (o RemoteDockerRepositoryOutput) ProjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RemoteDockerRepository) pulumi.StringPtrOutput { return v.ProjectId }).(pulumi.StringPtrOutput)
 }
 
 // Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
