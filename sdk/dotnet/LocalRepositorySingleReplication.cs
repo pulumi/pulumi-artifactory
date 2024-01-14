@@ -15,6 +15,52 @@ namespace Pulumi.Artifactory
     /// See the [Official Documentation](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-PushReplication).
     /// This resource can create the replication of local repository to single repository on the remote server.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Artifactory = Pulumi.Artifactory;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var config = new Config();
+    ///     var artifactoryUrl = config.Require("artifactoryUrl");
+    ///     var artifactoryUsername = config.Require("artifactoryUsername");
+    ///     var artifactoryPassword = config.Require("artifactoryPassword");
+    ///     // Create a replication between two artifactory local repositories
+    ///     var providerTestSource = new Artifactory.LocalMavenRepository("providerTestSource", new()
+    ///     {
+    ///         Key = "provider_test_source",
+    ///     });
+    /// 
+    ///     var providerTestDest = new Artifactory.LocalMavenRepository("providerTestDest", new()
+    ///     {
+    ///         Key = "provider_test_dest",
+    ///     });
+    /// 
+    ///     var foo_rep = new Artifactory.LocalRepositorySingleReplication("foo-rep", new()
+    ///     {
+    ///         RepoKey = providerTestSource.Key,
+    ///         CronExp = "0 0 * * * ?",
+    ///         EnableEventReplication = true,
+    ///         Url = providerTestDest.Key.Apply(key =&gt; $"{artifactoryUrl}/artifactory/{key}"),
+    ///         Username = "$var.artifactory_username",
+    ///         Password = "$var.artifactory_password",
+    ///         Enabled = true,
+    ///         SocketTimeoutMillis = 16000,
+    ///         SyncDeletes = false,
+    ///         SyncProperties = true,
+    ///         SyncStatistics = true,
+    ///         IncludePathPrefixPattern = "/some-repo/",
+    ///         ExcludePathPrefixPattern = "/some-other-repo/",
+    ///         CheckBinaryExistenceInFilestore = true,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Push replication configs can be imported using their repo key, e.g.

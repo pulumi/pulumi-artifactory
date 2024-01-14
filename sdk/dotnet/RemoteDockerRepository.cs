@@ -273,6 +273,12 @@ namespace Pulumi.Artifactory
         public Output<ImmutableArray<string>> ProjectEnvironments { get; private set; } = null!;
 
         /// <summary>
+        /// Use this attribute to enter your GCR, GAR Project Id to limit the scope of this remote repo to a specific project in your third-party registry. When leaving this field blank or unset, remote repositories that support project id will default to their default project as you have set up in your account.
+        /// </summary>
+        [Output("projectId")]
+        public Output<string?> ProjectId { get; private set; } = null!;
+
+        /// <summary>
         /// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
         /// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         /// </summary>
@@ -658,6 +664,12 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
+        /// Use this attribute to enter your GCR, GAR Project Id to limit the scope of this remote repo to a specific project in your third-party registry. When leaving this field blank or unset, remote repositories that support project id will default to their default project as you have set up in your account.
+        /// </summary>
+        [Input("projectId")]
+        public Input<string>? ProjectId { get; set; }
+
+        /// <summary>
         /// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
         /// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         /// </summary>
@@ -1008,6 +1020,12 @@ namespace Pulumi.Artifactory
             get => _projectEnvironments ?? (_projectEnvironments = new InputList<string>());
             set => _projectEnvironments = value;
         }
+
+        /// <summary>
+        /// Use this attribute to enter your GCR, GAR Project Id to limit the scope of this remote repo to a specific project in your third-party registry. When leaving this field blank or unset, remote repositories that support project id will default to their default project as you have set up in your account.
+        /// </summary>
+        [Input("projectId")]
+        public Input<string>? ProjectId { get; set; }
 
         /// <summary>
         /// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When

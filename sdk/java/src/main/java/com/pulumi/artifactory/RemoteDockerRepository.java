@@ -573,6 +573,20 @@ public class RemoteDockerRepository extends com.pulumi.resources.CustomResource 
         return this.projectEnvironments;
     }
     /**
+     * Use this attribute to enter your GCR, GAR Project Id to limit the scope of this remote repo to a specific project in your third-party registry. When leaving this field blank or unset, remote repositories that support project id will default to their default project as you have set up in your account.
+     * 
+     */
+    @Export(name="projectId", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> projectId;
+
+    /**
+     * @return Use this attribute to enter your GCR, GAR Project Id to limit the scope of this remote repo to a specific project in your third-party registry. When leaving this field blank or unset, remote repositories that support project id will default to their default project as you have set up in your account.
+     * 
+     */
+    public Output<Optional<String>> projectId() {
+        return Codegen.optional(this.projectId);
+    }
+    /**
      * Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
      * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      * 

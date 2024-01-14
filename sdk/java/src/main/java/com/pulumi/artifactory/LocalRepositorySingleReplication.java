@@ -23,6 +23,63 @@ import javax.annotation.Nullable;
  * See the [Official Documentation](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-PushReplication).
  * This resource can create the replication of local repository to single repository on the remote server.
  * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.artifactory.LocalMavenRepository;
+ * import com.pulumi.artifactory.LocalMavenRepositoryArgs;
+ * import com.pulumi.artifactory.LocalRepositorySingleReplication;
+ * import com.pulumi.artifactory.LocalRepositorySingleReplicationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var config = ctx.config();
+ *         final var artifactoryUrl = config.get(&#34;artifactoryUrl&#34;);
+ *         final var artifactoryUsername = config.get(&#34;artifactoryUsername&#34;);
+ *         final var artifactoryPassword = config.get(&#34;artifactoryPassword&#34;);
+ *         var providerTestSource = new LocalMavenRepository(&#34;providerTestSource&#34;, LocalMavenRepositoryArgs.builder()        
+ *             .key(&#34;provider_test_source&#34;)
+ *             .build());
+ * 
+ *         var providerTestDest = new LocalMavenRepository(&#34;providerTestDest&#34;, LocalMavenRepositoryArgs.builder()        
+ *             .key(&#34;provider_test_dest&#34;)
+ *             .build());
+ * 
+ *         var foo_rep = new LocalRepositorySingleReplication(&#34;foo-rep&#34;, LocalRepositorySingleReplicationArgs.builder()        
+ *             .repoKey(providerTestSource.key())
+ *             .cronExp(&#34;0 0 * * * ?&#34;)
+ *             .enableEventReplication(true)
+ *             .url(providerTestDest.key().applyValue(key -&gt; String.format(&#34;%s/artifactory/%s&#34;, artifactoryUrl,key)))
+ *             .username(&#34;$var.artifactory_username&#34;)
+ *             .password(&#34;$var.artifactory_password&#34;)
+ *             .enabled(true)
+ *             .socketTimeoutMillis(16000)
+ *             .syncDeletes(false)
+ *             .syncProperties(true)
+ *             .syncStatistics(true)
+ *             .includePathPrefixPattern(&#34;/some-repo/&#34;)
+ *             .excludePathPrefixPattern(&#34;/some-other-repo/&#34;)
+ *             .checkBinaryExistenceInFilestore(true)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
  * ## Import
  * 
  * Push replication configs can be imported using their repo key, e.g.

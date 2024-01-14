@@ -23,7 +23,7 @@ class GetRemoteDockerRepositoryResult:
     """
     A collection of values returned by getRemoteDockerRepository.
     """
-    def __init__(__self__, allow_any_host_auth=None, assumed_offline_period_secs=None, blacked_out=None, block_mismatching_mime_types=None, block_pushing_schema1=None, bypass_head_requests=None, cdn_redirect=None, client_tls_certificate=None, content_synchronisation=None, curated=None, description=None, disable_proxy=None, disable_url_normalization=None, download_direct=None, enable_cookie_management=None, enable_token_authentication=None, excludes_pattern=None, external_dependencies_enabled=None, external_dependencies_patterns=None, hard_fail=None, id=None, includes_pattern=None, key=None, list_remote_folder_items=None, local_address=None, metadata_retrieval_timeout_secs=None, mismatching_mime_types_override_list=None, missed_cache_period_seconds=None, notes=None, offline=None, package_type=None, password=None, priority_resolution=None, project_environments=None, project_key=None, property_sets=None, proxy=None, query_params=None, remote_repo_layout_ref=None, repo_layout_ref=None, retrieval_cache_period_seconds=None, share_configuration=None, socket_timeout_millis=None, store_artifacts_locally=None, synchronize_properties=None, unused_artifacts_cleanup_period_hours=None, url=None, username=None, xray_index=None):
+    def __init__(__self__, allow_any_host_auth=None, assumed_offline_period_secs=None, blacked_out=None, block_mismatching_mime_types=None, block_pushing_schema1=None, bypass_head_requests=None, cdn_redirect=None, client_tls_certificate=None, content_synchronisation=None, curated=None, description=None, disable_proxy=None, disable_url_normalization=None, download_direct=None, enable_cookie_management=None, enable_token_authentication=None, excludes_pattern=None, external_dependencies_enabled=None, external_dependencies_patterns=None, hard_fail=None, id=None, includes_pattern=None, key=None, list_remote_folder_items=None, local_address=None, metadata_retrieval_timeout_secs=None, mismatching_mime_types_override_list=None, missed_cache_period_seconds=None, notes=None, offline=None, package_type=None, password=None, priority_resolution=None, project_environments=None, project_id=None, project_key=None, property_sets=None, proxy=None, query_params=None, remote_repo_layout_ref=None, repo_layout_ref=None, retrieval_cache_period_seconds=None, share_configuration=None, socket_timeout_millis=None, store_artifacts_locally=None, synchronize_properties=None, unused_artifacts_cleanup_period_hours=None, url=None, username=None, xray_index=None):
         if allow_any_host_auth and not isinstance(allow_any_host_auth, bool):
             raise TypeError("Expected argument 'allow_any_host_auth' to be a bool")
         pulumi.set(__self__, "allow_any_host_auth", allow_any_host_auth)
@@ -126,6 +126,9 @@ class GetRemoteDockerRepositoryResult:
         if project_environments and not isinstance(project_environments, list):
             raise TypeError("Expected argument 'project_environments' to be a list")
         pulumi.set(__self__, "project_environments", project_environments)
+        if project_id and not isinstance(project_id, str):
+            raise TypeError("Expected argument 'project_id' to be a str")
+        pulumi.set(__self__, "project_id", project_id)
         if project_key and not isinstance(project_key, str):
             raise TypeError("Expected argument 'project_key' to be a str")
         pulumi.set(__self__, "project_key", project_key)
@@ -361,6 +364,11 @@ class GetRemoteDockerRepositoryResult:
         return pulumi.get(self, "project_environments")
 
     @property
+    @pulumi.getter(name="projectId")
+    def project_id(self) -> Optional[str]:
+        return pulumi.get(self, "project_id")
+
+    @property
     @pulumi.getter(name="projectKey")
     def project_key(self) -> Optional[str]:
         return pulumi.get(self, "project_key")
@@ -476,6 +484,7 @@ class AwaitableGetRemoteDockerRepositoryResult(GetRemoteDockerRepositoryResult):
             password=self.password,
             priority_resolution=self.priority_resolution,
             project_environments=self.project_environments,
+            project_id=self.project_id,
             project_key=self.project_key,
             property_sets=self.property_sets,
             proxy=self.proxy,
@@ -525,6 +534,7 @@ def get_remote_docker_repository(allow_any_host_auth: Optional[bool] = None,
                                  password: Optional[str] = None,
                                  priority_resolution: Optional[bool] = None,
                                  project_environments: Optional[Sequence[str]] = None,
+                                 project_id: Optional[str] = None,
                                  project_key: Optional[str] = None,
                                  property_sets: Optional[Sequence[str]] = None,
                                  proxy: Optional[str] = None,
@@ -594,6 +604,7 @@ def get_remote_docker_repository(allow_any_host_auth: Optional[bool] = None,
     __args__['password'] = password
     __args__['priorityResolution'] = priority_resolution
     __args__['projectEnvironments'] = project_environments
+    __args__['projectId'] = project_id
     __args__['projectKey'] = project_key
     __args__['propertySets'] = property_sets
     __args__['proxy'] = proxy
@@ -647,6 +658,7 @@ def get_remote_docker_repository(allow_any_host_auth: Optional[bool] = None,
         password=pulumi.get(__ret__, 'password'),
         priority_resolution=pulumi.get(__ret__, 'priority_resolution'),
         project_environments=pulumi.get(__ret__, 'project_environments'),
+        project_id=pulumi.get(__ret__, 'project_id'),
         project_key=pulumi.get(__ret__, 'project_key'),
         property_sets=pulumi.get(__ret__, 'property_sets'),
         proxy=pulumi.get(__ret__, 'proxy'),
@@ -697,6 +709,7 @@ def get_remote_docker_repository_output(allow_any_host_auth: Optional[pulumi.Inp
                                         password: Optional[pulumi.Input[Optional[str]]] = None,
                                         priority_resolution: Optional[pulumi.Input[Optional[bool]]] = None,
                                         project_environments: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
+                                        project_id: Optional[pulumi.Input[Optional[str]]] = None,
                                         project_key: Optional[pulumi.Input[Optional[str]]] = None,
                                         property_sets: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                                         proxy: Optional[pulumi.Input[Optional[str]]] = None,

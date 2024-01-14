@@ -291,6 +291,13 @@ public final class GetRemoteDockerRepositoryPlainArgs extends com.pulumi.resourc
         return Optional.ofNullable(this.projectEnvironments);
     }
 
+    @Import(name="projectId")
+    private @Nullable String projectId;
+
+    public Optional<String> projectId() {
+        return Optional.ofNullable(this.projectId);
+    }
+
     @Import(name="projectKey")
     private @Nullable String projectKey;
 
@@ -431,6 +438,7 @@ public final class GetRemoteDockerRepositoryPlainArgs extends com.pulumi.resourc
         this.password = $.password;
         this.priorityResolution = $.priorityResolution;
         this.projectEnvironments = $.projectEnvironments;
+        this.projectId = $.projectId;
         this.projectKey = $.projectKey;
         this.propertySets = $.propertySets;
         this.proxy = $.proxy;
@@ -674,6 +682,11 @@ public final class GetRemoteDockerRepositoryPlainArgs extends com.pulumi.resourc
 
         public Builder projectEnvironments(String... projectEnvironments) {
             return projectEnvironments(List.of(projectEnvironments));
+        }
+
+        public Builder projectId(@Nullable String projectId) {
+            $.projectId = projectId;
+            return this;
         }
 
         public Builder projectKey(@Nullable String projectKey) {

@@ -564,6 +564,36 @@ class LocalRepositorySingleReplication(pulumi.CustomResource):
         See the [Official Documentation](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-PushReplication).
         This resource can create the replication of local repository to single repository on the remote server.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        config = pulumi.Config()
+        artifactory_url = config.require("artifactoryUrl")
+        artifactory_username = config.require("artifactoryUsername")
+        artifactory_password = config.require("artifactoryPassword")
+        # Create a replication between two artifactory local repositories
+        provider_test_source = artifactory.LocalMavenRepository("providerTestSource", key="provider_test_source")
+        provider_test_dest = artifactory.LocalMavenRepository("providerTestDest", key="provider_test_dest")
+        foo_rep = artifactory.LocalRepositorySingleReplication("foo-rep",
+            repo_key=provider_test_source.key,
+            cron_exp="0 0 * * * ?",
+            enable_event_replication=True,
+            url=provider_test_dest.key.apply(lambda key: f"{artifactory_url}/artifactory/{key}"),
+            username="$var.artifactory_username",
+            password="$var.artifactory_password",
+            enabled=True,
+            socket_timeout_millis=16000,
+            sync_deletes=False,
+            sync_properties=True,
+            sync_statistics=True,
+            include_path_prefix_pattern="/some-repo/",
+            exclude_path_prefix_pattern="/some-other-repo/",
+            check_binary_existence_in_filestore=True)
+        ```
+
         ## Import
 
         Push replication configs can be imported using their repo key, e.g.
@@ -602,6 +632,36 @@ class LocalRepositorySingleReplication(pulumi.CustomResource):
         Push replication is used to synchronize Local Repositories, and is implemented by the Artifactory server on the near end invoking a synchronization of artifacts to the far end.
         See the [Official Documentation](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-PushReplication).
         This resource can create the replication of local repository to single repository on the remote server.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        config = pulumi.Config()
+        artifactory_url = config.require("artifactoryUrl")
+        artifactory_username = config.require("artifactoryUsername")
+        artifactory_password = config.require("artifactoryPassword")
+        # Create a replication between two artifactory local repositories
+        provider_test_source = artifactory.LocalMavenRepository("providerTestSource", key="provider_test_source")
+        provider_test_dest = artifactory.LocalMavenRepository("providerTestDest", key="provider_test_dest")
+        foo_rep = artifactory.LocalRepositorySingleReplication("foo-rep",
+            repo_key=provider_test_source.key,
+            cron_exp="0 0 * * * ?",
+            enable_event_replication=True,
+            url=provider_test_dest.key.apply(lambda key: f"{artifactory_url}/artifactory/{key}"),
+            username="$var.artifactory_username",
+            password="$var.artifactory_password",
+            enabled=True,
+            socket_timeout_millis=16000,
+            sync_deletes=False,
+            sync_properties=True,
+            sync_statistics=True,
+            include_path_prefix_pattern="/some-repo/",
+            exclude_path_prefix_pattern="/some-other-repo/",
+            check_binary_existence_in_filestore=True)
+        ```
 
         ## Import
 

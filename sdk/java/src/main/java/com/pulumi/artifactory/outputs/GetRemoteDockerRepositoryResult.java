@@ -74,6 +74,7 @@ public final class GetRemoteDockerRepositoryResult {
     private @Nullable String password;
     private @Nullable Boolean priorityResolution;
     private List<String> projectEnvironments;
+    private @Nullable String projectId;
     private @Nullable String projectKey;
     private @Nullable List<String> propertySets;
     private @Nullable String proxy;
@@ -217,6 +218,9 @@ public final class GetRemoteDockerRepositoryResult {
     public List<String> projectEnvironments() {
         return this.projectEnvironments;
     }
+    public Optional<String> projectId() {
+        return Optional.ofNullable(this.projectId);
+    }
     public Optional<String> projectKey() {
         return Optional.ofNullable(this.projectKey);
     }
@@ -306,6 +310,7 @@ public final class GetRemoteDockerRepositoryResult {
         private @Nullable String password;
         private @Nullable Boolean priorityResolution;
         private List<String> projectEnvironments;
+        private @Nullable String projectId;
         private @Nullable String projectKey;
         private @Nullable List<String> propertySets;
         private @Nullable String proxy;
@@ -358,6 +363,7 @@ public final class GetRemoteDockerRepositoryResult {
     	      this.password = defaults.password;
     	      this.priorityResolution = defaults.priorityResolution;
     	      this.projectEnvironments = defaults.projectEnvironments;
+    	      this.projectId = defaults.projectId;
     	      this.projectKey = defaults.projectKey;
     	      this.propertySets = defaults.propertySets;
     	      this.proxy = defaults.proxy;
@@ -602,6 +608,12 @@ public final class GetRemoteDockerRepositoryResult {
             return projectEnvironments(List.of(projectEnvironments));
         }
         @CustomType.Setter
+        public Builder projectId(@Nullable String projectId) {
+
+            this.projectId = projectId;
+            return this;
+        }
+        @CustomType.Setter
         public Builder projectKey(@Nullable String projectKey) {
 
             this.projectKey = projectKey;
@@ -732,6 +744,7 @@ public final class GetRemoteDockerRepositoryResult {
             _resultValue.password = password;
             _resultValue.priorityResolution = priorityResolution;
             _resultValue.projectEnvironments = projectEnvironments;
+            _resultValue.projectId = projectId;
             _resultValue.projectKey = projectKey;
             _resultValue.propertySets = propertySets;
             _resultValue.proxy = proxy;
