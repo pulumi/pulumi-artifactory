@@ -8,7 +8,7 @@ replace (
 )
 
 require (
-	github.com/jfrog/terraform-provider-artifactory/v10 v10.1.0
+	github.com/jfrog/terraform-provider-artifactory/v10 v10.1.1
 	github.com/pulumi/pulumi-terraform-bridge/pf v0.23.0
 	github.com/pulumi/pulumi-terraform-bridge/v3 v3.70.0
 	github.com/pulumi/pulumi/sdk/v3 v3.99.0
