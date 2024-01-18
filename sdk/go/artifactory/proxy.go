@@ -82,7 +82,7 @@ type Proxy struct {
 	// The proxy password when authentication credentials are required.
 	Password pulumi.StringPtrOutput `pulumi:"password"`
 	// When set, this proxy will be the default proxy for new remote repositories and for internal HTTP requests issued by Artifactory. Will also be used as proxy for all other services in the platform (for example: Xray, Distribution, etc).
-	PlatformDefault pulumi.BoolPtrOutput `pulumi:"platformDefault"`
+	PlatformDefault pulumi.BoolOutput `pulumi:"platformDefault"`
 	// The proxy port number.
 	Port pulumi.IntOutput `pulumi:"port"`
 	// An optional list of host names to which this proxy may redirect requests. The credentials defined for the proxy are reused by requests redirected to all of these hosts.
@@ -348,8 +348,8 @@ func (o ProxyOutput) Password() pulumi.StringPtrOutput {
 }
 
 // When set, this proxy will be the default proxy for new remote repositories and for internal HTTP requests issued by Artifactory. Will also be used as proxy for all other services in the platform (for example: Xray, Distribution, etc).
-func (o ProxyOutput) PlatformDefault() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *Proxy) pulumi.BoolPtrOutput { return v.PlatformDefault }).(pulumi.BoolPtrOutput)
+func (o ProxyOutput) PlatformDefault() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Proxy) pulumi.BoolOutput { return v.PlatformDefault }).(pulumi.BoolOutput)
 }
 
 // The proxy port number.

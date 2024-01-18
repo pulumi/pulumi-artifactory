@@ -603,7 +603,7 @@ class Proxy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="platformDefault")
-    def platform_default(self) -> pulumi.Output[Optional[bool]]:
+    def platform_default(self) -> pulumi.Output[bool]:
         """
         When set, this proxy will be the default proxy for new remote repositories and for internal HTTP requests issued by Artifactory. Will also be used as proxy for all other services in the platform (for example: Xray, Distribution, etc).
         """

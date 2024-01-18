@@ -152,14 +152,14 @@ public class Proxy extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="platformDefault", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> platformDefault;
+    private Output<Boolean> platformDefault;
 
     /**
      * @return When set, this proxy will be the default proxy for new remote repositories and for internal HTTP requests issued by Artifactory. Will also be used as proxy for all other services in the platform (for example: Xray, Distribution, etc).
      * 
      */
-    public Output<Optional<Boolean>> platformDefault() {
-        return Codegen.optional(this.platformDefault);
+    public Output<Boolean> platformDefault() {
+        return this.platformDefault;
     }
     /**
      * The proxy port number.
