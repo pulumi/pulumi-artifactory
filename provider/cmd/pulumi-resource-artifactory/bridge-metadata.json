@@ -4449,7 +4449,7 @@
             "artifactory:index/oauthSettings:OauthSettings": 0,
             "artifactory:index/permissionTarget:PermissionTarget": 0,
             "artifactory:index/propertySet:PropertySet": 0,
-            "artifactory:index/proxy:Proxy": 0,
+            "artifactory:index/proxy:Proxy": 1,
             "artifactory:index/pullReplication:PullReplication": 0,
             "artifactory:index/pushReplication:PushReplication": 0,
             "artifactory:index/releaseBundleCustomWebhook:ReleaseBundleCustomWebhook": 0,
