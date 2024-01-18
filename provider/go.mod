@@ -9,8 +9,8 @@ replace (
 
 require (
 	github.com/jfrog/terraform-provider-artifactory/v10 v10.1.1
-	github.com/pulumi/pulumi-terraform-bridge/pf v0.23.0
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.70.0
+	github.com/pulumi/pulumi-terraform-bridge/pf v0.23.1-0.20240118224206-f64ee37d06c2
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.70.1-0.20240118224206-f64ee37d06c2
 	github.com/pulumi/pulumi/sdk/v3 v3.99.0
 )
 
@@ -188,7 +188,7 @@ require (
 	github.com/pulumi/appdash v0.0.0-20231130102222-75f619a67231 // indirect
 	github.com/pulumi/esc v0.6.2 // indirect
 	github.com/pulumi/pulumi-java/pkg v0.9.8 // indirect
-	github.com/pulumi/pulumi-terraform-bridge/x/muxer v0.0.6 // indirect
+	github.com/pulumi/pulumi-terraform-bridge/x/muxer v0.0.7 // indirect
 	github.com/pulumi/pulumi-yaml v1.4.4 // indirect
 	github.com/pulumi/pulumi/pkg/v3 v3.99.0 // indirect
 	github.com/pulumi/schema-tools v0.1.2 // indirect
