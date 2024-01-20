@@ -299,7 +299,7 @@ public class ScopedToken extends com.pulumi.resources.CustomResource {
      * from a predefined closed list. Currently, the only resource type that is supported is the artifact resource type.
      * `&lt;target&gt;` - the target resource, can be exact name or a pattern `&lt;sub-resource&gt;` - optional, the target sub-resource,
      * can be exact name or a pattern `&lt;actions&gt;` - comma-separated list of action acronyms.The actions allowed are &lt;r, w, d,
-     * a, m&gt; or any combination of these actions .To allow all actions - use `*` Examples: `[&#34;applied-permissions/user&#34;,
+     * a, m, x, s&gt; or any combination of these actions. To allow all actions - use `*` Examples: `[&#34;applied-permissions/user&#34;,
      * &#34;artifact:generic-local:r&#34;]` `[&#34;applied-permissions/group&#34;, &#34;artifact:generic-local/path:*&#34;]`
      * `[&#34;applied-permissions/admin&#34;, &#34;system:metrics:r&#34;, &#34;artifact:generic-local:*&#34;]`
      * 
@@ -322,7 +322,7 @@ public class ScopedToken extends com.pulumi.resources.CustomResource {
      * from a predefined closed list. Currently, the only resource type that is supported is the artifact resource type.
      * `&lt;target&gt;` - the target resource, can be exact name or a pattern `&lt;sub-resource&gt;` - optional, the target sub-resource,
      * can be exact name or a pattern `&lt;actions&gt;` - comma-separated list of action acronyms.The actions allowed are &lt;r, w, d,
-     * a, m&gt; or any combination of these actions .To allow all actions - use `*` Examples: `[&#34;applied-permissions/user&#34;,
+     * a, m, x, s&gt; or any combination of these actions. To allow all actions - use `*` Examples: `[&#34;applied-permissions/user&#34;,
      * &#34;artifact:generic-local:r&#34;]` `[&#34;applied-permissions/group&#34;, &#34;artifact:generic-local/path:*&#34;]`
      * `[&#34;applied-permissions/admin&#34;, &#34;system:metrics:r&#34;, &#34;artifact:generic-local:*&#34;]`
      * 
