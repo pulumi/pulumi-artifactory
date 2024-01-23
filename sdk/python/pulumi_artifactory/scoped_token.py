@@ -57,7 +57,7 @@ class ScopedTokenArgs:
                from a predefined closed list. Currently, the only resource type that is supported is the artifact resource type.
                `<target>` - the target resource, can be exact name or a pattern `<sub-resource>` - optional, the target sub-resource,
                can be exact name or a pattern `<actions>` - comma-separated list of action acronyms.The actions allowed are <r, w, d,
-               a, m> or any combination of these actions .To allow all actions - use `*` Examples: `["applied-permissions/user",
+               a, m, x, s> or any combination of these actions. To allow all actions - use `*` Examples: `["applied-permissions/user",
                "artifact:generic-local:r"]` `["applied-permissions/group", "artifact:generic-local/path:*"]`
                `["applied-permissions/admin", "system:metrics:r", "artifact:generic-local:*"]`
         :param pulumi.Input[str] username: The user name for which this token is created. The username is based on the authenticated user - either from the user of
@@ -196,7 +196,7 @@ class ScopedTokenArgs:
         from a predefined closed list. Currently, the only resource type that is supported is the artifact resource type.
         `<target>` - the target resource, can be exact name or a pattern `<sub-resource>` - optional, the target sub-resource,
         can be exact name or a pattern `<actions>` - comma-separated list of action acronyms.The actions allowed are <r, w, d,
-        a, m> or any combination of these actions .To allow all actions - use `*` Examples: `["applied-permissions/user",
+        a, m, x, s> or any combination of these actions. To allow all actions - use `*` Examples: `["applied-permissions/user",
         "artifact:generic-local:r"]` `["applied-permissions/group", "artifact:generic-local/path:*"]`
         `["applied-permissions/admin", "system:metrics:r", "artifact:generic-local:*"]`
         """
@@ -281,7 +281,7 @@ class _ScopedTokenState:
                from a predefined closed list. Currently, the only resource type that is supported is the artifact resource type.
                `<target>` - the target resource, can be exact name or a pattern `<sub-resource>` - optional, the target sub-resource,
                can be exact name or a pattern `<actions>` - comma-separated list of action acronyms.The actions allowed are <r, w, d,
-               a, m> or any combination of these actions .To allow all actions - use `*` Examples: `["applied-permissions/user",
+               a, m, x, s> or any combination of these actions. To allow all actions - use `*` Examples: `["applied-permissions/user",
                "artifact:generic-local:r"]` `["applied-permissions/group", "artifact:generic-local/path:*"]`
                `["applied-permissions/admin", "system:metrics:r", "artifact:generic-local:*"]`
         :param pulumi.Input[str] subject: Returns the token type.
@@ -510,7 +510,7 @@ class _ScopedTokenState:
         from a predefined closed list. Currently, the only resource type that is supported is the artifact resource type.
         `<target>` - the target resource, can be exact name or a pattern `<sub-resource>` - optional, the target sub-resource,
         can be exact name or a pattern `<actions>` - comma-separated list of action acronyms.The actions allowed are <r, w, d,
-        a, m> or any combination of these actions .To allow all actions - use `*` Examples: `["applied-permissions/user",
+        a, m, x, s> or any combination of these actions. To allow all actions - use `*` Examples: `["applied-permissions/user",
         "artifact:generic-local:r"]` `["applied-permissions/group", "artifact:generic-local/path:*"]`
         `["applied-permissions/admin", "system:metrics:r", "artifact:generic-local:*"]`
         """
@@ -668,7 +668,7 @@ class ScopedToken(pulumi.CustomResource):
                from a predefined closed list. Currently, the only resource type that is supported is the artifact resource type.
                `<target>` - the target resource, can be exact name or a pattern `<sub-resource>` - optional, the target sub-resource,
                can be exact name or a pattern `<actions>` - comma-separated list of action acronyms.The actions allowed are <r, w, d,
-               a, m> or any combination of these actions .To allow all actions - use `*` Examples: `["applied-permissions/user",
+               a, m, x, s> or any combination of these actions. To allow all actions - use `*` Examples: `["applied-permissions/user",
                "artifact:generic-local:r"]` `["applied-permissions/group", "artifact:generic-local/path:*"]`
                `["applied-permissions/admin", "system:metrics:r", "artifact:generic-local:*"]`
         :param pulumi.Input[str] username: The user name for which this token is created. The username is based on the authenticated user - either from the user of
@@ -865,7 +865,7 @@ class ScopedToken(pulumi.CustomResource):
                from a predefined closed list. Currently, the only resource type that is supported is the artifact resource type.
                `<target>` - the target resource, can be exact name or a pattern `<sub-resource>` - optional, the target sub-resource,
                can be exact name or a pattern `<actions>` - comma-separated list of action acronyms.The actions allowed are <r, w, d,
-               a, m> or any combination of these actions .To allow all actions - use `*` Examples: `["applied-permissions/user",
+               a, m, x, s> or any combination of these actions. To allow all actions - use `*` Examples: `["applied-permissions/user",
                "artifact:generic-local:r"]` `["applied-permissions/group", "artifact:generic-local/path:*"]`
                `["applied-permissions/admin", "system:metrics:r", "artifact:generic-local:*"]`
         :param pulumi.Input[str] subject: Returns the token type.
@@ -1030,7 +1030,7 @@ class ScopedToken(pulumi.CustomResource):
         from a predefined closed list. Currently, the only resource type that is supported is the artifact resource type.
         `<target>` - the target resource, can be exact name or a pattern `<sub-resource>` - optional, the target sub-resource,
         can be exact name or a pattern `<actions>` - comma-separated list of action acronyms.The actions allowed are <r, w, d,
-        a, m> or any combination of these actions .To allow all actions - use `*` Examples: `["applied-permissions/user",
+        a, m, x, s> or any combination of these actions. To allow all actions - use `*` Examples: `["applied-permissions/user",
         "artifact:generic-local:r"]` `["applied-permissions/group", "artifact:generic-local/path:*"]`
         `["applied-permissions/admin", "system:metrics:r", "artifact:generic-local:*"]`
         """

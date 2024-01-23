@@ -176,7 +176,7 @@ namespace Pulumi.Artifactory
         /// from a predefined closed list. Currently, the only resource type that is supported is the artifact resource type.
         /// `&lt;target&gt;` - the target resource, can be exact name or a pattern `&lt;sub-resource&gt;` - optional, the target sub-resource,
         /// can be exact name or a pattern `&lt;actions&gt;` - comma-separated list of action acronyms.The actions allowed are &lt;r, w, d,
-        /// a, m&gt; or any combination of these actions .To allow all actions - use `*` Examples: `["applied-permissions/user",
+        /// a, m, x, s&gt; or any combination of these actions. To allow all actions - use `*` Examples: `["applied-permissions/user",
         /// "artifact:generic-local:r"]` `["applied-permissions/group", "artifact:generic-local/path:*"]`
         /// `["applied-permissions/admin", "system:metrics:r", "artifact:generic-local:*"]`
         /// </summary>
@@ -332,7 +332,7 @@ namespace Pulumi.Artifactory
         /// from a predefined closed list. Currently, the only resource type that is supported is the artifact resource type.
         /// `&lt;target&gt;` - the target resource, can be exact name or a pattern `&lt;sub-resource&gt;` - optional, the target sub-resource,
         /// can be exact name or a pattern `&lt;actions&gt;` - comma-separated list of action acronyms.The actions allowed are &lt;r, w, d,
-        /// a, m&gt; or any combination of these actions .To allow all actions - use `*` Examples: `["applied-permissions/user",
+        /// a, m, x, s&gt; or any combination of these actions. To allow all actions - use `*` Examples: `["applied-permissions/user",
         /// "artifact:generic-local:r"]` `["applied-permissions/group", "artifact:generic-local/path:*"]`
         /// `["applied-permissions/admin", "system:metrics:r", "artifact:generic-local:*"]`
         /// </summary>
@@ -501,7 +501,7 @@ namespace Pulumi.Artifactory
         /// from a predefined closed list. Currently, the only resource type that is supported is the artifact resource type.
         /// `&lt;target&gt;` - the target resource, can be exact name or a pattern `&lt;sub-resource&gt;` - optional, the target sub-resource,
         /// can be exact name or a pattern `&lt;actions&gt;` - comma-separated list of action acronyms.The actions allowed are &lt;r, w, d,
-        /// a, m&gt; or any combination of these actions .To allow all actions - use `*` Examples: `["applied-permissions/user",
+        /// a, m, x, s&gt; or any combination of these actions. To allow all actions - use `*` Examples: `["applied-permissions/user",
         /// "artifact:generic-local:r"]` `["applied-permissions/group", "artifact:generic-local/path:*"]`
         /// `["applied-permissions/admin", "system:metrics:r", "artifact:generic-local:*"]`
         /// </summary>
