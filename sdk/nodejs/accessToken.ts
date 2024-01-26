@@ -7,6 +7,13 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * !> **Warning:** This resource is being deprecated and replaced by `artifactory.ScopedToken` since v6.8.0.
+ *
+ * Provides an Artifactory Access Token resource. This can be used to create and manage Artifactory Access Tokens.
+ *
+ * > **Note:** Access Tokens will be stored in the raw state as plain-text. Read more about sensitive data in
+ * state.
+ *
  * ## Example Usage
  *
  * ### S
