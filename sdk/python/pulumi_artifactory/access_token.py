@@ -298,6 +298,13 @@ class AccessToken(pulumi.CustomResource):
                  username: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        !> **Warning:** This resource is being deprecated and replaced by `ScopedToken` since v6.8.0.
+
+        Provides an Artifactory Access Token resource. This can be used to create and manage Artifactory Access Tokens.
+
+        > **Note:** Access Tokens will be stored in the raw state as plain-text. Read more about sensitive data in
+        state.
+
         ## Example Usage
 
         ### S
@@ -432,6 +439,13 @@ class AccessToken(pulumi.CustomResource):
                  args: AccessTokenArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        !> **Warning:** This resource is being deprecated and replaced by `ScopedToken` since v6.8.0.
+
+        Provides an Artifactory Access Token resource. This can be used to create and manage Artifactory Access Tokens.
+
+        > **Note:** Access Tokens will be stored in the raw state as plain-text. Read more about sensitive data in
+        state.
+
         ## Example Usage
 
         ### S
