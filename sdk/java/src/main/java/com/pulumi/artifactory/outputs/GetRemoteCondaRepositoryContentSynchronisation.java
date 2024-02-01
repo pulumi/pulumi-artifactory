@@ -11,21 +11,53 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetRemoteCondaRepositoryContentSynchronisation {
+    /**
+     * @return If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is &#39;false&#39;.
+     * 
+     */
     private @Nullable Boolean enabled;
+    /**
+     * @return If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is &#39;false&#39;.
+     * 
+     */
     private @Nullable Boolean propertiesEnabled;
+    /**
+     * @return If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is &#39;false&#39;
+     * 
+     */
     private @Nullable Boolean sourceOriginAbsenceDetection;
+    /**
+     * @return If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is &#39;false&#39;.
+     * 
+     */
     private @Nullable Boolean statisticsEnabled;
 
     private GetRemoteCondaRepositoryContentSynchronisation() {}
+    /**
+     * @return If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is &#39;false&#39;.
+     * 
+     */
     public Optional<Boolean> enabled() {
         return Optional.ofNullable(this.enabled);
     }
+    /**
+     * @return If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is &#39;false&#39;.
+     * 
+     */
     public Optional<Boolean> propertiesEnabled() {
         return Optional.ofNullable(this.propertiesEnabled);
     }
+    /**
+     * @return If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is &#39;false&#39;
+     * 
+     */
     public Optional<Boolean> sourceOriginAbsenceDetection() {
         return Optional.ofNullable(this.sourceOriginAbsenceDetection);
     }
+    /**
+     * @return If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is &#39;false&#39;.
+     * 
+     */
     public Optional<Boolean> statisticsEnabled() {
         return Optional.ofNullable(this.statisticsEnabled);
     }

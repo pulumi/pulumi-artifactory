@@ -24,6 +24,9 @@ namespace Pulumi.Artifactory.Inputs
             set => _httpHeaders = value;
         }
 
+        /// <summary>
+        /// This attribute is used to build the request body. Used in custom webhooks
+        /// </summary>
         [Input("payload")]
         public Input<string>? Payload { get; set; }
 
