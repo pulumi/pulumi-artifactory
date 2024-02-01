@@ -18,6 +18,10 @@ public final class ReleaseBundleCustomWebhookHandler {
      * 
      */
     private @Nullable Map<String,String> httpHeaders;
+    /**
+     * @return This attribute is used to build the request body. Used in custom webhooks
+     * 
+     */
     private @Nullable String payload;
     /**
      * @return Proxy key from Artifactory UI (Administration &gt; Proxies &gt; Configuration).
@@ -65,6 +69,10 @@ public final class ReleaseBundleCustomWebhookHandler {
     public Map<String,String> httpHeaders() {
         return this.httpHeaders == null ? Map.of() : this.httpHeaders;
     }
+    /**
+     * @return This attribute is used to build the request body. Used in custom webhooks
+     * 
+     */
     public Optional<String> payload() {
         return Optional.ofNullable(this.payload);
     }

@@ -13,7 +13,13 @@ namespace Pulumi.Artifactory.Outputs
     [OutputType]
     public sealed class GetFederatedDockerRepositoryMemberResult
     {
+        /// <summary>
+        /// Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
+        /// </summary>
         public readonly bool Enabled;
+        /// <summary>
+        /// Full URL to ending with the repositoryName
+        /// </summary>
         public readonly string Url;
 
         [OutputConstructor]
